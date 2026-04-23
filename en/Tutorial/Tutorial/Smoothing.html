@@ -1,0 +1,83 @@
+<h1 class="firstHeading">4.3.3 Smoothing</h1><p class='urlname' style='display: none'>Smoothing</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">What You Will Learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Smoothing_by_Several_Methods"><span class="tocnumber">3</span> <span class="toctext">Smoothing by Several Methods</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Adjacent-Averaging"><span class="tocnumber">3.1</span> <span class="toctext"><b>Adjacent-Averaging</b></span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Savitzky-Golay"><span class="tocnumber">3.2</span> <span class="toctext">Savitzky-Golay</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Percentile_Filter"><span class="tocnumber">3.3</span> <span class="toctext"><b>Percentile Filter</b></span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#FFT_Filter"><span class="tocnumber">3.4</span> <span class="toctext"><b>FFT Filter</b></span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#Smoothing_by_Wavelet"><span class="tocnumber">4</span> <span class="toctext">Smoothing by Wavelet</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Smoothing_Matrix"><span class="tocnumber">5</span> <span class="toctext">Smoothing Matrix</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Smoothing is a common technique for removing noise from signals. Origin provides multiple smoothing methods, including Adjacent Averaging, Savitzky-Golay, Percentile Filter, and FFT Filter. Additionally, there is a wavelet-based tool available.
+</p><p>For matrix data, Origin's smoothing is performed in two ways. If the number of columns or rows is less than 32, it will expand the matrix first, then shrink it back to the original size. If greater than 31, the matrix if first shrank, then expanded.
+</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">What You Will Learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li> Smooth signals by several methods.</li>
+<li> Smooth signals using wavelets.</li>
+<li> Smooth a 3D surface.</li></ul>
+<h2><a name="Smoothing_by_Several_Methods"></a><span class="mw-headline">Smoothing by Several Methods</span></h2>
+<ol><li> Start with an empty workbook. Select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Signal Processing</i> subfolder and find the file <i>Signal with High Frequency Noise.dat</i>. Drag-and-drop this file into the empty worksheet to import it.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Smoothing 1.png" src="../images/Smoothing/SP_Tutorial_Smoothing_1.png?v=23784" width="319"  /></a></dd></dl></li>
+<li> Highlight column B in the worksheet. Then, the select menu item <b>Analysis: Signal Processing: Smooth...</b> (if the tool has been used before, select <b>Open Dialog</b>) to open the <b>Smooth</b> dialog box.</li></ol>
+<h3><a name="Adjacent-Averaging"></a><span class="mw-headline"><b>Adjacent-Averaging</b></span></h3>
+<p>The Adjacent-Averaging method performs a broad smoothing of data.
+</p>
+<ol><li> Choose <b>Adjacent-Averaging</b> for <b>Method</b>. Set the <b>Points of Window</b> to <b>100</b> and <b>Boundary Condition</b> to <b>Periodic</b>. To preview the result in the right panel, check the <b>Auto Preview</b> check box.
+<dl><dd><a  class="image"><img alt="SP Tutorial Smoothing 2.png" src="../images/Smoothing/SP_Tutorial_Smoothing_2.png?v=23785" width="884"  /></a></dd></dl></li>
+<li> Click <b>OK</b> to generate the result.</li></ol>
+<h3><a name="Savitzky-Golay"></a><span class="mw-headline">Savitzky-Golay</span></h3>
+<p>The Savitzky-Golay method is good for preserving the shapes of signal peaks. 
+</p>
+<ol><li> Select column B again. On the <b>Analysis</b> menu, click <b>Signal Processing: Smooth:Open Dialog....</b> </li>
+<li> In the <b>smooth</b> dialog box, set <b>Method</b> to <b>Savizky-Golay</b>.  Set <b>Points of Window</b> to <b>100</b>, <b>Boundary Condition</b> to <b>Periodic</b> and <b>Polynomial Order</b> to <b>3</b>.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Smoothing 3.png" src="../images/Smoothing/SP_Tutorial_Smoothing_3.png?v=23786" width="884"  /></a></dd></dl></li>
+<li> Click <b>OK</b>.</li></ol>
+<h3><a name="Percentile_Filter"></a><span class="mw-headline"><b>Percentile Filter</b></span></h3>
+<ol><li> Select column B again. On the <b>Analysis</b> menu, click <b>Signal Processing: Smooth:Open Dialog....</b>.</li>
+<li> For <b>Method</b>, choose <b>Percentile Filter</b>. Set <b>Points of Window</b> to <b>100</b>, <b>Boundary Condition</b> to <b>Periodic</b>, and for <b>Percentile</b> accept the default value of <b>50</b>.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Smoothing 4.png" src="../images/Smoothing/SP_Tutorial_Smoothing_4.png?v=23787" width="884"  /></a></dd></dl></li>
+<li> Click <b>OK</b> button.</li></ol>
+<h3><a name="FFT_Filter"></a><span class="mw-headline"><b>FFT Filter</b></span></h3>
+<ol><li> Select column B again. On the <b>Analysis</b> menu, click <b>Signal Processing: Smooth:Open Dialog....</b>. </li>
+<li> Set <b>Method</b> to <b>FFT Filter</b>. Set <b>Points of Window</b> to <b>100</b>.
+<dl><dd><a  class="image"><img alt="SP Tutorial Smoothing 5.png" src="../images/Smoothing/SP_Tutorial_Smoothing_5.png?v=23788" width="884"  /></a></dd></dl></li>
+<li> Click <b>OK</b> to close the dialog box.</li>
+<li> Note that in the worksheet, there are now four added columns containing the results of your four smoothing operations. Highlight those four columns (C,D,E,F), then from the menu select <b>Plot&gt;2D: Line: Line</b> to make a line graph with these four datasets.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Smoothing 6.png" src="../images/Smoothing/SP_Tutorial_Smoothing_6.png?v=23789" width="520"  /></a></dd></dl></li>
+<li> Comparing the results of the four methods, you can see that the Savitzky-Golay method did the best job of preserving peaks in the data, while the FFT Filter method did the poorest job of preserving peaks.</li></ol>
+<h2><a name="Smoothing_by_Wavelet"></a><span class="mw-headline">Smoothing by Wavelet</span></h2>
+<ol><li> Start a new workbook. Select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Signal Processing</i> subfolder and find the file <i>Signal with High Frequency Noise.dat</i>. Drag-and-drop this file into the empty worksheet to import it.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Smoothing 1.png" src="../images/Smoothing/SP_Tutorial_Smoothing_1.png?v=23784" width="319"  /></a></dd></dl></li>
+<li> Highlight column B, and from the menu select <b>Analysis: Signal Processing: Wavelet: Smooth...</b> to open the <b>Smooth: wtsmooth</b> dialog box.</li>
+<li> In the dialog, set <b>Wavelet Type</b> to <b>DB6</b>, and <b>Cutoff (%)</b> to  <b>98</b>. Check <b>Auto Preview</b> to preview the result in the right panel.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Smoothing 7.png" src="../images/Smoothing/SP_Tutorial_Smoothing_7.png?v=42882" width="791"  /></a></dd></dl></li>
+<li> Click <b>OK</b> to close the dialog box and generate your result.</li>
+<li> To see the difference between the original signal and the smoothed signal, highlight all columns in the worksheet and from the menu select <b>Plot&gt;2D: Line: Line</b>. 
+<dl><dd> <a  class="image"><img alt="SP Tutorial Smoothing 8.png" src="../images/Smoothing/SP_Tutorial_Smoothing_8.png?v=23795" width="517"  /></a></dd></dl></li></ol>
+<h2><a name="Smoothing_Matrix"></a><span class="mw-headline">Smoothing Matrix</span></h2>
+<ol><li> Start with a new matrixbook.</li>
+<li> Select menu <b>Data: Import from File: Image to Matrix...</b> to import the image <b>scale.jpg</b> under the folder <i>&lt;Origin Installation Directory&gt;\Samples\Image Processing and Analysis\</i> (if the impImage dialog box opens, simply accept the defaults and click <b>OK</b>).</li>
+<li> Origin is not able to apply to perform smoothing on an image so we must convert the image to matrix data first. From the menu select <b>Image: Conversion: Convert to Data...</b>. Accept the dialog box default settings and Click <b>OK</b>.</li>
+<li> With the converted matrix activated, select menu <b>View: Image Mode</b> to view this matrix as image.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Smoothing 9.png" src="../images/Smoothing/SP_Tutorial_Smoothing_9.png?v=23809" width="471"  /></a></dd></dl></li>
+<li> To perform smoothing, select <b>Analysis: Signal Processing: Smooth...</b>. This opens the <b>Smooth: msmooth</b> dialog box.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Smoothing 10.png" src="../images/Smoothing/SP_Tutorial_Smoothing_10.png?v=23810" width="351"  /></a></dd></dl></li>
+<li> Accept the default settings and click <b>OK</b>. To view the result, select <b>View: Image Mode</b> from the menu. 
+<dl><dd> <a  class="image"><img alt="SP Tutorial Smoothing 11.png" src="../images/Smoothing/SP_Tutorial_Smoothing_11.png?v=23811" width="469"  /></a></dd></dl></li></ol>
+
+
+
+
+
+

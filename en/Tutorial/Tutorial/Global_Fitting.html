@@ -1,0 +1,76 @@
+<h1 class="firstHeading">4.2.2.3 Global Fitting with Parameter Sharing</h1><p class='urlname' style='display: none'>Fitting-Global</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a></li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Global_Fitting/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Global_Fitting/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=74" target="_blank">Fitting Multiple Datasets</a></li>
+<li> <a class="external text" href="https://www.originlab.com/jwplayer.html?v=ftp/mm_tutorials/mp4/Global_Fit.mp4%7C767%7C600" target="_blank">Global Fitting</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Global_Fitting/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Global_Fitting/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>The term "global fitting" generally refers to simultaneous curve fitting operations performed on multiple datasets. Because datasets remain distinct, they may or may not "share" parameter values during the fit process. When a parameter is shared, a single parameter value is calculated for all datasets; When a parameter is not shared, a separate parameter value is calculated for each dataset.
+</p><p>By contrast, "concatenated fitting" is performed by combining all datasets into a single dataset. Because curve fitting operations are performed on a single dataset, only a single set of parameter values is returned.
+</p><p>Since 2016 SR2, an new app <a class="external text" href="https://www.originlab.com/FileExchange/details.aspx?fid=321" target="_blank"><b>Sequential Fit</b></a> has been released to do sequential fitting on multiple datasets. With this app, the fit parameter values obtained from the current dataset will be used to initialize the parameters of the next dataset. This is very applicable for those datasets, the common parameters of which keep changing in turn.
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Select multiple datasets for fitting.</li>
+<li>Select different fitting modes.</li>
+<li>Perform global fit with parameter sharing.</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<ol>
+<li>
+Create a new workbook by clicking the <a  class="image"><img alt="Button New Workbook.png" src="../images/Global_Fitting/Button_New_Workbook.png?v=1383" width="23"  /></a> button.</li>
+<li>Click the <a  class="image"><img alt="Button Import Single ASCII.png" src="../images/Global_Fitting/Button_Import_Single_ASCII.png?v=52466" width="25"  /></a> to import the file <b>Enzyme.dat</b> in the <i>&lt;Origin EXE Folder&gt;\Samples\Curve Fitting\</i> folder.
+</li>
+<li>
+Highlight column B and C and click the <a  class="image"><img alt="Button Scatter.png" src="../images/Global_Fitting/Button_Scatter.png?v=1448" width="22"  /></a> button to generate a scatter plot.</li>
+<li>
+Keep the graph window activated and select the <b>Analysis: Fitting: Nonlinear Curve Fit</b> menu item to open the <b>NLFit</b> dialog.</li>
+<li>Set the <b>Recalculate</b> mode to <b>Auto</b>.
+</li>
+<li>In the <b>Function Selection</b> page, choose the <b>Hill</b> function from the <b>Growth/Sigmoidal</b> category. </li>
+<li>Go to the <b>Data Selection</b> page, click the triangle button next to the <b>Input Data</b> selection box and choose <b>Add All Plots in Active Layer</b>, to add both plots as input data.</li>
+<li>Select <b>Global Fit</b> mode from the <b>Multi-Data Fit Mode</b> drop-down list:<br />
+<a  class="image"><img alt="Tutorial Global Fitting 002.png" src="../images/Global_Fitting/Tutorial_Global_Fitting_002.png?v=21048" width="550"  /></a></li>
+<li>
+Go to the <b>Parameters</b> tab. Check the <b>Fixed</b> check box for <i>n</i> and <i>n_2</i> to fix their values to 1.<br />
+<a  class="image"><img alt="Tutorial Global Fitting 003.png" src="../images/Global_Fitting/Tutorial_Global_Fitting_003.png?v=889" width="321"  /></a></li>
+<li>Click the <b>Fit</b> button to fit curves. You will get these results from the <b>Parameters</b> table of the report worksheet:
+<br />
+<a  class="image"><img alt="Tutorial Global Fitting 005.png" src="../images/Global_Fitting/Tutorial_Global_Fitting_005.png?v=57374" width="507"  /></a></li>
+<li>The fitted curves will be added to the original data plot.
+<br />
+<a  class="image"><img alt="Tutorial Global Fitting 004 2.png" src="../images/Global_Fitting/Tutorial_Global_Fitting_004_2.png?v=48970" width="428"  /></a></li>
+<li>
+In this case, the maximum velocity <i>Vmax</i> may be the same, so we could share this parameter value when fitting. </li>
+<li>Click the green lock icon in the report worksheet and select <b>Change Parameters</b> to bring back the <b>NLFit</b> dialog.<br />
+<a  class="image"><img alt="Tutorial Global Fitting 010.png" src="../images/Global_Fitting/Tutorial_Global_Fitting_010.png?v=48969" width="491"  /></a></li>
+<li>
+In the <b>Parameters</b> tab, check the <b>Share</b> check box for <i>Vmax</i>.<br />
+<a  class="image"><img alt="Tutorial Global Fitting 008.png" src="../images/Global_Fitting/Tutorial_Global_Fitting_008.png?v=890" width="321"  /></a></li>
+<li>Click the <b>Fit</b> button again to update results. You can see the <i>Vmax</i> values for both curves are the same. The asterisk in the parameter name indicates that this parameter is shared:<br />
+<a  class="image"><img alt="Tutorial Global Fitting 015.png" src="../images/Global_Fitting/Tutorial_Global_Fitting_015.png?v=57375" width="512"  /></a></li>
+<li>The fitted curve will automatically update.<br />
+<a  class="image"><img alt="Tutorial Global Fitting 016 2.png" src="../images/Global_Fitting/Tutorial_Global_Fitting_016_2.png?v=42745" width="419"  /></a></li>
+<p><br />
+</p>
+</ol>
+
+
+
+
+
+

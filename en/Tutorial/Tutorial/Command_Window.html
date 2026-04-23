@@ -1,0 +1,178 @@
+<h1 class="firstHeading">11.3.1 Command Window and X-Functions</h1><p class='urlname' style='display: none'>Command-Window</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Command_Window"><span class="tocnumber">3</span> <span class="toctext">Command Window</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Examples"><span class="tocnumber">4</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Perform_Calculations"><span class="tocnumber">4.1</span> <span class="toctext">Perform Calculations</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="#Single_Line"><span class="tocnumber">4.1.1</span> <span class="toctext">Single Line</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#Multiple_Lines"><span class="tocnumber">4.1.2</span> <span class="toctext">Multiple Lines</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#Functions"><span class="tocnumber">4.1.3</span> <span class="toctext">Functions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-9"><a href="#Access_Worksheet_Values"><span class="tocnumber">4.2</span> <span class="toctext">Access Worksheet Values</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Access_X-Functions"><span class="tocnumber">4.3</span> <span class="toctext">Access X-Functions</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Many of Origin's analysis tools and other data processing tools have been implemented using X-Functions.  The Command Window provides a convenient way to run these functions.  
+</p><p>Another important use for the Command Window is to send LabTalk script commands to Origin.  Script commands can range from simple math and data operations, to user-created X-Functions or Origin C functions.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 8.0 SR6</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will introduce you to the Command Window and show you how to:
+</p>
+<ul><li>Perform simple calculation</li>
+<li>Access worksheet cells/columns</li>
+<li>Access X-Functions</li></ul>
+<h2><a name="Command_Window"></a><span class="mw-headline">Command Window</span></h2>
+<p>The Command Window consists of two panels: the <b>Command Panel</b> and <b>History Panel</b>:
+</p><p><a  class="image"><img alt="Tutorial Script 009.png" src="../images/Command_Window/Tutorial_Script_009.png?v=280" width="343"  /></a>
+</p><p>The Command Window is normally located at the bottom right corner of the screen, but if it is not visible, you can access it by pressing <b>Alt+3</b> or by selecting <b>View: Command Window</b>.
+</p><p>When typing in the Command Panel, the Auto Complete support allows you to choose among X-Function script commands and OGS files in the current working folder. The command and OGS file name will be respectively preceded by Xf and LT.  You can move up and down the list using the arrow keys; pressing Enter selects the item.  After your selection, press the space bar and the Auto Complete now shows you the available options for the command.
+</p>
+<h2><a name="Examples"></a><span class="mw-headline">Examples</span></h2>
+<h3><a name="Perform_Calculations"></a><span class="mw-headline">Perform Calculations</span></h3>
+<p>The Command Window can be used as a calculator or to access any of Origin's mathematical functions.  See the examples below.
+</p>
+<h4><a name="Single_Line"></a><span class="mw-headline">Single Line</span></h4>
+<p>One of the more basic uses for the Command Window is as an interface to perform simple calculations. For example,  type the following: 
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #0000dd;">2</span><span style="color: #000080;">+</span><span style="color: #0000dd;">2</span><span style="color: #000080;">=</span></pre>
+<p>Press <b>ENTER</b>. Origin returns
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #0000dd;">2</span><span style="color: #000080;">+</span><span style="color: #0000dd;">2</span><span style="color: #000080;">=</span><span style="color: #0000dd;">4</span></pre>
+<p><a  class="image"><img alt="Tutorial Script 001.png" src="../images/Command_Window/Tutorial_Script_001.png?v=272" width="294"  /></a>
+</p>
+<h4><a name="Multiple_Lines"></a><span class="mw-headline">Multiple Lines</span></h4>
+<p>If you are typing multiple lines of scripts, first edit it in Code Builder (<b>View:Code Builder</b>) or any text editor, such as Windows Notepad, ending each line with a semi-colon, and then Copy + Paste the script in the Command Window, and press <b>ENTER</b> to execute. For example, paste the following script in the Command Window and <b>ENTER</b>:
+</p>
+<pre class="lt" style="font-family:monospace;">sum <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>;
+loop<span style="color: #000000;">&#40;</span>ii, <span style="color: #0000dd;">1</span>, <span style="color: #0000dd;">10</span><span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>
+   sum <span style="color: #000080;">+</span><span style="color: #000080;">=</span> ii;
+<span style="color: #000000;">&#125;</span>
+sum <span style="color: #000080;">=</span>&#160;;</pre>
+<p>Origin returns:
+</p>
+<pre class="lt" style="font-family:monospace;">SUM<span style="color: #000080;">=</span><span style="color: #0000dd;">55</span></pre>
+<p><a  class="image"><img alt="Tutorial Script 002.png" src="../images/Command_Window/Tutorial_Script_002.png?v=273" width="294"  /></a>
+</p>
+<h4><a name="Functions"></a><span class="mw-headline">Functions</span></h4>
+<p>Any mathematical function, built-in as well as user-created, can be executed from the Command Window. For example, type:
+</p>
+<pre class="lt" style="font-family:monospace;">ln<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">10</span><span style="color: #000000;">&#41;</span> <span style="color: #000080;">=</span></pre>
+<p>Origin returns natural logarithm value of 10.
+</p><p><a  class="image"><img alt="Tutorial Script 003.png" src="../images/Command_Window/Tutorial_Script_003.png?v=274" width="293"  /></a>
+</p>
+<h3><a name="Access_Worksheet_Values"></a><span class="mw-headline">Access Worksheet Values</span></h3>
+<p>You can also use the Script Window to read and write worksheet values, or to perform math operations on datasets.
+</p>
+<ol><li> Enter the following data into a fresh worksheet:</li></ol>
+<dl><dd><a  class="image"><img alt="Reading and Writing Worksheet Values 1.png" src="../images/Command_Window/Reading_and_Writing_Worksheet_Values_1.png?v=6986" width="255"  /></a></dd></dl>
+<ol start="2">
+<li>To return the value in the first cell of the second column, type the following:</li>
+</ol>
+<pre>cell(1,2)=</pre>
+<ol start="3">
+<li>Press <b>ENTER</b>.  Origin returns:</li>
+</ol>
+<pre>CELL(1,2)=6</pre>
+<p>You can also use the column name and row number to reference cell values.
+</p>
+<ol start="4">
+<li>Type the following:</li>
+</ol>
+<pre>col(B)[1]=</pre>
+<ol start="5">
+<li>Press <b>ENTER</b>.  Origin returns:</li>
+</ol>
+<pre>COL(B)[1]=6</pre>
+<table class="note">
+
+<tr>
+<td><b>Notes:</b> In addition to using the column name, you can also use the dataset name.  In LabTalk, the syntax for naming datasets is <i>worksheetName_columnName</i>.  So, For example, <i>Book1_A[1]=</i> would return the first element of column A in worksheet Data1.  Also, if the worksheet that you are referencing is the active window, you can use the LabTalk string variable&#160;%H, in place of the worksheet name.  For example,&#160;%H_A[1].
+</td></tr></table>
+<p>To subtract the value in row 1 of column A, from all the values in column B…
+</p>
+<ol start="6">
+<li>Type the following:</li>
+</ol>
+<pre>col(B)=col(B)-col(A)[1]</pre>
+<ol start="7">
+<li>Press <b>ENTER</b>.  Your worksheet now reads:</li>
+</ol>
+<dl><dd><a  class="image"><img alt="Reading and Writing Worksheet Values 2.png" src="../images/Command_Window/Reading_and_Writing_Worksheet_Values_2.png?v=6988" width="255"  /></a></dd></dl>
+<p>Let's use what we have learned about executing multiple lines of script in the Script window.  We will multiply every value in a column of data by some constant b.
+</p>
+<ol start="8">
+<li>Type the following:</li>
+</ol>
+<pre>b=3;</pre>
+<dl><dd>Press <b>CTRL+ENTER</b>.  Recall that this gives us a carriage return without executing the command.</dd></dl>
+<ol start="9">
+<li>Now type:</li>
+</ol>
+<pre>col(A)=col(A)*b;</pre>
+<dl><dd>Again, Press <b>CTRL+ENTER</b>. </dd></dl>
+<ol start="10">
+<li>Choose <b>Edit</b> from the Script window's menu bar.  <b>Script Execution</b> should have a check mark next to it; if not, single-click on the menu item to place a check mark there.</li>
+</ol>
+<ol start="11">
+<li>Now, select the two lines of script that you just entered into the Script window and press <b>ENTER</b>.</li>
+</ol>
+<p>Your worksheet now reads:
+</p>
+<dl><dd><a  class="image"><img alt="Reading and Writing Worksheet Values 3.png" src="../images/Command_Window/Reading_and_Writing_Worksheet_Values_3.png?v=6992" width="255"  /></a></dd></dl>
+<p><br />
+</p>
+<table class="note">
+
+<tr>
+<td><b>Notes:</b> The following C notation is also supported:
+<p>b=3;
+</p><p>col(A)*=b;
+</p>
+</td></tr></table>
+<p><br />
+You can also use linear interpolation or extrapolation on a specified <i>X dataset</i> to find the corresponding interpolated or extrapolated value in a <i>Y dataset</i>. This requires using a new notation with parentheses (  ) instead of brackets [  ].
+</p><p>In this example, book1_b is a Y dataset and (4) is a value in an X dataset (book1_a) for which you want to find a corresponding, interpolated Y value.
+</p>
+<ol start="12">
+<li>Type the following:</li>
+</ol>
+<pre>book1_b(4) =</pre>
+<ol start="13">
+<li>Press <b>ENTER</b>.  Origin returns:</li>
+</ol>
+<pre>BOOK1_B(4)=5.333333</pre>
+<dl><dd><a  class="image"><img alt="Reading and Writing Worksheet Values 4.png" src="../images/Command_Window/Reading_and_Writing_Worksheet_Values_4.png?v=6996" width="455"  /></a></dd></dl>
+<p>This is a line plot of our simple worksheet data.  You can see that our interpolated Y value – the one corresponding to X = 4 – is 5.333333.
+</p>
+<ol start="14">
+<li>If the columns you work with are in different worksheet/workbook, you should use the range variables to represent the worksheet columns. For example, this script calculates the sine value on Book1 column A, and puts the result in Book2 column A (You must have Book2 before hitting Enter):</li>
+<pre class="lt" style="font-family:monospace;">range a <span style="color: #000080;">=</span> <span style="color: #000000;">&#91;</span>Book1<span style="color: #000000;">&#93;</span>Sheet1<span style="color: #000080;">!</span>Col<span style="color: #000000;">&#40;</span>A<span style="color: #000000;">&#41;</span>;
+range b <span style="color: #000080;">=</span> <span style="color: #000000;">&#91;</span>Book2<span style="color: #000000;">&#93;</span>Sheet1<span style="color: #000080;">!</span>Col<span style="color: #000000;">&#40;</span>A<span style="color: #000000;">&#41;</span>;
+b <span style="color: #000080;">=</span> sin<span style="color: #000000;">&#40;</span>a<span style="color: #000000;">&#41;</span>;</pre>
+<p><a  class="image"><img alt="Tutorial Script 007.png" src="../images/Command_Window/Tutorial_Script_007.png?v=278" width="390"  /></a>
+</p>
+<h3><a name="Access_X-Functions"></a><span class="mw-headline">Access X-Functions</span></h3>
+<p>Origin 8 provides a large collection of X-Functions for performing a wide variety of data processing tasks. Of this collection, many of the X-Functions are accessible from LabTalk script. The functions accessible from script provide a powerful environment for users to create custom script code for their routine tasks.
+</p><p>X-Functions that are accessible from script can be listed in the Command Window, and you can also obtain help on the command syntax as well as make use of auto completion of commands for such functions.
+</p><p>X-Functions accept data range string or range variable for specifying source and destination data for the operation. For example, the smooth X-Function under signal processing can be accessed from the Command Window as follows:
+</p>
+<ol><li>Import the file \<i>Samples</i>\<i>Signal Processing</i>\<i>Signal with Shot Noise.dat</i>.</li>
+<li>In the Command Window, type the following:<pre class="lt" style="font-family:monospace;">smooth iy<span style="color: #000000;">:</span><span style="color: #000080;">=</span>Col<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">2</span><span style="color: #000000;">&#41;</span> method<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">1</span> npts<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">200</span></pre>When you press <b>ENTER</b>, the result will append to the source worksheet.<br /><br /><a  class="image"><img alt="Tutorial Script 008.png" src="../images/Command_Window/Tutorial_Script_008.png?v=6688" width="527"  /></a><br /><br /></li>
+<li>For help in using this smooth X-Function, you can type<pre class="lt" style="font-family:monospace;">help smooth</pre>to open the corresponding Help.</ol></li></ol>
+
+
+
+
+
+

@@ -1,0 +1,92 @@
+<h1 class="firstHeading">5.3.3 Two Way ANOVA</h1><p class='urlname' style='display: none'>TwoWayANOVA</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Indexed_data_mode"><span class="tocnumber">3.1</span> <span class="toctext">Indexed data mode</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="#Perform_Two_Way_ANOVA"><span class="tocnumber">3.1.1</span> <span class="toctext">Perform Two Way ANOVA</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="#Interpreting_Results"><span class="tocnumber">3.1.2</span> <span class="toctext">Interpreting Results</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#The_Interaction_Plot"><span class="tocnumber">3.1.3</span> <span class="toctext">The Interaction Plot</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#Recalculate"><span class="tocnumber">3.1.4</span> <span class="toctext">Recalculate</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-9"><a href="#Raw_Data_Mode"><span class="tocnumber">3.2</span> <span class="toctext">Raw Data Mode</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Two_Way_ANOVA/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Two_Way_ANOVA/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=5" target="_blank">Analysis of Variance</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Two_Way_ANOVA/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Two_Way_ANOVA/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>In some cases, we want to examine the relationship between two factors (categorical variables) and a continuous outcome variable. The effects on the outcome of the change in one factor may depend on the level of the other factor, so we need to consider the interactions between two factors. Two way ANOVA is an appropriate method to analyze the main effects of and interactions between two factors.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 2016 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Perform Two-way ANOVA</li>
+<li>Interpret results from Two-Way ANOVA</li>
+<li>Make the Interaction Plot</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<p>Researchers are interested in the effects of sex and dietary group on systolic blood pressure (SBP) The "dietary group" factor includes three groups: strict vegetarians (SV) who eat no animal products of any kind; lacto vegetarians (LV) who eat dairy products but no other animal products;  and "normal" (NOR) subjects who eat a standard American diet. Sex and dietary group may be independent or they may interact with each other. One approach to solve this problem is to construct a two-way ANOVA model predicting mean SBP level.
+</p>
+<h3><a name="Indexed_data_mode"></a><span class="mw-headline">Indexed data mode</span></h3>
+<h4><a name="Perform_Two_Way_ANOVA"></a><span class="mw-headline">Perform Two Way ANOVA</span></h4>
+<ol><li>Start with a new workbook and import the file \<i>Samples</i>\<i>Statistics</i>\<i>SBP_Index.dat</i>. </li>
+<li>Open the <b>Two-Way ANOVA</b> dialog by choosing the menu item <b>Statistics: ANOVA: Two-Way ANOVA</b>, then in the <b>Input</b> tab, set the <b>Input Data</b> mode as <b>Indexed</b>.</li>
+<li>Also in the <b>Input</b> tab, select column A,B and C for <b>Factor A</b>,<b>Factor B</b> and <b>Data</b>, respectively. Check the <b>Interactions</b> box.
+<dl><dd><a  class="image"><img alt="DOC-2411 TwoANOVA06a Magenta.png" src="../images/Two_Way_ANOVA/DOC-2411_TwoANOVA06a_Magenta.png?v=38921" width="745"  /></a></dd></dl></li>
+<li>In the <b>Descriptive statistics</b> tab, check all boxes.</li>
+<li>In the <b>Means Comparison</b> tab, set <b>Significance Level</b> to 0.05, and check the box beside <b>Tukey</b> to select this test as the means comparison method. 
+<dl><dd><a  class="image"><img alt="DOC-2411 TwoANOVA06b Magenta.png" src="../images/Two_Way_ANOVA/DOC-2411_TwoANOVA06b_Magenta.png?v=38923" width="888"  /></a></dd></dl></li>
+<li>Click the <b>OK</b> button to perform Two-Way ANOVA.</li></ol>
+<h4><a name="Interpreting_Results"></a><span class="mw-headline">Interpreting Results</span></h4>
+<dl><dd><a  class="image"><img alt="TwoANOVA13.png" src="../images/Two_Way_ANOVA/TwoANOVA13.png?v=70458" width="492"  /></a><br /></dd></dl>
+<p>From the "Overall ANOVA" table in the Two-Way ANOVA result sheet, we can see that <b>Dietary</b> and <b>Sex</b> are both significant factors, but the interaction between them is not significant. So we can say that the main effects of both <b>Dietary</b> groups and <b>Sex</b> are significant, yet the effect on the outcome of the change in <b>Dietary</b> doesn't depend on the level of <b>Sex</b>.
+</p>
+<h4><a name="The_Interaction_Plot"></a><span class="mw-headline">The Interaction Plot</span></h4>
+<p>To further detect interaction, we can make an "Interaction Plot" using the following steps.
+</p>
+<ol><li> Click on the green lock in the <b>ANOVA2Way1</b> result sheet, and select <b>Change Parameters</b> to open the dialog again.
+<dl><dd><a  class="image"><img alt="TwoANOVA12.png" src="../images/Two_Way_ANOVA/TwoANOVA12.png?v=18409" width="244"  /></a><br /></dd></dl></li>
+<li> Go to <b>Mean Plot</b>, and check all boxes.
+<dl><dd><a  class="image"><img alt="TwoANOVA MeanPlotTab.png" src="../images/Two_Way_ANOVA/TwoANOVA_MeanPlotTab.png?v=70462" width="493"  /></a><br /></dd></dl></li>
+<li> We will get the Interaction plot 
+<dl><dd><a  class="image"><img alt="TwoANOVA InteractionPlot.png" src="../images/Two_Way_ANOVA/TwoANOVA_InteractionPlot.png?v=70463" width="755"  /></a><br /></dd></dl></li></ol>
+<p><br />
+</p>
+<h4><a name="Recalculate"></a><span class="mw-headline">Recalculate</span></h4>
+<ol><li> Click on the green lock in the <b>ANOVA2Way1</b> result sheet, and select <b>Change Parameters</b> to open the dialog again.
+<dl><dd><a  class="image"><img alt="TwoANOVA12.png" src="../images/Two_Way_ANOVA/TwoANOVA12.png?v=18409" width="244"  /></a><br /></dd></dl></li>
+<li> In the <b>Input</b> tab in the open dialog, clear the <b>interactions</b> box and click the <b>OK</b> button.</li></ol>
+<dl><dd><a  class="image"><img alt="DOC-2411 TwoANOVA17a Magenta.png" src="../images/Two_Way_ANOVA/DOC-2411_TwoANOVA17a_Magenta.png?v=38925" width="440"  /></a><br /></dd></dl>
+<p>We can see that the <b>Dietary</b> and <b>Sex</b> are significant factors from the "Overall ANOVA" table. The mean of <i>Nor</i> is significantly greater than that of <i>LV</i> and <i>SV</i> for factor <b>Dietary</b>. The mean of Male is significantly greater than that of Female, from the "Dietary" table.
+</p>
+<dl><dd><a  class="image"><img alt="TwoANOVA14.png" src="../images/Two_Way_ANOVA/TwoANOVA14.png?v=70459" width="508"  /></a><br /></dd>
+<dd><a  class="image"><img alt="TwoANOVA15.png" src="../images/Two_Way_ANOVA/TwoANOVA15.png?v=18408" width="586"  /></a><br /></dd></dl>
+<h3><a name="Raw_Data_Mode"></a><span class="mw-headline">Raw Data Mode</span></h3>
+<ol><li> Start with a new workbook and import the file  \<i>Samples</i>\<i>Statistics</i>\<i>SBP_Raw.dat</i></li>
+<li> Highlight all columns and select menu item <b>Statistics&#160;: ANOVA&#160;: Two-Way ANOVA</b> to bring up the <b>ANOVATwoWay</b> dialog box. In the <b>Input</b> tab, choose <b>Raw</b> as the <b>Input Data</b> mode. </li>
+<li> Also in the <b>Input</b> tab, set<b> Number of levels</b> of <b>Factor A</b> as 2 and type <b>Sex</b> ,<b>Male</b> and <b>Female</b> for <b>Name</b>,<b>Level1 Name</b> and <b>Level2 Name</b> in <b>Factor A</b> branch ,respectively.</li>
+<li> Also in the <b>Input</b> tab, set<b> Number of levels</b> of <b>Factor B</b> as 3, and type <b>Dietary Group</b> ,<b>SV</b> ,<b>LV</b> and <b>Nor</b> for <b>Name</b>,<b>Level1 Name</b>, <b>Level2 Name</b> and <b>Level3 Name</b> in <b>Factor A</b> branch, respectively.
+<dl><dd><a  class="image"><img alt="DOC-2411 TwoANOVA05a Magenta.png" src="../images/Two_Way_ANOVA/DOC-2411_TwoANOVA05a_Magenta.png?v=38927" width="1032"  /></a><br /></dd></dl></li>
+<li> In the <b>Means Comparison</b> tab, set <b>Significance Level</b> to 0.05, and check the box beside <b>Tukey</b> to use it as the means comparison method. </li>
+<li>Click the <b>OK</b> button to perform Two-Way ANOVA.</li></ol>
+
+
+
+
+
+

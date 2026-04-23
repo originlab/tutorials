@@ -1,0 +1,28 @@
+<h1 class="firstHeading">5.6.5 Lag Tool</h1><p class='urlname' style='display: none'>TMA-TD-Lag-Tutorial</p>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>The Lag tool is supported in the <b>Time Series Analysis</b> App. It is used to calculate lag or lead of a time series.
+This tutorial uses App's built-in sample project. To open this sample OPJU file:
+</p>
+<ol>
+<li>Right click the <b>Time Series Analysis</b> App icon <a  class="image"><img alt="Time Series Analysis icon.png" src="../images/Lag/Time_Series_Analysis_icon.png?v=75189" width="50"  /></a> in the Apps Gallery and choose <b>Show Samples Folder</b>.
+<li>A folder will open. Drag-and-drop the project file <i>TSA Sample.opju</i> into Origin.
+</ol>
+<h3><a name="Lag"></a><span class="mw-headline">Lag</span></h3>
+<ol><li> Expand <b>Project Explorer</b> docked on the left.  Select folder <i>Transform and Decompose</i> and go to sheet "Sheet1" in workbook "Annual electricity sales for South Australia from 1989 to 2008 - Copy".
+<dl><dd><a  class="image"><img alt="LagTool TSA 00.png" src="../images/Lag/500px-LagTool_TSA_00.png?v=75673" width="500"   /></a></dd></dl></li>
+<li> Click the <b>Time Series Analysis</b> App icon <a  class="image"><img alt="Time Series Analysis icon.png" src="../images/Lag/Time_Series_Analysis_icon.png?v=75189" width="50"  /></a> in the Apps Gallery. Click the button <b>Lag</b> under the <b>Tranform and Decompose</b> tab to open the app dialog. 
+<dl><dd><a  class="image"><img alt="LagTool TSA 01.png" src="../images/Lag/800px-LagTool_TSA_01.png?v=75621" width="800"   /></a></dd></dl></li>
+<li> Select the col(B) as <b>Time Series</b>; Enter <b>-1</b> for <b>Lag</b>.
+<dl><dd><a  class="image"><img alt="Imple Time Series Analysis 02 a.png" src="../images/Lag/Imple_Time_Series_Analysis_02_a.png?v=75674" width="471"  /></a></dd></dl></li>
+<li>Click OK button to perfrom the analysis.
+<dl><dd><a  class="image"><img alt="Imple Time Series Analysis 02 b.png" src="../images/Lag/Imple_Time_Series_Analysis_02_b.png?v=75675" width="429"  /></a></dd></dl></li></ol>
+<dl><dd> The results are gotten by moving col(B) forward one row but keeping the original col(A).</dd></dl>
+<h2><a name="Algorithm"></a><span class="mw-headline">Algorithm</span></h2>
+<p>Lag tool can shift a time series down by a number of rows.
+</p><p>Given a time series <i>x</i><sub><i>i</i></sub>, <i>i = 1, 2, ..., n</i>, when lag <i>k</i> &gt; 0, the first k elements in the result will be missing values, and the time series will be shifted down by <i>k</i> units. If <i>k</i> &lt; 0, the last <i>|k|</i> elements in the result will be missing values, and the time series will be back shifted by <i>|k|</i> units.
+</p>
+
+
+
+
+

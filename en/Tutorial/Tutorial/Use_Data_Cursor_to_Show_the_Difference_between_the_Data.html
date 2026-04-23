@@ -1,0 +1,53 @@
+<h1 class="firstHeading">8.2 Use Data Cursor to Show the Difference between the Data</h1><p class='urlname' style='display: none'>Compare-Data-by-DataCursor</p>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>In Origin, the Cursor tool is used to measure the X and Y distance between two points. You can place cursor objects on the same curve or on different curves, then use the <b>Data Info</b> window to display the relative positions of the cursor objects. 
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 2019</p>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Use_Data_Cursor_to_Show_the_Difference_between_the_Data/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>There is also a <a class="external text" href="../../UserGuide/Category/Creating_Drawing_Objects.html#Adding_a_Distance_Annotation"><b>Distance Annotation</b></a> tool for adding and labeling a double-arrow between two points on the graph.
+</p></td></tr></table>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li> Customize the <b>Data Info</b> window</li>
+<li> Read relative positions of two data points</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<ol><li> Start with a new worksheet.</li>
+<li> Select <b>File: Import: Multiple ASCII</b> from the main menu. Go to the folder  \<i>Samples</i>\<i>Spectroscopy</i>\<i>Chromatography</i>, select <i>GPC Single Channel Chromatogram 1.dat</i> and <i>GPC Single Channel Chromatogram 3.dat</i>. Click <b>Add Files</b>, make sure that <b>Show Options Dialog</b> is selected, and click <b>OK</b>. This opens the <b>ImpASC</b> dialog box. In this dialog, set the <b>Multi-File Import Mode</b> to <b>Start New Columns</b>, check the <b>Append Filename to Column Comment</b> check box and uncheck the <b>Include File Path when Appending Filename</b> check box in the <b>Re(Naming) Worksheet and Workbook</b> branch. Click <b>OK</b> to import these two files into a worksheet.
+<dl><dd><a  class="image"><img alt="Use Data Cursor to Show the Difference between the Data 01.png" src="../images/Use_Data_Cursor_to_Show_the_Difference_between_the_Data/Use_Data_Cursor_to_Show_the_Difference_between_the_Data_01.png?v=56361" width="686"  /></a></dd></dl></li>
+<li>Highlight all columns and right-click to select <b>Set As: XY XY</b> from the context menu. With all columns highlighted, choose <b>Plot:Line:Line</b>.
+<dl><dd><a  class="image"><img alt="Use Data Cursor to Show the Difference between the Data 02.png" src="../images/Use_Data_Cursor_to_Show_the_Difference_between_the_Data/Use_Data_Cursor_to_Show_the_Difference_between_the_Data_02.png?v=21615" width="420"  /></a></dd></dl></li>
+<li>Press and hold the <b>Data Reader</b> button and select the <b>Data Cursor</b> from the list.
+<dl><dd><a  class="image"><img alt="Use Data Cursor to Show the Difference between the Data 03.png" src="../images/Use_Data_Cursor_to_Show_the_Difference_between_the_Data/Use_Data_Cursor_to_Show_the_Difference_between_the_Data_03.png?v=57919" width="162"  /></a></dd></dl></li>
+<li> The <b>Data Info</b> window opens. 
+<dl><dd><a  class="image"><img alt="Use Data Cursor to Show the Difference between the Data 04.png" src="../images/Use_Data_Cursor_to_Show_the_Difference_between_the_Data/Use_Data_Cursor_to_Show_the_Difference_between_the_Data_04.png?v=58330" width="300"  /></a></dd></dl></li>
+<li> Right-click on the <b>Data Info</b> window and select <b>Preferences...</b> from the shortcut menu. This opens the <b>Data Info Report Settings</b> dialog box.</li>
+<li> Click the <b>Add Column</b> button three times to add a total of three columns to the <b>Preview</b> table.
+<dl><dd><a  class="image"><img alt="Use Data Cursor to Show the Difference between the Data 05.png" src="../images/Use_Data_Cursor_to_Show_the_Difference_between_the_Data/Use_Data_Cursor_to_Show_the_Difference_between_the_Data_05.png?v=58325" width="799"  /></a></dd></dl></li>
+<li> Click the pencil icon <a  class="image"><img alt="Button edit pencil.png" src="../images/Use_Data_Cursor_to_Show_the_Difference_between_the_Data/Button_edit_pencil.png?v=57928" width="22"  /></a> above the first added column and change <b>Source</b> to <b>Data (Cursor 1)</b> and set <b>Column Width</b> = <b>30</b>. Click <b>OK</b>.</li>
+<li> Click the pencil icon <a  class="image"><img alt="Button edit pencil.png" src="../images/Use_Data_Cursor_to_Show_the_Difference_between_the_Data/Button_edit_pencil.png?v=57928" width="22"  /></a> above the second added column and change <b>Source</b> to <b>Data (Cursor 2)</b> and set <b>Column Width</b> = <b>30</b>. Click <b>OK</b>.</li>
+<li> Click the pencil icon <a  class="image"><img alt="Button edit pencil.png" src="../images/Use_Data_Cursor_to_Show_the_Difference_between_the_Data/Button_edit_pencil.png?v=57928" width="22"  /></a> above the third added column and change <b>Source</b> to <b>Relative (Cursor 2 - Cursor 1)</b> and set <b>Column Width</b> = <b>40</b>. Click <b>OK</b>.
+<dl><dd><a  class="image"><img alt="Use Data Cursor to Show the Difference between the Data 06.png" src="../images/Use_Data_Cursor_to_Show_the_Difference_between_the_Data/Use_Data_Cursor_to_Show_the_Difference_between_the_Data_06.png?v=58326" width="799"  /></a></dd></dl></li>
+<li> Click <b>OK</b> to close this dialog. The Data Info window will display three new columns.
+<dl><dd><a  class="image"><img alt="Use Data Cursor to Show the Difference between the Data 08.png" src="../images/Use_Data_Cursor_to_Show_the_Difference_between_the_Data/Use_Data_Cursor_to_Show_the_Difference_between_the_Data_08.png?v=58327" width="590"  /></a></dd></dl></li></ol>
+<ol start="11">
+<li> Double-click on a data point in the graph to add the first cursor. Select the <b>Data Cursor</b> button again and add another cursor to the graph by double-clicking on the desired data point.
+<dl><dd><a  class="image"><img alt="Use Data Cursor to Show the Difference between the Data 09.png" src="../images/Use_Data_Cursor_to_Show_the_Difference_between_the_Data/Use_Data_Cursor_to_Show_the_Difference_between_the_Data_09.png?v=21625" width="420"  /></a></dd></dl>
+<table class="note">
+
+<tr>
+<td><b>Note</b>: After you add all the columns in the <b>Data Info Report Settings</b> dialog, you can save the settings as a Theme by clicking the <b>Save Theme</b> button <a  class="image"><img alt="Data Cursor Button Save Theme.png" src="../images/Use_Data_Cursor_to_Show_the_Difference_between_the_Data/Data_Cursor_Button_Save_Theme.png?v=57929" width="28"  /></a> and choosing an option from the popup menu. Note that you can save settings to the graph (maximum portability) or to a named Theme file (and subsequently applied to any graph window).
+</td></tr></table>
+</li>
+<li> The <b>Data Info</b> window will be updated with the values of the two points and their relative values.
+<dl><dd><a  class="image"><img alt="Use Data Cursor to Show the Difference between the Data 10.png" src="../images/Use_Data_Cursor_to_Show_the_Difference_between_the_Data/Use_Data_Cursor_to_Show_the_Difference_between_the_Data_10.png?v=58328" width="590"  /></a></dd></dl>
+</li>
+<li> Right-click the <b>Data Info</b> window and select <b>Copy All</b> from the shortcut menu, then paste the table into a clean worksheet as shown below.
+<dl><dd><a  class="image"><img alt="Use Data Cursor to Show the Difference between the Data 11.png" src="../images/Use_Data_Cursor_to_Show_the_Difference_between_the_Data/Use_Data_Cursor_to_Show_the_Difference_between_the_Data_11.png?v=58329" width="693"  /></a></dd></dl>
+</li>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Use_Data_Cursor_to_Show_the_Difference_between_the_Data/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>You can promote any worksheet row to the column label rows (header) area by right-clicking on the row and choosing one of the <b>Set As...</b> or <b>Append To...</b> options.
+</p></td></tr></table>
+</ol>
+
+

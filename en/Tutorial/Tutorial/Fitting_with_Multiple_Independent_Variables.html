@@ -1,0 +1,123 @@
+<h1 class="firstHeading">4.2.2.9 Fitting With Multiple Independent Variables</h1><p class='urlname' style='display: none'>Fitting-MultiIndepVar</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a></li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Fitting_with_Multiple_Independent_Variables/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Fitting_with_Multiple_Independent_Variables/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=67" target="_blank">Nonlinear Curve Fit Tool</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=60" target="_blank">User-defined Fitting Functions</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Fitting_with_Multiple_Independent_Variables/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Fitting_with_Multiple_Independent_Variables/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+</td></tr></table>
+<p><br />
+</p>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>The <b>Function Organizer</b> tool can be used to create user-defined functions with more than one independent or dependent variable. The <b>NLFit dialog</b> can then be used to fit with such functions. The preview window in the NLFit dialog is capable of plotting only one quantity versus another. However, even if the preview does not "make sense", the fitting process will correctly proceed, once proper data and parameter assignments have been made.
+</p><p>Note that if you wish to fit multiple independent variables with an equation of the type <br /><i>y = A0 + A1 * x1 + A2 * x2 + ...</i><br />
+you can make use of the Multiple Regression tool instead of the nonlinear fitter dialog.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 8.0 SR6</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Create a user-defined fitting function with two independent variables and one dependent variable</li>
+<li>Fit with that function in NLFit</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<ol start="1">
+<li>Start with a new workbook and import the file \<i>Samples</i>\<i>Curve Fitting</i>\<i>Activity.dat</i>.
+</li>
+<li>Select <b>Tools: Fitting Function Organizer</b> from menu (or press <b>F9</b>) to bring up the <span class="db">Fitting Function Organizer</span> and define a new fitting function named <b>MultiIndep</b> in <b>NewCategory</b> (create the category if it does not exist) as follow: 
+<table class="simple">
+
+<tr>
+<td width="170"><b>Function Name:</b>
+</td>
+<td>
+<p>MultiIndep
+</p>
+</td></tr>
+<tr>
+<td width="170"><b>Function Type:</b>
+</td>
+<td>
+<p>User-Defined
+</p>
+</td></tr>
+<tr>
+<td width="170"><b>Independent Variables:</b>
+</td>
+<td>
+<p>substr,inhib
+</p>
+</td></tr>
+<tr>
+<td width="170"><b>Dependent Variables:</b>
+</td>
+<td>
+<p>act
+</p>
+</td></tr>
+<tr>
+<td width="170"><b>Parameter Names:</b>
+</td>
+<td>
+<p>ki,km,vm
+</p>
+</td></tr>
+<tr>
+<td width="170"><b>Function Form:</b>
+</td>
+<td>
+<p>Origin C
+</p>
+</td></tr>
+<tr>
+<td width="170"><b>Function:</b>
+</td>
+<td>
+<p>double mix = inhib / ki;<br />act = vm * substr / (km + (1 + mix) * substr);
+</p>
+</td></tr></table>
+<p><b>NOTE:</b> Since we are using OriginC, case must match between defined names and their use in the function definition. e.g. Substr does NOT equal substr.
+</p><p>Click Save and then OK to save the function and close the Organizer.
+</p><p>For more details about User Defined Fitting Function please refer to <a href="../../Tutorial/Tutorial/User_Defined_Fitting_Function_using_OC.html" title="Tutorial:User Defined Fitting Function using OC">User Defined Fitting Function using Origin C</a>. 
+</p>
+</li>
+<li>Highlight <font color="olive"><b>ONLY</b></font> column C and select <b>Analysis: Fitting: Non-linear Curve Fit</b> from menu to bring up the NLFit dialog. Select the function <b>MultiIndep</b> from <b>NewCategory</b> on the <b>Settings: Function Selection</b> page. Set the input datasets in the <b>Data Selection</b> page as follow:
+<br />
+<a  class="image"><img alt="MultiFittingDataSelection1.png" src="../images/Fitting_with_Multiple_Independent_Variables/MultiFittingDataSelection1.png?v=12039" width="630"  /></a>
+</li>
+<li>Select the <b>Fitted Curves</b> page and expand the <b>Fitted Curves Plot</b> branch. Then select <b>Same as Input Data</b> from the drop-down list next to the <b>X Data Type</b> branch.
+<br />
+<a  class="image"><img alt="MultiFittingFittingCurves1.png" src="../images/Fitting_with_Multiple_Independent_Variables/MultiFittingFittingCurves1.png?v=12099" width="629"  /></a>
+</li>
+<li>Select <b>Parameters Tab</b> and set the initial values as follow:
+<br />
+<a  class="image"><img alt="MultiFittingSettingPara1.png" src="../images/Fitting_with_Multiple_Independent_Variables/MultiFittingSettingPara1.png?v=2196" width="254"  /></a>
+</li>
+<li>Click <b>Fit</b> button to generate the fitting reports. You can see these results from the report worksheet as below:
+<br />
+<a  class="image"><img alt="MultiIndepParameter.png" src="../images/Fitting_with_Multiple_Independent_Variables/MultiIndepParameter.png?v=2223" width="237"  /></a>
+<br />
+<a  class="image"><img alt="MultiIndepStat.png" src="../images/Fitting_with_Multiple_Independent_Variables/MultiIndepStat.png?v=2224" width="263"  /></a>
+<br />
+From the Statistics table we can know that the fitting is fairly successful.
+</li>
+</ol>
+
+
+
+
+
+

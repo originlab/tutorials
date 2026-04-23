@@ -1,0 +1,120 @@
+<h1 class="firstHeading">5.8.3 Discriminant Analysis</h1><p class='urlname' style='display: none'>Discriminant-Analysis</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Discriminant_Analysis"><span class="tocnumber">2</span> <span class="toctext">Discriminant Analysis</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Interpreting_Results"><span class="tocnumber">3</span> <span class="toctext">Interpreting Results</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Canonical_Discriminant_Analysis"><span class="tocnumber">3.1</span> <span class="toctext">Canonical Discriminant Analysis</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Classification"><span class="tocnumber">3.2</span> <span class="toctext">Classification</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Model_Validation"><span class="tocnumber">4</span> <span class="toctext">Model Validation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#Preparing_Data_for_Analysis"><span class="tocnumber">4.1</span> <span class="toctext">Preparing Data for Analysis</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Run_Discriminant_Analysis"><span class="tocnumber">4.2</span> <span class="toctext">Run Discriminant Analysis</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Cross-validation"><span class="tocnumber">4.3</span> <span class="toctext">Cross-validation</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Subset_Validation"><span class="tocnumber">4.4</span> <span class="toctext">Subset Validation</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="#Adjusting_Prior_Probabilities"><span class="tocnumber">5</span> <span class="toctext">Adjusting Prior Probabilities</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>The Iris flower data set, or Fisher's Iris dataset, is a multivariate dataset introduced by Sir Ronald Aylmer Fisher in 1936.   This dataset is often used for illustrative purposes in many classification systems.  The dataset consists of fifty samples from each of three species of Irises (iris setosa, iris virginica, and iris versicolor).  Four characteristics, the length and width of sepal and petal, are measured in centimeters for each sample.  We can use discriminant analysis to identify the species based on these four characteristics.
+</p><p>We will use a random sample of 120 rows of data to create a discriminant analysis model, and then use the remaining 30 rows to verify the accuracy of the model.
+</p>
+<p class="version" >Minimum Origin Version Required: OriginPro 8.6 SR0</p>
+<h2><a name="Discriminant_Analysis"></a><span class="mw-headline">Discriminant Analysis</span></h2>
+<ol><li> Open a new project or a new workbook.  Import the data file <b>\Samples\Statistics\Fisher's Iris Data.dat</b> </li>
+<li> Highlight columns A through D. and then select <b>Statistics: Multivariate Analysis: Discriminant Analysis</b> to open the <b>Discriminant Analysis</b> dialog, <b>Input Data</b> tab. Columns A ~ D are automatically added as <b>Training Data</b>. </li>
+<li> Click the <b>triangle button</b> <a  class="image"><img alt="Button Select Data Right Triangle.png" src="../images/Discriminant_Analysis/Button_Select_Data_Right_Triangle.png?v=26514" width="18"  /></a> next to <b>Group for Training Data</b> and select <b>E(Y):Species</b> in the context menu
+<dl><dd><a  class="image"><img alt="Discrim dialog 1.png" src="../images/Discriminant_Analysis/Discrim_dialog_1.png?v=42727" width="677"  /></a></dd></dl></li>
+<li> Click the <b>Quantities</b> tab and select the <b>Discriminant Function Coefficients</b> check box. Expand the <b>Canonical Discriminant Analysis</b> branch and select the <b>Canonical Coefficients</b> check box. Accept all other default settings and click <b>OK</b>
+<dl><dd><a  class="image"><img alt="Discrim dialog 1A.png" src="../images/Discriminant_Analysis/Discrim_dialog_1A.png?v=42728" width="373"  /></a></dd></dl></li></ol>
+<h2><a name="Interpreting_Results"></a><span class="mw-headline">Interpreting Results</span></h2>
+<p>Click on the <b>Discriminant Analysis Report</b> tab.
+</p>
+<h3><a name="Canonical_Discriminant_Analysis"></a><span class="mw-headline">Canonical Discriminant Analysis</span></h3>
+<p>The <b>Canonical Discriminant Analysis</b> branch is used to create the discriminant functions for the model.  
+</p>
+<ol><li> Using the <b>Unstandardized Canonical Coefficient</b> table we can construct the canonical discriminant functions.
+<dl><dd><a  class="image"><img alt="UCC.png" src="../images/Discriminant_Analysis/UCC.png?v=14024" width="367"  /></a></dd>
+<dd><img src="../images/Discriminant_Analysis/math-4b965fb2bdc883f9eb0fc82454a768ba.png?v=0" title="D1 = -2.10511 - 0.82938*SL - 1.53447*SW + 2.20121*PL + 2.81046*PW" alt="D1 = -2.10511 - 0.82938*SL - 1.53447*SW + 2.20121*PL + 2.81046*PW" class="tex"/></dd>
+<dd><img src="../images/Discriminant_Analysis/math-c4233c9999192b38ae4bb83b0c1037d2.png?v=0" title="D2 = -6.66147 + 0.0241*SL + 2.16452*SW -0.93192*PL + 2.83919*PW" alt="D2 = -6.66147 + 0.0241*SL + 2.16452*SW -0.93192*PL + 2.83919*PW" class="tex"/></dd>
+<dd> where SL = Sepal Length, SW = Sepal Width, PL = Petal Length, PW = Petal Width</dd></dl></li>
+<li> The Eigenvalues table reveals the importance of the above canonical discriminant functions.  The first function can explain 99.12% of the variance, and the second can explain the remaining 0.88%.
+<dl><dd> <a  class="image"><img alt="Eigenvalues da.png" src="../images/Discriminant_Analysis/Eigenvalues_da.png?v=14023" width="465"  /></a></dd></dl></li>
+<li> The Wilk's Lambda Test table shows that the discriminant functions significantly explain the membership of the group.  We can see that both values in the <b>Sig</b> column are smaller than 0.05.  Both values should therefore be included in the discriminant analysis.
+<dl><dd> <a  class="image"><img alt="Wilks Lambda.png" src="../images/Discriminant_Analysis/Wilks_Lambda.png?v=74169" width="332"  /></a></dd></dl></li></ol>
+<h3><a name="Classification"></a><span class="mw-headline">Classification</span></h3>
+<ol><li> The <b>Classification Summary for Training Data</b> table can be used to evaluate the discriminant model. From the table we can see that the classification in the groups <b>setosa</b> is 100% correct.  For <b>versicolor</b>, only two observations are mistakenly classified as virginica, and for <b>virginica</b>, only one is mistakenly classified. The error rate is only 2.00%.  This model is good.
+<dl><dd><a  class="image"><img alt="Classification Summary Training Data.png" src="../images/Discriminant_Analysis/Classification_Summary_Training_Data.png?v=14015" width="349"  /></a></dd></dl></li>
+<li> You can further switch to the <b>Training Result1</b> sheet to see which observation is mistakenly classified. In the sheet  we can see the post probabilities calculated from the discriminant model and which group the observation is assigned to. 
+<dl><dd><a  class="image"><img alt="Discrim training results.png" src="../images/Discriminant_Analysis/500px-Discrim_training_results.png?v=42341" width="500"   /></a></dd></dl>
+<ul><li> For the 84-th observation, we can see the post probabilities(virginica) 0.85661 is the maximum value. i.e.  the 84-th observation will be assigned to the group <b>virginica</b> (at 85.7% probability).</li>
+<li> But in source data, the 84-th observation is in group <b>versicolor</b>. So this observation is mistakenly classified by the model.</li></ul></li></ol>
+<h2><a name="Model_Validation"></a><span class="mw-headline">Model Validation</span></h2>
+<p>Model validation can be used to ensure the stability of the discriminant analysis classifiers 
+</p><p>There are two methods to do the model validation
+</p>
+<ul><li> <b>Cross-validation</b>: 
+<dl><dd>In cross-validation, each training data is treated as the test data, exclude it from training data to judge which group it should be classified as, and then verify whether the classification is correct or not.</dd></dl></li>
+<li> <b>Subset Validation</b>: 
+<dl><dd>Usually we will randomly divide the set of observations into subsets, the first of which is used for the estimation of discriminant model (training set) and the second is for testing the reliability of the results (test set).</dd></dl></li></ul>
+<h3><a name="Preparing_Data_for_Analysis"></a><span class="mw-headline">Preparing Data for Analysis</span></h3>
+<p>We are going to sort the data in random order, and then use the first 120 rows of data as training data and the last 30 as test data.
+</p>
+<ol><li> Go back to sheet <b>Fisher's Iris Data</b> </li>
+<li> Add a new column and fill the column with <b>Normal Random Numbers</b>. </li>
+<li> Select the newly added column.  Right-click and select <b>Sort Worksheet: Ascending</b> from the shortcut menu.</li></ol>
+<p><br />
+</p>
+<table class="note">
+
+<tr>
+<td><b>Notes:</b> Origin will generate different random data each time, and different data will result in different results.
+<p>In order to get the same results as shown in this tutorial, you could open the <i>Tutorial Data.opj</i> under the <b>Samples</b> folder, browse in the <b>Project Explorer</b> and navigate to the <b>Discriminant Analysis (Pro Only)</b> subfolder, then use the data from column (F) in the <b>Fisher's Iris Data</b> worksheet, which is a previously generated dataset of random numbers.
+</p>
+</td></tr></table>
+<h3><a name="Run_Discriminant_Analysis"></a><span class="mw-headline">Run Discriminant Analysis</span></h3>
+<ol><li> Select columns A through D.</li>
+<li> Select <b>Statistics: Multivariate Analysis: Discriminant Analysis</b> to open the <b>Discriminant Analysis</b> dialog.</li>
+<li> To set the first 120 rows of columns A through D as <b>Training Data</b>, click the <b>triangle button</b> <a  class="image"><img alt="Button Select Data Right Triangle.png" src="../images/Discriminant_Analysis/Button_Select_Data_Right_Triangle.png?v=26514" width="18"  /></a> next to <b>Training Data</b>, and then select <b>Select Columns</b> in the context menu.
+<dl><dd><a  class="image"><img alt="Discrim dialog 1B.png" src="../images/Discriminant_Analysis/Discrim_dialog_1B.png?v=42729" width="655"  /></a></dd></dl></li>
+<li> In the <b>Column Browser</b> dialog, click the <b>...</b> button in the lower panel.  Set data range from <b>1</b> to <b>120</b>. Click <b>OK</b>.
+<dl><dd><a  class="image"><img alt="Discrim dialog 1C.png" src="../images/Discriminant_Analysis/Discrim_dialog_1C.png?v=42730" width="700"  /></a></dd></dl></li>
+<li> To set first 120 rows of Col(E) as <b>Group for Training Data</b>,  click the <b>triangle button</b> <a  class="image"><img alt="Button Select Data Right Triangle.png" src="../images/Discriminant_Analysis/Button_Select_Data_Right_Triangle.png?v=26514" width="18"  /></a> next to <b>Group for Training Data</b> and select <b>E(Y): Species</b> in the context menu. Then  click the Group for Training Data <b>triangle button</b> <a  class="image"><img alt="Button Select Data Right Triangle.png" src="../images/Discriminant_Analysis/Button_Select_Data_Right_Triangle.png?v=26514" width="18"  /></a> again, select <b>Select Columns</b> in the context menu, and set range from <b>1</b> to <b>120</b> with column browser.  Click <b>OK</b>.</li>
+<li> Select <b>Predict Membership of Test Data</b> check box. Click the <b>Test Data</b> interactive button <a  class="image"><img alt="Button Select Data Interactive.png" src="../images/Discriminant_Analysis/Button_Select_Data_Interactive.png?v=1685" width="18"  /></a>. The dialog will "roll up".  Select columns A through D in the worksheet. Click the button in the rolled up dialog to restore the dialog. Then click  the <b>triangle button</b> <a  class="image"><img alt="Button Select Data Right Triangle.png" src="../images/Discriminant_Analysis/Button_Select_Data_Right_Triangle.png?v=26514" width="18"  /></a> to open <b>Column Browser</b> by selecting <b>Select Columns</b> in the context menu. Click <b>...</b> button in lower panel, and set range from <b>121</b> through <b>150</b>. 
+<dl><dd><a  class="image"><img alt="Discrim dialog 1D.png" src="../images/Discriminant_Analysis/Discrim_dialog_1D.png?v=42731" width="509"  /></a></dd></dl></li>
+<li> Click the <b>Settings</b> tab and select the <b>Cross Validation</b> check box. Click <b>OK</b>.
+<dl><dd><a  class="image"><img alt="Discrim dialog 1E.png" src="../images/Discriminant_Analysis/Discrim_dialog_1E.png?v=42732" width="395"  /></a></dd></dl></li></ol>
+<h3><a name="Cross-validation"></a><span class="mw-headline">Cross-validation</span></h3>
+<dl><dd>Go to sheet <b>Discriminant Analysis Report1</b>. The <b>Cross-validation Summary for Training Data</b> table provides prediction error rate by classifying each case while leaving it out from the model calculations. However, this method is still more "optimistic" than subset validation.
+<dl><dd><a  class="image"><img alt="Cross Validation Summary.png" src="../images/Discriminant_Analysis/Cross_Validation_Summary.png?v=14563" width="348"  /></a></dd></dl></dd></dl>
+<h3><a name="Subset_Validation"></a><span class="mw-headline">Subset Validation</span></h3>
+<ol><li> The <b>Classification Summary for Test Data</b> provide information that how the test data are classified.
+<dl><dd> <a  class="image"><img alt="Classification Summary Test Data.png" src="../images/Discriminant_Analysis/Classification_Summary_Test_Data.png?v=14565" width="321"  /></a></dd></dl></li>
+<li> On the worksheet <b>Fisher's Iris Data</b>, copy the last 30 rows (121 through 150) of <b>Col(E): Species</b>.</li>
+<li> On the worksheet <b>Test Result</b>, add one column, <b>Col(E)</b>, to the worksheet.  Paste the copied values in the new column.</li>
+<li> Add a new column, <b>Col(F)</b> to the worksheet, right click on it and select Set Column Values in the context menu. In the opened dialog, type <b>Compare(col(A),col(E))</b> in the pop-up dialog and click OK.
+<dl><dd> <a  class="image"><img alt="Discrim Set Value.png" src="../images/Discriminant_Analysis/Discrim_Set_Value.png?v=44523" width="441"  /></a></dd></dl></li>
+<li> None of 30 values is 0, it means the error rate the testing data is 0. Our discriminant model is pretty good.</li></ol>
+<h2><a name="Adjusting_Prior_Probabilities"></a><span class="mw-headline">Adjusting Prior Probabilities</span></h2>
+<p>Discriminant analysis assumes that prior probabilities of group membership are identifiable. If group population size is unequal, prior probabilities may differ. We can use <b>Proportional to group size</b> for the <b>Prior Probabilities</b> option in this case.
+</p>
+<ol><li> Go to sheet <b>Discrim2</b>, <b>Prior</b> row of the <b>Error Rate</b> table under <b>Classification Summary for Training Data</b> branch indicate the prior probabilities for membership in groups. It is assumed that a case is equally likely to be one of the three groups. Adjusting the prior probabilities according to the group size can improve the overall classification rate. 
+<dl><dd><a  class="image"><img alt="Discrim error rate.png" src="../images/Discriminant_Analysis/Discrim_error_rate.png?v=14566" width="296"  /></a></dd></dl></li>
+<li> Click on the <a  class="image"><img alt="Icon Recalculate Manual Green.png" src="../images/Discriminant_Analysis/Icon_Recalculate_Manual_Green.png?v=1699" width="14"  /></a> button and select <b>Change Parameter</b> from the context menu. Select <b>Proportional to group size</b> for <b>Prior Probabilities</b> radio box. Click <b>OK</b> button. 
+<dl><dd><a  class="image"><img alt="Discrim dialog 1F.png" src="../images/Discriminant_Analysis/Discrim_dialog_1F.png?v=42733" width="395"  /></a></dd></dl></li>
+<li> We can see the classification error rate is 2.50%, it is better than 2.63%, error rate with equal prior probabilities. 
+<dl><dd><a  class="image"><img alt="Discrim error rate compare.png" src="../images/Discriminant_Analysis/Discrim_error_rate_compare.png?v=14564" width="293"  /></a></dd></dl></li></ol>
+
+
+
+
+
+

@@ -1,0 +1,138 @@
+<h1 class="firstHeading">11.2.2 The Code Builder Workspace</h1><p class='urlname' style='display: none'>Code-Builder-Workspace</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#The_Workspace_File"><span class="tocnumber">3</span> <span class="toctext">The Workspace File</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Workspace_Folders"><span class="tocnumber">4</span> <span class="toctext">Workspace Folders</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Build_on_Startup"><span class="tocnumber">5</span> <span class="toctext">Build on Startup</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Configure_Code_Builder_Interface"><span class="tocnumber">6</span> <span class="toctext">Configure Code Builder Interface</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Create_an_App_Using_Apps_folder_in_Workspace"><span class="tocnumber">7</span> <span class="toctext">Create an App Using Apps folder in Workspace</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Frequently_Used_Hot_Keys"><span class="tocnumber">8</span> <span class="toctext">Frequently Used Hot Keys</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>In this tutorial, we will create a workspace in the Code Builder of Origin, add a source file with a new function, then build, test and save the workspace file. Also, we will configure the appearance of the Code Builder.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 2016 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Build a Workspace File</li>
+<li>Build Workspace Folders</li>
+<li>Build on Startup</li>
+<li>Configure Code Builder Interface</li>
+<li>Create an App Using Apps folder in Workspace</li>
+<li>Use Hot Key to speed up your work</li></ul>
+<h2><a name="The_Workspace_File"></a><span class="mw-headline">The Workspace File</span></h2>
+<p>A workspace is a collection of files that can be opened by a single menu option (<b>File: Open Workspace...</b>) in Origin's Code Builder.  Any text file can be a part of the collection.  They do not necessarily have to be source code files; they could be notes, for example. 
+</p><p>All files opened in the Multiple Document Window by a workspace can be edited and saved individually.  In addition to files being opened in the Multiple Document Window, source code files can be added to the Workspace Window with the <b>File: Add to Workspace</b> menu option.  
+</p><p>By including source code files in the Workspace Window, you can build individual or multiple files with the appropriate menu option or toolbar button.  Header files can be referenced within source files and do not need to be loaded in the Workspace Window or even open in the Multiple Document Window.
+</p><p>Since you can save a workspace with a new name, you can have multiple workspace files.  However, only one workspace file can be opened at a time.  
+</p><p><br />
+To create a workspace:
+</p>
+<ol><li>On the <b>Standard</b> toolbar, click the <b>Code Builder</b> button <a  class="image"><img alt="Button Code Builder.png" src="../images/The_Code_Builder_Workspace/Button_Code_Builder.png?v=1405" width="23"  /></a>.  </li>
+<li>From the Code Builder menu, select <b>File: New Workspace</b>.  This creates a new workspace with the default name of "Untitled.ocw".</li>
+<li>From the Code Builder menu, select <b>File: New</b>.  This opens the <b>New</b> File dialog.</li>
+<li>Choose <b>C File</b>, and type <b>foo</b> in the <b>File Name</b> text box.  The <b>Add to Workspace</b> and <b>Fill with Default Contents</b> check boxes should be selected.  You may accept the default Location.  Click <b>OK</b>.</li>
+<li>In FOO.C, starting below the line that says "\\start your functions here", type the following:</li></ol>
+<pre class="oc" style="font-family:monospace;"><span style="color: #0000ff;">void</span> bar<span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>
+	<span style="color: #000000;">printf</span><span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;Hello World!<span style="color: #666666; font-weight: bold;">\n</span>&quot;</span><span style="color: #000000;">&#41;</span>;
+
+<span style="color: #000000;">&#125;</span></pre>
+<ol start="6">
+<li>Click the <b>Build</b> button <a  class="image"><img alt="Button Build.png" src="../images/The_Code_Builder_Workspace/Button_Build.png?v=14957" width="23"  /></a> (or use the hotkey <b>Shift+F8</b>).  Origin automatically saves the source file and compiles and links the function.</li>
+</ol>
+<ol start="7">
+<li>From the Origin menu choose <b>Window: Script Window</b>.</li>
+</ol>
+<ol start="8">
+<li>To test our new function, type:</li>
+</ol>
+<pre>bar</pre>
+<ol start="9">
+<li>Press <b>ENTER</b></li>
+</ol>
+<p>Origin responds by typing <b>Hello World!</b>
+</p>
+<ol start="10">
+<li>From the Code Builder menu, choose  <b>File: Save Workspace As....</b>
+<b></li></b>
+</ol>
+<p>The figure shows the foo.ocw workspace file containing a single source file, foo.c, in the Multiple Document Window.  The file has been added to the Workspace Window.  The Output Window shows that the file has been compiled.  The source file contains a single function "bar( )" which is listed in the tree structure of the workspace.
+<a  class="image"><img alt="The Code Builder Workspace 1.png" src="../images/The_Code_Builder_Workspace/The_Code_Builder_Workspace_1.png?v=42891" width="947"  /></a>
+</p>
+<h2><a name="Workspace_Folders"></a><span class="mw-headline">Workspace Folders</span></h2>
+<p>The Code Builder workspace has six subfolders: Apps, Project, System, Temporary, User [AutoLoad] and User.   Files added by user, such as foo.c that you just added, are placed in the User subfolder. Origin, itself, uses Origin C for many analysis routines.  When these routines are accessed, the Origin C source files are loaded into either the System subfolder or the Temporary subfolder in the Workspace. The Project subfolder is reserved for files that are saved and loaded with the Origin project.  This aspect of attaching a file to the project is described in a separate tutorial.
+</p>
+<h2><a name="Build_on_Startup"></a><span class="mw-headline">Build on Startup</span></h2>
+<p>If you right click on the <b>Origin C Workspace</b> folder, the shortcut menu has a <b>Build on Startup</b> option.  When this option is checked, the last workspace you saved will be loaded when you restart Origin.  All source files in the Workspace will be built and all functions in the source files will be available for immediate use.
+</p><p>For information on building individual source files on startup by including information in the ORIGIN.INI file, please view <a class="external text" href="../../OriginC/OCGuide/Compiling,_Linking_and_Loading.html#Build_Individual_Source_File_on_Origin_Startup">Build on Startup</a>
+</p><p>This concludes the tutorial on the <b>Code Builder Workspace</b>.
+</p>
+<h2><a name="Configure_Code_Builder_Interface"></a><span class="mw-headline">Configure Code Builder Interface</span></h2>
+<p>User can configure code builder interface including the fonts and colors, the brackets color, the icons size and so on. 
+</p>
+<ol><li>Open <b>Options</b> dialog in <b>Code Builder</b> by select <b>Preference: Options</b> in main menu. Go to the <b>Fonts and Colors</b> tab, change the <b>Theme</b> to <b>Dark</b>. An interface with dark background and light font is obtained. You can further adjust the font size or type in this dialog.
+<dl><dd><a  class="image"><img alt="Interface1.png" src="../images/The_Code_Builder_Workspace/Interface1.png?v=30888" width="573"  /></a></dd></dl></li>
+<li>In <b>Options</b> dialog, go to the (Text Editor) <b>General</b> tab, change the properties for <b>Enable Multiple Colored Brackets</b> to <b>True</b> and click <b>OK</b>. The nested "()" in code will be shown in multiple colors.
+<dl><dd><a  class="image"><img alt="ColorBracket.png" src="../images/The_Code_Builder_Workspace/ColorBracket.png?v=30899" width="590"  /></a></dd></dl></li>
+<li>Open <b>Customize</b> dialog in Origin's main interface by select <b>View: Toolbars</b> in main menu. Go to the <b>Options</b> tab and check on <b>Use Large Icons</b> box, then you can get large icons for buttons in Toolbars (note that this setting may not work well on your system depending on your display settings). Close the <b>Customize</b> dialog box.
+<dl><dd><a  class="image"><img alt="LargeIons.png" src="../images/The_Code_Builder_Workspace/LargeIons.png?v=36996" width="461"  /></a></dd></dl></li>
+<li>You can control the show or hide of each panel by selecting or unselecting them from <b>View</b> in Code Builder menu, the selected panel will be shown in <b>Code Builder</b>.
+<dl><dd><a  class="image"><img alt="View.png" src="../images/The_Code_Builder_Workspace/View.png?v=30916" width="564"  /></a></dd></dl></li></ol>
+<h2><a name="Create_an_App_Using_Apps_folder_in_Workspace"></a><span class="mw-headline">Create an App Using Apps folder in Workspace</span></h2>
+<p>To create an App package, you need to combine the use of <b>Apps</b> folder in Code Builder workspace and the <a class="external text" href="../../UserGuide/UserGuide/Package_Manager.html">Package Manager</a>. Following steps will show you how to create the package for an App.
+</p><p>1.On the <b>Standard</b> toolbar, click the <b>Code Builder</b> button <a  class="image"><img alt="Button Code Builder.png" src="../images/The_Code_Builder_Workspace/Button_Code_Builder.png?v=1405" width="23"  /></a> to open Code Builder.
+</p><p>2.Make sure <b>Workspace</b> window is open, if not you can select menu <b>View: Workspace</b> to open it. Right click on the <b>Apps</b> folder in <b>Origin C Workspace</b> and select <b>New</b> to add a new folder.
+</p>
+<dl><dd><a  class="image"><img alt="Package1.png" src="../images/The_Code_Builder_Workspace/Package1.png?v=42892" width="311"  /></a></dd></dl>
+<p>3.Right click on the newly added folder <i>Untitled</i> and select <b>Rename</b> to name the folder as "MyApp".
+</p><p>4.Right click on <i>MyApp</i> folder and select <b>Add Files...</b> to open <b>Add Files to Workspace</b> dialog. Browse to select all prepared files and click <b>Open</b> button to add them to current folder.
+</p>
+<dl><dd><a  class="image"><img alt="Package3.png" src="../images/The_Code_Builder_Workspace/Package3.png?v=43093" width="364"  /></a></dd></dl>
+<p>5. Right click <i>MyApp</i> folder to select <b>Generate</b> and you will be directed to the <a class="external text" href="../../UserGuide/UserGuide/Package_Manager.html"><b>Package Manager</b></a>.
+</p>
+<dl><dd><a  class="image"><img alt="Package4.png" src="../images/The_Code_Builder_Workspace/Package4.png?v=43094" width="364"  /></a></dd></dl>
+<p>6.You can find the added files in the lower panel of <b>Package Manager</b>. Now you can input some basic information about <i>MyApp</i> under <b>Package</b> node as shown below. To make the App display as an icon in <a class="external text" href="../../UserGuide/UserGuide/Apps.html#The_Apps_Gallery"><b>App Gallery</b></a>, you need to prepare a 32*32 (in pixels) bmp image and input its name with extension in <b>Icon</b> edit box. Then you can input some LabTalk script in <b>Launch Script</b> field to tell Origin what to do when launching the App.
+</p>
+<dl><dd><a  class="image"><img alt="Package5.png" src="../images/The_Code_Builder_Workspace/Package5.png?v=43100" width="482"  /></a></dd></dl>
+<p>7.Select <b>File: Save</b> to save the package as an OPX file. Later you can drag and drop this OPX file into Origin workspace to install this App.
+</p>
+<h2><a name="Frequently_Used_Hot_Keys"></a><span class="mw-headline">Frequently Used Hot Keys</span></h2>
+<p>The <b>Hotkey</b> in Code Builder make the coding work efficiency. The following parts introduce the useful hotkey one by one. 
+</p><p>Firstly, please download <a class="external text" href="https://blog.originlab.com/wp-content/uploads/2017/01/OriginCExamples.zip" target="_blank">this zip file</a>, extract
+it and then browse to the <i>\Origin C Examples\Programming Guide\Practical Examples</i> subfolder to add <b>AccessMatrix. c</b> by right-clicking the user folder and select "Add Files"
+</p>
+<ul><li><b>Ctrl+F2</b> and <b>F2</b></li></ul>
+<p><b>Ctrl+F2</b> add a Toggle Bookmark at the specific line. You can use hotkey <b>F2</b> to go to next Toggle Bookmark.
+</p>
+<dl><dd><a  class="image"><img alt="Hotkey3.png" src="../images/The_Code_Builder_Workspace/Hotkey3.png?v=30779" width="380"  /></a></dd></dl>
+<ul><li><b>Ctrl+F3</b> and <b>F3</b></li></ul>
+<p><b>Ctrl+F3</b> highlight all the select word ("MatData") in code. You can use hotkey <b>F3</b> to go to the next highlighted "MatData". 
+</p>
+<dl><dd><a  class="image"><img alt="HotKey2.png" src="../images/The_Code_Builder_Workspace/HotKey2.png?v=30534" width="240"  /></a></dd></dl>
+<ul><li><b>Ctrl+]</b></li></ul>
+<p>This hotkey help you to go to matching brace in the code.
+</p>
+<ul><li><b>F9</b></li></ul>
+<p>This hotkey add a Toggle Breakpoints at the specific line.
+</p>
+<dl><dd><a  class="image"><img alt="HotKey4.png" src="../images/The_Code_Builder_Workspace/HotKey4.png?v=30791" width="297"  /></a></dd></dl>
+<ul><li><b>Ctrl+/</b> and <b>Ctrl + Shift + /</b></li></ul>
+<p>This hotkey <b>Ctrl+/</b> comment the selected lines, while <b>Ctrl + Shift + /</b> uncomment them.
+</p>
+<ul><li><b>Ctrl+Alt+O</b> </li></ul>
+<p>After constructing the *.c and *.h files with the same name, you can use hotkey <b>Ctrl+Alt+O</b> to switch between them. 
+</p>
+<dl><dd><a  class="image"><img alt="HotKey5.png" src="../images/The_Code_Builder_Workspace/HotKey5.png?v=30908" width="445"  /></a></dd></dl>
+<p>Please refer to <a class="external text" href="../../CodeBuilder/CodeBuilder/Menu_Items_Toolbars_and_Status_Bar.html#Hotkeys_in_Code_Builder">Hotkeys in Code Builder</a> for more hotkeys information.
+</p>
+
+
+
+
+

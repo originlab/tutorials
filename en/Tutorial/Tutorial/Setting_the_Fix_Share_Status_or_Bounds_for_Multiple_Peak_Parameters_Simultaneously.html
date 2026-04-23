@@ -1,0 +1,31 @@
+<h1 class="firstHeading">4.4.7.3 Setting the Fix, Share Status or Bounds for Multiple Peak Parameters Simultaneously</h1><p class='urlname' style='display: none'>Quick-Set-MultiPeakParameter</p>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>When performing peak analysis, one often wants to fix parameter values, or share parameters between multiple peaks, or specify bounds. If your data has a few peaks, you can simply perform these settings for each peak. But if your data has many, it may be time consuming to set individually. To make the process more efficient, the <b>Peak Analyzer</b> offers context menus which can allow you to set the fix, share status or bounds for multiple peak parameters simultaneously. For more details about these settings, please refer to the Origin Help File.
+</p>
+<p class="version" >Minimum Origin Version Required: OriginPro 8.0 SR6</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">What You Will Learn</span></h2>
+<ul><li>How to set share status of multiple peak parameters simultaneously.</li>
+<li>How to set upper bounds and upper bound values to multiple peak parameters simultaneously.</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<ol><li>Start a new workbook and import the file <i>&lt;Origin Program Folder&gt;\Samples\Spectroscopy\Positive &amp; Negative Peaks.dat</i>. </li>
+<li>Highlight the second column and select <b>Analysis: Peaks and Baseline: Peak Analyzer</b> to open the <b>Peak Analyzer</b> dialog. In the first page (the <b>Start</b> page), select the <b>Fit Peaks</b> radio button in the <b>Goal</b> group. Then press the <b>Next</b> button to go to the next page. </li>
+<li>In the <b>Baseline Mode</b> page, select <b>Constant</b> with the <b>Baseline Mode</b> drop-down list and choose <b>Mean</b> in the <b>Constant</b> group. Then click <b>Fit Peaks</b> in the wizard map to directly go to the <b>Fit Peaks</b> page.
+<dl><dd><a  class="image"><img alt="PA QuickSet BaselineMode.png" src="../images/Setting_the_Fix_Share_Status_or_Bounds_for_Multiple_Peak_Parameters_Simultaneously/PA_QuickSet_BaselineMode.png?v=3313" width="336"  /></a></dd></dl></li>
+<li>In the <b>Fit Peaks</b> page: 
+<ol><li>click <b>Fit Control</b> button to open the <b>Peak Fit Parameters</b> dialog. In the lower left corner of the dialog, set the fitting function to <b>Voigt</b>. </li>
+<li>Make sure the <b>Parameters</b> tab is active and then select <b>1</b> in the <b>Share</b> column of the <b>wG_1</b> row. Then right click on it and select <b>Apply Same "Share" to All wG</b>.  Then you will find that all the parameters with the <b>wG</b> prefix are shared in the same group.
+<dl><dd><a  class="image"><img alt="Tutorial PA QuickSet 2.png" src="../images/Setting_the_Fix_Share_Status_or_Bounds_for_Multiple_Peak_Parameters_Simultaneously/Tutorial_PA_QuickSet_2.png?v=7313" width="549"  /></a></dd></dl></li>
+<li>Then select <b>2</b> in the <b>Share</b> column of the <b>wL_1</b> row. Then right click on it and select <b>Apply Same "Share" to All wL</b>.  Then you will find that all the parameters with the <b>wL</b> prefix are shared in the same group. After this, the <b>Parameters</b> tab should look like below:
+<dl><dd><a  class="image"><img alt="PA QuickSet Parameters.png" src="../images/Setting_the_Fix_Share_Status_or_Bounds_for_Multiple_Peak_Parameters_Simultaneously/PA_QuickSet_Parameters.png?v=8529" width="541"  /></a></dd></dl></li>
+<li>Activate the <b>Bounds</b> tab. Double-click in the cell in the first <b>Gaussian width</b> row and the second <b>&lt; or &lt;=</b> column. And you will find  <b>&lt;=</b> is shown in this cell (the <b>&lt;</b> will be shown if you double-click in the cell for one more time). Then type <b>5</b> into the <b>Upper Bounds</b> column in the same row. </li>
+<li>Then right click on it and select <b>Apply Same "Bounds" to All wG</b>.  
+<dl><dd><a  class="image"><img alt="Tutorial PA QuickSet 4.png" src="../images/Setting_the_Fix_Share_Status_or_Bounds_for_Multiple_Peak_Parameters_Simultaneously/Tutorial_PA_QuickSet_4.png?v=8530" width="540"  /></a></dd>
+<dd>After this, the <b>Bounds</b> tab should look like: </dd>
+<dd><a  class="image"><img alt="PA QuickSet Bounds.png" src="../images/Setting_the_Fix_Share_Status_or_Bounds_for_Multiple_Peak_Parameters_Simultaneously/PA_QuickSet_Bounds.png?v=8531" width="546"  /></a></dd></dl></li></ol></li>
+<li>Click the <b>Fit Until Converged</b> button. When the fitting is done, click <b>OK</b> to close the dialog. </li>
+<li>Back in the <b>Fit Peaks</b> page, click <b>Finish</b> to complete the analysis. See the results in the source workbook and the graph report.</li></ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Setting_the_Fix_Share_Status_or_Bounds_for_Multiple_Peak_Parameters_Simultaneously/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>See <a class="external text" href="../../QuickHelp/QuickHelp/Peak_Fit_to_Converged_Result_Differs_from_Multiple_1_Iteration.html">FAQ-1012 Why Does "Fit until converged" Generate Different Results Than Multiples of "1 Iteration" When Peak Fitting?</a>
+</p></td></tr></table>
+
+

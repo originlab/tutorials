@@ -1,0 +1,57 @@
+<h1 class="firstHeading">4.4.6.1 Integrating Peaks</h1><p class='urlname' style='display: none'>Integrate-Peaks</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a></li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Integrating_Peaks/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Integrating_Peaks/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=73" target="_blank">Fitting Multiple Spectra with Peak Analyzer</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=129" target="_blank">The Quick Peaks Gadget</a></li>
+<li> <a class="external text" href="https://www.originlab.com/jwplayer.html?v=ftp/mm_tutorials/mp4/VT-3448_Peak_Deconvolution_App.mp4%7C767%7C600" target="_blank">Peak Deconvolution App</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Integrating_Peaks/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Integrating_Peaks/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/add-peak-indices-and-peak-properties-table-after-peak-deconvolution" target="_blank">Add Peak Indices and Peak Properties Table after Peak Deconvolution</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/how-do-i-perform-peak-deconvolution" target="_blank">How do I perform Peak Deconvolution?</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Use the Peak Analyzer to integrate peaks and find their areas.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 8.0 SR6</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<ul><li>How to pick an existing dataset as baseline</li>
+<li>How to subtract a baseline from the spectrum data</li>
+<li>How to calculate peak areas with the Peak Analyzer</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<ol>
+<li>Start a new workbook and import the file <i>\Samples\Spectroscopy\Peaks with Base.DAT</i>.
+<li>Highlight the second column.
+<br /><a  class="image"><img alt="Integrating Peaks 01.png" src="../images/Integrating_Peaks/Integrating_Peaks_01.png?v=29707" width="396"  /></a>
+<li>In the main menu, click <b>Analysis</b>, then point to <b>Peaks and Baseline</b>, and then click <b>Peak Analyzer</b>.
+<li>In the first page (the <b>Goal</b> page) of the <b>Peak Analyzer</b>, select <b>Integrate Peaks</b> in the <b>Goal</b> group.  Click <b>Next</b> to go to the <b>Baseline Mode</b> page.
+<br /><a  class="image"><img alt="Integrating Peaks 02.png" src="../images/Integrating_Peaks/Integrating_Peaks_02.png?v=29710" width="417"  /></a>
+<li>On the <b>Baseline Mode</b> page, select <b>Use Existing Dataset</b> from the <b>Baseline Mode</b> dropdown list.  Click the <b>triangular button</b> to the right of the Dataset dropdown menu, and then select <b>[PeakswithBase]&quot;Peaks with Base&quot;!C&quot;Base&quot;</b> on the fly-out menu. Click <b>Next</b> to go to the <b>Baseline Treatment</b> page of the Peak Analyzer.
+<br /><a  class="image"><img alt="Integrating Peaks 03.png" src="../images/Integrating_Peaks/Integrating_Peaks_03.png?v=29712" width="617"  /></a>
+<li>Select the <b>Auto Subtract Baseline</b> check box.  Click the <b>Integrate Peaks</b> page icon in the upper panel (or click <b>Next</b> twice to go to the Integrate Peaks page).  In the preview graph, you will see two numbered yellow rectangles representing two peaks found with the default settings.
+<br /><a  class="image"><img alt="Integrating Peaks 04.png" src="../images/Integrating_Peaks/Integrating_Peaks_04.png?v=29757" width="373"  /></a>
+<li>For <b>Integration Window Width</b>, select <b>Adjust on Preview Graph</b>.  On the graph, click inside the rectangle marked with <b>1</b>.  A pair of &quot;handles&quot; appears on either side of the yellow integration window.  Drag these handles to adjust the range for which integration will be performed.  Click inside the rectangle marked with <b>2</b> and adjust the integration range for the second peak.
+<br /><a  class="image"><img alt="Integrating Peaks 05.png" src="../images/Integrating_Peaks/Integrating_Peaks_05.png?v=29759" width="579"  /></a>
+<li>In the <b>Integrate Peaks</b> page of the Peak Analyzer, make sure all the desired quantities to compute have been selected in the <b>Quantities</b> group. For example, if you want to calculate the peak centroid for each peak, select the <b>Peak Centroid</b> check box. If you don't want to output the percent areas, clear the <b>Percent Area</b> check box. When you are done, click <b>Finish</b> to perform the analysis. 
+<br /><a  class="image"><img alt="Integrating Peaks 06.png" src="../images/Integrating_Peaks/Integrating_Peaks_06.png?v=29725" width="373"  /></a>
+<br />The result is in a worksheet named <i>Integration_Result1</i>.
+<br /><a  class="image"><img alt="Integrate peak result.png" src="../images/Integrating_Peaks/Integrate_peak_result.png?v=29723" width="604"  /></a>
+<br />If the Area check box was selected in the Quantities group, peak area data appears in the Area column of the result worksheet.
+</ol>
+
+
+
+
+
+

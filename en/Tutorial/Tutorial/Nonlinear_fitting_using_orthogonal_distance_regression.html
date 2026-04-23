@@ -1,0 +1,42 @@
+<h1 class="firstHeading">4.2.2.34 Nonlinear fitting using Orthogonal Distance Regression</h1><p class='urlname' style='display: none'>Nonlinear-fitting-using-orthogonal-regression</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">Example and Steps</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>When performing non-linear curve fitting to experimental data, one may encounter the need to account for errors in both independent variables and dependent variables. In Origin, you can utilize the Orthogonal Distance Regression (ODR) to fit your data with implicit or explicit functions. This tutorial will demonstrate how to perform non-linear curve fitting on data with both X errors and Y errors using ODR with a built in function.
+</p><p><br />
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 9.1</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to use Orthogonal Distance Regression to fit nonlinear data with both X and Y errors.
+</p>
+<h2><a name="Example_and_Steps"></a><span class="mw-headline">Example and Steps</span></h2>
+<ol>
+<li>Open a new workbook. Select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Curve Fitting</i> subfolder and find the file <i>ODR fitting.dat</i>. Drag-and-drop this file into the empty worksheet to import it.
+<li>Highlight column <i>XError</i> (long name) and right click to select <b>Set As: X Error</b> to set it as X error column.
+<li>Highlight column <i>YError</i> (long name) and right click to select <b>Set As: Y Error</b> to set it as Y error column.
+<li>Highlight all four columns and go to <b>Plot:Basic 2D:Scatter</b> to make a scatter plot with both X and Y error bars.
+<li>Go to <b>Analysis:Fitting:Nonlinear Curve Fit:Open dialog...</b> to open <b>NLFit</b> dialog.
+<li>On <b>Function Selection</b> page, select <b>Category</b> as <b>Polynomial</b>, <b>Function</b> as <b>Poly4</b> and <b>Iteration Algorithm</b> as <b>Orthogonal Distance Regression (Pro)</b>.
+<br />
+<a  class="image"><img alt="Tutorial Nonlinear fitting using ORD 01.png" src="../images/Nonlinear_fitting_using_orthogonal_distance_regression/Tutorial_Nonlinear_fitting_using_ORD_01.png?v=32206" width="783"  /></a>
+<br />
+<li>Since X error and Y error columns have been specified in step 3, 4 so that when <b>Orthogonal Distance Regression</b> is selected as iteration algorithm these two columns will be automatically assigned as corresponding weight for X and Y data respectively. You can go to <b>Data Selection</b> page and expand <b>x</b> and <b>y</b> nodes under <b>Input Data</b> to see.
+<a  class="image"><img alt="Tutorial Nonlinear fitting using ORD 02.png" src="../images/Nonlinear_fitting_using_orthogonal_distance_regression/Tutorial_Nonlinear_fitting_using_ORD_02.png?v=33822" width="824"  /></a>
+<li>Click <b>Fit</b> button and choose <b>No</b> radio box in the appeared <b>Reminder Message</b> dialog. The fitting results are as shown below:
+<a  class="image"><img alt="Tutorial Nonlinear fitting using ORD v03.png" src="../images/Nonlinear_fitting_using_orthogonal_distance_regression/Tutorial_Nonlinear_fitting_using_ORD_v03.png?v=40729" width="688"  /></a>
+</ol>
+<p><br />
+<br />
+You can refer to <a class="external text" href="../../UserGuide/UserGuide/Nonlinear_Implicit_Curve_Fitting_(OriginPro_Only).html#Iteration_Algorithm">this page</a> for the details of the algorithm of ODR as well as Levenberg Marquardt (L-M) algorithm. Another example of using Orthogonal Distance Regression for Implicit Functions can be found <a class="external text" href="../../UserGuide/UserGuide/Nonlinear_Implicit_Curve_Fitting_(OriginPro_Only).html#Fit_with_the_Implicit_Functions">here</a>.
+</p>
+
+
+
+
+

@@ -1,0 +1,86 @@
+<h1 class="firstHeading">1.2 Graph Templates and Batch Plotting</h1><p class='urlname' style='display: none'>GSB-template-theme-batchplotting</p>
+<p><br />
+In this lesson we will learn about graph templates, and also how to perform batch plotting. 
+</p>
+<h2><a name="Graph_Templates"></a><span class="mw-headline">Graph Templates</span></h2>
+<p>Let's start with the project file we saved in <a href="../../Tutorial/Tutorial/Create_Your_First_Graph.html" title="Tutorial:Create Your First Graph">lesson one: My First Graph</a>. Click to select the graph window.
+</p>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Graph_Templates_Themes_and_Batch_Plotting/Mini_bulb.png?v=44828" /></td><td><p>You can quickly open recently-saved project files from the <b>File: Recent Projects</b> list.
+</p></td></tr></table>
+<ol>
+<li> Click on the X axis, in the pop-up mini toolbar, click the <b>Show Opposite Axis</b> button to show the Top X axis. Do the same for Y axis to show the Right Y axis.<br />
+<a  class="image"><img alt="Graph Templates Themes and Batch Plotting TM 01.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/Graph_Templates_Themes_and_Batch_Plotting_TM_01.png?v=69093" width="406"  /></a>
+</li>
+<li> Now let's save the graph as a template. Right-click on the graph title bar, and choose <b>Save Template As...</b> from the context menu. </li>
+<li>In the dialog, set the <b>Template Name</b> as <b>My Line</b> and click <b>OK</b> to save the template.</li>
+<li> We will now generate a new column of data. Activate the worksheet, click the <b>Add New Column</b> button <a  class="image"><img alt="Button Add New Columns.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/Button_Add_New_Columns.png?v=8175" width="22"  /></a> on the <b>Standard</b> toolbar to add a new column to the rightmost. </li>
+<li>Click inside the <b>F(x)</b> cell of this new column, then enter the following:
+<pre class="lt" style="font-family:monospace;"><span style="color: #000080;">=</span>Mmovavg<span style="color: #000000;">&#40;</span>B,<span style="color: #0000dd;">2</span><span style="color: #000000;">&#41;</span></pre>
+<p><br />Note that when you enter "=" and then an expression, the possible expressions will be listed allowing you to choose to auto-complete the expression. And a message box will pop-up to show the simple description of the expression. 
+</p>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Graph_Templates_Themes_and_Batch_Plotting/Mini_bulb.png?v=44828" /></td><td><p>You can fill a column with an expression also by right-clicking the <b>F(x)</b> cell of this column and selecting <b>Open Dialog...</b> from the context menu.
+<p><a  class="image"><img alt="Template theme 02.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/400px-Template_theme_02.png?v=64572" width="400"   /></a><br />
+<br />In this dialog, use the <b>Formula: Load Samples</b> menu to view various examples on setting column values. And, the <b>Function</b> menu offers a large selection of functions. You can also search for suitable functions using the search button <a  class="image"><img alt="SCV Search button.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/SCV_Search_button.png?v=74191" width="26"  /></a>.
+</p>
+</p></td></tr></table>
+</li>
+<li>Press <b>Enter</b> key to return a dataset of modified moving averages using column B data, starting at row 2. Type <b>MMovAvg</b> into the <b>Long Name</b> cell of the column.</li>
+<li>Click on the header of column C to select the entire column. From the menu, choose <b>Plot: User Templates</b> and select the <b>My Line</b> template we created before. A new graph will be created using data from column C.  <br />
+<a  class="image"><img alt="Template theme 03.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/350px-Template_theme_03.png?v=69094" width="350"   /></a>
+</li>
+</ol>
+<h2><a name="Batch_Plotting"></a><span class="mw-headline">Batch Plotting</span></h2>
+<p>In this section, we will perform batch plotting by first creating one graph and then cloning that graph using other data.
+</p>
+<ol>
+<li>Go to <b>Project Explorer</b>. In the upper panel, right-click on the root level and choose <b>New Folder</b>.</li>
+<li>Name the folder <b>Batch Plotting</b>. Click on the empty folder to open it.</li>
+<li>Select <b>Help: Open Folder: Program Folder</b> to open the Origin program folder, find and open the <b>\Samples\Import and Export\</b> subfolder. Press the <b>Shift</b> key and choose the following three files:
+<table class="tbl">
+
+<tr>
+<td>
+<ul><li> S15-125-03.dat</li></ul>
+</td>
+<td>
+<ul><li> S21-235-07.dat</li></ul>
+</td>
+<td>
+<ul><li> S32-014-04.dat</li></ul>
+</td></tr></table>
+</li>
+<li> Drag and drop the selected files onto the Origin workspace. The selected files are imported into three new workbooks.<br />
+<a  class="image"><img alt="Template theme 05.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/400px-Template_theme_05.png?v=44943" width="400"   /></a>
+
+<table class="note">
+
+<tr>
+<td><b>Note:</b> To import data files by drag-and-drop, <a class="external text" href="../../QuickHelp/QuickHelp/Why_does_not_drag_and_drop_work.html">you must not be running Origin as an administrator</a>.
+</td></tr></table>
+</li>
+<li> Select one of the workbooks, then click on the header of column B and drag the mouse to column D, selecting all three columns. Then select the menu: <b>Plot &gt; Multi-Panel/Axis: 3Ys Y-YY</b>. 
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Graph_Templates_Themes_and_Batch_Plotting/Mini_bulb.png?v=44828" /></td><td><p>Origin will look to the left of the selection to find the X column and plot the selected data against the 1st column in the worksheet. 
+</p></td></tr></table></li>
+<li>Click on one plot, in the pop-up mini toolbar, change the plot type of selected plot to <b>Line</b> by using the <b>Change Plot to</b> drop-down list <a  class="image"><img alt="Button Change Plot to.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/Button_Change_Plot_to.png?v=74035" width="24"  /></a>.<br />
+<a  class="image"><img alt="Graph Templates Themes and Batch Plotting TM 02.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/400px-Graph_Templates_Themes_and_Batch_Plotting_TM_02.png?v=74034" width="400"   /></a><br />
+Click on the plot, in the pop-up mini toolbar, change the width to <b>3</b> by using the <b>Line Thickness</b> drop-down list <a  class="image"><img alt="Button Border Width.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/Button_Border_Width.png?v=8905" width="40"  /></a>.<br />
+<a  class="image"><img alt="Graph Templates Themes and Batch Plotting TM 03.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/400px-Graph_Templates_Themes_and_Batch_Plotting_TM_03.png?v=61467" width="400"   /></a><br />
+Then, do the same for other two plots to get the following line graph.<br />
+<a  class="image"><img alt="Graph Templates Themes and Batch Plotting TM 04.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/400px-Graph_Templates_Themes_and_Batch_Plotting_TM_04.png?v=61468" width="400"   /></a>
+</li>
+<li>Now we will clone this graph using data in the other workbooks. Right-click on the title bar of the graph and select <b>Batch Plotting...</b>, and then the <b>Select Workbook</b> dialog will be opened.</li>
+<li>In the dialog, set according to the image below. Make sure you highlight the books.
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Graph_Templates_Themes_and_Batch_Plotting/Mini_bulb.png?v=44828" /></td><td><p>You can set the <b>Match Plot Columns by</b> drop-down appropriately to find worksheets in the project that match the data configuration of the current graph. 
+</p></td></tr></table></li>
+<p><a  class="image"><img alt="BatchPlotting book.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/400px-BatchPlotting_book.png?v=74033" width="400"   /></a><br />
+</p>
+<li> Click <b>OK</b>. If prompted to rescale the axes to show all data, answer <i>Yes</i> and click OK. Two similar graphs will be created with data from the other two books.<br />
+<a  class="image"><img alt="Template theme 04.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/400px-Template_theme_04.png?v=44939" width="400"   /></a></li>
+<li>From the menu, click <b>Save Project</b> button <a  class="image"><img alt="Button Save Porject.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/Button_Save_Porject.png?v=74032" width="22"  /></a> on <b>Stardard</b> toolbar to save your modified project.</li>
+</ol>
+
+

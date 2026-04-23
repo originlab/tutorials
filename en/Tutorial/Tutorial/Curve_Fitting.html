@@ -1,0 +1,63 @@
+<h1 class="firstHeading">1.8 Curve Fitting</h1><p class='urlname' style='display: none'>GSB-curve-fitting</p>
+<p><br />
+</p><p>In this lesson we will learn how to perform linear and nonlinear regression.
+</p>
+<h3><a name="Linear_Fit_with_Outliers"></a><span class="mw-headline">Linear Fit with Outliers</span></h3>
+<ol>
+<li>Start with the project saved from the previous lesson, and add a new folder at the root level in Project Explorer named <i><b>Curve Fitting</b></i>.</li>
+<li>Import the file <i>&lt;Origin EXE Path&gt;\Samples\Curve Fitting\Outlier.dat</i> by draging-and-droping the file into an empty worksheet.</li>
+<li>Select the 2nd column and create a scatter plot.</li>
+<li> Select the menu item <b>Analysis: Fitting: Linear Fit</b>. In the dialog that opens, accept default settings and click <b>OK</b> to perform the linear fit.</li>
+<li>In the graph, click on the fitting results table and select <b>Quantities in Table</b> button <a  class="image"><img alt="Button Quantities in Table.png" src="../images/Curve_Fitting/Button_Quantities_in_Table.png?v=74119" width="24"  /></a> from pop-up mini toolbar. Remove all entries except <b>Intercept</b>, <b>Slope</b> and <b>Pearson's r</b> (use CTRL + select for multiple selections). Click <b>OK</b> and resize the results table as needed.</li>
+<li>Now click the <b>Mask Points on Active Plot</b> button <a  class="image"><img alt="Button Mask Data.png" src="../images/Curve_Fitting/Button_Mask_Data.png?v=45201" width="25"  /></a> on the left side toolbar and mask the point at the right bottom, which is distinctly<br /> separated from the rest of data points.</li>
+<li>The lock on the top left of the graph page turns yellow <a  class="image"><img alt="Yellow Lock.png" src="../images/Curve_Fitting/Yellow_Lock.png?v=45210" width="18"  /></a> indicating that the data has changed, but the fit results are in need of an update.</li> 
+<li>Hit the ESC key to switch the cursor back to pointer mode. Then click on the yellow lock, and from the fly-out menu select <b>Recalculate Mode: Auto</b>. The fit results will be updated.</li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Curve_Fitting/Mini_bulb.png?v=44828" /></td><td><p>You can update all pending operations in a project by clicking on the <b>Recalculate</b> button <a  class="image"><img alt="Button Run for All OPS.png" src="../images/Curve_Fitting/Button_Run_for_All_OPS.png?v=45217" width="25"  /></a> located in the Standard toolbar. 
+</p></td></tr></table>
+<li>Go back to the graph and use the masking tool to mask the outlier point towards the top. You will notice that the results automatically update. Your graph should now look similar to this image:
+<br /><a  class="image"><img alt="Mini tut curve fit 1.png" src="../images/Curve_Fitting/Mini_tut_curve_fit_1.png?v=45429" width="305"  /></a></li>
+</ol>
+<h3><a name="Nonlinear_Curve_Fit"></a><span class="mw-headline">Nonlinear Curve Fit</span></h3>
+<ol>
+<li>Start with a new workbook, and import the file <i>&lt;Origin EXE Path&gt;\Samples\Curve Fitting\Gaussian.dat</i>.</li>
+<li>Highlight the column named <i>Amplitude</i> and make a scatter plot.</li>
+<li>Go back to workbook, highlight column named <i>Error</i>, then select <b>Set As Y Error</b> button <a  class="image"><img alt="Button Set as Y Err.png" src="../images/Curve_Fitting/Button_Set_as_Y_Err.png?v=74121" width="24"  /></a> from pop-up mini toolbar.</li>
+<li>Place the mouse cursor close to the right edge of the highlighted column. The cursor will change to <a  class="image"><img alt="Drag Drop Cursor.png" src="../images/Curve_Fitting/Drag_Drop_Cursor.png?v=45225" width="34"  /></a>. At this point, drag and drop the column onto the graph. The data will be added as error bars on the scatter plot.</li>
+<li> Now let's fit this data. Select the menu <b>Analysis: Fitting: Nonlinear Curve Fit</b> to open then <b>NLFit</b> dialog.</li>
+<li>In the <b>Function Selection</b> page, set <b>Category</b> drop down to <b>Peak Functions</b>, and set the <b>Function</b> drop down to <b>Gauss</b>.</li>
+<li>Click <b>Fit</b> button to perform fitting and choose <b>No</b> in the prompt dialog, to keep the graph window active.
+<br /><a  class="image"><img alt="Nonlinear Curve Fit.png" src="../images/Curve_Fitting/400px-Nonlinear_Curve_Fit.png?v=70111" width="400"   /></a><br />
+</li>
+<li>Now we want to fix <i>y0</i> as <i>0</i> and update the results. Click on the green lock on the top left of the graph page, and select <b>Change Parameters</b>.</li>
+<li>The dialog re-opens with the settings that were used last time the operation was performed. Go to the <b>Parameters</b> tab, check the <b>Fixed</b> box for <i>y0</i> and enter <b>Value</b> as <i>0</i>.
+<br /><a  class="image"><img alt="GST Curve Fitting 01.png" src="../images/Curve_Fitting/GST_Curve_Fitting_01.png?v=45230" width="266"  /></a></li>
+<li>Click the <b>Fit</b> button to update the file and close the dialog. From the updated table on the graph, we can see that <img src="../images/Curve_Fitting/math-1c9d6409af68a33d266754cb5eba223d.png?v=0" title="y0 = 0 \pm 0" alt="y0 = 0 \pm 0" class="tex"/>.</li>
+</li>
+</ol>
+<h3><a name="Global_Fit_with_Parameter_Sharing"></a><span class="mw-headline">Global Fit with Parameter Sharing</span></h3>
+<ol>
+<li>Start a new workbook and import the file <i>&lt;Origin EXE Path&gt;\Samples\Curve Fitting\Exponential Decay.dat</i>.</li>
+<li>Drag and select the three Y columns and create a line plot.</li>
+<li>We want to fit all three data plots simultaneously over the x range of 0.4 s to 1.0 s. In the <b>Tools</b> toolbar docked to the left side of the interface, click the down arrow button on the right of <b>Selection on Active Plot</b> button <a  class="image"><img alt="Button Select On Active Plot.png" src="../images/Curve_Fitting/Button_Select_On_Active_Plot.png?v=45234" width="31"  /></a>. From the fly-out, choose <b>Selection on All Plots</b>. Go to the graph and drag and draw a rectangle to roughly cover the x range of 0.4 to 1.0, including all the three curves in the process.<br />
+<a  class="image"><img alt="Mini tut curve fit 2.png" src="../images/Curve_Fitting/Mini_tut_curve_fit_2.png?v=45433" width="487"  /></a></li>
+<li>Press <b>CTRL+Y</b> to quickly launch the <b>NLFit</b> dialog. Then set <b>Category</b> as <b>Exponential</b> and <b>Function</b> as <b>ExpDec1</b>.</li>
+<li>Click on <b>Data Selection</b> under the <b>Settings</b> tab, expand the <b>Input Data</b> node and you will find all three curves are added. You can expand the <b>Range<i>#</i></b> node to further adjust data ranges either by row index or by x value.</li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Curve_Fitting/Mini_bulb.png?v=44828" /></td><td><p>If no range selection has been made on the multiple plots, Origin will only pick up the active data plot from the graph layer containing multiple plots. In that case you can click the <a  class="image"><img alt="Button Right Triangle.png" src="../images/Curve_Fitting/Button_Right_Triangle.png?v=45236" width="22"  /></a> button on the right side of <b>Input Data</b> and select <b>Add all plots in active page</b>.
+</p></td></tr></table>
+<li>Change <b>Multi-Data Fit Mode</b> to <b>Global Fit</b>, switch to the <b>Parameters</b> tab and click the <b>Fit until converged</b> button <a  class="image"><img alt="Fit until converge.png" src="../images/Curve_Fitting/Fit_until_converge.png?v=2341" width="26"  /></a> to fit all three curves simultaneously, keeping the dialog open.
+</li>
+<li> You can share parameters during a global fit. Check the <b>Share</b> box for the time constant <i><b>t1</b></i>. You will notice that the time parameter for the other curves has been removed from the parameters list.
+</li>
+<li>Click the <b>Fit</b> button and select <b>Yes</b> in the prompt that appears, to switch to report sheet. If the prompt does not come up, you can click on the green lock in the graph and select <b>Go to Results</b>.
+<li>Scroll down to the <i>Summary</i> table in the report. You will find that all time constants <i><b>t1</b></i> share the same values.<br />
+<a  class="image"><img alt="GST Curve Fitting 02.png" src="../images/Curve_Fitting/GST_Curve_Fitting_02.png?v=45239" width="677"  /></a></li>
+<li>Now click on the down arrow button beside the <b>Summary</b> node and choose <b>Create Copy as New Sheet</b>. A new worksheet with the fit results will be added to the book.</li>
+<li>Select column D, E and create a column plot to display how the amplitude parameter (A1) changed across the three datasets.<br />
+<a  class="image"><img alt="Mini tut curve fit 3.png" src="../images/Curve_Fitting/Mini_tut_curve_fit_3.png?v=45434" width="298"  /></a></li>
+<p>Save the project file.
+</p>
+</ol>
+
+

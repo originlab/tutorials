@@ -1,0 +1,167 @@
+<h1 class="firstHeading">6.8.2 Contour Plots and Color Mapping</h1><p class='urlname' style='display: none'>Contour-Color-Map</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">What You Will Learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Create_Contour_Plot_from_Matrix"><span class="tocnumber">3</span> <span class="toctext">Create Contour Plot from Matrix</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Customize_Levels.2C_Lines_and_Color_Map"><span class="tocnumber">4</span> <span class="toctext">Customize Levels, Lines and Color Map</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Create_a_Contour_Plot_from_XYZ_Data"><span class="tocnumber">5</span> <span class="toctext">Create a Contour Plot from XYZ Data</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Show_the_Triangulation_Grid"><span class="tocnumber">6</span> <span class="toctext">Show the Triangulation Grid</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Apply_Custom_Boundary"><span class="tocnumber">7</span> <span class="toctext">Apply Custom Boundary</span></a></li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Contour_Plots_and_Color_Mapping/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Contour_Plots_and_Color_Mapping/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=33" target="_blank">Contour Plots and Color Mapping</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=280" target="_blank">Contour Levels</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=279" target="_blank">Plot 3D or Contour Graph from Virtual Matrix</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=190" target="_blank">4D XYZ Plot With Custom Boundary</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Contour_Plots_and_Color_Mapping/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Contour_Plots_and_Color_Mapping/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/xyz-contour-plot-with-colormap-from-second-z-and-custom-boundary" target="_blank">XYZ Contour plot with colormap from second Z and custom boundary</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/how-to-make-a-contour-plot-of-difference-of-two-contours" target="_blank">How to make a contour plot of the difference between two contours</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/plot-stacked-contour-plots-in-a-cylinder-coordinates" target="_blank">Stacked Contour Plots in Cylindrical Coordinates</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/create-cylinder-and-colored-by-a-different-data-souce" target="_blank">Contour Plot in Cylindrical Coordinates</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/faster-plotting-for-large-data-in-origin-2020" target="_blank">Faster plotting for large data in Origin 2020</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/how-to-create-a-3d-surface-plot-animation" target="_blank">How to create a 3D Surface Plot Animation</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Origin offers rectangular, polar, and ternary contour plots. For <b>rectangular contour plots</b>, the data can be either in a matrix or in a worksheet in XYZ format. <b>Polar contour plots</b> can be generated from three columns of data in a worksheet, organized either as R <img src="../images/Contour_Plots_and_Color_Mapping/math-b9dce96eb3d5a71b28f9f198c28d2d1b.png?v=0" title="\Theta" alt="\Theta" class="tex"/> Z or <img src="../images/Contour_Plots_and_Color_Mapping/math-b9dce96eb3d5a71b28f9f198c28d2d1b.png?v=0" title="\Theta" alt="\Theta" class="tex"/> R Z. <b>Ternary contour plots</b> can be generated from worksheet data organized in X Y Z Z format where the 2nd Z-column contains the 4th parameter which is the height value at a given XYZ point in the ternary space.
+</p><p>Many options are available for customizing contour plots, such as setting different major and minor contour levels, displaying contour lines only at major levels, applying color palettes, and also control for a custom boundary in the case of contour plots created directly from the worksheet.
+</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">What You Will Learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li> Set values in a Matrix and create a Contour Plot</li>
+<li> Customize levels, lines, and color mapping</li>
+<li> Extract data from contour lines</li>
+<li> Create a Contour Plot directly from XYZ data</li>
+<li> Use a Custom Boundary</li></ul>
+<h2><a name="Create_Contour_Plot_from_Matrix"></a><span class="mw-headline">Create Contour Plot from Matrix</span></h2>
+<ol>
+<li>To create a new matrix click the <b>New Matrix button</b> <a  class="image"><img alt="CreateNewMatrix.png" src="../images/Contour_Plots_and_Color_Mapping/CreateNewMatrix.png?v=5789" width="24"  /></a>. Move the cursor to the upper left corner of the matrix until the shape of the pointer changes as in the following image and click to select the entire matrix.
+
+<dl><dd><a  class="image"><img alt="SelectWholeMatrix.png" src="../images/Contour_Plots_and_Color_Mapping/SelectWholeMatrix.png?v=6415" width="356"  /></a></dd></dl>
+
+To set the dimensions, right-click and select <b>Set Matrix Dimension/Labels</b> in the context menu. On the XY Mapping tab, change setting as shown below .
+<dl><dd><a  class="image"><img alt="SetDimension.png" src="../images/Contour_Plots_and_Color_Mapping/SetDimension.png?v=33368" width="419"  /></a></dd></dl>
+<li>Input data into the matrix by highlighting it and right-clicking. Select <b>Set Matrix Values</b> in the context menu to open the <b>Set Values</b> dialog. Type <b>i*sin(x) - j*cos(y)</b> in the <b>Formula</b> edit box and click the <b>OK</b> button to generate data. The matrix should look like this:
+
+<dl><dd><a  class="image"><img alt="ShowRowColumnIndex.png" src="../images/Contour_Plots_and_Color_Mapping/ShowRowColumnIndex.png?v=8353" width="420"  /></a></dd></dl>
+
+<li>Each data point in the matrix corresponds to two different kinds of indices. One is the column and row indices. The other is the X and Y coordinates. Select <b>View: Show X/Y</b> from the main menu to see the X, Y coordinates:
+
+<dl><dd><a  class="image"><img alt="ShowXYCoordinatesNew.png" src="../images/Contour_Plots_and_Color_Mapping/ShowXYCoordinatesNew.png?v=8352" width="420"  /></a></dd></dl>
+
+<li>You can also select <b>View: Image Mode</b> to show the image form of the matrix:
+
+<dl><dd><a  class="image"><img alt="MatirxShowAsImage.png" src="../images/Contour_Plots_and_Color_Mapping/MatirxShowAsImage.png?v=8349" width="313"  /></a></dd></dl>
+
+<li>Select <b>View: Data Mode</b> to exit the image mode. Create a contour plot by activating the matrix and selecting <b>Plot &gt; Contour: Contour - Color Fill</b>.  The graph should appear as shown below:
+
+<dl><dd><a  class="image"><img alt="OriginalContourGraphNew.png" src="../images/Contour_Plots_and_Color_Mapping/OriginalContourGraphNew.png?v=8354" width="446"  /></a></dd></dl>
+</ol>
+<h2><a name="Customize_Levels.2C_Lines_and_Color_Map"></a><span class="mw-headline">Customize Levels, Lines and Color Map</span></h2>
+<p>Origin makes it easy to customize every aspect of the contour plot, including the color scale and adding labels:
+</p>
+<ol>
+<li>Active <b>Graph1</b>, and select <b>Graph: Speed Mode</b> menu to open the dialog. Set <b>Speed Mode</b> = <b>Off</b> and click <b>OK"'</b>
+
+<li>Click on the Contour plot in <b>Graph1</b>, and then click on the <b>Set Levels</b> button on the pop-up Mini Toolbars. In the <b>Set Levels</b> dialog, click the <b>Find Min/Max</b> button and set <b>Major Levels</b> to <b>8</b> and <b>Minor Levels</b> to <b>32</b>. Click the <b>OK</b> button.
+
+<dl><dd><a  class="image"><img alt="Contour Plots Mini Toolbar Set Levels.png" src="../images/Contour_Plots_and_Color_Mapping/Contour_Plots_Mini_Toolbar_Set_Levels.png?v=61447" width="733"  /></a></dd></dl>
+
+<li>Click on the Contour plot, and then click on the <b>Palettes</b> button on the pop-up Mini Toolbars. Then select the <b>Rainbow</b> palette from the drop-down.
+
+<dl><dd><a  class="image"><img alt="Contour Plots Mini Toolbar Palettes.png" src="../images/Contour_Plots_and_Color_Mapping/Contour_Plots_Mini_Toolbar_Palettes.png?v=61442" width="613"  /></a></dd></dl>
+
+<li>Click twice on a contour line (two separate single clicks) to select all lines at that level. Change the color to <b>Green</b> by using the <b>Line/Border Color</b> button <a  class="image"><img alt="Tutorial81LineAndBordColorGreen.png" src="../images/Contour_Plots_and_Color_Mapping/Tutorial81LineAndBordColorGreen.png?v=5876" width="36"  /></a> in the <b>Font</b> toolbar.  Change the width to <b>3</b> by using the <b>Line/Border Width</b> button <a  class="image"><img alt="Tutorial81WidthNew.png" src="../images/Contour_Plots_and_Color_Mapping/Tutorial81WidthNew.png?v=5895" width="42"  /></a> in the same toolbar. 
+
+<dl><dd><a  class="image"><img alt="Contour Plots Custom Contour Lines.png" src="../images/Contour_Plots_and_Color_Mapping/Contour_Plots_Custom_Contour_Lines.png?v=61444" width="438"  /></a></dd></dl>
+
+<li>Make sure only one contour line is selected (not all the contour lines at that level) and right click on the selected contour line. Select <b>Add Contour Label</b> to add a label.
+
+<dl><dd><a  class="image"><img alt="Contour Plots Add Contour Label.png" src="../images/Contour_Plots_and_Color_Mapping/Contour_Plots_Add_Contour_Label.png?v=61443" width="486"  /></a></dd></dl>
+
+<li>Click twice on a contour line to select it, right click and select <b>Extract Contour Lines</b>. Origin will extract the data for that contour line to a worksheet. The following image shows part of the data in the worksheet:
+
+<dl><dd><a  class="image"><img alt="Contour Plots Extract Contour Lines.png" src="../images/Contour_Plots_and_Color_Mapping/Contour_Plots_Extract_Contour_Lines.png?v=61438" width="382"  /></a></dd></dl>
+
+</ol>
+<p><br />
+</p>
+<h2><a name="Create_a_Contour_Plot_from_XYZ_Data"></a><span class="mw-headline">Create a Contour Plot from XYZ Data</span></h2>
+<p>Origin can create contour plots directly from XYZ data in a worksheet without the need for an intermediate matrix. Delaunay Triangulation is used to compute and draw the contour lines.
+</p>
+<ol>
+<li>Start with an empty worksheet. Select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Matrix Conversion and Gridding</i> subfolder and find the file <i>3D XYZ.dat</i>. Drag-and-drop this file into the empty worksheet to import it.<br />
+ 
+<li>Highlight the third column and right click on it to select <b>Set As: Z</b>. Select<b>Plot &gt; Contour: Contour - Color Fill</b> to create a graph as in the following image:
+
+<dl><dd><a  class="image"><img alt="Tutorial81CreateXYZContour.png" src="../images/Contour_Plots_and_Color_Mapping/Tutorial81CreateXYZContour.png?v=33376" width="452"  /></a></dd></dl>
+</ol>
+<h2><a name="Show_the_Triangulation_Grid"></a><span class="mw-headline">Show the Triangulation Grid</span></h2>
+<ol>
+<li>Show the triangulation grid that is used to create a contour plot from the data. The individual data points are located at the nodes or vertices of the grid. 
+<li>Start with an empty worksheet. Select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Matrix Conversion and Gridding</i> subfolder and find the file <i>XYZ Random Gaussian.dat</i>. Drag-and-drop this file into the empty worksheet to import it.<br />
+
+<li>Highlight the third column and right click on it to select <b>Set As: Z</b>. Select<b>Plot &gt; Contour: Contour - Color Fill</b> to create a graph.
+
+<dl><dd><a  class="image"><img alt="Tutorial81NewContourGraph.png" src="../images/Contour_Plots_and_Color_Mapping/Tutorial81NewContourGraph.png?v=33435" width="452"  /></a></dd></dl>
+
+<li>Double click on the contour plot to open the <b>Plot Details</b> dialog. On the <b>Colormap/Contours</b> tab, click on the <b>Line</b> heading to open the <b>Contour Lines</b> dialog. Deselect <b>Shown on Major Levels Only</b> and select <b>Hide All</b> to hide all the contour lines. Click <b>OK</b> to close this dialog. Then select the <b>Show Grid Lines</b> and <b>Show Data Points</b> check boxes. Click <b>OK</b> to close the <b>Plot Details</b> dialog.
+
+<dl><dd><a  class="image"><img alt="Tutorial81ShowGrideLinesNew.png" src="../images/Contour_Plots_and_Color_Mapping/Tutorial81ShowGrideLinesNew.png?v=14716" width="244"  /></a></dd></dl>
+
+The contour plot with its superimposed grid should look like this:
+
+<dl><dd><a  class="image"><img alt="Tutorial81ContourShowGridLine.png" src="../images/Contour_Plots_and_Color_Mapping/Tutorial81ContourShowGridLine.png?v=5868" width="442"  /></a></dd></dl>
+</ol>
+<h2><a name="Apply_Custom_Boundary"></a><span class="mw-headline">Apply Custom Boundary</span></h2>
+<p>A custom boundary can be applied to contour plots created directly from XYZ data where user provides the data points for the boundary in additional columns of the same worksheet. This feature is useful when there is a specific boundary data that defines the outline of an object, for example the profile of an engine where the contour shows engine temperature.
+</p>
+<ol>
+<li>
+Continue to use the worksheet and the contour plot that was created with the <b>XYZ Random Gaussian.dat</b> in the previous example. </li>
+<li>In the <b>XYZRandomGaus</b> workbook, click the <b>Add New Columns</b> button <a  class="image"><img alt="Tutorial81AddColumns.png" src="../images/Contour_Plots_and_Color_Mapping/Tutorial81AddColumns.png?v=5881" width="24"  /></a> twice to add two columns. Highlight the two columns and right click on them. Select <b>Set As: XY XY</b> from the context menu and enter four rows of data such as below:
+<table class="simple">
+
+<tr>
+<td> 12
+</td>
+<td> 10
+</td></tr>
+<tr>
+<td> 18
+</td>
+<td> 12
+</td></tr>
+<tr>
+<td> 16
+</td>
+<td> 18
+</td></tr>
+<tr>
+<td> 14
+</td>
+<td> 16
+</td></tr></table>
+</li>
+<li>Double click on the contour plot to open the <b>Plot Details</b> dialog. Select the <b>Contouring Info</b> tab in the right panel. Set the dialog as in the following image to customize the boundary for the contour plot. Remember to uncheck the<b> Show Grid Lines</b> and <b>Show Data Points</b> check boxes in the <b>Color Map/Contours</b> tab. Click <b>OK</b> to close the Plot Details dialog.</li>
+<dl><dd><a  class="image"><img alt="Tutorial81ContourCustomizeBoundary.png" src="../images/Contour_Plots_and_Color_Mapping/Tutorial81ContourCustomizeBoundary.png?v=5869" width="371"  /></a></dd></dl>
+<p>The graph should resemble the following image:
+</p>
+<dl><dd><a  class="image"><img alt="Tutorial81ContourCustomizeBoundaryPlot.png" src="../images/Contour_Plots_and_Color_Mapping/Tutorial81ContourCustomizeBoundaryPlot.png?v=6002" width="441"  /></a></dd></dl>
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Contour_Plots_and_Color_Mapping/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>Prior to Origin 2018 SR0, the application of a custom boundary sometimes generated an imperfect fill at boundary margins. This has been improved in 2018. The user can restore the previous contour-fill behavior using <a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#T">system variable @TCSM</a>.
+</p>
+<dl><dd><a  class="image"><img alt="Tri contour smooth mode.png" src="../images/Contour_Plots_and_Color_Mapping/Tri_contour_smooth_mode.png?v=53704" width="297"  /></a></dd></dl>
+</td></tr></table>
+
+

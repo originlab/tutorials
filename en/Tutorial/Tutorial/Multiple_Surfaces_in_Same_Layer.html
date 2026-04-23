@@ -1,0 +1,143 @@
+<h1 class="firstHeading">6.12.10 Multiple Surfaces in Same Layer</h1><p class='urlname' style='display: none'>Multi-3DSurf-in-Layer</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">What You Will Learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Create_a_Graph_with_Multiple_Surfaces"><span class="tocnumber">3.1</span> <span class="toctext">Create a Graph with Multiple Surfaces</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Customize_the_flattened_color_filled_contour_plot"><span class="tocnumber">3.2</span> <span class="toctext">Customize the flattened color filled contour plot</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Customize_the_color_filled_surface"><span class="tocnumber">3.3</span> <span class="toctext">Customize the color filled surface</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Customize_a_flattened_contour_line_plot"><span class="tocnumber">3.4</span> <span class="toctext">Customize a flattened contour line plot</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Customize_a_wireframe_surface"><span class="tocnumber">3.5</span> <span class="toctext">Customize a wireframe surface</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Multiple_Surfaces_in_Same_Layer/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Multiple_Surfaces_in_Same_Layer/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=114" target="_blank">Introduction to Matrix</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=81" target="_blank">3D OpenGL Graphs</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=288" target="_blank">Resize and Rotate 3D Graph</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=279" target="_blank">Plot 3D or Contour Graph from Virtual Matrix</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=26" target="_blank">Convert Worksheet to Matrix to Plot 3D Surface</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Multiple_Surfaces_in_Same_Layer/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Multiple_Surfaces_in_Same_Layer/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/matrix-surface-with-missing-values-and-special-contour-line" target="_blank">Graphing an Island as a 3D Surface Plot</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/creating-a-3d-surface-plot-with-profile-lines" target="_blank">Creating a 3D Surface Plot with Profile Lines</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>The four stacked surfaces shown below were created from the same matrix. The first layer from the top is a wire frame, the second layer is a flattened contour line plot, the third layer is a color filled surface with lighting effect, and the bottom layer is a flattened color filled contour plot.
+</p><p><a  class="image"><img alt="Multiple Surfaces in Same Layer 01.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_01.png?v=33529" width="471"  /></a>
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 2015 SR0</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">What You Will Learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li> Add multiple surface plots to a single graph layer</li>
+<li> Explore ways in which you can customize surface plots</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="Create_a_Graph_with_Multiple_Surfaces"></a><span class="mw-headline">Create a Graph with Multiple Surfaces</span></h3>
+<p>This tutorial is associated with <i>&lt;Origin EXE Folder&gt;\Samples\Tutorial Data.opj</i>.
+<br />
+Also, you can refer to this graph in Learning Center. (Select <b>Help: Learning Center</b> menu or press <b>F11</b> key , and then open <b>Graph Sample: 3D Surface</b>)
+</p>
+<ol>
+<li>Open <b>Tutorial Data.opj</b> and browse to the <b>Multiple Surfaces in Same Layer</b> folder in <b>Project Explorer</b> (PE).
+
+<li>Select the <b>MBook8</b> worksheet and highlight all that data. From the Main Menu select <b>Plot &gt; 3D&#160;: 3D Colormap Surface</b>. The graph window should appear as shown below:
+<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 02.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_02.png?v=33521" width="479"  /></a></dd></dl>
+
+<li>With the new graph window active choose <b>Graph: Layer Contents...</b>. In the <b>Layer Contents - Layer 1</b> dialog box, select the <b>MBook8</b> matrix in the left panel and click the Add plot button (the right-pointing arrow in the center of the dialog) three times. Click <b>OK</b>. This will add the same MBook8 data to the graph layer four times. Note that at this point there only a single plot, the following steps will change that.
+<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 03.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_03.png?v=18930" width="682"  /></a></dd></dl>
+
+<li>Double-click on the plot to open the <b>Plot Details - Plot Properties</b> dialog box.  Select the first plot in the left-hand panel and in the <b>Surface</b> tab check the <b>Flat</b> box, check <b>Shift in Z by percent...</b> and enter <b>0</b> in the accompanying text box.  Select the second plot, leave <b>Flat</b> unchecked, check <b>Shift in Z...</b> and enter <b>23</b>. Select the third plot, check <b>Flat</b>, check <b>Shift in Z...</b> enter <b>65</b>. Select the fourth plot, leave <b>Flat</b> unchecked, check <b>Shift in Z...</b> and enter <b>82</b>. Click <b>OK</b>.
+<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 04.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_04.png?v=18660" width="791"  /></a> </dd></dl>
+
+<li>Double-click on the Z axis, and in the <b>Axes Dialog</b> box, go to the <b>Scale</b> tab, make sure <b>Z</b> axis icon is selected and set <b>From</b> to <b>0</b> , and <b>To</b> to <b>900</b>. 
+<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 05.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_05.png?v=33522" width="406"  /></a></dd></dl>
+
+<li>Go to the <b>Tick Labels</b> tab, hold <b>Ctrl</b> key to select <b>X</b> and <b>Y</b> icons together. In the <b>Display</b> tab, for <b>Divide by Factor</b>, enter <b>100000</b>.
+<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 06.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_06.png?v=33525" width="452"  /></a></dd></dl>
+
+<li>Go to the <b>Title</b> tab, select the <b>X</b> icon and enter <b>X Coordinate/ 10\+(5) meter</b> as the text for X title. Select the <b>Y</b> icon and enter <b>Y Coordinate/ 10\+(5) meter</b> as title text.
+<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 20.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_20.png?v=33526" width="544"  /></a></dd></dl>
+
+<li>Go to the <b>Grids</b> tab, hold <b>Ctrl</b> key to select <b>X</b>, <b>Y</b> and <b>Z</b> icons together. Under <b>Major Grid Lines</b> clear the <b>Show</b> check box to hide the grid lines for all axes.
+<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 21.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_21.png?v=33527" width="426"  /></a></dd></dl>
+
+<li> Click the <b>OK</b> button. The graph should now display four separate surfaces as shown below:
+<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 22.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_22.png?v=33528" width="547"  /></a></dd></dl>
+</ol>
+<h3><a name="Customize_the_flattened_color_filled_contour_plot"></a><span class="mw-headline">Customize the flattened color filled contour plot</span></h3>
+<ol>
+<li>Double-click on "Surface 1" to open the Plot Details dialog. Select the <b>Colormap/Contours</b> tab and click on the <b>Fill...</b> header to open the <b>Fill</b> dialog. In the <b>Fill</b> dialog, select <b>Load Palette</b> then click <b>Select Palette</b> and select the <b>Reef</b> palette.  Click <b>OK</b> to close the <b>Fill</b> dialog. 
+<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 16.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_16.png?v=15134" width="712"  /></a></dd></dl>
+
+<li>In the <b>Colormap/Contours</b> tab, clear the <b>Enable Contours</b> check box.
+<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 17.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_17.png?v=15135" width="457"  /></a></dd></dl>
+
+<li>Select the <b>Mesh</b> tab and clear the <b>Enable</b> check box.
+<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 15.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_15.png?v=15132" width="538"  /></a></dd></dl>
+
+<li>Click <b>Apply</b> to update your graph.
+</ol>
+<h3><a name="Customize_the_color_filled_surface"></a><span class="mw-headline">Customize the color filled surface</span></h3>
+<ol>
+<li>Select the second data set (do not clear the accompanying check box), click the <b>Fill</b> tab, select <b>Fill piece by piece</b> and choose <b>Dark Yellow</b> from the drop-down.
+<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 13.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_13.png?v=15130" width="710"  /></a></dd></dl>
+
+<li>Select the <b>Colormap/Contours</b> tab and clear the <b>Enable Contours</b> check box.
+<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 14.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_14.png?v=17825" width="467"  /></a></dd></dl>
+
+<li>Select the <b>Mesh</b> tab and clear the <b>Enable</b> check box. 
+<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 15.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_15.png?v=15132" width="538"  /></a></dd></dl>
+
+<li>Click <b>Apply</b> to update your graph.
+</ol>
+<h3><a name="Customize_a_flattened_contour_line_plot"></a><span class="mw-headline">Customize a flattened contour line plot</span></h3>
+<ol>
+<li>Select the third data set, click the <b>Fill</b> tab and clear the <b>Enable</b> check box. 
+<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 10.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_10.png?v=18649" width="650"  /></a></dd></dl>
+
+<li>Select the <b>Colormap/Contours</b> tab click on the <b>Line...</b> header to open the <b>Contour Lines</b> dialog. In this dialog, select the <b>Link Line to Colormap Color</b> checkbox. Click <b>OK</b> to close the <b>Contour Lines</b> dialog.
+<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 11.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_11.png?v=27774" width="492"  /></a></dd></dl>
+
+<li>Select the <b>Mesh</b> tab and set the <b>Line Width</b> to <b>1</b>. In the <b>Major Minor Lines</b> section, choose the settings shown below and in the <b>Line Color</b> section select the <b>Use Colormap</b> check box .
+<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 12.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_12.png?v=17823" width="538"  /></a></dd></dl>
+<li>Click <b>Apply</b> to update your graph.
+</ol>
+<h3><a name="Customize_a_wireframe_surface"></a><span class="mw-headline">Customize a wireframe surface</span></h3>
+<ol>
+<li>Select the fourth data set, click the <b>Fill</b> tab and clear the <b>Enable</b> check box. 
+<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 07.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_07.png?v=18650" width="650"  /></a></dd></dl>
+
+<li>Select the <b>Colormap/Contours</b> tab and clear the <b>Enable Contours</b> check box.
+<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 08.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_08.png?v=17818" width="467"  /></a></dd></dl>
+
+<li>Select the <b>Mesh</b> tab and set the <b>Line Width</b> to <b>1</b>. In the <b>Major Minor Lines</b> section, choose the settings shown below and in the <b>Line Color</b> section set <b>Major Line Color</b> to <b>Black</b> .
+<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 09.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_09.png?v=17817" width="538"  /></a></dd></dl>
+
+
+<li>Select <b>Layer1</b> in the left panel. In the <b>Lighting</b> tab choose <b>Directional</b> for <b>Mode</b> and set the <b>Direction</b> group controls as shown below:
+<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 18.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_18.png?v=15395" width="776"  /></a></dd></dl>
+
+<li>Select the <b>Planes</b> tab. Specify the colors of the <b>YZ</b> and <b>ZX</b> planes as shown below (a custom color approximating "eggshell" for <b>YZ</b> and LT Gray for <b>ZX</b> works well).
+<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 19.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_19.png?v=27775" width="532"  /></a></dd></dl>
+
+<li>Click <b>OK</b> to update your graph. 
+
+<li>Rotate the 3D graph if you want to. Your graph should resemble the image shown below. 
+<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 01.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_01.png?v=33529" width="471"  /></a></dd></dl>
+</ol>
+
+
+
+
+
+

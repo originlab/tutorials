@@ -1,0 +1,63 @@
+<h1 class="firstHeading">11.3.2 Introduction to X-Functions</h1><p class='urlname' style='display: none'>Introduce-X-Function</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Create_an_X-Function"><span class="tocnumber">3</span> <span class="toctext">Create an X-Function</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Making_the_X-Function_Script_Accessible"><span class="tocnumber">4</span> <span class="toctext">Making the X-Function Script Accessible</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Using_the_X-Function_in_Dialog_Mode"><span class="tocnumber">5</span> <span class="toctext">Using the X-Function in Dialog Mode</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>X-Functions provide a structured programming environment that offers a framework for building Origin tools. Different from the simple GetN box, creating tools by using X-Functions allows the user to focus on the actual data processing code and not have to worry about codes for the user interface. 
+</p><p>Most of the dialogs/functions in Origin 8 are X-Functions, and many of them can be run from both menu and command line mode. The flexibility of running X-Functions makes them an attractive approach to customizing Origin 
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 8.0 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<ul><li>How to create an X-Function</li>
+<li>How to make the X-Function script accessible</li>
+<li>How to use the X-Funciton in dialog mode</li></ul>
+<h2><a name="Create_an_X-Function"></a><span class="mw-headline">Create an X-Function</span></h2>
+<ol><li> Select <b>Tools: X-Function Builder</b> or press <b>F10</b> to open the <b>X-Function Builder</b> dialog</li>
+<li> Set <b>Name</b>, <b>Label</b> and <b>Data</b> of the 1st variable as <b>ix</b>, <b>Source</b> and <b>&lt;active&gt;</b></li>
+<li> Right click in the list panel and select <b>Add Variables</b> from the context menu.</li>
+<li> Set <b>Name</b>, <b>Label</b>, <b>Input/Output</b> and <b>Data</b> of the 2nd variable as <b>ox</b>, <b>Destination</b>, <b>Output</b> and <b>&lt;new&gt;</b></li>
+<li> Select <b>File:Save</b> to save the x-function as vcopy
+<dl><dd><a  class="image"><img alt="Vcopy.png" src="../images/Introduction_to_X-Functions/Vcopy.png?v=7283" width="414"  /></a></dd></dl></li>
+<li> Click <a  class="image"><img alt="Button Code Builder.png" src="../images/Introduction_to_X-Functions/Button_Code_Builder.png?v=1405" width="23"  /></a> to open <b>Code Builder</b></li>
+<li> Add the following codes in the vcopy function in code builder</li></ol>
+<pre class="oc" style="font-family:monospace;"><span style="color: #0000ff;">void</span> vcopy<span style="color: #000000;">&#40;</span><span style="color: #0000ff;">const</span> vector<span style="color: #000040;">&amp;</span> ix, vector<span style="color: #000040;">&amp;</span> ox<span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>
+
+	<span style="color: #0000ff;">if</span> <span style="color: #000000;">&#40;</span><span style="color: #000040;">!</span>ix <span style="color: #000040;">||</span> <span style="color: #000040;">!</span>ox<span style="color: #000000;">&#41;</span>
+            XF_THROW<span style="color: #000000;">&#40;</span>CER_NO_DATA<span style="color: #000000;">&#41;</span>;
+
+        ox <span style="color: #000080;">=</span> ix;	
+    
+<span style="color: #000000;">&#125;</span></pre>
+<h2><a name="Making_the_X-Function_Script_Accessible"></a><span class="mw-headline">Making the X-Function Script Accessible</span></h2>
+<ol><li> Click the <b>Return to Dialog</b> button in <b>Code Builder</b></li>
+<li> In the <b>X-Function Builder</b>, save your changes <a  class="image"><img alt="Button Save Project.png" src="../images/Introduction_to_X-Functions/Button_Save_Project.png?v=1393" width="23"  /></a></li>
+<li> Open the X-Function in <b>Tree View</b> by clicking <a  class="image"><img alt="TreeView.png" src="../images/Introduction_to_X-Functions/TreeView.png?v=7288" width="23"  /></a></li>
+<li> Open the <b>Usage Context</b> branch. Make sure the <b>Labtalk</b> check box is selected
+<dl><dd> <a  class="image"><img alt="Vcopy lt.png" src="../images/Introduction_to_X-Functions/Vcopy_lt.png?v=9014" width="413"  /></a></dd></dl></li>
+<li> Save the x-function and close the <b>X-Function Dialog</b></li>
+<li> Fill column(A) with row numbersw in the active worksheet (Highlight column(A), right-click and select <b>Fill Column with: Row Numbers</b>)</li>
+<li> Type the following script in the command window, Column(A) will be copied to Column(B)
+<dl><dd> <code>vcopy col(a) col(b)</code></dd></dl></li></ol>
+<h2><a name="Using_the_X-Function_in_Dialog_Mode"></a><span class="mw-headline">Using the X-Function in Dialog Mode</span></h2>
+<ol><li> Open the <b>X-Function Dialog</b> and open VCOPY.OXF in <b>Tree View</b></li>
+<li> Open the <b>Usage Context</b> branch</li>
+<li> Open the <b>Menus</b> branch, make sure <b>Simple GetNBox</b> is selected from the <b>Auto GetN Dialog</b> list box
+<dl><dd><a  class="image"><img alt="Vcopy smpdlg.png" src="../images/Introduction_to_X-Functions/Vcopy_smpdlg.png?v=9013" width="454"  /></a></dd></dl></li>
+<li> Save the x-function and close the <b>X-Function Dialog</b></li>
+<li> Type following script in the command window, Dialog of VCOPY.OXF will be opened
+<dl><dd><code>vcopy -d</code></dd>
+<dd><a  class="image"><img alt="Vcopy dlg.png" src="../images/Introduction_to_X-Functions/Vcopy_dlg.png?v=7285" width="298"  /></a></dd></dl></li></ol>
+
+
+
+
+
+

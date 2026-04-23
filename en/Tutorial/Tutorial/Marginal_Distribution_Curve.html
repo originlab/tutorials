@@ -1,0 +1,118 @@
+<h1 class="firstHeading">6.10.3 Marginal Distribution Curve</h1><p class='urlname' style='display: none'>Marginal-Distribution-Curve</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps_to_Use_the_Filter_Lock"><span class="tocnumber">3</span> <span class="toctext">Steps to Use the Filter Lock</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Steps_to_Create_a_Plot_with_Marginal_Distribution_Curves"><span class="tocnumber">4</span> <span class="toctext">Steps to Create a Plot with Marginal Distribution Curves</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Steps_to_Plot_Grouped_Marginal_Distribution_Curves"><span class="tocnumber">5</span> <span class="toctext">Steps to Plot Grouped Marginal Distribution Curves</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Steps_to_Group_the_Plots"><span class="tocnumber">6</span> <span class="toctext">Steps to Group the Plots</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Steps_to_Further_Customization"><span class="tocnumber">7</span> <span class="toctext">Steps to Further Customization</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Steps_to_Reposition_the_Graph_Layers"><span class="tocnumber">8</span> <span class="toctext">Steps to Reposition the Graph Layers</span></a></li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Marginal_Distribution_Curve/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Marginal_Distribution_Curve/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=83" target="_blank">Data Filter</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=13" target="_blank">Adding, Grouping and Reordering Plots with Layer Contents</a> </li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=274" target="_blank">Group and Ungroup Plots in Object Manager</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Marginal_Distribution_Curve/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Marginal_Distribution_Curve/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/rug-plot" target="_blank">Rug Plot</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/how-to-create-3d-stacked-histograms-with-their-fitted-curves" target="_blank">How to create 3D Stacked Histograms with their fitted Curves</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/box-plot-with-histogram" target="_blank">Box Plot with Histogram</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Graphs in Origin are highly customizable. This tutorial will show how to customize the marginal histogram to display distribution curves instead of columns.
+</p>
+<dl><dd><a  class="image"><img alt="Marginal distribution curve 01.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_01.png?v=29295" width="532"  /></a></dd></dl>
+<p class="version" >Minimum Origin Version Required: 2015 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<ul><li>Create marginal histogram</li>
+<li>Use filter lock to create plots with different filter conditions.</li>
+<li>Group plots manually</li></ul>
+<h2><a name="Steps_to_Use_the_Filter_Lock"></a><span class="mw-headline">Steps to Use the Filter Lock</span></h2>
+<p>Origin9.1 includes a special feature that allows you to set up different data filters in a single source worksheet and to, for instance, graph data for each filter condition without destroying the previous plot. This is made possible by copying filtered data to a new sheet and placing a "filter lock" on the filtered data.
+</p>
+<ol><li>Import &lt;Origin EXE Folder&gt;\Samples\Statistics\automobile.dat to a new blank workbook.</li>
+<li>Highlight col(A), right click and select <b>Filter: Add or Remove Filter</b>.</li>
+<li>Click the filter icon in the column header and select <b>Between...</b>.</li>
+<li>In the <b>Between</b> dialog, set <b>From</b> to 1992, <b>To</b> to 1995 and press <b>OK</b>.</li>
+<li>Highlight Col("Power") and Col("Weight"), right-click and select <b>Copy Columns to...</b>.</li>
+<li>In the <b>colcopy</b> dialog, enter <b>1992~1995!&lt;new&gt;</b> in the <b>Destination Columns</b> text box as shown below and click <b>OK</b>.
+<dl><dd><a  class="image"><img alt="Marginal distribution curve 02.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_02.png?v=29296" width="397"  /></a></dd></dl></li>
+<li>In the newly created sheet, click the green lock in the Col(A) heading and select <b>Worksheet Filters: Lock</b>.
+<dl><dd><a  class="image"><img alt="Marginal distribution curve 03.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_03.png?v=29297" width="277"  /></a></dd></dl></li>
+<li>Go back to the "automobile" sheet and repeat steps 4~7 twice more with Col("Year")'s filter conditions set to 1996~1999 and 2000~2004, respectively. You need to type a sheet name in <b>colcopy</b> dialog manually each time. The filter conditions are locked with each sheet, you can push them back using <b>Worksheet Filters: Push Back</b>.</li></ol>
+<h2><a name="Steps_to_Create_a_Plot_with_Marginal_Distribution_Curves"></a><span class="mw-headline">Steps to Create a Plot with Marginal Distribution Curves</span></h2>
+<ol><li>Go to sheet "1992~1995", highlight all columns and select <b>Plot &gt; Statistical: Marginal Histograms</b>
+<dl><dd><a  class="image"><img alt="Marginal distribution curve 04.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_04.png?v=29298" width="457"  /></a></dd></dl></li>
+<li>Double-click any on any bar in the top histogram to open the <b>Plot Details</b> dialog. Go to the <b>Data</b> tab and set <b>Distribution Curve: Type</b> as <b>Normal</b>. This is for <b>Layer 2</b>.
+<dl><dd><a  class="image"><img alt="Marginal distribution curve 05.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_05.png?v=33125" width="356"  /></a></dd></dl></li>
+<li>Go to the <b>Pattern</b> tab and reproduce the settings shown below to hide bin bars.
+<dl><dd><a  class="image"><img alt="Marginal distribution curve 06.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_06.png?v=29300" width="452"  /></a></dd></dl></li>
+<li>Go to the <b>Line</b> tab and set <b>Color</b> to Black. Click <b>Apply</b> to see the changes.
+<dl><dd><a  class="image"><img alt="Marginal distribution curve 07.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_07.png?v=29301" width="452"  /></a></dd></dl></li>
+<li>Repeat steps 2~4 for Layer3 (right histogram).
+<dl><dd><a  class="image"><img alt="Marginal distribution curve 08.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_08.png?v=29302" width="446"  /></a></dd></dl></li></ol>
+<h2><a name="Steps_to_Plot_Grouped_Marginal_Distribution_Curves"></a><span class="mw-headline">Steps to Plot Grouped Marginal Distribution Curves</span></h2>
+<ol>
+<li>Select <b>Graph: Plot Setup</b> from menu.
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Marginal_Distribution_Curve/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>In order to show all three panels in <b>Plot Setup</b> dialog, please expand <b>Plot Type</b> panel by clicking <a  class="image"><img alt="Button Expand Preview Up.png" src="../images/Marginal_Distribution_Curve/Button_Expand_Preview_Up.png?v=1413" width="24"  /></a> and expand <b>Available Data</b> panel by clicking <a  class="image"><img alt="Button Expand Preview Up.png" src="../images/Marginal_Distribution_Curve/Button_Expand_Preview_Up.png?v=1413" width="24"  /></a> again.<br />
+<p>Please refer to <a class="external text" href="../../UserGuide/Category/Plot_Setup.html">Plotting using Plot Setup</a> for more information.
+</p>
+</p></td></tr></table>
+<li>Select <b>Layer 1</b> in lower panel. Set controls as shown below and click <b>Add</b>.
+<br /><a  class="image"><img alt="Marginal distribution curve 09.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_09.png?v=33127" width="681"  /></a>
+<li>Add the "Power" histogram to layer2.
+<br /><a  class="image"><img alt="Marginal distribution curve 10.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_10.png?v=29304" width="683"  /></a>
+<li>Add the "Weight" histogram to Layer3.
+<li>Repeat steps 2~4, to add 2000~2004 data to each layer. The plot list should look like the following.
+<br /><a  class="image"><img alt="Marginal distribution curve 22 Plot list.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_22_Plot_list.png?v=33136" width="677"  /></a>
+<li>Click <b>OK</b> to close the <b>Plot Setup</b> dialog box and rescale the graph.
+</ol>
+<h2><a name="Steps_to_Group_the_Plots"></a><span class="mw-headline">Steps to Group the Plots</span></h2>
+<ol><li>Right-click the layer icon <a  class="image"><img alt="Layer Icon 1st.png" src="../images/Marginal_Distribution_Curve/Layer_Icon_1st.png?v=33533" width="19"  /></a> at the upper-left corner of the graph window and select <b>Layer Contents...</b>.</li>
+<li>Highlight all three plots and click <b>Group</b>, then click <b>OK</b>.
+<dl><dd><a  class="image"><img alt="Marginal distribution curve 12.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_12.png?v=29315" width="339"  /></a></dd></dl></li>
+<li>Repeat step 2 for layer2 and layer3.
+<dl><dd><a  class="image"><img alt="Marginal distribution curve 11.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_11.png?v=33132" width="470"  /></a></dd></dl></li></ol>
+<h2><a name="Steps_to_Further_Customization"></a><span class="mw-headline">Steps to Further Customization</span></h2>
+<ol><li>Double click the bottom axis to open the <b>Axis Dialog</b> for layer 1, then go to the <b>Scale</b> tab, and set the axis scale for the <b>Horizontal</b>(X axis) and <b>Vertical</b>(Y axis) as below respectively:
+<dl><dd><a  class="image"><img alt="Marginal distribution curve 17.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_17.png?v=33130" width="434"  /></a></dd>
+<dd><a  class="image"><img alt="Marginal distribution curve 17b.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_17b.png?v=33133" width="439"  /></a></dd></dl></li>
+<li>Click <b>OK</b> to close axis dialog. Double click on the graph to open the <b>Plot Details</b> dialog box and select the first dataplot in <b>layer 1</b> to go to <b>Group</b> tab. Set <b>Symbol Type</b> as <b>None</b> and duplicate the following settings:
+<dl><dd><a  class="image"><img alt="Marginal distribution curve 13.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_13.png?v=34114" width="760"  /></a></dd></dl></li>
+<li>Click <b>Ok</b> to close the dialog. Go to the <b>Symbol</b> tab and duplicate the following settings.
+<dl><dd><a  class="image"><img alt="Marginal distribution curve 14.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_14.png?v=29308" width="563"  /></a></dd></dl></li>
+<li>Go to <b>Layer 2</b>, <b>Data</b> tab and set the bin scale to be the same as the X scale, then click <b>Apply</b>.
+<dl><dd><a  class="image"><img alt="Marginal distribution curve 19.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_19.png?v=29309" width="452"  /></a></dd></dl></li>
+<li>Go to the <b>Group</b> tab for plots in Layer 2 and set the <b>Edit Mode</b> to <b>Independent</b> so that we can individually customize the plot styles, click <b>Apply</b>.
+<dl><dd><a  class="image"><img alt="Marginal distribution curve 15.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_15.png?v=29310" width="741"  /></a></dd></dl></li>
+<li>Go to the <b>Pattern</b> tab and hide bars for all three dataplots in Layer2 as what we did in <a href="../../Tutorial/Tutorial/Marginal_Distribution_Curve.html#Steps_to_Create_a_Plot_with_Marginal_Distribution_Curves" title="Tutorial:Marginal Distribution Curve">Steps to Create a Plot with Marginal Distribution Curves, Step3</a>.</li>
+<li>Go to <b>Line</b> tab of the 1992~1995 data plot and set as below.
+<dl><dd><a  class="image"><img alt="Marginal distribution curve 16.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_16.png?v=29311" width="286"  /></a></dd></dl></li>
+<li>Repeat step 7 for the other two plots in Layer2 and set line color to the corresponding symbol color in Layer1.</li>
+<li>Repeat steps 5~8 for Layer3, click <b>OK</b> to close <b>Plot Details</b> dialog and apply settings.</li>
+<li>Activate Layer1 and select <b>Graph: Legend: Data Plots</b> from the menu.</li>
+<li>Right click the legend object and click <b>Properties...</b>, set <b>Background</b> to <b>Black Line</b>, and font Size to be <b>18</b>. Click <b>OK</b>.</li>
+<li>Use <b>Format: Page</b> to open the <b>Plot Details - Page Properties</b> dialog, go to <b>Legends/Titles</b> tab and set as the following so that worksheet name will be used as legend text:
+<dl><dd><a  class="image"><img alt="Marginal distribution curve 16b.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_16b.png?v=33138" width="374"  /></a></dd></dl></li>
+<li>Drag and move the legend to a new position as needed. At this stage the graph should look like below:
+<dl><dd><a  class="image"><img alt="Marginal distribution curve 16c.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_16c.png?v=33587" width="488"  /></a></dd></dl></li></ol>
+<h2><a name="Steps_to_Reposition_the_Graph_Layers"></a><span class="mw-headline">Steps to Reposition the Graph Layers</span></h2>
+<ol><li>Double click bottom axis to open <b>Axis Dialog</b> for layer 1, go to the <b>Grids</b> tab, hold <b>Ctrl</b> key to multiple select <b>Vertical</b> and <b>Horizontal</b> icon and set the following:
+<dl><dd><a  class="image"><img alt="Marginal distribution curve 18.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_18.png?v=33141" width="424"  /></a></dd></dl></li>
+<li>Click <b>OK</b> to close dialog. Open the <b>Axis Dialog</b> for layer 2. Go to the <b>Line and Ticks</b> tab, make sure <b>Bottom</b> axis icon is selected and clear the <b>Show Line and Ticks</b> check box to hide the bottom axis line. Do the same for the axis line of <b>Left</b> in layer 3.</li>
+<li>Open the <b>Layer Management</b> dialog box, highlight Layer2 then go to the <b>Size/Position</b> tab, select <b>Move</b> and set <b>Top</b> to be -35. Click <b>Apply</b>.
+<dl><dd><a  class="image"><img alt="Marginal distribution curve 20.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_20.png?v=29313" width="465"  /></a></dd></dl></li>
+<li>Set <b>Left</b> for Layer3 to be 102. Click <b>Apply</b>. Then click <b>OK</b> to close the dialog box.
+<dl><dd><a  class="image"><img alt="Marginal distribution curve 21.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_21.png?v=29314" width="476"  /></a></dd></dl></li></ol>
+
+

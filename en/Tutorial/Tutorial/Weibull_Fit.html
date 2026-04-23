@@ -1,0 +1,51 @@
+<h1 class="firstHeading">5.7.3 Weibull Fit</h1><p class='urlname' style='display: none'>Weibull-Fit</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Perform_Weibull_Fit"><span class="tocnumber">3</span> <span class="toctext">Perform Weibull Fit</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Interpreting_the_Result"><span class="tocnumber">4</span> <span class="toctext">Interpreting the Result</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Weibull fit is a kind of parameter method to analyze the relationship between the survival function and failure time. After analysis, we can get  parameter estimates, which can determine  survival function and hazard function of Weibull distribution .
+</p><p>Weibull distribution:
+</p><p><img src="../images/Weibull_Fit/math-87198063c34af4438e5b1f5283a57c54.png?v=0" title="f(x)=\frac{b}{a }({\frac{x-\theta }{a }})^{b-1}e^{(-\left({\frac{x-\theta }{a }}\right)^{b})}" alt="f(x)=\frac{b}{a }({\frac{x-\theta }{a }})^{b-1}e^{(-\left({\frac{x-\theta }{a }}\right)^{b})}" class="tex"/> where <img src="../images/Weibull_Fit/math-4fd5766f07334764346efe1a997cf223.png?v=0" title="x &gt;\theta" alt="x &gt;\theta" class="tex"/>, for <img src="../images/Weibull_Fit/math-e9494e3c8b6f841c5ca3d4ea415143ad.png?v=0" title="a, b &gt; 0" alt="a, b &gt; 0" class="tex"/>
+</p><p>Survival function:
+</p><p><img src="../images/Weibull_Fit/math-cd2821c3f78161db7022b9621b9ed96c.png?v=0" title="S(x)=e^{(-\left({\frac{x-\theta }{a}}\right)^{b})} " alt="S(x)=e^{(-\left({\frac{x-\theta }{a}}\right)^{b})} " class="tex"/>
+</p><p>Hazard function:
+</p><p><img src="../images/Weibull_Fit/math-6dfce5f2f045c9872f0738ee477d914e.png?v=0" title="h(x)=\frac{b}{a}\left({\frac{x-\theta }{a}}\right)^{b-1}" alt="h(x)=\frac{b}{a}\left({\frac{x-\theta }{a}}\right)^{b-1}" class="tex"/>
+</p><p>where b is the shape parameter, <img src="../images/Weibull_Fit/math-0cc175b9c0f1b6a831c399e269772661.png?v=0" title="a" alt="a" class="tex"/> is the scale parameter, and <img src="../images/Weibull_Fit/math-2554a2bb846cffd697389e5dc8912759.png?v=0" title="\theta" alt="\theta" class="tex"/> is the location parameter. In Origin, Weibull fit only discusses b and a, and assumes <img src="../images/Weibull_Fit/math-2554a2bb846cffd697389e5dc8912759.png?v=0" title="\theta" alt="\theta" class="tex"/> = 0.
+</p><p>If b &gt; 1 the hazard increases , if b = 1 the hazard is constant(exponential model), if b &lt; 1 the hazard decreases.
+</p>
+<p class="version" >Minimum Origin Version Required: OriginPro 9.1 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Perform Weibull Fit </li>
+<li>How to explain analysis report</li></ul>
+<h2><a name="Perform_Weibull_Fit"></a><span class="mw-headline">Perform Weibull Fit</span></h2>
+<ol><li>Start with an empty worksheet. Select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Statistics</i> subfolder and find the file <i>weibull fit.dat</i>. Drag-and-drop this file into the empty worksheet to import it.</li>
+<li>Select <b>Statistics: Survival Analysis: weibull fit</b> to open the dialog. </li>
+<li>Put the <b>A(X)</b> column into <b>Time Range</b>. Similarly, put the <b>B(Y)</b> column into <b>Censor Range</b>. </li>
+<li>Select <b>0</b> as the censoring value form censoring value(s) drop-down list. </li>
+<li>Expand <b>Plots</b> branch and check <b>Survival Plot</b> and <b>Hazard Plot</b>.<br /><a  class="image"><img alt="W01.png" src="../images/Weibull_Fit/W01.png?v=70446" width="491"  /></a></li>
+<li>Click the <b>OK</b> button to perform the Weibull fit analysis. </li></ol>
+<dl><dd><a  class="image"><img alt="W04.png" src="../images/Weibull_Fit/W04.png?v=63942" width="576"  /></a></dd></dl>
+<h2><a name="Interpreting_the_Result"></a><span class="mw-headline">Interpreting the Result</span></h2>
+<p>Go to worksheet <b>WeibullFit1</b> for the analysis report.
+</p>
+<ul><li>From the "Summary of Event and Censored Values" table , we can see that <b>censored</b> =19 and <b>percent Censored</b> =0.2111.</li></ul>
+<dl><dd><a  class="image"><img alt="W02.png" src="../images/Weibull_Fit/W02.png?v=52960" width="310"  /></a></dd></dl>
+<ul><li>From the "Analysis of parameter estimates", we can get all parameter estimates for Weibull distribution.<br />Intercept=<img src="../images/Weibull_Fit/math-2554a2bb846cffd697389e5dc8912759.png?v=0" title="\theta" alt="\theta" class="tex"/>=4.1959, (<img src="../images/Weibull_Fit/math-2554a2bb846cffd697389e5dc8912759.png?v=0" title="\theta" alt="\theta" class="tex"/> is the intercept of the small extreme distribution, <img src="../images/Weibull_Fit/math-2554a2bb846cffd697389e5dc8912759.png?v=0" title="\theta" alt="\theta" class="tex"/> = ln(Weibull Scale))<br />Weibull Scale= <img src="../images/Weibull_Fit/math-a2ab7d71a0f07f388ff823293c147d21.png?v=0" title="\sigma" alt="\sigma" class="tex"/> =66.4153,<br />Weibull Shape=c=2.0204,<br />Scale =0.495 (scale = 1/c). </li></ul>
+<dl><dd><a  class="image"><img alt="W03.png" src="../images/Weibull_Fit/W03.png?v=63943" width="455"  /></a></dd>
+<dd>c &gt; 1,so we can conclude that the hazard increases as time.</dd></dl>
+<ul><li>Furthermore, we can get the survival function and hazard function:</li></ul>
+<dl><dd><a  class="image"><img alt="W05.png" src="../images/Weibull_Fit/W05.png?v=51250" width="418"  /></a>  <a  class="image"><img alt="W06.png" src="../images/Weibull_Fit/W06.png?v=51253" width="388"  /></a></dd></dl>
+
+
+
+
+
+

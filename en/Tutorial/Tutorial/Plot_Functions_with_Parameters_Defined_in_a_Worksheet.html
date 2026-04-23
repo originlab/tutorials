@@ -1,0 +1,72 @@
+<h1 class="firstHeading">6.13 Plot Functions with Parameters Defined in a Worksheet</h1><p class='urlname' style='display: none'>PlotFunc-Parameter-in-Wks</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Scripts"><span class="tocnumber">4</span> <span class="toctext">Scripts</span></a></li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Plot_Functions_with_Parameters_Defined_in_a_Worksheet/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Plot_Functions_with_Parameters_Defined_in_a_Worksheet/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=82" target="_blank">New 3D Parametric Function Plot</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=51" target="_blank">Set Column Values</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=93" target="_blank">Worksheet Set Column Values to Reference Other Info</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=172" target="_blank">Use Spreadsheet Notation to Set Column Values</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Plot_Functions_with_Parameters_Defined_in_a_Worksheet/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Plot_Functions_with_Parameters_Defined_in_a_Worksheet/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/using-labtalk-to-generate-and-plot-fibonacci-sequences" target="_blank">Using LabTalk to generate and plot Fibonacci sequences</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/animating-2d-plots-using-labtalk-and-a-series-of-coefficients" target="_blank">Animating 2D Plots Using Labtalk and a Series of Coefficients</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/create-cylinder-and-colored-by-a-different-data-souce" target="_blank">Contour Plot on Cylindrical Coordinate</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Origin can plot functions.  It also can plot functions with parameters defined in a worksheet.  The function graph can be updated automatically as the parameters in the worksheet change.  
+</p>
+<dl><dd><dl><dd><a  class="image"><img alt="Plot Functions with Parameters-6.png" src="../images/Plot_Functions_with_Parameters_Defined_in_a_Worksheet/Plot_Functions_with_Parameters-6.png?v=63301" width="396"  /></a></dd></dl></dd></dl>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<dl><dd><ul><li>Define variables from a worksheet in the <b>Set Values</b> dialog box.</li>
+<li>Plot a function graph with parameters.</li>
+<li>Update a graph automatically when parameters are changed.</li></ul></dd></dl>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<p>Let us use this function as an example:
+<code>y=p0+p1*x+p2*x^2</code>
+</p>
+<ol><li> Set up a worksheet with three parameters p0, p1, p2 stored in Column A, Column B, Column C as shown below. 
+<dl><dd><a  class="image"><img alt="Plot Functions with Parameters-1.png" src="../images/Plot_Functions_with_Parameters_Defined_in_a_Worksheet/Plot_Functions_with_Parameters-1.png?v=63296" width="427"  /></a></dd></dl></li>
+<li>Click on the <b>Add New Columns</b> button <a  class="image"><img alt="Button Add New Columns.png" src="../images/Plot_Functions_with_Parameters_Defined_in_a_Worksheet/Button_Add_New_Columns.png?v=8175" width="22"  /></a> on the <b>Standard</b> toolbar to add a new column to the worksheet.
+<dl><dd><a  class="image"><img alt="Plot Functions with Parameters-2.png" src="../images/Plot_Functions_with_Parameters_Defined_in_a_Worksheet/Plot_Functions_with_Parameters-2.png?v=63297" width="427"  /></a></dd></dl></li>
+<li>Highlight Column D and then select <b>Column: Set Column Values</b>.  Select <b>Auto</b> from the <b>Recalculate</b> drop-down.  Type the <a href="#Scripts">script</a> shown below to define the parameters in the <b>Before Formula Scripts</b> edit box. Click the <b>OK</b> button to close the dialog box.
+<dl><dd><a  class="image"><img alt="Plot Functions with Parameters-3.png" src="../images/Plot_Functions_with_Parameters_Defined_in_a_Worksheet/Plot_Functions_with_Parameters-3.png?v=63298" width="531"  /></a></dd>
+<dd>Note that there is a green lock icon <a  class="image"><img alt="Icon Recalculate Auto.png" src="../images/Plot_Functions_with_Parameters_Defined_in_a_Worksheet/Icon_Recalculate_Auto.png?v=1698" width="14"  /></a> on the top right corner of Column D which indicates that the Recalculate Mode is Auto.</dd>
+<dd><a  class="image"><img alt="Plot Functions with Parameters-4.png" src="../images/Plot_Functions_with_Parameters_Defined_in_a_Worksheet/Plot_Functions_with_Parameters-4.png?v=63299" width="427"  /></a></dd></dl></li>
+<li> Select <b>Plot&gt;Function Plot: New 2D Plot</b> menu to open the <b>Create 2D Function Plot</b> dialog.</li>
+<li>In this dialog, set the options as follows and click the <b>OK</b> button to close the dialog box.
+<dl><dd><a  class="image"><img alt="Plot Functions with Parameters-5.png" src="../images/Plot_Functions_with_Parameters_Defined_in_a_Worksheet/Plot_Functions_with_Parameters-5.png?v=63300" width="455"  /></a></dd>
+<dd>Then you get this function plot.</dd>
+<dd><a  class="image"><img alt="Plot Functions with Parameters-6.png" src="../images/Plot_Functions_with_Parameters_Defined_in_a_Worksheet/Plot_Functions_with_Parameters-6.png?v=63301" width="396"  /></a></dd></dl></li>
+<li>The function graph can be updated automatically when the parameters in the first row of the worksheet change. Change the value in the first row of Column 2 from <b>2</b> to <b>5</b>. Click outside this cell to finish editing.
+<dl><dd><a  class="image"><img alt="Plot Functions with Parameters-7.png" src="../images/Plot_Functions_with_Parameters_Defined_in_a_Worksheet/Plot_Functions_with_Parameters-7.png?v=63302" width="427"  /></a></dd>
+<dd>The function graph updates to reflect this change.</dd>
+<dd><a  class="image"><img alt="Plot Functions with Parameters-8.png" src="../images/Plot_Functions_with_Parameters_Defined_in_a_Worksheet/Plot_Functions_with_Parameters-8.png?v=63303" width="396"  /></a></dd></dl></li></ol>
+<h2><a name="Scripts"></a><span class="mw-headline">Scripts</span></h2>
+<p>The script used in the <b>Before Formula Scripts</b> edit box of the <b>Set Values</b> dialog box is:
+</p>
+<pre class="lt" style="font-family:monospace;">         p0<span style="color: #000080;">=</span>col<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">1</span><span style="color: #000000;">&#41;</span><span style="color: #000000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #000000;">&#93;</span>;  <span style="color: #008000;">//Specify Column A for p0.</span>
+         p1<span style="color: #000080;">=</span>col<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">2</span><span style="color: #000000;">&#41;</span><span style="color: #000000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #000000;">&#93;</span>;  <span style="color: #008000;">//Specify Column B for p1.</span>
+         p2<span style="color: #000080;">=</span>col<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">3</span><span style="color: #000000;">&#41;</span><span style="color: #000000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #000000;">&#93;</span>;  <span style="color: #008000;">//Specify Column C for p2.</span></pre>
+<p>The function in the <b>F1(x)</b> edit box of the <b>Plot Details</b> dialog box is as follows:
+</p>
+<pre class="lt" style="font-family:monospace;">        p0<span style="color: #000080;">+</span>p1<span style="color: #000080;">*</span>x<span style="color: #000080;">+</span>p2<span style="color: #000080;">*</span>x<span style="color: #000080;">^</span><span style="color: #0000dd;">2</span></pre>
+
+
+
+
+
+

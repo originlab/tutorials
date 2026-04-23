@@ -1,0 +1,61 @@
+<h1 class="firstHeading">4.1.1 Global Vertical Cursor</h1><p class='urlname' style='display: none'>Global-Vertical-Cursor</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">What You Will Learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Using_Vertical_Cursor_on_a_Stacking_Graph"><span class="tocnumber">3.1</span> <span class="toctext">Using Vertical Cursor on a Stacking Graph</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Using_Vertical_Cursor_on_a_multi-panel_graph_with_side-by-side_layers"><span class="tocnumber">3.2</span> <span class="toctext">Using Vertical Cursor on a multi-panel graph with side-by-side layers</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>The Vertical Cursor gadget can be used to read X and Y coordinate values for data points in stack/multi-panel plots or contained in multiple graphs simultaneously.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 2021</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">What You Will Learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Use the vertical cursor gadget to read XY coordinates for multiple graphs and output the results.</li>
+<li>Link/Unlink graphs when using the vertical cursor gadget.</li>
+<li>Move or relocate the cursor line among the linked graph windows.</li>
+<li>Add cursors in linked layers of the multi-panel graph which has multiple panels side-by-side</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="Using_Vertical_Cursor_on_a_Stacking_Graph"></a><span class="mw-headline">Using Vertical Cursor on a Stacking Graph</span></h3>
+<ol><li>New a project with an empty workbook. select <b>Data &gt; Import From File: Multiple ASCII...</b> to open ASCII box, browse to <i>&lt;Origin Folder&gt;/Samples/Curve Fitting</i> and add the files<b>Step01.dat</b>, <b>Step02.dat</b> and <b>Step03.dat</b>. Click OK button to open the <b>ASCII:impASC</b> dialog.</li>
+<li> In the dialog, select <b>Start New Books</b> for <b>Import Mode</b>, <b>Column Designation</b> = <b>(XY)</b> and <b>From</b> = <i>2</i> for <b>Partial Columns</b> as below. All these three files selected will be imported into one workbook.
+<dl><dd><a  class="image"><img alt="Tutorial Vertical Cursor 00.png" src="../images/Global_Vertical_Cursor/Tutorial_Vertical_Cursor_00.png?v=63598" width="664"  /></a></dd></dl></li>
+<li> Activate the workbook with long name <b>Step01.dat</b> and highlight the whole worksheet. Select <b>Plot &gt; Multi-Panel/Axis: Stack</b> from the menu item to open the <b>Plotstack</b> dialog. Under the <b>Plot Assignment</b> branch, enter <b>3</b> for <b>Number of Plots in Each Layer</b>, accept other settings as default and click <b>OK</b> to create a stacked graph.
+<dl><dd><a  class="image"><img alt="Tutorial Vertical Cursor 00a.png" src="../images/Global_Vertical_Cursor/Tutorial_Vertical_Cursor_00a.png?v=63600" width="554"  /></a></dd></dl></li>
+<li>Similarly create two other stacked graphs for the other two workbooks. So now we have Graph1, Graph2, and Graph3 for workbooks Step01, Step02 and Step03 respectively.</li>
+<li>Activate Graph1 and choose <b>Gadgets:Vertical Cursor</b> to open the <b>Vertical Cursor</b> dialog. Right-click on the column header to check Book to add one more column "Book" in the data points table.
+<dl><dd><a  class="image"><img alt="Tutorial Vertical Cursor 01.png" src="../images/Global_Vertical_Cursor/750px-Tutorial_Vertical_Cursor_01.png?v=63601" width="750"   /></a></dd></dl></li>
+<li>Click the <b>Link/Unlink Graphs</b> button <a  class="image"><img alt="Button Link Unlink Graphs.png" src="../images/Global_Vertical_Cursor/Button_Link_Unlink_Graphs.png?v=15027" width="26"  /></a> in control panel and open the <b>Graph Browser</b>, you can choose whether to link or unlink a graph to the current active graph. </li>
+<li>Select Graph2 and Graph3 in the left panel and click the <a  class="image"><img alt="Button Expand Panel Right.png" src="../images/Global_Vertical_Cursor/Button_Expand_Panel_Right.png?v=4759" width="20"  /></a> button to add the two graphs as linked graphs to Graph1. Click <b>OK</b>.
+<dl><dd><a  class="image"><img alt="Tutorial Vertical Cursor 02.png" src="../images/Global_Vertical_Cursor/Tutorial_Vertical_Cursor_02.png?v=63602" width="586"  /></a></dd>
+<dd><b>Note:</b>You can also unlink graphs in this dialog by using the <a  class="image"><img alt="Button Expand Panel Left.png" src="../images/Global_Vertical_Cursor/Button_Expand_Panel_Left.png?v=4758" width="20"  /></a> button to remove a graph from the right panel. <br />On the upper right-hand corner of each linked graph, a <a  class="image"><img alt="Icon Linked Graphs.png" src="../images/Global_Vertical_Cursor/Icon_Linked_Graphs.png?v=15030" width="19"  /></a> icon appears to indicate that it belongs to a group of linked graphs.</dd></dl></li>
+<li>Make sure Graph1 is active and the <b>Vertical Cursor</b> dialog is open, the asterisk before the graph name marks the current active plot on which the cursor is on. Enter <b>25</b> as the X value, uncheck the box before <b>Snap Cursor to Nearest X</b> and click the <b>Move Cursor to X</b> button <a  class="image"><img alt="Button Move Cursor to X.png" src="../images/Global_Vertical_Cursor/Button_Move_Cursor_to_X.png?v=15031" width="26"  /></a> to read the data points in each plot when X=25.
+<dl><dd><a  class="image"><img alt="Tutorial Vertical Cursor 03.png" src="../images/Global_Vertical_Cursor/Tutorial_Vertical_Cursor_03.png?v=63603" width="649"  /></a></dd></dl></li>
+<li>Click the <b>Add Tag and Label</b> button <a  class="image"><img alt="Button Add Tag and Label.png" src="../images/Global_Vertical_Cursor/Button_Add_Tag_and_Label.png?v=15033" width="26"  /></a> to add tags at X=25 for all linked graphs.</li>
+<li>Click the <b>Output Report</b> button <a  class="image"><img alt="Button Output Report.png" src="../images/Global_Vertical_Cursor/Button_Output_Report.png?v=15034" width="26"  /></a>, then click the <b>Go to Report Worksheet</b> button <a  class="image"><img alt="Button Go to Report Sheet.png" src="../images/Global_Vertical_Cursor/Button_Go_to_Report_Sheet.png?v=15035" width="26"  /></a> to generate and open the results worksheet. The XY coordinates of all plots in linked graphs are listed in the report sheet. Each time you click the <b>Output Report</b> button <a  class="image"><img alt="Button Output Report.png" src="../images/Global_Vertical_Cursor/Button_Output_Report.png?v=15034" width="26"  /></a>, a new row of data will be output to the result sheet.</li>
+<li>Activate Graph2, click on the <a  class="image"><img alt="Icon Linked Graphs.png" src="../images/Global_Vertical_Cursor/Icon_Linked_Graphs.png?v=15030" width="19"  /></a> icon and select <b>Move Cursor Line here</b>, the cursor line will be moved to Graph2.</li>
+<li>In the <b>Vertical Cursor</b> dialog, double click any row of <b>Graph3</b> to activate the <b>Graph3</b> window. Click on the previously added tag and press the <b>Delete</b> key to delete it. The tags in all the linked Graph windows are deleted. To go back to Graph2 where the cursor is currently on, click on the <a  class="image"><img alt="Icon Linked Graphs.png" src="../images/Global_Vertical_Cursor/Icon_Linked_Graphs.png?v=15030" width="19"  /></a> icon and select <b>Go to Cursor Line Window</b>.</li></ol>
+<h3><a name="Using_Vertical_Cursor_on_a_multi-panel_graph_with_side-by-side_layers"></a><span class="mw-headline">Using Vertical Cursor on a multi-panel graph with side-by-side layers</span></h3>
+<ol><li>New a workbook, select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Graphing</i> subfolder and find the file <i>Waterfall.dat</i>. Drag-and-drop this file into the empty worksheet to import it.</li>
+<li>Right-click on the first row to select <b>Set As Lone Name</b>. Highlight col(B)~col(E) to select <b>Plot &gt; Multi-Panel/Axis&#160;: 4 Panel</b> to plot the graph with 4 panels, 3 rows and 2 columns  . </li>
+<li> Click the first panel and select <b>Gadgets: Vertical Cursor</b>. The cursor will be added on the first column of panels, and only the data points in first and third panel will show up in the list.
+<dl><dd><a  class="image"><img alt="Tutorial Vertical Cursor Side-by-Side 01.png" src="../images/Global_Vertical_Cursor/Tutorial_Vertical_Cursor_Side-by-Side_01.png?v=63654" width="649"  /></a></dd></dl></li>
+<li>We are going to read the point <i>X=1113.31</i> in all layers. Click the <b>Add Linked Cursor for Each Layer</b> button <a  class="image"><img alt="Button Add Linked Cursor.png" src="../images/Global_Vertical_Cursor/Button_Add_Linked_Cursor.png?v=63657" width="30"  /></a> to add a cursor in all layers which are linked together(Once you clicked this button, it will turn to be its paired button <a  class="image"><img alt="Button Remove Linked Cursor.png" src="../images/Global_Vertical_Cursor/Button_Remove_Linked_Cursor.png?v=63660" width="30"  /></a> which can be used to remove the cursors in linked layers and go back to the initial status). And, enter <i>1113.31</i> in the <b>X=</b> box and click <b>Move Cursor to X</b> button <a  class="image"><img alt="Button Move Cursor to X.png" src="../images/Global_Vertical_Cursor/Button_Move_Cursor_to_X.png?v=15031" width="26"  /></a> to move all cursors to this X value.
+<dl><dd><a  class="image"><img alt="Tutorial Vertical Cursor Side-by-Side 02.png" src="../images/Global_Vertical_Cursor/Tutorial_Vertical_Cursor_Side-by-Side_02.png?v=63655" width="649"  /></a></dd></dl></li>
+<li>Click <b>Add Tag and Label</b> button <a  class="image"><img alt="Button Add Tag and Label.png" src="../images/Global_Vertical_Cursor/Button_Add_Tag_and_Label.png?v=15033" width="26"  /></a> to tag this position in all layers. Click on the cursor in Layer1, drag-and-drop it to the other peaks to read the data points in all layers.
+<dl><dd><a  class="image"><img alt="Tutorial Vertical Cursor Side-by-Side 03.png" src="../images/Global_Vertical_Cursor/Tutorial_Vertical_Cursor_Side-by-Side_03.png?v=63656" width="648"  /></a></dd></dl></li>
+<li>You can click <b>Output Report</b> button <a  class="image"><img alt="Button Output Report.png" src="../images/Global_Vertical_Cursor/Button_Output_Report.png?v=15034" width="26"  /></a> at any time to output the interested data points to the result sheet row by row.</li></ol>
+
+
+
+
+
+

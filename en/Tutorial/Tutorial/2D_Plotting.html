@@ -1,0 +1,79 @@
+<h1 class="firstHeading">6.1.3 Basic 2D Plotting</h1><p class='urlname' style='display: none'>2DPlotting</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Simple_row_statistics"><span class="tocnumber">3.1</span> <span class="toctext">Simple row statistics</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Create_a_graph_and_save_as_a_template"><span class="tocnumber">3.2</span> <span class="toctext">Create a graph and save as a template</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Plot_into_graph_template_with_the_Plot_Setup_dialog"><span class="tocnumber">3.3</span> <span class="toctext">Plot into graph template with the Plot Setup dialog</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/2D_Plotting/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/2D_Plotting/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=1" target="_blank">Creating a Graph</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=49" target="_blank">Graph Templates</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/2D_Plotting/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/2D_Plotting/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/statistics-on-rows" target="_blank">Statistics on Rows</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/quick-graphs-with-graph-maker-app" target="_blank">Quick Graphs with Graph Maker App</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Origin's 2D plots are highly customizable. You can easily modify plot attributes, arrange layers, and select different datasets for each layer. This tutorial will teach you the basic plotting skills.
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to: 
+</p>
+<ul><li>Perform simple row statistics</li>
+<li>Create a graph and save as a template</li>
+<li>Plot into your template</li>
+<li>Use the Plot Setup dialog</li></ul>
+<p><br />
+</p>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="Simple_row_statistics"></a><span class="mw-headline">Simple row statistics</span></h3>
+<ol><li>Start with an empty worksheet. Select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Curve Fitting</i> subfolder and find the file <i>Dose Response - No Inhibitor.dat</i>. Drag-and-drop this file into the empty worksheet to import it.<br /></li>
+<li>Highlight columns 2 through 4 and select <b>Statistics: Descriptive Statistics: Statistics on Rows</b>. Make sure to check the <b>Mean</b> and <b>Standard Deviation</b> check boxes on the <i>Quantities</i> tab to output these results.<br /><br /><a  class="image"><img alt="Tutorial 2D Plot 001New.png" src="../images/2D_Plotting/Tutorial_2D_Plot_001New.png?v=43278" width="285"  /></a><br /><br /></li>
+<li>After you click the <b>OK</b> button, two new columns, <b>Mean(Y)</b> and <b>SD(yErr)</b> are added to the source worksheet. Here, <b>yErr</b> means that this is an error column and the data in this column can be used to plot error bars.<br /><br /><b>Note:</b>  To simplify plotting, each column in an Origin worksheet has a plotting designation.  To change a column's plotting designation, select the column and click on the <b>Column</b> menu.  Alternatively, right-click on the column and choose <b>Set As</b> from the shortcut menu.<br /><br /></li></ol>
+<h3><a name="Create_a_graph_and_save_as_a_template"></a><span class="mw-headline">Create a graph and save as a template</span></h3>
+<ol>
+<li>Highlight the Mean(Y) and SD(yEr-) columns and select <b>Plot &gt; Basic 2D: Line+Symbol</b> to create the plot:
+<br /><a  class="image"><img alt="Tutorial 2D Plot 002.png" src="../images/2D_Plotting/Tutorial_2D_Plot_002.png?v=63374" width="408"  /></a><br /><br />
+
+<li>Click on the X Axis, and select the <b>Axis Scale</b> button in the Mini Toolbar. Then in the  <b>Axis Scale</b> dialog, check the <b>Log</b> checkbox and click <b>OK</b> button.
+<br /><a  class="image"><img alt="Tutorial 2D Plot 003.png" src="../images/2D_Plotting/Tutorial_2D_Plot_003.png?v=63376" width="749"  /></a> <br /><br />
+
+<li>Select <b>Graph: Rescale to Show All</b> from the menu, which will rescale the X and Y axes of the graph.&#160;:
+<br /><a  class="image"><img alt="Tutorial 2D Plot 004.png" src="../images/2D_Plotting/Tutorial_2D_Plot_004.png?v=63375" width="408"  /></a><br /><br />
+
+<li>To edit the curve, double-click on any plot symbol to bring up the <b>Plot Details</b> dialog.  Alternatively, right-click inside the graph and choose <b>Plot Details</b> from the shortcut menu.  On the <b>Line</b> tab of right panel, select <b>B-Spline</b> as the connecting line type to get a smoother curve.
+<br /><a  class="image"><img alt="Tutorial 2D Plot 005.png" src="../images/2D_Plotting/Tutorial_2D_Plot_005.png?v=8485" width="344"  /></a>
+<br /><br /> Click the <b>OK</b> button to close the dialog. <br /><br />
+
+<li>When all modifications have been made and the graph looks the way you want it, you can use this graph to create a template, to be used in the future with similar data. Select <b>File: Save Template as</b> to open the <i>Save Template</i> dialog. In the <b>Category</b> drop-down list, select <i>UserDefined</i>; and then type a proper <b>Template Name</b>. In this example, we use <i>MyTemplate</i>. Click <b>OK</b> to save the template.
+<br /><a  class="image"><img alt="Tutorial 2D Plot 006.png" src="../images/2D_Plotting/Tutorial_2D_Plot_006.png?v=63377" width="584"  /></a>
+</ol>
+<h3><a name="Plot_into_graph_template_with_the_Plot_Setup_dialog"></a><span class="mw-headline">Plot into graph template with the Plot Setup dialog</span></h3>
+<ol>
+<li>Click the <b>New Workbook</b> <a  class="image"><img alt="Tutorial 2D Plot 007.png" src="../images/2D_Plotting/Tutorial_2D_Plot_007.png?v=312" width="23"  /></a> button and import the file \<i>Samples</i>\<i>Curve Fitting</i>\<i>Dose Response - Inhibitor.dat</i> as above. Perform <b>Statistics on Rows</b>, calculating the Mean and SD of this worksheet as you did above, following the same steps.<br /><br />
+
+<li>Highlight column <b>Mean(Y) and SD(yErr)</b> in this sheet. Select <b>Plot&#160;: My Template&#160;:MyTemplate</b> to choose the user defined template to create a new plot.
+<br /><br /><a  class="image"><img alt="Tutorial 2D Plot 009.png" src="../images/2D_Plotting/Tutorial_2D_Plot_009.png?v=63378" width="412"  /></a>
+<br /><br />And then you will have:
+<br /><br /><a  class="image"><img alt="Tutorial 2D Plot 020.png" src="../images/2D_Plotting/Tutorial_2D_Plot_020.png?v=63379" width="517"  /></a><br /><br />
+
+</ol>
+
+
+
+
+
+

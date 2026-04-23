@@ -1,0 +1,100 @@
+<h1 class="firstHeading">8.1 Data Reader Tool</h1><p class='urlname' style='display: none'>DataReader</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Tutorial_1:_Basic_Usage"><span class="tocnumber">3</span> <span class="toctext">Tutorial 1: Basic Usage</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Tutorial_2:_Custom_Numeric_Display_Format"><span class="tocnumber">4</span> <span class="toctext">Tutorial 2: Custom Numeric Display Format</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>The <b>Data Reader</b> <a  class="image"><img alt="Button Data Reader.png" src="../images/Data_Reader_Tool/Button_Data_Reader.png?v=1579" width="22"  /></a> is an exploratory tool that uses the <b>Data Info</b> window to display information about a selected data point in a graph. Essentially anything that is contained in the worksheet, in association with a plotted data point, can be shown in the <b>Data Info</b> window. This includes coordinate values, column headers, or even cell-embedded images. In addition, you can customize the window to display numeric values using a custom format (e.g. date-time, Lat/Lon, etc.), or to change window background color, add a window title, etc.
+</p>
+<dl><dd><dl><dd><a  class="image"><img alt="Data Reader Tutorial Intro Fig.png" src="../images/Data_Reader_Tool/Data_Reader_Tutorial_Intro_Fig.png?v=57904" width="492"  /></a></dd></dl></dd></dl>
+<p class="version" >Minimum Origin Version Required: Origin 2019</p>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Data_Reader_Tool/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>Beginning with Origin 2019, you can read data point coordinates in a 2D graph by hovering on the data point. This <b>Data Point Tooltip</b> is highly customizable, mimicking <b>Data Info</b> window functionality. For more information, see <a class="external text" href="../../GettingStarted/OriginLab/Graphical_Exploration_of_Data.html#Data_Point_Tooltips">Data Point Tooltips</a>.
+</p></td></tr></table>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will demonstrate how to:
+</p>
+<ul><li> Use the <b>Data Info</b> window to view information for a selected data point in the graph.</li>
+<li> Customize <b>Data Info</b> window content, to include the display of images (Tutorial 1).</li>
+<li> Customize <b>Data Info</b> window content, to display numeric data using custom formatting (Tutorial 2).</li></ul>
+<h2><a name="Tutorial_1:_Basic_Usage"></a><span class="mw-headline">Tutorial 1: Basic Usage</span></h2>
+<ol>
+<li>
+Select <b>File: Open...</b> to open the <i>Alkanes.opj</i> in the <i>&lt;Origin Folder&gt;\Samples\Data Exploration</i> folder.
+
+<li>Highlight Column D in Book1 Sheet1, and select <b>Plot &gt; 2D: Scatter: Scatter</b> to create a new graph.
+
+<li>Click the <b>Data Reader</b> <a  class="image"><img alt="Button Data Reader.png" src="../images/Data_Reader_Tool/Button_Data_Reader.png?v=1579" width="22"  /></a> button from the <b>Tools</b> toolbar, and click on the <i>Isobutane</i> data point on the new graph. 
+<br />The <b>Data Info</b> window showing the X and Y coordinates of the data point selected will appear.
+<br /> <a  class="image"><img alt="Data Reader 01.png" src="../images/Data_Reader_Tool/Data_Reader_01.png?v=44532" width="363"  /></a>
+
+<li>Right-click on the <b>Data Info</b> window, and select <b>Preferences</b> from the context menu to open the <b>Data Info Report Settings</b> dialog.
+<br /> <a  class="image"><img alt="Data Reader 02.png" src="../images/Data_Reader_Tool/Data_Reader_02.png?v=44533" width="363"  /></a>
+
+<li>To remove the book and sheet name from the <b>Data Info</b> window, set the <b>Report Title</b> drop-down to <b>None</b>. 
+<br /> <a  class="image"><img alt="Data Reader 04.png" src="../images/Data_Reader_Tool/Data_Reader_04.png?v=57872" width="337"  /></a>
+
+<li>In the center portion of the dialog, remove the X coordinate by clicking on <i>&lt;X&gt;</i>, then clicking the Remove button. Do the same for the Y coordinate (<i>&lt;Y&gt;</i>). 
+<br /> <a  class="image"><img alt="Data Reader 05.png" src="../images/Data_Reader_Tool/Data_Reader_05.png?v=57873" width="373"  /></a>
+
+<li>In the upper-left corner of the dialog, click the <b>X Data</b> <a  class="image"><img alt="Button Source X Data.png" src="../images/Data_Reader_Tool/Button_Source_X_Data.png?v=57883" width="51"  /></a> button, then the <b>Y Data</b> <a  class="image"><img alt="Button Source Y Data.png" src="../images/Data_Reader_Tool/Button_Source_Y_Data.png?v=57884" width="51"  /></a> button to add the X and Y data source. Note the use of dataset <b>Long Names</b> in the <b>Preview</b>.
+
+<li>All source worksheet columns that can be added to the <b>Data Info</b> window are listed in the left panel. Highlight the <b>B</b>, <b>C</b>, <b>E</b>, <b>G</b>, and <b>H</b> columns and add them to the center panel by clicking the <b>Select</b> button. Note that at this point, the <b>Preview</b> shows that our window has two columns.
+<br /> <a  class="image"><img alt="Data Reader 06.png" src="../images/Data_Reader_Tool/Data_Reader_06.png?v=57876" width="799"  /></a>
+
+<li>Click the <b>Add Column</b> button to add a third column to our table. Click the pencil icon above the third column and in the <b>Column Settings</b> dialog, set <b>Type</b> = <i>Single Cell</i> and <b>Source</b> = <i>J "Ball and stick model"</i>. Set <b>Column Width</b> = <i>20</i> and click <b>OK</b>. Click the pencil icon above the first and second columns and set <b>Column Width</b> = <i>15</i> and <i>20</i>, respectively.
+<br /> <a  class="image"><img alt="Data Reader 07.png" src="../images/Data_Reader_Tool/Data_Reader_07.png?v=57877" width="799"  /></a>
+
+<li>Click the <b>Font</b> button to open the Tooltip Font dialog. Set <b>Minimum Font Size</b> and <b>Maximum Font Size</b> to <i>10</i> and <i>16</i> respectively. This will for text to automatically resize as the <b>Data Info</b> window is resized. Note that this limits the resizing of the <b>Data Info</b> table, as well. Set the <b>Font Color</b> to <b>Royal</b> and click <b>OK</b>. Click the <b>Background</b> button, set <b>Background</b> = <i>White</i> and click <b>OK</b>. 
+
+<li>Click on the <b>Theme</b> button and select <b>Save to &lt;Graph&gt;</b> in the fly-out menu. This ensures that your <b>Data Info</b> dialog settings will be saved to the active graph, then click <b>OK</b> to close the <b>Data Info Report Settings</b> dialog.
+<br /> <a  class="image"><img alt="Data Reader 03.png" src="../images/Data_Reader_Tool/Data_Reader_03.png?v=57878" width="799"  /></a>
+
+<li>Resize the <b>Data Info</b> window by dragging a window corner. Note that the font size range that we specified previously, set limits on window resizing.
+<br /> <a  class="image"><img alt="Data Reader 10.png" src="../images/Data_Reader_Tool/Data_Reader_10.png?v=57879" width="565"  /></a>
+
+</ol>
+<h2><a name="Tutorial_2:_Custom_Numeric_Display_Format"></a><span class="mw-headline">Tutorial 2: Custom Numeric Display Format</span></h2>
+<p>In this tutorial, we'll learn how to apply a custom display format to numeric data shown in the <b>Data Info</b> window.
+</p>
+<ol>
+
+<li> Press F11 to open the <b>Learning Center</b>, click the <b>Graph Samples</b> tab and search on the phrase "Google Map Temperature". Double click on the sample to open this project file containing the following map of the continental US with a contour plot overlay of mean January temperatures.</li>
+<dl><dd><a  class="image"><img alt="Data Reader 2 1.png" src="../images/Data_Reader_Tool/Data_Reader_2_1.png?v=57880" width="594"  /></a></dd></dl>
+<li>Double-click on the map + contour plot to open the <b>Plot Details</b> dialog box. Click on the <b>Colormap/Contours</b> tab and enable <b>Show Data Points</b> and click <b>OK</b>. What you are now seeing are the US cities where the January temperature data in the map overlay, were recorded. Enlarge the size of the window so that you can get a comfortable view of all scatter points.</li>
+<li>Pick the <b>Data Reader</b> tool <a  class="image"><img alt="Button Data Reader.png" src="../images/Data_Reader_Tool/Button_Data_Reader.png?v=1579" width="22"  /></a> from the Tools toolbar (<b>hint</b>: it is on a split button with the <b>Data Cursor</b> <a  class="image"><img alt="Button Data Cursor.png" src="../images/Data_Reader_Tool/Button_Data_Cursor.png?v=1582" width="22"  /></a> and the <b>Data Highlighter</b> <a  class="image"><img alt="Button Data Highlighter.png" src="../images/Data_Reader_Tool/Button_Data_Highlighter.png?v=57678" width="25"  /></a>), then click on one of the scatter points on the map. The Data Info window should open and look something like the following image.
+
+<dl><dd><a  class="image"><img alt="Data Reader 2 2.png" src="../images/Data_Reader_Tool/Data_Reader_2_2.png?v=57881" width="199"  /></a></dd></dl>
+
+The information, as reported, is not very user-friendly so we will customize the <b>Data Info</b> window to report more useful information.</li>
+<li>Double-click on the Data Info window to open the <b>Data Info Report Settings</b> dialog box. Under the <b>Name</b> column in the center panel, click on and remove -- one by one -- the <b>&lt;X&gt;</b>, <b>&lt;Y&gt;</b> and <b>&lt;Z&gt;</b> coordinates from the center panel, using the <b>Remove</b> button <a  class="image"><img alt="Button Remove.png" src="../images/Data_Reader_Tool/Button_Remove.png?v=57882" width="28"  /></a>. </li>
+<li>Now click the <a  class="image"><img alt="Button Source X Data.png" src="../images/Data_Reader_Tool/Button_Source_X_Data.png?v=57883" width="51"  /></a>, <a  class="image"><img alt="Button Source Y Data.png" src="../images/Data_Reader_Tool/Button_Source_Y_Data.png?v=57884" width="51"  /></a> and <a  class="image"><img alt="Button Source Z Data.png" src="../images/Data_Reader_Tool/Button_Source_Z_Data.png?v=57885" width="51"  /></a> buttons in the upper-left corner of the dialog to move the X, Y and Z source data, labeled with the column <b>Long Name</b>, to the center panel. You can see the result by looking at the <b>Preview</b> to the right side of the dialog box.
+
+<dl><dd><a  class="image"><img alt="Data Reader 2 3.png" src="../images/Data_Reader_Tool/Data_Reader_2_3.png?v=57886" width="473"  /></a></dd></dl>
+
+Currently, our <b>Data Info</b> displays two columns, one with column Long Names (<i>Longitude</i>, <i>Latitude</i>, <i>January</i>) and a second column with the numeric data associated with <i>Longitude</i>, <i>Latitude</i>, <i>January</i>. What we will do is to apply formatting to these numbers so that they do not simply display as generic decimal numbers.</li>
+<li>Click the <b>Add Column</b> button to add a third column to the Data Info table, then click the pencil icon in the newly-added column to open the <b>Column Settings</b> dialog box. Set the <b>Type</b> drop-down list to <b>Numeric Display Format</b> and click <b>OK</b>.</li>
+<dl><dd><a  class="image"><img alt="Data Reader 2 4.png" src="../images/Data_Reader_Tool/Data_Reader_2_4.png?v=57907" width="548"  /></a></dd></dl>
+<li>Click into the first cell below the <b>Numeric Display Format</b> heading and you will see a list control that you can click to show a list of custom formatting options. Firstly, note that this list is not exhaustive but contains suggestions for <a class="external text" href="../../LabTalk/LabTalk/Origin_Formats.html">custom formats</a>. Secondly, you can type directly into this box to specify a custom format.</li>
+<dl><dd><a  class="image"><img alt="Data Reader 2 5.png" src="../images/Data_Reader_Tool/Data_Reader_2_5.png?v=57908" width="471"  /></a></dd></dl>
+<li>In the first row list control, type the following (degrees-minutes east-west, with units before):
+<pre class="lt" style="font-family:monospace;">DM EWB</pre>
+</li>
+<li>In the second row list control, type the following (degrees-minutes north-south, with units before):
+<pre class="lt" style="font-family:monospace;">DM NSB</pre>
+</li>
+<li>In the third row list control, type the following (one decimal place + suffix string "deg F"):
+<pre class="lt" style="font-family:monospace;">.1 <span style="color: #ff00ff;">&quot;deg F&quot;</span></pre>
+</li>
+<li>Click the <b>Add Column</b> button to add a column to the Data Info table, then click the pencil icon in the newly-added column to open the <b>Column Settings</b> dialog box. Set the <b>Type</b> drop-down list to <b>Single Cell</b>, Source to <b>A "City"</b>, <b>Column Width</b> to <b>30</b> and click <b>OK</b>.</li>
+<li>Click the <b>Save Theme</b> button and choose <i>Save to &lt;Graph&gt;</i> to save the current Data Info window configuration to the graph window. Click <b>OK</b> to close the dialog box.</li>
+<dl><dd><a  class="image"><img alt="Data Reader 2 6.png" src="../images/Data_Reader_Tool/Data_Reader_2_6.png?v=57915" width="697"  /></a></ol></dd></dl>
+
+

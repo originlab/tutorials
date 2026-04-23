@@ -1,0 +1,211 @@
+<h1 class="firstHeading">6.1.2 Creating a Graph</h1><p class='urlname' style='display: none'>Create-Graph</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Create_a_Plot_Quickly_by_Selecting_Data"><span class="tocnumber">3</span> <span class="toctext">Create a Plot Quickly by Selecting Data</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Change_X.2FY_Data_of_the_Plot"><span class="tocnumber">4</span> <span class="toctext">Change X/Y Data of the Plot</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Add_Data_to_an_Existing_Graph_and_Update_Legend"><span class="tocnumber">5</span> <span class="toctext">Add Data to an Existing Graph and Update Legend</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="#By_Drag_and_Drop"><span class="tocnumber">5.1</span> <span class="toctext">By Drag and Drop</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#By_Copy_for_Plotting_Mini_Toolbar"><span class="tocnumber">5.2</span> <span class="toctext">By Copy for Plotting Mini Toolbar</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#By_Layer_Contents_Dialog"><span class="tocnumber">5.3</span> <span class="toctext">By Layer Contents Dialog</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="#Create_a_Plot_using_Plot_Setup"><span class="tocnumber">6</span> <span class="toctext">Create a Plot using Plot Setup</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#Plot_Grouped_Data_As"><span class="tocnumber">7</span> <span class="toctext">Plot Grouped Data As</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="#Trellis_Plot"><span class="tocnumber">7.1</span> <span class="toctext">Trellis Plot</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Grouped_Box_Plot"><span class="tocnumber">7.2</span> <span class="toctext">Grouped Box Plot</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-13"><a href="#Plot_Graphs_by_Label"><span class="tocnumber">8</span> <span class="toctext">Plot Graphs by Label</span></a></li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Graphing_Data_From_Multiple_Sheets/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Graphing_Data_From_Multiple_Sheets/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=369" target="_blank">Copy Data from Worksheet or Matrix to Graph</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=256" target="_blank">Add Plots to a Graph by Drag and Drop</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=169" target="_blank">Trellis Plot</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=237" target="_blank">Trellis Plot with Double Y Graph</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=364" target="_blank">Customize Panel Frame in Trellis Plot</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=13" target="_blank">Adding, Grouping and Reordering Plots with Layer Contents</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=231" target="_blank">Object Manager</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Graphing_Data_From_Multiple_Sheets/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Graphing_Data_From_Multiple_Sheets/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/quick-graphs-with-graph-maker-app" target="_blank">Quick Graphs with Graph Maker App</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/creating-grouped-bar-plots-in-origin-2016" target="_blank">Easier Way to Control Grouped Bar Plot Colors in Origin 2016</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/plotting-barcolumn-graphs-with-indexed-patterns" target="_blank">Plotting Bar/Column Graphs with Indexed Patterns</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/how-to-control-the-increment-list" target="_blank">How to control the increment list</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/plot-multi-panel-graphs-by-group" target="_blank">Plot Multi-Panel Graphs by Group</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Origin provides templates library. You can create and modify templates by your own and add to the collection. Creating a graph in Origin is as simple as selecting the desired data and then selecting a template from a menu or from the graphing toolbars. The <b>Plot Setup</b> dialog offers more flexibility in creating plots, such as plotting data from multiple books or sheets.
+<br /><br />
+Starting with Origin 2016, a more powerful "cloneable" template has been added. These templates are designed for "smart plotting", meaning you can clone a graph with a complicated layer hierarchy or with source data that cannot be specified by simple selection. See <a href="../../Tutorial/Tutorial/Plot_from_User_Defined_Graph_Template.html" title="Tutorial:Plot from User Defined Graph Template">this tutorial on plotting from user-defined graph templates</a> to learn how to save and use both standard and cloneable templates.
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to: 
+</p>
+<ul><li>Select data in a worksheet and quickly create a plot</li>
+<li>Change X/Y input of the data plot with context menu</li>
+<li>Add data to or remove it from an existing graph</li>
+<li>Use Plot Setup to plot data from multiple sheets</li>
+<li>Plot groups of plots by label</li></ul>
+<h2><a name="Create_a_Plot_Quickly_by_Selecting_Data"></a><span class="mw-headline">Create a Plot Quickly by Selecting Data</span></h2>
+<ol><li>Click the <b>Connect Multiple Files</b> button <a  class="image"><img alt="Button Connect Multiple Files.png" src="../images/Graphing_Data_From_Multiple_Sheets/Button_Connect_Multiple_Files.png?v=63181" width="19"  /></a> to open the connector dialog. To import multiple ASCII, select <b>CSV</b> for <b>Data Connector</b>. </li>
+<li>Click <b>...</b> button next to <b>File Names</b> edit box. In the open dialog, select the files <b>S15-125-03.dat</b>, <b>S21-235-07.dat</b> and <b>S32-014-04.dat</b> from <i>\Samples\Import and Export\</i> and click <b>Add File(s)</b> to add three files to the lower panel. Click <b>OK</b> to add them to <b>File Names</b> edit box.</li>
+<li>Check <b>Same Book</b> checkbox.
+<dl><dd><a  class="image"><img alt="Tutorial Connecting Data 003.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorial_Connecting_Data_003.png?v=63183" width="440"  /></a></dd></dl></li>
+<li>Click <b>OK</b>. The imported results should appear as below:
+<dl><dd><a  class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 003.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorials81_Graphing_Data_From_Multiple_Sheets_003.png?v=63185" width="447"  /></a></dd></dl></li>
+<li>Make the third worksheet, S32-014-4, active.  To create a three layer graph, highlight the three Y columns, Delta Temperature, Magnetic Field, and Position, and then select <b>Plot &gt;  Multi-Panel/Axis: 3Ys Y-YY</b>.  Note:  There is no need to highlight the Time column, as Origin will automatically plot the Y columns against the associated X column in the worksheet.
+<dl><dd><a  class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 004.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorials81_Graphing_Data_From_Multiple_Sheets_004.png?v=61884" width="445"  /></a></dd></dl></li></ol>
+<h2><a name="Change_X.2FY_Data_of_the_Plot"></a><span class="mw-headline">Change X/Y Data of the Plot</span></h2>
+<p>Use the same worksheet from the previous example.
+</p>
+<ol><li>Highlight column B and click the <b>Line</b> button <a  class="image"><img alt="Button Line.png" src="../images/Graphing_Data_From_Multiple_Sheets/Button_Line.png?v=1447" width="22"  /></a> to generate a line plot.
+<dl><dd><a  class="image"><img alt="Tutorial Creating Graph New 00.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorial_Creating_Graph_New_00.png?v=61885" width="351"  /></a></dd></dl></li>
+<li>Right click on the data plot and point to the <b>Change Y</b> context menu, then select column C (Magnetic Field) in the fly-out.
+<dl><dd><a  class="image"><img alt="Tutorial Creating Graph New 01.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorial_Creating_Graph_New_01.png?v=61886" width="616"  /></a></dd></dl></li>
+<li>You may see a reminder message about rescaling the graph to show all data. Choose <b>Yes</b> and click <b>OK</b> so that the updated plot will be auto-rescaled.
+<dl><dd><a  class="image"><img alt="Tutorial Creating Graph New 02.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorial_Creating_Graph_New_02.png?v=61887" width="459"  /></a></dd></dl></li>
+<li>The plot will update as shown below:
+<dl><dd><a  class="image"><img alt="Tutorial Creating Graph New 03.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorial_Creating_Graph_New_03.png?v=61888" width="341"  /></a></dd></dl></li></ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Graphing_Data_From_Multiple_Sheets/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>With this context menu, you can change the X or Y data of the current plot to be another column in the current project. This column will be any column other than the current X or Y data column, regardless of column designation. Choose <b>Select Column</b> menu item to specify column from current folder or current project. 
+</p><p>You are also allowed to use the <b>Change Worksheet</b> context menu to change the current X and Y data to be the columns with same column index in another worksheet of current workbook, regardless of column designation and column short name.
+<p><a  class="image"><img alt="Tutorial Creating Graph New 04.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorial_Creating_Graph_New_04.png?v=48646" width="307"  /></a>
+</p>
+</p></td></tr></table>
+<p><b>Note:</b> You can also use the <b>Layer Contents</b> or <b>Plot Setup</b> dialog to change the input data.
+</p>
+<h2><a name="Add_Data_to_an_Existing_Graph_and_Update_Legend"></a><span class="mw-headline">Add Data to an Existing Graph and Update Legend</span></h2>
+<h3><a name="By_Drag_and_Drop"></a><span class="mw-headline">By Drag and Drop</span></h3>
+<ol>
+<li>Go back to the book with the three sheets of data from the above example.</li>
+<li>Highlight the <b>Delta Temperature</b> column (Column B) from the first sheet and then select <b>Plot &gt; Basic 2D: Line</b> to create a line plot.</li>
+<li>Go back to the workbook. For each of the remaining two sheets, select the <b>Delta Temperature</b> column and position the cursor at the edge of the column until you see the cursor change to <a  class="image"><img alt="Button Drag Column to Graph.png" src="../images/Graphing_Data_From_Multiple_Sheets/Button_Drag_Column_to_Graph.png?v=4979" width="34"  /></a>.
+<dl><dd><a  class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 005.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorials81_Graphing_Data_From_Multiple_Sheets_005.png?v=6466" width="412"  /></a></li></dd></dl>
+<li>Then you can drag-and-drop the column into the graph page. Another curve will be added to the current layer.
+<dl><dd><a  class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 006.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorials81_Graphing_Data_From_Multiple_Sheets_006.png?v=6468" width="362"  /></a></li></dd></dl>
+<li>After adding the other curves, expand the <b>Object manager</b> panel docked at the right-top corner of Origin workspace by default(you can use <b>View: Object Manager</b> menu to reload it if needed). Right-click on the last plot under Layer1 to select <b>Set As Group End</b> to group all these three curves together.
+<dl><dd><a  class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 008.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorials81_Graphing_Data_From_Multiple_Sheets_008.png?v=61898" width="310"  /></a></dd></dl>
+</li>
+<li>Grouping the plots allows for quick creation of presentation-ready graphs, because each selection in the group is assigned a differentiating set of plot attributes (line color = black, red, green; symbol shape = square, circle, triangle; etc...).</li> 
+<li>Select <b>Graph: Legend: Update Legend...</b> to open the <i>legendupdate</i> X-Function dialog.  Set the <b>Auto Legend Translation Mode</b> to <i>Custom</i>.  Enter <i>@WS</i> for <b>Legend Custom Format</b>. 
+<br /><a  class="image"><img alt="Graphing tutorial legend update.png" src="../images/Graphing_Data_From_Multiple_Sheets/Graphing_tutorial_legend_update.png?v=61899" width="427"  /></a></li> 
+<li>Click <b>OK</b> and the legend will now contain the worksheet name for each data plot.
+<dl><dd><a  class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 009.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorials81_Graphing_Data_From_Multiple_Sheets_009.png?v=61900" width="361"  /></a></li></dd></dl>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Graphing_Data_From_Multiple_Sheets/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>The default plot type of the drag and drop plot is <b>Current</b>, which is the same as the current active plot. However you could change the default option. To do this, click <b>Preference: Options</b> and go to <a class="external text" href="../../UserGuide/UserGuide/The_(Options)_Graph_Tab.html">the <b>Graph</b> tab</a>, and change the setting of <b>Drag and drop plot</b> drop-down menu.
+</p></td></tr></table>
+</ol>
+<h3><a name="By_Copy_for_Plotting_Mini_Toolbar"></a><span class="mw-headline">By Copy for Plotting Mini Toolbar</span></h3>
+<p>In this section, we will use <b>Copy for Plotting</b> mini toolbar button to add new plots to an existing graph. 
+</p>
+<ol>
+<li>Go back to the book with the three sheets of data from the above example.</li>
+<li>Highlight the <b>Delta Temperature</b> column (Column B) from the first sheet <i>S15-125-03</i> and then select <b>Plot &gt; Basic 2D: Line</b> to create a line plot.</li>
+<li>Go back to the workbook. and activate the second sheet <i>S21-235-07</i>. Select the <b>Delta Temperature</b> column and a mini toolbar will appear. Click <b>Copy for Plotting</b> button <a  class="image"><img alt="Copy for plotting button.png" src="../images/Graphing_Data_From_Multiple_Sheets/Copy_for_plotting_button.png?v=62230" width="25"  /></a>
+<dl><dd><a  class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 020.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorials81_Graphing_Data_From_Multiple_Sheets_020.png?v=63252" width="687"  /></a></dd></dl>
+<li>Activate the graph window and press <b>Ctrl+P</b> to plot the copied column data as a line curve to the current layer.
+<li>For the remaining sheet <i>S32-014-04</i>, repeat the process of copying and pasting dataset to the existing graph to add the new line of Delta Temperature from <i>S32-014-04</i>.
+</ol>
+<h3><a name="By_Layer_Contents_Dialog"></a><span class="mw-headline">By Layer Contents Dialog</span></h3>
+<p>The <b>Layer Contents</b> dialog box is useful primarily for adding or removing data plots from the graph layer. Starting with Origin 2016, you can switch layers without closing the dialog box, making it easier to add plots to, or remove plots from, a multi-layer graph. To demonstrate, we will return to the 3-layer graph that we created in the first exercise in this tutorial:
+</p>
+<dl><dd><a  class="image"><img alt="Layer contents starting graph.png" src="../images/Graphing_Data_From_Multiple_Sheets/Layer_contents_starting_graph.png?v=40575" width="439"  /></a></dd></dl>
+<p>In the first exercise, we plotted data from sheet S32-014-04. In this exercise, we will swap the data from sheet S32-014-04 with data from sheet S21-235-07.
+</p>
+<ol><li> Right-click on the layer <b>1</b> icon in the upper-left corner of the graph window and choose <b>Layer Contents</b>.</li>
+<li> In the dialog box that opens, click the drop-down list in the upper-left corner and select <b>Worksheets in Folder</b>.</li>
+<li> Right-click on the left-panel headings, clear <b>Book Name</b> and select <b>Sheet</b> (if not already displaying) so that you can see which worksheets contain which workbook datasets, then click on the Sheet heading to sort datasets by sheet name.
+<dl><dd><a  class="image"><img alt="Layer Contents Headings.png" src="../images/Graphing_Data_From_Multiple_Sheets/Layer_Contents_Headings.png?v=40574" width="444"  /></a></dd></dl></li>
+<li> In the right-hand panel of Layer Contents, select <b>Delta Temperature</b> from sheet S32-014-04 and click the <b>Remove Plot</b> button <a  class="image"><img alt="Remove plot button.png" src="../images/Graphing_Data_From_Multiple_Sheets/Remove_plot_button.png?v=18208" width="24"  /></a> to remove the plot from graph layer 1.
+<dl><dd><a  class="image"><img alt="Layer Contents swap plot.png" src="../images/Graphing_Data_From_Multiple_Sheets/Layer_Contents_swap_plot.png?v=40578" width="800"  /></a></dd></dl></li>
+<li> In the left-hand panel, select <b>Delta Temperature</b> from sheet S21-235-07 and click the <b>Add Plot</b> button <a  class="image"><img alt="Button Add plot.png" src="../images/Graphing_Data_From_Multiple_Sheets/Button_Add_plot.png?v=15969" width="24"  /></a>, then click <b>Apply</b> to add the new plot to layer 1. You have now swapped one dataset for another.</li>
+<li> Click the <b>Layer(1)</b> button at the top of the dialog and choose <b>Switch Layer &gt; 2. Layer 2</b>.</li>
+<li> Repeat the process of removing the existing <b>Magnetic Field</b> dataset from layer 2 and replacing it with the Magnetic Field dataset from sheet S21-235-07, then click <b>Apply</b>.</li>
+<li> Click the <b>Layer (2)</b> button and choose <b>Switch Layer &gt; 3.Layer 3</b> and repeat the process of swapping the <b>Position</b> dataset in sheet S32-014-04 with the Position dataset in sheet S21-235-07, then click <b>Apply</b> and close the dialog box.</li></ol>
+<dl><dd><a  class="image"><img alt="Layer contents finished graph.png" src="../images/Graphing_Data_From_Multiple_Sheets/Layer_contents_finished_graph.png?v=40576" width="439"  /></a></dd></dl>
+<h2><a name="Create_a_Plot_using_Plot_Setup"></a><span class="mw-headline">Create a Plot using Plot Setup</span></h2>
+<p>The Plot Setup dialog box is useful for a variety of plotting tasks, including creating graphs, modifying the plot type, adding plots to or removing plots from the graph, grouping or ungrouping plots, and editing the plot range. 
+</p>
+<ol>
+<li>Return to your workbook and ensure that no data are selected. It doesn't matter which worksheet is active; what is important is that no columns are highlighted.</li>
+<li>Select <b>Plot &gt; Multi-Panel/Axis&#160;: 4 Panel</b> from the menu.  When no data are selected, Origin opens the <b>Plot Setup</b> dialog, allowing you to choose the data you wish to plot. </li>
+<li>Expand the top panel by clicking the <a  class="image"><img alt="Button Expand Preview Up.png" src="../images/Graphing_Data_From_Multiple_Sheets/Button_Expand_Preview_Up.png?v=1413" width="24"  /></a> button. Hold down <b>Ctrl</b> key to highlight the three worksheets.  Alternatively, you can just click and drag your selection so that all three worksheets are highlighted.<br />
+<a  class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 010.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorials81_Graphing_Data_From_Multiple_Sheets_010.png?v=48658" width="548"  /></a></li>
+<li>In the middle panel, common columns in all three sheets are displayed.  In this case, all three sheets have similar data with matching column names. Click the button <a  class="image"><img alt="Button Switch to Custom Mode.png" src="../images/Graphing_Data_From_Multiple_Sheets/Button_Switch_to_Custom_Mode.png?v=4986" width="24"  /></a> at top-right of this panel to show the available plot columns listed with similar column long name.  This mode is easier because you don't have to check the X and Y designation check boxes. <br />
+<a  class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 011.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorials81_Graphing_Data_From_Multiple_Sheets_011.png?v=6350" width="441"  /></a></li>
+<li>Open the bottom panel of the dialog, the Plot List, if it is not already visible.  <b>Layer 1</b> is highlighted.  Select <b>Delta Temperature</b> in the middle panel, and then click the <b>Add</b> button. Since you already selected the three worksheets in Step 3, this will add all <b>Delta Temperature</b> columns from the selected worksheets to layer 1. <br />
+<a  class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 012.png" src="../images/Graphing_Data_From_Multiple_Sheets/600px-Tutorials81_Graphing_Data_From_Multiple_Sheets_012.png?v=48659" width="600"   /></a></li>
+<li>Repeat these steps to add all <b>Magnetic Field</b> columns and all <b>Position</b> columns into Layer 2 and Layer 3, respectively.<br />
+<a  class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 013.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorials81_Graphing_Data_From_Multiple_Sheets_013.png?v=6475" width="454"  /></a><br />
+Note that in each layer, the three data plots are automatically grouped.</li>
+<li>Click the <b>OK</b> button to create the graph.<br />
+<a  class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 014.png" src="../images/Graphing_Data_From_Multiple_Sheets/500px-Tutorials81_Graphing_Data_From_Multiple_Sheets_014.png?v=48671" width="500"   /></a></li>
+<li>You'll note that the default legend that is created for each layer is not particularly helpful. The Origin graph legend object is highly customizable, so before we go further, we will modify the default legend. Right-click on any of the legend objects and select <b>Legend: Update Legend</b> from the shortcut menu.</li>
+<li>In the dialog box that opens, do the same settings at step 8 of the section <a href="#By_Drag_and_Drop"><b>By Drag and Drop</b></a>. Note that the <b>Legend Custom Format</b> syntax <b>@WS</b> is <a class="external text" href="../../LabTalk/LabTalk/Legend_Substitution_Notation.html#List_of_.40Options">LabTalk Substitution Notation</a> for the name of the worksheet containing the data for each line plot.</li>
+<li>We have one extra (empty) layer on the graph page.  To delete that layer, click on it once to select it then press the <b>Delete</b> key on the keyboard. Take care not to delete the graph window as we will use it in the next section of this tutorial.<br />
+<a  class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 015.png" src="../images/Graphing_Data_From_Multiple_Sheets/500px-Tutorials81_Graphing_Data_From_Multiple_Sheets_015.png?v=48664" width="500"   /></a>
+</li>
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Graphing_Data_From_Multiple_Sheets/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>In the graph above, the legend for each layer is same with each other. You can delete two of them. Or do settings below in <a class="external text" href="../../UserGuide/UserGuide/The_legendupdate_Dialog_Box.html">the <b>Legend Update</b> dialog</a>, to just show one legend for whole graph window.<br />
+<p><a  class="image"><img alt="Legend Update dlg merge legends.png" src="../images/Graphing_Data_From_Multiple_Sheets/400px-Legend_Update_dlg_merge_legends.png?v=48669" width="400"   /></a>
+<br /><br />
+Once the settings are applied, you can press Ctrl + double-click on the legend text to do further in-place edits; or you can right-click on the legend box to select <b>Properties...</b> from context menu and do further advanced editing in the <a class="external text" href="../../UserGuide/Category/Text_and_Drawing_Objects.html"><b>Text Object</b></a> dialog.
+</p>
+</p></td></tr></table>
+<h2><a name="Plot_Grouped_Data_As"></a><span class="mw-headline">Plot Grouped Data As</span></h2>
+<p>When your data includes a column of categorical data, or multiple columns characterizing some sort of nested sub-grouping of data, just as the data below<br />
+</p>
+<dl><dd><a  class="image"><img alt="GroupedPlot 01.png" src="../images/Graphing_Data_From_Multiple_Sheets/300px-GroupedPlot_01.png?v=53774" width="300"   /></a><br /></dd></dl>
+<p>then you might want to plot your data as:
+</p>
+<h3><a name="Trellis_Plot"></a><span class="mw-headline">Trellis Plot</span></h3>
+<p>Beginning with Origin 2017, you have introduced the <a class="external text" href="../../UserGuide/UserGuide/Trellis.html">Trellis Plot</a> which has one layer but with <i>M X N</i> panels.
+</p>
+<ol>
+<li>New a workbook. 
+<ol><li>Start with an empty worksheet. Select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Statistics</i> subfolder and find the file <i>2010.dat</i>. Drag-and-drop this file into the empty worksheet to import it.</li></li></ol>
+<li>Highlight col(H)~col(J) to select <b>Plot&gt; Categorical&#160;: Trellis Plot</b> menu. The dialog <a class="external text" href="../../XFunction/X-Function/Plot_group.html">plot_group</a> will pop up. Select col("City") as horizontal group variable and col("Gender") as vertical group variable for the panels.
+<br /><a  class="image"><img alt="GroupedPlot 02.png" src="../images/Graphing_Data_From_Multiple_Sheets/500px-GroupedPlot_02.png?v=53962" width="500"   /></a></li>
+<li>Click OK button to plot the graph. Click on the X axis and click <b>Axis Scale</b> button <a  class="image"><img alt="Button axis scale.png" src="../images/Graphing_Data_From_Multiple_Sheets/Button_axis_scale.png?v=63275" width="20"  /></a> on the mini toolbar that appears. In the simple dialog that opens, set <b>From</b> and <b>To</b> for horizontal axis to <i>-10</i> and <i>90</i> 
+You will get the graph as below:<br />
+<a  class="image"><img alt="GroupedPlot 03.png" src="../images/Graphing_Data_From_Multiple_Sheets/450px-GroupedPlot_03.png?v=53963" width="450"   /></a></li>
+<p>Just as you can see, this trellis plot has only one layer but with six panels(<b>2×3</b>):2 rows represent the variable "Gender", <i>Female</i> and <i>Male</i>; three columns represent the variable "City", <i>A</i>, <i>B</i>, and <i>C</i>.
+</p>
+</ol>
+<h3><a name="Grouped_Box_Plot"></a><span class="mw-headline">Grouped Box Plot</span></h3>
+<p>Besides the trellis plot, you can also plot these kind of data as a grouped box/column plot. 
+</p>
+<ol>
+<li>Active the source worksheet above again. Highlight col("Salary") to select <b>Plot &gt; Categorical&#160;: Grouped Box Charts - Indexed Data</b> menu to open the dialog <a class="external text" href="../../UserGuide/UserGuide/Grouped_Box_Charts-Indexed_Data.html">plot_gdoxindexed</a>. Select col("Gender") and col("City") as <b>Group Columns</b>.<br />
+<a  class="image"><img alt="GroupedPlot 04.png" src="../images/Graphing_Data_From_Multiple_Sheets/450px-GroupedPlot_04.png?v=53971" width="450"   /></a></li>
+<li>Click OK button to plot the graph.<br />
+<a  class="image"><img alt="GroupedPlot 05.png" src="../images/Graphing_Data_From_Multiple_Sheets/350px-GroupedPlot_05.png?v=53972" width="350"   /></a></li>
+<p>Just as you can see, the data col("Salary") has been plotted as a grouped box charts: Two groups by "Gender", <i>Female</i> and <i>Male</i>; within these two groups, three subgroups by "City" , <i>A</i>, <i>B</i>, and <i>C</i>.
+</p>
+</ol>
+<h2><a name="Plot_Graphs_by_Label"></a><span class="mw-headline">Plot Graphs by Label</span></h2>
+<p>Origin offers a plotting option, <b>Multiple Panels by Label</b>, that allows you to create a multilayer graph, each layer of which contains multiple plots, identified by the same label. 
+</p>
+<ol>
+<li>Open the file <b>Samples\Graphing\Automobile Data.ogw</b> (Hint: Make sure that your Open files filter is set to <b>Workbooks(*.ogw)</b>). <br />
+<a  class="image"><img alt="Plot Grouped Plot wks.png" src="../images/Graphing_Data_From_Multiple_Sheets/Plot_Grouped_Plot_wks.png?v=61901" width="613"  /></a></li>
+<li>Click on top left corner of the worksheet to select the entire sheet. Select <b>Plot &gt; Multi-Panel/Axis&#160;: Multiple Panels by Label</b> to open the <b>plotbylabel</b> dialog. </li>
+<li>Set the dialog options as following, and click the <b>OK</b> button to create the graph.<br />
+<a  class="image"><img alt="Plot by label dlg.png" src="../images/Graphing_Data_From_Multiple_Sheets/Plot_by_label_dlg.png?v=61902" width="895"  /></a><br />
+The graph should look like this:<br />
+<a  class="image"><img alt="Grouped Graphs By Label.png" src="../images/Graphing_Data_From_Multiple_Sheets/Grouped_Graphs_By_Label.png?v=61903" width="591"  /></a></li>
+</ol>
+
+

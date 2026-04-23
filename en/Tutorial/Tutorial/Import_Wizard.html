@@ -1,0 +1,194 @@
+<h1 class="firstHeading">9.2.2 Import Wizard</h1><p class='urlname' style='display: none'>ImportWizard</p>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>The <b>Import Wizard</b> allows you to import complicated ASCII files, extract variables from the import file name and header (for reuse in Origin), specify custom delimiters and date formats, or handle post-processing of your imported data using a custom LabTalk script. Moreover,  you can save your custom settings to a filter (.oif) that can be used repeatedly to import the same or similarly-structured files.
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to use the <b>Import Wizard</b> to
+</p>
+<ul><li> extract variables from both the file name and file headers</li>
+<li> save import settings and use them to import new data</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<ol>
+<li>Start with a new workbook. Select from menu <b>Data: Import From File: Import Wizard</b> to open the <b>Import Wizard</b> dialog. Click the browser button <a  class="image"><img alt="Tutorial Import 005.png" src="../images/Import_Wizard/Tutorial_Import_005.png?v=249" width="19"  /></a> to the right of the <b>File</b> box. Browse to the folder \<i>Samples</i>\<i>Import and Export</i> and select the file <i>S15-125-03.dat</i>. 
+<dl><dd><a  class="image"><img alt="Tutorial Import 013.png" src="../images/Import_Wizard/Tutorial_Import_013.png?v=64934" width="662"  /></a></dd></dl>
+<br />Note that an import filter of <i>VarsFromFileNameAndHeader.oif</i> is auto-selected for <b>Import Filter</b>&gt; <b>Import Filters for current Data Type</b>. By default, if there is any import filter in the data folder, the filter will be auto-used to import the data. In this example, we will show you how to import this data step by step and create a similar filter. So we choose <b>&lt;None&gt;</b>. <br />Click <b>Next</b>.</li>
+<li>The <b>Header Lines</b> page enables you to easily customize the worksheet headers. The lower preview panel is especially helpful when you are importing a file with many lines of header like this example. Clear <b>Auto determine header lines</b> check box. To specify the main header lines,  place the cursor on line 6 in the preview panel, and then click the button <a  class="image"><img alt="Tutorial Import 012.png" src="../images/Import_Wizard/Tutorial_Import_012.png?v=64935" width="26"  /></a> next to <b>Main Header Lines: Fixed Number</b>. Similarly, specify the <b>Long Name</b> and <b>Unit</b> line.
+<dl><dd><a  class="image"><img alt="Tutorial Import 002.png" src="../images/Import_Wizard/Tutorial_Import_002.png?v=64936" width="727"  /></a></dd></dl>
+<br />Click <b>Next</b>.</li>
+<li>The <b>Variable Extraction</b> page allows you to extract variables from file name and file headers, which can be saved in page info, put into column header lines, or used in annotating a graph. Select <b>Specify location of variable names and values using delimiters</b>, <b>Add variables to page info</b> and <b>Create User Parameter rows for each variable</b>.
+<dl><dd><a  class="image"><img alt="Tutorial Import 014.png" src="../images/Import_Wizard/Tutorial_Import_014.png?v=64939" width="561"  /></a></dd></dl>
+<br />Click <b>Next</b>.</li>
+<li>The <b>Variable Extraction by Delimiter</b> page allows you to extract variable names and values from file metadata using specified delimiters. This information is then used to create worksheet <a class="external text" href="../../UserGuide/UserGuide/Displaying_Supporting_Data_in_Worksheet_Header_Rows.html#User-Defined_Parameters">User-defined Parameter rows</a> and is also then available for <a class="external text" href="../../UserGuide/UserGuide/Inserting_Variables_Extracted_from_Imported_ASCII_Files_into_Text_Labels.html">use in text objects</a>, etc.
+
+
+<br /><br />
+To extract data, go to the <b>Variable</b> group and set fields or enter text, as shown in <i>the table below this image</i>. Note that:
+
+<ul><li> There are two radio buttons -- <b>Enter variable name</b> and <b>Extract variable name from file</b> -- and that a slightly different set of controls is exposed, depending on which radio is chosen.</li>
+<li> The controls are a mix of text boxes and drop-down lists and for drop-down lists, you should be able to select the correct entry from the drop-down list.</li></ul>
+
+<dl><dd><a  class="image"><img alt="Tutorial Import 011.png" src="../images/Import_Wizard/Tutorial_Import_011.png?v=65019" width="727"  /></a></dd></dl>
+
+<br />
+<i><b>Note</b> that after each <b>Line</b> of table data is set in the dialog, you must click the <b>Add</b> button before starting on the next <b>Line</b>.</i>
+<br />
+
+<table class="simple">
+<tr>
+<th> Line
+</th>
+<th> Delimiter
+</th>
+<th> enter
+</th>
+<th> Value
+</th>
+<th> Enter variable name
+</th>
+<th> Line
+</th>
+<th> Delimiter
+</th>
+<th> Extract variable name from file
+</th></tr>
+<tr>
+<td> FN04
+</td>
+<td> Other
+</td>
+<td> -
+</td>
+<td> S15
+</td>
+<td> SampleID
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td> FN04
+</td>
+<td> Other
+</td>
+<td> -
+</td>
+<td> 125
+</td>
+<td> BatchNo
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td> FN04
+</td>
+<td> Other
+</td>
+<td> -
+</td>
+<td> 03
+</td>
+<td> RunNo
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td> H002
+</td>
+<td> Colon
+</td>
+<td>
+</td>
+<td> 1000
+</td>
+<td>
+</td>
+<td> H002
+</td>
+<td> Colon
+</td>
+<td> No. of points
+</td></tr>
+<tr>
+<td> H004
+</td>
+<td> Colon
+</td>
+<td>
+</td>
+<td> Measured on
+</td>
+<td>
+</td>
+<td> H004
+</td>
+<td> Colon
+</td>
+<td> 12/01/2004
+</td></tr>
+<tr>
+<td> H005
+</td>
+<td> Tab
+</td>
+<td>
+</td>
+<td> Time
+</td>
+<td>
+</td>
+<td> H005
+</td>
+<td> Tab
+</td>
+<td> 03:20:39 AM
+</td></tr>
+<tr>
+<td> H006
+</td>
+<td> Tab
+</td>
+<td>
+</td>
+<td> Run Type:
+</td>
+<td>
+</td>
+<td> H006
+</td>
+<td> Tab
+</td>
+<td> Trial Run 1
+</td></tr></table>
+<p>This example shows how <b>Line</b> = <i>H006</i> controls should be set:
+</p>
+<dl><dd><dl><dd><a  class="image"><img alt="Tutorial Import 011 example.png" src="../images/Import_Wizard/Tutorial_Import_011_example.png?v=67577" width="633"  /></a></dd></dl></dd></dl>
+<br />When you have added all lines from the above table, click <b>Next</b>.</li>
+<li>On the <b>File Name Options</b> page, select <b>worksheet with variable</b> checkbox and choose <b>RunType</b> from the combo box drop-down list to rename the worksheet by variable <i>RunType</i>. Also select <b>Rename Long Name for Book only</b> and <b>Append file name to column comments</b>.
+<dl><dd><a  class="image"><img alt="Tutorial Import 015.png" src="../images/Import_Wizard/Tutorial_Import_015.png?v=65020" width="517"  /></a></dd></dl>
+<br />Click <b>Next</b> </li>
+<li>On the <b>Data Columns</b> page, select <b>Tab</b> for <b>Column Separator &gt; Delimiter</b>, and from the drop-down list, choose <b>(XY)</b> for the <i>Column Designations</i>. Click <b>Apply</b> button to preview the data columns in the bottom panel.
+<dl><dd><a  class="image"><img alt="Tutorial Import 007.png" src="../images/Import_Wizard/Tutorial_Import_007.png?v=67580" width="727"  /></a></li></dd></dl>
+<li>Click <b>Next</b> twice to go to the <b>Save Filters</b> page. To use these settings again, you can save this import procedure as a filter. Select the <b>Save filter</b> check box and type a filter name in the <b>Filter file name</b> text box (<i>MyFilter</i> in this example).
+<br /><a  class="image"><img alt="Tutorial Import 009.png" src="../images/Import_Wizard/Tutorial_Import_009.png?v=65023" width="727"  /></a><br /><br />Click <b>Finish</b> to import the data.
+<dl><dd><a  class="image"><img alt="Tutorial Import 008.png" src="../images/Import_Wizard/Tutorial_Import_008.png?v=65022" width="465"  /></a></li></dd></dl>
+<li>Open <b>Import Wizard</b> dialog again. This time, select file <i>&lt;Origin installation folder&gt;\Samples\Import and Export\S21-235-07.dat</i>. You can select <i>MyFilter</i> filter just saved from <b>Import Filters for current Type</b>.
+<br /><a  class="image"><img alt="Tutorial Import 010.png" src="../images/Import_Wizard/Tutorial_Import_010.png?v=65024" width="716"  /></a>
+<br />Click <b>Finish</b> button directly. The settings in <b>MyFilter</b> will be used to import the file.
+</ol>
+
+
+
+
+
+

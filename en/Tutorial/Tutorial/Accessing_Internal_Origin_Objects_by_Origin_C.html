@@ -1,0 +1,98 @@
+<h1 class="firstHeading">11.2.7 Accessing Internal Origin Objects by Origin C</h1><p class='urlname' style='display: none'>OC-Access-Internal-Object</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Accessing_Worksheet_Related_Objects"><span class="tocnumber">3</span> <span class="toctext">Accessing Worksheet Related Objects</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Accessing_Graph_Related_Objects"><span class="tocnumber">4</span> <span class="toctext">Accessing Graph Related Objects</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Internal Origin objects (such as Project Explorer folders, Origin windows (pages), layers, plots, graphic objects, data sets, etc.) are accessed using Origin C classes.  To access or programmatically control an internal Origin object, you must attach it to an Origin C object.  
+</p><p>To attach something to an internal Origin object you must first "find" it using the properties, methods, and collections of a container class.  Common container classes include the Project, Folder, Page, GraphPage, Layer, GraphLayer, Worksheet, MatrixLayer, and Collection classes.  Once found, an internal Origin object can easily be attached to an Origin C object of the appropriate type.  
+</p><p>The internal Origin object is then programmatically controlled by manipulating the class methods and properties of the attached Origin C object.  The objective of this tutorial is to demonstrate how to find particular internal Origin objects, attach things to those objects, and access the objects by manipulating the methods and properties of the attached Origin C objects.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 8.1 SR1</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Access Worksheet Related Objects </li>
+<li>Access Graph Related Objects</li></ul>
+<h2><a name="Accessing_Worksheet_Related_Objects"></a><span class="mw-headline">Accessing Worksheet Related Objects</span></h2>
+<p>Familiarity with the Origin C Project class (Project.h), the Collection class (Collection.h), and the Folder class (Folder.h), is valuable when attempting to understand how to find particular internal Origin Objects.  Users may find it helpful to preview these classes in the <b>Origin C Reference: Classes</b> book of <b>Origin C Help</b> or in the above header files located in the ..\Origin\OriginC\system subfolder.  
+</p><p>To begin this tutorial:
+</p>
+<ol><li>Download <a class="external text" href="https://blog.originlab.com/wp-content/uploads/2017/01/OriginCExamples.zip" target="_blank">this zip file</a>, extract it.</li>
+<li>On the <b>Standard</b> toolbar, click the <b>New Project</b> button <a  class="image"><img alt="Button New.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_New.png?v=37512" width="21"  /></a>.  </li>
+<li>On the <b>Standard</b> toolbar, click the <b>Code Builder</b> button <a  class="image"><img alt="Button Code Builder.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Code_Builder.png?v=1405" width="23"  /></a>.</li>
+<li>On the <b>Code Builder</b> menu, select <b>File: New Workspace</b>.</li>
+<li>On the <b>Code Builder</b> menu, click the <b>Open</b> button <a  class="image"><img alt="Button Open.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Open.png?v=52445" width="25"  /></a>. </li>
+<li>Open the unzipped folder created at step 1, browse to the <i>\Origin C Examples\Programming Guide\Introduction to Accessing Origin Objects</i> folder in the Origin software directory, select AccessWorksheetObjectsTutorial.c, check the <b>Add to Workspace</b> check box and click <b>Open</b>.</li>
+<li>On the <b>Code Builder</b> toolbar, click the <b>Rebuild All</b> button <a  class="image"><img alt="Button Rebuild All.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Rebuild_All.png?v=14959" width="21"  /></a>.  This compiles and links the file.  </li>
+<li>On the Code Builder <b>View</b> menu, verify that the <b>LabTalk Console</b> (Command &amp; Results) and the <b>Local Variables</b> windows are visible (the corresponding menu items should be checked).</li>
+<li>From the <b>Code Builder</b> menu, select <b>Tools: Customize</b>.  Select the Toolbars tab and make sure that the <b>Debug</b> toolbar check box is selected.</li>
+<li>In Code Builder, activate AccessWorksheetObjectsTutorial.c.  </li>
+<li>Near the top of the file, locate and click on the line:</li></ol>
+<pre>PageBase pb;</pre>
+<p>You can position the cursor anywhere on the line.
+</p>
+<ol start="11">
+<li>From the Code Builder menu, select <b>Debug: Toggle Breakpoints</b>.  Alternately, press <b>F9</b> or click the <b>Toggle Breakpoint</b> button <a  class="image"><img alt="Button Toggle Breakpoint.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Toggle_Breakpoint.png?v=14973" width="23"  /></a> on the <b>Debug</b> toolbar.</li>
+</ol>
+<p>A brown circle is displayed in the gray margin to the left of the above line indicating that a Debug breakpoint has been set for that line.
+</p>
+<ol start="12">
+<li> In the Code Builder workspace, activate the LabTalk Console (Command &amp; Results window) and type in the following:</li>
+</ol>
+<pre>AccessWorksheetObjectsTutorial</pre>
+<ol start="13">
+<li>Press <b>ENTER</b> to execute the function.</li>
+</ol>
+<dl><dd><a  class="image"><img alt="AccessWorksheetObjectsTutorial 1.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/AccessWorksheetObjectsTutorial_1.png?v=7155" width="369"  /></a></dd></dl>
+<ol start="14">
+<li>On the <b>Debug</b> toolbar, press the <b>Step Into</b> button <a  class="image"><img alt="Button Step Into.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Step_Into.png?v=14979" width="22"  /></a></li>
+</ol>
+<ol start="15">
+<li>Press the <b>Step Into</b> button <a  class="image"><img alt="Button Step Into.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Step_Into.png?v=14979" width="22"  /></a>repeatedly, stopping to read the comments for each statement.  Periodically stop and resize and/or reposition the Local Variables window to view the current run-time value of each variable.</li>
+</ol>
+<dl><dd><a  class="image"><img alt="AccessWorksheetObjectsTutorial 2.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/AccessWorksheetObjectsTutorial_2.png?v=7156" width="600"  /></a></dd></dl>
+<h2><a name="Accessing_Graph_Related_Objects"></a><span class="mw-headline">Accessing Graph Related Objects</span></h2>
+<ol><li>Return to the <i>Origin</i> workspace and, on the <b>Standard</b> toolbar, click the <b>Open</b> button <a  class="image"><img alt="Button Open.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Open.png?v=52445" width="25"  /></a>.  </li>
+<li>Locate the unzipped folder you created at step 1 of above section in this page. Browse to the <i>\Origin C Examples\Programming Guide\Introduction to Accessing Origin Objects</i> subfolder, select AccessGraphObjectsTutorial.OPJ, and click <b>Open</b>.  You may be prompted to save changes to an untitled project.  Click <b>No</b> and a worksheet and graph should open.</li>
+<li>From the Code Builder menu, select <b>File: New Workspace</b>.  Click <b>No</b> when prompted to save workspace changes.</li>
+<li>In Code Builder, click the <b>Open</b> button <a  class="image"><img alt="Button Open.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Open.png?v=52445" width="25"  /></a>.  </li>
+<li>Locate the unzipped folder again. Browse to the <i>Origin C Examples\Programming Guide\Introduction to Accessing Origin Objects</i> subfolder, select AccessGraphObjectsTutorial.c, select the <b>Add to Workspace</b> check box, and click <b>Open</b>.</li>
+<li>Click the <b>Rebuild All</b> button <a  class="image"><img alt="Button Rebuild All.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Rebuild_All.png?v=14959" width="21"  /></a> to compile and link the file.</li>
+<li>On the Code Builder <b> View</b> menu, verify that the <b>LabTalk Console</b> (Command &amp; Results) and the <b>Local Variables</b> windows are visible (the corresponding menu items should be checked).</li>
+<li>From the Code Builder menu, select <b>Tools: Customize</b>.  Select the Toolbars tab and make sure that the <b>Debug</b> toolbar check box is selected.</li>
+<li>In the Code Builder workspace, activate AccessGraphObjectsTutorial.c.  </li>
+<li>Near the top of the file locate and click on the line:</li></ol>
+<pre>GraphPage gp;</pre>
+<p>You can position the cursor anywhere on the line.
+</p>
+<ol start="11">
+<li>From the Code Builder menu, select <b>Debug: Toggle Breakpoints</b>.  Alternately, press <b>F9</b> or click the <b>Toggle Breakpoint</b> button <a  class="image"><img alt="Button Toggle Breakpoint.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Toggle_Breakpoint.png?v=14973" width="23"  /></a> on the <b>Debug</b> toolbar.</li>
+</ol>
+<p>A brown circle is displayed in the gray margin to the left of the above line indicating that a Debug breakpoint has been set for that line.
+</p>
+<ol start="12">
+<li> Activate the LabTalk Console (Command &amp; Results window) in Code Builder and type the following: </li>
+</ol>
+<pre>AccessGraphObjectsTutorial</pre>
+<ol start="13">
+<li>Press <b>ENTER</b> to execute the function.</li>
+</ol>
+<ol start="14">
+<li>On the <b>Debug</b> toolbar, press the <b>Step Into</b> button <a  class="image"><img alt="Button Step Into.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Step_Into.png?v=14979" width="22"  /></a></li>
+</ol>
+<ol start="15">
+<li>Press the <b>Step Into</b> button <a  class="image"><img alt="Button Step Into.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Step_Into.png?v=14979" width="22"  /></a>repeatedly, stopping to read the comments for each statement.  Periodically stop and resize and/or reposition the Local Variables window to view the current run-time value of each variable.</li>
+</ol>
+<p>This concludes the <b>Internal Origin Objects</b> tutorial.
+</p>
+
+
+
+
+

@@ -1,0 +1,103 @@
+<h1 class="firstHeading">4.2.2.19 Quoting Built-in Functions in Your New Function</h1><p class='urlname' style='display: none'>UDF-Quote-BuiltInFunc</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Data"><span class="tocnumber">3.1</span> <span class="toctext">Data</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Define_the_Function"><span class="tocnumber">3.2</span> <span class="toctext">Define the Function</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>This tutorial will show you how to reference a built-in function when creating a user-defined fitting function.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 8.0 SR6</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to: 
+</p>
+<ul><li> Define a piecewise fitting function</li>
+<li> Access built-in functions in you new function</li>
+<li> Auto initialize the parameters</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="Data"></a><span class="mw-headline">Data</span></h3>
+<p>Start by importing the file  \<i>Samples</i>\<i>Curve Fitting</i>\<i>Asymmetric Gaussian</i>.<i>dat</i> into a new workbook.
+</p><p>Highlight column B and create a graph. The peak in the data is  slightly skewed to the right. How to fit such a curve? One idea is to divide the curve into two parts -  We can consider this curve to be composed of two Gaussian function as below. These two Gaussian curves share the same baseline and peak center, but differ in peak width and amplitude.
+</p>
+<dl><dd><a  class="image"><img alt="Tutorial Quoting Built in Functions 001.png" src="../images/Quoting_Built_in_Functions_in_Your_New_Function/Tutorial_Quoting_Built_in_Functions_001.png?v=4631" width="221"  /></a></dd></dl>
+<h3><a name="Define_the_Function"></a><span class="mw-headline">Define the Function</span></h3>
+<p>Press <b>F9</b> to open the <b>Fitting Function Organizer</b> and define the function as below:
+</p>
+<table class="simple">
+
+<tr>
+<td width="150"> <b>Function Name:</b>
+</td>
+<td> AsymmetricGauss
+</td></tr>
+<tr>
+<td> <b>Function Type:</b>
+</td>
+<td> User-Defined
+</td></tr>
+<tr>
+<td> <b>Independent Variables:</b>
+</td>
+<td> x
+</td></tr>
+<tr>
+<td> <b>Dependent Variables:</b>
+</td>
+<td> y
+</td></tr>
+<tr>
+<td> <b>Parameter Names:</b>
+</td>
+<td> y0, xc, w1, w2, A1, A2
+</td></tr>
+<tr>
+<td> <b>Function Form:</b>
+</td>
+<td> <font color="blue">Origin C</font>
+</td></tr>
+<tr>
+<td> <b>Function:</b>
+</td>
+<td> y = x&lt;xc? nlf_Gauss(x, y0, xc, w1, A1)&#160;: nlf_Gauss(x, y0, xc, w2, A2);
+</td></tr></table>
+<table class="note">
+
+<tr>
+<td><b>Note:</b>
+<p>For versions before <font color="red"><b>Origin 8.1</b></font>, the function body should be defined as:<br />
+</p>
+<pre class="oc" style="font-family:monospace;">y <span style="color: #000080;">=</span> x<span style="color: #000080;">&lt;</span>xc? nlfxGauss<span style="color: #000000;">&#40;</span>x, y0, xc, w1, A1<span style="color: #000000;">&#41;</span> <span style="color: #000000;">:</span> nlfxGauss<span style="color: #000000;">&#40;</span>x, y0, xc, w2, A2<span style="color: #000000;">&#41;</span>;
+x; y0; xc; w1; w2; A1; A2;</pre>
+<p>Listing the parameters at the end is used to avoid the "parameter not used inside the function body" error, although you already use these parameters. This is required to compile the function successfully.
+</p>
+</td></tr></table>
+<p>When calling <b>nlf_<i>FuncName</i></b> to reuse built-in functions, the syntax is:
+</p>
+<dl><dd>nlf_FuncName( independent variable, parameter list ... )</dd></dl>
+<p>where <b><i>FuncName</i></b> is the fitting function name. Besides, the old notation, <i><b>nlfxFuncName</b></i> also supported.
+</p><p>The <i>Parameter List</i> follows the parameter order in function definition file for the built-in function (the FDF file.  You can open the FDF file in Notepad. The files are located in the \\Origin EXE Folder\FitFunc\). Note that, the function name we use is the DLL interface name. The actual name in the [General Information] section of the FDF file. Look at the <i>Function Source</i> item and the value is <b>fgroup.<i>FuncName</i></b>, and use the <i>FuncName</i>. In most cases, this function name is consistent with the function name visible in the NLFit dialog. For a few few functions such as Voigt, these names are different.
+</p><p>For parameter initialization of this skewed gaussian function, we can  simply copy the initialization code of the built-in gauss function, and make a few minor modifications:
+</p>
+<pre class="oc" style="font-family:monospace;">xc <span style="color: #000080;">=</span> peak_pos<span style="color: #000000;">&#40;</span>x_y_curve, <span style="color: #000040;">&amp;</span>w1, <span style="color: #000040;">&amp;</span>y0, <span style="color: #000040;">&amp;</span>A1<span style="color: #000000;">&#41;</span>;
+w2 <span style="color: #000080;">=</span> w1;
+A2 <span style="color: #000080;">=</span> A1;</pre>
+<p>The final function body should be as below:
+</p>
+<dl><dd><a  class="image"><img alt="Tutorial Quoting Built in Functions 002.png" src="../images/Quoting_Built_in_Functions_in_Your_New_Function/Tutorial_Quoting_Built_in_Functions_002.png?v=12097" width="394"  /></a></dd></dl>
+<p>Once compiled successfully, save the function and fit the curve. The results should be as below:
+</p>
+<dl><dd><a  class="image"><img alt="Tutorial Quoting Built in Functions 003.png" src="../images/Quoting_Built_in_Functions_in_Your_New_Function/Tutorial_Quoting_Built_in_Functions_003.png?v=18766" width="266"  /></a></dd></dl>
+
+
+
+
+
+

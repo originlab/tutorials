@@ -1,0 +1,103 @@
+<h1 class="firstHeading">4.2.2.22 Fit Curve Through Certain Points</h1><p class='urlname' style='display: none'>Fitting-FixThroughPoint</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">Example and Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Fixing_Function_Parameters"><span class="tocnumber">3.1</span> <span class="toctext">Fixing Function Parameters</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Use_Linear_Constraint"><span class="tocnumber">3.2</span> <span class="toctext">Use Linear Constraint</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Use_weighting"><span class="tocnumber">3.3</span> <span class="toctext">Use weighting</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>This tutorial shows you three methods to force a fit curve to go thru a particular point. Choice of method depends on function expression and the data point you want the fit curve to go through.
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<ul><li> Learn different methods to force a curve to go through a point.</li>
+<li> Fix fitting parameters during nonlinear fitting.</li>
+<li> Use general linear constraints in nonlinear fitting.</li>
+<li> Fit with weights.</li></ul>
+<h2><a name="Example_and_Steps"></a><span class="mw-headline">Example and Steps</span></h2>
+<h3><a name="Fixing_Function_Parameters"></a><span class="mw-headline">Fixing Function Parameters</span></h3>
+<p>This method works only when the point you want to fit through is related to a function parameter. One typical example: force the fitted line to go through the origin point, (0, 0), when fitting a straight line, <img src="../images/Fit_Curve_Through_Certain_Points/math-5b36a01276b98a033b76412b7b45b92a.png?v=0" title="y = a + b*x" alt="y = a + b*x" class="tex"/>. In this particular case we know that if we let <img src="../images/Fit_Curve_Through_Certain_Points/math-7bc35d81cadc0b8656640c98c9e29fd0.png?v=0" title="a = 0" alt="a = 0" class="tex"/>, the line will go through (0,0).
+</p>
+<ol>
+<li> Import the data "<i>\Samples\Curve Fitting\Linear Fit.dat</i>" into an Origin worksheet.
+
+<li> Highlight one of the Y column, column D for example, and select <b>Analysis: Fitting: Nonlinear Curve Fit</b> to bring up the <b>NLFit</b> dialog. 
+
+<li> Choose the <b><i>Line</i></b> function after selecting the <b><i>Polynomial</i></b> category.
+
+<li> Click the <b>Fitted Curves</b> page on <b>Settings</b> tab. Under the <b>X Data Type</b> branch, make sure the <b>Range</b> option is <i><b>Use Input Data Range + Margin</b></i>, and then enter <b>10</b> in the <b>Range Margin(%)</b> edit box. This option will lengthen the fitted curve.
+
+<li> Click the <b>Fit until converged</b> button <a  class="image"><img alt="Button Fit Untill Converged.png" src="../images/Fit_Curve_Through_Certain_Points/Button_Fit_Untill_Converged.png?v=1371" width="26"  /></a>. You can see from the <b>Fit Curve</b> tab that the curve does not go through the origin point.<br /><br />
+<a  class="image"><img alt="Fit Line Not Through Origin.png" src="../images/Fit_Curve_Through_Certain_Points/Fit_Line_Not_Through_Origin.png?v=12612" width="710"  /></a>
+
+<li> Now go to the <b>Parameters</b> tab, check the <b>Fixed</b> checkbox for parameter <b>A</b> and fix the value to <b>0</b>. Click the <b>Fit until converged</b> to fit the curve again. Now you can see the curve go through zero.<br /><br />
+<a  class="image"><img alt="Fit Line Through Zero.png" src="../images/Fit_Curve_Through_Certain_Points/Fit_Line_Through_Zero.png?v=12089" width="709"  /></a>
+</ol>
+<table class="note">
+
+<tr>
+<td>
+<p><b>Note</b>: You can also use the <b>Fix Intercept</b> option in the <b>Linear Fit</b> dialog to force the linear fitted line to go through the origin point.
+</p>
+</td></tr></table>
+<h3><a name="Use_Linear_Constraint"></a><span class="mw-headline">Use Linear Constraint</span></h3>
+<p>This method works when the fitting function is based on a LINEAR model, such as <i><b>Line</b></i>, <i><b>Parabola</b></i>, or <i><b>Cubic</b></i>, etc. 
+</p><p>We will show you how to force the fitted curve to go through a particular point by using linear constraint:
+</p>
+<ol>
+<li> Import the data "<i>\Samples\Curve Fitting\Polynomial Fit.dat</i>" into Origin worksheet. 
+
+<li> Highlight column B and press <b>Ctrl + Y</b> to bring up the <b>NLFit</b> dialog. 
+
+<li> Select <b>Parabola</b> (<img src="../images/Fit_Curve_Through_Certain_Points/math-33fef669c4b5422d90cf30a70b41ecdd.png?v=0" title="y = A + B*x + C*x^2" alt="y = A + B*x + C*x^2" class="tex"/>) from the <b>Polynomial</b> category. From the <b>Fit Curve</b> tab, we can see the initial value already fits the data very well. 
+
+<li> Suppose we want to force the curve through <img src="../images/Fit_Curve_Through_Certain_Points/math-b844f8c05cd4c2e5c4a7a8b5b6df26f8.png?v=0" title="(10, 100)" alt="(10, 100)" class="tex"/>. Substitute <img src="../images/Fit_Curve_Through_Certain_Points/math-b844f8c05cd4c2e5c4a7a8b5b6df26f8.png?v=0" title="(10, 100)" alt="(10, 100)" class="tex"/> to the fitting function (<img src="../images/Fit_Curve_Through_Certain_Points/math-33fef669c4b5422d90cf30a70b41ecdd.png?v=0" title="y = A + B*x + C*x^2" alt="y = A + B*x + C*x^2" class="tex"/>). we then have <img src="../images/Fit_Curve_Through_Certain_Points/math-e74c7957ccdca182753176094d6d43c3.png?v=0" title="100 = A + 10*B + 100*C" alt="100 = A + 10*B + 100*C" class="tex"/>. We can use this equation as a general linear constraint condition.
+
+Select the <b>Constraints</b> page on <b>Code</b> tab. Check the <b>Enable Linear Constraints</b> checkbox, and enter the following expression into the edit box.
+<pre class="lt" style="font-family:monospace;">A <span style="color: #000080;">+</span> <span style="color: #0000dd;">10</span><span style="color: #000080;">*</span>B <span style="color: #000080;">+</span> <span style="color: #0000dd;">100</span><span style="color: #000080;">*</span>C <span style="color: #000080;">=</span> <span style="color: #0000dd;">100</span></pre>
+<li> Click the <b>Fit until converged</b> button <a  class="image"><img alt="Button Fit Untill Converged.png" src="../images/Fit_Curve_Through_Certain_Points/Button_Fit_Untill_Converged.png?v=1371" width="26"  /></a>. We can see the fitted curve  deviates from the data points, but it goes through the specified point.<br /><br />
+<a  class="image"><img alt="Through Point by Constraints.png" src="../images/Fit_Curve_Through_Certain_Points/Through_Point_by_Constraints.png?v=12091" width="708"  /></a>
+</ol>
+<h3><a name="Use_weighting"></a><span class="mw-headline">Use weighting</span></h3>
+<p>If the parameters are some eigenvalues such as upper or lower asymptotes, and your raw data includes the points you want to fit through, you can fit the curve by assigning larger weights to these particular points. This is not an analytical solution, but you can assign larger weights to reduce the error:
+</p>
+<ol>
+<li> Prepare data by running the following script:
+<pre class="lt" style="font-family:monospace;">newbook;
+string fname<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> system.<span style="color: #000080;">path</span>.<span style="color: #000080;">program</span><span style="color: #000080;">$</span>;
+fname<span style="color: #000080;">$</span> <span style="color: #000080;">+</span><span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;Samples\Curve Fitting\Replicate Response Data.dat&quot;</span>;
+impasc fname<span style="color: #000080;">$</span> options.<span style="color: #000080;">PartImp</span>.<span style="color: #000080;">Partial</span><span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">1</span> options.<span style="color: #000080;">PartImp</span>.<span style="color: #000080;">LastCol</span><span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">2</span>;
+wks.<span style="color: #000080;">addcol</span><span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>;
+col<span style="color: #000000;">&#40;</span>a<span style="color: #000000;">&#41;</span> <span style="color: #000080;">=</span> log<span style="color: #000000;">&#40;</span>col<span style="color: #000000;">&#40;</span>a<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#41;</span> <span style="color: #000080;">+</span> <span style="color: #0000dd;">5</span>;
+col<span style="color: #000000;">&#40;</span>c<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #000000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">100</span>;
+for<span style="color: #000000;">&#40;</span>int ii <span style="color: #000080;">=</span> <span style="color: #0000dd;">2</span>; ii <span style="color: #000080;">&lt;</span> wks.<span style="color: #000080;">maxrows</span>; ii<span style="color: #000080;">++</span><span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>
+    col<span style="color: #000000;">&#40;</span>c<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#91;</span>ii<span style="color: #000000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>;
+<span style="color: #000000;">&#125;</span>
+col<span style="color: #000000;">&#40;</span>c<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#91;</span>wks.<span style="color: #000080;">maxrows</span><span style="color: #000000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">100</span>;</pre>
+<li> First, let's see how the fitted curve looks when there is no weighting. Highlight column B and bring up NLFit dialog from <b>Analysis: Fitting: Nonlinear Curve Fit</b>. Select the <b>Logistic</b> function from <b>Growth/Sigmoidal</b> category. Then click the <b>Fit until converged</b> button <a  class="image"><img alt="Button Fit Untill Converged.png" src="../images/Fit_Curve_Through_Certain_Points/Button_Fit_Untill_Converged.png?v=1371" width="26"  /></a>. From the <b>Fit Curve</b> tab, we can see the curve does not go through any points near the top.<br /><br />
+<a  class="image"><img alt="Fit Not Through Asymptote.png" src="../images/Fit_Curve_Through_Certain_Points/Fit_Not_Through_Asymptote.png?v=14676" width="774"  /></a>
+
+<li> Note that in the raw data worksheet, we have prepared column C and assigned large values for the first and last data points. If we use this column as weights, these two points will contribute more impact on the fitted curve and hence force the curve to go through these two points.
+<br /><br />
+<a  class="image"><img alt="Large Weight for Asymptote.png" src="../images/Fit_Curve_Through_Certain_Points/Large_Weight_for_Asymptote.png?v=9232" width="343"  /></a><br /><br />
+
+Now, activate the <b>Data Selection</b> page on the <b>Settings</b> tab. Expand the <b>Input Data</b> branch as below to expose the weighting option. Choose the <b>Direct Weighting</b> method and assign column <b>C</b> as the weighting dataset. Then click the <b>Fit until converged</b> button <a  class="image"><img alt="Button Fit Untill Converged.png" src="../images/Fit_Curve_Through_Certain_Points/Button_Fit_Untill_Converged.png?v=1371" width="26"  /></a>.
+
+<br /><br /><a  class="image"><img alt="Fit Through Asymptote.png" src="../images/Fit_Curve_Through_Certain_Points/Fit_Through_Asymptote.png?v=18768" width="788"  /></a><br /><br />
+
+From the preview result, we can see that the fitted curve goes through the first and last data points.
+</ol>
+
+
+
+
+
+

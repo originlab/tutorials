@@ -1,0 +1,72 @@
+<h1 class="firstHeading">6.12.14 3D Scatter Plots with Confidence Ellipsoids</h1><p class='urlname' style='display: none'>3D-TransParaSurf-Scatter</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Create_the_3D_Scatter_plot_with_color_index"><span class="tocnumber">3.1</span> <span class="toctext">Create the 3D Scatter plot with color index</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Add_transparent_confidence_ellipsoids_to_the_3D_scatter_graph"><span class="tocnumber">3.2</span> <span class="toctext">Add transparent confidence ellipsoids to the 3D scatter graph</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Transparent_Parametric_Surfaces_combined_with_Scatter_Plot/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Transparent_Parametric_Surfaces_combined_with_Scatter_Plot/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=81" target="_blank">Origin 3D OpenGL Graphs</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=311" target="_blank">Set Symbol Color and Shape by Other Column</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=258" target="_blank">Customize the Legend</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Transparent_Parametric_Surfaces_combined_with_Scatter_Plot/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Transparent_Parametric_Surfaces_combined_with_Scatter_Plot/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>This tutorial will show you how to create a 3D Scatter plot, with symbol color indexed to values in a worksheet column. Then using OriginLab's free<b>3D Confidence Ellipsoid</b> app, you will draw a confidence ellipse around each point cluster. 
+</p>
+<dl><dd><dl><dd><a  class="image"><img alt="Transparent Parametric Surfaces 01.png" src="../images/Transparent_Parametric_Surfaces_combined_with_Scatter_Plot/Transparent_Parametric_Surfaces_01.png?v=47975" width="511"  /></a></dd></dl></dd></dl>
+<p class="version" >Minimum Origin Version Required: Origin 2016 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<ul><li> How to create the 3D Scatter plot with symbol color indexing.</li>
+<li> How to add a free OriginLab App to your Apps Gallery and use the App to add confidence ellipsoids to your 3D Scatter plot.</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="Create_the_3D_Scatter_plot_with_color_index"></a><span class="mw-headline">Create the 3D Scatter plot with color index</span></h3>
+<ol>
+<li>Select <b>Help: Learning Center</b> menu or press the <b>F11</b> key to open Learning Center. Select the <b>Graph Sample</b> tab and then select <b>3D Scatter Ribbon and Wall Graphs</b> from the "Category" drop-down list. Double-click on the graph sample below to open the sample "3D Scatter Ribbon and Wall Graphs - 3D Confidence Ellipsoid for 3D Scatter".<br />
+<a  class="image"><img alt="Transparent Parametric Surfaces 00.png" src="../images/Transparent_Parametric_Surfaces_combined_with_Scatter_Plot/Transparent_Parametric_Surfaces_00.png?v=64985" width="799"  /></a><br />
+<b>Note:</b> This tutorial is associated with the file <i>&lt;Origin EXE Path&gt;\Samples\Statistics\Fisher's Iris Data.dat</i>.
+</li>
+<li>Highlight columns A(X), B(Y) and C(Z) and click <b>Plot&gt; 3D: 3D Scatter</b> to plot a 3D Scatter graph.
+<li>Double-click on the graph to open the <b>Plot Details</b> dialog, select <b>Original</b> under the plot level in the left panel, then in the right panel select <b>Symbol</b> tab, change <b>Color</b> to <b>By Points</b> and set <b>Color Options</b> to <b>Indexing&#160;: Col(E)&#160;: "Species"</b>. Choose a color list (the default list is fine).
+<li>Right-click on the graph legend and select <b>Legend: Reconstruct Legend</b> in the context menu. 
+The 3D Scatter graph will be generated as shown below:
+<br /><a  class="image"><img alt="Transparent Parametric Surfaces 06.png" src="../images/Transparent_Parametric_Surfaces_combined_with_Scatter_Plot/Transparent_Parametric_Surfaces_06.png?v=47973" width="511"  /></a>
+<br />
+<li>To ensure that the legend is not overwritten during the next steps, select <b>Format: Page</b> in the menu to open the <b>Plot Details</b> dialog. Go to <b>Legends/ Titles</b> tab and set <b>Legend Update Mode</b> to <b>None</b>.
+<br /><a  class="image"><img alt="Transparent Parametric Surfaces 14.png" src="../images/Transparent_Parametric_Surfaces_combined_with_Scatter_Plot/Transparent_Parametric_Surfaces_14.png?v=47974" width="719"  /></a>
+<br />
+</ol>
+<h3><a name="Add_transparent_confidence_ellipsoids_to_the_3D_scatter_graph"></a><span class="mw-headline">Add transparent confidence ellipsoids to the 3D scatter graph</span></h3>
+<ol>
+<li>Press F10 to open the App Center, click the <b>Search</b> tab to the left, set <b>Category</b> to <b>All</b> and search for "ellipsoid". Download and Install the <b>3D Confidence Ellipsoid</b> App (for more information, see this OriginLab File Exchange page: <a class="external text" href="https://www.originlab.com/fileExchange/details.aspx?fid=280" target="_blank">3D Confidence Ellipsoid</a>).
+
+<li>Once installed, you will see the <b>3D Confidential Ellipsoid</b> icon will be listed in the Apps Gallery:
+<br /><a  class="image"><img alt="3D Confidence Ellipsoid icon.png" src="../images/Transparent_Parametric_Surfaces_combined_with_Scatter_Plot/3D_Confidence_Ellipsoid_icon.png?v=47105" width="80"  /></a>
+
+<li>Activate the graph and click this <b>3D Confidential Ellipsoid</b> button in the Apps Gallery. This will open the <b>Plot 3D Confidence Ellipsoid</b> dialog. Accept the default settings and click <b>OK</b>. Semi-transparent ellipsoids are added to each plot cluster, according to the color of each cluster.
+<br /><a  class="image"><img alt="Plot 3D Confidence Ellipsoid dialog.png" src="../images/Transparent_Parametric_Surfaces_combined_with_Scatter_Plot/Plot_3D_Confidence_Ellipsoid_dialog.png?v=47100" width="294"  /></a>
+
+<br /><br />The final graph should appear as shown below: 
+<br /><a  class="image"><img alt="Transparent Parametric Surfaces 01.png" src="../images/Transparent_Parametric_Surfaces_combined_with_Scatter_Plot/Transparent_Parametric_Surfaces_01.png?v=47975" width="511"  /></a>
+</ol>
+
+
+
+
+
+

@@ -1,0 +1,60 @@
+<h1 class="firstHeading">4.3.9 Coherence and Correlation</h1><p class='urlname' style='display: none'>Coherence-and-Correlation</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">What You Will Learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Coherence"><span class="tocnumber">3</span> <span class="toctext">Coherence</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#1D_Correlation"><span class="tocnumber">4</span> <span class="toctext">1D Correlation</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Coherence measures the degree of linear dependency of two signals by testing for similar frequency components. If two signals correspond to each other perfectly at a given frequency, the magnitude of coherence is 1. If they are totally unrelated coherence will be 0.
+</p><p>Correlation is another measure of the relationship between two signals. A correlation coefficient is used to evaluate similarity. If two signals have a high degree of similarity, the magnitude of the computed correlation coefficient is large. If there is little or no linear relationship between two signals, the magnitude of the coefficient is small.
+</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">What You Will Learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ol><li> Test coherence and find out the frequency where two signals are in the highest degree of linear dependency.</li>
+<li> Perform correlation and find the lag to translate a dataset.</li></ol>
+<h2><a name="Coherence"></a><span class="mw-headline">Coherence</span></h2>
+<ol><li> Start with a new workbook.</li>
+<li> Start with an empty worksheet. Select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Signal Processing</i> subfolder and find the file <i>Coherence.dat</i>. Drag-and-drop this file into the empty worksheet to import it.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Coherence 1.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Coherence_1.png?v=23948" width="396"  /></a></dd></dl></li>
+<li> Select column A, then right-click and select <b>Set As: Y</b> from the shortcut menu. This sets the plot designation for column A to <i>Y</i>.</li>
+<li> Highlight the two columns and from the menu select <b>Analysis: Signal Processing: Coherence...</b>. This opens the <b>Coherence: cohere</b> dialog box.</li>
+<li> Change the <b>Window Type</b> to <i>Welch</i>, and click <b>OK</b>.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Coherence 2.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Coherence_2.png?v=42708" width="411"  /></a></dd></dl></li>
+<li> Two columns of data are added to the worksheet. Highlight these two new columns and from the menu select <b>Plot &gt; Basic 2D: Line</b> to plot coherence against frequency.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Coherence 3.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Coherence_3.png?v=24207" width="445"  /></a></dd></dl></li>
+<li> Select the <b>Data Reader</b> on the <b>Tools</b> toolbar to read the strongest peak in the graph. The image above shows that at a frequency of 0.25 there is a strong peak, indicating a strong correspondence between the two signals at this frequency.</li></ol>
+<h2><a name="1D_Correlation"></a><span class="mw-headline">1D Correlation</span></h2>
+<ol><li> Start with a new workbook.</li>
+<li> Select menu <b>File: Import: Single ASCII...</b> and import the file <b>&lt;Origin Installation Directory&gt;\Samples\Signal Processing\Correlation.dat</b>.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Correlation 1.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Correlation_1.png?v=23967" width="396"  /></a></dd></dl></li>
+<li> Select column A. Right click on it to open the shortcut menu, then choose item <b>Set As: Y</b> to set this column's plot designation to <i>Y</i>.</li>
+<li> Highlight the two columns and from the menu select <b>Analysis: Signal Processing: Correlation...</b>. This opens the <b>Correlation:corr1</b> dialog box. Accept the default settings.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Correlation 2.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Correlation_2.png?v=42709" width="411"  /></a></dd></dl></li>
+<li> Click <b>OK</b> to perform a correlation on the two signals.</li>
+<li> The correlation result and a time lag column are output to the worksheet. Highlight column D, and from the menu select <b>Plot &gt; Basic 2D: Line</b> to plot the result.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Correlation 3.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Correlation_3.png?v=24210" width="422"  /></a></dd></dl></li>
+<li> The Data Reader in the image above shows that at Time = 49, there is a strong positive peak, which means that the second dataset needs to be translated forward 49 units to align these two signals.</li>
+<li> Return to the worksheet, highlight column A and B, then from the menu select <b>Plot &gt; Multi-Panel/Axis: Vertical 2 Panel</b> to plot the two signals to two separate graph layers.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Correlation 4.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Correlation_4.png?v=23970" width="419"  /></a></dd></dl></li>
+<li> Double click on the top plot to open the <b>Plot Details</b> dialog box. In the left panel, select <b>Layer 2</b> (take care not to clear the check box). Go to the <b>Link Axes Scales</b> tab in the right panel and click the <b>Straight (1 to 1)</b> radio button in the <b>X Axis Link</b> group.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Correlation 5.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Correlation_5.png?v=23971" width="659"  /></a></dd></dl></li>
+<li> Click <b>OK</b> and both X axes now have the same scale.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Correlation 6.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Correlation_6.png?v=23972" width="419"  /></a></dd></dl></li>
+<li> To make the datasets movable, delete the lock by clicking on it and choosing <b>Recalculate Mode: None</b>. Click <b>OK</b> if the <b>Reminder Message</b> dialog pops up.</li>
+<li> Select the top plot, then select menu <b>Analysis: Data Manipulation: Horizontal Translate</b> to add a vertical line to the layer, together with a triangle button. Click on the triangle button to open a menu and uncheck <b>Keep Tool after Translation</b>. Open the menu again, select <b>Translate Duplication in: New Columns</b> from the menu. Another two columns will be added and the source data of current curve will be copied to these two new columns. 
+<dl><dd> <a  class="image"><img alt="SP Tutorial Correlation 7a.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Correlation_7a.png?v=44554" width="525"  /></a></dd></dl></li>
+<li> Again, open the menu and click <b>Shift Curve...</b> to bring up the <b>Shift Curve</b> dialog box. Set <b>Value</b> to 49.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Correlation 7.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Correlation_7.png?v=44555" width="732"  /></a></dd></dl></li>
+<li> Click <b>OK</b> to translate the plot. This should align the two signals.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Correlation 8.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Correlation_8.png?v=44556" width="422"  /></a></dd></dl></li></ol>
+
+
+
+
+
+

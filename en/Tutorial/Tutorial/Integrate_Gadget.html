@@ -1,0 +1,75 @@
+<h1 class="firstHeading">4.1.2 Integrate Gadget</h1><p class='urlname' style='display: none'>Integrate-Gadget</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Integrate_and_output_the_quantities"><span class="tocnumber">3</span> <span class="toctext">Integrate and output the quantities</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Integrate_with_a_data_plot_baseline"><span class="tocnumber">4</span> <span class="toctext">Integrate with a data plot baseline</span></a></li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Integrate_Gadget/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Integrate_Gadget/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/jwplayer.html?v=ftp/mm_tutorials/mp4/Integrate_Gadget.mp4%7C767%7C600" target="_blank">The Integrate Gadget</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=129" target="_blank">The Quick Peaks Gadget</a></li>
+<li> <a class="external text" href="https://www.youtube.com/watch?v=avQm0WINfLs&amp;feature=youtu.be" target="_blank">Batch Processing of Peak Data using Theme</a> <a  class="image"><img alt="YouTube-icon-full color 24pxHeight.png" src="../images/Integrate_Gadget/YouTube-icon-full_color_24pxHeight.png?v=64603" width="22"  /></a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Integrate_Gadget/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Integrate_Gadget/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/fill-area-under-intersection-of-two-curves" target="_blank">Fill Area Under Intersection of Two Curves</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/shading-sections-of-a-graph-and-customizing-their-formatting" target="_blank">Shading Sections of a Graph and Customizing their Formatting</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>The Integrate Gadget performs numerical integration on a data plot to calculate the area under the curve.  
+You can select an arbitrary range of the data plot using the region of interest (ROI) object overlaid on the plot. 
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<ul><li> How to easily integrate a segment of data plot under the rectangular region. </li>
+<li> How to specify the integration limits and baseline. </li>
+<li> How to display the integral curve inside the ROI and calculate quantities including: peak area, peak height, peak center, and FWHM.</li></ul>
+<h2><a name="Integrate_and_output_the_quantities"></a><span class="mw-headline">Integrate and output the quantities</span></h2>
+<ol>
+<li>Start with a new workbook and import the Origin sample data <i>Multiple Peaks.DAT</i> which is located in <i>&lt;Origin Program Folder&gt; \Samples\Curve fitting</i>. 
+<li>Highlight the Col(C) and select <b>Plot &gt; Basic 2D: Line</b> from the Origin menu to draw a graph.<br />  
+<a  class="image"><img alt="Integrate Gadget 01.png" src="../images/Integrate_Gadget/Integrate_Gadget_01.png?v=45843" width="410"  /></a>
+</li>
+<li>Select <b>Gadgets: Integrate</b> from the Origin menu when a graph is active, to bring up the <b>Integrate: addtool_curve_integ</b> dialog box. <br />
+In <b>Integration</b> tab, choose <b>Restrict to Rectangle </b> in the <b>Integral Curve</b> drop-down list to plot the integral curve within the rectangle.<br />
+<a  class="image"><img alt="Integrate Gadget 02.png" src="../images/Integrate_Gadget/Integrate_Gadget_02.png?v=45845" width="547"  /></a>
+</li>
+<li>Click <b>OK</b> button. You will see that a yellow rectangle and a blue integral curve are added to the plot. 
+The integral area is filled with gray, and the value is shown at the top of the rectangle. <br />
+<a  class="image"><img alt="Integrate Gadget 03.png" src="../images/Integrate_Gadget/Integrate_Gadget_03.png?v=45850" width="480"  /></a>
+</li>
+<li>Move the yellow region of interest rectangle to set the region for the single peak you want to integrate. <br />
+<a  class="image"><img alt="Integrate Gadget 04.png" src="../images/Integrate_Gadget/Integrate_Gadget_04.png?v=45851" width="480"  /></a>
+</li>
+<li>Click the triangle button <a  class="image"><img alt="Triangle button.png" src="../images/Integrate_Gadget/Triangle_button.png?v=12017" width="15"  /></a> at the top right corner of the ROI tool to open the fly-out menu and choose <b>New Output</b>. Then the <b>Gadget Integration Results</b> will display in the <b>Script Window</b>.<br />
+<a  class="image"><img alt="Integrate Gadget 05.png" src="../images/Integrate_Gadget/Integrate_Gadget_05.png?v=45852" width="676"  /></a>
+</li>
+</ol>
+<h2><a name="Integrate_with_a_data_plot_baseline"></a><span class="mw-headline">Integrate with a data plot baseline</span></h2>
+<ol>
+<li>Start with a new workbook and import the file <i>&lt;Origin Program Folder&gt;\Samples\Spectroscopy\ Peaks with Base.DAT</i>
+<li>Highlight Col(B) and Col(C) and select <b>Plot&gt;2D: Line: Line</b> from the Origin menu to draw a graph.  <br />
+<a  class="image"><img alt="Integrate Gadget 06.png" src="../images/Integrate_Gadget/Integrate_Gadget_06.png?v=45853" width="495"  /></a>
+</li>
+<li>Select <b>Gadgets: Integrate</b> from the Origin menu when a graph is active, to bring up the <b>Integrate: addtool_curve_integ</b> dialog box. 
+<li>In <b>Baseline</b> tab, choose <b>Use Existing Dataset </b> for the <b>Mode</b>. Then select <i>Plot(2): Base</i> as <b>Dataset</b> and click <b>OK</b> button.<br />
+<a  class="image"><img alt="Integrate Gadget 07.png" src="../images/Integrate_Gadget/Integrate_Gadget_07.png?v=45854" width="535"  /></a>
+</li>
+<li>Click the triangle button <a  class="image"><img alt="Triangle button.png" src="../images/Integrate_Gadget/Triangle_button.png?v=12017" width="15"  /></a> and select <b>Expand to Full Plot(s) Range </b> in the fly-out menu to integrate the whole range of the curve starting from the baseline.<br />
+<a  class="image"><img alt="IntegrateGadget 08.png" src="../images/Integrate_Gadget/IntegrateGadget_08.png?v=45855" width="487"  /></a>
+</li>
+<li>Select <b>New Output</b> from the fly-out menu to output the results to the script window. </li>
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Integrate_Gadget/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>Some gadgets operate on a single curve at a time, but you can repeat your analysis for other curves by clicking on the fly-out menu and choosing <b>New Output for All Curves</b> or <b>New Output for All Layers</b>.
+<p><a  class="image"><img alt="Integrate gadget new output.png" src="../images/Integrate_Gadget/Integrate_gadget_new_output.png?v=56370" width="779"  /></a>
+</p>
+</p></td></tr></table>
+
+

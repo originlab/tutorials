@@ -1,0 +1,138 @@
+<h1 class="firstHeading">5.5.9 Tutorial for Control Charts</h1><p class='urlname' style='display: none'>Tutorial-Control-Charts</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Notes_for_Starting"><span class="tocnumber">1</span> <span class="toctext">Notes for Starting</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Variables_Charts_for_Subgroups:_Xbar-R"><span class="tocnumber">2</span> <span class="toctext">Variables Charts for Subgroups: Xbar-R</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Background"><span class="tocnumber">2.1</span> <span class="toctext">Background</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Steps_in_Origin"><span class="tocnumber">2.2</span> <span class="toctext">Steps in Origin</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Interpreting_the_Results"><span class="tocnumber">2.3</span> <span class="toctext">Interpreting the Results</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Variables_Chart_for_Individuals:_I-MR"><span class="tocnumber">3</span> <span class="toctext">Variables Chart for Individuals: I-MR</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#Background_2"><span class="tocnumber">3.1</span> <span class="toctext">Background</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Steps_in_Origin_2"><span class="tocnumber">3.2</span> <span class="toctext">Steps in Origin</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Interpreting_the_Results_2"><span class="tocnumber">3.3</span> <span class="toctext">Interpreting the Results</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="#Attributes_Charts:_P_Chart_Diagnostic_and_P"><span class="tocnumber">4</span> <span class="toctext">Attributes Charts: P Chart Diagnostic and P</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="#Background_3"><span class="tocnumber">4.1</span> <span class="toctext">Background</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Steps_in_Origin_3"><span class="tocnumber">4.2</span> <span class="toctext">Steps in Origin</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Interpreting_the_Results_3"><span class="tocnumber">4.3</span> <span class="toctext">Interpreting the Results</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="#Time-Weighted_Charts:_CUSUM"><span class="tocnumber">5</span> <span class="toctext">Time-Weighted Charts: CUSUM</span></a>
+<ul>
+<li class="toclevel-2 tocsection-15"><a href="#Background_4"><span class="tocnumber">5.1</span> <span class="toctext">Background</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#Steps_in_Origin_4"><span class="tocnumber">5.2</span> <span class="toctext">Steps in Origin</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#Interpreting_the_Results_4"><span class="tocnumber">5.3</span> <span class="toctext">Interpreting the Results</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Notes_for_Starting"></a><span class="mw-headline">Notes for Starting</span></h2>
+<ul><li> Download the sample project file from <a class="external text" href="https://blog.originlab.com/wp-content/uploads/2023/10/SPCData.zip" target="_blank">here</a> and open it in Origin.</li></ul>
+<ul><li> Start this tutorial with the app <a class="external text" href="https://www.originlab.com/fileExchange/details.aspx?fid=934" target="_blank"><b>Statistical Process Control</b></a> installed. If you have not installed the app, see <a class="external text" href="https://www.originlab.com/doc/User-Guide/Apps" target="_blank">Apps for Origin</a> to find and install the app.</li></ul>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Tutorial_Control_Charts/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p><i><b>Topics for Further Reading</b></i>:
+</p>
+<ul><li> <a href="../../App/Category/Control_Charts(App).html" title="Category:Control Charts(App)">Introduction:Control Charts</a></li>
+<li> <a href="../../App/App/Algorithm_Control_Charts.html" title="App:Algorithm Control Charts">Algorithms:Control Charts</a></li></ul>
+</td></tr></table>
+<p><br />
+</p>
+<h2><a name="Variables_Charts_for_Subgroups:_Xbar-R"></a><span class="mw-headline">Variables Charts for Subgroups: Xbar-R</span></h2>
+<h5><a name="Background"></a><span class="mw-headline">Background</span></h5>
+<p>A manufacturer produces high-quality screw nuts that must equal 21 millimeters in diameter. 
+</p><p>The quality control department drew 4 nuts from the finished products of two machines per day for 20 days, measured the diameters for each. 
+</p><p>They want check whether the mean diameter to the nuts is equal to 21 and the different of their diameter can not vary more than 0.05 (20.95, 21.05), and monitor the operation of the two machines.
+</p>
+<h5><a name="Steps_in_Origin"></a><span class="mw-headline">Steps in Origin</span></h5>
+<ol><li> Open folder <b>1. Normal</b>, activate the workbook <b>Diameter</b></li>
+<li> Click the <b>Statistical Process Control</b> icon <a  class="image"><img alt="SPC Icon.png" src="../images/Tutorial_Control_Charts/SPC_Icon.png?v=73813" width="32"  /></a> in the <b>Apps Gallery</b> window.</li>
+<li> Select the <b>Control Charts</b> tab, select <b>Variables Charts for Subgroups</b> from the dropdown list, select <b>Xbar-R</b>
+<dl><dd><a  class="image"><img alt="XbarR GUI.png" src="../images/Tutorial_Control_Charts/700px-XbarR_GUI.png?v=73908" width="700"   /></a></dd></dl></li>
+<li> In the <b>Input</b> tab of the opened dialog, select column B and C to be <b>Measurement Data</b>. Choose <b>Subgroup Size By</b> to be <b>Column</b> and set the <b>Subgroup Size Column</b> to be Column A
+<dl><dd><a  class="image"><img alt="XbarR Input.png" src="../images/Tutorial_Control_Charts/450px-XbarR_Input.png?v=73910" width="450"   /></a></dd></dl></li>
+<li> In the <b>Parameters</b> tab, set <b>Historical Mean</b> to be <b>21</b>
+<dl><dd> <a  class="image"><img alt="XbarR Parameters.png" src="../images/Tutorial_Control_Charts/400px-XbarR_Parameters.png?v=73914" width="400"   /></a></dd></dl></li>
+<li> In the <b>Limits</b> tab, expand the <b>Bounds on Control Limits for Xbar Chart</b> branch. Set <b>Lower Spec</b> to be <b>20.95</b>, <b>Upper Spec</b> to be <b>21.05</b>
+<dl><dd> <a  class="image"><img alt="XbarR Limits.png" src="../images/Tutorial_Control_Charts/450px-XbarR_Limits.png?v=73912" width="450"   /></a></dd></dl></li>
+<li> In the <b>Tests</b> tab, select following Tests
+<ul><li> <b>1 Point More Than K Standard Deviation From Center Line</b></li>
+<li> <b>K Points in a Row on Same Side of Center Line</b></li>
+<li> <b>K points in a Row within 1 Standard Deviation of Center Line (Either Side)</b> </li></ul>
+<dl><dd><a  class="image"><img alt="XbarR Tests.png" src="../images/Tutorial_Control_Charts/500px-XbarR_Tests.png?v=73916" width="500"   /></a></dd></dl></li>
+<li> Click <b>OK</b> button. A graph with report tables will be created</li></ol>
+<h5><a name="Interpreting_the_Results"></a><span class="mw-headline">Interpreting the Results</span></h5>
+<p>Examine the R chart first, if the process variations are not in control, the Xbar Chart may be inaccurate. All the points are within the control limits in the R chart of the two machines, the process variation of the two machines are in control. 
+</p><p>Machine has 1 out-of-control points. The Xbar chart of machine 1 indicate that there is a point is beyond the control limits for Machine 1. The test result of TEST 1 also reported that Test 1 is fail at point 18 
+</p><p>Machine 2 is still in control. All the points are within the control limit of Xbar chart of machine 2.
+</p><p><a  class="image"><img alt="XbarR Results.png" src="../images/Tutorial_Control_Charts/900px-XbarR_Results.png?v=73918" width="900"   /></a>
+</p>
+<h2><a name="Variables_Chart_for_Individuals:_I-MR"></a><span class="mw-headline">Variables Chart for Individuals: I-MR</span></h2>
+<h5><a name="Background_2"></a><span class="mw-headline">Background</span></h5>
+<p>A quality engineer wants to evaluate the pipe production process. He collected data for height (feet) of pipe at 150 samples. He wants to know whether the height of pipe is still in control.
+</p>
+<h5><a name="Steps_in_Origin_2"></a><span class="mw-headline">Steps in Origin</span></h5>
+<ol><li> Open folder <b>1. Normal</b>. Activate the workbook <b>Height of Pipe</b>.</li>
+<li> Highlight column A in worksheet. Click the <b>Statistical Process Control</b> icon <a  class="image"><img alt="SPC Icon.png" src="../images/Tutorial_Control_Charts/SPC_Icon.png?v=73813" width="32"  /></a> in the <b>Apps Gallery</b> window.</li>
+<li> Select the <b>Control Charts</b> tab, select <b>Variables Charts for Individuals</b> from the dropdown list, select <b>I-MR</b></li>
+<li> # In the <b>Input</b> tab of the opened dialog, column A is selected automatically as <b>Measurement Data</b>.</li>
+<li> In the <b>Tests</b> tab, select following Tests
+<ul><li> <b>1 Point More Than K Standard Deviation From Center Line</b></li>
+<li> <b>K Points in a Row on Same Side of Center Line</b></li></ul>
+<dl><dd> <a  class="image"><img alt="IMR Tests.png" src="../images/Tutorial_Control_Charts/500px-IMR_Tests.png?v=73924" width="500"   /></a></dd></dl></li></ol>
+<h5><a name="Interpreting_the_Results_2"></a><span class="mw-headline">Interpreting the Results</span></h5>
+<p>Check the MR chart first. In addition the notes says point 82 and 133 failed Test 1, and point 105 failed Test 2. The process variation may be not so stable. 
+</p><p><a  class="image"><img alt="IMR Results.png" src="../images/Tutorial_Control_Charts/800px-IMR_Results.png?v=73928" width="800"   /></a>
+</p>
+<h2><a name="Attributes_Charts:_P_Chart_Diagnostic_and_P"></a><span class="mw-headline">Attributes Charts: P Chart Diagnostic and P</span></h2>
+<h5><a name="Background_3"></a><span class="mw-headline">Background</span></h5>
+<p>The manager of a shop performs service satisfaction survey every day for 25 days and mark down the number of unsatisfied users. 
+</p><p>He wants to know how well the service meets specifications.
+</p>
+<h5><a name="Steps_in_Origin_3"></a><span class="mw-headline">Steps in Origin</span></h5>
+<ol><li> Open folder <b>4. Binomial</b>, activate the workbook <b>Survey</b></li>
+<li> Click the <b>Statistical Process Control</b> icon <a  class="image"><img alt="SPC Icon.png" src="../images/Tutorial_Control_Charts/SPC_Icon.png?v=73813" width="32"  /></a> in the <b>Apps Gallery</b> window.</li>
+<li> Keep in the <b>Control Charts</b> tab, select <b>Attribute Charts</b> from the dropdown list, select <b>P-Chart Diagnostic</b>
+<dl><dd><a  class="image"><img alt="Attribute GUI.png" src="../images/Tutorial_Control_Charts/700px-Attribute_GUI.png?v=73934" width="700"   /></a></dd></dl></li>
+<li> In the <b>Input</b> tab of the opened dialog, set <b>Measurement Data</b> to be column B. Choose <b>Sample Size By</b> to be <b>Column</b> and set the <b>Sample Size Column</b> to be Column A
+<dl><dd><a  class="image"><img alt="P Input.png" src="../images/Tutorial_Control_Charts/380px-P_Input.png?v=73936" width="380"   /></a></dd></dl></li>
+<li> Click <b>OK</b> button. A graph is created
+<dl><dd> <a  class="image"><img alt="PDiagnostic.png" src="../images/Tutorial_Control_Charts/400px-PDiagnostic.png?v=73938" width="400"   /></a></dd>
+<dd> As mentioned in the notes of the <b>P Diagnostic</b> chart. <b>Laney P' chart</b> should be used. Click the <b>Statistical Process Control</b> icon <a  class="image"><img alt="SPC Icon.png" src="../images/Tutorial_Control_Charts/SPC_Icon.png?v=73813" width="32"  /></a> in the <b>Apps Gallery</b> window.</dd></dl></li>
+<li> Keep in the <b>Control Charts</b> tab, select <b>Laney P'</b></li>
+<li> In the <b>Input</b> tab of the opened dialog, set <b>Measurement Data</b> to be column B. Choose <b>Sample Size By</b> to be <b>Column</b> and set the <b>Sample Size Column</b> to be Column A
+<dl><dd><a  class="image"><img alt="LaneyP Input.png" src="../images/Tutorial_Control_Charts/400px-LaneyP_Input.png?v=73939" width="400"   /></a></dd></dl></li>
+<li> In the <b>Tests</b> tab, select <b>Perform All Tests</b> from the <b>Tests</b> drop-down list
+<dl><dd><a  class="image"><img alt="LaneyP Tests.png" src="../images/Tutorial_Control_Charts/500px-LaneyP_Tests.png?v=73940" width="500"   /></a></dd></dl></li></ol>
+<h5><a name="Interpreting_the_Results_3"></a><span class="mw-headline">Interpreting the Results</span></h5>
+<p>All data points fall within the control limits. while the note has no content for points failed, which means all tests are passed. The process are in control
+</p>
+<dl><dd><a  class="image"><img alt="LaneyP Results.png" src="../images/Tutorial_Control_Charts/500px-LaneyP_Results.png?v=73945" width="500"   /></a></dd></dl>
+<h2><a name="Time-Weighted_Charts:_CUSUM"></a><span class="mw-headline">Time-Weighted Charts: CUSUM</span></h2>
+<h5><a name="Background_4"></a><span class="mw-headline">Background</span></h5>
+<p>A manufacturer produces high-quality screw nuts that must equal 21 millimeters in diameter. 
+</p><p>The quality control department drew 4 nuts from the finished products of two machines per day for 20 days, measured the diameters for each. 
+</p><p>They want check whether the mean diameter to the nuts is equal to 21 and the different of their diameter can not vary more than 0.05 (20.95, 21.05), and monitor the operation of the two machines.
+</p><p>The quality control department has already created X-Bar chart in <a href="../../App/App/Tutorial_Control_Charts.html#Variables_Charts_for_Subgroups:_Xbar-R" title="App:Tutorial Control Charts">X-Bar chart part</a>. However, they also want to monitor the machine wear of these machines
+</p>
+<h5><a name="Steps_in_Origin_4"></a><span class="mw-headline">Steps in Origin</span></h5>
+<ol><li> Open folder <b>1. Normal</b>, activate the workbook <b>Diameter</b></li>
+<li> Click the <b>Statistical Process Control</b> icon <a  class="image"><img alt="SPC Icon.png" src="../images/Tutorial_Control_Charts/SPC_Icon.png?v=73813" width="32"  /></a> in the <b>Apps Gallery</b> window.</li>
+<li> Select the <b>Control Charts</b> tab, select <b>Time-Weighted Charts</b> from the dropdown list, select <b>CUSUM</b>
+<dl><dd><a  class="image"><img alt="CUSUM GUI.png" src="../images/Tutorial_Control_Charts/700px-CUSUM_GUI.png?v=73949" width="700"   /></a></dd></dl></li>
+<li> In the <b>Input</b> tab of the opened dialog, select column B and C to be <b>Measurement Data</b>. Choose <b>Subgroup Size By</b> to be <b>Column</b> and set the <b>Subgroup Size Column</b> to be Column A. Set <b>Target</b> to be <b>21</b>
+<dl><dd><a  class="image"><img alt="CUSUM Input.png" src="../images/Tutorial_Control_Charts/500px-CUSUM_Input.png?v=73952" width="500"   /></a></dd></dl></li>
+<li> Click <b>OK</b> button. A graph is created</li></ol>
+<h5><a name="Interpreting_the_Results_4"></a><span class="mw-headline">Interpreting the Results</span></h5>
+<p>For machine 2, all points are in control in the CUSUM chart. 
+</p><p>For machine 1, the process starts to have small shift from points 17. The manufacturer should check whether machine 1 is worn out during time. 
+</p><p><br />
+<a  class="image"><img alt="CUSUM Results.png" src="../images/Tutorial_Control_Charts/900px-CUSUM_Results.png?v=73954" width="900"   /></a>
+</p>
+

@@ -1,0 +1,64 @@
+<h1 class="firstHeading">4.5.2.3 Data Filter</h1><p class='urlname' style='display: none'>Data-Filter</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a></li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Data_Filter/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Data_Filter/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=6" target="_blank">Data Reduction</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=17" target="_blank">Extract Worksheet Data</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=83" target="_blank">Data Filter</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Data_Filter/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Data_Filter/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/delete-every-nth-row-or-column-from-worksheet-2" target="_blank">Reduce Rows or Columns from Worksheet</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/speed-mode-how-does-it-affect-my-graph-and-its-exported-image" target="_blank">Speed Mode – How does it affect my graph and its exported image?</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>The <b>Data Filter</b> is a column-based tool to reduce rows of worksheet data, and consequently also hide the undesired rows for relevant data analysis and graphing. Three data formats are supported: numeric, text and date/time.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 2015 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Use the data filter to reduce worksheet data</li>
+<li>Auto update the graphs and analysis results when apply a column filter</li>
+<li>Add a floating graph to a worksheet.</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<ol><li>Start with an new workbook. Select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Statistics</i> subfolder and find the file <i>automobile.dat</i>. Drag-and-drop this file into the empty worksheet to import it.</li>
+<li>Highlight column C(Power), right click and choose <b>Set As:X</b> in the context menu to set this column as X.</li>
+<li>Highlight column C and G (hold <b>Ctrl</b> key when clicking), click the <a  class="image"><img alt="Button Scatter.png" src="../images/Data_Filter/Button_Scatter.png?v=1448" width="22"  /></a> button on the <b>2D Graph</b> toolbar to generate a scatter plot from these two columns.</li>
+<li>Activate the generated graph and select <b>Analysis:Fitting:Linear Fit</b> from menu item to open the <b>Linear Fit</b> dialog. In this dialog, set <b>Recalculate</b> to <b>Auto</b> to ensure auto update of the analysis result, accept other settings as default and click <b>OK</b> to carry out the analysis.
+<dl><dd><a  class="image"><img alt="Tutorial Data Filter 01.png" src="../images/Data_Filter/Tutorial_Data_Filter_01.png?v=48611" width="608"  /></a></dd></dl></li>
+<li>A fitted curve and a result table will be added to the graph. Activate the graph again and double click on the X axis to open the <b>Axis</b> dialog. Select the <b>Horizontal</b> icon in the <b>Scale</b> tab, then choose <b>Auto</b> for <b>Rescale</b>. Do the same for the Y axis (<b>Vertical</b> icon) and also set its rescale mode to <b>Auto</b>. Click <b>OK</b> to apply the settings and close the dialog.
+<dl><dd><a  class="image"><img alt="Tutorial Data Filter 02.png" src="../images/Data_Filter/Tutorial_Data_Filter_02.png?v=32776" width="524"  /></a></dd></dl></li>
+<li>Go back to the original worksheet <b>automobile</b> and click <b>Column: Add New Columns</b> and add 7 columns to the worksheet.</li>
+<li>Right-click in the gray area to the right side of the worksheet columns and select <b>Add Graph...</b> in the context menu to open the <b>Graph Browser</b>. In this dialog, select the previously generated graph in the left panel and click <b>OK</b> to add this graph as a floating chart to the worksheet. Drag the floating chart onto the empty worksheet columns you just created and resize it using the selection handles.
+<dl><dd><a  class="image"><img alt="Tutorial Data Filter 03.png" src="../images/Data_Filter/650px-Tutorial_Data_Filter_03.png?v=48612" width="650"   /></a></dd></dl></li>
+<li>Highlight column A and B and click the <b>Add/Remove Data Filter</b> button <a  class="image"><img alt="Button Add Remove Data Filter.png" src="../images/Data_Filter/Button_Add_Remove_Data_Filter.png?v=14787" width="21"  /></a> on the <b>Worksheet Data</b>  toolbar to add empty data filters to both columns.</li>
+<li>Click the <b>Filter</b> icon <a  class="image"><img alt="Filter icon.png" src="../images/Data_Filter/Filter_icon.png?v=14791" width="15"  /></a> on the column header of column B, clear the check boxes before <i>Buick</i>, <i>Chrysler</i>, <i>GMC</i>, <i>Kia</i>, <i>Lincoln</i>, <i>Mercedes</i>, <i>Saab</i>, <i>Volvo</i> to hide all rows with these entries, to leave only the Japanese makers. Click <b>OK</b> to apply the filter. The worksheet data, graph and analysis result will all be auto updated accordingly.
+<dl><dd><a  class="image"><img alt="Tutorial Data Filter 04.png" src="../images/Data_Filter/Tutorial_Data_Filter_04.png?v=14784" width="249"  /></a></dd></dl></li>
+<li>Click the <b>Filter</b> icon <a  class="image"><img alt="Filter icon.png" src="../images/Data_Filter/Filter_icon.png?v=14791" width="15"  /></a> on the column header of column A and select <b>Between</b>, note that the data type of column A is numeric by default from importing. Accept default setting of the <b>Between</b> dialog and click <b>OK</b>. A data filter is applied to this column.</li>
+<li>Again click the <b>Filter</b> icon <a  class="image"><img alt="Filter icon.png" src="../images/Data_Filter/Filter_icon.png?v=14791" width="15"  /></a> on column A and this time choose <b>Custom Filter</b> in the context menu to customize the filter, change the <b>Condition</b> as <b>x.between(1996,2000)</b> to set the <b>From</b> and <b>To</b> value respectively, click the <b>Test</b> button and in the original worksheet, only the rows meet this testing condition will be highlighted, this works as a preview of the data reduction. </li></ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Data_Filter/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>To view the whole worksheet at this stage, you can minimize the <b>Custom Filter</b> dialog, allowing you to scroll up and down the worksheet freely. You can later restore the dialog by clicking the "Minimize" button.
+<p><a  class="image"><img alt="Custom Filter Dialog Restore.png" src="../images/Data_Filter/Custom_Filter_Dialog_Restore.png?v=50513" width="465"  /></a>
+</p>
+</p></td></tr></table>
+<ol start="12">
+<li>Click the <b>OK</b> button to apply the new filtering condition and the data, graphs and analysis results are updated and the graph is also auto rescaled.
+<dl><dd><a  class="image"><img alt="Tutorial Data Filter 05.png" src="../images/Data_Filter/650px-Tutorial_Data_Filter_05.png?v=48613" width="650"   /></a></dd></dl>
+
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Data_Filter/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>Beginning with Origin 2019, you can copy data filters from one column and paste to other columns of data. Right-click on the column's <b>Filter</b> cell and choose <b>Copy</b>; or click on the Filter cell and press Ctrl+C to copy the filter. Select your target column(s) and press Ctrl+V to paste the filter and apply it to data in those columns.
+</p></td></tr></table></li>
+</ol>
+
+

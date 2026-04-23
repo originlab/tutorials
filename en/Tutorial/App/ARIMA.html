@@ -1,0 +1,99 @@
+<h1 class="firstHeading">5.6.13 Tutorial for ARIMA Tool</h1><p class='urlname' style='display: none'>TSA-ARIMA-Tutorial</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Tutorial"><span class="tocnumber">2</span> <span class="toctext">Tutorial</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Pre-test"><span class="tocnumber">2.1</span> <span class="toctext">Pre-test</span></a>
+<ul>
+<li class="toclevel-3 tocsection-4"><a href="#Stationary_Test"><span class="tocnumber">2.1.1</span> <span class="toctext">Stationary Test</span></a></li>
+<li class="toclevel-3 tocsection-5"><a href="#Difference"><span class="tocnumber">2.1.2</span> <span class="toctext">Difference</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="#Get_the_parameters"><span class="tocnumber">2.1.3</span> <span class="toctext">Get the parameters</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-7"><a href="#ARIMA"><span class="tocnumber">2.2</span> <span class="toctext">ARIMA</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>In this sample, we will use ARIMA tool in Time Series Analysis app to fit monthly international airline passenger data with a specified model and forecast number of passenger in the next year.
+</p>
+<h2><a name="Tutorial"></a><span class="mw-headline">Tutorial</span></h2>
+<p>This tutorial uses App’s built-in sample project. To open this sample OPJU file:
+</p>
+<ol>
+<li>Right click the <b>Time Series Analysis</b> App icon <a  class="image"><img alt="Time Series Analysis icon.png" src="../images/ARIMA/Time_Series_Analysis_icon.png?v=75189" width="50"  /></a> in the Apps Gallery and choose <b>Show Samples Folder</b>.
+<li>Drag-and-drop the project file <i>TSA Sample.opju</i> into Origin.
+<li>Expand <b>Project Explorer</b> docked on the left. Select folder <b>Transform and Decompose</b>. The <b>Sheet1</b> in <b>Airpass</b> Workbook represents monthly international airline passenger totals from 1960 to 1972. You can find this time series data with seasonality. 
+</ol>
+<dl><dd><a  class="image"><img alt="ARIMA data.png" src="../images/ARIMA/ARIMA_data.png?v=76788" width="921"  /></a></dd></dl>
+<h3><a name="Pre-test"></a><span class="mw-headline">Pre-test</span></h3>
+<p>Before use ARIMA tool, we need to confirm parameters of the ARIMA model (p,d,q) (P,D,Q). Though the following test, you can get the parameters. For these tests, we have detail tutorial and you can click the link of them to know more detail. Here, we just show the brief steps.
+</p>
+<dl><dd><a  class="image"><img alt="ARIMA Pre-test.png" src="../images/ARIMA/ARIMA_Pre-test.png?v=76773" width="692"  /></a></dd></dl>
+<h4><a name="Stationary_Test"></a><span class="mw-headline">Stationary Test</span></h4>
+<p>Before use ARIMA tool to analysis and forecast time series data, you need to do the <a href="../../App/App/Stationary_Test.html" title="App:Stationary Test">Stationary Test</a> to confirm the dataset is stationary. Usually, the dataset with trends or seasonality, that is a non-stationary time series.
+In the result sheet, we can find the <i>P-value&gt;0.05</i>, that means this time series data is non-stationary.
+</p>
+<dl><dd><a  class="image"><img alt="ARIMA Stationary result.png" src="../images/ARIMA/ARIMA_Stationary_result.png?v=76775" width="462"  /></a></dd></dl>
+<h4><a name="Difference"></a><span class="mw-headline">Difference</span></h4>
+<p>If the dataset is not stationary, you can use <a href="../../App/App/Differences.html" title="App:Differences">Differences</a> tool to transform it to stationary. And the order of differencing is the <b>Difference</b> parameter for ARIMA model.
+</p><p>This data is non-stationary and seasonal dataset. Here, we set the <b>Differences Order (d)=1</b>,and <b>Season Differences Order (D)=1</b>, <b>Period=12</b>. Then you will get the stationary time series data in Column C.
+</p>
+<dl><dd><a  class="image"><img alt="ARIMA Differences dialog.png" src="../images/ARIMA/ARIMA_Differences_dialog.png?v=76776" width="459"  /></a></dd></dl>
+<h4><a name="Get_the_parameters"></a><span class="mw-headline">Get the parameters</span></h4>
+<p>Using the stationary time series data in Column C,  <a href="../../App/App/ACF.html" title="App:ACF"><b>Autocorrelation and Partial Autocorrelation</b></a> tool can help us to get the <b>Autoregressive</b> and <b>Moving Average</b> parameters.
+</p><p>Through the <b>PACF</b> result plot, we can get the non seasonal <b>Moving Average (q)</b> and <b>Autoregressive (p)</b>.  Also, through the <b>ACF</b> result plot, we can get the seasonal <b>Moving Average (Q)</b> and <b>Autoregressive (P)</b>. 
+</p>
+<dl><dd><a  class="image"><img alt="ARIMA ACF result.png" src="../images/ARIMA/ARIMA_ACF_result.png?v=76777" width="759"  /></a></dd></dl>
+<p>Finally, we confirm the ARIMA model (p,d,q) (P,D,Q)&#160;: <i><b>(0,1,1) (2,1,0)</b></i>
+</p>
+<h3><a name="ARIMA"></a><span class="mw-headline">ARIMA</span></h3>
+<ol>
+<li>Highlight the source data of Column B in the Worksheet.  Click the <b>Time Series Analysis</b> App icon <a  class="image"><img alt="Time Series Analysis icon.png" src="../images/ARIMA/Time_Series_Analysis_icon.png?v=75189" width="50"  /></a> in the Apps Gallery.<br />
+</li> 
+<li>In the  <b>Time Series Analysis</b> window, select <b>ARIMA</b> tab and then click <b>ARIMA</b> option to open the dialog.
+<dl><dd><a  class="image"><img alt="ARIMA tool.png" src="../images/ARIMA/800px-ARIMA_tool.png?v=76779" width="800"   /></a></dd></dl>
+</li>
+<li>Go to <b>Model</b> tab, check <b>Fit Seasonal Model</b> option. Then set the parameters:
+<ul><li> Autoregressive (p)=0</li>
+<li> Differences (d)=1</li>
+<li> Moving Average (q)=1</li></ul>
+<i>Seasonal:</i>
+<ul><li> Period=12</li>
+<li> Autoregressive (P)=2</li>
+<li> Differences (D)=1</li>
+<li> Moving Average (Q)=0</li></ul>
+<dl><dd><a  class="image"><img alt="ARIMA Model.png" src="../images/ARIMA/ARIMA_Model.png?v=76780" width="405"  /></a></dd></dl>
+</li>
+<li>Go to <b>Quantities</b> tab, select <b>Fitted Data</b> check-box and set the <b>Number of Forecasts</b> to 12.
+<dl><dd><a  class="image"><img alt="ARIMA Quantities.png" src="../images/ARIMA/ARIMA_Quantities.png?v=76781" width="405"  /></a></dd></dl>
+</li>
+<li>Go to <b>Graph</b> tab, select <b>ACF of Residuals</b> and <b>PACF of Residuals</b> check-box. And click <b>OK</b> button to close the dialog.
+<dl><dd><a  class="image"><img alt="ARIMA Graph.png" src="../images/ARIMA/ARIMA_Graph.png?v=76782" width="409"  /></a></dd></dl>
+</li>
+<li>In the result sheet, you can find the MA (Moving Average) term <i>P-value&lt;0.05</i>, and Seasonal AR （Autoregressive） <i>P-value&lt;0.05</i>. They are statistically significant. 
+<dl><dd><a  class="image"><img alt="ARIMA result sheet.png" src="../images/ARIMA/ARIMA_result_sheet.png?v=76799" width="659"  /></a></dd></dl>
+</li>
+<li>Open the <b>ACF and PACF Function Plots</b> in the result sheet.  You may see 1 or 2 significate correlations at higher order lags that are not seasonal lags. They are usually caused by random error. In this case, you can conclude that the residuals are independent.
+<dl><dd><a  class="image"><img alt="ARIMA ACF PACF Function Plots.png" src="../images/ARIMA/ARIMA_ACF_PACF_Function_Plots.png?v=76785" width="761"  /></a></dd></dl>
+</li>
+<li>We get the forecast result:
+<dl><dd><a  class="image"><img alt="ARIMA Result Plots.png" src="../images/ARIMA/ARIMA_Result_Plots.png?v=76798" width="688"  /></a></dd></dl>
+</li>
+<p><br />
+</p>
+<table class="note">
+
+<tr>
+<td><b>Note:</b> To use the graph template <i>TSAPlot.otpu</i> in the result and show the <b>Forecast</b> curve to red, you need to set the System Variable <i>@PSIL=0</i>. (About <a class="external text" href="../../QuickHelp/QuickHelp/How_do_I_permanently_change_the_value_of_a_system_variable.html">changing the value of a system variable</a> ).
+</td></tr></table>
+</ol>
+
+
+
+
+
+

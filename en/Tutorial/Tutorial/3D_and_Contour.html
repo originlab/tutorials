@@ -1,0 +1,63 @@
+<h1 class="firstHeading">1.6 3D and Contour</h1><p class='urlname' style='display: none'>GSB-3d-contour</p>
+<p><br />
+In this lesson we will learn how to plot 3D, contour, and profile plots. Data for such plots can be organized as XYZ columns or an array of cells in a worksheet, or in a matrix window. 
+</p>
+<h3><a name="3D_Surface"></a><span class="mw-headline">3D Surface</span></h3>
+<ol>
+<li>Start with the project saved from the previous lesson and add a new folder named <b>3D and Contour</b>. Click to open the empty folder.</li>
+<li>Click the <b>New Workbook</b> <a  class="image"><img alt="Button New Workbook.png" src="../images/3D_and_Contour/Button_New_Workbook.png?v=1383" width="23"  /></a>  button on the Standard toolbar.</li>
+<li>Select menu <b>Data: Connect to File: Text/CSV</b>. Browse to select the file <i>&lt;Origin EXE Path&gt;\Samples\Matrix Conversion and Gridding\</i>XYZ Random Gaussian.dat<i>. Import it with default settings.</li></i>
+<li>Click on the header of column C and select <b>Set as: Z</b> button <a  class="image"><img alt="Button Set as Z.png" src="../images/3D_and_Contour/Button_Set_as_Z.png?v=74089" width="24"  /></a> from the pop-up mini toolbar.</li>
+<li>Keep column C highlighted. Then select the menu <b>Plot &gt; 3D: 3D Color Map Surface</b> to create a surface plot.</li>
+<li>Double-click on the layer icon on the upper left corner of the graph page, indicated by <b>1</b>, to open the <b>Layer Contents</b> dialog box.</li>
+<li>In the left-hand panel, select <b>C(Z)</b>. In the middle section, click the drop-down arrow next to the <b>A</b> button.  From the drop-down, select <b>3D Scatter/Trajectory/Vector</b>. Click the <b>Add Plot</b> button <a  class="image"><img alt="Button Add plot.png" src="../images/3D_and_Contour/Button_Add_plot.png?v=15969" width="24"  /></a> to add the plot to the right-hand panel.<br />
+<a  class="image"><img alt="GST surface contour 02.png" src="../images/3D_and_Contour/500px-GST_surface_contour_02.png?v=45127" width="500"   /></a></li>
+<li>Click <b>OK</b> to close the dialog. The graph will now display the individual data points on the surface.</li>
+<li>Hold the <b>R</b> key and use the mouse to freely rotate the surface plot.</li>
+</li>
+</ol>
+<h3><a name="Image_Profile"></a><span class="mw-headline">Image Profile</span></h3>
+<ol>
+<li>Click on the <b>New Matrix</b> button  <a  class="image"><img alt="Button New Matrix.png" src="../images/3D_and_Contour/Button_New_Matrix.png?v=1386" width="23"  /></a> in the <b>Standard</b> toolbar to open a new matrix window.</li>
+<li>Select the menu <b>Data: Import from File: Image to Matrix</b>, then browse to <i>&lt;Origin EXE Path&gt;\Samples\Image Processing and Analysis</i> folder and select <i>cell.jpg</i> file and import it into the matrix.</li>
+<li>With the matrix active, select the menu <b>Plot &gt; Contour: Image Profiles</b>. Click <b>Yes</b> in the prompted message dialog. An image profile graph will be created, and the <b>Image/Contour Profile</b> dialog will open.</li>
+<li>In the dialog, select the <b>HLine</b> tab then make the horizontal line thicker by expanding the <b>Width</b> branch and changing <b>Pixels</b> to <b>50</b>.</li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/3D_and_Contour/Mini_bulb.png?v=44828" /></td><td><p>You can add multiple horizontal, vertical, or arbitrary lines using the buttons in the dialog. The graph layers will display overlaid curves for the profiles in the appropriate layers. Profile plots can also be made from data in a matrix or worksheet.
+</p></td></tr></table>
+</ol>
+<h3><a name="Contour_and_Surface_Plots_from_Virtual_Matrix"></a><span class="mw-headline">Contour and Surface Plots from Virtual Matrix</span></h3>
+<ol>
+<li>Click on the <b>New Workbook</b> button <a  class="image"><img alt="Button New Workbook.png" src="../images/3D_and_Contour/Button_New_Workbook.png?v=1383" width="23"  /></a> to create a new workbook. </li>
+<li>Click on the <b>Import Wizard</b> button <a  class="image"><img alt="Button Import Wizard.png" src="../images/3D_and_Contour/Button_Import_Wizard.png?v=52465" width="25"  /></a>. In the dialog that opens, choose the <b>...</b> button <a  class="image"><img alt="Button dot dot dot.png" src="../images/3D_and_Contour/Button_dot_dot_dot.png?v=45150" width="19"  /></a> next to <b>File</b> box, browse to <i>&lt;Origin EXE Path&gt;\Samples\Graphing</i> folder, choose <i>waterfall.dat</i> file. Click <b>Finish</b> to import the file.<br />
+<a  class="image"><img alt="GST surface contour 05.png" src="../images/3D_and_Contour/400px-GST_surface_contour_05.png?v=45156" width="400"   /></a></li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/3D_and_Contour/Mini_bulb.png?v=44828" /></td><td><p>The <b>Import Wizard</b> can be used to parse an ASCII file to extract variables from header lines. The file you chose already has a predefined filter which is applied when you click the Finish button.
+</p></td></tr></table>
+<li>Move the cursor to the upper left corner of the workbook until the shape of the pointer changes as in the following image, and click to select all columns of the worksheet. <br />
+<a  class="image"><img alt="GST surface contour 06.png" src="../images/3D_and_Contour/250px-GST_surface_contour_06.png?v=45158" width="250"   /></a></li>
+<li>Select menu <b>Plot &gt; Contour: Contour - Color Fill</b>. This will open the <b>plotvm</b> dialog box, where you need to specify the data organization for your <b>Virtual Matrix</b>, as the data is contained in a worksheet instead of a matrix window.</li>
+<li> Change <b>Y Values in </b> to <b>Column Label</b>, and then set <b>Column Label</b> to <b>Excitation Wavelength(nm)</b>.
+</li>
+<li>Click the <b>OK</b> button to apply the settings and create the contour graph.</li>
+<li>Go back to the workbook with waterfall data. Keep the whole worksheet highlighted and this time select the menu <b>Plot &gt; 3D: 3D Color Map Surface with Projection</b>.</li>
+<li>The <b>plotvm</b> dialog opens. Note that the <b>Theme</b> box on the top of dialog is set as <b>&lt;sheet&gt;</b>. This is because the settings used last time were saved in the worksheet. Click <b>OK</b> to accept the same settings. A surface graph with contour projection will be created.</li>
+<li>Double-click on the contour projection to open the <b>Plot Details</b> dialog. Note that on the <b>Surface</b> tab, the <b>Flat</b> check box is checked, and an offset of 100% has been applied. This setting makes the data plot appear as a flat contour on top of the cube. Click OK to close Plot Details.<br />
+<a  class="image"><img alt="GST surface contour 08.png" src="../images/3D_and_Contour/400px-GST_surface_contour_08.png?v=45192" width="400"   /></a></li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/3D_and_Contour/Mini_bulb.png?v=44828" /></td><td><p>Data from different matrices or virtual matrices can be plotted in the same 3D graph layer by specifying an appropriate offset value for each, and further specifying which datasets to flatten. This allows to examine related data together in the same graph.
+</p></td></tr></table>
+<li>Double click on the <b>Z</b> axis to open the <b>Axis</b> dialog. Switch to the <b>Scale</b> tab and set the <b>To</b> value to 4000 and click OK. This allows better viewing of the 3D surface. The contour project will stay on the top plane of the cube.</li>
+</ol>
+<h3><a name="3D_Function_Plot"></a><span class="mw-headline">3D Function Plot</span></h3>
+<ol>
+<li>Select the menu <b>File: New: Function Plot: 3D Function Plot</b>.</li>
+<li>In the dialog box, click the triangle button <a  class="image"><img alt="Triangle button.png" src="../images/3D_and_Contour/Triangle_button.png?v=12017" width="15"  /></a> next to the <b>Theme</b> box on the top. Then select <b>Mexican Hat(System)</b> in the context menu to load the settings for this example.</li>
+<li> Press <b>OK</b> to create the plot.</li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/3D_and_Contour/Mini_bulb.png?v=44828" /></td><td><p>A parametric function can be added to an existing graph, thus allowing you to combine such plots with real data. Visit <a class="external text" href="https://www.originlab.com/3dfunctions" target="_blank">3D Function Gallery</a> to view and download more examples.
+</p></td></tr></table>
+</ol>
+<p>Save your project file.
+</p>
+

@@ -1,0 +1,82 @@
+<h1 class="firstHeading">5.3.4 Two Way Repeated Measures ANOVA</h1><p class='urlname' style='display: none'>2WayRepeatedMeasuresANOVA</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Raw_data_mode"><span class="tocnumber">3.1</span> <span class="toctext">Raw data mode</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Results_Interpretation"><span class="tocnumber">3.2</span> <span class="toctext">Results Interpretation</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>For Two-Way Repeated Measures ANOVA, "Two-way" means that there are two factors in the experiment, for example, different treatments and different conditions. "Repeated-measures" means that the same subject received more than one treatment and/or more than one condition. 
+Similar to two-way ANOVA, two-way repeated measures ANOVA can be employed to test for significant differences between the factor level means within a factor and for interactions between factors. Using a standard ANOVA in this case is not appropriate because it fails to model the correlation between the repeated measures, and the data violates the ANOVA assumption of independence. Two-Way Repeated Measures ANOVA designs can be two repeated measures factors, or one repeated measures factor and one non-repeated factor. If any repeated factor is present, then the repeated measures ANOVA should be used.
+</p><p>In the following example, the two factors are the repeated measures factors. 
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 8.6 Pro SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Input raw data in the statistical analysis dialog.</li>
+<li>Perform Two-Way Repeated Measures ANOVA.</li>
+<li>Interpret results of a Two-Way Repeated Measures ANOVA</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<p>Origin can perform <b> Two Way Repeated Measures ANOVA </b> in both indexed and raw data modes. For Two-Way repeated measures ANOVA, if the indexed mode is used, data should be organized into four columns: Factor A, Factor B, Data, and Subject. When the Raw data mode is used, the different factors and levels should be in different columns.
+</p><p>In this example, we are interested in whether different drugs and doses have different effects on subject. We will perform the <b>Two-Way Repeated Measures ANOVA</b> to determined whether the drug type and dosage have significant effect on a subject. If there is significant difference, we will perform <b>pairwise comparison</b> to determine of which level the effects are different.
+</p>
+<h3><a name="Raw_data_mode"></a><span class="mw-headline">Raw data mode</span></h3>
+<ol><li>Start with an empty worksheet. Select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Statistics\ANOVA</i> subfolder and find the file <i>Two-Way_RM_ANOVA_raw.dat</i>. Drag-and-drop this file into the empty worksheet to import it.</li>
+<li>Select <b>Statistics: ANOVA: Two-Way Repeated Measures ANOVA</b>  to open the dialog.</li>
+<li>In <b>Input</b> tab, select <b>Raw</b> from the <b>Input Data</b> drop-down list. </li>
+<li>In this example, there are two factors. Set 3 and 2 for Number of Levels in <b>Factor A</b> and<b> Factor B</b> drop-down list to specify levels of the factor. Set <b>Name</b> to <b>drug</b> and <b>dose</b> respectively. 
+<dl><dd></dd></dl></li></ol>
+<table class="note">
+
+<tr>
+<td><b>Notes:</b> <b>Factor A</b> and <b>Factor B</b> are set as repeated measures factor by default (The <b>Repeat</b> check box under <b>Factor </b> is checked ). If one factor is a non-repeated measures factor, just uncheck  the <b>Repeated</b> check box.
+</td></tr></table>
+<ol start="5">
+<li>Now under the <b>Data</b> branch, there are three subgroups. In the <b>drug Level1 </b>subgroup, select column <b>d1d1</b> as the <b>dose Level1</b> input data range.
+<li>Similarly, select<b> d1d2</b>, <b>d2d1</b>, <b>d2d2</b>, <b>d3d1</b>, and <b>d3d2</b> for the next 5 input data range.
+<li>Check the <b>Interactions</b> check box to calculate interaction effects. <br />
+<a  class="image"><img alt="DOC-2411 RM01a.png" src="../images/Two_Way_Repeated_Measures_ANOVA/DOC-2411_RM01a.png?v=42261" width="475"  /></a>
+<li>In the <b>Descriptive Statistics</b> tab, select all check boxes to compute the mean, standard error, and 95% confidence interval of all the levels of the factors as well as interactions.<br />
+<a  class="image"><img alt="DOC-2411 RM01b.png" src="../images/Two_Way_Repeated_Measures_ANOVA/DOC-2411_RM01b.png?v=38989" width="339"  /></a>
+<li>In the <b>Means Comparison</b> tab, select the <b> Bonferroni</b> check box to enable the Bonferroni test.<br />
+<a  class="image"><img alt="DOC-2411 RM01c.png" src="../images/Two_Way_Repeated_Measures_ANOVA/DOC-2411_RM01c.png?v=38990" width="340"  /></a>
+<li>Click the <b>OK</b> button to perform the analysis.
+<br />
+</ol>
+<h3><a name="Results_Interpretation"></a><span class="mw-headline">Results Interpretation</span></h3>
+<p>Go to the worksheet <b>ANOVATwoWayRM1</b>, where the analysis results are listed.
+</p><p>You can refer to this <a class="external text" href="../../UserGuide/UserGuide/Interpreting_Results_of_Repeated_Measures_ANOVA.html">help file</a> for details of interpreting results of repeated measures ANOVA.
+</p>
+<dl><dd><a  class="image"><img alt="Multivariate Tests.png" src="../images/Two_Way_Repeated_Measures_ANOVA/Multivariate_Tests.png?v=15270" width="474"  /></a></dd></dl>
+<p>Origin uses a multivariate analysis to detect repeated-measures effects. In this example, four different methods (Pillai's trace, Wilks' lambda, Hotelling's trace, and Roy's largest root) generate identical F statistics and probabilities. For <b>drugs</b>, P_value=0.1564, so we can conclude that the effect of <b>drugs</b> did not reach conventional levels of statistical significance. Similarly, we can also conclude that <b>dose</b> and <b>drugs* dose</b> are significant.
+</p>
+<dl><dd><a  class="image"><img alt="Test of Sphericity.png" src="../images/Two_Way_Repeated_Measures_ANOVA/Test_of_Sphericity.png?v=70465" width="873"  /></a></dd></dl>
+<p>This table shows the results of Mauchly's Test of Sphericity and evaluation of epsilon.
+From the column <b>Prob&gt;ChiSq</b>, we can learn that the significance level of <b>drugs</b> is greater than 0.05 (P_value=0.11096), and the value of 
+<b>drugs*dose</b> is smaller than 0.05. For  <b>drugs*dose</b>, the assumption of sphericity has been violated. Note that <b>Greenhouse-Geisser Epilon</b>=0.65362, which is smaller than 0.75, so we will proceed with the test by using  <b>Greenhouse-Geisser</b> correction.
+</p><p><a  class="image"><img alt="Test of with-subjects effects.png" src="../images/Two_Way_Repeated_Measures_ANOVA/Test_of_with-subjects_effects.png?v=15907" width="599"  /></a>
+</p><p>From this table we are able to find out the F value for the factor, its associated significance level and the effect size. For <b>drug</b>, the P_value is 0.06461 in the<b> prob&gt;F</b> column, so <b>drugs</b> have no significant effect on subjects, while <b>dose</b> have(P_value=0.01504). For interaction  <b>drugs*dose</b>, we can still proceed with the test by using the <b>Greenhouse-Geisser</b> correction and conclude that interaction <b>drugs*dose</b> have significant effect (P_value = 0.02564).
+</p>
+<dl><dd><a  class="image"><img alt="RM02.png" src="../images/Two_Way_Repeated_Measures_ANOVA/RM02.png?v=44707" width="871"  /></a></dd></dl>
+<p>In general, Bonferroni tests are recommended to determine which specific means differed and determine whether or not the Sphericity assumption is violated. The Bonferroni correction relies on a general probability inequality and therefore isn't dependent on specific ANOVA assumptions. This table presents the results of the Bonferroni test, we can conclude that the means are not significant different (P&gt;0.05 and Sig Flag=0).    
+Of course, we do not need to perform <b>pairwise comparison</b> because drugs have no significant effect. 
+</p>
+<dl><dd><a  class="image"><img alt="TwoRM03.png" src="../images/Two_Way_Repeated_Measures_ANOVA/TwoRM03.png?v=44708" width="877"  /></a></dd></dl>
+<p>In this table, we can conclude that means of different dose are not significantly different (P_value = 0.06714 and Sig Flag = 0).
+</p>
+<dl><dd><a  class="image"><img alt="TwoRM04.png" src="../images/Two_Way_Repeated_Measures_ANOVA/TwoRM04.png?v=44709" width="871"  /></a></dd></dl>
+<p>In this table, we can conclude that dose1 is significantly larger than dose2 within drug1, and drug1 is significantly larger than drug2 and drug3 within dose1.
+</p>
+
+
+
+
+

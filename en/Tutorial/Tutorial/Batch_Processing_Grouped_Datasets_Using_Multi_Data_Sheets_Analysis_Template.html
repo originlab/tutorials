@@ -1,0 +1,101 @@
+<h1 class="firstHeading">4.8.5 Batch Processing Grouped Datasets Using Analysis Template with Multi-Data Sheets</h1><p class='urlname' style='display: none'>BatchProcess-GroupData</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#How_the_Analysis_Template_Works"><span class="tocnumber">3</span> <span class="toctext">How the Analysis Template Works</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Steps"><span class="tocnumber">4</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Create_Multi-Data_Sheets_Analysis_Template"><span class="tocnumber">4.1</span> <span class="toctext">Create Multi-Data Sheets Analysis Template</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="#Import_CSV_Files_into_Sequential_Data_Sheets"><span class="tocnumber">4.1.1</span> <span class="toctext">Import CSV Files into Sequential Data Sheets</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#Perform_Nonlinear_Fit_to_Obtain_Peak_Area"><span class="tocnumber">4.1.2</span> <span class="toctext">Perform Nonlinear Fit to Obtain Peak Area</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#Prepare_Data_for_Linear_Fit"><span class="tocnumber">4.1.3</span> <span class="toctext">Prepare Data for Linear Fit</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="#Perform_Linear_Fit_and_Create_Result_Sheet"><span class="tocnumber">4.1.4</span> <span class="toctext">Perform Linear Fit and Create Result Sheet</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-10"><a href="#Batch_Analyze_Files_in_Groups"><span class="tocnumber">4.2</span> <span class="toctext">Batch Analyze Files in Groups</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Origin can perform batch analysis on grouped datasets using an analysis template with multiple data sheets.
+</p>
+<p class="version" >Minimum Origin Version Required: 2016 SR0</p>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Batch_Processing_Grouped_Datasets_Using_Multi_Data_Sheets_Analysis_Template/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>While not as flexible or powerful as the Batch Processing, you can "clone" import and analysis operations in the active workbook, using the procedure outlined in <a href="../../Tutorial/Tutorial/Importing_Multiple_Files_into_Workbooks_Cloned_from_Active_Workbook.html" title="Tutorial:Importing Multiple Files into Workbooks Cloned from Active Workbook">this tutorial</a>.
+</p></td></tr></table>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Create a multi-data sheets analysis template</li>
+<li>Perform batch analysis on grouped datasets using analysis template</li></ul>
+<h2><a name="How_the_Analysis_Template_Works"></a><span class="mw-headline">How the Analysis Template Works</span></h2>
+<p>The reference multi-data sheets analysis template <b>Multi-Data Sheets Analysis.ogw</b> that we are going to make is located in <i>&lt;Origin EXE Folder&gt;\Samples\Batch Processing</i> folder. This analysis template will process 10 CSV files located in <i>&lt;Origin EXE Folder&gt;\Samples\Batch Processing</i> folder in group of 5. Every 5 data files will be imported into the sequential data sheets in the analysis template and a non-linear fit will be conducted to obtain the peak area and its standard error of each curve. Eventually we will perform linear fit to peak area versus temperature data extracted from file name and output the results.
+</p>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="Create_Multi-Data_Sheets_Analysis_Template"></a><span class="mw-headline">Create Multi-Data Sheets Analysis Template</span></h3>
+<h5><a name="Import_CSV_Files_into_Sequential_Data_Sheets"></a><span class="mw-headline">Import CSV Files into Sequential Data Sheets</span></h5>
+<ol>
+<li>Create a new workbook. From the menu, click <b>Data: Connect Multiple Files</b> to open the <b>files2dc</b> dialog. </li>
+<li>Set the <b>Data Connector</b> dropdown to <i>CSV</i>, then browse to the <i>&lt;Origin EXE Folder&gt;\Samples\Batch Processing</i> folder and select the first five data files.</li>
+<li>Check the <b>Same Book</b> box and click <b>OK</b>.</li>
+</ol>
+<h5><a name="Perform_Nonlinear_Fit_to_Obtain_Peak_Area"></a><span class="mw-headline">Perform Nonlinear Fit to Obtain Peak Area</span></h5>
+<ol start="4">
+<li>Highlight column 2 in sheet <i>T275k</i>, hold Ctrl + Y or go to menu <b>Analysis: Fitting: Nonlinear Curve Fit</b> to open the <b>NLFit</b> dialog. 
+<li>Set <b>Recalculate</b> = <i>Auto</i>.
+<li>Select <b>Gauss</b> as <b>Function</b> in <b>Origin Basic Functions</b> category.
+<li>Click <b>Fit</b> button to perform the fitting. Click <b>OK</b> in the prompt to close it.
+<li>Repeat steps 4 - 7 for data <i>T285k</i>, <i>T295K</i>, <i>T305K</i>, <i>T315K</i> to obtain peak areas for all five peaks.
+</ol>
+<h5><a name="Prepare_Data_for_Linear_Fit"></a><span class="mw-headline">Prepare Data for Linear Fit</span></h5>
+<ol start="8">
+<li>Right click sheet tab <i>FitNLCurve5</i> and select <b>Add</b> to add a worksheet. Double click on the name and input <i>TempData</i> as sheet name.
+<li>Hold Ctrl+D to open <b>Add New Columns</b> dialog and input <i>2</i> in the edit box to add 2 extra columns. Click <b>OK</b> button to close dialog.
+<li>Set the <b>Long Name</b> of the 4 columns as <i>Data File</i>, <i>Temperature</i>, <i>Area Value</i>, <i>Area Error</i>, respectively.
+<li>Right click the first data cell in column <i>Data File</i> and select <b>Insert Variable</b> to open dialog. In the right panel, right-click the <i>Book</i> node and check <b>Show Sheet Level</b> to show sheets in the book. Then click <i>T275K</i> sheet on the right panel and click <b>Label</b> tab on the left panel. Click property <b>Name</b> to highlight that row and click <b>Insert</b> button to insert sheet name into this cell.
+<li>Repeat this step for other four sheets to add the sheet name to column <i>Data File</i>.
+<li>Next we want to extract the temperature number from sheet name in first column, to do so highlight column <i>Temperature</i> and right click to select <b>Set Column Values...</b>. Input formula below in the edit box to extract the middle 3 numbers from file name and click <b>OK</b> to close dialog and apply.
+<pre class="lt" style="font-family:monospace;">Value<span style="color: #000000;">&#40;</span>mid<span style="color: #000000;">&#40;</span>col<span style="color: #000000;">&#40;</span>A<span style="color: #000000;">&#41;</span>,<span style="color: #0000dd;">2</span>,<span style="color: #0000dd;">3</span><span style="color: #000000;">&#41;</span><span style="color: #000080;">$</span><span style="color: #000000;">&#41;</span></pre>
+</li>
+<li>Go to sheet <i>FitNL1</i> and highlight the two value cells under variable <i><b>A</b></i> in <i>Summary'</i> node. Right click to select <b>Copy</b> to copy the data. Then go to <i>TempData</i> sheet and paste link the data in the first row in column <i>Area Value</i> and <i>Area Error</i>. Repeat this step for other four data files.
+<li>Set the designation of column <i>Temperature</i> as <b>X</b>, column <i>Area Error</i> as <b>Y Error</b>.
+</ol>
+<h5><a name="Perform_Linear_Fit_and_Create_Result_Sheet"></a><span class="mw-headline">Perform Linear Fit and Create Result Sheet</span></h5>
+<ol start="16">
+<li>Highlight column <i>Area Value</i> and <i>Area Error</i> and go to menu <b>Analysis: Fitting: Linear Fit</b> to open dialog, select <b>Recalculate</b> mode as <b>Auto</b>, click <b>OK</b> to perform linear fitting and close the dialog. Click <b>OK</b> in appeared prompt to close it.
+<li>Right click sheet tab <i>FitLinearCurve1</i> and select <b>Add</b> to add a new sheet and name it as <i>Results</i>.
+<li>Hold Ctrl + D to open <b>Add New Columns</b> dialog and input <i>3</i> in edit box to add 3 new columns.
+<li>Set the <b>Long Name</b> of the 5 columns as <i>Intercept Value</i>, <i>Intercept Error</i>, <i>Slope Value</i>, <i>Slope Error</i> and <i>Adj. R-Square</i>, respectively.
+<li>Go to sheet <i>FitLinear1</i>, copy the 5 value cells under <b>Summary</b> node and go back to <i>Results</i> sheet and click the first cell in first data row to paste as link.
+<li>Go to menu <b>File: Save Workbook As Analysis Template...</b> to save it as an analysis template and name it as <i>Multi-Data Sheets Analysis</i>.
+</ol>
+<h3><a name="Batch_Analyze_Files_in_Groups"></a><span class="mw-headline">Batch Analyze Files in Groups</span></h3>
+<p>In <i>&lt;Origin EXE Folder&gt;\Samples\Batch Processing</i> folder, we have 10 CSV data files. Suppose now we want to group the files as two groups and re-order them as: group 1 as <i>T365K</i>, <i>T345K</i>, <i>T325K</i>, <i>T305K</i>, <i>T285K</i>; group 2 as <i>T355K</i>, <i>T335K</i>, <i>T315K</i>, <i>T295K</i>, <i>T275K</i>. After we will process those two grouped files using the analysis template we created in section above.
+</p>
+<ol>
+<li>Go to menu <b>File: Batch Processing...</b> to open dialog, click the more options button next to <b>Analysis Template</b> edit box to browse to analysis template <b>Multi-Data Sheets Analysis.ogwu</b>.
+<li>Click the more options button next to <b>File List</b> edit box to bring up <b>Open</b> dialog. Firstly drag and drop CSV files one by one to re-order them as shown below and click <b>Add File(s)</b> button to add the files to list. Click <b>OK</b> button to exit dialog. 
+<br /><a  class="image"><img alt="Tutorial Batch Processing Multi Data Sheets 01.png" src="../images/Batch_Processing_Grouped_Datasets_Using_Multi_Data_Sheets_Analysis_Template/550px-Tutorial_Batch_Processing_Multi_Data_Sheets_01.png?v=43012" width="550"   /></a>
+</li>
+<li>Select <b>File Name</b> as <b>Dataset Identifier</b>, <b>Results</b> sheet as <b>Result Sheet</b> and uncheck <b>Delete Intermediate Workbook</b>.
+<br /><a  class="image"><img alt="Tutorial Batch Processing Multi Data Sheets 02.png" src="../images/Batch_Processing_Grouped_Datasets_Using_Multi_Data_Sheets_Analysis_Template/550px-Tutorial_Batch_Processing_Multi_Data_Sheets_02.png?v=54401" width="550"   /></a>
+</li>
+<li>Click <b>OK</b> button to start processing. And click OK button to save the Batch Processing dialog settings into the analysis template used(only available since Origin 2018b). The results will be outputted to <b>Summary</b> workbook as shown below:
+<br /><a  class="image"><img alt="Tutorial Batch Processing Multi Data Sheets 03.png" src="../images/Batch_Processing_Grouped_Datasets_Using_Multi_Data_Sheets_Analysis_Template/Tutorial_Batch_Processing_Multi_Data_Sheets_03.png?v=65240" width="799"  /></a>
+</li>
+</ol>
+<p><br />
+</p>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Batch_Processing_Grouped_Datasets_Using_Multi_Data_Sheets_Analysis_Template/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>Note the three buttons added to the top of the <b>Output Sheet</b> (<i>Summary</i> book, <i>Results</i> sheet):
+</p>
+<ul><li> <b>Open Book(s)</b>: If you enable <b>Delete Intermediate Workbook</b> (see step #3, above), then later decide you need them, you can highlight corresponding rows in the <i>Results</i> sheet and click this button to regenerate deleted books.</li>
+<li> <b>Reprocess</b>: Click this button to re-run import and update results when there have been changes to external data files.</li>
+<li> <b>Update</b>: Click this button to update results when something is changed on the input side of your analysis (e.g. masking of data in your data sheets). </li></ul>
+</td></tr></table>
+
+

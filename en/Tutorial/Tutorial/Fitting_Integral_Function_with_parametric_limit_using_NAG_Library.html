@@ -1,0 +1,252 @@
+<h1 class="firstHeading">4.2.2.12 Fitting Integral Function with parametric limit using NAG Library</h1><p class='urlname' style='display: none'>Fitting-Integral-ParaLimit-NAG</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">Example and Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Define_Fitting_Function_in_Fitting_Function_Organizer"><span class="tocnumber">3.1</span> <span class="toctext">Define Fitting Function in Fitting Function Organizer</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Set_the_Initial_Values_for_the_Parameters"><span class="tocnumber">3.2</span> <span class="toctext">Set the Initial Values for the Parameters</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Sample_Data"><span class="tocnumber">4</span> <span class="toctext">Sample Data</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Before you start delving into this tutorial, you are recommended to read the relevant tutorial in <a href="../../Tutorial/Tutorial/Fitting_with_Integral_using_NAG_Library.html" title="Tutorial:Fitting with Integral using NAG Library">Fitting with Integral using NAG Library</a>.
+And as far as programming is concerned, the two tutorials are basically the same, except that here you will learn to define Origin C fitting function with fitting parameters in the integral limit, while in the previous tutorial we in fact define a fitting independent variable in the integral limit. Also note that <b>a different NAG integrator</b> is used here.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 8.0 SR6</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Create a fitting function with Definite Integral using the NAG integration routine</li>
+<li>Create a fitting function with a parametric integral limit</li>
+<li>Use a log function to scale a large return value from the fitting function</li></ul>
+<h2><a name="Example_and_Steps"></a><span class="mw-headline">Example and Steps</span></h2>
+<p>For example, we will fit the <a href="#Sample_Data">sample data</a> at the bottom of this page with the following model:
+</p>
+<dl><dd><img src="../images/Fitting_Integral_Function_with_parametric_limit_using_NAG_Library/math-c57a9cb3da04ebbb99d6869533f7e1ae.png?v=0" title="y=\int_{c}^{d} \frac { \cosh { ((x_i + b^2 \cdot x^2) /(b + x))}}{a+(x_i^2+x^2)}\, dx_i" alt="y=\int_{c}^{d} \frac { \cosh { ((x_i + b^2 \cdot x^2) /(b + x))}}{a+(x_i^2+x^2)}\, dx_i" class="tex"/></dd></dl>
+<p>Note that we use <img src="../images/Fitting_Integral_Function_with_parametric_limit_using_NAG_Library/math-0877ed54238aefb676d353b0f3eb6615.png?v=0" title="x_i \," alt="x_i \," class="tex"/> to indicate the integral independent variable while <img src="../images/Fitting_Integral_Function_with_parametric_limit_using_NAG_Library/math-ba169516a48bea9e759c9586b827d9ff.png?v=0" title="x \," alt="x \," class="tex"/> indicates the fitting independent variable. The model parameters <img src="../images/Fitting_Integral_Function_with_parametric_limit_using_NAG_Library/math-0cc175b9c0f1b6a831c399e269772661.png?v=0" title="a" alt="a" class="tex"/>, <img src="../images/Fitting_Integral_Function_with_parametric_limit_using_NAG_Library/math-92eb5ffee6ae2fec3ad71c777531578f.png?v=0" title="b" alt="b" class="tex"/>, <img src="../images/Fitting_Integral_Function_with_parametric_limit_using_NAG_Library/math-4a8a08f09d37b73795649038408b5f33.png?v=0" title="c" alt="c" class="tex"/>, and <img src="../images/Fitting_Integral_Function_with_parametric_limit_using_NAG_Library/math-8277e0910d750195b448797616e091ad.png?v=0" title="d" alt="d" class="tex"/> are fitted parameters we want to obtain from the sample data. To prepare the data, you just need to copy the sample data to an Origin Work sheet.
+The fitting procedure is similar to the previous tutorial:
+</p>
+<h3><a name="Define_Fitting_Function_in_Fitting_Function_Organizer"></a><span class="mw-headline">Define Fitting Function in Fitting Function Organizer</span></h3>
+<p>Press <b>F9</b> to open the Fitting Function Organizer and add the User-Defined integral fitting function <b><i>nag_integration_fitting_cosh</i></b> to the Category <b><i>FittingWithIntegral</i></b>, similar to the first tutorial.
+</p>
+<dl><dd><table class="simple">
+
+<tr>
+<td width="150"><b>Function Name:</b>
+</td>
+<td> nag_integration_fitting_cosh
+</td></tr>
+<tr>
+<td> <b>Function Type:</b>
+</td>
+<td> User-Defined
+</td></tr>
+<tr>
+<td> <b>Independent Variables:</b>
+</td>
+<td> x
+</td></tr>
+<tr>
+<td> <b>Dependent Variables:</b>
+</td>
+<td> y
+</td></tr>
+<tr>
+<td> <b>Parameter Names:</b>
+</td>
+<td> a, b, c, d
+</td></tr>
+<tr>
+<td> <b>Function Form:</b>
+</td>
+<td> <font color="blue">Origin C</font>
+</td></tr>
+<tr>
+<td> <b>Function:</b>
+</td>
+<td>
+</td></tr></table></dd></dl>
+<p>Click the button <a  class="image"><img alt="Open Code Builder Dialog in FFO.png" src="../images/Fitting_Integral_Function_with_parametric_limit_using_NAG_Library/Open_Code_Builder_Dialog_in_FFO.png?v=34165" width="25"  /></a> beside the <b>Function</b> box to open the code builder and define and compile the fitting function as follows: (<font color="red">Note:</font> Remember to save the Function after compiling it and returning to the Function Organizer Dialog): 
+</p>
+<pre class="oc" style="font-family:monospace;"><span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>origin.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+<span style="color: #008000;">// Add your special include files here.</span>
+<span style="color: #008000;">// For example, if you want to fit with functions from the NAG library, </span>
+<span style="color: #008000;">// add the header file for the NAG functions here.</span>
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>OC_nag.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+
+
+<span style="color: #008000;">// Add code here for other Origin C functions that you want to define in this file,</span>
+<span style="color: #008000;">// and access in your fitting function.</span>
+<span style="color: #0000ff;">struct</span> user
+<span style="color: #000000;">&#123;</span>
+	<span style="color: #0000ff;">double</span> a, b, fitX;  <span style="color: #008000;">// fitX the independent variable of fitting function</span>
+ 
+<span style="color: #000000;">&#125;</span>;
+<span style="color: #0000ff;">static</span> <span style="color: #0000ff;">double</span> NAG_CALL f_callback<span style="color: #000000;">&#40;</span><span style="color: #0000ff;">double</span> x, Nag_User <span style="color: #000040;">*</span>comm<span style="color: #000000;">&#41;</span>  <span style="color: #008000;">// x is the independent variable of the integrand</span>
+<span style="color: #000000;">&#123;</span>
+ 
+	<span style="color: #0000ff;">struct</span> user <span style="color: #000040;">*</span>sp <span style="color: #000080;">=</span> <span style="color: #000000;">&#40;</span><span style="color: #0000ff;">struct</span> user <span style="color: #000040;">*</span><span style="color: #000000;">&#41;</span><span style="color: #000000;">&#40;</span>comm<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>p<span style="color: #000000;">&#41;</span>;
+ 
+        <span style="color: #0000ff;">double</span> aa, bb, fitX; <span style="color: #008000;">// temp variable to accept the parameters in the Nag_User communication struct</span>
+        aa <span style="color: #000080;">=</span> sp<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>a;
+        bb <span style="color: #000080;">=</span> sp<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>b;
+        fitX <span style="color: #000080;">=</span> sp<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>fitX;
+ 
+        <span style="color: #0000ff;">return</span> <span style="color: #000000;">cosh</span><span style="color: #000000;">&#40;</span><span style="color: #000000;">&#40;</span>x<span style="color: #000040;">*</span>x<span style="color: #000040;">+</span>bb<span style="color: #000040;">*</span>bb<span style="color: #000040;">*</span>fitX<span style="color: #000040;">*</span>fitX<span style="color: #000000;">&#41;</span><span style="color: #000040;">/</span><span style="color: #000000;">&#40;</span>bb<span style="color: #000040;">+</span>fitX<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#41;</span><span style="color: #000040;">/</span><span style="color: #000000;">&#40;</span>aa<span style="color: #000040;">+</span><span style="color: #000000;">&#40;</span>x<span style="color: #000040;">*</span>x<span style="color: #000040;">+</span>fitX<span style="color: #000040;">*</span>fitX<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#41;</span>;
+<span style="color: #000000;">&#125;</span>
+
+<span style="color: #008000;">// You can access C functions defined in other files, if those files are loaded and compiled </span>
+<span style="color: #008000;">// in your workspace, and the functions have been prototyped in a header file that you have</span>
+<span style="color: #008000;">// included above. </span>
+
+<span style="color: #008000;">// You can access NLSF object methods and properties directly in your function code.</span>
+
+<span style="color: #008000;">// You should follow C-language syntax in defining your function. </span>
+<span style="color: #008000;">// For instance, if your parameter name is P1, you cannot use p1 in your function code. </span>
+<span style="color: #008000;">// When using fractions, remember that integer division such as 1/2 is equal to 0, and not 0.5</span>
+<span style="color: #008000;">// Use 0.5 or 1/2.0 to get the correct value.</span>
+
+<span style="color: #008000;">// For more information and examples, please refer to the &quot;User-Defined Fitting Function&quot; </span>
+<span style="color: #008000;">// section of the Origin Help file.</span>
+
+<span style="color: #008000;">//----------------------------------------------------------</span>
+<span style="color: #008000;">// </span>
+<span style="color: #0000ff;">void</span> _nlsfnag_integration_fitting_cosh<span style="color: #000000;">&#40;</span>
+<span style="color: #008000;">// Fit Parameter(s):</span>
+<span style="color: #0000ff;">double</span> a, <span style="color: #0000ff;">double</span> b, <span style="color: #0000ff;">double</span> c, <span style="color: #0000ff;">double</span> d,
+<span style="color: #008000;">// Independent Variable(s):</span>
+<span style="color: #0000ff;">double</span> x,
+<span style="color: #008000;">// Dependent Variable(s):</span>
+<span style="color: #0000ff;">double</span><span style="color: #000040;">&amp;</span> y<span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>
+	<span style="color: #008000;">// Beginning of editable part</span>
+	<span style="color: #0000ff;">double</span> epsabs <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.00001</span>, epsrel <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.0000001</span>, result, abserr;
+	Integer max_num_subint <span style="color: #000080;">=</span> <span style="color: #0000dd;">500</span>;  
+        <span style="color: #008000;">// you may use epsabs and epsrel and this quantity to enhance your desired precision </span>
+        <span style="color: #008000;">// when not enough precision encountered</span>
+
+	Nag_QuadProgress qp;
+	<span style="color: #0000ff;">static</span> NagError fail;
+	
+	<span style="color: #008000;">// the parameters parameterize the integrand can be input to the call_back function</span>
+        <span style="color: #008000;">// through the Nag_User communication struct </span>
+        Nag_User comm;	
+	<span style="color: #0000ff;">struct</span> user s;
+	s.<span style="color: #000000;">a</span> <span style="color: #000080;">=</span> a;
+	s.<span style="color: #000000;">b</span> <span style="color: #000080;">=</span> b;
+	s.<span style="color: #000000;">fitX</span> <span style="color: #000080;">=</span> x;
+        comm.<span style="color: #000000;">p</span> <span style="color: #000080;">=</span> <span style="color: #000000;">&#40;</span>Pointer<span style="color: #000000;">&#41;</span><span style="color: #000040;">&amp;</span>s;
+
+	d01sjc<span style="color: #000000;">&#40;</span>f_callback, c, d, epsabs, epsrel, max_num_subint, <span style="color: #000040;">&amp;</span>result, <span style="color: #000040;">&amp;</span>abserr, <span style="color: #000040;">&amp;</span>qp, <span style="color: #000040;">&amp;</span>comm, <span style="color: #000040;">&amp;</span>fail<span style="color: #000000;">&#41;</span>;
+	
+
+        <span style="color: #008000;">// you may want to exam the error by printing out error message, just uncomment the following lines</span>
+	<span style="color: #008000;">// if (fail.code&#160;!= NE_NOERROR)</span>
+        <span style="color: #008000;">// printf(&quot;%s\n&quot;, fail.message);</span>
+
+
+	<span style="color: #008000;">// For the error other than the following three errors which are due to bad input parameters </span>
+	<span style="color: #008000;">// or allocation failure  NE_INT_ARG_LT  NE_BAD_PARAM   NE_ALLOC_FAIL</span>
+	<span style="color: #008000;">// You will need to free the memory allocation before calling the integration routine again to </span>
+        <span style="color: #008000;">// avoid memory leakage</span>
+	<span style="color: #0000ff;">if</span> <span style="color: #000000;">&#40;</span>fail.<span style="color: #000000;">code</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span> NE_INT_ARG_LT <span style="color: #000040;">&amp;&amp;</span> fail.<span style="color: #000000;">code</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span> NE_BAD_PARAM <span style="color: #000040;">&amp;&amp;</span> fail.<span style="color: #000000;">code</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span> NE_ALLOC_FAIL<span style="color: #000000;">&#41;</span>
+	<span style="color: #000000;">&#123;</span>
+		NAG_FREE<span style="color: #000000;">&#40;</span>qp.<span style="color: #000000;">sub_int_beg_pts</span><span style="color: #000000;">&#41;</span>;
+		NAG_FREE<span style="color: #000000;">&#40;</span>qp.<span style="color: #000000;">sub_int_end_pts</span><span style="color: #000000;">&#41;</span>;
+		NAG_FREE<span style="color: #000000;">&#40;</span>qp.<span style="color: #000000;">sub_int_result</span><span style="color: #000000;">&#41;</span>;
+		NAG_FREE<span style="color: #000000;">&#40;</span>qp.<span style="color: #000000;">sub_int_error</span><span style="color: #000000;">&#41;</span>;
+	<span style="color: #000000;">&#125;</span>
+	
+	
+	y <span style="color: #000080;">=</span> <span style="color: #000000;">log</span><span style="color: #000000;">&#40;</span>result<span style="color: #000000;">&#41;</span>; 
+        <span style="color: #008000;">// note use log of the integral result as return as the integral result is large, </span>
+        <span style="color: #008000;">// you are not necessary to do so </span>
+
+	<span style="color: #008000;">// End of editable part</span>
+<span style="color: #000000;">&#125;</span></pre>
+<p>In the above code, we define the integrand as a callback function <b><i>f_callback</i></b> just outside the fitting function body <b><i>_nlsfnag_integration_fitting_cosh</i></b>. Note that we parametrize the integrand function with the variables <b><i>a</i></b>, <b><i>b</i></b> and <b><i>fitX</i></b>, and pass them into the callback funtion through the <i>Nag_User</i> struct.
+After that we perform the integration using NAG integrator <b><i>d01sjc</i></b>. Besides, you can also use other <a class="external text" href="https://www.originlab.com/pdfs/nagcl25/manual/pdf/d01/d01intro.pdf" target="_blank">Quadrature Routines</a> as you want. In the current example, we also use a log scale for the fitting function. (The sample data are already scaled by a log function)
+</p><p>Compile the code, return to the dialog and then Save the fitting function in the function Organizer and open the <b>Nonlinear Curve Fit</b> dialog in the <b>Analysis</b>-<b>Fitting</b> menu. You can then select this user-defined fitting function in the <b>Function Selection</b> page under <b>Setting</b>  Tab.
+</p>
+<h3><a name="Set_the_Initial_Values_for_the_Parameters"></a><span class="mw-headline">Set the Initial Values for the Parameters</span></h3>
+<p>Similarly, as it is a user-defined fitting function, you have to supply the initial guess values for the parameters. You may manually set them in the <b>Parameter</b> tab in <b>Nonlinear Curve Fit</b> dialog. 
+For current example, you can just set the initial values for the parameters <img src="../images/Fitting_Integral_Function_with_parametric_limit_using_NAG_Library/math-1dac19ea8389b16e6d9f16517173029d.png?v=0" title="a=1 " alt="a=1 " class="tex"/>, <img src="../images/Fitting_Integral_Function_with_parametric_limit_using_NAG_Library/math-0daca570410e633ef534e720f5d54852.png?v=0" title="b=10" alt="b=10" class="tex"/>, <img src="../images/Fitting_Integral_Function_with_parametric_limit_using_NAG_Library/math-1d5d9042a46b53359b114b379816c578.png?v=0" title="c=3 " alt="c=3 " class="tex"/>, <img src="../images/Fitting_Integral_Function_with_parametric_limit_using_NAG_Library/math-cdf729c03df18f46e35e8fb096a71c43.png?v=0" title="d=4" alt="d=4" class="tex"/>. After the parameters are initialized, you can perform the fitting to obtain the fitting result, as shown in the following.
+</p>
+<h2><a name="Sample_Data"></a><span class="mw-headline">Sample Data</span></h2>
+<dl><dd><table class="simple" style="width:480px">
+
+<tr>
+<th colspan="2" align="center">Sample Data
+</th>
+<th>Results
+</th></tr>
+<tr>
+<td> <b>X</b>
+</td>
+<td> <b>Y</b>
+</td>
+<td rowspan="11" align="center"><a  class="image"><img alt="FitResultCosh.PNG" src="../images/Fitting_Integral_Function_with_parametric_limit_using_NAG_Library/FitResultCosh.PNG?v=2029" width="176"  /></a>
+</td></tr>
+<tr>
+<td> -5
+</td>
+<td> 498.19046
+</td></tr>
+<tr>
+<td> -4.33333
+</td>
+<td> 329.43196
+</td></tr>
+<tr>
+<td> -3.66667
+</td>
+<td> 210.28005
+</td></tr>
+<tr>
+<td> -3
+</td>
+<td> 126.55799
+</td></tr>
+<tr>
+<td> -2.33333
+</td>
+<td> 69.01544
+</td></tr>
+<tr>
+<td> -1.66667
+</td>
+<td> 31.3555
+</td></tr>
+<tr>
+<td> -1
+</td>
+<td> 9.1393
+</td></tr>
+<tr>
+<td> -0.33333
+</td>
+<td> -0.84496
+</td></tr>
+<tr>
+<td> 0.33333
+</td>
+<td> -0.99914
+</td></tr>
+<tr>
+<td> 1
+</td>
+<td> 6.86736
+</td></tr></table></dd></dl>
+
+
+
+
+
+

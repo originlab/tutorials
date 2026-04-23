@@ -1,0 +1,496 @@
+<h1 class="firstHeading">6.14 Windrose Graph</h1><p class='urlname' style='display: none'>Windrose-Graph</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_will_you_learn"><span class="tocnumber">2</span> <span class="toctext">What will you learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Part_1:_Create_a_Windrose_Graph_from_Binned_Data"><span class="tocnumber">3.1</span> <span class="toctext">Part 1: Create a Windrose Graph from Binned Data</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Part_2:_Create_a_Windrose_from_Raw_Data"><span class="tocnumber">3.2</span> <span class="toctext">Part 2: Create a Windrose from Raw Data</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Sample_Data"><span class="tocnumber">4</span> <span class="toctext">Sample Data</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#Binned_Data"><span class="tocnumber">4.1</span> <span class="toctext">Binned Data</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Raw_Data"><span class="tocnumber">4.2</span> <span class="toctext">Raw Data</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Windrose_Graph/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Windrose_Graph/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=124" target="_blank">Polar Axis Dialog</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=39" target="_blank">Radar/Spider Chart</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Windrose_Graph/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Windrose_Graph/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/plot-radar-chart-with-unevenly-spaced-axes" target="_blank">Plot Radar Chart with Unevenly Spaced Axes</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/radial-stacked-bar" target="_blank">Radial Stacked Bar</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/radial-plot" target="_blank">Radial Plot</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Windrose graphs are used to present wind speed data and wind direction data collected over time at a particular location. This tutorial will demonstrate how to create windrose graphs from both raw and indexed data:<br /><br />
+<a  class="image"><img alt="Two Windrose Plot.png" src="../images/Windrose_Graph/750px-Two_Windrose_Plot.png?v=63143" width="750"   /></a>
+</p>
+<h2><a name="What_will_you_learn"></a><span class="mw-headline">What will you learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Create a windrose graph from binned data</li>
+<li>Customize the direction tick labels on the windrose graph</li>
+<li>Create a windrose graph from raw data</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<p>This tutorial is associated with <i>&lt;Origin EXE Folder&gt;\Samples\Tutorial Data.opj</i>.
+<br />
+Also, you can refer to this graph in Learning Center. (Select <b>Help: Learning Center</b> menu or press <b>F11</b> key , and then open <b>Graph Sample: Specialized Graphs</b>)
+</p>
+<h3><a name="Part_1:_Create_a_Windrose_Graph_from_Binned_Data"></a><span class="mw-headline">Part 1: Create a Windrose Graph from Binned Data</span></h3>
+<ol>
+<li>Open <b>Tutorial Data.opj</b> and browse to the <b>Wind Rose</b> folder in <b>Project Explorer</b> (PE).
+<br />(If you don't have the project file, please import the sample data from <a href="../../Tutorial/Tutorial/Windrose_Graph.html#Binned_Data" title="Tutorial:Windrose Graph">here</a>).
+
+<li>Activate the <b>Book6E</b> workbook. Highlight all worksheet columns and click the <b>Wind Rose - Binned Data</b> button on the <b>2D Graphs</b> toolbar as shown below or select <b>Plot: Specialized: Wind Rose-Binned Data</b> from the main menu.<br />
+<a  class="image"><img alt="Windrose button.png" src="../images/Windrose_Graph/Windrose_button.png?v=32655" width="388"  /></a><br />
+<li>Double-click on the radial axis on the polar to open the <b>Axis</b> dialog. With <b>Radial - Inner 1</b> selected, go to <b>Show</b> tab, uncheck <b>Show</b> check box to turn off the inner radial axis. <br />
+<a  class="image"><img alt="Windrose Graph inner axis01.png" src="../images/Windrose_Graph/400px-Windrose_Graph_inner_axis01.png?v=63128" width="400"   /></a><br />
+Select Radial - Outer 2 in the left panel, check Show check box to turn on the outer axis.<br />
+<a  class="image"><img alt="Windrose Graph inner axis02.png" src="../images/Windrose_Graph/450px-Windrose_Graph_inner_axis02.png?v=63131" width="450"   /></a><br />
+Click <b>OK</b> button to just show the radial axis at left-lower position.<br />
+<a  class="image"><img alt="Windrose Graph inner axis03.png" src="../images/Windrose_Graph/Windrose_Graph_inner_axis03.png?v=63130" width="479"  /></a>
+<li>Click on any bar in the graph, and in the popup mini toolbar, click the <b>Fill Color</b> button <a  class="image"><img alt="Popup Fill Color.png" src="../images/Windrose_Graph/Popup_Fill_Color.png?v=63135" width="24"  /></a> under the <b>Group</b> tab <a  class="image"><img alt="Popup Group Tab.png" src="../images/Windrose_Graph/Popup_Group_Tab.png?v=63133" width="37"  /></a> to expand the Color Chooser. In the Color Chooser, under the <b>By Plots</b> sub-tab, select or click the color list or color palette in the you desired to apply the bar colors. 
+<a  class="image"><img alt="Windrose Graph FillColor.png" src="../images/Windrose_Graph/550px-Windrose_Graph_FillColor.png?v=63134" width="550"   /></a>
+<li>Click on the <b>Text Tool</b> button <a  class="image"><img alt="Button Text Tool.png" src="../images/Windrose_Graph/Button_Text_Tool.png?v=1592" width="23"  /></a> to add a <b>Text</b> object as graph title. And enter <i>Sample of Wind Rose (Binned Data)</i> in that <b>Text</b> object.<br />
+<a  class="image"><img alt="Windrose Graph 2.png" src="../images/Windrose_Graph/Windrose_Graph_2.png?v=63136" width="476"  /></a>
+</ol>
+<h3><a name="Part_2:_Create_a_Windrose_from_Raw_Data"></a><span class="mw-headline">Part 2: Create a Windrose from Raw Data</span></h3>
+<ol>
+<li>Go to the project folder <i>Statistical and Specialized Graphs: Specialized: Wind Rose</i> and activate the <b>Book7E</b> workbook, <b>Raw Data</b> worksheet. (If you don't have the project file, please import the <a href="../../Tutorial/Tutorial/Windrose_Graph.html#Raw_Data" title="Tutorial:Windrose Graph"> sample data</a> from here).
+
+<li>Highlight columns A &amp; B. Click the <b>Wind Rose - Raw Data</b> button on the 2D Graphs toolbar as shown below or select <b>Plot: Specialized: WindRose - Raw Data</b> from the main menu.<br />
+<a  class="image"><img alt="Windrose Raw Data Button.png" src="../images/Windrose_Graph/Windrose_Raw_Data_Button.png?v=32662" width="364"  /></a><br />
+In the dialog opened, do the settings below and click OK button to create the wind rose graph:<br />
+<a  class="image"><img alt="Windrose Raw Data Settings.png" src="../images/Windrose_Graph/Windrose_Raw_Data_Settings.png?v=63138" width="599"  /></a>
+<li>Do the same operations as the step 3 in the <a href="#Part_1:_Create_a_Windrose_Graph_from_Binned_Data">Part 1</a> to move the radial axis to the left-bottom. And, go to <b>Tick Labels</b> tab for <b>Radial Outer 2</b> to remove the Suffix "%" for the radial axis tick labels.
+<li>Do the same operations as the step 4 in the <a href="#Part_1:_Create_a_Windrose_Graph_from_Binned_Data">Part 1</a> to change the fill color for the stacked bars.<br />
+The final graph should resemble the image shown below:<br />
+<a  class="image"><img alt="Wind Rose Example Raw Data.png" src="../images/Windrose_Graph/Wind_Rose_Example_Raw_Data.png?v=63142" width="493"  /></a>
+</ol>
+<h2><a name="Sample_Data"></a><span class="mw-headline">Sample Data</span></h2>
+<h3><a name="Binned_Data"></a><span class="mw-headline">Binned Data</span></h3>
+<p>To import <b>Binned Data</b> to a worksheet, copy the <b>Binned Data 1</b> (including the heading) and select <b>File: Import Wizard</b>. Select the <b>Clipboard</b> checkbox in the <b>DataSource</b> group and click the <b>Finish</b> button to import the data into Origin.<br />
+<a  class="image"><img alt="Import Wizard Clipboard.png" src="../images/Windrose_Graph/Import_Wizard_Clipboard.png?v=3739" width="319"  /></a><br />
+</p>
+<dl><dd><table class="simple">
+<tr>
+<th>Direction
+</th>
+<th>0-4
+</th>
+<th>4-8
+</th>
+<th>8-12
+</th>
+<th>12-16
+</th>
+<th>16-20
+</th></tr>
+<tr>
+<td>22.5
+</td>
+<td>3.125
+</td>
+<td>3.125
+</td>
+<td>3.125
+</td>
+<td>6.25
+</td>
+<td>0
+</td></tr>
+<tr>
+<td>45
+</td>
+<td>0
+</td>
+<td>3.125
+</td>
+<td>3.125
+</td>
+<td>0
+</td>
+<td>0
+</td></tr>
+<tr>
+<td>67.5
+</td>
+<td>0
+</td>
+<td>6.25
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>0
+</td></tr>
+<tr>
+<td>90
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>3.125
+</td></tr>
+<tr>
+<td>112.5
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>0
+</td></tr>
+<tr>
+<td>135
+</td>
+<td>3.125
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>3.125
+</td></tr>
+<tr>
+<td>157.5
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>9.375
+</td>
+<td>3.125
+</td>
+<td>0
+</td></tr>
+<tr>
+<td>180
+</td>
+<td>3.125
+</td>
+<td>3.125
+</td>
+<td>0
+</td>
+<td>3.125
+</td>
+<td>3.125
+</td></tr>
+<tr>
+<td>202.5
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>0
+</td></tr>
+<tr>
+<td>225
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>3.125
+</td>
+<td>0
+</td>
+<td>0
+</td></tr>
+<tr>
+<td>247.5
+</td>
+<td>0
+</td>
+<td>3.125
+</td>
+<td>0
+</td>
+<td>3.125
+</td>
+<td>3.125
+</td></tr>
+<tr>
+<td>270
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>3.125
+</td></tr>
+<tr>
+<td>292.5
+</td>
+<td>0
+</td>
+<td>6.25
+</td>
+<td>3.125
+</td>
+<td>0
+</td>
+<td>0
+</td></tr>
+<tr>
+<td>315
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>3.125
+</td>
+<td>3.125
+</td>
+<td>0
+</td></tr>
+<tr>
+<td>337.5
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>0
+</td></tr>
+<tr>
+<td>360
+</td>
+<td>0
+</td>
+<td>6.25
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>0
+</td></tr>
+<tr>
+<td>382.5
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>0
+</td>
+<td>0
+</td></tr></table></dd></dl>
+<h3><a name="Raw_Data"></a><span class="mw-headline">Raw Data</span></h3>
+<p>To import <b>Raw Data</b> to worksheet, you can copy the <b>Raw Data</b> (including the heading) and then select <b>File: Import Wizard</b>. Select the <b>Clipboard</b> checkbox in <b>DataSource</b> group and then click <b>Finish</b> button to import the data into Origin.<br /><br />
+</p>
+<dl><dd><a  class="image"><img alt="Import Wizard Clipboard.png" src="../images/Windrose_Graph/Import_Wizard_Clipboard.png?v=3739" width="319"  /></a><br /><br /></dd></dl>
+<dl><dd><table class="simple">
+<tr>
+<th>Direction
+</th>
+<th>Speed
+</th></tr>
+<tr>
+<td>311.5
+</td>
+<td>12.75
+</td></tr>
+<tr>
+<td>142.7
+</td>
+<td>11.18
+</td></tr>
+<tr>
+<td>161.6
+</td>
+<td>5.9
+</td></tr>
+<tr>
+<td>277.3
+</td>
+<td>8.24
+</td></tr>
+<tr>
+<td>155.3
+</td>
+<td>13.46
+</td></tr>
+<tr>
+<td>40.8
+</td>
+<td>8.57
+</td></tr>
+<tr>
+<td>43.4
+</td>
+<td>4.38
+</td></tr>
+<tr>
+<td>1.3
+</td>
+<td>10.91
+</td></tr>
+<tr>
+<td>78.8
+</td>
+<td>18.72
+</td></tr>
+<tr>
+<td>237.8
+</td>
+<td>16.22
+</td></tr>
+<tr>
+<td>114.6
+</td>
+<td>0.88
+</td></tr>
+<tr>
+<td>2.1
+</td>
+<td>12.05
+</td></tr>
+<tr>
+<td>290.5
+</td>
+<td>4.6
+</td></tr>
+<tr>
+<td>174.1
+</td>
+<td>3.29
+</td></tr>
+<tr>
+<td>267.6
+</td>
+<td>16.64
+</td></tr>
+<tr>
+<td>8
+</td>
+<td>5.6
+</td></tr>
+<tr>
+<td>213.9
+</td>
+<td>8.04
+</td></tr>
+<tr>
+<td>134.8
+</td>
+<td>17.26
+</td></tr>
+<tr>
+<td>137.6
+</td>
+<td>11.87
+</td></tr>
+<tr>
+<td>46.1
+</td>
+<td>5.48
+</td></tr>
+<tr>
+<td>4.5
+</td>
+<td>13.47
+</td></tr>
+<tr>
+<td>311.2
+</td>
+<td>10.17
+</td></tr>
+<tr>
+<td>154.4
+</td>
+<td>11.17
+</td></tr>
+<tr>
+<td>176.2
+</td>
+<td>18.91
+</td></tr>
+<tr>
+<td>348.1
+</td>
+<td>4.11
+</td></tr>
+<tr>
+<td>225.2
+</td>
+<td>6.65
+</td></tr>
+<tr>
+<td>236.4
+</td>
+<td>12.87
+</td></tr>
+<tr>
+<td>11.7
+</td>
+<td>1.07
+</td></tr>
+<tr>
+<td>278.9
+</td>
+<td>4.36
+</td></tr>
+<tr>
+<td>356.5
+</td>
+<td>5.01
+</td></tr>
+<tr>
+<td>58.9
+</td>
+<td>7.3
+</td></tr>
+<tr>
+<td>161.8
+</td>
+<td>15.6
+</td></tr></table></dd></dl>
+
+
+
+
+
+

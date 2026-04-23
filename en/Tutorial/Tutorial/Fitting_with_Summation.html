@@ -1,0 +1,161 @@
+<h1 class="firstHeading">4.2.2.16 Fitting with Summation</h1><p class='urlname' style='display: none'>Fitting-Summation</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">Example and Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Define_the_Function"><span class="tocnumber">3.1</span> <span class="toctext">Define the Function</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Fit_the_Curve"><span class="tocnumber">3.2</span> <span class="toctext">Fit the Curve</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>We have showed you how to perform <a href="../../Tutorial/Tutorial/Fitting_with_Integral_using_NAG_Library.html" title="Tutorial:Fitting with Integral using NAG Library">fitting with an integral</a> using the <a class="external text" href="../../OriginC/OriginC/Accessing_NAG_Functions_Category_and_Help.html">NAG Library</a>, and now you'll learn how to do that without calling NAG functions. In this tutorial, we will show you how to do integration by the trapezoidal rule and include the summation procedure in the fitting function.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 8.0 SR6</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<ul><li> How to include summation in your fitting function.</li>
+<li> Trapezoidal rule for integration.</li></ul>
+<h2><a name="Example_and_Steps"></a><span class="mw-headline">Example and Steps</span></h2>
+<p>We will fit the same model as the <a href="../../Tutorial/Tutorial/Fitting_with_Integral_using_NAG_Library.html" title="Tutorial:Fitting with Integral using NAG Library">integral fit using NAG</a>:
+</p>
+<dl><dd><img src="../images/Fitting_with_Summation/math-b69c0ea663b8e1eb74e688458b65a79e.png?v=0" title="y=y_0+\int_{-\infty}^{x} \frac{A}{w\sqrt{\frac{\pi}{2}}} e^{-2\frac{(x-x_c)^2}{w^2}}, dx" alt="y=y_0+\int_{-\infty}^{x} \frac{A}{w\sqrt{\frac{\pi}{2}}} e^{-2\frac{(x-x_c)^2}{w^2}}, dx" class="tex"/></dd></dl>
+<p>The difference is that we will perform the integration within the fitting function. Using the trapezoidal rule, we will first divide the curve into pieces and then approximate the integral area by multiple trapezoids. The precision of the result then depends on how many trapezoids will be used. Since this is a semi-infinite integration, we will set an increment (steps) and construct trapezoids from the upper integral limit, x, to the lower integral limit, negative infinity and then accumulate the area of these trapezoids. When the increment of the area is significantly small, we will stop the summation. Before doing the summation, you should guarantee that the function is <b>CONVERGENT</b>, or you should include a convergence check in your code.
+</p>
+<dl><dd><a  class="image"><img alt="Tutorial Fitting with Summation 001.png" src="../images/Fitting_with_Summation/Tutorial_Fitting_with_Summation_001.png?v=4432" width="316"  /></a></dd></dl>
+<h3><a name="Define_the_Function"></a><span class="mw-headline">Define the Function</span></h3>
+<p>Select <b>Tools:Fitting Function Organizer</b> or alternatively press the <b>F9</b> key to open the <span class="db">Fitting Function Organizer</span> and then define the function as follows:
+</p>
+<dl><dd><table class="simple">
+
+<tr>
+<td width="150"> <b>Function Name:</b>
+</td>
+<td> summation
+</td></tr>
+<tr>
+<td> <b>Function Type:</b>
+</td>
+<td> User-Defined
+</td></tr>
+<tr>
+<td> <b>Independent Variables:</b>
+</td>
+<td> x
+</td></tr>
+<tr>
+<td> <b>Dependent Variables:</b>
+</td>
+<td> y
+</td></tr>
+<tr>
+<td> <b>Parameter Names:</b>
+</td>
+<td> y0, A, xc, w
+</td></tr>
+<tr>
+<td> <b>Function Form:</b>
+</td>
+<td> <font color="blue">Origin C</font>
+</td></tr>
+<tr>
+<td> <b>Function:</b>
+</td>
+<td>
+</td></tr></table></dd></dl>
+<p>Click the button (icon) beside the <b>Function</b> box to open Code Builder.  Define, compile and save the fitting function as follows:
+</p>
+<pre class="oc" style="font-family:monospace;"><span style="color: #0000ff;">#pragma</span> warning<span style="color: #000000;">&#40;</span>error <span style="color: #000000;">:</span> <span style="color: #0000dd;">15618</span><span style="color: #000000;">&#41;</span>
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>origin.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+
+<span style="color: #008000;">// Subroutine for integrand</span>
+<span style="color: #0000ff;">double</span> f<span style="color: #000000;">&#40;</span><span style="color: #0000ff;">double</span> x, <span style="color: #0000ff;">double</span> A, <span style="color: #0000ff;">double</span> xc, <span style="color: #0000ff;">double</span> w<span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>
+	<span style="color: #0000ff;">return</span> A <span style="color: #000040;">*</span> <span style="color: #000000;">exp</span><span style="color: #000000;">&#40;</span><span style="color: #000040;">-</span><span style="color: #0000dd;">2</span><span style="color: #000040;">*</span><span style="color: #000000;">&#40;</span>x<span style="color: #000040;">-</span>xc<span style="color: #000000;">&#41;</span><span style="color: #000040;">*</span><span style="color: #000000;">&#40;</span>x<span style="color: #000040;">-</span>xc<span style="color: #000000;">&#41;</span><span style="color: #000040;">/</span>w<span style="color: #000040;">/</span>w<span style="color: #000000;">&#41;</span> <span style="color: #000040;">/</span> w <span style="color: #000040;">/</span> <span style="color: #000000;">sqrt</span><span style="color: #000000;">&#40;</span>PI<span style="color: #000040;">/</span><span style="color: #0000dd;">2</span><span style="color: #000000;">&#41;</span>;
+<span style="color: #000000;">&#125;</span>
+
+<span style="color: #008000;">//----------------------------------------------------------</span>
+<span style="color: #008000;">// </span>
+<span style="color: #0000ff;">void</span> _nlsfsummation<span style="color: #000000;">&#40;</span>
+<span style="color: #008000;">// Fit Parameter(s):</span>
+<span style="color: #0000ff;">double</span> y0, <span style="color: #0000ff;">double</span> A, <span style="color: #0000ff;">double</span> xc, <span style="color: #0000ff;">double</span> w,
+<span style="color: #008000;">// Independent Variable(s):</span>
+<span style="color: #0000ff;">double</span> x,
+<span style="color: #008000;">// Dependent Variable(s):</span>
+<span style="color: #0000ff;">double</span><span style="color: #000040;">&amp;</span> y<span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>
+	<span style="color: #008000;">// Beginning of editable part</span>
+	<span style="color: #008000;">// Set the tolerance for stop integration.</span>
+	<span style="color: #0000ff;">double</span> dPrecision <span style="color: #000080;">=</span> 1e<span style="color: #000040;">-</span>12;
+	<span style="color: #008000;">// Initialization</span>
+	<span style="color: #0000ff;">double</span> dIntegral <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.0</span>;
+	<span style="color: #0000ff;">double</span> dTrapezia <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.0</span>;			
+	<span style="color: #008000;">// Steps, or Precision.</span>
+	<span style="color: #0000ff;">double</span> dStep <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.01</span>;
+	<span style="color: #008000;">// Perform integrate by trapezoidal rule.</span>
+	<span style="color: #008000;">// Note that you should guarantee that the function is CONVERGENT.</span>
+	<span style="color: #0000ff;">do</span>
+	<span style="color: #000000;">&#123;</span>
+		<span style="color: #008000;">// Trapezia area.</span>
+		dTrapezia <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.5</span> <span style="color: #000040;">*</span> <span style="color: #000000;">&#40;</span> f<span style="color: #000000;">&#40;</span>x, A, xc, w<span style="color: #000000;">&#41;</span> <span style="color: #000040;">+</span> f<span style="color: #000000;">&#40;</span><span style="color: #000000;">&#40;</span>x<span style="color: #000040;">-</span>dStep<span style="color: #000000;">&#41;</span>, A, xc, w<span style="color: #000000;">&#41;</span> <span style="color: #000000;">&#41;</span> <span style="color: #000040;">*</span> dStep;
+		<span style="color: #008000;">// Accumulate area.</span>
+		dIntegral <span style="color: #000040;">+</span><span style="color: #000080;">=</span> dTrapezia;
+		x <span style="color: #000040;">-</span><span style="color: #000080;">=</span> dStep;
+	<span style="color: #000000;">&#125;</span><span style="color: #0000ff;">while</span><span style="color: #000000;">&#40;</span> <span style="color: #000000;">&#40;</span>dTrapezia<span style="color: #000040;">/</span>dIntegral<span style="color: #000000;">&#41;</span> <span style="color: #000080;">&gt;</span> dPrecision <span style="color: #000000;">&#41;</span>;
+	<span style="color: #008000;">// Set y value.</span>
+	y <span style="color: #000080;">=</span> y0 <span style="color: #000040;">+</span> dIntegral;		
+	<span style="color: #008000;">// End of editable part</span>
+<span style="color: #000000;">&#125;</span></pre>
+<h3><a name="Fit_the_Curve"></a><span class="mw-headline">Fit the Curve</span></h3>
+<p>We can use the same data to test the result. 
+</p>
+<ol><li>Import <i>\Samples\Curve Fitting\Replicate Response Data.dat</i>.</li>
+<li>Highlight the first column, right-click on it, and select Set Column Values from the context menu.</li>
+<li>Set <img src="../images/Fitting_with_Summation/math-db9254796e0305e4ad8206deabc1e71f.png?v=0" title="Col(A) = log(Col(A))" alt="Col(A) = log(Col(A))" class="tex"/> in the <span class="db">Set Column Values</span> dialog. This will make a sigmoidal curve. </li>
+<li>Highlight columns A and B and create a scatter plot. </li>
+<li>Then bring up the <span class="db">NLFit</span> dialog by pressing <b>Ctrl</b> + <b>Y</b>. Select the fitting function we just defined and go to the <b>Parameters</b> tab, initialize all parameters to 1 and fit. You should see these results:</li></ol>
+<dl><dd><table class="simple" style="width:180pt">
+<tr>
+<th width="20">
+</th>
+<th width="60">Value
+</th>
+<th width="100">Standard Error
+</th></tr>
+<tr>
+<th> y0
+</th>
+<td> -0.00806
+</td>
+<td> 0.18319
+</td></tr>
+<tr>
+<th> A
+</th>
+<td> 3.16479
+</td>
+<td> 0.39624
+</td></tr>
+<tr>
+<th> xc
+</th>
+<td> -0.19393
+</td>
+<td> 0.10108
+</td></tr>
+<tr>
+<th> w
+</th>
+<td> 1.7725
+</td>
+<td> 0.33878
+</td></tr></table></dd></dl>
+
+
+
+
+
+

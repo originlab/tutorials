@@ -1,0 +1,67 @@
+<h1 class="firstHeading">6.18 Open-High-Low-Close-Volume Stock Chart</h1><p class='urlname' style='display: none'>OHLCV-Stock-Chart</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a></li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Open-High-Low-Close-Volume_Stock_Chart/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Open-High-Low-Close-Volume_Stock_Chart/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=148" target="_blank">Skip Weekends and Holidays in Financial Plots</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=170" target="_blank">Multiple Axis Reference Line and Recession Bars</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Open-High-Low-Close-Volume_Stock_Chart/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Open-High-Low-Close-Volume_Stock_Chart/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/create-timeline-chronology-chart" target="_blank">How to Create a Timeline in Origin 2015</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/create-calendar-chart-using-graph-maker-app" target="_blank">Create Calendar Chart Using Graph Maker App</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/using-labtalk-to-generate-and-plot-fibonacci-sequences" target="_blank">Using LabTalk to generate and plot Fibonacci sequences</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>This tutorial will show you how to create a stock chart to display open, high, low, and close prices, along with trading volume.
+</p><p><a  class="image"><img alt="OHLCV Graph Gallery Tutorial 4.png" src="../images/Open-High-Low-Close-Volume_Stock_Chart/OHLCV_Graph_Gallery_Tutorial_4.png?v=51479" width="598"  /></a>
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 2016 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<ul><li> Create a stock chart with open, high, low, and close prices, and trading volume</li>
+<li> Set axis Scale Type to skip market-closed days </li>
+<li> Set format for tick labels(Multi-Line label)</li>
+<li> Categorize the volume columns according to their weekday by filling differnt colors</li>
+<li> Create the Legend to annotate the columns with different fill color</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<p>You can refer to this graph in Origin Central. (Select <b>Help: Origin Central</b> menu or press <b>F11</b> key , and then open <b>Graph Sample: Financial Plots</b>)
+</p>
+<ol>
+<li>Highlight Col(C)~Col(G) in the worksheet, and then choose <b>Plot &gt; Specialized&#160;: OHLC-Volume</b> to create a graph.</li>
+<li>Double click on the bottom X axis of Layer2 to open the <b>X Axis</b> dialog. Switch to the <b>Scale</b> tab. You can see the <b>Type</b> is set to <b>Discrete</b> by default. This is why the X axis skips all weekends and holidays automatically.</li>
+<p><a  class="image"><img alt="OHLCV Graph Gallery Tutorial 5.png" src="../images/Open-High-Low-Close-Volume_Stock_Chart/OHLCV_Graph_Gallery_Tutorial_5.png?v=51484" width="604"  /></a>
+</p>
+<li>Change the axis rang From 3/3/2001 To 5/7/2001. Under the <b>Major Ticks</b> branch, make sure <b>Type</b> is set to <i>By Increment</i>. Type <i>1week</i> for <b>Value</b>. Under the <b>Minor Ticks</b> branch, make sure <b>Type</b> is set to <i>By Counts</i>. Type <i>5</i> for <b>Count</b>. Click <b>Apply</b> button. You can see weekend and holidays are skipped clearer.&lt;/br&gt;
+<a  class="image"><img alt="OHLCV Graph Gallery Tutorial 7.png" src="../images/Open-High-Low-Close-Volume_Stock_Chart/OHLCV_Graph_Gallery_Tutorial_7.png?v=51471" width="604"  /></a></li>
+<li>To show bottom axis label as multiple lines, switch to the <b>Tick Label</b> tab. Activate the <b>Dsiplay</b> sub-tab. Select <b>Custom Display</b> for <b>Display</b> drop-down list. Enter the text below in <b>Custom Display</b> text box.
+<pre>hhtt     MMMdd     ---------    yyyy</pre>
+<p><a  class="image"><img alt="OHLCV Graph Gallery Tutorial 8.png" src="../images/Open-High-Low-Close-Volume_Stock_Chart/OHLCV_Graph_Gallery_Tutorial_8.png?v=51474" width="604"  /></a><br /><br />
+Go to <b>Format</b> sub-tab, set Font Size to 10 and check <b>Wrap Text</b> check box.<br /><br />
+<a  class="image"><img alt="OHLCV Graph Gallery Tutorial 6.png" src="../images/Open-High-Low-Close-Volume_Stock_Chart/OHLCV_Graph_Gallery_Tutorial_6.png?v=51475" width="604"  /></a><br /><br />
+</p>
+Click <b>Apply</b> button.</li>
+<li>Go back to <b>Scale</b> tab, select <b>Vertical</b> icon at the left panel, then set <b>From</b> and <b>To</b> to <i>0</i> and <i>120M</i>. Click <b>Apply</b> button.
+<li>Select <i>1</i> under the <b>Layer</b> drop-down list which locates at the left-bottom corner of the dialog to switch to <b>Layer 1</b>. Then with <b>Vertical</b> icon still chose, set <b>From</b> and <b>To</b> to <i>12</i> and <i>22</i>. Click OK button to close the dialog. <br />
+<a  class="image"><img alt="OHLCV Graph Gallery Tutorial 3.png" src="../images/Open-High-Low-Close-Volume_Stock_Chart/OHLCV_Graph_Gallery_Tutorial_3.png?v=51477" width="622"  /></a></li>
+<li>Double-click on the column plot at Layer 2 to open the <b>Plot Details</b> dialog. In the Pattern tab, expand the <b>Fill Color</b> drop-down list, go to <b>By Points</b> sub-tab, under the <b>Index</b> list, select <b>Col(B)&#160;: "Week Day"</b>, then select <b>D01 Pumpkin Patch</b> under <b>Color List</b>. Click OK button to close this dialog.<br />
+<a  class="image"><img alt="OHLCV Graph Gallery Tutorial 2.png" src="../images/Open-High-Low-Close-Volume_Stock_Chart/OHLCV_Graph_Gallery_Tutorial_2.png?v=51481" width="802"  /></a></li>
+<li>With Layer 2 activated, select <b>Graph: Legend&#160;: Categorical Values</b> menu. In the dialog opened, keep the default settings, click <b>OK</b> button. A legend will be added onto graph. Select the legend to show up the legend border, press the <b>Ctrl</b> key to drag the legend border to make the legend items arranged in one line.</li>
+<li>Resize and re-position the legend box. The Final graph should appear as shown below: </li>
+<p><a  class="image"><img alt="OHLCV Graph Gallery Tutorial 4.png" src="../images/Open-High-Low-Close-Volume_Stock_Chart/OHLCV_Graph_Gallery_Tutorial_4.png?v=51479" width="598"  /></a>
+</p>
+</ol>
+
+
+
+
+
+

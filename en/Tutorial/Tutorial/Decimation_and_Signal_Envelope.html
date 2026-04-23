@@ -1,0 +1,53 @@
+<h1 class="firstHeading">4.3.10 Decimation and Signal Envelope</h1><p class='urlname' style='display: none'>Decimation-and-Signal-Envelope</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">What You Will Learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Decimation"><span class="tocnumber">3</span> <span class="toctext">Decimation</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Signal_Envelope"><span class="tocnumber">4</span> <span class="toctext">Signal Envelope</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Decimation is used to reduce the size of the signal sequence by merging every N samples into one.
+</p><p>Envelope detection adds an envelope curve to the input signal. Origin's signal envelope tool computes an envelope and plots an upper envelope, a lower envelope, or both.
+</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">What You Will Learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ol><li> Decimate a signal to reduce the size of the input signal sequence.</li>
+<li> Perform envelope detection to add the envelope curve.</li></ol>
+<h2><a name="Decimation"></a><span class="mw-headline">Decimation</span></h2>
+<p>In this tutorial, we are going to perform decimation on sunspot count data. Measurements of sunspot number were collected every month for more than 200 years. We will use decimation to reduce our dataset to one sunspot count for each year.
+</p>
+<ol><li> Start with a new workbook, and import the data <b>&lt;Origin Installation Directory&gt;\Samples\Signal Processing\Sunspot.dat</b>.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Decimation 1.png" src="../images/Decimation_and_Signal_Envelope/SP_Tutorial_Decimation_1.png?v=24020" width="396"  /></a></dd></dl></li>
+<li> Select column A. Right click on the column and choose <b>Set As: Y</b> to set this column's plot designation to Y. This will ensure that sunspot number is not associated with column A as X. That is because decimation needs the X column data to be strictly monotonic.</li>
+<li> Select column C and from the menu choose <b>Analysis: Signal Processing: Decimation...</b>. This opens the <b>Decimation: decimate</b> dialog box.</li>
+<li> In the dialog, set <b>Resample Factor</b> to <b>12</b>. Set the <b>Filter Type</b> to <b>Moving Average Filter</b>. To preview the result in the right panel, check the <b>Auto Preview</b> check box.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Decimation 2.png" src="../images/Decimation_and_Signal_Envelope/SP_Tutorial_Decimation_2.png?v=42723" width="729"  /></a></dd></dl></li>
+<li> Click <b>OK</b> to output results.</li>
+<li> In the worksheet, select column D (the X column generated from the result), then right-click and choose <b>Insert</b> from the shortcut menu to insert a new column. Right click again and choose <b>Set As: Y</b> to change the column's plot designation as <i>Y</i>.</li>
+<li> Highlight the newly inserted column and right click on it and choose <b>Set As: X</b> from the context menu to change this column's plot designation to <i>X</i>. Right-click on the column again and choose <b>Set Column Values...</b> to bring up the <b>Set Values</b> dialog box and enter <img src="../images/Decimation_and_Signal_Envelope/math-0aa77325e9a00497ce87512a376dbfa0.png?v=0" title="data(1749, 1749+255)" alt="data(1749, 1749+255)" class="tex"/> into the text box and and click <b>OK</b>.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Decimation 3.png" src="../images/Decimation_and_Signal_Envelope/SP_Tutorial_Decimation_3.png?v=24022" width="401"  /></a></dd></dl></li>
+<li> Select column A, then right-click to choose <b>Set As: X</b> from the shortcut menu, to set the column's plot designation back to <i>X</i>. The final worksheet will look similar to the one below.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Decimation 4.png" src="../images/Decimation_and_Signal_Envelope/SP_Tutorial_Decimation_4.png?v=24023" width="562"  /></a></dd></dl></li>
+<li> Press CTRL and select columns C and E. From the menu, choose <b>Plot: Multi-Panel: Vertical 2 Panel</b> to make a graph. Note that the decimated line looks smoother as the image below shows.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Decimation 5.png" src="../images/Decimation_and_Signal_Envelope/SP_Tutorial_Decimation_5.png?v=24024" width="420"  /></a></dd></dl></li></ol>
+<h2><a name="Signal_Envelope"></a><span class="mw-headline">Signal Envelope</span></h2>
+<ol><li> Start with a new workbook.</li>
+<li> Select menu item <b>Data: Import from File: Single ASCII...</b> to import the data <b>&lt;Origin Installation Directory&gt;\Samples\Signal Processing\Gaussian Envelope.dat</b>.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Envelope 1.png" src="../images/Decimation_and_Signal_Envelope/SP_Tutorial_Envelope_1.png?v=24026" width="396"  /></a></dd></dl></li>
+<li> Highlight column B and from the menu choose <b>Plot: Line: Line</b> to create a line plot.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Envelope 2.png" src="../images/Decimation_and_Signal_Envelope/SP_Tutorial_Envelope_2.png?v=24027" width="582"  /></a></dd></dl></li>
+<li> With this graph active select <b>Analysis: Signal Processing: Envelope...</b> from the menu. This opens the <b>Envelope: envelope</b> dialog box.</li>
+<li> In the dialog box, set <b>Envelope Type</b> to <b>Both Envelopes</b>, and <b>Smooth Points</b> to <b>10</b>. Check the <b>Auto Preview</b> box to preview the result in the right panel.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Envelope 3.png" src="../images/Decimation_and_Signal_Envelope/SP_Tutorial_Envelope_3.png?v=42724" width="699"  /></a></dd></dl></li>
+<li> Click <b>OK</b> to create the graph showing upper and lower envelope curves.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Envelope 4.png" src="../images/Decimation_and_Signal_Envelope/SP_Tutorial_Envelope_4.png?v=24029" width="582"  /></a></dd></dl></li></ol>
+
+
+
+
+
+

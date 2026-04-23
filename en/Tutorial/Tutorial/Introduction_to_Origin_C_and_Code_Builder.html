@@ -1,0 +1,145 @@
+<h1 class="firstHeading">11.2.1 Introduction to Origin C and Code Builder</h1><p class='urlname' style='display: none'>OC-CodeBuilder</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Create_an_Origin_C_Function"><span class="tocnumber">3.1</span> <span class="toctext">Create an Origin C Function</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Debug_and_Run_the_Function"><span class="tocnumber">3.2</span> <span class="toctext">Debug and Run the Function</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Run_the_Function_Using_the_Custom_Routine_Button"><span class="tocnumber">3.3</span> <span class="toctext">Run the Function Using the Custom Routine Button</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Video_Text_Image.png?v=64565" width="135"  /></a>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/centralizing-originc-files-on-a-network" target="_blank">Centralizing OriginC Files on a Network</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/json-oc-html" target="_blank">Build a JavaScript dialog and Call Origin C in the Upcoming Origin 2017</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/create-a-simple-neural-network-from-scratch" target="_blank">Create a simple Neural Network from scratch using Origin C</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/labtalk-and-originc-changes-due-to-unicode-support-in-origin-2018" target="_blank">LabTalk and OriginC Changes Due to Unicode Support in Origin 2018</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p><a class="external text" href="../../OriginC/Category/Origin_C_Programming_Guide.html">Origin C</a> supports a nearly-complete ANSI C language syntax as well as a subset of C++ features including internal and DLL-extended classes.  In addition, Origin C is "Origin aware".  This means that Origin objects such as worksheets and graphs are mapped to classes in Origin C, allowing direct manipulation of these objects and their properties from Origin C.
+</p><p>Origin C's integrated development environment (IDE) is called Code Builder.  Code Builder provides standard tools for writing, compiling, and debugging your Origin C programs.  Once an Origin C function is compiled and linked, the function can be called in various ways from the Origin or Code Builder workspaces.  
+</p><p>To open Code Builder, click the <a  class="image"><img alt="Button Code Builder.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Button_Code_Builder.png?v=1405" width="23"  /></a> button on the Origin Standard toolbar, or press ALT + 4 from the keyboard.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 9</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Create an Origin C function.</li>
+<li>Debug and Run the Function.</li>
+<li>Run the Function Using the Custom Routine Button.</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="Create_an_Origin_C_Function"></a><span class="mw-headline">Create an Origin C Function</span></h3>
+<ol><li>In Code Builder, start with a new workspace (<b>File: New Workspace...</b>). On the Code Builder <b>Standard</b> toolbar, click the <b>New</b> <a  class="image"><img alt="Button New.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Button_New.png?v=37512" width="21"  /></a> button to open the <b>New File</b> dialog. </li>
+<li>Select <b>C File</b> to create a .c file. Type <b>Tutorial</b> in the <b>File Name</b> text box. In the <b>Location</b> text box, specify the <i>User Files Folder/OriginC</i> folder to save your source file. Make sure that the <b>Add to Workspace</b> box is checked. Click <b>OK</b>. A file named Tutorial.c is created and opened in the Code Builder workspace.
+<dl><dd><a  class="image"><img alt="Introduction to Origin C and Code Builde 1.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Introduction_to_Origin_C_and_Code_Builde_1.png?v=17591" width="452"  /></a></dd></dl></li></ol>
+<ol start="4">
+<li>
+Copy and paste the following code beneath the line that reads &quot;// start your functions here.&quot;:
+<pre class="oc" style="font-family:monospace;"><span style="color: #0000ff;">void</span> new_wks<span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>
+	Worksheet wks;
+	wks.<span style="color: #000000;">Create</span><span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;Origin&quot;</span><span style="color: #000000;">&#41;</span>; <span style="color: #008000;">// create a Worksheet window with template - Origin</span>
+
+	vector<span style="color: #000040;">&amp;</span> vecX <span style="color: #000080;">=</span> wks.<span style="color: #000000;">Columns</span><span style="color: #000000;">&#40;</span><span style="color: #0000dd;">0</span><span style="color: #000000;">&#41;</span>.<span style="color: #000000;">GetDataObject</span><span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>;
+	vector<span style="color: #000040;">&amp;</span> vecY <span style="color: #000080;">=</span> wks.<span style="color: #000000;">Columns</span><span style="color: #000000;">&#40;</span><span style="color: #0000dd;">1</span><span style="color: #000000;">&#41;</span>.<span style="color: #000000;">GetDataObject</span><span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>;
+
+	vecX.<span style="color: #000000;">Data</span><span style="color: #000000;">&#40;</span><span style="color: #0000dd;">1</span>, <span style="color: #0000dd;">10</span>, <span style="color: #0000dd;">1</span><span style="color: #000000;">&#41;</span>;
+	vecY.<span style="color: #000000;">Data</span><span style="color: #000000;">&#40;</span><span style="color: #0000dd;">0.1</span>, <span style="color: #0000dd;">1</span>, <span style="color: #0000dd;">0.1</span><span style="color: #000000;">&#41;</span>;
+
+	vector<span style="color: #000080;">&lt;</span>string<span style="color: #000080;">&gt;</span> vsLongName <span style="color: #000080;">=</span> 
+	<span style="color: #000000;">&#123;</span>
+		<span style="color: #ff00ff;">&quot;Index&quot;</span>,
+		<span style="color: #ff00ff;">&quot;Data&quot;</span>
+	<span style="color: #000000;">&#125;</span>;
+
+	<span style="color: #0000ff;">for</span> <span style="color: #000000;">&#40;</span><span style="color: #0000ff;">int</span> nCol <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>; nCol <span style="color: #000080;">&lt;</span> wks.<span style="color: #000000;">GetNumCols</span><span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>; <span style="color: #000040;">++</span>nCol<span style="color: #000000;">&#41;</span>
+	<span style="color: #000000;">&#123;</span>
+		Column col <span style="color: #000000;">&#40;</span>wks, nCol<span style="color: #000000;">&#41;</span>;
+		col.<span style="color: #000000;">SetLongName</span><span style="color: #000000;">&#40;</span>vsLongName<span style="color: #000000;">&#91;</span>nCol<span style="color: #000000;">&#93;</span><span style="color: #000000;">&#41;</span>;
+	<span style="color: #000000;">&#125;</span>
+<span style="color: #000000;">&#125;</span></pre>
+<p>This new_wks function will create a worksheet using the <b>Origin</b> template. It fills the first column with numbers from 1 to 10, incrementing by 1. The second column is filled with numbers from 0.1 to 1, incrementing by 0.1. Lastly, it sets the Long Names of the first and second columns as <b>Index</b> and <b>Data</b>, respectively.
+</p>
+</li>
+<li>
+Click the <b>Save</b> button <a  class="image"><img alt="Button Save.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Button_Save.png?v=14951" width="22"  /></a>. 
+</li>
+</ol>
+<table class="noborder">
+	<tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Introduction_to_Origin_C_and_Code_Builder/Tutorial_icon.png?v=0" width="57"  border="0" />
+	</td>
+	<td><p><b>Mini-Tutorial:</b> Find more examples of the usage of <b>GetDataObject</b> and use a bookmark to quickly navigate to a marked line.
+</p>
+<ol><li> Click line 33 and click the <b>Toggle Bookmark</b> button <a  class="image"><img alt="Button Toggle Bookmark.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Button_Toggle_Bookmark.png?v=14972" width="16"  /></a>.</li>
+<li> Select <b>GetDataObject()</b> in line 37 and click the <b>Find in files</b> button <a  class="image"><img alt="Button Find In Files.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Button_Find_In_Files.png?v=14960" width="23"  /></a>.</li>
+<li> In the <b>Find in Files</b> dialog box, set <b>In files/file types</b> as <b>*.c,*.cpp</b> and <b>In folder</b> as <b>&lt;program folder&gt;\OriginC</b>. Check all the boxes in this dialog and click the <b>Find</b> button.</li>
+<li> In the <b>Find Results</b> window, double-click any line containing <b>GetDataObject()</b>. This opens the file containing this string and jumps to the related section.</li>
+<li> To back to the line marked in step1 activate the <b>Bookmarks</b> window. Double click the bookmark added in step 1 of this mini-tutorial and the cursor jumps to line 33 in the Tutorial.c file.</li></ol>
+</td></tr></table>
+<table class="note">
+
+<tr>
+<td><b>Origin 2015 provides some useful tools:</b>
+<ul><li><b>Quick open files</b>
+<dl><dd>Prss SHIFT + ALT + O or select <b>Tools: Quick Open Files</b> to open the <b>Quick Open Files</b> dialog.</dd></dl></li>
+<li><b>Switch between .h and .c/.cpp file</b>
+<dl><dd>When open a .h file, press CTRL + ALT + O to open the corresponding .c or .cpp file, and vice versa.</dd></dl></li>
+<li><b>Find symbols</b>
+<dl><dd>Press SHIFT + ALT + S or select <b>Tools: Find Symbols</b> to open the <b>Find Symbols</b> dialog.</dd></dl></li></ul>
+</td></tr></table>
+<h3><a name="Debug_and_Run_the_Function"></a><span class="mw-headline">Debug and Run the Function</span></h3>
+<ol><li>On the Code Builder <b>Standard</b> toolbar, click the <b>Build</b> button<a  class="image"><img alt="Button Build.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Button_Build.png?v=14957" width="23"  /></a>. This compiles the new_wks function and performs linking (Please make sure the <b>Tutorial.c</b> file is active).
+<dl><dd><a  class="image"><img alt="Debug Code Builder Output.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Debug_Code_Builder_Output.png?v=16363" width="307"  /></a></dd></dl></li>
+<li>Click the space just to the left of lines 34, 35, 37, 50. A red ball icon will be placed at the beginning of each line, indicating that you added breakpoints to these lines. These breakpoints are listed in the <b>Breakpoints</b> window.</li>
+<li>In the <b>Breakpoints</b> window, clear the box before <b>tutorial.c, line 35</b> to disable this breakpoint. Note that the breakpoint icon before line 35 becomes a hollow circle icon.</li></ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Introduction_to_Origin_C_and_Code_Builder/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>To delete a breakpoint, you can click on the breakpoint icon before the corresponding line, or right-click on the breakpoint in the <b>Breakpoints</b> window, and select <b>Delete Breakpoint</b>.
+</p></td></tr></table>
+<ol start="4">
+<li>Right-click on the breakpoint of line 37. Select <b>When Hit...</b> to open a dialog. Check the box before <b>Print a message</b>. In the text box under <b>Print a message:</b>, append the text <b>test code runs to here.</b> . Click <b>OK</b> to finish. Note that this breakpoint's icon is now a diamond.
+<dl><dd><a  class="image"><img alt="Code Builder When Hit.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Code_Builder_When_Hit.png?v=17190" width="480"  /></a></li></dd></dl>
+
+<li>Right click on the breakpoint at line 50. Select <b>Condition...</b> to open a dialog. Enable <b>Condition</b> and type <b>nCol==1</b> in the text box. Click <b>OK</b>.
+<dl><dd><a  class="image"><img alt="Code Builder Condition.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Code_Builder_Condition.png?v=17191" width="399"  /></a></li></dd></dl>
+
+<li>To run this code, type the function name <b>new_wks</b> in the upper panel of the <b>LabTalk Console</b> window.</li>
+<li>Press ENTER. A yellow arrow will appear upon the first breakpoint icon, indicating which line of code is executed to.</li>
+<li>Press F8 to continue debugging the code. You will see the yellow arrow icon moving to the line 50.</li>
+<li>In the <b>Command &amp; Results</b> window, the message added in the breakpoint of line 37 is printed in the lower panel.
+<dl><dd><a  class="image"><img alt="Code Builder Print Msg.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Code_Builder_Print_Msg.png?v=17194" width="269"  /></a></li></dd></dl>
+ 
+<li>Activate the <b>Variables</b> window. The variable names are listed in the first column and their values are listed in the second column. Check the value of <b>nCol</b>.
+<dl><dd><a  class="image"><img alt="Code Builder nCol.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Code_Builder_nCol.png?v=17192" width="308"  /></a></li></dd></dl>
+
+<li>Press F5 to run over all codes, the yellow arrow will disappear.</li>
+<li>Return to the Origin workspace. You can see that a workbook is created as in the following image.
+<dl><dd><a  class="image"><img alt="Code Builder New Wks.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Code_Builder_New_Wks.png?v=17195" width="396"  /></a></li></dd></dl>
+</ol>
+<h3><a name="Run_the_Function_Using_the_Custom_Routine_Button"></a><span class="mw-headline">Run the Function Using the Custom Routine Button</span></h3>
+<ol><li>Hold the CTRL + SHIFT keys and click the <b>Custom Routine</b> button<a  class="image"><img alt="Button Custom Routine.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Button_Custom_Routine.png?v=1401" width="23"  /></a>. It will open the Custom.ogs file in Code Builder.</li>
+<li>With the cursor at line 11, click the <b>Comment</b> button <a  class="image"><img alt="Button Comment.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Button_Comment.png?v=1710" width="22"  /></a> to comment out line 11.</li></ol>
+<ol start="3">
+<li>Type the following code at lines 12 and 13.
+<pre class="oc" style="font-family:monospace;"> Run.<span style="color: #000000;">LoadOC</span><span style="color: #000000;">&#40;</span><span style="color: #000040;">%</span>YOriginC\Tutorial.<span style="color: #000000;">c</span><span style="color: #000000;">&#41;</span>; <span style="color: #008000;">//&#160;%Y is user file folder</span>
+ new_wks<span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>;</pre>
+<p>This code will load the <b>Tutorial.c</b> file we added in the previous section and run the <b>new_wks()</b> function.
+</p>
+</li>
+<li>Press the <b>Save</b> button<a  class="image"><img alt="Button Save.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Button_Save.png?v=14951" width="22"  /></a>.</li>
+<li>Return to the Origin workspace. Click the <b>Custom Routine</b> button<a  class="image"><img alt="Button Custom Routine.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Button_Custom_Routine.png?v=1401" width="23"  /></a>. A new worksheet will be created and filled with data as it was in the previous section.
+<dl><dd><a  class="image"><img alt="Code Builder Cus Routine Result.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Code_Builder_Cus_Routine_Result.png?v=17563" width="396"  /></a></li></ol></dd></dl>
+
+
+

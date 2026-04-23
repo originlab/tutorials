@@ -1,0 +1,69 @@
+<h1 class="firstHeading">6.16 Piper Diagram</h1><p><br />
+</p>
+<p class='urlname' style='display: none'>piper-diagram</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_will_you_learn"><span class="tocnumber">2</span> <span class="toctext">What will you learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#More_Customization_Steps"><span class="tocnumber">4</span> <span class="toctext">More Customization Steps</span></a></li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Trilinear_Diagram/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Trilinear_Diagram/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=91" target="_blank">Combining Metadata in Legend</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=258" target="_blank">Customize the Legend</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Trilinear_Diagram/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Trilinear_Diagram/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/zooming-into-a-section-of-a-ternary-plot-by-setting-axis-scales" target="_blank">Zooming into a Section of a Ternary Plot by Setting Axis Scales</a> </li></ul>
+</td></tr></table>
+<p><br />
+</p>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Piper diagram (or Trilinear diagram) is used as an effective graphical representation of chemistry in water samples in hydro-geological studies. The percentage values of six ion groups are considered in the plot, they are calcium, magnesium and sodium plus potassium cations, and sulfate, chloride and carbonate plus hydrogen carbonate anions.
+</p><p>The cations and anions are shown by two separate ternary plots and both are then projected onto a rhomb. In Origin they are plotted as a three layer graph.
+</p><p><a  class="image"><img alt="Tutorial Piper 01.png" src="../images/Trilinear_Diagram/Tutorial_Piper_01.png?v=25256" width="554"  /></a>
+</p>
+<h2><a name="What_will_you_learn"></a><span class="mw-headline">What will you learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>create a piper plot from percentage data</li>
+<li>customize the gap between ternary and rhomb in piper graph</li>
+<li>add data labels in the piper plot</li></ul>
+<p><br />
+</p>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<ol><li> Start a new workbook and select <b>Data: Connect to File: Text/CSV</b> to import the file <b>Piper.dat</b> under <i>&lt;Origin EXE Folder&gt;\Samples\Graphing</i> path.</li>
+<li> In the imported worksheet, column <b>A</b> is the Sample ID. Column <b>B</b> through <b>G</b> are the percentage values for the six ion groups in the order of <b>Ca, Mg, Na+K, Cl, SO4,</b> and <b>CO3+HCO3</b>. column <b>H</b> is the amount of total dissolved solids in water. The percentage for cation groups is relative to the total amount of cations and that of anion groups is calculated by the same manner.
+<dl><dd> <b>Note:</b> We have some built-in workbook templates to help you convert data from different units (MEq/mgL/PPM) to percentage (open from <b>File:New:From Template:</b>). For details, please refer to <a class="external text" href="../../UserGuide/UserGuide/Piper_Diagram.html#Controls">this help file</a>.</dd></dl></li>
+<li> Highlight column <b>B</b> through <b>G</b> and select <b>Plot &gt; Specialized&#160;: Piper</b> from the top menu to open the <b>plotpiper</b> dialog.</li>
+<li> Select column <b>A</b> for <b>Sample ID</b> and column <b>H</b> for <b>Total Dissolved Solids</b>.
+<dl><dd> <a  class="image"><img alt="Tutorial Piper 02.png" src="../images/Trilinear_Diagram/Tutorial_Piper_02.png?v=24630" width="419"  /></a></dd>
+<dd> <b>Note:</b> You can select an existing piper diagram as the <b>Output Graph</b> and add the selected new data into this piper diagram.</dd></dl></li>
+<li> Click <b>OK</b> to generate the piper plot:
+<dl><dd> <a  class="image"><img alt="Tutorial Piper 03.png" src="../images/Trilinear_Diagram/Tutorial_Piper_03.png?v=25335" width="583"  /></a></dd>
+<dd> Sample ID and TDS are optional when plotting piper diagram. If Sample ID is specified, symbol color and shape will be controlled by it. If TDS is specified, open circle in the rhomb (Layer 1) will show and the size will be controlled by it. Also Piper diagram shows each sample in legend.</dd></dl></li></ol>
+<h2><a name="More_Customization_Steps"></a><span class="mw-headline">More Customization Steps</span></h2>
+<p>The following steps can further customize the graph to be exactly the same as the image in <b>Summary</b>. 
+</p>
+<ol><li> To change the gap between the ternary plots and the rhomb, double click the bottom left ternary to open the <b>Plot Details</b> dialog. On the left panel, select <b>Layer 2</b>. On <b>Size</b> tab, change the <b>Left</b> value to be <b>130</b>, so that the distance between the top vertex of rhomb and the top vertex of the ternary in Layer 2 will be 130% of the side length of rhomb. Click <b>Apply</b> button. 
+<dl><dd> <a  class="image"><img alt="Tutorial Piper 04.png" src="../images/Trilinear_Diagram/Tutorial_Piper_04.png?v=63211" width="454"  /></a></dd></dl></li>
+<li> To change the symbol color or shape increment list, select the 1st plot under <b>Layer 1</b> node on the left panel. Then select <b>Symbol</b> tab&gt; <b>Symbol Color</b>&gt; <b>By Points</b> to customize the color list, or <b>Shape List</b> tab to customize shape list. 
+<dl><dd><a  class="image"><img alt="Tutorial Piper 05.png" src="../images/Trilinear_Diagram/Tutorial_Piper_05.png?v=63218" width="663"  /></a></dd></dl></li>
+<li> To add <b>Sample ID</b> as data label in the rhomb, Select 1st data plot under <b>Layer 1</b> node on the left panel. Go to <b>Label</b> tab and set as follows:
+<dl><dd><a  class="image"><img alt="Tutorial Piper 06.png" src="../images/Trilinear_Diagram/Tutorial_Piper_06.png?v=27279" width="276"  /></a></dd>
+<dd> To add data labels to two ternaries in the graph, please select plot under <b>Layer2</b> and <b>Layer3</b> nodes in the <b>Plot Details</b> dialog and do the same. </dd></dl></li>
+<li> The 2nd data plot under <b>Layer1</b> node in the <b>Plot Details</b> dialog is the open circle for TDS. Select the data plot on left panel and select the <b>Symbol</b> tab. You can see the Size of the open circle is controlled by Col(H). The Scaling Factor is auto determined to get a proper display. Change the <b>Scaling Factor</b> to <b>0.03</b> to see the change.</li>
+<li> By default Sample ID shows in legend. To show sampling location's information in legend, right click on the legend and select <b>Legend:Point by Point...</b> to open the <b>Update Legend Point by Point</b> dialog. Select <b>Custom</b> for the <b>Label Form</b> drop-down list and then select <b>wcol(1): wcol(9)</b> from the menu. wcol(9) refers to the 9th's column in worksheet, which is the Sampling Location column. 
+<dl><dd><a  class="image"><img alt="Tutorial Piper 07.png" src="../images/Trilinear_Diagram/Tutorial_Piper_07.png?v=25088" width="350"  /></a></dd></dl></li></ol>
+
+
+
+
+
+

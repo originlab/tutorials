@@ -1,0 +1,118 @@
+<h1 class="firstHeading">5.1.1 Descriptive Statistics</h1><p class='urlname' style='display: none'>DescStats</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">What You Will Learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Finding_Frequency_Information_for_Groups"><span class="tocnumber">3</span> <span class="toctext">Finding Frequency Information for Groups</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Calculating_Descriptive_Statistics_on_Grouped_Data"><span class="tocnumber">4</span> <span class="toctext">Calculating Descriptive Statistics on Grouped Data</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Using_Statistical_Results_for_Further_Operations"><span class="tocnumber">5</span> <span class="toctext">Using Statistical Results for Further Operations</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Analyzing_the_Relationship_Between_Different_Indicators"><span class="tocnumber">6</span> <span class="toctext">Analyzing the Relationship Between Different Indicators</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Controlling_the_Categorical_Values"><span class="tocnumber">7</span> <span class="toctext">Controlling the Categorical Values</span></a></li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Descriptive_Statistics/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Descriptive_Statistics/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=29" target="_blank">Descriptive Statistics</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Descriptive_Statistics/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Descriptive_Statistics/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/statistics-on-rows" target="_blank">Statistics on Rows</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Origin provides comprehensive Descriptive Statistics support including basic statistics (mean, median, variance, etc.), frequency counts, and correlation coefficients of your data sets. In addition to strong plotting features, Origin's statistical tools help you summarize and analyze your data.
+</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">What You Will Learn</span></h2>
+<p>This tutorial will show you how to: 
+</p>
+<ul><li> Use the <b>Statistics on Column</b> dialog to calculate descriptive statistics for grouped data.</li>
+<li> Copy statistical results to a new worksheet for further processing.</li>
+<li> Sort worksheet data by the attribute values in a designated column.</li>
+<li> Analyze data sets with the <b>Correlation Coefficient</b> Tool.</li></ul>
+<p class="version" >Minimum Origin Version Required: Origin 2015 SR0</p>
+<h2><a name="Finding_Frequency_Information_for_Groups"></a><span class="mw-headline">Finding Frequency Information for Groups</span></h2>
+<p>We will use the <b>Discrete Frequency</b> tool to quickly obtain frequency information for groups of data.
+</p>
+<ol>
+<li> Open a new workbook. Select <b>Data: Import from File: Single ASCII</b> menu or click the Import Single ASCII button <a  class="image"><img alt="Button Import Single ASCII.png" src="../images/Descriptive_Statistics/Button_Import_Single_ASCII.png?v=52466" width="25"  /></a> on main toolbar, and import the data file <b>\Samples\Statistics\automobile.dat</b>.  
+
+<li>  Highlight the first two columns in the <b>automobile</b> worksheet. From the Menu Bar, select <b>Statistics: Descriptive Statistics: Discrete Frequency</b>. 
+
+<li>Change the <b>Recalculate</b> mode to <b>Auto</b>. To make operation in the source data worksheet <a href="#Controlling_the_Categorical_Values">Controlling the Categorical Values section</a> working, change the <b>Sort Data By</b> to <b>Categorical Order</b>. Then click <b>OK</b>. 
+<dl><dd><a  class="image"><img alt="Descriptive Statistics00.png" src="../images/Descriptive_Statistics/Descriptive_Statistics00.png?v=72025" width="454"  /></a> </dd></dl>
+
+<li>The resultant worksheet <b>DiscretFreq1</b> displays data and its counts for automobile Year and Make, respectively.
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Descriptive_Statistics/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>In spite of the fact that there are locks on the columns, the worksheet can be rearranged by highlighting the desired column, going to the Menu Bar, selecting <b>Worksheet:Sort Worksheet</b>, and selecting <b>Ascending</b>, <b>Descending</b>, or <b>Custom</b> from there.
+</p></td></tr></table>
+<h2><a name="Calculating_Descriptive_Statistics_on_Grouped_Data"></a><span class="mw-headline">Calculating Descriptive Statistics on Grouped Data</span></h2>
+<p>Basic statistical treatments can be performed on the data in individual columns using the <b>Statistics on Columns</b> tool.
+</p>
+<ol>
+<li>Return to the <b>automobile</b> worksheet.  From the Menu Bar, select <b>Statistics: Descriptive Statistics: Statistics on Columns: Open Dialog...</b>. </li>
+<li>In the <b>Statistics on Columns</b> dialog box, in the <b>Input</b> tab, expand <b>Range 1</b> and click the interactive button <a  class="image"><img alt="Button Select Data Interactive.png" src="../images/Descriptive_Statistics/Button_Select_Data_Interactive.png?v=1685" width="18"  /></a> to the right of <b>Data Range</b>.  Return to the worksheet, select column <b>C</b> and drag to column <b>G</b>.  Click the interactive button again to restore the dialog box.  In the dialog box, after adjusting <b>Input Data</b> under <b>Range 1</b>, click the arrow button at the top-right corner of  the Group control box to select <b>B(Y): Make</b> as grouping data. Change the <b>Recalculate</b> mode to <b>Auto</b>.<br />
+<a  class="image"><img alt="DOC-2411 Descriptive Statistics on Grouped Data 001aa.png" src="../images/Descriptive_Statistics/DOC-2411_Descriptive_Statistics_on_Grouped_Data_001aa.png?v=38982" width="446"  /></a>
+</li>
+<li>In the <b>Output</b> tab, under the <b>Graph</b> branch, check the <b>Arrange Plots of Same Type in One Graph</b> box. Also, in the <b>Plots</b> tab, check the <b>Box Charts</b> check box.<br />
+<a  class="image"><img alt="DOC-2411 Descriptive Statistics on Grouped Data 001b.png" src="../images/Descriptive_Statistics/DOC-2411_Descriptive_Statistics_on_Grouped_Data_001b.png?v=38975" width="440"  /></a>
+<a  class="image"><img alt="DOC-2411 Descriptive Statistics on Grouped Data 001c.png" src="../images/Descriptive_Statistics/DOC-2411_Descriptive_Statistics_on_Grouped_Data_001c.png?v=38976" width="360"  /></a>
+</li>
+<li>Click <b>OK</b> to get the results in a report sheet.<br />
+<a  class="image"><img alt="Tutorial Descriptive Statistics on Grouped Data 04.png" src="../images/Descriptive_Statistics/Tutorial_Descriptive_Statistics_on_Grouped_Data_04.png?v=44701" width="629"  /></a>
+</li> 
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Descriptive_Statistics/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>In order to modify any embedded box plot in report sheet, double-click to open it, then customize the graph and click the <b>Return</b> button in the top right corner to restore the modified graph back to the report sheet.
+</p></td></tr></table>
+<h2><a name="Using_Statistical_Results_for_Further_Operations"></a><span class="mw-headline">Using Statistical Results for Further Operations</span></h2>
+<p>It is possible to perform further data analysis and to plot the statistical results. 
+</p><p>For example, to obtain average attribute values (i.e. horsepower, 0-60 mph time, weight, mileage) by Vehicle Make from 1992 to 2004, perform the following:
+</p>
+<ol>
+<li>Return to the <b>automobile - automobile.dat</b> workbook, and open the <b>DescStatsQuantities1</b>  worksheet.  Highlight the <b>D(Y2)</b> and the <b>E(yEr&#177;)</b> columns, go to the Menu Bar and select <b>Worksheet: Unstack Columns: Open Dialog...</b>.
+</li>
+<li>In the <b>wunstackcol</b> dialog box, change the <b>Recalculate</b> mode to <b>Auto</b>, select <b>Group Columns</b> and click the context menu button <a  class="image"><img alt="Context menu button.jpg" src="../images/Descriptive_Statistics/Context_menu_button.jpg?v=19177" width="22"  /></a> and select <b>A(X1) Data</b>. 
+<li>Expand <b>Options</b> and check the <b>Include Other Columns</b> box.  On <b>Other Columns</b>, click the context menu button <a  class="image"><img alt="Context menu button.jpg" src="../images/Descriptive_Statistics/Context_menu_button.jpg?v=19177" width="22"  /></a> and select <b>B:(X2) Make</b>. Set <b>Matching Longest Group</b> as Extract Rule for Other Columns Values, expand <b>Output Settings</b>, and from <b>Put Grouping Info. to</b>, select <b>Long Name</b>. Click <b>OK</b>.<br />
+<a  class="image"><img alt="DOC-2411 Descriptive Statistics on Grouped Data 006a.png" src="../images/Descriptive_Statistics/DOC-2411_Descriptive_Statistics_on_Grouped_Data_006a.png?v=38978" width="565"  /></a>
+</li>
+<li>To see the results, open worksheet <b>UnstackCols1</b>, highlight the worksheet, and from the Menu Bar, select <b>Plot &gt; Multi-Panel/Axis&#160;: Stack</b>.</li> 
+<li>In the <b>Plotting:plotstack</b> dialog box, set <b>Plot Type</b> to <b>Scatter</b>.  Click <b>OK</b>. </li> 
+<li>Now we are going to rotate the tick labels at top X axis for clarification.  Double click on the top X axis tick labels to open the <b>Axis</b> dialog, and set the following in <b>Top</b> icon. Click <b>OK</b>.
+<br /><a  class="image"><img alt="Tutorial Descriptive Statistics Axis Dialog.png" src="../images/Descriptive_Statistics/Tutorial_Descriptive_Statistics_Axis_Dialog.png?v=32795" width="519"  /></a><br />
+Rotate the Tick Labels for bottom in the same way.
+</li>
+<li>The report sheet and the graph will appear as shown below:<br />
+<a  class="image"><img alt="Tutorial Descriptive Statistics on Grouped Data 0055.png" src="../images/Descriptive_Statistics/Tutorial_Descriptive_Statistics_on_Grouped_Data_0055.png?v=33785" width="483"  /></a>
+</li>
+</ol>
+<h2><a name="Analyzing_the_Relationship_Between_Different_Indicators"></a><span class="mw-headline">Analyzing the Relationship Between Different Indicators</span></h2>
+<p>Use a correlation coefficient to explore the relationship between columns of the automobile data. Next, construct scatter plots with confidence ellipses to obtain graphical representations of the correlations.
+</p>
+<ol>
+<li>In the <b>automobile - automobile.dat</b> workbook, open the <b>automobile</b> worksheet, and highlight the last five columns.</li>
+<li>From the Menu Bar, select <b>Statistics: Descriptive Statistics: Correlation Coefficient: Open Dialog...</b>.  In the corrcoef dialog box, expand <b>Correlation Types</b> and check the <b>Pearson</b> box.</li>
+<li>Expand <b>Plots</b> and check the <b>Add Confidence Ellipse</b> box. The <b>Scatter Plot</b> check box will be automatically selected.  Click <b>OK</b>.</li>
+<li>The <b>CorrCeof1</b> worksheet should appear as below; demonstrating the high positive correlation between <b>Engine Displacement</b> and <b>Power</b>, and the high negative correlation between <b>Gas Mileage</b> and <b>Engine Displacement</b>.<br />
+<a  class="image"><img alt="Tutorial Descriptive Statistics on Grouped Data 007.png" src="../images/Descriptive_Statistics/800px-Tutorial_Descriptive_Statistics_on_Grouped_Data_007.png?v=75121" width="800"   /></a>
+</li>
+</ol>
+<h2><a name="Controlling_the_Categorical_Values"></a><span class="mw-headline">Controlling the Categorical Values</span></h2>
+<ol><li>In the following steps, we want to customized the order of values shown in the graph but not change the source data. Right click Column <b>B</b> in workbook, select <b>Set As Categorical</b> in the context menu, double click the <b>Categories</b> cell of the column, "Unsorted", to open the <b>Categories</b> dialog.
+<dl><dd><a  class="image"><img alt="Desc stats control cat values.png" src="../images/Descriptive_Statistics/Desc_stats_control_cat_values.png?v=33823" width="396"  /></a></dd></dl></li>
+<li>Check <b>Customize Categories</b> checkbox, use <a  class="image"><img alt="Cate-sort-2.png" src="../images/Descriptive_Statistics/Cate-sort-2.png?v=33557" width="114"  /></a> to adjust position of each item to follow the image below, in this way we can sort the items by country of the manufacturers, which is U.S.-&gt;Japanese/Korea-&gt;Europe. Click <b>OK</b> to close the dialog. 
+<dl><dd><a  class="image"><img alt="Categ Sort-3.png" src="../images/Descriptive_Statistics/Categ_Sort-3.png?v=49001" width="471"  /></a></dd></dl></li>
+<li>You can go to the report sheet created in section above. Because <b>Auto</b> mode is used for recalculation, the report sheet of <b>Discrete Frequencies</b> and <b>Statistics on Columns</b>, including the box charts, are updated automatically with the specified order of the Categorical data.
+<dl><dd><a  class="image"><img alt="Tutorial Descriptive Statistics on Grouped Data 004.png" src="../images/Descriptive_Statistics/Tutorial_Descriptive_Statistics_on_Grouped_Data_004.png?v=33841" width="616"  /></a></dd></dl></li>
+<li>The results of <b>Unstacked Columns</b> and the stacked graph are updated  automatically as well. 
+<dl><dd><a  class="image"><img alt="Tutorial Descriptive Statistics on Grouped Data 008.png" src="../images/Descriptive_Statistics/Tutorial_Descriptive_Statistics_on_Grouped_Data_008.png?v=33776" width="481"  /></a></dd></dl></li></ol>
+<table class="note">
+
+<tr>
+<td><b>Note:</b> If the operation hasn't been auto-updated, you can also manually trigger the operations by clicking the <b>Recalculate</b> button <a  class="image"><img alt="Button Recalculate Manual.png" src="../images/Descriptive_Statistics/Button_Recalculate_Manual.png?v=8174" width="22"  /></a> in the <b>Standard</b> toolbar. The button will turn green<a  class="image"><img alt="Button Recalculate Auto.png" src="../images/Descriptive_Statistics/Button_Recalculate_Auto.png?v=8162" width="22"  /></a> after recalculation is done
+</td></tr></table>
+
+

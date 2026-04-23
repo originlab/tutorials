@@ -1,0 +1,120 @@
+<h1 class="firstHeading">4.3.8 Wavelet</h1><p class='urlname' style='display: none'>Wavelet</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">What You Will Learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#1D_Wavelet_Transform"><span class="tocnumber">3</span> <span class="toctext">1D Wavelet Transform</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Decomposition"><span class="tocnumber">3.1</span> <span class="toctext"><b>Decomposition</b></span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Reconstruction"><span class="tocnumber">3.2</span> <span class="toctext"><b>Reconstruction</b></span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Multi-Scale_Wavelet_Decomposition"><span class="tocnumber">3.3</span> <span class="toctext"><b>Multi-Scale Wavelet Decomposition</b></span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Continuous_Wavelet_Transform"><span class="tocnumber">3.4</span> <span class="toctext"><b>Continuous Wavelet Transform</b></span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Noise_Removal_by_Wavelet_Transform"><span class="tocnumber">3.5</span> <span class="toctext"><b>Noise Removal by Wavelet Transform</b></span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="#2D_Wavelet_Transform"><span class="tocnumber">4</span> <span class="toctext">2D Wavelet Transform</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="#2D_Wavelet_Decomposition"><span class="tocnumber">4.1</span> <span class="toctext"><b>2D Wavelet Decomposition</b></span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Wavelet transforms are useful for analyzing signals which exhibit sudden changes of phase and frequency, local maxima and minima, or related parameters. Wavelet transforms have become a popular tool in time-frequency analysis, especially for analysis of non-stationary signals. OriginPro provides wavelet transform tools for both continuous and discrete transforms.
+</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">What You Will Learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ol><li> Perform one-level discrete wavelet decomposition and reconstruct a signal from approximation coefficients and detail coefficients.</li>
+<li> Apply multi-level discrete wavelet decomposition.</li>
+<li> Perform continuous wavelet transform.</li>
+<li> Remove noise from signals by using wavelet transform.</li>
+<li> Perform 2D wavelet decomposition and reconstruction on matrix data.</li>
+<li> Convert an image to matrix data.</li>
+<li> Merge graph windows into one graph.</li></ol>
+<h2><a name="1D_Wavelet_Transform"></a><span class="mw-headline">1D Wavelet Transform</span></h2>
+<h3><a name="Decomposition"></a><span class="mw-headline"><b>Decomposition</b></span></h3>
+<ol><li> Start with an empty workbook. Select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Signal Processing</i> subfolder and find the file <i>Chirp Signal.dat</i>. Drag-and-drop this file into the empty worksheet to import it.
+<dl><dd><a  class="image"><img alt="SP Tutorial Wavelet 1.png" src="../images/Wavelet/SP_Tutorial_Wavelet_1.png?v=44847" width="288"  /></a></dd></dl></li>
+<li> Highlight column B, and select menu item <b>Analysis: Signal Processing: Wavelet: Decompose...</b> to open the <b>Decompose: dwt</b> dialog.</li>
+<li> In the dialog, choose <b>DB6</b> for <b>Wavelet Type &amp; Order</b>, and <b>Zero-padded</b> for <b>Extension Mode</b>.
+<dl><dd><a  class="image"><img alt="SP Tutorial Wavelet 2.png" src="../images/Wavelet/SP_Tutorial_Wavelet_2.png?v=44848" width="425"  /></a></dd></dl></li>
+<li> Click <b>OK</b> to close the dialog box and output the approximation coefficients and the detail coefficients.</li>
+<li> Highlight columns B, C, and D (columns C and D should contain your approximation coefficients and your detail coefficients, respectively). From the menu, select <b>Plot: Multi-panel: Stack...</b> to open the <b>Stack: plotstack</b> dialog box.</li>
+<li> In this dialog, clear the <b>Link Layers</b> check box in the <b>Options</b> node. Check the <b>Auto Preview</b> check box at the bottom to see the preview graph in the right panel.
+<dl><dd><a  class="image"><img alt="SP Tutorial Wavelet 3.png" src="../images/Wavelet/SP_Tutorial_Wavelet_3.png?v=44853" width="650"  /></a></dd></dl></li>
+<li> Click <b>OK</b> to close the dialog box and create a stack graph.
+<dl><dd><a  class="image"><img alt="SP Tutorial Wavelet 4.png" src="../images/Wavelet/SP_Tutorial_Wavelet_4.png?v=44854" width="370"  /></a></dd></dl></li></ol>
+<p><b>Note:</b> To perform level 2 (3, 4, etc.) discrete wavelet decomposition, repeat steps 2 to 4 on the approximation coefficients (column C, in our example). Multi-scale wavelet decomposition (available in OriginPro) is demonstrated below.
+</p>
+<h3><a name="Reconstruction"></a><span class="mw-headline"><b>Reconstruction</b></span></h3>
+<p>Reconstruction is the inverse operation of decomposition and this example will recover the signal from the result generated above.
+</p>
+<ol><li> Highlight columns C and D (your approximation coefficients and detail coefficients, from above).</li>
+<li> Choose menu item <b>Analysis: Signal Processing: Wavelet: Reconstruction...</b> to bring up the <b>Reconstruction: idwt</b> dialog box.</li>
+<li> To reconstruct the signal, we need to specify the same <b>Wavelet Type</b>, and <b>Boundary</b>, so set them to <b>DB6</b> and <b>Zero-padded</b>, respectively.
+<dl><dd><a  class="image"><img alt="SP Tutorial Wavelet 5.png" src="../images/Wavelet/SP_Tutorial_Wavelet_5.png?v=42909" width="453"  /></a></dd></dl></li>
+<li> Click <b>OK</b> and the recovered signal is output to column E of the worksheet.</li>
+<li> Press CTRL and select columns B and E. From the menu, choose <b>Plot: Line: Line</b> to make a graph with these two columns of data.
+<dl><dd><a  class="image"><img alt="SP Tutorial Wavelet 6.png" src="../images/Wavelet/SP_Tutorial_Wavelet_6.png?v=24161" width="420"  /></a></dd></dl></li>
+<li> We can see from the resulting graph that the original signal and the recovered signal overlay each other.</li></ol>
+<h3><a name="Multi-Scale_Wavelet_Decomposition"></a><span class="mw-headline"><b>Multi-Scale Wavelet Decomposition</b></span></h3>
+<ol><li> Start with a new workbook, and then import the same data used in the <b>Decomposition</b> section above. </li>
+<li> Highlight column B and select menu item <b>Analysis: Signal Processing: Wavelet: Multi-Scale DWT...</b> to open the <b>Multi-Scale DWT: mdwt</b> dialog box.</li>
+<li> In the dialog, change <b>Extension Mode</b> to <b>Zero-padded</b>, and <b>Decomposition Level</b> to <b>3</b>. Click the arrow button beside <b>Multiple Coeff Data</b> and select <b>[&lt;input&gt;]&lt;input&gt;</b> from the menu.
+<dl><dd><a  class="image"><img alt="SP Tutorial Wavelet 7.png" src="../images/Wavelet/SP_Tutorial_Wavelet_7.png?v=42910" width="421"  /></a></dd></dl></li>
+<li> Click <b>OK</b> to obtain 3rd level discrete wavelet decomposition results. The coefficients are stored in the same worksheet as the input signal.</li>
+<li> Select all columns in the worksheet, then choose menu <b>Plot: Multi-panel: Stack...</b> to open the <b>Stack: plotstack</b> dialog box. Click the arrow button to the right of <b>Dialog Theme</b> and select <b>System Default</b>. Check the <b>Auto Preview</b> check box at the bottom of the dialog box to preview the graph.
+<dl><dd><a  class="image"><img alt="SP Tutorial Wavelet 8.png" src="../images/Wavelet/SP_Tutorial_Wavelet_8.png?v=44855" width="650"  /></a></dd></dl></li>
+<li> Click <b>OK</b>. The resulting graph is shown below. 
+<dl><dd><a  class="image"><img alt="SP Tutorial Wavelet 9.png" src="../images/Wavelet/SP_Tutorial_Wavelet_9.png?v=24164" width="388"  /></a></dd></dl></li></ol>
+<h3><a name="Continuous_Wavelet_Transform"></a><span class="mw-headline"><b>Continuous Wavelet Transform</b></span></h3>
+<ol><li> Start with a new workbook with two empty columns (columns A and B) in a single worksheet.</li>
+<li> Select column A and then right-click and choose <b>Set Column Values...</b> from the shortcut menu. This opens the <b>Set Values</b> dialog box. In the text box, enter <i>data(0, 1, 1/1023)</i> and click <b>Apply</b>. This fills column A with data.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Wavelet 10.png" src="../images/Wavelet/SP_Tutorial_Wavelet_10.png?v=24165" width="401"  /></a></dd></dl></li>
+<li> Click the <b>&gt;&gt;</b> button to select column B. Enter <i>sin(1.5/(0.25-col(A)))+cos(0.2/(0.2-col(A)))</i> and click <b>OK</b>.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Wavelet 11.png" src="../images/Wavelet/SP_Tutorial_Wavelet_11.png?v=24166" width="401"  /></a></dd></dl></li>
+<li> We can make a plot to see how the data looks. With column B selected, choose <b>Plot: Line: Line</b> from the menu.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Wavelet 13.png" src="../images/Wavelet/SP_Tutorial_Wavelet_13.png?v=24168" width="415"  /></a></dd></dl></li>
+<li> With the worksheet active, add a new column to the worksheet by selecting   <b>Column: Add New Columns...</b> from the menu. In the dialog box, accept the default value of <i>1</i> and click <b>OK</b>. 
+<dl><dd> <a  class="image"><img alt="SP Tutorial Wavelet 12.png" src="../images/Wavelet/SP_Tutorial_Wavelet_12.png?v=24167" width="344"  /></a></dd></dl></li>
+<li> Column C is added to the worksheet. Select it, right-click and choose <b>Set Column Values</b> from the shortcut menu.  In the text box, enter <i>data(1, 512)</i> and click <b>OK</b>.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Wavelet 14.png" src="../images/Wavelet/SP_Tutorial_Wavelet_14.png?v=24169" width="401"  /></a></dd></dl></li>
+<li> Select both columns B and C, then from the menu, select <b>Analysis: Signal Processing: Wavelet: Continuous Wavelet...</b> to open <b>Continuous Wavelet: cwt</b> dialog box.</li>
+<li> In the dialog, set <b>Wavelet Type</b> to <b>MexHat</b>, and check <b>Coefficient Matrix</b>.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Wavelet 15.png" src="../images/Wavelet/SP_Tutorial_Wavelet_15.png?v=44864" width="434"  /></a></dd></dl></li>
+<li> Click <b>OK</b> button to exit dialog.</li>
+<li> The coefficients are output to a new worksheet and a matrix and a contour plot is added. Double-click on the plot to open the <b>Plot Details</b> dialog box. Select the <b>Colormap</b> tab and click on the <b>Fill...</b> heading. The <b>Fill</b> dialog box opens with color contols. Click <b>Load Palette</b>, and choose <b>Pumpkin Patch</b> from the <b>Select Palette</b> menu. Click <b>OK</b> to return to the <b>Plot Details</b> dialog box.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Wavelet 16.png" src="../images/Wavelet/SP_Tutorial_Wavelet_16.png?v=44865" width="500"  /></a></dd></dl></li>
+<li> Click <b>OK</b> to change the color of the contour plot. It should now look like the graph below.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Wavelet 17.png" src="../images/Wavelet/SP_Tutorial_Wavelet_17.png?v=24172" width="540"  /></a></dd></dl></li></ol>
+<h3><a name="Noise_Removal_by_Wavelet_Transform"></a><span class="mw-headline"><b>Noise Removal by Wavelet Transform</b></span></h3>
+<ol><li> Start with an empty worksheet. Select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Signal Processing</i> subfolder and find the file <i>Signal with Shot Noise.dat</i>. Drag-and-drop this file into the empty worksheet to import it.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Wavelet 18.png" src="../images/Wavelet/SP_Tutorial_Wavelet_18.png?v=24174" width="365"  /></a></dd></dl></li>
+<li> We can see from the Sparklines in the image above that there is shot noise in the signal. Highlight column B and select menu <b>Analysis: Signal Processing: Wavelet: Denoise...</b> to bring up the <b>Denoise: wtdenoise</b> dialog box.</li>
+<li> Check <b>Auto Preview</b> to preview your result. Set <b>Wavelet Type</b> to <b>DB9</b>, <b>Extension Mode</b> to <b>Zero-padded</b>, <b>Threshold Type</b> to <b>sqtwolog</b>, and <b>Thresholding Level</b> to <b>7</b>.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Wavelet 19.png" src="../images/Wavelet/SP_Tutorial_Wavelet_19.png?v=44868" width="650"  /></a></dd></dl></li>
+<li> Click <b>OK</b> to remove the shot noise from the signal. Results are output to worksheet columns C and D.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Wavelet 20.png" src="../images/Wavelet/SP_Tutorial_Wavelet_20.png?v=24226" width="416"  /></a></dd></dl></li>
+<li> Highlight all columns in the worksheet, then choose menu item <b>Plot: Line: Line</b> to make a graph with the original signal and the cleaned-up signal. We see from the graph below that the shot noise has been removed.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Wavelet 21.png" src="../images/Wavelet/SP_Tutorial_Wavelet_21.png?v=24227" width="487"  /></a></dd></dl></li></ol>
+<h2><a name="2D_Wavelet_Transform"></a><span class="mw-headline">2D Wavelet Transform</span></h2>
+<h3><a name="2D_Wavelet_Decomposition"></a><span class="mw-headline"><b>2D Wavelet Decomposition</b></span></h3>
+<ol><li> Start with a new matrixbook. From the menu, choose <b>Data: Import from File: Image to Matrix...</b> and import the image, <b>&lt;Origin Installation Directory&gt;\Samples\Image Processing and Analysis\Car.bmp</b>.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Wavelet 22.png" src="../images/Wavelet/SP_Tutorial_Wavelet_22.png?v=24177" width="337"  /></a></dd></dl></li>
+<li> To begin, we need to convert the image into data. To do this, select menu item <b>Image: Conversion: Convert to Data</b>. The <b>Convert to Data: img2m</b> opens. Set <b>Type</b> to <b>byte(1)</b>.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Wavelet 23.png" src="../images/Wavelet/SP_Tutorial_Wavelet_23.png?v=42914" width="379"  /></a></dd></dl></li>
+<li> Click <b>OK</b> to obtain the converted matrix data. </li>
+<li> With the converted matrix active, select menu <b>Analysis: Signal Processing: Wavelet: 2D Decompose...</b> and open the <b>2D Decompose: dwt2</b> dialog box.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Wavelet 24.png" src="../images/Wavelet/SP_Tutorial_Wavelet_24.png?v=42915" width="508"  /></a></dd></dl></li>
+<li> Accept the default settings and click <b>OK</b>. This performs 2D wavelet decomposition on the matrix data. A matrixbook with four matrixsheets (CA, CH, CV, and CD) is generated. CA, CH, CV, and CD contain approximation coefficients, horizontal detail coefficients, vertical detail coefficients, and diagonal detail coefficients respectively. You can change the view mode to image mode by choosing <b>View: Image Mode</b> from the menu.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Wavelet 25.png" src="../images/Wavelet/SP_Tutorial_Wavelet_25.png?v=24180" width="364"  /></a></dd></dl></li>
+<li> With the CA matrixsheet active, make an image plot by selecting <b>Plot: Image Plot</b> from the menu. Repeat for CH, CV, and CD matrixsheets.</li>
+<li> Double click on graph of them to open the <b>Plot Details</b> dialog, in the left panel, activate <b>Layer1</b>, and then go to the <b>Size/Speed</b> tab in the right panel, and deselect the <b>Matrix data, maximum points per dimension</b> checkboxes. Click <b>OK</b>. select the axes related objects (including axis, label) in the graph and press the DELETE key to delete them.</li></ol>
+
+
+
+
+
+

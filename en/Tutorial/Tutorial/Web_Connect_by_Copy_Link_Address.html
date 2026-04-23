@@ -1,0 +1,96 @@
+<h1 class="firstHeading">9.1.1 Connect to Web Data by Copy Link Address</h1><p class='urlname' style='display: none'>Web-Connect-Copy-Link</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Connect_to_Web_Data_File_by_Copy_Link_Address"><span class="tocnumber">3</span> <span class="toctext">Connect to Web Data File by Copy Link Address</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Plotting_Connector-imported_Data_with_Plot_Setup"><span class="tocnumber">4</span> <span class="toctext">Plotting Connector-imported Data with Plot Setup</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#How_to_Manage_Caching_of_Web_Data"><span class="tocnumber">5</span> <span class="toctext">How to Manage Caching of Web Data</span></a></li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Web_Connect_by_Copy_Link_Address/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Web_Connect_by_Copy_Link_Address/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=240" target="_blank">Data Connectors</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=174" target="_blank">An Introduction to the Maps Online App</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=175" target="_blank">Google Map App</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=158" target="_blank">Creating a 3D Bar on XY Plane using Maps Online App</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Web_Connect_by_Copy_Link_Address/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Web_Connect_by_Copy_Link_Address/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/data-connector-json" target="_blank">Origin Web Data Connector in 2019b</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/importing-json-data-from-a-web-service-in-origin-2019" target="_blank">Importing JSON Data From a Web Service in Origin 2019</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/covid-19-test-positivity-rates-in-different-us-states" target="_blank">COVID-19 Test Positivity Rates in Different US States</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/covid-19-real-time-report-from-china" target="_blank">COVID-19 Real Time Report from China</a> </li>
+<li> <a class="external text" href="https://blog.originlab.com/covid-19-world-situation-report-of-confirmed-case" target="_blank">COVID-19 Daily Update of World Situation Report of Confirmed Cases</a></li></ul>
+</td></tr></table>
+<p><br />
+</p>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p><a class="external text" href="../../UserGuide/Category/Data_Connector.html"><b>Data Connectors</b></a> are an ideal way to create a "live link" to data files that are periodically updated. Traditional file import requires the user to re-import data each time source data are modified. However, once a Connector is added to a workbook, it can automatically query the data source each time the project is opened, thus simplifying your data management tasks.
+</p>
+<dl><dd><dl><dd><a  class="image"><img alt="Tutorial Data Connect To Web.png" src="../images/Web_Connect_by_Copy_Link_Address/Tutorial_Data_Connect_To_Web.png?v=64476" width="800"  /></a></dd></dl></dd></dl>
+<p>In this tutorial, we'll show you how to connect to "real-time" earthquake data on the United States Geological Survey (USGS) website, how to configure the connected project to automatically import data on open, and how to manage data caching so that you are assured of getting the most up-to-date data each time you open your project.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 2021</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<ul><li> How to connect to a web-stored CSV file by copying the URL.</li>
+<li> How to use Origin's free Maps Online App to create a background image for geographic data.</li>
+<li> How to use the Plot Setup dialog with Data Connector-imported data, saving us the need to rearrange columns.</li>
+<li> How to save and reopen a project that uses a Web Connector (CSV).</li>
+<li> How to manipulate Origin's caching mechanism so that data are always refreshed on opening the project.</li></ul>
+<h2><a name="Connect_to_Web_Data_File_by_Copy_Link_Address"></a><span class="mw-headline">Connect to Web Data File by Copy Link Address</span></h2>
+<ol><li> Start a new project. There should be one new workbook visible in the workspace.</li>
+<li> Browse to this page on the USGS website: <a class="external free" href="https://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php" target="_blank">https://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php</a></li>
+<li> In the right-hand column, you'll see under "Feeds", a list of links to CSV data files that are updated every minute.</li>
+<li> Scroll down and under "Past 30 Days", right-click on "All Earthquakes" and choose <b>Copy link address</b>.</li>
+<li> Return to Origin and with your workbook active, choose <b>Data: Connect to Web</b>.</li>
+<li> Paste the link address you just copied into the URL box using CTRL + V and click <b>OK</b>.</li>
+<li> Accept default settings in the <b>CSV Import Options</b> dialog box and click <b>OK</b>. The data from the USGS site are imported into the workbook. Note the green color of the Connector icon <a  class="image"><img alt="Dadta connector icon connect.png" src="../images/Web_Connect_by_Copy_Link_Address/Dadta_connector_icon_connect.png?v=63408" width="16"  /></a>, indicating that the data connection is valid.</li></ol>
+<h2><a name="Plotting_Connector-imported_Data_with_Plot_Setup"></a><span class="mw-headline">Plotting Connector-imported Data with Plot Setup</span></h2>
+<p>In this portion of the tutorial, we will use <a class="external text" href="https://www.originlab.com/fileExchange/details.aspx?fid=240" target="_blank">OriginLab's free <b>Maps Online</b> App</a> to create a base-map for a scatter plot of latitude, longitude, magnitude and depth data.
+</p><p>Because of the <a class="external text" href="../../UserGuide/Category/Data_Connector.html">"locked"</a> nature of Data Connector-imported data, we cannot rearrange columns. By default, Origin requires that X data columns be to the left of Y data columns. But in our locked worksheet, the X data (<i>longitude</i>) are to the <i>right</i> of our Y data (<i>latitude</i>). The <b>Plot Setup</b> dialog box works nicely in this situation, as we can designate columns "on the fly" without having to move things around (and lose the "live" connection to our data). But first, we will get our free Maps Online App:
+</p>
+<ol><li> Press F10 to open the App Center. Click on the <b>Search</b> tab and with <b>Category</b> = <i>All</i>, enter "maps" into the search box. If the <b>Maps Online</b> App shows with a green checkmark beside it, you have already installed the App. If it displays the <b>Download and Install</b> icon <a  class="image"><img alt="AppCenter download button.png" src="../images/Web_Connect_by_Copy_Link_Address/AppCenter_download_button.png?v=64435" width="20"  /></a>, click the icon to install the App in your Origin software.</li>
+<li> Click on the Apps Gallery (by default, docked to the right side of your workspace) and launch the <b>Maps Online</b> App. In the dialog box, click the <b>Map</b> drop-down and choose <i>Nasa Earth Observations</i> and set <b>Layers</b> to <i>BlueMarbleNG</i>.</li>
+<li>  Enter lat and long values into the <b>North</b>, <b>South</b>, <b>East</b> and <b>West</b> fields as shown below, then click <b>OK</b>. We now have a base-map for plotting our earthquake data. <br /><br /><b>NOTE:</b> <a class="external text" href="https://www.originlab.com/fileExchange/details.aspx?fid=240" target="_blank"><b>The Maps Online App</b></a> queries a WMS server. These servers <i>often change</i>. If you find a broken service, try and locate an updated URL. Then, click the <a  class="image"><img alt="Tutorial Data Connect To Web 1.91.png" src="../images/Web_Connect_by_Copy_Link_Address/Tutorial_Data_Connect_To_Web_1.91.png?v=71160" width="21"  /></a> button beside the <b>Map</b> drop-down to open a text file. You can edit or add services (URLs) to the text file, making sure to follow the syntax used in the file, then save changes.
+<dl><dd><a  class="image"><img alt="Tutorial Data Connect To Web 1.9.png" src="../images/Web_Connect_by_Copy_Link_Address/Tutorial_Data_Connect_To_Web_1.9.png?v=71159" width="796"  /></a></dd></dl></li>
+<li> From the menu, choose <b>Graph: Plot Setup</b> (if not displayed, <a class="external text" href="../../UserGuide/Category/Plot_Setup.html">expand top and bottom panels</a> of the dialog box). Set <b>Available Data</b> = <i>Worksheets in Folder</i> and you should see your <i>all-month</i> sheet in the top panel. Highlight the sheet in the top panel.</li>
+<li> In the middle panel set <b>Plot Type</b> = <b>Scatter</b> and set <i>longitude</i> = <b>X</b> and <i>latitude</i> = <b>Y</b>, as shown. Now, click the <b>Add</b> button in the lower-right corner of the middle panel. Click <b>OK</b> to overlay the scatter plot of lat-lon data on your map. 
+<dl><dd><a  class="image"><img alt="Tutorial Data Connect To Web 2.png" src="../images/Web_Connect_by_Copy_Link_Address/Tutorial_Data_Connect_To_Web_2.png?v=64436" width="821"  /></a></dd></dl></li>
+<li> Double-click on the plot to open Plot Details and recreate the settings show in the following screen-cap by setting these <a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Symbol_Tab.html"><b>Symbol</b> tab controls</a>: <b>Size</b> = <i>Col(E): "mag"</i>, <b>Scaling Factor</b> = <i>3</i>, <b>Size Formula</b> = <i>(s-s1)/(s2-s1)</i>, <b>Symbol Color</b> = <b>By Points</b> set to <i>Map:Col(D):"depth"</i> (<b>hint</b>:  edit your colormap on the <a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Color_Map_Tab.html"><b>Colormap</b> tab of Plot Details</a>). In summary, we are using <i>latitude</i> and <i>longitude</i> values to locate our scatter points on the map; we are using <i>mag</i> (magnitude) data to control symbol size and <i>depth</i> to <a class="external text" href="../../UserGuide/UserGuide/Using_a_Dataset_to_Control_Plot_Color.html#Color_Mapping">control symbol color</a>. Click <b>OK</b> to close the dialog.
+<dl><dd><a  class="image"><img alt="Tutorial Data Connect To Web 3.png" src="../images/Web_Connect_by_Copy_Link_Address/Tutorial_Data_Connect_To_Web_3.png?v=64438" width="714"  /></a></dd></dl></li>
+<li> On the <b>Tools</b> toolbar, click the <b>Add Color Scale</b> button, then double-click on the color scale to open Color Scale Control dialog. On the <b>Levels</b> tab, <b>Hide Head Level</b> and <b>Hide Tail Level</b>. On the <b>Layout</b> tab, clear the <b>Reverse Order</b> box. On the <b>Title</b> tab, check the <b>Show</b> box. Click <b>OK</b> to close the dialog. You can also add a <a class="external text" href="../../UserGuide/UserGuide/Bubble_Scale.html">Bubble Scale</a> to the map to show relative symbol sizes (since size is mapped to earthquake magnitude).</li>
+<li> We can make a few cosmetic adjustments to our graph such as <a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Print_Dimensions_Tab.html">using <b>Print/Dimensions</b> settings</a> to modify page size to more closely fit the aspect ratio of the map image. Additionally, we can <a class="external text" href="../../UserGuide/UserGuide/Title_2.html">add axis titles</a>, and adjust fonts and font sizes using <a class="external text" href="../../GettingStarted/OriginLab/Customizing_Graphs.html#Mini_Toolbars">Mini Toolbar</a> buttons.
+<dl><dd><a  class="image"><img alt="Tutorial Data Connect To Web final.png" src="../images/Web_Connect_by_Copy_Link_Address/Tutorial_Data_Connect_To_Web_final.png?v=64464" width="799"  /></a></dd></dl></li></ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Web_Connect_by_Copy_Link_Address/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>If you hover on a plotted point in your graph, you will see <a class="external text" href="../../UserGuide/UserGuide/Data_info_Tool.html#Data_Point_Tooltip">a customizable data point tooltip</a>. Carefully right-click on the tooltip, choose <b>Preferences</b> and you can modify the tooltip to display all of your plot variables -- <i>latitude</i>, <i>longitude</i>, <i>magnitude</i> and <i>depth</i>, in any order and in any numeric format -- as you mouse over your plot.
+<p><a  class="image"><img alt="Tutorial Data Connect To Web Tip.png" src="../images/Web_Connect_by_Copy_Link_Address/Tutorial_Data_Connect_To_Web_Tip.png?v=64496" width="800"  /></a>
+</p>
+</p></td></tr></table>
+<h2><a name="How_to_Manage_Caching_of_Web_Data"></a><span class="mw-headline">How to Manage Caching of Web Data</span></h2>
+<p>Data Connectors were conceived, in part, to facilitate import of very large data files. Connectors employ the strategy of not saving large file imports (<a class="external text" href="../../UserGuide/Category/Data_Connector.html#Excluding_or_Saving_Imported_Data">&gt; 500kB by default</a>), thus saving on disk space. If you have a number of connected workbooks in your project file, you can selectively re-connect to files as needed, allowing you to import just the data that you need to access now.
+</p><p>In an effort to manage the number of times a connection is refreshed -- this takes time and can slow work, after all -- OriginLab developers added system variable <a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#C"><b>@CFDT</b></a>, which controls the length of time between Connector queries of source data. Data imported by <b>Connect to Web</b> is cached for a time period equal to the value of <b>@CFDT</b>  seconds per 100kB of file size (e.g connected data in a 10MB file is cached for 900 * 100 = 90,000 sec or ~24 hr). 
+</p><p>Additionally, there is a LabTalk command -- <code>delete -web</code> -- that will flush the cache on demand. For the purposes of our earthquake project, we would like to ensure that we are always getting the most up-to-date data, so we will make use of this.
+</p><p><i><b>In this portion of the exercise, we will configure our project so that:</b></i>
+</p>
+<dl><dd><ul><li> Data are automatically imported whenever the project is opened.</li>
+<li> The cache is flushed on project open so that we are certain of always having the most up-to-date information.</li></ul></dd></dl>
+<ol>
+<li>Choose <b>File: Save Project As</b>, give the file a name such as <i>USGS_Earthquake_All_30d.opju</i> and click <b>Save</b>. </li>
+<li> Click on the worksheet's Connector icon and choose <b>Auto Import</b> &gt; <b>On Project Open</b>. </li>
+<li>From the Origin menu, choose <b>View: Code Builder</b>. <a class="external text" href="../../CodeBuilder/Category/Code_Builder_Interface(CodeBuilder).html"><b>Code Builder</b></a> is Origin's integrated development environment (IDE) for developing LabTalk, Origin C and Python code. In the <b>Workspace</b> pane on the left side of the dialog, expand the <b>Project</b> branch and double-click on the <i>ProjectEvents.OGS</i> file. The file is loaded into Code Builder workspace. <a class="external text" href="../../LabTalk/Script/ProjectEvents_Script.html"><i>ProjectEvents.OGS</i></a> is a special file that is saved with each Origin project and is used to store and execute LabTalk script at various event triggers such as upon opening of the project. We have already mentioned that we have a LabTalk command that can be used to flush the cached web data so we will customize <i>ProjectEvents.OGS</i> to run a simple line of script so that our web data are always refreshed on project open. Scroll up to the section <i>[AfterOpenDoc]</i>, add the following two lines of script, then click the <b>Save</b> button on the Code Builder toolbar.
+<pre class="lt" style="font-family:monospace;">delete <span style="color: #000080;">-</span>web;
+type <span style="color: #000080;">-</span>b <span style="color: #ff00ff;">&quot;The web cache has been cleared. Project data have been refreshed.&quot;</span></pre>
+<p>ProjectEvents should look something like this:
+</p><p><a  class="image"><img alt="Tutorial Data Connect To Web 4.png" src="../images/Web_Connect_by_Copy_Link_Address/Tutorial_Data_Connect_To_Web_4.png?v=64455" width="799"  /></a>
+</p>
+</li>
+<li>Choose <b>File: Save</b> to save your project, along with the contents of ProjectEvents.OGS.</li>
+<li>Now, close your project, then using <b>File: Recent Projects</b>, click on your recently-saved-and-closed project. An attention message should open stating that the "web cache has been cleared. Project data have been refreshed." Subsequently, the worksheet should fill with data and the plot of earthquakes on the world map, should be regenerated.</li>
+</ol>
+
+

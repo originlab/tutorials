@@ -1,0 +1,97 @@
+<h1 class="firstHeading">5.1.4 Distribution Fit</h1><p class='urlname' style='display: none'>dist-fit</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#User_Story"><span class="tocnumber">3</span> <span class="toctext">User Story</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Choosing_Distributions"><span class="tocnumber">4</span> <span class="toctext">Choosing Distributions</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Performing_Distribution_Fit"><span class="tocnumber">5</span> <span class="toctext">Performing Distribution Fit</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Comparing_and_Selecting_Fitting_Models"><span class="tocnumber">6</span> <span class="toctext">Comparing and Selecting Fitting Models</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Making_Estimations"><span class="tocnumber">7</span> <span class="toctext">Making Estimations</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Knowing the distribution model of the data helps you to continue with the right analysis. or make estimation of your data. The <b>Distribution Fit</b> tool helps users to examine the distribution of their data, and estimate parameters for the distribution.
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you:
+</p>
+<ul><li> How to carry out distribution fit for practical data with Origin </li>
+<li> How to interpret the generated results</li></ul>
+<h2><a name="User_Story"></a><span class="mw-headline">User Story</span></h2>
+<p>A house builder is trying to decide how many new houses he should build in the next year based on past sales of houses in the surrounding area. He would like to know the following:
+</p>
+<dl><dd><ul><li>If he is going to build 80 new houses, what is the probability that all of them will be sold?</li>
+<li>The builder believes that he can make a profit if there is at least a 60% probability that he will sell all of his houses. How many houses should he build?</li></ul></dd></dl>
+<p><br />
+To solve this problem, The house builder needs to:
+</p>
+<dl><dd><ul><li> Perform a distribution fit to sample data (houses sold in the surrounding area)</li>
+<li> Select the best fitting distribution</li>
+<li> Calculate the probability using the cumulative distribution function of the selected distribution</li>
+<li> If the probability is more than 60%, reconsider the schedule.</li></ul></dd></dl>
+<h2><a name="Choosing_Distributions"></a><span class="mw-headline">Choosing Distributions</span></h2>
+<ol><li> Start with a new project or a new workbook. Import the data file: <b>\Samples\Statistics\HouseSold.dat</b></li>
+<li> Highlight Column B, select <b>Plot &gt; Statistical &gt; Histogram</b> from Origin menu
+<dl><dd><a  class="image"><img alt="Dist fit histogram.png" src="../images/Distribution_Fit/Dist_fit_histogram.png?v=33373" width="387"  /></a></dd></dl></li>
+<li> Consider the facts as below to choose the distributions:
+<ul><li> The data are taken on integer values only so we can consider to fit both continuous and discrete distributions. (If there are floating point numbers, only continuous distributions can be considered). However, as usually continuous distributions provide better fit than discrete distributions we want to choose from continuous distributions.</li>
+<li> Value of new house sold are positive values, we don't need to consider the normal distribution, which can take on negative values</li>
+<li> Look at the histogram, the data is clustered around a value, we don't need to consider the exponential distribution, which is for data extremely asymmetric</li></ul></li></ol>
+<h2><a name="Performing_Distribution_Fit"></a><span class="mw-headline">Performing Distribution Fit</span></h2>
+<ol><li> Return to the <b>HouseSold</b> worksheet and highlight the column B. From the Menu Bar, select the <b>Statistics: Descriptive Statistics: Distribution Fit</b> menu</li>
+<li> In the dialog that opens, in the <b>Distributions</b> tab, clear <b>Normal</b> and select the following three distributions based on the conclusions in the <a href="#Choosing_Distributions">Choosing Distributions</a> section
+<ul><li> <b>LogNormal</b></li>
+<li> <b>Weibull</b></li>
+<li> <b>Gamma</b></li></ul>
+<dl><dd><a  class="image"><img alt="DOC-2411 Dist fit dlg settings a.png" src="../images/Distribution_Fit/DOC-2411_Dist_fit_dlg_settings_a.png?v=42352" width="505"  /></a></dd></dl></li>
+<li> In the <b>Plots</b> tab, select <b>Probability Plot</b>
+<dl><dd><a  class="image"><img alt="DOC-2411 Dist fit dlg settings b.png" src="../images/Distribution_Fit/DOC-2411_Dist_fit_dlg_settings_b.png?v=74165" width="482"  /></a></dd></dl></li>
+<li> In the <b>Goodness of Fit</b> tab, check all three methods. Click <b>OK</b> to apply the settings and close dialog.
+<dl><dd><a  class="image"><img alt="DOC-2411 Dist fit dlg settings c.png" src="../images/Distribution_Fit/DOC-2411_Dist_fit_dlg_settings_c.png?v=44516" width="505"  /></a></dd></dl></li></ol>
+<h2><a name="Comparing_and_Selecting_Fitting_Models"></a><span class="mw-headline">Comparing and Selecting Fitting Models</span></h2>
+<p>We can compare and select a fitting model based on the following results of distribution fit:
+</p>
+<ul><li> <b>Probability (P-P) Plot</b>
+<dl><dd> The closer all the scatter points are to the reference line, the better the distribution is for the dataset. From the Probability Plot, both lognormal and gamma distribution can be considered as good models for the data.</dd>
+<dd> <a  class="image"><img alt="Dist fit prob plot.png" src="../images/Distribution_Fit/Dist_fit_prob_plot.png?v=51243" width="692"  /></a></dd></dl></li>
+<li>  <b>Goodness of Fit Tests</b> table
+<dl><dd> Look at the P-values in table, if the p-value is less than 0.05, it means we reject the distribution at the 0.05 level. P-value of lognormal and gamma are larger than 0.05, then from the <b>Goodness of Fit Tests</b>, we can see that both lognormal and gamma are good models for the data. </dd>
+<dd> <a  class="image"><img alt="Dist fit results goodness of fit.png" src="../images/Distribution_Fit/Dist_fit_results_goodness_of_fit.png?v=44874" width="627"  /></a></dd></dl></li></ul>
+<p>From the <b>Probability (P-P) Plot</b> and <b>Goodness of Fit Tests</b> table, we can draw a conclusion that lognormal and gamma are both good choices. Here we choose the lognormal as an example for further analysis.
+</p>
+<h2><a name="Making_Estimations"></a><span class="mw-headline">Making Estimations</span></h2>
+<p>Once the best distribution model is found, we can use the CDF and INV functions to calculate these probabilities:
+</p>
+<ul><li> If he is going to build 80 new houses, what is the probability that all of them will be sold?</li>
+<li> How many houses should be built if he hopes to have a 60% chance of selling all of the houses?</li></ul>
+<ol><li> To answer the first question, open the <b>Command Window</b> or the <b>Script Window</b> from the <b>Windows</b> menu, and type commands as below
+<dl><dd> <pre class="lt" style="font-family:monospace;">logncdf<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">80</span>, <span style="color: #0000dd;">3.94262</span>, <span style="color: #0000dd;">0.35614</span><span style="color: #000000;">&#41;</span> <span style="color: #000080;">=</span></pre></dd>
+<dd>where 3.94262 is mu and 0.35614 is sigma, obtained from the <b>Parameter Estimates</b> table in the Report Sheet.</dd>
+<dd> <a  class="image"><img alt="Dist fit results parameter estimates.png" src="../images/Distribution_Fit/Dist_fit_results_parameter_estimates.png?v=74164" width="623"  /></a></dd></dl></li>
+<li>You will get
+<dl><dd><pre class="lt" style="font-family:monospace;">logncdf<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">80</span>, <span style="color: #0000dd;">3.94262</span>, <span style="color: #0000dd;">0.35614</span><span style="color: #000000;">&#41;</span> <span style="color: #000080;">=</span>  <span style="color: #0000dd;">0.89136185728793</span></pre></dd>
+<dd> We can conclude that if the house builder builds 80 new houses, there is an 89% probability that he will NOT sell all of those houses.</dd></dl></li></ol>
+<ol><li> To answer the second question, run the script below in the <b>Command Window</b> or the <b>Script Window</b> 
+<dl><dd> <pre class="lt" style="font-family:monospace;">logninv<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">1</span><span style="color: #000080;">-</span><span style="color: #0000dd;">0.6</span>, <span style="color: #0000dd;">3.94262</span>, <span style="color: #0000dd;">0.35614</span><span style="color: #000000;">&#41;</span> <span style="color: #000080;">=</span></pre></dd></dl></li>
+<li>You will get
+<dl><dd><pre class="lt" style="font-family:monospace;">logninv<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">1</span><span style="color: #000080;">-</span><span style="color: #0000dd;">0.6</span>, <span style="color: #0000dd;">3.94262</span>, <span style="color: #0000dd;">0.35614</span><span style="color: #000000;">&#41;</span> <span style="color: #000080;">=</span>  <span style="color: #0000dd;">47.105650533425</span></pre></dd>
+<dd> We can conclude that the house builder is more likely to make a profit if he builds 47 new houses.</dd></dl></li></ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Distribution_Fit/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>We choose the lognormal model in <a href="#Choosing_Distributions"><b>Choosing Distribution</b> section</a> so we use logncdf and logninv for the estimation. If we choose gamma, we can use <a class="external text" href="../../LabTalk/LabTalk/Gamcdf_(function).html">gamcdf</a> and <a class="external text" href="../../LabTalk/LabTalk/Gaminv_(function).html">gaminv</a> for the estimation, which will result in a similar conclusion.
+</p></td></tr></table>
+<table class="note">
+
+<tr>
+<td><b>Notes:</b>There are also other descriptive statistics and graphs in results of <b>Distribution Fit</b> which help you to take a quick look of your data
+<dl><dd><ul><li> <b>Descriptive Statistics</b> table</li>
+<li> <b>Quantiles</b> table</li>
+<li> <b>Histogram</b></li>
+<li> <b>Box Chart</b></li>
+<li> <b>CDF</b> (Cumulative Distribution Function Plot)</li></ul></dd></dl>
+</td></tr></table>
+
+

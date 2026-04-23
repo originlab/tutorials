@@ -1,0 +1,88 @@
+<h1 class="firstHeading">6.11.7 Polar Graph with Custom Angular Scale</h1><p class='urlname' style='display: none'>polar-custom-angular</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">What You Will Learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a></li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Polar_Graph_with_Custom_Azimuth_Scale/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Polar_Graph_with_Custom_Azimuth_Scale/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=124" target="_blank">Polar Axis Dialog</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=153" target="_blank">Using Data from other Worksheet Columns to Control Plot Attributes</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=154" target="_blank">Adding Special Tick Labels to Graph Axes</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Polar_Graph_with_Custom_Azimuth_Scale/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Polar_Graph_with_Custom_Azimuth_Scale/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/plot-radar-chart-with-unevenly-spaced-axes" target="_blank">Plot Radar Chart with Unevenly Spaced Axes</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Normally, the polar angular axis unit reads in degrees, radians or gradians. However, Origin's polar graph also supports use of custom units. 
+</p><p><a  class="image"><img alt="Tutorial Polar with Custom Azimuth Scale 01.png" src="../images/Polar_Graph_with_Custom_Azimuth_Scale/Tutorial_Polar_with_Custom_Azimuth_Scale_01.png?v=65214" width="698"  /></a>
+</p>
+<p class="version" >Minimum Origin Version Required: 2018b</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">What You Will Learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>use a dataset to control symbol size and color in a polar graph.</li>
+<li>use a custom unit for the angular axes.</li>
+<li>display tick labels as quarters.</li>
+<li>add and custom the bubble scale</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<p>You can refer to this graph in Learning Center. (Select <b>Help: Learning Center</b> menu or press <b>F11</b> key , and then open <b>Graph Sample: Polar Graphs</b>)
+</p>
+<ol>
+<li>Highlight column B and select <b>Plot &gt; Specialized&#160;:Symbol theta r</b> to create a symbol plot in polar coordinate system.
+
+<li>Double-click on any axis to open the <b>Axis</b> dialog. Go to the <b>Scale</b> tab and select <b>Angular</b> in the left panel. In this right panel, expand <b>Units Definition</b> node, and choose <b>Radians</b> as <b>Units</b>. Make sure the scale from <b>0</b> to <b>2</b> PI. Then change the <b>Value</b> of increment to <b>0.25</b>
+<br /><a  class="image"><img alt="Tutorial Polar with Custom Azimuth Scale 02.png" src="../images/Polar_Graph_with_Custom_Azimuth_Scale/Tutorial_Polar_with_Custom_Azimuth_Scale_02.png?v=56244" width="713"  /></a>
+<br /><br />
+
+<li>Go to the <b>Show</b> tab for <b>Angular-Outer</b> axis, then change the <b>Direction</b> to <b>Clockwise</b> and set <b>Rotate (deg.)</b> to <b>90</b>.
+<br /><a  class="image"><img alt="Tutorial Polar with Custom Azimuth Scale 03.png" src="../images/Polar_Graph_with_Custom_Azimuth_Scale/Tutorial_Polar_with_Custom_Azimuth_Scale_03.png?v=56245" width="554"  /></a>
+<br /><br />
+
+<li>Go to the <b>Scale</b> tab and select '<b>Radial</b> in the left panel. Then set the scale from <b>0</b> to <b>1.2</b>, and change the <b>Value</b> of increment to <b>0.4</b>.
+<br /><a  class="image"><img alt="Tutorial Polar with Custom Azimuth Scale 04.png" src="../images/Polar_Graph_with_Custom_Azimuth_Scale/Tutorial_Polar_with_Custom_Azimuth_Scale_04.png?v=65207" width="699"  /></a>
+<br /><br />
+<li>Go to <b>Tick Lables</b> tab for the <b>Angular- Outer</b> axis. Open <b>Display</b> subtab, set <b>Display</b> to <b>Custom</b> and enter <code># #/4</code> as <b>Custom Format</b> to show the tick labels as fractions.
+<br /><a  class="image"><img alt="Tutorial Polar with Custom Azimuth Scale 10.png" src="../images/Polar_Graph_with_Custom_Azimuth_Scale/Tutorial_Polar_with_Custom_Azimuth_Scale_10.png?v=56247" width="713"  /></a>
+<br /><br />
+<li>Select <b>Radial- Outer 1</b> axis. Choose <b>Format</b> subpage, and check the <b>Bold</b> check box. Then click the <b>Apply To...</b> button. In the pop-up dialog, make sure <b>Apply From</b> is <b>Outer 1</b> and <b>Apply to</b> is <b>All Axes</b>, then check the <b>Bold</b> under the <b>Tick Labels</b>. Click <b>OK</b>.
+<br /><a  class="image"><img alt="Tutorial Polar with Custom Azimuth Scale 05.png" src="../images/Polar_Graph_with_Custom_Azimuth_Scale/Tutorial_Polar_with_Custom_Azimuth_Scale_05.png?v=56248" width="750"  /></a>
+<br /><br />
+In Axis dialog, click <b>OK</b> to apply settings and close the <b>Axis</b> dialog. 
+
+<li>Double-click on the line plot to open the <b>Plot Details</b> dialog, in the <b>Symbol</b> tab, recreate the following settings, in the sequence shown in the screenshot:
+<br /><a  class="image"><img alt="Tutorial Polar with Custom Azimuth Scale 06.png" src="../images/Polar_Graph_with_Custom_Azimuth_Scale/Tutorial_Polar_with_Custom_Azimuth_Scale_06.png?v=46887" width="826"  /></a>
+<br /><br />
+Click <b>OK</b> to apply the settings and close the <b>Plot Details</b> dialog.
+
+<li>Select <b>Bubble Scale</b> in the <b>Insert</b> main menu to add a bubble scale in this graph. Click the bubble scale, and in the popup mini toolbar, click Layout button to select <b>Nested Layout</b> form the drop-down list.
+<br /><a  class="image"><img alt="Tutorial Polar with Custom Azimuth Scale 07a.png" src="../images/Polar_Graph_with_Custom_Azimuth_Scale/Tutorial_Polar_with_Custom_Azimuth_Scale_07a.png?v=65209" width="273"  /></a>
+<li>Click the scale again, and in the popup mini toolbar, click the <b>Bubble Style</b> button to remove the fill color for the bubbles.
+<br /><a  class="image"><img alt="Tutorial Polar with Custom Azimuth Scale 07b.png" src="../images/Polar_Graph_with_Custom_Azimuth_Scale/Tutorial_Polar_with_Custom_Azimuth_Scale_07b.png?v=65210" width="273"  /></a>
+<li>Click the scale again, and in the popup mini toolbar, click <b>Decimal Places</b> to set it to be 1.
+<br /><a  class="image"><img alt="Tutorial Polar with Custom Azimuth Scale 07c.png" src="../images/Polar_Graph_with_Custom_Azimuth_Scale/Tutorial_Polar_with_Custom_Azimuth_Scale_07c.png?v=65211" width="228"  /></a>
+<li>Double-click on the bubble scale to open the <b>Bubble Scale Control</b> dialog. Go to the <b>Levels</b> page, set the level from <b>0</b> to <b>1</b>, and change the <b>Value</b> of increment to <b>0.2</b>. 
+<br /><a  class="image"><img alt="Tutorial Polar with Custom Azimuth Scale 07.png" src="../images/Polar_Graph_with_Custom_Azimuth_Scale/Tutorial_Polar_with_Custom_Azimuth_Scale_07.png?v=65212" width="618"  /></a>
+<li>Go to <b>Layout</b> page, change the <b>Label Offset from Symbol Center</b> to <b>150</b>. Check the <b>Show Leader Line</b> check box, then expand the node to check the <b>Auto Reoisition to Avoid Overlapping</b> check box. Click <b>OK</b> to apply the setting and close the dialog.
+<br /><a  class="image"><img alt="Tutorial Polar with Custom Azimuth Scale 09.png" src="../images/Polar_Graph_with_Custom_Azimuth_Scale/Tutorial_Polar_with_Custom_Azimuth_Scale_09.png?v=65213" width="618"  /></a>
+<br /><br />
+
+Manually move the legend object and Radial axis, and click the <b>Enable\Disable Anti-Aliasing</b> button <a  class="image"><img alt="Button Anti Aliasing.png" src="../images/Polar_Graph_with_Custom_Azimuth_Scale/Button_Anti_Aliasing.png?v=56251" width="26"  /></a> to smooth the graph. The final graph should look like this:
+<br /><a  class="image"><img alt="Tutorial Polar with Custom Azimuth Scale 01.png" src="../images/Polar_Graph_with_Custom_Azimuth_Scale/Tutorial_Polar_with_Custom_Azimuth_Scale_01.png?v=65214" width="698"  /></a>
+
+</ol>
+
+
+
+
+
+

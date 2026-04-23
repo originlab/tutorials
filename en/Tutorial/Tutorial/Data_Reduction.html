@@ -1,0 +1,91 @@
+<h1 class="firstHeading">4.5.2.2 Data Reduction</h1><p class='urlname' style='display: none'>Data-Reduction</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">What You Will Learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Reduce_to_Evenly_Spaced_X"><span class="tocnumber">3.1</span> <span class="toctext">Reduce to Evenly Spaced X</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Reduce_Duplicate_X"><span class="tocnumber">3.2</span> <span class="toctext">Reduce Duplicate X</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Reduce.2FCombine_Duplicate_Rows"><span class="tocnumber">3.3</span> <span class="toctext">Reduce/Combine Duplicate Rows</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Reduce_by_Group"><span class="tocnumber">3.4</span> <span class="toctext">Reduce by Group</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Reduce_Worksheet_Rows"><span class="tocnumber">3.5</span> <span class="toctext">Reduce Worksheet Rows</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Data_Reduction/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Data_Reduction/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=6" target="_blank">Data Reduction</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=17" target="_blank">Extract Worksheet Data</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=83" target="_blank">Data Filter</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Data_Reduction/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Data_Reduction/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/delete-every-nth-row-or-column-from-worksheet-2" target="_blank">Reduce Rows or Columns from Worksheet</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/speed-mode-how-does-it-affect-my-graph-and-its-exported-image" target="_blank">Speed Mode – How does it affect my graph and its exported image?</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Origin offers a number of tools which can be used for data reduction in worksheets: <a href="../../Tutorial/Tutorial/Data_Filter.html" title="Tutorial:Data Filter">Data Filters</a>, <a href="../../Tutorial/Tutorial/Extract_Worksheet_Data.html" title="Tutorial:Extract Worksheet Data">Worksheet Query</a> and <a class="external text" href="../../UserGuide/UserGuide/Data_Reduction.html">several X-Functions</a> which reduce the number of data rows by different methods.
+</p>
+<p class="version" >Minimum Origin Version Required: 2015 SR0</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">What You Will Learn</span></h2>
+<p>In this tutorial, you will learn how to:
+</p>
+<ul><li>Reduce XY data to evenly spaced X</li>
+<li>Reduce Duplicate X Data for XY dataset</li>
+<li>Reduce XY data by Group</li>
+<li>Reduce worksheet rows</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="Reduce_to_Evenly_Spaced_X"></a><span class="mw-headline">Reduce to Evenly Spaced X</span></h3>
+<ol><li>Create a new workbook and click the <a  class="image"><img alt="Button Import Single ASCII.png" src="../images/Data_Reduction/Button_Import_Single_ASCII.png?v=52466" width="25"  /></a> button to import the file <b>Signal with High Frequency Noise.dat</b> under <i>&lt;Origin EXE folder&gt;\Samples\Signal Processing</i> path. </li>
+<li>Highlight column B and select <b>Worksheet:Reduce to Evenly Spaced X</b> to open the <b>reduce_ex</b> dialog. Edit the settings so that they match the following. 
+<dl><dd><a  class="image"><img alt="Tutorial Data Reduction 06.png" src="../images/Data_Reduction/Tutorial_Data_Reduction_06.png?v=32778" width="777"  /></a></dd></dl></li>
+<li> Click <b>OK</b>. A new column (column C) is added to the worksheet. This column contains its own sampling interval information. Click on the column header to select the column then choose <b>Column: Show X Column</b>. In the <b>Show X Column: colshowx</b> dialog box, click <b>OK</b> to generate an X column using the sampling interval. You can see that the original XY dataset has been reduced by generating a new, larger sampling interval.
+<dl><dd><a  class="image"><img alt="Tutorial Data Reduction 07.png" src="../images/Data_Reduction/Tutorial_Data_Reduction_07.png?v=56254" width="391"  /></a></dd></dl></li>
+<li> Highlight column B and D (hold down the <b>Ctrl</b> key for multiple selection), and click the <a  class="image"><img alt="Button Line.png" src="../images/Data_Reduction/Button_Line.png?v=1447" width="22"  /></a> button to generate a line plot for original (Black) and reduced (Red) data. </li>
+<li> You can see from the plot that the data size is considerably reduced:
+<dl><dd><a  class="image"><img alt="Tutorial Data Reduction 08.png" src="../images/Data_Reduction/Tutorial_Data_Reduction_08.png?v=32780" width="546"  /></a></dd></dl></li></ol>
+<h3><a name="Reduce_Duplicate_X"></a><span class="mw-headline">Reduce Duplicate X</span></h3>
+<ol><li>Create a new workbook and click the <a  class="image"><img alt="Button Import Wizard.png" src="../images/Data_Reduction/Button_Import_Wizard.png?v=52465" width="25"  /></a> button to open the <b>Import Wizard</b>. Select the data files <b>Step01.dat</b>, <b>Step02.dat</b> and <b>Step03.dat</b> under the file path <i>&lt;Origin EXE Folder&gt;\Samples\Curve Fitting\</i>. Change the <b>Import Mode</b> to <b>Start New Rows</b> and make sure the default import filter <b>step</b> is applied. Click <b>Finish</b> to import these data files.</li>
+<li>Highlight column A and B, select <b>Worksheet:Reduce Duplicate X Data</b> to open the <b>reducedup</b> dialog. Duplicate the settings as depicted below:
+<dl><dd><a  class="image"><img alt="Tutorial Data Reduction 09.png" src="../images/Data_Reduction/Tutorial_Data_Reduction_09.png?v=32781" width="799"  /></a></dd></dl></li>
+<li>Click <b>OK</b> to apply settings and in the results sheet <b>Sheet2</b>, we can see that for each X value, 3 duplicates are found. In the reduced dataset, the Y values for each duplicated X have been replaced by the sum of the Y values.
+<dl><dd><a  class="image"><img alt="Tutorial Data Reduction 10.png" src="../images/Data_Reduction/Tutorial_Data_Reduction_10.png?v=32782" width="510"  /></a></dd></dl></li></ol>
+<h3><a name="Reduce.2FCombine_Duplicate_Rows"></a><span class="mw-headline">Reduce/Combine Duplicate Rows</span></h3>
+<ol><li>Go to <i>Sheet1</i> of the previous section, highlight column A and select <b>Worksheet:Remove/Combine Duplicated Rows...</b> to open the <b>wdeldup</b> dialog. Select <b>Average</b> from <b>Merge Duplications by</b> drop-down list, and click the right-sided triangle button on the <b>Output Worksheet</b> row to select <b>&lt;new&gt;:New Sheet</b> and check the <b>Output Counts</b> box and click <b>OK</b>.
+<dl><dd><a  class="image"><img alt="Tutorial Data Reduction 11.png" src="../images/Data_Reduction/Tutorial_Data_Reduction_11.png?v=32783" width="427"  /></a></dd></dl></li>
+<li>Entire worksheet rows are reduced into the average values of merged rows which are determined by duplications in the selected column. A new column <b>Counts</b> is added to the end of the result worksheet <i>wdeldup</i> and it reports the number of duplicates found for each X value.
+<dl><dd><a  class="image"><img alt="Tutorial Data Reduction 15.png" src="../images/Data_Reduction/Tutorial_Data_Reduction_15.png?v=32235" width="466"  /></a></dd></dl></li></ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Data_Reduction/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>The tool <b>Reduce Duplicate X</b> works for XY dataset only, while the tool <b>Remove/Combine Duplicate Rows</b> works for an entire worksheet. 
+</p><p>You can also remove duplicate XY data from an XYZ dataset by using the <a class="external text" href="../../UserGuide/Category/Statistics_on_Columns.html">Statistics on Columns</a> tool, please refer to this <a href="../../QuickHelp/QuickHelp/How_do_I_reduce_XY_or_XYZ_dataset.html" title="QuickHelp:How do I reduce XY or XYZ dataset">Quick Help</a>.
+</p></td></tr></table>
+<h3><a name="Reduce_by_Group"></a><span class="mw-headline">Reduce by Group</span></h3>
+<ol><li>Open a new workbook, then click the <a  class="image"><img alt="Button Import Single ASCII.png" src="../images/Data_Reduction/Button_Import_Single_ASCII.png?v=52466" width="25"  /></a> button to import the <b>Magnetization.dat</b> file under <i>&lt;Origin EXE folder&gt;\Samples\Data Manipulation</i> path.</li>
+<li>Highlight columns A and B and click the <a  class="image"><img alt="Button Line.png" src="../images/Data_Reduction/Button_Line.png?v=1447" width="22"  /></a> button to generate a line plot.</li>
+<li>Activate this graph and select <b>Worksheet:Reduce by Group</b> to open the <b>reducexy</b> dialog. Edit your settings as below:
+<dl><dd><a  class="image"><img alt="Tutorial Data Reduction 12.png" src="../images/Data_Reduction/Tutorial_Data_Reduction_12.png?v=32784" width="664"  /></a></dd></dl></li>
+<li>Click <b>OK</b> to reduce the data. The reduced XY dataset will be added as two new columns at the end of original worksheet: 
+<dl><dd><a  class="image"><img alt="Tutorial Data Reduction 13.png" src="../images/Data_Reduction/Tutorial_Data_Reduction_13.png?v=32785" width="723"  /></a></dd></dl></li>
+<li>The reduced XY dataset is added as a new data plot to the original graph:
+<dl><dd><a  class="image"><img alt="Tutorial Data Reduction 14.png" src="../images/Data_Reduction/Tutorial_Data_Reduction_14.png?v=32786" width="581"  /></a></dd></dl></li></ol>
+<h3><a name="Reduce_Worksheet_Rows"></a><span class="mw-headline">Reduce Worksheet Rows</span></h3>
+<ol><li>Open a new workbook, then Click the <a  class="image"><img alt="Button Import Single ASCII.png" src="../images/Data_Reduction/Button_Import_Single_ASCII.png?v=52466" width="25"  /></a> button to import the file <b>Nitrite.dat</b> (path is <i>&lt;Origin EXE folder&gt;\Samples\Spectroscopy</i>). There are 6392 data points in this file.
+<dl><dd><a  class="image"><img alt="Tutorial Data Reduction 01.png" src="../images/Data_Reduction/Tutorial_Data_Reduction_01.png?v=32787" width="425"  /></a></dd></dl></li>
+<li>Highlight both columns in the Nitrite worksheet and select <b>Worksheet:Reduce Rows</b> to open the <b>wreducerows</b> dialog, and edit the settings to match the image below:
+<dl><dd><a  class="image"><img alt="Tutorial Data Reduction 02.png" src="../images/Data_Reduction/Tutorial_Data_Reduction_02.png?v=32788" width="430"  /></a></dd>
+<dd><b>Note:</b> You can select the arrow button right to the <b>Output</b> select box and choose <b>&lt;new&gt;:New Column(s)</b> to make the selection.</dd></dl></li>
+<li>When you click <b>OK</b>, only the first of every 10 rows is kept. Ninety percent of data points are discarded. Remaining data points are output to new columns:
+<dl><dd><a  class="image"><img alt="Tutorial Data Reduction 03.png" src="../images/Data_Reduction/Tutorial_Data_Reduction_03.png?v=32789" width="507"  /></a></dd></dl></li>
+<li>Select the entire worksheet and click the <a  class="image"><img alt="Button Line.png" src="../images/Data_Reduction/Button_Line.png?v=1447" width="22"  /></a> button to generate line plots for original (Black) and reduced (Red) data:
+<dl><dd><a  class="image"><img alt="Tutorial Data Reduction 04.png" src="../images/Data_Reduction/Tutorial_Data_Reduction_04.png?v=32790" width="556"  /></a></dd></dl></li>
+<li>Note that peak heights were changed with data reduction. To maintain data plot shape, we should keep more data points. Click the green lock on Graph 1 and choose <b>Change Parameters</b> to open the <b>wreducerows</b> dialog again. Change the value of <b>Delete Rows</b> to <b>3</b> and click <b>OK</b>.</li>
+<li>This time 25% of data points were kept, better preserving the shape of the original data plot.
+<dl><dd><a  class="image"><img alt="Tutorial Data Reduction 05.png" src="../images/Data_Reduction/Tutorial_Data_Reduction_05.png?v=32791" width="556"  /></a></dd></dl></li></ol>
+
+

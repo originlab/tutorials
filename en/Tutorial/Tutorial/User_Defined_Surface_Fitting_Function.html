@@ -1,0 +1,97 @@
+<h1 class="firstHeading">4.2.2.7 Fit Surface with User Defined Function</h1><p class='urlname' style='display: none'>SurfaceFit-with-UserDef-FitFunc</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">What You Will Learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Create_a_Surface_Fitting_Function"><span class="tocnumber">3.1</span> <span class="toctext">Create a Surface Fitting Function</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Carry_Out_Surface_Fitting"><span class="tocnumber">3.2</span> <span class="toctext">Carry Out Surface Fitting</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/User_Defined_Surface_Fitting_Function/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/User_Defined_Surface_Fitting_Function/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/jwplayer.html?v=ftp/mm_tutorials/mp4/VT-0003Multi-Peak_Surface_Fitting.mp4%7C767%7C600" target="_blank">Multi-peak Surface Fitting</a></li>
+<li> <a class="external text" href="https://www.originlab.com/jwplayer.html?v=ftp/mm_tutorials/mp4/Fit_by_User_Functions.mp4%7C767%7C600" target="_blank">User-defined Fitting Functions</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/User_Defined_Surface_Fitting_Function/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/User_Defined_Surface_Fitting_Function/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Origin provides a <a class="external text" href="../../UserGuide/Category/The_NLFit_Dialog_Box.html"><b>NonLinear Surface Fit</b> tool</a> to fit surface.
+Besides the <a class="external text" href="../../UserGuide/Category/Appendix_3_-_Built-in_Functions.html">built-in surface fitting functions</a>, you can also create your own fitting functions in <a class="external text" href="../../UserGuide/Category/The_Fitting_Function_Builder.html"><b>Fitting Function Builder</b></a>. 
+</p><p>In this tutorial, we will illustrate how to create a user-defined surface fitting function in <b>Fitting Function Builder</b>, and carry out nonlinear surface fit with it using <b>NLFit</b> tool.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 2016 SR0</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">What You Will Learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Create a user-defined surface fitting function using the <b>Fitting Function Builder</b>.</li>
+<li>Carry out nonlinear surface fit with user-defined fitting function.</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<p>For this tutorial, we will define and use the following fitting function:
+</p><p><img src="../images/User_Defined_Surface_Fitting_Function/math-f7407b94e7a7ebe176fd91fb21e3e2cf.png?v=0" title="z=z_0+A_1x+A_3x^3+B_1y+B_3y^3+Cxy+C_2x^2y+C_3xy^2" alt="z=z_0+A_1x+A_3x^3+B_1y+B_3y^3+Cxy+C_2x^2y+C_3xy^2" class="tex"/>
+</p><p>in which 
+</p><p><img src="../images/User_Defined_Surface_Fitting_Function/math-fbade9e36a3f36d3d676c1b808451dd7.png?v=0" title="z" alt="z" class="tex"/> is the dependent variable  
+</p><p><img src="../images/User_Defined_Surface_Fitting_Function/math-9dd4e461268c8034f5c8564e155c67a6.png?v=0" title="x" alt="x" class="tex"/> and <img src="../images/User_Defined_Surface_Fitting_Function/math-415290769594460e2e485922904f345d.png?v=0" title="y" alt="y" class="tex"/> are the independent variables
+</p><p>and <img src="../images/User_Defined_Surface_Fitting_Function/math-32172cb9d371da0a4d01bc9305bf2f70.png?v=0" title="z_0, A_1, A_{3}, B_1, B_3, C, C_{2}, C_3" alt="z_0, A_1, A_{3}, B_1, B_3, C, C_{2}, C_3" class="tex"/> are all fitting parameters.
+</p>
+<h3><a name="Create_a_Surface_Fitting_Function"></a><span class="mw-headline">Create a Surface Fitting Function</span></h3>
+<p>In this section, we will show how to create a user defined surface fitting function in the <b>Fitting Function Builder</b>. But there is an alternative tool <b>Fitting Function Organizer</b> which also can be used to create user defined surface fitting functions(open it by selecting <b>Tools:Fitting Function Organizer</b> or pressing <b>F9</b>).
+</p>
+<ol>
+<li>Launch Origin and choose <b>Tools:Fitting Function Builder</b> (or press <b>F8</b>) to open the <b>Fitting Function Builder</b>.</li>
+<li>In the <b>Goal</b> page, select <b>Create a New Function</b> and click <b>Next</b>.
+<li>In the <b>Name and Type</b> page, select Surface Fitting from <b>Select or create a Category</b> drop-down list since <b>Nonlinear Surface Fit</b> tool lanches functions in the <b>Surface Fitting</b> category only. 
+<li>Enter a name "MyPolynomialSurface" in <b>Function Name</b> and select <b>Expression</b> for <b>Function Type</b>. Click <b>Next</b>.<br />
+<a  class="image"><img alt="Tutorial UserDefSurfaceFitFunc 001.png" src="../images/User_Defined_Surface_Fitting_Function/Tutorial_UserDefSurfaceFitFunc_001.png?v=67884" width="512"  /></a></li>
+<li>In the <b>Variables and Parameters</b> page, enter the variable and parameter names as the image below and then click <b>Next</b>:<br />
+<a  class="image"><img alt="Tutorial UserDefSurfaceFitFunc 002.png" src="../images/User_Defined_Surface_Fitting_Function/Tutorial_UserDefSurfaceFitFunc_002.png?v=50837" width="535"  /></a><br />
+In the <b>Parameters</b> box, use comma (",") as delimiter.
+</li>
+<li>In the <b>Expression Function</b> page, enter the equation below in <b>Function Body</b>:
+<pre class="lt" style="font-family:monospace;">z0<span style="color: #000080;">+</span>A1<span style="color: #000080;">*</span>x<span style="color: #000080;">+</span>A3<span style="color: #000080;">*</span>x<span style="color: #000080;">^</span><span style="color: #0000dd;">3</span><span style="color: #000080;">+</span>B1<span style="color: #000080;">*</span>y<span style="color: #000080;">+</span>B3<span style="color: #000080;">*</span>y<span style="color: #000080;">^</span><span style="color: #0000dd;">3</span><span style="color: #000080;">+</span>C<span style="color: #000080;">*</span>x<span style="color: #000080;">*</span>y<span style="color: #000080;">+</span>C2<span style="color: #000080;">*</span>x<span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000080;">*</span>y<span style="color: #000080;">+</span>C3<span style="color: #000080;">*</span>x<span style="color: #000080;">*</span>y<span style="color: #000080;">^</span><span style="color: #0000dd;">2</span></pre>
+</li>
+<li>Give estimated initial values to the parameters according to this particular data and function.<br />
+<a  class="image"><img alt="Tutorial UserDefSurfaceFitFunc 003.png" src="../images/User_Defined_Surface_Fitting_Function/Tutorial_UserDefSurfaceFitFunc_003.png?v=50847" width="580"  /></a><br />
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/User_Defined_Surface_Fitting_Function/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><ol><li>You can also give different initial values each time before you actually carry out the fitting.</li>
+<li>You Can click the <b>Evaluate</b> button <a  class="image"><img alt="Button Evaluate.png" src="../images/User_Defined_Surface_Fitting_Function/Button_Evaluate.png?v=12986" width="23"  /></a> to quick check whether the function is valid(if it is valid, an actual value will be returned for z).</li></ol>
+</td></tr></table>
+<li>Click <b>Finish</b> to create this user defined fitting function. The .FDF file for it will be stored in the <b>User Files Folder</b>.
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/User_Defined_Surface_Fitting_Function/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>You can always modify the user defined fitting function later, either in the <b>Fitting Function Builder</b>(choose <b>Edit a User-defined Function</b> in <b>Goal</b> page), or in the <b>Fitting Function Organizer</b>.
+</p></td></tr></table>
+</li>
+</ol>
+<h3><a name="Carry_Out_Surface_Fitting"></a><span class="mw-headline">Carry Out Surface Fitting</span></h3>
+<ol>
+<li>With a new workbook active, choose <b>Data: Connect to File: Text/CSV</b> and browse to &lt;Origin Program&gt;\Samples\Curve Fitting and import the file <i>PolynomialSurface.dat</i> (accept defaults in the <b>CSV Import Options</b> dialog).</li>
+<li>Highlight column <b>C(Y)</b> and click the <b>Set as Z</b> button on the Mini Toolbar.</li>
+<dl><dd><a  class="image"><img alt="Tutorial UserDefSurfaceFitFunc 000.png" src="../images/User_Defined_Surface_Fitting_Function/Tutorial_UserDefSurfaceFitFunc_000.png?v=67882" width="635"  /></a></dd></dl>
+<li>Keep worksheet <b>C(Z)</b> activated, then select <b>Analysis:Fitting:Nonlinear Surface Fit</b> to open the <b>NLFit</b> dialog.
+<li>In the <b>Function Selection</b> page, you can see that <b>Category</b> is read only and set as <b>Surface</b>. Set <b>Function</b> as <b>MyPolynomialSurface(User)</b>.
+<li>Click the <b>Fit</b> button to carry out the fit.
+<li>A report sheet will be generated, in which the fitted value of all parameters are reported in the parameters table. A FitSurfaceCurve worksheet is added to the source workbook as well, in which the data of fitted surface is stored. <br />
+<a  class="image"><img alt="Tutorial UserDefSurfaceFitFunc 004.png" src="../images/User_Defined_Surface_Fitting_Function/Tutorial_UserDefSurfaceFitFunc_004.png?v=57383" width="610"  /></a>
+</li>
+<li>Activate the source worksheet and highlight col(C). Click the <a  class="image"><img alt="Button 3D Scatter.png" src="../images/User_Defined_Surface_Fitting_Function/Button_3D_Scatter.png?v=8899" width="24"  /></a> button to generate a 3D scatter plot. To add the fitted surface to the source data, double click on the Layer 1 icon. In the <b>Layer Contents</b> dialog that opens, set the drop-down list in the upper-left corner to <b>Worksheets in Folder</b>. Select <b>FitZ</b> of FitSurfaceCurve1 worksheet in the panel below the drop-down, then click the menu button beside "<b>A</b>" in the middle of the dialog and change the plot type to <b>3D - Surface</b>. Click on the rightward pointing arrow just below it to add the dataset to the right panel. <br />
+<a  class="image"><img alt="Tutorial UserSurfaceDefFitFunc 005.png" src="../images/User_Defined_Surface_Fitting_Function/Tutorial_UserSurfaceDefFitFunc_005.png?v=50849" width="680"  /></a> <br />
+Click <b>OK</b> to add the surface to the source data graph.<br />
+<a  class="image"><img alt="Tutorial UserSurfaceDefFitFunc 006.png" src="../images/User_Defined_Surface_Fitting_Function/Tutorial_UserSurfaceDefFitFunc_006.png?v=50850" width="434"  /></a>
+</ol>
+<table class="note">
+
+<tr>
+<td><b>Note:</b>
+<p>A <a class="external text" href="https://www.originlab.com/fileExchange/details.aspx?fid=282" target="_blank">Polynomial Surface Fit App</a> is available for Origin 2016 and higher. If you want to fit a polynomial surface, it is recommended to try this App first.
+</p>
+</td></tr></table>
+
+

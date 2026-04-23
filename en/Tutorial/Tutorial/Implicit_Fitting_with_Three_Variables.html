@@ -1,0 +1,157 @@
+<h1 class="firstHeading">4.2.2.33 Implicit Fitting with Three Variables</h1><p class='urlname' style='display: none'>ImplicitFit-3Var</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Examples_and_Steps"><span class="tocnumber">3</span> <span class="toctext">Examples and Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Import_Data"><span class="tocnumber">3.1</span> <span class="toctext">Import Data</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Define_Fitting_Function"><span class="tocnumber">3.2</span> <span class="toctext">Define Fitting Function</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Fit_the_Curve"><span class="tocnumber">3.3</span> <span class="toctext">Fit the Curve</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Fitting_Results"><span class="tocnumber">3.4</span> <span class="toctext">Fitting Results</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Fitted_Surface"><span class="tocnumber">3.5</span> <span class="toctext">Fitted Surface</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Implicit_Fitting_with_Three_Variables/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Implicit_Fitting_with_Three_Variables/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=98" target="_blank">Implicit Function Fitting</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Implicit_Fitting_with_Three_Variables/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Implicit_Fitting_with_Three_Variables/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>This tutorial will show you how to define an implicit fitting function with three independent variables, then perform implicit fitting with it on fitting data.
+</p>
+<p class="version" >Minimum Origin Version Required: OriginPro 9.0 SR1</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ol><li> Define an implicit fitting function.</li>
+<li> Perform implicit fitting with three independent variables.</li>
+<li> Plot the fitted surface manually.</li></ol>
+<h2><a name="Examples_and_Steps"></a><span class="mw-headline">Examples and Steps</span></h2>
+<h3><a name="Import_Data"></a><span class="mw-headline">Import Data</span></h3>
+<ol><li> Start with an empty worksheet. Select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Curve Fitting</i> subfolder and find the file <i>Ellipsoid.dat</i>. Drag-and-drop this file into the empty worksheet to import it.</li>
+<li> Highlight column C, right click on selection and choose <b>Set As: Z</b> from the context menu. Select <b>Plot: 3D: 3D Scatter</b> from Origin menu. Double click on the graph. In the <b>Plot Details</b> dialog, select <b>Layer1</b> in the left panel, click <b>Axis</b> tab, set <b>X, Y, Z Length</b> as 100, 75, 50 respectively. Click the <b>Fit frame to layer</b> button <a  class="image"><img alt="Fit Frame To Layer.PNG" src="../images/Implicit_Fitting_with_Three_Variables/16px-Fit_Frame_To_Layer.PNG?v=70385" width="16"   /></a> in the <b>3D Rotation</b> toolbar. The graph should look like:<br /><a  class="image"><img alt="Implicit 3V G1.png" src="../images/Implicit_Fitting_with_Three_Variables/Implicit_3V_G1.png?v=15220" width="520"  /></a></li></ol>
+<h3><a name="Define_Fitting_Function"></a><span class="mw-headline">Define Fitting Function</span></h3>
+<p>The graph can be fitted with an ellipsoid. The function can be expressed as:
+</p>
+<dl><dd><img src="../images/Implicit_Fitting_with_Three_Variables/math-b71f95ed35e1ed11ba596b7160b40af7.png?v=0" title="\frac{(x-x_0)^2}{a^2}+\frac{(y-y_0)^2}{b^2}+\frac{(z-z_0)^2}{c^2}=1" alt="\frac{(x-x_0)^2}{a^2}+\frac{(y-y_0)^2}{b^2}+\frac{(z-z_0)^2}{c^2}=1" class="tex"/></dd></dl>
+<p>where <img src="../images/Implicit_Fitting_with_Three_Variables/math-4e08dd6cdde437884ad3dbe20a20c05f.png?v=0" title="(x_0, y_0, z_0) \;" alt="(x_0, y_0, z_0) \;" class="tex"/> is the ellipsoid's center location, <b>a</b>, <b>b</b> and <b>c</b> are semi-principal axes lengths, <b>x</b>, <b>y</b> and <b>z</b> are three independent variables for fitting data.
+</p><p>The fitting function can be defined using the <b>Fitting Function Builder</b> tool.
+</p>
+<ol><li> Select <b>Tools: Fitting Function Builder</b> from the Origin menu.</li>
+<li> In the <b>Fitting Function Builder</b> dialog's <b>Goal</b> page, click <b>Next</b>.</li>
+<li> In the <b>Name and Type</b> page, select <b>Implicit</b> from <b>Select or create a Category</b> drop-down list, type <b>Ellipsoid</b> in the <b>Function Name</b> field, and select <b>Implicit</b> in <b>Function Model</b> group. And click <b>Next</b>.<br /><a  class="image"><img alt="Implicit 3V G2.png" src="../images/Implicit_Fitting_with_Three_Variables/Implicit_3V_G2.png?v=15210" width="573"  /></a><br /><br /><b>Note</b> that implicit functions must be defined in <b>Implicit</b> category.</li>
+<li> In the <b>Variables and Parameters</b> page, type <b>x, y, z</b> in the <b>Variable</b> field and <b>x0, y0, z0, a, b, c</b> in the <b>Parameter</b> field. Click <b>Next</b>.</li>
+<li> In the <b>Expression Function</b> page, type the following script in the <b>Function Body</b> edit box.<pre class="lt" style="font-family:monospace;"><span style="color: #000000;">&#40;</span>x<span style="color: #000080;">-</span>x0<span style="color: #000000;">&#41;</span><span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000080;">/</span>a<span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000080;">+</span><span style="color: #000000;">&#40;</span>y<span style="color: #000080;">-</span>y0<span style="color: #000000;">&#41;</span><span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000080;">/</span>b<span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000080;">+</span><span style="color: #000000;">&#40;</span>z<span style="color: #000080;">-</span>z0<span style="color: #000000;">&#41;</span><span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000080;">/</span>c<span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000080;">-</span><span style="color: #0000dd;">1</span></pre><b>Note</b> that for an implicit function <img src="../images/Implicit_Fitting_with_Three_Variables/math-44b22fd696dfa3566db742efbaf49ac6.png?v=0" title="f_1(x_i,p_i)=f_2(x_i,p_i)\;" alt="f_1(x_i,p_i)=f_2(x_i,p_i)\;" class="tex"/> where <img src="../images/Implicit_Fitting_with_Three_Variables/math-1ba8aaab47179b3d3e24b0ccea9f4e30.png?v=0" title="x_i" alt="x_i" class="tex"/> (i=1,2..) are independent variables, <img src="../images/Implicit_Fitting_with_Three_Variables/math-eca91c83a74a2373ca5f796700e99fd3.png?v=0" title="p_i" alt="p_i" class="tex"/> (i=1,2...) are parameters, it must be defined as <img src="../images/Implicit_Fitting_with_Three_Variables/math-0310b55a8aedb17e29866a5e31a05588.png?v=0" title="f=f_1(x_i,p_i)-f_2(x_i,p_i)\;" alt="f=f_1(x_i,p_i)-f_2(x_i,p_i)\;" class="tex"/> in Origin where <b>f</b> is the <b>Estimate</b>.<br />Set initial parameters as follows in the <b>Parameters</b> tab.<pre class="lt" style="font-family:monospace;">x0<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span> y0<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span> z0<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span> a<span style="color: #000080;">=</span><span style="color: #0000dd;">3</span> b<span style="color: #000080;">=</span><span style="color: #0000dd;">3</span> c<span style="color: #000080;">=</span><span style="color: #0000dd;">3</span></pre>In the <b>Quick Check</b> group, click <b>Evaluate</b> button, it shows f=-0.667 at x=1, y=1, z=1.<br /><a  class="image"><img alt="Implicit 3V G3.png" src="../images/Implicit_Fitting_with_Three_Variables/Implicit_3V_G3.png?v=15211" width="573"  /></a><br />Click <b>Next</b> button, then click <b>Next</b> button again.</li>
+<li> In the <b>Bounds and General Linear Constraints</b> page, set lower bounds for <b>a</b>, <b>b</b> and <b>c</b> as follows. Then click the <b>Finish</b> button to close the dialog.<br />
+<dl><dd> <a  class="image"><img alt="Bounds general linear constraints.png" src="../images/Implicit_Fitting_with_Three_Variables/Bounds_general_linear_constraints.png?v=70387" width="400"  /></a> </dd></dl></li></ol>
+<p><b>Note</b> that a message in <b>Messages Log</b> is shown that the implicit function is saved in the <b>User Files</b> folder.
+</p>
+<h3><a name="Fit_the_Curve"></a><span class="mw-headline">Fit the Curve</span></h3>
+<ol><li> For implicit fitting with more than 2 independent variables, Origin only supports input data from workbooks not graphs. So we have to make the workbook for fitting data active before fitting. Select <b>Analysis: Fitting: Nonlinear Implicit Curve Fit</b> from Origin menu. In the <b>NLFit</b> dialog, select <b>Settings: Function Selection</b>, in the page select <b>Ellipsoid</b> function from the <b>Function</b> drop-down list.</li>
+<li> Select <b>Data Selection</b> page, expand <b>Input Data: Range1</b>, and choose column A as X, column B as Y and column C as Z. An error message is shown at the bottom of the <b>Settings</b> panel. Following the suggestion of the error message, go to the <b>Fitted Curves</b> page and change the Data Type of X to <b>Fitted Point for Input Data</b>. The <b>Data Type of y</b> and <b>z</b> should automatically change as well.<br /><a  class="image"><img alt="Implicit 3V G4.png" src="../images/Implicit_Fitting_with_Three_Variables/Implicit_3V_G4.png?v=15212" width="774"  /></a><br /><b>Note</b> that Origin doesn't support <b>Fit Curve</b> preview in the <b>NLFit</b> dialog or fitted surface in the fitted report for implicit fitting with more than two independent variables.</li>
+<li> Since initial parameters have been set in <b>Fitting Function Builder</b> dialog, we can click <b>Fit</b> button to fit the curve.</li></ol>
+<h3><a name="Fitting_Results"></a><span class="mw-headline">Fitting Results</span></h3>
+<p>Switch to the fitted report. <b>Parameters</b> and <b>Statistics</b> tables are shown in the report.<br />
+</p><p>Fitted Parameters are shown as follows.
+</p>
+<table class="simple">
+<tr>
+<th><b>Parameter</b>
+</th>
+<th><b>Value</b>
+</th>
+<th><b>Standard Error</b>
+</th></tr>
+<tr>
+<th><b>x0</b>
+</th>
+<td>0.41073
+</td>
+<td>0.01576
+</td></tr>
+<tr>
+<th><b>y0</b>
+</th>
+<td>0.32043
+</td>
+<td>0.01352
+</td></tr>
+<tr>
+<th><b>z0</b>
+</th>
+<td>0.00147
+</td>
+<td>0.00749
+</td></tr>
+<tr>
+<th><b>a</b>
+</th>
+<td>4.00325
+</td>
+<td>0.02076
+</td></tr>
+<tr>
+<th><b>b</b>
+</th>
+<td>3.00097
+</td>
+<td>0.01881
+</td></tr>
+<tr>
+<th><b>c</b>
+</th>
+<td>1.99972
+</td>
+<td>0.00933
+</td></tr></table>
+<p>And <b>Adj. R-Square</b> is 0.99823, which means the fitted result is very good. <b>Note</b> that this result is from Origin9.0 32Bit, while in Origin9.0 64Bit the result is slightly different, and the latter is better. 
+</p><p>In the <b>FitODRCurve1</b> worksheet, the first three columns show XYY coordinates for fitted points.
+</p><p><b>Note</b> that in the implicit fitting, x ,y and z are all independent variables, they will all be adjusted during iterations in the fitting.
+</p>
+<h3><a name="Fitted_Surface"></a><span class="mw-headline">Fitted Surface</span></h3>
+<p>Although Origin9.0SR1 doesn't show the fitted surface in the fitted report for implicit fitting with more than two independent variables, in this example you can plot the fitted ellipsoid using <b>3D Parametric Function Plot</b> tool in Origin as follows.
+</p>
+<ol>
+<li> Make the fitted report active, run following LabTalk script in the <b>Script Window</b> in order to get fitted parameter variables.
+<pre class="lt" style="font-family:monospace;">getnlr tr<span style="color: #000000;">:</span><span style="color: #000080;">=</span>tt;
+x0<span style="color: #000080;">=</span>tt.<span style="color: #000080;">x0</span>;
+y0<span style="color: #000080;">=</span>tt.<span style="color: #000080;">y0</span>;
+z0<span style="color: #000080;">=</span>tt.<span style="color: #000080;">z0</span>;
+a<span style="color: #000080;">=</span>tt.<span style="color: #000080;">a</span>;
+b<span style="color: #000080;">=</span>tt.<span style="color: #000080;">b</span>;
+c<span style="color: #000080;">=</span>tt.<span style="color: #000080;">c</span>;</pre>
+<p>Variables <b>x0</b>, <b>y0</b>, <b>z0</b>, <b>a</b>, <b>b</b> and <b>c</b> can be used in following steps.
+</p>
+<li>Make <b>Graph1</b> active. Select <b>File: New: Function Plot: 3D Parametric Function Plot</b> from Origin menu. In the <b>Create 3D Parametric Function Plot</b> dialog, set <b>u</b> from 0 to pi, <b>v</b> from 0 to 2*pi. And define <b>X</b> ,<b>Y</b> and <b>Z</b> as follows.
+<pre class="lt" style="font-family:monospace;">X<span style="color: #000000;">&#40;</span>u,v<span style="color: #000000;">&#41;</span><span style="color: #000080;">=</span>x0<span style="color: #000080;">+</span>a<span style="color: #000080;">*</span>sin<span style="color: #000000;">&#40;</span>u<span style="color: #000000;">&#41;</span><span style="color: #000080;">*</span>cos<span style="color: #000000;">&#40;</span>v<span style="color: #000000;">&#41;</span>
+Y<span style="color: #000000;">&#40;</span>u,v<span style="color: #000000;">&#41;</span><span style="color: #000080;">=</span>y0<span style="color: #000080;">+</span>b<span style="color: #000080;">*</span>sin<span style="color: #000000;">&#40;</span>u<span style="color: #000000;">&#41;</span><span style="color: #000080;">*</span>sin<span style="color: #000000;">&#40;</span>v<span style="color: #000000;">&#41;</span>
+Z<span style="color: #000000;">&#40;</span>u,v<span style="color: #000000;">&#41;</span><span style="color: #000080;">=</span>z0<span style="color: #000080;">+</span>c<span style="color: #000080;">*</span>cos<span style="color: #000000;">&#40;</span>u<span style="color: #000000;">&#41;</span></pre>
+<p>And choose <b>Add to Active Graph</b> from the drop-down list at the bottom left of the dialog.<br />
+</p><p><a  class="image"><img alt="Implicit 3V G5.png" src="../images/Implicit_Fitting_with_Three_Variables/Implicit_3V_G5.png?v=15827" width="389"  /></a><br />
+</p><p>Click <b>OK</b> button to close the dialog. A 3D ellipsoid plot will be added to <b>Graph1</b>.
+</p>
+<li> Double click on the graph. In the <b>Plot Details</b> dialog, you can customize the graph as follows.<br />
+<b>Note</b> that only OpenGL of 2.1 or higher version supports 3D transparency in Origin9.0. You can select <b>Preferences: 3D OpenGL Settings</b> from Origin menu to see your OpenGL version, if your OpenGL version is lower than 2.1, you should ignore the setting for 3D transparency in Step 3.2.
+<ol>
+<li>Select <b>Layer1</b> in the left panel, click <b>Size/Speed</b> tab, clear <b>Worksheet data, maximum points per curve</b> check box in the <b>Speed Mode, Skip Points if needed</b> group. Click <b>Lighting</b> tab, choose <b>Directional</b> in the <b>Mode</b> group, and select blue color as <b>Ambient</b> color in the <b>Light Color</b> group.
+<li>Select the second plot in the <b>Layer1</b> branch, click <b>Surface</b> tab, set <b>Transparency</b> as 50%. Select <b>Fill</b> tab, and change <b>Fill piece by piece</b> color to white in the <b>Front Surface</b> group. Click <b>OK</b> button to close the dialog.
+</ol>
+<p>The graph for the fitted ellipsoid will look like:<br />
+</p><p><a  class="image"><img alt="Implicit 3V G7.png" src="../images/Implicit_Fitting_with_Three_Variables/Implicit_3V_G7.png?v=15910" width="575"  /></a>
+</p>
+</ol>
+
+
+
+
+
+

@@ -1,0 +1,71 @@
+<h1 class="firstHeading">4.3.5 IIR Filter</h1><p class='urlname' style='display: none'>IIR-Filter</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">What You Will Learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Design_and_Apply_IIR_Filter"><span class="tocnumber">3.1</span> <span class="toctext">Design and Apply IIR Filter</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Compare_Results_with_FFT_Filter"><span class="tocnumber">3.2</span> <span class="toctext">Compare Results with FFT Filter</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Ripples_in_FFT_Filter"><span class="tocnumber">3.3</span> <span class="toctext">Ripples in FFT Filter</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/IIR_Filter/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/IIR_Filter/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=84" target="_blank">IIR Filter</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/IIR_Filter/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/IIR_Filter/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>In OriginPro, it is possible to design, analyze, and implement IIR (Infinite Impulse Response) digital filters. The IIR filter supports four methods, including <b>Butterworth</b>, <b>Chebyshev Type I</b>, <b>Chebyshev Type II</b>, and <b>Elliptic</b>.  
+</p><p>This provides users more choices in signal processing.
+</p><p><br />
+</p>
+<p class="version" >Minimum Origin Version Required: 9.0 SR0</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">What You Will Learn</span></h2>
+<p>This tutorial will show you:
+</p>
+<ul><li>How to design and apply an IIR filter</li>
+<li>A comparison between IIR filter and FFT filter</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="Design_and_Apply_IIR_Filter"></a><span class="mw-headline">Design and Apply IIR Filter</span></h3>
+<ol><li>Start with a new worksheet and import the <b>EMG Recording.dat</b> file from <i>\Samples\Signal Processing\</i>.</li>
+<li>Highlight column B and Select <b>Analysis:Signal Processing:IIR Filter</b> from the top menu to open the dialog.</li>
+<li>Change the Response type as <b>High Pass</b>, keep the Method as <b>Butterworth</b>, uncheck the <b>Minimum</b> for Filter Order and set it as <b>4</b>. In the Frequency Specification branch, set the Cutoff Frequency(Fc) as <b>20</b>, then check the <b>Forward-Backward Filtering</b>. The dialog settings should look like the following figure, and the IIR filter is designed.
+<dl><dd><a  class="image"><img alt="Tutorial IIR 001.png" src="../images/IIR_Filter/Tutorial_IIR_001.png?v=13938" width="483"  /></a><br /></dd></dl></li>
+<li>Click <b>OK</b> to apply the created IIR filter to the input dataset.</li>
+<li>A new column will be added to the original data as a new column of filtered data and a new SOS Matrix worksheet.</li></ol>
+<h3><a name="Compare_Results_with_FFT_Filter"></a><span class="mw-headline">Compare Results with FFT Filter</span></h3>
+<ol><li>Highlight column B in the original worksheet, perform FFT filter by <b>Analysis:Signal Processing:FFT Filters</b>.</li>
+<li>In the opened dialog, choose <b>High Pass</b> for Filter Type and set <b>20</b> as Cutoff Frequency.
+<dl><dd><a  class="image"><img alt="Tutorial IIR 002.png" src="../images/IIR_Filter/Tutorial_IIR_002.png?v=13184" width="483"  /></a><br /></dd></dl></li>
+<li>Click OK button. Column C in the EMGRecording worksheet is the filtered result of the previously designed IIR filter, highlight column B and column C to generate a line plot with the <a  class="image"><img alt="Button Line.png" src="../images/IIR_Filter/Button_Line.png?v=1447" width="22"  /></a> button (Graph 1).</li>
+<li>Use the scale in button <a  class="image"><img alt="Button Scale In.png" src="../images/IIR_Filter/Button_Scale_In.png?v=4738" width="22"  /></a> to zoom the area between 12.5s and 13.3s.</li>
+<li>Column E in the EMGRecording worksheet is the filtered result of the FFT filter, highlight column B and column E to generate a line plot with the <a  class="image"><img alt="Button Line.png" src="../images/IIR_Filter/Button_Line.png?v=1447" width="22"  /></a> button (Graph 2).</li>
+<li>Also use the scale in button <a  class="image"><img alt="Button Scale In.png" src="../images/IIR_Filter/Button_Scale_In.png?v=4738" width="22"  /></a> to zoom the area between 12.5s and 13.3s, the two graphs could be used for visualized comparison.
+<dl><dd><a  class="image"><img alt="Tutorial IIR 003.png" src="../images/IIR_Filter/Tutorial_IIR_003.png?v=13211" width="500"  /></a><br /></dd></dl></li></ol>
+<ul><li>Note that there are many ripples in the FFT filter result, but almost no ripples in the IIR filter result.</li></ul>
+<h3><a name="Ripples_in_FFT_Filter"></a><span class="mw-headline">Ripples in FFT Filter</span></h3>
+<ol><li>Highlight column E and click on the <a  class="image"><img alt="Button Line.png" src="../images/IIR_Filter/Button_Line.png?v=1447" width="22"  /></a> button to create a line plot (Graph 3).</li>
+<li>Activate Graph 3, choose <b>Gadget:FFT</b> and set the X Scale as From <b>12.664</b> To <b>13.052</b>.</li>
+<li>Click OK to bring up the preview window, in which ripples are almost pure 20.125 Hz sine.
+<dl><dd><a  class="image"><img alt="Tutorial IIR 004.png" src="../images/IIR_Filter/Tutorial_IIR_004.png?v=14572" width="533"  /></a><br /></dd></dl></li>
+<li>Now we will try to remove the ripples at 20.125 Hz by applying another high pass filter at 25 Hz, keep column E highlighted and select <b>Analysis:Signal Processing:FFT Filters</b>.</li>
+<li>Select <b>High Pass</b> for Filter Type and set Cutoff Frequency as <b>25</b>.</li>
+<li>The result is listed in Column G, highlight column G and click on the <a  class="image"><img alt="Button Line.png" src="../images/IIR_Filter/Button_Line.png?v=1447" width="22"  /></a> button to create a line plot(Graph 4).</li>
+<li>Activate Graph 4, choose <b>Gadget:FFT</b> and set the X Scale as From <b>12.664</b> To <b>13.052</b>, in the preview window, there are still ripples, and they are shifted from 20.125 Hz to 25.157 Hz.
+<dl><dd><a  class="image"><img alt="Tutorial IIR 005.png" src="../images/IIR_Filter/Tutorial_IIR_005.png?v=14573" width="533"  /></a><br /></dd></dl></li></ol>
+<ul><li>Note that the ripples could not be removed by FFT filter for this dataset.</li></ul>
+
+
+
+
+
+

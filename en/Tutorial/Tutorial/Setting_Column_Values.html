@@ -1,0 +1,238 @@
+<h1 class="firstHeading">4.5.1.1 Set Column/Cell Values</h1><p class='urlname' style='display: none'>SetColVal</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Setting_Column_values"><span class="tocnumber">2</span> <span class="toctext">Setting Column values</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Filling_a_Column_with_Arithmetic_Series"><span class="tocnumber">2.1</span> <span class="toctext">Filling a Column with Arithmetic Series</span></a>
+<ul>
+<li class="toclevel-3 tocsection-4"><a href="#Using_Auto_Fill"><span class="tocnumber">2.1.1</span> <span class="toctext">Using Auto Fill</span></a></li>
+<li class="toclevel-3 tocsection-5"><a href="#Using_Filling_A_Set_of_Numbers"><span class="tocnumber">2.1.2</span> <span class="toctext">Using Filling A Set of Numbers</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-6"><a href="#Using_Other_Columns"><span class="tocnumber">2.2</span> <span class="toctext">Using Other Columns</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Using_Built-in_Functions"><span class="tocnumber">2.3</span> <span class="toctext">Using Built-in Functions</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Using_Columns_from_Other_Sheets"><span class="tocnumber">2.4</span> <span class="toctext">Using Columns from Other Sheets</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Using_Cell_Values"><span class="tocnumber">2.5</span> <span class="toctext">Using Cell Values</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Using_Variables_from_Workbook_Metadata"><span class="tocnumber">2.6</span> <span class="toctext">Using Variables from Workbook Metadata</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="#Setting_Cell_Values"><span class="tocnumber">3</span> <span class="toctext">Setting Cell Values</span></a></li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Setting_Column_Values/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Setting_Column_Values/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=51" target="_blank">Set Column Values</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=46" target="_blank">Setting Column Values</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=93" target="_blank">Worksheet Set Column Values to Reference Other Info</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=172" target="_blank">Use Spreadsheet Notation to Set Column Values</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=195" target="_blank">Cell Formula</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=377" target="_blank">Formula Bar</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=262" target="_blank">Set Multiple Column Values</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Setting_Column_Values/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Setting_Column_Values/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/using-metadata-in-worksheet-in-calculation-part-1-column-label-rows" target="_blank">Using Metadata in Worksheet in Calculation – Part 1: Column Label Rows</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/new-in-origin-2021-the-formula-bar" target="_blank">New in Origin 2021- The Formula Bar</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/extracting-dates-from-text-strings" target="_blank">Extracting Dates from Text Strings</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/create-timeline-chronology-chart" target="_blank">How to Create a Timeline in Origin</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Origin provides several ways to compute a column or matrix of values. One of Origin's most powerful features is <a class="external text" href="../../UserGuide/UserGuide/Quick_Start_SetColumnValues.html"><b>Set Column Values</b></a>, a tool for performing mathematical operations, generally on values stored in a workbook or matrix. These operations can make use of Origin's built-in functions, custom Origin C functions, Python functions, mathematical and logical operators, built-in or user-defined variables, and can even allow for pre-processing of input data. 
+</p><p>This tutorial will show you how to compute cell or column values by:
+</p>
+<ul><li> Filling a Column with an Arithmetic Series</li>
+<li> Using Built-in Functions</li>
+<li> Using Other Columns of Values</li>
+<li> Using Cell Values</li>
+<li> Using Variables from Workbook Metadata</li></ul>
+<p><br />
+<i><b>In addition, you will learn:</b></i>
+</p>
+<ul><li> How to enter a formula into worksheet cell to compute cell values</li>
+<li> Auto behaviors of setting cell values</li></ul>
+<h2><a name="Setting_Column_values"></a><span class="mw-headline">Setting Column values</span></h2>
+<h3><a name="Filling_a_Column_with_Arithmetic_Series"></a><span class="mw-headline">Filling a Column with Arithmetic Series</span></h3>
+<p>Origin provides multiple methods to fill a column with arithmetic series.
+</p>
+<h4><a name="Using_Auto_Fill"></a><span class="mw-headline">Using Auto Fill</span></h4>
+<ol><li> Enter a few starting values in cells.
+<dl><dd><a  class="image"><img alt="Tutorial85SetValues AutoFill1.png" src="../images/Setting_Column_Values/Tutorial85SetValues_AutoFill1.png?v=27410" width="285"  /></a></dd></dl></li>
+<li> Select the two cells.</li>
+<li> Move the mouse to the bottom right-hand corner of the second cell. The cursor will change to display "+". 
+<dl><dd><a  class="image"><img alt="Tutorial85SetValues AutoFill2.png" src="../images/Setting_Column_Values/Tutorial85SetValues_AutoFill2.png?v=27414" width="285"  /></a></dd></dl></li>
+<li> Drag the mouse toward the bottom of the column. The column will be filled with 1, 3, 5, 7, ... .
+<dl><dd><a  class="image"><img alt="Tutorial85SetValues AutoFill3.png" src="../images/Setting_Column_Values/Tutorial85SetValues_AutoFill3.png?v=27415" width="285"  /></a></dd></dl></li></ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Setting_Column_Values/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>Note that a row can also be auto filled by dragging towards the right. In addition, to copy a <i>sequence</i> of cell values to other column or row cells, press SHIFT while selecting the desired sequence, then press CTRL and drag.
+</p></td></tr></table>
+<h4><a name="Using_Filling_A_Set_of_Numbers"></a><span class="mw-headline">Using Filling A Set of Numbers</span></h4>
+<ol><li> Right click on the column B and select <b>Fill Column with: A Set of Numbers</b> from the context menu to bring up the <b>PatternN</b> dialog</li>
+<li> Enter 1 in the <b>From</b> edit box and 23 in the <i>To</i> edit box. Enter 2 in the <i>Increment</i> edit box
+<dl><dd> <a  class="image"><img alt="TutorialSetValues FillANumberValues.png" src="../images/Setting_Column_Values/TutorialSetValues_FillANumberValues.png?v=73681" width="396"  /></a></dd></dl></li>
+<li> After you click the <b>OK</b> button, Column B will be filled with values: 1, 3, 5, 7, ...., 23</li></ol>
+<h3><a name="Using_Other_Columns"></a><span class="mw-headline">Using Other Columns</span></h3>
+<p>We will show you how to enter expressions in the <b>F(x)</b> row to set column values.
+</p>
+<ol><li> Create a new workbook.  Import US Metropolitan Area Population.dat from the <b>\Samples\Data Manipulation\</b> folder.</li>
+<li>Add a new column to the worksheet (right-click to the right of the last column in the worksheet and select <b>Add New Column</b> from the context menu).  Change the Long Name of the column to <i>Population/Sq. Mi</i>.</li>
+<li> To calculate the population density, enter the expression, <b>A/B</b>, in the F(x) row of column E.
+<dl><dd><a  class="image"><img alt="Set value fx.png" src="../images/Setting_Column_Values/600px-Set_value_fx.png?v=48564" width="600"   /></a></dd></dl></li>
+<li>The column will get computed using data from the other two columns.</li></ol>
+<h3><a name="Using_Built-in_Functions"></a><span class="mw-headline">Using Built-in Functions</span></h3>
+<ol>
+<li>Create a new workbook.  Import <i>Step Signal with Random Noise.dat</i> from the <b>\Samples\Signal Processing\</b> folder.We are going to calculate the moving average of column B, that is, calculating the adjacent average value at each point of column B. </li> 
+<li>Click the <b>Add New Columns</b> button <a  class="image"><img alt="Button Add New Columns.png" src="../images/Setting_Column_Values/Button_Add_New_Columns.png?v=8175" width="22"  /></a> on the Standard toolbar to add a new column C. Highlight this column and right-click, and then click <b>Set Column Values...</b> to open the <b>Set Values</b> dialog. </li>
+<li>In <b>Set Values</b> dialog, click the <b>Search and Insert Functions</b> button <a  class="image"><img alt="Search Functions Set Column Value 2015.png" src="../images/Setting_Column_Values/Search_Functions_Set_Column_Value_2015.png?v=37164" width="23"  /></a> to search for keyword <i>adjacent average</i>.<br />
+<a  class="image"><img alt="Set Column Value Adjacent Average.png" src="../images/Setting_Column_Values/Set_Column_Value_Adjacent_Average.png?v=33017" width="605"  /></a>
+</li>
+<li>Double click function name <b>Movavg(vd,back,forward)</b> to insert it into dialog and close the dialog.<br />
+<a  class="image"><img alt="Tutorial Set Column Value Function Insert.png" src="../images/Setting_Column_Values/Tutorial_Set_Column_Value_Function_Insert.png?v=64294" width="423"  /></a>
+</li>
+<li>Highlight the characters <b>vd</b>.  replace <b>vd</b> with <b>B</b>, replace <b>back</b> with <b>0</b> and replace <b>forward</b> with <b>2</b>.  Your formula should look like this:
+
+<a  class="image"><img alt="Tutorial81SetValuesFunction.png" src="../images/Setting_Column_Values/Tutorial81SetValuesFunction.png?v=48570" width="446"  /></a>
+</li>
+<li>Click <b>OK</b>.  The last column will fill with the moving average from column B.<br />
+<a  class="image"><img alt="Tutorial81SetValuesFunctionResults.png" src="../images/Setting_Column_Values/Tutorial81SetValuesFunctionResults.png?v=48572" width="392"  /></a></li>
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Setting_Column_Values/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>When referring to another column in the same worksheet, you can use index (e.g. "col(1)"), short name (e.g. "A" or "col(A)"), or long name (e.g. "signal with noise") to identify the column.
+</p></td></tr></table>
+<h3><a name="Using_Columns_from_Other_Sheets"></a><span class="mw-headline">Using Columns from Other Sheets</span></h3>
+<p>The <b>Set Values</b> dialog provides an <b>Variable</b> menu to easily insert range variables that point to columns in other books/sheets, which can then be used to compute column values for the current column.
+</p>
+<ol>
+<li>Open the project <b>\Samples\Data Manipulation\Setting Column Values.opj</b> and click on the <b>Columns from Other Sheets</b> subfolder. </li>
+<li>In the workbook, right-click on the worksheet tab labelled <b>Sample</b> and select <b>Duplicate Without Data</b>.  Rename(by double-clicking on the current name) the new sheet as: <b>Corrected Sample</b>.
+<li>Now you will fill these three columns with data based on formulas that reference columns in the other sheets.  Highlight the first column and right-click on it to select <b>Set Columns Values</b> to open the dialog. Select <b>Variables: Add Range Variable by Selection</b> to open the <b>Select from Worksheet</b> dialog. With this dialog, you could select a column from worksheet and insert it as a range variable to the <b>Before Formula Script</b> panel. 
+<li>When the <b>Select from Worksheet</b> dialog is open, activate the <b>Sample</b> sheet, highlight column A to select and click the <a  class="image"><img alt="Button Hunt Done.png" src="../images/Setting_Column_Values/Button_Hunt_Done.png?v=56137" width="53"  /></a> button to confirm selection and click <b>OK</b> (accept <i>Column Notation</i>) in the <b>Insert Mode</b> dialog box that appears.
+<li>"range r1 = Sample!Col(A);" will be automatically inserted into the <b>Before Formula Scripts</b> panel. Edit the formula to read as:
+<pre class="lt" style="font-family:monospace;">range rTime <span style="color: #000080;">=</span> Sample<span style="color: #000080;">!</span>Col<span style="color: #000000;">&#40;</span>A<span style="color: #000000;">&#41;</span>;</pre>
+</li>
+<li>Then enter <b>rTime</b> in the <b>Column Formula</b> and click the <b>OK</b> button to generate data for the first column and close the dialog.
+<br /><a  class="image"><img alt="SetValuesRangerTime.png" src="../images/Setting_Column_Values/SetValuesRangerTime.png?v=64295" width="441"  /></a>
+</li>
+<li>In the <b>Corrected Sample</b> worksheet, highlight column B and column C and right-click on them. From the shortcut menu, select <b>Set Multiple Column Values</b> to open the dialog. Select <b>Variables: Add Range Variable by Selection</b> and insert two range variables, one by one, to the <b>Before Formula Script</b> panel similarly as the previous steps. Edit these new entries as follows:
+<pre class="lt" style="font-family:monospace;">range rSample <span style="color: #000080;">=</span> Sample<span style="color: #000080;">!</span>Col<span style="color: #000000;">&#40;</span>B<span style="color: #000000;">&#41;</span>;</pre>
+<p>and 
+</p>
+<pre class="lt" style="font-family:monospace;">range rRef <span style="color: #000080;">=</span> Reference<span style="color: #000080;">!</span>Col<span style="color: #000000;">&#40;</span>B<span style="color: #000000;">&#41;</span>;</pre>
+</li>
+<li>Now we will edit the range variables in the <b>Before Formula Scripts</b> panel and use another expression to get the same results. Remove the column names <b>Col(B)</b> of the two range variables and select <b>Variables: Predefined Variables: wcol(j)</b> in both lines so it looks as follows:
+<pre class="lt" style="font-family:monospace;">range rSample <span style="color: #000080;">=</span> Sample<span style="color: #000080;">!</span>wcol<span style="color: #000000;">&#40;</span>j<span style="color: #000000;">&#41;</span>;</pre>
+<pre class="lt" style="font-family:monospace;">range rRef <span style="color: #000080;">=</span> Reference<span style="color: #000080;">!</span>wcol<span style="color: #000000;">&#40;</span>j<span style="color: #000000;">&#41;</span>;</pre>
+</li>
+<li>Then input the following expression into the <b>Column Formula</b>:
+<pre class="lt" style="font-family:monospace;">rSample <span style="color: #000080;">-</span> <span style="color: #000000;">&#40;</span>rSample<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #000000;">&#93;</span> <span style="color: #000080;">-</span> rRef<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #000000;">&#93;</span><span style="color: #000000;">&#41;</span></pre>
+<p><a  class="image"><img alt="TutorialSetValuesRangerRef.png" src="../images/Setting_Column_Values/TutorialSetValuesRangerRef.png?v=64296" width="375"  /></a>
+</p>
+</li>
+<li>Click the <b>OK</b> button to generate data for the column B and column C of the <b>Corrected Sample</b> worksheet.  
+<br /><a  class="image"><img alt="SetValuesRangeResults.png" src="../images/Setting_Column_Values/SetValuesRangeResults.png?v=27434" width="384"  /></a>
+</li>
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Setting_Column_Values/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><ol><li> You reference a particular cell value with square brackets, so [1] in the Column Formula expression above means the first element.<br /></li>
+<li> You can select <b>Formula: Save</b> and <b>Formula: Load</b> in the <b>Set Column Values</b> dialog to save your formulas and reload them into other columns to generate new data.</li></ol>
+</td></tr></table>
+<h3><a name="Using_Cell_Values"></a><span class="mw-headline">Using Cell Values</span></h3>
+<p>Values contained in specific worksheet cells can be referenced and used to compute the formula for setting column values. This provides an easy way to use worksheet cells as control cells for updating values in a column.
+</p>
+<ol>
+<li>Open the project <b>\Samples\Data Manipulation\Setting Column Values.opj</b> and switch to the <b>Cells in a Worksheet</b> subfolder in Project Explorer.</li>
+<li>Right-click on column C and select the <b>Set Column Values...</b> context menu to bring up the Set Values dialog. </li>
+<li>Use the <b>Variables: Add Range Variable by Selection</b> menu item to open the <b>Select from Worksheet</b> dialog. Then select column G(Value) in this worksheet, click the <a  class="image"><img alt="Button Hunt Done.png" src="../images/Setting_Column_Values/Button_Hunt_Done.png?v=56137" width="53"  /></a> button.<br /> Click <b>OK</b> when the <b>Insert Mode</b> dialog appears (accept <b>Column Notation</b>) to add its expression to the <b>Before Formula Scripts</b> panel.</li>
+<li>In the <b>Before Formula Scripts</b> panel, change the name of the range variable to be <b>rControl</b> and add these additional lines so that the script looks like below
+<pre class="lt" style="font-family:monospace;">range rControl <span style="color: #000080;">=</span> Col<span style="color: #000000;">&#40;</span>G<span style="color: #000000;">&#41;</span>;
+<span style="color: #008000;">//range r1 = Col(7);</span>
+int nOrder <span style="color: #000080;">=</span> rControl<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">2</span><span style="color: #000000;">&#93;</span>;
+int nPoints <span style="color: #000080;">=</span> rControl<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">3</span><span style="color: #000000;">&#93;</span>;
+differentiate <span style="color: #000080;">-</span>se iy<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #000000;">&#40;</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">2</span><span style="color: #000000;">&#41;</span> order<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">1</span> smooth<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">1</span> poly<span style="color: #000000;">:</span><span style="color: #000080;">=</span>nOrder npts<span style="color: #000000;">:</span><span style="color: #000080;">=</span>nPoints 
+oy<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #000000;">&#40;</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">3</span><span style="color: #000000;">&#41;</span>;</pre>
+The script calls the <b>differentiate</b> X-Function and passes the cell values from column G as arguments for polynomial order and number of points, which controls the Savitzky-Golay smoothing performed during the differentiation.</li>
+<li>The <b>Set Values</b> dialog then should be as following:<br />
+<a  class="image"><img alt="SetValuesUseCellSetting.png" src="../images/Setting_Column_Values/SetValuesUseCellSetting.png?v=64297" width="423"  /></a>
+</li>
+<li>Click <b>OK</b> to close the dialog and see the results in column C. Now you can try to change the values in column G, to change the output.</li>
+</ol>
+<p>Note: Allowed values of polynomial order are 1 to 9.
+</p>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Setting_Column_Values/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>The graph shown in the worksheet was first created and then embedded into the worksheet by merging a group of cells.
+</p></td></tr></table>
+<h3><a name="Using_Variables_from_Workbook_Metadata"></a><span class="mw-headline">Using Variables from Workbook Metadata</span></h3>
+<p>Metadata stored in the workbook, such as variables saved when importing data using the Import Wizard, can be referenced and used for computing column values.
+</p>
+<ol>
+<li>Open or continue working with <b>\Samples\Data Manipulation\Setting Column Values.OPJ</b>, and switch to the <b>Worksheet Metadata</b> subfolder from the Project Explorer window.</li>
+<li>Select column A and right-click to select the <b>Insert</b> menu option.  A new column is inserted to the left of column A.</li>
+<li>Select the first column (this newly inserted column) and right-click on it. Then select the <b>Set Column Values</b> menu item to open the Set Values dialog.</li>
+<li>Select the <b>Variables: Add Info Variable</b> menu item to open the <b>Insert Variables</b> dialog. Select <b>Numeric int</b> from the <b>Variable Type</b>  drop-down list. Expand the USER.VARIABLES node and click to highlight <b>NUMBEROFPOINTS</b> row with <b>Value</b> as <b>3800</b>. Press the <b>Insert</b> button to insert this variable into the <b>Before Formula Scripts</b> panel.<br />
+<a  class="image"><img alt="InsertPageInfoVairale.png" src="../images/Setting_Column_Values/InsertPageInfoVairale.png?v=61792" width="600"  /></a>
+</li>
+<li>Next, set <b>Variable Type</b> to <b>Numeric double</b>. Hold the <b>Shift</b> key down to select both <b>StartFrequencyKHz</b> and <b>StepFrequencyKHz</b>, and then press <b>Insert</b> to insert these two variables. Press the <b>Close</b> button to close the dialog.</li>
+<li>In the upper <b>Column Formula</b> panel, input <b>{d1:d2:d1+(n1-1)*d2}</b> and then press the OK button to generate data and close the dialog.  The column will be filled with frequency values.</li>
+<li>Highlight the first and second columns, right-click on them and select <b>Set As: XYY</b> to change the plotting designations to X and Y. After you change the long name of the first column to <b>Frequency</b>, the worksheet should look like:<br />
+<a  class="image"><img alt="SetValuesPageInfo2.png" src="../images/Setting_Column_Values/SetValuesPageInfo2.png?v=33024" width="379"  /></a>
+</li>
+</ol>
+<h2><a name="Setting_Cell_Values"></a><span class="mw-headline">Setting Cell Values</span></h2>
+<p>In the Cell-Edit Mode, you can enter a cell formula beginning with an equals sign "=" into a cell (a data cell or UserDefined Parameter Row cell) just as below.
+</p>
+<dl><dd><a  class="image"><img alt="SettingCellValues 01.png" src="../images/Setting_Column_Values/SettingCellValues_01.png?v=53745" width="435"  /></a></dd></dl>
+<p>Once the formula has been entered, you exit edit mode (in-place edit or <b>Edit: Edit Mode</b>) to see the resulting cell value.
+</p><p>Let us use an example to show you how cell formulas work in Origin:
+</p>
+<ol>
+<li>Open a new workbook in your Origin Project.
+<li>Import the sample data "automobile2.dat" located at the folder <i>&lt;Origin Program Folder&gt;Samples\Statistics</i> into the workbook.
+<br /><a  class="image"><img alt="SettingCellValues 04.png" src="../images/Setting_Column_Values/720px-SettingCellValues_04.png?v=53750" width="720"   /></a>
+</li>
+<li>Right-click on the header cell of column label row "F(x)="  and select <b>Add User Parameters</b> from the context menu to add a user parameter. 
+<br /><a  class="image"><img alt="SettingCellValues 03.png" src="../images/Setting_Column_Values/200px-SettingCellValues_03.png?v=53749" width="200"   /></a>
+</li>
+<li>Here, let's add two user parameters and enter <i>Mean</i> and <i>Std Dev</i> as their parameter names separately.  And then, add one more column at the end of this worksheet, enter <i>Power/Engine Displacement</i> as the column Long Name.
+<br /><a  class="image"><img alt="SettingCellValues 02.png" src="../images/Setting_Column_Values/750px-SettingCellValues_02.png?v=53753" width="750"   /></a>
+</li>
+<li>Select <b>Edit: Edit Mode</b> menu to switch to the Edit Mode. And then, in the cell <i>Mean</i> and <i>Std Dev</i> of Col("Power"), enter <i>=mean(this)</i> and <i>=stddev(this)</i> respectively. Once the edit done, click outside the cell to exit cell-edit mode reselect the <b>Edit: Edit Mode</b> menu item to display cell formula results.
+<br /><a  class="image"><img alt="SettingCellValues 05.png" src="../images/Setting_Column_Values/450px-SettingCellValues_05.png?v=53751" width="450"   /></a>
+<table class="note">
+<tr>
+<td><b>Note:</b> About the meaning of the variable "This", please refer to <a class="external text" href="../../UserGuide/UserGuide/Using_Formulae_to_Set_Cell_Values.html#Referring_to_Worksheet_Columns_using_.22This.22">this page</a>.
+</td></tr></table>
+</li>
+<li>Click the cell <i>Mean</i> of Col("Power") to select it, put the cursor to the lower right corner of this cell. When the cursor turns to a cross <b>+</b>,  grab this "+" handle and drag with your mouse horizontally to Col("Engine Displacement"). Release the cursor, you will found other cells of this row will be filled with some result values. Alternately, you could simply double-click on the "+" handle and copy the formula to all <i>Mean</i> row cells to the right of Col("Power").
+<br /><a  class="image"><img alt="SettingCellValues 06.png" src="../images/Setting_Column_Values/750px-SettingCellValues_06.png?v=53756" width="750"   /></a>
+</li>
+<li>Double-click those <i>Mean</i> cells, you will found the filled formulas are all same, <i>=mean(this)</i>.
+<br /><a  class="image"><img alt="SettingCellValues 07.png" src="../images/Setting_Column_Values/350px-SettingCellValues_07.png?v=53757" width="350"   /></a>
+</li>
+<li>Do the same thing for the <b>Std Dev</b> row to calculate the standard deviation for all these five columns.
+<li>Go to the last column we just added, in the first cell enter <i>=E1/I1</i>. 
+<br /><a  class="image"><img alt="SettingCellValues 08.png" src="../images/Setting_Column_Values/700px-SettingCellValues_08.png?v=53759" width="700"   /></a>
+<table class="note">
+<tr>
+<td><b>Note:</b> Here, <b>E1</b> means the first cell of col(E) and <b>I1</b> means the first cell of col(I). You can refer to <a class="external text" href="../../UserGuide/UserGuide/Using_Formulae_to_Set_Cell_Values.html#Cell_Formula_Examples">this page</a> to learn more about the formula.
+</td></tr></table>
+</li>
+<li>Release your cursor to execute the division. Use the same way at Step 6 to grab this "+" handle and drag with your mouse vertically to the end cell of this column (<b>Hint</b>: If you hover on the lower-right corner of the cell, directly over the cell handle, the cursor changes to a "<b>+</b>" sign. When this "<b>+</b>" sign appears, double-click to extend the formula to the end of the column. This is faster and easier than dragging with your mouse).
+<br /><a  class="image"><img alt="SettingCellValues 09.png" src="../images/Setting_Column_Values/750px-SettingCellValues_09.png?v=53760" width="750"   /></a>
+</li>
+<li>Release the cursor to get all division results of <i>col(E)/col(I)</i> at each row.
+<br /><a  class="image"><img alt="SettingCellValues 10.png" src="../images/Setting_Column_Values/500px-SettingCellValues_10.png?v=53761" width="500"   /></a>
+</li>
+<p>Select <b>Edit: Edit Mode</b> menu, you can check and edit all these cell formulas.
+<br /><a  class="image"><img alt="SettingCellValues 11.png" src="../images/Setting_Column_Values/500px-SettingCellValues_11.png?v=53762" width="500"   /></a>
+</p>
+</ol>
+<table class="note">
+<tr>
+<td><b>Note:</b> Additionally, you are also allowed to <a class="external text" href="../../UserGuide/UserGuide/Using_Formulae_to_Set_Cell_Values.html#Extending_Formulas_Across_Rows_or_Columns">extend formulas across rows and columns</a>. For details about setting cell values with formula, please refer to <a class="external text" href="../../UserGuide/UserGuide/Using_Formulae_to_Set_Cell_Values.html">this page</a>.
+</td></tr></table>
+
+

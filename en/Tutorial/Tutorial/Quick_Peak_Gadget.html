@@ -1,0 +1,59 @@
+<h1 class="firstHeading">4.1.8 Quick Peaks Gadget</h1><p class='urlname' style='display: none'>Quick-Peak-Gadget</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a></li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Quick_Peak_Gadget/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Quick_Peak_Gadget/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://d2mvzyuse3lwjc.cloudfront.net/www/products/images/VT-1248_Quick_Peaks_Origin_2015_200.png" target="_blank">The Quick Peaks Gadget</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Quick_Peak_Gadget/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Quick_Peak_Gadget/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>The Quick Peaks gadget can be used to pick peaks, subtract baseline, integrate the peaks and/or fit peaks in a ROI (Region of Interest). It is also possible to use this tool in combination with the <b>Peak Analyzer</b>. Please refer to <a href="../../Tutorial/Tutorial/Combine_Quick_Peaks_Gadget_with_Peak_Analyzer.html" title="Tutorial:Combine Quick Peaks Gadget with Peak Analyzer">this tutorial</a> for details. 
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 2015 SR1</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li> Find and subtract baseline for spectrum with the Quick Peaks gadget.</li>
+<li> Find peaks on the graph with the Quick Peaks gadget.</li>
+<li> Customize preference settings.</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<ol>
+<li>Create a new workbook by clicking the <b>New Workbook</b> button <a  class="image"><img alt="Button New Workbook.png" src="../images/Quick_Peak_Gadget/Button_New_Workbook.png?v=1383" width="23"  /></a>. Select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Spectroscopy</i> subfolder and find the file <i>Zircon.dat</i>. Drag-and-drop this file into the empty worksheet to import it.
+<li> Highlight Col(B) and plot a line graph with the <b>Line</b> <a  class="image"><img alt="Button Line.png" src="../images/Quick_Peak_Gadget/Button_Line.png?v=1447" width="22"  /></a> button on the <b>2D Graphs Toolbar</b>.
+<li> Select <b>Gadgets: Quick Peaks</b> from the main menu to open the <b>Quick Peaks: addtool_quickpeaks</b> dialog. 
+<li> On the <b>Baseline</b> tab, set <b>Mode</b> to <b>2D Derivative</b>, and then set <b>Range</b> to <b>Full Plot Range</b>. Click <b>OK</b> to apply. 
+<br /><a  class="image"><img alt="Quick Peak Gadget 01.png" src="../images/Quick_Peak_Gadget/Quick_Peak_Gadget_01.png?v=34894" width="364"  /></a><br />
+<li>The peaks within the yellow ROI box will be found and marked. Resize the ROI box so that it covers X range[0,7000] as shown in graph below, the baseline and peak finding need a further refinement.
+<br /><a  class="image"><img alt="Quick Peak Gadget 02.png" src="../images/Quick_Peak_Gadget/Quick_Peak_Gadget_02.png?v=34900" width="550"  /></a><br />
+<li>Click the triangle button <a  class="image"><img alt="Triangle button.png" src="../images/Quick_Peak_Gadget/Triangle_button.png?v=12017" width="15"  /></a> and select <b>Preference</b> from the fly-out menu, so you can further adjust the <b>Smoothing Method</b> in <b>Baseline</b> tab follows the graph:
+<br /><a  class="image"><img alt="Quick Peak Gadget 03.png" src="../images/Quick_Peak_Gadget/Quick_Peak_Gadget_03.png?v=34901" width="365"  /></a><br />
+click Apply to apply, and further adjust the values in <b>Find Peak</b> tab:
+<br /><a  class="image"><img alt="Quick Peak Gadget 03-1.png" src="../images/Quick_Peak_Gadget/Quick_Peak_Gadget_03-1.png?v=34903" width="495"  /></a><br />
+<li>Click <b>OK</b> to apply the settings and close the dialog, the baseline and peaks finding are better than before which can be attribute to the optimizing <b>Threshold</b> and <b>Maximum Anchor Points</b> for Baseline and <b>Threshold Height%</b> for Find peak:
+<br /><a  class="image"><img alt="Quick Peak Gadget 04.png" src="../images/Quick_Peak_Gadget/Quick_Peak_Gadget_04.png?v=72517" width="464"  /></a><br />
+<li>  Click the triangle button <a  class="image"><img alt="Triangle button.png" src="../images/Quick_Peak_Gadget/Triangle_button.png?v=12017" width="15"  /></a> and select <b>New Output</b> to generate the peak finding results to a report worksheet.<br />  
+Click the triangle button <a  class="image"><img alt="Triangle button.png" src="../images/Quick_Peak_Gadget/Triangle_button.png?v=12017" width="15"  /></a> again and select <b>Go to Report Worksheet</b> to view the quantities output：
+<br /><a  class="image"><img alt="Quick Peak Gadget 05.png" src="../images/Quick_Peak_Gadget/Quick_Peak_Gadget_05.png?v=72518" width="750"  /></a>
+<li> Activate the graph window to which the gadget was applied, click the triangle button <a  class="image"><img alt="Triangle button.png" src="../images/Quick_Peak_Gadget/Triangle_button.png?v=12017" width="15"  /></a> and select <b>Subtract Baseline</b>, click <b>OK</b> for pop-up window, the baseline was subtract from the data. <br />
+<dl><dd><b>Note:</b> Check the worksheet after subtracting the baseline, if nothing happens, it's because the data is imported by the connect. In this case you need to click the green icon <a  class="image"><img alt="Data connector icon.PNG" src="../images/Quick_Peak_Gadget/Data_connector_icon.PNG?v=70380" width="24"  /></a> in the upper left hand corner of the worksheet, and click <b>Unlock Imported Data </b> or <b>Remove Data Connector...</b>. Then subtract baseline again.<br /></dd></dl>
+<li> Click X button on the top right corner to close the gadget. The finished graph is shown like this:<br />
+<br /><a  class="image"><img alt="Quick Peak Gadget 06.png" src="../images/Quick_Peak_Gadget/Quick_Peak_Gadget_06.png?v=72519" width="464"  /></a><br />
+<b>Note:</b> For advanced fitting options, you can <a href="../../Tutorial/Tutorial/Combine_Quick_Peaks_Gadget_with_Peak_Analyzer.html" title="Tutorial:Combine Quick Peaks Gadget with Peak Analyzer">combine Quick Peaks gadget with Peak Analyzer</a>.
+</ol>
+
+
+
+
+
+

@@ -1,0 +1,104 @@
+<h1 class="firstHeading">4.2.2.8 Fitting One Dataset as a Function of Other Datasets</h1><p class='urlname' style='display: none'>Fitting-Datasets</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Results"><span class="tocnumber">4</span> <span class="toctext">Results</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Sometimes, one may want to perform "Dataset Fitting", that is, the output may be composed of one or several datasets, like:
+</p>
+<dl><dd><img src="../images/Fitting_Datasets/math-af98e1b2cf12ec081bc67966b6a99be2.png?v=0" title="Output = A_1*Dataset_1+A_2*Dataset_2" alt="Output = A_1*Dataset_1+A_2*Dataset_2" class="tex"/></dd></dl>
+<p>For example, you may want to analyze a composite spectrum to find the contributions/ratio from individual component spectra. This can be accomplished either by defining multiple independent variables or by calculating the "combination" inside the fitting function.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 8.0 SR6</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Perform "Dataset Fitting"</li>
+<li>Define multiple independent variable fitting function</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<p>Import the <i>Composite Spectrum.dat</i> file from the <i>\Samples\Curve Fitting\</i> folder. In this sample data, we can see that column A is the index, columns B and C are the values for the spectrum of components A and B. Column D contains values obtained after reading a composite spectrum of components A and B. By fitting column D to an equation determined by the component spectra of the pure forms of columns B and C, the coefficients for the contributions of B and C (call them c1 and c2 respectively) can be found. (Note: In this case, we supposed the independent and dependent variables have the same size. If not, interpolation is need.)
+</p><p>Bring up the <span class="db">Fitting Function Organizer</span> and define a new fitting function as follow: 
+</p>
+<dl><dd><table class="simple">
+
+<tr>
+<td width="170"><b>Function Name:</b>
+</td>
+<td> MultiIndep
+</td></tr>
+<tr>
+<td width="170"><b>Function Type:</b>
+</td>
+<td> User-Defined
+</td></tr>
+<tr>
+<td width="170"><b>Independent Variables:</b>
+</td>
+<td> a, b
+</td></tr>
+<tr>
+<td width="170"><b>Dependent Variables:</b>
+</td>
+<td> ab
+</td></tr>
+<tr>
+<td width="170"><b>Parameter Names:</b>
+</td>
+<td> C1, C2
+</td></tr>
+<tr>
+<td width="170"><b>Function Form:</b>
+</td>
+<td> Origin C
+</td></tr>
+<tr>
+<td width="170"><b>Function:</b>
+</td>
+<td> ab = C1*a + C2*b;
+</td></tr></table></dd></dl>
+<p>Initialize both C1 and C2 to 1 in the <b>Parameter Initialization</b> edit box by entering:<br />C1=1;<br />C2=1; <br />Save the fitting function and close <span class="db">Fitting Function Organizer</span>. Highlight <font color="olive"><b>ONLY</b></font> Column D and bring up the <span class="db">NLFit</span> dialog, specify the input datasets in the <b>Data Selection</b> page as follow:
+</p>
+<dl><dd><a  class="image"><img alt="Tutorials Fitting Datasets MultiIndep.png" src="../images/Fitting_Datasets/Tutorials_Fitting_Datasets_MultiIndep.png?v=12038" width="746"  /></a></dd></dl>
+<p>Then you can click the <b>Fit</b> button to generate results. 
+</p>
+<h2><a name="Results"></a><span class="mw-headline">Results</span></h2>
+<p>You are supposed to get these results:
+</p>
+<dl><dd><table class="simple">
+<tr>
+<td width="20">
+</td>
+<td width="80"><b>Value</b>
+</td>
+<td width="100"><b>Standard Error</b>
+</td></tr>
+<tr>
+<td> <b>C1</b>
+</td>
+<td> 0.37169
+</td>
+<td> 0.00483
+</td></tr>
+<tr>
+<td> <b>C2</b>
+</td>
+<td> 0.66469
+</td>
+<td> 0.0047
+</td></tr></table></dd></dl>
+<p>To verify the fitted results, you can add a new column and Copy + Paste the fitted value, which comes from the fitted Y (col(C)) in the worksheet <i>FitNLCurve1</i>, into it. Then Highlight the <i>Composite</i> and the fitted data and plot a line graph to see how good the fit is:
+</p>
+<dl><dd><a  class="image"><img alt="Tutorials Fitting Datasets Results.png" src="../images/Fitting_Datasets/Tutorials_Fitting_Datasets_Results.png?v=41602" width="785"  /></a></dd></dl>
+
+
+
+
+
+

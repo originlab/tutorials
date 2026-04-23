@@ -1,0 +1,63 @@
+<h1 class="firstHeading">11.2.3 Adding New Origin C Functions to Origin</h1><p class='urlname' style='display: none'>Add-OC-Functions</p>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Functions written in Origin C are accessible from various locations within the Origin interface, such as the Script Window, provided they meet the following criteria: the function should return either void (as in the previous tutorial), double, string, or vectors of type double or string. Variables passed to the function from Origin should be of type double or string, or vectors of these types. Functions that do not meet these criteria are not callable from the Origin interface, but can be called within other Origin C functions. Note that although an Origin C function that accepts and returns type int can be called from the Origin interface, the data may be truncated since the interface only supports type double. 
+</p><p>In this tutorial, you will be introduced to writing a math function that returns computed values. We will first create a function that returns type double to Origin, and then we will create a function that returns vectors of type double.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 8.0 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>How to add a new function and how to run this function in the Script Window.
+</p>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<ol><li>Start a new Origin C file in <b>Code Builder</b>.</li>
+<li>Enter the following code:</li></ol>
+<pre class="oc" style="font-family:monospace;"><span style="color: #0000ff;">double</span> myfunc1<span style="color: #000000;">&#40;</span><span style="color: #0000ff;">double</span> x, <span style="color: #0000ff;">double</span> a<span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>
+         <span style="color: #0000ff;">return</span> <span style="color: #000000;">sin</span><span style="color: #000000;">&#40;</span> a <span style="color: #000040;">*</span> x <span style="color: #000000;">&#41;</span>;        
+<span style="color: #000000;">&#125;</span></pre>
+<ol start="3">
+<li>Click the <b>Build</b> button <a  class="image"><img alt="Button Build.png" src="../images/Adding_New_Origin_C_Functions_to_Origin/Button_Build.png?v=14957" width="23"  /></a> to compile the function.</li>
+</ol>
+<p>This function can now be called from the Origin interface, in places such as the Script Window.
+</p>
+<ol start="4">
+<li>Go to the Script Window, and type in the following lines, pressing <b>ENTER</b> at the end of each line:</li>
+</ol>
+<pre>
+y = myfunc1(2, 3)
+y =
+</pre>
+<p>You can also use worksheet cells instead of absolute numbers:
+</p>
+<ol start="5">
+<li>Make a worksheet active, enter a number in the first row of column A. Then  type the following into the Script Window and press <b>ENTER</b>:</li>
+</ol>
+<pre>col(B)[1] = myfunc1(col(A)[1], 3)</pre>
+<p>Note that a function such as myfunc1, that accepts and returns type double, can also be used to perform vector operations.
+</p>
+<ol start="6">
+<li>Fill rows 1 through 10 of Column A with numbers, and type the following into the Script Window:</li>
+</ol>
+<pre>col(B) = myfunc1(col(A), 3)</pre>
+<p>In the above example, Origin calls the myfunc1 function for each row of column A. For performing vector operations as above, it is more efficient to write functions that accept and return vectors.
+</p>
+<ol start="7">
+<li>Go back to Code Builder and add the following function to the same file, and compile the file by clicking the <b>Build</b> button <a  class="image"><img alt="Button Build.png" src="../images/Adding_New_Origin_C_Functions_to_Origin/Button_Build.png?v=14957" width="23"  /></a> </li>
+</ol>
+<pre class="oc" style="font-family:monospace;">vector<span style="color: #000080;">&lt;</span><span style="color: #0000ff;">double</span><span style="color: #000080;">&gt;</span> myfunc2<span style="color: #000000;">&#40;</span>vector<span style="color: #000080;">&lt;</span><span style="color: #0000ff;">double</span><span style="color: #000080;">&gt;</span> vecIn, <span style="color: #0000ff;">double</span> a<span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>  
+       vector<span style="color: #000080;">&lt;</span><span style="color: #0000ff;">double</span><span style="color: #000080;">&gt;</span> vecOut;
+       vecOut <span style="color: #000080;">=</span> <span style="color: #000000;">sin</span><span style="color: #000000;">&#40;</span> a <span style="color: #000040;">*</span> vecIn <span style="color: #000000;">&#41;</span>;
+       <span style="color: #0000ff;">return</span> vecOut;
+<span style="color: #000000;">&#125;</span></pre>
+<ol start="8">
+<li>Go back to the Origin interface, fill Column A with some new numbers, and type the following into the Script Window:</li>
+</ol>
+<pre>col(B) = myfunc2(col(A), 3)</pre>
+<p>The function myfunc2 is called only once for computing the entire column. 
+</p><p>Note that you can use such functions in other places such as the "Set Column Values" dialog. The Auto Update feature of "Set Column Values" can be enabled by checking the appropriate check box in this dialog. As long as the Origin C function is compiled and ready to be called from Origin, any changes to the source column will result in an update of the destination column.
+</p>
+
+
+
+
+

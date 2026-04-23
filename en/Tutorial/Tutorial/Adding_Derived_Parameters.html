@@ -1,0 +1,78 @@
+<h1 class="firstHeading">4.2.2.31 Modifying Derived Parameters in Build-in Functions</h1><p class='urlname' style='display: none'>Fitting-AddDerivPara</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Adding_Derived_Parameters"><span class="tocnumber">3</span> <span class="toctext">Adding Derived Parameters</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Removing_Derived_Parameters"><span class="tocnumber">4</span> <span class="toctext">Removing Derived Parameters</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Derived parameters are additional parameters computed using the fitted parameter values. You can define your own derived parameters for any built-in or user-defined fitting functions.
+<br />
+They are not involved in the fitting process and are computed only at the end of the fitting session. 
+</p><p><br />
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<ul><li> How to add derived parameters in a built-in fitting function by Fitting Function Organizer.</li>
+<li> How to remove derived parameters in a built-in fitting function by Fitting Function Organizer.</li></ul>
+<h2><a name="Adding_Derived_Parameters"></a><span class="mw-headline">Adding Derived Parameters</span></h2>
+<ol>
+The built-in Gauss function fits the peak area with the following equation:
+
+<img src="../images/Adding_Derived_Parameters/math-5634aa2f2bcef1a03e1d02c8bf5f9bb8.png?v=0" title="y=y_0+\frac A{w\sqrt{\pi/2}}e^{-2\frac{(x-x_c)^2}{w^2}}" alt="y=y_0+\frac A{w\sqrt{\pi/2}}e^{-2\frac{(x-x_c)^2}{w^2}}" class="tex"/>
+<br />
+Suppose that you also want to know the peak height, which can be computed as follows:
+
+<img src="../images/Adding_Derived_Parameters/math-a619775795de9d8539a132d0e28e5c8e.png?v=0" title="h=\frac A{w\sqrt{\pi/2}}" alt="h=\frac A{w\sqrt{\pi/2}}" class="tex"/>
+
+<br /><br />
+<li>Select <b>Tool: Fitting Function Organizer</b> in the menu. In the left panel of the dialog, select <b>Origin Basic Funcions: Gauss</b>.
+
+<li>Go to <b>Derived Parameters</b> section and input the <i>h=A/(w*sqrt(PI/2))</i>
+<br /><br /><a  class="image"><img alt="Add Derived Para 01a.png" src="../images/Adding_Derived_Parameters/Add_Derived_Para_01a.png?v=34859" width="568"  /></a><br /><br />
+
+<b>Note:</b> 
+<ul><li>Each derived parameter should be specified in a separate row.</li>
+<li>Derived parameters cannot be computed from other derived parameters.</li></ul>
+
+<li>Click on <b>Save</b> and the <b>OK</b> button.
+
+<li>Start with an empty worksheet. Select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the Curve Fitting subfolder and find the file <i>Gaussian.dat</i>. Drag-and-drop this file into the empty worksheet to import it.
+
+<li>Highlight column A and B, then select <b>Analysis: Fitting: Nonlinear Curve Fit</b> to open the <b>Nonlinear Curve Fitting</b> dialog, and select <b>Gauss</b> from the Function drop-down list.
+<br /><br /><a  class="image"><img alt="Add Derived Para 04a.png" src="../images/Adding_Derived_Parameters/Add_Derived_Para_04a.png?v=34862" width="790"  /></a>
+
+<li>Go to <b>Code</b> tab and click <b>Derived parameters</b> on the left panel. You can see the Derived Parameters listed on the right panel.
+<br /><br /><a  class="image"><img alt="Add Derived Para 02a.png" src="../images/Adding_Derived_Parameters/Add_Derived_Para_02a.png?v=34860" width="782"  /></a>
+
+<li>Click <b>Fit</b> button to generate report sheets. After fitting, Origin will compute the height and include the result in the Parameters table on the fitting results worksheet. 
+
+<br /><br /><a  class="image"><img alt="Add Derived Para 03a.png" src="../images/Adding_Derived_Parameters/Add_Derived_Para_03a.png?v=57392" width="643"  /></a>
+<li>If you want to obtain the confidence interval for derived parameters, you can click on the green lock and select  <b>Change Parameters</b> to go back to the <b>NLFit</b> dialog. Click <b>Advanced</b> option under <b>Settings</b> tab, expand <b>Quantities</b> node on the right panel and check the <b>LCL</b> and <b>UCL</b> checkboxes under <b>Fit Parameters</b> branch. Click <b>Fit</b> button to recalculate.
+<br /><br /><a  class="image"><img alt="Derive LCL.png" src="../images/Adding_Derived_Parameters/Derive_LCL.png?v=39935" width="762"  /></a>
+
+<li>Then confidence interval <i>95% LCL</i> and <i>95% UCL</i> are calculated for both parameters and derived parameters as below:
+<br /><br /><a  class="image"><img alt="Derive LCL1.png" src="../images/Adding_Derived_Parameters/Derive_LCL1.png?v=57393" width="716"  /></a>
+</ol>
+<h2><a name="Removing_Derived_Parameters"></a><span class="mw-headline">Removing Derived Parameters</span></h2>
+<p>You can also remove derived parameters from result sheet. Continue with the tutorial above, follow the steps below:
+</p>
+<ol>
+<li>Select <b>Tool: Fitting Function Organizer</b> in the menu to open the dialog again. In the left panel of the dialog, select <b>Origin Basic Functions: Gauss</b>.
+<li>Go to <b>Derived Parameters</b> section and remove expression <i>h=A/(w*sqrt(PI/2))</i> from that panel.
+<br /><br />
+<a  class="image"><img alt="Add Derived Para 05a.png" src="../images/Adding_Derived_Parameters/Add_Derived_Para_05a.png?v=34869" width="568"  /></a>
+<li>You may need to wait one or two seconds before the <b>Save</b> button is enabled. Click <b>Save</b> button and then <b>OK</b> button to close dialog.
+<li>Click on the green lock on the top left corner in result sheet <i>FitNL1</i> to change parameters and click <b>Fit</b> button again in the appeared <b>NLFit (Gauss)</b> dialog. We will see the derived parameter <i>h</i> has been removed from result table.
+<br /><br />
+<a  class="image"><img alt="Add Derived Para 06a.png" src="../images/Adding_Derived_Parameters/Add_Derived_Para_06a.png?v=57395" width="793"  /></a>
+</ol>
+<p><br />
+</p>
+
+
+
+
+

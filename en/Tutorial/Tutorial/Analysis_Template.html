@@ -1,0 +1,29 @@
+<h1 class="firstHeading">1.11 Analysis Template</h1><p class='urlname' style='display: none'>GSB-analysis-template-lesson</p>
+<p><br />
+</p><p>In this lesson we will learn how create an <b>Analysis Template</b> and re-use it for new data.
+</p>
+<ol>
+<li>Continue with the project file saved from the previous lesson. Create a new folder in Project Explorer and rename it as <i><b>Analysis Template</b></i>. Open the empty folder.</li>
+<li>Create a new workbook and import the file <i>&lt;Origin EXE Path&gt;\Samples\Curve Fitting\Sensor01.dat</i>.</li>
+<li>Highlight column B and select <b>Plot &gt; User Templates: My Line</b> to create a line graph from the graph template <i>My_Line.otp</i> that we saved in <a href="../../Tutorial/Tutorial/Create_Your_First_Graph.html" title="Tutorial:Create Your First Graph">lesson 1</a>.</li>
+<li>With the graph window active, select <b>Analysis: Fitting: Linear Fit</b> from menu. This will bring up the <b>Linear Fit</b> dialog. </li>
+<li>In the <b>Fit Control</b> tab, select the <b>Fix Intercept</b> check box to force the fitted curve go through (0,0). Select <b>Auto</b> for <b>Recalculate</b>. Click <b>OK</b> to perform the linear fit. The fitted curve and a result table will be added to the graph.</li>
+<li>Click on the result table and select <b>Quantities in Table</b> button <a  class="image"><img alt="Button Quantities in Table.png" src="../images/Analysis_Template/Button_Quantities_in_Table.png?v=74119" width="24"  /></a> from the popped-up mini toolbar. In the dialog, remove all entries other than <b>Slope</b> and <b>Adj. R-Square</b>, then click <b>OK</b> to update the table.</li>
+<li>Double-click on the X axis to open the <b>Axis</b> dialog. With the <b>Scale</b> tab active, hold down the <b>Ctrl</b> key and select both <b>Horizontal</b> and <b>Vertical</b> in the list box on the left. Change <b>Rescale</b> to <b>Auto</b> and click OK. This is to make sure the axis range will update when data changes. <br /><a  class="image"><img alt="First graph 10.png" src="../images/Analysis_Template/350px-First_graph_10.png?v=45359" width="350"   /></a></li>
+<li>Select the legend on the graph and delete it. </li>
+<li>Go back to the source workbook. Right-click on any one of the sheet tabs and select <b>Add Graph as Sheet</b> from the context menu to insert it as an embedded graph inside a new worksheet. <br /><a  class="image"><img alt="Analysis template 1.png" src="../images/Analysis_Template/500px-Analysis_template_1.png?v=69130" width="500"   /></a>
+</li>
+<li>Now we have source data and all analysis results in one book. Let's save it as an Analysis Template. Select <b>File: Save Workbook as Analysis Template...</b> from menu. Save the workbook as <i>My Sensor Analysis.ogw</i>.</li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Analysis_Template/Mini_bulb.png?v=44828" /></td><td><p>Any work book which has an operation linking input and output, indicated by a lock on output sheets or columns, can be saved as an analysis template. The simplest example would be a sheet where column value calculations have been performed.
+</p></td></tr></table>
+<li>Now use the <b>File: Recent Books</b> menu command to open <b>My Sensor Analysis.ogw</b>. The analysis template will open. Note that the date sheet, results and graphs are empty.</li>
+<li>With the first data worksheet active, select <b>Help&gt; Open Folder: Sample Folder</b>. Then go to the <b>Curve Fitting</b> subfolder. Drag <b>Sensor02.dat</b> to the sheet. </li>
+<li>The linear regression results and the embedded graph will update automatically, because we had set the <b>Recalculate</b> mode in the linear fit tool to <b>Auto</b>.</li>
+</ol>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Analysis_Template/Mini_bulb.png?v=44828" /></td><td><p>Analysis templates can be used manually to process one file at a time, or can be used to perform batch analysis of multiple data files or datasets. Please view the <a href="../../Tutorial/Category/Batch_Processing_(Tutorials).html" title="Category:Batch Processing (Tutorials)">Batch Processing tutorial</a> to learn more.
+</p></td></tr></table>
+<p>Save your project file.<br />
+</p>
+

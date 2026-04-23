@@ -1,0 +1,63 @@
+<h1 class="firstHeading">5.1.5 Partial Correlation Coefficient</h1><p class='urlname' style='display: none'>Partial-Corr-Coef</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#User_Story"><span class="tocnumber">3</span> <span class="toctext">User Story</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Detect_Relationship_with_Pearson.27s_R"><span class="tocnumber">4</span> <span class="toctext">Detect Relationship with Pearson's R</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Revealing_the_Real_Relationship_with_Partial_Correlation_Coefficients"><span class="tocnumber">5</span> <span class="toctext">Revealing the Real Relationship with Partial Correlation Coefficients</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Conclusion"><span class="tocnumber">6</span> <span class="toctext">Conclusion</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>The Partial Correlation Coefficient is a tool for  measuring the the linear relationship between two random variables, after excluding the effects of one or more control variables.
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you:
+</p>
+<ul><li> How to carry out partial correlation in Origin, using a practical example.</li>
+<li> How to interpret the generated results.</li></ul>
+<h2><a name="User_Story"></a><span class="mw-headline">User Story</span></h2>
+<p>We have some public data from the World Bank that includes 11 indicators (health expenditure, GDP, population, etc.) by country, for years 2000 to 2010. We want to study the relationship between internet use, mobile phone use and health expenditures in the United States.
+</p>
+<h2><a name="Detect_Relationship_with_Pearson.27s_R"></a><span class="mw-headline">Detect Relationship with Pearson's R</span></h2>
+<p>This tutorial is associated with <i>&lt;Origin EXE Folder&gt;\Samples\Tutorial Data.opj</i>.
+</p>
+<ol><li>Open the <b>Tutorial Data.opj</b> and browse to the folder <b>Partial Correlation Coefficient</b>, and activate the <b>Partial Correlation Coefficient</b> book.</li>
+<li> Activate <b>Sheet1</b> with source data. We have already applied a data filter to get data for the United States between 2000 and 2010.</li>
+<li> First we will use the <b>Correlation Coefficient</b> tool to visually detect the relationship between <b>Mobile phone subscribers</b>, <b>Total internet users</b>, <b>Health expenditures per capita</b> and the <b>GDP per capita</b>.
+<ol><li> Press the <b>Ctrl</b> key and highlight <b>Col(E)</b>, <b>Col(U1)</b>, <b>Col(H)</b> and <b>Col(S)</b>.</li>
+<li> From the menu, select <b>Statistics: Descriptive Statistics: Correlation Coefficient</b>.</li>
+<li> In the opened dialog, select the <b>Scatter plots</b> and  <b>Add Confidence Ellipse</b> check boxes under the <b>Plots</b> branch. Clear the <b>Show Significance in Result Table</b> check box and select the <b>Flag Significant Correlations</b> check box.
+<dl><dd><a  class="image"><img alt="Partial corr coef 1.png" src="../images/Partial_Correlation_Coefficient/Partial_corr_coef_1.png?v=40968" width="475"  /></a></dd></dl></li></ol></li>
+<li> From the Pearson's correlation coefficient and the scatter matrix, we can see:
+<ul><li> The scatter data are fairly linear.</li>
+<li> The shape of confidence ellipses is narrow.</li>
+<li> All Pearson's correlation coefficients are flagged in red.</li>
+<li> Each Pearson's correlation coefficient is larger then 0.9.</li></ul>
+<dl><dd>It appears that there is a strong relationship between <b>Mobile phone subscribers</b>, <b>Total internet users</b>, <b>Health expenditures per capita</b> and <b>GDP per capita</b>.</dd>
+<dd> <a  class="image"><img alt="Partial corr coef 2.png" src="../images/Partial_Correlation_Coefficient/500px-Partial_corr_coef_2.png?v=40979" width="500"   /></a></dd></dl></li></ol>
+<h2><a name="Revealing_the_Real_Relationship_with_Partial_Correlation_Coefficients"></a><span class="mw-headline">Revealing the Real Relationship with Partial Correlation Coefficients</span></h2>
+<p>Though it appears that <b>Mobile phone subscribers</b>, <b>Total internet user</b> and <b>Health expenditure per capita</b> are strongly related, we know that <b>GDP per capita</b> also affects these three indicators. We want to measure the real relationship of the three indicators after excluding the effect of <b>GDP per capita</b>.
+</p>
+<ol><li> Activate the sheet with source data. Press the <b>Ctrl</b> key and highlight <b>Col(E)</b>, <b>Col(U1)</b> and <b>Col(H)</b>.</li>
+<li> Choose menu <b>Statistics: Descriptive Statistics: Partial Correlation Coefficient</b>.</li>
+<li> In the opened dialog, the three highlighted columns are automatically selected as <b>Variables</b>.</li>
+<li> We want to remove the effect of <b>GDP per capita</b>, so we choose <b>Col(S)</b> as <b>Controlling Variables</b>. Select the <b>Flag Significant Correlations</b> check box.
+<dl><dd><a  class="image"><img alt="Partial corr coef 3.png" src="../images/Partial_Correlation_Coefficient/Partial_corr_coef_3.png?v=40984" width="484"  /></a></dd></dl></li>
+<li> Go to sheet <b>PCorr1</b>. It contains the partial correlation coefficients after excluding the effect of <b>GDP per capita</b>. We can see:
+<ul><li> Only <b>Mobile phone subscribers</b> and <b>Health expenditures per capita</b> are significantly related (The Partial Corr value is marked as red). But the real relationship is not as strong as the <b>Pearson'r</b> seemed to show previously. (Partial Corr = 0.87307 v.s. Pearson's Corr = 0.99157).</li>
+<li> The Partial correlation coefficient for <b>Mobile phone subscribers</b> and <b>Total internet users</b> decreased to be 0.26178. They are not significant related.</li>
+<li> There is no evidence to show <b>Total internet users</b> and <b>Health expenditures per capita</b> are related (Partial Corr = 0.07615), while previously, we obtained a Pearson's r = 0.96685.</li></ul>
+<dl><dd><a  class="image"><img alt="Partial corr coef 4.png" src="../images/Partial_Correlation_Coefficient/Partial_corr_coef_4.png?v=40987" width="650"  /></a></dd></dl></li></ol>
+<h2><a name="Conclusion"></a><span class="mw-headline">Conclusion</span></h2>
+<p>Why such different results?  Looking at the Pearson'r value of <b>GDP per capita</b> between the other three indicators, we can see <b>GDP per capita</b> influenced the three indicators. Even though there is no relationship between  <b>Total internet users</b> and <b>Health expenditures per capita</b>, <b>Total internet users</b> and <b>Mobile phone subscribers</b>, the "false relationship" is still shown by the Pearson's r because of the effect of <b>GDP per capita</b>. Partial Correlation Coefficients are useful for examining the true relationship between two factors by eliminating the effects of correlated control variables. The statistic is useful for experiments where various interrelated phenomena are to be studied.
+</p>
+
+
+
+
+

@@ -1,0 +1,102 @@
+<h1 class="firstHeading">6.12.5 Creating Intersecting Surface Plots from Worksheets</h1><p class='urlname' style='display: none'>3D-Surface-Intersect-VM</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Create_Surface_Plots_from_Virtual_Matrix_Data"><span class="tocnumber">3.1</span> <span class="toctext">Create Surface Plots from Virtual Matrix Data</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Add_Another_Surface_Plot_to_Layer"><span class="tocnumber">3.2</span> <span class="toctext">Add Another Surface Plot to Layer</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Set_Surface_Transparency"><span class="tocnumber">3.3</span> <span class="toctext">Set Surface Transparency</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=32" target="_blank">Virtual Matrix</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=279" target="_blank">Plot 3D or Contour Graph from Virtual Matrix</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=20" target="_blank">Intersecting Surfaces</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/matrix-surface-with-missing-values-and-special-contour-line" target="_blank">Graphing an Island as a 3D Surface Plot</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/creating-a-3d-surface-plot-with-profile-lines" target="_blank">Creating a 3D Surface Plot with Profile Lines</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/how-to-create-a-3d-surface-plot-animation" target="_blank">How to create a 3D Surface Plot Animation</a> </li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Many plot types, such as 3D Surface, 3D Bars, and Contour, can be created from data contained in a matrix object or from data arranged in a block of cells in a worksheet. The latter arrangement is referred to as a <b>Virtual Matrix</b>. Whereas a typical matrix object only supports a linear mapping of X and Y coordinates, a virtual matrix supports nonlinear mapping as well. In this tutorial, we show you how to create intersecting color map surface plots from virtual matrix data. 
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 2015 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li> Create a Color Map Surface plot using virtual matrix data from a worksheet</li>
+<li> Add one surface graph to another to create intersecting surface plots</li>
+<li> Set transparency</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="Create_Surface_Plots_from_Virtual_Matrix_Data"></a><span class="mw-headline">Create Surface Plots from Virtual Matrix Data</span></h3>
+<p>This section will demonstrate how to create surface plots from data in a worksheet.
+</p>
+<ol>
+<li>Start a new project. 
+<li>Click the <b>Import Multiple ASCII</b> button <a  class="image"><img alt="Button Import Multiple ASCII.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Button_Import_Multiple_ASCII.png?v=27548" width="23"  /></a> on the <b>Standard</b> toolbar.</li>
+<li>In the dialog that opens, navigate to the <i>\Samples\Graphing</i> folder and select both <i>VSurface 1.dat</i> and <i>VSurface 2.dat</i> by holding down the Ctrl key and clicking <b>Add File(s)</b> </li>
+<li>Select the <b>Show Options Dialog</b> check box. <br />
+<a  class="image"><img alt="Import 2 data.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Import_2_data.png?v=33500" width="592"  /></a><br />
+<li>Press the <b>OK</b> button.</li>
+<li>In the <b>impASC</b> dialog, modify the settings according to the following image, so that the two data files will be imported as two worksheets with name <b>VSurface1</b> and <b>VSurface2</b> in one workbook:<br />
+<a  class="image"><img alt="Import 2 data 2.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Import_2_data_2.png?v=33501" width="477"  /></a></li>
+<li>Click <b>OK</b> to import these two data files.  <br />
+<a  class="image"><img alt="Import 2 data 3.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Import_2_data_3.png?v=33499" width="479"  /></a><br />
+The data has X coordinate values in the top row and Y coordinate values in the first column. Note that the X coordinates have nonlinear spacing.</li>
+<li>With the "VSurface 1" sheet active, hover the cursor over the cell in the top left corner of the worksheet till it appears as a slanting black arrow and click to highlight.
+. </li>
+<li>Select the menu item <b>Plot &gt; 3D&#160;:3D Colormap Surface</b> to open the <b>plotvm</b> dialog. </li>
+<dl><dd><b>Note:</b>This dialog opens every time a 3D or Contour plot menu item is invoked with a group of worksheet cells selected. The dialog allows you to define where the X and the Y coordinate values are located. </dd></dl>
+<li>In this dialog, adjust the settings as shown in the image below:<br />
+<a  class="image"><img alt="Plot vm dialog box.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Plot_vm_dialog_box.png?v=33738" width="414"  /></a><br /></li>
+<li>Click <b>OK</b> to generate a Color Map Surface plot and a virtual matrix as shown below:<br />
+<a  class="image"><img alt="Colormap surface 1.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Colormap_surface_1.png?v=33494" width="495"  /></a></li>
+<li>Repeat the last step to plot another Color Map Surface plot using data from the VSurface 2 worksheet. This time <b>VSurface 2</b> will be automatically used as Z title in the <b>plotvm</b> dialog.<br />
+<a  class="image"><img alt="Colormap surface 2.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Colormap_surface_2.png?v=33495" width="501"  /></a>
+</li>
+</ol>
+<h3><a name="Add_Another_Surface_Plot_to_Layer"></a><span class="mw-headline">Add Another Surface Plot to Layer</span></h3>
+<p>This section will demonstrate how to add a surface plot to a graph layer that already contains another surface plot.
+</p>
+<ol>
+<li>Activate Graph1, right-click on the Layer 1 icon <a  class="image"><img alt="Layer Icon 1st.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Layer_Icon_1st.png?v=33533" width="19"  /></a> on the top left corner of the graph and select <b>Layer Contents</b> from the context menu. </li>
+<li>In the <b>Layer Contents</b> dialog that opens, select <b>VSurface2</b> from the Available Data panel on the left and add it to the Layer Contents box on the right using the arrow that points to the right in the center of the dialog box (The arrow below it can be used to shift selected items from Layer Contents to Available Data). <br />
+<a  class="image"><img alt="Add vm2 to graph1 v.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Add_vm2_to_graph1_v.png?v=41694" width="671"  /></a></li>
+<li>
+Click <b>OK</b> to add the second surface, the graph will now appear as shown below:<br />
+<a  class="image"><img alt="Colormap surface 3.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Colormap_surface_3.png?v=33496" width="495"  /></a><br />
+Note the two surfaces are displayed with proper intersection. </li>
+</ol>
+<p><br />
+</p>
+<h3><a name="Set_Surface_Transparency"></a><span class="mw-headline">Set Surface Transparency</span></h3>
+<p>The next step is to set the transparency of the second surface so that parts of the first surface are visible in this intersection plot.
+</p>
+<ol>
+<li>Double click on the second colormap surface to open the <b>Plot Details</b> dialog.</li>
+<li> In the <b>Surface</b> tab, move the <b>Transparency</b> slider to 40% and click <b>Apply</b>, then <b>OK</b>.<br />
+<a  class="image"><img alt="Set transparency.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Set_transparency.png?v=33497" width="599"  /></a><br />
+
+
+<br />
+The completed graph should appear as the the image shown below:<br />
+<a  class="image"><img alt="Transparent graph.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Transparent_graph.png?v=33498" width="540"  /></a>
+</li>
+</ol>
+
+
+
+
+
+

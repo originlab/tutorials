@@ -1,0 +1,107 @@
+<h1 class="firstHeading">4.5.2.1 Worksheet Query</h1><p class='urlname' style='display: none'>Extract-Wks-Data</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Dialog_Overview"><span class="tocnumber">3</span> <span class="toctext">Dialog Overview</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Define_the_Condition"><span class="tocnumber">4</span> <span class="toctext">Define the Condition</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Extract_Numerical_Data"><span class="tocnumber">4.1</span> <span class="toctext">Extract Numerical Data</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Extract_Strings"><span class="tocnumber">4.2</span> <span class="toctext">Extract Strings</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Extract_Time_Data"><span class="tocnumber">4.3</span> <span class="toctext">Extract Time Data</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Extract_Worksheet_Data/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Extract_Worksheet_Data/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=17" target="_blank">Extract Worksheet Data</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Extract_Worksheet_Data/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Extract_Worksheet_Data/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/extract-masked-points-to-a-new-workbook-automatically" target="_blank">Extract Masked Points to a New Workbook Automatically</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>This tutorial will show you how to use the <span class="db">Worksheet Query</span> dialog.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 2019b</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Extract numeric and time data</li>
+<li>Use an alias in an extraction condition</li>
+<li>Use LabTalk functions in an extraction condition</li></ul>
+<h2><a name="Dialog_Overview"></a><span class="mw-headline">Dialog Overview</span></h2>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Extract_Worksheet_Data/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>The <b>Worksheet Query</b> dialog box will differ slightly from the image below if (a) <b>Spreadsheet Cell Notation (SCN)</b> is OFF in the active workbook (you see this icon <a  class="image"><img alt="Button SCN OFF.png" src="../images/Extract_Worksheet_Data/Button_SCN_OFF.png?v=57832" width="22"  /></a> in the upper-left corner of the workbook), or (b) you have SCN turned ON but you have checked the <b>Use Alias</b> box in the upper-right corner of Worksheet Query. The <b>Worksheet Query</b> dialog box was modified for version <b>2019b</b> to allow for more flexible column naming. You can still work through this tutorial by defining column Aliases. See <a class="external text" href="../../UserGuide/UserGuide/Extract_Worksheet_Data.html#Select_Column_Variables_for_If_Test"><b>Select Column Variables for If Test</b></a>, for guidance.
+</p></td></tr></table>
+<dl><dd><a  class="image"><img alt="Tutorial Extract Worksheet Data 005.png" src="../images/Extract_Worksheet_Data/Tutorial_Extract_Worksheet_Data_005.png?v=59311" width="699"  /></a><br /><br /></dd></dl>
+<p>There are two main panels in the <span class="db">Worksheet Query</span> dialog: 
+</p>
+<ul><li> The left panel lists all the columns in the active worksheet. Right-click in the left panel and choose which column properties to display (e.g. <i>Format</i>, <i>1st Value</i>, etc). Note that only those columns checked in the <b>Extract</b> column will be output when you click <b>OK</b> in the dialog box.</li></ul>
+<ul><li> The right panel is where you set, test and execute query conditions. If SCN is off or you have opted to check the <b>Use Alias</b> box, select those worksheet columns that you want to use in the extract condition in the left panel, then click the <a  class="image"><img alt="Button Select To Right.png" src="../images/Extract_Worksheet_Data/Button_Select_To_Right.png?v=4761" width="20"  /></a> button to move them into the <b>Select Column Variable for If Test</b> box. You will then have the Aliases that you need to define your <b>Condition</b>. If you intend to use column names or indices instead of Aliases, you can simply define your <b>Condition</b> directly.</li></ul>
+<h2><a name="Define_the_Condition"></a><span class="mw-headline">Define the Condition</span></h2>
+<h3><a name="Extract_Numerical_Data"></a><span class="mw-headline">Extract Numerical Data</span></h3>
+<ol>
+<li>Start with a new workbook and import the file \<i>Samples</i>\<i>Statistics</i>\<i>body.dat</i>.</li>
+<li>Click the menu item <b>Worksheet: Worksheet Query</b> to open the Worksheet Query dialog box.
+
+<br />
+If you know <a class="external text" href="../../UserGuide/Category/Worksheet_Query.html#What_Can_I_Enter_in_Condition_Text_Box.3F">the correct syntax</a>, you can type your expression directly into the <b>Condition</b> box. To aid you in constructing your expression, you can use the buttons to the right side of <b>Condition</b>. Additionally, you can insert functions and variables from the <b>Function</b> menu.</li>
+<li>To extract the data of individuals who are at least 160cm in height, type the following into the Condition box:
+
+<pre class="lt" style="font-family:monospace;">col<span style="color: #000000;">&#40;</span>height<span style="color: #000000;">&#41;</span><span style="color: #000080;">&gt;=</span><span style="color: #0000dd;">160</span></pre>
+</li>
+<li>When there are multiple conditions, you can combine these conditions using logical operators <b>AND, OR, NOT</b>. We will add a second condition that tests for individuals that weigh no more than 50kg. Click the <b>AND</b> button and type the following after <b>AND</b>:
+
+<pre class="lt" style="font-family:monospace;">col<span style="color: #000000;">&#40;</span>weight<span style="color: #000000;">&#41;</span><span style="color: #000080;">&lt;=</span><span style="color: #0000dd;">50</span></pre>
+<p>Your expression should now look like this:
+</p>
+<dl><dd><dl><dd><a  class="image"><img alt="Tutorial extract worksheet data.png" src="../images/Extract_Worksheet_Data/Tutorial_extract_worksheet_data.png?v=59334" width="554"  /></a></dd></dl></dd></dl>
+</li>
+<li>To test your query, click the <b>All Rows</b> button to select all rows (note that the <i>0</i> in <i>1</i> <b>To</b> <i>0</i> signifies the last row in the sheet), then click <b>Test -- select if true</b> to test your expression. Origin will return 5 records found. 
+
+<dl><dd><dl><dd><a  class="image"><img alt="Tutorial test extract.png" src="../images/Extract_Worksheet_Data/Tutorial_test_extract.png?v=59335" width="554"  /></a></dd></dl></dd></dl>
+</li>
+<li>Accept other default settings and click the <b>OK</b> button. A new workbook containing the 5 found records, is created.</li>
+</ol>
+<h3><a name="Extract_Strings"></a><span class="mw-headline">Extract Strings</span></h3>
+<p>When extracting strings, you need to enclose the string with double quotes (e.g. "California"). 
+</p>
+<ol>
+<li>In order to extract just female (<b>F</b>) subjects, we type the following into the <b>Condition</b> box:
+
+<pre class="lt" style="font-family:monospace;">col<span style="color: #000000;">&#40;</span>gender<span style="color: #000000;">&#41;</span> <span style="color: #000080;">==</span> <span style="color: #ff00ff;">&quot;F&quot;</span></pre>
+</li>
+<li>Click the <b>All Rows</b> button, then click <b>Test -- select if true</b>. A message shows that 18 records are found.</li>
+<li>Accept other defaults and click the <b>OK</b> button to close the dialog and extract data for female subjects to a new workbook.</li>
+</ol>
+<h3><a name="Extract_Time_Data"></a><span class="mw-headline">Extract Time Data</span></h3>
+<p><a class="external text" href="../../UserGuide/UserGuide/Dates_and_Times_in_the_Worksheet.html">Date and Time</a> data are internally saved as numeric values in Origin. Date is the integer part of the numeric value, while Time is the fractional part. You can use the <a class="external text" href="../../LabTalk/LabTalk/Int_(function).html">int()</a> and <a class="external text" href="../../LabTalk/LabTalk/Frac_(function).html">frac()</a> functions to return the integer and fractional parts of a number, and use the <a class="external text" href="../../LabTalk/LabTalk/Date_(function).html">Date(MM/DD/YY)</a> and <a class="external text" href="../../LabTalk/LabTalk/Time_(function).html">Time(HH:mm:ss)</a> functions to convert date-time string data to numeric <a class="external text" href="../../UserGuide/UserGuide/Dates_and_Times_in_Origin.html">Julian day</a> data. 
+</p>
+<ol>
+<li>Start with a new workbook. Select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Import and Export</i> subfolder and find the file <i>Custom Date and Time.dat</i>. Drag-and-drop this file into the empty worksheet to import it. Note that the "date-time" data in column A is left-aligned, indicating that it is being treated as text strings and not as true date-time data (which is numeric).</li>
+<li>Select column A, right-click and select <b>Properties</b>. Set <b>Format</b> = <b>Date</b>, <b>Display</b> = <b>Custom Display</b> and in <b>Custom Display</b> enter the following:
+<pre class="lt" style="font-family:monospace;">dd<span style="color: #ff00ff;">'.'</span>MM<span style="color: #ff00ff;">'.'</span>yyyy HH<span style="color: #ff00ff;">':'</span>mm<span style="color: #ff00ff;">':'</span>ss<span style="color: #ff00ff;">'.'</span>##</pre>
+<p>This formats the date-time strings in column A as date-time numeric data. 
+</p>
+</li>
+<li>Next, we will extract that portion of worksheet data that falls within the time period 10:00:00 and 11:00:00. Click <b>Worksheet: Worksheet Query</b> and in the <b>Condition</b> box, enter the following:
+
+<pre class="lt" style="font-family:monospace;">frac<span style="color: #000000;">&#40;</span>A<span style="color: #000000;">&#41;</span> <span style="color: #000080;">&gt;</span> Time<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">10</span><span style="color: #000000;">:</span>00<span style="color: #000000;">:</span>00<span style="color: #000000;">&#41;</span> AND frac<span style="color: #000000;">&#40;</span>A<span style="color: #000000;">&#41;</span> <span style="color: #000080;">&lt;</span> Time<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">11</span><span style="color: #000000;">:</span>00<span style="color: #000000;">:</span>00<span style="color: #000000;">&#41;</span></pre>
+</li>
+<li>Click the <b>All Rows</b> button, then click <b>Test -- select if true</b>.  A message shows that 120 records are found.
+
+<li>Accept other defaults and click the <b>OK</b> button to close the dialog and extract data recorded between 10:00:00 and 11:00:00 to a new workbook.</li>
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Extract_Worksheet_Data/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>You could have imported the data in step 1, using a <a class="external text" href="../../UserGuide/Category/Data_Connector.html"><b>Data Connector</b></a>. A simple drag-and-drop of the data file <i>Custom Date and Time.dat</i> would have split the date and time data into two columns, each formatted properly as Date and Time. This saves you the trouble of having to manually format the data using the string in step 2. 
+</p></td></tr></table>
+
+

@@ -1,0 +1,123 @@
+<h1 class="firstHeading">11.2.4 Organizing and Accessing Origin C Functions</h1><p class='urlname' style='display: none'>Organize-Access-OC-Func</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Saving_your_Origin_C_Function_with_your_Project"><span class="tocnumber">3</span> <span class="toctext">Saving your Origin C Function with your Project</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Associating_your_Programs_with_Visual_Objects"><span class="tocnumber">4</span> <span class="toctext">Associating your Programs with Visual Objects</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Loading_and_Compiling_your_Origin_C_Function_from_Script"><span class="tocnumber">5</span> <span class="toctext">Loading and Compiling your Origin C Function from Script</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Techniques for using your Origin C functions.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 8.0 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Save your Origin C Function with your Project</li>
+<li>Associate your Programs with Visual Objects</li>
+<li>Load and Compile your Origin C Function from script</li></ul>
+<h2><a name="Saving_your_Origin_C_Function_with_your_Project"></a><span class="mw-headline">Saving your Origin C Function with your Project</span></h2>
+<p>One way to load and compile your Origin C function is to save the Origin C file as an attachment to your Origin Project (*.OPJ) file. When a project file is opened, all files attached to it are separated out and stored in a temporary folder. In addition, any Origin C file that was attached is also automatically loaded into the Code Builder workspace, and compiled. The function is then ready to be called upon opening the Origin Project file.
+</p>
+<ol><li>Start a new Origin project file by clicking on the <b>New</b> Project button <a  class="image"><img alt="Button New.png" src="../images/Organizing_and_Accessing_Origin_C_Functions/Button_New.png?v=37512" width="21"  /></a> on the <b>Standard</b> Toolbar.</li>
+<li>On the <b>Standard</b> Toolbar, click the <b>Code Builder</b> button <a  class="image"><img alt="Button Code Builder.png" src="../images/Organizing_and_Accessing_Origin_C_Functions/Button_Code_Builder.png?v=1405" width="23"  /></a>.  </li>
+<li>From the Code Builder menu, select <b>File: New</b>.  This opens the <b>New File</b> dialog box.</li>
+<li>In the top list-box, select <b>C File</b>.</li>
+<li>In the <b>File Name</b> text box, type:  <b>Test</b>.  Keep the <b>Add to Workspace</b> check box selected.  Click <b>OK</b>.  The file Test.c is added to the workspace.</li>
+<li>Select and copy the following function, and paste it into the Test.c file. Be sure to paste the text below the line that reads "//start your functions here."</li></ol>
+<pre class="oc" style="font-family:monospace;"><span style="color: #0000ff;">void</span> Plot_Data<span style="color: #000000;">&#40;</span>string strTemplate, string strData<span style="color: #000000;">&#41;</span> 
+<span style="color: #000000;">&#123;</span>
+	<span style="color: #008000;">// Create a graph window from a Template</span>
+	GraphPage gp;			
+	<span style="color: #0000ff;">BOOL</span> bOK <span style="color: #000080;">=</span> gp.<span style="color: #000000;">Create</span><span style="color: #000000;">&#40;</span>strTemplate, CREATE_VISIBLE<span style="color: #000000;">&#41;</span>;
+	<span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span> <span style="color: #000040;">!</span>bOK <span style="color: #000000;">&#41;</span>
+		<span style="color: #0000ff;">return</span>;
+	
+	<span style="color: #008000;">// Attach the first layer (0) to a GraphLayer object	</span>
+	GraphLayer gl <span style="color: #000080;">=</span> gp.<span style="color: #000000;">Layers</span><span style="color: #000000;">&#40;</span><span style="color: #0000dd;">0</span><span style="color: #000000;">&#41;</span>; 
+	
+	<span style="color: #008000;">//Attach a dataset to a Curve object	</span>
+	Curve crv<span style="color: #000000;">&#40;</span>strData<span style="color: #000000;">&#41;</span>; 
+	
+	<span style="color: #008000;">// Add the Curve to the graph layer	</span>
+	<span style="color: #0000ff;">int</span> nPlot <span style="color: #000080;">=</span> gl.<span style="color: #000000;">AddPlot</span><span style="color: #000000;">&#40;</span>crv<span style="color: #000000;">&#41;</span>;	
+	<span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span>nPlot <span style="color: #000080;">&gt;=</span> <span style="color: #0000dd;">0</span><span style="color: #000000;">&#41;</span>	
+	<span style="color: #000000;">&#123;</span>			
+		<span style="color: #008000;">// Set plot color to Green(2)</span>
+		gl.<span style="color: #000000;">DataPlots</span><span style="color: #000000;">&#40;</span>nPlot<span style="color: #000000;">&#41;</span>.<span style="color: #000000;">SetColor</span><span style="color: #000000;">&#40;</span><span style="color: #0000dd;">2</span>, <span style="color: #0000ff;">TRUE</span><span style="color: #000000;">&#41;</span>;
+		
+		<span style="color: #008000;">// Rescale this graph layer</span>
+		gl.<span style="color: #000000;">Rescale</span><span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>;
+	<span style="color: #000000;">&#125;</span>
+<span style="color: #000000;">&#125;</span></pre>
+<p>The Plot_Data function takes two arguments: (1) the template name and (2) the name of a Y dataset to include (plot) in the layer.
+</p>
+<ol start="7">
+<li>Click the <b>Build</b> button <a  class="image"><img alt="Button Build.png" src="../images/Organizing_and_Accessing_Origin_C_Functions/Button_Build.png?v=14957" width="23"  /></a> to compile and link the file.</li>
+</ol>
+<ol start="8">
+<li>Drag-and-drop the file Test.c from the User subfolder branch of the Workspace tree, to the Project subfolder. (<b>Hint:</b> You may need to first expand the User subfolder branch to display the Test.c entry prior to dragging the file).</li>
+</ol>
+<ol start="9">
+<li>Go back to the Origin interface and save the project by clicking the <b>Save</b> button <a  class="image"><img alt="Button Save Project.png" src="../images/Organizing_and_Accessing_Origin_C_Functions/Button_Save_Project.png?v=1393" width="23"  /></a> on the Standard Toolbar.  Give the project the name Test.OPJ, and save it in a location of your choosing.</li>
+</ol>
+<ol start="10">
+<li>The Origin C file, Test.c, is now saved with the Project. To verify this, close the project, and go back to Code Builder. You will see that there are no entries under the Project subfolder of the Workspace tree. Now go back to Origin interface and reopen the project.  Go to Code builder and verify that Test.c is now listed under the Project subfolder (<b>Hint:</b> you may need to expand the Project subfolder branch to see the Test.c entry).</li>
+</ol>
+<h2><a name="Associating_your_Programs_with_Visual_Objects"></a><span class="mw-headline">Associating your Programs with Visual Objects</span></h2>
+<p>You will now learn how to create a button on a worksheet and program the button to call the Origin C function in the Test.c file that you saved with the project.
+</p>
+<ol><li>Open the Test.OPJ project that you saved under step 9 (<a href="../../Tutorial/Tutorial/Organizing_and_Accessing_Origin_C_Functions.html#Saving_your_Origin_C_Function_with_your_Project" title="Tutorial:Organizing and Accessing Origin C Functions">previous section</a>). </li>
+<li>Highlight the A(X) and B(Y) columns, right-click and select <b>Fill Columns With: Row Numbers.</b>  </li>
+<li>From the menu, select <b>Format: Worksheet</b> to open the <b>Worksheet Properties</b> dialog box.</li>
+<li>In the <b>Size</b> tab, <b>Worksheet Measurement</b> branch, set the <b>Gap from Top</b> to <b>40</b> and click <b>OK</b> to close the dialog.</li></ol>
+<dl><dd><a  class="image"><img alt="Organizing and Accessing Origin C Functions 1.png" src="../images/Organizing_and_Accessing_Origin_C_Functions/Organizing_and_Accessing_Origin_C_Functions_1.png?v=7102" width="335"  /></a></dd></dl>
+<p>The worksheet now has sufficient space above the column headings to add a text label.
+</p><p>Right-click in the area directly above the two columns and choose <b>Add Text</b>.
+</p>
+<ol start="5">
+<li>At the cursor, type: <b>Plot Data</b>.</li>
+</ol>
+<ol start="6">
+<li>Click once outside the text label to deselect it.</li>
+</ol>
+<ol start="7">
+<li>Right-click on the text label and choose <b>Programming Control</b> to open the <b>Programming Control</b> dialog box. (<b>Hint:</b> Please choose <b>Label Control</b> in Origin 7.5)</li>
+</ol>
+<ol start="8">
+<li>From the <b>Script, Run After</b> drop-down list, choose <b>Button Up</b>.</li>
+</ol>
+<ol start="9">
+<li>Type the following script in the text box at the bottom of the dialog box:</li>
+</ol>
+<pre>Plot_Data(&quot;scatter&quot;,&quot;book1_b&quot;);</pre>
+<ol start="10">
+<li>Click <b>OK</b>. </li>
+</ol>
+<p>Your text label will now look like a button.  
+</p>
+<dl><dd><a  class="image"><img alt="Organizing and Accessing Origin C Functions 2.png" src="../images/Organizing_and_Accessing_Origin_C_Functions/Organizing_and_Accessing_Origin_C_Functions_2.png?v=7104" width="335"  /></a></dd></dl>
+<ol start="11">
+<li>Click the <b>Plot Data</b> button on your worksheet.</li>
+</ol>
+<ol start="12">
+<li>The Plot_Data function in your Test.c file is called, and a scatter plot is created.</li>
+</ol>
+<table class="note">
+
+<tr>
+<td><b>Notes:</b> The script behind the button assumes that you have data in column B(Y) of the Data1 worksheet and that there is an associated X data set.
+</td></tr></table>
+<h2><a name="Loading_and_Compiling_your_Origin_C_Function_from_Script"></a><span class="mw-headline">Loading and Compiling your Origin C Function from Script</span></h2>
+<p>In this tutorial we learned how to save an Origin C function along with the project file and then access the function from the Origin interface.  Saving an Origin C file with a project limits access to functions within that file to only that project.  When a new project is opened, the functions are not available any more. 
+</p><p>To access functions in an Origin C file that is saved on disk, the file can be programmatically loaded and compiled using LabTalk script. The script command for performing the programmatic load and compile is run.LoadOC.  Refer to the <b>LabTalk</b> Help files (<b>Help: Programming: Labtalk</b>) for more information on using this command.
+</p><p>This concludes the <b>Origin C Functions</b> tutorial.
+</p>
+
+
+
+
+

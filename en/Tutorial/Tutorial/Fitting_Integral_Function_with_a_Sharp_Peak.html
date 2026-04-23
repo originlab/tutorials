@@ -1,0 +1,211 @@
+<h1 class="firstHeading">4.2.2.24 Fitting Integral Function with a Sharp Peak</h1><p class='urlname' style='display: none'>Fitting-Integral-SharpPeak</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">Example and Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Import_Data"><span class="tocnumber">3.1</span> <span class="toctext">Import Data</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Define_Fitting_Function"><span class="tocnumber">3.2</span> <span class="toctext">Define Fitting Function</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Fit_the_Curve"><span class="tocnumber">3.3</span> <span class="toctext">Fit the Curve</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Fitting_Results"><span class="tocnumber">3.4</span> <span class="toctext">Fitting Results</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Sample_Data"><span class="tocnumber">3.5</span> <span class="toctext">Sample Data</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>In this tutorial, we will show you how to define an integral fitting function with a sharp peak in the integral function, and perform a fit of the data using this fitting function.
+</p><p>Because the integral function contains a sharp peak, the integral should be performed in three segments so that the sharp peak can be integrated in a narrow interval.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 9.0 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to: 
+</p>
+<ul><li> Define an integral fitting function.</li>
+<li> Integrate a function with a sharp peak.</li>
+<li> Divide the integral interval into several segments.</li></ul>
+<h2><a name="Example_and_Steps"></a><span class="mw-headline">Example and Steps</span></h2>
+<h3><a name="Import_Data"></a><span class="mw-headline">Import Data</span></h3>
+<ol><li> Open a new workbook.</li>
+<li> Copy data in <a href="#Sample_Data">Sample Data</a> to the workbook.</li>
+<li> Highlight column B, and select <b>Plot: Symbol: Scatter</b> from Origin menu. The graph should look like:</li></ol>
+<dl><dt><dl><dd><a  class="image"><img alt="Fit Integral Peak G1.png" src="../images/Fitting_Integral_Function_with_a_Sharp_Peak/Fit_Integral_Peak_G1.png?v=13140" width="509"  /></a></dt></dl></dd></dl>
+<h3><a name="Define_Fitting_Function"></a><span class="mw-headline">Define Fitting Function</span></h3>
+<p>The fitting integral function is described as follows:
+</p>
+<dl><dd><img src="../images/Fitting_Integral_Function_with_a_Sharp_Peak/math-ba2599fbd2266a09de6f0d189020ad62.png?v=0" title="y=\log (\int_{0}^{1} \frac{1}{\sqrt{2\pi}b}e^{-\frac{(t-a)^2}{2b^2}-xt}\, dt)" alt="y=\log (\int_{0}^{1} \frac{1}{\sqrt{2\pi}b}e^{-\frac{(t-a)^2}{2b^2}-xt}\, dt)" class="tex"/></dd></dl>
+<p>where a and b are parameters in the fitting function.
+</p><p>Initial parameters are: a=1e-4, b=1e-4. Note that the integral function contains a peak whose center is about a and width is 2b. And the peak's width (2e-4) is very narrow compared with the integral interval [0,1]. To make sure it is integrated correctly at the neighborhood of the peak center, the integral interval [0,1] is divided into three segments: [0,a-5*b], [a-5*b,a+5*b], [a+5*b,1]. It is integrated in each segment, and then the three integrals are summed up.
+</p><p>The fitting function can be defined using the <b>Fitting Function Builder</b> tool.
+</p>
+<ol>
+<li> Select <b>Tools: Fitting Function Builder</b> from Origin menu.
+<li> In the <b>Fitting Function Builder</b> dialog's <b>Goal</b> page, click <b>Next</b> button.
+<li> In the <b>Name and Type</b> page, select <b>User Defined</b> from <b>Select or create a Category</b> drop-down list, type <b>fintpeak</b> in the <b>Function Name</b> field, and select <b>Expression</b> in <b>Function Type</b> group, check <b>Include Integration During Fitting</b> check box. And click <b>Next</b> button.
+<li> In the <b>Integrand</b> page, type <b>myint</b> in <b>Integrand Name</b> edit box, <b>t</b> in <b>Integration Variable</b> edit box and <b>a, b, x</b> in <b>Arguments</b> edit box. Type the following script in <b>Integrand Function</b> box.
+<pre class="lt" style="font-family:monospace;">return <span style="color: #0000dd;">1</span><span style="color: #000080;">/</span><span style="color: #000000;">&#40;</span>sqrt<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">2</span><span style="color: #000080;">*</span>pi<span style="color: #000000;">&#41;</span><span style="color: #000080;">*</span>b<span style="color: #000000;">&#41;</span><span style="color: #000080;">*</span>exp<span style="color: #000000;">&#40;</span><span style="color: #000080;">-</span><span style="color: #000000;">&#40;</span>t<span style="color: #000080;">-</span>a<span style="color: #000000;">&#41;</span><span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000080;">/</span><span style="color: #000000;">&#40;</span><span style="color: #0000dd;">2</span><span style="color: #000080;">*</span>b<span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000000;">&#41;</span><span style="color: #000080;">-</span>x<span style="color: #000080;">*</span>t<span style="color: #000000;">&#41;</span>;</pre>
+<p>And click <b>Next</b> button.
+</p>
+<li> In the <b>Variables and Parameters</b> page, type <b>a, b</b> in the <b>Parameters</b> field. Click <b>Next</b> button.
+<li> In the <b>Expression Function</b> page, click <b>Parameters</b> tab, and set <b>Initial Value</b> for parameters a and b to 1e-4,  click <b>Integrand</b> tab, and set <b>Value</b> for <b>Lower Limit</b> and <b>Upper Limit</b> to 0 and 1, <b>Value</b> for <b>a</b>, <b>b</b>, <b>x</b> to a, b, x respectively.
+<li> In the <b>Expression Function</b> page, click <b>Insert</b> button. In the <b>Quick Check</b> group, type 0 in <b>x=</b> edit box, click <b>Evaluate</b> button, and it shows y=9.3e-21. This implies that the peak is not integrated correctly because y should approach 1 for x=0. Divide the integral into three segments, and type following script in <b>Function Body</b> box.
+<pre class="lt" style="font-family:monospace;">integral<span style="color: #000000;">&#40;</span>myint, <span style="color: #0000dd;">0</span>, a<span style="color: #000080;">-</span><span style="color: #0000dd;">5</span><span style="color: #000080;">*</span>b, a ,b ,x<span style="color: #000000;">&#41;</span><span style="color: #000080;">+</span>integral<span style="color: #000000;">&#40;</span>myint, a<span style="color: #000080;">-</span><span style="color: #0000dd;">5</span><span style="color: #000080;">*</span>b, a<span style="color: #000080;">+</span><span style="color: #0000dd;">5</span><span style="color: #000080;">*</span>b, a ,b ,x<span style="color: #000000;">&#41;</span><span style="color: #000080;">+</span>
+integral<span style="color: #000000;">&#40;</span>myint, a<span style="color: #000080;">+</span><span style="color: #0000dd;">5</span><span style="color: #000080;">*</span>b, <span style="color: #0000dd;">1</span>, a ,b ,x<span style="color: #000000;">&#41;</span></pre>
+<p>Click <b>Evaluate</b> button again, and it shows y=0.84, hence it is clear that the peak is integrated correctly this time.
+</p>
+<li> In the <b>Expression Function</b> page, update the script in <b>Function Body</b> box as follows.
+<pre class="lt" style="font-family:monospace;">log<span style="color: #000000;">&#40;</span>integral<span style="color: #000000;">&#40;</span>myint, <span style="color: #0000dd;">0</span>, a<span style="color: #000080;">-</span><span style="color: #0000dd;">5</span><span style="color: #000080;">*</span>b, a ,b ,x<span style="color: #000000;">&#41;</span><span style="color: #000080;">+</span>integral<span style="color: #000000;">&#40;</span>myint, a<span style="color: #000080;">-</span><span style="color: #0000dd;">5</span><span style="color: #000080;">*</span>b, a<span style="color: #000080;">+</span><span style="color: #0000dd;">5</span><span style="color: #000080;">*</span>b, a ,b ,x<span style="color: #000000;">&#41;</span>
+<span style="color: #000080;">+</span>integral<span style="color: #000000;">&#40;</span>myint, a<span style="color: #000080;">+</span><span style="color: #0000dd;">5</span><span style="color: #000080;">*</span>b, <span style="color: #0000dd;">1</span>, a ,b ,x<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#41;</span></pre>
+<p>Click <b>Finish</b> button.
+</p>
+</ol>
+<h3><a name="Fit_the_Curve"></a><span class="mw-headline">Fit the Curve</span></h3>
+<ol><li> Select <b>Analysis: Fitting: Nonlinear Curve Fit</b> from Origin menu. In the <b>NLFit</b> dialog, select <b>Settings: Function Selection</b>, in the page select <b>User Defined</b> from the <b>Category</b> drop-down list and <b>fintpeak</b> function from the <b>Function</b> drop-down list. <b>Note</b> that initial parameters have been set during defining the fitting function.</li>
+<li> Click <b>Fit</b> button to fit the curve.</li></ol>
+<h3><a name="Fitting_Results"></a><span class="mw-headline">Fitting Results</span></h3>
+<p>The fitted curve should look like:
+</p>
+<dl><dt><dl><dd><a  class="image"><img alt="Fit Integral Peak G2.png" src="../images/Fitting_Integral_Function_with_a_Sharp_Peak/Fit_Integral_Peak_G2.png?v=42020" width="492"  /></a></dt></dl></dd></dl>
+<p>Fitted Parameters are shown as follows:
+</p>
+<table class="simple">
+<tr>
+<th><b>Parameter</b>
+</th>
+<th><b>Value</b>
+</th>
+<th><b>Standard Error</b>
+</th></tr>
+<tr>
+<th><b>a</b>
+</th>
+<td>4.98302E-4
+</td>
+<td>1.07593E-5
+</td></tr>
+<tr>
+<th><b>b</b>
+</th>
+<td>1.94275E-4
+</td>
+<td>8.21815E-6
+</td></tr></table>
+<p>The <b>Adj. R-Square</b> is 0.99799. Thus the fitting result is very good.
+</p>
+<h3><a name="Sample_Data"></a><span class="mw-headline">Sample Data</span></h3>
+<table class="simple">
+<tr>
+<th width="80px">x
+</th>
+<th width="80px">y
+</th></tr>
+
+<tr>
+<td>0
+</td>
+<td> -0.00267
+</td></tr>
+
+<tr>
+<td>60
+</td>
+<td> -0.01561
+</td></tr>
+
+<tr>
+<td>240
+</td>
+<td> -0.05268
+</td></tr>
+
+<tr>
+<td>500
+</td>
+<td> -0.10462
+</td></tr>
+
+<tr>
+<td>1000
+</td>
+<td> -0.22092
+</td></tr>
+
+<tr>
+<td>1500
+</td>
+<td> -0.31004
+</td></tr>
+
+<tr>
+<td>2000
+</td>
+<td> -0.40695
+</td></tr>
+
+<tr>
+<td>3000
+</td>
+<td> -0.61328
+</td></tr>
+
+<tr>
+<td>4000
+</td>
+<td> -0.75884
+</td></tr>
+
+<tr>
+<td>5000
+</td>
+<td> -0.9127
+</td></tr>
+
+<tr>
+<td>6000
+</td>
+<td> -0.98605
+</td></tr>
+
+<tr>
+<td>7000
+</td>
+<td> -1.18957
+</td></tr>
+
+<tr>
+<td>9000
+</td>
+<td> -1.43831
+</td></tr>
+
+<tr>
+<td>10000
+</td>
+<td> -1.41393
+</td></tr>
+
+<tr>
+<td>12000
+</td>
+<td> -1.61458
+</td></tr>
+
+<tr>
+<td>15000
+</td>
+<td> -1.88098
+</td></tr>
+
+<tr>
+<td>20000
+</td>
+<td> -2.07792
+</td></tr></table>
+
+
+
+
+
+

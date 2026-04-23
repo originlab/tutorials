@@ -1,0 +1,84 @@
+<h1 class="firstHeading">6.17.1 2D Waterfall</h1><p class='urlname' style='display: none'>2D-Waterfall</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Create_Waterfall_with_Y_Colormap"><span class="tocnumber">3.1</span> <span class="toctext">Create Waterfall with Y Colormap</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Create_Waterfall_with_Z_Colormap"><span class="tocnumber">3.2</span> <span class="toctext">Create Waterfall with Z Colormap</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Waterfall/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Waterfall/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=147" target="_blank">Find Max and Min of Colormap Levels of Grouped Plots</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=383" target="_blank">Browser Graph Stack</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=379" target="_blank">Flip Through Plots in Browser Graph</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Waterfall/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Waterfall/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/how-to-make-a-waterfall-graph-with-subgrouped-plots" target="_blank">How to Make a Waterfall Graph with Subgroups</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/flatten-waterfall-plot" target="_blank">Flatten Waterfall Plot</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/plotting-waterfall-plots-with-yz-lines" target="_blank">Plotting Waterfall Plots with YZ Lines</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/browser-graph-improvements-in-origin-2021" target="_blank">Browser Graph Improvements in Origin 2021</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Origin's <b>Waterfall</b> plot uses a dataset stored in a parameter row to set the Z offset and create a color map with Y or Z values.
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will demonstrate how to:
+</p>
+<ul><li>Create a 2D Waterfall color map with Y or Z values</li>
+<li>Customize colormap levels and palette</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="Create_Waterfall_with_Y_Colormap"></a><span class="mw-headline">Create Waterfall with Y Colormap</span></h3>
+<ol><li>Open the sample project "Waterfall Plots - Waterfall with Y Colormap" under category "Waterfall" in Learning Center(pressing F1 to open it).
+<dl><dd><a  class="image"><img alt="Waterfall Graph 00.png" src="../images/Waterfall/700px-Waterfall_Graph_00.png?v=74540" width="700"   /></a></dd></dl></li>
+<li>Select the <b>Waterfall with Y Colormap</b> window to activate it. Click in the upper left corner of the worksheet to select all data. </li>
+<li>Right-click and select <b>Plot &gt; 3D&#160;: Y Color Mapped 3D Waterfall</b> to create a Waterfall with Y color mapping. (Alternatively, select the <b>Y Color Mapped Waterfall</b> button from the 2D Graphs toolbar.) A graph resembling the image below will appear:
+<dl><dd><a  class="image"><img alt="Waterfall Graph 01.png" src="../images/Waterfall/Waterfall_Graph_01.png?v=74546" width="628"  /></a></dd>
+<dd>Note that the values stored in the user-defined parameter row <b>Frequency (Hz)</b> have been automatically picked up as <b>Z Value Source</b>. Confirm this by double-clicking the plot to open the <b>Plot Details</b> dialog box and selecting <b>Layer1</b> in the left panel.  Select the <b>Miscellaneous</b> tab and observe that the <b>Z Value Source</b> is set to <b>Frequency (Hz)</b>.</dd>
+<dd><a  class="image"><img alt="Waterfall Graph 02.png" src="../images/Waterfall/Waterfall_Graph_02.png?v=74547" width="818"  /></a></dd></dl></li>
+<li>With the <b>Plot Details</b> dialog box still open, in the left panel, select the first line plot under Layer1.   Select the <b>Colormap</b> tab in the right panel. Click on the <b>Level…</b> column header to open the <b>Set Levels</b> dialog box. Set levels as shown below:
+<dl><dd><a  class="image"><img alt="Waterfall Graph 03.png" src="../images/Waterfall/Waterfall_Graph_03.png?v=74548" width="837"  /></a></dd>
+<dd> Click <b>OK</b> to close the Set Levels dialog box.</dd></dl></li>
+<li>Click on the <b>Fill…</b> column header to open the <b>Fill</b> dialog box. Select <b>Load Palette</b>, and choose the <b>Rainbow</b> palette from the palette list.  Click <b>OK</b> button to close the <b>Fill</b> dialog box. 
+<dl><dd><a  class="image"><img alt="Waterfall Graph 04.png" src="../images/Waterfall/Waterfall_Graph_04.png?v=74549" width="528"  /></a></dd>
+<dd>Click <b>OK</b> to apply these settings and close the <b>Plot Details</b> dialog box.  </dd></dl></li>
+<li>Click on Z axis, on the popup mini toolbar,  click button <b>Axis Scale</b> to open the <b>Axis Scale</b> dialog box.  Set <b>From</b>, <b>To</b>and <b>Increment</b> as below.
+<dl><dd><a  class="image"><img alt="Waterfall Graph 05.png" src="../images/Waterfall/Waterfall_Graph_05.png?v=74554" width="775"  /></a></dd></dl></li>
+<li>Click <b>Y</b> axes, on the popup mini toolbar,  click button <b>Show Opposite Axis</b> to show the Y axis on the other side.
+<dl><dd><a  class="image"><img alt="Waterfall Graph 06.png" src="../images/Waterfall/Waterfall_Graph_06.png?v=74551" width="632"  /></a></dd>
+<dd>Click <b>OK</b> to apply changes and close the dialog box.  The final graph should look like this:</dd>
+<dd><a  class="image"><img alt="Waterfall Graph 07.png" src="../images/Waterfall/Waterfall_Graph_07.png?v=74552" width="590"  /></a></dd></dl></li></ol>
+<h3><a name="Create_Waterfall_with_Z_Colormap"></a><span class="mw-headline">Create Waterfall with Z Colormap</span></h3>
+<ol><li>Open the sample project "Waterfall Plots - Waterfall with Z Colormap" under category "Waterfall" in Learning Center(pressing F1 to open it).
+<dl><dd><a  class="image"><img alt="Waterfall Graph 08a.png" src="../images/Waterfall/700px-Waterfall_Graph_08a.png?v=74543" width="700"   /></a></dd></dl></li>
+<li>Select the <b>Waterfall with Z Colormap</b> window to activate. Click in the upper left corner of the worksheet to select all data. </li>
+<li>On the main menu, click <b>Plot</b>, then point to <b>3D</b>, and then select <b>Z Color Mapped 3D Waterfall</b> to create a Waterfall with Z color mapping. (Alternatively, select the <b>Z Color Mapped Waterfall</b> button from the 2D Graphs toolbar.) 
+<dl><dd><a  class="image"><img alt="Waterfall Graph 08.png" src="../images/Waterfall/Waterfall_Graph_08.png?v=74555" width="612"  /></a></dd></dl></li>
+<li> Double-click the plot to open the Plot Details dialog box. In the left panel, select the first line plot under Layer1. Select the <b>Colormap</b> tab in the right panel. Click the <b>Level…</b> column header to open the Set Levels dialog box. Set <b>Major Levels</b> to <b>10</b>.  
+<dl><dd><a  class="image"><img alt="Waterfall Graph 09.png" src="../images/Waterfall/Waterfall_Graph_09.png?v=74556" width="528"  /></a></dd>
+<dd> Click <b>OK</b> to close the Set Levels dialog box.</dd></dl></li>
+<li>Click the <b>Fill…</b> column header to open the Fill dialog box.  Select <b>Limited Mixing</b> and set the <b>From</b> color to <b>red</b> and the <b>To</b> color to <b>blue</b>. Click <b>OK</b> to apply these settings and close the dialog box.  Click <b>OK</b> to close the Plot Details dialog box.
+<dl><dd><a  class="image"><img alt="Waterfall Graph 10.png" src="../images/Waterfall/Waterfall_Graph_10.png?v=74557" width="528"  /></a></dd></dl></li>
+<li>Click on Z axis, on the popup mini toolbar,  click button <b>Axis Scale</b> to open the <b>Axis Scale</b> dialog box.  Set <b>From</b>, <b>To</b>and <b>Increment</b> as below.
+<dl><dd><a  class="image"><img alt="Waterfall Graph 10a.png" src="../images/Waterfall/Waterfall_Graph_10a.png?v=74561" width="814"  /></a></dd></dl></li>
+<li>Click <b>Y</b> axes, on the popup mini toolbar,  click button <b>Show Opposite Axis</b> to show the Y axis on the other side.
+<dl><dd><a  class="image"><img alt="Waterfall Graph 10b.png" src="../images/Waterfall/Waterfall_Graph_10b.png?v=74559" width="598"  /></a></dd>
+<dd>Your final graph should look like this:</dd>
+<dd><a  class="image"><img alt="Waterfall Graph 11.png" src="../images/Waterfall/Waterfall_Graph_11.png?v=74560" width="608"  /></a></dd></dl></li></ol>
+
+
+
+
+
+

@@ -1,0 +1,181 @@
+<h1 class="firstHeading">4.2.2.25 Fitting with a Piecewise Linear Function</h1><p class='urlname' style='display: none'>Fitting-Piecewise-Linear</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">Example and Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Import_Data"><span class="tocnumber">3.1</span> <span class="toctext">Import Data</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Define_Fitting_Function"><span class="tocnumber">3.2</span> <span class="toctext">Define Fitting Function</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Define_Derived_Parameters_for_Slopes_and_Intercepts"><span class="tocnumber">3.3</span> <span class="toctext">Define Derived Parameters for Slopes and Intercepts</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Fit_the_Curve"><span class="tocnumber">3.4</span> <span class="toctext">Fit the Curve</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Fitting_Results"><span class="tocnumber">3.5</span> <span class="toctext">Fitting Results</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>In this tutorial we will show you how to define a piecewise fitting function consisting of two linear segments, perform a fit of the data using this fitting function, and calculate the intersection location for two linear segments from the fitting result.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 8.6 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to: 
+</p>
+<ul><li> Define a piecewise (conditional) fitting function.</li>
+<li> Auto initialize parameters.</li>
+<li> Calculate the intersection location of the piecewise fit lines.</li></ul>
+<h2><a name="Example_and_Steps"></a><span class="mw-headline">Example and Steps</span></h2>
+<h3><a name="Import_Data"></a><span class="mw-headline">Import Data</span></h3>
+<ol><li> Start with an empty workbook. Select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Curve Fitting</i> subfolder and find the file <i>Step01.dat</i>. Drag-and-drop this file into the empty worksheet to import it.</li>
+<li> Right click on the <b>Sensor E x</b> column (column J), and select <b>Set As: X</b> from the context menu. Highlight <b>Sensor E y</b> column, and select <b>Plot: Symbol: Scatter</b> from Origin menu. The graph should look like:
+<dl><dd><a  class="image"><img alt="Fit PWL G1.png" src="../images/Fitting_with_a_Piecewise_Linear_Function/Fit_PWL_G1.png?v=11919" width="467"  /></a></dd></dl></li></ol>
+<h3><a name="Define_Fitting_Function"></a><span class="mw-headline">Define Fitting Function</span></h3>
+<p>From the above graph, the curve consists of two segments of lines. It can be fitted with a piecewise linear function. The function can be expressed as:
+</p>
+<dl><dd><img src="../images/Fitting_with_a_Piecewise_Linear_Function/math-118b6e761a829c9a3cc596f21246cd23.png?v=0" title="y =&#10;\begin{cases}&#10;\frac{y_1(x_3-x)+y_3(x-x_1)}{x_3-x_1}, &amp; \mbox{if } x&lt;x_3 \\&#10;\frac{y_3(x_2-x)+y_2(x-x_3)}{x_2-x_3}, &amp; \mbox{if } x \ge x_3&#10;\end{cases}" alt="y =&#10;\begin{cases}&#10;\frac{y_1(x_3-x)+y_3(x-x_1)}{x_3-x_1}, &amp; \mbox{if } x&lt;x_3 \\&#10;\frac{y_3(x_2-x)+y_2(x-x_3)}{x_2-x_3}, &amp; \mbox{if } x \ge x_3&#10;\end{cases}" class="tex"/></dd></dl>
+<p>where <b>x1</b> and <b>x2</b> are x values of the curve's endpoints and they are fixed during fitting, <b>x3</b> is the x value at the intersection of two segments, and <b>y1</b>, <b>y2</b>, <b>y3</b> are y values at <img src="../images/Fitting_with_a_Piecewise_Linear_Function/math-bb72ab647a46b52c993ced389f95c09a.png?v=0" title="\ x_i, \ i=1, 2, 3" alt="\ x_i, \ i=1, 2, 3" class="tex"/> respectively.
+</p><p>The fitting function can be defined using the <b>Fitting Function Builder</b> tool.
+</p>
+<ol>
+<li> Select <b>Tools: Fitting Function Builder</b> from Origin menu.
+<li> In the <b>Fitting Function Builder</b> dialog's <b>Goal</b> page, click <b>Next</b> button.
+<li> In the <b>Name and Type</b> page, select <b>User Defined</b> from <b>Select or create a Category</b> drop-down list, type <b>pwl2s</b> in the <b>Function Name</b> field, and select <b>Origin C</b> in <b>Function Type</b> group. And click <b>Next</b> button.
+<li> In the <b>Variables and Parameters</b> page, type <b>x1,y1,x2,y2,x3,y3</b> in the <b>Parameters</b> field. Click <b>Next</b> button.
+<li> In the <b>Origin C Fitting Function</b> page, click the <a  class="image"><img alt="User-Defined Fitting Functions-2.png" src="../images/Fitting_with_a_Piecewise_Linear_Function/User-Defined_Fitting_Functions-2.png?v=4571" width="19"  /></a> button on the right of the <b>Function Body</b> edit box and define the fitting function in <b>Code Builder</b> as follows.
+<pre class="oc" style="font-family:monospace;">   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span> x <span style="color: #000080;">&lt;</span> x3 <span style="color: #000000;">&#41;</span>
+      y <span style="color: #000080;">=</span> <span style="color: #000000;">&#40;</span>y1<span style="color: #000040;">*</span><span style="color: #000000;">&#40;</span>x3<span style="color: #000040;">-</span>x<span style="color: #000000;">&#41;</span><span style="color: #000040;">+</span>y3<span style="color: #000040;">*</span><span style="color: #000000;">&#40;</span>x<span style="color: #000040;">-</span>x1<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#41;</span><span style="color: #000040;">/</span><span style="color: #000000;">&#40;</span>x3<span style="color: #000040;">-</span>x1<span style="color: #000000;">&#41;</span>;
+   <span style="color: #0000ff;">else</span>
+      y <span style="color: #000080;">=</span> <span style="color: #000000;">&#40;</span>y3<span style="color: #000040;">*</span><span style="color: #000000;">&#40;</span>x2<span style="color: #000040;">-</span>x<span style="color: #000000;">&#41;</span><span style="color: #000040;">+</span>y2<span style="color: #000040;">*</span><span style="color: #000000;">&#40;</span>x<span style="color: #000040;">-</span>x3<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#41;</span><span style="color: #000040;">/</span><span style="color: #000000;">&#40;</span>x2<span style="color: #000040;">-</span>x3<span style="color: #000000;">&#41;</span>;</pre>
+<p>Click <b>Compile</b> button to compile the function body. Then click <b>Return to Dialog</b> button. Click <b>Next</b> button.
+</p>
+<li> In the <b>Parameter Initialization Code</b> page, click the <a  class="image"><img alt="User-Defined Fitting Functions-2.png" src="../images/Fitting_with_a_Piecewise_Linear_Function/User-Defined_Fitting_Functions-2.png?v=4571" width="19"  /></a> button on the right of the <b>Initialization Code</b> edit box and initialize the fitting parameters in <b>Code Builder</b> as follows.
+<pre class="oc" style="font-family:monospace;">   <span style="color: #0000ff;">int</span> n1, n2, n3;
+	
+   x_data.<span style="color: #000000;">GetMinMax</span><span style="color: #000000;">&#40;</span> x1, x2, <span style="color: #000040;">&amp;</span>n1, <span style="color: #000040;">&amp;</span>n2 <span style="color: #000000;">&#41;</span>;
+   x3 <span style="color: #000080;">=</span> x1 <span style="color: #000040;">+</span> <span style="color: #000000;">&#40;</span>x2 <span style="color: #000040;">-</span> x1<span style="color: #000000;">&#41;</span><span style="color: #000040;">/</span><span style="color: #0000dd;">2</span>;
+	
+   y1 <span style="color: #000080;">=</span> y_data<span style="color: #000000;">&#91;</span>n1<span style="color: #000000;">&#93;</span>;
+   y2 <span style="color: #000080;">=</span> y_data<span style="color: #000000;">&#91;</span>n2<span style="color: #000000;">&#93;</span>;
+	
+   vector vd;
+   vd <span style="color: #000080;">=</span> <span style="color: #000000;">abs</span><span style="color: #000000;">&#40;</span> x_data <span style="color: #000040;">-</span> x3 <span style="color: #000000;">&#41;</span>;
+   <span style="color: #0000ff;">double</span> xta, xtb;
+   vd.<span style="color: #000000;">GetMinMax</span><span style="color: #000000;">&#40;</span> xta, xtb, <span style="color: #000040;">&amp;</span>n3 <span style="color: #000000;">&#41;</span>;
+   y3 <span style="color: #000080;">=</span> y_data<span style="color: #000000;">&#91;</span>n3<span style="color: #000000;">&#93;</span>;</pre>
+<p>Click <b>Compile</b> button to compile it. Then click <b>Return to Dialog</b> button. Click <b>Finish</b> button.
+</p>
+</ol>
+<h3><a name="Define_Derived_Parameters_for_Slopes_and_Intercepts"></a><span class="mw-headline">Define Derived Parameters for Slopes and Intercepts</span></h3>
+<p>During function defined process, you can also define some additional derived Parameters such as slopes and intercepts , which are computed from the function parameter values after the fitting process ends.<br />
+</p>
+<ol>
+<li>Click <b>&lt;&lt;Back</b> button twice to go back to <b>Variables and Parameters</b> page, type <b>a1,b1,a2,b2</b> in the <b>Derived Parameters</b> field. 
+<li>Click <b>Next</b> button four times to go to <b>Derived Parameters</b> page, fill in the <b>Meaning</b> column and type the equations in the <b>Derived Parameters Equations</b> area as follows, then click <b>Finish</b> button.<br />
+<i>a1=(y1*x3-y3*x1)/(x3-x1)</i>;<br />
+<i>b1=(-y1+y3)/(x3-x1)</i>;<br />
+<i>a2=(y3*x2-y2*x3)/(x2-x3)</i>;<br />
+<i>b2=(-y3+y2)/(x2-x3)</i>;<br />
+</ol>
+<ol>
+<a  class="image"><img alt="Piecewise slope and intercept.png" src="../images/Fitting_with_a_Piecewise_Linear_Function/Piecewise_slope_and_intercept.png?v=30124" width="534"  /></a>
+</ol>
+<h3><a name="Fit_the_Curve"></a><span class="mw-headline">Fit the Curve</span></h3>
+<ol>
+<li> Select <b>Analysis: Fitting: Nonlinear Curve Fit</b> from Origin menu. In the <b>NLFit</b> dialog, select <b>Settings: Function Selection</b>, in the page select <b>User Defined</b> from the <b>Category</b> drop-down list and <b>pwl2s</b> function from the <b>Function</b> drop-down list.
+<li> In the <b>NLFit</b> dialog, select <b>Parameters</b> tab, and fix parameters <b>x1</b>, <b>x2</b> as shown in the dialog.<br />
+<a  class="image"><img alt="Fit PWL FixP.png" src="../images/Fitting_with_a_Piecewise_Linear_Function/Fit_PWL_FixP.png?v=11922" width="388"  /></a>
+<li> Click <b>Fit</b> button to fit the curve.
+</ol>
+<h3><a name="Fitting_Results"></a><span class="mw-headline">Fitting Results</span></h3>
+<p>The fitted curve should look like:
+</p>
+<dl><dt><dl><dd><a  class="image"><img alt="Fit PWL FitCurve 2.png" src="../images/Fitting_with_a_Piecewise_Linear_Function/Fit_PWL_FitCurve_2.png?v=40681" width="613"  /></a></dt></dl></dd></dl>
+<p>Fitted Parameters are shown as follows.
+</p>
+<table class="simple">
+<tr>
+<th><b>Parameter</b>
+</th>
+<th><b>Value</b>
+</th>
+<th><b>Standard Error</b>
+</th></tr>
+<tr>
+<th><b>x1</b>
+</th>
+<td>0.8
+</td>
+<td>0
+</td></tr>
+<tr>
+<th><b>y1</b>
+</th>
+<td> -0.0271
+</td>
+<td>0.01063
+</td></tr>
+<tr>
+<th><b>x2</b>
+</th>
+<td>60
+</td>
+<td>0
+</td></tr>
+<tr>
+<th><b>y2</b>
+</th>
+<td>0.95585
+</td>
+<td>0.0083
+</td></tr>
+<tr>
+<th><b>x3</b>
+</th>
+<td>22.26316
+</td>
+<td>0.58445
+</td></tr>
+<tr>
+<th><b>y3</b>
+</th>
+<td>0.66106
+</td>
+<td>0.01197
+</td></tr>
+<tr>
+<th><b>a1</b>
+</th>
+<td> -0.05275
+</td>
+<td>0.01123
+</td></tr>
+<tr>
+<th><b>b1</b>
+</th>
+<td>0.03206
+</td>
+<td>8.7153E-4
+</td></tr>
+<tr>
+<th><b>a2</b>
+</th>
+<td>0.48715
+</td>
+<td>0.01664
+</td></tr>
+<tr>
+<th><b>b2</b>
+</th>
+<td>0.00781
+</td>
+<td>3.86455E-4
+</td></tr></table>
+<p>Thus the intersection point for the two segments is (22.26316, 0.66106).
+</p><p><b>Note</b> that fitting with a piecewise linear function for more than two segments can be done in a similar way.
+</p>
+
+
+
+
+

@@ -1,0 +1,69 @@
+<h1 class="firstHeading">4.2.2.4 Global Fit for Different Functions with Shared Parameters</h1><p class='urlname' style='display: none'>Multi-Functions-Global-Fitting</p>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>This tutorial is aimed at solving the following problem: do global curve fitting on two or more curves using different function for each curve, but sharing some parameters, the shared parameter was common to all the datasets. This problem arises in a wide variety of scientific fields such as fiting for anisotropy spectrum.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 2015 SR1</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Select multiple datasets for global fitting.</li>
+<li>Set a switch parameter which connect all functions.</li>
+<li>Perform global fit with parameter sharing for multiple fitting functions.</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<ol>
+<li>
+Create a new workbook by clicking the <a  class="image"><img alt="Button New Workbook.png" src="../images/Multi_Functions_Global_Fitting/Button_New_Workbook.png?v=1383" width="23"  /></a> button.
+</li>
+<li>
+Click the <a  class="image"><img alt="Button Import Single ASCII.png" src="../images/Multi_Functions_Global_Fitting/Button_Import_Single_ASCII.png?v=52466" width="25"  /></a> to import the file <b>MultiFunctionsFit.dat</b> in the <i>&lt;Origin EXE Folder&gt;\Samples\Curve Fitting\</i> folder.
+</li>
+<li>
+Highlight column A, B and C and select the <b>Analysis: Fitting: Nonlinear Curve Fit</b> menu item to open the <b>NLFit</b> dialog.<br />
+
+The user defined fitting function will be build in next 3 steps, the functions are built based on the quantitative model below：<br />
+
+<img src="../images/Multi_Functions_Global_Fitting/math-84f1517acc4ea0900aff2093c34ff64f.png?v=0" title="Col(B):\;L_1=\frac{A_1e^{-t/t_0}+B_1}{A_2e^{-t/t_0}+B_2}" alt="Col(B):\;L_1=\frac{A_1e^{-t/t_0}+B_1}{A_2e^{-t/t_0}+B_2}" class="tex"/><br /> 
+
+<img src="../images/Multi_Functions_Global_Fitting/math-63034923ad23c06d8239d1bb9e4f1417.png?v=0" title="Col(C):\;L_2=A_2e^{-t/t_0}+B_2" alt="Col(C):\;L_2=A_2e^{-t/t_0}+B_2" class="tex"/><br />
+</li>
+<li>
+In the <b>Function Selection</b> page, choose the <b>&lt;new...&gt;</b> function from the <b>User Defined</b> category. 
+</li>
+<li>
+Enter "GlobalFit" as the function name, and set the Function Model and Function Type follows the graph below: <br />
+<a  class="image"><img alt="MultiFunctionsFit1.png" src="../images/Multi_Functions_Global_Fitting/MultiFunctionsFit1.png?v=30233" width="573"  /></a><br />
+Then, click <b>Next</b> to go to the variables and parameters page.
+</li>
+<li>
+Set the variables and parameters follows the graph below:<br /><a  class="image"><img alt="MultiFunctionsFit2.png" src="../images/Multi_Functions_Global_Fitting/MultiFunctionsFit2.png?v=30261" width="572"  /></a><br />
+Then, click <b>Next</b> to go to the Expression Function page.
+</li>
+<li>
+Type the expression which contained forluma of <img src="../images/Multi_Functions_Global_Fitting/math-2c6f3b6c16df97a1b00e04ff17e4906e.png?v=0" title="L_1" alt="L_1" class="tex"/> and <img src="../images/Multi_Functions_Global_Fitting/math-07cbd6c155424e110559a84df364be5a.png?v=0" title="L_2" alt="L_2" class="tex"/> in the function body box:<br />
+<code>s*(A1*exp(-t/t0)+B1)/(A2*exp(-t/t0)+B2)-(s-1)*(A2*exp(-t/t0)+B2)</code><br />
+The parameter <code>s</code> is a switch for global fitting, if <code>s=1</code>, the <img src="../images/Multi_Functions_Global_Fitting/math-2c6f3b6c16df97a1b00e04ff17e4906e.png?v=0" title="L_1" alt="L_1" class="tex"/> is used for fitting, if <code>s=0</code>, <img src="../images/Multi_Functions_Global_Fitting/math-07cbd6c155424e110559a84df364be5a.png?v=0" title="L_2" alt="L_2" class="tex"/> is used for fitting. The value of <code>s</code> will be controled in the following fitting procedure. Set the Initial Value of A1 and B1 to 0. Then, click <b>Finish</b>.<br />
+<a  class="image"><img alt="MultiFunctionsFit2-1.png" src="../images/Multi_Functions_Global_Fitting/MultiFunctionsFit2-1.png?v=30273" width="570"  /></a><br />
+</li>
+<li>
+Back to <b>NLFit</b> dialog, select GlobalFit function in User Defined Category. Go to the Data Selection Page, Select Global Fit mode from the Multi-Data Fit Mode drop-down list:<br />
+<a  class="image"><img alt="MultiFunctionsFit3.png" src="../images/Multi_Functions_Global_Fitting/MultiFunctionsFit3.png?v=30270" width="574"  /></a><br />
+</li>
+<li>
+Go to the <b>Parameters</b> tab. Check on the  <b>Share</b> check box for A2, B2 and t0, then Check on the  <b>Fixed</b> box for s and s_2 to fix their values to 1 and 0, respectively. The setting of s will control fitting Col(B) using <img src="../images/Multi_Functions_Global_Fitting/math-2c6f3b6c16df97a1b00e04ff17e4906e.png?v=0" title="L_1" alt="L_1" class="tex"/> while fitting Col(C) using <img src="../images/Multi_Functions_Global_Fitting/math-07cbd6c155424e110559a84df364be5a.png?v=0" title="L_2" alt="L_2" class="tex"/>.<br />
+<a  class="image"><img alt="MultiFunctionsFit4.png" src="../images/Multi_Functions_Global_Fitting/MultiFunctionsFit4.png?v=30276" width="306"  /></a><br />
+</li>
+<li>
+Click the <b>Fit</b> button to fit curves. You will get these results from the <b>Parameters</b> table of the report worksheet:<br />
+<a  class="image"><img alt="MultiFunctionsFit5.png" src="../images/Multi_Functions_Global_Fitting/MultiFunctionsFit5.png?v=30281" width="291"  /></a><br />
+</li>
+<li>
+The fitted curves will be added to the graph window. You can check the fitted curve for Col(B)/<img src="../images/Multi_Functions_Global_Fitting/math-2c6f3b6c16df97a1b00e04ff17e4906e.png?v=0" title="L_1" alt="L_1" class="tex"/> and Col(C)/<img src="../images/Multi_Functions_Global_Fitting/math-07cbd6c155424e110559a84df364be5a.png?v=0" title="L_2" alt="L_2" class="tex"/> in Sheet <b>FitNL1</b> by double clicking the Graphs.<br />
+<a  class="image"><img alt="MultiFunctionsFit6.png" src="../images/Multi_Functions_Global_Fitting/MultiFunctionsFit6.png?v=30284" width="397"  /></a><br />
+</li>
+</ol>
+
+
+
+
+
+

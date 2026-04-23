@@ -1,0 +1,88 @@
+<h1 class="firstHeading">6.12.8 Parametric Surface with Colormap from Data</h1><p class='urlname' style='display: none'>3D-ParaSurf-DataColormap</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a></li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=114" target="_blank">Introduction to Matrix</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=81" target="_blank">3D OpenGL Graphs</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=82" target="_blank">New 3D Parametric Function Plot</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=279" target="_blank">Plot 3D or Contour Graph from Virtual Matrix</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=26" target="_blank">Convert Worksheet to Matrix to Plot 3D Surface</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/matrix-surface-with-missing-values-and-special-contour-line" target="_blank">Graphing an Island as a 3D Surface Plot</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/creating-a-3d-surface-plot-with-profile-lines" target="_blank">Creating a 3D Surface Plot with Profile Lines</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/create-cylinder-and-colored-by-a-different-data-souce" target="_blank">Contour Plot on Cylindrical Coordinate</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/overlay-locations-on-a-3d-map" target="_blank">Overlay Locations on a 3D Map</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>This tutorial demonstrates how to create a 3D sphere using the data from three matrices. It also shows how the surface is filled to display the surface temperature contour using the data from a different matrix.
+</p>
+<dl><dd><a  class="image"><img alt="Parametric Surface with Colormap from Data 15.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_15.png?v=33762" width="436"  /></a></dd></dl>
+<p class="version" >Minimum Origin Version Required: Origin 2015 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li> Create a parametric surface from matrix data</li>
+<li> Set contour fill from another matrix</li>
+<li> Customize the 3D parametric surface plot</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<p>This tutorial is associated with <i>&lt;Origin EXE Folder&gt;\Samples\Tutorial Data.opj</i>.
+<br />
+Also, you can refer to this graph in Learning Center. (Select <b>Help: Learning Center</b> menu or press <b>F11</b> key , and then open <b>Graph Sample: 3D Function Plots</b>)
+</p>
+<ol><li>Open <b>Tutorial Data.opj</b> and browse to the <b>Parametric Surface with Colormap from Data</b> folder in <b>Project Explorer</b> (PE).</li>
+<li> Activate the matrix <i>FUNCA:1/4</i>, and highlight the data. Click the <a  class="image"><img alt="Button Multiple Color Map Surfaces.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Button_Multiple_Color_Map_Surfaces.png?v=8211" width="21"  /></a> button on the <b>3D and Contour Graph</b> toolbar to create a colormap surface as shown below. You can also create this colormap surface by selecting <b>Plot &gt; 3D&#160;: 3D Colormap Surface</b> in the main menu.
+<dl><dd><a  class="image"><img alt="Parametric Surface with Colormap from Data 01.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_01.png?v=33997" width="518"  /></a></dd></dl></li>
+<li> Double click on the plot to bring up the <b>Plot Details</b> dialog. In the <b>Surface</b> tab check the <b>Parametric Surface</b> box and set <b>X Matrix</b>, <b>Y Matrix</b> as <b>Mat(2)</b>, <b>Mat(3)</b> respectively. 
+<dl><dd><a  class="image"><img alt="Parametric Surface with Colormap from Data 02.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_02.png?v=13791" width="465"  /></a></dd>
+<dd>Click <b>OK</b> to close the dialog.</dd></dl></li>
+<li> In order to display the complete colormap surface in the axes area use the rescale <a  class="image"><img alt="Button Rescale.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Button_Rescale.png?v=48501" width="22"  /></a> button in the <b>Graph</b> toolbar. The colormap surface should appear as shown below:
+<dl><dd><a  class="image"><img alt="Parametric Surface with Colormap from Data 03.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_03.png?v=33998" width="518"  /></a></dd></dl></li>
+<li> Double click on the plot to open <b>Plot Details</b> dialog. This dialog box is used to customize the surface. In the <b>Fill</b> tab  Front Surface section deselect the box before <b>Self</b> and set <b>Contour fill from matrix</b> as <b>Mat(4)</b>. Click <b>Apply</b>.
+<dl><dd><a  class="image"><img alt="Parametric Surface with Colormap from Data 04.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_04.png?v=13793" width="412"  /></a></dd></dl></li>
+<li> Activate the <b>Colormap / Contours</b> tab. Click the <b>Level</b> heading to open the  <b>Set Levels</b> dialog. Click <b>Find Min/Max</b> and set <b>Major Levels</b>, <b>Minor Levels</b> as <b>16</b>, <b>8</b> respectively. Click <b>OK</b>.
+<dl><dd><a  class="image"><img alt="Parametric Surface with Colormap from Data 05.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_05.png?v=42317" width="539"  /></a></dd></dl></li>
+<li> Click <b>Fill</b> to open the <b>Fill</b> dialog. This dialog is used to customize the color scale. The <b>Load Palette</b> option allows the user to select from a list of possible palettes. Set <b>Load Palette</b> as <b>Temperature</b>. Click <b>OK</b>.
+<dl><dd><a  class="image"><img alt="Parametric Surface with Colormap from Data 06.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_06.png?v=13797" width="474"  /></a></dd></dl></li>
+<li> Click on the <b>Mesh</b> tab. Set <b>Line Width</b> as <b>0.05</b> by clicking on the font box and typing the value instead of using the drop down menu. Set <b>Line Color</b> in the Front section as <b>LT Gray</b>. Click <b>Apply</b>.
+<dl><dd><a  class="image"><img alt="Parametric Surface with Colormap from Data 07.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_07.png?v=13798" width="413"  /></a></dd></dl></li>
+<li> In the <b>Numeric Formats</b> tab choose the <b>Decimal Places radio</b> button and set its value as <b>0</b>.
+<dl><dd><a  class="image"><img alt="Parametric Surface with Colormap from Data 08.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_08.png?v=13799" width="506"  /></a></dd>
+<dd>Click <b>OK</b> to apply the settings and close the <b>Plot Details</b> dialog. The graph should appear as shown below:</dd>
+<dd><a  class="image"><img alt="Parametric Surface with Colormap from Data 09.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_09.png?v=33503" width="478"  /></a></dd></dl></li>
+<li> The next step is to modify the axes. Double click on the Z axis to open the <b>Axis</b> Dialog. Go to the <b>Scale</b> tab, select <b>Z</b> icon. Set the value of <b>From</b> and <b>To</b> as <b>-400</b> and <b>400</b> respectively. 
+<dl><dd><a  class="image"><img alt="Parametric Surface with Colormap from Data 10.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_10.png?v=33504" width="448"  /></a></dd></dl></li>
+<li> Go to the <b>Title</b> tab, hold <b>Ctrl</b> key and click to select <b>X</b>, <b>Y</b> and <b>Z</b> together. Deselect the <b>Show</b> check box to hide the axis title for all axes and click <b>OK</b> to close the dialog.
+<dl><dd><a  class="image"><img alt="Parametric Surface with Colormap from Data 16.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_16.png?v=33505" width="416"  /></a></dd></dl></li>
+<li> Double click on the XY Plane to open <b>Plot Details - Layer Properties</b>. In order to hide the axes, in the <b>Display</b> tab, deselect the <b>X Axes</b>, <b>Y Axes</b>, <b>Z Axes</b> boxes under the Show Elements section.
+<dl><dd><a  class="image"><img alt="Parametric Surface with Colormap from Data 11.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_11.png?v=32984" width="468"  /></a></dd></dl></li>
+<li> To hide the YZ and ZX planes, click on the <b>Planes</b> tab, and deselect the boxes before <b>YZ</b>, <b>ZX</b>. Set the <b>Color</b> of the remaining <b>XY</b> plane as <b>LT Gray</b>. Click <b>OK</b> to close the dialog.
+<dl><dd><a  class="image"><img alt="Parametric Surface with Colormap from Data 12.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_12.png?v=27770" width="532"  /></a></dd></dl></li>
+<li> The next step is to customize the color scale. Double click on it to open the <b>Color Scale Control</b> dialog, go to the <b>Labels</b> node and set the Font as <b>Verdana</b>. 
+<dl><dd><a  class="image"><img alt="Parametric Surface with Colormap from Data 13.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_13.png?v=33512" width="451"  /></a></dd></dl></li>
+<li> Go to the <b>Line and Ticks</b> node and hide the border and ticks:
+<dl><dd><a  class="image"><img alt="Parametric Surface with Colormap from Data 13b.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_13b.png?v=34079" width="515"  /></a></dd></dl></li>
+<li> Click <b>OK</b> to apply the setting and close the dialog. Select and drag to move the color scale object to the desired location.</li>
+<li> Right click on the white area of the graph layer to bring up a context menu and choose <b>Add/Modify Layer Title</b>. Click else where to deselect the text box,  then right-click on it and select <b>Properties...</b> from the shortcut menu to open the <b>Object Properties</b> dialog. Set the font as <b>Verdana</b> and type <b>Surface Temperature (\+(o)C)</b> in the content table. Click <b>OK</b>.
+<dl><dd><a  class="image"><img alt="Parametric Surface with Colormap from Data 14.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_14.png?v=48225" width="534"  /></a></dd></dl></li>
+<li> Click on the graph layer within the 3D frame (not the data plot), and click the <b>Rotate</b> button as shown in the image below, to activate the rotation mode. Other ways to rotate the 3D plot include using the red rotate button in the <b>Tools</b> toolbar, the various buttons in the <b>3D Rotation</b> toolbar or by selecting in the plot, pressing the <b>R</b> key and using the cursor.
+<dl><dd><a  class="image"><img alt="Parametric Surface with Colormap from Data 17.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_17.png?v=33761" width="445"  /></a></dd>
+<dd>Rotate the plot to get a better view. The graph should resemble the image shown below:</dd>
+<dd><a  class="image"><img alt="Parametric Surface with Colormap from Data 15.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_15.png?v=33762" width="436"  /></a></dd></dl></li></ol>
+
+
+
+
+
+

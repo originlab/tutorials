@@ -1,0 +1,111 @@
+<h1 class="firstHeading">5.5.12 Tutorial for Attribute Agreement Analysis</h1><p class='urlname' style='display: none'>Tutorial-Attribute-Agreement-Analysis</p>
+<p>The <a class="external text" href="https://www.originlab.com/FileExchange/details.aspx?fid=1018" target="_blank">Attribute Agreement Analysis app</a> is used to assess if appraisers are consistent with themselves, with each other, and with the known standards.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Sample_Data"><span class="tocnumber">1</span> <span class="toctext">Sample Data</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Download_and_install_the_app"><span class="tocnumber">2</span> <span class="toctext">Download and install the app</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Multiple_Columns_for_Rating_Data"><span class="tocnumber">3.1</span> <span class="toctext">Multiple Columns for Rating Data</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Single_Column_for_Rating_Data"><span class="tocnumber">3.2</span> <span class="toctext">Single Column for Rating Data</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Analyze_the_Results"><span class="tocnumber">4</span> <span class="toctext">Analyze the Results</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#Within_Appraisers"><span class="tocnumber">4.1</span> <span class="toctext">Within Appraisers</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Each_Appraiser_vs_Standard"><span class="tocnumber">4.2</span> <span class="toctext">Each Appraiser vs Standard</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Between_Appraisers"><span class="tocnumber">4.3</span> <span class="toctext">Between Appraisers</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#All_Appraisers_vs_Standard"><span class="tocnumber">4.4</span> <span class="toctext">All Appraisers vs Standard</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Summary_of_Assessment_Disagreement_with_Standard"><span class="tocnumber">4.5</span> <span class="toctext">Summary of Assessment Disagreement with Standard</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Assessment_Agreement_Plot"><span class="tocnumber">4.6</span> <span class="toctext">Assessment Agreement Plot</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Sample_Data"></a><span class="mw-headline">Sample Data</span></h2>
+<p>Five fabric appraisers at a textile dyeing factory rated the color quality of blue fabric. The quality control engineer wants to evaluate the consistency and correctness of the appraisers' ratings. 
+</p><p>Please first download <a class="external text" href="https://blog.originlab.com/wp-content/uploads/2024/06/SampleData_AttributeAgreementAnalysis.zip" target="_blank">the rating sample data.</a> It contains a Origin workbook file, you can unzip it and drag&amp;drop the ogwu file into Origin to open it. 
+</p>
+<dl><dd><a  class="image"><img alt="AAA Tutorial 00.png" src="../images/Attribute_Agreement_Analysis/AAA_Tutorial_00.png?v=75735" width="744"  /></a></dd></dl>
+<p>There are two worksheets which indicate two data arrangements this tool supports. In the first sheet, there are 10 columns for rating data, 40 rows for 40 samples. 
+</p>
+<ul><li> Each sample has been rated twice by one appraiser in random order. </li>
+<li> Rating data ranges from -2 to 2, with a total of 5 levels, indicating the color quality of the blue fabrics. Negative ratings indicate lighter colors, and positive ratings indicate darker colors.</li>
+<li> All samples have their standard rating.</li></ul>
+<p>The second sheet also contains all these data but just arrange all rating data into single column.
+</p>
+<dl><dd><a  class="image"><img alt="AAA Tutorial 00a.png" src="../images/Attribute_Agreement_Analysis/AAA_Tutorial_00a.png?v=75734" width="435"  /></a></dd></dl>
+<h2><a name="Download_and_install_the_app"></a><span class="mw-headline">Download and install the app</span></h2>
+<ul><li> Click <b>Add Apps</b> button in <b>Apps Gallery</b> to open <b>App Center</b>, search <b>Attribute Agreement Analysis</b> and install the app.</li></ul>
+<dl><dd>OR</dd></dl>
+<ul><li> Download the App from the <a class="external text" href="https://www.originlab.com/fileExchange/details.aspx?fid=1018" target="_blank">OriginLab File Exchange</a>, drag and drop the OPX file to Origin to install it</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="Multiple_Columns_for_Rating_Data"></a><span class="mw-headline">Multiple Columns for Rating Data</span></h3>
+<ol><li>Activate the first sheet and then click the app icon <a  class="image"><img alt="Attribute Agreement Analysis icon.png" src="../images/Attribute_Agreement_Analysis/Attribute_Agreement_Analysis_icon.png?v=75716" width="32"  /></a> in <b>App Gallery</b> to open the app dialog.
+<dl><dd><a  class="image"><img alt="AAA Tutorial 01.png" src="../images/Attribute_Agreement_Analysis/650px-AAA_Tutorial_01.png?v=75717" width="650"   /></a></dd></dl></li>
+<li>In this dailog, do settings as below:
+<ul><li> Select <b>Multiple Columns</b> for <b>Attribute/Rating Arranged As</b> drop-down list;</li>
+<li> Select <b>Col(B)~Col(K)</b> as <b>Attribute/Rating Data</b>; set <b>Number of Appraisers</b> to <i>5</i> and <b>Number of Trails</b> to <i>2</i>. 
+<dl><dd><b>Note:</b> Number of columns for <b>Attribute/Rating Data</b> should be <b>Number of Appraisers</b> times <b>Number of Trails</b>. In this example, there are 5 appraisers, each appraiser perfrom 2 trails on all samples. So, number of columns for <b>Attribute/Rating Data</b> should be <i>5*2=10</i> which matchs the 10-column input data we selected.</dd></dl></li>
+<li>Select Col("Appraiser") as Appraiser Names and Col("Standad Rate") as <b>Known Standard/Attribute</b>.</li>
+<li>Check <b>Categories of Ordinal Data</b> check box as the rank range is -2 to 2. </li></ul>
+<dl><dd><a  class="image"><img alt="AAA Tutorial 02.gif" src="../images/Attribute_Agreement_Analysis/AAA_Tutorial_02.gif?v=75726" width="786"  /></a></dd></dl></li>
+<li>Click <b>OK</b> button to perform the analysis. You will get two result sheets.</li></ol>
+<h3><a name="Single_Column_for_Rating_Data"></a><span class="mw-headline">Single Column for Rating Data</span></h3>
+<ol><li> Switch to the second sheet "Summary" and then click the App icon to open the app dialog.</li>
+<li> In this dialog, do the settings as below:
+<ul><li>Set <b>Attribute/Rating Arranged as</b> to <b>Single Column</b>.</li>
+<li>Select Col("Rating") as <b>Attribute/Rating Data</b>; Col("Sample Index") as <b>Samples</b>; Col("Appraiser") as <b>Appraisers</b>; Col("Standard Rate") as <b>Known Standard/Attribute</b>.</li>
+<li>Check the check box <b>Categories of Ordinal Data</b>. Keep the default settings for <b>Options</b> group.</li></ul>
+<dl><dd><a  class="image"><img alt="AAA Tutorial 03.png" src="../images/Attribute_Agreement_Analysis/AAA_Tutorial_03.png?v=75758" width="537"  /></a></dd></dl></li>
+<li> Click OK button to create the result sheets.</li></ol>
+<h2><a name="Analyze_the_Results"></a><span class="mw-headline">Analyze the Results</span></h2>
+<h3><a name="Within_Appraisers"></a><span class="mw-headline">Within Appraisers</span></h3>
+<p>This table is used to assess the consistency of responses for each appraiser. 
+</p><p><b>Note:</b> This table indicates whether the appraisers' ratings are consistent himself/herself, but not whether the ratings agree with the reference values. Consistent ratings aren't necessarily correct ratings.
+</p>
+<dl><dd><a  class="image"><img alt="AAA Tutorial 04.png" src="../images/Attribute_Agreement_Analysis/400px-AAA_Tutorial_04.png?v=75761" width="400"   /></a></dd></dl>
+<ul><li> In the table "Assessment Agreement", we can look at the "Matched" column, which shows the number of times the appraiser agreed with themselves across two trials. We can see that appraiser "C" has the most matches.</li>
+<li> In the "Kappa Statistics" tables, some kappa values are 1, which indicates perfect agreement within an appraiser between two trials. All Kappa values ​​were greater than 0.82, indicating good agreement within an appraiser between two trials overall. The P values ​​were much less than 0.05, meaning that the agreement could not be attributed to chance.</li>
+<li> Since the rating data are ordinal, Kendall's coefficient of concordance values have been outputed. These values are all greater than 0.98, which indicates a very strong association within two ratings for each appraiser.</li></ul>
+<h3><a name="Each_Appraiser_vs_Standard"></a><span class="mw-headline">Each Appraiser vs Standard</span></h3>
+<p>This table is used to assess the correctness of responses for each appraiser.
+</p>
+<dl><dd><a  class="image"><img alt="AAA Tutorial 05.png" src="../images/Attribute_Agreement_Analysis/350px-AAA_Tutorial_05.png?v=75762" width="350"   /></a></dd></dl>
+<ul><li> In the table "Assessment Agreement", we can check the column "Matched" which displays the appraiser's assessment across trials agrees with the known standard. As we can see, appaiser "C" and "E" has maximum which means they have greater correct ratings.</li>
+<li> In the "Kappa Statistics" tables, all kappa values are larger than 0.83, which indicates very good agreement between each appraiser and the standard.  P values are much less than 0.05, which means the consistency cannot be attributed to chance.</li>
+<li> Since the data are ordinal, Kendall's coefficient of concordance values have been outputed. These values are all greater than 0.95, which indicate a strong association between the ratings and the standard values.</li></ul>
+<h3><a name="Between_Appraisers"></a><span class="mw-headline">Between Appraisers</span></h3>
+<p>This table is used to assess the consistency of responses between appraisers. 
+</p><p><b>Note:</b> This table indicates whether the appraisers' ratings are consistent with each other, but not whether the ratings agree with the reference values. Consistent ratings aren't necessarily correct ratings.
+</p>
+<dl><dd><a  class="image"><img alt="AAA Tutorial 06.png" src="../images/Attribute_Agreement_Analysis/300px-AAA_Tutorial_06.png?v=75763" width="300"   /></a></dd></dl>
+<ul><li> In the table "Assessment Agreement", we can look at the "Matched" column, which means the appraisers agree with each other on 32 samples across two trails.</li>
+<li> All the kappa values are larger than 0.81, which indicates all ratings have a good agreement betweeen appraisers. The P values ​​were almost 0, meaning that the agreement could not be attributed to chance. The appraisers have the most agreement for samples at level -2 and 2, and the least agreement for samples at level -1 and 0. 
+<dl><dd> As there are five appraisers and two trails per appraiser which doesn't match the rule to calculate the Cohen's Kappa values, there is not output values in Cohen's Kappa Statistics table.</dd></dl></li>
+<li> Since the data are ordinal, the Kendall's coefficient of concordance (0.97965) is outputed, which indicates a very strong association between the appraiser ratings.</li></ul>
+<h3><a name="All_Appraisers_vs_Standard"></a><span class="mw-headline">All Appraisers vs Standard</span></h3>
+<p>This table is used to assess the correctness of responses for all appraisers.
+</p>
+<dl><dd><a  class="image"><img alt="AAA Tutorial 07.png" src="../images/Attribute_Agreement_Analysis/300px-AAA_Tutorial_07.png?v=75764" width="300"   /></a></dd></dl>
+<ul><li> In the table "Assessment Agreement", we can look at the "Matched" column, which means all appraisers' assessments agree with the known standard on 32 samples. </li>
+<li> The overall kappa value is 0.93096/0.93104, which indicates strong agreement with the standard values. The P values ​​were almost 0, meaning that the agreement could not be attributed to chance.</li>
+<li> Since the data are ordinal, the Kendall's coefficient of concordance (0.97243) is outputed, which indicates a strong association between the all appraisers' ratings and the standard values.</li></ul>
+<h3><a name="Summary_of_Assessment_Disagreement_with_Standard"></a><span class="mw-headline">Summary of Assessment Disagreement with Standard</span></h3>
+<p>This table list the times of wrong assessment for each appraiser. 
+</p><p>As each appraiser will rate each sample twice, so one wrong will get the percent 50% and two wrongs will get 100%.
+</p>
+<h3><a name="Assessment_Agreement_Plot"></a><span class="mw-headline">Assessment Agreement Plot</span></h3>
+<p>This branch is used to evaluate the appraiser agreement visually.
+</p>
+<dl><dd><a  class="image"><img alt="AAA Tutorial 08.png" src="../images/Attribute_Agreement_Analysis/450px-AAA_Tutorial_08.png?v=75765" width="450"   /></a></dd></dl>
+<ul><li> "Within Appraisers" graph is used to display the consistency of each appraiser's ratings. As you can see, appraiser C has the most consistent ratings and appraiser D has the least consistent ratings. Note: This graph is output only when each appraiser has multiple trials.</li>
+<li> "Appraiser vs Standard" graph is used to display the correctness of each appraiser's ratings. As you can see, appraiser C and E have the most correct ratings and appraiser D has the least correct ratings.</li></ul>
+
+
+
+
+
+

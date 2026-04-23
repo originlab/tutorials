@@ -1,0 +1,70 @@
+<h1 class="firstHeading">4.8.2 Batch Processing Multiple Files using Analysis Template</h1><p class='urlname' style='display: none'>AnalysisTemplate-BatchProcess</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">What You Will Learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Preparing_an_Analysis_Template_containing_a_Result_Summary_Sheet"><span class="tocnumber">3.1</span> <span class="toctext">Preparing an Analysis Template containing a Result Summary Sheet</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Performing_Batch_Processing_with_Multiple_Data_Files"><span class="tocnumber">3.2</span> <span class="toctext">Performing Batch Processing with Multiple Data Files</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Analysis_Template_and_Batch_Processing/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Analysis_Template_and_Batch_Processing/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=130" target="_blank">Introduction Batch Processing without Programming</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=356" target="_blank">Batch Processing improvements in 2020b</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=269" target="_blank">Use Clone Import to batch process more data files</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=198" target="_blank">Batch Processing Improvements in Origin 2018</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=145" target="_blank">Batch Import and Analysis of Groups of Files</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=138" target="_blank">Import Multiple Data into Cloned Book or Sheets for Batch Processing</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Analysis_Template_and_Batch_Processing/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Analysis_Template_and_Batch_Processing/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/use-the-distributed-batch-processing-app-for-faster-batch-processing-results" target="_blank">Use the Distributed Batch Processing App for Faster Batch Processing Results Creating HTML Reports and Documents in Origin 2019b</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/creating-html-reports-and-documents-in-origin-2019b" target="_blank">Creating HTML Reports and Documents in Origin 2019b</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/batch-processing-when-dragging-and-dropping-data-into-origin" target="_blank">Batch Processing when Dragging and Dropping Data into Origin</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Origin can perform <b>Batch Analysis</b> utilizing a previously-created <b>Analysis Template</b>, by either importing multiple files or loading existing datasets. <br />
+This tutorial covers importing multiple text files with a common file structure, then processing them one-by-one using an Analysis Template set up to perform linear curve fitting.
+</p>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Analysis_Template_and_Batch_Processing/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>While not offering as many options as the Batch Processing tool, you can "clone" import and analysis operations in the active workbook, using the procedure outlined in <a href="../../Tutorial/Tutorial/Importing_Multiple_Files_into_Workbooks_Cloned_from_Active_Workbook.html" title="Tutorial:Importing Multiple Files into Workbooks Cloned from Active Workbook">this tutorial</a>.
+</p></td></tr></table>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">What You Will Learn</span></h2>
+<p>This tutorial will show you how to: 
+</p>
+<ul><li>Make an analysis template which contains a Result Summary Sheet to collect the output of batch processing.</li>
+<li>Perform batch processing with multiple data files using an analysis template</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<p>This tutorial is divided into two parts:
+</p>
+<ol><li> Set up an <b>Analysis Template</b>. The template is an empty framework that includes a Summary sheet to collect the analysis output of batch processing operations. </li>
+<li> Perform the <b>Batch Processing</b> of multiple files using the previously-saved Analysis Template.</li></ol>
+<h3><a name="Preparing_an_Analysis_Template_containing_a_Result_Summary_Sheet"></a><span class="mw-headline">Preparing an Analysis Template containing a Result Summary Sheet</span></h3>
+<ol><li> Since batch operations work on similarly-structured data files, the first step is to import a typical data file.  Create a new workbook and click <b>Data: Connect to File: Text/CSV</b>. Browse to &lt;Origin EXE folder&gt;\Samples\Curve Fitting\Sensor01.dat and choose the file. Accept <b>CSV Import Options</b> defaults and click <b>OK</b> to import your data.</li>
+<li> Now we'll perform a linear fit on the data.  Highlight column B(Y) and choose <b>Analysis: Fitting: Linear Fit</b>.  Set <b>Recalculate</b> = <i>Auto</i> and then click <b>OK</b> (note that by choosing <i>Auto</i>, we have assured that new input will trigger automatic recalculation of results). Answer <i>Yes</i> to the reminder message and open the <i>FitLinear1</i> report sheet.</li>
+<li> We'll now add a <i>Results</i> sheet to our workbook where we will collect key statistics from our batch analysis. Go to <i>FitLinear1</i> and next to the <i>Summary</i> table, click the downward-pointing arrow button and choose <b>Create Copy as New Sheet</b>. Click the <a  class="image"><img alt="Button Add New Columns.png" src="../images/Analysis_Template_and_Batch_Processing/Button_Add_New_Columns.png?v=8175" width="22"  /></a> button <b>TWICE</b> to add two new columns to your Summary sheet.</li>
+<li> We'd like to add Pearson's r value to our summary so return to <i>FitLinear1</i>, find the Statistics table, then click the caption beside the value and right-click and choose <b>Copy</b>. Go to <i>Summary</i>, right-click in the <i>Parameters</i> cell of column <i>G(Y)</i> and <b>Paste Link</b>. Copy the Pearson's r value and <b>Paste Link</b> into row 1 of column <i>G(Y)</i>.</li>
+<li> We'll now add a data plot with fit curve to our summary sheet. Return to FitLinear1, scroll down to the <i>Fitted Curves Plot</i>, right-click on the plot and choose <b>Copy</b>. Return to the summary sheet and in row 1 of column <i>H(Y)</i>, right-click and choose <b>Paste Link</b>. To the Long Name cell in this column, add <i>Fitted Curve</i>.</li>
+<li> To save the workbook as an Analysis Template, choose <b>File: Save Workbook as Analysis Template</b>, accept the default \User Files location and name the template as <i>Sensor Analysis</i>. Click <b>Save</b>.</li></ol>
+<h3><a name="Performing_Batch_Processing_with_Multiple_Data_Files"></a><span class="mw-headline">Performing Batch Processing with Multiple Data Files</span></h3>
+<p>We'll now use our Analysis Template to batch process a number of data files and obtain summary output.
+</p>
+<ol><li> Start a new project and choose <b>File: Batch Processing...</b> or click  the <a  class="image"><img alt="Button Batch Processing.png" src="../images/Analysis_Template_and_Batch_Processing/Button_Batch_Processing.png?v=6032" width="23"  /></a> button on the Standard toolbar. </li>
+<li> Set <b>Batch Processing Mode</b> = <b>Load Analysis Template</b>, then browse to your User Files folder and choose <i>Sensor Analysis.ogwu</i>.</li>
+<li> Set <b>Data Source</b> = <b>Import from Files</b> and use the browse button to the right of <b>File List</b> to &lt;Origin EXE Folder&gt;\Samples\Curve Fitting and add files <i>Sensor02.dat</i> through <i>Sensor07.dat</i>.</li>
+<li> Set <b>Dataset Identifier</b> = <b>File Name</b> to tag output in our Summary sheet with the source file name.</li>
+<li> Set <b>Data Sheet</b> = <i>Sensor01</i> and <b>Result Sheet</b> to <i>Summary</i>.</li>
+<li> Check the <b>Delete Intermediate Workbook</b> (Note that since <b>Origin 2018</b> you have the option of using the <b>Open Book(s)</b> button in the Summary sheet to regenerate individual intermediate workbooks, if needed).
+<dl><dd> <a  class="image"><img alt="Tutorial BatchProcessing 007-2.PNG" src="../images/Analysis_Template_and_Batch_Processing/500px-Tutorial_BatchProcessing_007-2.PNG?v=54989" width="500"   /></a></dd></dl></li>
+<li> Click <b>OK</b>. All data files will be processed a Summary workbook generated to summarize analysis of each file.
+<dl><dd> <a  class="image"><img alt="Tutorial BatchProcessing 007.png" src="../images/Analysis_Template_and_Batch_Processing/500px-Tutorial_BatchProcessing_007.png?v=65080" width="500"   /></a></dd></dl></li></ol>
+
+

@@ -1,0 +1,47 @@
+<h1 class="firstHeading">5.7.2 COX Model Estimator</h1><p class='urlname' style='display: none'>COX-Model-Estimator</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Perform_COX_Model_Estimator"><span class="tocnumber">3</span> <span class="toctext">Perform COX Model Estimator</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Interpreting_the_Results"><span class="tocnumber">4</span> <span class="toctext">Interpreting the Results</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>The Cox Model Estimation ,also called   the proportional hazard model is a classical semi-parameter method in survival analysis. A Cox model provides an estimate of the effect on survival for  variables and the hazard of death for an individual. Using Cox regression analysis, we will obtain  an equation for the hazard as a function of several  variables. A positive regression coefficient for an explanatory variable means that the hazard is higher with higher values of that variable. while for negative  regression coefficient for an explanatory variable, the hazard is lower with higher values of that variable.
+</p><p>The proportional hazards assumption: Observations should be independent, and the hazard ratio should be constant across time; that is, the proportionality of hazards from one case to another should not vary over time.
+</p><p><br />
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Perform COX Model Estimator</li>
+<li>How to interpreting the results</li></ul>
+<h2><a name="Perform_COX_Model_Estimator"></a><span class="mw-headline">Perform COX Model Estimator</span></h2>
+<ol><li>Start with an empty worksheet, import the sample file <i>&lt;Origin porgram folder&gt;\Samples\Statistics\phm_Cox.dat</i> using the menu <b>Data: Connect to File: Text/CSV</b>.</li>
+<li>Select <b>Statistics: Survival Analysis: Cox Model Estimator</b> to open the dialog. </li>
+<li>Select column <b>A(X):month</b>  for <b>Time Range</b>,  column <b>B(Y):status</b> for <b>Censor Range</b>. Click the interactive data selection button and choose column  <b>Charlson</b> and <b>tKt_v</b> for <b>Covariate Range</b>. </li>
+<li>Select <b>0</b> ascensoring value form <b>Censoring Value(s)</b> drop-down list. </li>
+<li>Check <b>Survival</b> and <b>Hazard</b> check box under <b>Survival Plots</b> group.</li>
+<li>Click the <b>OK</b> button to perform the Cox Model Estimator analysis. </li></ol>
+<dl><dd><a  class="image"><img alt="Cox01.png" src="../images/COX_Model_Estimator/Cox01.png?v=75127" width="510"  /></a></dd></dl>
+<h2><a name="Interpreting_the_Results"></a><span class="mw-headline">Interpreting the Results</span></h2>
+<p>Go to worksheet <b>CoxPHM1</b> for the analysis report.
+</p>
+<ol><li>From the "Summary of event and censored values" table, we can see that <b>censored</b> =112 and <b>percent Censored</b> =0.8.
+<dl><dd><a  class="image"><img alt="Cox02.png" src="../images/COX_Model_Estimator/Cox02.png?v=15542" width="301"  /></a></dd></dl></li>
+<li>The following table displays the result of test whether the model is significant or not. Note that the null hypothesis is <img src="../images/COX_Model_Estimator/math-216577fa474a2c877b6d9918f60e2ab3.png?v=0" title="\beta 1= \beta 2=0" alt="\beta 1= \beta 2=0" class="tex"/>. In this example, <b>Pr &gt; ChiSq</b> =4E(-4) &lt;0.05, therefore we reject the null hypothesis; that is, either <img src="../images/COX_Model_Estimator/math-a246865ea0b897294a430ec2967a9c3c.png?v=0" title="\beta 1" alt="\beta 1" class="tex"/> or <img src="../images/COX_Model_Estimator/math-c8802e29d66912b327f95b429851e38c.png?v=0" title="\beta 2" alt="\beta 2" class="tex"/>, or both, <img src="../images/COX_Model_Estimator/math-f4fb341e4e3e1228ad4038e6d594a775.png?v=0" title="\neq 0" alt="\neq 0" class="tex"/>.
+<dl><dd><a  class="image"><img alt="Cox03.png" src="../images/COX_Model_Estimator/Cox03.png?v=15543" width="327"  /></a></dd></dl></li>
+<li>In the "Analysis of parameter Estimates" table, the coefficient estimate of variable charlson is 0.2876 and <b> Pr &gt; ChiSq</b> =5E-4&lt;0.05 , so <img src="../images/COX_Model_Estimator/math-e3ef09148d8f72ce6608f85e5f54d42a.png?v=0" title="\beta1=0.287" alt="\beta1=0.287" class="tex"/> and charlson is a significant variable. The Hazard ratio can be interpreted as the predicted change in the hazard for a unit increase in the predictor. For variable charlson ,<b> Hazard ratio</b>=1.333, meaning that the hazard  becomes 1.333 times  when charlson increments one unit. Similarly, <b>tKt_v</b> is a significant variable .The coefficient estimates of <b>tKt_v</b> <img src="../images/COX_Model_Estimator/math-2b68eb262cdde92957c74c4c615fec9c.png?v=0" title="\beta2= -0.837" alt="\beta2= -0.837" class="tex"/> and hazard ratio=0.433. We know the hazard function:h(t,x)=h<small>0</small>(t)*exp(0.2876*<i>charlson</i>-0.837*<i>tKt_v</i>).
+<dl><dd><a  class="image"><img alt="Cox04.png" src="../images/COX_Model_Estimator/Cox04.png?v=15544" width="509"  /></a></dd></dl></li>
+<li>The Survival function plot shows the proportion of individuals surviving at each hour and is a visual display of the model-predicted. The horizontal axis shows the time to event. The vertical axis shows the probability of survival.
+<dl><dd><a  class="image"><img alt="Cox5.png" src="../images/COX_Model_Estimator/Cox5.png?v=15560" width="441"  /></a></dd></dl></li>
+<li>The Hazard function plot displays the instantaneous probability of the given event occurring at any point in time.
+<dl><dd><a  class="image"><img alt="Cox6.png" src="../images/COX_Model_Estimator/Cox6.png?v=75129" width="429"  /></a></dd></dl></li></ol>
+
+
+
+
+
+

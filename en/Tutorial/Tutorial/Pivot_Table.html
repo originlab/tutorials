@@ -1,0 +1,167 @@
+<h1 class="firstHeading">4.5.3 Pivot Table</h1><p class='urlname' style='display: none'>Pivot-Table</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Import_Data_from_Database"><span class="tocnumber">3</span> <span class="toctext">Import Data from Database</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Create_a_Pivot_Table"><span class="tocnumber">4</span> <span class="toctext">Create a Pivot Table</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Combine_Small_Values"><span class="tocnumber">5</span> <span class="toctext">Combine Small Values</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Extra_Categories_Source"><span class="tocnumber">6</span> <span class="toctext">Extra Categories Source</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Create_analysis_template"><span class="tocnumber">7</span> <span class="toctext">Create analysis template</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>The Pivot Table provides a quick way to summarize your data, and to analyze, compare, and detect relationships in your data. This tool can sort, count, sum, or compute minimum, maximum, or mean of data stored in a worksheet. 
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 2015 SR0 </p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<ul><li>How to summarize data by a Pivot Table.</li>
+<li>How to sort output by row or column totals in Pivot Table.</li>
+<li>How to combine small values in columns or rows, and custom extra value.</li></ul>
+<h2><a name="Import_Data_from_Database"></a><span class="mw-headline">Import Data from Database</span></h2>
+<ol>
+<li>Before creating a pivot table, we should can import data from database. 
+Suppose we have already set up a database named <i>AdventureWorks2008R2</i> on a server machine - <i>myServer</i> - running SQL Server, with user name as "accounting", and password as "mydatabase".</li>
+<li> To connect the database, we use a connection string:
+<pre class="lt" style="font-family:monospace;">Provider<span style="color: #000080;">=</span>SQLOLEDB.1;Password<span style="color: #000080;">=</span>mydatabase;Persist Security Info<span style="color: #000080;">=</span>True;
+User ID<span style="color: #000080;">=</span>accounting;Initial Catalog<span style="color: #000080;">=</span>AdventureWorks2008R2;Data Source<span style="color: #000080;">=</span>myServer</pre>
+</li>
+<li> Activate an empty worksheet and open SQL Editor by clicking the <b>Open SQL Editor</b> button on the <b>Database Access</b> toolbar.
+<dl><dd><a  class="image"><img alt="ImportDataDatabase 1.png" src="../images/Pivot_Table/ImportDataDatabase_1.png?v=28304" width="257"  /></a></li></dd></dl>
+
+<li> Select menu item <b>Edit Connection String...</b> from SQL Editor's <b>File</b> menu, in the open dialog, put the connection string (see step 1 above) to the text box. And then you can click the <b>Test</b> button to test if the connection is fine. If fine, click the <b>OK</b> button to connection to the database.
+<dl><dd><a  class="image"><img alt="ImportDataDatabase 2.png" src="../images/Pivot_Table/ImportDataDatabase_2.png?v=28376" width="1033"  /></a></li></dd></dl>
+
+<li>In the right text box, put the following SQL statements. </li>
+<pre class="lt" style="font-family:monospace;">SELECT 
+DatePart<span style="color: #000000;">&#40;</span>yyyy, SOH.<span style="color: #000080;">OrderDate</span><span style="color: #000000;">&#41;</span> AS YEAR,
+CR.<span style="color: #000080;">Name</span> As CustomerCountry,
+	Pr.<span style="color: #000080;">Name</span> As ProductName,
+	Pr.<span style="color: #000080;">Color</span> As ProductColor,
+	PC.<span style="color: #000080;">Name</span> As ProductCategory,
+	PS.<span style="color: #000080;">Name</span> As ProductSubcategory,
+	SOH.<span style="color: #000080;">OrderDate</span> As OrderDate,
+	SOD.<span style="color: #000080;">OrderQty</span> As OrderAmount,
+	SOD.<span style="color: #000080;">LineTotal</span> As TotalCost
+FROM Person.<span style="color: #000080;">CountryRegion</span> AS CR
+INNER JOIN Person.<span style="color: #000080;">StateProvince</span> AS SP
+ON SP.<span style="color: #000080;">CountryRegionCode</span> <span style="color: #000080;">=</span> CR.<span style="color: #000080;">CountryRegionCode</span>
+INNER JOIN Person.<span style="color: #000080;">Address</span> AS A
+ON A.<span style="color: #000080;">StateProvinceID</span> <span style="color: #000080;">=</span> SP.<span style="color: #000080;">StateProvinceID</span>
+INNER JOIN Person.<span style="color: #000080;">BusinessEntityAddress</span> AS BEA
+ON BEA.<span style="color: #000080;">AddressID</span> <span style="color: #000080;">=</span> A.<span style="color: #000080;">AddressID</span>
+INNER JOIN Person.<span style="color: #000080;">Person</span> AS P
+ON P.<span style="color: #000080;">BusinessEntityID</span> <span style="color: #000080;">=</span> BEA.<span style="color: #000080;">BusinessEntityID</span>
+INNER JOIN Sales.<span style="color: #000080;">PersonCreditCard</span> AS PCC
+ON PCC.<span style="color: #000080;">BusinessEntityID</span> <span style="color: #000080;">=</span> P.<span style="color: #000080;">BusinessEntityID</span>
+INNER JOIN Sales.<span style="color: #000080;">SalesOrderHeader</span> AS SOH
+ON SOH.<span style="color: #000080;">CreditCardID</span> <span style="color: #000080;">=</span> PCC.<span style="color: #000080;">CreditCardID</span>
+INNER JOIN Sales.<span style="color: #000080;">SalesOrderDetail</span> AS SOD
+ON SOD.<span style="color: #000080;">SalesOrderID</span> <span style="color: #000080;">=</span> SOH.<span style="color: #000080;">SalesOrderID</span>
+INNER JOIN Production.<span style="color: #000080;">Product</span> AS Pr
+ON Pr.<span style="color: #000080;">ProductID</span> <span style="color: #000080;">=</span> SOD.<span style="color: #000080;">ProductID</span>
+INNER JOIN Production.<span style="color: #000080;">ProductSubcategory</span> AS PS
+ON PS.<span style="color: #000080;">ProductSubcategoryID</span> <span style="color: #000080;">=</span> Pr.<span style="color: #000080;">ProductSubcategoryID</span>
+INNER JOIN Production.<span style="color: #000080;">ProductCategory</span> AS PC
+ON PC.<span style="color: #000080;">ProductCategoryID</span> <span style="color: #000080;">=</span> PS.<span style="color: #000080;">ProductCategoryID</span>
+<span style="color: #000080;">--</span>WHERE SOH.<span style="color: #000080;">OrderDate</span> BETWEEN <span style="color: #ff00ff;">'1/1/2005'</span> AND <span style="color: #ff00ff;">'12/31/2008'</span></pre>
+</li>
+<li> Select menu <b>File: Save to Active Worksheet</b> to save these settings to the worksheet, and then select menu <b>Query: Import</b> to import the data into worksheet, and then close SQL Editor. We can see the imported data form the image below. </li>
+<dl><dd><a  class="image"><img alt="Pivot imp1.png" src="../images/Pivot_Table/Pivot_imp1.png?v=34561" width="723"  /></a></dd></dl>
+<li>Click <b>Close</b> to close the dialog.
+</ol>
+<h2><a name="Create_a_Pivot_Table"></a><span class="mw-headline">Create a Pivot Table</span></h2>
+<p>The imported dataset is a total cost summary of three  product categories(Bikes,Accessories, Clothing) in six different countries by year. Suppose now you want to create a pivot table to see the yearly <i>Sum of Total Cost</i> of different product category. Follow the steps below to create the pivot table. 
+</p>
+<ol>
+<li>Activate the Sheet1, select <b>Restructure: Pivot Table</b> from the main menu to open the dialog. And specify the following settings in the dialog:
+<ul><li>For <b>Pivot Table Row Source</b>, click the triangle button <a  class="image"><img alt="Button Group List Add.png" src="../images/Pivot_Table/Button_Group_List_Add.png?v=30358" width="17"  /></a> to add column A.</li>
+<li>For <b>Pivot Table Column Source</b>, click the triangle button  <a  class="image"><img alt="Button Group List Add.png" src="../images/Pivot_Table/Button_Group_List_Add.png?v=30358" width="17"  /></a> to add column E.</li>
+<li>Select <b>Sum</b> with the <b>Summarize by</b> drop-down list. Then select column I for <b>Pivot Table Data Source</b>.</li>
+<li>Expanding <b>Options</b> branch, check <b>Total for Rows</b> and <b>Total for Columns</b> check boxes, and select <b>Row Label Ascending</b> from the <b>Sort Output Rows</b> drop-down list.</li></ul>
+<br /><a  class="image"><img alt="Pivot Table Tutorial n02.png" src="../images/Pivot_Table/Pivot_Table_Tutorial_n02.png?v=34572" width="440"  /></a><br /><br />
+
+<li>Click the <b>OK</b> button to create the pivot table. The table should like this:
+<br /><a  class="image"><img alt="Pivot Table Tutorial n03.png" src="../images/Pivot_Table/Pivot_Table_Tutorial_n03.png?v=34573" width="557"  /></a><br /><br />
+</ol>
+<p><br />
+</p>
+<h2><a name="Combine_Small_Values"></a><span class="mw-headline">Combine Small Values</span></h2>
+<p>In this section, we will show you how to present those categories with the percentage of the summarized value (Count/Sum/Mean/Min/Max) accounts for that of grand total exceeding a threshold percent, and combine small value categories into a default <b>Others</b> category.
+</p>
+<ol>
+<li>Based on the above example, click on the lock icon in the <b>Pivot1</b> worksheet, and select <b>Change Parameters</b> to open the dialog again. 
+
+<br /><br /><a  class="image"><img alt="Pivot Table Tutorial nn.png" src="../images/Pivot_Table/Pivot_Table_Tutorial_nn.png?v=34577" width="449"  /></a><br /><br />
+
+<li>Specify the following settings in the dialog: 
+
+<ul><li>Expanding <b>Combine Smaller Values</b> branch, select <b>Column</b> in the <b>Combine Direction</b>  drop-down list, </li>
+<li>Select <b>By Percent of Grand Total</b> in <b>Mode</b> drop-down list.</li>
+<li>Enter <b>30</b> in <b>Percent</b> textbox and <b>Other Smaller Items</b> in the <b>Column Label</b> textbox. </li>
+<li>Expanding <b>Options</b> branch, uncheck the boxes of <b>Totals for Rows</b> and <b>Totals for Columns</b> </li></ul>
+
+<a  class="image"><img alt="Pivot Table Tutorial n05.png" src="../images/Pivot_Table/Pivot_Table_Tutorial_n05.png?v=34578" width="437"  /></a><br /><br />
+
+<li>Click <b>OK</b> button. The pivot table shows the summarization of data by <b>Sum</b>. And only Category <i>Bikes</i> has the percent of grand total exceeding the threshod percent 30&#160;%, other smaller categories has been reduced into Category <b>Other Smaller Items</b>.
+
+<br /><br /><a  class="image"><img alt="Pivot Table Tutorial n06.png" src="../images/Pivot_Table/Pivot_Table_Tutorial_n06.png?v=34579" width="376"  /></a><br /><br />
+</ol>
+<h2><a name="Extra_Categories_Source"></a><span class="mw-headline">Extra Categories Source</span></h2>
+<p>In this section, we will show you how to present those categories that are missing in the source data sheet with '<b> Column Source Extra Value</b>. This is useful when you want to ensure all needed categories will be presented in the result pivot table that might be used for later plotting. 
+</p><p>Suppose we want to know the <i>Sum of Total Cost</i> of different product categories before <i>Year</i> 2007. Follow the steps below to create the pivot table.
+</p>
+<ol>
+<li>To filter the years before 2007, we use the data filter. Go to Sheet 1 and select <b>Col A</b>. Click <a  class="image"><img alt="Button Add Or Remove Data Filter.png" src="../images/Pivot_Table/Button_Add_Or_Remove_Data_Filter.png?v=13394" width="23"  /></a> button in the main menu bar. Click again the filter icon on <b>Col A</b> and select <b>Less Than</b>. Customize the pop-out filter dialog as follow, then click OK to close the dialog.
+<br /><a  class="image"><img alt="Pivot Table Tutorial filt.png" src="../images/Pivot_Table/Pivot_Table_Tutorial_filt.png?v=34598" width="292"  /></a>
+</li>
+<li>Click on the lock icon in the <b>Pivot1</b> worksheet, and select <b>Recalculate</b>. As shown in the following pivot table, only <i>Bikes</i> is presented here, because other two product categories do not has any cost data record in <i>Year</i> 2005 and 2006.  
+<br /><a  class="image"><img alt="Pivot Table Tutorial filt1.png" src="../images/Pivot_Table/Pivot_Table_Tutorial_filt1.png?v=34599" width="208"  /></a>
+</li>
+<li>Back to <b>Pivot1</b> worksheet, select col(b) and then click <b>Plot &gt; 2D: Bar: Column</b> to plot a column graph(<i>Graph1</i>). 
+<li>Next we want to add two missing categories back into the pivot table. Click on the lock icon in the <b>Pivot1</b> worksheet, and select <b>Change Parameters</b>. Customize the dialog as follow, click OK to close the dialog.
+The pivot table would look as follow.
+<br /><a  class="image"><img alt="Pivot Table Tutorial filt3.png" src="../images/Pivot_Table/Pivot_Table_Tutorial_filt3.png?v=34601" width="435"  /></a>
+<br />
+The pivot table would look as follow.
+<br /><a  class="image"><img alt="Pivot Table Tutorial filt4.png" src="../images/Pivot_Table/Pivot_Table_Tutorial_filt4.png?v=44565" width="627"  /></a>
+</li>
+<li> Back to <b>Pivot1</b> worksheet again.  Click again the filter icon on <b>Col A</b> and select <b>Clear Filter</b> from the pop-up menu to remove the filter. Then select all columns to plot a column graph(<i>Graph2</i>). The graph would show the missing categories. 
+</li>
+<li> Back to <b>Pivot1</b> worksheet again,  right click the grey area and select <b>Add Graph</b> to add Graph2 onto the <b>Pivot1</b> worksheet 
+<br /><a  class="image"><img alt="Pivot Table Tutorial filt5.png" src="../images/Pivot_Table/Pivot_Table_Tutorial_filt5.png?v=34610" width="843"  /></a>
+</li>
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Pivot_Table/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>Year filtering can also be obtained in <b>Database. In this case, you can customize the favorable time period by rewriting this script:</b>
+</p>
+<pre class="lt" style="font-family:monospace;"> <span style="color: #000080;">--</span>WHERE SOH.<span style="color: #000080;">OrderDate</span> BETWEEN <span style="color: #ff00ff;">'1/1/2005'</span> AND <span style="color: #ff00ff;">'12/31/2008'</span></pre>
+</td></tr></table>
+<h2><a name="Create_analysis_template"></a><span class="mw-headline">Create analysis template</span></h2>
+<p>In this section we will show you how to create analysis template for the pivot table, reimport data from database and  reuse the analysis template to create pivot table for new data. 
+</p>
+<ol>
+<li>Activate the Book1, click <b>File: Save Workbook as template</b> and save it as <i>SumTotalCost.ogw</i>. 
+<li>Open a new OPJ file and then click <b>File: Open</b> to open <i>SumTotalCost.ogw</i>. 
+<li>To change the data source as <i>AdventureWorks2008</i> in database,
+<ul><li>Activate Sheet1 and open SQL Editor by clicking the <b>Open SQL Editor</b> button <a  class="image"><img alt="Button Open SQL Editer.png" src="../images/Pivot_Table/Button_Open_SQL_Editer.png?v=37245" width="24"  /></a>.</li>
+<li>Click <b>File: Edit Connection String</b> then type the following string in the open dialog, click <b>Test</b> then click OK to connect the database.</li></ul>
+<pre class="lt" style="font-family:monospace;">Provider<span style="color: #000080;">=</span>SQLOLEDB.1;Password<span style="color: #000080;">=</span>mydatabase;Persist Security Info<span style="color: #000080;">=</span>True;
+User ID<span style="color: #000080;">=</span>accounting;Initial Catalog<span style="color: #000080;">=</span>AdventureWorks2008;Data Source<span style="color: #000080;">=</span>myServer</pre>
+<ul><li>Back to the <b>SQL Editor</b> dialog, On the right panel, rewrite the last script as </li></ul>
+<pre class="lt" style="font-family:monospace;"><span style="color: #000080;">--</span>WHERE SOH.<span style="color: #000080;">OrderDate</span> BETWEEN <span style="color: #ff00ff;">'1/1/2001'</span> AND <span style="color: #ff00ff;">'12/31/2004'</span></pre>
+<ul><li>Select menu File: Save to Active Worksheet to save these settings to the worksheet, and then select menu Query: Import to import the data into worksheet, and then close SQL Editor. We can see the imported data form the image below.</li></ul>
+<p><a  class="image"><img alt="Pivot-table-reimport1.png" src="../images/Pivot_Table/Pivot-table-reimport1.png?v=34658" width="638"  /></a>
+</p>
+<li>To update the pivot table, go to Sheet'<i>Pivot1</i> , click the yellow lock and select <b>Recalculate</b>. The pivot table would be updated according to new data.
+<li>To update the embedded graph, 
+<ul><li>double click the embedded graph and a floating chart would pop up. </li>
+<li>Select the graph and click <b>Rescale</b> button to refresh <a  class="image"><img alt="Button Rescale.png" src="../images/Pivot_Table/Button_Rescale.png?v=48501" width="22"  /></a>. The floating chart would be updated too. </li>
+<li>click the arrow button at the upper right corner of the floating chart to put it back to the worksheet. The worksheet would look as follow.</li></ul>
+<a  class="image"><img alt="Pivot-table-reimport2.png" src="../images/Pivot_Table/Pivot-table-reimport2.png?v=34661" width="835"  /></a> 
+</ol>
+
+

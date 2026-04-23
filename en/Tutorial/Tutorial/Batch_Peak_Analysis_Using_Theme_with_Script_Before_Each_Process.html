@@ -1,0 +1,95 @@
+<h1 class="firstHeading">4.4.3 Batch Peak Analysis Using Theme with Script Before Each Process</h1><p class='urlname' style='display: none'>BatchPA-Script-Before</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_Will_You_Learn"><span class="tocnumber">2</span> <span class="toctext">What Will You Learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Save_Analysis_Settings_as_a_Theme"><span class="tocnumber">3.1</span> <span class="toctext">Save Analysis Settings as a Theme</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Prepare_Script_for_Pre-processing_Peak_Data"><span class="tocnumber">3.2</span> <span class="toctext">Prepare Script for Pre-processing Peak Data</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Batch_Analyze_Datasets_Using_Analysis_Theme"><span class="tocnumber">3.3</span> <span class="toctext">Batch Analyze Datasets Using Analysis Theme</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Batch_Peak_Analysis_Using_Theme_with_Script_Before_Each_Process/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Batch_Peak_Analysis_Using_Theme_with_Script_Before_Each_Process/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=130" target="_blank">Introduction Batch Processing without Programming</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=146" target="_blank">Pre-processing of Data for Batch Analysis</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=43" target="_blank">Dialog Themes: Time-saving Feature for Recalling Analysis Dialog Settings</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=69" target="_blank">Batch Processing of Peak Data Using Theme</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Batch_Peak_Analysis_Using_Theme_with_Script_Before_Each_Process/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Batch_Peak_Analysis_Using_Theme_with_Script_Before_Each_Process/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/sequentially-initialize-fitting-parameters-in-batch-peak-analysis" target="_blank">Sequentially initialize fitting parameters in batch peak analysis</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Origin can perform batch peak analysis of multiple datasets using an <a class="external text" href="../../UserGuide/UserGuide/The_peak_analyzer_themes.html"><b>Analysis Theme</b></a>. You can choose to pre-process the peak data (e.g., exclude unwanted datasets) before actually inputting data, by running a script before each process. Note that while <b>Batch Peak Analysis Using Theme</b> is not an OriginPro-only feature, this tutorial uses the Peak Analyzer Goal of <b>Fit Peaks</b> to create the Theme and <b>Fit Peaks</b> is a Pro-only feature.
+</p>
+<p class="version" >Minimum Origin Version Required: 2016 SR0</p>
+<h2><a name="What_Will_You_Learn"></a><span class="mw-headline">What Will You Learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li> Save analysis settings as a theme for batch peak analysis</li>
+<li> Write script before each process to pre-process data</li>
+<li> Do batch peak analysis using an analysis theme</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="Save_Analysis_Settings_as_a_Theme"></a><span class="mw-headline">Save Analysis Settings as a Theme</span></h3>
+<p>This tutorial is associated with <i>&lt;Origin EXE Folder&gt;\Samples\Tutorial Data.opj</i>.
+</p>
+<ol><li> Open <b>Tutorial Data.opj</b> and browse to the <b>Script Before Process in Batch PA</b> folder in <b>Project Explorer</b> (PE).</li>
+<li> Click on worksheet <b>Data1</b> in the workbook. Highlight column <i>B</i> and go to menu <b>Analysis: Peaks and Baseline: Peak Analyzer</b> to open dialog. Select <b>Fit Peaks(Pro)</b> as <b>Goal</b>.</li>
+<li> Click <b>Next</b> button, select <b>None(Y=0)</b> as <b>Baseline Mode</b>. Click <b>Next</b> button twice to go to <b>Fit Peaks(Pro)</b> page, expand <b>Configure Graph</b> subnode under <b>Result</b> node and set <b>Create Summary Graph</b> to <b>&lt;None&gt;</b> to turn off generating report graph, which can speed up the analysis process.</li>
+<li> Now click the <a  class="image"><img alt="Button Save Theme.png" src="../images/Batch_Peak_Analysis_Using_Theme_with_Script_Before_Each_Process/Button_Save_Theme.png?v=21618" width="21"  /></a> button next to the <b>Dialog Theme</b> control and select <b>Save as ...</b> to open <b>Theme Save as...</b> dialog. In the <b>Theme Name</b> edit box, enter <i>MyPeakAnalysis</i> and click <b>OK</b> button to save it.</li>
+<li> Click <b>Finish</b> Button to perform the analysis and output results.</li></ol>
+<h3><a name="Prepare_Script_for_Pre-processing_Peak_Data"></a><span class="mw-headline">Prepare Script for Pre-processing Peak Data</span></h3>
+<p>The <b>Batch Peak Analysis Using Theme</b> dialog provides three edit boxes to allow running script before each process, after each process and at the end of all processes. In this section we will mainly show how to write script before each process to pre-process the peak data.
+</p>
+<ol>
+<li>Activate worksheet <b>Data1</b> again, we can see from the sparkline of each dataset that some of peak data are very noisy, e.g., column <i>C</i>, <i>E</i>, <i>F</i>, and we want to exclude such noisy dataset if it reaches certain noise level.
+<li>The way used to identify whether data is noisy in this tutorial follows the routine below (if you don't see the Sparklines label row, right-click in the gray area to the right of your worksheet columns and enable by <b>View: Sparklines</b>):
+<ul><li>Filter raw data with a high-pass FFT filter to obtain the high-frequency noise from the data.</li>
+<li>Find the standard deviation(SD) of the noise and the corresponding raw data.</li>
+<li>Set a criteria that if the ratio of the square of SD of the noise over the square of SD of the raw data is over 30%, it will be regarded as noisy data and will be excluded for batch analysis.</li></ul>
+</li>
+<li>Follow the routine above, the script for pre-excluding noisy data is as following:
+<pre class="lt" style="font-family:monospace;">dataset dr;
+fft_filters iy<span style="color: #000000;">:</span><span style="color: #000080;">=</span>_ry filter<span style="color: #000000;">:</span><span style="color: #000080;">=</span>high oy<span style="color: #000000;">:</span><span style="color: #000080;">=</span>dr; <span style="color: #008000;">// Perform high-pass fft filter to obtain noise</span>
+stats dr;
+double nSD <span style="color: #000080;">=</span> stats.<span style="color: #000080;">sd</span>; <span style="color: #008000;">// Calculate SD of noise</span>
+stats _ry;
+double sSD <span style="color: #000080;">=</span> stats.<span style="color: #000080;">sd</span>; <span style="color: #008000;">// Calculate SD of raw data</span>
+
+if<span style="color: #000000;">&#40;</span>nSD<span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000080;">/</span>sSD<span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000080;">&gt;</span><span style="color: #0000dd;">0.3</span><span style="color: #000000;">&#41;</span> <span style="color: #008000;">// Set noise identification criteria</span>
+         _skip<span style="color: #000080;">=</span><span style="color: #0000dd;">1</span>;
+else
+         _skip<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span>;</pre>
+<p>where <i>_ry</i> refers to current y data, <i>_skip</i> determines whether to skip current dataset.
+</p>
+</li>
+</ol>
+<h3><a name="Batch_Analyze_Datasets_Using_Analysis_Theme"></a><span class="mw-headline">Batch Analyze Datasets Using Analysis Theme</span></h3>
+<ol>
+<li>Activate worksheet <b>Data1</b>, highlight all columns in the sheet and go to menu <b>Analysis: Peaks and Baseline: Batch Peak Analysis Using Theme...</b> to open dialog.
+</li>
+<li>Select <i>MyPeakAnalysis</i> from <b>Theme</b> drop-down list, <b>Peak Properties(Pro)</b> from <b>Result Sheet</b> drop-down list.
+</li>
+<li>To output results to a specified sheet, you can enter the range syntax in <b>Output Sheet</b> edit box. Suppose we want to export to <i>MyResults</i> sheet in <i>MySummary</i> book, you can input <i>[MySummary]MyResults!</i> in the edit box.
+</li>
+<li>Input the script we wrote in section above into <b>Script Before Each Process</b> under <b>Script</b> node (<b>Hint:</b> Clicking the button to the right of the text box opens an edit box where you can paste and edit your script).<br />
+<a  class="image"><img alt="BatchPA Using Theme Script Before Each Process 01.png" src="../images/Batch_Peak_Analysis_Using_Theme_with_Script_Before_Each_Process/450px-BatchPA_Using_Theme_Script_Before_Each_Process_01.png?v=66382" width="450"   /></a>
+</li>
+<li>Click <b>OK</b> button to perform batch peak analysis and you will see noisy datasets(say column C, E and F) are excluded in <b>MyResults</b> sheets.<br />
+<a  class="image"><img alt="BatchPA Using Theme Script Before Each Process 02.png" src="../images/Batch_Peak_Analysis_Using_Theme_with_Script_Before_Each_Process/700px-BatchPA_Using_Theme_Script_Before_Each_Process_02.png?v=43053" width="700"   /></a>
+</li>
+</ol>
+
+
+
+
+
+

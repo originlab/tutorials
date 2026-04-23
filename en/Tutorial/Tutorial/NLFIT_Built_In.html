@@ -1,0 +1,112 @@
+<h1 class="firstHeading">4.2.2.2 Nonlinear Fitting with System Function</h1><p class='urlname' style='display: none'>Fitting-NLFit-Built-in</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Import_the_file"><span class="tocnumber">3.1</span> <span class="toctext">Import the file</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Plotting_the_Data"><span class="tocnumber">3.2</span> <span class="toctext">Plotting the Data</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Fitting_with_the_Michaelis-Menten_Function"><span class="tocnumber">3.3</span> <span class="toctext">Fitting with the Michaelis-Menten Function</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Fitting_Lineweaver-Burk_Plot"><span class="tocnumber">3.4</span> <span class="toctext">Fitting Lineweaver-Burk Plot</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/NLFIT_Built_In/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/NLFIT_Built_In/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/jwplayer.html?v=ftp/mm_tutorials/mp4/VT-0001Nonlinear_Curve_Fit_Tool.mp4%7C767%7C600" target="_blank">Nonlinear Curve Fit Tool</a></li>
+<li> <a class="external text" href="https://www.originlab.com/jwplayer.html?v=ftp/mm_tutorials/mp4/Global_Fit.mp4%7C767%7C600" target="_blank">Global Fitting</a></li>
+<li> <a class="external text" href="https://www.originlab.com/jwplayer.html?v=ftp/mm_tutorials/mp4/Nonlinear_Curve_Fitting.mp4%7C767%7C600" target="_blank">Setting Data Range in the Nonlinear Fit Tool</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/NLFIT_Built_In/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/NLFIT_Built_In/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>The NLFit dialog is an interactive tool which allows you to monitor the fitting procedure during the non-linear fitting process. This tutorial fits the Michaelis-Menten function, which is a basic model in Enzyme Kinetics, and shows you some basic features of the NLFit dialog. During the fitting, we will illustrate how to perform a Global Fit, which allows you to fit two datasets simultaneously and share some parameter values.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 8.0 SR6</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Import a single ASCII file.</li>
+<li>Perform a global fit with shared parameters.</li>
+<li>Select a fitting range and fit part of the data.</li>
+<li>Use the Command Window to perform a simple calculation.</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="Import_the_file"></a><span class="mw-headline">Import the file</span></h3>
+<p>Open a new workbook. Select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Curve Fitting</i> subfolder and find the file <i>Enzyme.dat</i>. Drag-and-drop this file into the empty worksheet to import it.
+</p>
+<dl><dd><a  class="image"><img alt="Tutorial NLFit 001.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_001.png?v=5015" width="319"  /></a><br /><br /></dd></dl>
+<h3><a name="Plotting_the_Data"></a><span class="mw-headline">Plotting the Data</span></h3>
+<p>Select columns B and C and plot as a scatter plot by clicking the <a  class="image"><img alt="Scatter.png" src="../images/NLFIT_Built_In/Scatter.png?v=333" width="22"  /></a> button.
+</p>
+<dl><dd><a  class="image"><img alt="Tutorial NLFit 002 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_002_SR6.png?v=5055" width="464"  /></a><br /></dd></dl>
+<h3><a name="Fitting_with_the_Michaelis-Menten_Function"></a><span class="mw-headline">Fitting with the Michaelis-Menten Function</span></h3>
+<p>The single-substrate Michaelis-Menten function is a basic model used in enzyme kinetics studies. 
+</p>
+<dl><dd><img src="../images/NLFIT_Built_In/math-b8d0588cf34e1ab60b8c19de1f2a4336.png?v=0" title="v=\frac{V_{max}[S]}{K_m+[S]}" alt="v=\frac{V_{max}[S]}{K_m+[S]}" class="tex"/></dd></dl>
+<p>The parameter <img src="../images/NLFIT_Built_In/math-9e3669d19b675bd57058fd4664205d2a.png?v=0" title="v" alt="v" class="tex"/> is the reaction velocity, <img src="../images/NLFIT_Built_In/math-38bd6c19740e43396bd14b1575d58f60.png?v=0" title="[S]" alt="[S]" class="tex"/> is the substrate concentration, <img src="../images/NLFIT_Built_In/math-aef61aad770bee032baeac63f516e127.png?v=0" title="V_{max}" alt="V_{max}" class="tex"/> is the maximal velocity, and <img src="../images/NLFIT_Built_In/math-970fc38d3e1faed4fad256cf650ccde0.png?v=0" title="K_m" alt="K_m" class="tex"/> represents the Michaelis constant. Parameters <img src="../images/NLFIT_Built_In/math-aef61aad770bee032baeac63f516e127.png?v=0" title="V_{max}" alt="V_{max}" class="tex"/> and <img src="../images/NLFIT_Built_In/math-970fc38d3e1faed4fad256cf650ccde0.png?v=0" title="K_m" alt="K_m" class="tex"/> are important enzyme properties and their values can be determined by fitting the M-M function to a <img src="../images/NLFIT_Built_In/math-9e3669d19b675bd57058fd4664205d2a.png?v=0" title="v" alt="v" class="tex"/> vs. <img src="../images/NLFIT_Built_In/math-38bd6c19740e43396bd14b1575d58f60.png?v=0" title="[S]" alt="[S]" class="tex"/> curve. While there is no M-M fitting function in Origin, we can use a more general model, the built-in <i>Hill</i> function to perform the fit:
+</p>
+<dl><dd><img src="../images/NLFIT_Built_In/math-c8c3f0c0a606c9f2c460bbac249fa621.png?v=0" title="v=V_{max}\frac{x^n}{k^n+x^n}" alt="v=V_{max}\frac{x^n}{k^n+x^n}" class="tex"/></dd></dl>
+<p>where <img src="../images/NLFIT_Built_In/math-7b8b965ad4bca0e41ab51de7b31363a1.png?v=0" title="n" alt="n" class="tex"/> is the cooperative sites. For a single-substrate model, we fix <img src="../images/NLFIT_Built_In/math-6d24e2bc97c5e4283dd8e34674afe7ea.png?v=0" title="n=1" alt="n=1" class="tex"/>, thus simplifying the model so that it behaves like the M-M function.
+</p><p>There are two curves, one is the reaction without an Inhibitor and the other is the reaction with a Competitive Inhibitor. We will use the NLFit tool to fit these two curves simultaneously. Since for competitive inhibition reactions, the maximum velocity is the same as with no inhibition, we can share the <img src="../images/NLFIT_Built_In/math-aef61aad770bee032baeac63f516e127.png?v=0" title="V_{max}" alt="V_{max}" class="tex"/> value during the fitting procedure and perform a <i>Global Fit</i>.
+</p><p><br />
+</p>
+<ol><li>With the graph active, select the menu item <b>Analysis: Fitting: Nonlinear Curve Fit</b> to bring up the NLFit dialog. Select <i>Hill</i> function from <i>Growth/Sigmoidal</i> category on the <b>Settings: Function Selection</b> page.
+<dl><dd><a  class="image"><img alt="Tutorial NLFit 003 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_003_SR6.png?v=14602" width="774"  /></a></dd></dl></li>
+<li>On the <b>Settings: Data Selection</b> page, click the triangular button next to the <b>Input Data</b> and choose <b>Add all plots in active page</b> to set the data range.
+<dl><dd><a  class="image"><img alt="Tutorial NLFit 004 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_004_SR6.png?v=6714" width="505"  /></a></dd></dl></li>
+<li>Select <i>Global Fit</i> from <b>Multi-Data Fit Mode</b> drop-down list on the <b>Settings: Data Selection</b> page.
+<dl><dd><a  class="image"><img alt="Tutorial NLFit 005 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_005_SR6.png?v=6715" width="498"  /></a></dd></dl></li>
+<li>Switch to the <b>Parameters</b> tab, check the <b>Share</b> box on the Vmax row.  These <i>Share</i> check boxes are only available when using <i>Global Fit</i> mode. Check the <b>Fixed</b> box for n and n_2, and make sure their values are 1.
+<dl><dd><a  class="image"><img alt="Tutorial NLFit 006 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_006_SR6.png?v=6716" width="498"  /></a></dd></dl></li>
+<li>Click the <i>Fit</i> button to generate the analysis reports. A table of fit parameters is pasted to the original graph (only the fit parameter values table is shown in the following figure.)
+<dl><dd><a  class="image"><img alt="Tutorial NLFit 007 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_007_SR6.png?v=5085" width="464"  /></a></dd></dl></li></ol>
+<p>From the fit result, we can conclude that the maximum velocity is 2162.8 <img src="../images/NLFIT_Built_In/math-647804bc34e270eeb60a78ea7e25409d.png?v=0" title="\mu M/min" alt="\mu M/min" class="tex"/>. The value of <img src="../images/NLFIT_Built_In/math-970fc38d3e1faed4fad256cf650ccde0.png?v=0" title="K_m" alt="K_m" class="tex"/> for the no inhibitor model is 1.78<img src="../images/NLFIT_Built_In/math-c358cc719bf4f10b00fa965e845dc8c2.png?v=0" title="\mu M" alt="\mu M" class="tex"/>. The value <img src="../images/NLFIT_Built_In/math-970fc38d3e1faed4fad256cf650ccde0.png?v=0" title="K_m" alt="K_m" class="tex"/> for the competitive inhibitor model is 4.18<img src="../images/NLFIT_Built_In/math-c358cc719bf4f10b00fa965e845dc8c2.png?v=0" title="\mu M" alt="\mu M" class="tex"/>.
+</p>
+<h3><a name="Fitting_Lineweaver-Burk_Plot"></a><span class="mw-headline">Fitting Lineweaver-Burk Plot</span></h3>
+<p>As we know, the model parameters can also be estimated by the Lineweaver–Burk or double-reciprocal plot. The Lineweaver–Burk plot takes the reciprocal of both sides of the M-M function and plots by <code>1/v</code> vs. <code>1/[S]</code>:
+</p>
+<dl><dd><img src="../images/NLFIT_Built_In/math-7b926509a42cfcf4d7b1269ee5b66f95.png?v=0" title="\frac{1}{v}=\frac{1}{V_{max}}+\frac{K_m}{V_{max}[S]}" alt="\frac{1}{v}=\frac{1}{V_{max}}+\frac{K_m}{V_{max}[S]}" class="tex"/></dd></dl>
+<p>This is actually a linear function:
+</p>
+<dl><dd><a  class="image"><img alt="Tutorial NLFit L-B Plot.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_L-B_Plot.png?v=357" width="264"  /></a></dd></dl>
+<p>We will use the No Inhibitor data to illustrate how to calculate <img src="../images/NLFIT_Built_In/math-970fc38d3e1faed4fad256cf650ccde0.png?v=0" title="K_m" alt="K_m" class="tex"/> and <img src="../images/NLFIT_Built_In/math-aef61aad770bee032baeac63f516e127.png?v=0" title="V_{max}" alt="V_{max}" class="tex"/> by L-B plot.
+</p><p><br />
+</p>
+<ol><li>Go back to the raw data worksheet and add two more columns by clicking the <a  class="image"><img alt="Add New Columns.png" src="../images/NLFIT_Built_In/Add_New_Columns.png?v=363" width="20"  /></a> button. Right-click on column D and select <b>Set As: X</b> from the context fly-out menu to set it as an X column. Right-click on column D again and select <b>Set Column Values</b> to bring up the <b>Set Values</b> dialog. In the dialog edit box, enter: <code>1/Col(A)</code> and set the <b>Recalculate</b> mode as <i>None</i>, since we don't need to auto update the reciprocal values in this example.
+<dl><dd>Similarly, set column E's values as <code>1/Col(B)</code>. Enter the long name for column D &amp; E as <img src="../images/NLFIT_Built_In/math-9ef7cbd115a40bb95a13f1f7dc418975.png?v=0" title="1/[S]" alt="1/[S]" class="tex"/> &amp; <img src="../images/NLFIT_Built_In/math-91fe420319052e8835ef9135f6efefc1.png?v=0" title="1/V" alt="1/V" class="tex"/>, respectively. And then we have:</dd>
+<dd><a  class="image"><img alt="Tutorial NLFit 009 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_009_SR6.png?v=5041" width="459"  /></a></dd></dl></li>
+<li>Highlight columns D &amp; E and click <a  class="image"><img alt="Scatter.png" src="../images/NLFIT_Built_In/Scatter.png?v=333" width="22"  /></a> button to create a scatter plot.
+<dl><dd><a  class="image"><img alt="Tutorial NLFit 010 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_010_SR6.png?v=5042" width="458"  /></a></dd>
+<dd>From the above equation, we know there is a linear relationship between <code>1/v</code> and <code>1/[S]</code>, so we can use the NLFit tool to fit a straight line on this plot. (You can also use the Fit Linear tool from <b>Analysis: Fitting: Fit Linear</b>)</dd></dl></li>
+<li>Bring up the NLFit dialog again, select <i>Line</i> function from <i>Polynomial</i> category, and then click the <i>Fit</i> button <a  class="image"><img alt="Fit.png" src="../images/NLFIT_Built_In/Fit.png?v=360" width="51"  /></a> directly to generate results.
+<dl><dd><a  class="image"><img alt="Tutorial NLFit 011 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_011_SR6.png?v=14609" width="774"  /></a></dd>
+<dd>From the plot, one may doubt that this is the best fit curve since there is a point located far away. Actually, the right side of L-B plot is low substrate concentrations area, the measurement error may be large, so we'd better exclude these points during fitting.</dd>
+<dd><a  class="image"><img alt="Tutorial NLFit 012 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_012_SR6.png?v=5087" width="455"  /></a></dd></dl></li>
+<li>Click the lock icon on the graph upper-left corner, and select <i>Change Parameters</i> to bring back NLFit dialog.
+<dl><dd><a  class="image"><img alt="Tutorial NLFit 013 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_013_SR6.png?v=5088" width="455"  /></a></dd>
+<dd>In <b>Settings: Data Selection</b> page, click the <a  class="image"><img alt="Triangle Button.png" src="../images/NLFIT_Built_In/Triangle_Button.png?v=358" width="18"  /></a> button on <b>Input Data</b> node, and then choose <i>Reselect All Data from Graph</i> from fly-out menu.</dd>
+<dd><a  class="image"><img alt="Tutorial NLFit 014 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_014_SR6.png?v=6718" width="502"  /></a></dd>
+<dd>Then the NLFit dialog rolls up and your cursors become <a  class="image"><img alt="Tutorial NLFit 015.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_015.png?v=350" width="35"  /></a> when you move to the graph page. Click and draw a rectangle to select data points you want to fit. The input range is labeled by vertical lines. You can also click-and-move these lines to change the input range.</dd>
+<dd><a  class="image"><img alt="Tutorial NLFit 015 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_015_SR6.png?v=5090" width="455"  /></a></dd>
+<dd>Click the <a  class="image"><img alt="Tutorial NLFit 018.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_018.png?v=353" width="18"  /></a> button on <b>Select Data in Graph</b> window to go back to NLFit dialog.</dd>
+<dd><a  class="image"><img alt="Tutorial NLFit 016 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_016_SR6.png?v=6719" width="381"  /></a></dd></dl></li>
+<li>Click the <i>Fit</i> button on the NLFit dialog to recalculate the result. You can see from the graph that the report table was updated.
+<dl><dd><a  class="image"><img alt="Tutorial NLFit 017 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_017_SR6.png?v=5092" width="455"  /></a></dd></dl></li>
+<li>Since the intercept of the fitted curve is <img src="../images/NLFIT_Built_In/math-dfdcb5722c7b6821823cc629b97afb7d.png?v=0" title="1/V_{max}" alt="1/V_{max}" class="tex"/>, it is equal to <code>4.76191E-4</code> in this example. To get the <img src="../images/NLFIT_Built_In/math-aef61aad770bee032baeac63f516e127.png?v=0" title="V_{max}" alt="V_{max}" class="tex"/> value, select <b>Window: Command Window</b> to open the command window, type
+<dl><dd><code>1/4.76191E-4 = </code></dd>
+<dd>and press ENTER:</dd>
+<dd><a  class="image"><img alt="Tutorial NLFit 018 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_018_SR6.png?v=5051" width="481"  /></a></dd>
+<dd>Origin returns the value <code>2099</code>, which is close to what we got above, 2160. (When fitting the hill function above, we shared <img src="../images/NLFIT_Built_In/math-aef61aad770bee032baeac63f516e127.png?v=0" title="V_{max}" alt="V_{max}" class="tex"/> when fitting two datasets.  If you fit the No Inhibitor data only, this value will be closer.)</dd></dl></li></ol>
+
+
+
+
+
+

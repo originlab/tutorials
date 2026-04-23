@@ -1,0 +1,268 @@
+<h1 class="firstHeading">6.9.2 Baidu Map</h1><p class='urlname' style='display: none'>Baidu-Map</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_will_you_learn"><span class="tocnumber">2</span> <span class="toctext">What will you learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Data"><span class="tocnumber">3.1</span> <span class="toctext">Data</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Baidu_Map/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Baidu_Map/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=175" target="_blank">Google Map App</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=174" target="_blank">An Introduction to the Maps Online App</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Baidu_Map/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Baidu_Map/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/import-google-map-into-originapp" target="_blank">App to Import Google Map into Origin 2017</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/bubble-plot-on-google-map" target="_blank">Bubble Plot on Google Map</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/covid-19-test-positivity-rates-in-different-us-states" target="_blank">COVID-19 Test Positivity Rates in Different US States</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>This tutorial will show you how to create a graph with baidu map as background.  Baidu map is recommended if the desired background map is inside the boundary of China.
+</p>
+<dl><dd><a  class="image"><img alt="BaiduMapBackground.png" src="../images/Baidu_Map/600px-BaiduMapBackground.png?v=65143" width="600"   /></a></dd></dl>
+<h2><a name="What_will_you_learn"></a><span class="mw-headline">What will you learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>download <b>Baidu Map Import</b> app from <b>App Center</b>.</li>
+<li>use the App to add Baidu map to a 3D graph.</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<ol>
+<li> Start with a new project. With a blank workbook active, select from menu <b>Data: Connect to Web</b>. In the dialog, enter following URL link:
+<br /><code><a class="external free" href="https://www.originlab.com/doc/Tutorials/Baidu-Map" target="_blank">https://www.originlab.com/doc/Tutorials/Baidu-Map</a></code>
+<br />Select <i>table/_1</i> to import <a href="#Data">data</a> from this page. There are PM 2.5 values of several observation points in Beijing city at mid-day of 18/11/2020.
+<li> Select column C header and click X on the mini toolbar that pops up. This sets column B as X. Similarly, set column E as Z.
+<li> Highlight column D and select menu <b>Plot: 3D: 3D Scatter</b> to make a 3D scatter plot. 
+<dl><dd><a  class="image"><img alt="BaiduMapBackground1.png" src="../images/Baidu_Map/BaiduMapBackground1.png?v=65156" width="465"  /></a></dd></dl>
+<li> Click <b>Add Apps</b> icon in <b>Apps</b> window that docks on the right side of Origin workspace and search <b>baidu map</b>. Click the <b>download</b> icon to download it.
+<dl><dd><a  class="image"><img alt="BaiduMapBackground2.png" src="../images/Baidu_Map/750px-BaiduMapBackground2.png?v=65157" width="750"   /></a></dd></dl>
+<li> With the 3D scatter graph window active, launch the <b>Baidu Map Import</b> app. Click the <b>From Graph</b> button first to relocate the ROI box to cover all the observations in the preview window. Change <b>Map Type</b> to <b>3D Plane</b>. Clear <b>Create New Graph</b> checkbox. Then click <b>Import</b> button. Now The baidu map is added to the active graph as background in the XY plane. Close the App.
+<dl><dd><a  class="image"><img alt="BaiduMapBackground3.png" src="../images/Baidu_Map/500px-BaiduMapBackground3.png?v=65158" width="500"   /></a></dd></dl>
+<li> Customize the graph. Double click the Symbol to open the <b>Plot Details</b> dialog. 
+<ul><li>Turn on drop lines to XY plane (plot level &gt; Original branch &gt; <b>Drop Lines</b> tab), </li>
+<li>Change symbol shape to <b>Sphere</b> and enlarge its size to <b>18</b> (plot level &gt; Original branch &gt; <b>Symbol</b> tab). </li>
+<li>Hide YZ plane and <b>Plane Border</b> (Layer level &gt; <b>Planes</b> tab).</li></ul>
+<dl><dd><a  class="image"><img alt="BaiduMapBackground4.png" src="../images/Baidu_Map/800px-BaiduMapBackground4.png?v=65159" width="800"   /></a></dd></dl>
+<li>Customize axes. Delete X&amp;Y axis title. Select menu <b>Format: Axes: Z Axis</b>. In the Scale tab of <b>Z Axis</b> dialog, change scale <b>From</b> 0 <b>To</b> 100.
+<li>Use 3D Rotation toolbar <a  class="image"><img alt="BaiduMapBackground5.png" src="../images/Baidu_Map/BaiduMapBackground5.png?v=65155" width="327"  /></a> to rotate the graph to a desired angle.
+</ol>
+<h3><a name="Data"></a><span class="mw-headline">Data</span></h3>
+<dl><dd><table border="1"></dd></dl>
+  <tr>
+    <th>Observation</th>
+    <th></th>
+    <th>Longitude</th>
+    <th>Latitude</th>
+    <th>PM2.5</th>
+  </tr>
+  <tr>
+    <td>DongSi</td>
+    <td>东四</td>
+    <td>116.23128</td>
+    <td>40.22077</td>
+    <td>42</td>
+  </tr>
+  <tr>
+    <td>GuanYuan</td>
+    <td>官园</td>
+    <td>116.35586</td>
+    <td>39.93239</td>
+    <td>45</td>
+  </tr>
+  <tr>
+    <td>Olympic Sports Center</td>
+    <td>奥体中心</td>
+    <td>116.41219</td>
+    <td>39.98538</td>
+    <td>35</td>
+  </tr>
+  <tr>
+    <td>Agriculture Exhibition Center</td>
+    <td>农展馆</td>
+    <td>116.46865</td>
+    <td>39.94429</td>
+    <td>39</td>
+  </tr>
+  <tr>
+    <td>WanLiu</td>
+    <td>万柳</td>
+    <td>116.29696</td>
+    <td>39.96706</td>
+    <td>36</td>
+  </tr>
+  <tr>
+    <td>Northern XiQu</td>
+    <td>北部新区</td>
+    <td>116.17035</td>
+    <td>40.04928</td>
+    <td>42</td>
+  </tr>
+  <tr>
+    <td>FengTai Garden</td>
+    <td>丰台花园</td>
+    <td>116.28371</td>
+    <td>39.86265</td>
+    <td>34</td>
+  </tr>
+  <tr>
+    <td>YunGang</td>
+    <td>云岗</td>
+    <td>116.162</td>
+    <td>39.81044</td>
+    <td>19</td>
+  </tr>
+  <tr>
+    <td>GuCheng</td>
+    <td>古城</td>
+    <td>116.23128</td>
+    <td>40.22077</td>
+    <td>37</td>
+  </tr>
+  <tr>
+    <td>FangShan</td>
+    <td>房山</td>
+    <td>116.14294</td>
+    <td>39.74788</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <td>DaXing</td>
+    <td>大兴</td>
+    <td>116.34159</td>
+    <td>39.72684</td>
+    <td>22</td>
+  </tr>
+  <tr>
+    <td>YiZhuang</td>
+    <td>亦庄</td>
+    <td>116.23128</td>
+    <td>40.22077</td>
+    <td>26</td>
+  </tr>
+  <tr>
+    <td>GuYi</td>
+    <td>顺义</td>
+    <td>116.65477</td>
+    <td>40.13012</td>
+    <td>54</td>
+  </tr>
+  <tr>
+    <td>ChangPing</td>
+    <td>昌平</td>
+    <td>116.23128</td>
+    <td>40.22077</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>MenTouGou</td>
+    <td>门头沟</td>
+    <td>116.10146</td>
+    <td>39.94048</td>
+    <td>12</td>
+  </tr>
+  <tr>
+    <td>PingGu</td>
+    <td>平谷</td>
+    <td>117.12141</td>
+    <td>40.14062</td>
+    <td>37</td>
+  </tr>
+  <tr>
+    <td>HuaiRou</td>
+    <td>怀柔</td>
+    <td>116.63177</td>
+    <td>40.316</td>
+    <td>32</td>
+  </tr>
+  <tr>
+    <td>MiYun</td>
+    <td>密云</td>
+    <td>116.84317</td>
+    <td>40.37625</td>
+    <td>14</td>
+  </tr>
+  <tr>
+    <td>YanQing</td>
+    <td>延庆</td>
+    <td>115.97503</td>
+    <td>40.45678</td>
+    <td>15</td>
+  </tr>
+  <tr>
+    <td>DingLing</td>
+    <td>定陵</td>
+    <td>116.23128</td>
+    <td>40.22077</td>
+    <td>27</td>
+  </tr>
+  <tr>
+    <td>BaDaLing</td>
+    <td>八达岭</td>
+    <td>115.9779</td>
+    <td>40.36214</td>
+    <td>24</td>
+  </tr>
+  <tr>
+    <td>MinYun Reservoir</td>
+    <td>密云水库</td>
+    <td>116.88429</td>
+    <td>40.47824</td>
+    <td>12</td>
+  </tr>
+  <tr>
+    <td>DongGao</td>
+    <td>东高村</td>
+    <td>117.11673</td>
+    <td>40.10479</td>
+    <td>73</td>
+  </tr>
+  <tr>
+    <td>YongLeDian</td>
+    <td>永乐店</td>
+    <td>116.79679</td>
+    <td>39.70886</td>
+    <td>66</td>
+  </tr>
+  <tr>
+    <td>LiuLi River</td>
+    <td>琉璃河</td>
+    <td>116.02432</td>
+    <td>39.59867</td>
+    <td>23</td>
+  </tr>
+  <tr>
+    <td>YongDingMenNei</td>
+    <td>永定门内</td>
+    <td>116.3993</td>
+    <td>39.87311</td>
+    <td>38</td>
+  </tr>
+  <tr>
+    <td>NanSanHuan</td>
+    <td>南三环</td>
+    <td>116.38432</td>
+    <td>39.85701</td>
+    <td>41</td>
+  </tr>
+  <tr>
+    <td>DongSiHuan</td>
+    <td>东四环</td>
+    <td>116.48972</td>
+    <td>39.91923</td>
+    <td>42</td>
+  </tr>	
+</table>
+
+
+
+
+
+

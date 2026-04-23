@@ -1,0 +1,340 @@
+<h1 class="firstHeading">6.10.5 Add multiple fitted curves in a Histogram</h1><p class='urlname' style='display: none'>MultiFittedCurve-in-Histogram</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Frequency_Count"><span class="tocnumber">3.1</span> <span class="toctext">Frequency Count</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Fit_peaks"><span class="tocnumber">3.2</span> <span class="toctext">Fit peaks</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Add_the_fitted_curves"><span class="tocnumber">3.3</span> <span class="toctext">Add the fitted curves</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Sample_Data"><span class="tocnumber">3.4</span> <span class="toctext">Sample Data</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Origin allows you to fit the peaks from the result of frequency count. Also, fitted curves can added into the new layer in the Histogram. 
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<ul><li> Plotting the Histogram</li>
+<li> Using Frequency Count to do statistics</li>
+<li> Using Multiple Peak Fit tool to find peaks and do fitting </li>
+<li> Adding new layers</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<p>Copy and paste <a href="#Sample_Data">the sample data</a> into Origin and set the column as Y (Highlight the column and choose <b>Column: Set As: Y</b> from the Origin menu). Plot this data as a Histogram by clicking <span class="menu">Plot &gt; Basic 2D: Histogram</span> from the menu.
+</p>
+<dl><dd><a  class="image"><img alt="Histogram Not Fitted curve.png" src="../images/Add_multiple_fitted_curves_in_a_Histogram/Histogram_Not_Fitted_curve.png?v=4019" width="457"  /></a></dd></dl>
+<h3><a name="Frequency_Count"></a><span class="mw-headline">Frequency Count</span></h3>
+<ol><li> Highlight the sample data, then open the <b>Frequency Count</b> dialog by selecting <span class="menu">Statistics: Descriptive Statistcs: Frequency Count</span>. </li>
+<li>Click <b>OK</b> to finish. A new result sheet will be generated. </li></ol>
+<h3><a name="Fit_peaks"></a><span class="mw-headline">Fit peaks</span></h3>
+<ol>
+<li>Select Col(Counts) in <b>FreqCounts1</b> sheet and then open the <b>Multiple Peak Fit</b> dialog from <b>Analysis: Peak and Baseline: Multiple Peak Fit</b>.
+<li>In the dialog that opens, choose Gaussian for <b>Peak Function</b> and click <b>OK</b>.
+<li>A graph window is generated automatically for you to pick peaks from the graph. Double click at the peak center to pick up a peak. Pick two peaks one by one this way. 
+<br /><a  class="image"><img alt="MultiFittedCurve pickpeaks.png" src="../images/Add_multiple_fitted_curves_in_a_Histogram/MultiFittedCurve_pickpeaks.png?v=49592" width="437"  /></a>
+<br /><b>Note</b>: you can single click at the peak center and then use Left and Right arrow keys on the keyboard to slightly adjust the center. Once done, press Enter key to confirm.</li>
+<li>We need to fix the baseline at Y = 0. To do this, click <b>Open NLFit</b> button to open <b>Nonlinear Curve Fit</b> dialog. Go to Parameters tab. Set <b>Value</b> of parameter <i>y0</i> to 0 and check <b>Fixed</b> cehckbox. Click <b>Fit</b> button to perform the fitting.
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Add_multiple_fitted_curves_in_a_Histogram/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>If your baseline is complicated, or if you would like Origin to auto find peaks by specified method, please use <b>Peak Analyzer</b> (open from <b>Analysis: Peaks and Baseline: Peak Analyzer</b>). Note that <b>Peak Analyzer</b> provides powerful controls appropriate not just in two cases mentioned.
+</p></td></tr></table></li>
+<li>Two sheets <b>nlfitpeaks1</b> and <b>nlfitpeaksCurve1</b> are added to the source workbook containing the fitting report and the fitted curve data.
+</ol>
+<p><br />
+</p>
+<h3><a name="Add_the_fitted_curves"></a><span class="mw-headline">Add the fitted curves</span></h3>
+<ol>
+    <li> Activate the Histogram graph and add a layer by selecting
+    <span class="db">Insert: New Layer(Axes): Right-Y</span> from the main menu.
+    <li> Double click the <b>Layer2</b> icon to open the <b>Layer Content</b> dialog.
+    <li> Hold <b>Ctrl</b> key to select col("Fit Peak 1") and col("Fit Peak 2") in sheet <b>nlfitpeaksCurve1</b> in the left panel, click the triangle button next to  <b>A</b> button and select Line from the fly-out menu, and then click <b>-&gt;</b> button to add it to the right panel.
+    <li> Click OK. Two fitted curves had been added to the Histogram.
+    <li> Double-click the graph to open the
+    <span class="db">Plot Details</span> dialog. Select <b>RightY</b> from the left panel, then open the <b>Link Axes Scales</b> tab in the right panel and select <b>Straight(1 to 1)</b> for both <b>X Axis Link</b> and <b>Y axis Link</b>. Click OK to close the dialog.
+    <li> The fitted curves are added into the Histogram with the proper scale. The following is the result graph, with the right Y-axis removed.
+    <br /><a  class="image"><img alt="Histogram Fitted curve.png" src="../images/Add_multiple_fitted_curves_in_a_Histogram/Histogram_Fitted_curve.png?v=4024" width="473"  /></a>
+</ol>
+<h3><a name="Sample_Data"></a><span class="mw-headline">Sample Data</span></h3>
+<dl><dd><table class="simple">
+
+
+
+<tr>
+<td>0.631
+</td></tr>
+
+<tr>
+<td>0.642
+</td></tr>
+
+<tr>
+<td>0.652
+</td></tr>
+
+<tr>
+<td>0.662
+</td></tr>
+
+<tr>
+<td>0.669
+</td></tr>
+
+<tr>
+<td>0.676
+</td></tr>
+
+<tr>
+<td>0.677
+</td></tr>
+
+<tr>
+<td>0.69
+</td></tr>
+
+<tr>
+<td>0.691
+</td></tr>
+
+<tr>
+<td>0.696
+</td></tr>
+
+<tr>
+<td>0.697
+</td></tr>
+
+<tr>
+<td>0.699
+</td></tr>
+
+<tr>
+<td>0.699
+</td></tr>
+
+<tr>
+<td>0.7
+</td></tr>
+
+<tr>
+<td>0.7
+</td></tr>
+
+<tr>
+<td>0.708
+</td></tr>
+
+<tr>
+<td>0.712
+</td></tr>
+
+<tr>
+<td>0.718
+</td></tr>
+
+<tr>
+<td>0.731
+</td></tr>
+
+<tr>
+<td>0.744
+</td></tr>
+
+<tr>
+<td>0.749
+</td></tr>
+
+<tr>
+<td>0.751
+</td></tr>
+
+<tr>
+<td>0.752
+</td></tr>
+
+<tr>
+<td>0.753
+</td></tr>
+
+<tr>
+<td>0.758
+</td></tr>
+
+<tr>
+<td>0.758
+</td></tr>
+
+<tr>
+<td>0.759
+</td></tr>
+
+<tr>
+<td>0.761
+</td></tr>
+
+<tr>
+<td>0.761
+</td></tr>
+
+<tr>
+<td>0.763
+</td></tr>
+
+<tr>
+<td>0.763
+</td></tr>
+
+<tr>
+<td>0.763
+</td></tr>
+
+<tr>
+<td>0.765
+</td></tr>
+
+<tr>
+<td>0.767
+</td></tr>
+
+<tr>
+<td>0.768
+</td></tr>
+
+<tr>
+<td>0.768
+</td></tr>
+
+<tr>
+<td>0.769
+</td></tr>
+
+<tr>
+<td>0.769
+</td></tr>
+
+<tr>
+<td>0.77
+</td></tr>
+
+<tr>
+<td>0.771
+</td></tr>
+
+<tr>
+<td>0.771
+</td></tr>
+
+<tr>
+<td>0.772
+</td></tr>
+
+<tr>
+<td>0.774
+</td></tr>
+
+<tr>
+<td>0.775
+</td></tr>
+
+<tr>
+<td>0.775
+</td></tr>
+
+<tr>
+<td>0.776
+</td></tr>
+
+<tr>
+<td>0.776
+</td></tr>
+
+<tr>
+<td>0.776
+</td></tr>
+
+<tr>
+<td>0.777
+</td></tr>
+
+<tr>
+<td>0.778
+</td></tr>
+
+<tr>
+<td>0.779
+</td></tr>
+
+<tr>
+<td>0.78
+</td></tr>
+
+<tr>
+<td>0.78
+</td></tr>
+
+<tr>
+<td>0.781
+</td></tr>
+
+<tr>
+<td>0.784
+</td></tr>
+
+<tr>
+<td>0.784
+</td></tr>
+
+<tr>
+<td>0.785
+</td></tr>
+
+<tr>
+<td>0.785
+</td></tr>
+
+<tr>
+<td>0.789
+</td></tr>
+
+<tr>
+<td>0.789
+</td></tr>
+
+<tr>
+<td>0.791
+</td></tr>
+
+<tr>
+<td>0.794
+</td></tr>
+
+<tr>
+<td>0.795
+</td></tr>
+
+<tr>
+<td>0.796
+</td></tr>
+
+<tr>
+<td>0.798
+</td></tr>
+
+<tr>
+<td>0.798
+</td></tr>
+
+<tr>
+<td>0.803
+</td></tr>
+
+<tr>
+<td>0.82
+</td></tr>
+
+<tr>
+<td>0.831
+</td></tr></table></dd></dl>
+
+

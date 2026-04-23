@@ -1,0 +1,90 @@
+<h1 class="firstHeading">5.3.1 One Way ANOVA</h1><p class='urlname' style='display: none'>1WayANOVA</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">What You Will Learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Indexed_Data_Mode"><span class="tocnumber">3.1</span> <span class="toctext">Indexed Data Mode</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Raw_Data_Mode"><span class="tocnumber">3.2</span> <span class="toctext">Raw Data Mode</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/One_Way_ANOVA/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/One_Way_ANOVA/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=5" target="_blank">Analysis of Variance</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/One_Way_ANOVA/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/One_Way_ANOVA/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Statistics has two modes of data input; indexed and raw.  When a statistical analysis is performed, there is usually no need to use an entire data set; Origin provides several methods of data selection.  For example, the interactive <b>Regional Data Selector</b> button can be used in the graphical selection of data, or the <b>Column Browser</b> dialog can be employed to make the selection.
+</p><p>In this tutorial, you will learn how to use the two methods of data input so that the Analysis of Variance (ANOVA) statistical test can be performed. 
+</p><p>ANOVA is a parametric method for means comparison of several groups, and it is also an extension of two independent sample t-tests.  ANOVA is more powerful than multiple t-tests since it controls the chance to commit type I error better when the number of groups is relatively large. For example, when comparing the means among 5 groups using a t-test, ten multiples of the t-test, each with a significance level of 0.05, are performed, resulting in an overall chance to commit type I error of 1-(1-0.05)^10=0.401.  Under the same circumstances, the chance to commit type I error in ANOVA is 0.05.
+</p><p>ANOVA requires normality and equal variance.  If these requirements are not met, non-parametric analysis should be used.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 2016 SR0</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">What You Will Learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Use different input data modes in the statistical analysis dialog</li>
+<li>Do normality tests</li>
+<li>Perform one-way ANOVA</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<p>Origin can perform ANOVA from an indexed data mode, or from a raw data mode.  
+</p><p>When an indexed data mode is used, the data needs to be organized in a factor column and a data column.  
+</p>
+<dl><dd><dl><dd><a  class="image"><img alt="Tutorial ANOVA 008.png" src="../images/One_Way_ANOVA/Tutorial_ANOVA_008.png?v=258" width="242"  /></a><br /></dd></dl></dd></dl>
+<p>When a raw data mode is used, the data needs to be organized with different levels in different columns.
+</p>
+<dl><dd><a  class="image"><img alt="Tutorial ANOVA 009.png" src="../images/One_Way_ANOVA/Tutorial_ANOVA_009.png?v=259" width="382"  /></a><br /></dd></dl>
+<p><br />
+</p>
+<h3><a name="Indexed_Data_Mode"></a><span class="mw-headline">Indexed Data Mode</span></h3>
+<p>Nitrogen content, in milligrams, has been recorded for 4 kinds of plants.  We are interested to know whether different plants have significantly different nitrogen content.  As a result, we will use the index data mode in One-Way ANOVA analysis.
+</p>
+<ol>
+
+<li>Start with a new workbook and select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Statistics</i> subfolder and find the file <i>nitrogen.txt</i>. Drag-and-drop this file into the empty worksheet to import it.
+<li>Next, we perform a normality test on each group of data to determine whether it follows a normal distribution. Highlight the first column of the workbook and from the Menu Bar, select <b>Worksheet: Sort Worksheet: Ascending</b>.</li>
+<li>From the Menu Bar, select <b>Statistics: Descriptive Statistics: Normality Test: Open Dialog</b>.  In the <b>Normality Test</b> dialog, in the <b>Input</b> tab, expand <b>Input Data</b> and <b>Range 1</b>. Press the triangle button at the right of <b> Data Range</b> and select <b>B(Y): nitrogen</b>, then press the triangle button at the right of <b>Group</b> and select <b>A(X): plant</b>. Click <b>OK</b>.</li>
+<p><a  class="image"><img alt="DOC-2411 ANOVAn1a Magenta.png" src="../images/One_Way_ANOVA/DOC-2411_ANOVAn1a_Magenta.png?v=38904" width="659"  /></a>
+</p>
+<li>With the <b>nitrogen</b> worksheet active, go to the Menu Bar and open <b>Statistics: ANOVA: One-Way ANOVA...</b>. In the <b>ANOVAOneWay</b> dialog box, in the <b>Input</b> tab, set <b>Input Data</b> to <b>Indexed</b>.  Pressing the triangle button at the right of <b>Factor</b>, select <b>A(X): plant</b> and pressing the triangle button at the right of <b>Data</b>, select <b>B(Y): nitrogen</b>. </li>
+<dl><dd><a  class="image"><img alt="DOC-2411 ANOVA03a Magenta.png" src="../images/One_Way_ANOVA/DOC-2411_ANOVA03a_Magenta.png?v=38908" width="735"  /></a><br /></dd></dl>
+<li>In the<b>Means Comparison</b> tab, check the <b>Tukey</b> check box;  In the <b>Tests for Equal Variance</b> tab, check the <b>Levene</b> check box; In <b>Power Analysis</b> tab, select <b>Actual Power</b> check box; In the <b>Plots</b> tab, check the <b>Means Plot[SE as Error]</b> and the <b>Means Comparison Plot</b> check boxes.  Click <b>OK</b>.</li>
+</ol>
+<dl><dd><a  class="image"><img alt="DOC-2411 ANOVA03b Magenta.png" src="../images/One_Way_ANOVA/DOC-2411_ANOVA03b_Magenta.png?v=44524" width="994"  /></a><br /></dd></dl>
+<p><b>Result Interpretations</b>
+</p>
+<ul><li>On the ANOVA1Way1 report sheet, you will see a <b>Homogeneity of Variance Test</b> node. If results are not visible, click to expand the node. Because the p-value is greater than 0.05, the four groups are considered to have equal variance.<br />             </li></ul>
+<dl><dd><a  class="image"><img alt="ANOVA04.png" src="../images/One_Way_ANOVA/ANOVA04.png?v=23323" width="401"  /></a><br /></dd></dl>
+<ul><li>The ANOVA table (Overall ANOVA) reports a p-value that is smaller than 0.05, hence at least two of the four groups have significantly different means.<p></li></ul>
+<dl><dd><a  class="image"><img alt="ANOVA05.png" src="../images/One_Way_ANOVA/ANOVA05.png?v=70452" width="488"  /></a><br /><br /></dd></dl>
+<ul><li>Expanding the results of "Means Comparisons" reveals further information regarding relationships between groups.</li></ul>
+<dl><dd><a  class="image"><img alt="ANOVA06.png" src="../images/One_Way_ANOVA/ANOVA06.png?v=70451" width="624"  /></a><br /><br /></dd></dl>
+<ul><li>Here we see that the mean of PLANT4 differs significantly from the other three groups. Looking at the <b>Means Plot</b> and <b>Means Comparison Plot</b>, we can see that PLANT4 has the smallest mean and is significantly different from the other three groups.</li></ul>
+<dl><dd><a  class="image"><img alt="ANOVA07.png" src="../images/One_Way_ANOVA/ANOVA07.png?v=23326" width="395"  /></a><br /></dd>
+<dd><a  class="image"><img alt="ANOVA09.png" src="../images/One_Way_ANOVA/ANOVA09.png?v=23327" width="551"  /></a><br /></dd></dl>
+<ul><li>In the "Powers" table, <b>Actual Power</b>=0.99976, that is, the chance of a Type II error occurring is almost equal to zero. </li></ul>
+<dl><dd><a  class="image"><img alt="ANOVA10.png" src="../images/One_Way_ANOVA/ANOVA10.png?v=23330" width="288"  /></a><br /></dd></dl>
+<h3><a name="Raw_Data_Mode"></a><span class="mw-headline">Raw Data Mode</span></h3>
+<ol><li> Start with a new workbook and select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Statistics</i> subfolder and find the file <i>nitrogen_raw.txt</i>. Drag-and-drop this file into the empty worksheet to import it.</li>
+<li> Choose <b>Statistics: ANOVA: One-Way ANOVA</b>. </li>
+<li> On the <b>Input</b> tab, set <b>Input Data</b> to <b>Raw</b>, then set <b>Number of levels</b> to <b>4</b>.</li>
+<li> Click the browse button <a  class="image"><img alt="ANOVA inpurt data browse.png" src="../images/One_Way_ANOVA/ANOVA_inpurt_data_browse.png?v=61721" width="35"  /></a> to the right of <b>Data</b> and choose <b>Select from Worksheet</b>. The dialog box rolls up.</li>
+<li> Select all four columns (Plant1, Plant2, Plant3, Plant4) and on the rolled-up dialog box, click <b>Done</b>. Click <b>OK</b> to perform the ANOVA.</li>
+<li> Examine the analysis results and you will see that we reach the same conclusions as we did when using <b>Indexed data mode</b>.<br /></li></ol>
+<p><br />
+</p>
+<dl><dd><a  class="image"><img alt="DOC-2411 ANOVA311a.png" src="../images/One_Way_ANOVA/DOC-2411_ANOVA311a.png?v=62709" width="849"  /></a><br /></dd></dl>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/One_Way_ANOVA/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>If the <b>Level Name</b> is set to <b>Auto</b>, it will follow the column long name of the selected data.
+</p></td></tr></table></p>
+
+

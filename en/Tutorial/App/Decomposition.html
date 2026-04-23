@@ -1,0 +1,48 @@
+<h1 class="firstHeading">5.6.8 Tutorial for Decomposition</h1><p class='urlname' style='display: none'>TSA-TD-Decomposition-Tutorial</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Notes_for_Starting"><span class="tocnumber">1</span> <span class="toctext">Notes for Starting</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#User_Story"><span class="tocnumber">2</span> <span class="toctext">User Story</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps_in_Origin"><span class="tocnumber">3</span> <span class="toctext">Steps in Origin</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Interpreting_the_Results"><span class="tocnumber">4</span> <span class="toctext">Interpreting the Results</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Notes_for_Starting"></a><span class="mw-headline">Notes for Starting</span></h2>
+<ul><li> Start this tutorial with the app <a class="external text" href="https://www.originlab.com/fileExchange/details.aspx?fid=1016" target="_blank"><b>Time Series Analysis</b></a> installed. If you have not installed the app, see <a class="external text" href="https://www.originlab.com/doc/User-Guide/Apps" target="_blank">Apps for Origin</a> to find and install the app.</li></ul>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Decomposition/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p><i><b>Topics for Further Reading</b></i>:
+</p>
+<ul><li> <a href="../../App/Category/Decomposition_Tool(App).html" title="Category:Decomposition Tool(App)">Introduction: Decomposition</a></li>
+<li> <a href="../../App/App/Algorithm_Decomposition.html" title="App:Algorithm Decomposition">Algorithm: Decomposition</a></li></ul>
+</td></tr></table>
+<h2><a name="User_Story"></a><span class="mw-headline">User Story</span></h2>
+<p>The dataset represents monthly international airline passenger totals (measured in thousands) for twelve consecutive years from 1960 to 1972. The dataset indicates a clear trend, because the airline industry enjoyed steady growth over the years. At the same time, the figures follow a seasonal pattern over 12 months. 
+</p><p>An analysist wants to decompose the data and make forecasts for the next 6 months.
+</p>
+<h2><a name="Steps_in_Origin"></a><span class="mw-headline">Steps in Origin</span></h2>
+<ol><li> Open the sample project file in Origin, go to Folder <b>Transform and Decompose</b> using the Project Explorer. Activate the workbook <b>Airpass</b>.
+<dl><dd> <a  class="image"><img alt="Decompose data pe.png" src="../images/Decomposition/500px-Decompose_data_pe.png?v=75404" width="500"   /></a></dd></dl></li>
+<li> Highlight column B in worksheet. Click the Time Series Analysis App icon <a  class="image"><img alt="Time Series Analysis icon.png" src="../images/Decomposition/Time_Series_Analysis_icon.png?v=75189" width="50"  /></a> in the Apps Gallery window.</li>
+<li> Choose Transform and Decompose tab. Click Decomposition icon to open the dialog.
+<dl><dd> <a  class="image"><img alt="Decompose toolbar.png" src="../images/Decomposition/700px-Decompose_toolbar.png?v=75625" width="700"   /></a></dd></dl></li>
+<li> In the <b>Setting</b> tab,set Seasonal Length to 12. Choose <b>Multiplicative</b> model type and Trend Plus Seasonal model components. Enter 12 in Number of Forecasts box.
+<dl><dd> <a  class="image"><img alt="Tsa decomp dialog.png" src="../images/Decomposition/700px-Tsa_decomp_dialog.png?v=74970" width="700"   /></a></dd></dl></li>
+<li> Click Preview button to display fitted curve with forecasts against actual data.</li>
+<li> Accept all other default settings and click OK button</li></ol>
+<h2><a name="Interpreting_the_Results"></a><span class="mw-headline">Interpreting the Results</span></h2>
+<ol><li> The The mean absolute percent error (MAPE) value is 5.44%, indicating the fit data is 5.44% off the original data.It shows the model fits the data quite well.</li>
+<li> The Component Analysis plot include 4 graphs:
+<ul><li> Actual: Original data.</li>
+<li> Detrended Data: Data with the trend component removed from original data.</li>
+<li> Seasonally Adjusted Data: Data with the seasonal component removed from original data.</li>
+<li> Residuals: Difference between actual and fits.</li></ul>
+<dl><dd> <a  class="image"><img alt="Tsa decomp ca.png" src="../images/Decomposition/700px-Tsa_decomp_ca.png?v=74987" width="700"   /></a></dd></dl></li>
+<li> The Seasonal Analysis plot include 4 graphs:
+<ul><li> Seasonal component plot (base = 1 for multiplicative model):It shows that the seasonal effect goes upward and reaches its largest in July (7th month), and then goes downward and reaches its smallest in November (11th month).</li>
+<li> Box chart for detrended data by season:Detrended data in November is most concentrated.</li>
+<li> Percent variation of detrended data by season:February has the largest variation and November has the smallest variation.</li>
+<li> Box chart for residuals by season:It does not show any obvious effect.</li></ul>
+<dl><dd> <a  class="image"><img alt="TSA season plot.png" src="../images/Decomposition/500px-TSA_season_plot.png?v=75286" width="500"   /></a></dd></dl></li></ol>
+
+

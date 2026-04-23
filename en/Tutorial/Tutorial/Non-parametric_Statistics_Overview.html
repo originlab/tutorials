@@ -1,0 +1,298 @@
+<h1 class="firstHeading">5.4.1 Non-parametric Statistics Overview</h1><p class='urlname' style='display: none'>NonparametricStatisticsOverview</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Introduction:_Nonparametric_Tests_in_Origin"><span class="tocnumber">3</span> <span class="toctext">Introduction: Nonparametric Tests in Origin</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Examples"><span class="tocnumber">4</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#One_Sample_Independent_Tests"><span class="tocnumber">4.1</span> <span class="toctext">One Sample Independent Tests</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Two_Sample_Independent_Tests"><span class="tocnumber">4.2</span> <span class="toctext">Two Sample Independent Tests</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Non-parametric_Measures_of_Correlation"><span class="tocnumber">4.3</span> <span class="toctext">Non-parametric Measures of Correlation</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Paired_Sample_wilcoxon_Signed_Rank_Tests"><span class="tocnumber">4.4</span> <span class="toctext">Paired Sample wilcoxon Signed Rank Tests</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Multiple_Independent_Samples_Test"><span class="tocnumber">4.5</span> <span class="toctext">Multiple Independent Samples Test</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Multiple_Related_Samples_Test"><span class="tocnumber">4.6</span> <span class="toctext">Multiple Related Samples Test</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Non-parametric_Statistics_Overview/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Non-parametric_Statistics_Overview/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=78" target="_blank">Non-Parametric Statistic for Two Samples</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=113" target="_blank">Non Parametric Statistics for Multiple Sample</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Non-parametric_Statistics_Overview/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Non-parametric_Statistics_Overview/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Nonparametric tests are used when you don't know whether your data are normally distributed, or when you have confirmed that your data are not normally distributed. 
+</p><p><br />
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you:
+</p>
+<ul><li> An introduction on non-parametric tests in Origin</li>
+<li> How to run the non-parametric tests for different practical situations</li>
+<li> How to calculate correlation coefficient in non-parametric statistics</li></ul>
+<h2><a name="Introduction:_Nonparametric_Tests_in_Origin"></a><span class="mw-headline">Introduction: Nonparametric Tests in Origin</span></h2>
+<p>Nonparametric tests do not require the assumption of normality. They are commonly used in the following situations:
+</p>
+<ul><li> Small sample size.</li>
+<li> Categorical/Binary/Ordinal data.</li>
+<li> Normal distribution cannot be assumed.</li></ul>
+<table class="simple">
+<tr>
+<th>
+</th>
+<th>
+</th>
+<th>Nonparametric
+</th>
+<th>Parametric
+</th></tr>
+<tr>
+<td rowspan="2">
+</td>
+<td rowspan="2">
+</td>
+<td><i><b>Data from any distribution</b></i>
+</td>
+<td><i><b>Data from normal distribution</b></i>
+</td></tr>
+<tr>
+<td><i><b>Small Samples</b></i>
+</td>
+<td><i><b>Large Samples</b></i>
+</td></tr>
+<tr>
+<td><b>One Sample</b>
+</td>
+<td>
+</td>
+<td>Wilcoxon Signed Rank Test
+</td>
+<td>One Sample T-Test
+</td></tr>
+<tr>
+<td rowspan="2"><b>Two Samples</b>
+</td>
+<td>Independent Samples
+</td>
+<td>
+<ul><li> Mann-Whitney test</li>
+<li>Kolmogorov-Smirnov test </li></ul>
+</td>
+<td>Two Sample T-Test
+</td></tr>
+<tr>
+<td>Paired Samples
+</td>
+<td>
+<ul><li>Wilcoxon signed rank Test </li>
+<li>Sign Test </li></ul>
+</td>
+<td>Paired Sample T-Test
+</td></tr>
+<tr>
+<td rowspan="2"><b>Multiple Samples</b>
+</td>
+<td>Independent Samples
+</td>
+<td>
+<ul><li>Kruskal-Wallis ANOVA </li>
+<li>Mood's Median Test </li></ul>
+</td>
+<td>One Way ANOVA
+</td></tr>
+<tr>
+<td>Related Samples
+</td>
+<td>Friedman ANOVA
+</td>
+<td>One Way Repeated Measure ANOVA
+</td></tr></table>
+<h2><a name="Examples"></a><span class="mw-headline">Examples</span></h2>
+<h3><a name="One_Sample_Independent_Tests"></a><span class="mw-headline">One Sample Independent Tests</span></h3>
+<p>The One-Sample Wilcoxon Signed Rank test is designed to examine the population median relative to a specified value. You may choose a one- or two-tailed test. The Wilcoxon signed rank test hypotheses are
+H0: median = hypothesized median versus H1: median ≠ hypothesized median.<br />
+In this example, a quality engineer in a production shop is interested in whether median (or average) of the weight of product is equal to 166. So select 10 product at random and measured their weight . The data measured as following:
+<br />
+151.5 152.4 153.2 156.3 179.1 180.2 160.5 180.8 149.2 188.0
+<br />
+The engineer perform <b>Normality Test</b> to determine if the distribution of the data is normal distribution
+</p>
+<ol><li>Open a new worksheet and input the above data in col(A). Select <b>Statistics: Descriptive Statistics: Normality Test...</b> to open the <b>Normality Test</b> dialog.</li>
+<li>Select A(X) as <b>Data range</b>.<br />
+<dl><dd><a  class="image"><img alt="Normality test.PNG" src="../images/Non-parametric_Statistics_Overview/Normality_test.PNG?v=44527" width="422"  /></a></dd></dl></li>
+<li>Click the <b>OK</b> button to generate results.
+<dl><dd><a  class="image"><img alt="Normailty test result.PNG" src="../images/Non-parametric_Statistics_Overview/Normailty_test_result.PNG?v=14636" width="497"  /></a></dd></dl></li></ol>
+<p><br />
+According to result,P-value=0.03814,the distribution of the data is not normal distribution at the 0.05 level. So, perform One-Sample Wilcoxon Signed Rank test:
+</p>
+<ol><li> Select <b>Statistics: Nonparametric Tests: One-sample Wilcoxon Signed Rank Test...</b> to open the dialog.</li>
+<li> Set column A as <b>Data Range</b>. </li>
+<li> Input <b>166</b> in <b>Test Median</b> text box.
+<dl><dd> <a  class="image"><img alt="Nonprarmetric test w1.PNG" src="../images/Non-parametric_Statistics_Overview/Nonprarmetric_test_w1.PNG?v=44528" width="430"  /></a></dd></dl></li>
+<li> Click the <b>OK</b> button to generate results
+<dl><dd><a  class="image"><img alt="Nonprarmetric test w1 result.PNG" src="../images/Non-parametric_Statistics_Overview/Nonprarmetric_test_w1_result.PNG?v=14640" width="513"  /></a></dd></dl></li></ol>
+<p>According to the result, it fails to reject null hypothesis at the 0.05 level and concludes that the median is  equal to 166.
+</p>
+<h3><a name="Two_Sample_Independent_Tests"></a><span class="mw-headline">Two Sample Independent Tests</span></h3>
+<p>Origin provides two tests for non-parametric statistics of two sample independent system: the <b>Mann-Whitney Test</b> and <b>Two Sample Kolmogorov-Smirnov Test</b>.
+</p><p>This following example shows the practical use of <b>Mann-Whitney Test</b>. The abrasions(in mg) are measured for two types of tires(A and B), 8 experiments were carried out for each tire type. The data is indexed and stored in abrasion_indexed.dat file. 
+</p>
+<ol><li> Import the abrasion_indexed.dat file from <b>\Samples\Statistics\</b></li>
+<li> Select <b>Statistics: Nonparametric Tests: Mann-Whitney Test</b> to open the dialog.</li>
+<li> Keep <b>Input Data Form</b> as <b>Index</b> </li>
+<li> Set column A as <b>Group Range</b>, set column B as <b>Data Range</b>. </li>
+<li> Select the <b>Exact P Value</b> check box.
+<dl><dd> <a  class="image"><img alt="Mwtest dlg.png" src="../images/Non-parametric_Statistics_Overview/Mwtest_dlg.png?v=70438" width="440"  /></a></dd></dl></li>
+<li> Click the <b>OK</b> button to generate results, which should be in the <b>MannWhitney1</b> sheet
+<dl><dd><a  class="image"><img alt="Mwtest result.png" src="../images/Non-parametric_Statistics_Overview/Mwtest_result.png?v=70439" width="394"  /></a></dd></dl>
+<ul><li><b>U</b>: The <b>U</b> statistic can be simply calculated from the rank of two groups. It is the number of times a score in the 2nd group is larger than a score in the 1st group.</li>
+<li> <b>Z</b>: The approximate Normal test statistic. It provides an excellent approximation as the sample size grows.</li>
+<li> <b>Exact Prob</b>: The exact p-value, only available when <b>Exact P Value</b> is selected in the dialog. However, it could be very CPU-time consuming for large sample size.</li>
+<li> <b>Asymp.Prob</b>: The asymptotic p-value calculated from the approximate Normal test statistic, <b>Z</b></li></ul></li></ol>
+<h3><a name="Non-parametric_Measures_of_Correlation"></a><span class="mw-headline">Non-parametric Measures of Correlation</span></h3>
+<p>Correlation coefficient is used as a measure of relationship between two variables.It is possible to calculate the correlation coefficient for non-parametric statistics.
+</p><p>Origin provides two non-parametric methods to measure the correlations between variables: 
+</p>
+<ul><li> <b>Spearman</b>: common substitution of Pearson correlation coefficient,Spearman's coefficient can be used when both dependent ( variable and independent variable are ordinal numeric, or when one variable is a ordinal numeric and the other is a continuous variable. However, it can also be appropriate to use Spearman's correlation when both variables are continuous.</li>
+<li> <b>Kendall</b>: Used with ordinal variables for assessing agreement among raters</li></ul>
+<p>The following example shows how to calculate correlation coefficient for non-parametric situations.
+</p>
+<ol><li> Import the abrasion_raw.dat file from <b>Samples\Statistics</b>; </li>
+<li> Highlight Column A and column B. Select <b>Statistics:Descriptive Statistics:Correlation Coefficient</b> to open the corrcoef dialog;</li>
+<li> Check <b>Spearman</b> and uncheck <b>Pearson</b>;
+<dl><dd><a  class="image"><img alt="Corrcoef nonpara.png" src="../images/Non-parametric_Statistics_Overview/Corrcoef_nonpara.png?v=44717" width="508"  /></a></dd></dl></li>
+<li> Click the <b>OK</b> button to generate the results, in the <b>CorrCoef1</b> sheet. </li></ol>
+<p>From the value of <b>Spearman Corr.</b>, it can be concluded that the abrasion between tire A and tire B are strongly related.<br /><a  class="image"><img alt="Corrcoef nonpara result.png" src="../images/Non-parametric_Statistics_Overview/Corrcoef_nonpara_result.png?v=12742" width="291"  /></a>
+<br />
+</p>
+<h3><a name="Paired_Sample_wilcoxon_Signed_Rank_Tests"></a><span class="mw-headline">Paired Sample wilcoxon Signed Rank Tests</span></h3>
+<p>We will compare the two medians of <i>tire A</i> and <i>tire B</i> in above example.
+<br />
+</p>
+<ol><li> Continue with the abrasion_raw.dat file from <b>Samples\Statistics</b>; </li>
+<li>Select <b>Statistics: Nonparametric Tests: Paired Sample wilcoxon Signed Rank Tests</b> to open the dialog;</li>
+<li> Selcet  Column A as <b>1st Range Data</b> and column B as <b>2nd range Data</b>;
+<dl><dd><a  class="image"><img alt="Nonpara w2 test.PNG" src="../images/Non-parametric_Statistics_Overview/Nonpara_w2_test.PNG?v=70440" width="416"  /></a></dd></dl></li>
+<li> Click the <b>OK</b> button to generate the results.
+<dl><dd><a  class="image"><img alt="Nonpara w2 test result.PNG" src="../images/Non-parametric_Statistics_Overview/Nonpara_w2_test_result.PNG?v=70441" width="373"  /></a></dd></dl></li></ol>
+<p>We can conclude that two medians are significantly different. Obviously, median of group A is larger than that of group B.
+</p>
+<h3><a name="Multiple_Independent_Samples_Test"></a><span class="mw-headline">Multiple Independent Samples Test</span></h3>
+<p>In this example, the gas mileage of four car makers are measured. Several experiments are carried out for each car makers. The results are listed in the sample data table.
+</p>
+<table class="simple">
+<tr>
+<th> GMC/mpg
+</th>
+<th> Infinity/mpg
+</th>
+<th> Saab/mpg
+</th>
+<th> Kia/mpg
+</th></tr>
+<tr>
+<td> 26.1
+</td>
+<td> 32.2
+</td>
+<td> 24.5
+</td>
+<td> 28.4
+</td></tr>
+<tr>
+<td> 28.4
+</td>
+<td> 34.3
+</td>
+<td> 23.5
+</td>
+<td> 34.2
+</td></tr>
+<tr>
+<td> 24.3
+</td>
+<td> 29.5
+</td>
+<td> 26.4
+</td>
+<td> 29.5
+</td></tr>
+<tr>
+<td> 26.2
+</td>
+<td> 35.6
+</td>
+<td> 27.1
+</td>
+<td> 32.2
+</td></tr>
+<tr>
+<td> 27.8
+</td>
+<td> 32.5
+</td>
+<td> 29.9
+</td>
+<td>
+</td></tr>
+<tr>
+<td> 30.6
+</td>
+<td> 30.2
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td> 28.1
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr></table>
+<p>To evaluate whether the gas mileage of the four car makers are equal, and which one is the most efficient, Kruskal-Wallis ANOVA is chosen as the nonparametric test method.
+</p>
+<ol><li>Create a new workbook in Origin, copy the sample data and paste into it;</li>
+<li>Select <b>Statistics:Nonparametric Tests:Kruskal-Wallis ANOVA</b> to open the kwanova dialog;</li>
+<li>Specify Raw as <b>Input Data Form</b>;</li>
+<li>Click the <b>triangle button</b> <a  class="image"><img alt="Button Select Data Right Triangle.png" src="../images/Non-parametric_Statistics_Overview/Button_Select_Data_Right_Triangle.png?v=26514" width="18"  /></a> next to <b>Input</b>, and select <b>All Columns</b> in the context menu;<br />
+<dl><dd><a  class="image"><img alt="Tutorial Nonparametric Test 001.png" src="../images/Non-parametric_Statistics_Overview/Tutorial_Nonparametric_Test_001.png?v=12932" width="394"  /></a><br /></dd></dl></li>
+<li>Click the <b>OK</b> button to generate results, the results are stored in a new worksheet <b>KWANOVA1</b>.</li></ol>
+<p>From the p-value we can conclude that gas mileage of the four car makers are significant different.<br />
+<a  class="image"><img alt="Tutorial Nonparametric Test 002.png" src="../images/Non-parametric_Statistics_Overview/Tutorial_Nonparametric_Test_002.png?v=34103" width="332"  /></a><br /><br />
+</p>
+<h3><a name="Multiple_Related_Samples_Test"></a><span class="mw-headline">Multiple Related Samples Test</span></h3>
+<p>Ophthalmologists are investigating whether laser He-Ne therapy works for children. They have data from 2 groups, 6-10 Years Old and 11-16 Years Old. Each data set contains study of 5 persons' naked-eye eyesight difference after 3 period of therapy. The results are stored in the eyesight.dat.
+</p><p>Due to the small sample size, non-parametric statistics would be needed in analysis, following the steps below:
+</p>
+<ol><li>Import the eyesight.dat file from <b>\Samples\Statistics\</b>;</li>
+<li>Select <b>Statistics:Nonparametric Tests:Friedman ANOVA</b> to open the friedman dialog;</li>
+<li>Select Column A as <b>Data Range</b>, Column C as <b>Factor Range</b>, and Column D as <b>Subject Range</b>;
+<dl><dd><a  class="image"><img alt="Tutorial Nonparametric Statistics 004.png" src="../images/Non-parametric_Statistics_Overview/Tutorial_Nonparametric_Statistics_004.png?v=12938" width="394"  /></a></dd></dl></li>
+<li>Click the <b>OK</b> button to generate results.</li></ol>
+<p>The p-value of <a  class="image"><img alt="Origin Analysis Case 10.png" src="../images/Non-parametric_Statistics_Overview/Origin_Analysis_Case_10.png?v=12950" width="38"  /></a> is 0.0067379, which is less than 0.05. The populations are significantly different, indicating that the therapy are effective for the age group 6-10.<br />
+<a  class="image"><img alt="Tutorial Nonparametric Statistics 005.png" src="../images/Non-parametric_Statistics_Overview/Tutorial_Nonparametric_Statistics_005.png?v=34105" width="335"  /></a><br />
+</p><p>In a similar way, choose column B as <b>Data Range</b> and the rest setting of <b>Input</b> are the same with Step 3 previously.
+</p><p><a  class="image"><img alt="Tutorial Nonparametric Statistics 006.png" src="../images/Non-parametric_Statistics_Overview/Tutorial_Nonparametric_Statistics_006.png?v=12954" width="394"  /></a>
+</p><p><br />
+Check the result, we can see that p-value of <a  class="image"><img alt="Origin Analysis Case 16.png" src="../images/Non-parametric_Statistics_Overview/Origin_Analysis_Case_16.png?v=12951" width="36"  /></a> is 0.02599, less than 0.05 or 0.10. So we can also conclude that eyesight of 11-16 years old kids is better after 3 period of therapy.
+</p><p><a  class="image"><img alt="Tutorial Nonparametric Statistics 007.png" src="../images/Non-parametric_Statistics_Overview/Tutorial_Nonparametric_Statistics_007.png?v=34106" width="333"  /></a>
+</p><p>And we can see that <a  class="image"><img alt="Origin Analysis Case 10.png" src="../images/Non-parametric_Statistics_Overview/Origin_Analysis_Case_10.png?v=12950" width="38"  /></a>&gt;<a  class="image"><img alt="Origin Analysis Case 16.png" src="../images/Non-parametric_Statistics_Overview/Origin_Analysis_Case_16.png?v=12951" width="36"  /></a>,that means, laser He-Ne therapy works better on 6-10 years old kids. The earlier children are to be involved in therapy, the more their eyesight can be improved.
+<br /><br />
+</p>
+
+
+
+
+

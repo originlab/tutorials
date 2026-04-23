@@ -1,0 +1,77 @@
+<h1 class="firstHeading">6.1.5 Plot from User Defined Graph Template</h1><p class='urlname' style='display: none'>Plot-User-Template</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Standard_Template"><span class="tocnumber">2</span> <span class="toctext">Standard Template</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Create_and_Save_a_Standard_Graph_Template"><span class="tocnumber">2.1</span> <span class="toctext">Create and Save a Standard Graph Template</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Plot_New_Data_into_Standard_Template"><span class="tocnumber">2.2</span> <span class="toctext">Plot New Data into Standard Template</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Cloneable_Template"><span class="tocnumber">3</span> <span class="toctext">Cloneable Template</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="#Save_Graph_as_a_Cloneable_Template"><span class="tocnumber">3.1</span> <span class="toctext">Save Graph as a Cloneable Template</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Clone_a_Graph_Using_Cloneable_Template"><span class="tocnumber">3.2</span> <span class="toctext">Clone a Graph Using Cloneable Template</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Plot_from_User_Defined_Graph_Template/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Plot_from_User_Defined_Graph_Template/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=49" target="_blank">Graph Templates</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=133" target="_blank">Smart Plotting with Cloneable Graph Templates</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Plot_from_User_Defined_Graph_Template/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Plot_from_User_Defined_Graph_Template/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>In this tutorial, we will show you how to save a graph as an user-defined template and plot new data into the saved custom template. There are two types of graph templates available in Origin: standard template and cloneable template. Cloneable template can be easily used to clone a graph from a new workbook/worksheet, in spite of the complexity of data composition in target graph, but with one prerequisite that new data should share same data structure with the data in target graph. In comparison, standard template has more freedom over data source but lacks of the ability to duplicate a graph with complicated layer hierarchy or data structure.
+</p><p>This tutorial will show you how to:
+</p>
+<ul><li> Create and save a graph as standard template</li>
+<li> Plot new data into a standard template</li>
+<li> Save a graph as cloneable template</li>
+<li> Plot data with same data structure into a cloneable template</li></ul>
+<h2><a name="Standard_Template"></a><span class="mw-headline">Standard Template</span></h2>
+<h3><a name="Create_and_Save_a_Standard_Graph_Template"></a><span class="mw-headline">Create and Save a Standard Graph Template</span></h3>
+<p>This tutorial is associated with <i>&lt;Origin EXE Folder&gt;\Samples\Tutorial Data.opj</i>.
+</p>
+<ol><li> Open the <b>Tutorial Data.opj</b> and browse to the folder  <b>Custom Axis Scale to Show Different Scale Range</b>.</li>
+<li> Highlight column <b>B</b> <i>Exothermic Energy</i> and <b>C</b> <i>Energy-SD</i>, click scatter button <a  class="image"><img alt="Button Scatter.png" src="../images/Plot_from_User_Defined_Graph_Template/Button_Scatter.png?v=1448" width="22"  /></a> on <b>2D Graphs</b> toolbar to make a scatter plot with Y error bar.</li>
+<li> Next we want to customize the symbol to be solid circle with blue color, to do so double-click on any data point on the graph to bring up <b>Plot Details - Plot Properties </b> dialog.</li>
+<li> Make sure first plot under <b>Layer1</b> branch is selected on the left panel. Go to <b>Symbol</b> tab. Select solid circle from the down-sided triangle button under <b>Preview</b> and set <b>Symbol Color</b> to be <b>Blue</b> in the <b>Single</b> tab of <a class="external text" href="../../UserGuide/UserGuide/Customizing_Data_Plot_Colors.html"><b>Color Chooser</b></a>. Click OK.
+<dl><dd><dl><dd><a  class="image"><img alt="Plot From User Defined Template 01.png" src="../images/Plot_from_User_Defined_Graph_Template/Plot_From_User_Defined_Template_01.png?v=42863" width="418"  /></a></dd></dl></dd></dl></li>
+<li> To save it as standard template, right click on <i>Graph1</i> window title bar and select <b>Save Template As...</b> to open dialog.</li>
+<li> Input <i>BlueCircle</i> as <b>Template Name</b> and add some descriptions <i>Blue solid circle</i> in <b>Template Description</b> edit box.</li>
+<li> If you want preset the long name of newly created graphs to be the first plot's long name, click the more options button next to <b>Preset Graph Long Name</b> edit box and select <b>@LL: Long Name</b>. <i>%(1,@LL)</i> will show as <b>Preset Graph Long Name</b>. </li>
+<li> Make sure <b>Mark as Cloneable Template</b> box is unchecked, click <b>OK</b> button to save it as standard template.</li></ol>
+<h3><a name="Plot_New_Data_into_Standard_Template"></a><span class="mw-headline">Plot New Data into Standard Template</span></h3>
+<ol><li> Go back to workbook, highlight columns <i>Temperature</i> and <i>Temperature-SD</i> and go to menu <b>Plot: My Templates:  BlueCircle (UserDefined)</b> to make the graph. The graph window long name is <b>Temperature</b>.</li></ol>
+<dl><dd><dl><dd><a  class="image"><img alt="Plot From User Defined Template 02.png" src="../images/Plot_from_User_Defined_Graph_Template/Plot_From_User_Defined_Template_02.png?v=42864" width="418"  /></a></dd></dl></dd></dl>
+<h2><a name="Cloneable_Template"></a><span class="mw-headline">Cloneable Template</span></h2>
+<h3><a name="Save_Graph_as_a_Cloneable_Template"></a><span class="mw-headline">Save Graph as a Cloneable Template</span></h3>
+<ol><li> Press <b>F11</b> key or select <b>Help: Learning Center</b> to open the <b>Learning Center</b> dialog. Select <b>Graph Sample</b> in the left-side panel, and seach for <b>Raman</b>. </li>
+<li> Double-click on the graph that is returned to open the <b>Raman Spectrum</b> subfolder.</li>
+<li> Graph <b>Raman Spectrum</b> is plotted from data in different worksheets of workbook <i>Peak1</i> also with data labeling. It's hard to plot new data like this with one click using standard graph template. So let's save this graph as a cloneable template and clone this graph using data in workbook <i>Peak2</i>.
+<dl><dd><dl><dd><a  class="image"><img alt="Plot From User Defined Template 03.png" src="../images/Plot_from_User_Defined_Graph_Template/Plot_From_User_Defined_Template_03.png?v=42865" width="432"  /></a></dd></dl></dd></dl></li>
+<li> To do so, right click on graph <b>Raman Spectrum</b> window title bar and select <b>Save Template As...</b> to open <b>Utilities\File: template_saveas</b> dialog.</li>
+<li> Input <i>MyPeakTemplate</i> as <b>Template Name</b>. Now we want to use <b>Raman Spectrum</b> + <i>Workbook Long Name</i> as graph Long Name. To do so, click more options button next to <b>Preset Graph Long Name</b> edit box and select <b>@WL: Book Long Name</b> to insert the right part first. Then input <i>Raman Spectrum </i> in front of added <i>%(1, @WL)</i>.</li>
+<li> Make sure <b>Mark as Cloneable Template</b> box is checked, expand this node and match up the columns and worksheets by setting <b>Match Plot Columns by</b> and <b>Match Sheet by</b> to <b>Index</b>.</li>
+<li> Click <b>OK</b> button to exit the dialog and save the template.</li></ol>
+<dl><dd><dl><dd><a  class="image"><img alt="Plot From User Defined Template 04.png" src="../images/Plot_from_User_Defined_Graph_Template/Plot_From_User_Defined_Template_04.png?v=59915" width="697"  /></a></dd></dl></dd></dl>
+<h3><a name="Clone_a_Graph_Using_Cloneable_Template"></a><span class="mw-headline">Clone a Graph Using Cloneable Template</span></h3>
+<ol><li> Activate the workbook with title <b>Peak2</b> and click <b>Plot: Template Library</b> to bring to open the Template Library.
+<dl><dd><a  class="image"><img alt="Plot From User Defined Template 05.png" src="../images/Plot_from_User_Defined_Graph_Template/Plot_From_User_Defined_Template_05.png?v=67554" width="786"  /></a></dd></dl></li>
+<li> Click to select the cloneable template (indicated by Dolly icon) <b>MyPeakTemplate</b> and click <b>Plot</b> button to clone the graph.
+<dl><dd><a  class="image"><img alt="Plot From User Defined Template 06.png" src="../images/Plot_from_User_Defined_Graph_Template/Plot_From_User_Defined_Template_06.png?v=42868" width="432"  /></a></dd></dl></li>
+<li> Alternatively you can activate workbook <b>Peak2</b> and go to menu <b>Plot: My Templates: MyPeakTemplate (UserDefined)</b> to directly clone the graph.</li></ol>
+
+
+
+
+
+

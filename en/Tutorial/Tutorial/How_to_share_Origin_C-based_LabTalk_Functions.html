@@ -1,0 +1,77 @@
+<h1 class="firstHeading">11.1.1 How to share Origin C based LabTalk Functions</h1><p class='urlname' style='display: none'>Share-OCBased-LT-Func</p>
+<h2><a name="Introduction"></a><span class="mw-headline">Introduction</span></h2>
+<p>This tutorial will show you how to share code with other users by distributing OPX files. In this example, only Origin C files are distributed. However, please note that OPX distribution can include any file types including (but not limited to) project files, templates and toolbars.
+</p><p><br />
+</p>
+<h2><a name="Tutorial"></a><span class="mw-headline">Tutorial</span></h2>
+<p>The following procedure will show you how to distribute your Origin C code to other Origin users. In this example, we will be packaging an Origin-C function in a file (<i>MyCode.c</i>) in a folder (<i>MyFunctions</i>) under the <b>User Files Folder</b> (<b>UFF</b>).
+</p>
+<ol>
+<li>Create File Locations</li>
+<p>The <b>Source Path</b> for your files should be available on any computer your OPX is targeted for. The easiest way to do this is to make a subfolder of the Origin <b>UFF</b>. Any of the files and folders of the <b>UFF</b> can then be added to your OPX for distribution. So, create a subfolder named <i>MyFunctions</i> under the <b>UFF</b>. 
+</p>
+<li>Copy Files to the Source Path</li>
+<p>Copy all the files to be packaged to the subfolder created in the last step. Here there is only a C file (<i>MyCode.c</i>).  The function in this file is shown below.
+</p>
+<pre class="oc" style="font-family:monospace;"><span style="color: #0000ff;">void</span> get_data_from_wks<span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>
+    Worksheet wks <span style="color: #000080;">=</span> Project.<span style="color: #000000;">ActiveLayer</span><span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>;
+    <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span> <span style="color: #000040;">!</span>wks <span style="color: #000000;">&#41;</span>
+    <span style="color: #000000;">&#123;</span>
+	out_str<span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;Please keep a worksheet active with data&quot;</span><span style="color: #000000;">&#41;</span>;
+	<span style="color: #0000ff;">return</span>;
+    <span style="color: #000000;">&#125;</span>	
+ 
+    <span style="color: #008000;">// The following settings to set range as whole worksheet, </span>
+    <span style="color: #008000;">// index offset is 0, -1 means last row/column.</span>
+    <span style="color: #008000;">// Change r1, c1, r2, c2 to specify worksheet sub range, </span>
+    <span style="color: #008000;">// for example, r1 = 0, c1 = 1, r2 = -1, c2 = 2 to </span>
+    <span style="color: #008000;">// select all rows from column 2 to column 3.</span>
+    <span style="color: #0000ff;">int</span> r1 <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>; <span style="color: #008000;">// first row</span>
+    <span style="color: #0000ff;">int</span> c1 <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>; <span style="color: #008000;">// first column</span>
+    <span style="color: #0000ff;">int</span> r2 <span style="color: #000080;">=</span> <span style="color: #000040;">-</span><span style="color: #0000dd;">1</span>; <span style="color: #008000;">// last row</span>
+    <span style="color: #0000ff;">int</span> c2 <span style="color: #000080;">=</span> <span style="color: #000040;">-</span><span style="color: #0000dd;">1</span>; <span style="color: #008000;">// last column</span>
+ 
+    <span style="color: #008000;">//construct a data range object from worksheet all data</span>
+    DataRange dr;
+    dr.<span style="color: #000000;">Add</span><span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;X&quot;</span>, wks, r1, c1, r2, c2<span style="color: #000000;">&#41;</span>; 
+ 
+    <span style="color: #008000;">// get data from worksheet to vector by column one by one    </span>
+    matrix mData; 
+    dr.<span style="color: #000000;">GetData</span><span style="color: #000000;">&#40;</span>mData<span style="color: #000000;">&#41;</span>; <span style="color: #008000;">// get all data to matrix</span>
+ 
+    <span style="color: #0000ff;">for</span><span style="color: #000000;">&#40;</span><span style="color: #0000ff;">int</span> nColIndex <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>; nColIndex <span style="color: #000080;">&lt;</span> mData.<span style="color: #000000;">GetNumCols</span><span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>; nColIndex<span style="color: #000040;">++</span><span style="color: #000000;">&#41;</span>
+    <span style="color: #000000;">&#123;</span>
+    	vector vOneCol;
+    	mData.<span style="color: #000000;">GetColumn</span><span style="color: #000000;">&#40;</span>vOneCol, nColIndex<span style="color: #000000;">&#41;</span>;
+ 
+    	<span style="color: #0000ff;">double</span> min, max;
+    	vOneCol.<span style="color: #000000;">GetMinMax</span><span style="color: #000000;">&#40;</span>min, max<span style="color: #000000;">&#41;</span>;
+ 
+    	<span style="color: #000000;">printf</span><span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;Maximum value of&#160;%d column =&#160;%f<span style="color: #666666; font-weight: bold;">\n</span>&quot;</span>, nColIndex<span style="color: #000040;">+</span><span style="color: #0000dd;">1</span>, max<span style="color: #000000;">&#41;</span>;
+    <span style="color: #000000;">&#125;</span>	
+<span style="color: #000000;">&#125;</span></pre>
+<li>Create a Package</li>
+<p>Open the <b>Package Manager</b> by selecting <b>Tools: Package Manager...</b>. Then fill in the dialog as the following image shows.
+</p><p><a  class="image"><img alt="Shared OC LT tutorial package.png" src="../images/How_to_share_Origin_C-based_LabTalk_Functions/Shared_OC_LT_tutorial_package.png?v=42807" width="494"  /></a>
+</p>
+<ul><li> The <b>Module Name</b> will appear as the name of the package for uninstall purposes.</li></ul>
+<ul><li> <b>Origin Version Required</b> means the minimum version of Origin required for this package. You want to enter the version number like 8.0988, and not like 8.0SR6.</li></ul>
+<ul><li> To force the Origin C source file to the System Folder Workspace, use the <i>run.addoc()</i> method in the <b>After Installation</b> branch of <b>LabTalk Script</b>. In this example, it looks like the following:</li></ul>
+<pre class="lt" style="font-family:monospace;">run.<span style="color: #000080;">addoc</span><span style="color: #000000;">&#40;</span><span style="color: #000080;">%</span>YMyFunctions\MyCode.<span style="color: #000080;">c</span><span style="color: #000000;">&#41;</span>;</pre>
+<ul><li> Click the <b>Add Files</b> or the <b>Add Folder</b> button and browse to and add any files required.  In this example, browse to the subfolder (<i>MyFunctions</i>) under the <b>UFF</b> and add the C file (<i>MyCode.c</i>). Then the path of the <b>UFF</b> will show as the source path, and the files will list in the lower panel.</li></ul>
+<li>Save the Package</li>
+<p>Select the <b>File: Save</b> menu of this <b>Package Manager</b> dialog.  In the pop-up <b>Save As</b> dialog, enter a name (in this example, can be <i>MyCode</i>) for this package, and then save it as an OPX file.
+</p>
+<li>Distribute the Package</li>
+<p>Send the saved OPX file to other users.  The user who gets this package can drag and drop the OPX onto Origin to install it, and then the functions in the C file are available.
+</p>
+<ul><li> Drag and drop <i>MyCode.opx</i> onto Origin to install it. After installation, the function <i>get_data_from_wks</i> defined in <i>MyCode.c</i> can be used as a LabTalk command.</li></ul>
+<pre class="lt" style="font-family:monospace;">get_data_from_wks;</pre>
+</ol>
+
+
+
+
+
+

@@ -1,0 +1,69 @@
+<h1 class="firstHeading">4.3.2 FFT Filter</h1><p class='urlname' style='display: none'>FFT-Filter</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Low-pass_Filter"><span class="tocnumber">3</span> <span class="toctext">Low-pass Filter</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Band-pass_Filter"><span class="tocnumber">4</span> <span class="toctext">Band-pass Filter</span></a></li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/FFT_Filter/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/FFT_Filter/Video_Text_Image.png?v=64565" width="135"  /></a>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/FFT_Filter/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/FFT_Filter/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/how-to-remove-dc-offset-before-performing-fft" target="_blank">How to Remove DC Offset before Performing FFT</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Origin offers an FFT filter, which performs filtering by using Fourier transforms to analyze the frequency components in the input dataset.
+</p><p>There are six types of filters available in the FFT filter function: low-pass, high-pass, band-pass, band-block, threshold and low-pass parabolic. Low-pass filters block all frequency components above the cutoff frequency, allowing only the low frequency components to pass. High-pass filters work in the opposite way: they block frequency components that are below the cutoff frequency. 
+</p><p>This tutorial will show you how to perform the low-pass and band-pass filtering using Origin's FFT filter.
+</p><p><br />
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li> Perform low pass filtering.</li>
+<li> Perform band pass filtering.</li></ul>
+<h2><a name="Low-pass_Filter"></a><span class="mw-headline">Low-pass Filter</span></h2>
+<ol><li>Start with an empty workbook. Select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Signal Processing</i> subfolder and find the file <i>Origin 8 Message.wav</i>. Drag-and-drop this file into the empty worksheet to import it.
+<dl><dd><a  class="image"><img alt="Tutorial FFT Filter 001.png" src="../images/FFT_Filter/Tutorial_FFT_Filter_001.png?v=21117" width="321"  /></a></dd></dl></li>
+<li>Highlight column A(Y) and click the <b>Line</b> <a  class="image"><img alt="Button Line.png" src="../images/FFT_Filter/Button_Line.png?v=1447" width="22"  /></a> button on  the <b>2D Graph</b> toolbar to create a line plot.</li>
+<li>This signal is a sound wave and it is already known that the high frequency components can be regarded as noise, and should be blocked. So we will use the <b>Low Pass</b> method in the <b>FFT Filter</b> tool to approximate the low frequency component for further analysis. </li>
+<li>Make sure the line plot is active, then select <b>Analysis:Signal Processing:FFT Filters</b> to open the fft_filters dialog box.</li>
+<li>Make sure the <b>Filter Type</b> is set to <b>Low Pass</b>.</li>
+<li>Check the <b>Auto Preview</b> box to turn on the <b>Preview</b> panel:
+<dl><dd><a  class="image"><img alt="Tutorial FFT Filter 002 v.png" src="../images/FFT_Filter/Tutorial_FFT_Filter_002_v.png?v=41855" width="516"  /></a></dd>
+<dd>The top two images show the signal in the time domain, while the bottom image shows the signal in the frequency domain after Fast Fourier Transform. The X position of the red vertical dot line indicates the cutoff frequency. By moving the vertical line horizontally, you can preview the comparison between the original signal and the filtered signal in real time, in the top part of this panel.</dd></dl></li>
+<li>Move the vertical line to the X position of the peak amplitude (as in the image below). Note that human error may be introduced during this step, but it is acceptable since we only want to roughly filter the signal.
+<dl><dd><a  class="image"><img alt="Tutorial FFT Filter 009 v.png" src="../images/FFT_Filter/Tutorial_FFT_Filter_009_v.png?v=41858" width="485"  /></a></dd></dl></li>
+<li>Click <b>OK</b> to apply the FFT filter to the original signal.</li>
+<li>The signal after filtering will be added to the data plot of original signal. Select <b>Graph:Speed Mode</b> and turn off speed mode in this graph. The resulting graph should look like this:
+<dl><dd><a  class="image"><img alt="Tutorial FFT Filter 004.png" src="../images/FFT_Filter/Tutorial_FFT_Filter_004.png?v=21121" width="524"  /></a></dd></dl></li>
+<li>In the resulting graph, we can see that the high frequency components are blocked by the Low Pass FFT filter.</li></ol>
+<h2><a name="Band-pass_Filter"></a><span class="mw-headline">Band-pass Filter</span></h2>
+<ol><li> Start with a new workbook. Select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Signal Processing</i> subfolder and find the file <i>fftfilter3.dat</i>. Drag-and-drop this file into the empty worksheet to import it.</li>
+<li> Highlight column B and click the <b>Line</b> <a  class="image"><img alt="Button Line.png" src="../images/FFT_Filter/Button_Line.png?v=1447" width="22"  /></a> button on the <b>2D Graphs</b> toolbar to generate a line plot.
+<dl><dd><a  class="image"><img alt="Tutorial FFT Filter 008.png" src="../images/FFT_Filter/Tutorial_FFT_Filter_008.png?v=21168" width="509"  /></a></dd></dl></li>
+<li> With the graph active, select <b>Analysis:Signal Processing:FFT Filters</b>. This opens the <b>fft_filters</b> dialog box.</li>
+<li> Check the <b>Auto Preview</b> box to enable the <b>Preview</b> panel.</li>
+<li> From the plot of frequency domain (the image below), we can see that this signal has components at several different frequencies&gt; Now we are going to get the component at about 300Hz. So we will use the <b>Band Pass</b> method.
+<dl><dd><a  class="image"><img alt="Tutorial FFT Filter 005.png" src="../images/FFT_Filter/Tutorial_FFT_Filter_005.png?v=21163" width="626"  /></a></dd></dl></li>
+<li> Set the <b>Filter Type</b> to be <b>Band Pass</b>.
+<dl><dd>When <b>Band Pass</b> is chosen, there will be two vertical red lines in the preview panel, marking the Lower Cutoff Frequency and Upper Cutoff Frequency. You can similarly move these two lines and get the real time preview of filtering results in the top parts of this panel.</dd></dl></li>
+<li> Enter the values of the lower and upper cutoff frequencies according to the image below:
+<dl><dd><a  class="image"><img alt="Tutorial FFT Filter 006.png" src="../images/FFT_Filter/Tutorial_FFT_Filter_006.png?v=41605" width="740"  /></a></dd>
+<dd>As long as only the desired amplitude peak stays within the cutoff frequency range, the error in filtering could be considered as acceptable even though the values of upper and lower cutoff frequencies may slightly differ for different cases.</dd></dl></li>
+<li> Click <b>OK</b> to execute filtering.</li>
+<li> We obtain the components at a frequency of around 300 Hz after filtering.
+<dl><dd><a  class="image"><img alt="Tutorial FFT Filter 007.png" src="../images/FFT_Filter/Tutorial_FFT_Filter_007.png?v=21165" width="565"  /></a></dd></dl></li></ol>
+
+
+
+
+
+

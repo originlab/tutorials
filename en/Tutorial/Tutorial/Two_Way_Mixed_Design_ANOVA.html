@@ -1,0 +1,81 @@
+<h1 class="firstHeading">5.3.5 Two-Way Mixed-Design ANOVA</h1><p class='urlname' style='display: none'>2Way-Mixed-Design-ANOVA</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#User_Story"><span class="tocnumber">3</span> <span class="toctext">User Story</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Preparing_Analysis_Data"><span class="tocnumber">4</span> <span class="toctext">Preparing Analysis Data</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Performing_Two-Way_Mixed-Design_ANOVA"><span class="tocnumber">5</span> <span class="toctext">Performing Two-Way Mixed-Design ANOVA</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Interpreting_the_Results"><span class="tocnumber">6</span> <span class="toctext">Interpreting the Results</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>The two-way mixed-design ANOVA is also known as two way split-plot design (SPANOVA). It is ANOVA with one repeated-measures factor and one between-groups factor.
+</p>
+<p class="version" >Minimum Origin Version Required: OriginPro 2016 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Perform the two-way mixed design ANOVA.</li>
+<li>Interpret results of the two-way mixed design ANOVA</li></ul>
+<h2><a name="User_Story"></a><span class="mw-headline">User Story</span></h2>
+<p>A researcher wants to know whether a treatment can help people lose weight. 48 participants(24 male) take part in the study. The researcher record their weights every three months during the treatment program.
+</p>
+<h2><a name="Preparing_Analysis_Data"></a><span class="mw-headline">Preparing Analysis Data</span></h2>
+<p>To preform two-way mixed-design ANOVA, the data can be arranged as below
+</p>
+<dl><dd><a  class="image"><img alt="Mixed design anova 1.png" src="../images/Two_Way_Mixed_Design_ANOVA/400px-Mixed_design_anova_1.png?v=42441" width="400"   /></a></dd></dl>
+<table class="note">
+
+<tr>
+<td><b>Notes:</b> Data can also be arranged in index mode for two-way mixed-design ANOVA. Refer to the sample data, \Samples\Statistics\ANOVA\two-way rm ANOVA1_indexed.dat, for index mode of data of this tutorial.
+</td></tr></table>
+<h2><a name="Performing_Two-Way_Mixed-Design_ANOVA"></a><span class="mw-headline">Performing Two-Way Mixed-Design ANOVA</span></h2>
+<ol><li> Open a new project or a new workbook. Import the data file <i>\Samples\Statistics\ANOVA\two-way rm ANOVA1_raw.dat</i></li>
+<li> Select <b>Statistics: ANOVA: Two-Way Repeated Measures ANOVA...</b> from Origin menu</li>
+<li> In the opened dialog, choose the <b>Input</b> tab, 
+<ul><li> Set <b>Input Data</b> as <b>Raw</b></li>
+<li> Expand <b>Factor A</b> branch, change the <b>Name</b> as <b>Weight</b> and set <b>Number of Levels</b> = 3. Expand <b>Factor B</b> branch, change the <b>Name</b> as <b>Gender</b> and unselect <b>Repeat</b> check box</li>
+<li> In the <b>Data</b> branch, set column <b>C</b>, <b>D</b> and <b>E</b> to be <b>Weight Level1</b>, <b>Weight Level2</b> and <b>Weight Level3</b>, respectively, and set column <b>B</b> as <b>Gender</b></li>
+<li> Select <b>Interactions</b> check box</li></ul>
+<dl><dd> <a  class="image"><img alt="Mixed design anova 2.png" src="../images/Two_Way_Mixed_Design_ANOVA/800px-Mixed_design_anova_2.png?v=42449" width="800"   /></a></dd></dl></li>
+<li> Choose the <b>Descriptive Statistics</b> tab. select all check boxes
+<dl><dd><a  class="image"><img alt="Mixed design anova 3.png" src="../images/Two_Way_Mixed_Design_ANOVA/Mixed_design_anova_3.png?v=42452" width="327"  /></a></dd></dl></li>
+<li> Choose the <b>Means Comparison</b> tab, select <b>Bonferroni</b> check box. 
+<dl><dd> <a  class="image"><img alt="Mixed design anova 4.png" src="../images/Two_Way_Mixed_Design_ANOVA/Mixed_design_anova_4.png?v=42453" width="327"  /></a></dd></dl></li>
+<li> Click <b>OK</b> button to perform the analysis</li></ol>
+<h2><a name="Interpreting_the_Results"></a><span class="mw-headline">Interpreting the Results</span></h2>
+<p>Go to the worksheet <b>ANOVATwoWayRM1</b>, where the analysis results are listed.
+</p><p>You can refer to this <a class="external text" href="../../UserGuide/UserGuide/Interpreting_Results_of_Repeated_Measures_ANOVA.html">interpreting results help page</a> for details of interpreting results of repeated measures ANOVA.
+. 
+</p>
+<ol><li> From the <b>Mauchly's Test of Sphericity</b> table, we can see <b>Prob&gt;ChiSq</b>(0.01258) &lt; 0.05. So the repeated measure variable, <b>Weight</b>, violates the Sphericity assumption. We should consider the <b>Greenhouse-Geisser</b> correction ect. While the Epsilon is larger than 0.75, we will look at the Huynh and Feldt correction in step 2 below
+<dl><dd> <a  class="image"><img alt="Mixed design anova 6.png" src="../images/Two_Way_Mixed_Design_ANOVA/700px-Mixed_design_anova_6.png?v=42458" width="700"   /></a></dd></dl></li>
+<li> From the <b>Tests of Within-Subject Effects</b> table, we can see 
+<ul><li> For <b>Weight</b>, the p_vaule is about 0 in the <b>Prob&gt;F </b>column, It indicates that the weight is a significant effect, that is,  the weights change over time.</li>
+<li> While the interaction, <b>Weight*Gender</b>, is not significant different(p_value = 0.14025), we can conclude that there is not a significant interaction effect, <b>Weight*Gender</b></li></ul>
+<dl><dd><a  class="image"><img alt="Mixed design anova 7.png" src="../images/Two_Way_Mixed_Design_ANOVA/650px-Mixed_design_anova_7.png?v=70474" width="650"   /></a></dd></dl></li>
+<li> We can further study how the weights change over time during the treatment. Expand the <b>Weight</b> branch. From the tables we can see
+<ul><li> From the <b>Descriptive Statistics</b> table we can see that the weights are decreasing</li>
+<li> In the <b>Pairwise Comparison</b> table, the <b>1</b> in the <b>Sig Flag</b> column  indicates the pair of group is significant different. We can draw conclusion that the weights are significantly decreasing</li></ul>
+<dl><dd><a  class="image"><img alt="Mixed design anova 9.png" src="../images/Two_Way_Mixed_Design_ANOVA/800px-Mixed_design_anova_9.png?v=70475" width="800"   /></a></dd></dl></li>
+<li> From the <b>Tests for Between-Subjects Effects</b> table, we can see <b>Gender</b> is a significant effect, that is, Female and Male can be significant different.
+<dl><dd><a  class="image"><img alt="Mixed design anova 8.png" src="../images/Two_Way_Mixed_Design_ANOVA/Mixed_design_anova_8.png?v=70476" width="480"  /></a></dd></dl></li>
+<li> Look at the <b>Gender</b> branch to see the details. 
+<ul><li> There are only two levels for Gender and we already know they are significant different, so we don't need to look at the <b>Pairwise Comparison</b> table </li>
+<li> From the <b>Descriptive Statistics</b> table we can see that average weight of men is more than women.</li></ul>
+<dl><dd><a  class="image"><img alt="Mixed design anova 10.png" src="../images/Two_Way_Mixed_Design_ANOVA/350px-Mixed_design_anova_10.png?v=42472" width="350"   /></a></dd></dl></li></ol>
+<table class="note">
+
+<tr>
+<td><b>Notes</b>: As there is no serious violation of sphericity assumption, we can ignore the <b>Multivariate Tests</b> table. See more details from the <a class="external text" href="../../UserGuide/UserGuide/Interpreting_Results_of_Repeated_Measures_ANOVA.html#Multivariate_Tests">interpreting results help page</a>.
+</td></tr></table>
+
+
+
+
+
+

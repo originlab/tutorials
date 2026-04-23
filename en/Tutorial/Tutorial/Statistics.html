@@ -1,0 +1,64 @@
+<h1 class="firstHeading">1.10 Statistics</h1><p class='urlname' style='display: none'>GSB-statistics</p>
+<p><br />
+Origin provides many tools for statistical analysis. Advanced statistical tools are available in OriginPro. In this lesson, we will work with tools available in standard Origin.
+</p>
+<h3><a name="Descriptive_Statistics"></a><span class="mw-headline">Descriptive Statistics</span></h3>
+<ol>
+<li> Start with the project saved from the previous lesson, create a new folder in Project Explorer and rename it as  <i><b>Statistics</b></i>. Open the empty folder.
+<li>Create a new workbook and import the file <i>&lt;Origin EXE Path&gt;\Samples\Statistics\body.dat</i>.</li>
+<li>Drag and select the first <b>5</b> rows of column <b>D(Height)</b>.  Basic statistics (average, sum, count) for your selected data will be displayed in the status bar at the bottom right side of the interface.
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Statistics/Mini_bulb.png?v=44828" /></td><td><p>You can right-click on the statistics listed in the status bar to customize what quantities to display there.
+</p></td></tr></table>
+<p><a  class="image"><img alt="GST Statistics 01.png" src="../images/Statistics/400px-GST_Statistics_01.png?v=69127" width="400"   /></a>
+</p>
+</li>
+<li>From the menu, select <b>Statistics: Descriptive Statistics: Statistics on Columns</b>. In the dialog, select the <b>Input</b> tab, then expand <b>Range 1</b>. Click on the interactive button <a  class="image"><img alt="Button Select Data Interactive.png" src="../images/Statistics/Button_Select_Data_Interactive.png?v=1685" width="18"  /></a> to the right of <b>Data Range</b>.  Return to the worksheet, then drag and select columns <b>D</b> and <b>E</b>.  Click the interactive button again to restore the dialog. 
+<li>In the <b>Group</b> control, click the triangle button <a  class="image"><img alt="Context menu button.jpg" src="../images/Statistics/Context_menu_button.jpg?v=19177" width="22"  /></a> and select <b>B(Y): age</b>. Click the button again and select <b>C(Y): gender</b>. In the list, select <b>..."gender"</b> in the <b>Group</b> box, then use the <b>Move Up</b> button <a  class="image"><img alt="Move up button.png" src="../images/Statistics/Move_up_button.png?v=45249" width="20"  /></a> to move it to the top.</li> 
+<li>Click <b>OK</b> to generate the report. <br />
+<a  class="image"><img alt="GST Statistics 02.png" src="../images/Statistics/300px-GST_Statistics_02.png?v=45252" width="300"   /></a></li> 
+<li>Click the downward-pointing triangle button<a  class="image"><img alt="Downward triangle button.png" src="../images/Statistics/Downward_triangle_button.png?v=45256" width="14"  /></a> on the right of the <b>Descriptive Statistics</b> node in the report sheet and select <b>Digits...</b> from the context menu.</li>
+<li>In the opened dialog, change <b>Digits</b> to <b>Set Decimal Places=</b> and set <b>Decimal Number</b> as <b>1</b>. Click <b>OK</b> to update the display format in all tables of the report.</li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Statistics/Mini_bulb.png?v=44828" /></td><td><p>The numeric display in all report sheets can be globally set using the <b>Digits in Report</b> control on the <b>Numeric Format</b> tab of the <b>Options</b> dialog accessible from the <b> Preference: Options</b> main menu. 
+</p></td></tr></table>
+</ol>
+<h3><a name="Normality_Test"></a><span class="mw-headline">Normality Test</span></h3>
+<ol>
+<li>Create a new workbook by clicking the <b>New Workbook</b> button <a  class="image"><img alt="Button New Workbook.png" src="../images/Statistics/Button_New_Workbook.png?v=1383" width="23"  /></a>. </li>
+<li> Double-click in the <b>F(x)</b> label row of column A. This will put you into edit mode for that cell. Type the formula: 
+<pre class="lt" style="font-family:monospace;">nint<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">100</span><span style="color: #000080;">+</span><span style="color: #0000dd;">20</span><span style="color: #000080;">*</span>normal<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">100</span><span style="color: #000000;">&#41;</span><span style="color: #000000;">&#41;</span></pre>
+The column will be filled with random integer numbers centered around 100.</li>
+<li>Highlight column A and click <b>Statistics: Descriptive Statistics: Normality Test</b> to open the dialog. The selected column is set as <b>Input Data</b> automatically. Accept default settings and click <b>OK</b>. This will generate the report sheet for <b>Normality Test</b>. The footnote under the <b>Shapiro-Wilk</b> table indicates that this data is normally distributed, as expected.<br />
+<a  class="image"><img alt="GST Statistics 03.png" src="../images/Statistics/300px-GST_Statistics_03.png?v=45262" width="300"   /></a></li> 
+</ol>
+<h3><a name="Frequency_Counts"></a><span class="mw-headline">Frequency Counts</span></h3>
+<ol>
+<li>Activate <b>Sheet1</b> of the workbook from the previous section. Keep column A highlighted, then click <b>Statistics: Descriptive Statistics: Frequency Counts</b>.</li>
+<li>Accept all default settings in the dialog and press <b>OK</b>.</li>
+<li>In the result sheet, highlight the column <b>C(Y)</b> . On the <b>2D Graphs</b> toolbar, click the triangle button next to the <b>Column</b> button <a  class="image"><img alt="Button Column.png" src="../images/Statistics/Button_Column.png?v=1466" width="22"  /></a>, then choose <b>Column + Label</b> <a  class="image"><img alt="Button Column Label.png" src="../images/Statistics/Button_Column_Label.png?v=8184" width="21"  /></a> to create a column graph with labels. This will create a histogram plot with counts as labels.<br />
+<a  class="image"><img alt="GST Statistics 04.png" src="../images/Statistics/200px-GST_Statistics_04.png?v=45266" width="200"   /></a></li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Statistics/Mini_bulb.png?v=44828" /></td><td><p>The <b>Plot: Statistical</b> menu provides multiple histogram plot options when a worksheet is active. This <b>Frequency Counts</b> tool provides an alternate way to first perform counting, and then plot a histogram from the results. This allows for more flexibility and customization such as adding labels to the columns.
+</p></td></tr></table>
+</ol>
+<h3><a name="One_Way_ANOVA"></a><span class="mw-headline">One Way ANOVA</span></h3>
+<ol>
+<li>Create a new workbook. Select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Statistics</i> subfolder and find the file <i>nitrogen.txt</i>. Drag-and-drop this file into the empty worksheet to import it.
+<li>Select the menu <b>Statistics: ANOVA: One Way ANOVA</b> to open the <b>One Way ANOVA</b> dialog.  In the <b>Input</b> tab, set <b>Input Data</b> to <b>Indexed</b>. Press the triangle button to the right of <b>Factor</b> and select <b>A(X): plant</b>. Press the triangle button to the right of <b>Data</b> and  select <b>B(Y): nitrogen</b>. </li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Statistics/Mini_bulb.png?v=44828" /></td><td><p>The <b>ANOVA</b> dialog box provides two options for input mode: <b>Indexed</b> or <b>Raw</b>. You can refer to the <a href="../../QuickHelp/QuickHelp/What_is_indexed_versus_raw_data_and_how_to_I_transform_from_one_to_another.html" title="QuickHelp:What is indexed versus raw data and how to I transform from one to another">FAQ-333: What is indexed versus raw data and how to transform from one to another?</a> to learn more about how data can be arranged for either mode. 
+</p></td></tr></table>
+<li>In the <b>Means Comparison</b> tab of the dialog, select the <b>Tukey</b> check box. Then switch to the <b>Plots</b> tab and select <b>Means Comparison Plot</b>. Click <b>OK</b> to close the dialog and generate the report.</li>
+<li>Go to the report sheet <b>ANOVA1Way1</b>. From the result, we can draw following conclusions:
+<ul>
+<li>The ANOVA table (<b>Overall ANOVA</b>) reports a p-value that is smaller than 0.05, hence at least two of the four groups have significantly different means.<br />
+<a  class="image"><img alt="GST Statistics 06.png" src="../images/Statistics/300px-GST_Statistics_06.png?v=45281" width="300"   /></a></li>
+<li>Double-click on the <b>Means Comparison Plot</b> to open it. The red plots indicate significantly different mean values. <b>PLANT4</b> has the smallest mean and is significantly different from the other three groups.<br />
+<a  class="image"><img alt="GST Statistics 07.png" src="../images/Statistics/250px-GST_Statistics_07.png?v=45292" width="250"   /></a></li>
+<p>Save your project file.
+</p>
+</ul>
+</ol>
+
+

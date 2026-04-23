@@ -1,0 +1,37 @@
+<h1 class="firstHeading">5.10 ROC curve</h1><p class='urlname' style='display: none'>ROC-Curve</p>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>The Receiver Operating Characteristic (ROC) analysis curve is mainly used for diagnostic studies in Clinical Chemistry, Pharmacology, and Physiology. It has been widely accepted as the standard method used for describing and comparing the accuracy of diagnostic tests. 
+</p><p><br />
+</p><p>Please refer to the <a class="external text" href="../../UserGuide/Category/ROC_Curve_(OriginPro_only).html">Origin help file</a> for details on how to use the ROC curve.
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Carry out ROC curve analysis.</li>
+<li>Interpret the analysis of results.</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<p>In this example, we perform a study to determine whether serum sodium can help to diagnose Rocky Mountain Spotted Fever (RMSF). 
+</p><p>The data is retrieved from people with or without RMSF, the sodium level for each person is measured by 2 screening techniques. ROC curve analysis is carried out for data from both methods, used to check the relationship between serum sodium and RMSF, and helped to judge which diagnostic method is better.
+</p>
+<ol><li>Start with an empty worksheet. Select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Statistics</i> subfolder and find the file <i>sodium.dat</i>. Drag-and-drop this file into the empty worksheet to import it.</li>
+<li>Select <b>Statistics: ROC Curve...</b> to open the ROC curve dialog.</li>
+<li>Under the <b>Input Data</b> branch, select column <b>B(Method1)</b> and <b>C(Method2)</b> for <b>Data</b>, and column <b>A(Sickness)</b> for <b>State</b>, respectively.</li>
+<li>Select <b>RMSF</b> in <b>Positive State Value</b> box and select the <b>Positive v.s. Low </b> button for Test Direction under the Computation Control branch. </li>
+<li> Select <b>Optimal Cutpoint</b> check box under <b>ROC Curve</b> branch</li>
+<li>Accept all other default settings and click the<b> OK</b> button to carry out the analysis.
+<dl><dd> <a  class="image"><img alt="ROC1.png" src="../images/ROC_curve/ROC1.png?v=67396" width="542"  /></a></dd></dl></li></ol>
+<p><b>Results Interpretation:</b>
+Go to worksheet ROC Curve1, where the analysis results are listed.
+</p>
+<dl><dd><a  class="image"><img alt="ROC2.png" src="../images/ROC_curve/ROC2.png?v=74168" width="454"  /></a></dd></dl>
+<p>From the table, we can see that the <b>Asymptotic Prob</b> of both methods are much smaller than 0.05, hence we can conclude that both methods are effective.
+</p><p>In ROC analysis, the closer the area is to 1.0, the better the test is, while the closer the area is to 0.5, the worse the test is. In this analysis, the area of method 1 and method 2 are 0.88862 and 0.79407, respectively. Both these results are much larger than 0.5. However, the area of method 1 is closer to 1.0, so we can conclude that method 1 is better than method 2.
+</p>
+<dl><dd><a  class="image"><img alt="ROC3.png" src="../images/ROC_curve/400px-ROC3.png?v=67397" width="400"   /></a></dd></dl>
+<p>In addition, we can examine the shape of ROC curve, which is also included in the report sheet. Since method 1 appears to have greater sensitivity then  method 2, we can roughly conclude that method 1 is better than method 2.
+</p>
+
+
+
+
+

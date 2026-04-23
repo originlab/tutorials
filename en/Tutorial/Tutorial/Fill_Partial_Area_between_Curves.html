@@ -1,0 +1,167 @@
+<h1 class="firstHeading">6.5.2 Fill Partial Area between Function Curves</h1><p class='urlname' style='display: none'>fill-partial-area-between-curves</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Filling_Area_Between_Parts_of_Two_Curves"><span class="tocnumber">3.1</span> <span class="toctext">Filling Area Between Parts of Two Curves</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Changing_the_Axis_Range"><span class="tocnumber">3.2</span> <span class="toctext">Changing the Axis Range</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Adding_Special_Points_with_Labels_to_Annotate_the_Intersections"><span class="tocnumber">3.3</span> <span class="toctext">Adding Special Points with Labels to Annotate the Intersections</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Adding_Function_Formulas_and_Axis_Arrows"><span class="tocnumber">3.4</span> <span class="toctext">Adding Function Formulas and Axis Arrows</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Generating_Function_Data_using_Set_Values_tool"><span class="tocnumber">3.5</span> <span class="toctext">Generating Function Data using Set Values tool</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Fill_Partial_Area_between_Curves/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Fill_Partial_Area_between_Curves/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=294" target="_blank">Fill Area Between Curves</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=51" target="_blank">Set Column Values</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=328" target="_blank">Annotate a Point on the Graph</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=255" target="_blank">Customize a Single Point</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=285" target="_blank">Special Ticks</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=154" target="_blank">Adding Special Tick Labels to Graph Axes</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Fill_Partial_Area_between_Curves/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Fill_Partial_Area_between_Curves/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/fill-area-under-intersection-of-two-curves" target="_blank">Fill Area Under Intersection of Two Curves</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/fill-area-above-curve" target="_blank">Fill Area Above and Below Curve</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/shading-sections-of-a-graph-and-customizing-their-formatting" target="_blank">Shading Sections of a Graph and Customizing their Formatting</a></li></ul>
+</td></tr></table>
+<p><br />
+</p>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>This tutorial shows how to plot two functions and customize the graph by partially filling an area between the two function curves. 
+</p>
+<dl><dd><a  class="image"><img alt="Fill Partial Area between Curves 01.png" src="../images/Fill_Partial_Area_between_Curves/300px-Fill_Partial_Area_between_Curves_01.png?v=49213" width="300"   /></a></dd></dl>
+<p class="version" >Minimum Origin Version Required: 2017 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<ul><li>Generate function data using Set Values tool.</li>
+<li>Fill areas between two lines with different colors.</li>
+<li>Add and edit objects on your graph.</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<p>This tutorial with the <i>Fill Partial Area between Function Plots</i> folder in the project <i>&lt;Origin EXE Folder&gt;\Samples\Tutorial Data.opj</i>.
+</p>
+<h3><a name="Filling_Area_Between_Parts_of_Two_Curves"></a><span class="mw-headline">Filling Area Between Parts of Two Curves</span></h3>
+<p>To apply different fill colors to two or more portions of the curve, you need to plot curves in segments. In this tutorial, you will learn how to fill an area between curves defined by <b>X &lt;= 1</b>. 
+</p>
+<ol>
+<li>Open the Tutorial Data.opj and browse to the <i>Fill Partial Area between Function Plots</i> folder. <b>Book2L</b> contains two function curves (<b>Note:</b> To see how to generate a dataset from a function, see <a href="#Generating_Function_Data_using_Set_Values_tool">the last section of this Tutorial</a>).
+
+<li> Select rows 1~36 (-2.5 &lt;= X &lt;= 1) of all three columns in <b>Sheet1</b> of <b>Book2L</b> and on the menu, click <b>Plot&gt; Basic 2D: Line</b> to plot two lines. The two datasets (lines) are automatically grouped.
+
+<li> Now, go back to the worksheet, select rows 36~51 (1 &lt;= X &lt;= 2.5) of all three columns and hover over the edge of the highlighted area until the cursor looks like this <a  class="image"><img alt="Fill Partial Area between Curves 27.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_27.png?v=29343" width="35"  /></a>. Drag and drop the selected range, onto the graph you just created . If prompted to rescale the axes and show all data, choose <b>Yes</b>. 
+
+<li> Select and delete the legend and the axis title.
+<dl><dd><a  class="image"><img alt="Fill Partial Area between Curves 28.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_28.png?v=57888" width="404"  /></a></dd></dl>
+<li> Double-click on one of the line plots, to open the <b>Plot Details</b> dialog box. Select the 1st plot under the <b>Layer1</b> node on left panel. 
+
+<li> Go to the <b>Line</b> tab and below <b>Fill Area Under Curve</b>, select <b>Enable</b>. Set <b>Fill to data plot - Above Below Colors</b>, <b>Data Plot</b> = <b>Next Plot</b>, <b>Fill to</b> = <b>Common X Area</b>, then click <b>Apply</b>. 
+Notice that this action adds a <b>Pattern_Above</b> and a <b>Pattern_Below</b> tab to the dialog box.
+<dl><dd><a  class="image"><img alt="Fill Partial Area between Curves 03.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_03.png?v=67435" width="799"  /></a></dd></dl>
+
+<li> Go to <b>Group</b> tab, click the line color list in the <b>Details</b> column to select the increment list <b>Candy</b> as below:
+<dl><dd><a  class="image"><img alt="Fill Partial Area between Curves 03 2.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_03_2.png?v=56709" width="652"  /></a></dd></dl>
+
+<li>Go to the <b>Pattern_Above</b> tab and set the fill color of the black line to <b>LT Magenta</b> with a 50% transparency.
+<dl><dd><a  class="image"><img alt="Fill Partial Area between Curves 04.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_04.png?v=67437" width="618"  /></a></dd></dl>
+
+<li>Go to the <b>Pattern_Below</b> tab and set the fill color below the black line to be <b>LT Cyan</b>. Note that transparency controls for <b>Pattern_Below</b> are dimmed and set to <b>Auto</b>, meaning that the fill will use the same transparency settings as <b>Pattern_Above</b>). 
+<dl><dd><a  class="image"><img alt="Pattern below.png" src="../images/Fill_Partial_Area_between_Curves/Pattern_below.png?v=67440" width="622"  /></a></dd></dl>
+
+<li> Select the third plot in the left panel, go to <b>Group</b> tab, click the line color list in the <b>Details</b> column to select the increment list <b>Candy</b> as below:
+<dl><dd><a  class="image"><img alt="Fill Partial Area between Curves 31.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_31.png?v=57889" width="756"  /></a></dd></dl>
+
+<li> Click <b>OK</b> to close the dialog box. The area in between the curves where X&lt;=1 is now filled.
+<dl><dd><a  class="image"><img alt="Partial fill.png" src="../images/Fill_Partial_Area_between_Curves/Partial_fill.png?v=49192" width="356"  /></a></dd></dl>
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Fill_Partial_Area_between_Curves/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>As an alternative to the Plot Details <b>Line</b> tab controls, note that you can select any two plots in the graph layer using the Ctrl key, then apply fills between the selected curves using Mini Toolbar buttons.
+</p>
+<dl><dd><a  class="image"><img alt="MT fill area between curves.png" src="../images/Fill_Partial_Area_between_Curves/MT_fill_area_between_curves.png?v=67451" width="356"  /></a></dd></dl>
+</td></tr></table>
+<h3><a name="Changing_the_Axis_Range"></a><span class="mw-headline">Changing the Axis Range</span></h3>
+<ol><li> We want to change the display range of  <b>X</b> and <b>Y</b> axis. To do this, click on the X axis, and in the popup mini toolbar, click the <b>Axis Scale</b> button to open the Axis Scale dialog as below. Set the display range from <b>-2.5</b> to <b>2.5</b> with <b>Tick Thickness</b> = <i>2</i>.
+<dl><dd><a  class="image"><img alt="Fill Partial Area between Curves 05.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_05.png?v=61693" width="468"  /></a></dd>
+<dd> Do the same for Y axis to set the <b>Y</b> axis display range from <b>-10.5</b> to <b>4</b> with <b>Tick Thickness</b> = <i>4</i>. </dd></dl></li>
+<li> To configure the X and Y axes so that they intersect at <b>0,0</b>. Double-click on the X axis to open the <b>Axis</b> dialog, go to the <b>Line and Ticks</b> tab, select both <b>Bottom</b> and <b>Left</b> icon in the left panel of the Axis Dialog. Set <b>Axis Position</b> to <b>At Position = 0</b>.
+<dl><dd><a  class="image"><img alt="Fill Partial Area between Curves 07.png" src="../images/Fill_Partial_Area_between_Curves/450px-Fill_Partial_Area_between_Curves_07.png?v=32810" width="450"   /></a></dd></dl></li>
+<li>Click <b>OK</b> to close the dialog. Delete the Axis titles, and then select the two line groups separately to set <b>Width</b> to <b>2</b> both using the style toolbar. Then, the graph will looks like:
+<dl><dd><a  class="image"><img alt="Fill Partial Area between Curves 08.png" src="../images/Fill_Partial_Area_between_Curves/400px-Fill_Partial_Area_between_Curves_08.png?v=49193" width="400"   /></a></dd></dl></li></ol>
+<h3><a name="Adding_Special_Points_with_Labels_to_Annotate_the_Intersections"></a><span class="mw-headline">Adding Special Points with Labels to Annotate the Intersections</span></h3>
+<p>In the graph above, there are three intersections of two function curves. We want to mark two of them, at X=-2 and X=2 respectively.
+</p>
+<ol>  
+<li>With <b>Ctrl</b> key been pressed down, click on the intersection at X=-2 to select this individual point and then right-clicking on it to select <b>Edit Point</b> to open the <b>Plot Details</b> dialog. You can learn more about <a class="external text" href="../../UserGuide/Category/Customizing_Plot_Elements.html#Customizing_Individual_Data_Points">how to show and customize a individual point on graph</a>.
+<br /><a  class="image"><img alt="Fill Partial Area between Curves 18.png" src="../images/Fill_Partial_Area_between_Curves/400px-Fill_Partial_Area_between_Curves_18.png?v=49198" width="400"   /></a></li>
+<li>In the dialog that opens, you will see a <i>special</i> point showing its row index has been added and selected under the second plot. 
+<ul>
+<li>Go to the <b>Symbol</b> tab, customize its style as below:
+<br /><a  class="image"><img alt="Fill Partial Area between Curves 19.png" src="../images/Fill_Partial_Area_between_Curves/550px-Fill_Partial_Area_between_Curves_19.png?v=49200" width="550"   /></a></li>
+<li>Go to the <b>Drop Line</b> tab, enable the vertical drop line and set its style as shown below:
+<br /><a  class="image"><img alt="Fill Partial Area between Curves 24.png" src="../images/Fill_Partial_Area_between_Curves/550px-Fill_Partial_Area_between_Curves_24.png?v=49206" width="550"   /></a></li>
+<li>Go to the <b>Label</b> tab, check the Enable check box to set <b>Label Form</b> to <i>(X,Y)</i> and <b>Font Size</b> to <i>22</i>
+<br /><a  class="image"><img alt="Fill Partial Area between Curves 34.png" src="../images/Fill_Partial_Area_between_Curves/550px-Fill_Partial_Area_between_Curves_34.png?v=61694" width="550"   /></a>
+</li>
+</ul>
+</li>
+<li>Click OK to turn off this dialog. Do the similar steps as step 1 to add another intersection at X=2(row index = 46). 
+<br /><a  class="image"><img alt="Fill Partial Area between Curves 35.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_35.png?v=49208" width="257"  /></a>
+<br />And then, set the same styles for it. At the end, you will get the graph such as the one shown below:
+<br /><a  class="image"><img alt="Fill Partial Area between Curves 29.png" src="../images/Fill_Partial_Area_between_Curves/400px-Fill_Partial_Area_between_Curves_29.png?v=49204" width="400"   /></a>
+</li>
+</ol>
+<h3><a name="Adding_Function_Formulas_and_Axis_Arrows"></a><span class="mw-headline">Adding Function Formulas and Axis Arrows</span></h3>
+<ol>
+<li>To hide the axis tick labels at (0,0), open the <b>Axis</b> dialog again and go to <b>Special Ticks</b> tab, then for the <b>Bottom</b> icon set as below and do the same for the <b>Left</b> icon.
+<br /><a  class="image"><img alt="Fill Partial Area between Curves 21.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_21.png?v=34002" width="483"  /></a></li>
+<li>To add arrows to the ends of the axes. Go to the <b>Line and Ticks</b> tab of <b>Axis</b> dialog. Select both <b>Bottom</b> and <b>Left</b> icon in the left panel of the <b>Axis</b> dialog. Expand <b>Arrow</b> node, check the <b>Arrow at End</b> checkbox, and then set <b>Width</b> to <b>5</b>. 
+<br /><a  class="image"><img alt="Fill Partial Area between Curves 23.png" src="../images/Fill_Partial_Area_between_Curves/500px-Fill_Partial_Area_between_Curves_23.png?v=57890" width="500"   /></a>
+</li>
+<li>Double-click on X axis to open the <b>Axis</b> dialog. Go to <b>Reference Lines</b> tab, enter <i>1</i> in the <b>Reference Lines at Value</b> text box, then click any place in the list table to add a reference line at X=1. Do the settings as below:
+<br /><a  class="image"><img alt="Fill Partial Area between Curves 25.png" src="../images/Fill_Partial_Area_between_Curves/500px-Fill_Partial_Area_between_Curves_25.png?v=56714" width="500"   /></a>
+<br />Click the <b>Details</b> button to set the line style.
+<br /><a  class="image"><img alt="Fill Partial Area between Curves 36.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_36.png?v=49212" width="480"  /></a>
+<br />Click <b>OK</b> to close this dialog, and then click <b>OK</b> button to apply the settings and close the <b>Axis</b> dialog too. 
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Fill_Partial_Area_between_Curves/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>You can also use the <b>Add Straight Line</b> tool(opened by selecting <b>Insert: Straight Line</b> menu) to add such a vertical straight line at <b>X=1</b>. 
+</p></td></tr></table>
+</li>
+<li>To add the two curves' formulas to the graph, right-click on a blank area and choose <b>Add Text...</b>. Type any character into the object to create a text object firstly. And then right-click on it to select <b>Properties</b> from the context menu to open the <b>Object Properties</b> dialog. Enter the first formula in the <b>Text</b> tab.<br />
+<pre class="lt" style="font-family:monospace;">y<span style="color: #000080;">=</span><span style="color: #000080;">-</span>x\<span style="color: #000080;">+</span><span style="color: #000000;">&#40;</span><span style="color: #0000dd;">2</span><span style="color: #000000;">&#41;</span><span style="color: #000080;">+</span>3x
+y<span style="color: #000080;">=</span>2x\<span style="color: #000080;">+</span><span style="color: #000000;">&#40;</span><span style="color: #0000dd;">3</span><span style="color: #000000;">&#41;</span><span style="color: #000080;">-</span>x\<span style="color: #000080;">+</span><span style="color: #000000;">&#40;</span><span style="color: #0000dd;">2</span><span style="color: #000000;">&#41;</span><span style="color: #000080;">-</span>5x</pre>
+</li>
+<li>Click OK button to close the dialog. Add one more text object and open <b>Text Properties</b> dialog again to enter the second formula above in <b>Text</b> tab. Click OK button again, then these two formulas have been added to the graph window both. Reposition them as needed.
+<li>Select the <b>Curved Arrow Tool</b> and add two curved arrows to connect formula labels to line plots.
+<br /><a  class="image"><img alt="Fill Partial Area between Curves 26.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_26.png?v=29363" width="187"  /></a>
+<li>Your final graph should look something like this:
+<br /><a  class="image"><img alt="Fill Partial Area between Curves 01.png" src="../images/Fill_Partial_Area_between_Curves/400px-Fill_Partial_Area_between_Curves_01.png?v=49213" width="400"   /></a>
+</li>
+</ol>
+<h3><a name="Generating_Function_Data_using_Set_Values_tool"></a><span class="mw-headline">Generating Function Data using Set Values tool</span></h3>
+<ol>
+<li>Open a new workbook. Choose <b>Add New Columns</b> to the worksheet so there are 3 columns. 
+<li>Right-click Col(A) and select <b>Fill Column with: A set of Numbers...</b>
+<li>In the <b>patternN</b> dialog box, set up the following parameters:<br />
+<a  class="image"><img alt="Fill Partial Area between Curves 12.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_12.png?v=49182" width="349"  /></a>
+</li>
+<li>Double-click on the <b>F(x)</b> label row of Col(B) to turn to the in-place edit mode, then enter <i>-1*A^2+3*A</i> as below. <br />
+<a  class="image"><img alt="Fill Partial Area between Curves 33.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_33.png?v=49189" width="249"  /></a>
+<table class="note">
+<tr>
+<td><b>Note:</b> Since Origin 2017, a new control <a class="external text" href="../../UserGuide/UserGuide/Column_Short_Name_Restriction.html"><b>Spreadsheet Cell Notation</b></a> has been added and turned on by default. Origin supports use of column Short Name as notation in column formula, such as A+1 instead of col(A)+1.
+<p>For earlier version, you are supposed to enter <i>-1*col(A)^2+3*col(A)</i> instead.
+</p>
+</td></tr></table>
+</li>
+<li>Highlight col(C) and right-click on it to select <b>Set Column Values</b> from context menu to open Set Values dialog. In this dialog, enter formula and the range definition as below:<br />
+<a  class="image"><img alt="Fill Partial Area between Curves 30.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_30.png?v=49185" width="441"  /></a>
+</li>
+</ol>
+
+

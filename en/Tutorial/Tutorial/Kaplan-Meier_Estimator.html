@@ -1,0 +1,75 @@
+<h1 class="firstHeading">5.7.1 Kaplan-Meier Estimator</h1><p class='urlname' style='display: none'>Kaplan-Meier-Estimator</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Running_Kaplan-Meier_Estimator"><span class="tocnumber">3.1</span> <span class="toctext">Running Kaplan-Meier Estimator</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Interpreting_the_Results"><span class="tocnumber">3.2</span> <span class="toctext">Interpreting the Results</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Kaplan-Meier_Estimator/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Kaplan-Meier_Estimator/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=44" target="_blank">Survival Analysis</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Kaplan-Meier_Estimator/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Kaplan-Meier_Estimator/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Survival analysis is the study of the time until a certain event, such as a death or failure in treatment. It also called event history analysis in social science, or reliability analysis in engineering.  
+</p><p>The Survival function, S(t), can describe the survival rate at time t. Further, S(t)=1-F(f), where F(t) is the cumulative distribution function of the failure times. While The hazard function h(t) (also known as the failure rate, hazard rate, or force of mortality) is the ratio of the probability density function P(t) of F(t) to the survival function S(t). 
+</p><p>The Kaplan-Meier Estimator, also called product-limit estimator, provides an estimate of S(t) and h(t) from a sample of failure times which may be progressively right-censored.
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Perform Kaplan-Meier Estimator</li>
+<li>How to interpret the results</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="Running_Kaplan-Meier_Estimator"></a><span class="mw-headline">Running Kaplan-Meier Estimator</span></h3>
+<p>Scientist is looking for a better medicine for cancer resistance. After exposing some rats to a carcinogen DMBA, they apply different medicine to different groups of rats and record their survival status for first 60 hours. In the 1st group, 15 rats survived after being exposed, on which Medicine 1 is applied. Note that on the 30th hours, 1 rat is dead but not for carcinoma. In the 2nd group, 15 rats survived with drug 2 applied. Note that on the 14th hour, the 15th hour and the 25th hour, 1 rat die but not because of carcinoma. And the records of two groups rats are sorted in the file <b>/Samples/Statistics/SurvivedRats.dat</b>. Note that in Status, 0 = dead but not because of carcinoma, 1 = dead because of carcinoma, 2 = alive. 
+</p>
+<ol><li>Start with an empty worksheet. Select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Statistics</i> subfolder and find the file <i>SurvivedRats.dat</i>. Drag-and-drop this file into the empty worksheet to import it.</li>
+<li>Analyze the dataset using the Kaplan-Meier Estimate tool. Use the menu item <b>Statistics: Survival Analysis: Kaplan-Meier Estimator</b> to open the dialog. </li>
+<li>Set column <b>A</b>, <b>B</b> and <b>C</b> as <b>Time Range</b>, <b>Censor Range</b> and <b>Grouping Range</b> respectively in the <b>Input</b> tab.</li>
+<li>Set 0 and 2 as <b>Censored Value(s)</b>
+<dl><dd><a  class="image"><img alt="DOC-2411 KM01a Magenta.png" src="../images/Kaplan-Meier_Estimator/DOC-2411_KM01a_Magenta.png?v=42371" width="462"  /></a></dd></dl></li>
+<li>In the <b>Survival Table</b> tab, select the <b>Event and censor values Summary</b> , <b>Survival Estimates</b>, <b>Quartile Estimates</b>  and <b>Mean Estimates</b> check boxes. 
+<dl><dd><a  class="image"><img alt="DOC-2411 KM01b Magenta.png" src="../images/Kaplan-Meier_Estimator/DOC-2411_KM01b_Magenta.png?v=42368" width="440"  /></a></dd></dl></li>
+<li>Select <b>Survival</b> ,<b>One Minus survival</b> and <b>Hazard</b> check box in the <b>Survival Plots</b> tab.
+<dl><dd><a  class="image"><img alt="DOC-2411 KM01c Magenta.png" src="../images/Kaplan-Meier_Estimator/DOC-2411_KM01c_Magenta.png?v=70442" width="353"  /></a></dd></dl></li>
+<li>Select the <b>Log-Rank</b>, <b>Breslow</b> and <b>Tarone-Ware</b> check box in the <b>Equality Test</b> tab.
+<dl><dd><a  class="image"><img alt="DOC-2411 KM01d Magenta.png" src="../images/Kaplan-Meier_Estimator/DOC-2411_KM01d_Magenta.png?v=62706" width="343"  /></a></dd></dl></li>
+<li> Click the <b>OK</b> button.</li></ol>
+<h3><a name="Interpreting_the_Results"></a><span class="mw-headline">Interpreting the Results</span></h3>
+<p>Go to worksheet <b>KaplanMeier1</b> for the analysis report&#160;:
+</p>
+<ol><li>From the "summary of event and censored values" table, we can see that <b>Censored=3</b> and <b>Percent Censored</b> =0.2 for drug 1 group and <b>Censored=9</b> and <b>Percent Censored</b>=0.6 for drug 2 group.
+<dl><dd><a  class="image"><img alt="KM02.png" src="../images/Kaplan-Meier_Estimator/KM02.png?v=15442" width="346"  /></a></dd></dl></li>
+<li>"Kaplan-Meier Survival Estimates " tables display a descriptive procedure for examining the distribution of time-to-event variables. We also can compare the distribution by levels of a factor variable. <b>Quartile Estimates</b> and <b>Means Estimates</b> table Provides the estimates and confidence interval of quartile and mean. 
+<dl><dd><a  class="image"><img alt="KM03.png" src="../images/Kaplan-Meier_Estimator/KM03.png?v=49628" width="618"  /></a></dd></dl></li>
+<li>The survival curves give a visual representation of the life tables. A plot of the Kaplan-Meier estimate of the survival function is a series of horizontal steps of declining magnitude. In the plot, the survival curve declines more rapidly, the survival rate is smaller.This Survival function plot shows  proportion of individuals surviving at each hour for drug 1 group and drug2 group and the survival curve of drug1  always declines more rapidly, so we can conclude that drug 2 is one better medicine for cancer resistance.
+<dl><dd><a  class="image"><img alt="KM5.png" src="../images/Kaplan-Meier_Estimator/KM5.png?v=70443" width="600"  /></a></dd></dl></li>
+<li>Form one minus survival function, we can get the same conclusion as Survival function plot.
+<dl><dd><a  class="image"><img alt="KM6.png" src="../images/Kaplan-Meier_Estimator/KM6.png?v=70444" width="600"  /></a></dd></dl></li>
+<li>Hazard rate is the instantaneous probability of the given event occurring at any point in time.It can be plotted against time on the X axis, forming a graph of the hazard rate over time. And hazard function is the equation that describe this plotted line.From the graph, we can get the hazard rate of drug1 group is greater than drug 2 group. So we can conclude that drug 2 is one better medicine for cancer resistance.
+<dl><dd><a  class="image"><img alt="KM7.png" src="../images/Kaplan-Meier_Estimator/KM7.png?v=70445" width="600"  /></a></dd></dl></li>
+<li>For overall tests of the equality of survival times across groups, Origin provides three methods: </li></ol>
+<dl><dd><ul><li>Log rank: Tests equality of survival functions by weighting all time points the same.</li>
+<li>Breslow: Tests equality of survival functions by weighting all time points by the number of cases at risk at each time point.</li>
+<li>Tarone-Ware: Tests equality of survival functions by weighting all time points by the square root of the number of cases at risk at each time point.</li></ul></dd>
+<dd><a  class="image"><img alt="KM08.png" src="../images/Kaplan-Meier_Estimator/KM08.png?v=49499" width="508"  /></a></dd>
+<dd>Since the significance values of the tests are all smaller than 0.05, there is statistically significant difference between two treatments(drug1 and drug2) in survival time.</dd></dl>
+
+
+
+
+
+

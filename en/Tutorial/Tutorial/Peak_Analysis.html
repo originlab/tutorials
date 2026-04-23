@@ -1,0 +1,45 @@
+<h1 class="firstHeading">1.9 Peak Analysis</h1><p class='urlname' style='display: none'>GSB-pa-tutorial</p>
+<p><br />
+In this lesson we will perform fitting, including deconvolution of overlapping peaks and baseline correction.
+</p>
+<h3><a name="Multiple_Peak_Fit_with_Deconvolution"></a><span class="mw-headline">Multiple Peak Fit with Deconvolution</span></h3>
+<ol>
+<li>Let's continue with the project file we saved in the previous lesson. Create a new folder in Project Explorer, rename it as <i><b>Peak Analysis</b></i>, then go to the empty folder.</li>
+<li> In a new workbook, import the file <i>&lt;Origin EXE Path&gt;\Samples\Spectroscopy\HiddenPeaks.dat</i>.</li>
+<li>Highlight column B and create a line plot.</li>
+<li>With the graph window active, click <b>Analysis: Peaks and Baseline: Multiple Peak Fit</b>. This will open the <b>Multiple Peak Fit</b> dialog. Set the <b>Peak Function</b> drop-down as <i>Gauss</i> and click <b>OK</b>. </li>
+<li>A <b>Get Points</b> dialog will open within the graph window. Note that you can re-position this dialog within the window. Double-click on a peak center to select it. Select a total of 7 peaks as in the following image, including two hidden peaks:<br />
+<a  class="image"><img alt="Peak analysis 01.png" src="../images/Peak_Analysis/250px-Peak_analysis_01.png?v=45299" width="250"   /></a></li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Peak_Analysis/Mini_bulb.png?v=44828" /></td><td><p>If you click the <b>Open NLFit</b> button in the <b>Get Points</b> dialog, the NLFit dialog will open with the peak centers initialized with your selection. You can further control the fitting process as desired.
+</p></td></tr></table>
+<li>After selecting all seven peaks, click the <b>Fit</b> button. A fit report will be added to the workbook.</li> 
+</ol>
+<h3><a name="Fit_Peaks_with_Baseline"></a><span class="mw-headline">Fit Peaks with Baseline</span></h3>
+<ol>
+<li>This part of the lesson assumes you have OriginPro. Start with a new workbook and import the file <i>&lt;Origin EXE Path&gt;\Samples\Spectroscopy\Peaks_on_Exponential_Baseline.dat</i>.</li>
+<li>Highlight column B and then click <b>Analysis: Peaks and Baseline: Peak Analyzer</b>. This will open the <b>Peak Analyzer</b> dialog, and a preview window displaying the selected data.
+<li>In the bottom panel, select the <b>Fit Peaks (Pro)</b> choice under <b>Goal</b>. The top panel will update, displaying a map of the steps involved in the peak fitting process.
+<li>Click <b>Next</b>. On the <b>Baseline Mode</b> page, select <b>User Defined</b> for <b>Baseline Mode</b>. Click <b>Next</b> to go to the <b>Create Baseline</b> page. You can then see in the preview window that 8 anchor points connected by a red line, are added to the spectrum. This is the baseline created using the current settings. 
+Now click the <b>Prev</b> button to go back to the <b>Baseline Mode</b> page to adjust the baseline mode settings.</li>
+<li>Click the <b>Find</b> button below  <b>Number of Points to Find</b>, to find the baseline anchor points in the spectrum. Eight (8) anchor points are added.<br />
+<a  class="image"><img alt="Peak analysis 02.png" src="../images/Peak_Analysis/300px-Peak_analysis_02.png?v=45303" width="300"   /></a></li></li>
+<li>Clear the <b>Enable Auto Find</b> checkbox and then click the <b>Add</b> button to add one or more anchor points on the spectrum. Double-click on the tail of the spectrum like the following image to add 1 anchor point. <br />
+<a  class="image"><img alt="Peak analysis 03.png" src="../images/Peak_Analysis/400px-Peak_analysis_03.png?v=45302" width="400"   /></a></li>
+<li>Note that you can also select and delete anchor points. Click <b>Done</b> to return to the <b>Peak Analyzer</b>.</li>
+<li>Select the <b>Snap to Spectrum</b> checkbox to force anchor points to snap to the closest data point in the spectrum. Click <b>Next</b>.</li>
+<li>On the <b>Create Baseline</b> page, select <b>Fitting</b> in the <b>Connect by</b> option. Select <b>ExpDec2</b> for <b>Function</b> under the <b>Fitting</b> branch. Click <b>Next</b> twice to go to the <b>Find Peaks</b> page.</li>
+<li>Click the <b>Find</b> button. Two (2) peaks are found in the preview.</li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Peak_Analysis/Mini_bulb.png?v=44828" /></td><td><p>There are several options available for peak finding including a 2nd derivative method to find overlapping peaks. You can also view the 2nd derivative curve, and turn on smoothing to help find peaks in noisy data.
+</p></td></tr></table>
+<li>Click <b>Next</b> to go to the <b>Fit Peaks</b> page. Accept defaults and click <b>Finish</b> to perform peak fitting. A graph containing fitting results is generated.</li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Peak_Analysis/Mini_bulb.png?v=44828" /></td><td><p>You can click the <b>Fit Control</b> button to control the fitting process including fixing and sharing parameters, and specifying bounds and constraints.
+</p></td></tr></table>
+<li>Now, let's customize the <b>Fitting Results</b> table to hide some peak properties we don't want to display. Right-click on the table and select <b>Peak Report Field...</b> from the context menu. The <b>Peak Report Field</b> dialog will open, listing all properties that can be included in the table. You can remove or change the order properties in this dialog. Select <b>Peak Gravity Center</b> and click the <b>Remove</b> button to hide it. Do the same for <b>Peak Area by Integrating Data(%)</b>. Press <b>OK</b> to update the table in the graph.<br />
+<a  class="image"><img alt="Peak analysis 04.png" src="../images/Peak_Analysis/600px-Peak_analysis_04.png?v=45300" width="600"   /></a></li>
+</ol>
+<p>Save your project file.
+</p>
+

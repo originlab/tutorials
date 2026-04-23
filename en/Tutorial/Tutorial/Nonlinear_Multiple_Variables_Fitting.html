@@ -1,0 +1,59 @@
+<h1 class="firstHeading">4.2.2.30 Nonlinear Multiple Variables Fitting</h1><p class='urlname' style='display: none'>Fitting-NLFit-MultiVar</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a></li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Nonlinear_Multiple_Variables_Fitting/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Nonlinear_Multiple_Variables_Fitting/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=54" target="_blank">Global Fitting</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Nonlinear_Multiple_Variables_Fitting/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Nonlinear_Multiple_Variables_Fitting/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Origin supports fitting functions with multiple dependent or independent variables.  With the nonlinear fitting function, you can define multiple variables and separate them with semicolons.  Since global fitting allows you to fit only one function at a time, this is a good way to defeat that limitation.
+</p><p>Origin ships with three built-in functions with multiple dependent and independent variables.  These functions, available in the Multiple Variables category, are actually composites consisting of two ordinary functions.  The GaussianLorentz function, for example, is a combination of the Gaussian and Lorentz functions, sharing <i>y0</i> and <i>xc</i>:
+</p>
+<dl><dd><img src="../images/Nonlinear_Multiple_Variables_Fitting/math-63afdaef55d57ecfe4414c8b77ffd474.png?v=0" title="y_1 =y_0+\frac {A_1}{w_1\sqrt{\pi /2}}e^{-2\frac{(x-x_c)^2}{w_1^2}}" alt="y_1 =y_0+\frac {A_1}{w_1\sqrt{\pi /2}}e^{-2\frac{(x-x_c)^2}{w_1^2}}" class="tex"/></dd>
+<dd><img src="../images/Nonlinear_Multiple_Variables_Fitting/math-45c823f9ecd6d8591bbca1aa8d43d147.png?v=0" title="y_2=y_0+\frac{2A_2}\pi \frac {w_2} {4\left( x-x_c\right) ^2+w_2^2}" alt="y_2=y_0+\frac{2A_2}\pi \frac {w_2} {4\left( x-x_c\right) ^2+w_2^2}" class="tex"/></dd></dl>
+<p>This tutorial will demonstrate how to fit such multi-variable functions.
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<ul><li> Use Nonlinear Multiple Variables Fitting to fit a curve with two different functions.</li>
+<li> Assign data to fitting variables.</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<ol>
+<li>Start with a new project or create a new workbook and import the data file <b>\samples\curve fitting\Gaussian.dat</b>.
+
+<br /><br /><a  class="image"><img alt="Nonlinear Multiple Variables Fitting 001.png" src="../images/Nonlinear_Multiple_Variables_Fitting/Nonlinear_Multiple_Variables_Fitting_001.png?v=10914" width="396"  /></a><br /><br />
+
+<li>Highlight Column(A) and Column(B).  In the main menu, click <b>Analysis</b>, then point to <b>Fitting</b>, and then click <b>Nonlinear Curve Fit</b>.
+
+<li>In the NLFit dialog’s left panel, select <b>Function Selection</b>.  In the right panel, select <b>Multiple Variables</b> in the Category dropdown menu.  In the Function dropdown menu, select <b>GaussianLorentz</b>.
+<br /><br /><a  class="image"><img alt="Nonlinear Multiple Variables Fitting 002.png" src="../images/Nonlinear_Multiple_Variables_Fitting/Nonlinear_Multiple_Variables_Fitting_002.png?v=14701" width="774"  /></a><br /><br />
+
+As you can see on the Sample Curve tab, the equations in this fitting function share the same parameters, <i>y0</i> and <i>xc</i>.
+
+<br /><br /><a  class="image"><img alt="Nonlinear Multiple Variables Fitting 004.png" src="../images/Nonlinear_Multiple_Variables_Fitting/Nonlinear_Multiple_Variables_Fitting_004.png?v=10949" width="567"  /></a><br /><br />
+
+<li>In the NLFit dialog’s left panel, select <b>Data Selection</b>. In the right panel, expand the <b>Range</b> node and assign data to the fitting variables.  In this example, we have assigned column B to both <i>y1</i> and <i>y2</i>, which means that both expressions will fit the same dataset.
+
+<br /><br /><a  class="image"><img alt="Nonlinear Multiple Variables Fitting 003.png" src="../images/Nonlinear_Multiple_Variables_Fitting/Nonlinear_Multiple_Variables_Fitting_003.png?v=10979" width="574"  /></a><br /><br />
+
+<li>Click <b>Fit until converged</b> to fit, then <b>OK</b>. In the results sheet, compare parameters A and w, with the Gaussian and Lorentz functions sharing the same offset and peak center.
+
+<br /><br /><a  class="image"><img alt="Nonlinear Multiple Variables Fitting 005.png" src="../images/Nonlinear_Multiple_Variables_Fitting/Nonlinear_Multiple_Variables_Fitting_005.png?v=10950" width="470"  /></a>
+</ol>
+
+
+
+
+
+

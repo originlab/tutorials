@@ -1,0 +1,89 @@
+<h1 class="firstHeading">4.4.7.2 Peak Fitting with Preset Peak Parameters</h1><p class='urlname' style='display: none'>PeakFit-Preset-PeakParameter</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">What You Will Learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Save_a_theme_with_peak_positions_and_peak_parameters"><span class="tocnumber">3.1</span> <span class="toctext">Save a theme with peak positions and peak parameters</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Reuse_the_theme"><span class="tocnumber">3.2</span> <span class="toctext">Reuse the theme</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Peak_Fitting_with_Preset_Peak_Parameters/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Peak_Fitting_with_Preset_Peak_Parameters/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=16" target="_blank">Peak Fitting wtih Preset Peak Parameters</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=73" target="_blank">Fitting Multiple Spectra with Peak Analyzer</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Peak_Fitting_with_Preset_Peak_Parameters/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Peak_Fitting_with_Preset_Peak_Parameters/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/how-do-i-perform-peak-deconvolution" target="_blank">How do I Perform Peak Deconvolution?</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/sequentially-initialize-fitting-parameters-in-batch-peak-analysis" target="_blank">Sequentially Initialize Fitting Parameters in Batch Peak Analysis</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>In some cases, you may want to perform peak fitting with preset peak parameters. For example, you may have many datasets with fixed numbers of peaks and the centers of these peaks do not vary from dataset to dataset. What you are interested in is mainly other parameters of the peaks, for example, heights. Using the theme feature of the Peak Analyzer, you may carry out peak fitting with fixed peak parameters easily.
+</p>
+<p class="version" >Minimum Origin Version Required: OriginPro 2016 SR0</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">What You Will Learn</span></h2>
+<ol><li>How to save Peak Analyzer settings in a theme and reuse them</li>
+<li>How to fix peak parameters</li></ol>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="Save_a_theme_with_peak_positions_and_peak_parameters"></a><span class="mw-headline">Save a theme with peak positions and peak parameters</span></h3>
+<ol>
+<li>Start a new worksheet and import the file &lt;Origin Program Folder&gt;\Samples\Spectroscopy\HiddenPeaks.dat.
+
+<li>Highlight the second column and select <b>Analysis: Peaks and Baseline: Peak Analyzer</b> from the Origin menu to open the <b>Peak Analyzer</b>.
+<br /><a  class="image"><img alt="Peak Fitting with Preset Peak Parameters 01.png" src="../images/Peak_Fitting_with_Preset_Peak_Parameters/Peak_Fitting_with_Preset_Peak_Parameters_01.png?v=29743" width="396"  /></a>
+<li>On the first page, select the <b>Fit Peaks</b> radio button in the <b>Goal</b> group. Click <b>Next</b> to go to the <b>Baseline Mode</b> page.
+<br /><a  class="image"><img alt="Peak Fitting with Preset Peak Parameters 02.png" src="../images/Peak_Fitting_with_Preset_Peak_Parameters/Peak_Fitting_with_Preset_Peak_Parameters_02.png?v=29744" width="386"  /></a>
+<li>In the <b>Baseline Mode</b> page, select <b>None (Y=0)</b> with the <b>Baseline Mode</b> drop-down list. Click <b>Next</b> to go to the <b>Find Peaks</b> page.
+<br /><a  class="image"><img alt="Peak Fitting 01.png" src="../images/Peak_Fitting_with_Preset_Peak_Parameters/Peak_Fitting_01.png?v=40597" width="360"  /></a>
+
+<li>In the <b>Find Peaks</b> page:
+<ol style="list-style-type:lower-alpha">
+<li>Clear the <b>Enable Auto Find</b> check box, because we want to find the peaks manually. Click the <b>Peaks Info</b> button to open the <b>Peak Info</b> dialog.
+<br /><a  class="image"><img alt="Peak Fitting with Preset Peak Parameters 04.png" src="../images/Peak_Fitting_with_Preset_Peak_Parameters/Peak_Fitting_with_Preset_Peak_Parameters_04.png?v=29746" width="416"  /></a>
+<li>In the <b>Peak Info</b> dialog, click the <b>Add</b> button seven times to add 7 peaks. Enter the peak centers and heights as follows:
+<br /><a  class="image"><img alt="Peak Fitting with Preset Peak Parameters 05.png" src="../images/Peak_Fitting_with_Preset_Peak_Parameters/Peak_Fitting_with_Preset_Peak_Parameters_05.png?v=42861" width="486"  /></a>
+<br />Click <b>OK</b> to return to the Peak Analyzer. 
+<li>Click <b>Next</b> to go to the <b>Fit Peaks</b> page.
+</ol>
+<li>In the <b>Fit Peaks</b> page:
+
+<ol style="list-style-type:lower-alpha">
+<li>Click <b>Fit Control</b> to open the <b>Peak Fit Parameters</b> dialog.
+
+<li>In the <b>Peak Fit Parameters</b> dialog, click the <b>Fix or release all peak centers</b> button. Then click the <b>Fit Until Converge</b> button. When the fitting is done, click <b>OK</b> to return to the <b>Peak Analyzer</b> dialog (see <a class="external text" href="../../UserGuide/UserGuide/Peak_Fit_Parameters_Dialog.html#Controls_between_the_Two_Panels">this important note</a> about <b>Fit until converged</b>).
+<br /><a  class="image"><img alt="Peak Fitting with Preset Peak Parameters 06.png" src="../images/Peak_Fitting_with_Preset_Peak_Parameters/Peak_Fitting_with_Preset_Peak_Parameters_06.png?v=29748" width="616"  /></a>
+<li>Click the right-sided triangle button to the right of <b>Dialog Theme</b> in the upper panel. Select <b>Save As</b> from the short-cut menu. The <b>Theme Save as</b> dialog opens.
+
+<li>In the <b>Theme Save as</b> dialog, enter <b>MyFitting</b> after <b>Theme Name</b>. Clear and select the check boxes as the screenshot below:
+<br /><a  class="image"><img alt="Peak analysis theme 1.png" src="../images/Peak_Fitting_with_Preset_Peak_Parameters/Peak_analysis_theme_1.png?v=40608" width="577"  /></a>
+<br />Click <b>OK</b> to save the theme. This should bring you back to the <b>Peak Analyzer</b> dialog.
+<li>Click the <b>Finish</b> button in the <b>Peak Analyzer</b> to complete the analysis.
+</ol>
+</ol>
+<h3><a name="Reuse_the_theme"></a><span class="mw-headline">Reuse the theme</span></h3>
+<ol>
+<li>Start another new workbook and import the file &lt;Origin Program Folder&gt;\Samples\Spectroscopy\HiddenPeaks.dat.
+<li>Highlight the second column
+<li>Select <b>Analysis: Peaks and Baseline: Peak Analyzer</b> from the Origin menu to open the <b>Peak Analyzer</b> dialog.
+<li>On the first page of the <b>Peak Analyzer</b>, click the right-sided triangle button to the right of <b>Dialog Theme</b>. From the short-cut menu, pick <b>MyFitting</b>.
+<br /><a  class="image"><img alt="Peak Fitting with Preset Peak Parameters 08.png" src="../images/Peak_Fitting_with_Preset_Peak_Parameters/Peak_Fitting_with_Preset_Peak_Parameters_08.png?v=29751" width="535"  /></a>
+
+<li>Click <b>Next</b> to check if the settings in every step are correct. Note that in the <b>Find Peaks</b> page, you can see the peak centers and heights are same as last time.
+<li>When you reach the last page, click the <b>Fit Control</b> button to open the <b>Peak Fit Parameters</b> dialog. Make sure that all peak centers are fixed and the values are the same as last time. Click <b>OK</b> to return to the <b>Peak Analyzer</b>.
+<li>Click <b>Finish</b> to complete the analysis. Check the results to see whether they are the same as the results we got last time.
+
+</ol>
+
+
+
+
+
+

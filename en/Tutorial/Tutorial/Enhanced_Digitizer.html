@@ -1,0 +1,319 @@
+<h1 class="firstHeading">9.4.2 Enhanced Digitizer</h1><p class='urlname' style='display: none'>enhanced-digitizer</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">What You Will Learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Import_Image_and_Clear_Gridlines"><span class="tocnumber">3.1</span> <span class="toctext">Import Image and Clear Gridlines</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Edit_Axes"><span class="tocnumber">3.2</span> <span class="toctext">Edit Axes</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Capture_Data_Points"><span class="tocnumber">3.3</span> <span class="toctext">Capture Data Points</span></a>
+<ul>
+<li class="toclevel-3 tocsection-7"><a href="#Manually_Pick_Points"><span class="tocnumber">3.3.1</span> <span class="toctext">Manually Pick Points</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#Auto_Trace_Line_by_Points"><span class="tocnumber">3.3.2</span> <span class="toctext">Auto Trace Line by Points</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="#Auto_Pick_Points_by_Grids"><span class="tocnumber">3.3.3</span> <span class="toctext">Auto Pick Points by Grids</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#Area_Auto_Trace.2FBoundary-Limited_Area_Auto_Trace"><span class="tocnumber">3.3.4</span> <span class="toctext">Area Auto Trace/Boundary-Limited Area Auto Trace</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-11"><a href="#Set_Axes_for_Polar_and_Ternary_Plots"><span class="tocnumber">3.4</span> <span class="toctext">Set Axes for Polar and Ternary Plots</span></a>
+<ul>
+<li class="toclevel-3 tocsection-12"><a href="#Polar_Coordinates"><span class="tocnumber">3.4.1</span> <span class="toctext">Polar Coordinates</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="#Ternary_Coordinate"><span class="tocnumber">3.4.2</span> <span class="toctext">Ternary Coordinate</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Enhanced_Digitizer/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Enhanced_Digitizer/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=121" target="_blank">Enhanced Digitizer</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Enhanced_Digitizer/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Enhanced_Digitizer/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/digitizing-multi-axis-graphs-in-origin" target="_blank">Digitizing Multi-Axis Graphs in Origin</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/extract-data-points-from-a-plot" target="_blank">Extract Data Points from a Plot</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>The Enhanced Digitizer supports auto tracing and digitizing in 2D Cartesian, polar and ternary coordinate systems. 
+</p><p><b>NOTE</b>: The Enhanced Digitizer is built into Origin 2015 SR0 and later versions. If you are running Origin 9.1, the Enhanced Digitizer is available as an add-on tool from <a class="external text" href="https://www.originlab.com/fileExchange/details.aspx?fid=149" target="_blank">the OriginLab File Exchange</a>. The Enhanced Digitizer is not supported by versions prior to Origin 9.1 SR1.
+</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">What You Will Learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li> Set axes in the image.</li>
+<li> Manually and automatically capture data points.</li>
+<li> Set axes for polar and ternary coordinate systems.</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="Import_Image_and_Clear_Gridlines"></a><span class="mw-headline">Import Image and Clear Gridlines</span></h3>
+<ol>
+<li>Select the <b>Digitize Image</b> <a  class="image"><img alt="Button Digitize Image.png" src="../images/Enhanced_Digitizer/Button_Digitize_Image.png?v=11217" width="23"  /></a> button on the <b>Standard</b> toolbar.
+
+<li> Browse to the folder <i>&lt;Origin EXE Folder&gt;\Samples\Import and Export</i> and open <b>TwoPeaks.bmp</b>. There are three line plots in the image: the black plot is the baseline and the red and blue plots are spectra.
+<br /><a  class="image"><img alt="Enhanced Digitizer Towpeaks bmp.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer_Towpeaks_bmp.png?v=29203" width="481"  /></a>
+
+<li>In the Digitizer dialog, there are hints at the bottom of the Axes tab to guide you through each step. 
+<br /><a  class="image"><img alt="Enhanced Digitizer db.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer_db.png?v=29204" width="501"  /></a>
+
+<li>Select <b>Image:Remove Cartesian Gridlines</b> to remove the gridlines.
+<br />
+You can also choose <b>Image: Rotate...</b> and <b>Image: Clear Background</b> menus to rotate the image and clear background noise and color fills. 
+</ol>
+<h3><a name="Edit_Axes"></a><span class="mw-headline">Edit Axes</span></h3>
+<p>Before capturing data points, you need to setup axes on the image so that there is a reference for calculating the XY coordinates of the data points that will be captured later.
+</p>
+<ol>
+<li>
+Click the <b>Edit Axes</b> <a  class="image"><img alt="Edit Axes Digitizer Button.png" src="../images/Enhanced_Digitizer/Edit_Axes_Digitizer_Button.png?v=29207" width="24"  /></a> button or make sure it is pressed. 
+
+<li>
+Four lines will appear framing the image. Drag each line so that it lines up at a location where you know the axis values and enter the axis value in the corresponding row in the Digitizer dialog.
+<br />
+Use the Zoom and Pan <a  class="image"><img alt="Button Panning.png" src="../images/Enhanced_Digitizer/Button_Panning.png?v=37517" width="22"  /></a> button on the <b>Tools</b> toolbar or hold down <b>A</b> and use the mouse wheel to zoom in and pan the image. Then fine tune the line location. Press <b>Ctrl+W</b> to restore the original image size.
+
+<br /><a  class="image"><img alt="Enhanced Digitizer1.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer1.png?v=29208" width="559"  /></a>
+
+<br /><a  class="image"><img alt="Enhanced Digitizer2.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer2.png?v=29209" width="563"  /></a>
+
+<li> After editing Axes, you can right click and save Axes settings in order to load them in the future for similar images.
+
+<br /><a  class="image"><img alt="Enhanced Digitizer save axis.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer_save_axis.png?v=29210" width="394"  /></a>
+</ol>
+<h3><a name="Capture_Data_Points"></a><span class="mw-headline">Capture Data Points</span></h3>
+<p>Besides the <b>Manually Pick Data Points</b> method, the Enhanced Digitizer provides four automatic digitizing methods to capture data points. They are all under the <b>Digitize</b> menu and have corresponding buttons. 
+</p>
+<table class="simple">
+
+<tr>
+<th>Name
+</th>
+<th>Icon
+</th>
+<th>Function
+</th></tr>
+<tr>
+<td>Manually Pick Points
+</td>
+<td><a  class="image"><img alt="Pick New Points Digitizer Button.png" src="../images/Enhanced_Digitizer/Pick_New_Points_Digitizer_Button.png?v=29212" width="24"  /></a>
+</td>
+<td>Double click on every spot you want to capture a point.
+</td></tr>
+<tr>
+<td>Auto Trace Line By Points
+</td>
+<td><a  class="image"><img alt="Auto Trace Line By Points Digitizer Button.png" src="../images/Enhanced_Digitizer/Auto_Trace_Line_By_Points_Digitizer_Button.png?v=29213" width="24"  /></a>
+</td>
+<td>Double click on a curve on the image and data points will automatically be captured along the curve.
+</td></tr>
+<tr>
+<td>Auto Pick Points By Grids
+</td>
+<td><a  class="image"><img alt="Pick Points By Grids Digitizer Button.png" src="../images/Enhanced_Digitizer/Pick_Points_By_Grids_Digitizer_Button.png?v=29214" width="24"  /></a>
+</td>
+<td>Drag a rectangle on a desired area of the image and data points will be captured where ever the gridlines in rectangle intersect with the image curve.
+</td></tr>
+<tr>
+<td>Area Auto Trace
+</td>
+<td><a  class="image"><img alt="Area Auto Trace Digitizer Button.png" src="../images/Enhanced_Digitizer/Area_Auto_Trace_Digitizer_Button.png?v=29215" width="24"  /></a>
+</td>
+<td>This is a hybrid of the previous two methods. Drag a rectangle on a desired area of the image. Data points will automatically be captured along  the curve.
+</td></tr>
+<tr>
+<td>Boundary- Limited Area Auto Trace
+</td>
+<td><a  class="image"><img alt="Boundary Limited Area Auto Trace Digitizer Button.png" src="../images/Enhanced_Digitizer/Boundary_Limited_Area_Auto_Trace_Digitizer_Button.png?v=29216" width="24"  /></a>
+</td>
+<td>Similar to the Auto Trace Area button except that points are created only within the selected area.
+</td></tr></table>
+<h4><a name="Manually_Pick_Points"></a><span class="mw-headline">Manually Pick Points</span></h4>
+<p>Let's manually capture some points on the red line.
+</p>
+<ol>
+<li>
+Click the  <b>Manually Pick Points</b> button. 
+<br /><a  class="image"><img alt="Enhanced Digitizer16.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer16.png?v=29220" width="599"  /></a>
+
+<li>
+Double click on the red curve to pick a point. 
+<br /> 
+The <b>Magnifier</b> window on the <b>Data</b> tab of the Digitizer dialog provides a blown up view of where the cursor is. You can also use the Zoom and Pan tool mentioned in the Edit Axes section to zoom and pan the image to pick points more precisely.
+
+<li>Pick several more points and click the <b>Done</b> button. The <b>Number of Points</b> on Line 1 of the <b>Data</b> tab shows the number of points that were captured for Line 1. 
+<br /> <a  class="image"><img alt="Enhanced Digitizer manual traced.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer_manual_traced.png?v=29221" width="425"  /></a>
+<br /><br />
+If you want to move or delete a captured point,click the captured point in the image to select it. Use the arrow keys on the keyboard to move the point or press the <b>Delete</b> key to delete it.
+<br /><a  class="image"><img alt="Enhanced Digitizer modify.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer_modify.png?v=29222" width="144"  /></a>
+<br /> You can click the  <b>Manually Pick Points</b> button again to pick more points for line 1. 
+</ol>
+<p><br />
+</p>
+<h4><a name="Auto_Trace_Line_by_Points"></a><span class="mw-headline">Auto Trace Line by Points</span></h4>
+<p>Multiple digitizing methods can be used on same line as long as the line is highlighted on the <b>Data</b> tab of the Digitizer dialog. Let's pick more red points for Line 1 using the <b>Auto Trace Line by Points</b> method.
+</p>
+<ol> 
+<li>
+Click the <b>Auto Trace Line by Points</b> button.
+
+<li> 
+Double-click on red points to the left side of the peak and the right side of the peak. Every time you double click a point, Origin auto traces to find more points along the curve. Click the <b>Done</b> button. 
+<br /><a  class="image"><img alt="Enhanced Digitizer8.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer8.png?v=29224" width="423"  /></a>
+
+<li>There are in total 122 points captured on the red line.
+<br /><a  class="image"><img alt="Enhanced Digitizer8b.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer8b.png?v=29225" width="304"  /></a>
+
+<li>
+Click the <b>Go to Data</b> <a  class="image"><img alt="Go To Data Digitizer Button.png" src="../images/Enhanced_Digitizer/Go_To_Data_Digitizer_Button.png?v=29226" width="24"  /></a> button to see the results in a worksheet.
+<br /><a  class="image"><img alt="Enhanced Digitizer sheet.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer_sheet.png?v=29227" width="284"  /></a>
+</ol>
+<p><br />
+</p>
+<h4><a name="Auto_Pick_Points_by_Grids"></a><span class="mw-headline">Auto Pick Points by Grids</span></h4>
+<p>Next let's use the <b>Auto Pick by Grids</b> method to digitize the black baseline. 
+</p>
+<ol>
+<li> Activate the image window. 
+
+<li> Click the <b>New Line</b> <a  class="image"><img alt="New Line Digitizer Button.png" src="../images/Enhanced_Digitizer/New_Line_Digitizer_Button.png?v=29236" width="24"  /></a> button. The <b>Data</b> tab will start a new row for Line 2. 
+<br />
+Note: All plots in this image use the same XY axis so we don't need to edit the axes again. However, in case you have images with multiple axes, you can setup a new axis for each new line of data. 
+
+<li>
+Select the <b>Auto Pick Points by Grids</b> button. 
+
+<li>
+Click and drag to create a rectangle on a portion of the black baseline as shown below: 
+<br /><a  class="image"><img alt="Enhanced Digitizer3.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer3.png?v=29230" width="521"  /></a>
+<br />
+Some points on the red and blue lines are captured as well. 
+<br /><a  class="image"><img alt="Enhanced Digitizer auto grid.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer_auto_grid.png?v=29231" width="425"  /></a>
+
+<li>To remove unwanted points, click the <b>Delete Points</b> <a  class="image"><img alt="Delete Points Digitizer Button.png" src="../images/Enhanced_Digitizer/Delete_Points_Digitizer_Button.png?v=29232" width="24"  /></a> button.
+
+<li>
+Drag a rectangle box over the unwanted points and release the mouse button to delete them. 
+<br /><a  class="image"><img alt="Enhanced Digitizer5.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer5.png?v=29233" width="442"  /></a>
+
+<br />With this method, only 57 points are captured. 
+<br /><a  class="image"><img alt="Enhanced Digitizer auto grid numbers.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer_auto_grid_numbers.png?v=29234" width="306"  /></a>
+
+<li>
+If you are not satisfied with the result, click the <b>Delete Line</b> <a  class="image"><img alt="Delete Line Digitizer Button.png" src="../images/Enhanced_Digitizer/Delete_Line_Digitizer_Button.png?v=29235" width="24"  /></a> button to delete Line 2 on the Data tab of the Digitizer dialog and click the <b>New Line</b> <a  class="image"><img alt="New Line Digitizer Button.png" src="../images/Enhanced_Digitizer/New_Line_Digitizer_Button.png?v=29236" width="24"  /></a> button to start over.
+<br /><br />
+You can use the <b>Settings: Digitize Settings...</b> menu to customize the grids density. 
+</ol>
+<p><br />
+</p>
+<h4><a name="Area_Auto_Trace.2FBoundary-Limited_Area_Auto_Trace"></a><span class="mw-headline">Area Auto Trace/Boundary-Limited Area Auto Trace</span></h4>
+<p>Let's use these two methods to digitize the blue line. 
+</p>
+<ol>
+<li>
+Click the <b>New Line</b> <a  class="image"><img alt="New Line Digitizer Button.png" src="../images/Enhanced_Digitizer/New_Line_Digitizer_Button.png?v=29236" width="24"  /></a> button.
+<li>
+Click the <b>Area Auto Trace</b> <a  class="image"><img alt="Area Auto Trace Digitizer Button.png" src="../images/Enhanced_Digitizer/Area_Auto_Trace_Digitizer_Button.png?v=29215" width="24"  /></a> button. 
+<li>
+Click and drag a rectangle over some part of the blue curve. Points will be auto created along the blue curve beyond the rectangle. 
+<br /><a  class="image"><img alt="Enhanced Digitizer area auto.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer_area_auto.png?v=29239" width="427"  /></a>
+<br /><a  class="image"><img alt="Enhanced Digitizer line3.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer_line3.png?v=29240" width="298"  /></a>
+
+<li>
+Select the <b>Boundary-Limited Area Auto Trace</b> <a  class="image"><img alt="Boundary Limited Area Auto Trace Digitizer Button.png" src="../images/Enhanced_Digitizer/Boundary_Limited_Area_Auto_Trace_Digitizer_Button.png?v=29216" width="24"  /></a> button.
+
+<li>Click and drag a rectangle over some part of the blue curve. Points will be auto created only within the rectangle you drew. Unlike in the <b>Auto Pick Points by Grids</b> method, the <b>Boundary-Limited Area Auto Trace</b> method creates more points than just where the curve intersects with the grids.
+<br /><a  class="image"><img alt="Enhanced Digitizer area boundary.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer_area_boundary.png?v=29241" width="426"  /></a>
+
+<li>
+Click the <b>Reorder Points</b> <a  class="image"><img alt="Reorder Digitizer Button.png" src="../images/Enhanced_Digitizer/Reorder_Digitizer_Button.png?v=29242" width="24"  /></a> button to set the captured points in order. 
+
+<li>
+Click the <b>Set Label</b> <a  class="image"><img alt="Set Label Digitizer Button.png" src="../images/Enhanced_Digitizer/Set_Label_Digitizer_Button.png?v=29243" width="24"  /></a> button.
+
+<li>
+Click on the selected peak point of blue line and press the <b>Enter</b> key.
+
+<li>
+Enter <b>Blue Peak</b> in the dialog to add a label to the peak of the blue line.
+<br /> <a  class="image"><img alt="Enhanced Digitizer blue peak.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer_blue_peak.png?v=29244" width="222"  /></a>
+
+<li>
+To add another label on the peak of the digitized red line, click the <b>Set Label</b> button again to release it first.
+
+<li>
+Select Line 1 to show digitized red points on the Image. Repeat the same process, this time set the label as <b>Red Peak</b>.
+
+<li>
+Select the <b>Go To Data</b> <a  class="image"><img alt="Go To Data Digitizer Button.png" src="../images/Enhanced_Digitizer/Go_To_Data_Digitizer_Button.png?v=29226" width="24"  /></a> button. You can see the Labels added are in corresponding Label rows.
+<br /><a  class="image"><img alt="Enhanced Digitizer18.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer18.png?v=29249" width="596"  /></a>
+ 
+<li>With the image window active, click the <b>Go To Graph</b> <a  class="image"><img alt="Go To Graph Digitizer Button.png" src="../images/Enhanced_Digitizer/Go_To_Graph_Digitizer_Button.png?v=29246" width="24"  /></a> button. 
+<br />All the curves resulting from the picked points will show in one graph window.
+<br /> <a  class="image"><img alt="Enhanced Digitizer20.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer20.png?v=29247" width="415"  /></a>
+
+<li>You can save the project with the Digitizer in it. When you open the project in the future, there will be a Digitizer... button on the image and you can click it to continue Digitizing. 
+<br /><a  class="image"><img alt="Enhanced Digitizer button.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer_button.png?v=29248" width="477"  /></a>
+</ol>
+<h3><a name="Set_Axes_for_Polar_and_Ternary_Plots"></a><span class="mw-headline">Set Axes for Polar and Ternary Plots</span></h3>
+<p>The following section only explains how to define axes for images with polar or ternary coordinate systems using the Enhanced Digitizer. Once the axes are defined the same methods outlined above can be used to digitize the image. 
+</p>
+<h4><a name="Polar_Coordinates"></a><span class="mw-headline">Polar Coordinates</span></h4>
+<ol>
+<li>
+Click the <b>Import</b> <a  class="image"><img alt="New Import Digitizer Button.png" src="../images/Enhanced_Digitizer/New_Import_Digitizer_Button.png?v=29251" width="24"  /></a> button in the Digitizer dialog. 
+<li>
+Browse to the <i>&lt;Origin EXE Folder&gt;\Samples\Import and Export</i> folder and select <b>PolarCoordinate.bmp</b>. 
+<br />The data plots in this image are in the polar coordinate system. 
+<br /><a  class="image"><img alt="Enhanced Digitizer polar.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer_polar.png?v=29252" width="410"  /></a>
+
+<li>
+By default the Digitzer uses the Cartesian Coordinate system. Select <b>Axes:Polar Coordinate...</b> menu to open the <b>Polar Coordinate Settings</b> dialog box. 
+<br /><a  class="image"><img alt="Enhanced Digitizer10.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer10.png?v=29253" width="474"  /></a>
+
+<li>
+We can accept the default orientation and theta unit and click <b>OK</b>. Two line objects with anchor points show on the image. 
+<br /><br />
+To set the axes for polar coordinates, we need to make sure each line object follows the same radius line, i.e. <b>P1</b> &amp; <b>P2</b>, or <b>P3</b>&amp;<b>P4</b> need to be at the same angle.
+<br /><a  class="image"><img alt="Enhanced Digitizer11.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer11.png?v=29254" width="518"  /></a>
+
+<li>
+Drag each line's anchor points to known positions. Note: You can press the<b>Space</b> key to make the cursor bigger so that it is easier to locate the desired position.
+<br /><a  class="image"><img alt="Enhanced Digitizer space.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer_space.png?v=29255" width="396"  /></a>
+<li> 
+Enter the corresponding <b>Theta</b> and <b>Radius</b> values on the Axes tab of the Digitizer.  
+<br /><a  class="image"><img alt="Enhanced Digitizer13.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer13.png?v=29256" width="297"  /></a>
+</ol>
+<p><br />
+</p>
+<h4><a name="Ternary_Coordinate"></a><span class="mw-headline">Ternary Coordinate</span></h4>
+<ol>
+<li>
+Click the <b>Import</b> <a  class="image"><img alt="New Import Digitizer Button.png" src="../images/Enhanced_Digitizer/New_Import_Digitizer_Button.png?v=29251" width="24"  /></a> button in the Digitizer dialog. 
+<li>
+Browse to the <i>&lt;Origin EXE Folder&gt;\Samples\Import and Export</i> folder and select <b>TernaryCoordinate.bmp</b>. The data plots in this image are in the ternary coordinate system.  
+                           
+<li>
+Select <b>Axes:Ternary Coordinate...</b> to open the <b>Ternary Coordinate Settings</b> dialog. 
+<br /><a  class="image"><img alt="Enhanced Digitizer14.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer14.png?v=29257" width="493"  /></a>
+
+<li>
+Specify the <b>Axes Orientation</b> and <b>Range of Variables</b> (i.e. whether the ternary plot is normalized to 0 - 1 or 0 - 100). For this example, accept the default settings  and click <b>OK</b>. Three anchor points are added to the image. 
+
+<li>Drag these three points to the three vertices of the ternary plot.
+
+<li> Similarly to the polar coordinate anchor point control, the row of selected anchor points in the graph will be highlighted on the <b>Axes</b> tab:
+<br /><a  class="image"><img alt="Enhanced Digitizer15.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer15.png?v=29258" width="482"  /></a>
+
+<li>The <b>Axes Values</b> of each point are <b>X Y Z</b> respectively. The X, Y, Z values of <b>P1</b> in the ternary image are <b>0 0 1</b> because P1 is at the end of the Z axis. Similarly P2 and P3 lie at the end of the X axis and the Y axis, so the X,Y, Z values should be 1 0 0 and 0 1 0 respectively. Logically therefore, P1, P2 and P3 can't be same values.
+</ol>
+
+
+
+
+
+

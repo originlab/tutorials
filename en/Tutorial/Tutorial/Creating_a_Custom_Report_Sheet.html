@@ -1,0 +1,89 @@
+<h1 class="firstHeading">4.6.3 Creating a Custom Report Sheet</h1><p class='urlname' style='display: none'>Create-Custom-Report</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Importing_Data"><span class="tocnumber">3.1</span> <span class="toctext">Importing Data</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Creating_a_Custom_Report_Sheet"><span class="tocnumber">3.2</span> <span class="toctext">Creating a Custom Report Sheet</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Saving_the_Analysis_Template"><span class="tocnumber">3.3</span> <span class="toctext">Saving the Analysis Template</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Re-using_the_Analysis_Template"><span class="tocnumber">3.4</span> <span class="toctext">Re-using the Analysis Template</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Creating_a_Custom_Report_Sheet/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Creating_a_Custom_Report_Sheet/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=137" target="_blank">Creating Batch Reports using Origin Analysis Template and Microsoft Word</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Creating_a_Custom_Report_Sheet/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Creating_a_Custom_Report_Sheet/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/creating-html-reports-and-documents-in-origin-2019b" target="_blank">Creating HTML Reports and Documents in Origin 2019b</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Worksheets in Origin can be customized by merging cells and coalescing various objects such as graphs, external images, links to variables and tables/cells in other sheets, into a custom report. 
+</p><p>This tutorial will show you how to add a custom report to an existing analysis template. You can then import new data, recalculate results, and export or print the custom report.
+</p>
+<table class="note">
+
+<tr>
+<td><b>Note:</b> This tutorial suggests that you can drag-and-drop data files onto Origin. If you do so,  <a class="external text" href="../../QuickHelp/QuickHelp/Why_does_not_drag_and_drop_work.html">please do not run Origin as administrator</a>.
+</td></tr></table>
+<p class="version" >Minimum Origin Version Required: Origin 9.0 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<ul><li> How to create a custom report sheet</li>
+<li> How to save a custom report as part of an Analysis Template (OGW) and re-use it with new data</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<p><b>Note:</b> Please complete the previous tutorial named "<a href="../../Tutorial/Tutorial/Creating_and_Using_Analysis_Templates.html" title="Tutorial:Creating and Using Analysis Templates">Creating and Using Analysis Templates</a>" in which an analysis template named <b>MySensorData.OGWU</b> is created.
+</p>
+<h3><a name="Importing_Data"></a><span class="mw-headline">Importing Data</span></h3>
+<ol><li>Using the <b>File:Open</b> menu item, set the <b>Files of type</b> drop-down to <b>Workbooks (*.ogwu)</b>, then navigate to and open the Analysis Template <b>MySensorData.OGWU</b>. This analysis template was saved with a linear fit analysis for column B of the first worksheet, and a customized embedded graph with the data and the linear fit line (note that templates do not contain data, so at this point, you see no data and no results).</li>
+<li>Make the <b>Data</b> worksheet active. Select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Curve Fitting</i> subfolder and find the file <i>Sensor01.dat</i>. Drag-and-drop this file into the worksheet <b>Data</b> to import it.<br /></li></ol>
+<h3><a name="Creating_a_Custom_Report_Sheet"></a><span class="mw-headline">Creating a Custom Report Sheet</span></h3>
+<ol><li>Right-click on the <b>Data</b> worksheet and select <b>Add</b> to add a new worksheet. Rename this worksheet as <b>Custom Report</b>.</li>
+<li>Activate the <b>Custom Report</b> sheet and choose <b>Format:Worksheet</b> (or hit <b>F4</b>) to open the <b>Worksheet Properties</b> dialog. Go to the <b>Size</b> tab and under the <b>Size</b> node, set <b>Row Number</b> as <b>20</b> and <b>Column Number</b> as <b>9</b>. Then go to the <b>Miscellaneous</b> tab and check the <b>Auto Add Rows</b> check box. Click <b>OK</b> to apply these settings and close the dialog.</li>
+<li>In the worksheet, click and drag on the row headers for <b>Long Name</b>, <b>Unit</b>, <b>Comments</b>  and <b>F(x)=</b> to select these four rows. Then right click and select <b>Hide</b> from the context menu. This hides the four rows from the worksheet.</li>
+<li>Highlight the range of the cells in the first three rows for all columns and click the <b>Merge Cells</b> button <a  class="image"><img alt="Button Merge Cells.png" src="../images/Creating_a_Custom_Report_Sheet/Button_Merge_Cells.png?v=1645" width="23"  /></a> located in the <b>Styles</b> toolbar to merge the cells. Enter the text <b>Sensor Data Analysis Report</b> in this merged cell.</li>
+<li>In the 5th row, merge the cells in columns G and H. Repeat for the 6th row. In row 5, column F, enter the text <b>File Name:</b> In row 6, column F, enter the text <b>File Date:</b>. </li>
+<li>Right click the merged (column G and H) cells in row 5 and choose <b>Insert Variables</b> from the context menu. Make sure the dialog settings look like those in the image below and insert the <b>FILENAME</b> variable into this cell.
+<dl><dd><a  class="image"><img alt="Tutorial Create Custom Report 002.png" src="../images/Creating_a_Custom_Report_Sheet/Tutorial_Create_Custom_Report_002.png?v=19375" width="539"  /></a></dd></dl></li>
+<li>Right click the merged (column G and H) cells in row 6 and choose <b>Insert Variables</b> from the context menu. Insert the <b>FILEDATE</b> variable following the settings in the image below:
+<dl><dd><a  class="image"><img alt="Tutorial Create Custom Report 003.png" src="../images/Creating_a_Custom_Report_Sheet/Tutorial_Create_Custom_Report_003.png?v=19446" width="539"  /></a></dd></dl></li>
+<li>Right click on the cell containing the date information and choose <b>Format Cells</b> from the context menu. Change the <b>Format</b> drop-down to <b>Date</b> and click <b>OK</b>.</li>
+<li>Go to the <b>FitLinear1</b> worksheet and locate the <b>Parameters</b> table. Click the triangle button next to it and choose <b>Copy Table</b> from the fly-out menu.</li>
+<li>Go to the <b>Custom Report</b> sheet and select the 9th row in column E. Right click and choose <b>Paste Link</b>. Clear the pasted text <b>Sensor Output</b> in column E by pressing the <b>Delete</b> key.</li>
+<li>In the 13th row, merge the cells in columns G and H. Do the same in the 14th row. </li>
+<li>Return to the <b>FitLinear1</b> sheet and in the <b>Statistics</b> table, select the two data cells for <b>Pearson's r</b> and <b>Adj. R-Square</b>. Right click and choose <b>Copy</b> to copy only these two cells.</li>
+<li>Go to the <b>Custom Report</b> sheet and select the merged cell in the 13th row, then right-click and choose <b>Paste Link</b>. The two merged cells are filled with corresponding values. Enter the text <b>Pearson's r</b> and <b>Adj. R-Square</b> in the cells to the left of these pasted values.</li>
+<li>In the 8th row, merge the three cells in columns F, G and H. Do the same in rows 12 and 20. Enter the text <b>Fit Parameters</b>, <b>Fit Statistics</b> and <b>Report Date: $(@D, D1)</b> in rows 8, 12 and 20, respectively.</li>
+<li>Right click on the merged cells in row 20 and choose <b>Set Data Style:Rich Text</b> from the context menu. By enabling rich text, the string <b>$(@D,D1)</b> will display as the actual system date.</li>
+<li>Hold the CTRL key and select all cells with numeric values, then right-click and choose <b>Format Cells</b> in context menu, then choose <b>Set Decimal Places=</b> from the <b>Digits</b> drop-down menu, and enter <b>3</b> as <b>Decimal Number</b>, and press OK.</li>
+<li>Using buttons in the <b>Style</b> and <b>Format</b> toolbars, change cell borders, font sizes, styles and colors to customize the report as in the image below below. You may also need to manually adjust the width of some columns to ensure that all text is displayed.
+<dl><dd><a  class="image"><img alt="Tutorial Create Custom Report 001.png" src="../images/Creating_a_Custom_Report_Sheet/Tutorial_Create_Custom_Report_001.png?v=19452" width="549"  /></a></dd></dl></li>
+<li>Go to the <b>FitLinear1</b> sheet and double-click on the graph under <b>Fitted Curves Plot</b> to open the embedded graph. Right click on the graph's title bar and choose <b>Duplicate</b> from the context menu to duplicate the graph window (Graph1). Double click on the axis of duplicated graph to bring up <b>Axis</b> dialog. Go to <b>Scale</b> tab under both <b>X Axis</b> and <b>Y Axis</b> and choose <b>Auto</b> from the <b>Rescale</b> drop-down list. Then close the original embedded graph window.</li>
+<li>Return to the <b>Custom Report</b> worksheet, right click on the gray area of this worksheet and select <b>Add Graph</b> from context menu. In the <b>Graph Browser</b>, select <b>Graph1</b> which was created by duplicating the embedded graph. Click <b>OK</b> to add this graph to this worksheet as a floating chart.</li>
+<li>You can manually resize and move this floating chart using its anchor points and position it anywhere in the worksheet.</li>
+<li>Go to <b>Format:Worksheet</b> (or press <b>F4</b>) to open the <b>Worksheet Properties</b> dialog. In the <b>View</b> tab, under the <b>Show Grid Lines</b> node, clear the check boxes next to <b>Column Grid</b> and <b>Row Grid</b>. On the <b>Format</b> tab, make sure <b>Apply To</b> is set to <b>Data</b>, and select <b>Show Missing as Blank</b> to show missing values as blank instead of displaying the <b>"--"</b> characters. Press <b>OK</b> to close this dialog.</li>
+<li>Select <b>File:Print Preview</b> to preview the custom report. It should look similar to the image below:
+<dl><dd><a  class="image"><img alt="Tutorial Create Custom Report 004.png" src="../images/Creating_a_Custom_Report_Sheet/Tutorial_Create_Custom_Report_004.png?v=19527" width="550"  /></a></dd></dl></li></ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Creating_a_Custom_Report_Sheet/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>Beginning with Origin 2018b all merged cells within a <i>selected</i> range, including non-contiguous blocks of merged cells, can be un-merged by clicking the <b>Merge cells</b> button <a  class="image"><img alt="Button Merge Cells.png" src="../images/Creating_a_Custom_Report_Sheet/Button_Merge_Cells.png?v=1645" width="23"  /></a> on the <b>Style</b> toolbar.
+</p></td></tr></table>
+<h3><a name="Saving_the_Analysis_Template"></a><span class="mw-headline">Saving the Analysis Template</span></h3>
+<ol><li>Activate the workbook and select <b>File:Save Workbook as Analysis Template</b>.</li>
+<li>Browse to a desired file path and enter the file name <b>SensorDataReport</b> and click <b>Save</b>.</li>
+<li>You can use this <b>SensorDataReport.OGWU</b> as an Analysis Template for future analyses of similar data, and the custom report will also be included in the workbook.</li></ol>
+<h3><a name="Re-using_the_Analysis_Template"></a><span class="mw-headline">Re-using the Analysis Template</span></h3>
+<ol>
+<li>Start a new project and then select the menu item <b>File: Recent Books</b> and from the fly-out options select the Analysis Template <b>SensorDataReport.ogw</b> which was saved earlier.
+<li>Make the <b>Data</b> worksheet active, select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Curve Fitting</i> subfolder and find the file <i>Sensor02.dat</i>. Drag-and-drop this file into the worksheet "Data" to import it.<br />
+</li>
+<li>The linear fit results and the custom report are automatically generated using the newly imported data.
+</li></ol>
+
+

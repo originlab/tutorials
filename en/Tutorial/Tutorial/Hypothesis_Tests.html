@@ -1,0 +1,189 @@
+<h1 class="firstHeading">5.2 Hypothesis Tests</h1><p class='urlname' style='display: none'>Hypothesis-Tests</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Hypothesis_Tests_in_Origin"><span class="tocnumber">3.1</span> <span class="toctext">Hypothesis Tests in Origin</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#One-Sample_t-Test"><span class="tocnumber">3.2</span> <span class="toctext">One-Sample t-Test</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="#Perform_One-Sample_t-Test_using_Raw_data"><span class="tocnumber">3.2.1</span> <span class="toctext">Perform One-Sample t-Test using Raw data</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#Perform_One-Sample_t-Test_using_Summarized_data"><span class="tocnumber">3.2.2</span> <span class="toctext">Perform One-Sample t-Test using Summarized data</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-8"><a href="#Pair-sample_t-Test"><span class="tocnumber">3.3</span> <span class="toctext">Pair-sample t-Test</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="#Perform_Pair-sample_t-Test_using_Raw_data"><span class="tocnumber">3.3.1</span> <span class="toctext">Perform Pair-sample t-Test using Raw data</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#Perform_Pair-sample_t-Test_using_Summarized_data"><span class="tocnumber">3.3.2</span> <span class="toctext">Perform Pair-sample t-Test using Summarized data</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-11"><a href="#Two-Sample_independent_t-Test"><span class="tocnumber">3.4</span> <span class="toctext">Two-Sample independent t-Test</span></a>
+<ul>
+<li class="toclevel-3 tocsection-12"><a href="#Perform_Two-Sample_t-Test_using_Raw_data"><span class="tocnumber">3.4.1</span> <span class="toctext">Perform Two-Sample t-Test using Raw data</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="#Perform_Two-Sample_t-Test_using_Summarized_data"><span class="tocnumber">3.4.2</span> <span class="toctext">Perform Two-Sample t-Test using Summarized data</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-14"><a href="#Two-Sample_Test_for_Variance"><span class="tocnumber">3.5</span> <span class="toctext">Two-Sample Test for Variance</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Hypothesis_Tests/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Hypothesis_Tests/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=47" target="_blank">t Test</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Hypothesis_Tests/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Hypothesis_Tests/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Hypothesis tests are frequently used to measure the quality of sample parameters or to test whether estimations for two samples on a given parameter are equal .
+</p><p>With parametric methods,assumptions are made about the underlying distribution from where the sample populations are selected. Usually, it requires that the data are independently sampled from a normal distribution.
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you:
+</p>
+<ul><li>How to carry out hypothesis tests for practical data with Origin</li>
+<li>How to interpret the generated results</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="Hypothesis_Tests_in_Origin"></a><span class="mw-headline">Hypothesis Tests in Origin</span></h3>
+<table class="simple">
+
+<tr>
+<th>Data Type
+</th>
+<th> Goal
+</th>
+<th> Method
+</th></tr>
+<tr>
+<td>One Sample
+</td>
+<td>Compare the mean with a given value
+</td>
+<td>One-Sample t-Test
+</td></tr>
+<tr>
+<td>
+</td>
+<td>Compare the variance with a given value
+</td>
+<td>One-Sample Test for Variance
+</td></tr>
+<tr>
+<td>Two Samples
+</td>
+<td>Test whether the means are equal
+</td>
+<td>Two-Sample t-Test
+</td></tr>
+<tr>
+<td>
+</td>
+<td>Test whether the variance are equal
+</td>
+<td>Two Sample Test for Variances
+</td></tr>
+<tr>
+<td>Paired Samples
+</td>
+<td>Test whether the means are equal
+</td>
+<td>Pair-Sample t-Test
+</td></tr></table>
+<h3><a name="One-Sample_t-Test"></a><span class="mw-headline">One-Sample t-Test</span></h3>
+<h5><a name="Perform_One-Sample_t-Test_using_Raw_data"></a><span class="mw-headline">Perform One-Sample t-Test using Raw data</span></h5>
+<p>Suppose a manufacturer produces high-quality screw nuts that must equal 21 millimeters in diameter. The quality control department randomly drew 120 nuts from the finished products, measured the diameters for each and stored the results in Diameters.dat file. They want to determine whether the mean diameter of the nuts is equal to 21 or not.  Historically, the distribution of the measured diameters is known to be approximately normal, but the standard deviation of the population is unknown. Hence they may use the One-Sample t-Test in Origin following the steps below:
+</p>
+<ol><li>Start with a new workbook and import the file <b>\Samples\Statistics\diameter.dat</b>.</li>
+<li>Open the <b>One-Sample t-Test</b> dialog by using the menu item <b>Statistics:Hypothesis Testing:One-Sample t-Test</b>. </li>
+<li>Click the <b>Input</b> tab, set <b>Input Data Form</b> to <b>Raw</b>.</li>
+<li>Click the arrow button to the right of <b>Input</b> and select <i>A(X):diameter</i>.</li>
+<li>Click the <b>t-Test for Mean</b> tab and set <b>Test Mean</b> to <i>21</i>; Make sure that <b>Alternate Hypothesis</b> is set to <i>Mean &lt;&gt; 21</i> (two-sided test), check <b>Confidence Interval(s)</b> and set <b>Confidence Level(s) in&#160;%</b> to <i>95</i>.
+<dl><dd><a  class="image"><img alt="Tutorial Hypothesis Test 001.png" src="../images/Hypothesis_Tests/Tutorial_Hypothesis_Test_001.png?v=42812" width="410"  /></a></dd>
+<dd><a  class="image"><img alt="Tutorial Hypothesis Test 001A.png" src="../images/Hypothesis_Tests/Tutorial_Hypothesis_Test_001A.png?v=42813" width="347"  /></a></dd></dl></li>
+<li>Note that by default the test procedure provides descriptive statistics of the variable and the hypothesis test results. Additionally, it is possible to produce a histogram of the data and a confidence interval for the mean.</li>
+<li>Click the <b>OK</b> button to finish the analysis and generate results.</li></ol>
+<p>The Descriptive Statistics table shows the sample size, mean, standard deviation, and standard error for the variable. The sample mean, 21.00459, is comparatively little bigger than the hypothesis mean 21, and the standard error of the mean(SEM) is 0.00156.
+</p>
+<dl><dd><a  class="image"><img alt="Tutorial Hypothesis Test 002.png" src="../images/Hypothesis_Tests/Tutorial_Hypothesis_Test_002.png?v=43642" width="288"  /></a></dd></dl>
+<p>From the t-Test table, the t statistic (2.9437) and the associated p-value (0.00404) provide evidence that the average diameter of screw nuts is significantly different with 21 at the <img src="../images/Hypothesis_Tests/math-1248bf01a5b077c6d0c5f6d906278bf9.png?v=0" title="\alpha=0.05\,\!" alt="\alpha=0.05\,\!" class="tex"/> level.
+</p>
+<dl><dd><a  class="image"><img alt="Tutorial Hypothesis Test 005.png" src="../images/Hypothesis_Tests/Tutorial_Hypothesis_Test_005.png?v=14599" width="508"  /></a></dd></dl>
+<p>The confidence interval indicates that it is 95% confident that the true mean of the variable lies within the interval [21.0015, 21.00769].
+</p>
+<dl><dd><a  class="image"><img alt="Tutorial Hypothesis Test 006.png" src="../images/Hypothesis_Tests/Tutorial_Hypothesis_Test_006.png?v=14598" width="370"  /></a></dd></dl>
+<h5><a name="Perform_One-Sample_t-Test_using_Summarized_data"></a><span class="mw-headline">Perform One-Sample t-Test using Summarized data</span></h5>
+<p>To perform a One-Sample t-Test using summarized data, we need to change the <b>Input Data From</b> in <b>Input</b> tab into <b>Summarized data</b>.
+</p><p>Assume we have measured 70 nuts this time, so the sample size will be 70. After a further calculation, we have got 20.95 for the mean, and 0.218 for the standard deviation. So we enter the mean, standard deviation and sample size into the <b>Input</b> Box below:<br />
+<a  class="image"><img alt="One Sample.png" src="../images/Hypothesis_Tests/One_Sample.png?v=39806" width="377"  /></a>
+</p><p>Then, we set 21 as the <b>Test Mean</b> in <b>t-Test for Mean</b> tab, click <b>OK</b> to execute.
+</p><p>We get the summary table shown below, the results indicate that the population mean is NOT significantly different from the test mean in this study.
+</p><p><a  class="image"><img alt="One Sample2.png" src="../images/Hypothesis_Tests/One_Sample2.png?v=39807" width="477"  /></a>
+</p>
+<h3><a name="Pair-sample_t-Test"></a><span class="mw-headline">Pair-sample t-Test</span></h3>
+<h5><a name="Perform_Pair-sample_t-Test_using_Raw_data"></a><span class="mw-headline">Perform Pair-sample t-Test using Raw data</span></h5>
+<p>Suppose you want to compare abrasion resistance between two kinds of tires. You randomly draw from each type of tires respectively and group them into 8 pairs. Make sure each pair consists of two types of tires. Next, equip the paired tires on 8 planes to run the abrasion test and measure the abrasion data to do paired-sample t-test. 
+</p>
+<ol><li>Start with a new workbook and import the file <b>\Samples\Statistics\abrasion_raw.dat</b>.</li>
+<li>Open the <b>Pair-sample t-Test</b> dialog by using the menu item <b>Statistics:Hypothesis Testing:Pair-sample t-Test</b>.</li>
+<li> On the <b>Input</b> tab, set column <i>tireA</i> as <b>1st Data Range</b> and column <i>tireB</i> as <b>2nd Data Range</b>.</li>
+<li> Click the <b>t-Test for Mean</b> tab and enter <i>0</i> to be <b>Test Mean</b>.
+<dl><dd><a  class="image"><img alt="Tutorial Hypothesis Test 002A.png" src="../images/Hypothesis_Tests/Tutorial_Hypothesis_Test_002A.png?v=42815" width="346"  /></a></dd></dl></li>
+<li>Accept other settings as default and click the <b>OK</b> button to generate results.
+<dl><dd><a  class="image"><img alt="Pair t test result.PNG" src="../images/Hypothesis_Tests/Pair_t_test_result.PNG?v=43645" width="552"  /></a></dd></dl></li></ol>
+<p>From the t-Test table, the t statistic (2.83119) and the associated p-value (0.02536) indicate that the difference between the two means is significant, that is to say, the two types of tires have different abrasion resistance.
+</p>
+<h5><a name="Perform_Pair-sample_t-Test_using_Summarized_data"></a><span class="mw-headline">Perform Pair-sample t-Test using Summarized data</span></h5>
+<p>Perform Pair-Sample t-Test using Summarized data
+</p><p>To perform a Pair-Sample t-Test using summarized data, we need to change the Input Data From in Input tab into Summarized data.
+</p><p>Assume 16 samples has been tested this time, so the sample size will be 16. After a further calculation, we have got 305 for the mean paired difference, and 310 for the standard deviation for the difference between paired data points (please refer to Algorithms: <a class="external text" href="../../UserGuide/UserGuide/Algorithm_(PairSampletTest).html">Pair Sample T-Test</a>). So we enter the mean difference, standard deviation and sample size into the Input Box below: 
+</p>
+<dl><dd><a  class="image"><img alt="Pair Sample1.png" src="../images/Hypothesis_Tests/Pair_Sample1.png?v=39842" width="392"  /></a></dd></dl>
+<p>Since our data yielded a p-value of 0.0013, which is less than our 0.05 a-level, we can reject the null hypothesis. 
+</p>
+<dl><dd><a  class="image"><img alt="Pair Sample2.png" src="../images/Hypothesis_Tests/Pair_Sample2.png?v=39845" width="551"  /></a></dd></dl>
+<p>This study indicates the difference between the two means is significant, thus, the two types of tires have different abrasion resistance.
+</p>
+<h3><a name="Two-Sample_independent_t-Test"></a><span class="mw-headline">Two-Sample independent t-Test</span></h3>
+<h5><a name="Perform_Two-Sample_t-Test_using_Raw_data"></a><span class="mw-headline">Perform Two-Sample t-Test using Raw data</span></h5>
+<p>A physician is evaluating the effect of two kinds of soporifics. To test the effectiveness of these two medicines, 20 insomniacs patients are randomly selected. Half took medicine A and the other half took medicine B,  The extended sleeping time were recorded after each patient took the medicine. The result is saved as the time_raw.dat file.<br />To determine whether the two medicine have different effect on patients, we could carry out a two-sample independent t-test with the following steps:
+</p>
+<ol><li>Start with a new workbook and import the file <b>\Samples\Statistics\time_raw.dat</b>.</li>
+<li>Open the <b>Two-Sample t-Test</b> dialog by using the menu item <b>Statistics:Hypothesis Testing:Two-Sample t-Test</b>.</li>
+<li>On the <b>Input</b> tab, select <b>Raw</b> for the <b>Input Data Form</b>; set <i>medicineA</i> as <b>1st Data Range</b> and <i>medicineB</i> as the <b>2nd Data Range</b>.
+<dl><dd><a  class="image"><img alt="Tutorial Hypothesis Test 003.png" src="../images/Hypothesis_Tests/Tutorial_Hypothesis_Test_003.png?v=42816" width="428"  /></a></dd></dl></li>
+<li>Accept other settings as default and click the <b>OK</b> button to generate results.</li></ol>
+<p><br />
+The t-Test procedure automatically provides two tests of the mean difference. One is based on the assumption that the variances of two samples are equal and the other is not. In this example, both tests indicate that there is no significant evidence for a difference in cure effects between medicine A and medicine B. (p-values are 0.0738 and 0.074, both greater than the significance level 0.05.)
+</p>
+<dl><dd><a  class="image"><img alt="Tutorial Hypothesis Test 004.png" src="../images/Hypothesis_Tests/Tutorial_Hypothesis_Test_004.png?v=43648" width="535"  /></a><br /><br /></dd></dl>
+<h5><a name="Perform_Two-Sample_t-Test_using_Summarized_data"></a><span class="mw-headline">Perform Two-Sample t-Test using Summarized data</span></h5>
+<p>To perform a Two-Sample t-Test using summarized data, we need to change the <b>Input Data From</b> in <b>Input</b> tab into <b>Summarized data</b>.
+</p><p>Assume 50 patients has been tested this time, so the sample size will be 50. After a further calculation, we have got 2.33 for the 1st mean, and 1.858 for the 1st standard deviation, and 1.28 for the 2nd mean, and 1.671 for the 2nd standard deviation. So we enter the mean, standard deviation and sample size into the Input Box below.
+</p>
+<dl><dd><a  class="image"><img alt="Two Sample1.png" src="../images/Hypothesis_Tests/Two_Sample1.png?v=39828" width="347"  /></a></dd></dl>
+<p>We can also check on the Confidence Intervals (Levels in 95%) in <b>t-Test for mean</b> tab, to calculate the difference between test groups. Click <b>OK</b> to execute.
+</p>
+<dl><dd><a  class="image"><img alt="Two Sample2.png" src="../images/Hypothesis_Tests/Two_Sample2.png?v=39829" width="347"  /></a></dd></dl>
+<p>Since our data yielded a p-value of 0.0037, which is less than our 0.05 a-level, we can reject the null hypothesis. this study indicates that the mean extended sleeping of two patients groups are not the same. In fact, we can conclude that 1st soporific has a stronger effect on patients.
+</p><p>The Confidence Intervals show that we can be 95% confident that the mean time difference between two groups is 0.3487~1.7513
+</p>
+<dl><dd><a  class="image"><img alt="Two Sample3.png" src="../images/Hypothesis_Tests/Two_Sample3.png?v=39830" width="511"  /></a></dd></dl>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Hypothesis_Tests/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>Note that both equal variance and unequal variance assumptions are supported.To determine whether the two samples have equal variances, we may select from top menu <b>Statistics:Hypothesis Testing:Two-Sample Test for Variance</b> to use the two-sample test for variance for testing
+</p></td></tr></table>
+<h3><a name="Two-Sample_Test_for_Variance"></a><span class="mw-headline">Two-Sample Test for Variance</span></h3>
+<ol><li>Continue with a new workbook and import the file <b>\Samples\Statistics\time_raw.dat</b>.</li>
+<li>Open the <b>Two-Sample Test for Variance</b> dialog by using the menu item <b>Statistics:Hypothesis Testing:Two-Sample Test for Variance</b>.</li>
+<li>Select "Raw" for the <b>Input Data Form</b>; set column A and column B as the first and second data range respectively.
+<dl><dd><a  class="image"><img alt="Tutorial two sample variance.png" src="../images/Hypothesis_Tests/Tutorial_two_sample_variance.png?v=14607" width="446"  /></a></dd></dl></li>
+<li>Accept other settings as default and click the <b>OK</b> button to generate results.
+<dl><dd><a  class="image"><img alt="Tutorial two sample variance result.png" src="../images/Hypothesis_Tests/Tutorial_two_sample_variance_result.png?v=43647" width="428"  /></a></dd></dl></li></ol>
+<p>According to  result , P_vaule=0.77181 &gt;0.05,therefore ,it fail to reject null hypothesis, so two population variances are not signification difference.
+</p>
+

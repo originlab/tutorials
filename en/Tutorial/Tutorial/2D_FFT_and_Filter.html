@@ -1,0 +1,62 @@
+<h1 class="firstHeading">4.3.6 2D FFT and Filter</h1><p class='urlname' style='display: none'>2D-FFT-and-Filter</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">What You Will Learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#2D_FFT"><span class="tocnumber">3.1</span> <span class="toctext">2D FFT</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#2D_IFFT"><span class="tocnumber">3.2</span> <span class="toctext">2D IFFT</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#2D_FFT_Filter"><span class="tocnumber">3.3</span> <span class="toctext">2D FFT Filter</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>2D FFT (2-dimensional Fast Fourier Transform) can be used to analyze the frequency spectrum of 2D signal (matrix) data. Conversely, 2D IFFT (2-dimension Inverse Fast Fourier Transform) is able to reconstruct a 2D signal from a 2D frequency spectrum. OriginPro provides both for conversion between time and frequency domains in 2 dimensions, together with the 2D FFT filter to perform filtering on a 2D signal.
+</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">What You Will Learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ol><li> Convert image into data.</li>
+<li> Perform 2D FFT on matrix data with DC shift to center.</li>
+<li> Perform 2D IFFT on the 2D FFT result to recover the original matrix data.</li>
+<li> Perform 2D FFT filter on matrix data.</li></ol>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="2D_FFT"></a><span class="mw-headline">2D FFT</span></h3>
+<ol><li> Start with a new matrixbook, and select menu item <b>Data: Import from File: Image to Matrix...</b> to import the image <b>&lt;Origin Installation Directory&gt;\Samples\Image Processing and Analysis\cell.jpg</b>.
+<dl><dd> <a  class="image"><img alt="SP Tutorial 2DFFT 1.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_1.png?v=41882" width="320"  /></a></dd></dl></li>
+<li> Because Origin is not able to perform analyses on image data directly, we need to convert the image to matrix data first. So, select menu item <b>Image: Conversion: Convert to Data</b> to bring up the <b>Convert to Data:  img2m</b> dialog box. Set <b>Type</b> to <b>byte(1)</b>.
+<dl><dd> <a  class="image"><img alt="SP Tutorial 2DFFT 2.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_2.png?v=42686" width="379"  /></a></dd></dl></li>
+<li>  Click <b>OK</b> to finish the conversion. The result shows below. You can choose menu item <b>View: Data Mode</b> and <b>View: Image Mode</b> to convert between data mode and image mode.
+<dl><dd> <a  class="image"><img alt="SP Tutorial 2DFFT 3.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_3.png?v=24123" width="716"  /></a></dd></dl></li>
+<li> With the converted result matrix active, select the menu item <b>Analysis: Signal Processing: FFT: 2D FFT...</b> to open the <b>2D FFT:  fft2</b> dialog box. Check the <b>DC Shift Center</b> check box to shift the direct current to center. In the <b>Output</b> node, only check <b>Complex Matrix</b> and <b>Log Amplitude Matrix</b>.
+<dl><dd> <a  class="image"><img alt="SP Tutorial 2DFFT 4.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_4.png?v=42687" width="460"  /></a> </dd></dl></li>
+<li> Click the <b>OK</b> button to generate the FFT results. Both the complex matrix and the log amplitude matrix are in the same matrixbook. Change to image mode (<b>View:Image Mode</b>) for the log amplitude matrix. The results should look like this:
+<dl><dd> <a  class="image"><img alt="SP Tutorial 2DFFT 5.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_5.png?v=24125" width="823"  /></a></dd></dl></li></ol>
+<h3><a name="2D_IFFT"></a><span class="mw-headline">2D IFFT</span></h3>
+<ol><li> Start with the complex matrix (FFT2_Complex1) generated in the <b>2D FFT</b> section above. Make it the active window.</li>
+<li> Select the menu item <b>Analysis: Signal Processing: FFT: 2D IFFT...</b> to bring up the <b>2DIFFT: ifft2</b> dialog box. </li>
+<li> In the dialog box, the imaginary matrix is not needed because the <b>Input Matrix</b> is a complex matrix. Check <b>Undo Shift</b> because DC has been shifted. <b>Output</b> should have the <b>Real Matrix</b> and <b>Imaginary Matrix</b> boxes checked.
+<dl><dd> <a  class="image"><img alt="SP Tutorial 2DFFT 6.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_6.png?v=42688" width="439"  /></a></dd></dl></li>
+<li> Click the <b>OK</b> button, and the result will be output to the same matrixbook as the input complex matrix.
+<dl><dd> <a  class="image"><img alt="SP Tutorial 2DFFT 7.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_7.png?v=24128" width="412"  /></a></dd></dl></li>
+<li> From the comparison shown below, the IFFT has recovered the original signal.
+<dl><dd> <a  class="image"><img alt="SP Tutorial 2DFFT 8.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_8.png?v=24129" width="1070"  /></a></dd></dl></li></ol>
+<h3><a name="2D_FFT_Filter"></a><span class="mw-headline">2D FFT Filter</span></h3>
+<ol><li> Start with an empty matrixbook and from the menu select <b>Data: Import from File: Image to Matrix...</b> to import the image <b>&lt;Origin Installation Directory&gt;\Samples\Image Processing and Analysis\myocyte1.tif</b>.
+<dl><dd> <a  class="image"><img alt="SP Tutorial 2DFFT 9.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_9.png?v=24132" width="320"  /></a></dd></dl></li>
+<li> With the imported image active. select the menu item <b>Image: Conversion: Convert to Data</b>. This opens the <b>Convert to Data: img2m</b> dialog box. Set <b>Type</b> to <b>byte(1)</b> and click <b>OK</b> to finish the conversion.
+<dl><dd> <a  class="image"><img alt="SP Tutorial 2DFFT 10.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_10.png?v=42689" width="379"  /></a></dd></dl></li>
+<li> Activate the converted matrix and select the menu item <b>Analysis: Signal Processing: 2D FFT Filters...</b>. This opens the <b>2D FFT Filters: fft_filter2</b> dialog box.</li>
+<li> In the dialog box, check the <b>Auto Preview</b> check box at the bottom to view the result in the right panel. Set <b>Filter Type</b> to <b>Band Pass</b>, and set <b>Lower Cutoff Value</b> and <b>Upper Cutoff Value</b> to <b>0.05</b> and <b>0.25</b> respectively. For other controls, keep the default values.
+<dl><dd> <a  class="image"><img alt="SP Tutorial 2DFFT 11.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_11.png?v=42690" width="789"  /></a></dd></dl></li>
+<li> Click <b>OK</b> to obtain the filtered result. As the image below shows, the background noise (the light) is removed.
+<dl><dd> <a  class="image"><img alt="SP Tutorial 2DFFT 12.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_12.png?v=24135" width="617"  /></a></dd></dl></li></ol>
+
+
+
+
+
+

@@ -1,0 +1,86 @@
+<h1 class="firstHeading">4.1.9 Quick Sigmoidal Fit Gadget</h1><p class='urlname' style='display: none'>Quick-SigFit-Gadget</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Quick_Fit"><span class="tocnumber">3.1</span> <span class="toctext">Quick Fit</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Connect_to_NLFit"><span class="tocnumber">3.2</span> <span class="toctext">Connect to NLFit</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Find_X.2FY"><span class="tocnumber">3.3</span> <span class="toctext">Find X/Y</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/jwplayer.html?v=ftp/mm_tutorials/mp4/Dose_Response.mp4%7C767%7C600" target="_blank">Dose Response Analysis</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/where-did-my-zero-dose-go-for-dose-response-curves" target="_blank">Where Did My Zero Dose Go for Dose Response Curves?</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>The Quick Sigmoidal Fit gadget can be used to quickly perform a sigmoidal fit on a portion of your graph that you define interactively as your region of interest (ROI). 
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 2015 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<ul><li>How to use the Quick Sigmoidal Fit gadget on a graph.</li>
+<li>How to select your fitting options.</li>
+<li>How to switch to the NLFit dialog.</li>
+<li>How to output the fitting result.</li>
+<li>How to find X/Y values on the fit curve.</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<p>This tutorial is associated with <i>&lt;Origin EXE Folder&gt;\Samples\Tutorial Data.opj</i>.
+</p>
+<h3><a name="Quick_Fit"></a><span class="mw-headline">Quick Fit</span></h3>
+<ol><li>Open <b>Tutorial Data.opj</b> and browse to the <b>Quick Sigmoidal Fit Gadget</b> folder in <b>Project Explorer</b> (PE).</li>
+<li>Highlight Col(A) through Col(D) in the workbook <b>DoseResponseN</b> and from the menu choose <b>Plot:Symbol:Scatter</b> to plot a scatter graph.
+<dl><dd><a  class="image"><img alt="Quick Sigmoidal Fit Gadget 01.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Quick_Sigmoidal_Fit_Gadget_01.png?v=12221" width="422"  /></a></dd></dl></li>
+<li>Double-click the X axis to open <b>Axis</b> dialog. In the <b>Scale</b> tab, set the <b>Type</b> as <i>Log10</i> and click <b>OK</b> button to close the dialog.
+<dl><dd><a  class="image"><img alt="Quick Sigmoidal Fit Gadget 02.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Quick_Sigmoidal_Fit_Gadget_02.png?v=32998" width="622"  /></a></dd></dl></li>
+<li> Click the <b>Rescale</b> button <a  class="image"><img alt="Rescale button.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Rescale_button.png?v=48454" width="23"  /></a> to show the plot with the proper scale.
+<dl><dd><a  class="image"><img alt="Quick Sigmoidal Fit Gadget 03.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Quick_Sigmoidal_Fit_Gadget_03.png?v=12226" width="422"  /></a></dd></dl></li>
+<li> Select <b>Gadgets: Quick Sigmoidal Fit...</b> from the main menu to open the <b>addtool_sigmoidal_fit</b> dialog box. Select the function <i>Logistic5</i> from the <b>Function</b> drop-down list on the <b>Settings</b> tab.  
+<dl><dd><a  class="image"><img alt="Quick Sigmoidal Fit Gadget 04.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Quick_Sigmoidal_Fit_Gadget_04.png?v=45868" width="453"  /></a></dd></dl></li>
+<li> Click the <b>ROI Box</b> tab and uncheck the parameters <i>x0</i>, <i>h</i>, and <i>s</i> under the <b>Parameter List</b> branch.
+<dl><dd><a  class="image"><img alt="Quick Sigmoidal Fit Gadget 05.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Quick_Sigmoidal_Fit_Gadget_05.png?v=45869" width="453"  /></a></dd></dl></li>
+<li> Click the <b>Fit Curve</b> tab, select <b>Mean, SD</b> from the <b>Plot Type</b> drop-down list and <b>Source Book, New Sheet</b> from the <b>Output Fit Curve To</b> drop-down list.
+<dl><dd><a  class="image"><img alt="Quick Sigmoidal Fit Gadget 06.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Quick_Sigmoidal_Fit_Gadget_06.png?v=45870" width="453"  /></a></dd></dl></li>
+<li> Click <b>OK</b> to add the ROI box to the graph. At the top right corner of the ROI box, click the Arrow button <a  class="image"><img alt="Triangle button.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Triangle_button.png?v=12017" width="15"  /></a> to select <b>Expand to the Full Plots Range</b> from the menu. The ROI box will cover the full data range on the graph.
+<dl><dd><a  class="image"><img alt="Quick Sigmoidal Fit Gadget 07.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Quick_Sigmoidal_Fit_Gadget_07.png?v=12269" width="501"  /></a></dd></dl></li>
+<li> Click the arrow button <a  class="image"><img alt="Triangle button.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Triangle_button.png?v=12017" width="15"  /></a> again to select <b>Preferences...</b> from the menu. This opens the <b>Sigmodial Fit Preferences</b> dialog box. In this dialog, click the <b>Report</b> tab and set <b>Output To</b> as <i>None</i>.
+<dl><dd><a  class="image"><img alt="Quick Sigmoidal Fit Gadget 08.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Quick_Sigmoidal_Fit_Gadget_08.png?v=45871" width="413"  /></a></dd></dl></li>
+<li>Click <b>OK</b> to close the dialog box. Click the arrow button <a  class="image"><img alt="Triangle button.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Triangle_button.png?v=12017" width="15"  /></a> to select <b>Change Function: Logistic</b> and change the fitting function to <i>Logistic</i>. The label text on top of the ROI box will update automatically. 
+<dl><dd><a  class="image"><img alt="Quick Sigmoidal Fit Gadget 09.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Quick_Sigmoidal_Fit_Gadget_09.png?v=12275" width="475"  /></a></dd></dl></li>
+<li> Click the arrow button <a  class="image"><img alt="Triangle button.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Triangle_button.png?v=12017" width="15"  /></a> to select <b>New Output</b> and output the fitting result to the worksheet and graph.
+<dl><dd><a  class="image"><img alt="Quick Sigmoidal Fit Gadget 10.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Quick_Sigmoidal_Fit_Gadget_10.png?v=12279" width="578"  /></a></dd></dl></li></ol>
+<h3><a name="Connect_to_NLFit"></a><span class="mw-headline">Connect to NLFit</span></h3>
+<p>When using the Quick Sigmoidal Fit gadget you can easily switch to the NLFit tool. This makes it easy to get a detailed fit report using the current fitting settings in the gadget.
+</p>
+<ol><li> Redo step 1 through step 8 as shown above. </li>
+<li> Click the arrow button <a  class="image"><img alt="Triangle button.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Triangle_button.png?v=12017" width="15"  /></a> to select <b>Switch to NLFit...</b> to open the <b>NLFit</b> dialog with the inherited settings.
+<dl><dd><a  class="image"><img alt="Quick Sigmoidal Fit Gadget 11.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Quick_Sigmoidal_Fit_Gadget_11.png?v=12282" width="774"  /></a></dd>
+<dd><a  class="image"><img alt="Quick Sigmoidal Fit Gadget 12.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Quick_Sigmoidal_Fit_Gadget_12.png?v=12284" width="774"  /></a></dd></dl></li>
+<li> Click the <b>Fit</b> button to perform curve fitting. The results are output to the result sheets and the source graph.
+<dl><dd><a  class="image"><img alt="Quick Sigmoidal Fit Gadget 13.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Quick_Sigmoidal_Fit_Gadget_13.png?v=12286" width="516"  /></a></dd></dl></li></ol>
+<h3><a name="Find_X.2FY"></a><span class="mw-headline">Find X/Y</span></h3>
+<p>With his gadget you can also quickly find X/Y values on the fitted curve.
+</p>
+<ol><li>Redo step 1 through step 8 as shown in the first section. </li>
+<li>Click the arrow button <a  class="image"><img alt="Triangle button.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Triangle_button.png?v=12017" width="15"  /></a> to select <b>Find X/Y...</b> from the menu to open the <b>Find X/Y</b> dialog.
+<dl><dd><a  class="image"><img alt="Quick Sigmoidal Fit Gadget 14.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Quick_Sigmoidal_Fit_Gadget_14.png?v=12290" width="305"  /></a></dd></dl></li>
+<li> Select the <b>Worksheet</b> radio box and enter <i>40;45;50</i> for <b>Y</b>,  then click <b>Find X</b> to show the corresponding X values in the empty <b>X</b>  box. Then, click the <b>Output</b> button and the X and Y values are output to the specified worksheet.
+<dl><dd><a  class="image"><img alt="Quick Sigmoidal Fit Gadget 15.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Quick_Sigmoidal_Fit_Gadget_15.png?v=12295" width="305"  /></a></dd></dl></li>
+<li> Click the <b>Go</b> button beside the <b>Worksheet</b> radio box to open the <b>Find X/Y</b> workbook. Click the <b>Close</b> button to close the <b>Find X/Y</b> dialog.
+<dl><dd><a  class="image"><img alt="Quick Sigmoidal Fit Gadget 16.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Quick_Sigmoidal_Fit_Gadget_16.png?v=12296" width="396"  /></a></dd></dl></li></ol>
+
+
+
+
+
+

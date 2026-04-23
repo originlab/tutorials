@@ -1,0 +1,92 @@
+<h1 class="firstHeading">5.8.4 Partial Least Squares</h1><p class='urlname' style='display: none'>Partial-Least-Squares</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Partial_Least_Squares_Regression"><span class="tocnumber">2</span> <span class="toctext">Partial Least Squares Regression</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Developing_the_Model"><span class="tocnumber">3</span> <span class="toctext">Developing the Model</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Interpreting_the_Results"><span class="tocnumber">4</span> <span class="toctext">Interpreting the Results</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Using_the_Model_to_Predict"><span class="tocnumber">5</span> <span class="toctext">Using the Model to Predict</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Partial least squares (PLS) is a method for constructing predictive models when there are many highly collinear factors.
+</p><p><br />
+This tutorial will start with the spectral data of some samples to determine the amounts of three compounds present. The data includes:
+</p>
+<ul><li> Data of the spectra emission intensities at different wavelength (v1 - v43)</li>
+<li> Amount of the three compounds in the sample (comp1, comp2, comp3)</li></ul>
+<p><br />
+This tutorial will establish a model to predict the amount of the three compounds from v1 - v43
+</p>
+<p class="version" >Minimum Origin Version Required: OriginPro 2016 SR0</p>
+<h2><a name="Partial_Least_Squares_Regression"></a><span class="mw-headline">Partial Least Squares Regression</span></h2>
+<ol><li> Start with a new project or a new workbook. Import the data file: <b>\Samples\Statistics\MixtureSpectra.dat</b></li>
+<li> Highlight Column("v1") through Column("v43").</li>
+<li> Select <b>Statistics: Multivariate Analysis: Partial Least Squares</b>. This opens the pls dialog box to the <b>Input Data</b> tab.</li>
+<li> The highlighted columns are automatically added as independent variables. Click the <b>triangle button</b> <a  class="image"><img alt="Button Select Data Right Triangle.png" src="../images/Partial_Least_Squares/Button_Select_Data_Right_Triangle.png?v=26514" width="18"  /></a> next to <b>Independent Variables</b>, and click <b>Select Columns...</b> in the context menu.</li>
+<li> Ensure the lower panel is expanded by clicking the button with two arrows in the bottom right of the <b>Column Browser</b> dialog. </li>
+<li> In the lower panel click the <b>...</b> button. A <b>Range</b> dialog box will open. Clear the <b>Entire Column(s)</b> box and set the data range from <b>1</b> to <b>20</b>.  Click <b>OK</b>, then click <b>OK</b> to close the Column Browser.
+<dl><dd><a  class="image"><img alt="Pls ex2 col browser.png" src="../images/Partial_Least_Squares/Pls_ex2_col_browser.png?v=48289" width="600"  /></a></dd></dl></li>
+<li> Click the interactive button <a  class="image"><img alt="Button Select Data Interactive.png" src="../images/Partial_Least_Squares/Button_Select_Data_Interactive.png?v=1685" width="18"  /></a> to the right of <b>Dependent Variables</b>.  Return to the worksheet, select column("comp1") and drag to column("comp3").  Click the interactive button again to restore the dialog box.
+<dl><dd><a  class="image"><img alt="Pls dialog settings 1.png" src="../images/Partial_Least_Squares/380px-Pls_dialog_settings_1.png?v=48290" width="380"   /></a></dd></dl></li>
+<li> Since v1 to v43 are absorbance, there is no need to standardize them. Click on the <b>Settings</b> tab, set <b>Method</b> to <i>SVD</i> and clear the <b>Scale Variables</b> check box. </li>
+<li> Select the <b>Cross Validation</b> check box. It helps find the optimal number of factors in the model.
+<dl><dd><a  class="image"><img alt="Pls dialog settings 1A.png" src="../images/Partial_Least_Squares/350px-Pls_dialog_settings_1A.png?v=43038" width="350"   /></a></dd></dl></li>
+<li> Click the <b>Plots</b> tab and expand the <b>Component Plot</b> branch. Select the following check boxes and click the <b>OK</b> button.
+<ul><li> <b>Variable Importance Plot</b></li>
+<li> <b>X Loadings Plot</b></li>
+<li> <b>Y Loadings Plot</b></li>
+<li> <b>X Scores Plot</b></li>
+<li> <b>Y Scores Plot</b></li>
+<li> <b>Diagnostics Plots</b></li></ul></li></ol>
+<dl><dd><dl><dd><a  class="image"><img alt="Pls dialog settings 1B.png" src="../images/Partial_Least_Squares/220px-Pls_dialog_settings_1B.png?v=43037" width="220"   /></a></dd></dl></dd></dl>
+<h2><a name="Developing_the_Model"></a><span class="mw-headline">Developing the Model</span></h2>
+<p>In the workbook, select the tab for the <b>PLS1</b> sheet:
+</p>
+<ol><li> The <b>Cross Validation</b> table shows the optimum number of factors to extract. PRESS is the predicted residual sum of squares of the model. The model with minimum Root Mean PRESS has the optimal number of factors: 
+<dl><dd> <a  class="image"><img alt="Pls cross validation.png" src="../images/Partial_Least_Squares/450px-Pls_cross_validation.png?v=24533" width="450"   /></a></dd></dl></li>
+<li>The Diagnostics Plots are residual plots of Y and X, which can be used to judge the quality of the model. Overall we can say that the fitted model is good because:
+<ul><li> Layer 1 - The <b>Predicted values-Actual values</b> graph indicates that the model fits well for the first component.</li>
+<li> Layer 2 - In the <b>Predicted values-Residual</b> graph, residuals are randomly distributed around zero. This indicates that there is no drift in the process.</li>
+<li> Layer 4 - The P-P plot of residual can be used to check whether the variance is normally distributed. The result falls almost in a line, which means the variance is normally distributed.</li></ul>
+<dl><dd> <a  class="image"><img alt="Pls dianostics plots.png" src="../images/Partial_Least_Squares/450px-Pls_dianostics_plots.png?v=48292" width="450"   /></a></dd></dl></li>
+<li> A summary of importance of v1~v43 is given by the VIP plot. If the variable has small regression coefficients and low VIP values, we can consider excluding it in the model. For example
+<ul><li> VIP values of v41 ~ v43 in the plot below are low:
+<dl><dd> <a  class="image"><img alt="Pls vip plot.png" src="../images/Partial_Least_Squares/Pls_vip_plot.png?v=24652" width="442"  /></a></dd></dl></li>
+<li>Coefficients of v41 ~ v43 are also small in the three coefficients below:
+<dl><dd> <a  class="image"><img alt="Pls coefficient plot.png" src="../images/Partial_Least_Squares/Pls_coefficient_plot.png?v=24653" width="470"  /></a></dd></dl></li></ul>
+<dl><dd>However, as in step 2, it appears that the model fits well so it is also acceptable to keep these less important variables.</dd></dl></li></ol>
+<h2><a name="Interpreting_the_Results"></a><span class="mw-headline">Interpreting the Results</span></h2>
+<ol><li> The <b>Variance Explained</b> table  shows the proportion of variance explained by each factor. In the example, Factor 1 explains 71.36% variance for the X effect and 75.6% variance for the Y effect. Factor 2 explains 23.99% variance for the X effect and 22.14% for the Y effect. The <b>Variance Explained Plot</b> indicates that more attention should be paid to the first two factors as these two explained more than 95% variance for X and Y effects.
+<dl><dd><a  class="image"><img alt="Pls variance explained.png" src="../images/Partial_Least_Squares/Pls_variance_explained.png?v=33892" width="700"  /></a></dd></dl></li>
+<li> The Loading Plot reveals the relationships between X and Y variables in the space of the first two factors.
+<ul><li> From the Y loading plot we can see that the three compounds have different loading on Factor 1 and Factor 2. 
+<dl><dd> <a  class="image"><img alt="Pls y loading plot.png" src="../images/Partial_Least_Squares/Pls_y_loading_plot.png?v=24666" width="427"  /></a></dd></dl></li>
+<li> From the X loading plot it is apparent that v26 ~ v38 have similar heavy loadings for Factor 2, and v17, v18, v19,v23 and v24 have similar light loadings for factor 1 and factor 2.
+<dl><dd><a  class="image"><img alt="Pls x loading plot.png" src="../images/Partial_Least_Squares/Pls_x_loading_plot.png?v=24668" width="409"  /></a></dd></dl></li></ul></li></ol>
+<table class="note">
+
+<tr>
+<td><b>Notes:</b> To examine the plot in detail, you can double-click to open the graph containing the loading plot and <a class="external text" href="../../UserGuide/UserGuide/Zooming_In_or_Out_on_the_Graph_Page.html#Scale_In.2FOut_toolbar">zoom in</a> it with the <b>Scale In</b> tool <a  class="image"><img alt="Button Zoom Out Tool.png" src="../images/Partial_Least_Squares/Button_Zoom_Out_Tool.png?v=6786" width="21"  /></a>
+</td></tr></table>
+<p><br />
+</p>
+<h2><a name="Using_the_Model_to_Predict"></a><span class="mw-headline">Using the Model to Predict</span></h2>
+<p>After the model is established, we can predict the amounts of the three compounds in new samples from their spectra emission intensities at different wavelengths:
+</p>
+<ol><li> Click the green lock on the PLS1 sheet and select <b>Change Parameter</b> from the context menu.</li>
+<li> In the dialog that opens, click on the <b>Input</b> tab and select the <b>Predict Responses</b> check box.</li>
+<li> Click the interactive button <a  class="image"><img alt="Button Select Data Interactive.png" src="../images/Partial_Least_Squares/Button_Select_Data_Interactive.png?v=1685" width="18"  /></a> to the right of <b>Independent Variables for Prediction</b>.  Return to the workbook, select the <b>MixtureSpectra</b> sheet. Select column("v1") to column("v43"). Click the interactive button again to restore the dialog box.</li>
+<li> Click the triangle button <a  class="image"><img alt="Button Select Data Right Triangle.png" src="../images/Partial_Least_Squares/Button_Select_Data_Right_Triangle.png?v=26514" width="18"  /></a> next to  <b>Independent Variables for Prediction</b>, and then click <b>Select Columns...</b> in the context menu.</li>
+<li> In the lower panel of the <b>Column Browser</b> dialog, click the <b>...</b> button. Deselect the <b>Entire Column(s)</b> box and set the data range from <b>21</b> to <b>25</b>.  Click <b>OK</b> to close the <b>Range</b> dialog and <b>Column Browser</b> dialog..
+<dl><dd><a  class="image"><img alt="Pls predict response.png" src="../images/Partial_Least_Squares/Pls_predict_response.png?v=48302" width="500"  /></a></dd></dl></li>
+<li> Click the <b>OK</b> button to apply the settings and close the dialog.</li>
+<li> The <b>PLSResults1</b> sheet will now contain the predicted amounts of the three compounds in the five new samples:
+<dl><dd><a  class="image"><img alt="Pls predicted results.png" src="../images/Partial_Least_Squares/Pls_predicted_results.png?v=48300" width="394"  /></a></dd></dl></li></ol>
+
+
+
+
+
+

@@ -1,0 +1,159 @@
+<h1 class="firstHeading">6.12.15 Convert Data from Spherical Coordinate to XYZ and Make a 3D Plot</h1><p class='urlname' style='display: none'>Convert-Spherical-to-XYZ</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_will_you_learn"><span class="tocnumber">2</span> <span class="toctext">What will you learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#3D_Surface_plot_with_colormap_for_data_in_virtual_matrix"><span class="tocnumber">3.1</span> <span class="toctext">3D Surface plot with colormap for data in virtual matrix</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Convert_data_in_a_matrix_object_and_make_a_3D_surface_plot"><span class="tocnumber">3.2</span> <span class="toctext">Convert data in a matrix object and make a 3D surface plot</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Convert_data_in_three_matrix_objects_and_make_a_3D_surface_plot"><span class="tocnumber">3.3</span> <span class="toctext">Convert data in three matrix objects and make a 3D surface plot</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Convert_data_in_three_columns_and_make_a_3D_space_curve"><span class="tocnumber">3.4</span> <span class="toctext">Convert data in three columns and make a 3D space curve</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=279" target="_blank">Plot 3D or Contour Graph from Virtual Matrix</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=114" target="_blank">Introduction to Matrix</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=82" target="_blank">New 3D Parametric Function Plot</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/plot-stacked-contour-plots-in-a-cylinder-coordinates" target="_blank">Plot Stacked Contour Plots in a Cylinder Coordinates</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/create-cylinder-and-colored-by-a-different-data-souce" target="_blank">Contour Plot on Cylindrical Coordinate</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/overlay-locations-on-a-3d-map" target="_blank">Overlay Locations on a 3D Map</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>In this tutorial, we will look at what is involved in creating the 3D graph with spherical coordinate data, as well as using X-Function <i>sph2cart</i> to convert data in a workbook or matrix from spherical coordinate to Cartesian coordinates.
+</p><p>It is important to go over the <a class="external text" href="../../XFunction/X-Function/Sph2cart.html#Algorithm">Converting Algorithm for sph2cart</a>, and notice that Origin use <img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-1ed346930917426bc46d41e22cc525ec.png?v=0" title="\phi" alt="\phi" class="tex"/> as the <b>elevation</b> and <img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-2554a2bb846cffd697389e5dc8912759.png?v=0" title="\theta" alt="\theta" class="tex"/> as the <b>azimuth</b> in the transform formula.
+</p><p><img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-abc5d9ae973e3024c12523f50b7e98c7.png?v=0" title="&#10;x = r \ast cos\left ( \phi  \right ) \ast cos \left ( \theta  \right );&#10;" alt="&#10;x = r \ast cos\left ( \phi  \right ) \ast cos \left ( \theta  \right );&#10;" class="tex"/>
+</p><p><img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-bf19b127f9953cf4a3bece5bddb88e21.png?v=0" title="&#10;y = r \ast cos\left ( \phi  \right ) \ast sin \left ( \theta  \right );&#10;" alt="&#10;y = r \ast cos\left ( \phi  \right ) \ast sin \left ( \theta  \right );&#10;" class="tex"/>
+</p><p><img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-9070732189a1aba531a430b618b28009.png?v=0" title="&#10;z = r \ast sin\left ( \phi  \right );&#10;" alt="&#10;z = r \ast sin\left ( \phi  \right );&#10;" class="tex"/>
+</p>
+<h2><a name="What_will_you_learn"></a><span class="mw-headline">What will you learn</span></h2>
+<ul><li>Convert data in a worksheet (virtual matrix) from spherical coordinate to  Cartesian coordinates and make a 3D surface plot.</li>
+<li>Convert data in a matrix object from spherical coordinate to Cartesian coordinates and make a 3D surface plot.</li>
+<li>Convert data in three matrix objects from spherical coordinate to Cartesian coordinate and make a discrete 3D surface plot.</li>
+<li>Convert data in a worksheet(XYZ) from spherical coordinate to  Cartesian coordinate(XYZ) and make a 3D space curve.</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="3D_Surface_plot_with_colormap_for_data_in_virtual_matrix"></a><span class="mw-headline">3D Surface plot with colormap for data in virtual matrix</span></h3>
+<p>Origin can create surface plot with data in virtual matrix (spherical coordinate) and add colormap for it. The following steps introduce the plot of a ellipsoid with colormap surface.
+</p><p>This tutorial is associated with <i>&lt;Origin EXE Folder&gt;\Samples\Tutorial Data.opj</i>.
+</p>
+<ol><li> Open the <b>Tutorial Data.opj</b> and browse to the folder: <i>Spherical Coordinates</i>.</li>
+<li> Open the virtual matrix data <i>ellipsoid</i> in tutorial data, the structure of the virtual matrix is shown in graph below:
+<dl><dd><a  class="image"><img alt="MatrixStruc.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/MatrixStruc.png?v=34528" width="500"  /></a></dd>
+<dd>In this example, the azimuth <img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-2554a2bb846cffd697389e5dc8912759.png?v=0" title="\theta" alt="\theta" class="tex"/> is from 0 to 360, and the elevation  <img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-7f20aa0b3691b496aec21cf356f63e04.png?v=0" title="\phi " alt="\phi " class="tex"/> is from -90 to 90.  The unit used for angle is degree. </dd></dl></li>
+<li> Open the Script Window, type in code below and run:
+<dl><dd><code>sph2cart -d;</code></dd>
+<dd>Setting the <b>sph2cart</b> dialog follows graph below, then click <b>OK</b>. Three new matrix objects will be created which are corresponded to XYZ. </dd>
+<dd><a  class="image"><img alt="Virtualplot1.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Virtualplot1.png?v=31575" width="391"  /></a></dd></dl></li>
+<li>Then add an extra matrix object "4" after the matrix Z in Matrix Layer to act as the colormap.
+<dl><dd><a  class="image"><img alt="Virtualplot2.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Virtualplot2.png?v=34137" width="509"  /></a></dd></dl></li>
+<li>Copy the data in <i>colormap</i> matrix in Spherical Coordinates folder, paste the data to the new added matrix object.
+<dl><dd><a  class="image"><img alt="Virtualplot3.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Virtualplot3.png?v=63184" width="606"  /></a></dd></dl></li>
+<li>Now, you will plot the Matrix into a 3D surface, click on the thumbnail of matrix object "Z" to activate it, click <b>Plot &gt; 3D&#160;: 3D Colormap Surface</b> to plot a 3D surface.
+<dl><dd>Double click the surface to open the <b>Plot Details</b> dialog. Set the <b>Parametric Surface</b> in dialog follows graph below, and click <b>OK</b> to apply the settings.</dd>
+<dd><a  class="image"><img alt="Virtualplot4.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Virtualplot4.png?v=34144" width="485"  /></a></dd></dl></li>
+<li>Click CTRL+R to rescale the axis, double click the axis to open the  Axis dialog, change to scale for XYZ axis from <i>-1.2</i> to <i>1.2</i>, click <b>OK</b> to close the dialog.
+<dl><dd><a  class="image"><img alt="Virtualplot4-1.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Virtualplot4-1.png?v=34147" width="533"  /></a></dd>
+<dd>You graph may looks like this:</dd>
+<dd><a  class="image"><img alt="Virtualplot4-2.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Virtualplot4-2.png?v=63186" width="571"  /></a></dd></dl></li>
+<li>Next we will apply the colormap to the ellipsoid, double click the surface to open the <b>Plot Details</b> dialog, go to the <b>Fill</b> tab, change the <b>Contour fill from matrix</b> into Mat(4).
+<dl><dd><a  class="image"><img alt="Virtualplot4-3.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Virtualplot4-3.png?v=34151" width="456"  /></a></dd></dl></li>
+<li>Go to the <b>Colormap/Contours</b> tab, you can click the table head to open the <b>Set Levels</b>, <b>Fill</b> and <b>Contour Lines</b> dialog. Set the <b>Level</b> by <b>Find Min/Max</b>, click <b>OK</b> to apply, and set <b>Fill</b> by load palette "Maple", click <b>OK</b>, then select "Hide All" to hide all lines, click <b>Apply</b> to apply the settings.
+<dl><dd><a  class="image"><img alt="Virtualplot4-4.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Virtualplot4-4.png?v=34418" width="666"  /></a></dd>
+<dd> Go to the <b>Mesh</b> tab, deselect the <b>Enable</b> checkbox to close the mesh line, click <b>OK</b> to close the dialog.</dd></dl></li>
+<li> the finished graph is similar to this:
+<dl><dd><a  class="image"><img alt="Virtualplot5.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Virtualplot5.png?v=63187" width="551"  /></a></dd></dl></li></ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>The  azimuth and elevation can be unevenly spaced in <img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-5e21e00f421f39105b1aa7107062ff35.png?v=0" title="(r,\theta,\varphi )" alt="(r,\theta,\varphi )" class="tex"/> space.
+</p></td></tr></table>
+<h3><a name="Convert_data_in_a_matrix_object_and_make_a_3D_surface_plot"></a><span class="mw-headline">Convert data in a matrix object and make a 3D surface plot</span></h3>
+<ol><li> Origin can construct a <img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-7ba2d1e5d4eec9ce94bcca8d9445a5ae.png?v=0" title="R(\theta ,\varphi )" alt="R(\theta ,\varphi )" class="tex"/> surface function under spherical coordinates. The azimuth, elevation and radius are placed in the same matrix. Before set matrix values form a spherical coordinates equation, you can refer to <a class="external text" href="../../XFunction/X-Function/Sph2cart.html#Algorithm">sph2cart</a> for the transforming relations and definition of azimuth and elevation in our system.</li>
+<li> Create a new a matrix, and select <b>Matrix: Set Dimension and Labels</b> in main menu. Set the Dimension <img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-1010487f977eb234f3e40bd658b7bcfc.png?v=0" title="100\times 100" alt="100\times 100" class="tex"/>, and map Column to X by <img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-04fc0ac419398d76abeb793461632c8c.png?v=0" title="(0,2\pi )" alt="(0,2\pi )" class="tex"/>, map Column to Y by <img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-16c12c957f48080928bd1f383f01ac2f.png?v=0" title="(-\frac{\pi}{2},\frac{\pi}{2})" alt="(-\frac{\pi}{2},\frac{\pi}{2})" class="tex"/>. X and Y are the Angle Data, where X is the azimuth which is across columns and Y is the elevation.
+<dl><dd>In this example, the azimuth <img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-2554a2bb846cffd697389e5dc8912759.png?v=0" title="\theta" alt="\theta" class="tex"/> is from 0 to <img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-c3198a6dbef629ca31403b4ccdff3fc7.png?v=0" title="2\pi" alt="2\pi" class="tex"/>, and the elevation  <img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-7f20aa0b3691b496aec21cf356f63e04.png?v=0" title="\phi " alt="\phi " class="tex"/> is from <img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-d961710160a3dc5377dd4d624e58aa8d.png?v=0" title="-\frac{\pi }{2}" alt="-\frac{\pi }{2}" class="tex"/> to <img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-e26d35e05970ddca7d236176d1db4d6d.png?v=0" title="\frac{\pi }{2}" alt="\frac{\pi }{2}" class="tex"/>.  The unit used for angle is radian. </dd>
+<dd><a  class="image"><img alt="Set Dimension and Labels.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Set_Dimension_and_Labels.png?v=63190" width="483"  /></a></dd></dl></li>
+<li> Select <b>Matrix: Set Values</b> in main menu. The formula entered in the Set Values dialog should be
+<dl><dd><code>abs(sqrt(0.5)*0.25*(15/pi)^0.5*sin(pi/2-y)*sin(pi/2-y)*(sin(2*x)-cos(2*x)))</code></dd>
+<dd>We set the matrix values by using spherical harmonics, <img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-ffd2d8d4c32d291707b652e663976b56.png?v=0" title="Y_l^{m}" alt="Y_l^{m}" class="tex"/> is specific set of spherical harmonics, and the  linear combinations of <img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-ffd2d8d4c32d291707b652e663976b56.png?v=0" title="Y_l^{m}" alt="Y_l^{m}" class="tex"/> is corresponded to the d-orbitals of the hydrogen atom (i.e. <img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-4ca41e68f3ddbfc3cb1a171e3bbbb444.png?v=0" title="d_{xy}" alt="d_{xy}" class="tex"/>).</dd>
+<dd><img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-f465f29d3f93a1b99ff5c99239ab853b.png?v=0" title="\left | d_{xy} \right |=\left | \sqrt{1/2}(Y_2^{-2}-Y_2^{2}) \right |\; \; (1)" alt="\left | d_{xy} \right |=\left | \sqrt{1/2}(Y_2^{-2}-Y_2^{2}) \right |\; \; (1)" class="tex"/></dd>
+<dd><img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-6929503e86a8770480b4fa7a579f0854.png?v=0" title="Y_2^{2}" alt="Y_2^{2}" class="tex"/> and <img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-446c859c2a2d68d90c90736c83d005ce.png?v=0" title="Y_2^{-2}" alt="Y_2^{-2}" class="tex"/> in function (1) are:</dd>
+<dd><img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-522b5eea69edb228d5c53d71d9f9153b.png?v=0" title="Y_2^{2}=\frac{1}{4}\sqrt{\frac{15}{\pi}}sin^2(\frac{\pi}{2}-\varphi )cos(2\theta )" alt="Y_2^{2}=\frac{1}{4}\sqrt{\frac{15}{\pi}}sin^2(\frac{\pi}{2}-\varphi )cos(2\theta )" class="tex"/></dd>
+<dd><img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-3662c1785fa5add4600d817168e35474.png?v=0" title="Y_2^{-2}=\frac{1}{4}\sqrt{\frac{15}{\pi}}sin^2(\frac{\pi}{2}-\varphi )sin(2\theta )" alt="Y_2^{-2}=\frac{1}{4}\sqrt{\frac{15}{\pi}}sin^2(\frac{\pi}{2}-\varphi )sin(2\theta )" class="tex"/></dd>
+<dd> <a  class="image"><img alt="Set values.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Set_values.png?v=34694" width="439"  /></a></dd></dl></li>
+<li> Next you can convert the matrix from spherical coordinates to Cartesian by using X-Function <i>sph2cart</i>. Select <b>Window: Script Window</b> in main menu, then enter the script below and click <b>Enter</b> to execute：
+<dl><dd><code>sph2cart -d</code></dd>
+<dd>Set the sp2cart dialog follows graph below, the single matrix object is used as input data:</dd>
+<dd><a  class="image"><img alt="Sph2cart.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Sph2cart.png?v=30677" width="368"  /></a></dd>
+<dd>After clicking <b>OK</b>, the results well be created in a new Matrix Sheet (MSheet2).</dd></dl></li>
+<li>Now, you will plot the Matrix into a 3D surface. With Matrix object <b>Z</b> in <b>MSheet2</b> active,
+<dl><dd><a  class="image"><img alt="MatrixObj.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/MatrixObj.png?v=34440" width="134"  /></a></dd>
+<dd>select <b>Plot &gt; 3D&#160;: 3D Colormap Surface</b> in main menu.</dd></dl></li>
+<li>Double click the surface to open the <b>Plot Details</b> dialog, set the parametric surface follows graph below, and click <b>OK</b>.
+<dl><dd><a  class="image"><img alt="Virtualplot4.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Virtualplot4.png?v=34144" width="485"  /></a></dd></dl></li>
+<li>Click CTRL+R to rescale the axis, double click the axis to open the <b>Axis</b> dialog, change to scale for XYZ axis from -0.5 to 0.5, set the vvalue for <b>Major Ticks</b> to 0.2, click <b>OK</b> to close the dialog.
+<dl><dd><a  class="image"><img alt="Axis.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Axis.png?v=34497" width="532"  /></a></dd></dl></li>
+<li>The graph created is similar to this:
+<dl><dd><a  class="image"><img alt="Plotm-1.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Plotm-1.png?v=63191" width="584"  /></a></dd></dl></li>
+<li>Double click the surface to open the <b>Plot Properties</b>. Go to the <b>Colormap/Contours</b> tab, click the Level/Fill/Line button and set the dialogs separately.
+<dl><dd><a  class="image"><img alt="Colormap1.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Colormap1.png?v=34501" width="579"  /></a></dd>
+<dd>Then go to the <b>Mesh</b> tab, deselect the <b>Auto</b> checkbox for Transparency and change the value to about 70%.</dd>
+<dd><a  class="image"><img alt="Transparent.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Transparent.png?v=34504" width="413"  /></a></dd>
+<dd>You can refer to <a class="external text" href="../../Tutorial/Tutorial/Parametric_Surface_with_Colormap_from_Data.html">Parametric Surface</a> tutorial for details about colormap setting. The finished Graph are shown below:</dd>
+<dd><a  class="image"><img alt="Funplot2.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Funplot2.png?v=63192" width="571"  /></a></dd></dl></li></ol>
+<h3><a name="Convert_data_in_three_matrix_objects_and_make_a_3D_surface_plot"></a><span class="mw-headline">Convert data in three matrix objects and make a 3D surface plot</span></h3>
+<p>Origin can construct a <img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-7ba2d1e5d4eec9ce94bcca8d9445a5ae.png?v=0" title="R(\theta ,\varphi )" alt="R(\theta ,\varphi )" class="tex"/> surface function under spherical coordinates. The azimuth, elevation and radius are placed in the different matrix. The following steps shows how to construct multiple surfaces by using three matrix and use <b>sph2cart</b> to convert them into XYZ space.
+</p>
+<ol><li>Create a new matrix. Set the Matrix Dimension <img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-99bd846161815cf43fb8d3bf95edd898.png?v=0" title="98\times 33" alt="98\times 33" class="tex"/> in <b>Matrix Dimension and Labels</b> dialog, then click <b>OK</b>. </li>
+<li> Click the D button on the right corner of the matrix and click <b>Add</b> to add another two matrix objects in MatrixBook.
+<dl><dd><a  class="image"><img alt="Addmatrix.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Addmatrix.png?v=30832" width="212"  /></a> </dd></dl></li>
+<li> The azimuth will be put into the first matrix object. With the first matrix object active (Click the D button and switch between 1/2/3), click <b>Matrix: Set Values</b> in main menu. The matrix values for azimuth will be set in this way:
+<dl><dd><a  class="image"><img alt="Datarange.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Datarange.png?v=30833" width="200"  /></a></dd></dl></li>
+<li>Set the Matrix value use the expression below: 
+<dl><dd><code>(j==33||j==66)?1/0:(pi/32*j*(j&lt;33)+pi/32*(j-33)*(j&gt;33&amp;&amp;j&lt;66)+pi/32*(j-66)*(j&gt;66))</code></dd>
+<dd><a  class="image"><img alt="Set Values2.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Set_Values2.png?v=34765" width="438"  /></a></dd>
+<dd>The value from 0 to <img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-c3198a6dbef629ca31403b4ccdff3fc7.png?v=0" title="2\pi" alt="2\pi" class="tex"/> loop 3 times, and the Column (33),Column (66) should be missing values. </dd></dl></li>
+<li>The elevation will be put into the second matrix object (select matrix 2 in graph in step 2). Set the values for elevation by using expression:
+<dl><dd><code>pi/32*(i-17)</code> </dd></dl></li>
+<li>The radius (expression below) will be put into the third matrix object. 
+<dl><dd><img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-7abab8c0325b08ec55387a3771b2aee6.png?v=0" title="Col(i,j)=\begin{cases}&#10;1 &amp; \text{ if } i\in [1,32] \\ &#10;0.7 &amp; \text{ if } i\in [33,65] \\ &#10;0.4&amp; \text{ if } i\in [66,98] \\&#10;\end{cases}" alt="Col(i,j)=\begin{cases}&#10;1 &amp; \text{ if } i\in [1,32] \\ &#10;0.7 &amp; \text{ if } i\in [33,65] \\ &#10;0.4&amp; \text{ if } i\in [66,98] \\&#10;\end{cases}" class="tex"/></dd>
+<dd>The way for setting the values for radius is also piecewise, you can refer to the step 3, 4, 5 and use the set value code below：</dd>
+<dd><code>1*(j&lt;33)+0.7*(j&gt;33&amp;&amp;j&lt;66)+0.4*(j&gt;66)</code></dd></dl></li>
+<li> After setting values for three matrix, you can convert the data to XYZ space by using <b>sph2cart</b>. Open the Script Window,type in code below and run:
+<dl><dd><code>sph2cart -d;</code></dd>
+<dd>Setting the sph2cart dialog follows graph below, then click <b>OK</b>. Three new matrix for XYZ will be created.  </dd>
+<dd><a  class="image"><img alt="Sph2cart2.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Sph2cart2.png?v=30841" width="370"  /></a></dd></dl></li>
+<li>Create 3D surface graph by using XYZ matrix object created in new matrix layer. The steps are very similar to steps 5,6,7,8 in <a class="external text" href="../../Tutorial/Tutorial/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot.html#Convert_data_in_a_matrix_object_and_make_a_3D_surface_plot">above section</a> <b>Convert data in a matrix object and make a 3D surface plot</b>. 
+<dl><dd>The finished Graph is showed below:</dd>
+<dd><a  class="image"><img alt="Funplot4.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Funplot4.png?v=31657" width="507"  /></a></dd></dl></li></ol>
+<h3><a name="Convert_data_in_three_columns_and_make_a_3D_space_curve"></a><span class="mw-headline">Convert data in three columns and make a 3D space curve</span></h3>
+<p>Origin can create 3D space curve with unevenly spaced data in XYZ column (spherical coordinates). The following steps introduce the plot of a non-isometric spiral with a sphere shape.
+</p>
+<ol><li>Create a new workbook with three columns X, Y and Z. Set values from <img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-b7f64f3bae93a445408aff4019f470a6.png?v=0" title="\frac{\pi }{100}" alt="\frac{\pi }{100}" class="tex"/> to <img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-fd9ed13e7e0791314d1e74ebd3ce1210.png?v=0" title="20\pi" alt="20\pi" class="tex"/> for X column by <b>Fill Column With: A set of Numbers</b>
+<dl><dd><a  class="image"><img alt="SetXvalue.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/SetXvalue.png?v=63193" width="337"  /></a></dd>
+<dd> Set value for Y column by <b>Set Column Values</b></dd>
+<dd><a  class="image"><img alt="SetYvalue.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/SetYvalue.png?v=34698" width="437"  /></a></dd>
+<dd> Set value for Z column by <b>Set Column Values</b> and set as constant value "4"</dd>
+<dd> In this example, the X, Y, Z are corresponded to Azimuth, Elevation, Radius, respectively.</dd></dl></li>
+<li>Open the Script Window, type in code below and run:
+<dl><dd><code>sph2cart -d;</code></dd>
+<dd>Setting the sph2cart dialog follows graph below, then click <b>OK</b>. Three new columns for XYZ will be created.</dd>
+<dd><a  class="image"><img alt="Sphline.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Sphline.png?v=34666" width="399"  /></a></dd></dl></li>
+<li>Plot the new XYZ with <b>Plot &gt; 3D&#160;: 3D Scatter</b>. Set Symbol size to 0 and connect Symbols with line,click <b>OK</b>.
+<dl><dd><a  class="image"><img alt="Symline.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Symline.png?v=31292" width="358"  /></a></dd></dl></li>
+<li> Further adjust the scales and the perspective view, the finished graph is similar to graph below:
+<dl><dd><a  class="image"><img alt="Sphline2.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Sphline2.png?v=31294" width="494"  /></a></dd></dl></li></ol>
+<p><br />With new created XYZ data, you can plot a 3D surface plot as well by selecting <b>Plot &gt; 3D&#160;: 3D Colormap Surface</b> with XYZ columns highlighted.
+</p>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>The azimuth and elevation in X and Y can be evenly or unevenly spaced in <img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-5e21e00f421f39105b1aa7107062ff35.png?v=0" title="(r,\theta,\varphi )" alt="(r,\theta,\varphi )" class="tex"/> space.
+</p></td></tr></table>
+
+

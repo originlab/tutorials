@@ -1,0 +1,139 @@
+<h1 class="firstHeading">9.3.2 Setup Database Connection</h1><p class='urlname' style='display: none'>Setup-Database-Connection</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Connection_Methods"><span class="tocnumber">3</span> <span class="toctext">Connection Methods</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Create_a_Connection_with_the_Windows_.27Data_Link_Properties.27_dialog"><span class="tocnumber">3.1</span> <span class="toctext">Create a Connection with the Windows 'Data Link Properties' dialog</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="#Get_Connection_String"><span class="tocnumber">3.1.1</span> <span class="toctext">Get Connection String</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-6"><a href="#Create_a_Connection_with_a_Connection_String"><span class="tocnumber">3.2</span> <span class="toctext">Create a Connection with a Connection String</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Create_a_Connection_with_the_ODBC_driver"><span class="tocnumber">3.3</span> <span class="toctext">Create a Connection with the ODBC driver</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<table class="noborder">
+	<tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Setup_Database_Connection/Alert_icon.png?v=0" width="57"  border="0" /></td><td><p>The database used in this tutorial has been set up on Microsoft Azure. 
+</p>
+	</td>
+	</tr>
+	</table>
+<p>This tutorial will cover how to build the connection to a(n) SQL server with three different methods — the Windows 'Data Link Properties', a Connection String, and the ODBC driver.
+<br /> The ODBC driver offers the fastest connection performance, but it requires the ODBC driver to be installed on your system.
+<br />The procedure is based on Origin 2025b.
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li> Create a database connection with Windows Data Link Properties </li>
+<li> Create an SQL Query in the SQL Editor and import data.</li>
+<li> Get a Connection String from Origin.</li>
+<li> Use a Connection String to create a database connection.</li>
+<li> Create a database connection with the ODBC driver.</li></ul>
+<h2><a name="Connection_Methods"></a><span class="mw-headline">Connection Methods</span></h2>
+<h3><a name="Create_a_Connection_with_the_Windows_.27Data_Link_Properties.27_dialog"></a><span class="mw-headline">Create a Connection with the Windows 'Data Link Properties' dialog</span></h3>
+<ol>
+<li> Start a new worksheet. Select from menu <b>Data: Connect to Database: New...</b>. In the <b>Database Connector</b> dialog, select <b>Windows "Data Link Properties" dialog</b> and click <b>OK</b>.</li>
+<p><a  class="image"><img alt="NewDB1.png" src="../images/Setup_Database_Connection/NewDB1.png?v=72138" width="336"  /></a><br />
+<br />
+<a  class="image"><img alt="NewDB DLP.png" src="../images/Setup_Database_Connection/NewDB_DLP.png?v=76999" width="327"  /></a><br />
+</p>
+<li>Select <b>Microsoft OLE DB Provider for SQL Server</b> and click <b>Next</b>.<br />
+<a  class="image"><img alt="DLP dialog provider.png" src="../images/Setup_Database_Connection/DLP_dialog_provider.png?v=77000" width="363"  /></a><br />
+</li>
+<li>Create the connection to a sample database. Specify the server information, log-in user name, and password.
+<pre class="sql" style="font-family:monospace;">Server name<span style="color: #66cc66;">=</span>olab<span style="color: #66cc66;">.</span><span style="color: #993333; font-weight: bold;">DATABASE</span><span style="color: #66cc66;">.</span>windows<span style="color: #66cc66;">.</span>net
+<span style="color: #993333; font-weight: bold;">USER</span> Name<span style="color: #66cc66;">=</span>Olabts
+Password<span style="color: #66cc66;">=</span>Origin@2024</pre>
+<p><a  class="image"><img alt="DLP dialog connection.png" src="../images/Setup_Database_Connection/DLP_dialog_connection.png?v=77001" width="363"  /></a><br />
+<br />
+</p>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Setup_Database_Connection/Mini_bulb.png?v=44828" /></td><td><p>Click the <b>Test Connection</b> button to make sure the connection is successful.
+</p></td></tr></table> 
+<table class="noborder">
+	<tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Setup_Database_Connection/Alert_icon.png?v=0" width="57"  border="0" /></td><td><p>Make sure to check <b>Allow saving password</b> to prevent additional password prompts.
+</p>
+	</td>
+	</tr>
+	</table>
+</li>
+<li>Select a database by clicking on the dropdown menu and selecting <b>sample1</b>. <br />
+Click the <b>OK</b> button to open the <b>SQL Editor</b> dialog. <br />
+<li>All tables in the database are listed in the left panel.<br />
+<a  class="image"><img alt="NewDB4.png" src="../images/Setup_Database_Connection/NewDB4.png?v=72144" width="709"  /></a><br />
+You can extract data by writing your own SQL query or create a query by double-clicking the nodes in the left panel. Click <b>OK</b> to import the data.<br />
+<a  class="image"><img alt="SQL Editor import.gif" src="../images/Setup_Database_Connection/SQL_Editor_import.gif?v=77011" width="797"  /></a>
+
+<h4><a name="Get_Connection_String"></a><span class="mw-headline">Get Connection String</span></h4>
+<ol>
+<li>Click the <b>Database Connector</b> icon and select <b>SQL Editor...</b> to reopen the SQL Editor dialog.<br />
+<a  class="image"><img alt="Reopen SQL editor.gif" src="../images/Setup_Database_Connection/Reopen_SQL_editor.gif?v=77012" width="797"  /></a>
+</li>
+<li>Select menu <b>File: Show Connection String</b>. The connection string will show at the Message panel below. You can use this connection string in the next step to create the connection.<br />
+<a  class="image"><img alt="GetConnectionString.png" src="../images/Setup_Database_Connection/750px-GetConnectionString.png?v=77002" width="750"   /></a>
+</li>
+</ol>
+<h3><a name="Create_a_Connection_with_a_Connection_String"></a><span class="mw-headline">Create a Connection with a Connection String</span></h3>
+<ol>
+<li>Start a new worksheet. Select from menu <b>Data: Connect to Database: New...</b>. In the <b>Database Connector</b> dialog, select <b>Connection String</b> and click <b>OK</b>.<br />
+<a  class="image"><img alt="NewDB CS.png" src="../images/Setup_Database_Connection/NewDB_CS.png?v=77003" width="327"  /></a><br />
+</li>
+<li>Paste your connection string into the <b>Connection String Editor</b>. You can use the one provided in the previous section or an existing connection string of your own. For this tutorial, we'll use the connection string obtained earlier.
+<pre class="sql" style="font-family:monospace;">Provider<span style="color: #66cc66;">=</span>SQLOLEDB<span style="color: #66cc66;">.</span>1;Password<span style="color: #66cc66;">=</span>Origin@2024;Persist Security Info<span style="color: #66cc66;">=</span><span style="color: #993333; font-weight: bold;">TRUE</span>;<span style="color: #993333; font-weight: bold;">USER</span> ID<span style="color: #66cc66;">=</span>olabts;Initial Catalog<span style="color: #66cc66;">=</span>sample1;<span style="color: #993333; font-weight: bold;">DATA</span> <span style="color: #993333; font-weight: bold;">SOURCE</span><span style="color: #66cc66;">=</span>olab<span style="color: #66cc66;">.</span><span style="color: #993333; font-weight: bold;">DATABASE</span><span style="color: #66cc66;">.</span>windows<span style="color: #66cc66;">.</span>net</pre> 
+<p><a  class="image"><img alt="ConnectionStringEditor.png" src="../images/Setup_Database_Connection/ConnectionStringEditor.png?v=77004" width="1010"  /></a><br /> 
+</p>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Setup_Database_Connection/Mini_bulb.png?v=44828" /></td><td><p>Click the <b>Test</b> button to make sure the connection is successful.
+</p></td></tr></table>
+</li>
+<li>Click the <b>OK</b> button to open the SQL Editor dialog to query and import.
+</li>
+</ol>
+<h3><a name="Create_a_Connection_with_the_ODBC_driver"></a><span class="mw-headline">Create a Connection with the ODBC driver</span></h3>
+<table class="noborder">
+	<tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Setup_Database_Connection/Alert_icon.png?v=0" width="57"  border="0" /></td><td><p>The ODBC driver method requires you to have the ODBC driver installed. You can download and install the latest driver <a class="external text" href="https://learn.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver16" target="_blank">here</a>.
+</p>
+	</td>
+	</tr>
+	</table>
+<ol>
+<li> Start a new worksheet. Select from menu <b>Data: Connect to Database: New...</b>. In the <b>Database Connector</b> dialog, select <b>ODBC driver</b> and click <b>OK</b>.</li>
+<p><a  class="image"><img alt="NewDB2.png" src="../images/Setup_Database_Connection/NewDB2.png?v=72139" width="332"  /></a><br />
+</p>
+<li>Create the connection to a sample database. Specify the server information, including the log-in user name and password with the settings below:
+<pre class="sql" style="font-family:monospace;">Server Driver<span style="color: #66cc66;">=</span>ODBC Driver <span style="color: #cc66cc;">18</span> <span style="color: #993333; font-weight: bold;">FOR</span> <span style="color: #993333; font-weight: bold;">SQL</span> Server
+Server<span style="color: #66cc66;">=</span>olab<span style="color: #66cc66;">.</span><span style="color: #993333; font-weight: bold;">DATABASE</span><span style="color: #66cc66;">.</span>windows<span style="color: #66cc66;">.</span>net
+Port<span style="color: #66cc66;">=</span><span style="color: #cc66cc;">1433</span>
+<span style="color: #993333; font-weight: bold;">USER</span> Name<span style="color: #66cc66;">=</span>Olabts
+Password<span style="color: #66cc66;">=</span>Origin@2024</pre>
+<p><a  class="image"><img alt="NewDB3.png" src="../images/Setup_Database_Connection/NewDB3.png?v=76054" width="331"  /></a><br />
+<br />
+</p>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Setup_Database_Connection/Mini_bulb.png?v=44828" /></td><td><p>Click the <b>Test</b> button to make sure the connection is successful.
+</p></td></tr></table>
+<table class="noborder">
+	<tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Setup_Database_Connection/Alert_icon.png?v=0" width="57"  border="0" /></td><td><p>If it fails to connect to the database, go to <a class="external text" href="https://learn.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver16" target="_blank">this</a> page to download and install the latest ODBC SQL driver. 
+</p>
+	</td>
+	</tr>
+	</table>
+</li>
+<li> Click the <a  class="image"><img alt="NewDB5.png" src="../images/Setup_Database_Connection/NewDB5.png?v=72147" width="21"  /></a> button to the right of the Database entry and make sure database <b>sample1</b> shows. <br />
+<li>Click the <b>OK</b> button to open the SQL Editor dialog to query and import.
+</ol></li>
+</li>
+</ol>
+
+

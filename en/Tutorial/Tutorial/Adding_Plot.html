@@ -1,0 +1,151 @@
+<h1 class="firstHeading">6.1.6 Adding a Data Plot to Existing Graph</h1><p class='urlname' style='display: none'>Adding-Plot</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Inputting_data_and_plotting"><span class="tocnumber">3.1</span> <span class="toctext">Inputting data and plotting</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Adding_plot_by"><span class="tocnumber">3.2</span> <span class="toctext">Adding plot by</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="#Using_Drag-and-Drop"><span class="tocnumber">3.2.1</span> <span class="toctext">Using Drag-and-Drop</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#Using_Plot_Setup"><span class="tocnumber">3.2.2</span> <span class="toctext">Using Plot Setup</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#Using_Layer_Contents"><span class="tocnumber">3.2.3</span> <span class="toctext">Using Layer Contents</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="#Using_mini_toolbar"><span class="tocnumber">3.2.4</span> <span class="toctext">Using mini toolbar</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-10"><a href="#Grouping_plots_in_Object_Manager"><span class="tocnumber">3.3</span> <span class="toctext">Grouping plots in Object Manager</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Updating_the_Graph_Legend"><span class="tocnumber">3.4</span> <span class="toctext">Updating the Graph Legend</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Adding_Plot/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Adding_Plot/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=256" target="_blank">Add Plots to a Graph by Drag and Drop</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=13" target="_blank">Adding, Grouping and Reordering Plots with Layer Contents</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=369" target="_blank">Copy Data from Worksheet or Matrix to Graph</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=274" target="_blank">Group and Ungroup Plots in Object Manager</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=251" target="_blank">Use Object Manager to Reorder Plots</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=258" target="_blank">Customize the Legend</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=91" target="_blank">Combining Metadata in Legend</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Adding_Plot/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Adding_Plot/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/plotting-column-with-mean-values" target="_blank">Plotting grouped column with mean values</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Sometimes, once you have plotted a dataset in to a graph layer, you might desire to plot one more dataset into same graph layer.
+</p><p>Four methods might be available for this case:
+</p>
+<ul><li> <a href="../../GettingStarted/OriginLab/2D_Graphs.html#Adding_Data_by_Drag_and_Drop" title="OriginLab:2D Graphs">Drag and drop dataset into the the graph layer</a>
+<dl><dd> You can add data to a graph by drag-and-drop. When using this method, Origin relies on worksheet <a class="external text" href="../../UserGuide/UserGuide/Set_Column_Designation.html">Column Plot Designations</a> to create the plot.</dd></dl></li>
+<li> Use <b>Plot Setup</b> dialog to add the plot
+<dl><dd>The Plot Setup dialog can be used to add/reorder/arrange data plots in an exiting graph. This dialog provides flexibility in selecting the source data sheet and in specifying how data are to be plotted.</dd></dl></li>
+<li> Use <b>Layer Contents</b> dialog to add the plot 
+<dl><dd> The Layer Contents dialog box is used to add or remove data plots from a graph layer, group and ungroup plots, and reorder (change the drawing order of) the data plots.</dd></dl></li>
+<li> Use <b>Copy Plot</b> button in mini toolbar to add a existing plot into the graph layer
+<dl><dd> Since Origin 2020, you can use <a class="external text" href="../../UserGuide/UserGuide/Popup_Button.html">the Copy Plot button in mini toolbar</a> to copy one plot from a graph and paste this plot into another graph layer. In this way, you can add an existing plot into another existing graph layer.</dd></dl></li></ul>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Use drag-and-drop to add data to a graph layer</li>
+<li>Use the <b>Plot Setup</b> dialog to add data to a graph layer</li>
+<li>Use the <b>Layer Contents</b> dialog to add data to a graph layer</li>
+<li>Use mini toolbar to copy a plot and paste it into a graph layer</li>
+<li>Group the plots in Object Manager</li>
+<li>Use the <b>Legend Update</b> dialog to modify the graph legend</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="Inputting_data_and_plotting"></a><span class="mw-headline">Inputting data and plotting</span></h3>
+<ol><li>Click the <b>New Project</b> button on the Standard toolbar, to begin with a new project.</li>
+<li>Click the <b>Import Wizard</b> button on the Standard toolbar. The Import Wizard opens. (Note that if this is the first time that you have started the Import Wizard, you will experience a slight delay as Origin compiles the necessary files.)</li>
+<li>Verify that the <b>ASCII</b> radio button is selected in the <b>Data Type</b> group.</li>
+<li>Click the browse button to the right of the File text box.  Navigate to the Origin folder; browse to the <b>Samples</b> folder and then the <b>Import and Export</b> folder.  </li>
+<li>Press CTRL and select files <i>S15-125-03.dat</i>, <i>S21-235-07.dat</i>, and <i>S32-014-04.dat</i>, then click <b>Add Files</b>.</li>
+<li>Click <b>OK</b>.</li>
+<li>Leave the <b>Import Filters for current Data Type</b> as <b>Data Folder: VarsFromFileNameAndHeader</b>.  (This filter has the settings to use when importing the file.)</li>
+<li>Set the <b>Import Mode</b> as <b>Start New Sheets</b>.</li>
+<li>Click the <b>Finish</b> button. The three data files import into the workbook, each as a new sheet. You will have a book with three sheets: <b>Trial Run 1</b>, <b>Trial Run 2</b>, and <b>Trial Run 3</b>.</li>
+<li>Select the <b>Trial Run 1</b> sheet, highlight the D(Y) column. Click the <b>Line</b> button on the <b>2D Graphs</b> toolbar. A new graph is created and named as Graph1.</li></ol>
+<h3><a name="Adding_plot_by"></a><span class="mw-headline">Adding plot by</span></h3>
+<h4><a name="Using_Drag-and-Drop"></a><span class="mw-headline">Using Drag-and-Drop</span></h4>
+<ol><li> Right-click on the title bar of Graph1 to select <b>Duplicate</b> from the context menu to duplicate the graph window. </li>
+<li> Activate this new graph window, and move it to the gray space of Origin workspace(make it not be covered by the source workbook). </li>
+<li> Click to select the second sheet "Trial Run 2" of source workbook, and then click on the column header of col(D) to select it. Move the cursor to the right border of col(D) until the Drag-and-drop icon <a  class="image"><img alt="Button Drag Column to Graph.png" src="../images/Adding_Plot/Button_Drag_Column_to_Graph.png?v=4979" width="34"  /></a> appears.</li>
+<li> Then you can drag-and-drop the column into the graph window. 
+<dl><dd><a  class="image"><img alt="Adding Plot 01.png" src="../images/Adding_Plot/600px-Adding_Plot_01.png?v=61803" width="600"   /></a></dd></dl></li>
+<li> A new curve will be added into the graph.</li>
+<li> Click to select the third sheet "Trial Run 3" of source workbook and select its col(D) and drag-and-drop it into the graph window to add one more curve into the graph layer.</li>
+<li> Now, you have a graph with three curves in the layer.</li></ol>
+<table class="note">
+
+<tr>
+<td><b>Alternately,</b>
+<p>you can use <b>Copy for Plotting</b> button on the mini toolbar to add the plot in step 3 and 4. That is
+</p>
+<ol>
+<li value="3">Click to select the second sheet "Trial Run 2" of source workbook, and then click on the column header of col(D) to highlight it. Click the <b>Copy for Plotting</b> button <a  class="image"><img alt="Copy for plotting button.png" src="../images/Adding_Plot/Copy_for_plotting_button.png?v=62230" width="25"  /></a> on the <a class="external text" href="../../UserGuide/UserGuide/Popup_Button.html#Single_Column">mini toolbar</a> that appears.
+<li>Activate the graph window. Right-click on the white space inside the layer to select <b>Paste: Paste</b> from the context menu.
+</ol>
+</td></tr></table>
+<h4><a name="Using_Plot_Setup"></a><span class="mw-headline">Using Plot Setup</span></h4>
+<ol>
+<li>Right-click on the title bar of Graph1 to select <b>Duplicate</b> from the context menu to duplicate the graph window.
+<li>Activate the new graph window, right-click on the layer 1 icon in the upper-left hand corner of the graph and choose <b>Plot Setup</b>.</li>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Adding_Plot/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>There are three panels in the <b>Plot Setup</b> dialog. Expand the <b>Plot Type</b> panel by clicking <a  class="image"><img alt="Button Expand Preview Up.png" src="../images/Adding_Plot/Button_Expand_Preview_Up.png?v=1413" width="24"  /></a> then expand the <b>Available Data</b> panel by clicking the second <a  class="image"><img alt="Button Expand Preview Up.png" src="../images/Adding_Plot/Button_Expand_Preview_Up.png?v=1413" width="24"  /></a> button.<br />
+<p>Please refer to <a class="external text" href="../../UserGuide/Category/Plot_Setup.html">Plotting using Plot Setup</a> for more information.
+</p>
+</p></td></tr></table>
+<li>Select <b>Layer 1</b> in the Plot List of bottom panel. Press <b>Ctrl</b> key to select <b>Trial Run 2</b> and <b>Trial Run 3</b> simultaneously from the Available Data list (the top-most of the three panels). in the middle panel, select <b>Time</b> as X and <b>Position</b> as Y. Click <b>Add</b> button to add these two data into the graph layer.<br />
+<a  class="image"><img alt="Adding Plot 02.png" src="../images/Adding_Plot/600px-Adding_Plot_02.png?v=61807" width="600"   /></a>
+</li>
+</ol>
+<h4><a name="Using_Layer_Contents"></a><span class="mw-headline">Using Layer Contents</span></h4>
+<ol>
+<li> Right-click on the title bar of Graph1 to select <b>Duplicate</b> from the context menu to duplicate the graph window. 
+<li> Double-click Layer1 icon to open the <b>Layer Contents</b> dialog. 
+<table class="note">
+
+<tr>
+<td><b>Alternately,</b>
+<p>you can choose menu <b>Insert: Plot to Layer</b> to open the <b>Layer Contents</b> dialog. 
+</p>
+</td></tr></table>
+<li> In the dialog, select Col(D) of <b>Trail Run 2</b> and <b>Trail Run 3</b> both in the left panel and then click the button <a  class="image"><img alt="Button Add plot.png" src="../images/Adding_Plot/Button_Add_plot.png?v=15969" width="24"  /></a> to add these two columns into the graph layer Layer1.
+<dl><dd><a  class="image"><img alt="Adding Plot 03.png" src="../images/Adding_Plot/550px-Adding_Plot_03.png?v=61814" width="550"   /></a></dd></dl>
+<li> With the two new plots has been selected in right panel, click <b>Ungroup</b> button to ungroup them firstly. We will group all these three curves together later.
+<dl><dd><a  class="image"><img alt="Adding Plot 05.png" src="../images/Adding_Plot/550px-Adding_Plot_05.png?v=61819" width="550"   /></a></dd></dl>
+<li> Click OK button to close the dialog.
+</ol>
+<h4><a name="Using_mini_toolbar"></a><span class="mw-headline">Using mini toolbar</span></h4>
+<ol><li> Highlight col(D) of sheet "Trail Run 2" to select <b>Plot &gt; Basic 2D: Line</b> menu to plot a new graph with one curve.</li>
+<li> Highlight col(D) of sheet "Trail Run 3" to select <b>Plot &gt; Basic 2D: Line</b> menu to plot another new graph with one curve.</li>
+<li> For these two graphs, click on the curve, in the popup mini toolbar, click the <b>Copy Plot</b> button to copy current plot. Activate Graph1 you created at the beginning back, right-click on the white space of the layer to select Paste: Paste from the context menu to paste the curve to the graph layer.
+<dl><dd><a  class="image"><img alt="Adding Plot 04.png" src="../images/Adding_Plot/650px-Adding_Plot_04.png?v=61817" width="650"   /></a></dd></dl></li>
+<li> Once you copied and pasted all these two new plots into Graph1, you will get a graph with three curves.</li></ol>
+<h3><a name="Grouping_plots_in_Object_Manager"></a><span class="mw-headline">Grouping plots in Object Manager</span></h3>
+<p>Once you had added multiple curves into the existing graph layer, these curves might not be grouped which makes you not be able to apply incrementing line formats(such as Line color and Line styles).
+</p><p>Now, let us group these plots.
+</p>
+<ol><li> Activate the graphs with three curves. At the right-top corner of the workspace, there is a panel named as <a class="external text" href="../../UserGuide/UserGuide/Object_Manager.html">"Object Manager"</a> and listing all plots in current graph.</li>
+<li> Right-click on the last plot to select <b>Set as Group End</b> from context menu.
+<dl><dd><a  class="image"><img alt="Adding Plot 06.png" src="../images/Adding_Plot/500px-Adding_Plot_06.png?v=61821" width="500"   /></a></dd></dl></li>
+<li> You can see these three curves have been grouped and with incrementing line color.
+<dl><dd><a  class="image"><img alt="Adding Plot 07.png" src="../images/Adding_Plot/Adding_Plot_07.png?v=61823" width="399"  /></a></dd></dl></li></ol>
+<h3><a name="Updating_the_Graph_Legend"></a><span class="mw-headline">Updating the Graph Legend</span></h3>
+<p>The existing graph legend uses the names of the imported data plots. We will modify the legend to show the sheet name.
+</p>
+<ol><li>Right-click on the legend object and choose <b>Legend: Update Legend</b>.</li>
+<li>From <b>Auto Legend Translation Mode</b>, choose <b>Custom</b>.</li>
+<li>For <b>Legend Custom Format(@D, @LU etc)</b>, click the arrow to the right and choose <b>@WS: Sheet Display Name</b> and click <b>OK</b>. The graph legend now reads <b>Trial Run 1</b>, etc.</li></ol>
+<p>For more information on customizing the default legend, see these topics:
+</p>
+<ul><li> <a class="external text" href="../../UserGuide/Category/Graph_Legends_and_Color_Scales.html">Graph Legends</a></li>
+<li> <a class="external text" href="../../LabTalk/LabTalk/Legend_Substitution_Notation.html#Legend_Text_Customization">Legend Text Customization</a></li></ul>
+
+

@@ -1,0 +1,108 @@
+<h1 class="firstHeading">4.1.6 Cluster Gadget</h1><p class='urlname' style='display: none'>Cluster-Gadget</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Perform_basic_statistics"><span class="tocnumber">3</span> <span class="toctext">Perform basic statistics</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Exclude_the_data_points_in_a_cluster"><span class="tocnumber">4</span> <span class="toctext">Exclude the data points in a cluster</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Get_statistics_results_for_points_outside_of_the_ROI"><span class="tocnumber">5</span> <span class="toctext">Get statistics results for points outside of the ROI</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Color_data_points_in_different_regions"><span class="tocnumber">6</span> <span class="toctext">Color data points in different regions</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Origin supports the <a class="external text" href="../../UserGuide/UserGuide/Cluster.html"><b>Cluster Gadget</b></a> to perform simple statistics on a region of interest (ROI) in a graph. The gadget can also be used to edit, clear, mask, or categorize data points. The statistics results are dynamically updated as the ROI object is moved or resized.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 2016 SR0 (Pro only)</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<ul><li>How to perform simple statistics on a region of interest (ROI) in a graph.</li>
+<li>How to edit the data points such as clear, or mask points in graph using menu options or buttons.</li>
+<li>How to view or output the statistic for points inside and outside of the ROI.</li>
+<li>How to categorize data points and color map points with the categorical data</li></ul>
+<h2><a name="Perform_basic_statistics"></a><span class="mw-headline">Perform basic statistics</span></h2>
+<ol>
+<li>Start with a new workbook and import the Origin sample data <i>Categorical Data.dat</i> which is located in<i> &lt;Origin Program Folder&gt; \Samples\Graphing</i>. 
+<br />Right-click on Col(D) and select <b>Sort Worksheet: Ascending</b>. 
+Then you will see the worksheet is sorted by the category of <i>Drug</i>.</li>
+<li>Pressing <b>Ctrl</b> key, highlight three parts of the Col(B) separately.  
+<dl><dd><a  class="image"><img alt="Cluster Gadget 01.png" src="../images/Cluster_Gadget/Cluster_Gadget_01.png?v=12191" width="382"  /></a></li></dd></dl>
+<li>Select <b>Plot: Basic 2D: Scatter</b> from the main menu to create a graph. The graph with three plots display the recovery for  each drug.
+<dl><dd><a  class="image"><img alt="Cluster Gadget 02.png" src="../images/Cluster_Gadget/Cluster_Gadget_02.png?v=12430" width="421"  /></a></li></dd></dl>
+<li>Right-click on the graph legend and select <b>Properties</b> to open <b>Object Properties</b> dialog. Then edit the legend as shown below. Click <b>OK</b> button.
+<dl><dd><a  class="image"><img alt="Cluster Gadget 10.png" src="../images/Cluster_Gadget/Cluster_Gadget_10.png?v=48261" width="534"  /></a></li></dd></dl>
+<li>Select <b>Gadgets: Cluster</b> from the Origin menu to bring up the <b>Cluster: addtool_cluster</b> dialog box. Choose <b>Circle</b> in the <b>Shape</b> drop-down list of the <b>ROI Box</b> tab.
+<dl><dd><a  class="image"><img alt="Cluster Gadget 03.png" src="../images/Cluster_Gadget/Cluster_Gadget_03.png?v=42929" width="404"  /></a></li></dd></dl>
+<li>Click <b>OK</b> button. It will add a yellow circle for <b>ROI</b> on the plot and bring up the <b>Cluster Gadget</b> dialog.
+<dl><dd><a  class="image"><img alt="Cluster Gadget 04.png" src="../images/Cluster_Gadget/Cluster_Gadget_04.png?v=66414" width="722"  /></a></li></dd></dl>
+<li>Move the yellow circle to the region for which you want to get statistics and see the results shown on the <b>Inner Points</b> tab of the dialog. 
+<dl><dd><a  class="image"><img alt="Cluster Gadget 05.png" src="../images/Cluster_Gadget/Cluster_Gadget_05.png?v=66415" width="735"  /></a></li></dd></dl>
+<li>Click the <b>Output Statistics Report</b> button<a  class="image"><img alt="Button Output Statistics Report.png" src="../images/Cluster_Gadget/Button_Output_Statistics_Report.png?v=12207" width="24"  /></a>.
+The results are output to the Result Log, Script Window, and the Cluster workbook. </li>
+<li>Click the <b>Go to Report Worksheet</b> button<a  class="image"><img alt="Button Go To Report Worksheet.png" src="../images/Cluster_Gadget/Button_Go_To_Report_Worksheet.png?v=12443" width="24"  /></a>, then the <b>Cluster</b> workbook will be shown. 
+<dl><dd><a  class="image"><img alt="Cluster Gadget 11.png" src="../images/Cluster_Gadget/Cluster_Gadget_11.png?v=42932" width="538"  /></a></li></dd></dl>
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Cluster_Gadget/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>If you have Origin 2021b or later, you have more options for the ROI shape. In the addtool_cluster dialog, set <b>Shape</b> to <b>Arbitrary Shape</b>. When you click <b>OK</b>, a small <b>Create ROI</b> dialog opens in which you can click on a shape button and -- without closing the Create ROI dialog -- <a class="external text" href="../../UserGuide/Category/Creating_Drawing_Objects.html">drag out a shape on your graph</a>. Keep this dialog open until you get the ROI that you want and then click <b>Done</b>. That will open the <b>Cluster Gadget</b>.
+</p><p>Also note that the Cluster Gadget toolbar now has buttons to <b>Modify ROI</b> and <b>Add New ROI</b> (for adding multiple ROIs to the graph).
+</p>
+<dl><dd><a  class="image"><img alt="OH cluster gadget tip figure.png" src="../images/Cluster_Gadget/OH_cluster_gadget_tip_figure.png?v=66422" width="569"  /></a></dd></dl>
+</td></tr></table>
+<h2><a name="Exclude_the_data_points_in_a_cluster"></a><span class="mw-headline">Exclude the data points in a cluster</span></h2>
+<p>In this section, we will show you how to exclude a specific plot from the cluster. 
+Based on the example above, we will do simple statistics on <i>Recovery of Drug A</i> and <i>Recovery of Drug B</i>, excluding <i>Recovery of Placebo</i>.
+</p>
+<ol>
+<li>Click the <b>Data</b> menu in the <b>Cluster Gadget</b> dialog and uncheck  <b>Plot(1)</b> and <b>Plot(2)</b>. The first and second rows become gray in the lower panel, and they can no longer be manipulated by the buttons in the dialog.
+<li>Click <b>Mask Data Points</b> button<a  class="image"><img alt="Button Mask Data Points.png" src="../images/Cluster_Gadget/Button_Mask_Data_Points.png?v=12199" width="24"  /></a>.
+
+The <i>Recovery of Placebo</i> data points in the ROI are masked and the color becomes red. At the same time the statistics results for <i>Recovery of Placebo</i> become missing values. 
+
+<br /><br /><a  class="image"><img alt="Cluster Gadget 07.png" src="../images/Cluster_Gadget/Cluster_Gadget_07.png?v=66416" width="732"  /></a><br /><br />
+<li>Click the <b>Output Statistics Report</b> button<a  class="image"><img alt="Button Output Statistics Report.png" src="../images/Cluster_Gadget/Button_Output_Statistics_Report.png?v=12207" width="24"  /></a>.
+The results are output to the Result Log, Script Window, and the Cluster workbook.  
+</ol>
+<h2><a name="Get_statistics_results_for_points_outside_of_the_ROI"></a><span class="mw-headline">Get statistics results for points outside of the ROI</span></h2>
+<ol>
+<li>Click <b>Settings: Preferences</b> from the <b>Cluster Gadget</b> dialog's menu to open the <b>Cluster Manipulation Preferences</b> dialog.</li>
+<li>Go to the <b>Calculation</b> tab. Check the <b>Calculate Outer Points</b> box. 
+<dl><dd><a  class="image"><img alt="Cluster Gadget 08.png" src="../images/Cluster_Gadget/Cluster_Gadget_08.png?v=66418" width="290"  /></a></li></dd></dl>
+<li>Click the <b>OK</b> button, the statistics results for points out of the ROI are shown on the <b>Outer Points</b> tab of the dialog. 
+<dl><dd><a  class="image"><img alt="Cluster Gadget 09.png" src="../images/Cluster_Gadget/Cluster_Gadget_09.png?v=66419" width="569"  /></a></li></dd></dl>
+<li>Click the <b>Output Statistics Report</b> button<a  class="image"><img alt="Button Output Statistics Report.png" src="../images/Cluster_Gadget/Button_Output_Statistics_Report.png?v=12207" width="24"  /></a>.
+The results for inner and outer points are shown in the Result Log, Script Window, and the Cluster workbook. 
+</ol>
+<h2><a name="Color_data_points_in_different_regions"></a><span class="mw-headline">Color data points in different regions</span></h2>
+<p>You can categorize data points from graph directly and output the Categorical group column to the source worksheet, and further map symbol characters to the categorical group column.
+</p><p>Create a new workbook and re-import the sample data <i>&lt;Origin Program Folder&gt;\Samples\Graphing\Categorical Data.dat</i>. Highlight Column(B) and plot a Scatter graph. 
+</p>
+<dl><dd><a  class="image"><img alt="Cluster Gadget 12.png" src="../images/Cluster_Gadget/Cluster_Gadget_12.png?v=39508" width="402"  /></a></dd></dl>
+<p>Data points cluster into 4 groups. We will use the <b>Create Categories</b> feature of <b>Cluster Gadget</b> to create a categorical column according to the cluster groups and map symbol color to this column. 
+</p>
+<ol>
+<li>Select <b>Gadgets: Cluster</b> to bring up the <b>Cluster: addtool_cluster</b> dialog. Choose <b>Circle</b> in the <b>Shape</b> drop-down list of the <b>ROI Box</b> tab.
+<br />Click <b>OK</b> button to add a yellow circle for ROI on the plot and bring up the <b>Cluster Gadget</b> dialog. 
+</li>
+<li>Move and adjust the size of the ROI box to circle only the first cluster of data points at the low-left corner. 
+<dl><dd><a  class="image"><img alt="Cluster Gadget 13.png" src="../images/Cluster_Gadget/Cluster_Gadget_13.png?v=39509" width="402"  /></a><br /></dd></dl>
+Click the <b>Create Categories</b> button <a  class="image"><img alt="Button Create Categories.png" src="../images/Cluster_Gadget/Button_Create_Categories.png?v=39510" width="24"  /></a> on the <b>Cluster Gadget</b> dialog to open the <b>Create Categorical Value</b> dialog. Enter <i>Group</i> for <b>Category Group Name</b> and <i>1</i> for <b>Category</b>. Select the <b>Color Data by Category</b> check box.
+<dl><dd><a  class="image"><img alt="Cluster Gadget 14.png" src="../images/Cluster_Gadget/Cluster_Gadget_14.png?v=55872" width="366"  /></a><br /></dd></dl>
+Click the <b>OK</b> button. A new categorical column named "Group" is added to the source data sheet and data points inside ROI are tagged as "1" in this <b>column(Group)</b>. Also, scatter plot use this categorical column as the color index.
+<dl><dd><a  class="image"><img alt="Cluster Gadget 15.png" src="../images/Cluster_Gadget/Cluster_Gadget_15.png?v=52928" width="463"  /></a><br /></dd></dl>
+</li>
+<li>Repeat step 2 for the rest of 3 clusters and tag them as 2, 3, 4 in sequence. 
+<dl><dd><a  class="image"><img alt="Cluster Gadget 16.png" src="../images/Cluster_Gadget/Cluster_Gadget_16.png?v=52929" width="625"  /></a><br /></dd></dl>
+The source worksheet should look like the following.
+<dl><dd><a  class="image"><img alt="Cluster Gadget 17.png" src="../images/Cluster_Gadget/Cluster_Gadget_17.png?v=52930" width="463"  /></a><br /></dd></dl>
+Close the <b>Cluster Gadget</b>.
+</li>
+<li>Now you will find the graph shows as below:
+<dl><dd><a  class="image"><img alt="Cluster Gadget 19.png" src="../images/Cluster_Gadget/Cluster_Gadget_19.png?v=52931" width="410"  /></a></dd></dl>
+</li>
+<li>Delete the original legend. Select <b>Graph: Legend: Categorical Values</b> to bring up the <b>legendcat</b> dialog. Uncheck the <b>Show All Categories</b> checkbox. Click <b>OK</b>. The scatter plot with new legend should look like following.
+<dl><dd><a  class="image"><img alt="Cluster Gadget 20.png" src="../images/Cluster_Gadget/Cluster_Gadget_20.png?v=52932" width="410"  /></a></dd></dl>
+</li>
+</ol>
+
+

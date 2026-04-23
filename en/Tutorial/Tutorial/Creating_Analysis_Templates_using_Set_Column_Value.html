@@ -1,0 +1,81 @@
+<h1 class="firstHeading">4.6.2 Creating Analysis Templates using Set Column Value</h1><p class='urlname' style='display: none'>AnalysisTemplate-SetColVal</p>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>This tutorial will demonstrate how to add a column, set up <b>Before Formula Script</b> and have that script run whenever data changes in other columns. This technique can be used to create an <b>Analysis Template</b> for repeated analysis of similar data.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 8.0 SR6</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<ul><li> How to use Set Column Values to create an analysis template</li>
+<li> How to select rows via the <i>Go to</i> function</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<ol>
+
+<li> Import the data from <i>\Samples\Statistics\automobile.dat</i> into a newly created workbook, as below. In this example, we will extract data, according to the <i>Make</i> column, into different worksheets.
+
+<dl><dd><a  class="image"><img alt="Analysis Template thru Set Column Value 001.png" src="../images/Creating_Analysis_Templates_using_Set_Column_Value/Analysis_Template_thru_Set_Column_Value_001.png?v=6816" width="454"  /></a></dd></dl>
+
+<li> Add an empty column to the worksheet and bring up the <b>Set Column Values</b> dialog of the column. In the <b>Before Formula Script</b> box, enter the script below.
+
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">// Data range on which to perform discrete frequency count</span>
+range makeCol <span style="color: #000080;">=</span> <span style="color: #000080;">!</span>col<span style="color: #000000;">&#40;</span>make<span style="color: #000000;">&#41;</span>;
+<span style="color: #008000;">// Worksheet to be extracted</span>
+range sourceWks <span style="color: #000080;">=</span> <span style="color: #000080;">!</span>;
+
+<span style="color: #008000;">// Clear worksheets</span>
+int sheetNum <span style="color: #000080;">=</span> page.<span style="color: #000080;">nlayers</span>;
+int colNum <span style="color: #000080;">=</span> wks.<span style="color: #000080;">ncols</span> <span style="color: #000080;">-</span> <span style="color: #0000dd;">1</span>;
+if <span style="color: #000000;">&#40;</span>sheetNum<span style="color: #000080;">&gt;</span><span style="color: #0000dd;">1</span><span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>
+	for <span style="color: #000000;">&#40;</span>jj<span style="color: #000080;">=</span><span style="color: #0000dd;">2</span>; jj<span style="color: #000080;">&lt;=</span>sheetNum; jj<span style="color: #000080;">++</span><span style="color: #000000;">&#41;</span>
+	<span style="color: #000000;">&#123;</span>
+		layer <span style="color: #000080;">-</span>d <span style="color: #0000dd;">2</span>;
+	<span style="color: #000000;">&#125;</span>
+<span style="color: #000000;">&#125;</span>
+
+<span style="color: #008000;">// Tree variable to hold discfreqs outputs</span>
+tree tr;
+<span style="color: #008000;">// Perform discrete frequency count</span>
+discfreqs irng<span style="color: #000000;">:</span><span style="color: #000080;">=</span>makeCol rd<span style="color: #000000;">:</span><span style="color: #000080;">=</span>tr;
+<span style="color: #008000;">// String array to get result from tree</span>
+StringArray sa;
+sa.<span style="color: #000080;">append</span><span style="color: #000000;">&#40;</span>tr.<span style="color: #000080;">FreqCount1</span>.<span style="color: #000080;">Data1</span><span style="color: #000000;">&#41;</span>;
+
+if<span style="color: #000000;">&#40;</span> sa.<span style="color: #000080;">GetSize</span><span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span> <span style="color: #000080;">!</span><span style="color: #000080;">=</span> NANUM <span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>
+	<span style="color: #008000;">// Loop to extract data</span>
+	for <span style="color: #000000;">&#40;</span>ii<span style="color: #000080;">=</span><span style="color: #0000dd;">1</span>; ii<span style="color: #000080;">&lt;=</span>sa.<span style="color: #000080;">GetSize</span><span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>; ii<span style="color: #000080;">++</span><span style="color: #000000;">&#41;</span>
+	<span style="color: #000000;">&#123;</span>
+		string sn<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> sa.<span style="color: #000080;">GetAt</span><span style="color: #000000;">&#40;</span>ii<span style="color: #000000;">&#41;</span><span style="color: #000080;">$</span>;
+		<span style="color: #008000;">// Extract condition string</span>
+		string cond<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;makeCol$ = &quot;</span> <span style="color: #000080;">+</span> sn<span style="color: #000080;">$</span>;
+		<span style="color: #008000;">// Create worksheet with different Make name</span>
+		newsheet name<span style="color: #000000;">:</span><span style="color: #000080;">=</span>sn<span style="color: #000080;">$</span> cols<span style="color: #000000;">:</span><span style="color: #000080;">=</span>colNum outname<span style="color: #000000;">:</span><span style="color: #000080;">=</span>on<span style="color: #000080;">$</span> active<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">0</span>;
+		<span style="color: #008000;">// Extract data</span>
+		wxt test<span style="color: #000000;">:</span><span style="color: #000080;">=</span>cond<span style="color: #000080;">$</span> iw<span style="color: #000000;">:</span><span style="color: #000080;">=</span>sourceWks c2<span style="color: #000000;">:</span><span style="color: #000080;">=</span>colNum ow<span style="color: #000000;">:</span><span style="color: #000080;">=</span>on<span style="color: #000080;">$</span>;
+	<span style="color: #000000;">&#125;</span>
+<span style="color: #000000;">&#125;</span></pre>
+<p>This script will first perform a discrete frequency count on the <i>Make</i> column to get distinct values for <i>Make</i>. It will then create a new worksheet for each brand and extract data into these sheets.
+</p>
+<dl><dd><a  class="image"><img alt="Analysis Template thru Set Column Value 006.png" src="../images/Creating_Analysis_Templates_using_Set_Column_Value/Analysis_Template_thru_Set_Column_Value_006.png?v=7276" width="452"  /></a></dd></dl>
+<li> Make sure the recalculate mode is set to <b>Auto</b> and click <b>OK</b>. The data will be separated into different worksheets. Then the empty column (H) with a green lock icon indicates that this procedure can be updated automatically.
+
+<dl><dd><a  class="image"><img alt="Analysis Template thru Set Column Value 002.png" src="../images/Creating_Analysis_Templates_using_Set_Column_Value/Analysis_Template_thru_Set_Column_Value_002.png?v=6828" width="454"  /></a></dd></dl>
+
+<li> There are 18 makes of cars in the source data, so 18 new worksheets were created. Now we can check whether auto-update works.<br />
+
+Go to the <b>Honda</b> tab. Notice that there are 19 rows.
+
+<li> Switch to the first sheet. Scroll down and delete the last row.
+
+<dl><dd><a  class="image"><img alt="Analysis Template thru Set Column Value 004.png" src="../images/Creating_Analysis_Templates_using_Set_Column_Value/Analysis_Template_thru_Set_Column_Value_004.png?v=9198" width="583"  /></a></dd></dl>
+
+Then auto-update will be triggered. Go to the <b>Honda</b> tab. You will see there are only 18 rows.
+
+<dl><dd><a  class="image"><img alt="Analysis Template thru Set Column Value 005.png" src="../images/Creating_Analysis_Templates_using_Set_Column_Value/Analysis_Template_thru_Set_Column_Value_005.png?v=9197" width="590"  /></a></dd></dl>
+
+</ol>
+
+
+
+
+
+

@@ -1,0 +1,80 @@
+<h1 class="firstHeading">6.12.11 3D Scatter with Colormap</h1><p class='urlname' style='display: none'>3D-Scatter-ColorMap</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a></li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/3D_Scatter_with_Colormap/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/3D_Scatter_with_Colormap/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=81" target="_blank">Origin 3D OpenGL Graphs</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=265" target="_blank">Creating Custom Colors</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=311" target="_blank">Set Symbol Color and Shape by Other Column</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=215" target="_blank">Add Color Scale in Graph</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/3D_Scatter_with_Colormap/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/3D_Scatter_with_Colormap/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/overlay-locations-on-a-3d-map" target="_blank">Overlay Locations on a 3D Map</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/creating-a-3d-surface-plot-with-profile-lines" target="_blank">Creating a 3D Surface Plot with Profile Lines</a></li></ul>
+</td></tr></table>
+<p><br />
+</p>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>This tutorial will demonstrate how to create a 3D scatter plot with Z colormap from XYZ data in a worksheet, set scatter size proportional to the data in a specified column, and create projections of the data on all three axis planes.
+</p>
+<dl><dd><a  class="image"><img alt="3D Scatter with Colormap.png" src="../images/3D_Scatter_with_Colormap/3D_Scatter_with_Colormap.png?v=44404" width="559"  /></a></dd></dl>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li> Generate a 3D scatter plot with Z colormap</li>
+<li> Set the symbol size proportional to data in a specified column</li>
+<li> Add and customize the scatter projections on axis planes</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<p>This tutorial is associated with <i>&lt;Origin EXE Folder&gt;\Samples\Tutorial Data.opju</i>.
+<br />
+Also, you can refer to this graph in Learning Center. (Select <b>Help: Learning Center</b> menu or press <b>F11</b> key , and then open <b>Graph Sample: 3D Symbol Bar and Wall</b>)
+</p>
+<ol><li>Open <b>Tutorial Data.opju</b> and browse to the <b>3D Scatter with Colormap</b> folder in <b>Project Explorer</b> (PE).</li>
+<li> Activate the workbook <b>A3DScatter</b>, and highlight col(C). Select <b>Plot &gt; 3D: 3D Scatter</b> to generate a scatter plot.</li>
+<li> A <b>Reminder Message</b> window like the one shown below will pop up, stating that the graph might not be correctly displayed if the OpenGL version is less than 2.1. The OpenGL version of your video card is listed on the <b>Reminder Message</b> window. Click <b>OK</b> to close the window.
+<dl><dd><a  class="image"><img alt="Reminder Msg.png" src="../images/3D_Scatter_with_Colormap/Reminder_Msg.png?v=44388" width="408"  /></a></dd>
+<dd><b>Note:</b> Speed Mode might be turned on if the OpenGL version is too low.</dd></dl></li>
+<li> Double click on the plot to open the <b>Plot Detail</b> dialog. If the left panel is not expanded use the <a  class="image"><img alt="Plot Details Expansion.png" src="../images/3D_Scatter_with_Colormap/Plot_Details_Expansion.png?v=25582" width="33"  /></a> button on the bottom left of the dialog to expand it. Expand the <b>Layer1</b> option and select the <b>Original</b> level, this contains the original data. This dialog box is where the 3D scatter is customized.</li>
+<li> In the <b>Symbol</b> tab, set <b>Shape</b> as <b>Sphere</b>. In order to use the sphere sizes to show the differences of Engine Displacement, select <b>Size</b> as <b>Col(E): "Engine Displacement")</b>, and set <b>Scaling Factor</b> as <b>0.005</b>. Type manually into the edit box instead of using the drop down menu. For <b>Color</b>, click the drop-down menu, then choose the <b>By Points</b> tab of the Color Chooser. Click on <b>Color Mapping</b> and choose <b>Col(C): "Power"</b> to introduce a Z-value colormap. Set <b>Transparency</b> to <b>25%</b>.
+<dl><dd><a  class="image"><img alt="3D Scatter with Colormap dialog1.png" src="../images/3D_Scatter_with_Colormap/3D_Scatter_with_Colormap_dialog1.png?v=49699" width="475"  /></a></dd></dl></li>
+<li> Select the <b>Colormap</b> tab. Click the <b>Level...</b> title to open the <b>Set Levels</b> dialog. Set <b>From</b> as <b>30</b>. Select <b>Increment</b>, and set it as <b>15</b>. Set <b># Minor Levels</b> as <b>9</b>. Click <b>OK</b>.
+<dl><dd><a  class="image"><img alt="3D Scatter with Colormap dialog2.png" src="../images/3D_Scatter_with_Colormap/3D_Scatter_with_Colormap_dialog2.png?v=51751" width="517"  /></a></dd></dl></li>
+<li> Click the <b>Fill...</b> title to open the <b>Fill</b> dialog. Select <b>Limited Mixing</b>. Click the default color of <b>From</b> and then click the square box under <b>Custom</b> section in the color setting panel to open the <b>Colors</b> dialog. In the <b>Colors</b> dialog, set the <b>Red</b>, <b> Green</b> and <b>Blue</b> option in the bottom right as  74, 74, 255. Do the same thing for <b>To</b> color and  set the <b>Red</b>, <b> Green</b> and <b>Blue</b> option as 255, 100, 255. Click <b>OK</b>.
+<dl><dd><a  class="image"><img alt="3D Scatter with Colormap dialog3.png" src="../images/3D_Scatter_with_Colormap/3D_Scatter_with_Colormap_dialog3.png?v=62680" width="434"  /></a></dd>
+<dd><a  class="image"><img alt="3D Scatter with Colormap dialog3 1.png" src="../images/3D_Scatter_with_Colormap/3D_Scatter_with_Colormap_dialog3_1.png?v=44393" width="394"  /></a></dd></dl></li>
+<li> Click on the fill color of <b>&lt;30</b> level to open the <b>Fill</b> dialog. Set <b>Fill Color</b> as <b>None</b>. Click <b>OK</b>. Repeat the this step to set fill color of <b>&gt;168</b> level as <b>None</b>. This will ensure that there is no color for levels above and below the specified range.
+<dl><dd><a  class="image"><img alt="3D Scatter with Colormap dialog4.png" src="../images/3D_Scatter_with_Colormap/3D_Scatter_with_Colormap_dialog4.png?v=15233" width="322"  /></a></dd></dl></li>
+<li> The next step is to add the data projections. In the left panel of the <b>Plot Details</b> dialog, select the option above <b>Original</b>, and select the <b>Fully Independent</b> radio button. This will ensure that when the projections have been enabled, each can be customized separately. Check the boxes for <b>XY Projection</b>, <b>ZX Projection</b> and <b>YZ Projection</b> to enable the scatter projections on all three planes. </li>
+<li> To customize the colors of the projections, in the <b>XY Projection</b> level <b>Symbol</b> tab, set its color as <b>Olive</b>(the 12th common color). Set the symbol color of <b>ZX Projection</b> and <b>YZ Projection</b> as <b>Red</b> (the second common color) and <b>Orange</b> (the 15th common color) respectively. Click <b>OK</b>.
+<dl><dd><a  class="image"><img alt="3D Scatter with Colormap dialog5.png" src="../images/3D_Scatter_with_Colormap/3D_Scatter_with_Colormap_dialog5.png?v=44399" width="796"  /></a></dd></dl></li>
+<li> In order to remove the grid lines, double click on the X axis to open the <b>Axes</b> dialog. Select the <b>Grids</b> tab on the right panel, hold the CTRL key and select Y and Z axes to customize the settings together, then deselect the <b>Show</b> box under <b>Major Grid Lines</b> to hide the major grid lines of all axes.
+<dl><dd><a  class="image"><img alt="3D Scatter with Colormap dialog6.png" src="../images/3D_Scatter_with_Colormap/3D_Scatter_with_Colormap_dialog6.png?v=33405" width="426"  /></a></dd></dl></li>
+<li> The next step is to change the scale for the axes. On the <b>Scale</b> tab for each axis set the following; for X Axis, change the <b>From</b>, <b>To</b> value and the increment <b>Value</b> of major ticks to <b>5</b>, <b>30</b>, <b>5</b> respectively, and then check the <b>Reverse</b> check box; for Y Axis, to <b>5</b>, <b>40</b> and <b>10</b>, and then check the <b>Reverse</b> check box; and for Z Axis, to <b>20</b>, <b>180</b> and <b>20</b>. Click <b>OK</b>.</li>
+<li> To designate the color for the background of the entire window, open the <b>Plot Details</b> dialog again. In the left panel, select the <b>Graph</b>. Select the <b>Display</b> tab. Set <b>Color</b> as <b>LT Gray</b>. Click <b>OK</b>.
+<dl><dd><a  class="image"><img alt="3D Scatter with Colormap dialog7.png" src="../images/3D_Scatter_with_Colormap/3D_Scatter_with_Colormap_dialog7.png?v=15236" width="305"  /></a></dd></dl></li>
+<li> Delete the legend object created by default, we are going to add a color scale legend instead.</li>
+<li> In order to add a color scale legend, click the <b>Add Color Scale</b> <a  class="image"><img alt="Button Add Color Scale.png" src="../images/3D_Scatter_with_Colormap/Button_Add_Color_Scale.png?v=1425" width="23"  /></a> button in the <b>Add Object to Graph</b> toolbar. Double click on the color scale to bring up the <b>Color Scale Control</b> dialog. Set the color scale format according to the screenshots below:
+<dl><dd><a  class="image"><img alt="3D Scatter with Colormap dialog8a.png" src="../images/3D_Scatter_with_Colormap/3D_Scatter_with_Colormap_dialog8a.png?v=49702" width="566"  /></a></dd>
+<dd><a  class="image"><img alt="3D Scatter with Colormap dialog8.png" src="../images/3D_Scatter_with_Colormap/3D_Scatter_with_Colormap_dialog8.png?v=33763" width="485"  /></a></dd>
+<dd><a  class="image"><img alt="3D Scatter with Colormap dialog8b.png" src="../images/3D_Scatter_with_Colormap/3D_Scatter_with_Colormap_dialog8b.png?v=44401" width="566"  /></a></dd>
+<dd><a  class="image"><img alt="3D Scatter with Colormap dialog8c.png" src="../images/3D_Scatter_with_Colormap/3D_Scatter_with_Colormap_dialog8c.png?v=33765" width="368"  /></a></dd>
+<dd><a  class="image"><img alt="3D Scatter with Colormap dialog8d.png" src="../images/3D_Scatter_with_Colormap/3D_Scatter_with_Colormap_dialog8d.png?v=44403" width="566"  /></a></dd></dl></li>
+<li> Right click on the page layer to bring out the context menu. Select <b>Add/Modify Layer Title</b> and type <i>Symbol Size proportional to Engine Displacement</i> in the text box that appears as the layer title.</li>
+<li> The graph should appear as shown below. Rotate to explore all sides:
+<dl><dd><a  class="image"><img alt="3D Scatter with Colormap.png" src="../images/3D_Scatter_with_Colormap/3D_Scatter_with_Colormap.png?v=44404" width="559"  /></a></dd></dl></li></ol>
+
+
+
+
+
+

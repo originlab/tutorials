@@ -1,0 +1,98 @@
+<h1 class="firstHeading">4.2.2.1 Nonlinear Curve Fit Tool</h1><p class='urlname' style='display: none'>Fitting-NLFit-Basic</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Use_a_built-in_function_to_fit_the_data"><span class="tocnumber">3</span> <span class="toctext">Use a built-in function to fit the data</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Define_and_fit_with_a_user-defined_function"><span class="tocnumber">4</span> <span class="toctext">Define and fit with a user-defined function</span></a></li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Nonlinear_Curve_Fit_Tool/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Nonlinear_Curve_Fit_Tool/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/jwplayer.html?v=ftp/mm_tutorials/mp4/Curve_Fitting.mp4%7C767%7C600" target="_blank">Introduction to Curve Fitting</a></li>
+<li> <a class="external text" href="https://www.originlab.com/jwplayer.html?v=ftp/mm_tutorials/mp4/VT-0001Nonlinear_Curve_Fit_Tool.mp4%7C767%7C600" target="_blank">Nonlinear Curve Fit Tool</a></li>
+<li> <a class="external text" href="https://www.originlab.com/jwplayer.html?v=ftp/mm_tutorials/mp4/Analysis_with_Auto_Recalculations.mp4%7C767%7C600" target="_blank">Analysis with Auto Recalculation</a></li>
+<li> <a class="external text" href="https://www.originlab.com/jwplayer.html?v=ftp/mm_tutorials/mp4/Fit_by_User_Functions.mp4%7C767%7C600" target="_blank">User-defined Fitting Functions</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Nonlinear_Curve_Fit_Tool/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Nonlinear_Curve_Fit_Tool/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/use-initial-formula-to-better-guess-fitting-parameter-values-from-data" target="_blank">Use Initial Formula to Better Guess Fitting Parameter Values from Data</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Nonlinear fitting in Origin is performed using the NonLinear Fitting (NLFit) dialog box. The NLFit tool contains more than 200 built-in fitting functions used in many different disciplines. 
+</p>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Nonlinear_Curve_Fit_Tool/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>To do a quick and simple fit without opening the NLFit dialog, try the <a href="../../Tutorial/Tutorial/Quick_Fit_Gadget.html" title="Tutorial:Quick Fit Gadget">Quick Fit Gadget</a>.
+</p></td></tr></table>
+<p class="version" >Minimum Origin Version Required:  8.5</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<ul><li>How to fit with a built-in fitting function.</li>
+<li>How to change NLFit setting using Recalculate.</li>
+<li>How to define and fit with a user-defined function.</li></ul>
+<h2><a name="Use_a_built-in_function_to_fit_the_data"></a><span class="mw-headline">Use a built-in function to fit the data</span></h2>
+<ol>
+<li>Click <b>File:Open...</b> to open the <b>Intro_to_Nonlinear Curve Fit Tool.opj</b> from the <b>\Samples\Curve Fitting</b> folder and select the <b>Built-In Function</b> folder from the Project Explorer window.
+<li>With the <b>Graph1</b> active, select the menu item <b>Analysis: Fitting: Nonlinear Curve Fit</b> to bring up the <b>NLFit</b> dialog, and then select <b>Gauss</b> from the <b>Function</b> drop-down list:
+<br /><a  class="image"><img alt="Nonlinear Curve Fit Tool 001.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_001.png?v=48942" width="750"   /></a></li>
+<li>In the <b>Parameter</b> tab, initial parameter values are automatically assigned, because the built-in functions have parameter initialization code.<br />
+If you go to the <b>Residual</b> tab, you can see the current residuals and decide whether the current fit results are acceptable.<br />
+<a  class="image"><img alt="Nonlinear Curve Fit Tool 002.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_002.png?v=48943" width="750"   /></a></li>
+<li>Note that a fitted curve drawn using the initial parameter values, is shown in the graph.
+<br /><a  class="image"><img alt="Nonlinear Curve Fit Tool 003.png" src="../images/Nonlinear_Curve_Fit_Tool/Nonlinear_Curve_Fit_Tool_003.png?v=48944" width="414"  /></a></li>
+<li>Click the <b>Fit until converged</b> button <a  class="image"><img alt="Button Fit Untill Converged.png" src="../images/Nonlinear_Curve_Fit_Tool/Button_Fit_Untill_Converged.png?v=1371" width="26"  /></a>.To see if the fitting operation was successful, click the  <b>Messages</b> tab and note the number of iterations, reduced chi-sqr value, R^2 value, etc.
+<br /><a  class="image"><img alt="Nonlinear Curve Fit Tool 004.png" src="../images/Nonlinear_Curve_Fit_Tool/Nonlinear_Curve_Fit_Tool_004.png?v=48945" width="385"  /></a></li>
+<li>Click the <b>OK</b> button. The <b>FitNL1</b> report sheet is created with fit results including parameter values and fit statistics.
+<br /><a  class="image"><img alt="Nonlinear Curve Fit Tool 005.png" src="../images/Nonlinear_Curve_Fit_Tool/Nonlinear_Curve_Fit_Tool_005.png?v=57370" width="645"  /></a></li>
+<li>Reopen the Nonlinear Curve Fitting dialog by clicking on the green lock icon on the upper left corner of the graph and selecting <b>Change Parameters</b>.
+<br /><a  class="image"><img alt="Nonlinear Curve Fit Tool 006.png" src="../images/Nonlinear_Curve_Fit_Tool/Nonlinear_Curve_Fit_Tool_006.png?v=48947" width="414"  /></a></li>
+<li>Go to the <b>Parameters</b> tab, change the value of <i>xc</i> to <i>25</i> (note that by double-clicking in the cell, you can edit the value) and select the <b>Fixed</b> check box.
+<br /><a  class="image"><img alt="Nonlinear Curve Fit Tool 007.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_007.png?v=48948" width="750"   /></a></li>
+<li>Once again, click the <b>Fit until converged</b> button <a  class="image"><img alt="Button Fit Untill Converged.png" src="../images/Nonlinear_Curve_Fit_Tool/Button_Fit_Untill_Converged.png?v=1371" width="26"  /></a> and then <b>OK</b>.
+<li>In the report sheet, you can see that fixing the value of <i>xc</i> to 25 results in a Standard Error of 0.
+<br /><a  class="image"><img alt="Nonlinear Curve Fit Tool 008.png" src="../images/Nonlinear_Curve_Fit_Tool/Nonlinear_Curve_Fit_Tool_008.png?v=57371" width="549"  /></a></li>
+</ol>
+<h2><a name="Define_and_fit_with_a_user-defined_function"></a><span class="mw-headline">Define and fit with a user-defined function</span></h2>
+<p>In this section, we will show you how to define your own fitting function and use it in the Nonlinear Curve Fit tool<br />
+Our function is <b>y=y0+a*exp(-b*x)</b>
+</p>
+<ol>
+<li>With the project file used in the first section opened. Select <b>Tools: Fitting Function Builder...</b> menu to bring up the <b>Fitting Function Builder</b> dialog box. 
+<li>On the Goal page, click <b>Create a New Function</b>, then click the <b>Next</b> button to go to the <b>Name and Type</b> page. <br />
+<a  class="image"><img alt="Nonlinear Curve Fit Tool 009.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_009.png?v=48951" width="750"   /></a>
+</li>
+<li>On the <b>Name and Type</b> page, then name the function and select a Function Type. This function will be put to the <b>User Defined</b> category by default.
+<ul><li>Set <b>MyFunction</b> as the <b>Function Name</b>.</li>
+<li>Select <b>Expression</b> from the <b>Function Type list</b>. Note that the left panel displays Hints regarding the Function Type you selected.</li>
+<li>Click the <b>Next</b> button to turn to the <b>Variables and Parameters</b> page.<br /> </li></ul>
+<a  class="image"><img alt="Nonlinear Curve Fit Tool 010.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_010.png?v=48953" width="750"   /></a>
+</li>
+<li>On the <b>Variables and Parameters</b> page, make sure <b>Independent Variables</b> reads <i>x</i> and <b>Dependent Variables</b> reads <i>y</i>. Then input the comma-separated values <i>y0, a, b</i> into the <b>Parameters</b> text box. Click the <b>Next</b> button.
+<br /><a  class="image"><img alt="Nonlinear Curve Fit Tool 011.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_011.png?v=48954" width="750"   /></a>
+</li>
+<li>On the <b>Function Body</b> page, perform the following operations:
+<ul><li>Set the <b>Initial Values</b> for parameters as shown below. </li>
+<li>In the <b>Function body</b> edit box, enter <i>y0+a*exp(-b*x)</i>.</li>
+<li>Use <b>Quick Check</b> to check the validity of current function. After entering a value for the independent variables <i>x</i>, click the <b>Evaluate</b> button <a  class="image"><img alt="Button Evaluate.png" src="../images/Nonlinear_Curve_Fit_Tool/Button_Evaluate.png?v=12986" width="23"  /></a>, you will get a return value of the dependent variable <i>y</i> which can be used to check the validity of this function. <br /></li></ul>
+<a  class="image"><img alt="Nonlinear Curve Fit Tool 012.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_012.png?v=48955" width="750"   /></a>
+</li>
+<li>Click the <b>Finish</b> button to finish defining the function.
+<li>Open Project Explorer (<b>View: Project Explorer</b>), and select the <b>User-Defined Function</b> folder. 
+<li>Highlight column A and B in [Book1]Sheet1, select the menu item <b>Analysis: Fitting: Nonlinear Curve Fit</b> to bring up the <b>NLFit</b> dialog. Select the <b>User Defined</b> category and your function <b>MyFunction</b> on the <b>Function Selection</b> page, under the <b>Settings</b> tab:
+<br /><a  class="image"><img alt="Nonlinear Curve Fit Tool 013.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_013.png?v=48956" width="750"   /></a>
+</li>
+<li>By successively clicking the <b>1 iteration button</b>, you can see the change in parameter values as well as the increasing conformance of the fitted curve.
+<ul><li>Click the "1 Iteration" button <a  class="image"><img alt="Button 1 Iteration.png" src="../images/Nonlinear_Curve_Fit_Tool/Button_1_Iteration.png?v=1370" width="26"  /></a>.<br /></li></ul>
+<a  class="image"><img alt="Nonlinear Curve Fit Tool 014.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_014.png?v=48957" width="750"   /></a>
+<ul><li>Click the "1 Iteration" button <a  class="image"><img alt="Button 1 Iteration.png" src="../images/Nonlinear_Curve_Fit_Tool/Button_1_Iteration.png?v=1370" width="26"  /></a> again.<br /></li></ul>
+<a  class="image"><img alt="Nonlinear Curve Fit Tool 015.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_015.png?v=48958" width="750"   /></a>
+<ul><li>Click the <b>Fit until converged</b> button<a  class="image"><img alt="Button Fit Untill Converged.png" src="../images/Nonlinear_Curve_Fit_Tool/Button_Fit_Untill_Converged.png?v=1371" width="26"  /></a> <br /></li></ul>
+<a  class="image"><img alt="Nonlinear Curve Fit Tool 016.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_016.png?v=48959" width="750"   /></a>
+</li>
+<li>Click the <b>OK</b> button and the FitNL1 report sheet of fitting results is created. Here, you will find best-fit parameter values and other fit statistics.
+</ol>
+
+

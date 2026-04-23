@@ -1,0 +1,735 @@
+<h1 class="firstHeading">11.3.3 How to Create a Wizard</h1><p class='urlname' style='display: none'>Create-Wizard</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Create_four_X-Functions"><span class="tocnumber">3</span> <span class="toctext">Create four X-Functions</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Update_X-Function.27s_Property_in_Tree_View"><span class="tocnumber">4</span> <span class="toctext">Update X-Function's Property in Tree View</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Create_Files_for_the_Wizard"><span class="tocnumber">5</span> <span class="toctext">Create Files for the Wizard</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Add_Script_for_X-Functions"><span class="tocnumber">6</span> <span class="toctext">Add Script for X-Functions</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#Script_for_X-Function_StatTest"><span class="tocnumber">6.1</span> <span class="toctext">Script for X-Function StatTest</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Script_for_X-Function_StatTestWizGoal"><span class="tocnumber">6.2</span> <span class="toctext">Script for X-Function StatTestWizGoal</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Script_for_X-Function_NormalityTest"><span class="tocnumber">6.3</span> <span class="toctext">Script for X-Function NormalityTest</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Script_for_X-Function_OnetTest"><span class="tocnumber">6.4</span> <span class="toctext">Script for X-Function OnetTest</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="#How_to_Use_the_Wizard"><span class="tocnumber">7</span> <span class="toctext">How to Use the Wizard</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>A wizard is a graphical user interface that includes a series of dialogs to direct a user to complete a mission step by step.  A wizard makes a complex task easier to perform. Origin provides several classes in Origin C for users to develop a wizard.  The dialog for each step in the wizard can be created using an X-Function. 
+</p><p>In this example, the wizard will perform a normality test and then a one-sample t-test for data in a column. The normality test's result can be shared in one-sample t-test. 
+</p>
+<table class="note">
+
+<tr>
+<td><b>Note:</b> This tutorial requires <a class="external text" href="https://www.originlab.com/index.aspx?go=Products/DeveloperKit" target="_blank">the Develop Kit.</a>
+</td></tr></table>
+<p class="version" >Minimum Origin Version Required: Origin 8.1SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<ul><li>How to create an X-Function.</li>
+<li>How to share a variable or a DataRange in different steps.</li>
+<li>How to call an X-Function in OriginC.</li>
+<li>How to create a wizard.</li></ul>
+<h2><a name="Create_four_X-Functions"></a><span class="mw-headline">Create four X-Functions</span></h2>
+<ol><li> Select <b>Tools: X-Function Builder</b> or press <b>F10</b> to open <b>X-Function Builder dialog</b></li>
+<li> Add the variables as follows and save the X-Function as "StatTest" in the User Files folder, User Files\X-Functions\Statistics\Hypothesis Testing.<br /><a  class="image"><img alt="How to Create a Wizard xf1.png" src="../images/How_to_Create_a_Wizard/How_to_Create_a_Wizard_xf1.png?v=7628" width="474"  /></a></li>
+<li> Click the <b>New X-Function Wizard</b> button. Add the variables as follows and save the X-Function as "StatTestWizGoal" in the User Files folder, User Files\X-Functions\Statistics\Hypothesis Testing.<br /><a  class="image"><img alt="How to Create a Wizard xf2.png" src="../images/How_to_Create_a_Wizard/How_to_Create_a_Wizard_xf2.png?v=7629" width="483"  /></a></li>
+<li> Click the <b>New X-Function Wizard</b> button. Add the variables as follows and save the X-Function as "NormalityTest" in the User Files folder, User Files\X-Functions\Statistics\Hypothesis Testing.<br /><a  class="image"><img alt="How to Create a Wizard xf3.png" src="../images/How_to_Create_a_Wizard/How_to_Create_a_Wizard_xf3.png?v=7630" width="487"  /></a></li>
+<li> Click the <b>New X-Function Wizard</b> button. Add the variables as follows and save the X-Function as "OnetTest" in the User Files folder, User Files\X-Functions\Statistics\Hypothesis Testing.<br /><a  class="image"><img alt="How to Create a Wizard xf4.png" src="../images/How_to_Create_a_Wizard/How_to_Create_a_Wizard_xf4.png?v=7631" width="535"  /></a></li></ol>
+<p>Note that the X-Functions <b>NormalityTest</b> and <b>OnetTest</b> have the same variable "prob", which is a shared variable and will be declared in the source file.
+</p>
+<h2><a name="Update_X-Function.27s_Property_in_Tree_View"></a><span class="mw-headline">Update X-Function's Property in Tree View</span></h2>
+<ol><li>Open the X-Function <b>StatTest</b>. Click the <b>TreeView</b> button <a  class="image"><img alt="TreeView.png" src="../images/How_to_Create_a_Wizard/TreeView.png?v=7288" width="23"  /></a> to open the Tree View. Make the following settings in the Tree View. <br /><a  class="image"><img alt="How to Create a Wizard xf1s.png" src="../images/How_to_Create_a_Wizard/How_to_Create_a_Wizard_xf1s.png?v=7511" width="505"  /></a></li>
+<li>Click the <b>Save OXF file</b> button to save the X-Function.</li>
+<li>Open the X-Function <b>StatTestWizGoal</b>, <b>NormalityTest</b> and <b>OnetTest</b> respectively in X-Function Builder.  Click the <b>TreeView</b> button <a  class="image"><img alt="TreeView.png" src="../images/How_to_Create_a_Wizard/TreeView.png?v=7288" width="23"  /></a> and type "Select Wizard Goal", "Normality Test" and "One-Sample t-test" in the <b>Description</b> edit box of each X-Function's Tree View, which will be shown in the dialogs.</li></ol>
+<h2><a name="Create_Files_for_the_Wizard"></a><span class="mw-headline">Create Files for the Wizard</span></h2>
+<ul><li>Click the <b>Code Builder</b> button on the <b>Standard</b> toolbar. In Code Builder, click the <b>New</b> button. In the <b>New File</b> dialog, select <b>H File</b>, click the <b>Browse</b> button, and select the User Files folder, User Files\OriginC as the new header file's <b>Location</b>. Then type StatTestWiz in the <b>File Name</b> edit box. Click <b>OK</b> to close the dialog.</li></ul>
+<p>Add the following script to StatTestWiz.h file.
+</p>
+<pre class="oc" style="font-family:monospace;">#ifndef __STAT_TEST_WIZ_H__
+<span style="color: #0000ff;">#define</span> __STAT_TEST_WIZ_H__
+
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>..\OriginLab\XFWiz.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>..\OriginLab\XFCore.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>..\OriginLab\XFWizard_utils.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+
+<span style="color: #0000ff;">class</span> StatTestWizCore <span style="color: #000000;">:</span> <span style="color: #0000ff;">public</span> XFCore
+<span style="color: #000000;">&#123;</span>
+<span style="color: #0000ff;">public</span><span style="color: #000000;">:</span>
+   StatTestWizCore<span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>;
+
+<span style="color: #0000ff;">public</span><span style="color: #000000;">:</span>	
+   <span style="color: #0000ff;">void</span> ChangeGoal<span style="color: #000000;">&#40;</span><span style="color: #0000ff;">int</span> nGoal<span style="color: #000000;">&#41;</span>;
+   DataRange GetRange<span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>;	
+	
+   <span style="color: #0000ff;">int</span> nStep;
+<span style="color: #0000ff;">protected</span><span style="color: #000000;">:</span>
+
+<span style="color: #000000;">&#125;</span>;
+
+<span style="color: #0000ff;">int</span> stat_test_run_wiz_nodlg<span style="color: #000000;">&#40;</span>LPCSTR lpcszThemeName <span style="color: #000080;">=</span> <span style="color: #0000ff;">NULL</span>, <span style="color: #0000ff;">const</span> XFWizTheme <span style="color: #000040;">*</span>pXFWizTheme 
+<span style="color: #000080;">=</span> <span style="color: #0000ff;">NULL</span>, <span style="color: #0000ff;">const</span> XFWizInputOutputRange <span style="color: #000040;">*</span>pXFWizIO <span style="color: #000080;">=</span> <span style="color: #0000ff;">NULL</span>, DWORD dwOPUID <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #000000;">&#41;</span>;
+
+<span style="color: #0000ff;">int</span> stat_test_open_wiz_dlg<span style="color: #000000;">&#40;</span>LPCSTR lpcszThemeName <span style="color: #000080;">=</span> <span style="color: #0000ff;">NULL</span>, <span style="color: #0000ff;">const</span> XFWizTheme <span style="color: #000040;">*</span>pXFWizTheme 
+<span style="color: #000080;">=</span> <span style="color: #0000ff;">NULL</span>, <span style="color: #0000ff;">const</span> XFWizInputOutputRange <span style="color: #000040;">*</span>pXFWizIO <span style="color: #000080;">=</span> <span style="color: #0000ff;">NULL</span>, DWORD dwOPUID <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #000000;">&#41;</span>;
+
+<span style="color: #0000ff;">#endif</span>	<span style="color: #008000;">//__STAT_TEST_WIZ_H__</span></pre>
+<p>Click the <b>Save</b> button to save StatTestWiz.h file.
+</p>
+<ul><li>Repeat the same operation to create a new <b>C File</b>, StatTestWiz.c .</li></ul>
+<p>Add the following script to StatTestWiz.c file.
+</p>
+<pre class="oc" style="font-family:monospace;"><span style="color: #008000;">///////////////////////////////////////////////////////////////////////////////////</span>
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>..\OriginLab\XFWizManager.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>..\OriginLab\WizOperation.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>..\OriginLab\XFWizNavigation.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>..\OriginLab\XFWizScript.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>..\OriginLab\XFWizDlg.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+
+<span style="color: #008000;">///////////////////////////////////////////////////////////////////////////////////</span>
+<span style="color: #008000;">// Include your own header files here.</span>
+<span style="color: #0000ff;">#include</span> <span style="color: #ff00ff;">&quot;StatTestWiz.h&quot;</span>
+
+<span style="color: #0000ff;">enum</span>
+<span style="color: #000000;">&#123;</span>
+	GOAL_ALL <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>,
+	GOAL_SIMPLE,
+<span style="color: #000000;">&#125;</span>;
+
+<span style="color: #008000;">//Names of three X-Functions</span>
+<span style="color: #0000ff;">#define</span> STR_STEP_GOAL	<span style="color: #ff00ff;">&quot;StatTestWizGoal&quot;</span>
+<span style="color: #0000ff;">#define</span> STR_STEP_Normal	<span style="color: #ff00ff;">&quot;NormalityTest&quot;</span>
+<span style="color: #0000ff;">#define</span> STR_STEP_TTest <span style="color: #ff00ff;">&quot;OnetTest&quot;</span>
+
+<span style="color: #008000;">//Names of steps shown in the wizard.</span>
+<span style="color: #0000ff;">#define</span> STR_LABEL_STEP_GOAL	<span style="color: #ff00ff;">&quot;Goal&quot;</span>
+<span style="color: #0000ff;">#define</span> STR_LABEL_STEP_Normal	<span style="color: #ff00ff;">&quot;Normality Test&quot;</span>
+<span style="color: #0000ff;">#define</span> STR_LABEL_STEP_TTest	<span style="color: #ff00ff;">&quot;One-Sample t-test&quot;</span>
+
+<span style="color: #008000;">///////////////////////////////////////////////////////////////////////////////////</span>
+<span style="color: #008000;">//Class StatTestWizTheme</span>
+<span style="color: #0000ff;">class</span> StatTestWizTheme <span style="color: #000000;">:</span> <span style="color: #0000ff;">public</span> XFWizTheme
+<span style="color: #000000;">&#123;</span>
+<span style="color: #0000ff;">public</span><span style="color: #000000;">:</span>
+   StatTestWizTheme<span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>;
+<span style="color: #000000;">&#125;</span>;
+
+<span style="color: #008000;">//Name of the variable prob shared by X-Functions NormalityTest and OnetTest</span>
+<span style="color: #0000ff;">#define</span> STR_GETN_VAR_SHARED_NProb <span style="color: #ff00ff;">&quot;prob&quot;</span>
+
+StatTestWizTheme<span style="color: #000000;">::</span><span style="color: #000000;">StatTestWizTheme</span><span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">:</span>XFWizTheme<span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>
+   m_saSharedList.<span style="color: #000000;">Add</span><span style="color: #000000;">&#40;</span>STR_GETN_VAR_SHARED_NProb<span style="color: #000000;">&#41;</span>; <span style="color: #008000;">//Add the shared variable</span>
+<span style="color: #000000;">&#125;</span>
+
+<span style="color: #008000;">///////////////////////////////////////////////////////////////////////////////////</span>
+<span style="color: #0000ff;">class</span> StatTestWizInputOutputRange <span style="color: #000000;">:</span> <span style="color: #0000ff;">public</span> XFWizInputOutputRange
+<span style="color: #000000;">&#123;</span>
+<span style="color: #000000;">&#125;</span>;
+
+<span style="color: #008000;">///////////////////////////////////////////////////////////////////////////////////</span>
+<span style="color: #008000;">//Class StatTestWizManager</span>
+
+<span style="color: #0000ff;">#define</span> STR_CLASS_NAME_TEST	<span style="color: #ff00ff;">&quot;StatTestWiz&quot;</span>
+<span style="color: #0000ff;">#define</span> TEST_VERSION_NUMBER	<span style="color: #0000dd;">1.0</span>
+
+<span style="color: #0000ff;">class</span> StatTestWizManager <span style="color: #000000;">:</span> <span style="color: #0000ff;">public</span> XFWizManager
+<span style="color: #000000;">&#123;</span>
+<span style="color: #0000ff;">public</span><span style="color: #000000;">:</span>
+   StatTestWizManager<span style="color: #000000;">&#40;</span>LPCSTR lpcszThemeName <span style="color: #000080;">=</span> <span style="color: #0000ff;">NULL</span>, <span style="color: #0000ff;">const</span> XFWizTheme <span style="color: #000040;">*</span>pXFWizTheme 
+<span style="color: #000080;">=</span> <span style="color: #0000ff;">NULL</span>, <span style="color: #0000ff;">const</span> XFWizInputOutputRange <span style="color: #000040;">*</span>pXFWizIO <span style="color: #000080;">=</span> <span style="color: #0000ff;">NULL</span>, DWORD dwUIDOp <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span><span style="color: #000000;">&#41;</span>;
+
+<span style="color: #0000ff;">protected</span><span style="color: #000000;">:</span>
+   <span style="color: #0000ff;">virtual</span> <span style="color: #0000ff;">double</span> GetVersion<span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span> <span style="color: #000000;">&#123;</span> <span style="color: #0000ff;">return</span> TEST_VERSION_NUMBER; <span style="color: #000000;">&#125;</span>	
+   <span style="color: #0000ff;">virtual</span> XFCore<span style="color: #000040;">*</span> CreateXFCore<span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span> <span style="color: #000000;">&#123;</span> <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">new</span> StatTestWizCore; <span style="color: #000000;">&#125;</span>
+   <span style="color: #0000ff;">virtual</span> XFWizTheme<span style="color: #000040;">*</span>	CreateXFWizTheme<span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span> <span style="color: #000000;">&#123;</span> <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">new</span> StatTestWizTheme; <span style="color: #000000;">&#125;</span>
+   <span style="color: #0000ff;">virtual</span> XFWizInputOutputRange<span style="color: #000040;">*</span> CreateXFWizInputOutputRange<span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>
+             <span style="color: #000000;">&#123;</span> <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">new</span> StatTestWizInputOutputRange; <span style="color: #000000;">&#125;</span>
+   <span style="color: #0000ff;">virtual</span> string GetClassName<span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span> <span style="color: #000000;">&#123;</span> <span style="color: #0000ff;">return</span> STR_CLASS_NAME_TEST; <span style="color: #000000;">&#125;</span>
+<span style="color: #000000;">&#125;</span>;
+
+StatTestWizManager<span style="color: #000000;">::</span><span style="color: #000000;">StatTestWizManager</span><span style="color: #000000;">&#40;</span>LPCSTR lpcszThemeName, <span style="color: #0000ff;">const</span> XFWizTheme 
+<span style="color: #000040;">*</span>pXFWizTheme, <span style="color: #0000ff;">const</span> XFWizInputOutputRange <span style="color: #000040;">*</span>pXFWizIO, DWORD dwUIDOp<span style="color: #000000;">&#41;</span> 
+<span style="color: #000000;">:</span> XFWizManager<span style="color: #000000;">&#40;</span>lpcszThemeName, pXFWizTheme, pXFWizIO, dwUIDOp<span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>
+   StringArray saMapXFNames <span style="color: #000080;">=</span> <span style="color: #000000;">&#123;</span>STR_STEP_GOAL, STR_STEP_Normal, STR_STEP_TTest<span style="color: #000000;">&#125;</span>;
+   StringArray saMapXFLabels <span style="color: #000080;">=</span> <span style="color: #000000;">&#123;</span>STR_LABEL_STEP_GOAL, STR_LABEL_STEP_Normal, 
+                                 STR_LABEL_STEP_TTest<span style="color: #000000;">&#125;</span>;
+   m_saMapXFNames <span style="color: #000080;">=</span> saMapXFNames;
+   m_saMapXFLabels <span style="color: #000080;">=</span> saMapXFLabels;
+   <span style="color: #000000;">ASSERT</span><span style="color: #000000;">&#40;</span> m_saMapXFNames.<span style="color: #000000;">GetSize</span><span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span> <span style="color: #000080;">==</span> m_saMapXFLabels.<span style="color: #000000;">GetSize</span><span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span> <span style="color: #000000;">&#41;</span>;
+
+   StringArray saDefaultXFNames <span style="color: #000080;">=</span> <span style="color: #000000;">&#123;</span>STR_STEP_GOAL, STR_STEP_Normal, STR_STEP_TTest<span style="color: #000000;">&#125;</span>;
+   m_saDefaultXFNames <span style="color: #000080;">=</span> saDefaultXFNames;
+
+   m_strRunDlgName <span style="color: #000080;">=</span> _L<span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;Stat Test&quot;</span><span style="color: #000000;">&#41;</span>;
+<span style="color: #000000;">&#125;</span>
+
+<span style="color: #008000;">///////////////////////////////////////////////////////////////////////////////////</span>
+<span style="color: #008000;">//Class StatTestWizCore</span>
+
+StatTestWizCore<span style="color: #000000;">::</span><span style="color: #000000;">StatTestWizCore</span><span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">:</span>XFCore<span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>
+   StringArray vsXFsRecalculateShown <span style="color: #000080;">=</span> <span style="color: #000000;">&#123;</span>STR_STEP_GOAL<span style="color: #000000;">&#125;</span>;
+   m_vsXFsRecalculateShown <span style="color: #000080;">=</span> vsXFsRecalculateShown;
+   nStep <span style="color: #000080;">=</span> GOAL_ALL;
+<span style="color: #000000;">&#125;</span>
+
+<span style="color: #008000;">//Select steps in the Goal Step</span>
+<span style="color: #0000ff;">void</span> StatTestWizCore<span style="color: #000000;">::</span><span style="color: #000000;">ChangeGoal</span><span style="color: #000000;">&#40;</span><span style="color: #0000ff;">int</span> nGoal<span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>
+   XFWizNavigation <span style="color: #000040;">*</span>pXFWizNavg <span style="color: #000080;">=</span> <span style="color: #000000;">&#40;</span>XFWizNavigation <span style="color: #000040;">*</span><span style="color: #000000;">&#41;</span>GetXFWizNavigation<span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>;
+   <span style="color: #000000;">ASSERT</span><span style="color: #000000;">&#40;</span>pXFWizNavg<span style="color: #000000;">&#41;</span>;
+	
+   nStep <span style="color: #000080;">=</span> nGoal;
+   
+   <span style="color: #0000ff;">if</span> <span style="color: #000000;">&#40;</span> pXFWizNavg <span style="color: #000000;">&#41;</span>
+   <span style="color: #000000;">&#123;</span>
+      StringArray saXFNames;
+      saXFNames.<span style="color: #000000;">Add</span><span style="color: #000000;">&#40;</span>STR_STEP_GOAL<span style="color: #000000;">&#41;</span>;
+      <span style="color: #0000ff;">switch</span> <span style="color: #000000;">&#40;</span>nGoal<span style="color: #000000;">&#41;</span>
+      <span style="color: #000000;">&#123;</span>
+      <span style="color: #0000ff;">case</span> GOAL_ALL<span style="color: #000000;">:</span>
+	 saXFNames.<span style="color: #000000;">Add</span><span style="color: #000000;">&#40;</span>STR_STEP_Normal<span style="color: #000000;">&#41;</span>;
+	 saXFNames.<span style="color: #000000;">Add</span><span style="color: #000000;">&#40;</span>STR_STEP_TTest<span style="color: #000000;">&#41;</span>;
+	 <span style="color: #0000ff;">break</span>;
+      <span style="color: #0000ff;">case</span> GOAL_SIMPLE<span style="color: #000000;">:</span>
+	 saXFNames.<span style="color: #000000;">Add</span><span style="color: #000000;">&#40;</span>STR_STEP_TTest<span style="color: #000000;">&#41;</span>;
+	 <span style="color: #0000ff;">break</span>;
+      <span style="color: #000000;">&#125;</span>
+
+      pXFWizNavg<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>SetSteps<span style="color: #000000;">&#40;</span>saXFNames<span style="color: #000000;">&#41;</span>;
+		
+   <span style="color: #000000;">&#125;</span>
+<span style="color: #000000;">&#125;</span>
+
+<span style="color: #008000;">//Get input DataRange in the Goal Step.</span>
+DataRange StatTestWizCore<span style="color: #000000;">::</span><span style="color: #000000;">GetRange</span><span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>
+   XFWizNavigation <span style="color: #000040;">*</span>pXFWizNavg <span style="color: #000080;">=</span> <span style="color: #000000;">&#40;</span>XFWizNavigation<span style="color: #000040;">*</span><span style="color: #000000;">&#41;</span>GetXFWizNavigation<span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>;
+   XFWizInputOutputRange<span style="color: #000040;">*</span> pIORange <span style="color: #000080;">=</span> pXFWizNavg<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>GetXFWizInputOutputRange<span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>;
+
+   DataRange drInput;
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span><span style="color: #000040;">!</span>pIORange<span style="color: #000000;">&#41;</span>
+   <span style="color: #000000;">&#123;</span>
+      error_report<span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;Fail to get io ranges!&quot;</span><span style="color: #000000;">&#41;</span>;
+      <span style="color: #0000ff;">return</span> drInput;
+   <span style="color: #000000;">&#125;</span>
+	
+   Array<span style="color: #000080;">&lt;</span>DataRange<span style="color: #000040;">&amp;</span><span style="color: #000080;">&gt;</span> drs;
+   <span style="color: #008000;">//Get input DataRange.</span>
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span><span style="color: #000040;">!</span>pIORange<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>Get<span style="color: #000000;">&#40;</span><span style="color: #000040;">&amp;</span>drs, STR_STEP_GOAL, <span style="color: #0000ff;">true</span><span style="color: #000000;">&#41;</span><span style="color: #000000;">&#41;</span>
+   <span style="color: #000000;">&#123;</span>
+      error_report<span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;Fail to get range from WizCore!&quot;</span><span style="color: #000000;">&#41;</span>;
+      <span style="color: #0000ff;">return</span> drInput;
+   <span style="color: #000000;">&#125;</span>
+	
+   drInput <span style="color: #000080;">=</span> drs.<span style="color: #000000;">GetAt</span><span style="color: #000000;">&#40;</span><span style="color: #0000dd;">0</span><span style="color: #000000;">&#41;</span>;
+   
+   <span style="color: #0000ff;">return</span> drInput;
+<span style="color: #000000;">&#125;</span>
+
+<span style="color: #008000;">///////////////////////////////////////////////////////////////////////////////////</span>
+
+<span style="color: #0000ff;">int</span> stat_test_run_wiz_nodlg<span style="color: #000000;">&#40;</span>LPCSTR lpcszThemeName, <span style="color: #0000ff;">const</span> XFWizTheme <span style="color: #000040;">*</span>pXFWizTheme, <span style="color: #0000ff;">const</span> 
+XFWizInputOutputRange <span style="color: #000040;">*</span>pXFWizIO, DWORD dwOPUID<span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>
+   TEMPLATE_run_wiz_nodlg<span style="color: #000000;">&#40;</span>StatTestWizManager, lpcszThemeName, pXFWizTheme, pXFWizIO, dwOPUID<span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#125;</span>
+
+<span style="color: #0000ff;">int</span> stat_test_open_wiz_dlg<span style="color: #000000;">&#40;</span>LPCSTR lpcszThemeName, <span style="color: #0000ff;">const</span> XFWizTheme <span style="color: #000040;">*</span>pXFWizTheme, <span style="color: #0000ff;">const</span> 
+XFWizInputOutputRange <span style="color: #000040;">*</span>pXFWizIO, DWORD dwOPUID<span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>
+   TEMPLATE_open_wiz_dlg<span style="color: #000000;">&#40;</span>StatTestWizManager, lpcszThemeName, pXFWizTheme, pXFWizIO, dwOPUID<span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#125;</span>
+
+<span style="color: #0000ff;">int</span> stat_test_run_wiz<span style="color: #000000;">&#40;</span>UINT msg, <span style="color: #0000ff;">const</span> XFWizTheme <span style="color: #000040;">*</span>pXFWizTheme, <span style="color: #0000ff;">const</span> 
+XFWizInputOutputRange <span style="color: #000040;">*</span>pXFWizIO, DWORD dwOPUID, <span style="color: #0000ff;">int</span> nExeMode<span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>
+   TEMPLATE_run_wiz<span style="color: #000000;">&#40;</span>StatTestWizManager, msg, pXFWizTheme, pXFWizIO, dwOPUID, nExeMode<span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#125;</span></pre>
+<p>Click the <b>Save</b> button to save StatTestWiz.c file.
+</p><p>Note that StatTestWiz.c should be compiled after the X-Function <b>StatTest</b> is compiled, since the included files in StatTestWiz.c are not yet in the workspace until the X-Function <b>StatTest</b> is compiled. In fact StatTestWiz.h is included in X-Function <b>StatTest</b>, so StatTestWiz.c will be compiled automatically when X-Function <b>StatTest</b> is compiled.
+</p>
+<h2><a name="Add_Script_for_X-Functions"></a><span class="mw-headline">Add Script for X-Functions</span></h2>
+<h3><a name="Script_for_X-Function_StatTest"></a><span class="mw-headline">Script for X-Function StatTest</span></h3>
+<p>In the <b>X-Function Builder</b>, click the <b>Open</b> button and open the X-Function StatTest. Click the <b>Edit X-Function in Code Builder</b> and add the following script.
+</p>
+<ul><li>Include header files</li></ul>
+<pre class="oc" style="font-family:monospace;"><span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>..\OriginLab\XFWiz.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>..\OriginLab\WizOperation.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>..\OriginLab\XFCore.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>..\OriginLab\XFWizNavigation.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>..\OriginLab\XFWizManager.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>..\OriginLab\XFWizScript.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>..\OriginLab\XFWizDlg.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>..\OriginLab\XFWizard_utils.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>..\OriginLab\WksOperation.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>event_utils.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+
+<span style="color: #0000ff;">#include</span> <span style="color: #ff00ff;">&quot;StatTestWiz.h&quot;</span></pre>
+<ul><li>StatTest()</li></ul>
+<p>Add the function body, which specifies the dialog mode.
+</p>
+<pre class="oc" style="font-family:monospace;"><span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span> script <span style="color: #000000;">&#41;</span>
+   stat_test_run_wiz_nodlg<span style="color: #000000;">&#40;</span>tn<span style="color: #000000;">&#41;</span>;
+<span style="color: #0000ff;">else</span>
+   stat_test_open_wiz_dlg<span style="color: #000000;">&#40;</span>tn<span style="color: #000000;">&#41;</span>;</pre>
+<ul><li>StatTest_before_execute()</li></ul>
+<p>Add the function body, which determines not to show this dialog before the wizard is opened.
+</p>
+<pre class="oc" style="font-family:monospace;">   nRet <span style="color: #000080;">=</span> XFEVT_PROCEED_NO_DLG;</pre>
+<p>Click <b>Compile</b> button to compile the file. Then click <b>Return to Dialog</b> button to return to <b>X-Function Builder</b>. In the <b>X-Function Builder</b>, click <b>Save OXF file</b> button to save the X-Function.
+</p>
+<h3><a name="Script_for_X-Function_StatTestWizGoal"></a><span class="mw-headline">Script for X-Function StatTestWizGoal</span></h3>
+<p>Open the X-Function StatTestWizGoal. Click <b>Edit X-Function in Code Builder</b> button, add the following script.
+</p>
+<ul><li>Include header files</li></ul>
+<pre class="oc" style="font-family:monospace;"><span style="color: #0000ff;">#include</span> <span style="color: #ff00ff;">&quot;StatTestWiz.h&quot;</span></pre>
+<ul><li>Add a static function _check_input()</li></ul>
+<p>This function is used to check whether the input DataRange is a single column.
+</p>
+<pre class="oc" style="font-family:monospace;"><span style="color: #0000ff;">static</span> <span style="color: #0000ff;">bool</span> _check_input<span style="color: #000000;">&#40;</span><span style="color: #0000ff;">const</span> TreeNode trGetN, string<span style="color: #000040;">&amp;</span> strErr<span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>
+   TreeNode trRange <span style="color: #000080;">=</span> trGetN.<span style="color: #000000;">input</span>;
+   DataRange drInput;
+			
+   drInput.<span style="color: #000000;">Create</span><span style="color: #000000;">&#40;</span>trRange.<span style="color: #000000;">strVal</span><span style="color: #000000;">&#41;</span>;	
+	
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span> drInput.<span style="color: #000000;">GetNumRanges</span><span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span> <span style="color: #000080;">==</span> <span style="color: #0000dd;">0</span> <span style="color: #000000;">&#41;</span>
+   <span style="color: #000000;">&#123;</span>
+      strErr <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;Input can't be empty, and it should be a valid column.&quot;</span>;
+      <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span>;
+   <span style="color: #000000;">&#125;</span>
+   <span style="color: #0000ff;">else</span>
+   <span style="color: #000000;">&#123;</span>
+      <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span> drInput.<span style="color: #000000;">GetNumRanges</span><span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span> <span style="color: #000080;">==</span> <span style="color: #0000dd;">1</span><span style="color: #000000;">&#41;</span>
+      <span style="color: #000000;">&#123;</span>
+         Worksheet wksInput;
+         <span style="color: #0000ff;">int</span> nC1, nC2;
+         drInput.<span style="color: #000000;">GetRange</span><span style="color: #000000;">&#40;</span>wksInput, nC1, nC2<span style="color: #000000;">&#41;</span>;
+	 <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span> nC1 <span style="color: #000080;">==</span> nC2 <span style="color: #000000;">&#41;</span>
+	    <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span>;
+      <span style="color: #000000;">&#125;</span>
+
+	  strErr <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;Please select one column.&quot;</span>;
+	  <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span>;
+   <span style="color: #000000;">&#125;</span>	
+<span style="color: #000000;">&#125;</span></pre>
+<ul><li>StatTestWizGoal_event1()</li></ul>
+<p>Add the function body, which updates the dialog.
+</p>
+<pre class="oc" style="font-family:monospace;">   StatTestWizCore<span style="color: #000040;">*</span> pstatwc <span style="color: #000080;">=</span> <span style="color: #000000;">&#40;</span>StatTestWizCore<span style="color: #000040;">*</span><span style="color: #000000;">&#41;</span>get_xf_core_handler<span style="color: #000000;">&#40;</span>trGetN<span style="color: #000000;">&#41;</span>;
+   <span style="color: #000000;">ASSERT</span><span style="color: #000000;">&#40;</span>pstatwc<span style="color: #000000;">&#41;</span>;
+   
+   <span style="color: #008000;">//Update the Wizard page.</span>
+   <span style="color: #0000ff;">if</span> <span style="color: #000000;">&#40;</span> <span style="color: #0000dd;">0</span> <span style="color: #000080;">==</span> lstrcmp<span style="color: #000000;">&#40;</span>lpcszNodeName, <span style="color: #ff00ff;">&quot;goal&quot;</span><span style="color: #000000;">&#41;</span> <span style="color: #000000;">&#41;</span>
+      pstatwc<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>ChangeGoal<span style="color: #000000;">&#40;</span>trGetN.<span style="color: #000000;">goal</span>.<span style="color: #000000;">nVal</span><span style="color: #000000;">&#41;</span>;
+
+
+   <span style="color: #008000;">//Error message is shown at the bottom of the dialog, </span>
+   <span style="color: #008000;">//and OK button is disenabled for incorrect choice of DataRange.</span>
+   bOKEnable <span style="color: #000080;">=</span> _check_input<span style="color: #000000;">&#40;</span>trGetN, strErrMsg<span style="color: #000000;">&#41;</span>;
+
+   <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span>;</pre>
+<p>Click <b>Compile</b> button to compile the file. Then click <b>Return to Dialog</b> button to return to <b>X-Function Builder</b>, and click <b>Save OXF file</b> button to save the X-Function.
+</p>
+<h3><a name="Script_for_X-Function_NormalityTest"></a><span class="mw-headline">Script for X-Function NormalityTest</span></h3>
+<p>Open the X-Function <b>NormalityTest</b>. Click the <b>Edit X-Function in Code Builder</b> button and add the following script.
+</p>
+<ul><li>Include header files</li></ul>
+<pre class="oc" style="font-family:monospace;"><span style="color: #0000ff;">#include</span> <span style="color: #ff00ff;">&quot;StatTestWiz.h&quot;</span>
+
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>XFbase.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span></pre>
+<ul><li>Add a static function _update_GUI()</li></ul>
+<p>This function is used to update the dialog's edit boxes for normality test result.
+</p>
+<pre class="oc" style="font-family:monospace;"><span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> _update_GUI<span style="color: #000000;">&#40;</span>TreeNode<span style="color: #000040;">&amp;</span> trGetN<span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>
+   vector vRes;
+   vRes <span style="color: #000080;">=</span> _norm_test<span style="color: #000000;">&#40;</span>trGetN.<span style="color: #000000;">nXFCorePointer</span>.<span style="color: #000000;">nVal</span>, trGetN.<span style="color: #000000;">type</span>.<span style="color: #000000;">nVal</span><span style="color: #000000;">&#41;</span>;
+	
+   trGetN.<span style="color: #000000;">stat</span>.<span style="color: #000000;">dVal</span> <span style="color: #000080;">=</span> vRes<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #000000;">&#93;</span>;
+   trGetN.<span style="color: #000000;">df</span>.<span style="color: #000000;">dVal</span> <span style="color: #000080;">=</span> vRes<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #000000;">&#93;</span>;
+   trGetN.<span style="color: #000000;">prob</span>.<span style="color: #000000;">dVal</span> <span style="color: #000080;">=</span> vRes<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">2</span><span style="color: #000000;">&#93;</span>;
+<span style="color: #000000;">&#125;</span></pre>
+<ul><li>Add a static function _update_strErr()</li></ul>
+<p>This function is used to update the string shown at the bottom of the dialog.
+</p>
+<pre class="oc" style="font-family:monospace;"><span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> _update_strErr<span style="color: #000000;">&#40;</span><span style="color: #0000ff;">const</span> TreeNode tr, string<span style="color: #000040;">&amp;</span> strErr<span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span>tr.<span style="color: #000000;">prob</span>.<span style="color: #000000;">dVal</span> <span style="color: #000080;">&gt;=</span> <span style="color: #0000dd;">0.05</span> <span style="color: #000040;">&amp;&amp;</span> tr.<span style="color: #000000;">prob</span>.<span style="color: #000000;">dVal</span> <span style="color: #000080;">&lt;=</span> <span style="color: #0000dd;">1</span><span style="color: #000000;">&#41;</span>
+      strErr <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;At the 0.05 level, the data was significantly drawn from a 
+            normally distributed population.&quot;</span>;
+   <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span>tr.<span style="color: #000000;">prob</span>.<span style="color: #000000;">dVal</span> <span style="color: #000080;">&lt;</span> <span style="color: #0000dd;">0.05</span> <span style="color: #000040;">&amp;&amp;</span> tr.<span style="color: #000000;">prob</span>.<span style="color: #000000;">dVal</span> <span style="color: #000080;">&gt;=</span> <span style="color: #0000dd;">0</span><span style="color: #000000;">&#41;</span>
+      strErr <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;At the 0.05 level, the data was not significantly drawn from a 
+            normally distributed population.&quot;</span>;
+   <span style="color: #0000ff;">else</span>		
+      strErr <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;There is not enough information to draw a conclusion.&quot;</span>;
+<span style="color: #000000;">&#125;</span></pre>
+<p>Note that the string is divided into two lines shown in the page. It should be a command of one line in the script.
+</p>
+<ul><li>Add a static function _norm_test()</li></ul>
+<p>This function is used to perform Normality Test using related X-Functions.
+</p>
+<pre class="oc" style="font-family:monospace;"><span style="color: #0000ff;">static</span> vector _norm_test<span style="color: #000000;">&#40;</span><span style="color: #0000ff;">const</span> <span style="color: #0000ff;">int</span> nXFCorePointer, <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">int</span> nType<span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>
+   StatTestWizCore<span style="color: #000040;">*</span> pstatwc <span style="color: #000080;">=</span> <span style="color: #000000;">&#40;</span>StatTestWizCore<span style="color: #000040;">*</span><span style="color: #000000;">&#41;</span>get_xf_core_handler<span style="color: #000000;">&#40;</span>nXFCorePointer<span style="color: #000000;">&#41;</span>;
+   <span style="color: #000000;">ASSERT</span><span style="color: #000000;">&#40;</span>pstatwc<span style="color: #000000;">&#41;</span>;
+   
+   vector vRes<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">3</span><span style="color: #000000;">&#41;</span>;
+   vRes<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">2</span><span style="color: #000000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #000040;">-</span><span style="color: #0000dd;">1</span>;
+   DataRange drInput;
+   drInput <span style="color: #000080;">=</span> pstatwc<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>GetRange<span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>;
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span> <span style="color: #000040;">!</span>drInput <span style="color: #000000;">&#41;</span>
+      <span style="color: #0000ff;">return</span> vRes;
+      
+   vector<span style="color: #000080;">&lt;</span>string<span style="color: #000080;">&gt;</span> vsXFName <span style="color: #000080;">=</span> <span style="color: #000000;">&#123;</span><span style="color: #ff00ff;">&quot;swtest&quot;</span>,<span style="color: #ff00ff;">&quot;kstest&quot;</span>,<span style="color: #ff00ff;">&quot;lillietest&quot;</span><span style="color: #000000;">&#125;</span>;
+   XFBase xfNorm<span style="color: #000000;">&#40;</span>vsXFName<span style="color: #000000;">&#91;</span>nType<span style="color: #000000;">&#93;</span><span style="color: #000000;">&#41;</span>;
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span> <span style="color: #000040;">!</span>xfNorm.<span style="color: #000000;">SetArg</span><span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;irng&quot;</span>, drInput<span style="color: #000000;">&#41;</span> <span style="color: #000000;">&#41;</span>
+   <span style="color: #000000;">&#123;</span>
+      error_report<span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;Failed to set argument image type&quot;</span><span style="color: #000000;">&#41;</span>;
+      <span style="color: #0000ff;">return</span> vRes;
+   <span style="color: #000000;">&#125;</span>
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span> <span style="color: #000040;">!</span>xfNorm.<span style="color: #000000;">SetArg</span><span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;stat&quot;</span>, vRes<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #000000;">&#93;</span><span style="color: #000000;">&#41;</span> <span style="color: #000000;">&#41;</span>
+   <span style="color: #000000;">&#123;</span>
+      error_report<span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;Failed to set argument image type&quot;</span><span style="color: #000000;">&#41;</span>;
+      <span style="color: #0000ff;">return</span> vRes;
+   <span style="color: #000000;">&#125;</span>
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span> <span style="color: #000040;">!</span>xfNorm.<span style="color: #000000;">SetArg</span><span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;df&quot;</span>, vRes<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #000000;">&#93;</span><span style="color: #000000;">&#41;</span> <span style="color: #000000;">&#41;</span>
+   <span style="color: #000000;">&#123;</span>
+       error_report<span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;Failed to set argument image type&quot;</span><span style="color: #000000;">&#41;</span>;
+       <span style="color: #0000ff;">return</span> vRes;
+   <span style="color: #000000;">&#125;</span>
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span> <span style="color: #000040;">!</span>xfNorm.<span style="color: #000000;">SetArg</span><span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;prob&quot;</span>, vRes<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">2</span><span style="color: #000000;">&#93;</span><span style="color: #000000;">&#41;</span> <span style="color: #000000;">&#41;</span>
+   <span style="color: #000000;">&#123;</span>
+       error_report<span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;Failed to set argument image type&quot;</span><span style="color: #000000;">&#41;</span>;   
+       <span style="color: #0000ff;">return</span> vRes;
+   <span style="color: #000000;">&#125;</span>
+   
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span> <span style="color: #000040;">!</span>xfNorm.<span style="color: #000000;">Evaluate</span><span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span> <span style="color: #000000;">&#41;</span>
+   <span style="color: #000000;">&#123;</span>
+      error_report<span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;Failed to evaluate the stats X-Function.&quot;</span><span style="color: #000000;">&#41;</span>;
+      <span style="color: #0000ff;">return</span> vRes;
+   <span style="color: #000000;">&#125;</span>
+
+   <span style="color: #0000ff;">return</span> vRes;
+<span style="color: #000000;">&#125;</span></pre>
+<ul><li>NormalityTest()</li></ul>
+<p>Update the function body, which exports the result into a worksheet when the <b>Next</b> button is pressed.
+</p>
+<pre class="oc" style="font-family:monospace;">   DataRange drInput;
+   StatTestWizCore<span style="color: #000040;">*</span> pstatwc <span style="color: #000080;">=</span> <span style="color: #000000;">&#40;</span>StatTestWizCore<span style="color: #000040;">*</span><span style="color: #000000;">&#41;</span>get_xf_core_handler<span style="color: #000000;">&#40;</span>nXFCorePointer<span style="color: #000000;">&#41;</span>;
+   <span style="color: #000000;">ASSERT</span><span style="color: #000000;">&#40;</span>pstatwc<span style="color: #000000;">&#41;</span>;
+   drInput <span style="color: #000080;">=</span> pstatwc<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>GetRange<span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>;
+
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span> <span style="color: #000040;">!</span>drInput <span style="color: #000000;">&#41;</span>
+      <span style="color: #0000ff;">return</span>;
+   string strBook, strSheet;
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span><span style="color: #000040;">!</span>drInput.<span style="color: #000000;">GetBookSheet</span><span style="color: #000000;">&#40;</span>strBook, strSheet<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#41;</span>
+   <span style="color: #000000;">&#123;</span>
+      error_report<span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;Workbook and worksheet names can't be obtained.&quot;</span><span style="color: #000000;">&#41;</span>;
+      <span style="color: #0000ff;">return</span>;
+   <span style="color: #000000;">&#125;</span>
+   WorksheetPage wpData<span style="color: #000000;">&#40;</span>strBook<span style="color: #000000;">&#41;</span>;
+   
+   <span style="color: #0000ff;">int</span> nLayer <span style="color: #000080;">=</span> wpData.<span style="color: #000000;">AddLayer</span><span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;Normality Test&quot;</span><span style="color: #000000;">&#41;</span>;
+   
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span>nLayer <span style="color: #000080;">&gt;=</span> <span style="color: #0000dd;">0</span><span style="color: #000000;">&#41;</span>
+   <span style="color: #000000;">&#123;</span>
+      Worksheet wksRes <span style="color: #000080;">=</span> wpData.<span style="color: #000000;">Layers</span><span style="color: #000000;">&#40;</span>nLayer<span style="color: #000000;">&#41;</span>;
+      vector<span style="color: #000080;">&lt;</span>string<span style="color: #000080;">&gt;</span> vsTypeName <span style="color: #000080;">=</span> <span style="color: #000000;">&#123;</span><span style="color: #ff00ff;">&quot;Shapiro-Wilk&quot;</span>,<span style="color: #ff00ff;">&quot;Kolmogorov-Smirnov&quot;</span>,<span style="color: #ff00ff;">&quot;Lilliefors&quot;</span><span style="color: #000000;">&#125;</span>;
+      vector<span style="color: #000080;">&lt;</span>string<span style="color: #000080;">&gt;</span> vsNProb <span style="color: #000080;">=</span> <span style="color: #000000;">&#123;</span><span style="color: #ff00ff;">&quot;Prob&lt;W&quot;</span>, <span style="color: #ff00ff;">&quot;Prob&gt;D&quot;</span>, <span style="color: #ff00ff;">&quot;Prob&gt;D&quot;</span><span style="color: #000000;">&#125;</span>;
+      vector<span style="color: #000080;">&lt;</span>string<span style="color: #000080;">&gt;</span> vsParaName <span style="color: #000080;">=</span> <span style="color: #000000;">&#123;</span><span style="color: #ff00ff;">&quot;Statistic&quot;</span>, <span style="color: #ff00ff;">&quot;DF&quot;</span>, <span style="color: #ff00ff;">&quot;&quot;</span><span style="color: #000000;">&#125;</span>;
+      vsParaName<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">2</span><span style="color: #000000;">&#93;</span> <span style="color: #000080;">=</span> vsNProb<span style="color: #000000;">&#91;</span>type<span style="color: #000000;">&#93;</span>;
+      
+      vector vRes;
+      vRes <span style="color: #000080;">=</span> _norm_test<span style="color: #000000;">&#40;</span>nXFCorePointer, type<span style="color: #000000;">&#41;</span>;
+      
+      wksRes.<span style="color: #000000;">Columns</span><span style="color: #000000;">&#40;</span><span style="color: #0000dd;">1</span><span style="color: #000000;">&#41;</span>.<span style="color: #000000;">SetLongName</span><span style="color: #000000;">&#40;</span>vsTypeName<span style="color: #000000;">&#91;</span>type<span style="color: #000000;">&#93;</span><span style="color: #000000;">&#41;</span>;
+      <span style="color: #0000ff;">for</span><span style="color: #000000;">&#40;</span><span style="color: #0000ff;">int</span> ii<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span>; ii<span style="color: #000080;">&lt;</span><span style="color: #0000dd;">3</span>; ii<span style="color: #000040;">++</span><span style="color: #000000;">&#41;</span>
+      <span style="color: #000000;">&#123;</span>
+         wksRes.<span style="color: #000000;">SetCell</span><span style="color: #000000;">&#40;</span>ii, <span style="color: #0000dd;">0</span>, vsParaName<span style="color: #000000;">&#91;</span>ii<span style="color: #000000;">&#93;</span>, <span style="color: #0000ff;">false</span><span style="color: #000000;">&#41;</span>;
+         wksRes.<span style="color: #000000;">SetCell</span><span style="color: #000000;">&#40;</span>ii, <span style="color: #0000dd;">1</span>, vRes<span style="color: #000000;">&#91;</span>ii<span style="color: #000000;">&#93;</span><span style="color: #000000;">&#41;</span>;
+      <span style="color: #000000;">&#125;</span>
+   <span style="color: #000000;">&#125;</span>
+   <span style="color: #0000ff;">else</span>
+   <span style="color: #000000;">&#123;</span>
+      error_report<span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;New worksheet can't be created.&quot;</span><span style="color: #000000;">&#41;</span>;
+   <span style="color: #000000;">&#125;</span></pre>
+<ul><li>NormalityTest_event1()</li></ul>
+<p>Update the function body, which will update the results in the dialog as the method of normality test changes. Strings shown at the bottom of the dialog will also be updated.
+</p>
+<pre class="oc" style="font-family:monospace;">   _update_GUI<span style="color: #000000;">&#40;</span>trGetN<span style="color: #000000;">&#41;</span>;
+   _update_strErr<span style="color: #000000;">&#40;</span>trGetN, strErrMsg<span style="color: #000000;">&#41;</span>;      
+   
+   <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span>;</pre>
+<ul><li>NormalityTest_before_execute()</li></ul>
+<p>Update the function body, which will make the edit boxes for results grayed out, and show the result in the dialog.
+</p>
+<pre class="oc" style="font-family:monospace;">   trGetN.<span style="color: #000000;">stat</span>.<span style="color: #000000;">Enable</span> <span style="color: #000080;">=</span> <span style="color: #0000ff;">false</span>;
+   trGetN.<span style="color: #000000;">df</span>.<span style="color: #000000;">Enable</span> <span style="color: #000080;">=</span> <span style="color: #0000ff;">false</span>;
+   trGetN.<span style="color: #000000;">prob</span>.<span style="color: #000000;">Enable</span> <span style="color: #000080;">=</span> <span style="color: #0000ff;">false</span>;</pre>
+<p>Click the <b>Compile</b> button to compile the file. Then click the <b>Return to Dialog</b> button to return to <b>X-Function Builder</b>, and click the <b>Save OXF file</b> button to save the X-Function.
+</p>
+<h3><a name="Script_for_X-Function_OnetTest"></a><span class="mw-headline">Script for X-Function OnetTest</span></h3>
+<p>Open the X-Function <b>OnetTest</b>. Click the <b>Edit X-Function in Code Builder</b> button and add the following script.
+</p>
+<ul><li>Include header files</li></ul>
+<pre class="oc" style="font-family:monospace;"><span style="color: #0000ff;">#include</span> <span style="color: #ff00ff;">&quot;StatTestWiz.h&quot;</span>
+
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>XFbase.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span></pre>
+<ul><li>Define strings</li></ul>
+<pre class="oc" style="font-family:monospace;"><span style="color: #0000ff;">const</span> vector<span style="color: #000080;">&lt;</span>string<span style="color: #000080;">&gt;</span> vsNull <span style="color: #000080;">=</span> <span style="color: #000000;">&#123;</span><span style="color: #ff00ff;">&quot;Mean = &quot;</span>,<span style="color: #ff00ff;">&quot;Mean &lt;= &quot;</span>,<span style="color: #ff00ff;">&quot;Mean &gt;= &quot;</span><span style="color: #000000;">&#125;</span>;
+<span style="color: #0000ff;">const</span> vector<span style="color: #000080;">&lt;</span>string<span style="color: #000080;">&gt;</span> vsAlter <span style="color: #000080;">=</span> <span style="color: #000000;">&#123;</span><span style="color: #ff00ff;">&quot;Mean &lt;&gt; &quot;</span>,<span style="color: #ff00ff;">&quot;Mean &gt; &quot;</span>,<span style="color: #ff00ff;">&quot;Mean &lt; &quot;</span><span style="color: #000000;">&#125;</span>;
+<span style="color: #0000ff;">const</span> vector<span style="color: #000080;">&lt;</span>string<span style="color: #000080;">&gt;</span> vsAcceptNull <span style="color: #000080;">=</span> <span style="color: #000000;">&#123;</span><span style="color: #ff00ff;">&quot;Not significantly different from&quot;</span>,<span style="color: #ff00ff;">&quot;Not 
+significantly greater than&quot;</span>,<span style="color: #ff00ff;">&quot;Not significantly less than&quot;</span><span style="color: #000000;">&#125;</span>;
+<span style="color: #0000ff;">const</span> vector<span style="color: #000080;">&lt;</span>string<span style="color: #000080;">&gt;</span> vsRejectNull <span style="color: #000080;">=</span> <span style="color: #000000;">&#123;</span><span style="color: #ff00ff;">&quot;significantly different from&quot;</span>,<span style="color: #ff00ff;">&quot;significantly 
+greater than&quot;</span>,<span style="color: #ff00ff;">&quot;significantly less than&quot;</span><span style="color: #000000;">&#125;</span>;
+<span style="color: #0000ff;">const</span> vector<span style="color: #000080;">&lt;</span>string<span style="color: #000080;">&gt;</span> vsProb <span style="color: #000080;">=</span> <span style="color: #000000;">&#123;</span><span style="color: #ff00ff;">&quot;Prob&gt;|t|&quot;</span>, <span style="color: #ff00ff;">&quot;Prob&gt;t&quot;</span>, <span style="color: #ff00ff;">&quot;Prob&lt;t&quot;</span><span style="color: #000000;">&#125;</span>;</pre>
+<ul><li>Add a static function _update_null()</li></ul>
+<p>This function is used to update the <b>Null</b> edit box.
+</p>
+<pre class="oc" style="font-family:monospace;"><span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> _update_null<span style="color: #000000;">&#40;</span>TreeNode<span style="color: #000040;">&amp;</span> trGetN, <span style="color: #0000ff;">bool</span> bMean <span style="color: #000080;">=</span> <span style="color: #0000ff;">false</span><span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>
+   string strNull;
+
+   strNull <span style="color: #000080;">=</span> vsNull<span style="color: #000000;">&#91;</span>trGetN.<span style="color: #000000;">tail</span>.<span style="color: #000000;">nVal</span><span style="color: #000000;">&#93;</span> <span style="color: #000040;">+</span> ftoa<span style="color: #000000;">&#40;</span>trGetN.<span style="color: #000000;">mean</span>.<span style="color: #000000;">dVal</span><span style="color: #000000;">&#41;</span>;
+   trGetN.<span style="color: #0000ff;">null</span>.<span style="color: #000000;">strVal</span> <span style="color: #000080;">=</span> strNull;
+   
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span>bMean<span style="color: #000000;">&#41;</span>
+   <span style="color: #000000;">&#123;</span>
+      string strAlter <span style="color: #000080;">=</span> vsAlter<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #000000;">&#93;</span> <span style="color: #000040;">+</span> ftoa<span style="color: #000000;">&#40;</span>trGetN.<span style="color: #000000;">mean</span>.<span style="color: #000000;">dVal</span><span style="color: #000000;">&#41;</span> <span style="color: #000040;">+</span> <span style="color: #ff00ff;">&quot;|&quot;</span>;
+      strAlter <span style="color: #000080;">=</span> strAlter <span style="color: #000040;">+</span> vsAlter<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #000000;">&#93;</span> <span style="color: #000040;">+</span> ftoa<span style="color: #000000;">&#40;</span>trGetN.<span style="color: #000000;">mean</span>.<span style="color: #000000;">dVal</span><span style="color: #000000;">&#41;</span> <span style="color: #000040;">+</span> <span style="color: #ff00ff;">&quot;|&quot;</span>;
+      strAlter <span style="color: #000080;">=</span> strAlter <span style="color: #000040;">+</span> vsAlter<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #000000;">&#93;</span> <span style="color: #000040;">+</span> ftoa<span style="color: #000000;">&#40;</span>trGetN.<span style="color: #000000;">mean</span>.<span style="color: #000000;">dVal</span><span style="color: #000000;">&#41;</span>;
+
+      trGetN.<span style="color: #000000;">tail</span>.<span style="color: #000000;">SetAttribute</span><span style="color: #000000;">&#40;</span>STR_COMBO_ATTRIB, strAlter<span style="color: #000000;">&#41;</span>;
+   <span style="color: #000000;">&#125;</span>
+<span style="color: #000000;">&#125;</span></pre>
+<ul><li>Add a static function _check_sig_level()</li></ul>
+<p>This function is used to check the <b>Significance Level</b> edit box value.
+</p>
+<pre class="oc" style="font-family:monospace;"><span style="color: #0000ff;">static</span> <span style="color: #0000ff;">bool</span> _check_sig_level<span style="color: #000000;">&#40;</span>TreeNode<span style="color: #000040;">&amp;</span> trGetN, string<span style="color: #000040;">&amp;</span> strErr<span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span> trGetN.<span style="color: #000000;">siglevel</span>.<span style="color: #000000;">dVal</span> <span style="color: #000080;">&gt;</span> <span style="color: #0000dd;">0</span> <span style="color: #000040;">&amp;&amp;</span> trGetN.<span style="color: #000000;">siglevel</span>.<span style="color: #000000;">dVal</span> <span style="color: #000080;">&lt;</span> <span style="color: #0000dd;">1</span> <span style="color: #000000;">&#41;</span>
+   <span style="color: #000000;">&#123;</span>
+      <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span>;
+   <span style="color: #000000;">&#125;</span>
+   <span style="color: #0000ff;">else</span>
+   <span style="color: #000000;">&#123;</span>
+      strErr <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;Significance Level should be between 0 and 1.&quot;</span>;
+      <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span>;
+   <span style="color: #000000;">&#125;</span>
+<span style="color: #000000;">&#125;</span></pre>
+<ul><li>Add a static function _update_strErr()</li></ul>
+<p>This function is used to define the string for the conclusion of t-test at the bottom based on P-value.
+</p>
+<pre class="oc" style="font-family:monospace;"><span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> _update_strErr<span style="color: #000000;">&#40;</span><span style="color: #0000ff;">const</span> TreeNode tr, string<span style="color: #000040;">&amp;</span> strErr<span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>   
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span>tr.<span style="color: #000000;">tprob</span>.<span style="color: #000000;">dVal</span> <span style="color: #000080;">&gt;=</span> tr.<span style="color: #000000;">siglevel</span>.<span style="color: #000000;">dVal</span> <span style="color: #000040;">&amp;&amp;</span> tr.<span style="color: #000000;">tprob</span>.<span style="color: #000000;">dVal</span> <span style="color: #000080;">&lt;=</span> <span style="color: #0000dd;">1</span><span style="color: #000000;">&#41;</span>
+      strErr.<span style="color: #000000;">Format</span><span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;Null Hypothesis is&#160;%s%s.<span style="color: #666666; font-weight: bold;">\r</span><span style="color: #666666; font-weight: bold;">\n</span>Alternative Hypothesis is&#160;%s%s.
+         At the&#160;%s level, the population mean is&#160;%s the test mean(%s).&quot;</span>,          
+         vsNull<span style="color: #000000;">&#91;</span>tr.<span style="color: #000000;">tail</span>.<span style="color: #000000;">nVal</span><span style="color: #000000;">&#93;</span>, ftoa<span style="color: #000000;">&#40;</span>tr.<span style="color: #000000;">mean</span>.<span style="color: #000000;">dVal</span><span style="color: #000000;">&#41;</span>, vsAlter<span style="color: #000000;">&#91;</span>tr.<span style="color: #000000;">tail</span>.<span style="color: #000000;">nVal</span><span style="color: #000000;">&#93;</span>, ftoa<span style="color: #000000;">&#40;</span>tr.<span style="color: #000000;">mean</span>.<span style="color: #000000;">dVal</span><span style="color: #000000;">&#41;</span>,      
+         ftoa<span style="color: #000000;">&#40;</span>tr.<span style="color: #000000;">siglevel</span>.<span style="color: #000000;">dVal</span><span style="color: #000000;">&#41;</span>, vsAcceptNull<span style="color: #000000;">&#91;</span>tr.<span style="color: #000000;">tail</span>.<span style="color: #000000;">nVal</span><span style="color: #000000;">&#93;</span>, ftoa<span style="color: #000000;">&#40;</span>tr.<span style="color: #000000;">mean</span>.<span style="color: #000000;">dVal</span><span style="color: #000000;">&#41;</span> <span style="color: #000000;">&#41;</span>;
+   <span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span>tr.<span style="color: #000000;">tprob</span>.<span style="color: #000000;">dVal</span> <span style="color: #000080;">&lt;</span> tr.<span style="color: #000000;">siglevel</span>.<span style="color: #000000;">dVal</span> <span style="color: #000040;">&amp;&amp;</span> tr.<span style="color: #000000;">tprob</span>.<span style="color: #000000;">dVal</span> <span style="color: #000080;">&gt;=</span> <span style="color: #0000dd;">0</span><span style="color: #000000;">&#41;</span>
+      strErr.<span style="color: #000000;">Format</span><span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;Null Hypothesis is&#160;%s%s.<span style="color: #666666; font-weight: bold;">\r</span><span style="color: #666666; font-weight: bold;">\n</span>Alternative Hypothesis is&#160;%s%s.
+         At the&#160;%s level, the population mean is&#160;%s the test mean(%s).&quot;</span>, 
+         vsNull<span style="color: #000000;">&#91;</span>tr.<span style="color: #000000;">tail</span>.<span style="color: #000000;">nVal</span><span style="color: #000000;">&#93;</span>, ftoa<span style="color: #000000;">&#40;</span>tr.<span style="color: #000000;">mean</span>.<span style="color: #000000;">dVal</span><span style="color: #000000;">&#41;</span>, vsAlter<span style="color: #000000;">&#91;</span>tr.<span style="color: #000000;">tail</span>.<span style="color: #000000;">nVal</span><span style="color: #000000;">&#93;</span>, ftoa<span style="color: #000000;">&#40;</span>tr.<span style="color: #000000;">mean</span>.<span style="color: #000000;">dVal</span><span style="color: #000000;">&#41;</span>,
+         ftoa<span style="color: #000000;">&#40;</span>tr.<span style="color: #000000;">siglevel</span>.<span style="color: #000000;">dVal</span><span style="color: #000000;">&#41;</span>, vsRejectNull<span style="color: #000000;">&#91;</span>tr.<span style="color: #000000;">tail</span>.<span style="color: #000000;">nVal</span><span style="color: #000000;">&#93;</span>, ftoa<span style="color: #000000;">&#40;</span>tr.<span style="color: #000000;">mean</span>.<span style="color: #000000;">dVal</span><span style="color: #000000;">&#41;</span> <span style="color: #000000;">&#41;</span>;
+   <span style="color: #0000ff;">else</span>     
+      strErr <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;There is not enough information to draw a conclusion.&quot;</span>;
+<span style="color: #000000;">&#125;</span></pre>
+<p>Note that the command is divided into several lines shown in the page. It should be a command of one line in the script.
+</p>
+<ul><li>Add a static function _update_GUI()</li></ul>
+<p>This function is used to update edit boxes for results in the dialog.
+</p>
+<pre class="oc" style="font-family:monospace;"><span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> _update_GUI<span style="color: #000000;">&#40;</span>TreeNode<span style="color: #000040;">&amp;</span> trGetN<span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>  
+   vector vRes;
+   vRes <span style="color: #000080;">=</span> _one_sample_t_test<span style="color: #000000;">&#40;</span>trGetN.<span style="color: #000000;">nXFCorePointer</span>.<span style="color: #000000;">nVal</span>, trGetN.<span style="color: #000000;">mean</span>.<span style="color: #000000;">dVal</span>, trGetN.<span style="color: #000000;">tail</span>.<span style="color: #000000;">dVal</span>, trGetN.<span style="color: #000000;">siglevel</span>.<span style="color: #000000;">dVal</span><span style="color: #000000;">&#41;</span>;
+   
+   trGetN.<span style="color: #000000;">stat</span>.<span style="color: #000000;">dVal</span> <span style="color: #000080;">=</span> vRes<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #000000;">&#93;</span>;
+   trGetN.<span style="color: #000000;">df</span>.<span style="color: #000000;">dVal</span> <span style="color: #000080;">=</span> vRes<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #000000;">&#93;</span>;
+   trGetN.<span style="color: #000000;">tprob</span>.<span style="color: #000000;">dVal</span> <span style="color: #000080;">=</span> vRes<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">2</span><span style="color: #000000;">&#93;</span>;
+   trGetN.<span style="color: #000000;">lcl</span>.<span style="color: #000000;">dVal</span> <span style="color: #000080;">=</span> vRes<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">4</span><span style="color: #000000;">&#93;</span>;
+   trGetN.<span style="color: #000000;">ucl</span>.<span style="color: #000000;">dVal</span> <span style="color: #000080;">=</span> vRes<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">5</span><span style="color: #000000;">&#93;</span>;   
+<span style="color: #000000;">&#125;</span></pre>
+<ul><li>Add a static function _one_sample_t_test()</li></ul>
+<p>This function is used to perform One-Sample t-Test using an X-Function.
+</p>
+<pre class="oc" style="font-family:monospace;"><span style="color: #0000ff;">static</span> vector _one_sample_t_test<span style="color: #000000;">&#40;</span><span style="color: #0000ff;">const</span> <span style="color: #0000ff;">int</span> nXFCorePointer, <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">double</span> dMean, <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">int</span> nTail, <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">double</span> dSiglevel<span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>
+   DataRange drInput;
+   StatTestWizCore<span style="color: #000040;">*</span> pstatwc <span style="color: #000080;">=</span> <span style="color: #000000;">&#40;</span>StatTestWizCore<span style="color: #000040;">*</span><span style="color: #000000;">&#41;</span>get_xf_core_handler<span style="color: #000000;">&#40;</span>nXFCorePointer<span style="color: #000000;">&#41;</span>;
+   <span style="color: #000000;">ASSERT</span><span style="color: #000000;">&#40;</span>pstatwc<span style="color: #000000;">&#41;</span>;
+   
+   vector vRes<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">6</span><span style="color: #000000;">&#41;</span>;
+   vRes<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">2</span><span style="color: #000000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #000040;">-</span><span style="color: #0000dd;">1</span>;
+   drInput <span style="color: #000080;">=</span> pstatwc<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>GetRange<span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>;
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span> <span style="color: #000040;">!</span>drInput <span style="color: #000000;">&#41;</span>
+      <span style="color: #0000ff;">return</span> vRes;
+         
+   vRes<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">3</span><span style="color: #000000;">&#93;</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">100</span> <span style="color: #000040;">-</span> <span style="color: #0000dd;">100</span><span style="color: #000040;">*</span>dSiglevel;
+   
+   XFBase xfTTest<span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;ttest1&quot;</span><span style="color: #000000;">&#41;</span>;
+
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span> <span style="color: #000040;">!</span>xfTTest.<span style="color: #000000;">SetArg</span><span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;irng&quot;</span>, drInput<span style="color: #000000;">&#41;</span> <span style="color: #000000;">&#41;</span>
+   <span style="color: #000000;">&#123;</span>
+      error_report<span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;Failed to set argument irng&quot;</span><span style="color: #000000;">&#41;</span>;
+      <span style="color: #0000ff;">return</span> vRes;
+   <span style="color: #000000;">&#125;</span>
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span> <span style="color: #000040;">!</span>xfTTest.<span style="color: #000000;">SetArg</span><span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;mean&quot;</span>, dMean<span style="color: #000000;">&#41;</span> <span style="color: #000000;">&#41;</span>
+   <span style="color: #000000;">&#123;</span>
+      error_report<span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;Failed to set argument mean&quot;</span><span style="color: #000000;">&#41;</span>;
+      <span style="color: #0000ff;">return</span> vRes;
+   <span style="color: #000000;">&#125;</span>
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span> <span style="color: #000040;">!</span>xfTTest.<span style="color: #000000;">SetArg</span><span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;tail&quot;</span>, nTail<span style="color: #000000;">&#41;</span> <span style="color: #000000;">&#41;</span>
+   <span style="color: #000000;">&#123;</span>
+      error_report<span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;Failed to set argument tail&quot;</span><span style="color: #000000;">&#41;</span>;
+      <span style="color: #0000ff;">return</span> vRes;
+   <span style="color: #000000;">&#125;</span>
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span> <span style="color: #000040;">!</span>xfTTest.<span style="color: #000000;">SetArg</span><span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;alpha&quot;</span>, dSiglevel<span style="color: #000000;">&#41;</span> <span style="color: #000000;">&#41;</span>
+   <span style="color: #000000;">&#123;</span>
+      error_report<span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;Failed to set argument alpha&quot;</span><span style="color: #000000;">&#41;</span>;
+      <span style="color: #0000ff;">return</span> vRes;
+   <span style="color: #000000;">&#125;</span>
+   
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span> <span style="color: #000040;">!</span>xfTTest.<span style="color: #000000;">SetArg</span><span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;stat&quot;</span>, vRes<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #000000;">&#93;</span><span style="color: #000000;">&#41;</span> <span style="color: #000000;">&#41;</span>
+   <span style="color: #000000;">&#123;</span>
+      error_report<span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;Failed to set argument stat&quot;</span><span style="color: #000000;">&#41;</span>;
+      <span style="color: #0000ff;">return</span> vRes;
+   <span style="color: #000000;">&#125;</span>
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span> <span style="color: #000040;">!</span>xfTTest.<span style="color: #000000;">SetArg</span><span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;df&quot;</span>, vRes<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #000000;">&#93;</span><span style="color: #000000;">&#41;</span> <span style="color: #000000;">&#41;</span>
+   <span style="color: #000000;">&#123;</span>
+       error_report<span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;Failed to set argument df&quot;</span><span style="color: #000000;">&#41;</span>;
+       <span style="color: #0000ff;">return</span> vRes;
+   <span style="color: #000000;">&#125;</span>
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span> <span style="color: #000040;">!</span>xfTTest.<span style="color: #000000;">SetArg</span><span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;prob&quot;</span>, vRes<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">2</span><span style="color: #000000;">&#93;</span><span style="color: #000000;">&#41;</span> <span style="color: #000000;">&#41;</span>
+   <span style="color: #000000;">&#123;</span>
+       error_report<span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;Failed to set argument prob&quot;</span><span style="color: #000000;">&#41;</span>;
+       <span style="color: #0000ff;">return</span> vRes;
+   <span style="color: #000000;">&#125;</span>
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span> <span style="color: #000040;">!</span>xfTTest.<span style="color: #000000;">SetArg</span><span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;lcl&quot;</span>, vRes<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">4</span><span style="color: #000000;">&#93;</span><span style="color: #000000;">&#41;</span> <span style="color: #000000;">&#41;</span>
+   <span style="color: #000000;">&#123;</span>
+       error_report<span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;Failed to set argument lcl&quot;</span><span style="color: #000000;">&#41;</span>;
+       <span style="color: #0000ff;">return</span> vRes;
+   <span style="color: #000000;">&#125;</span>
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span> <span style="color: #000040;">!</span>xfTTest.<span style="color: #000000;">SetArg</span><span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;ucl&quot;</span>, vRes<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">5</span><span style="color: #000000;">&#93;</span><span style="color: #000000;">&#41;</span> <span style="color: #000000;">&#41;</span>
+   <span style="color: #000000;">&#123;</span>
+       error_report<span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;Failed to set argument ucl&quot;</span><span style="color: #000000;">&#41;</span>;
+       <span style="color: #0000ff;">return</span> vRes;
+   <span style="color: #000000;">&#125;</span>
+   
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span> <span style="color: #000040;">!</span>xfTTest.<span style="color: #000000;">Evaluate</span><span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span> <span style="color: #000000;">&#41;</span>
+   <span style="color: #000000;">&#123;</span>
+      error_report<span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;Failed to evaluate the ttest1 X-Function.&quot;</span><span style="color: #000000;">&#41;</span>;
+      <span style="color: #0000ff;">return</span> vRes;
+   <span style="color: #000000;">&#125;</span>
+   
+   <span style="color: #0000ff;">return</span> vRes;
+<span style="color: #000000;">&#125;</span></pre>
+<ul><li>OnetTest()</li></ul>
+<p>Update the function body, which exports the result into a worksheet when the <b>Finish</b> button is pressed.
+</p>
+<pre class="oc" style="font-family:monospace;">   DataRange drInput;
+   StatTestWizCore<span style="color: #000040;">*</span> pstatwc <span style="color: #000080;">=</span> <span style="color: #000000;">&#40;</span>StatTestWizCore<span style="color: #000040;">*</span><span style="color: #000000;">&#41;</span>get_xf_core_handler<span style="color: #000000;">&#40;</span>nXFCorePointer<span style="color: #000000;">&#41;</span>;
+   <span style="color: #000000;">ASSERT</span><span style="color: #000000;">&#40;</span>pstatwc<span style="color: #000000;">&#41;</span>;
+   
+   drInput <span style="color: #000080;">=</span> pstatwc<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>GetRange<span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>;
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span> <span style="color: #000040;">!</span>drInput <span style="color: #000000;">&#41;</span>
+      <span style="color: #0000ff;">return</span>&#160;;
+   
+   string strBook, strSheet;
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span><span style="color: #000040;">!</span>drInput.<span style="color: #000000;">GetBookSheet</span><span style="color: #000000;">&#40;</span>strBook, strSheet<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#41;</span>
+   <span style="color: #000000;">&#123;</span>
+      error_report<span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;Workbook and worksheet names can't be obtained.&quot;</span><span style="color: #000000;">&#41;</span>;
+      <span style="color: #0000ff;">return</span>;
+   <span style="color: #000000;">&#125;</span>
+   WorksheetPage wpData<span style="color: #000000;">&#40;</span>strBook<span style="color: #000000;">&#41;</span>;
+   
+   <span style="color: #0000ff;">int</span> nLayer <span style="color: #000080;">=</span> wpData.<span style="color: #000000;">AddLayer</span><span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;One-Sample t-test&quot;</span><span style="color: #000000;">&#41;</span>;
+   
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span>nLayer <span style="color: #000080;">&gt;=</span> <span style="color: #0000dd;">0</span><span style="color: #000000;">&#41;</span>
+   <span style="color: #000000;">&#123;</span>
+      Worksheet wksRes <span style="color: #000080;">=</span> wpData.<span style="color: #000000;">Layers</span><span style="color: #000000;">&#40;</span>nLayer<span style="color: #000000;">&#41;</span>;
+   
+      vector<span style="color: #000080;">&lt;</span>string<span style="color: #000080;">&gt;</span> vsParaName <span style="color: #000080;">=</span> <span style="color: #000000;">&#123;</span><span style="color: #ff00ff;">&quot;t Statistic&quot;</span>, <span style="color: #ff00ff;">&quot;DF&quot;</span>,<span style="color: #ff00ff;">&quot;&quot;</span>, <span style="color: #ff00ff;">&quot;Conf. Levels in&#160;%&quot;</span>, <span style="color: #ff00ff;">&quot;Lower Limits&quot;</span>, <span style="color: #ff00ff;">&quot;Lower Limits&quot;</span><span style="color: #000000;">&#125;</span>;
+      vsParaName<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">2</span><span style="color: #000000;">&#93;</span> <span style="color: #000080;">=</span> vsProb<span style="color: #000000;">&#91;</span>tail<span style="color: #000000;">&#93;</span>;
+      
+      vector vRes;
+      vRes <span style="color: #000080;">=</span> _one_sample_t_test<span style="color: #000000;">&#40;</span>nXFCorePointer, mean, tail, siglevel<span style="color: #000000;">&#41;</span>;
+      
+      wksRes.<span style="color: #000000;">SetSize</span><span style="color: #000000;">&#40;</span><span style="color: #000040;">-</span><span style="color: #0000dd;">1</span>, <span style="color: #0000dd;">4</span><span style="color: #000000;">&#41;</span>;
+      wksRes.<span style="color: #000000;">Columns</span><span style="color: #000000;">&#40;</span><span style="color: #0000dd;">0</span><span style="color: #000000;">&#41;</span>.<span style="color: #000000;">SetLongName</span><span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;Test Statistics&quot;</span><span style="color: #000000;">&#41;</span>;
+      string strNull <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;Null Hypothesis is &quot;</span> <span style="color: #000040;">+</span> vsNull<span style="color: #000000;">&#91;</span>tail<span style="color: #000000;">&#93;</span> <span style="color: #000040;">+</span> ftoa<span style="color: #000000;">&#40;</span>mean<span style="color: #000000;">&#41;</span>;
+      wksRes.<span style="color: #000000;">Columns</span><span style="color: #000000;">&#40;</span><span style="color: #0000dd;">1</span><span style="color: #000000;">&#41;</span>.<span style="color: #000000;">SetLongName</span><span style="color: #000000;">&#40;</span>strNull<span style="color: #000000;">&#41;</span>;
+      wksRes.<span style="color: #000000;">Columns</span><span style="color: #000000;">&#40;</span><span style="color: #0000dd;">3</span><span style="color: #000000;">&#41;</span>.<span style="color: #000000;">SetLongName</span><span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;Confidence Intervals for Mean&quot;</span><span style="color: #000000;">&#41;</span>;
+      <span style="color: #0000ff;">for</span><span style="color: #000000;">&#40;</span><span style="color: #0000ff;">int</span> ii<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span>; ii<span style="color: #000080;">&lt;</span><span style="color: #0000dd;">3</span>; ii<span style="color: #000040;">++</span><span style="color: #000000;">&#41;</span>
+      <span style="color: #000000;">&#123;</span>
+         wksRes.<span style="color: #000000;">SetCell</span><span style="color: #000000;">&#40;</span>ii, <span style="color: #0000dd;">0</span>, vsParaName<span style="color: #000000;">&#91;</span>ii<span style="color: #000000;">&#93;</span>, <span style="color: #0000ff;">false</span><span style="color: #000000;">&#41;</span>;
+         wksRes.<span style="color: #000000;">SetCell</span><span style="color: #000000;">&#40;</span>ii, <span style="color: #0000dd;">1</span>, vRes<span style="color: #000000;">&#91;</span>ii<span style="color: #000000;">&#93;</span><span style="color: #000000;">&#41;</span>;
+         
+         wksRes.<span style="color: #000000;">SetCell</span><span style="color: #000000;">&#40;</span>ii, <span style="color: #0000dd;">2</span>, vsParaName<span style="color: #000000;">&#91;</span>ii <span style="color: #000040;">+</span> <span style="color: #0000dd;">3</span><span style="color: #000000;">&#93;</span>, <span style="color: #0000ff;">false</span><span style="color: #000000;">&#41;</span>;
+         wksRes.<span style="color: #000000;">SetCell</span><span style="color: #000000;">&#40;</span>ii, <span style="color: #0000dd;">3</span>, vRes<span style="color: #000000;">&#91;</span>ii <span style="color: #000040;">+</span> <span style="color: #0000dd;">3</span><span style="color: #000000;">&#93;</span><span style="color: #000000;">&#41;</span>;
+      <span style="color: #000000;">&#125;</span>     
+   <span style="color: #000000;">&#125;</span>
+   <span style="color: #0000ff;">else</span>
+   <span style="color: #000000;">&#123;</span>
+      error_report<span style="color: #000000;">&#40;</span><span style="color: #ff00ff;">&quot;New worksheet can't be created.&quot;</span><span style="color: #000000;">&#41;</span>;
+   <span style="color: #000000;">&#125;</span></pre>
+<ul><li>OnetTest_event1()</li></ul>
+<p>Update the function body, which will update results and show a conclusion at the bottom of the dialog according to the result.  As settings change in the dialog, the <b>Null</b> edit box will be updated as the mean and hypothesis change, and the <b>Significance Level</b> edit box's value is checked.
+</p>
+<pre class="oc" style="font-family:monospace;">   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span> <span style="color: #0000dd;">0</span> <span style="color: #000080;">==</span> lstrcmp<span style="color: #000000;">&#40;</span>lpcszNodeName, <span style="color: #ff00ff;">&quot;mean&quot;</span><span style="color: #000000;">&#41;</span> <span style="color: #000000;">&#41;</span>
+      _update_null<span style="color: #000000;">&#40;</span>trGetN, <span style="color: #0000ff;">true</span><span style="color: #000000;">&#41;</span>;
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span> <span style="color: #0000dd;">0</span> <span style="color: #000080;">==</span> lstrcmp<span style="color: #000000;">&#40;</span>lpcszNodeName, <span style="color: #ff00ff;">&quot;tail&quot;</span><span style="color: #000000;">&#41;</span> <span style="color: #000000;">&#41;</span>
+      _update_null<span style="color: #000000;">&#40;</span>trGetN<span style="color: #000000;">&#41;</span>;   
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span> <span style="color: #0000dd;">0</span> <span style="color: #000080;">==</span> lstrcmp<span style="color: #000000;">&#40;</span>lpcszNodeName, <span style="color: #ff00ff;">&quot;siglevel&quot;</span><span style="color: #000000;">&#41;</span> <span style="color: #000000;">&#41;</span>
+      bOKEnable <span style="color: #000080;">=</span> _check_sig_level<span style="color: #000000;">&#40;</span>trGetN, strErrMsg<span style="color: #000000;">&#41;</span>;
+   
+   _update_GUI<span style="color: #000000;">&#40;</span>trGetN<span style="color: #000000;">&#41;</span>;
+   _update_strErr<span style="color: #000000;">&#40;</span>trGetN, strErrMsg<span style="color: #000000;">&#41;</span>;  
+      
+   <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span>;</pre>
+<ul><li>OnetTest_before_execute()</li></ul>
+<p>Update the function body, to show/hide or disable the controls in the dialog.
+</p>
+<pre class="oc" style="font-family:monospace;">   StatTestWizCore<span style="color: #000040;">*</span> pstatwc <span style="color: #000080;">=</span> <span style="color: #000000;">&#40;</span>StatTestWizCore<span style="color: #000040;">*</span><span style="color: #000000;">&#41;</span>get_xf_core_handler<span style="color: #000000;">&#40;</span>trGetN.<span style="color: #000000;">nXFCorePointer</span>.<span style="color: #000000;">nVal</span><span style="color: #000000;">&#41;</span>;
+   <span style="color: #000000;">ASSERT</span><span style="color: #000000;">&#40;</span>pstatwc<span style="color: #000000;">&#41;</span>;
+   trGetN.<span style="color: #000000;">prob</span>.<span style="color: #000000;">Show</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span> <span style="color: #000040;">-</span> pstatwc<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>nStep;
+   trGetN.<span style="color: #000000;">prob</span>.<span style="color: #000000;">Enable</span> <span style="color: #000080;">=</span> <span style="color: #0000ff;">false</span>;
+   
+   trGetN.<span style="color: #0000ff;">null</span>.<span style="color: #000000;">Enable</span> <span style="color: #000080;">=</span> <span style="color: #0000ff;">false</span>;
+   trGetN.<span style="color: #000000;">stat</span>.<span style="color: #000000;">Enable</span> <span style="color: #000080;">=</span> <span style="color: #0000ff;">false</span>;
+   trGetN.<span style="color: #000000;">df</span>.<span style="color: #000000;">Enable</span> <span style="color: #000080;">=</span> <span style="color: #0000ff;">false</span>;
+   trGetN.<span style="color: #000000;">tprob</span>.<span style="color: #000000;">Enable</span> <span style="color: #000080;">=</span> <span style="color: #0000ff;">false</span>;
+   trGetN.<span style="color: #000000;">lcl</span>.<span style="color: #000000;">Enable</span> <span style="color: #000080;">=</span> <span style="color: #0000ff;">false</span>;
+   trGetN.<span style="color: #000000;">ucl</span>.<span style="color: #000000;">Enable</span> <span style="color: #000080;">=</span> <span style="color: #0000ff;">false</span>;</pre>
+<p>Click the <b>Compile</b> button to compile the file. Then click the <b>Return to Dialog</b> button to return to the X-Function Builder.  Click the <b>Save OXF file</b> button to save the X-Function.
+</p><p>Close Origin. Then start Origin and you will notice that a new item <b>Stat Test</b> is added to Origin's menu <b>Statistics: Hypothesis Testing</b>.
+</p>
+<h2><a name="How_to_Use_the_Wizard"></a><span class="mw-headline">How to Use the Wizard</span></h2>
+<p>The following example shows how to use the wizard.
+</p>
+<ol><li>Select a column in the worksheet.</li>
+<li>Select <b>Statistics: Hypothesis Testing: Stat Test</b> from the Origin menu or type the command "StatTest -d" in the command window. The <b>Stat Test</b> wizard dialog will open.<br /><a  class="image"><img alt="How to Create a Wizard wiz1.png" src="../images/How_to_Create_a_Wizard/How_to_Create_a_Wizard_wiz1.png?v=7647" width="386"  /></a></li>
+<li>Click the <b>Next</b> button. The <b>Normality Test</b> dialog is opened. The result is shown in the <b>Output</b> branch. A conclusion is drawn at the bottom of the dialog.<br /><a  class="image"><img alt="How to Create a Wizard wiz2.png" src="../images/How_to_Create_a_Wizard/How_to_Create_a_Wizard_wiz2.png?v=7649" width="385"  /></a></li>
+<li>Click the <b>Next</b> button. The <b>One-Sample t-test</b> dialog is opened. The result is shown in the <b>Output</b> branch. A conclusion is drawn at the bottom of the dialog. Previous step's result of normality test is shown at the top. You can also change the setting in the dialog, and notice the result changes.<br /><a  class="image"><img alt="How to Create a Wizard wiz3.png" src="../images/How_to_Create_a_Wizard/How_to_Create_a_Wizard_wiz3.png?v=7650" width="385"  /></a><br /><a  class="image"><img alt="How to Create a Wizard wiz3b.png" src="../images/How_to_Create_a_Wizard/How_to_Create_a_Wizard_wiz3b.png?v=7651" width="385"  /></a></li>
+<li>Click the <b>Finish</b> button to end the wizard. Two worksheets for results are created.<br /><a  class="image"><img alt="How to Create a Wizard wiz Res1.png" src="../images/How_to_Create_a_Wizard/How_to_Create_a_Wizard_wiz_Res1.png?v=7652" width="296"  /></a><br /><a  class="image"><img alt="How to Create a Wizard wiz Res2.png" src="../images/How_to_Create_a_Wizard/How_to_Create_a_Wizard_wiz_Res2.png?v=7653" width="420"  /></a></li></ol>
+
+
+
+
+
+

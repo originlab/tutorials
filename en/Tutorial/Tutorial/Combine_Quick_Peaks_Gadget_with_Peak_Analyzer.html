@@ -1,0 +1,50 @@
+<h1 class="firstHeading">4.4.4 Combine Quick Peaks Gadget with Peak Analyzer</h1><p class='urlname' style='display: none'>Combine-QuickPeakGadget-PA</p>
+<p><br />
+</p>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>The Quick Peaks gadget provides an intuitive way to carry out peak analysis, and Peak Analyzer provides further options for peak finding, fitting, etc. You can first use Quick Peaks gadget to find peaks and then use the Peak Analyzer to analyze the peaks. You can save the whole analysis as a theme in the Peak Analyzer for future use and/or batch processing.
+</p>
+<p class="version" >Minimum Origin Version Required: OriginPro 9.0 SR0</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">What You Will Learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Use the Quick Peaks gadget to find peaks.</li>
+<li>Open the Peak Analyzer from Quick Peaks gadget.</li>
+<li>Further analyze the peaks found in Quick Peaks gadget using the Peak Analyzer.</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<p>This tutorial is associated with <i>&lt;Origin EXE Folder&gt;\Samples\Tutorial Data.opj</i>.
+</p>
+<ol><li>Open <b>Tutorial Data.opj</b> and browse to the <b>Quick Peaks Gadget</b> folder in <b>Project Explorer</b> (PE).</li>
+<li>Highlight all columns in the <b>Nitrate</b> worksheet and click the <a  class="image"><img alt="Button Line.png" src="../images/Combine_Quick_Peaks_Gadget_with_Peak_Analyzer/Button_Line.png?v=1447" width="22"  /></a> button on <b>2D Graph</b> toolbar to generate a line graph.</li>
+<li>Activate the generated graph window and select <b>Gadgets:Quick Peaks</b>.</li>
+<li>In the <b>ROI box</b> tab, change the <b>From</b> and <b>To</b> values of X scale to <b>34.75</b> and <b>35</b> respectively, select the <b>Fixed(Prevent moving by ROI)</b> check box.
+<dl><dd><a  class="image"><img alt="Tutorial Quick Peak 01.png" src="../images/Combine_Quick_Peaks_Gadget_with_Peak_Analyzer/Tutorial_Quick_Peak_01.png?v=15141" width="367"  /></a></dd></dl></li>
+<li>In the <b>Baseline</b> tab, select the <b>Full Plot Range</b> radio button for <b>Range</b>.
+<dl><dd><a  class="image"><img alt="Tutorial Quick Peak 02.png" src="../images/Combine_Quick_Peaks_Gadget_with_Peak_Analyzer/Tutorial_Quick_Peak_02.png?v=15142" width="340"  /></a></dd></dl></li>
+<li>In the <b>Find Peak</b> tab, change the <b>Method</b> for <b>Peak Filtering </b> to <b>By Number</b>, and set the <b>Number of Peaks</b> as <b>3</b>, select <b>Blue</b> as the color of the <b>Peak Label</b>.
+<dl><dd><a  class="image"><img alt="Tutorial Quick Peak 02b.png" src="../images/Combine_Quick_Peaks_Gadget_with_Peak_Analyzer/Tutorial_Quick_Peak_02b.png?v=15143" width="478"  /></a></dd></dl></li>
+<li>In the <b>Output to</b> tab, change the <b>Result Worksheet Name</b> to <b>[QkPeak]%C_Result2</b>.
+<dl><dd><a  class="image"><img alt="Tutorial Quick Peak 02c.png" src="../images/Combine_Quick_Peaks_Gadget_with_Peak_Analyzer/Tutorial_Quick_Peak_02c.png?v=15144" width="340"  /></a></dd></dl></li>
+<li>In the <b>Quantities</b> tab, you can decide which quantities to output. Leave only the check boxes for <b>Peak ID</b>, <b>Peak X</b>, <b>Peak Y</b>, <b>Height</b>, <b>Peak Area</b> and <b>FWHM</b> checked, and clear the other check boxes. Click <b>OK</b> to add the gadget to the plot.
+<dl><dd><a  class="image"><img alt="Tutorial Quick Peak 03.png" src="../images/Combine_Quick_Peaks_Gadget_with_Peak_Analyzer/Tutorial_Quick_Peak_03.png?v=15145" width="594"  /></a></dd></dl></li>
+<li>Click the triangle button <a  class="image"><img alt="Button Triangle.png" src="../images/Combine_Quick_Peaks_Gadget_with_Peak_Analyzer/Button_Triangle.png?v=14904" width="15"  /></a> to the right of the ROI box and select <b>New Output</b> to generate the report worksheet.</li>
+<li>Bring up the context menu again to select <b>Go to Report Worksheet</b> to open the result worksheet.
+<dl><dd><a  class="image"><img alt="Tutorial Quick Peak 04.png" src="../images/Combine_Quick_Peaks_Gadget_with_Peak_Analyzer/Tutorial_Quick_Peak_04.png?v=15146" width="560"  /></a></dd></dl></li>
+<li>Now we are going to open the Peak Analyzer to carry out peak fitting. Bring up the context menu and choose <b>Switch to Peak Analyzer</b>.
+<dl><dd><a  class="image"><img alt="Tutorial Quick Peak 05.png" src="../images/Combine_Quick_Peaks_Gadget_with_Peak_Analyzer/Tutorial_Quick_Peak_05.png?v=15150" width="587"  /></a></dd></dl></li>
+<li>The Peak Analyzer is opened, the <b>Fit Peaks</b> goal is already selected, the baseline mode and peak finding method follow the settings in the Quick Peaks gadget.</li>
+<li>Go to the <b>Fit Peaks</b> page directly and click the <b>Fit</b> button to fit the three found peaks with default Gaussian function.</li>
+<li>Click the <a  class="image"><img alt="Button Select Dialog Theme.png" src="../images/Combine_Quick_Peaks_Gadget_with_Peak_Analyzer/Button_Select_Dialog_Theme.png?v=1688" width="21"  /></a> button and select <b>Save As</b> in the context menu to save this analysis as a theme with the name <b>MyQuickPeaks</b>.
+<dl><dd><a  class="image"><img alt="Tutorial Quick Peak 06.png" src="../images/Combine_Quick_Peaks_Gadget_with_Peak_Analyzer/Tutorial_Quick_Peak_06.png?v=15148" width="576"  /></a></dd></dl></li>
+<li> In the Peak Analyzer, click the <b>Finish</b> button to generate the peak fitting results.</li></ol>
+<table class="note">
+
+<tr>
+<td><b>Notes:</b> The theme can be used in the batch peak analysis. Select <b>Analysis:Peaks and Baseline:Batch Peak Analysis using Theme</b> to open the <b>paMultiY</b> dialog. The batch peak analysis is very useful when you have multiple data files that are similar. You can refer to <a class="external text" href="../../XFunction/X-Function/PaMultiY.html#Example">this example</a> for more details.
+</td></tr></table>
+
+
+
+
+
+

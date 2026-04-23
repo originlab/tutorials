@@ -1,0 +1,108 @@
+<h1 class="firstHeading">6.11.3 Cropped Polar Plot with Custom Orientation</h1><p class='urlname' style='display: none'>Polar-Crop</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">What You Will Learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Create_a_Polar_Graph_and_Customize_the_Axes"><span class="tocnumber">3.1</span> <span class="toctext">Create a Polar Graph and Customize the Axes</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="#Customize_Axes_in_Axis_Dialog"><span class="tocnumber">3.1.1</span> <span class="toctext">Customize Axes in Axis Dialog</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="#Customize_Scatter_Plot_with_Mini_Toolbar"><span class="tocnumber">3.1.2</span> <span class="toctext">Customize Scatter Plot with Mini Toolbar</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-7"><a href="#Crop_the_Polar_Graph"><span class="tocnumber">3.2</span> <span class="toctext">Crop the Polar Graph</span></a>
+<ul>
+<li class="toclevel-3 tocsection-8"><a href="#Select_the_Region_You_Want_to_Crop"><span class="tocnumber">3.2.1</span> <span class="toctext">Select the Region You Want to Crop</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="#Crop_the_Graph"><span class="tocnumber">3.2.2</span> <span class="toctext">Crop the Graph</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>This tutorial will demonstrate how to create a cropped polar graph: 
+</p>
+<dl><dd><a  class="image"><img alt="Polar Crop Steps11.png" src="../images/Polar_Crop/Polar_Crop_Steps11.png?v=74257" width="576"  /></a></dd></dl>
+<p>This graph shows a polar scatter plot with a radian scale. The graph axes orientation is customized and the graph is also cropped to show a specific portion of it.
+</p>
+<p class="version" >Minimum Origin Version Required: 2015 SR0</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">What You Will Learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>How to create a polar graph with radial axes </li>
+<li>How to customize the polar graph, such rotate a polar graph and display tick labels as quarters</li>
+<li>How to crop a polar graph</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<p>This tutorial is associated with the sample graph project "Cropped Polar Plot with Custom Orientation". You can open this project in <b>Learning Center</b>:
+</p>
+<ul><li> Select <b>Help: Learning Center</b> menu or press <b>F11</b> key to open Learning Center.</li>
+<li> Search and open the sample <b>Polar Charts - Cropped Polar Plot with Custom Orientation</b> under <b>Graph Samples</b> panel.</li></ul>
+<h3><a name="Create_a_Polar_Graph_and_Customize_the_Axes"></a><span class="mw-headline">Create a Polar Graph and Customize the Axes</span></h3>
+<p>Activate the workbook <b>Cropped Polar Plot with Custom Orientation</b>. Highlight all the columns in Sheet 1 and choose <b>Plot &gt; Specialized: Symbol Θ r</b> from the main menu to create a polar graph:
+</p>
+<dl><dd><a  class="image"><img alt="Polar Crop Steps1.png" src="../images/Polar_Crop/Polar_Crop_Steps1.png?v=74202" width="566"  /></a></dd></dl>
+<h4><a name="Customize_Axes_in_Axis_Dialog"></a><span class="mw-headline">Customize Axes in Axis Dialog</span></h4>
+<ol><li>As the anglar axes uses Degrees as Unit by default. We have to customize <b>Angular Axes</b>: 
+<ul><li>Double-click on the axis to open the <b>Axis Dialog</b>. Go to <b>Scale</b> tab and choose <b>Angular</b> in the left panel.  Expand <b>Units Definition</b> node and set <b>Units</b> to <b>Radians</b> from the drop-down list. Change the <b>Value</b> option under <b>Major Ticks</b> to <b>0.25</b>, <b>Count</b> under <b>Minor Ticks</b> to be <b>9</b>.
+<dl><dd><a  class="image"><img alt="Polar Crop Steps3.png" src="../images/Polar_Crop/Polar_Crop_Steps3.png?v=74210" width="699"  /></a></dd></dl></li>
+<li>To change the orientation of the plot, go to <b>Show</b> tab and make sure the <b>Angular - Outer</b> is selected in the left panel.  Set <b>Direction</b> to <b>Counter Clock-Wise</b> and the <b>Axis Start at(deg)</b> to <b>270</b> as shown below:
+<dl><dd><a  class="image"><img alt="Polar Crop Steps2.png" src="../images/Polar_Crop/Polar_Crop_Steps2.png?v=74211" width="699"  /></a></dd></dl></li>
+<li>Go to <b>Tick Labels</b> tab, set <b>Display</b> to <b>Custom</b>, <b>Custom Format</b> to <b>#/#</b>.
+<dl><dd><a  class="image"><img alt="Polar Crop Steps2a.png" src="../images/Polar_Crop/Polar_Crop_Steps2a.png?v=74222" width="699"  /></a></dd></dl></li>
+<li>Click <b>Apply</b> button to apply these settings. </li></ul></li>
+<li> Let's customize the <b>Radial Axes</b> scale. Go to the <b>Scale</b> node and choose the <b>Radial</b> in the left panel. Change the <b>To</b> value to 5.01 (the 0.01 will show the last tick), <b>Count</b> option under <b>Minor Ticks</b> to <b>0</b>.
+<dl><dd><a  class="image"><img alt="Polar Crop Steps4.png" src="../images/Polar_Crop/Polar_Crop_Steps4.png?v=74214" width="699"  /></a></dd></dl></li>
+<li> Then, we are going to add a <b>Inner Radial Axis</b>
+<ul><li>In the <b>Show</b> tab, click on the <b>Add a radial axis</b> button on the top of the left panel. Then the <b>Radial - Inner Axis 1</b> is added in the left panel.</li>
+<li>To change the orientation of the new inner axis from vertical to horizontal, under <b>Axis Position</b> section, set the <b>Reference</b> as <b>Clock Dial</b> and the <b>Clocks</b> option as <b>3 O'Clock</b>. Select the <b>Negative</b> radio button to shift the tick labels to the opposite side of the axis:   
+<dl><dd><a  class="image"><img alt="Polar Crop Steps5.png" src="../images/Polar_Crop/Polar_Crop_Steps5.png?v=74215" width="699"  /></a></dd></dl></li>
+<li>To add tick labels on <b>Inner Axis 1</b>, go to <b>Tick Label</b> tab, under <b>Display</b> subtab and select <b>Tick-indexed string</b> from the <b>Type</b> drop-down. Type <i>0A Lv1 Lv2 Lv3 Lv4</i> in the <b>Display</b> edit box. 
+<dl><dd><a  class="image"><img alt="Polar Crop Steps6.png" src="../images/Polar_Crop/Polar_Crop_Steps6.png?v=74216" width="699"  /></a></dd></dl></li>
+<li>Go to the <b>Format</b> subtab and change the tick label format as below:
+<dl><dd><a  class="image"><img alt="Polar Crop Steps6b.png" src="../images/Polar_Crop/Polar_Crop_Steps6b.png?v=74217" width="699"  /></a> </dd></dl></li>
+<li>Go to <b>Special Ticks</b>，set <b>Axis Begin</b> and <b>Axis End</b> to <b>Hide</b>. 
+<dl><dd><a  class="image"><img alt="Polar Crop Steps6c.png" src="../images/Polar_Crop/Polar_Crop_Steps6c.png?v=74218" width="699"  /></a></dd></dl></li>
+<li>Click <b>Apply</b> to apply these settings. </li></ul></li>
+<li>Go to <b>Grids</b> tab, set grid lines of Radial and Angular axis as below:
+<dl><dd><a  class="image"><img alt="Polar Crop Steps7a.png" src="../images/Polar_Crop/800px-Polar_Crop_Steps7a.png?v=74223" width="800"   /></a></dd>
+<dd>Click <b>OK</b> button to apply these settings. </dd></dl></li>
+<li> Drag-and-drop two outer radial axes to the postion of <b>% of Radius</b> = <b>-40</b>.
+<dl><dd><a  class="image"><img alt="Polar Crop Steps8.png" src="../images/Polar_Crop/Polar_Crop_Steps8.png?v=74261" width="527"  /></a></dd></dl></li></ol>
+<h4><a name="Customize_Scatter_Plot_with_Mini_Toolbar"></a><span class="mw-headline">Customize Scatter Plot with Mini Toolbar</span></h4>
+<p>We are going to customize the scatter plot with mini toolbar.
+</p>
+<ol><li> Click on one data point, in the popup mini toolbar, set the symbol shape.
+<dl><dd><a  class="image"><img alt="CropPolar 01.gif" src="../images/Polar_Crop/CropPolar_01.gif?v=74250" width="788"  /></a></dd></dl></li>
+<li> Click on the error bar, in the popup mini toolbar, only show the plus Y error bars and set its color.
+<dl><dd><a  class="image"><img alt="CropPolar 02.gif" src="../images/Polar_Crop/CropPolar_02.gif?v=74251" width="788"  /></a></dd></dl></li></ol>
+<h3><a name="Crop_the_Polar_Graph"></a><span class="mw-headline">Crop the Polar Graph</span></h3>
+<p>In <b>Axis</b> dialog, there is a button <b>Crop...</b> at the bottom. Clicking it will open a dailog which allows you to magnify and emphasize any particular section of the polar plot.
+</p>
+<dl><dd><a  class="image"><img alt="CroppedPolar 01.png" src="../images/Polar_Crop/CroppedPolar_01.png?v=74234" width="699"  /></a></dd></dl>
+<h4><a name="Select_the_Region_You_Want_to_Crop"></a><span class="mw-headline">Select the Region You Want to Crop</span></h4>
+<p>Before cropping the polar graph, you can use the <b>Rectangle</b> tool <a  class="image"><img alt="Button Rectangle Tool.png" src="../images/Polar_Crop/Button_Rectangle_Tool.png?v=1673" width="22"  /></a> to obtain the size and location data of the area of interest.
+</p>
+<ol><li> Click the toolbar button <b>Rectangle Tool</b> <a  class="image"><img alt="Button Rectangle Tool.png" src="../images/Polar_Crop/Button_Rectangle_Tool.png?v=1673" width="22"  /></a> and then draw a rectangle on the graph.
+<dl><dd><a  class="image"><img alt="CroppedPolar 02.png" src="../images/Polar_Crop/700px-CroppedPolar_02.png?v=74237" width="700"   /></a></dd></dl></li>
+<li>In order to see the graph clearly when adjusting the size of the rectangle, click on the rectangle, in the popup mini toolbar, click <b>Transparency</b> button to set <b>Transparency</b> to <i>60%</i>. 
+<dl><dd><a  class="image"><img alt="CroppedPolar 03.png" src="../images/Polar_Crop/CroppedPolar_03.png?v=74240" width="609"  /></a></dd></dl></li>
+<li>Adjust the size and position of the rectangle. Once the rectangular area is ready, double-click it to open the <b>Object Properties</b> dialog box to get size and position data for the portion beneath the rectangle.
+<dl><dd><a  class="image"><img alt="CroppedPolar 04.png" src="../images/Polar_Crop/850px-CroppedPolar_04.png?v=74252" width="850"   /></a></dd></dl></li></ol>
+<h4><a name="Crop_the_Graph"></a><span class="mw-headline">Crop the Graph</span></h4>
+<ol><li>Double-click on any axis to open the <b>Axis</b> Dialog again. Click on the <b>Crop...</b> button to open the <b>Miscellaneous</b> dialog. Check the <b>Enable</b> box and enter the size and position values you gotten from the rectangle object. 
+<dl><dd><a  class="image"><img alt="Polar Crop Steps9.png" src="../images/Polar_Crop/Polar_Crop_Steps9.png?v=74253" width="699"  /></a></dd></dl></li>
+<li>Click <b>OK</b> to exit this mini dialog. And click <b>OK</b> button to close the <b>Axis</b> dialog. The graph will now appear as shown below:
+<dl><dd><a  class="image"><img alt="Polar Crop Steps10.png" src="../images/Polar_Crop/Polar_Crop_Steps10.png?v=74254" width="456"  /></a></dd></dl></li>
+<li>As you can see, the area beneath the rectangle has been cropped out. Click on the rectangle object and delete it. Finally, you will get the graph below:
+<dl><dd><a  class="image"><img alt="Polar Crop Steps11.png" src="../images/Polar_Crop/Polar_Crop_Steps11.png?v=74257" width="576"  /></a></dd></dl></li></ol>
+
+
+
+
+
+

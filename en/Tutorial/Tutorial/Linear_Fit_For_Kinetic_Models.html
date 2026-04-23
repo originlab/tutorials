@@ -1,0 +1,159 @@
+<h1 class="firstHeading">4.2.1.2 Linear Fit for Kinetic Models</h1><p class='urlname' style='display: none'>Linear-Fit-For-Kinetic-Models</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Linear_fit_for_Langmuir_model"><span class="tocnumber">3</span> <span class="toctext">Linear fit for Langmuir model</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Identify_transformed_independent_and_dependent_variables"><span class="tocnumber">3.1</span> <span class="toctext">Identify transformed independent and dependent variables</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Create_new_independent_and_dependent_variable_data"><span class="tocnumber">3.2</span> <span class="toctext">Create new independent and dependent variable data</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Linear_fit_on_transformed_linear_data"><span class="tocnumber">3.3</span> <span class="toctext">Linear fit on transformed linear data</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Apparent_linear_fit_on_original_non-linear_data"><span class="tocnumber">3.4</span> <span class="toctext">Apparent linear fit on original non-linear data</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#Solutions_for_other_non-linear_kinetic_models"><span class="tocnumber">4</span> <span class="toctext">Solutions for other non-linear kinetic models</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="#Freudlich_equation"><span class="tocnumber">4.1</span> <span class="toctext">Freudlich equation</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Lagergren.27s_pseudo-first_order"><span class="tocnumber">4.2</span> <span class="toctext">Lagergren's pseudo-first order</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Ho.27s_pseudo-second_order"><span class="tocnumber">4.3</span> <span class="toctext">Ho's pseudo-second order</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Linear_Fit_For_Kinetic_Models/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Linear_Fit_For_Kinetic_Models/Video_Text_Image.png?v=64565" width="135"  /></a>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Linear_Fit_For_Kinetic_Models/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Linear_Fit_For_Kinetic_Models/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/how-to-perform-enzyme-kinetics-analysis" target="_blank">How to Perform Enzyme Kinetics Analysis</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Non-linear kinetic models are widely used across many disciplines of natural science, such as, physics, chemistry, biology. Experimentally, all the crucial parameters in kinetic models are obtained through fitting the raw data. The intuitive way to fit the raw data is to do a non-linear fit with the expression directly from the kinetic equation. Alternatively, linear fit can be applied if we can transform the equation in the way that the dependent variable related to independent variable linearly.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 2015</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Perform linear fit on same non-linear kinetic model using different linear transformations.</li>
+<li>Perform apparent linear fit on non-linear kinetic models.</li></ul>
+<h2><a name="Linear_fit_for_Langmuir_model"></a><span class="mw-headline">Linear fit for Langmuir model</span></h2>
+<h3><a name="Identify_transformed_independent_and_dependent_variables"></a><span class="mw-headline">Identify transformed independent and dependent variables</span></h3>
+<p>Langmuir model is described by the non-linear equation below:
+</p><p><br /><br /><img src="../images/Linear_Fit_For_Kinetic_Models/math-57abb1dd18566ddae9368a8578f2f447.png?v=0" title="y = \frac{ym*K*x}{1+K*x}" alt="y = \frac{ym*K*x}{1+K*x}" class="tex"/><br /><br />
+</p><p>where ym, K are the parameters we want to obtain through fitting.
+</p><p>To perform linear fit on Langmuir model, we can transform it into linear equation in two different ways:
+</p>
+<ol>
+<li>Transform it into traditional linear Langmuir equation:
+
+<br /><br /><img src="../images/Linear_Fit_For_Kinetic_Models/math-b9755ab93b51a8b31c24af0c9aaf3b75.png?v=0" title="y = -\frac{1}{K}\frac{y}{x}+ym" alt="y = -\frac{1}{K}\frac{y}{x}+ym" class="tex"/><br /><br />
+
+where the independent variable is y/x, dependent variable is y, slope is -1/K
+and intercept is ym.
+
+<li>Transform it into double reciprocal linear Langmuir equation:
+
+<br /><br /><img src="../images/Linear_Fit_For_Kinetic_Models/math-3d8319ab99a2a16fa8021e10a7da96c6.png?v=0" title="\frac{1}{y} = \frac{1}{ym*K}\frac{1}{x}+\frac{1}{ym}" alt="\frac{1}{y} = \frac{1}{ym*K}\frac{1}{x}+\frac{1}{ym}" class="tex"/><br /><br />
+
+where the independent variable is 1/x, dependent variable is 1/y, slope is 1/(ym*K) and intercept is 1/ym.
+</ol>
+<h3><a name="Create_new_independent_and_dependent_variable_data"></a><span class="mw-headline">Create new independent and dependent variable data</span></h3>
+<ol>
+<li>Open a new workbook. Select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Curve Fitting</i> subfolder and find the file <i>LangmuirModel.dat</i>. Drag-and-drop this file into the empty worksheet to import it.
+
+<li>If there is a <b>Sparklines</b> label row, right-click it to select <b>Hide</b> from the context menu to hide it. Use Ctrl+D to bring up <b>Add New Columns</b> dialog, enter 4 and click <b>OK</b> to add 4 columns to store transformed XY dataset later.
+
+<li>For traditional linear Langmuir model transformation, the independent variable is now y/x and dependent variable is still y. Type y/x and y as the long name for column C and D respectively so that it will show as X axis title, Y axis title respectively in later plot. 
+
+<li>Type B/A in <b>F(x) = </b> formula cell in column <i>C</i> to set the value for independent variable y/x, and press ENTER. Highlight column <i>C</i>, right click and select <b>Set As:X</b> to make it as the default X dataset for plotting column <i>D</i>.
+
+<li>Type B in <b>F(x) =</b> formula cell in column <i>D</i> to set the value for dependent variable y, and press ENTER.
+
+<li>For double reciprocal linear Langmuir model transformation, the independent variable is 1/x and dependent variable is 1/y. Similarly, make the long name of column <i>E</i>, <i>F</i> as 1/x, 1/y, respectively, and set their column values as 1/A and 1/B accordingly. Set column <i>E</i> designation as X. 
+
+<li>The worksheet is then as following:
+
+<br /><br /><a  class="image"><img alt="Linear Fit Kinetic Model 07.png" src="../images/Linear_Fit_For_Kinetic_Models/Linear_Fit_Kinetic_Model_07.png?v=50429" width="505"  /></a><br /><br />
+
+</ol>
+<h3><a name="Linear_fit_on_transformed_linear_data"></a><span class="mw-headline">Linear fit on transformed linear data</span></h3>
+<ol>
+<li>First, we will perform linear fitting on traditional linear Langmuir transformation. Highlight column <i>D</i> and select <b>Plot:Symbol:Scatter</b> to make a scatter plot. 
+
+<li>To perform linear fitting, select <b>Analysis:Fitting:Linear Fit:Open Dialog</b> to bring up the <b>Linear Fit</b> dialog box and click <b>OK</b> to close dialog. In the appeared prompt, choose <b>No</b> and click <b>OK</b>.
+
+<br /><br /><a  class="image"><img alt="Linear Fit Kinetic Model 17 v.png" src="../images/Linear_Fit_For_Kinetic_Models/Linear_Fit_Kinetic_Model_17_v.png?v=40732" width="502"  /></a><br /><br />
+
+<li>Similarly, to perform linear fit on double reciprocal linear Langmuir transformation, highlight column F follow the steps above to create a scatter plot and then do a linear fit.
+
+<br /><br /><a  class="image"><img alt="Linear Fit Kinetic Model 15 v.png" src="../images/Linear_Fit_For_Kinetic_Models/Linear_Fit_Kinetic_Model_15_v.png?v=40733" width="569"  /></a><br /><br />
+</ol>
+<p>The coefficients in Langmuir model are then can be calculated using corresponding slope and intercept expressions.
+</p>
+<h3><a name="Apparent_linear_fit_on_original_non-linear_data"></a><span class="mw-headline">Apparent linear fit on original non-linear data</span></h3>
+<p>Alternatively, we can use apparent linear fit to directly perform linear fit on raw non-linear kinetic data by customizing only the axis scales. Take Langmuir kinetic model for example, based on double reciprocal Langmuir linear transformation we found that the inverse of original dependent variable 1/y is in linear relationship with the inverse of original independent variable 1/x. Therefore, if set the X scale as 1/x and set the Y scale as 1/y, raw Langmuir kinetic data would appear with linearity.
+</p>
+<ol>
+<li>To perform apparent linear fit on Langmuir kinetic raw data, highlight column <i>B</i> and select <b>Plot:Symbol:Scatter</b> to make a non-linear scatter plot.  
+
+<br /><br /><a  class="image"><img alt="Linear Fit Kinetic Model 10.png" src="../images/Linear_Fit_For_Kinetic_Models/Linear_Fit_Kinetic_Model_10.png?v=28995" width="553"  /></a><br /><br />
+
+<li>Double click on the X axis to bring up <b>Axis</b> dialog, set <b>From</b> as <i>0.08</i> and <b>To</b> as <i>3</i>. Then select <b>Custom Formula</b> from the <b>Type</b> drop-down list and input 1/x as the <b>Direct Formula</b> and 1/x as the <b>Inverse Formula</b>. Choose <b>Fixed From</b> in the <b>Rescale</b> drop-down list. Click <b>OK</b> to close the dialog.
+
+<br /><br /><a  class="image"><img alt="Linear Fit Kinetic Model 18.png" src="../images/Linear_Fit_For_Kinetic_Models/Linear_Fit_Kinetic_Model_18.png?v=37024" width="525"  /></a><br /><br />
+ 
+<li>As can be see from the plot, the default X axis ticks are not well separated. To make the ticks of X axis display reasonably, we will create a dataset to set the positions of ticks. To do so, activate <i>LangmuirModel</i> worksheet and use Ctrl+D to add one more column. Enter dataset <i>0.1, 0.15, 0.2, 0.3, 0.4, 0.7, 1, 3</i> in newly added column <i>G</i>.
+
+<li>To use column <i>G</i> as major tick positions for X axis, double click on the X axis to bring up <b>Axis</b> dialog. Then go to <b>Major Ticks</b> node choose <b>By Custom Positions</b> from <b>Type</b> drop-down list and choose <i>[LangmuirModel]LangmuirModel!G</i> from the <b>Dataset</b> drop-down list.
+
+<br /><br /><a  class="image"><img alt="Linear Fit Kinetic Model 19.png" src="../images/Linear_Fit_For_Kinetic_Models/Linear_Fit_Kinetic_Model_19.png?v=44543" width="529"  /></a><br /><br />
+
+<li>Click <b>Vertical</b> icon on left panel, similarly, choose <b>Custom Formula</b> from <b>Type</b> drop-down list and input 1/x in both <b>Direct Formula</b> and <b>Inverse Formula</b> boxes. Click <b>OK</b> to close the dialog box.
+
+<br /><br /><a  class="image"><img alt="Linear Fit Kinetic Model 12.png" src="../images/Linear_Fit_For_Kinetic_Models/Linear_Fit_Kinetic_Model_12.png?v=33351" width="622"  /></a><br /><br />
+
+<li>To perform apparent linear fit, select <b>Analysis:Fitting:Linear Fit:Open Dialog</b> to bring up the <b>Linear Fit</b> dialog box. In the <b>Fit Control</b> tab, we can see that by default the <b>Apparent Fit</b> box is checked.
+
+<br /><br /><a  class="image"><img alt="Linear Fit Kinetic Model 13.png" src="../images/Linear_Fit_For_Kinetic_Models/Linear_Fit_Kinetic_Model_13.png?v=44545" width="608"  /></a><br /><br />
+
+<li>Click <b>OK</b> to close dialog and choose <b>No</b> radio box in the prompt, then click <b>OK</b> to close it.
+
+<br /><br /><a  class="image"><img alt="Linear Fit Kinetic Model 16 v.png" src="../images/Linear_Fit_For_Kinetic_Models/Linear_Fit_Kinetic_Model_16_v.png?v=40736" width="512"  /></a><br /><br />
+
+</ol>
+<h2><a name="Solutions_for_other_non-linear_kinetic_models"></a><span class="mw-headline">Solutions for other non-linear kinetic models</span></h2>
+<h3><a name="Freudlich_equation"></a><span class="mw-headline">Freudlich equation</span></h3>
+<p>The non-linear kinetic equation for Freudlich model is as below:
+</p><p><img src="../images/Linear_Fit_For_Kinetic_Models/math-ca3db92f4dd5755e86ab3c380f82dd04.png?v=0" title="ln(y) = ln(K)+\frac{ln(x)}{n}&#10;" alt="ln(y) = ln(K)+\frac{ln(x)}{n}&#10;" class="tex"/>
+</p><p>where the independent variable is ln(x), dependent variable is ln(y), slope is 1/n and intercept is ln(K), K and n are the coefficients to be determined.
+</p><p>Apparent linear fit is recommended since Ln scale is a build-in scale setting. To fit this non-linear kinetic model, use apparent fit with X and Y axis scales both set to be Ln scales.
+</p><p>Alternatively, you can perform linear fit after you calculate the Ln value of both X and Y dataset. See the example of Langmuir model above for details.
+</p>
+<h3><a name="Lagergren.27s_pseudo-first_order"></a><span class="mw-headline">Lagergren's pseudo-first order</span></h3>
+<p>The non-linear kinetic equation for Lagergren's pseudo-first oder model is as below:
+</p><p><img src="../images/Linear_Fit_For_Kinetic_Models/math-236960c3fc94165d6fff6cb1e7e6df51.png?v=0" title="log(q_{e,exp}-y) = \frac{log(q_{e,fit})-k_1*x}{2.303}" alt="log(q_{e,exp}-y) = \frac{log(q_{e,fit})-k_1*x}{2.303}" class="tex"/>
+</p><p>where the independent variable is x, dependent variable is <img src="../images/Linear_Fit_For_Kinetic_Models/math-f736214c95d83a2fd4242b68c9ba7398.png?v=0" title="log(q_{e,exp}-y)" alt="log(q_{e,exp}-y)" class="tex"/>, slope is <img src="../images/Linear_Fit_For_Kinetic_Models/math-fb7c53d135157c134052a8a20d093297.png?v=0" title="-k_{1}/2.303" alt="-k_{1}/2.303" class="tex"/> and intercept is <img src="../images/Linear_Fit_For_Kinetic_Models/math-533073f62589dfd38673f6ca973be488.png?v=0" title="log(q_{e,fit})/2.303" alt="log(q_{e,fit})/2.303" class="tex"/>, <img src="../images/Linear_Fit_For_Kinetic_Models/math-d565214b738c2daa94d89e7c35cc539b.png?v=0" title="q_{e,exp}" alt="q_{e,exp}" class="tex"/> is known constant, <img src="../images/Linear_Fit_For_Kinetic_Models/math-5329d5e4c37a4ce07e1aa5937393c6bb.png?v=0" title="-k_{1}" alt="-k_{1}" class="tex"/> and <img src="../images/Linear_Fit_For_Kinetic_Models/math-2f77e3b1dd87ca5e875a7b85d8609012.png?v=0" title="q_{e,fit}" alt="q_{e,fit}" class="tex"/> are the coefficients to be determined.
+</p><p><br />
+Apparent linear fit is recommended since Log scale is a build-in scale setting. To fit this non-linear kinetic model, first calculate <img src="../images/Linear_Fit_For_Kinetic_Models/math-70d24d63065b8de2615989576039b007.png?v=0" title="q_{e,exp}-y" alt="q_{e,exp}-y" class="tex"/> and then use apparent fit with only Y axis scale set to be Log scale.
+</p><p>Alternatively, you can firstly calculate <img src="../images/Linear_Fit_For_Kinetic_Models/math-52c53bb5c4cbc099adbc10de9cee9918.png?v=0" title="Log(q_{e,exp}-y)" alt="Log(q_{e,exp}-y)" class="tex"/> and use this newly created data to do linear fit directly. Refer to the example of Langmuir model above for details.
+</p>
+<h3><a name="Ho.27s_pseudo-second_order"></a><span class="mw-headline">Ho's pseudo-second order</span></h3>
+<p>The non-linear kinetic equation for Freudlich model is as below:
+</p><p><img src="../images/Linear_Fit_For_Kinetic_Models/math-24d1561f31ef60f9c8d2b62788bad694.png?v=0" title="\frac{x}{y} = \frac{1}{k_{2}q_e^2}+\frac{x}{q_e}&#10;" alt="\frac{x}{y} = \frac{1}{k_{2}q_e^2}+\frac{x}{q_e}&#10;" class="tex"/>
+</p><p>where the independent variable is x, dependent variable is x/y, slope is <img src="../images/Linear_Fit_For_Kinetic_Models/math-357e74328be026c05600e2621ea50122.png?v=0" title="1/q{_{e}}" alt="1/q{_{e}}" class="tex"/>and intercept is <img src="../images/Linear_Fit_For_Kinetic_Models/math-1b4a279c1f8b58c43c0703cfbf08505f.png?v=0" title="1/(k_{2}q_e^2)" alt="1/(k_{2}q_e^2)" class="tex"/>, <img src="../images/Linear_Fit_For_Kinetic_Models/math-565916fdc4f0364b33ce9c7f270984a2.png?v=0" title="k_{2}" alt="k_{2}" class="tex"/> and <img src="../images/Linear_Fit_For_Kinetic_Models/math-b4d66375940a034a87c1355eff23cadb.png?v=0" title="q_e" alt="q_e" class="tex"/> are the coefficients to be determined.
+</p><p>To linearly fit this model, you have to firstly calculate x/y and use this newly created data to perform linear fit.
+</p><p>Alternatively, we can transform this equation into the form below:
+</p><p><br />
+<img src="../images/Linear_Fit_For_Kinetic_Models/math-aa42657d3a47a8fa3ef9cd8ea23b7399.png?v=0" title="\frac{1}{y} = \frac{1}{k_{2}q_e^2}\frac{1}{x}+\frac{1}{q_e}&#10;" alt="\frac{1}{y} = \frac{1}{k_{2}q_e^2}\frac{1}{x}+\frac{1}{q_e}&#10;" class="tex"/>
+</p><p>where the independent variable is 1/x, dependent variable is 1/y, slope is <img src="../images/Linear_Fit_For_Kinetic_Models/math-1b4a279c1f8b58c43c0703cfbf08505f.png?v=0" title="1/(k_{2}q_e^2)" alt="1/(k_{2}q_e^2)" class="tex"/> and intercept is <img src="../images/Linear_Fit_For_Kinetic_Models/math-357e74328be026c05600e2621ea50122.png?v=0" title="1/q{_{e}}" alt="1/q{_{e}}" class="tex"/>.
+</p><p>For this transformation, we can either perform linear fit once we created new independent variable data as 1/x and new dependent variable data as 1/y. Or we can perform apparent linear fit by set both X and Y axis scales as 1/x scale. Please refer to Langmuir model for more details.
+</p>
+
+
+
+
+

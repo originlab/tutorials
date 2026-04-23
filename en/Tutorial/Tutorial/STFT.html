@@ -1,0 +1,52 @@
+<h1 class="firstHeading">4.3.4 STFT (Short-Time Fourier Transform)</h1><p class='urlname' style='display: none'>STFT</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">What You Will Learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a></li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/STFT/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/STFT/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=70" target="_blank">Short-Time Fourier Transform (STFT)</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/STFT/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/STFT/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Short-Time Fourier Transform (STFT) is a time-frequency analysis technique suited to non-stationary signals. Short-Time Fourier Transforms can provide information about changes in frequency over time.
+</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">What You Will Learn</span></h2>
+<p>In this tutorial, you will learn how to:
+</p>
+<ol><li> Perform Short-Time Fourier Transform (STFT).</li>
+<li> Change dialog settings to improve the time and frequency resolution.</li>
+<li> Change window type to improve resolution.</li></ol>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<ol><li>Start with a new workbook, and import the data <b>&lt;Origin Installation Directory&gt;\Samples\Signal Processing\Chirp Signal.dat</b>.
+<dl><dd><a  class="image"><img alt="SP Tutorial STFT 1.png" src="../images/STFT/SP_Tutorial_STFT_1.png?v=34287" width="450"  /></a></dd></dl></li>
+<li>Highlight column B, and select menu <b>Analysis: Signal Processing: STFT...</b> to open the <b>STFT: stft</b> dialog box.</li>
+<li>In the dialog box, check <b>Auto Preview</b> at the bottom of the dialog so that you can preview your results in the right panel. Uncheck the <b>Auto</b> check box next to <b>Window length</b> and <b>Overlap</b>, then change <b>Window length</b> to <b>8</b>, and <b>Overlap</b> to <b>7</b>. Set <b>Window Type</b> to <b>Hanning</b> and <b>Option</b> to <b>Amplitude Result</b>.
+<dl><dd><a  class="image"><img alt="SP Tutorial STFT 2.png" src="../images/STFT/700px-SP_Tutorial_STFT_2.png?v=44550" width="700"   /></a></dd></dl></li>
+<li>Click <b>OK</b> to perform STFT with the chosen settings and obtain your results, including a matrixbook with data and a color fill contour plot.
+<dl><dd><a  class="image"><img alt="SP Tutorial STFT 3.png" src="../images/STFT/SP_Tutorial_STFT_3.png?v=44551" width="592"  /></a></dd></dl></li>
+<li>We can see from the above image that the time resolution is good, but the frequency is not so apparent. Click on the lock on the graph, then choose <b>Change Parameters...</b>from the menu. This reopens the STFT dialog box. Change the <b>Window Type</b> to <b>Rectangle</b> and click <b>OK</b>.
+<dl><dd><a  class="image"><img alt="SP Tutorial STFT 4.png" src="../images/STFT/SP_Tutorial_STFT_4.png?v=34290" width="604"  /></a></dd></dl></li>
+<li>Now, we are better able to see resolution of both time and frequency. Please note that it is not possible to optimize for both time and frequency; the best we can do is to find the balance between them.</li>
+<li>To view the result in 3D, activate the resulting matrix, then select menu <b>Plot&gt;3D:Surface:3D Color Map Surface</b> to create a 3D surface of the result.</li>
+<li>Double click on the 3D graph to open the <b>Plot Details</b> dialog, and go to the <b>Colormap/Contours</b> tab in the right panel. Click the <b>Line...</b> heading to open the <b>Contour Lines</b> dialog and <b>Hide All</b> lines.
+<dl><dd><a  class="image"><img alt="SP Tutorial STFT 5.png" src="../images/STFT/SP_Tutorial_STFT_5.png?v=34291" width="580"  /></a></dd></dl></li>
+<li>Go to the <b>Mesh</b> tab and clear the <b>Enable</b> check box.
+<dl><dd><a  class="image"><img alt="SP Tutorial STFT 6.png" src="../images/STFT/SP_Tutorial_STFT_6.png?v=34292" width="580"  /></a></dd></dl></li>
+<li>Click <b>OK</b> to finish the settings. To get a better view, rotate the graph.
+<dl><dd><a  class="image"><img alt="SP Tutorial STFT 7.png" src="../images/STFT/SP_Tutorial_STFT_7.png?v=34293" width="612"  /></a></dd></dl></li></ol>
+
+
+
+
+
+

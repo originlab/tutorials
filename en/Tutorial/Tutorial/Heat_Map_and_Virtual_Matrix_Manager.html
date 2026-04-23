@@ -1,0 +1,142 @@
+<h1 class="firstHeading">6.8.6 Create Heatmap with Virtual Matrix and Colormap Bar Plot</h1><p class='urlname' style='display: none'>Heat-Map-Virtual</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Create_Heatmap_Plot_from_Virtual_Matrix"><span class="tocnumber">3.1</span> <span class="toctext">Create Heatmap Plot from Virtual Matrix</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Create_the_Bar_Plot_with_Colormap"><span class="tocnumber">3.2</span> <span class="toctext">Create the Bar Plot with Colormap</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Merge_the_Heatmap_Plot_with_Bar_Plot_and_More_Customization_Steps"><span class="tocnumber">3.3</span> <span class="toctext">Merge the Heatmap Plot with Bar Plot and More Customization Steps</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=32" target="_blank">Virtual Matrix</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=279" target="_blank">Plot 3D or Contour Graph from Virtual Matrix</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=215" target="_blank">Add Color Scale in Graph</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=58" target="_blank">Graph Theme</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=329" target="_blank">What is Graph Theme and How Does it Make Graph Customization Easier?</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/heatmap-improvements-in-2019b" target="_blank">Heatmap Improvements in Origin 2019b</a> </li>
+<li> <a class="external text" href="https://blog.originlab.com/easy-correlation-plots-in-origin-2020b" target="_blank">Easy Correlation Plots in Origin 2020b</a> </li>
+<li> <a class="external text" href="https://blog.originlab.com/conditional-foramtting-in-origin-2019" target="_blank">Conditional Formatting in Origin 2019</a></li></ul>
+</td></tr></table>
+<p><br />
+</p>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>This tutorial create two kinds of graph, a Heatmap Plot based on a virtual matrix together with a Bar Plot with Color Map, and merged them together.    
+<br /><a  class="image"><img alt="Heatmap-21.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-21.png?v=32493" width="677"  /></a>
+</p>
+<p class="version" >Minimum Origin Version Required: 2015 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Create Heatmap Plot based on an Virtual Matrix.</li>
+<li>Create Bar Plot with Colormap.  </li>
+<li>Merge the Heatmap Plot and Bar Plot together.</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="Create_Heatmap_Plot_from_Virtual_Matrix"></a><span class="mw-headline">Create Heatmap Plot from Virtual Matrix</span></h3>
+<p>This tutorial is associated with <i>&lt;Origin EXE Folder&gt;\Samples\Tutorial Data.opj</i>.
+</p>
+<ol>
+<li>Open the <b>Tutorial Data.opj</b> and browse to the folder  <b>Heatmap and Virtual Matrix Manager</b>. Open workbook <i>Electricity Usage</i> with first sheet active.
+
+<li>The XYZ mapping of workbook is shown in graph below, this will help you to understand how the Heatmap plot is created in next steps: 
+<br /><a  class="image"><img alt="Heatmap-01.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-01.png?v=32310" width="684"  /></a> 
+
+<li>Highlight all cells in Z region by selecting the Cell in Column(B)-Row 1, then pressing CTRL+SHIFT+END. Click <b>Plot &gt; Contour: Heatmap</b> in main menu to open the plotvm dialog for Heatmap plot.
+
+<li>Specified the X, Y ranges as shown in graph below.
+<br /><a  class="image"><img alt="Heatmap-02.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-02.png?v=44576" width="426"  /></a> 
+
+<li>In this dialog, check <b>Format X Data</b> and <b>Format Y Data</b> check boxes, click the button <a  class="image"><img alt="Button ....png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Button_....png?v=44578" width="17"  /></a> respectively to format X and Y data following the image below, then click OK to close the dialog.
+<br /><a  class="image"><img alt="Heatmap-03.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-03.png?v=44579" width="747"  /></a> 
+
+<li>The tick labels in Y axis are too dense to be seen, so now we are going to change that. Double click the axis in the graph to open the <b>Axis</b> dialog: 
+<ul><li>Select <b>Left</b> icon in <b>Tick Labels</b> tab, go to <b>Display</b> tab, select <i>Date</i> as the <b>Type</b>, and set <b>Display</b> drop-down list to <i>Dec</i>(Current Month), click <b>Apply</b> to save the setting.</li></ul>
+<dl><dd><a  class="image"><img alt="Heatmap-04.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-04.png?v=44587" width="529"  /></a> </dd></dl>
+<ul><li> Go to the <b>Table</b> tab, check on <b>Enable</b> box, click <b>Apply</b> to save. You will find that the month names are shown as tick labels for Y axis in the form of a table.</li></ul>
+<dl><dd><a  class="image"><img alt="Heatmap-05.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-05.png?v=32327" width="511"  /></a> </dd></dl>
+<li>Next, we will specify the scale and tick labels for X axis:
+<ul><li>Go to <b>Bottom</b> icon in <b>Tick Labels</b> tab, and make sure <b>Time</b> is selected as the Type in <b>Display</b> tab, change the <b>Display</b> to <i>hh pm</i>, click <b>Apply</b> to save the setting.</li></ul>
+<dl><dd><a  class="image"><img alt="Heatmap-06.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-06.png?v=32338" width="509"  /></a> </dd></dl>
+<ul><li>Go to <b>Horizontal</b> icon in <b>Scale</b> tab, make sure the settings resemble the screenshot below, click <b>Apply</b> to save the setting. Click <b>OK</b> to close the dialog. Remove the title for X axis.</li></ul>
+<dl><dd><a  class="image"><img alt="Heatmap-07.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-07.png?v=44590" width="529"  /></a> </dd></dl>
+<li>Click the tick labels for both XY aixs in the graph, change the font size to 10 via <b>Format</b> Toolbar.
+<li>Select <b>Format: Plot</b> in main menu with Heatmap graph active.
+<ul><li>Set the Level for Colormap follows the graph below:</li></ul>
+<dl><dd><a  class="image"><img alt="Heatmap-19.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-19.png?v=32467" width="552"  /></a></dd>
+<dd>Click <b>OK</b> to close the Set Levels dialog </dd></dl>
+<ul><li>Click the Fill color of the Colormap on head cell(blue area) to set Fills follows the graph below:</li></ul>
+<dl><dd><a  class="image"><img alt="Heatmap-20.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-20.png?v=32468" width="553"  /></a></dd></dl>
+<ul><li>Scroll down to the Colormap tail, set its fill color to red in the same way.</li>
+<li>Click <b>Save</b> in <b>Colormap/Contours</b> tab to save the pattern as heatmap.oth which will be used in the second parts of the graph.</li></ul>
+<dl><dd><a  class="image"><img alt="Heatmap-08.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-08.png?v=61650" width="602"  /></a></dd></dl>
+
+<li>In the <b>Plot Details</b> dialog, click the first tree node in left panel (should be <b>Graph1</b> by default), change page size to 11*11 inch in <b>Print/Dimensions</b> tab, click <b>Apply</b>, then in the left panel, select the sub tree node for <b>Layer1</b>, go to the <b>Size/Speed</b> tab, change the Layer area follows graph below, click <b>OK</b> to apply the settings and exit the dialog:
+<dl><dd><a  class="image"><img alt="Heatmap-13.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-13.png?v=61654" width="567"  /></a></dd></dl>
+
+<li>We will turn off the speed mode by click the <a  class="image"><img alt="Button SpeedMode.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Button_SpeedMode.png?v=32486" width="25"  /></a> in Graph Toolbox to view the graph with higher resolution. The finished graph for Heatmap should be similar to the graph below:
+<dl><dd><a  class="image"><img alt="Heatmap-13-1.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-13-1.png?v=32496" width="438"  /></a></dd></dl>
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Heat_Map_and_Virtual_Matrix_Manager/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>Once the Virtual Matrix were created, they will be saved internally. You can browse them in Virtual Matrix Manager. The saved Virtual Matrix can be used for Contour/Heatmap/3D surface plot directly, you can select the virtual matrix from the input box of the plot dialog as shown in graph below:
+</p>
+<dl><dd><a  class="image"><img alt="Heatmap-22.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-22.png?v=32514" width="559"  /></a></dd></dl>
+</td></tr></table>
+<h3><a name="Create_the_Bar_Plot_with_Colormap"></a><span class="mw-headline">Create the Bar Plot with Colormap</span></h3>
+<ol>
+<li>Go to the Temp sheet in Electricity Usage workbook, highlight the worksheet and select <b>Plot &gt; Basic 2D&#160;: Bar</b> in main menu to create a Bar plot.
+
+<li>Now, we will defined the style of axis:
+<ul><li>Double click the axis to open the <b>Axis</b> dialog, change the <b>Scale</b> of axis (X) follows the graphs below  in Vertical page of the <b>Scale</b> tab. </li></ul>
+<dl><dd><a  class="image"><img alt="Heatmap-12-1.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-12-1.png?v=32481" width="513"  /></a></dd></dl>
+<ul><li>Then, change the Scale for axis(Y) in Horizontal page from <i>-55</i> to <i>55</i> with <i>Major Ticks</i> value <i>25</i> and <i>Minor Ticks</i> counts <i>1</i>, then click <b>Apply</b>.</li></ul>
+<dl><dd><a  class="image"><img alt="Heatmap-12.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-12.png?v=33928" width="512"  /></a></dd></dl>
+<ul><li>We will also hide the line and ticks for X axis in <b>Line and Ticks</b> tab by uncheck the box of <b>Show Line and Ticks</b>. Besides, grids can be hide by using similar ways in <b>Grids</b> tab.</li>
+<li>Click <b>OK</b> to close the dialog.</li>
+<li>Change the Y axis title to <i>CDD/HDD</i> by double clicking on the Y title object and entering the in-place edit mode. Delete the ticks labels and axis title of X axis by select it and hit <b>Delete</b> key.</li></ul>
+
+<li>Next, we will create the Colormap for the graph, the Colormap theme should be identical to the Heatmap created before. Click the <b>Format: Plot</b> in main menu to open the <b>Plot Details</b> dialog:
+<ul><li>Set the color for both Border and Fill as <b>Map:Col(B)</b>. </li></ul>
+<dl><dd><a  class="image"><img alt="Heatmap-09.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-09.png?v=32402" width="453"  /></a></dd></dl>
+<ul><li>Go to the <b>Colormap</b> tab, load the heatmap.oth as Colormap Theme.</li></ul>
+<dl><dd><a  class="image"><img alt="Heatmap-10.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-10.png?v=32403" width="552"  /></a></dd></dl>
+<ul><li>Click the Level of the Colormap to set Levels follows the graph below:</li></ul>
+<dl><dd><a  class="image"><img alt="Heatmap-11-2.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-11-2.png?v=33946" width="430"  /></a></dd>
+<dd>Click <b>OK</b> to close the <b>Set Level</b> dialog and Click <b>Apply</b> in Plot Properties dialog to save the settings.</dd></dl>
+
+<li>In the left panel, select the first tree node (by default, <b>Graph2</b>), change page size to 11*11 inch in <b>Print/Dimensions</b> tab, click <b>Apply</b>, then switch to the <b>Layer1</b> tree node and go to the <b>Size/Speed</b> tab, change the Layer area follows graph below, then,click OK to close dialog:
+<dl><dd><a  class="image"><img alt="Heatmap-14.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-14.png?v=33638" width="430"  /></a></dd>
+<dd>The finished bar plot is similar to the graph below:</dd>
+<dd><a  class="image"><img alt="Heatmap-14-1.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-14-1.png?v=32499" width="227"  /></a></dd></dl>
+</ol>
+<h3><a name="Merge_the_Heatmap_Plot_with_Bar_Plot_and_More_Customization_Steps"></a><span class="mw-headline">Merge the Heatmap Plot with Bar Plot and More Customization Steps</span></h3>
+<ol>
+<li>Select <b>Graph: Merge Graph Window</b> in main menu with Heatmap graph active, merge Graph1 and Graph2 together, the <b>Rearrange Layout</b> should be unchecked, click <b>OK</b> to apply the setting.
+<br /><a  class="image"><img alt="Heatmap-15.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-15.png?v=32526" width="567"  /></a>
+Then, you will resize the size of the merged graph (Graph3), click <b>Format: Page</b> &gt;&gt; <b>Print/Dimensions</b> tab, change the page size to 11*11 inch again, click <b>OK</b>. Click <b>CTRL+W</b> to adjust the graph view.
+<li>Specify the style of the color scale:
+<ul><li>Double click the color scale to open the Color Scale Control dialog, set the Levels page as shown in graph below:</li></ul>
+<dl><dd><a  class="image"><img alt="Heatmap-16.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-16.png?v=32454" width="596"  /></a></dd></dl>
+<ul><li>Set the Labels page as shown in graph below:</li></ul>
+<dl><dd><a  class="image"><img alt="Heatmap-17.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-17.png?v=32455" width="595"  /></a></dd></dl>
+<ul><li>Set the Layout page as shown in graph below:</li></ul>
+<dl><dd><a  class="image"><img alt="Heatmap-18.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-18.png?v=33904" width="597"  /></a></dd>
+<dd>Click <b>OK</b> to apply the settings, drag the outline of the color scale in the graph to reach a proper size and location.</dd></dl>
+
+<li>Select the unwanted axis title or legend and delete them, add text object with graph information by using text tool.  
+<br /> The finished graph is similar to the graph below:
+<br /><a  class="image"><img alt="Heatmap-21.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-21.png?v=32493" width="677"  /></a>
+</ol>
+
+

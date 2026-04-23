@@ -1,0 +1,41 @@
+<h1 class="firstHeading">5.5.1 Attribute Gage Study</h1><p>An Attribute Gage Study is conducted to assess repeatability and bias in the measurement system when the attribute gage provides a binary response – either accept or reject the measurement value. The analysis can be used for single limit measurement system – such as a lower or upper limit – or a double limit measurement system.
+</p><p>Origin's input window offers options to conduct the study at the lower or upper limit. Even under a measurement system with a double limit, only one limit needs to be examined. Under the assumptions of linearity and uniformity of error, the shape of the gage performance curve under the upper limit should be a 'mirror image' of the curve at the lower limit.
+</p><p>Start this tutorial with the app <a class="external text" href="https://www.originlab.com/FileExchange/details.aspx?fid=354" target="_blank"><b>Gage Study</b></a> installed. If you have not installed the app, see <a class="external text" href="https://www.originlab.com/doc/User-Guide/Apps" target="_blank">Apps for Origin</a> to find and install the app. Look for the app icon  <a  class="image"><img alt="GageIcon.png" src="../images/Attribute_Gage_Study/30px-GageIcon.png?v=74829" width="30"   /></a>  in the <b>Apps Gallery</b> window.
+</p>
+<h2><a name="Data_Requirement_and_Preparation"></a><span class="mw-headline">Data Requirement and Preparation</span></h2>
+<p>The following components are prepared to conduct the study:
+</p>
+<ol><li> Eight parts with known reference values. The eight parts are selected so that their reference values are approximately equidistant, with the minimum and maximum values representing the process range.</li>
+<li> The eight parts are run through an attribute gage 20 times, and the total number of acceptances, x, for each part are recorded.</li></ol>
+<p><a  class="image"><img alt="Attribute Gage Study 01.png" src="../images/Attribute_Gage_Study/Attribute_Gage_Study_01.png?v=77121" width="293"  /></a>
+</p><p>We will conduct an analysis for an attribute gage with a lower tolerance limit.
+There are several conditions for conducting this study.
+</p>
+<ol><li> First, the total number of acceptances, x, for the smallest part is zero. For the largest part, this is 20. For the other six parts, the total number of acceptances should fall within 1 ≤ x ≤ 19.</li>
+<li> If the total number of acceptances, x, for the smallest part is not equal to zero, then smaller and smaller parts are evaluated until the total number is zero.</li>
+<li> The same principle applies to the largest value. If the total number of acceptances, x, for the largest part is not equal to 20, then larger and larger parts are evaluated until the total number is 20.</li>
+<li> The number of acceptances, x, for the other six parts should fall within 1 ≤ x ≤ 19. If these numbers are not met, additional, approximately equidistant measurements should be made throughout this range. </li></ol>
+<p>We collect data for Parts 1 to 8. 
+</p>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<ol><li> Download the sample file and import it into Origin. Click the app icon  <a  class="image"><img alt="GageIcon.png" src="../images/Attribute_Gage_Study/30px-GageIcon.png?v=74829" width="30"   /></a>  in the <b>Apps Gallery</b> window to open Gage Study app. In this tool, click <b>Attribute Gage Study</b> icon to open the app dialog.
+<dl><dd><a  class="image"><img alt="Attribute Gage Study 02.png" src="../images/Attribute_Gage_Study/Attribute_Gage_Study_02.png?v=77128" width="766"  /></a></dd></dl></li>
+<li> Select col("Part ID") for <b>Part Numbers</b>; select col("Reference Value") for <b>Reference Values</b>; select col("Acceptance") for <b>Summarized Counts of Acceptances</b>. Enter 20 for <b>Total Number of Trials</b> and specify <b>Tolerance Limit for Calculation</b> as -0.09 and make sure <b>Lower Limit</b> have been selected for <b>Limit Type</b> radio box.
+<dl><dd><a  class="image"><img alt="Attribute Gage Study 03.png" src="../images/Attribute_Gage_Study/Attribute_Gage_Study_03.png?v=77129" width="485"  /></a></dd>
+<dd>Bias can be evaluated using the AIAG or Regression method. To test for bias using the AIAG method, the eight parts are run through the attribute gage at least 20 times. For the Regression method, the eight parts are run through the attribute gage at least 15 times. We will select the AIAG method.</dd></dl></li>
+<li> Click OK button. Two result sheets will be genereated.
+<dl><dd><a  class="image"><img alt="Attribute Gage Study 04.png" src="../images/Attribute_Gage_Study/Attribute_Gage_Study_04.png?v=77130" width="712"  /></a></dd></dl></li></ol>
+<h2><a name="Analyze_the_results"></a><span class="mw-headline">Analyze the results</span></h2>
+<p><a  class="image"><img alt="Attribute Gage Study 05.png" src="../images/Attribute_Gage_Study/880px-Attribute_Gage_Study_05.png?v=77133" width="880"   /></a>
+</p><p>Bias is the difference between the reference value and the average of the observed measurements.
+</p><p>We conduct a hypothesis test around the bias. Under the null hypothesis, bias = 0, and under the alternative hypothesis, bias does not equal zero. With a p-value &lt; 0.01, there is enough evidence to reject the null and conclude that the bias is significantly different from zero.
+</p><p>The probabilities of acceptance are provided in Column B under the sheet "Gage Attribute".
+</p><p>The values are plotted in the normal probability plot under the sheet "Report Worksheet". The best fit regression line can be used to calculate bias and repeatability, which are summarized under the first table. 
+</p><p>R-squared is the amount of variation in probabilities of acceptances explained by the model. The higher the value for R-squared, the better the model fits the data.
+</p><p>The second plot shows the Reference Value against the Probability of Acceptance. The Lower Limit specified in the input window is the red, dashed line. The probability of acceptance at the lower tolerance limit of -0.090 is very high, nearly 100%. The attribute gage should be recalibrated.
+</p>
+
+
+
+
+

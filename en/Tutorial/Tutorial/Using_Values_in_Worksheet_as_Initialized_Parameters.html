@@ -1,0 +1,116 @@
+<h1 class="firstHeading">4.2.2.5 Parameters Initialization using LabTalk in NLFit</h1><p class='urlname' style='display: none'>CellVal-IniPara-Fitting</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Write_Parameter_Initialization_Script_for_a_User-Defined_Fitting_Function"><span class="tocnumber">3.1</span> <span class="toctext">Write Parameter Initialization Script for a User-Defined Fitting Function</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Fit_Data_with_the_User_Defined_Fitting_Function"><span class="tocnumber">3.2</span> <span class="toctext">Fit Data with the User Defined Fitting Function</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Create_an_Analysis_Template_and_Do_Batch_Processing"><span class="tocnumber">3.3</span> <span class="toctext">Create an Analysis Template and Do Batch Processing</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Using_Values_in_Worksheet_as_Initialized_Parameters/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Using_Values_in_Worksheet_as_Initialized_Parameters/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/jwplayer.html?v=ftp/mm_tutorials/mp4/Fit_by_User_Functions.mp4%7C767%7C600" target="_blank">User-defined Fitting Function</a></li>
+<li> <a class="external text" href="https://www.originlab.com/jwplayer.html?v=ftp/mm_tutorials/mp4/VT-2560_Batch_Process_MultiData_in_one_Workbook_in_Origin_2016.mp4%7C767%7C600" target="_blank">Batch Import and Analysis of Groups of Files</a></li>
+<li> <a class="external text" href="https://www.originlab.com/jwplayer.html?v=ftp/mm_tutorials/mp4/Use_Clone_Import_to_batch_process_more_data_files.mp4%7C767%7C600" target="_blank">Use Clone Import to Batch Process More Data Files</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Using_Values_in_Worksheet_as_Initialized_Parameters/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Using_Values_in_Worksheet_as_Initialized_Parameters/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/use-initial-formula-to-better-guess-fitting-parameter-values-from-data" target="_blank">Use Initial Formula to Better Guess Fitting Parameter Values from Data</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>In previous Origin versions, one can only initialize fitting parameters  with Origin C code. Since Origin 9.0 SR1, it is also supported to use LabTalk script to initialize parameters. This implement is especially useful when one wants to use worksheet values for the initial parameters.
+</p><p>In this tutorial, three adsorption uptake curves at three different temperatures were measured, and the results are exported in three .txt files. The experimental conditions are stored in the same .txt file as header info. We are going to fit the data to the isothermal-spherical model, according to the following equation:
+</p><p><img src="../images/Using_Values_in_Worksheet_as_Initialized_Parameters/math-c99952a18855fe1f14788fe2100640c2.png?v=0" title="y = 1 - \frac{6}{pi^2}*exp(-\frac{pi^2}{T}*x)" alt="y = 1 - \frac{6}{pi^2}*exp(-\frac{pi^2}{T}*x)" class="tex"/> 
+</p><p>, where y is the normalized mass uptake (mg/g), x is the time span (s),      T is the time constant (1/s), and the fitting parameter. 
+</p><p>There is an empirical equation describing the relationship between the temperature and time constant, which is:
+</p><p><img src="../images/Using_Values_in_Worksheet_as_Initialized_Parameters/math-aee6cb23be6aabd5140fb4b7213cf3ca.png?v=0" title="T = 25000 - 58 * Temp" alt="T = 25000 - 58 * Temp" class="tex"/>
+</p><p>For the uptake curve at each temperature, we will calculate T from this equation and use it as the initial value for the curve fitting.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 9.0 SR1</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Create a user-defined fitting function and use Labtalk script to do parameter initialization.</li>
+<li>Use values in worksheet for initialized parameters.</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="Write_Parameter_Initialization_Script_for_a_User-Defined_Fitting_Function"></a><span class="mw-headline">Write Parameter Initialization Script for a User-Defined Fitting Function</span></h3>
+<ol><li>Select <b>Tools:Fitting Function Builder</b>(or press <b>F8</b>) to open the <b>Fitting Function Builder</b>, in the <b>Goal</b> page, select <b>Create a New Function</b> and click <b>Next</b>.</li>
+<li>In the <b>Name and Type</b> page, make sure the function is created under the <b>User Defined</b> category, name the function <b>UptakeCurveFit</b>, keep the <b>Function Model</b> as <b>Explicit</b>, and select <b>Origin C</b> for <b>Function Type</b>. Click the <b>Next</b> button.</li>
+<li>In the <b>Variables and Parameters</b> page, keep the <b>Independent Variables</b> and <b>Dependent Variables</b> as the default <b>x</b> and <b>y</b>, respectively. Set the <b>Parameters</b> to <b>T</b> and click <b>Next</b>.</li>
+<li>In the <b>Origin C Fitting Function</b> page, type in the following equation in the <b>Function Body</b> edit box, and then click <b>Next</b>.</li></ol>
+<pre class="oc" style="font-family:monospace;">y <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span> <span style="color: #000040;">-</span> <span style="color: #0000dd;">6</span><span style="color: #000040;">/</span><span style="color: #000000;">&#40;</span>pi<span style="color: #000040;">^</span><span style="color: #0000dd;">2</span><span style="color: #000000;">&#41;</span><span style="color: #000040;">*</span><span style="color: #000000;">exp</span><span style="color: #000000;">&#40;</span><span style="color: #000040;">-</span><span style="color: #000000;">&#40;</span>pi<span style="color: #000040;">^</span><span style="color: #0000dd;">2</span><span style="color: #000040;">/</span>T<span style="color: #000000;">&#41;</span><span style="color: #000040;">*</span>x<span style="color: #000000;">&#41;</span></pre>
+<p><a  class="image"><img alt="Tutorial LT Para Init 01.png" src="../images/Using_Values_in_Worksheet_as_Initialized_Parameters/Tutorial_LT_Para_Init_01.png?v=15826" width="573"  /></a>
+</p>
+<ol start="5">
+<li>In the <b>Parameter Initialization Code</b> page, select <b>Use Custom Code</b> radio butto, and then select the <b>Use Labtalk</b> radio button to enable the use of Labtalk script. In the <b>Initialization Code</b> edit box, type in the following script:
+<pre class="lt" style="font-family:monospace;"><span style="color: #008000;">//Code to be executed to initialize parameters</span>
+<span style="color: #008000;">//Get the current worksheet page.</span>
+range rpage<span style="color: #000080;">=</span>ry.<span style="color: #000080;">getpage</span><span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span><span style="color: #000080;">$</span>;  
+<span style="color: #008000;">//Get the data worksheet</span>
+range rlayer<span style="color: #000080;">=</span>ry.<span style="color: #000080;">getlayer</span><span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span><span style="color: #000080;">$</span>; 
+<span style="color: #008000;">//Get the data worksheet index</span>
+int inext<span style="color: #000080;">=</span>rlayer.<span style="color: #000080;">index</span>;
+<span style="color: #008000;">//Make sure the data workbook is active</span>
+win <span style="color: #000080;">-</span>a <span style="color: #000080;">%</span><span style="color: #000000;">&#40;</span>ry.<span style="color: #000080;">getpage</span><span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span><span style="color: #000080;">$</span><span style="color: #000000;">&#41;</span>;
+<span style="color: #008000;">//Make sure the data worksheet is active</span>
+page.<span style="color: #000080;">active</span><span style="color: #000080;">=</span>inext;
+<span style="color: #008000;">//Active column 2 in the data worksheet</span>
+wks.<span style="color: #000080;">col</span><span style="color: #000080;">=</span><span style="color: #0000dd;">2</span>;
+<span style="color: #008000;">//Get the temperature as a string from column comment</span>
+string str1<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> wks.<span style="color: #000080;">col</span>.<span style="color: #000080;">comment</span><span style="color: #000080;">$</span>;
+<span style="color: #008000;">//Get the string of the temperature number</span>
+string str2<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> str1.<span style="color: #000080;">Left</span><span style="color: #000000;">&#40;</span><span style="color: #0000dd;">3</span><span style="color: #000000;">&#41;</span><span style="color: #000080;">$</span>;
+<span style="color: #008000;">//Substitute the string variable to a double number</span>
+double Temp <span style="color: #000080;">=</span> <span style="color: #000080;">%</span><span style="color: #000000;">&#40;</span>str2<span style="color: #000080;">$</span><span style="color: #000000;">&#41;</span>; 
+<span style="color: #008000;">//Use the empirical equation to calculate the initial value of T</span>
+T<span style="color: #000080;">=</span><span style="color: #0000dd;">25000</span> <span style="color: #000080;">-</span> <span style="color: #0000dd;">58</span> <span style="color: #000080;">*</span> Temp; 
+<span style="color: #008000;">//Check whether parameter initialization script runs successfully</span>
+type <span style="color: #000080;">-</span>b <span style="color: #ff00ff;">&quot;Experimental temperature is $(Temp) K, so the initial value of T is $(T).&quot;</span></pre>
+<table class="note">
+
+<tr>
+<td><b>Notes:</b> The <i>ry</i> in the script above is an auto-defined range variable for the input data range of parameter <i>y</i>, the syntax for such range variable is <i>r</i>+<i>parameter name</i>. For example, if the parameter name is <i>Temp</i>, the range variable should be <i>rTemp</i>.
+</td></tr></table>
+</li>
+<li>
+Click <b>Finish</b> to create the user defined fitting function <b>UptakeCurveFit</b>, you could find its .fdf file in the <b>User Files Folder</b>.
+</li>
+</ol>
+<h3><a name="Fit_Data_with_the_User_Defined_Fitting_Function"></a><span class="mw-headline">Fit Data with the User Defined Fitting Function</span></h3>
+<ol><li>Create a new Origin project by clicking the <a  class="image"><img alt="Button New Project.png" src="../images/Using_Values_in_Worksheet_as_Initialized_Parameters/Button_New_Project.png?v=1381" width="22"  /></a> button on the <b>Standard</b> toolbar. Click the <a  class="image"><img alt="Button Import Wizard.png" src="../images/Using_Values_in_Worksheet_as_Initialized_Parameters/Button_Import_Wizard.png?v=52465" width="25"  /></a> button (or <b>Data: Import from File: Import Wizard</b> or press <b>Ctrl</b>+<b>3</b>) to open the <b>Import Wizard</b>.</li>
+<li>In the <b>Data Source</b>, select the <b>UptakeCurve_343K.txt</b> as the <b>File</b>, which is located under path <i>&lt;Origin Folder&gt;\Samples\Curve Fitting\</i>. Click <b>Next</b> button to navigate to the <b>Header Lines</b> page. Set the <b>Long Names</b>, <b>Units</b>, and <b>Comments</b> as <b>3</b>, <b>4</b>, and <b>1 to 1</b>, respectively. 
+<dl><dd><a  class="image"><img alt="Tutorial LT Para Init 02.png" src="../images/Using_Values_in_Worksheet_as_Initialized_Parameters/Tutorial_LT_Para_Init_02.png?v=15830" width="627"  /></a></dd></dl></li>
+<li>Click <b>Finish</b> to import the data file. Note that the experimental temperature is stored as the comment of column 2, which will be retrieved by the Labtalk script for parameter initialization in the <b>UptakeCurveFit</b> fitting function. 
+<dl><dd><a  class="image"><img alt="Tutorial LT Para Init 03.png" src="../images/Using_Values_in_Worksheet_as_Initialized_Parameters/Tutorial_LT_Para_Init_03.png?v=15831" width="349"  /></a></dd></dl></li>
+<li>Highlight column B and select <b>Analysis:Fitting:Nonlinear Curve Fit</b> (or press <b>Ctrl</b>+<b>Y</b>) to open the <b>NLFit</b> dialog, select  <b>User Defined</b> for <b>Category</b> and <b>UptakeCurveFit(User)</b> as <b>Function</b>. </li>
+<li>An attention box pops up and shows the experimental temperature and the calculated initial value of time constant.
+<dl><dd><a  class="image"><img alt="Tutorial LT Para Int 05.png" src="../images/Using_Values_in_Worksheet_as_Initialized_Parameters/Tutorial_LT_Para_Int_05.png?v=15833" width="396"  /></a> </dd></dl></li>
+<li>Go to the <b>Parameters</b> tab. The value of parameter T is 5106, which indicates the parameter initialization script is successfully called.</li>
+<li>Go to the <b>Code</b> tab and select the <b>Parameter Init</b> section, there you could double check the parameter initialization script by clicking the <a  class="image"><img alt="Button Initialize Parameters.png" src="../images/Using_Values_in_Worksheet_as_Initialized_Parameters/Button_Initialize_Parameters.png?v=1366" width="26"  /></a> button. </li>
+<li>Click <b>OK</b> to close the attention box, and click <b>Fit</b> to carry out the fit.</li></ol>
+<h3><a name="Create_an_Analysis_Template_and_Do_Batch_Processing"></a><span class="mw-headline">Create an Analysis Template and Do Batch Processing</span></h3>
+<ol><li>Go to the report sheet <b>FitNL1</b> which is generated from previous steps, click the triangle button right to the <b>Summary</b> table and choose <b>Create Copy as New Sheet</b>. A new sheet will be created, delete column A in the new sheet and rename it as <b>Result</b>.
+<dl><dd><a  class="image"><img alt="Tutorial LT Para Init 06.png" src="../images/Using_Values_in_Worksheet_as_Initialized_Parameters/Tutorial_LT_Para_Init_06.png?v=15838" width="486"  /></a></dd></dl></li>
+<li>Keep the workbook active and select <b>File:Save Workbook as Analysis Template</b> to save this workbook as <b>MyUptakeFit.ogw</b>.</li>
+<li>Create a new Origin project and select <b>File:Batch Processing</b> to open the <b>batchProcess</b> dialog.</li>
+<li>Load the analysis template <b>MyUptakeFit.ogw</b>, select the files <b>UptakeCurve_343K.txt</b>, <b>UptakeCurve_373K.txt</b>, and <b>UptakeCurve_403K.txt</b> under the <i>&lt;Origin Folder&gt;\Samples\Curve Fitting\</i> path, choose <b>File Name</b> for <b>Dataset Identifier</b> and make sure the other settings are the same according to the image below:
+<dl><dd><a  class="image"><img alt="Tutorial LT Para Init 07.png" src="../images/Using_Values_in_Worksheet_as_Initialized_Parameters/Tutorial_LT_Para_Init_07.png?v=15839" width="615"  /></a></dd></dl></li>
+<li>Click <b>OK</b> to carry out the batch processing, for every file being executed, the attention box pops up and indicates the initial value being used, click <b>OK</b> every time to close the attention box and continue the batch processing. Finally, a summary report will be created:
+<dl><dd><a  class="image"><img alt="Tutorial LT Para Init 08.png" src="../images/Using_Values_in_Worksheet_as_Initialized_Parameters/Tutorial_LT_Para_Init_08.png?v=15840" width="549"  /></a></dd></dl></li></ol>
+
+
+
+
+
+

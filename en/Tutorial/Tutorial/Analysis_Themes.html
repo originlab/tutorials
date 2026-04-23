@@ -1,0 +1,53 @@
+<h1 class="firstHeading">4.7 Analysis Themes</h1><p class='urlname' style='display: none'>AnalysisThemes</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Save_the_analysis_procedure_as_Theme"><span class="tocnumber">3.1</span> <span class="toctext">Save the analysis procedure as Theme</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Repeat_the_analysis_procedure_by_Theme"><span class="tocnumber">3.2</span> <span class="toctext">Repeat the analysis procedure by Theme</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>In Origin 8, analysis procedures can be controlled by Themes. Themes are actually XML files which save settings in the analysis dialog.For example, after performing the analysis, there will now be a &lt;Last Used&gt; theme for this dialog which has saved the most recently used settings.  You can assign a proper name for the theme and use it in the future.
+</p><p>For this tutorial, the Statistics on Columns dialog will be used to demonstrate how to create and use an analysis theme. This analysis provides descriptive statistics about the data such as mean, standard deviation, minimum, maximum, and more.  For visualization, a histogram or box chart can also be created in the Analysis Result Sheet.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 8.0 SR6</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Perform simple descriptive statistics</li>
+<li>Create an Analysis Theme</li>
+<li>Use the theme</li></ul>
+<p><br />
+</p>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="Save_the_analysis_procedure_as_Theme"></a><span class="mw-headline">Save the analysis procedure as Theme</span></h3>
+<ol><li>Start with a new workbook and import the file \<i>Samples</i>\<i>Statistics</i>\<i>automobile.dat</i>.</li>
+<li>Highlight column C and use the menu item <b>Statistics: Descriptive Statistics: Statistics on Columns</b> to open the dialog. </li>
+<li>Select <b>Quantities</b> tab, then expand the <b>Moments</b> tree node, and check the <i>N Total</i>, <i>Mean</i>, <i>Standard Deviation</i>, <i>SE of Mean</i> and <i>Sum</i> box. </li>
+<li>Expand the <b>Plots</b> tree node, and check the <i>Histograms</i> and <i>Box Charts</i> check boxes. You will then get the corresponding histogram as well as box chart graphs.</li>
+<li>Your selections in this analysis dialog can be saved as your theme, so that you may easily repeat the procedure. Click the arrow to the right of Dialog Theme and choose <b>Save as...</b> ...<br /><br /><a  class="image"><img alt="Tutorial Statistics 001.png" src="../images/Analysis_Themes/Tutorial_Statistics_001.png?v=2365" width="198"  /></a><br /><br /> ... to bring up this dialog:<br /><br /><a  class="image"><img alt="Tutorial Statistics 002.png" src="../images/Analysis_Themes/Tutorial_Statistics_002.png?v=261" width="218"  /></a><br /><br /></li>
+<li>Type a proper theme name, such as "<i>MyTheme</i>" and click <b>OK</b>.<br /><br /></li>
+<li>Click the <b>OK</b> button in the <b>Statistics on Columns</b> dialog.  Results are reported to a new worksheet named DescStatsOnCols1. <br /><br /></li></ol>
+<p><a  class="image"><img alt="Tutorial Statistics 003.png" src="../images/Analysis_Themes/Tutorial_Statistics_003.png?v=8499" width="403"  /></a><br /><br />
+</p>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Analysis_Themes/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>You can save a customized dialog theme as default, so it will be used every time you open the dialog of analysis operation. To do this, choose <b>Save as &lt;Default&gt;</b> to save the current dialog theme as the default setting of this dialog. It is also possible to delete the default theme and roll back to system default, to do this, choose <b>Delete</b> from the fly-out menu.
+</p></td></tr></table>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Analysis_Themes/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>You can save also save your <a class="external text" href="../../UserGuide/UserGuide/Analysis_Report_Sheets_and_Columns.html">Analysis Report Sheet</a> configuration to a Theme file by expanding or collapsing output nodes, then choosing <b>Save Node Configuration</b> from the shortcut menu. For more information, see <b>Save Node Configuration</b> in <a class="external text" href="../../UserGuide/UserGuide/Analysis_Report_Sheets_and_Columns.html#Viewing.2C_editing_and_copying_report_tables">this table</a>.
+<p><a  class="image"><img alt="ARS Save Node Config.png" src="../images/Analysis_Themes/ARS_Save_Node_Config.png?v=58464" width="425"  /></a>
+</p>
+</p></td></tr></table>
+<h3><a name="Repeat_the_analysis_procedure_by_Theme"></a><span class="mw-headline">Repeat the analysis procedure by Theme</span></h3>
+<p>Once you save a theme, there are many ways to use it. For example, you can highlight column E and perform the same statistical analyses on it.
+</p>
+<ul><li>Open the <b>Statistics on Columns</b> dialog from the <b>Most Recently Used</b> items at the bottom of the <b>Statistics</b> menu. Most of the menu accessible dialogs can be opened from MRU menus.<br /><br /><a  class="image"><img alt="Tutorial Statistics 004.png" src="../images/Analysis_Themes/Tutorial_Statistics_004.png?v=6512" width="359"  /></a><br /><br />When you open the dialog from MRU, the default theme is &lt;Last Used&gt;. To use the <b>MyTheme</b> theme, select <i>MyTheme</i> from the <b>Dialog Theme</b> shortcut menu.  The settings from that theme will then be displayed in the dialog.  Click the <b>OK</b> button to do the analysis.<br /><br /><a  class="image"><img alt="Tutorial Statistics 005.png" src="../images/Analysis_Themes/Tutorial_Statistics_005.png?v=2367" width="203"  /></a><br /><br /></li></ul>
+<ul><li>Another way to apply the analysis theme is to use the cascaded menu item. Once you use an analysis dialog for the first time after installation, or save a theme for a dialog, there will be one more menu level added. You can choose  the <i>MyTheme</i> menu.   <br /><br /><a  class="image"><img alt="Tutorial Statistics 006.png" src="../images/Analysis_Themes/Tutorial_Statistics_006.png?v=269" width="425"  /></a><br /><br /> When selecting, <i>Open Dialog...</i>, the dialog will open to the &lt;Factory Default&gt; theme.  To change the settings of your theme, you can select your theme name from the <b>Dialog Theme</b> shortcut menu inside the dialog, make changes, and resave the theme.  Alternatively, to open a dialog with a saved theme without performing the analysis, hold down the <i>shift</i> key while selecting the theme from the menu. This will bring up the dialog with your theme applied so you can make changes as needed.<br /><br /></li></ul>
+
+

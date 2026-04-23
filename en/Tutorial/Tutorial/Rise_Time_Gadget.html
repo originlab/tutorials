@@ -1,0 +1,75 @@
+<h1 class="firstHeading">4.1.4 Rise Time Gadget</h1><p class='urlname' style='display: none'>RiseTime-Gadget</p>
+<p><br />
+</p><p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Analyze_Rise_Time"><span class="tocnumber">3</span> <span class="toctext">Analyze Rise Time</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Analyze_Fall_Time"><span class="tocnumber">4</span> <span class="toctext">Analyze Fall Time</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>The Rise Time Gadget can be used to analyze the rising and falling stages of a step-like signal in a graph. With this gadget, you can intuitively select an area on the graph with a rectangle, and then calculate the rise time or fall time within that area. 
+</p>
+<p class="version" >Minimum Origin Version Required: OriginPro 2015 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<ul><li> How to select a specific region of the signal by moving and resizing a region of interest (ROI). </li>
+<li> How to mark <b>Rise Time</b> (<b>Fall Time</b>) and <b>Rise Range</b> (<b>Fall Range</b> ) in the graph.</li>
+<li> How to switch the tool between <b>Rise Time</b> and <b>Fall Time</b>. </li>
+<li> How to output analysis results of <b>Rise Time</b> (<b>Fall Time</b>).</li></ul>
+<h2><a name="Analyze_Rise_Time"></a><span class="mw-headline">Analyze Rise Time</span></h2>
+<ol>
+<li>Start with a new workbook and click the <a  class="image"><img alt="Button Import Single ASCII.png" src="../images/Rise_Time_Gadget/Button_Import_Single_ASCII.png?v=52466" width="25"  /></a> button to import the <b>Step Signal with Random Noise.dat</b> file under the <i>&lt;Origin EXE Folder&gt;\Samples\Signal Processing</i> path.</li>
+<li>Highlight Column B and select <b>Plot: Line: Line</b> in the menu to create a graph. 
+<br /><br /><a  class="image"><img alt="Rise Time Gadget 01.png" src="../images/Rise_Time_Gadget/Rise_Time_Gadget_01.png?v=12247" width="413"  /></a><br /><br />
+
+<li>Double-click the X axis to open the <b>Axis</b> dialog box. Go to the <b>Scale</b> tab and set the axis range and major ticks as shown in the image below.
+<br /><br /><a  class="image"><img alt="Rise Time Gadget 02.png" src="../images/Rise_Time_Gadget/Rise_Time_Gadget_02.png?v=33000" width="622"  /></a><br /><br />
+
+<li>Click the <b>OK</b> button and the graph will be updated as shown below:<br /><br />
+<a  class="image"><img alt="Rise Time Gadget 08.png" src="../images/Rise_Time_Gadget/Rise_Time_Gadget_08.png?v=12255" width="413"  /></a><br /><br />
+
+<li>Select <b>Gadgets: Rise Time</b> from the Origin menu to open the <b>Rise Time: addtool_rise_time</b> dialog box. 
+Go to the <b>Display on Graph</b> tab, and click the <b>Rise Time</b> and <b>Rise Range</b> check boxes.
+
+<br /><br /><a  class="image"><img alt="Rise Time Gadget 03.png" src="../images/Rise_Time_Gadget/Rise_Time_Gadget_03.png?v=33001" width="448"  /></a><br /><br />
+
+<li>Click <b>OK</b> button, and you will see that a yellow rectangle is added to the plot. Move the rectangle horizontally on the rise signal step. 
+<br /><br /><a  class="image"><img alt="Rise Time Gadget 04.png" src="../images/Rise_Time_Gadget/Rise_Time_Gadget_04.png?v=12250" width="520"  /></a><br /><br />
+
+In the graph, you can see the <b>Rise Time</b> and <b>Rise Range</b> values are shown at the top of the rectangle. 
+<br />
+The two blue vertical lines go through the two indicators marking the <b>Rise Time</b>.
+<br />
+The two blue horizontal lines that display the <b>Low Reference Level</b> and <b>High Reference Level</b> go through the two indicators marking the <b>Rise Range</b>. 
+<br />
+The two red horizontal lines display <b>Low State Level</b> and <b>High State Level</b>.
+
+<li>Click the triangle button <a  class="image"><img alt="Triangle button.png" src="../images/Rise_Time_Gadget/Triangle_button.png?v=12017" width="15"  /></a>  at the top right corner of the rectangle. Then select <b>New Output</b>. The results will be output to the <b>Script Window</b>.
+
+<br /><br /><a  class="image"><img alt="Rise Time Gadget 05.png" src="../images/Rise_Time_Gadget/Rise_Time_Gadget_05.png?v=33002" width="425"  /></a><br /><br />
+</ol>
+<h2><a name="Analyze_Fall_Time"></a><span class="mw-headline">Analyze Fall Time</span></h2>
+<ol>
+<li> This gadget also allows you to get the fall time and fall range in a graph. Move the rectangle horizontally on the fall signal step.
+<br /><br /><a  class="image"><img alt="Rise Time Gadget 09.png" src="../images/Rise_Time_Gadget/Rise_Time_Gadget_09.png?v=12322" width="410"  /></a><br /><br />
+
+<li> Click the triangle button <a  class="image"><img alt="Triangle button.png" src="../images/Rise_Time_Gadget/Triangle_button.png?v=12017" width="15"  /></a> and select <b>Preferences</b> in the fly-out menu to open the <b>Rise Time Preferences</b> dialog. Go to the <b> ROI Box</b> tab and select <b>Fall Time</b> in the <b>Tool</b> drop-down list. 
+
+<br /><br /><a  class="image"><img alt="Rise Time Gadget 06.png" src="../images/Rise_Time_Gadget/Rise_Time_Gadget_06.png?v=12252" width="415"  /></a><br /><br />
+
+<li> Click the <b>OK</b> button, the <b>Fall Time</b> and <b>Fall Range</b> values are shown at the top of the rectangle.  
+
+<br /><br /><a  class="image"><img alt="Rise Time Gadget 07.png" src="../images/Rise_Time_Gadget/Rise_Time_Gadget_07.png?v=12253" width="411"  /></a><br /><br />
+
+<li>Click the triangle button <a  class="image"><img alt="Triangle button.png" src="../images/Rise_Time_Gadget/Triangle_button.png?v=12017" width="15"  /></a> and select <b>New Output</b>. The results will be output to the <b>Script Window</b>.
+</ol>
+
+
+
+
+
+

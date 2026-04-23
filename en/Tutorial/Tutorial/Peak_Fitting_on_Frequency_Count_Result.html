@@ -1,0 +1,66 @@
+<h1 class="firstHeading">4.2.2.23 Distribution Fit with the Probability Density Function and Cumulative Distribution Function</h1><p class='urlname' style='display: none'>PeakFit-on-FreqCountResult</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">Example and Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Generating_Normally_Distributed_Data_for_Fitting"><span class="tocnumber">3.1</span> <span class="toctext">Generating Normally Distributed Data for Fitting</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Fitting_with_Probability_Density_Function_.28PDF.29"><span class="tocnumber">3.2</span> <span class="toctext">Fitting with Probability Density Function (PDF)</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Fitting_with_Cumulative_Distribution_Function_.28CDF.29"><span class="tocnumber">3.3</span> <span class="toctext">Fitting with  Cumulative Distribution Function (CDF)</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>To know the location or scale parameters of a sample distribution, one can <a href="../../Tutorial/Tutorial/Distribution_Fit.html" title="Tutorial:Distribution Fit">perform distribution fit</a> on the data. However, you can also fit a probability density function or cumulative distribution function on the binned data to get these values. This tutorial shows you how to estimate these parameters by curve fitting.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 2016 SR2</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<ul><li> Generating Normally Distributed Data for Fitting</li>
+<li> Fitting with Probability Density Function (PDF)</li>
+<li> Fitting with Cumulative Distribution Function (CDF)</li></ul>
+<h2><a name="Example_and_Steps"></a><span class="mw-headline">Example and Steps</span></h2>
+<h3><a name="Generating_Normally_Distributed_Data_for_Fitting"></a><span class="mw-headline">Generating Normally Distributed Data for Fitting</span></h3>
+<ol>
+<li> Run the following script to create sample dataset
+<pre class="lt" style="font-family:monospace;">newbook;
+col<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">2</span><span style="color: #000000;">&#41;</span> <span style="color: #000080;">=</span> normal<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">1000</span><span style="color: #000000;">&#41;</span> <span style="color: #000080;">*</span> <span style="color: #0000dd;">2</span> <span style="color: #000080;">+</span> <span style="color: #0000dd;">5</span>;</pre>
+This script generates 1000 normally distributed points where <i>mean &#8776; 5</i> and <i>&#963; &#8776; 2</i>. </li>
+<li> We can first perform simple descriptive statistics on this column to see the corresponding <i>Moments</i> output.<br /> <br />
+
+Highlight the data column and select <b>Statistics: Descriptive Statistics: Statistics on Column</b> to open the dialog. Select <b>Quantities</b> tab, then make sure the <b><i>Mean</i></b> and <b><i>Standard Deviation</i></b> checkboxes are selected. And the click <b>OK</b> to generate report.
+
+<br /><br /><a  class="image"><img alt="Fitting on Frequency Count Stats Result.png" src="../images/Peak_Fitting_on_Frequency_Count_Result/250px-Fitting_on_Frequency_Count_Stats_Result.png?v=45590" width="250"   /></a><br /> 
+
+From the report worksheet, we can see the Mean and Standard Deviation are very close to the value we just set. </li>
+</ol>
+<h3><a name="Fitting_with_Probability_Density_Function_.28PDF.29"></a><span class="mw-headline">Fitting with Probability Density Function (PDF)</span></h3>
+<ol>
+<li>To fit the data with the PDF, we should calculate the binned data with <b>Frequency Counts</b> tool first. Highlight the source data column and select <b>Statistics: Descriptive Statistics: Frequency Counts</b> from menu. This dialog will count the number of data points on specified bins.
+<ul><li> Expand the <b>Computation Control</b> branch, and make sure <b>Bin Size</b> radio button is selected beside <b>Step by</b>. Set the <b>Bin Size</b> to <i>0.5</i> (you'll have to clear the <b>Auto</b> check box).</li>
+<li> Make sure the <b>Bin Center</b>, <b>Count</b> and <b>Cumulative Count</b> check boxes under <b>Quantities to Compute</b> branch are selected. Then click <b>OK</b> to count the data.</li></ul>
+</li>
+<li> Highlight the <i>Count</i> column on the Frequency Counts result worksheet, select <b>Plot&gt;2D: Bar: Column</b> to create a column graph. Now we have the histogram of the source data.</li>
+<li> With the graph active, select menu <b>Analysis: Fitting: Nonlinear Curve menu</b> to open the <b>NLFit</b> dialog. Then select the <b><i>Gauss</i></b> function from the <b>Statistics</b> category. Leave other options as defaults and click the <b>Fit</b> button directly to output fitting report.
+
+<br /><a  class="image"><img alt="Fitting on Frequency Count Fit Result.png" src="../images/Peak_Fitting_on_Frequency_Count_Result/Fitting_on_Frequency_Count_Fit_Result.png?v=57385" width="527"  /></a><br /><br />
+
+From the fitting report, we can see that the fitted <i>xc</i> and <i>sigma</i> are close to <i>5</i> and <i>2</i>. </li>
+</ol>
+<h3><a name="Fitting_with_Cumulative_Distribution_Function_.28CDF.29"></a><span class="mw-headline">Fitting with  Cumulative Distribution Function (CDF)</span></h3>
+<ol>
+<li> To fit the data with the CDF, we should start from the cumulative binned data. Select the <b>FreqCounts1</b> sheet from the previous section. Highlight the <i>Cumulative Count</i> column. Select menu <b>Plot&gt;2D: Scatter: Scatter</b> to plot the CDF points. </li>
+<li> With the graph active, select menu <b>Analysis: Fitting: Nonlinear Curve Fit</b> to open the <b>NLFit</b> dialog. Select the <b><i>NormalCDF</i></b> function from the <b>Statistics</b> category. Leave other options as defaults and click the <b>Fit</b> button directly to output fitting report.<br />
+<a  class="image"><img alt="Fitting on Frequency Count Fit Result 2.png" src="../images/Peak_Fitting_on_Frequency_Count_Result/Fitting_on_Frequency_Count_Fit_Result_2.png?v=57388" width="579"  /></a>
+
+<br /><br />From the fitting report, we can see that the fitted <i>xc</i> and <i>w</i> are close to <i>5</i> and <i>2</i>.
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Peak_Fitting_on_Frequency_Count_Result/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>After you got binned data from the <b>Frequency Counts</b> tool, you can also fit the binned data with your user-defined probability density function or cumulative distribution function. <a href="../../Tutorial/Tutorial/Nonlinear_Curve_Fit_Tool.html#Define_and_fit_with_a_user-defined_function" title="Tutorial:Nonlinear Curve Fit Tool">View this page for defining and fitting with a user-defined function.</a>
+</p></td></tr></table>
+
+

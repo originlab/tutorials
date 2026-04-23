@@ -1,0 +1,204 @@
+<h1 class="firstHeading">6.7.7 Panel Graph with Inset Plots of High-resolution Electron Energy-loss Spectra</h1><p class='urlname' style='display: none'>Panel-Graph-w-Inset-Plots</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Using_the_Plot_Setup_dialog"><span class="tocnumber">3.1</span> <span class="toctext">Using the Plot Setup dialog</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Adding_Inset_Graphs"><span class="tocnumber">3.2</span> <span class="toctext">Adding Inset Graphs</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Merging_Graphs"><span class="tocnumber">3.3</span> <span class="toctext">Merging Graphs</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Customizing_Plots_and_the_Copy_Format_Feature"><span class="tocnumber">3.4</span> <span class="toctext">Customizing Plots and the Copy Format Feature</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Using_the_Layer_Management_Dialog_Box_to_Link_and_Customize_Axes"><span class="tocnumber">3.5</span> <span class="toctext">Using the Layer Management Dialog Box to Link and Customize Axes</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Adding_Titles.2C_Legend_and_Text_Objects"><span class="tocnumber">3.6</span> <span class="toctext">Adding Titles, Legend and Text Objects</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=166" target="_blank">Merge Graphs</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=346" target="_blank">How to Merge Graphs in different project files</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=383" target="_blank">Browser Graph Stack</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=143" target="_blank">Create Stack Graph with Common Scale Units</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=363" target="_blank">Add Multiple Axis Breaks to show details in one region</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=362" target="_blank">Axis scale after break</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/making-dynamic-inset-graphs" target="_blank">Making Dynamic Inset Graphs</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/browser-graph-improvements-in-origin-2021" target="_blank">Browser Graph Improvements in Origin 2021</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Origin can be used to create a three panel graph with inset plots similar to the image shown below:
+<br />
+<a  class="image"><img alt="Energy-loss Spectra22.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra22.png?v=34247" width="615"  /></a>
+<br />
+</p>
+<p class="version" >Minimum Origin Version Required: 2015 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will demonstrate how to:
+</p>
+<ul><li> Use the <b>Plot Setup</b> dialog to create curves on one graph using data from multiple workbooks.</li>
+<li> Add Inset Graphs. </li>
+<li> Copy and Paste Style formats. </li>
+<li> Use the <b>Layer Management</b> dialog to link axes.</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="Using_the_Plot_Setup_dialog"></a><span class="mw-headline">Using the Plot Setup dialog</span></h3>
+<p>This tutorial is associated with &lt;origin exe folder&gt;\Samples\Tutorial Data.opj.
+<br />
+</p>
+<ol>
+    <li> Open the  Tutorial Data.opj and <br />go to the folder <i>Three Panel Graph with Inset Graphs</i>.
+    <li> Activate the workbooks <b>Measured</b> and <b>Original name: BOS".</b>
+    <li> Ensure that nothing is selected in either workbook and click the line button <a  class="image"><img alt="Button Line.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Line.png?v=1447" width="22"  /></a> on the <b>2D Graphing</b> toolbar.
+    <li> This will bring up the <b>Plot Setup</b> dialog box.
+    <br /><a  class="image"><img alt="Energy-loss Spectra02.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra02.png?v=34229" width="701"  /></a>
+ <table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>In order to show all three panels in <a class="external text" href="../../UserGuide/Category/Plot_Setup.html"><b>Plot Setup</b></a> dialog, please expand <b>Plot Type</b> panel by clicking <a  class="image"><img alt="Button Expand Preview Up.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Expand_Preview_Up.png?v=1413" width="24"  /></a> and expand <b>Available Data</b> panel by clicking <a  class="image"><img alt="Button Expand Preview Up.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Expand_Preview_Up.png?v=1413" width="24"  /></a> again.
+</p></td></tr></table>
+    <li> Under <b>Available Data</b> select the <b>Worksheets in Folder</b> option from the drop-down list. This will ensure that in the panel to the right, data is available from all the workbooks in the current folder.
+    <br /><a  class="image"><img alt="Energy-loss Spectra03.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra03.png?v=34250" width="429"  /></a>
+    <li> Make sure that the <b>Original name: BOS</b> worksheet is selected as shown above.  In the center panel enable the box corresponding to <b>X</b> and <b>A4</b> and the second box corresponding to <b>Y</b> and <b>B4</b>.
+    <li> This will set col(A4) as the X values and col(B4) as the Y values regardless of column designation in the workbook. Select <b>Add</b> and a new curve will be created in the pre-existing Layer on the third panel:
+    <br /><a  class="image"><img alt="Energy-loss Spectra04.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra04.png?v=34232" width="641"  /></a>
+    <li> On the first panel, change the highlighted workbook to <b>Measured</b>.
+    <li> On the left, set <b>Plot Type</b> to <b>Scatter</b>.
+    <li> On the second panel, select the check boxes as shown below:
+    <br /><a  class="image"><img alt="Energy-loss Spectra05.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra05.png?v=34233" width="470"  /></a>
+    <li> Select <b>Add</b> and the plot will be added to the Layer in the third panel. Select <b>OK</b> to close the dialog box. Your graph should look like the one shown below:
+    <br /><a  class="image"><img alt="Energy-loss Spectra06.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra06.png?v=34234" width="417"  /></a>
+    <li> Activate one of the workbooks and follow the procedure above to create two more graphs using the following designations in the <b>Plot Setup</b> dialog (remember to change the plot type to Scatter for the data from <i>Measured</i>):
+</ol>
+<table class="noborder">
+
+<tr>
+<td align="center"><i><b>Graph 2</b></i>
+<table class="simple" style="width: 300px">
+
+<tr>
+<td><b>Worksheet Name</b>
+</td>
+<td><b>Set X as</b>
+</td>
+<td><b>Set Y as</b>
+</td></tr>
+<tr>
+<td>Original name: BOS
+</td>
+<td>A1
+</td>
+<td>B1
+</td></tr>
+<tr>
+<td>Measured
+</td>
+<td>C
+</td>
+<td>D
+</td></tr></table>
+</td>
+<td align="center"><i><b>Graph 3</b></i>
+<table class="simple" style="width: 300px">
+
+<tr>
+<td><b>Worksheet Name</b>
+</td>
+<td><b>Set X as</b>
+</td>
+<td><b>Set Y as</b>
+</td></tr>
+<tr>
+<td>Original name: BOS
+</td>
+<td>A2
+</td>
+<td>B2
+</td></tr>
+<tr>
+<td>Measured
+</td>
+<td>A
+</td>
+<td>B
+</td></tr></table>
+</td></tr></table>
+<p><br />
+</p>
+<h3><a name="Adding_Inset_Graphs"></a><span class="mw-headline">Adding Inset Graphs</span></h3>
+<ol><li> Select the <b>Add Inset Graph With Data</b> button <a  class="image"><img alt="Button Add Inset Graph With Data.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Add_Inset_Graph_With_Data.png?v=1435" width="23"  /></a> on the <b>Graph</b> toolbar to add an inset graph to each graph. Each inset graph appears on its own layer and each graph can be customized, zoomed, panned and moved around like the full-size parent graph it was created from.</li>
+<li> Select and drag each graph to the center:
+<dl><dd><a  class="image"><img alt="Energy-loss Spectra10.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra10.png?v=34235" width="392"  /></a></dd></dl></li></ol>
+<h3><a name="Merging_Graphs"></a><span class="mw-headline">Merging Graphs</span></h3>
+<ol><li> From the Origin menu select <b>Graph: Merge Graph Windows: Open Dialog</b>. Alternatively select the <a  class="image"><img alt="Button Merge.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Merge.png?v=1429" width="23"  /></a> button on the <b>Graphs</b> toolbar.</li>
+<li> In the <b>Graph Manipulation: merge_graph</b> dialog that opens, under <b>Arrange Settings</b>, set the <b>Number of Rows</b> as <b>3</b> and the <b>Number of Columns</b> to <b>1</b>. The Preview will appear on a panel to the right. </li>
+<li> Enable the check box for <b>Treat Each Source Graph as a Unit</b>, to keep the graphs and the corresponding inset graphs linked.</li>
+<li> Enable <b>Show Axes Frames</b> to add frames around each graph:
+<dl><dd><a  class="image"><img alt="Energy-loss Spectra11.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra11.png?v=42858" width="798"  /></a></dd></dl></li>
+<li> Click <b>OK</b> to exit the dialog.</li></ol>
+<h3><a name="Customizing_Plots_and_the_Copy_Format_Feature"></a><span class="mw-headline">Customizing Plots and the Copy Format Feature</span></h3>
+<ol><li> Double-click the first graph to open the <b>Plot Details</b> dialog box.</li>
+<li> Use the <a  class="image"><img alt="Button Expand Left.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Expand_Left.png?v=34255" width="29"  /></a> button to expand the left panel. Click on the arrow next to the <b>Layer1</b> icon to expand it and show the layer 1 contents.</li>
+<li> Select the plot <i>[ Measured ]Sheet1!E[ X ]...</i> and on the <b>Symbol</b> tab, change the symbol to a circle, the <b>Size</b> as <b>5</b> and the <b>Symbol Color</b> to <b>Red</b> as shown below. Select <b>Apply</b>.
+<dl><dd><a  class="image"><img alt="Energy-loss Spectra12.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra12.png?v=34237" width="709"  /></a></dd></dl></li>
+<li> Select the plot <i>[ Fitted ]Sheet1!A4[ X ],B4...</i> and on the <b>Line</b> tab set the line color as <b>Blue</b>.</li>
+<li> Click <b>OK</b> to exit the dialog box.</li>
+<li> The next step is to apply this color scheme to all the parent graphs and inset graphs to avoid manually changing them all. Right-click on the customized graph and from the context menu select <b>Copy Format: All Style Format</b>:
+<dl><dd><a  class="image"><img alt="Energy-loss Spectra13.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra13.png?v=34238" width="512"  /></a></dd></dl></li>
+<li> Right-click on each remaining graph and select <b>Paste Format</b> from the context menu.
+<dl><dd><a  class="image"><img alt="Energy-loss Spectra14.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra14.png?v=34239" width="499"  /></a></dd></dl></li></ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>Beginning with Origin 2018b, you can use the Plot Details <b>Common Display</b> controls for simultaneous editing of layer, plot and axis properties in a multi-layer graph. For more information, see <a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Layers_Tab.html">The (Plot Details) <b>Layers</b> tab controls.</a>
+</p></td></tr></table>
+<h3><a name="Using_the_Layer_Management_Dialog_Box_to_Link_and_Customize_Axes"></a><span class="mw-headline">Using the Layer Management Dialog Box to Link and Customize Axes</span></h3>
+<p>The next step is to set the scales on the axes and add axis breaks to show the important parts of the graphs.
+</p>
+<ol><li> Select <b>Graph: Layer Management</b>. In the dialog box that opens there will be a panel named <b>Layer Selection</b> on the left. It lists all six of the layers in this graph - 3 for parent graphs and 3 for inset graphs.</li>
+<li> In order to customize one parent graph axis and have the changes implemented on the other two parent graphs, the axes are linked in the <b>Link</b> tab. The first Layer cannot be linked so it is the one that is customized and the other graphs are linked to it. Select <b>Layer 3</b> and in the <b>Link</b> tab set <b>Link to</b> as <b>1</b> and set <b>X Axis Link</b> and <b>Y Axis Link</b> as <b>Straight[1 to 1]</b> as shown below:
+<dl><dd><a  class="image"><img alt="Energy-loss Spectra15.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra15.png?v=34240" width="1057"  /></a></dd></dl></li>
+<li> Click <b>Apply</b>.</li>
+<li> Do the same for <b>Layer 5</b> and click <b>Apply</b>.</li>
+<li> Click <b>OK</b> to exit the dialog box.</li>
+<li> Double-click any axis on the first graph to open the <b>Axis Dialog</b>.</li>
+<li> Go to <b>Horizontal</b> icon in <b>Scale</b> tab, set <b>From</b> and <b>To</b> to <i>-250</i> and <i>1500</i>. Set the Increment Value on the <i>Major Ticks</i> section as <i>250</i>.
+<dl><dd><a  class="image"><img alt="Energy-loss Spectra07.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra07.png?v=49364" width="525"  /></a></dd></dl></li>
+<li> Go to <b>Horizontal</b> icon in the <b>Breaks</b> tab, set <b>Number of Breaks</b> to <b>1</b>.</li>
+<li> Select <b>Break 1</b> under the <b>Breaks</b> node and create a break <b>From: 850</b>, <b>To: 1250</b>.</li>
+<li> On the same page, clear the <b>Auto</b> check box for <b>Position (% of Axis Length)</b> and set it as <i>75</i>.
+<dl><dd><a  class="image"><img alt="Energy-loss Spectra08.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra08.png?v=49365" width="529"  /></a></dd></dl></li>
+<li> Go to <b>Vertical</b> icon in <b>Scale</b> tab, set the scale as From: <i>0</i>, To: <i>0.22</i> with increments of <i>0.1</i>.
+<dl><dd><a  class="image"><img alt="Energy-loss Spectra09.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra09.png?v=49366" width="529"  /></a></dd></dl></li>
+<li> Select <b>OK</b>. All three graphs will now reflect your changes.</li>
+<li> To customize the Inset Graphs, zoom into the first one on Layer2 using the <b>Zoom Pan</b> button <a  class="image"><img alt="Button Panning.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Panning.png?v=37517" width="22"  /></a> on the <b>Tools</b> toolbar. Use the mouse wheel to zoom in. 
+<dl><dd><a  class="image"><img alt="Energy-loss Spectra16.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra16.png?v=34241" width="659"  /></a></dd></dl></li>
+<li> Once zoomed in, select the <b>Pointer</b> button <a  class="image"><img alt="Button Pointer.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Pointer.png?v=1575" width="23"  /></a>  on the <b>Tools</b> toolbar to exit the zoom mode. Double-click on the Inset Graph to open the <b>Plot Details</b> dialog. Select the <i>[Measured]Sheet1!E[X]...</i> graph and on the <b>Drop Lines</b> tab, check the <b>Vertical</b> box.  Click <b>OK</b>.
+<dl><dd><a  class="image"><img alt="Energy-loss Spectra17.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra17.png?v=34242" width="592"  /></a></dd></dl></li>
+<li> Double-click on any axis. </li>
+<li> In the <b>Axis Dialog</b> that opens, set the scale for the <b>X Axis</b> on the <b>Scale</b> tab <b>From: 1350</b>, <b>To: 1450</b>, with increments of <b>50</b>. </li>
+<li> Under the <b>Vertical</b> icon, set the scale <b>From: 0</b>, <b>To: 0.03</b>. Go to <b>Lines and Ticks</b> tab and on the <b>left</b> icon, set the <i>Major Ticks</i> to <b>None</b> and the <b>Minor Ticks</b> to <b>None</b>.</li>
+<li> Select <b>OK</b> to exit the dialog box. Select the tick labels on the left Y axis and press <b>Delete</b> to remove them. Do the same with axis labels. </li>
+<li> Press <b>CTRL+W</b> to zoom out and return to normal graph size. </li>
+<li> Select the customized Inset Graph, right-click and choose <b>Copy Format: All Style Formats</b> from the context menu.</li>
+<li> Select, right-click and <b>Paste Format</b> to the other two Inset Graphs, to duplicate the drop lines settings.</li>
+<li> Repeat the last two steps,  this time selecting <b>Copy Format: Scales</b> to duplicate the axis settings.</li></ol>
+<h3><a name="Adding_Titles.2C_Legend_and_Text_Objects"></a><span class="mw-headline">Adding Titles, Legend and Text Objects</span></h3>
+<ol><li> Activate the first Layer by clicking the layer icon on the top left corner of the graph. Right-click on the graph and from the context menu choose <b>Add/Modify Layer Titles</b>. Type <b>Wurtzite GaN</b> in the box that opens, change the font size and type face as desired and drag to an appropriate position:
+<dl><dd><a  class="image"><img alt="Energy-loss Spectra18.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra18.png?v=34243" width="264"  /></a></dd></dl></li>
+<li> Select the legend objects for the second and third graphs and press <b>DELETE</b>.</li>
+<li> Select the remaining legend, right-click and choose <b>Properties</b>. In the <b>Text</b> tab of <b>Object Properties</b> dialog box, type <b>Fitted</b> in place of <b>%(1)</b> and <b>Measured</b> in place of <b>%(2)</b>. Place both on the same line. Set the font size as desired. Go to <b>Frame</b> tab, and set the <b>Frame</b> to <b> None</b>. Click <b>OK</b> and drag the legend object to an appropriate place. 
+<dl><dd><a  class="image"><img alt="Energy-loss Spectra19.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra19.png?v=53664" width="580"  /></a></dd></dl></li>
+<li> Delete the first and third Y-axis titles. Double-click the second one and type <b>Intensity [arb. units]</b>. Do the same for the single X-Axis title, labeling it <b>Energy Loss [cm-1]</b>. </li>
+<li> Right-click on the graph and choose <b>Add Text</b> from the context menu or choose the <a  class="image"><img alt="Button Text Tool.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Text_Tool.png?v=1592" width="23"  /></a> button on the <b>Tools</b> tool bar. Add text objects as shown below. Use the <a  class="image"><img alt="Button Subscript.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Subscript.png?v=1650" width="23"  /></a> button for writing subscripts:
+<dl><dd><a  class="image"><img alt="Energy-loss Spectra20.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra20.png?v=34245" width="509"  /></a></dd></dl></li>
+<li> Select each of the inset graphs and change size or position as desired. Use the <a  class="image"><img alt="Button Arrow Tool.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Arrow_Tool.png?v=1668" width="22"  /></a> button on the <b>Tools</b> toolbar to create arrows where desired on the Inset Graphs:
+<dl><dd><a  class="image"><img alt="Energy-loss Spectra21.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra21.png?v=34246" width="531"  /></a></dd></dl></li>
+<li> The final graph should appear as shown below:
+<dl><dd><a  class="image"><img alt="Energy-loss Spectra22.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra22.png?v=34247" width="615"  /></a></dd></dl></li></ol>
+
+

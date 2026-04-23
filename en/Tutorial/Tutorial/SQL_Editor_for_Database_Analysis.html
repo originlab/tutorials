@@ -1,0 +1,145 @@
+<h1 class="firstHeading">9.3.4 SQL Editor for Database Analysis</h1><p class='urlname' style='display: none'>SQL-Editor-for-Database-Analysis</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Import_Data_from_Database"><span class="tocnumber">3.1</span> <span class="toctext">Import Data from Database</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Filter_Data"><span class="tocnumber">3.2</span> <span class="toctext">Filter Data</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Create_Pivot_Table_and_Plot_Column_Graph"><span class="tocnumber">3.3</span> <span class="toctext">Create Pivot Table and Plot Column Graph</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Customize_Graph_and_Create_Analysis_Template"><span class="tocnumber">3.4</span> <span class="toctext">Customize Graph and Create Analysis Template</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Add_Graph_in_Worksheet_and_Save_Analysis_Template"><span class="tocnumber">3.5</span> <span class="toctext">Add Graph in Worksheet and Save Analysis Template</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Change_Query_and_Re-import_Data_to_Automatically_Update_Analysis"><span class="tocnumber">3.6</span> <span class="toctext">Change Query and Re-import Data to Automatically Update Analysis</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<table class="noborder">
+	<tr>
+	<td style="vertical-align:top" width="60"><img src="../images/SQL_Editor_for_Database_Analysis/Alert_icon.png?v=0" width="57"  border="0" /></td><td><p>The database used in this tutorial has been set up on Microsoft Azure. 
+</p>
+	</td>
+	</tr>
+	</table>
+<p>This tutorial shows how to import data from database using SQL Editor, perform common operations such as column filtering and pivot table, and then use pivot table result to plot graph. Finally put graph in workbook so everything is inclusive that the workbook can be saved as an analysis template for future use.
+</p><p><br />
+The procedure is  based on Origin 2023b.
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li> Use SQL Editor to import data from database</li>
+<li> Add column filter to only show products of interest.</li>
+<li> Create a pivot table for sum of LineTotal of different products in different States. </li>
+<li> Plot column graph to visualize the result.</li>
+<li> Insert the graph into the worksheet and save such self-contained workbook as analysis template.</li>
+<li> Load the analysis template and reimport data.</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="Import_Data_from_Database"></a><span class="mw-headline">Import Data from Database</span></h3>
+<ol>
+<li> Start a new project. Choose <b>Data: Connect to Database: New...</b> menu or click clicking the <b>Open SQL Editor</b> button on the <b>Database Access</b> toolbar.
+<dl><dd><a  class="image"><img alt="ImportDataDatabase 1.png" src="../images/SQL_Editor_for_Database_Analysis/ImportDataDatabase_1.png?v=28304" width="257"  /></a></li></dd></dl>
+<li> Choose <b>Connection ctring</b> radio button and click OK. Paste the Connection String below.
+<pre class="sql" style="font-family:monospace;">Driver<span style="color: #66cc66;">=</span><span style="color: #66cc66;">&#123;</span><span style="color: #993333; font-weight: bold;">SQL</span> Server<span style="color: #66cc66;">&#125;</span>; Server<span style="color: #66cc66;">=</span>olab<span style="color: #66cc66;">.</span><span style="color: #993333; font-weight: bold;">DATABASE</span><span style="color: #66cc66;">.</span>windows<span style="color: #66cc66;">.</span>net; Port<span style="color: #66cc66;">=</span><span style="color: #cc66cc;">1433</span>; 
+<span style="color: #993333; font-weight: bold;">DATABASE</span><span style="color: #66cc66;">=</span>sample1; Uid<span style="color: #66cc66;">=</span>Olabts; Pwd<span style="color: #66cc66;">=</span>Origin@2024;</pre>
+<p>If you are using ODBC Drive 18 for SQL Server, use
+</p>
+<pre class="sql" style="font-family:monospace;">Driver<span style="color: #66cc66;">=</span><span style="color: #66cc66;">&#123;</span>ODBC Driver <span style="color: #cc66cc;">18</span> <span style="color: #993333; font-weight: bold;">FOR</span> <span style="color: #993333; font-weight: bold;">SQL</span> Server<span style="color: #66cc66;">&#125;</span>; Server<span style="color: #66cc66;">=</span>olab<span style="color: #66cc66;">.</span><span style="color: #993333; font-weight: bold;">DATABASE</span><span style="color: #66cc66;">.</span>windows<span style="color: #66cc66;">.</span>net; Port<span style="color: #66cc66;">=</span><span style="color: #cc66cc;">1433</span>; 
+<span style="color: #993333; font-weight: bold;">DATABASE</span><span style="color: #66cc66;">=</span>sample1; Uid<span style="color: #66cc66;">=</span>Olabts; Pwd<span style="color: #66cc66;">=</span>Origin@2024;</pre>
+</li>
+<li>Click the <b>OK</b> button to connection to the database.</li>
+<li> Copy and paste the following query into the SQL Editor text box. The query shows data for the year 2003:
+<pre class="sql" style="font-family:monospace;"><span style="color: #993333; font-weight: bold;">SELECT</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>LineTotal<span style="color: #66cc66;">,</span>
+SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>Name<span style="color: #66cc66;">,</span>
+SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>ParentProductCategoryID<span style="color: #66cc66;">,</span> 
+SalesLT<span style="color: #66cc66;">.</span>Address<span style="color: #66cc66;">.</span>StateProvince<span style="color: #66cc66;">,</span>SalesLT<span style="color: #66cc66;">.</span>Address<span style="color: #66cc66;">.</span>CountryRegion  
+<span style="color: #993333; font-weight: bold;">FROM</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail
+<span style="color: #993333; font-weight: bold;">INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>Product
+<span style="color: #993333; font-weight: bold;">ON</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>ProductID <span style="color: #66cc66;">=</span> SalesLT<span style="color: #66cc66;">.</span>Product<span style="color: #66cc66;">.</span>ProductID
+<span style="color: #993333; font-weight: bold;">INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory 
+<span style="color: #993333; font-weight: bold;">ON</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>ProductCategoryID <span style="color: #66cc66;">=</span>SalesLT<span style="color: #66cc66;">.</span>Product<span style="color: #66cc66;">.</span>ProductCategoryID 
+<span style="color: #993333; font-weight: bold;">INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderHeader 
+<span style="color: #993333; font-weight: bold;">ON</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderHeader<span style="color: #66cc66;">.</span>SalesOrderID <span style="color: #66cc66;">=</span>SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>SalesOrderID 
+<span style="color: #993333; font-weight: bold;">INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>CustomerAddress 
+<span style="color: #993333; font-weight: bold;">ON</span> SalesLT<span style="color: #66cc66;">.</span>CustomerAddress<span style="color: #66cc66;">.</span>CustomerID <span style="color: #66cc66;">=</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderHeader<span style="color: #66cc66;">.</span>CustomerID
+<span style="color: #993333; font-weight: bold;">INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>Address 
+<span style="color: #993333; font-weight: bold;">ON</span>  SalesLT<span style="color: #66cc66;">.</span>Address<span style="color: #66cc66;">.</span>AddressID <span style="color: #66cc66;">=</span>SalesLT<span style="color: #66cc66;">.</span>CustomerAddress<span style="color: #66cc66;">.</span>AddressID 
+<span style="color: #993333; font-weight: bold;">ORDER</span> <span style="color: #993333; font-weight: bold;">BY</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>ParentProductCategoryID</pre> 
+<li> Click the <b>OK</b> button to import data to workbook. By default the SQL is saved together with worksheet. </li>
+<li> The icon on the top left of the workbook indicates the sheet contains an SQL query.
+<dl><dd><a  class="image"><img alt="ImportDB for Analysis template afterimport.png" src="../images/SQL_Editor_for_Database_Analysis/ImportDB_for_Analysis_template_afterimport.png?v=72234" width="586"  /></a></li></dd></dl>
+
+</ol>
+<h3><a name="Filter_Data"></a><span class="mw-headline">Filter Data</span></h3>
+<ol>
+<li> Origin has a data filter feature similar to Excel. We can use this feature to choose specific data for graphing and analysis without removing the rest of the data. 
+<li> Select column C (ParentProductCategoryID) and column E (CountryRegion) and then click the <b>Add/Remove data filter</b> button on the <b>Worksheet Data</b> toolbar to add a filter on them.
+<dl><dd><a  class="image"><img alt="ImportDataDatabase 9.png" src="../images/SQL_Editor_for_Database_Analysis/ImportDataDatabase_9.png?v=28334" width="410"  /></a></dd></dl>
+<li> Click the funnel icon on column E. From the list that appears, uncheck <i>United Kingdom</i>  and click <b>OK</b>.
+<dl><dd><a  class="image"><img alt="ImportDB for Analysis template filter.png" src="../images/SQL_Editor_for_Database_Analysis/ImportDB_for_Analysis_template_filter.png?v=72239" width="216"  /></a></dd></dl>
+<li> If a reminder message about hidden data appears, select the <b>Yes</b> radio button and click <b>OK</b>.
+<li> Click the funnel icon on column C, it shows Equals, Less than, .... numeric filter menus since the ParentProductCategoryID are treated as numbers. 
+<dl><dd><a  class="image"><img alt="ImportDB for Analysis template filterC.png" src="../images/SQL_Editor_for_Database_Analysis/ImportDB_for_Analysis_template_filterC.png?v=72272" width="249"  /></a></dd></dl>
+<li> Choose <b>Equals...</b> and enter <b>1</b> as Value. Click <b>OK</b>.
+<li> Now the worksheet only shows the sales of various Bikes in USA.
+<dl><dd><a  class="image"><img alt="ImportDB for Analysis template filter done.png" src="../images/SQL_Editor_for_Database_Analysis/ImportDB_for_Analysis_template_filter_done.png?v=72274" width="578"  /></a></dd></dl>
+</ol>
+<h3><a name="Create_Pivot_Table_and_Plot_Column_Graph"></a><span class="mw-headline">Create Pivot Table and Plot Column Graph</span></h3>
+<ol>
+<li>We can create a pivot table to see total sales of each bike type in different states. </li>
+<li>With nothing selected in worksheet, select <b>Restructure &gt; Pivot Table</b>
+<li>In the dialog that opens set Recalculate Mode to <i>Auto</i>. This will make the pivot table manipulation update if the data is re-imported from the SQL Editor.
+<li>Set the <b>Row Source</b> as <i>Name</i>. 
+<li>Set the <b>Column Source</b> as <i>StateProvince</i> (the column with the filter on it).
+<li>In order to see the Total Sales, set the <b>Summarize by</b> option as <b>Sum</b> , and set the <b>Pivot Table Data Source</b> option that appears as <i>LineTotal</i>.
+<dl><dd><a  class="image"><img alt="ImportDB for Analysis template pivotDB.png" src="../images/SQL_Editor_for_Database_Analysis/ImportDB_for_Analysis_template_pivotDB.png?v=72248" width="436"  /></a></dd></dl>
+<li>Click <b>OK</b>. A new worksheet is created named <i>Pivot1</i>. Rename it as <i>Summary</i>
+<li> Now highlight the pivoted data and click on the <b>Column Plot</b> button to create a column plot. 
+<dl><dd><a  class="image"><img alt="ImportDB for Analysis template column.png" src="../images/SQL_Editor_for_Database_Analysis/ImportDB_for_Analysis_template_column.png?v=72251" width="621"  /></a></dd></dl>
+</ol>
+<h3><a name="Customize_Graph_and_Create_Analysis_Template"></a><span class="mw-headline">Customize Graph and Create Analysis Template</span></h3>
+<p>The Colifornia Sales are much higher than other states, making it hard to see Utah sales column. Also we can customize the color and pattern of column/bars to make it more appealing.
+</p>
+<ol>
+<li> Single click on any California bar. On the mini toolbar that shows, go to Single tab and click Plot on Right Y so California bars will be plotted against a right Y axis.
+<dl><dd><a  class="image"><img alt="ImportDB for Analysis template ca right graph.png" src="../images/SQL_Editor_for_Database_Analysis/ImportDB_for_Analysis_template_ca_right_graph.png?v=72252" width="432"  /></a></dd></dl>
+<li> Double click the right Y axis title and set it as <b>%(1Y, @LC)</b>, which means use 1st Y plot's Comments info. as Axis title. The right Y axis title will become <b>California</b>.
+<li> Double click the left Y axis title and set it as <b>Others</b>.
+<li> Double click on any Y Axis to open the <b>Axis</b> dialog.
+<li> Select both <b>Left</b> and <b>Right</b> on the left panel. On <b>Scale</b> tab, set the <b>Rescale</b> dropdown to <b>Fixed From - Auto To</b>. 
+<dl><dd><a  class="image"><img alt="ImportDB for Analysis template axis fixfrom autoto.png" src="../images/SQL_Editor_for_Database_Analysis/ImportDB_for_Analysis_template_axis_fixfrom_autoto.png?v=72256" width="463"  /></a></dd></dl>
+<li> Select <b>Horizontal</b> on the left panel. On <b>Scale</b> tab, set the <b>Rescale</b> dropdown to <b>Auto</b>. 
+<dl><dd><a  class="image"><img alt="Set Axis Recalc(b).png" src="../images/SQL_Editor_for_Database_Analysis/Set_Axis_Recalc_28b_29.png?v=0" width="517"  /></a></dd></dl>
+<li> Go to Tick Labels tab, Select both <b>Left</b> and <b>Right</b> on the left panel and set Display as <b>Engineering:1k</b>. Click <b>OK</b>.
+<li> Customize fill colors and patterns of columns, legend, horizontal tick labels, etc. e.g. 
+<dl><dd><a  class="image"><img alt="ImportDB for Analysis template axis final graph.png" src="../images/SQL_Editor_for_Database_Analysis/ImportDB_for_Analysis_template_axis_final_graph.png?v=72261" width="417"  /></a></dd></dl>
+</ol>
+<h3><a name="Add_Graph_in_Worksheet_and_Save_Analysis_Template"></a><span class="mw-headline">Add Graph in Worksheet and Save Analysis Template</span></h3>
+<ol>
+<li> Right click on Summary sheet tab and choose <b>Add Graph as Sheet:[Graph1]</b> to add the graph as a separate sheet in workbook.
+<dl><dd><a  class="image"><img alt="ImportDB for Analysis template graph sheet.png" src="../images/SQL_Editor_for_Database_Analysis/ImportDB_for_Analysis_template_graph_sheet.png?v=72262" width="405"  /></a></dd></dl>
+<li> If you need to customize the graph further, double click it to bring up the independent graph window again to customize. And then click the return button on graph window title to bring it back to worksheet. </li>
+<li> Now workbook is self-contained with everything: database connection, data filtering, analysis (pivot table) and graph.</li>
+<li> Choose <b>File: Save Workbook as Analysis Template...</b> and name it <b>LineTotal_By_State</b></li>
+</ol>
+<h3><a name="Change_Query_and_Re-import_Data_to_Automatically_Update_Analysis"></a><span class="mw-headline">Change Query and Re-import Data to Automatically Update Analysis</span></h3>
+<ol>
+<li> Go to <b>File: Recent Books</b> menu to load the <b>LineTotal_by_State</b> you just saved. This will open a blank analysis template workbook. 
+<dl><dd><a  class="image"><img alt="ImportDB for Analysis template load.png" src="../images/SQL_Editor_for_Database_Analysis/ImportDB_for_Analysis_template_load.png?v=72264" width="577"  /></a></dd></dl>
+<li> Go to <b>Sheet1</b>. Click on the <a  class="image"><img alt="DBConnector.png" src="../images/SQL_Editor_for_Database_Analysis/DBConnector.png?v=72156" width="20"  /></a> and click <b>Import</b> or click the <b>Import Data</b> button <a  class="image"><img alt="Button db Import Data.png" src="../images/SQL_Editor_for_Database_Analysis/Button_db_Import_Data.png?v=10831" width="25"  /></a> to reimport from database.
+<li> <b>Summary</b> sheet and <b>Graph1</b> sheet are both updated as well. 
+<dl><dd><dl><dd><a  class="image"><img alt="ImportDB for Analysis template load imp.png" src="../images/SQL_Editor_for_Database_Analysis/ImportDB_for_Analysis_template_load_imp.png?v=72269" width="457"  /></a></dd></dl></dd></dl>
+<li> In the new workbook, click the funnel on column C and change check 2 only. 
+<dl><dd><a  class="image"><img alt="ImportDB for Analysis template mod filter.png" src="../images/SQL_Editor_for_Database_Analysis/ImportDB_for_Analysis_template_mod_filter.png?v=72267" width="458"  /></a></dd></dl>
+<li>You can also click on the <a  class="image"><img alt="DBConnector.png" src="../images/SQL_Editor_for_Database_Analysis/DBConnector.png?v=72156" width="20"  /></a> and click <b>SQL Editor</b> to modify the Query as well.</li>
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/SQL_Editor_for_Database_Analysis/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><ul><li> You may need to manually reapply filter <a  class="image"><img alt="Reapply filter.png" src="../images/SQL_Editor_for_Database_Analysis/Reapply_filter.png?v=50580" width="25"  /></a> after reimport new data from Database, or choose <b>Worksheet: Worksheet Script...</b> menu. Check <b>After Import</b> checkbox and enter script <b>wks.runfilter()</b> so that everytime after import new data, all filters will auto apply.</li>
+<li> By default when you save project file (OPJU), the imported database data is excluded so that the OPJU file size will not be huge. But you can click on the <a  class="image"><img alt="DBConnector.png" src="../images/SQL_Editor_for_Database_Analysis/DBConnector.png?v=72156" width="20"  /></a> and uncheck <b>Exclude imported when saving</b> so that data is kept with OPJU file. </li>
+<li> Or keep <b>Exclude imported when saving</b>  checked but instead, click on <a  class="image"><img alt="DBConnector.png" src="../images/SQL_Editor_for_Database_Analysis/DBConnector.png?v=72156" width="20"  /></a> and check <b>Auto Import</b> so that everytime the database data will auto import when reopen the OPJU file.</li></ul>
+</td></tr></table>
+
+

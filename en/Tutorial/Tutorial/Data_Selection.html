@@ -1,0 +1,63 @@
+<h1 class="firstHeading">1.3 Data Selection</h1><p class='urlname' style='display: none'>GSB-data-selection</p>
+<p>In this lesson we will learn about flexible ways of selecting data for plotting.
+</p>
+<h3><a name="Plotting_Data_from_Multiple_Worksheets"></a><span class="mw-headline">Plotting Data from Multiple Worksheets</span></h3>
+<ol>
+<li>Let's start with the project we saved in <a href="../../Tutorial/Tutorial/Graph_Templates_Themes_and_Batch_Plotting.html" title="Tutorial:Graph Templates Themes and Batch Plotting">lesson two: Graph Templates and Batch Plotting</a>. Select any workbook, and make sure no data columns are selected. You can click in the gray area outside of columns to remove selection. 
+<li>Select menu <b>Plot &gt; Basic 2D: Line</b>. The <b>Plot Setup</b> dialog will open.</li>
+<li> Click the <a  class="image"><img alt="Double Up Arrow Button.jpg" src="../images/Data_Selection/Double_Up_Arrow_Button.jpg?v=44981" width="24"  /></a> button  on the right side to expand the upper panel if it is not already open.</li>
+<li> Set the <b>Available Data:</b> drop-down list in the left panel to <b>Worksheets in Folder</b>. 
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Data_Selection/Mini_bulb.png?v=44828" /></td><td><p>To pick up worksheets from anywhere in your project, set the drop down to <b>Worksheets in Project</b>.
+</p></td></tr></table></li>
+<li> Hold down shift key and select all three data sheets named <b>Trial Run 1</b>, <b>Trial Run 2</b> and <b>Trial Run 3</b>. 
+<li> Using the check boxes in the middle panel, assign <i>Time</i> as <b>X</b> and <i>Position</i> as <b>Y</b>. Click <b>OK</b> button to create the graph.<br />
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Data_Selection/Mini_bulb.png?v=44828" /></td><td><p>This dialog has a third bottom panel which can be used to assign data to different layers in a multi-layer graph. If that panel is open, you can simply collapse it and then click <b>OK</b> to create the graph.
+</p></td></tr></table>
+<p><a  class="image"><img alt="GST Data Selection 001.png" src="../images/Data_Selection/450px-GST_Data_Selection_001.png?v=69107" width="450"   /></a>
+</p>
+<li> We will now customize the legend for this graph. Right click on the legend and select <b>Legend: Update Legend...</b> 
+<li> In the dialog that opens, set <b>Auto Legend Transition Mode</b> as <b>Custom</b>. Clear the <b>Legend Custom Format (@D, @LU etc)</b> edit box and then click the <a  class="image"><img alt="GST Right Arrow Button.png" src="../images/Data_Selection/GST_Right_Arrow_Button.png?v=45005" width="20"  /></a> button on the right of this edit box, and in the fly-out menu select <b>@WS: Sheet Display Name</b>.
+<li> In the edit box, type a hyphen <i>-</i> after the string <i>@WS</i>, and again click the right arrow button. This time select <b>@LD"Sample": Sample</b>, which corresponds to column header row <i>Sample</i> in the worksheet. Click the <b>OK</b> button. The legend will now display the sheet name and the sample name.</li>
+<p><a  class="image"><img alt="GST Data Selection 041.png" src="../images/Data_Selection/350px-GST_Data_Selection_041.png?v=69108" width="350"   /></a>
+</p>
+</ol>
+<h3><a name="Using_another_Column_to_Set_Color_of_a_Plot"></a><span class="mw-headline">Using another Column to Set Color of a Plot</span></h3>
+<ol>
+<li>Go to <b>Project Explorer</b>. In the upper panel, right-click on the root level and choose <b>New Folder</b>.</li>
+<li>Right-click on newly created folder, select <b>Rename</b>, and assign the name <i><b>Data Selection</b></i>. Click on the empty folder and open it.</li>
+<li>Select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Graphing</i> subfolder and find the file <i>US Mean Temperature.dat</i>. Drag-and-drop this file into Origin workspace to import it into a new worksheet.
+<li> We want to plot the positions of US major cities (columns <i>Longitude</i> and <i>Latitude</i>) as a scatter plot and then colormap the data points with the annual mean temperature (column <i>Annual</i>). Click on the header of column named <b>January</b> and drag and expand the selection all the way to the column named <b>December</b>. Then right click to choose <b>Hide/Unhide Columns: Hide</b>.
+<li> Select the <i>Longitude</i> columns, in the pop-up mini toolbar, select <b>Set As: X</b> button <a  class="image"><img alt="Button Set as X.png" src="../images/Data_Selection/Button_Set_as_X.png?v=74039" width="24"  /></a>.</li>
+<li> Select the <i>Latitude</i> and click <b>Scatter</b> button <a  class="image"><img alt="Button Scatter Plot.png" src="../images/Data_Selection/Button_Scatter_Plot.png?v=58716" width="25"  /></a> on the bottom left toolbar to create the plot of longitude vs. latitude. </li>
+<li> Click on the plot, in the pop-up mini toolbar, click the <b>Symbol Edge Color</b> button to expand the color chooser, switch to the <b>By Points</b> tab. In this tab, click the <b>Color Mapping</b> drop-down and select <b>Col(P): "Annual"</b> in the list. The symbol color will be mapped to the column <i>Annual</i>.</li>
+<p><a  class="image"><img alt="GST Data Selection 05.png" src="../images/Data_Selection/400px-GST_Data_Selection_05.png?v=69109" width="400"   /></a>
+</p>
+<li> Let us now set the axes lengths to scale with the range of X and Y values represented in the graph. Click on the white space of the layer to select the layer, in the pop-up mini toolbar, click <b>Isometric</b> button <a  class="image"><img alt="Button Isometric.png" src="../images/Data_Selection/Button_Isometric.png?v=74040" width="24"  /></a>.  <br />
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Data_Selection/Mini_bulb.png?v=44828" /></td><td><p>You also can double-click on the white space of the layer to open the <b>Plot Details</b> dialog with the <i>Layer1</i> node been selected on the left panel. Then go to the <b>Size</b> tab on the right side. Check the <b>Link Axis Length to Scale with X:Y Ratio</b> box and keep the ratio as <i>1</i>. 
+</p></td></tr></table>
+</li>
+<li> Now, let us select another color palette to apply it to the symbol color as colormap. Click on any data point in the graph, and then click on the <b>Palette</b> toolbar button <a  class="image"><img alt="Palette Button.png" src="../images/Data_Selection/Palette_Button.png?v=45047" width="38"  /></a> in the <b>Style</b> toolbar. Select the <i>Temperature</i> palette to better reflect the data. Click anywhere on the graph to deselect the plot.
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Data_Selection/Mini_bulb.png?v=44828" /></td><td><p>You can add a map to a graph using the <a class="external text" href="https://www.originlab.com/fileExchange/details.aspx?fid=240" target="_blank">Maps Online</a> App. <a class="external text" href="https://blog.originlab.com/graphing/placing-3d-bars-on-a-map" target="_blank">This blog post</a> is a good place to start. 
+</p></td></tr></table>
+<p><a  class="image"><img alt="GST Data Selection 06.png" src="../images/Data_Selection/300px-GST_Data_Selection_06.png?v=45091" width="300"   /></a>
+</p>
+</li>
+<li>From the menu, choose <b> File: Save Project</b> and save your modified project.</li>
+</ol>
+<h3><a name="Selecting_Multiple_Non-adjacent_Columns_for_Plotting"></a><span class="mw-headline">Selecting Multiple Non-adjacent Columns for Plotting</span></h3>
+<ol>
+<li>Open a new workbook window by clicking on the <b>New Workbook</b> button <a  class="image"><img alt="Button New Workbook.png" src="../images/Data_Selection/Button_New_Workbook.png?v=1383" width="23"  /></a> in the <b>Standard</b> toolbar.
+<li>Select menu <b>Data: Connect to File: Excel</b>. In the file dialog that opens, browse to <i>&lt;Origin EXE Path&gt;\Samples\Import and Export</i> folder and select the file <i>United States Energy (1980-2013).xls</i>. Press <b>Open</b>. 
+<li>In the Excel Import Options dialog that opens, make sure <b>Auto</b> checkbox to the right of <b>Main header lines</b> is checked and <b>Long Names</b> is set to 1 and <b>Units</b> to 2.<br />
+<a  class="image"><img alt="GST Data Selection 07.png" src="../images/Data_Selection/GST_Data_Selection_07.png?v=74041" width="325"  /></a>
+<li> Press <b>OK</b> to import the file. Then go to the first sheet named <i>Oil</i>. Hold the <b>Ctrl</b> key to select <i>Crude Oil Production</i>, <i>Oil Consumption</i> and <i> Total Oil Production</i> columns.<br />
+<a  class="image"><img alt="GST Data Selection 08.png" src="../images/Data_Selection/GST_Data_Selection_08.png?v=74043" width="780"  /></a></li>
+<li>Then go to menu <b>Plot &gt; Multi-Panel/Axis: Stack...</b> and accept default settings in the dialog, to create a stacked plot.</li>
+<li>Click <b>Save Project</b> button <a  class="image"><img alt="Button Save Project.png" src="../images/Data_Selection/Button_Save_Project.png?v=1393" width="23"  /></a> on the <b>Standard</b> toolbar to save your project file.
+</ol>
+
+

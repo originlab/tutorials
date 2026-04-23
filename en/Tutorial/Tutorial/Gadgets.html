@@ -1,0 +1,36 @@
+<h1 class="firstHeading">1.7 Gadgets</h1><p class='urlname' style='display: none'>GSB-Gadgets-tutorial</p>
+<p><br />
+</p><p>In this lesson, we will use gadgets to perform exploratory analysis of data in a graph.
+</p>
+<h3><a name="Integrate_Gadget"></a><span class="mw-headline">Integrate Gadget</span></h3>
+<ol>
+<li>Start with the project saved from the previous lesson and add a new folder named <b>Gadgets</b> at the root level in Project Explorer, then go to that folder.</li>
+<li>With the new workbook active, select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Curve Fitting</i> subfolder and find the file <i>Multiple Gaussians.dat</i>. Drag-and-drop this file into the empty worksheet to import it.
+<li>We will add long names for the datasets. Enter "<i>Peak 1</i>" in the <b>Long Name</b> label row of column B. Click and select the long name cell. Then move the mouse to the lower-right corner of the cell so that the cursor changes to "+". Click the left mouse button and drag from column C to E. Origin will auto-fill the names as <i>Peak 2</i>, <i>Peak 3</i> and <i>Peak 4</i>.</li>
+<li>Click and drag on the column headers to highlight columns B to E. From the main menu, select <b>Plot &gt; Basic 2D: Stacked Lines by Y Offsets</b> to create a stacked lines graph.</li>
+<li>With the graph active, select <b>Gadgets: Integrate...</b> from the main menu.</li>
+<li>Accept the default settings and press the <b>OK</b> button. A region-of-interest (ROI) box will be placed on the graph. Move and/or resize the ROI to cover a desired range of the data.</li>
+<li>Click on the triangle button at the top-right corner of the ROI box and select <b>Preferences</b> to re-open the dialog.</li>
+<li>In the <b>Output</b> tab, expand the <b>Output Quantities to</b> branch and select the <b>Append to Worksheet</b> check box . Click <b>OK</b> to close the dialog box.</li>
+<li>When there are multiple plots in a layer, the gadget acts on the active data plot by default. In this case, the active plot is <i>Peak 1</i>.  To change the data to Peak 3 for example, click on the triangle button at the top-right corner of the ROI box and select <b>Change Data: Plot(3): Peak 3</b> from the context menu.<br />
+<a  class="image"><img alt="Gadgets 01.png" src="../images/Gadgets/600px-Gadgets_01.png?v=69145" width="600"   /></a></li>
+<li>Click on the triangle button again and select <b>New Output for All Curves</b>. A workbook with integration results for all curves will be generated. Click the triangle button and select <b>Go to Report Worksheet</b> to switch to the output workbook.</li>
+<li>Click the <b>X</b> button at the top-right corner of the ROI box in the graph to remove the gadget.</li>
+</ol>
+<h3><a name="FFT_Gadget"></a><span class="mw-headline">FFT Gadget</span></h3>
+<ol>
+<li>Start with a new workbook, and import the file <i>&lt;Origin EXE Path&gt;\Samples\Signal Processing\Chirp Signal.dat</i>.</li>
+<li>Highlight column B, then select <b>Plot &gt; Basic 2D: Line</b> from the main menu to create a line graph.</li>
+<li>With the graph active, select <b>Gadgets: FFT</b> from the main menu. Accept defaults in the dialog that opens, and click <b>OK</b>. An ROI box will be placed on the graph, and another graph named FFTPREVIEW will be created, displaying the FFT result.</li>
+<li>In the top right corner of the FFTPREVIEW graph, uncheck <b>Log Scale</b>. Then reposition the source line graph and FFTPREVIEW window side by side. Move and resize the ROI to cover a small range of the beginning of the data curve.</li>
+<li>Now you can use the arrow keys to move the ROI to the right, while watching the FFT result update in the other graph.<br />
+<a  class="image"><img alt="Gadgets 02.png" src="../images/Gadgets/750px-Gadgets_02.png?v=45170" width="750"   /></a></li>
+<p>Save the project file.
+</p>
+</ol>
+
+
+
+
+
+

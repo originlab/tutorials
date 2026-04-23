@@ -1,0 +1,128 @@
+<h1 class="firstHeading">11.2.8 Create and Update Apps for Origin</h1><p class='urlname' style='display: none'>Create-Update-Apps</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#App_Files_Specifications"><span class="tocnumber">3</span> <span class="toctext">App Files Specifications</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Icon_files"><span class="tocnumber">3.1</span> <span class="toctext">Icon files</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Programming_files"><span class="tocnumber">3.2</span> <span class="toctext">Programming files</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Other_files"><span class="tocnumber">3.3</span> <span class="toctext">Other files</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#Building_an_App"><span class="tocnumber">4</span> <span class="toctext">Building an App</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="#Uploading_App_to_File_Exchange_Website"><span class="tocnumber">4.1</span> <span class="toctext">Uploading App to File Exchange Website</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Modifying_an_App"><span class="tocnumber">4.2</span> <span class="toctext">Modifying an App</span></a>
+<ul>
+<li class="toclevel-3 tocsection-10"><a href="#Modify_App_Settings"><span class="tocnumber">4.2.1</span> <span class="toctext">Modify App Settings</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="#Add.2C_Remove_or_Change_Files_in_App_Folder"><span class="tocnumber">4.2.2</span> <span class="toctext">Add, Remove or Change Files in App Folder</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="#Upload_Modified_OPX_to_File_Exchange_Page"><span class="tocnumber">4.2.3</span> <span class="toctext">Upload Modified OPX to File Exchange Page</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="#Request_Approval_from_OriginLab"><span class="tocnumber">4.2.4</span> <span class="toctext">Request Approval from OriginLab</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p><a class="external text" href="../../UserGuide/UserGuide/Apps.html"><b>Apps</b></a> are custom applications for Origin that perform specific graphing and/or analysis tasks. Origin users can browse for Apps and download and install them from the <a class="external text" href="https://www.originlab.com/fileexchange/" target="_blank">File Exchange</a> area of the OriginLab website. Origin users can also create Apps and share with other on File Exchange. This tutorial provides the guidelines for making an App and detailed steps to build, upload and modify an App.
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li> Build an App</li>
+<li> Upload an App to File Exchange Website </li>
+<li> Modify an App and Submit for Approval</li></ul>
+<h2><a name="App_Files_Specifications"></a><span class="mw-headline">App Files Specifications</span></h2>
+<p>The following files are supported/needed for Apps:
+</p>
+<h5><a name="Icon_files"></a><span class="mw-headline">Icon files</span></h5>
+<dl><dd><dl><dd><b>Icon file</b> (Required)
+<dl><dd>This should be a png file with size of 32*32 in pixels. This icon will be displayed in the <a class="external text" href="../../UserGuide/UserGuide/Apps.html"><b>Apps Gallery</b></a> window in Origin.</dd></dl></dd>
+<dd><b>Small icon file</b> (Optional)
+<dl><dd>This should be a bmp file with size of 16*16 in pixels, and 16 color (4 Bits). It will be available from <b>View: Toolbars: Apps button group</b> in Origin. It can be used as a button, by adding to a toolbar.</dd></dl></dd></dl></dd></dl>
+<h5><a name="Programming_files"></a><span class="mw-headline">Programming files</span></h5>
+<p>X-Function, *.ogs, *.c, *.h and DLL files are supported. Note that X-Function file name should not be the same as *.c file name if both exist.
+</p>
+<h5><a name="Other_files"></a><span class="mw-headline">Other files</span></h5>
+<p>Any other files such as documentation (*.chm, *.pdf), image files, sample data, etc, can be included.
+</p>
+<h2><a name="Building_an_App"></a><span class="mw-headline">Building an App</span></h2>
+<p>1. Locate the <b>Apps</b> folder under the <b>AppData</b> area of your Origin installation. You can enter the following command in Command/Script Window to locate this folder:
+<br />
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #000080;">%</span>@A<span style="color: #000080;">=</span>; <span style="color: #008000;">// The output can be, e.g., C:\Users\XXX\AppData\Local\OriginLab\Apps\</span></pre>
+<p>2. Open the folder in the path found in step1, create a subfolder in this location. Note that the subfolder name will be used as your App name. Place all your files for the App in this subfolder.
+<br />
+3. Start Origin and click <b>Code Builder</b> button <a  class="image"><img alt="Button Code Builder.png" src="../images/Create_and_Update_Apps_for_Origin/Button_Code_Builder.png?v=1405" width="23"  /></a> in Origin main interface.
+<br />
+4. In <b>Code Builder</b> window, right click on the <b>Apps</b> folder in the left <b>Workspace</b> panel. Select <b>Add Existing Folder</b> from the shortcut menu and browse to add the folder created in step 2. Expand the folder in Workspace panel. All files in the folder will be listed. 
+<br />
+Note that if you have no existing App folder, you can choose <b>New</b> from the shortcut menu to create a new sub-folder in Apps folder. If you right click on a file, you can choose to remove the file. Right click on the folder, and you can add more files, even files not located in current folder.
+</p>
+<dl><dd><dl><dd><a  class="image"><img alt="AppCodeBuildDlg.png" src="../images/Create_and_Update_Apps_for_Origin/AppCodeBuildDlg.png?v=43476" width="301"  /></a></dd></dl></dd></dl>
+<p>5. Right click on the newly created App folder in Code Builder's Workspace panel, and choose <b>Generate</b> from the shortcut menu. It will open the <b>Package Manager</b> dialog.
+</p>
+<dl><dd><dl><dd><a  class="image"><img alt="AppGenerateDlg.png" src="../images/Create_and_Update_Apps_for_Origin/AppGenerateDlg.png?v=43530" width="369"  /></a></dd></dl></dd></dl>
+<p>6. In <b>Package Manager</b> dialog, do the following:
+</p>
+<ul><li><b>Package branch:</b>
+<dl><dd> <b>Name</b>
+<dl><dd> Do not change the <b>Name</b> field, otherwise the folder name will also be changed.</dd></dl></dd>
+<dd> <b>Description</b>
+<dl><dd> Input descriptions of the App in this field. The desciptions will be shown in the file exchange web's <b>Summary</b> section.</dd></dl></dd>
+<dd> <b>Version</b>
+<dl><dd> Set current App version. You can use two decimal digits, e.g. 1.11. </dd></dl></dd>
+<dd> <b>Origin Version Required</b>
+<dl><dd> Set the required Origin version. For Origin 2016, you should type 9.3 instead of 2016.</dd></dl></dd></dl></li></ul>
+<ul><li><b>App branch:</b>
+<dl><dd> <b>Icon</b>
+<dl><dd> Set it to file name for icon to be displayed in Apps Gallery window.</dd></dl></dd>
+<dd> <b>Icon (Small)</b>
+<dl><dd> Set it to file name for small icon used in toolbar.</dd></dl></dd>
+<dd> <b>Launch Script</b>
+<dl><dd> LabTalk script to run after you click the App icon. If you want to open an X-Function dialog, you can write your script such as: xfname -d; You can also have your script point to a section in ogs file, and run that section, e.g. run.section(%Afoldername\ogsname,sectionname).</dd></dl></dd>
+<dd> <b>Enable by Window</b>
+<dl><dd> Specify the active window type(s) for which the App should be enabled. e.g. for Latex App, Graph window should be active.</dd></dl></dd></dl></li></ul>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Create_and_Update_Apps_for_Origin/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>While it would be rare to do so, you can specify that your App be enabled for Notes windows by expanding the <b>Enable by LabTalk Expression</b> node and beside <b>LabTalk Expression</b>, type the following:<br />
+<p><i><b>note.active=1</b></i>
+</p>
+</p></td></tr></table>
+<p><br />
+</p>
+<ul><li><b>LabTalk Script branch:</b>
+<dl><dd><dl><dd>Specify LabTalk script for before, after installation and before uninstalling.</dd></dl></dd></dl></li></ul>
+<dl><dd><dl><dd><a  class="image"><img alt="AppSetDlg.png" src="../images/Create_and_Update_Apps_for_Origin/AppSetDlg.png?v=43481" width="700"  /></a></dd></dl></dd></dl>
+<p>7. When settings are done in <b>Package Manager</b>, click <b>File: Save</b> from the menu. The .opx file will be saved. The opx name can be different from the folder name. The opx file for an App is ready now. You can simply drag-and-drop the file onto Origin to install. Note that you may need to run Origin <b>not as administrator</b> to be able to drop the file onto Origin.
+</p><p><br />
+</p>
+<h3><a name="Uploading_App_to_File_Exchange_Website"></a><span class="mw-headline">Uploading App to File Exchange Website</span></h3>
+<p>When the App package file is ready, you can upload it to File Exchange website to share with the public. To do it, follow the steps below:
+</p>
+<ol><li> Go to <a class="external text" href="https://www.originlab.com/fileexchange/" target="_blank"><b>File Exchange Website</b></a>, click <b>Submit a file</b> on the bottom right to open <b>Submit File</b> page. Select <b>File Type</b> as <b>App</b> and fill in other needed information, <b>File Category</b>, <b>Created using Origin:</b>, etc. Note the information contained in the App package will be automatically extracted, such as, <b>Minimum Origin Version Required</b>, <b>Title</b>, <b>Summary</b>.</li>
+<li> Upload the App OPX package file, screenshot image, click <b>Submit</b> button to submit your App and create a File Exchange tool page for it.</li>
+<li> You can then download the OPX file from the web page you have created, and drag-and-drop onto Origin to test it. A package ID will be assigned to the opx during the download process.</li>
+<li> You can continue editing the web page for your App. Once finished, you can click <b>Update</b> button to update the web page.</li>
+<li> When you are ready to publish your App, press the <b>Request Approval</b> button on the botton of <b>Update</b> form. You will be notified by OriginLab through email when your App has been approved. The approval status is also shown on the <b>Update File</b> page as indicated by <b>OriginLab Tested</b>, <b>OriginLab Approved</b> checkboxes.</li>
+<li> Once your App got approved, it will be automatically shown on the <b>Tools: Apps on file Exchange</b> menu list.</li></ol>
+<h3><a name="Modifying_an_App"></a><span class="mw-headline">Modifying an App</span></h3>
+<h5><a name="Modify_App_Settings"></a><span class="mw-headline">Modify App Settings</span></h5>
+<ol><li> Select <b>Tools: Package Manager</b> from Origin menu. Select <b>Tools: Browse Installed Package</b> in <b>Package Manager</b> dialog's menu. Select the App and click <b>Open</b> button.</li>
+<li> You can change the settings in the dialog. If your files in the folder are modified, you can click <b>Repack Files</b> button.</li>
+<li> Click <b>File: Save</b> to save the App OPX package.</li></ol>
+<h5><a name="Add.2C_Remove_or_Change_Files_in_App_Folder"></a><span class="mw-headline">Add, Remove or Change Files in App Folder</span></h5>
+<p>When you need to add files, remove files or change file names in App folder, you can perform these operations by right clicking on the App folder in the <b>Workspace</b> panel on <a class="external text" href="../../CodeBuilder/Category/Code_Builder_Interface(CodeBuilder).html"><b>Code Builder</b></a> and selecting corresponding option from the shortcut menu. When done, click  <b>Generate</b> from the shortcut menu to regenerate the App package. 
+<br />
+Note that when removing files or changing file names, original files should be kept in the App folder under path <i>C:\Users\XXX\AppData\Local\OriginLab\Apps\</i> even if they are not being used, otherwise old settings in the opx will not be kept in <b>Package Manager</b> dialog when you click <b>Generate</b> button.
+</p>
+<h5><a name="Upload_Modified_OPX_to_File_Exchange_Page"></a><span class="mw-headline">Upload Modified OPX to File Exchange Page</span></h5>
+<p>Log in Origin website, go to the File Exchange page you have created for your App and upload the updated OPX file to the File Exchange page. Update the web page as needed, including notes on what has been updated in current App version. Users would know this update from menu <b>Tools: Apps on File Exchange:  <i>* YourApp</i> (installed)</b> as indicated by the asterisk symbol * if this App was previously installed.
+</p>
+<dl><dd><dl><dd><a  class="image"><img alt="AppUpdates.png" src="../images/Create_and_Update_Apps_for_Origin/AppUpdates.png?v=43533" width="257"  /></a></dd></dl></dd></dl>
+<h5><a name="Request_Approval_from_OriginLab"></a><span class="mw-headline">Request Approval from OriginLab</span></h5>
+<p>Click the <b>Request Approval</b> button in the File Exchange webpage of your App and wait for OriginLab to notify you.
+</p>
+

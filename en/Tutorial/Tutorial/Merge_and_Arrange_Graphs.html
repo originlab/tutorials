@@ -1,0 +1,91 @@
+<h1 class="firstHeading">1.4 Merge and Arrange Graphs</h1><p class='urlname' style='display: none'>GSB-Merge-Arrange-graphs</p>
+<p><br />
+</p><p>In this lesson we will create some graphs, merge them, and then arrange layers in the merged graph. We will also save the graph as a cloneable template to quickly re-create the graph from similar data.
+</p>
+<h3><a name="Import_data_and_create_graphs"></a><span class="mw-headline">Import data and create graphs</span></h3>
+<ol>
+<li> Open the project file we saved in <a href="../../Tutorial/Tutorial/Data_Selection.html" title="Tutorial:Data Selection">lesson three:Data Selection</a>. In <b>Project Explorer</b>, create a new folder under the root folder and rename it as <i><b>Merging Graphs</b></i>. Click on the empty folder to open it.
+<li>Click the <b>New Workbook</b> <a  class="image"><img alt="Button New Workbook.png" src="../images/Merge_and_Arrange_Graphs/Button_New_Workbook.png?v=1383" width="23"  /></a>  button on the Standard toolbar to new a workbook. Select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Statistics</i> subfolder and find the file <i>automobile.dat</i>. Drag-and-drop this file into the empty worksheet to import it.</li>
+<li>Click on the header of column C to select the entire column. Click the <b>Scatter</b> button <a  class="image"><img alt="Button Scatter.png" src="../images/Merge_and_Arrange_Graphs/Button_Scatter.png?v=1448" width="22"  /></a> on the <b>2D Graphs</b> toolbar to create a scatter graph.</li>
+<li>Click on the scatter plot to select it, then right-click on the plot and select <b>Change X: [automobile]automobile!G(Y):EnginDisplacement</b> from the context menu to change the X data. A reminder message pops up asking if you would like to rescale the graph. Select <b>Yes</b> and press <b>OK</b>.<br />
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Merge_and_Arrange_Graphs/Mini_bulb.png?v=44828" /></td><td><p>Reminder messages have multiple options. If you select <b>Yes, and do the same in the future, no need to ask again</b>, the dialog will not show again. You can reactivate all reminder messages from the menu <b>Help: Reactivate Reminder Messages</b>.
+</p></td></tr></table>
+<br /><a  class="image"><img alt="Merge and arrange graph 01.png" src="../images/Merge_and_Arrange_Graphs/600px-Merge_and_arrange_graph_01.png?v=45042" width="600"   /></a></li>
+<li>Select the legend and press the <b>Delete</b> key to delete it.
+<li>We will now make copies of this graph and change the data in the copies. First go back to the worksheet, and press the <b>X</b> button on the top right of the title bar, and in the dialog that pops up, select <b>Hide</b>. This simply hides the window from the interface.<br />
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Merge_and_Arrange_Graphs/Mini_bulb.png?v=44828" /></td><td><p>Hidden windows are displayed with a dimmed icon in the lower panel of Project Explorer. You can double-click on the entry to re-open the window.
+</p></td></tr></table> </li>
+<li>Right-click on the graph window title bar and select <b>Duplicate</b> to create a copy. Do this two more times, so you end up with four graph windows.</li>
+<li>Select the menu <b>Window: Tile Vertically</b> to arrange the 4 graphs without overlap.
+<li>Use the <b>Change X</b>/<b>Change Y</b> menu described before, to change X/Y designations for the copy graphs as below, and rescale when promoted:
+<ul>
+<li>Copy 1: Change Y to <i>[automobile]automobile!D(Y):0^60 mph</i>
+<li>Copy 2: Change X to <i>[automobile]automobile!E(Y):Weight</i>
+<li>Copy 3: Change X to <i>[automobile]automobile!F(Y):Gas Mileage</i>
+</ul> 
+</li>
+<li>Activate the graph of "Power" vs. "Weight". Let's do some customization. Click on the data plot, in the pop-up mini toolbar, change the plot properties as follows:
+<ul>
+<li>Change <b>Symbol Color</b> to Olive.
+<li>Change <b>Plot Symbol</b> to Circle.
+<li>Set <b>Symbol Transparency</b> to 56%.<br />
+<a  class="image"><img alt="Merge and arrange graph TM 01.png" src="../images/Merge_and_Arrange_Graphs/350px-Merge_and_arrange_graph_TM_01.png?v=69105" width="350"   /></a>
+</ul>
+</li>
+<li>Double-click on the Y axis to open the <b>Axis</b> dialog. Change the axis properties as follows:
+<ul>
+<li>Activate the <b>Tick Labels</b> tab. Press the <b>Ctrl</b> key on the keyboard and click <b>Bottom</b> and <b>Left</b> in the left table to select both axes. 
+<li>In the <b>Display</b> sub-tab, select <b>Engineering:1k</b> for <b>Display</b>. 
+<li>Check the <b>Set Decimal Places</b> check box and set <b>Decimal Number</b> to 0. Press <b>OK</b> to close the dialog.<br />
+<a  class="image"><img alt="Merge and arrange graph 02.png" src="../images/Merge_and_Arrange_Graphs/350px-Merge_and_arrange_graph_02.png?v=69106" width="350"   /></a>
+</ul>
+</li>
+<li>Now we can copy the customized formats from this graph to the other three graphs. Right-click on a blank area of the graph such as outside the axes, and select <b>Copy Format: All Style Formats</b> from the context menu.
+<li>Select <b>Edit: Paste Format (Advanced)...</b> from the main menu. In the <b>Apply Formats</b> dialog that opens, uncheck <b>All</b> under <b>Formats to Apply</b> group, and check <b>All Style Formats</b> checkbox. Change <b>Apply Scope</b> drop-down at the bottom to <b>All Graphs in this Folder</b>. Click the <b>Apply</b> button to paste the format to the other graph, and then click <b>Close</b>.
+<br />
+<a  class="image"><img alt="Merge and arrange graph 06.png" src="../images/Merge_and_Arrange_Graphs/Merge_and_arrange_graph_06.png?v=74046" width="450"  /></a>
+</ol>
+<h3><a name="Merge_and_arrange_graphs"></a><span class="mw-headline">Merge and arrange graphs</span></h3>
+<ol>
+<li>We will now merge these 4 graphs windows. Select <b>Graph: Merge Graph Windows</b> from the main menu.</li>
+<li>The <b>Merge Graph Windows</b> dialog opens. Accept the default settings and click <b>OK</b>. A new graph window with 4 layers is generated.</li>
+<li>Now we will re-arrange the 4 layers in the merged graph. Select <b>Graph: Layer Management</b> from the main menu. The <b>Layer Management</b> dialog will open.</li>
+<li>Activate the <b>Arrange</b> tab, then expand the <b>Spacing (in&#160;% of Page Dimensions)</b> branch. Set as follows:
+<ul>
+<li> Horizontal Gap = 15
+<li> Vertical Gap = 15
+<li> Left Margin = 10
+<li> Right Margin = 5
+<li> Top Margin = 5
+<li> Bottom Margin = 15<br />
+Click the <b>Apply</b> button.
+</ul>
+</li>
+<li>Activate the <b>Display</b> tab. Press the <b>Ctrl</b> key on the keyboard and select all 4 layers in the <b>Layer Selection</b> table on the left. Then select the <b>Scale Elements</b> checkbox under the <b>Option</b> branch. Set <b>Scale Mode</b> to <b>Fixed Factor</b> and set the <b>Fixed Factor</b> to 1. </li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Merge_and_Arrange_Graphs/Mini_bulb.png?v=44828" /></td><td><p>By default, if you drag and resize a graph layer, or the layer gets resized when merging, text fonts and other graph objects get rescaled. Setting <b>Scale Mode</b> to <b>Fixed Factor</b> can prevent scaling of font size/line thickness when layer is resized. (This behavior can also be controlled in the <b>Size</b> tab of <b>Plot Details</b> dialog (layer level))
+</p></td></tr></table></li>
+<li>Click the <b>Apply</b> button. Click OK to close the dialog.<br />
+<a  class="image"><img alt="Merge and arrange graph 03.png" src="../images/Merge_and_Arrange_Graphs/400px-Merge_and_arrange_graph_03.png?v=45058" width="400"   /></a>
+<br />The merged graph should now appear as below:<br />
+<a  class="image"><img alt="Merge and arrange graph 04.png" src="../images/Merge_and_Arrange_Graphs/350px-Merge_and_arrange_graph_04.png?v=45062" width="350"   /></a></li>
+<li>Activate the <i>automobile</i> workbook by double-clicking on the icon in the lower panel of Project Explorer. Select column B, click the <b>Add or Remove Data Filter</b> toolbar button <a  class="image"><img alt="Button Add Or Remove Data Filter.png" src="../images/Merge_and_Arrange_Graphs/Button_Add_Or_Remove_Data_Filter.png?v=13394" width="23"  /></a> to add a filter.</li>
+<li>Click on the filter icon at the top-left corner of the column header. In the context menu that appears, click <b>Select All</b> once to de-select all items, and then select the <b>Honda</b> checkbox and click OK, to only show rows where Make is <i>Honda</i>. All other rows will be hidden, and all graphs will update to reflect the change in the data.<br />
+<a  class="image"><img alt="Merge and arrange graph 05.png" src="../images/Merge_and_Arrange_Graphs/Merge_and_arrange_graph_05.png?v=45064" width="263"  /></a></li>
+</ol>
+<h3><a name="Cloneable_Template_and_Smart_Plotting"></a><span class="mw-headline">Cloneable Template and Smart Plotting</span></h3>
+<ol>
+<li>Let us now save the final merged graph as a template. Right click on its window title bar and select <b>Save Template As</b>. This will open the <b>template_saveas</b> dialog.</li>
+<li>Make sure <b>Mark as Cloneable Template</b> is selected and <b>Match Plot Columns by</b> is set to <b>Long Name</b>. Enter <i>MyMergeGraph</i> for <b>Template Name</b> and click <b>OK</b>. A message is dumped to the Message Log telling you the template is saved.
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Merge_and_Arrange_Graphs/Mini_bulb.png?v=44828" /></td><td><p>Cloneable Templates save the column positions or column names along with all other graph properties. This allows for duplication of complex graph arrangements from other data with same arrangement of column positions or names.
+</p></td></tr></table></li>
+<li>Activate the <i>automobile</i> workbook. Select the filter on column B and select both <i>Honda</i> and <i>Lexus</i> and click OK to show both makes. </li>
+<li>With the book still active, select <b>Plot &gt; User Templates: MyMergeGraph</b> from the main menu. A new graph is created, with the same data assignments and formats as present in the previous merged graph.</li>
+<p>Save your project file.
+</p>
+</ol>
+
+

@@ -1,0 +1,191 @@
+<h1 class="firstHeading">4.2.2.17 Fitting Complex Function</h1><p class='urlname' style='display: none'>Fitting-ComplexFunc</p>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>When fitting with a complex function, we can easily separate the complex function to two functions: one corresponding to its real part and the other corresponding to its imaginary part. With these two functions, we can define the complex fitting function with two dependent variables by <b>Fitting Function Organizer</b> and can access it in <b>NLFit</b> dialog. We will illustrate how to fit with complex function below. More details about fitting with multiple dependent or independent variable please refer to <a href="../../Tutorial/Tutorial/Fitting_with_Multiple_Independent_Variables.html" title="Tutorial:Fitting with Multiple Independent Variables">Fitting with Multiple Independent Variables</a>.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 8.0 SR6</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Create a user-defined complex fitting function with two dependent variables and one independent variable </li>
+<li>Fit with such function in NLFit </li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<ol start="1">
+<li>Select whole form below (including header line) and right click to choose <b>Copy</b> to put the data in clipboard.
+<table class="simple" style="width:240px">
+<tr>
+<th> Omega
+</th>
+<th> Y1
+</th>
+<th> Y2
+</th></tr>
+<tr>
+<td> 0
+</td>
+<td> 3
+</td>
+<td> 0
+</td></tr>
+<tr>
+<td> 0.01
+</td>
+<td> 2.88462
+</td>
+<td> -0.28846
+</td></tr>
+<tr>
+<td> 0.02
+</td>
+<td> 2.58621
+</td>
+<td> -0.51724
+</td></tr>
+<tr>
+<td> 0.03
+</td>
+<td> 2.20588
+</td>
+<td> -0.66176
+</td></tr>
+<tr>
+<td> 0.04
+</td>
+<td> 1.82927
+</td>
+<td> -0.73171
+</td></tr>
+<tr>
+<td> 0.05
+</td>
+<td> 1.5
+</td>
+<td> -0.75
+</td></tr>
+<tr>
+<td> 0.06
+</td>
+<td> 1.22951
+</td>
+<td> -0.7377
+</td></tr>
+<tr>
+<td> 0.07
+</td>
+<td> 1.01351
+</td>
+<td> -0.70946
+</td></tr>
+<tr>
+<td> 0.08
+</td>
+<td> 0.8427
+</td>
+<td> -0.67416
+</td></tr>
+<tr>
+<td> 0.09
+</td>
+<td> 0.70755
+</td>
+<td> -0.63679
+</td></tr>
+<tr>
+<td> 0.1
+</td>
+<td> 0.6
+</td>
+<td> -0.6
+</td></tr>
+<tr>
+<td> 0.11
+</td>
+<td> 0.5137
+</td>
+<td> -0.56507
+</td></tr></table>
+</li>
+<li>
+Select <b>Import/ Import Wizard</b> to open Import Wizard dialog. Then choose <b>Clipboard</b> in <b>Data Source</b> group and click <b>Finish</b> to import the data.
+<br />
+<a  class="image"><img alt="ComplexfittingClipboard2.png" src="../images/Fitting_Complex_Function/ComplexfittingClipboard2.png?v=3275" width="300"  /></a><br />
+</li>
+<li>Select <b>Tools: Fitting Function Organizer</b> from menu (or press <b>F9</b>) to bring up the <span class="db">Fitting Function Organizer</span> and define a new fitting function named <b>ComplexFitting</b> in <b>NewCategory</b> (create the category if not exist) as follow: 
+<table class="simple">
+
+<tr>
+<td width="170"><b>Function Name:</b>
+</td>
+<td>
+<p>ComplexFitting
+</p>
+</td></tr>
+<tr>
+<td width="170"><b>Function Type:</b>
+</td>
+<td>
+<p>User-Defined
+</p>
+</td></tr>
+<tr>
+<td width="170"><b>Independent Variables:</b>
+</td>
+<td>
+<p>omega
+</p>
+</td></tr>
+<tr>
+<td width="170"><b>Dependent Variables:</b>
+</td>
+<td>
+<p>y1,y2  
+</p>
+</td></tr>
+<tr>
+<td width="170"><b>Parameter Names:</b>
+</td>
+<td>
+<p>A,tau
+</p>
+</td></tr>
+<tr>
+<td width="170"><b>Function Form:</b>
+</td>
+<td>
+<p>Origin C
+</p>
+</td></tr>
+<tr>
+<td width="170"><b>Function:</b>
+</td>
+<td>
+<p>complex cc = A/(1+1i*omega*tau);<br />
+y1 = cc.m_re;<br />
+y2 = cc.m_im;
+</p>
+</td></tr></table>
+<p>Note: To use the imaginary unit "i" for creating complex numbers, you need to write it as "1i" in Origin C, as in the above <b>Function</b> row. And <b>complex</b> is a class that implements a complex number data type. It contains both a Real and an Imaginary component. 
+</p><p>For more details about creating user-defined fitting function, please refer to <a href="../../Tutorial/Tutorial/User_Defined_Fitting_Function_using_OC.html" title="Tutorial:User Defined Fitting Function using OC">User Defined Fitting Function using Origin C</a>. 
+</p>
+</li>
+<li>Highlight all the columns and select <b>Analysis: Fitting: Non-linear Curve Fit</b> from menu to bring up the NLFit dialog. Select the function <b>ComplexFitting</b> from <b>NewCategory</b> on the <b>Settings: Function Selection</b> page. Set the input datasets in the <b>Data Selection</b> page as follow:
+<br />
+<a  class="image"><img alt="ComplexFitSelectData.png" src="../images/Fitting_Complex_Function/ComplexFitSelectData.png?v=12098" width="580"  /></a>
+<li>Select <b>Parameters Tab</b> and set the initial values as follows:
+<br />
+<a  class="image"><img alt="ComplexFitParameter.png" src="../images/Fitting_Complex_Function/ComplexFitParameter.png?v=2249" width="252"  /></a>
+</li>
+<li>Click <b>Fit</b> to generate the fitting report sheet. You can see the results from the report worksheet as below:
+<br />
+<a  class="image"><img alt="ComplexfittingPara.png" src="../images/Fitting_Complex_Function/ComplexfittingPara.png?v=2439" width="233"  /></a>
+<br />
+<a  class="image"><img alt="ComplexFitResultsStas.png" src="../images/Fitting_Complex_Function/ComplexFitResultsStas.png?v=2251" width="262"  /></a>
+<br />
+From the Statistics table, we can see that the fitting is fairly successful.
+</li>
+</ol>
+
+
+
+
+
+

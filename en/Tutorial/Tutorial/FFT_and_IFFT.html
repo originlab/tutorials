@@ -1,0 +1,74 @@
+<h1 class="firstHeading">4.3.1 FFT and IFFT</h1><p class='urlname' style='display: none'>FFT-and-IFFT</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">What You Will Learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#FFT_Gadget"><span class="tocnumber">3</span> <span class="toctext">FFT Gadget</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#FFT"><span class="tocnumber">4</span> <span class="toctext">FFT</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#IFFT"><span class="tocnumber">5</span> <span class="toctext">IFFT</span></a></li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/FFT_and_IFFT/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/FFT_and_IFFT/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=71" target="_blank">FFT</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/FFT_and_IFFT/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/FFT_and_IFFT/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/how-to-remove-dc-offset-before-performing-fft" target="_blank">How to Remove DC Offset before Performing FFT</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>FFT (Fast Fourier Transform) is able to convert a signal from the time domain to the frequency domain. IFFT (Inverse FFT) converts a signal from the frequency domain to the time domain. The FFT of a non-periodic signal will cause the resulting frequency spectrum to suffer from leakage. Origin provides several windows for performing FFT to suppress leakage.
+</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">What You Will Learn</span></h2>
+<p>In this tutorial, you will learn how to:
+</p>
+<ul><li> Perform FFT on signal with different windows.</li>
+<li> Recover the original signal with the spectrum.</li>
+<li> Perform FFT on a graph by using the FFT gadget.</li></ul>
+<h2><a name="FFT_Gadget"></a><span class="mw-headline">FFT Gadget</span></h2>
+<p>Origin's FFT gadget places a rectangle object to a signal plot, allowing you to perform FFT on the data contained in the rectangle. This is convenient for quickly observing the FFT effect on the data. 
+</p><p>The following tutorial shows how to use the FFT gadget on the signal plot.
+</p>
+<ol><li> Start with a new workbook, and import the data <b>&lt;Origin Installation Directly&gt;\Samples\Signal Processing\Chirp Signal.dat</b>.
+<dl><dd> <a  class="image"><img alt="SP Tutorial FFT 1.png" src="../images/FFT_and_IFFT/SP_Tutorial_FFT_1.png?v=24105" width="309"  /></a></dd></dl></li>
+<li> Highlight column B and make a line plot by clicking menu item <b>Plot&gt;2D: Line: Line</b>.
+<dl><dd> <a  class="image"><img alt="SP Tutorial FFT 2.png" src="../images/FFT_and_IFFT/SP_Tutorial_FFT_2.png?v=24106" width="415"  /></a></dd></dl></li>
+<li> With the plot active, select menu <b>Gadgets: FFT...</b> to start the FFT gadget. 
+<dl><dd> <a  class="image"><img alt="SP Tutorial FFT 3.png" src="../images/FFT_and_IFFT/SP_Tutorial_FFT_3.png?v=24107" width="318"  /></a></dd></dl></li>
+<li> Using the default settings, click <b>OK</b> to add the rectanglar Region of Interest (ROI) to the graph.
+<dl><dd> <a  class="image"><img alt="SP Tutorial FFT 4.png" src="../images/FFT_and_IFFT/SP_Tutorial_FFT_4.png?v=24108" width="415"  /></a></dd></dl></li>
+<li> Note that the <b>FFTPREVIEW</b> graph is created showing the FFT results for the selected data.
+<dl><dd> <a  class="image"><img alt="SP Tutorial FFT 5v.png" src="../images/FFT_and_IFFT/SP_Tutorial_FFT_5v.png?v=41860" width="671"  /></a></dd></dl></li>
+<li> You can move the rectangle left and right to cover different portions of the data. You can also change the width of the rectangle to cover different numbers of data points. Repositioning or resizing the ROI changes the <b>FFTPREVIEW</b> graph.</li></ol>
+<h2><a name="FFT"></a><span class="mw-headline">FFT</span></h2>
+<p>In this example, we are going to change the window for suppressing the spectrum leakage.
+</p>
+<ol><li> Use the same data as the <b>FFT Gadget</b> subsection above.</li>
+<li> Highlight column B, then select menu <b>Analysis: Signal Processing: FFT: FFT...</b>. This opens the <b>FFT: fft1</b> dialog box.</li>
+<li> In the dialog, check the <b>Auto Preview</b> box at the bottom to preview the result in the right panel. Change the <b>Window</b> to <b>Blackman</b>, but keep the remaining default settings. In the right panel, we can see that there is a sharp narrow peak spectrum for Amplitude. The <b>Blackman</b> window has suppressed the spectrum leakage very well. 
+<dl><dd> <a  class="image"><img alt="SP Tutorial FFT 6.png" src="../images/FFT_and_IFFT/650px-SP_Tutorial_FFT_6.png?v=42737" width="650"   /></a></dd></dl></li>
+<li> Click <b>OK</b> to generate the resulting data and graphs.
+<dl><dd> <a  class="image"><img alt="SP Tutorial FFT 7v.png" src="../images/FFT_and_IFFT/500px-SP_Tutorial_FFT_7v.png?v=41864" width="500"   /></a></dd></dl></li></ol>
+<h2><a name="IFFT"></a><span class="mw-headline">IFFT</span></h2>
+<p>This example will show how to recover the signal from the results of doing an FFT. To do so, both settings for FFT and IFFT need to be the same, and the <b>Spectrum Type</b> needs to be <b>Two-sided</b> and <b>Window</b> needs to be set to <b>Rectangle</b>.
+</p>
+<ol><li>Start with your <b>FFT</b> results, above, and click on any of the green locks. Select <b>Change Parameters...</b> from the menu to open the dialog box again.
+<dl><dd><a  class="image"><img alt="SP Tutorial FFT 8.png" src="../images/FFT_and_IFFT/SP_Tutorial_FFT_8.png?v=24112" width="230"  /></a></dd></dl></li>
+<li>As mentioned above, the <b>Window</b> needs to be set to <b>Rectangle</b>, and <b>Spectrum Type</b> should be <b>Two-sided</b>, so edit these two settings.
+<dl><dd><a  class="image"><img alt="SP Tutorial FFT 9v.png" src="../images/FFT_and_IFFT/700px-SP_Tutorial_FFT_9v.png?v=41869" width="700"   /></a></dd></dl></li>
+<li>Click <b>OK</b> and the results will be modified.</li>
+<li>Go to the <b>FFTResultData1</b> worksheet. We can see one column is Complex, one column is Real, and one is Imaginary. Here, we can use the Complex column (the Real column and Imaginary column also can be used).  Highlight it and select the menu item <b>Analysis: Signal Processing: FFT: IFFT...</b> to open the <b>FFT: ifft1</b> dialog. (Note, if using Real and Imaginary columns, the first line for <b>Input</b> should be the Real column, and the <b>Imaginary</b> box should point to the Imaginary column.) Check the <b>Auto Preview</b> check box at the bottom to preview the result in the right panel.
+<dl><dd><a  class="image"><img alt="SP Tutorial FFT 10v.png" src="../images/FFT_and_IFFT/700px-SP_Tutorial_FFT_10v.png?v=41872" width="700"   /></a></dd></dl></li>
+<li>Keep the default settings and click the <b>OK</b> button.</li>
+<li>Now, we can make a comparison between the IFFT result (in <b>IFFTResultData1</b> worksheet) and the original signal data. As the image below shows, they are almost the same.
+<dl><dd><a  class="image"><img alt="SP Tutorial FFT 11.png" src="../images/FFT_and_IFFT/700px-SP_Tutorial_FFT_11.png?v=24115" width="700"   /></a></dd></dl></li></ol>
+
+
+
+
+
+

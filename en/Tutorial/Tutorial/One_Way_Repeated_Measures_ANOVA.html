@@ -1,0 +1,72 @@
+<h1 class="firstHeading">5.3.2 One-Way Repeated Measures ANOVA</h1><p class='urlname' style='display: none'>1WayRepeatedMeasuresANOVA</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Indexed_data_mode"><span class="tocnumber">3.1</span> <span class="toctext">Indexed data mode</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Results_Interpretation"><span class="tocnumber">3.2</span> <span class="toctext">Results Interpretation</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>One-way repeated measures ANOVA is similar to one-way ANOVA, but deals with a dependent variable subjected to repeated measurements. In this situation, the independence assumption of general one-way ANOVA is not tenable, since there is probably a correlation between levels of the repeated factor.
+</p><p>Similar to one-way ANOVA, one-way repeated measures ANOVA can be employed to test whether the means are equal or not. These means include the mean of different measurements and the mean of different subjects. The results will be shown in the table named <i>Test of Within-Subjects Effect</i> and <i>Test of Between-Subjects Effect</i> respectively.
+Note that the repeated measures ANOVA in Origin requires balanced sample data, that is, equal sample size at each level.
+</p><p><br />
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 8.6 Pro SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Input indexed data iton the statistical analysis dialog.</li>
+<li>Perform One-way Repeated Measures ANOVA.</li>
+<li>Interpret results of a One-way Repeated Measures ANOVA analysis.</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<p>Origin can perform <b> One-Way Repeated Measures ANOVA </b> in both 
+indexed and raw data mode. For <b>One-Way Repeated Measures ANOVA</b>, if the indexed mode is used, data should be organized into three columns: <b>Factor</b>, <b>data</b>, and <b>Subject</b>. When the Raw data mode 
+is used, the different levels should be in different columns.
+<br /> 
+</p>
+<h3><a name="Indexed_data_mode"></a><span class="mw-headline">Indexed data mode</span></h3>
+<p>The data contains measurements for 3 different doses on 20 subjects, and we are interested in whether different doses on subjects have different effects. To test this, we will perform a One-Way Repeated Measures ANOVA using the indexed data mode.
+</p>
+<ol><li>Start with an empty worksheet. Select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Statistics</i> subfolder and find the file <i>One Way_RM_ANOVA_indexed.dat</i>. Drag-and-drop this file into the empty worksheet to import it.</li>
+<li>Select <b>Statistics: ANOVA: One-Way Repeated Measures ANOVA</b> to open the dialog. In the <b>Input</b> tab of this dialog, select <b>Indexed</b> from the <b>Input Data </b> drop-down list and set column <b>B(dose)</b>, <b>C(Data)</b>, and <b>A(Subject)</b> as the <b>Factor</b>, <b>Data</b>, and <b>Subject</b> respectively.
+<dl><dd><a  class="image"><img alt="OnermANOVA 1.png" src="../images/One_Way_Repeated_Measures_ANOVA/OnermANOVA_1.png?v=44354" width="429"  /></a></dd></dl></li>
+<li>Go to <b>Means Comparison</b> tab, select the check box after <b>Bonferroni</b> to enable the Bonferroni test.
+<dl><dd><a  class="image"><img alt="OnermANOVA 2.png" src="../images/One_Way_Repeated_Measures_ANOVA/OnermANOVA_2.png?v=44355" width="295"  /></a></dd></dl></li>
+<li>Select the<b> Means Plot(SE as Error)</b> and <b> Means comparison Plot</b> check boxes in the <b>Plots</b> tab.
+<dl><dd><a  class="image"><img alt="OnermANOVA 3.png" src="../images/One_Way_Repeated_Measures_ANOVA/OnermANOVA_3.png?v=44356" width="281"  /></a></dd></dl></li>
+<li>Click the <b>OK</b> button to perform the analysis.</li></ol>
+<h3><a name="Results_Interpretation"></a><span class="mw-headline">Results Interpretation</span></h3>
+<p>Go to the worksheet <b>ANOVAOneWayRM1</b>, where the analysis results are listed.
+</p><p>You can refer to this <a class="external text" href="../../UserGuide/UserGuide/Interpreting_Results_of_Repeated_Measures_ANOVA.html">help file</a> for details of interpreting results of repeated measures ANOVA.
+</p>
+<dl><dd><a  class="image"><img alt="Onrreanova2.png" src="../images/One_Way_Repeated_Measures_ANOVA/Onrreanova2.png?v=15167" width="439"  /></a></dd></dl>
+<p>Origin prints out MANOVA automatically alongside repeated measures to detect repeated-measures effects. Note that the four different methods (Pillai's trace, Wilks' lambda, Hotelling's trace, and Roy's largest root) generate identical F statistics and probabilities, <b>P=0.06455</b>, so the means under three levels condition are not statistically different.
+Compare with the following report in repeated measures ANOVA, we can see that the conclusion is conservative.
+</p>
+<dl><dd><a  class="image"><img alt="Onermanova3.png" src="../images/One_Way_Repeated_Measures_ANOVA/Onermanova3.png?v=61719" width="824"  /></a></dd></dl>
+<p>This table shows the results of the Mauchly's Test of Sphericity. From the test results we can see that Sphericity holds. We are interested in the value of <b>Prob &gt; ChiSq</b>, which is the significance level of the Mauchly's Test, we can see from this example that the significance level (0.44609) is greater than 0.05. Therefore, the assumption of Sphericity has not been violated.  
+</p>
+<dl><dd><a  class="image"><img alt="RMANOVA4.png" src="../images/One_Way_Repeated_Measures_ANOVA/RMANOVA4.png?v=14822" width="609"  /></a></dd></dl>
+<p>From this table we are able to get the F value for the factor in addition to its associated significance level and effect size. As our data follow the assumption of Sphericity, we can conclude that when using an ANOVA with repeated measures with <b>Sphericity Assumed</b>, the means under three levels condition are statistically different (P = 0.03908 &lt; 0.05). In 
+other words, dose is a significant factor. 
+</p>
+<dl><dd><a  class="image"><img alt="Onerm3.png" src="../images/One_Way_Repeated_Measures_ANOVA/Onerm3.png?v=44704" width="754"  /></a></dd></dl>
+<p>The results presented in the previous table showed that there is an overall significant difference among the means but we do not know where those differences came from. This table shows the results of the Bonferroni test, which allows us to learn which specific means are different. In this case,
+the means of dose=10 and dose=20 have a significant difference (<b>P = 0.03402 &lt; 0.05 and Sig Flag = 1</b>).
+</p><p>From the two plots below, we can also easily come to the same conclusion.
+</p>
+<dl><dd><a  class="image"><img alt="Onerm4.png" src="../images/One_Way_Repeated_Measures_ANOVA/Onerm4.png?v=15346" width="450"  /></a></dd>
+<dd><a  class="image"><img alt="Onerm05.png" src="../images/One_Way_Repeated_Measures_ANOVA/Onerm05.png?v=15349" width="494"  /></a></dd></dl>
+
+
+
+
+
+

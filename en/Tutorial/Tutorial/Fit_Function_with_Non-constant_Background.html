@@ -1,0 +1,202 @@
+<h1 class="firstHeading">4.2.2.20 Fit Function with Non-constant Background</h1><p class='urlname' style='display: none'>Fitting-with-Background</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">Example and Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Prepare_the_Data"><span class="tocnumber">3.1</span> <span class="toctext">Prepare the Data</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Define_the_Function"><span class="tocnumber">3.2</span> <span class="toctext">Define the Function</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Auto_Parameter_Initialization"><span class="tocnumber">3.3</span> <span class="toctext">Auto Parameter Initialization</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Fit_the_Curve"><span class="tocnumber">3.4</span> <span class="toctext">Fit the Curve</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Many of the Origin built-in functions are defined as:
+</p>
+<dl><dd><img src="../images/Fit_Function_with_Non-constant_Background/math-1f7b7b3f3ede7f29999d940b2659a042.png?v=0" title="\begin{matrix}y=y_0+......\end{matrix}" alt="\begin{matrix}y=y_0+......\end{matrix}" class="tex"/></dd></dl>
+<p>Where y0 can be treated as the "constant background". How about fitting a curve with a non-constant background? One option is to use the Peak Analyzer we provide. The Peak Analyzer includes multiple methods to subtract the baseline, including exponential or polynomial backgrounds. In this tutorial, we will show you how to fit such curves without using the Peak Analyzer.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 8.0 SR6</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<ul><li> Review <a href="../../Tutorial/Tutorial/Extract_Worksheet_Data.html" title="Tutorial:Extract Worksheet Data">Worksheet Query</a>.</li>
+<li> Quote a built-in function by <a class="external text" href="../../UserGuide/UserGuide/User-Defined_Fitting_Functions.html#Defining_a_function">nlfx<i>FuncName</i></a> method.</li>
+<li> Auto Initialize the parameters.</li></ul>
+<h2><a name="Example_and_Steps"></a><span class="mw-headline">Example and Steps</span></h2>
+<h3><a name="Prepare_the_Data"></a><span class="mw-headline">Prepare the Data</span></h3>
+<p>Let's start this tutorial by importing \<i>Samples</i>\<i>Spectroscopy</i>\<i>Peaks on Exponential Baseline.dat</i>. From the worksheet sparkline, we can see that there are two peaks in the curve. To simplify the problem, we will fit just one peak in this example.
+</p>
+<dl><dd><a  class="image"><img alt="Fit Function with Nonconstant Background 001.png" src="../images/Fit_Function_with_Non-constant_Background/Fit_Function_with_Nonconstant_Background_001.png?v=4618" width="274"  /></a><br /><br /></dd></dl>
+<p>Now bring up the <a class="external text" href="../../UserGuide/UserGuide/Extract_Worksheet_Data.html">Worksheet Query dialog</a> from <b>Worksheet&#160;: Worksheet Query</b>. And we will extract data from row 1 to row 240:
+</p>
+<dl><dd><a  class="image"><img alt="Fit Function with Nonconstant Background 002.png" src="../images/Fit_Function_with_Non-constant_Background/Fit_Function_with_Nonconstant_Background_002.png?v=10044" width="478"  /></a><br /><br /></dd></dl>
+<p>So the curve we will fit should look like this:
+</p>
+<dl><dd><a  class="image"><img alt="Fit Function with Nonconstant Background 003.png" src="../images/Fit_Function_with_Non-constant_Background/Fit_Function_with_Nonconstant_Background_003.png?v=4621" width="261"  /></a></dd></dl>
+<h3><a name="Define_the_Function"></a><span class="mw-headline">Define the Function</span></h3>
+<p>As illustrated below, we can consider the source curve is the combination of an exponential decay component (the background) with a Voigt peak:
+</p>
+<dl><dd><a  class="image"><img alt="Fit Function with Nonconstant Background 004.png" src="../images/Fit_Function_with_Non-constant_Background/Fit_Function_with_Nonconstant_Background_004.png?v=4622" width="266"  /></a><br /><br /></dd></dl>
+<p>So should we write down the whole equation to define the function? Like:
+</p>
+<dl><dd><img src="../images/Fit_Function_with_Non-constant_Background/math-4b8d0eb51a50fb2107fb9e3f75be916e.png?v=0" title="y=y_0+A_1e^{-x/t1}+A_2\frac{2w_L\ln{2}}{\pi^{\frac{3}{2}}w^2_G}\int_{-\infty}^{\infty}\frac{e^{-t^2}}{\left( \sqrt{\ln2}\frac{w_L}{w_G} \right)^2 + \left( \sqrt{4\ln{2}}\frac{x-x_c}{w_G}-t \right)^2}dt" alt="y=y_0+A_1e^{-x/t1}+A_2\frac{2w_L\ln{2}}{\pi^{\frac{3}{2}}w^2_G}\int_{-\infty}^{\infty}\frac{e^{-t^2}}{\left( \sqrt{\ln2}\frac{w_L}{w_G} \right)^2 + \left( \sqrt{4\ln{2}}\frac{x-x_c}{w_G}-t \right)^2}dt" class="tex"/></dd></dl>
+<p>Well, this is a complicated equation and it includes infinite integration. Writing such an equation directly is painful. Now that we already have these two built-in functions:
+</p><p>ExpDec1:
+</p>
+<dl><dd><img src="../images/Fit_Function_with_Non-constant_Background/math-405a73342845b9438972485516ad1027.png?v=0" title="\begin{matrix}y=y_0+Ae^{-x/t}\end{matrix}" alt="\begin{matrix}y=y_0+Ae^{-x/t}\end{matrix}" class="tex"/></dd></dl>
+<p>Voigt:
+</p>
+<dl><dd><img src="../images/Fit_Function_with_Non-constant_Background/math-2f064f69637d685313e7580888b4fc32.png?v=0" title="y=y_0+A\frac{2w_L\ln{2}}{\pi^{\frac{3}{2}}w^2_G}\int_{-\infty}^{\infty}\frac{e^{-t^2}}{\left( \sqrt{\ln2}\frac{w_L}{w_G} \right)^2 + \left( \sqrt{4\ln{2}}\frac{x-x_c}{w_G}-t \right)^2}dt" alt="y=y_0+A\frac{2w_L\ln{2}}{\pi^{\frac{3}{2}}w^2_G}\int_{-\infty}^{\infty}\frac{e^{-t^2}}{\left( \sqrt{\ln2}\frac{w_L}{w_G} \right)^2 + \left( \sqrt{4\ln{2}}\frac{x-x_c}{w_G}-t \right)^2}dt" class="tex"/></dd></dl>
+<p>we can simply use the <b>nlfx<i>FuncName</i></b> method to quote these two built-in functions and create a new one. Press <b>F9</b> to open the <b>Fitting Function Organizer</b> and define a function as below:
+</p>
+<table class="simple">
+
+<tr>
+<td width="150"><b>Function Name:</b>
+</td>
+<td> ExpVoigt
+</td></tr>
+<tr>
+<td> <b>Function Type:</b>
+</td>
+<td> User-Defined
+</td></tr>
+<tr>
+<td> <b>Independent Variables:</b>
+</td>
+<td> x
+</td></tr>
+<tr>
+<td> <b>Dependent Variables:</b>
+</td>
+<td> y
+</td></tr>
+<tr>
+<td> <b>Parameter Names:</b>
+</td>
+<td> y0, A1, t1, xc, A2, wG, wL
+</td></tr>
+<tr>
+<td> <b>Function Form:</b>
+</td>
+<td> <font color="blue">Origin C</font>
+</td></tr>
+<tr>
+<td> <b>Function:</b>
+</td>
+<td> y = nlf_ExpDec1(x, y0, A1, t1) + nlf_Voigt(x, y0, xc, A2, wG, wL) - y0;
+</td></tr></table>
+<p><br />
+</p>
+<table class="note">
+
+<tr>
+<td><b>Note:</b>
+<ol>Some of the built-in function names do not consistent with the actual DLL function name. Just like this Voigt function, it's defined in Voigt5.FDF, and if you open the FDF file by Notepad, you can see a line under [GENERAL INFORMATION] section says:<br />
+<dl><dd>Function Source=fgroup.Voigt5<br /></dd></dl>
+The name after "fgroup" is the actual name we should put into <b>nlf_<i>FuncName</i></b>.</li>
+<p>Besides, for versions before <font color="red"><b>Origin 8.1 SR2</b></font>, the function body should use old <i>nlfxFuncName</i> notation and define as:<br />
+</p>
+<pre class="oc" style="font-family:monospace;">y <span style="color: #000080;">=</span> nlfxExpDec1<span style="color: #000000;">&#40;</span>x, y0, A1, t1<span style="color: #000000;">&#41;</span> <span style="color: #000040;">+</span> nlfxVoigt<span style="color: #000000;">&#40;</span>x, y0, xc, A2, wG, wL<span style="color: #000000;">&#41;</span> <span style="color: #000040;">-</span> y0;
+x; xc; A1; t1; A2; wG; wL;</pre>
+Listing the parameters at the end is done to avoid the "parameter not used inside the function body" error, although you already use these parameters. If not, you will not compile the function successfully.</li></ol>
+</td></tr></table>
+<p>Click the <a  class="image"><img alt="User-Defined Fitting Functions-2.png" src="../images/Fit_Function_with_Non-constant_Background/User-Defined_Fitting_Functions-2.png?v=4571" width="19"  /></a> button on the right of the <b>Parameter Settings</b> and enter these parameter initial values:
+</p>
+<dl><dd><table class="simple" style="width:120px">
+
+<tr>
+<td width="20"><b>y0:</b>
+</td>
+<td> 0
+</td></tr>
+<tr>
+<td> <b>A1:</b>
+</td>
+<td> 5
+</td></tr>
+<tr>
+<td> <b>t1:</b>
+</td>
+<td> 50
+</td></tr>
+<tr>
+<td> <b>xc:</b>
+</td>
+<td> 100
+</td></tr>
+<tr>
+<td> <b>A2:</b>
+</td>
+<td> 50
+</td></tr>
+<tr>
+<td> <b>wG:</b>
+</td>
+<td> 10
+</td></tr>
+<tr>
+<td> <b>wL:</b>
+</td>
+<td> 10
+</td></tr></table></dd></dl>
+<p>So the final function definition part should look like:
+</p>
+<dl><dd><a  class="image"><img alt="Fit Function with Nonconstant Background 006.png" src="../images/Fit_Function_with_Non-constant_Background/Fit_Function_with_Nonconstant_Background_006.png?v=12096" width="394"  /></a></dd></dl>
+<h3><a name="Auto_Parameter_Initialization"></a><span class="mw-headline">Auto Parameter Initialization</span></h3>
+<p>In the above section, we set fixed parameter initial values. If you know the possible fitted results, you can set the initial values in this way. But how about when the data is changed? Origin provides an Origin C interface to "guess" the initial values. To use the parameter initialization code, make sure to check the <b>Enable Auto Initialization</b> and <b>Use OriginC</b> checkboxes, and edit the code in Code Builder by clicking the <a  class="image"><img alt="User-Defined Fitting Functions-2.png" src="../images/Fit_Function_with_Non-constant_Background/User-Defined_Fitting_Functions-2.png?v=4571" width="19"  /></a> icon.<br />(P.S: If you know the initial values very well, or you don't like coding, please skip this section.)
+</p>
+<dl><dd><a  class="image"><img alt="Fit Function with Nonconstant Background 007.png" src="../images/Fit_Function_with_Non-constant_Background/Fit_Function_with_Nonconstant_Background_007.png?v=4625" width="332"  /></a><br /><br /></dd></dl>
+<p>Now that the curve is composed by two components, we can guess the parameter values by separating these two parts, the initialization code includes:
+</p>
+<ol><li>Use the <a class="external text" href="../../OriginC/OriginC/Get_exponent_(global_function).html">get_exponent</a> function to fit the curve and get the parameter values for exponential component.</li>
+<li>Remove the background -- exponential component -- from source data.</li>
+<li>Approaching the peak by Gaussian peak using <a class="external text" href="../../OriginC/OriginC/Peak_pos_(global_function).html">peak_pos</a> function and set the initial values for peak component</li></ol>
+<p>So, the initialization code in Code Builder should look like this:
+</p>
+<pre class="oc" style="font-family:monospace;"><span style="color: #0000ff;">void</span> _nlsfParamExpVoigt<span style="color: #000000;">&#40;</span>
+<span style="color: #008000;">// Fit Parameter(s):</span>
+<span style="color: #0000ff;">double</span><span style="color: #000040;">&amp;</span> y0, <span style="color: #0000ff;">double</span><span style="color: #000040;">&amp;</span> A1, <span style="color: #0000ff;">double</span><span style="color: #000040;">&amp;</span> t1, <span style="color: #0000ff;">double</span><span style="color: #000040;">&amp;</span> xc, <span style="color: #0000ff;">double</span><span style="color: #000040;">&amp;</span> A2, <span style="color: #0000ff;">double</span><span style="color: #000040;">&amp;</span> wG, <span style="color: #0000ff;">double</span><span style="color: #000040;">&amp;</span> wL,
+<span style="color: #008000;">// Independent Dataset(s):</span>
+vector<span style="color: #000040;">&amp;</span> x_data,
+<span style="color: #008000;">// Dependent Dataset(s):</span>
+vector<span style="color: #000040;">&amp;</span> y_data,
+<span style="color: #008000;">// Curve(s):</span>
+Curve x_y_curve,
+<span style="color: #008000;">// Auxilary error code: </span>
+<span style="color: #0000ff;">int</span><span style="color: #000040;">&amp;</span> nErr<span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>
+	<span style="color: #008000;">// Beginning of editable part</span>
+	<span style="color: #0000ff;">int</span> nSign;
+	<span style="color: #008000;">// Evaluates the parameters' value, y0, ln(A) and R for y = y0+A*exp(R*x).</span>
+	t1 <span style="color: #000080;">=</span> get_exponent<span style="color: #000000;">&#40;</span>x_data, y_data, <span style="color: #000040;">&amp;</span>y0, <span style="color: #000040;">&amp;</span>A1, <span style="color: #000040;">&amp;</span>nSign<span style="color: #000000;">&#41;</span>;
+	<span style="color: #008000;">// Set the exponential component values for the fitting function.</span>
+	t1 <span style="color: #000080;">=</span> <span style="color: #000040;">-</span><span style="color: #0000dd;">1</span><span style="color: #000040;">/</span>t1;
+	A1 <span style="color: #000080;">=</span> nSign<span style="color: #000040;">*</span><span style="color: #000000;">exp</span><span style="color: #000000;">&#40;</span>A1<span style="color: #000000;">&#41;</span>;
+	<span style="color: #008000;">// Remove the exponential component from the curve;</span>
+	x_y_curve <span style="color: #000080;">=</span> x_y_curve <span style="color: #000040;">-</span> <span style="color: #000000;">&#40;</span>y0 <span style="color: #000040;">+</span> A1 <span style="color: #000040;">*</span> <span style="color: #000000;">exp</span><span style="color: #000000;">&#40;</span><span style="color: #000040;">-</span>x_data<span style="color: #000040;">/</span>t1<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#41;</span>;
+	<span style="color: #008000;">// Fit to get peak values.</span>
+	xc <span style="color: #000080;">=</span> peak_pos<span style="color: #000000;">&#40;</span>x_y_curve, <span style="color: #000040;">&amp;</span>wG, <span style="color: #000040;">&amp;</span>y0, <span style="color: #000040;">&amp;</span>A2<span style="color: #000000;">&#41;</span>;
+	wL <span style="color: #000080;">=</span> wG;
+	<span style="color: #008000;">// End of editable part</span>
+<span style="color: #000000;">&#125;</span></pre>
+<table class="note">
+
+<tr>
+<td><b>Note:</b>
+<p>When you check the <b>Enable Auto Initialization</b> and enter the initialization code, this code will cover the initial values in <b>Parameter Settings</b>.
+</p>
+</td></tr></table>
+<h3><a name="Fit_the_Curve"></a><span class="mw-headline">Fit the Curve</span></h3>
+<p>No matter what kind of parameter initialization method you used, highlight column B and press <b>Ctrl + Y</b> to bring up the NLFit dialog, select the ExpVoigt function and fit. The result should be:
+</p>
+<dl><dd><a  class="image"><img alt="Fit Function with Nonconstant Background 008.png" src="../images/Fit_Function_with_Non-constant_Background/Fit_Function_with_Nonconstant_Background_008.png?v=12095" width="277"  /></a></dd></dl>
+
+
+
+
+
+

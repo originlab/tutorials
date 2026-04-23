@@ -1,0 +1,185 @@
+<h1 class="firstHeading">4.2.2.14 Fitting with Integral using LabTalk Function</h1><p class='urlname' style='display: none'>Fitting-Integral-LabTalk</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">Example and Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#The_Fitting_Model"><span class="tocnumber">3.1</span> <span class="toctext">The Fitting Model</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Define_the_Function"><span class="tocnumber">3.2</span> <span class="toctext">Define the Function</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Fit_the_Curve"><span class="tocnumber">3.3</span> <span class="toctext">Fit the Curve</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Since version <font color="red"><b>Origin 8.6</b></font>, Origin introduces a new LabTalk function, <b><i>integral()</i></b>, to do one-dimensional integration. This function returns the integral value of:
+</p>
+<dl><dd><img src="../images/Fitting_with_Integral_using_LabTalk_Function/math-6bb27c3d9ef3c72c9673506a3f93ba77.png?v=0" title="\int_{LowerLimit}^{UpperLimit} f(t, arg1, arg2, ...), dt" alt="\int_{LowerLimit}^{UpperLimit} f(t, arg1, arg2, ...), dt" class="tex"/></dd></dl>
+<p>And the interface of the <i>integral()</i> function is defined as below:
+</p>
+<dl><dd><pre class="lt" style="font-family:monospace;">integral<span style="color: #000000;">&#40;</span>integrandName, LowerLimit, UpperLimit <span style="color: #000000;">&#91;</span>, arg1, arg2, ...<span style="color: #000000;">&#93;</span><span style="color: #000000;">&#41;</span></pre></dd></dl>
+<p>Where <i>integrandName</i> here is the function name of the integrand: 
+</p>
+<dl><dd><img src="../images/Fitting_with_Integral_using_LabTalk_Function/math-44e9632335932e89ea0c00546a31810a.png?v=0" title="f(t, arg1, arg2, ...)\," alt="f(t, arg1, arg2, ...)\," class="tex"/></dd></dl>
+<p>In other word, the <i>integral()</i> function do the following things:
+</p>
+<ul>
+<li> Accept another function (the first argument) as the integrand.
+<li> Perform integration on specified lower and upper limit and return the integral value.
+<li> If need, pass the subsequent arguments (<i>Arg1</i>, <i>Arg2</i>, ...) into the integrand function.
+</ul>
+<p>Using this feature, we can define a fitting function with <i>integral()</i> function, and pass proper fitting parameters to the integrand, to do integration in curve fitting.
+</p><p>In this tutorial, we will modify the other tutorial, <a href="../../Tutorial/Tutorial/Fitting_with_Integral_using_NAG_Library.html" title="Tutorial:Fitting with Integral using NAG Library">calling NAG functions to do integration during fitting</a>, into LabTalk form, and show you how simple and straightforward to fit an integration function.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 8.6</p>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Fitting_with_Integral_using_LabTalk_Function/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>Beginning with Origin 2018b, you can define a an implicit function using integrals
+</p></td></tr></table>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to: 
+</p>
+<ul><li> Create a fitting function using the Fitting Function Builder</li>
+<li> Create a fitting function with a Definite Integral using Labtalk function</li>
+<li> Set up the Initial Code for the fitting function</li></ul>
+<h2><a name="Example_and_Steps"></a><span class="mw-headline">Example and Steps</span></h2>
+<h3><a name="The_Fitting_Model"></a><span class="mw-headline">The Fitting Model</span></h3>
+<p>The fitting model is described as below:
+</p>
+<dl><dd><img src="../images/Fitting_with_Integral_using_LabTalk_Function/math-957656d43fc6d5ccaa64ce6fec8b95aa.png?v=0" title="y=y_0+\int_{-\infty}^{x} \frac{A}{w\sqrt{\frac{\pi}{2}}} e^{-2\frac{(t-x_c)^2}{w^2}}, dt" alt="y=y_0+\int_{-\infty}^{x} \frac{A}{w\sqrt{\frac{\pi}{2}}} e^{-2\frac{(t-x_c)^2}{w^2}}, dt" class="tex"/></dd></dl>
+<p>There are four parameters in the fitting function, and we need to pass three of them into the integrand, and use the independent variable as upper limit, to do integration. So you should define the integrand first, and then use the <i>integral()</i> function to perform integration inside your fitting function body.
+</p>
+<h3><a name="Define_the_Function"></a><span class="mw-headline">Define the Function</span></h3>
+<ol>
+<li> Press <b>F8</b> to open <b><i>Fitting Function Builder</i></b> dialog. Make sure choosing <i><b>Create a New Function</b></i> option, and click <i><b>Next</b></i> to navigate to the next page.
+
+<li> In the <i><b>Name and Type</b></i> page, enter a function name, say <i><b>MyIntegGauss</b></i>. Leave the default function type as <i><b>Expression</b></i>, and then check the <i><b>Include Integration During Fitting</b></i> checkbox. This will lead you to a new page in the next step.
+
+<br /><br /><a  class="image"><img alt="Fit Integral by LT 001.png" src="../images/Fitting_with_Integral_using_LabTalk_Function/Fit_Integral_by_LT_001.png?v=14645" width="788"  /></a><br /><br />
+
+<li> In the <b><i>Integrand</i></b> page, you can define the expression of the integrand. Currently, Origin supports one-dimensional integral only, so the integrand should have ONE integration variable. In this example, the expression of the integrand is:
+
+<br /><br />
+<dl><dd><img src="../images/Fitting_with_Integral_using_LabTalk_Function/math-8a4d1221a758d820e24674171057f538.png?v=0" title="\frac{A}{w\sqrt{\frac{\pi}{2}}} e^{-2\frac{(t-x_c)^2}{w^2}}" alt="\frac{A}{w\sqrt{\frac{\pi}{2}}} e^{-2\frac{(t-x_c)^2}{w^2}}" class="tex"/></dd></dl>
+<br />
+
+The other variables, like <i>xc</i>, <i>w</i>, and <i>A</i>, are parameters of the integrand. To distinguish from fitting parameters, we named them <i>Arguments</i> here, and use the arguments name <i>ixc</i>, <i>iw</i>, and <i>iA</i> instead. Later, we can pass fitting parameters into these arguments. So, the integrand definition should looks like:
+
+<br /><br /><a  class="image"><img alt="Fit Integral by LT 002.png" src="../images/Fitting_with_Integral_using_LabTalk_Function/Fit_Integral_by_LT_002.png?v=11018" width="573"  /></a><br /><br />
+
+Note that this is a LabTalk function. To get the integration value, you must have a <b><font color="red">RETURN</font></b> statement in the function body. And the integrand expression in this example should be:
+
+<pre class="lt" style="font-family:monospace;">return iA <span style="color: #000080;">*</span> exp<span style="color: #000000;">&#40;</span><span style="color: #000080;">-</span><span style="color: #0000dd;">2</span><span style="color: #000080;">*</span><span style="color: #000000;">&#40;</span>t<span style="color: #000080;">-</span>ixc<span style="color: #000000;">&#41;</span><span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000080;">/</span>iw<span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000000;">&#41;</span> <span style="color: #000080;">/</span> <span style="color: #000000;">&#40;</span>iw<span style="color: #000080;">*</span>sqrt<span style="color: #000000;">&#40;</span>PI<span style="color: #000080;">/</span><span style="color: #0000dd;">2</span><span style="color: #000000;">&#41;</span><span style="color: #000000;">&#41;</span>;</pre>
+<li> When all set, click <b><i>Next</i></b> to go to the <b><i>Variables and Parameters</i></b> page to define the variables and parameters for the fitting function as below:
+
+<br /><br /><a  class="image"><img alt="Fit Integral by LT 003.png" src="../images/Fitting_with_Integral_using_LabTalk_Function/Fit_Integral_by_LT_003.png?v=11015" width="573"  /></a><br /><br />
+
+<li> The next <b><i>Function</i></b> page is where you define the fitting function body. Once you choose to include integration in your fitting function at the beginning of the fitting function builder wizard, there is an extra tab, <b><i>Integrand</i></b>, shown on this page. In this tab, you can map the fitting variables and parameters with elements of the integrand, including lower limit, upper limit, and integrand arguments. And in this example, we will map the variables as below:
+
+<table class="simple">
+<tr>
+<th> Integrand elements
+</th>
+<th> Values pass into integrand
+</th></tr>
+<tr>
+<td> Lower Limit
+</td>
+<td> -inf
+</td></tr>
+<tr>
+<td> Upper Limit
+</td>
+<td> x
+</td></tr>
+<tr>
+<td> ixc
+</td>
+<td> xc
+</td></tr>
+<tr>
+<td> iw
+</td>
+<td> w
+</td></tr>
+<tr>
+<td> iA
+</td>
+<td> A
+</td></tr></table>
+<p>Once set up all the mappings as above table, click the <b><i>Insert</i></b> button, then well prepared <i>integral()</i> function is inserted into the <b><i>Function Body</i></b> box as:
+</p>
+<pre class="lt" style="font-family:monospace;">integral<span style="color: #000000;">&#40;</span>MyIntegrand, <span style="color: #000080;">-</span>inf ,x ,xc ,w ,A<span style="color: #000000;">&#41;</span></pre>
+<p>This expression means perform integration on the function, whose name is <i>MyIntegrand</i>, from negative infinite to <i>x</i>, and pass the three fitting parameters, <i>xc</i>, <i>w</i>, and <i>A</i> to the integrand.<br />
+</p><p>By adding the constant parameter, <i>y0</i>, into the expression, the whole fitting function body should be:
+</p>
+<pre class="lt" style="font-family:monospace;">y0 <span style="color: #000080;">+</span> integral<span style="color: #000000;">&#40;</span>MyIntegrand, <span style="color: #000080;">-</span>inf, x, xc ,w ,A<span style="color: #000000;">&#41;</span>;</pre>
+<p>And the page may looks as below:
+</p><p><br /><a  class="image"><img alt="Fit Integral by LT 004.png" src="../images/Fitting_with_Integral_using_LabTalk_Function/Fit_Integral_by_LT_004.png?v=11909" width="573"  /></a><br /><br />
+</p>
+<li> Then active the <b><i>Parameters</i></b> tab, and give some proper initial values for each fitting parameters as:
+
+<br /><br /><a  class="image"><img alt="Fit Integral by LT 005.png" src="../images/Fitting_with_Integral_using_LabTalk_Function/Fit_Integral_by_LT_005.png?v=11023" width="346"  /></a><br /><br />
+
+Now, you can click <b><i>Finish</i></b> button to save this fitting function.
+</ol>
+<h3><a name="Fit_the_Curve"></a><span class="mw-headline">Fit the Curve</span></h3>
+<p>Copy and paste the following data into Origin worksheet:
+</p>
+<dl><dd><table class="simple" style="width:120px">
+<tr>
+<th> X
+</th>
+<th> Y
+</th></tr>
+<tr>
+<td> -1.69897
+</td>
+<td> 0.13136
+</td></tr>
+<tr>
+<td> -1.22185
+</td>
+<td> 0.34384
+</td></tr>
+<tr>
+<td> -0.92082
+</td>
+<td> 0.6554
+</td></tr>
+<tr>
+<td> -0.82391
+</td>
+<td> 0.73699
+</td></tr>
+<tr>
+<td> -0.69897
+</td>
+<td> 1.00157
+</td></tr>
+<tr>
+<td> 0
+</td>
+<td> 1.70785
+</td></tr>
+<tr>
+<td> 0.30103
+</td>
+<td> 2.31437
+</td></tr>
+<tr>
+<td> 0.69897
+</td>
+<td> 2.77326
+</td></tr>
+<tr>
+<td> 1
+</td>
+<td> 2.79321
+</td></tr></table></dd></dl>
+<p>Highlight the <i>Y</i> column, and press <b><i>Ctrl + Y</i></b> to open the <i><b>NLFit</b></i> dialog. Select the function you just defined, and click <b><i>Fit</i></b> button to perform fitting. The fitting result should be the same like using NAG function directly:
+</p>
+<dl><dd><a  class="image"><img alt="Fit Integral by LT 006.png" src="../images/Fitting_with_Integral_using_LabTalk_Function/Fit_Integral_by_LT_006.png?v=11042" width="314"  /></a></dd></dl>
+
+

@@ -1,0 +1,138 @@
+<h1 class="firstHeading">4.2.2.6 User Defined Fitting Function</h1><p class='urlname' style='display: none'>UserDef-FitFunc</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">What You Will Learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#How_to_Create_a_Fitting_Function_and_Use_it_to_Perform_Curve_Fitting"><span class="tocnumber">3</span> <span class="toctext">How to Create a Fitting Function and Use it to Perform Curve Fitting</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Method_1:_Using_Simple_Fit_app"><span class="tocnumber">3.1</span> <span class="toctext">Method 1: Using Simple Fit app</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Method_2:_Using_Fitting_Function_Organizer_and_NLFit_Tool"><span class="tocnumber">3.2</span> <span class="toctext">Method 2: Using Fitting Function Organizer and NLFit Tool</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="#Step_1:_Create_a_Fitting_Function_Using_Fitting_Function_Organizer"><span class="tocnumber">3.2.1</span> <span class="toctext">Step 1: Create a Fitting Function Using Fitting Function Organizer</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#Step_2:Carry_Out_Curve_Fitting_using_NLFit_Tool"><span class="tocnumber">3.2.2</span> <span class="toctext">Step 2:Carry Out Curve Fitting using NLFit Tool</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/User_Defined_Fitting_Function_using_OC/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/User_Defined_Fitting_Function_using_OC/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/jwplayer.html?v=ftp/mm_tutorials/mp4/Fit_by_User_Functions.mp4%7C767%7C600" target="_blank">User-defined Fitting Functions</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=3" target="_blank">Quick Fit Gadget</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=67" target="_blank">Nonlinear Curve Fit Tool</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/User_Defined_Fitting_Function_using_OC/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/User_Defined_Fitting_Function_using_OC/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/use-initial-formula-to-better-guess-fitting-parameter-values-from-data" target="_blank">Use Initial Formula to Better Guess Fitting Parameter Values from Data</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Besides the <a class="external text" href="../../UserGuide/Category/Appendix_3_-_Built-in_Functions.html">200+ built-in fitting functions</a>, you can also create your own fitting functions in Origin. A number of Origin tools support fitting with your own functions, including: 
+</p>
+<ul><li> <a class="external text" href="https://www.originlab.com/fileExchange/details.aspx?fid=239" target="_blank"><b>Simple Fit</b> App</a> 
+<dl><dd><b>Simple Fit</b> App provides a much more convenient way to fit simple functions that can be expressed in the form y = f(x), you only need to type your formula or select an existing function, specify the initial values and then generate fitting reports immediately. You can learn how to use this App in <a href="#Method_1:_Using_Simple_Fit_app">this section</a>.
+<dl><dd><b>Note:</b> The Simple Fit app is pre-installed with Origin program, you can call it from the <a class="external text" href="../../UserGuide/UserGuide/Apps.html#The_Apps_Gallery"><b>App Gallery</b></a> with a graph window activated.</dd></dl></dd></dl></li>
+<li><a href="../../Tutorial/Tutorial/Quick_Fit_Gadget.html" title="Tutorial:Quick Fit Gadget">Qucik Fit Gadget</a>
+<dl><dd>Quick Fit gadget is another easy way to do both linear and nonlinear fitting without open the Linear Fit or NLFit dialog which might look a little bit complicated but with many advanced controls. Start a fitting process with this gadget, you need first add your own function into the Function List. </dd></dl></li>
+<li> <a class="external text" href="../../UserGuide/Category/The_NLFit_Dialog_Box.html"><b>NLFit</b> tool</a>. 
+<dl><dd><b>NLFit</b> tool is a powerful fitting wizard which allows you to define more complex fitting functions and control the fitting process in every possible way. For fitting user defined function in <b>NLFit</b> tool, you will need to create it in <a class="external text" href="../../UserGuide/Category/The_Fitting_Function_Builder.html"><b>Fitting Function Builder</b></a> first.</dd></dl></li></ul>
+<p><br />
+In this tutorial, we will mainly illustrate how to create a user-defined fitting function in <b>Fitting Function Builder</b>, carry out nonlinear curve fit with it and also show how to fix a parameter for curve fitting using <b>NLFit</b> tool.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 2016 SR0</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">What You Will Learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Create a user-defined fitting function</li>
+<li>Carry out nonlinear curve fit with user-defined fitting function.</li></ul>
+<h2><a name="How_to_Create_a_Fitting_Function_and_Use_it_to_Perform_Curve_Fitting"></a><span class="mw-headline">How to Create a Fitting Function and Use it to Perform Curve Fitting</span></h2>
+<p>The data we are going to fit is the file <b>ConcentrationCurve.dat</b> under the <i>&lt;Origin EXE Folder&gt;\Samples\Curve Fitting\</i> path.
+</p><p>The fitting function to be created and used is shown below:
+</p><p><img src="../images/User_Defined_Fitting_Function_using_OC/math-13a2da4db13747594cc6f088f7811a65.png?v=0" title="y=A\exp(2.303kx-k_{m})\sqrt{2.303+\frac{C}{(x-C_{0})}}" alt="y=A\exp(2.303kx-k_{m})\sqrt{2.303+\frac{C}{(x-C_{0})}}" class="tex"/>
+</p><p>in which 
+</p><p><img src="../images/User_Defined_Fitting_Function_using_OC/math-415290769594460e2e485922904f345d.png?v=0" title="y" alt="y" class="tex"/> is the dependent variable  
+</p><p><img src="../images/User_Defined_Fitting_Function_using_OC/math-9dd4e461268c8034f5c8564e155c67a6.png?v=0" title="x" alt="x" class="tex"/> is the independent variable
+</p><p>and <img src="../images/User_Defined_Fitting_Function_using_OC/math-610f5342226d90a3c96f3f75ddfb3470.png?v=0" title="A, k_{m}, k, C, C_{0}" alt="A, k_{m}, k, C, C_{0}" class="tex"/> are all fitting parameters.
+</p>
+<h3><a name="Method_1:_Using_Simple_Fit_app"></a><span class="mw-headline">Method 1: Using Simple Fit app</span></h3>
+<ol>
+<li>Create a new workbook.Click the <a  class="image"><img alt="Button Import Single ASCII.png" src="../images/User_Defined_Fitting_Function_using_OC/Button_Import_Single_ASCII.png?v=52466" width="25"  /></a> button to import the <b>ConcentrationCurve.dat</b> file under <i>&lt;Origin EXE Folder&gt;\Samples\Curve Fitting\</i> path.
+<li>Highlight column B and click the <a  class="image"><img alt="Button Scatter.png" src="../images/User_Defined_Fitting_Function_using_OC/Button_Scatter.png?v=1448" width="22"  /></a> button to generate a scatter plot.
+<li>Click on <b>Simple Fit</b> icon <a  class="image"><img alt="Simple Fit icon.png" src="../images/User_Defined_Fitting_Function_using_OC/50px-Simple_Fit_icon.png?v=71175" width="50"   /></a> from the Apps panel to open the Simple Fit app. Switch to <b>Nonlinear</b> tab, enter the equation in the <b>y(x)=</b> box. And then the parameter table will appear to let you enter the initial values for the parameters.<br />
+<a  class="image"><img alt="Simple Fit User-defined Function 01.png" src="../images/User_Defined_Fitting_Function_using_OC/700px-Simple_Fit_User-defined_Function_01.png?v=67106" width="700"   /></a>
+<li>Once the equation has been entered and parameters have been initialed and fixed, click <b>Fit</b> button to fit the curve with the function you just defined. Of course, you can check the trend of fitting by clicking <b>1 Iter.</b> button once by once. 
+<li>You can click <b>Save As...</b> to save this function for further use. Click <b>Close</b> button to check the fitting results.<br />
+<a  class="image"><img alt="Simple Fit User-defined Function 02.png" src="../images/User_Defined_Fitting_Function_using_OC/650px-Simple_Fit_User-defined_Function_02.png?v=67120" width="650"   /></a>
+</li>
+</ol>
+<h3><a name="Method_2:_Using_Fitting_Function_Organizer_and_NLFit_Tool"></a><span class="mw-headline">Method 2: Using Fitting Function Organizer and NLFit Tool</span></h3>
+<h4><a name="Step_1:_Create_a_Fitting_Function_Using_Fitting_Function_Organizer"></a><span class="mw-headline">Step 1: Create a Fitting Function Using Fitting Function Organizer</span></h4>
+<p>In this section, we will show how to create a user defined fitting function in the <b>Fitting Function Builder</b>. But there is an alternative tool <b>Fitting Function Organizer</b> which also can be used to create user defined fitting functions(open it by selecting <b>Tools: Fitting Function Organizer</b> or pressing <b>F9</b>).
+</p>
+<ol>
+<li>Launch Origin and choose <b>Tools: Fitting Function Builder</b> (or press <b>F8</b>) to open the <b>Fitting Function Builder</b>.</li>
+<li>In the <b>Goal</b> page, select <b>Create a New Function</b> and click <b>Next</b>.
+<li>In the <b>Name and Type</b> page, change the setting as the following image and then click <b>Next</b>:<br />
+<a  class="image"><img alt="Tutorial UserDefFitFunc 001.png" src="../images/User_Defined_Fitting_Function_using_OC/Tutorial_UserDefFitFunc_001.png?v=45763" width="605"  /></a></li>
+<li>In the <b>Variables and Parameters</b> page, enter the variable and parameter names as the image below and then click <b>Next</b>:<br />
+<a  class="image"><img alt="Tutorial UserDefFitFunc 002.png" src="../images/User_Defined_Fitting_Function_using_OC/Tutorial_UserDefFitFunc_002.png?v=45764" width="605"  /></a><br />
+In the <b>Parameters</b> box, use comma (",") as delimiter.
+</li>
+<li>In the <b>Expression Function</b> page, enter the equation below in <b>Function Body</b>:
+<pre class="lt" style="font-family:monospace;">A<span style="color: #000080;">*</span>exp<span style="color: #000000;">&#40;</span>R0<span style="color: #000080;">*</span>k<span style="color: #000080;">*</span>x<span style="color: #000080;">-</span>km<span style="color: #000000;">&#41;</span><span style="color: #000080;">*</span>sqrt<span style="color: #000000;">&#40;</span>R0<span style="color: #000080;">+</span>c<span style="color: #000080;">/</span><span style="color: #000000;">&#40;</span>x<span style="color: #000080;">-</span>c0<span style="color: #000000;">&#41;</span><span style="color: #000000;">&#41;</span></pre>
+</li>
+<li>Go to the <b>Constant</b> tab, set the value of <b>R0</b> to <b>2.303</b>.</li>
+<li>Give estimated initial values to the parameters according to this particular data and function.<br />
+<a  class="image"><img alt="Tutorial UserDefFitFunc 003.png" src="../images/User_Defined_Fitting_Function_using_OC/Tutorial_UserDefFitFunc_003.png?v=21536" width="352"  /></a><br />
+<b>Note:</b>You can also give different initial values each time before you actually carry out the fitting.</li>
+<li>Can click the <b>Evaluate</b> button <a  class="image"><img alt="Button Evaluate.png" src="../images/User_Defined_Fitting_Function_using_OC/Button_Evaluate.png?v=12986" width="23"  /></a> to quick check whether the function is valid(if it is valid, an actual value will be returned for y).<br />
+<b>Note:</b>If you used <b>Origin C</b> as <b>Function Type</b> at the beginning, you can also compile the function at this stage to check if there is any error, this is especially useful for brackets matching.</li>
+<li>Click the <b>Next</b> button three times until it goes to <b>Derived Parameters</b> page.</li>
+<li>In this page, we will define the derived parameter <b>A0</b>, enter its equation in the <b>Derived Parameters Equations</b> box:
+<pre class="lt" style="font-family:monospace;">A0<span style="color: #000080;">=</span><span style="color: #000080;">-</span>A<span style="color: #000080;">*</span>exp<span style="color: #000000;">&#40;</span>km<span style="color: #000000;">&#41;</span><span style="color: #000080;">*</span>1E<span style="color: #000080;">-</span>4</pre>
+</li>
+<li>Click <b>Finish</b> to create this user defined fitting function. The .FDF file for it will be stored in the <b>User Files Folder</b>.
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/User_Defined_Fitting_Function_using_OC/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>You can always modify the user defined fitting function later, either in the <b>Fitting Function Builder</b>(choose <b>Edit a User-defined Function</b> in <b>Goal</b> page), or in the <b>Fitting Function Organizer</b>.
+</p></td></tr></table>
+</li>
+</ol>
+<h4><a name="Step_2:Carry_Out_Curve_Fitting_using_NLFit_Tool"></a><span class="mw-headline">Step 2:Carry Out Curve Fitting using NLFit Tool</span></h4>
+<ol>
+<li>Create a new workbook.Click the <a  class="image"><img alt="Button Import Single ASCII.png" src="../images/User_Defined_Fitting_Function_using_OC/Button_Import_Single_ASCII.png?v=52466" width="25"  /></a> button to import the <b>ConcentrationCurve.dat</b> file under <i>&lt;Origin EXE Folder&gt;\Samples\Curve Fitting\</i> path.
+<li>Highlight column B and click the <a  class="image"><img alt="Button Scatter.png" src="../images/User_Defined_Fitting_Function_using_OC/Button_Scatter.png?v=1448" width="22"  /></a> button to generate a scatter plot.
+<li>Keep the graph activated, select <b>Analysis:Fitting:Nonlinear Curve Fit</b> to open the <b>NLFit</b> dialog.
+<li>In the <b>Function Selection</b> page, set <b>Category</b> as <b>User Defined</b> and then set <b>Function</b> as <b>MyFitFunc(User)</b>.
+<li>Click the <a  class="image"><img alt="Button Fit Untill Converged.png" src="../images/User_Defined_Fitting_Function_using_OC/Button_Fit_Untill_Converged.png?v=1371" width="26"  /></a> button to fit the data.
+<li>An error message returns in the <b>Message</b> tab of the lower panel, indicates the fit did not converge because of overparameterization.<br />
+<a  class="image"><img alt="Tutorial UserDefFitFunc 004.png" src="../images/User_Defined_Fitting_Function_using_OC/Tutorial_UserDefFitFunc_004.png?v=21537" width="576"  /></a>
+</li>
+<li>The parameters <b>A</b> and <b>km</b> have mutual dependence, so fixing either one will solve the problem. We will fix <b>A</b> this time.
+<li>Go to the <b>Parameters</b> tab, click the <a  class="image"><img alt="Button Initialize Parameters.png" src="../images/User_Defined_Fitting_Function_using_OC/Button_Initialize_Parameters.png?v=1366" width="26"  /></a> to restore the initial value setting, check the <b>Fixed</b> box of parameter <b>A</b>:<br />
+<a  class="image"><img alt="Tutorial UserDefFitFunc 005.png" src="../images/User_Defined_Fitting_Function_using_OC/Tutorial_UserDefFitFunc_005.png?v=21538" width="586"  /></a>
+</li>
+<li>Click the <b>Fit</b> button to carry out the fit.
+<li>The fitted curve will be added to the original data plot, <br />
+<a  class="image"><img alt="Tutorial UserDefFitFunc 006.png" src="../images/User_Defined_Fitting_Function_using_OC/Tutorial_UserDefFitFunc_006.png?v=44548" width="598"  /></a>
+</li>
+<li>A report sheet will be generated as well, in which the fitted value of all parameters(including the derived parameter A0) are reported in the parameters table:<br />
+<a  class="image"><img alt="Tutorial UserDefFitFunc 007.png" src="../images/User_Defined_Fitting_Function_using_OC/Tutorial_UserDefFitFunc_007.png?v=57378" width="546"  /></a>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/User_Defined_Fitting_Function_using_OC/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>In the case of overparameterization, you can fix different parameters to get multiple fit results and then compare the fit models statistically by <b>Analysis:Fitting:Compare Models</b> tool.
+</p></td></tr></table>
+</li>
+<ol></ol>
+</li>
+</li>
+</li>
+</li>
+</li>
+</li>
+</li>
+</ol>
+
+

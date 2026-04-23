@@ -1,0 +1,140 @@
+<h1 class="firstHeading">5.3.6 Three-Way ANOVA</h1><p class='urlname' style='display: none'>ThreeWay-ANOVA</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#User_Story"><span class="tocnumber">3</span> <span class="toctext">User Story</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Performing_Three-Way_ANOVA"><span class="tocnumber">4</span> <span class="toctext">Performing Three-Way ANOVA</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Examining_Significant_Interactions"><span class="tocnumber">5</span> <span class="toctext">Examining Significant Interactions</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Interpreting_Results"><span class="tocnumber">6</span> <span class="toctext">Interpreting Results</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#Overall_ANOVA"><span class="tocnumber">6.1</span> <span class="toctext">Overall ANOVA</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Means_Comparison_and_Means_Plot_of_the_Three_Main_Effects"><span class="tocnumber">6.2</span> <span class="toctext">Means Comparison and Means Plot of the Three Main Effects</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="#Comparison_between_Developing_and_Developed_Country"><span class="tocnumber">6.2.1</span> <span class="toctext">Comparison between Developing and Developed Country</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#Comparison_between_Years"><span class="tocnumber">6.2.2</span> <span class="toctext">Comparison between Years</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="#Comparison_between_Regions"><span class="tocnumber">6.2.3</span> <span class="toctext">Comparison between Regions</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-12"><a href="#Comparing_Same_Level_Between_Different_Groups"><span class="tocnumber">6.3</span> <span class="toctext">Comparing Same Level Between Different Groups</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Three_Way_ANOVA/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Three_Way_ANOVA/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=5" target="_blank">Analysis of Variance</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Three_Way_ANOVA/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Three_Way_ANOVA/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Three-way ANOVA tests for main effects, and interaction effects between all combinations of three factors, on a dependent variable.
+</p>
+<p class="version" >Minimum Origin Version Required: OriginPro 2016 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<ol><li> How to carry out three-way ANOVA for practical data with Origin</li>
+<li> How to interpret the generated results</li></ol>
+<h2><a name="User_Story"></a><span class="mw-headline">User Story</span></h2>
+<p>We have some public data from the World Bank. It includes three factors: Region(Asia/Europe/Africa, etc.), Developing Index (Developing/Developed Country) and Year (2000/2005/2010). We want to understand how these three factors affect the number of internet users and whether there are any significant differences between the groups.
+</p>
+<h2><a name="Performing_Three-Way_ANOVA"></a><span class="mw-headline">Performing Three-Way ANOVA</span></h2>
+<ol><li> Choose menu <b>Help: Learning Center</b> to open Learning Center dialog. Select <b>Analysis Sample</b> in the left side and then choose <b>Statistics - ANOVA</b> from the <b>Samples in</b> drop-down list in the right side.</li>
+<li> Double-click on third item in the list box to open the folder <i>Three-Way ANOVA(Pro)</i>.</li>
+<li> Click on worksheet <b>Sheet1</b> containing the source data. </li>
+<li> Click <b>Statistics: ANOVA: Three-Way ANOVA</b></li>
+<li> In the <b>Input</b> tab of the opened dialog, set <b>Input Data</b> as <b>Indexed</b>. Then expand the <b>Input Data</b> branch, select column C,D, B and E for <b>Factor A</b>,<b>Factor B</b>, <b>Factor C</b> and <b>Data</b>, respectively
+<dl><dd><a  class="image"><img alt="Three way anova 1.png" src="../images/Three_Way_ANOVA/Three_way_anova_1.png?v=41093" width="528"  /></a></dd></dl></li>
+<li> In the <b>Model</b> tab, make sure all boxes are selected. This determines that a full factorial model will be used for the three-way ANOVA.
+<dl><dd><a  class="image"><img alt="Three way anova 4.png" src="../images/Three_Way_ANOVA/Three_way_anova_4.png?v=41206" width="528"  /></a></dd></dl></li>
+<li> Click <b>OK</b> to apply all setting and close the dialog.</li>
+<li> Go to sheet <b>ANOVA3Way1</b>. The <b>Overall ANOVA</b> table includes ANOVA test results for the main effects and the interactions. If the <b>P Value</b> is less than 0.05, this means the levels in the corresponding factor are significantly different. Note the conclusions in the footnotes beneath the table.
+<dl><dd><a  class="image"><img alt="Three way anova 3.png" src="../images/Three_Way_ANOVA/Three_way_anova_3.png?v=74170" width="821"  /></a></dd>
+<dd>From the <b>Overall ANOVA</b> table above we can see the two-way interaction of factors <b>Developing Index*Year</b> is not significant (p-value = 0.23954). The three-way interaction of factors <b>Region*Developing Index*Year</b>, is not significant. (p-value = 0.88834).</dd></dl></li></ol>
+<h2><a name="Examining_Significant_Interactions"></a><span class="mw-headline">Examining Significant Interactions</span></h2>
+<p>In the following, we are going to further examine factors showing a significant interaction. 
+</p>
+<ol><li> Click the green lock in the sheet <b>ANOVA3Way1</b> and choose <b>Change Parameters</b> from the context menu
+<dl><dd><a  class="image"><img alt="Three way anova 5.png" src="../images/Three_Way_ANOVA/Three_way_anova_5.png?v=41212" width="223"  /></a></dd></dl></li>
+<li> In the <b>Model</b> tab, clear the <b>Effect A*B</b> and <b>Effect A*B*C</b> check boxes, where interactions between factors could not detected. 
+<dl><dd><a  class="image"><img alt="Three way anova 6.png" src="../images/Three_Way_ANOVA/Three_way_anova_6.png?v=41215" width="528"  /></a></dd></dl></li>
+<li> In the <b>Means Comparison</b> tab, select the <b>Bonferroni</b> check box. Bonferroni is the most commonly used post-hoc test. It controls the overall Type I error.</li>
+<li> In the <b>Mean Plot</b> tab, select all available check boxes. (<b>Effect A*B</b> and <b>Effect A*B*C</b> are disabled because they are not included in the model.)
+<dl><dd><a  class="image"><img alt="Three way anova 7.png" src="../images/Three_Way_ANOVA/Three_way_anova_7.png?v=41229" width="528"  /></a></dd></dl></li>
+<li> Click <b>OK</b> to apply all setting and close the dialog.</li></ol>
+<h2><a name="Interpreting_Results"></a><span class="mw-headline">Interpreting Results</span></h2>
+<p>The results in the sheet <b>ANOVA3Way1</b> are updated using the new calculation parameters. 
+</p>
+<h3><a name="Overall_ANOVA"></a><span class="mw-headline">Overall ANOVA</span></h3>
+<p><a  class="image"><img alt="Three way anova 8.png" src="../images/Three_Way_ANOVA/Three_way_anova_8.png?v=74171" width="576"  /></a>
+</p><p>From the table we can see all remaining effects are significantly different. We can use the <b>Means Comparisons</b> results and <b>Means Plots</b> to further detect differences between each group.
+</p>
+<h3><a name="Means_Comparison_and_Means_Plot_of_the_Three_Main_Effects"></a><span class="mw-headline">Means Comparison and Means Plot of the Three Main Effects</span></h3>
+<p>Expanding the branch <b>ANOVA: Means Comparison: Bonferroni Test</b>, you can see the means comparison table for each effect. It is useful, along with the <b>Means Plot</b> at the bottom of the result sheet, for pairwise comparisons between members of a group.
+</p>
+<h4><a name="Comparison_between_Developing_and_Developed_Country"></a><span class="mw-headline">Comparison between Developing and Developed Country</span></h4>
+<p><a  class="image"><img alt="Three way anova 9.png" src="../images/Three_Way_ANOVA/Three_way_anova_9.png?v=74173" width="676"  /></a>
+</p><p>From the result above we can see the number of internet users of developing countries is much fewer than the developed countries.
+</p>
+<h4><a name="Comparison_between_Years"></a><span class="mw-headline">Comparison between Years</span></h4>
+<p><a  class="image"><img alt="Three way anova 10.png" src="../images/Three_Way_ANOVA/Three_way_anova_10.png?v=74175" width="569"  /></a>
+</p><p>From the result above we can see the number of internet users greatly increased between 2000 and 2010.
+</p>
+<h4><a name="Comparison_between_Regions"></a><span class="mw-headline">Comparison between Regions</span></h4>
+<p><a  class="image"><img alt="Three way anova 11.png" src="../images/Three_Way_ANOVA/Three_way_anova_11.png?v=74176" width="651"  /></a>
+</p><p>The results above tell us:
+</p>
+<ul><li> Internet users in Africa are significantly fewer than other continents.</li>
+<li> Internet users in the Middle East are significantly fewer than Europe and the Americas.</li>
+<li> There is no significant difference between other pairs of continents.</li></ul>
+<h3><a name="Comparing_Same_Level_Between_Different_Groups"></a><span class="mw-headline">Comparing Same Level Between Different Groups</span></h3>
+<p>We can compare the sample level between different groups with <b>Mean Comparison</b> results of the interactions. In the following we will show how to use a data filter to quickly view the results we are interested in.
+</p>
+<ol>
+<li>In the sheet <b>ANOVA3Way1</b>, expand the branch <b>ANOVA: Means Comparison: Bonferroni Test</b>. 
+<li>Click the triangle button next to <b>Interactions</b> and choose <b>Create Copy as New Sheet</b> from the context menu.
+<br /><a  class="image"><img alt="Three way anova 12.png" src="../images/Three_Way_ANOVA/Three_way_anova_12.png?v=41263" width="478"  /></a>
+</li>
+<li> Go to the generated sheet <b>Interactions</b>. Now we are going to compare developing and developed countries in different regions by applying a data filter in the results.
+<ol>
+<li>Highlight column C, click the <b>Add/Remove Data Filter</b> button <a  class="image"><img alt="Button Add Or Remove Data Filter.png" src="../images/Three_Way_ANOVA/Button_Add_Or_Remove_Data_Filter.png?v=13394" width="23"  /></a> to  add a data filter to the column.
+<li>Click the <b>Filter</b> icon <a  class="image"><img alt="Filter icon.png" src="../images/Three_Way_ANOVA/Filter_icon.png?v=14791" width="15"  /></a> on the column header, choose <b>Custom Filter</b>.
+<li>Select the <b>Advanced</b> check box in the bottom-right corner of the open dialog. Add following script in the <b>Condition</b> box.
+<pre class="lt" style="font-family:monospace;">col<span style="color: #000000;">&#40;</span>c<span style="color: #000000;">&#41;</span><span style="color: #000080;">$</span><span style="color: #000080;">==</span>col<span style="color: #000000;">&#40;</span>f<span style="color: #000000;">&#41;</span><span style="color: #000080;">$</span></pre>
+<p><br /><a  class="image"><img alt="Three way anova 13.png" src="../images/Three_Way_ANOVA/450px-Three_way_anova_13.png?v=41266" width="450"   /></a>
+</p>
+</li>
+</ol>
+</li>
+<li>From the results below we can see:
+<ul>
+<li>The internet users in the developed and developing countries are not significantly different in Africa and Middle East.
+<li>The internet users in the developed countries are significant higher than the developing countries on the following four continents.
+<table class="tbl">
+
+<tr>
+<td>1. Asia
+</td>
+<td>2. Europe
+</td>
+<td>3. The Americas
+</td>
+<td>4. Oceania
+</td></tr></table>
+<p><br /><a  class="image"><img alt="Three way anova 14.png" src="../images/Three_Way_ANOVA/750px-Three_way_anova_14.png?v=74177" width="750"   /></a>
+<br /><a  class="image"><img alt="Three way anova 15.png" src="../images/Three_Way_ANOVA/300px-Three_way_anova_15.png?v=41288" width="300"   /></a>
+</p>
+</li>
+</ul>
+</li>
+</ol>
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+<h1 class="firstHeading">5.5.8 Tutorial for Data Transformation</h1><p class='urlname' style='display: none'>Tutorial-DT</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Notes_for_Starting"><span class="tocnumber">1</span> <span class="toctext">Notes for Starting</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#User_Story"><span class="tocnumber">2</span> <span class="toctext">User Story</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps_in_Origin"><span class="tocnumber">3</span> <span class="toctext">Steps in Origin</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Interpreting_the_Results"><span class="tocnumber">4</span> <span class="toctext">Interpreting the Results</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Notes_for_Starting"></a><span class="mw-headline">Notes for Starting</span></h2>
+<ul><li> Download the sample project file from <a class="external text" href="https://blog.originlab.com/wp-content/uploads/2023/10/SPCData.zip" target="_blank">here</a> and open it in Origin.</li></ul>
+<ul><li> Start this tutorial with the app <a class="external text" href="https://www.originlab.com/fileExchange/details.aspx?fid=934" target="_blank"><b>Statistical Process Control</b></a> installed. If you have not installed the app, see <a class="external text" href="https://www.originlab.com/doc/User-Guide/Apps" target="_blank">Apps for Origin</a> to find and install the app.</li></ul>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Tutorial_DT/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p><i><b>Topics for Further Reading</b></i>:
+</p>
+<ul><li> <a href="../../App/Category/Data_Transformation(App).html" title="Category:Data Transformation(App)">Introduction:Data Transformation</a></li>
+<li> <a href="../../App/App/Algorithm_DT.html" title="App:Algorithm DT">Algorithms:Data Transformation</a></li></ul>
+</td></tr></table>
+<h2><a name="User_Story"></a><span class="mw-headline">User Story</span></h2>
+<p>A house builder has house sold data in the surrounding area. He has found out the distribution of the data does not follow normal distribution using the <a href="../../App/App/Tutorial_IDD.html" title="App:Tutorial IDD">Identify Data Distribution</a> tool. 
+</p><p>He wants to transform the data to make data approximately normal for follow-up analysis.
+</p>
+<h2><a name="Steps_in_Origin"></a><span class="mw-headline">Steps in Origin</span></h2>
+<ol><li> Open the sample project file in Origin, go to Folder <b>3. Nonnormal</b> using the <b>Project Explorer</b>. Activate the workbook <b>House Sold</b></li>
+<li> Highlight column B in worksheet. Click the Statistical Process Control icon <a  class="image"><img alt="SPC Icon.png" src="../images/Tutorial_DT/SPC_Icon.png?v=73813" width="32"  /></a> in the <b>Apps Gallery</b> window.</li>
+<li> Choose <b>Data Transformation</b> tab, all the data are larger than 0. From the decision tree, we should use <b>Box-Cox</b> method. Click <b>Box-Cox Transform</b> icon to open the dialog</li>
+<li> In the <b>Input</b> tab of the opened dialog, column B will be selected automatically as Measurement Data. Choose <b>Subgroup Size By</b> to be <b>Constant</b> and set the <b>Subgroup Size Constant</b> to be 1
+<dl><dd> <a  class="image"><img alt="DT Input.png" src="../images/Tutorial_DT/500px-DT_Input.png?v=73671" width="500"   /></a></dd></dl></li>
+<li> Accept all other default settings and click <b>OK</b> button</li></ol>
+<h2><a name="Interpreting_the_Results"></a><span class="mw-headline">Interpreting the Results</span></h2>
+<ol><li> Double click on the embedded graph on report sheet
+<ul><li> The confidence interval for  <img src="../images/Tutorial_DT/math-c6a6eb61fd9c6c913da73b3642ca147d.png?v=0" title="\lambda" alt="\lambda" class="tex"/>  is [0.11, 0.52], it does not include 1. It means a transformation is appropriate.</li>
+<li> From the histogram and probability plot of transformed data, we can see the data are approximately normal after the transformation.</li></ul></li></ol>
+<dl><dd><a  class="image"><img alt="DT Results.png" src="../images/Tutorial_DT/800px-DT_Results.png?v=73674" width="800"   /></a></dd></dl>
+
+

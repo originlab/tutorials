@@ -1,0 +1,75 @@
+<h1 class="firstHeading">4.4.1 Create and Subtract Baseline with Peak Analyzer</h1><p class='urlname' style='display: none'>Create-Subtract-Baseline</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Create_baseline_with_2nd_Derivative_method"><span class="tocnumber">3.1</span> <span class="toctext">Create baseline with 2nd Derivative method</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Create_baseline_with_ALS_Method_.28Pro.29"><span class="tocnumber">3.2</span> <span class="toctext">Create baseline with ALS Method (Pro)</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Subtract_Baseline_from_a_Spectrum"><span class="tocnumber">3.3</span> <span class="toctext">Subtract Baseline from a Spectrum</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Create_and_Subtract_Baseline_with_Peak_Analyzer/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Create_and_Subtract_Baseline_with_Peak_Analyzer/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=129" target="_blank">The Quick Peaks Gadget</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=73" target="_blank">Fitting Multiple Spectra with Peak Analyzer</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=306" target="_blank">Find peaks, Label peaks, and Remove Unwanted Labels</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=69" target="_blank">Batch Processing of Peak Data using Theme</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=63" target="_blank">Peak Analysis in set X-range</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=16" target="_blank">Peak Fitting with Preset Peak Parameters</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Create_and_Subtract_Baseline_with_Peak_Analyzer/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Create_and_Subtract_Baseline_with_Peak_Analyzer/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/how-to-define-a-peak-function-for-peak-fitting" target="_blank">Define a Peak Function for Peak Fitting</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/add-peak-indices-and-peak-properties-table-after-peak-deconvolution" target="_blank">Add Peak Indices and Peak Properties Table After Peak Deconvolution</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/use-peak-analysis-to-fit-a-partial-peak" target="_blank">Use Peak Analysis to Fit a Partial Peak</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/how-do-i-perform-peak-deconvolution" target="_blank">How do I Perform Peak "Deconvolution"?</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/sequentially-initialize-fitting-parameters-in-batch-peak-analysis" target="_blank">Sequentially initialize fitting parameters in batch peak analysis</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>In OriginPro, the <b>Peak Analyzer</b> is capable of creating and subtracting baseline. There are various ways for baseline creation. You can generate baseline anchor points automatically or manually and then connect them with interpolation or fit them with a function. 
+</p>
+<p class="version" >Minimum Origin Version Required: 2016 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<ul><li>How to create baseline with 2nd Derivative method</li>
+<li>How to create baseline with Asymmetric Least Squares (ALS) Method (Pro)</li>
+<li>How to subtract a baseline from the spectrum</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="Create_baseline_with_2nd_Derivative_method"></a><span class="mw-headline">Create baseline with 2nd Derivative method</span></h3>
+<ol><li>Start a <b>New Workbook</b> and import the <i>&lt;Origin EXE Folder&gt;\Samples\Spectroscopy\Baseline.dat</i>. Highlight the second column. In the main menu, select <b>Analysis: Peaks and Baseline: Peak Analyzer</b> to open the dialog of the <b>Peak Analyzer</b>.</li>
+<li>In the first page (the <b>Goal</b> page) of the <b>Peak Analyzer</b>, select <b>Create Baseline</b> as <b>Goal</b>. Click <b>Next</b> to go to the <b>Baseline Mode</b> page.
+<dl><dd><a  class="image"><img alt="Goal.png" src="../images/Create_and_Subtract_Baseline_with_Peak_Analyzer/Goal.png?v=29146" width="399"  /></a></dd></dl></li>
+<li> Next we are going to create an user defined baseline for this spectrum by defining anchor points. On the <b>Baseline Mode</b> page, select <b>User defined</b> from the <b>Baseline Mode</b> dropdown list. Check on <b>Snap to Spectrum</b> to make sure when you add or move a baseline anchor point, it will be pulled back onto the spectrum.</li>
+<li>The first two methods in <b>Anchor Points Finding</b> are the most commonly used, and they can find anchor points automatically based on the derivative of the spectrum. If the baseline is approximately constant, <b>1st Derivative and 2nd Derivative</b> is more powerful, otherwise, we should use <b>2nd Derivative</b>. In this example, the baseline is more curly, so we use <b>2nd Derivative(zeros)</b> method for locating anchor points.
+<dl><dd>For other methods in <b>Anchor Points Finding</b> and related smoothing parameters, you can refer to the link: <a class="external text" href="../../UserGuide/UserGuide/Peak_Analyzer,_Baseline_Mode_Page.html">Baseline Mode Page</a>. </dd>
+<dd><a  class="image"><img alt="Baseline mode-v1.png" src="../images/Create_and_Subtract_Baseline_with_Peak_Analyzer/Baseline_mode-v1.png?v=60395" width="478"  /></a></dd></dl></li>
+<li>Now click the <b>Find</b> button in the <b>Baseline Anchor Points</b> group. You can preview the anchor points in preview window.
+<dl><dd><a  class="image"><img alt="Anchor preview v1.png" src="../images/Create_and_Subtract_Baseline_with_Peak_Analyzer/Anchor_preview_v1.png?v=41420" width="559"  /></a></dd></dl></li>
+<li>Click <b>Next</b> to go to the <b>Create Baseline</b> page, select <b>Interpolation</b> in the <b>Connect by</b> drop-down list. In <b>Interpolation</b> method group, select <b>Spline</b> from the drop-down list. You can preview the spectrum in preview window, and then click <b>Finish</b> to get the baseline data.
+<dl><dd><a  class="image"><img alt="Baseline previews v1.png" src="../images/Create_and_Subtract_Baseline_with_Peak_Analyzer/Baseline_previews_v1.png?v=41424" width="466"  /></a></dd>
+<dd><a  class="image"><img alt="Baseline previews v2.png" src="../images/Create_and_Subtract_Baseline_with_Peak_Analyzer/Baseline_previews_v2.png?v=41421" width="574"  /></a></dd></dl></li></ol>
+<h3><a name="Create_baseline_with_ALS_Method_.28Pro.29"></a><span class="mw-headline">Create baseline with ALS Method (Pro)</span></h3>
+<ol><li>Start from the <b>Baseline Mode</b> page, and select the <b>Asymmetric Least Squares Smoothing Baseline</b> (ALS) as the baseline method. The ALS baseline can be tuned easily with a few parameters without pre-selecting any anchor points.
+<dl><dd><a  class="image"><img alt="ALSmethod.png" src="../images/Create_and_Subtract_Baseline_with_Peak_Analyzer/ALSmethod.png?v=40330" width="539"  /></a></dd></dl></li>
+<li>Click <b>Next</b> go to <b>Asymmetric Least Squares Smoothing Baseline</b> page, adjust the parameters to make the baseline optimal, then click <b>Finish</b> button to output the results table and graph.</li></ol>
+<p><a  class="image"><img alt="ALSmethod2.png" src="../images/Create_and_Subtract_Baseline_with_Peak_Analyzer/ALSmethod2.png?v=40338" width="824"  /></a>
+</p>
+<h3><a name="Subtract_Baseline_from_a_Spectrum"></a><span class="mw-headline">Subtract Baseline from a Spectrum</span></h3>
+<ol><li>If you want to subtract baseline, select <b>Subtract Baseline</b> as the <b>Goal</b> at start page. </li>
+<li>After you created a baseline, click <b>Next</b> button to go to <b>Subtract Baseline</b> page. </li>
+<li>Click <b>Subtract</b> button for previewing the subtracted data. The baseline data and subtracted spectrum will be outputted after clicking <b>Finish</b> button. The figures below displayed the <b>Subtract Baseline</b> page and the preview of the subtracted spectrum.
+<dl><dd><a  class="image"><img alt="Subtract baseline.png" src="../images/Create_and_Subtract_Baseline_with_Peak_Analyzer/Subtract_baseline.png?v=29166" width="403"  /></a></dd>
+<dd><a  class="image"><img alt="Subtracted data.png" src="../images/Create_and_Subtract_Baseline_with_Peak_Analyzer/Subtracted_data.png?v=29378" width="555"  /></a></dd></dl></li></ol>
+
+
+
+
+
+

@@ -1,0 +1,86 @@
+<h1 class="firstHeading">6.6.7 Stack Column Plot with Different Positive and Negative Y Scale</h1><p><br />
+</p>
+<p class='urlname' style='display: none'>stack-column-custom-Y-scales</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">What You Will Learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps_to_Add_Axis_Break_with_No_Gap"><span class="tocnumber">3</span> <span class="toctext">Steps to Add Axis Break with No Gap</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#More_Customization_Steps"><span class="tocnumber">4</span> <span class="toctext">More Customization Steps</span></a></li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Stack_Column_Plot_with_Different_Positive_and_Negative_Y_Scale/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Stack_Column_Plot_with_Different_Positive_and_Negative_Y_Scale/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=99" target="_blank">Plot Error Bars in 2D Graph</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=10" target="_blank">Adding Error Bars to a Graph</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=253" target="_blank">Plot X and Y Error Bars</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=252" target="_blank">Plot Data with Different Y Plus and Minus Error Bars</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=272" target="_blank">Plot Column Bar from Non-Zero Baseline</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Stack_Column_Plot_with_Different_Positive_and_Negative_Y_Scale/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Stack_Column_Plot_with_Different_Positive_and_Negative_Y_Scale/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/plotting-barcolumn-graphs-with-indexed-patterns" target="_blank">Plotting Bar/Column Graphs with Indexed Patterns</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/grouped-columns-with-gap-between-subgroups" target="_blank">Grouped Columns with Gap between Subgroups</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>We will show how you can use axis break without a gap to produce this graph, that has much larger Y scale range for the negative bars. 
+</p><p><a  class="image"><img alt="Axis Different Scale 01.png" src="../images/Stack_Column_Plot_with_Different_Positive_and_Negative_Y_Scale/Axis_Different_Scale_01.png?v=29190" width="537"  /></a>
+</p>
+<p class="version" >Minimum Origin Version Required: 2015 SR0</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">What You Will Learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>create a stacked column plot with error bars.</li>
+<li>enable an axis break without a gap.</li>
+<li>divide one axis into several segments and set scales separately.</li></ul>
+<h2><a name="Steps_to_Add_Axis_Break_with_No_Gap"></a><span class="mw-headline">Steps to Add Axis Break with No Gap</span></h2>
+<ol>
+<li>Select <b>Help: Learning Center</b> menu or press <b>F11</b> key to open Learning Center. Select <b>Graph Sample</b> tab and then select <b>Column and Bar Charts</b> from the "Category" drop-down list. Double-click on the graph sample below to open the sample "Column and Bar Charts - Zero Length Break to Change Axis Scale".<br />
+<a  class="image"><img alt="Xis Different Scale 00.png" src="../images/Stack_Column_Plot_with_Different_Positive_and_Negative_Y_Scale/Xis_Different_Scale_00.png?v=63489" width="852"  /></a><br />
+<b>Note:</b> This tutorial is associated with the folder <i>Custom Axis Scale to Show Different Scale</i> of the "Tutorial Data" project:<i>&lt;Origin EXE Folder&gt;\Samples\Tutorial Data.opju</i>.
+</li>
+<li> Activate the workbook "Temperature &amp; Exothermic Energy". select all the columns in sheet 1 and choose <b>Plot &gt; Bar, Pie, Area&#160;:Stacked Column</b> to create a stacked column plot with error bars.
+<br /><a  class="image"><img alt="Axis Different Scale MakePlot.png" src="../images/Stack_Column_Plot_with_Different_Positive_and_Negative_Y_Scale/Axis_Different_Scale_MakePlot.png?v=63496" width="469"  /></a>
+
+<li>Positive columns cannot be seen since their absolute values are too small comparing to those of negative columns. 
+
+<li>We can break the Y axis at Y=0 and use different axis scale for those two segments. First double click on the Y axis to open the <b>Axis</b> dialog and set Y Range (in <b>Vertical</b> icon) to be from -180000 to 80
+<br /><a  class="image"><img alt="Axis Different Scale Y scale.png" src="../images/Stack_Column_Plot_with_Different_Positive_and_Negative_Y_Scale/Axis_Different_Scale_Y_scale.png?v=33033" width="546"  /></a>
+
+<li>Then go to the <b>Breaks</b> tab with <b>Vertical</b> icon active, and enable 1 axis break. Also set the Break Half Length to 0 so the break indicator will not show. Set both the <b>Break From</b> and the <b>Break To</b> to <b>0</b> so the axis will break at 0 and no break gap shows. Uncheck <b>Auto Postion</b> and enter <i>50</i> for the <b>Position</b> cell.
+<br /><a  class="image"><img alt="Axis Different Scale add break.png" src="../images/Stack_Column_Plot_with_Different_Positive_and_Negative_Y_Scale/Axis_Different_Scale_add_break.png?v=52835" width="622"  /></a>
+
+<li> Set Custom Scale for the region after break (Y&gt;0)by clicking <b>Details</b>:
+<br /><a  class="image"><img alt="Axis Different Scale break1.png" src="../images/Stack_Column_Plot_with_Different_Positive_and_Negative_Y_Scale/Axis_Different_Scale_break1.png?v=55901" width="557"  /></a>
+
+<li>Click <b>Apply</b> to apply the settings and view the updated graph, you can see the axis scales are different for the regions above or below the Y=0 line and the columns for positive values can also be seen in the graph. 
+
+<br /><a  class="image"><img alt="Axis Different Scale after add brk.png" src="../images/Stack_Column_Plot_with_Different_Positive_and_Negative_Y_Scale/Axis_Different_Scale_after_add_brk.png?v=63495" width="467"  /></a>
+</ol>
+<h2><a name="More_Customization_Steps"></a><span class="mw-headline">More Customization Steps</span></h2>
+<p>The following steps can further customize the graph to be exactly the same as the image in Summary.
+</p>
+<ol>
+<li>Set the X scale to be from -2 to 20, <i>Major tick</i> by increment 2.
+ 
+<li>Go to the <b>Grids</b> tab and select both <b>Vertical</b> and <b>Horizontal</b> icons, select the <b>Opposite</b> check box so the grid lines opposite to both X and Y axes will show.
+<br /><a  class="image"><img alt="Axis Different Scale add y 0.png" src="../images/Stack_Column_Plot_with_Different_Positive_and_Negative_Y_Scale/Axis_Different_Scale_add_y_0.png?v=34025" width="426"  /></a>
+<li>Click <b>OK</b> to apply the settings and close the <b>Axis</b> dialog.
+
+<li>To change the positive and negative column colors to light gray and gray, click on the columns, in the popup mini toolbar, go to the <b>Single</b> tab <a  class="image"><img alt="Popup Single Tab.png" src="../images/Stack_Column_Plot_with_Different_Positive_and_Negative_Y_Scale/Popup_Single_Tab.png?v=63491" width="49"  /></a> and click the <b>Fill Color</b> button <a  class="image"><img alt="Popup Symbol Fill Color.png" src="../images/Stack_Column_Plot_with_Different_Positive_and_Negative_Y_Scale/Popup_Symbol_Fill_Color.png?v=63497" width="24"  /></a>, in the expanded Color Chooser, set the color of positive columns to be gray.
+<br /><a  class="image"><img alt="Axis Different Scale 05.png" src="../images/Stack_Column_Plot_with_Different_Positive_and_Negative_Y_Scale/Axis_Different_Scale_05.png?v=63492" width="481"  /></a>
+<br />Click on the negative columns to change the color to be light gray just as shown above.
+<li>To customize the legend, click on the legend object, in the popup mini toolbar, click the Arrange in Horizontal button <a  class="image"><img alt="Popup Arrange in Horizontal.png" src="../images/Stack_Column_Plot_with_Different_Positive_and_Negative_Y_Scale/Popup_Arrange_in_Horizontal.png?v=63494" width="25"  /></a> to arrange two legend entries to be in the same row.
+<br /><a  class="image"><img alt="Axis Different Scale 06.png" src="../images/Stack_Column_Plot_with_Different_Positive_and_Negative_Y_Scale/Axis_Different_Scale_06.png?v=63493" width="649"  /></a><br />
+Then you will get the final graph you desired.
+</ol>
+
+
+
+
+
+

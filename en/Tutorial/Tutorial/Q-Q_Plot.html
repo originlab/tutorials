@@ -1,0 +1,87 @@
+<h1 class="firstHeading">6.10.7 Q-Q Plot</h1><p class='urlname' style='display: none'>Q-Q-Plot</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">What You Will Learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Create_a_Q-Q_Plot"><span class="tocnumber">3</span> <span class="toctext">Create a Q-Q Plot</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Mask_a_Suspected_Outlier"><span class="tocnumber">4</span> <span class="toctext">Mask a Suspected Outlier</span></a></li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Q-Q_Plot/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Q-Q_Plot/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=294" target="_blank">Fill Area Between Curves</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=344" target="_blank">Creating Statistical Graphs</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=261" target="_blank">Exclude Data Points in Analysis (Mask Data)</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=332" target="_blank">Analysis with Auto Recalculations</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Q-Q_Plot/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Q-Q_Plot/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/extract-masked-points-to-a-new-workbook-automatically" target="_blank">Extract Masked Points to a New Workbook Automatically</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/new-data-highlight-tool-in-origin-2019" target="_blank">New Data Highlight Tool in Origin 2019</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>The Q-Q plot is a graphic method that tests whether or not a dataset follows a given distribution.  The Q-Q plot has independent values on the X axis, and dependent values on the Y axis. If all the plotted points are close to the reference line, then we conclude that the dataset follows the given distribution.
+</p>
+<dl><dd><a  class="image"><img alt="Q-Q Plot 07.png" src="../images/Q-Q_Plot/Q-Q_Plot_07.png?v=47125" width="522"  /></a></dd></dl>
+<p class="version" >Minimum Origin Version Required: Origin 2016 SR0</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">What You Will Learn</span></h2>
+<ul><li>How to create a Q-Q plot</li>
+<li>How to mask a suspected outlier in the source data and recalculate the Q-Q plot</li></ul>
+<h2><a name="Create_a_Q-Q_Plot"></a><span class="mw-headline">Create a Q-Q Plot</span></h2>
+<p>You can refer to this graph in Learning Center. (Select <b>Help: Learning Center</b> menu or press <b>F11</b> key , and then open <b>Graph Sample: Statistical Graphs</b>)
+</p>
+<ol>
+<li>
+Click the <a  class="image"><img alt="Button Import Single ASCII.png" src="../images/Q-Q_Plot/Button_Import_Single_ASCII.png?v=52466" width="25"  /></a> button to import the <b>Q-Q plot.dat</b> file under <i>&lt;Origin EXE folder&gt;\Samples\Graphing\</i> path.
+<li>In the <b>QQplot</b> workbook, activate the <b>Q-Q plot</b> worksheet, highlight column B, right click, and from the context menu, select <b>Plot &gt; Statistical: Q-Q Plot...</b>.  In the <b>Plotting:plot_prob</b> dialog, make sure that the <b>Score Method</b> drop-down is set to <b>Benard</b>.  Click <b>OK</b>. 
+<br /><a  class="image"><img alt="Q-Q Plot 01.png" src="../images/Q-Q_Plot/Q-Q_Plot_01.png?v=47117" width="419"  /></a>
+
+<li>Double-click on the Lower Percentiles line to open the <b>Plot Details</b> dialog. Go to the <b>Line</b> tab, set <b>Color</b> to <b>Red</b>, <b>Transparency</b> to <b>80%</b>, then check <b>Fill Area Under Curve</b> check box and select <b>Fill to next data plot - One Color</b> in the below drop-down list.
+<br /><a  class="image"><img alt="Q-Q Plot 03.png" src="../images/Q-Q_Plot/Q-Q_Plot_03.png?v=47119" width="800"  /></a>
+<br /><br />
+
+<li>Go to <b>Pattern</b> tab, set <b>Fill Color</b> to <b>Red</b>. And make sure the <b>Follow line transparency</b> is checked.
+<br /><a  class="image"><img alt="Q-Q Plot 04.png" src="../images/Q-Q_Plot/Q-Q_Plot_04.png?v=47123" width="839"  /></a>
+<br /><br />
+
+<li>Go to the <b>Line</b> tab of  Upper Percentiles line set <b>Color</b> to <b>Red</b>, <b>Transparency</b> to <b>80%</b>. Click <b>OK</b> to apply the setting and close the dialog.
+<br /><a  class="image"><img alt="Q-Q Plot 05.png" src="../images/Q-Q_Plot/Q-Q_Plot_05.png?v=47121" width="758"  /></a>
+<br /><br />
+
+Your graph should look as shown below.<br />
+
+<br /><a  class="image"><img alt="Q-Q Plot 02.png" src="../images/Q-Q_Plot/Q-Q_Plot_02.png?v=47122" width="493"  /></a>
+</ol>
+<h2><a name="Mask_a_Suspected_Outlier"></a><span class="mw-headline">Mask a Suspected Outlier</span></h2>
+<ol>
+<li>Click on the green lock icon to make sure the <b>Recalculate Mode</b> is <b>Auto</b>.
+<br /> <a  class="image"><img alt="Q-Q Plot 08.png" src="../images/Q-Q_Plot/Q-Q_Plot_08.png?v=42058" width="526"  /></a>
+
+<li>Click on the <b>Data Reader</b> tool and click to select the suspected data point in the <b>Q-Q Plot</b>. 
+<br /> <a  class="image"><img alt="Q-Q Plot 09.png" src="../images/Q-Q_Plot/Q-Q_Plot_09.png?v=47126" width="139"  /></a>
+<br />
+<br /> <a  class="image"><img alt="Q-Q Plot 10.png" src="../images/Q-Q_Plot/Q-Q_Plot_10.png?v=47127" width="623"  /></a>
+<br />
+<br />The <b>Data Info</b> window shows the value of the outlier point.
+
+<li>Activate the <b>Q-Q plot</b> worksheet and highlight column B. <br />
+<br /> <a  class="image"><img alt="Q-Q Plot 06.png" src="../images/Q-Q_Plot/Q-Q_Plot_06.png?v=44381" width="333"  /></a>
+
+<li>From the Menu Bar, click on <b>Window:Command Window</b> and at the prompt, enter the script shown below.
+<pre class="lt" style="font-family:monospace;">colmask cond<span style="color: #000000;">:</span><span style="color: #000080;">=</span>eq val<span style="color: #000000;">:</span><span style="color: #000080;">=</span>x;</pre>
+<p>The outlier point will be shown in red in the <b>Q-Q plot</b> worksheet, and it will not be included in the graph.
+<br /> <a  class="image"><img alt="Q-Q Plot 11.png" src="../images/Q-Q_Plot/Q-Q_Plot_11.png?v=47985" width="333"  /></a>
+<br />
+<br /> <a  class="image"><img alt="Q-Q Plot 07.png" src="../images/Q-Q_Plot/Q-Q_Plot_07.png?v=47125" width="522"  /></a>
+</p>
+</ol>
+
+
+
+
+
+

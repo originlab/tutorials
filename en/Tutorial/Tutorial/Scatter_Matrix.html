@@ -1,0 +1,119 @@
+<h1 class="firstHeading">6.10.8 Scatter Matrix</h1><p class='urlname' style='display: none'>ScatterMatrix</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Creating_Scatter_Matrix_plot"><span class="tocnumber">3.1</span> <span class="toctext">Creating Scatter Matrix plot</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Customizing_Scatter_Matrix_plot"><span class="tocnumber">3.2</span> <span class="toctext">Customizing Scatter Matrix plot</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Add_Grouping_Range"><span class="tocnumber">3.3</span> <span class="toctext">Add Grouping Range</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Customizing_Matrix_Display"><span class="tocnumber">3.4</span> <span class="toctext">Customizing Matrix Display</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Scatter_Matrix/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Scatter_Matrix/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=344" target="_blank">Creating Statistical Graphs</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Scatter_Matrix/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Scatter_Matrix/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/easy-correlation-plots-in-origin-2020b" target="_blank">Easy Correlation Plots in Origin 2020b</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>A scatter matrix consists of several pair-wise scatter plots of variables presented in a matrix format. It can be used to determine whether the variables are correlated and whether the correlation is positive or negative. This tutorial will show you how to create a Scatter Matrix plot.
+</p>
+<dl><dd><a  class="image"><img alt="Scatter Matrix 01.png" src="../images/Scatter_Matrix/500px-Scatter_Matrix_01.png?v=65177" width="500"   /></a></dd></dl>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<ul><li>How to create a Scatter Matrix plot with a histogram</li>
+<li>How to customize Scatter Matrix plot </li>
+<li>How to set a grouping range for showing the color index</li>
+<li>How to specify to hide scatter plots on the bottom/top of the diagonal</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="Creating_Scatter_Matrix_plot"></a><span class="mw-headline">Creating Scatter Matrix plot</span></h3>
+<ol>
+<li>Start with an empty worksheet. Select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Statistics</i> subfolder and find the file <i>Fisher's Iris Data.dat</i>. Drag-and-drop this file into the empty worksheet to import it.
+
+<li> Highlight columns (A) to (D) but not col(E), and select <b>Plot &gt; Statistical&#160;: Scatter Matrix</b> from the main menu.
+
+<li>In the dialog, select <b>Histogram</b> from the <b>Show in Diagonal Cells</b> drop-down list, and select <b>Alternate</b> from <b>Show Tick and Label</b> drop-down list.
+<br /><a  class="image"><img alt="Scatter Matrix 02.png" src="../images/Scatter_Matrix/500px-Scatter_Matrix_02.png?v=43017" width="500"   /></a>
+
+<li>Click <b>OK</b> to close the dialog. The <b>PlotData1</b> sheet for the scatter matrix plot is generated in the same workbook as the original data. It contains the data for the different graphs in the scatter matrix and can be accessed by clicking on the second tab labelled <b>PlotData1</b> at the bottom of the workbook. The graph should appear as below:
+<br /><a  class="image"><img alt="Scatter Matrix 03.png" src="../images/Scatter_Matrix/500px-Scatter_Matrix_03.png?v=63292" width="500"   /></a>
+<br />
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Scatter_Matrix/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>You have the option of performing a linear fit on each scatter plot and calculating adjusted R-squared and, additionally, Pearson's correlation coefficient (Pearson's r). Beginning with Origin 2019, these statistics are outputted to a sheet in the active book and named as <b>ScatterMatrixStats<i>N</i></b>. 
+</p><p>Label each plot in the scatter matrix with Adj. R-Square and/or Pearson's r values by checking the boxes under <b>Additional Statistics</b>.
+</p>
+<dl><dd><a  class="image"><img alt="Scatter Matrix tip.png" src="../images/Scatter_Matrix/Scatter_Matrix_tip.png?v=58394" width="649"  /></a> </dd></dl>
+</td></tr></table>
+<h3><a name="Customizing_Scatter_Matrix_plot"></a><span class="mw-headline">Customizing Scatter Matrix plot</span></h3>
+<p>There are multiple layers in the Scatter Matrix graph. This section will explain how to customize the background color, the type and color of the data plots and the axis tick labels of the scatter matrix. Starting with Origin 2016,  by default, <a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Layers_Tab.html#Common_Display_.28Scatter_Matrices.29">if you change the plot style or axis setting of one layer, all other layers will follow</a> (for independent editing, see the tip at the end of this section). 
+</p>
+<ol>
+<li>Double click on the scatter data to open the <b>Plot Details</b> dialog. To change the symbol color click on the <b>Symbol Color</b> drop-down menu and select a color from the <b>Individual Color</b> option. Specify the type and color of the symbol as shown in the following image.
+<br /><a  class="image"><img alt="Scatter Matrix 04.png" src="../images/Scatter_Matrix/500px-Scatter_Matrix_04.png?v=43024" width="500"   /></a>
+
+<li>To custom the pattern style of the histogram, go to the plot level under Layer1 and select the <b>Pattern</b> tab. Set the <b>Border Color</b> to <b>Red</b>, <b>Fill Color</b> to <b>None</b> and <b>Pattern</b> to <b>Medium</b> as shown in the following image. Click <b>OK</b> button.
+<br /><a  class="image"><img alt="Scatter Matrix 04 2.png" src="../images/Scatter_Matrix/500px-Scatter_Matrix_04_2.png?v=63288" width="500"   /></a>
+
+<br /><br />This change will be applied to all scatter data plots in this graph.
+<br /> <a  class="image"><img alt="Scatter Matrix 05.png" src="../images/Scatter_Matrix/500px-Scatter_Matrix_05.png?v=43025" width="500"   /></a>
+<br />
+
+<li>To change the background color of the entire window, select <b>Format: Page</b> to open the <b>Plot Details</b> dialog. This dialog can also be accessed by double-clicking inside the Scatter Matrix window.  In the <b>Display</b> tab, click on the <b>Color</b> drop-down and click on an empty color well beneath <b>Custom</b>. This opens the <b>Colors</b> dialog box where you can define custom colors.</li>
+<li>In the <b>Colors</b> dialog, specify the color as <i>Red=235</i>, <i>Green=235</i>, <i>Blue=255</i> and click <b>OK</b>.
+<br /><a  class="image"><img alt="Scatter Matrix 06.png" src="../images/Scatter_Matrix/Scatter_Matrix_06.png?v=55898" width="778"  /></a>
+
+<li>To change the background color of the scatter plot layers without changing the background color of the histograms or the rest of the graph, 
+double-click on a scatter plot to open the Plot Details dialog. Click the <b>Background</b> tab, and set <b>Color</b> to <b>White</b>. 
+<br /> <a  class="image"><img alt="Scatter Matrix 07.png" src="../images/Scatter_Matrix/600px-Scatter_Matrix_07.png?v=43022" width="600"   /></a>
+<br />Then click <b>OK</b> in the dialog. This change will be applied to all layers with scatter data plots.
+<br /> <a  class="image"><img alt="Scatter Matrix 08.png" src="../images/Scatter_Matrix/500px-Scatter_Matrix_08.png?v=43028" width="500"   /></a>
+
+<li>Double-click on any tick label in the graph to open the <b>Axis</b> dialog for that layer. Go to the <b>Tick Labels</b> tab, then the <b>Format</b> tab, specify <b>Size</b> to <b>36</b> for the <b>Top</b> axis. Click <b>Apply</b>.
+
+<li>Click the <b>Apply To...</b> button to open the <b>Apply To</b> dialog, set the following to apply the previous customization of tick label size to all the other axes in this window. Click <b>OK</b>, then <b>OK</b> to close the Plot Details dialog box.
+<br /><a  class="image"><img alt="Scatter Matrix 09.png" src="../images/Scatter_Matrix/550px-Scatter_Matrix_09.png?v=43029" width="550"   /></a>
+
+<li>The graph will appear as shown below:
+<br /><a  class="image"><img alt="Scatter Matrix 10.png" src="../images/Scatter_Matrix/500px-Scatter_Matrix_10.png?v=43027" width="500"   /></a>
+
+</ol>
+<h3><a name="Add_Grouping_Range"></a><span class="mw-headline">Add Grouping Range</span></h3>
+<p>Currently, our scatter plots show pair-wise comparisons of variables Sepal Length, Sepal Width, etc. What is not apparent from our scatter plots is that measurements were made on three species of iris. Since all scatter points look the same, we cannot distinguish between species. What we will do is to use the <i>Species</i> column in our original worksheet -- the column that we left out when making the graph -- to color each scatter point so that we can see the effect of species in our pairwise comparisons.
+</p>
+<ol>
+<li>To add species information to our plot, click on the green lock icon on the upper-left corner of the graph window.  Select <b>Change Parameters</b> to bring up the <b>Plotting: plot_matrix</b> dialog.</li>
+<li>Click the triangular button <a  class="image"><img alt="Button Select Data Right Triangle.png" src="../images/Scatter_Matrix/Button_Select_Data_Right_Triangle.png?v=26514" width="18"  /></a> beside <b>Grouping Range</b> and choose <b>E(Y): Species</b>, then click <b>OK</b>.</li>
+<li>Click the <b>OK</b> button in the <b>Plotting: plot_matrix</b> dialog.  The graph will appear as shown below:</li>
+<p><br />
+<a  class="image"><img alt="Scatter Matrix 13.png" src="../images/Scatter_Matrix/500px-Scatter_Matrix_13.png?v=63294" width="500"   /></a>
+</p>
+</ol>
+<h3><a name="Customizing_Matrix_Display"></a><span class="mw-headline">Customizing Matrix Display</span></h3>
+<p>One Scatter Matrix display option is to hide half of the scatter plots (since they merely repeat the same information shown by the other half of the scatter plots).
+</p>
+<ol>
+<li>To hide the layers below the diagonal in the Scatter Matrix graph, click on the green lock icon on the upper-left corner.  Select <b>Change Parameters</b> to bring up the <b>Plotting: plot_matrix</b> dialog.
+
+<li>Under the <b>Matrix Profile</b> branch of the dialog:
+<ul><li>Select <b>Upper Triangular</b> from the <b>Matrix Display</b> drop-down list</li>
+<li>Select <b>All</b> from <b>Show Tick and Label</b> drop-down list</li>
+<li>Enter <b>2</b> in the <b>Gap (in&#160;% of Page Dimension)</b> text box</li></ul>
+<br /><a  class="image"><img alt="Scatter Matrix 14.png" src="../images/Scatter_Matrix/Scatter_Matrix_14.png?v=56191" width="479"  /></a>
+
+
+<br /><br />The complete graph should appear as shown below: 
+<br /><a  class="image"><img alt="Scatter Matrix 01.png" src="../images/Scatter_Matrix/500px-Scatter_Matrix_01.png?v=65177" width="500"   /></a>
+
+</ol>
+
+

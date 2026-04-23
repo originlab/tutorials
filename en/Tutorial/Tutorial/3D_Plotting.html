@@ -1,0 +1,91 @@
+<h1 class="firstHeading">6.1.4 Basic 3D Plotting</h1><p class='urlname' style='display: none'>3D-Plotting-Basic</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Create_a_3D_Surface_and_Scatter_Plot"><span class="tocnumber">3</span> <span class="toctext">Create a 3D Surface and Scatter Plot</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Smooth_the_3D_surface_plot"><span class="tocnumber">4</span> <span class="toctext">Smooth the 3D surface plot</span></a></li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/3D_Plotting/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/3D_Plotting/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=49" target="_blank">Graph Template</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=81" target="_blank">Origin 3D OpenGL Graphs</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=13" target="_blank">Adding, Grouping and Reordering Plots with Layer Contents</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=26" target="_blank">Convert Worksheet to Matrix to Plot 3D Surface</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=376" target="_blank">Color Manager</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/3D_Plotting/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/3D_Plotting/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/speed-mode-how-does-it-affect-my-graph-and-its-exported-image" target="_blank">Speed Mode – How does it affect my graph and its exported image?</a></li></ul>
+</td></tr></table>
+<p><br />
+</p>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>In Origin, Contour plots and 3D plots, such as Color Map Surface plots, can be created directly from XYZ data. 
+</p><p>But, if you want to plot a smoother 3D surface, you are strongly advised to use one of Origin's built-in gridding routines to convert the XYZ data into a matrix. 
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 9.0 SR1</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Create a 3D graph from XYZ data</li>
+<li>Use the <b>Layer Contents</b> dialog to add/remove a data plot</li>
+<li>Convert XYZ data into a Matrix </li>
+<li>Use the <b>Plot Details</b> dialog to customize a graph</li></ul>
+<h2><a name="Create_a_3D_Surface_and_Scatter_Plot"></a><span class="mw-headline">Create a 3D Surface and Scatter Plot</span></h2>
+<ol>
+<li>Select <b>Data: Connect to File: Text/CSV</b> to import the file <b>\Samples\Matrix Conversion and Gridding\XYZ Random Gaussian.dat</b> with default settings.
+<li>Highlight column C and click <b>Z</b> button <a  class="image"><img alt="Popup Set as Z.png" src="../images/3D_Plotting/Popup_Set_as_Z.png?v=63110" width="24"  /></a> from the mini toolbar that appears.
+<li>Select <b>Plot &gt; 3D&#160;: 3D ColorMap Surface</b> to create a 3D Colormap Surface plot (Graph1 by default). 
+<br /><a  class="image"><img alt="Tutorial 3D Plotting01.png" src="../images/3D_Plotting/Tutorial_3D_Plotting01.png?v=61860" width="570"  /></a>
+</li>
+<li>Right click the layer icon on the left-top of the graph to open the <b>Layer Contents</b> dialog. In this dialog, click on the <b><a  class="image"><img alt="Plot type button.png" src="../images/3D_Plotting/Plot_type_button.png?v=12667" width="24"  /></a></b> button and select <b>3D Scatter/Trajectory/Vector</b> from the fly-out menu.
+<br /><a  class="image"><img alt="Tutorial 3D Plotting02.png" src="../images/3D_Plotting/Tutorial_3D_Plotting02.png?v=18128" width="201"  /></a>
+</li>
+<li>Select column C from the left panel and click on the <b>Add Plot</b> <a  class="image"><img alt="Add plot button.png" src="../images/3D_Plotting/Add_plot_button.png?v=10008" width="24"  /></a> button to add the 3D scatter plot to the graph. Click <b>OK</b> to close the dialog.
+<br /><a  class="image"><img alt="Tutorial 3D Plotting03.png" src="../images/3D_Plotting/Tutorial_3D_Plotting03.png?v=18129" width="671"  /></a>
+</li>
+<li>Double-click on the scatter plot of Graph1 to open the <b>Plot Details</b> dialog. In the <b>Symbol</b> tab, set <b>Shape</b> to <b>Ball</b>, <b>Size</b> to <b>12</b> and <b>Color</b> to <b>Map: Col(C)</b>(expand Color Chooser to do settings in the <b>By Points</b> sub-tab as shown below).
+<br /><a  class="image"><img alt="Tutorial 3D Plotting04.png" src="../images/3D_Plotting/Tutorial_3D_Plotting04.png?v=61857" width="855"  /></a>
+</li>
+<li>In the <b>Drop Lines</b> tab, uncheck the <b>Parallel to Z Axis</b> checkbox.
+<br /><a  class="image"><img alt="Tutorial 3D Plotting05.png" src="../images/3D_Plotting/Tutorial_3D_Plotting05.png?v=48844" width="402"  /></a>
+</li>
+<li>In the <b>Colormap</b> tab, click on the column header <i>Fill...</i> to open the dialog. In the <b>Fill</b> dialog, choose <b>Load Palette</b>, click on <b>Select Palette</b>, and select <b>Rainbow</b> from the list.
+<br /><a  class="image"><img alt="Tutorial 3D Plotting06.png" src="../images/3D_Plotting/Tutorial_3D_Plotting06.png?v=61858" width="605"  /></a> 
+<li>Select <b>Layer1</b> from the left panel of the <b>Plot Details</b> dialog. In the <b>Lighting</b> tab,  select <b>Directional</b> as <b>Mode</b> and do the settings under <i>Light Color</i> just as the image below showing. Click <b>OK</b> to close the dialog.
+<br /><a  class="image"><img alt="Tutorial 3D Plotting07.png" src="../images/3D_Plotting/Tutorial_3D_Plotting07.png?v=61859" width="920"  /></a> 
+<br />
+<br />The graph should look as below: 
+<br /><a  class="image"><img alt="Tutorial 3D Plotting08.png" src="../images/3D_Plotting/Tutorial_3D_Plotting08.png?v=61861" width="571"  /></a> 
+</li>
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/3D_Plotting/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>Press the "S" key while hovering on a 3D openGL graph. The cursor will change modes. Drag with your mouse or use arrow keys to change lighting source direction.
+</p></td></tr></table>
+<h2><a name="Smooth_the_3D_surface_plot"></a><span class="mw-headline">Smooth the 3D surface plot</span></h2>
+<p>If you want to create a 3D surface that is smoother than the surface plot above(created from XYZ data), you can firstly  convert the XYZ data into a matrix using the <b>XYZ Gridding</b> tool. And then, use the result Matrix data to create the 3D surface. 
+</p>
+<ol>
+<li>Activate the workbook <b>XYZ Random Gaussian</b> again.
+<li>Select <b>Worksheet: Convert to Matrix: XYZ Gridding</b> to open the dialog. Expand the <b>Gridding Settings</b> branch, select <b>Random (Thin Plate Spline)</b> from the <b>Gridding Method and Parameters</b> drop-down list, and set both the <b>Columns</b> and <b>Rows</b> to <i>30</i>. Click <b>OK</b> to convert the XYZ data into a matrix. <br />
+<a  class="image"><img alt="Tutorial 3D Plotting09.png" src="../images/3D_Plotting/Tutorial_3D_Plotting09.png?v=48845" width="800"  /></a>
+</li>
+<li>Activate the matrix, and select <b>Plot &gt; 3D: 3D Colormap Surface</b> to create another 3D graph, says <b>Graph2</b>.
+<li>Go back to <b>Graph1</b>, right-click on any white space in Layer frame to select <b>Copy Format: All Style Formats</b> in the context menu. 
+<br /><a  class="image"><img alt="Tutorial 3D Plotting11.png" src="../images/3D_Plotting/Tutorial_3D_Plotting11.png?v=28650" width="560"  /></a>
+</li>
+<li>Switch to <b>Graph2</b> again, right-click on the Layer frame, select <b>Paste Format</b> in the context menu. 
+<li>Select <b>Format: Plot...</b> from main menu to open the <b>Plot Details</b> dialog. Go to <b>Colormap/Contours</b> tab, clear <b>Enable Contours</b> check box:<br />
+<a  class="image"><img alt="Tutorial 3D Plotting12.png" src="../images/3D_Plotting/Tutorial_3D_Plotting12.png?v=48848" width="508"  /></a><br />
+<b>Graph2</b> should look as below:<br />
+<a  class="image"><img alt="Tutorial 3D Plotting10.png" src="../images/3D_Plotting/Tutorial_3D_Plotting10.png?v=48847" width="572"  /></a> 
+</li>
+</ol>
+
+

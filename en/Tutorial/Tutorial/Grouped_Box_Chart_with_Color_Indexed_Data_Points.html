@@ -1,0 +1,121 @@
+<h1 class="firstHeading">6.10.2 Grouped Box Chart with Color Indexed Data Points</h1><p class='urlname' style='display: none'>GroupedBoxChart</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Creating_the_Box_Plot_from_Raw_Data"><span class="tocnumber">3.1</span> <span class="toctext">Creating the Box Plot from Raw Data</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Customizing_the_Boxes_and_Statistical_Markers"><span class="tocnumber">3.2</span> <span class="toctext">Customizing the Boxes and Statistical Markers</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Customizing_Data_Symbols_and_Distribution_Curves"><span class="tocnumber">3.3</span> <span class="toctext">Customizing Data Symbols and Distribution Curves</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Customizing_the_Axes"><span class="tocnumber">3.4</span> <span class="toctext">Customizing the Axes</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Updating_the_Legend_Object"><span class="tocnumber">3.5</span> <span class="toctext">Updating the Legend Object</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=68" target="_blank">Box Plot</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=173" target="_blank">Box Plot Improvements in Origin 2017</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=201" target="_blank">Line Series Plots: A Box Chart Variation</a> </li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/creating-grouped-bar-plots-in-origin-2016" target="_blank">Easier Way to Control Grouped Bar Plot Colors in Origin 2016</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/how-to-plot-jitterchart-with-mean-and-error" target="_blank">Plot Jitter Chart with Mean and SE Bar in Origin</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/box-plot-with-histogram" target="_blank">Box Plot with Histogram</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Origin can be used to create grouped box plots from raw data with data points and distribution curves. 
+</p>
+<dl><dd><a  class="image"><img alt="Box Chart Raw Data Indexed Data Plot Box chart with indexed data plot.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Box_Chart_Raw_Data_Indexed_Data_Plot_Box_chart_with_indexed_data_plot.png?v=65183" width="605"  /></a></dd></dl>
+<p><br />
+</p>
+<p class="version" >Minimum Origin Version Required: 2015 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will demonstrate how to:
+</p>
+<ul><li> Create a grouped box plot from raw data</li>
+<li> Add a data plot with indexed symbol color</li>
+<li> Add and customize a distribution curve</li>
+<li> Customize the table-axes</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="Creating_the_Box_Plot_from_Raw_Data"></a><span class="mw-headline">Creating the Box Plot from Raw Data</span></h3>
+<ol>
+<li>Select <b>Help: Learning Center</b> menu or press <b>F11</b> key to open Learning Center. Select <b>Graph Sample</b> tab and then select <b>Box Charts</b> from the "Category" drop-down list. Double-click on the graph sample below to open the sample "Box Charts - Grouped Box Chart with Color Indexed Data Points".<br />
+<a  class="image"><img alt="Box Chart Raw Data Indexed Data Plot Highlight columns.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Box_Chart_Raw_Data_Indexed_Data_Plot_Highlight_columns.png?v=63338" width="852"  /></a><br />
+<b>Note:</b> This tutorial is associated with the folder <i>Grouped Box with Index Color DataPoint</i> of the "Tutorial Data" project:<i>&lt;Origin EXE Folder&gt;\Samples\Tutorial Data.opj</i>.
+</li>
+<li>Activate the workbook <b>Book11</b>. Highlight col(C) - col(H), select <b>Plot &gt; Categorical: Grouped Box Charts - Raw Data</b>.
+<li>In the opened <b>Plotting: plotgboxraw</b> dialog, set the <b>Group Number</b> to <b>2</b>, the <b>1st Group Row</b> to <b>Comments</b> and the <b>2nd Group Row</b> to <b>Long Name</b>. This will create a box chart with the column data arranged in three groups of two, with X axis row names derived from the Comments and the Long Names on the worksheet:    
+<br /><a  class="image"><img alt="Box Chart Raw Data Indexed Data Plot plotgboxraw.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Box_Chart_Raw_Data_Indexed_Data_Plot_plotgboxraw.png?v=45804" width="516"  /></a>
+</li>
+<li>Click the <b>OK</b> button. The grouped box chart from raw data is created with two grouping levels as shown below:
+<br /><a  class="image"><img alt="Box Chart Raw Data Indexed Data Plot box chart1.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Box_Chart_Raw_Data_Indexed_Data_Plot_box_chart1.png?v=63339" width="509"  /></a></li>
+<li>Click on the box, and in the popup mini toolbar, click the <b>Box Type</b> button to select <b>Box[Right] + Data [Left]</b>.
+<br /><a  class="image"><img alt="Box Chart Raw Data Indexed Data Plot box tab type.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Box_Chart_Raw_Data_Indexed_Data_Plot_box_tab_type.png?v=65135" width="644"  /></a>
+<li>To add distribution curves into the graph, double click the plot to open the <b>Plot Details</b> dialog. Expand the <b>Layer1</b> option on the left panel and select the first plot under it.
+<li>To add a Distribution Curve, on the <b>Distribution</b> tab, set <b>Curve Type</b> to <b>Normal</b>. Go back to <b>Data</b> tab, set <b>Bins Alignment</b> to <b>Right</b> to orient the curve. 
+<br /><a  class="image"><img alt="Box Chart Raw Data Indexed Data Plot data tab curve.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Box_Chart_Raw_Data_Indexed_Data_Plot_data_tab_curve.png?v=65136" width="787"  /></a>
+<li>Click the <b>OK</b> button. The data points and distribution curves will appear on the graph as shown below:
+<br /><a  class="image"><img alt="Box Chart Raw Data Indexed Data Plot box basic.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Box_Chart_Raw_Data_Indexed_Data_Plot_box_basic.png?v=65137" width="567"  /></a>
+</li>
+</ol>
+<h3><a name="Customizing_the_Boxes_and_Statistical_Markers"></a><span class="mw-headline">Customizing the Boxes and Statistical Markers</span></h3>
+<ol> 
+<li>Double click on the any one of the boxes to re-open the <b>Plot Details</b> dialog.   
+<li> On the <b>Group</b> tab set both <b>Border Color</b> and <b>Box Color</b> to increment <b>By One</b> so each box in  subgroup has a different color.
+<li> Click the <a  class="image"><img alt="GUI Elements the browse button.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/GUI_Elements_the_browse_button.png?v=34215" width="16"  /></a> button on the <b>Details</b> section of <b>Border Color</b>. In the <b>Increment Editor</b> dialog that opens, click the first color and change it to be <b>Red</b>. Change the second color to <b>Gray</b>. Click OK.
+<li> For <b>Box Color</b> row, set <b>Increment</b> to <b>By One</b> and <b>Subgroup</b> to <b>Within Subgroup</b>. Click the <a  class="image"><img alt="GUI Elements the browse button.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/GUI_Elements_the_browse_button.png?v=34215" width="16"  /></a> button on the <b>Details</b> section of the <b>Box Color</b> to open the <b>Increment Editor</b> dialog. Click the + button under <b>Custom</b> branch to open <b>Colors</b> dialog to define a custom color. Set <b>RGB</b> values in <b>Red</b>, <b>Green</b>, <b>Blue</b> boxes on bottom right to be <b>255</b>, <b>51</b> and <b>51</b>, and click <b>OK</b> to close dialog.
+<br />:<a  class="image"><img alt="Box Chart Raw Data Indexed Data Plot custom colour.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Box_Chart_Raw_Data_Indexed_Data_Plot_custom_colour.png?v=65146" width="762"  /></a>
+<li> Do the same for the 2nd color. Set Define <b>RGB</b> value to be <b>143</b>, <b>143</b> and <b>143</b>, and click <b>OK</b> to close dialog. Then click <b>OK</b> to close <b>Increment Editor</b> dialog and apply settings.
+<li> This step is to customize the descriptive statistic markers whether to show on the plot such as the <b>99%</b>, <b>1%</b>, <b>Max</b> and <b>Min</b> marks. <br /> Go to the <b>Percentile</b> tab, and set the <b>Edge Color</b> to <b>White</b> and click <b>Apply</b> button. Since background of the graph is also white, <b>Max</b>, <b>Min</b>, <b>99%</b>, <b>1%</b> will look like disappeared in graph.
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>On <b>Percentile</b> tab, users can also hide a Marker by setting the  <b>Type</b> as None(the last shape) in the dropdown list.
+</p></td></tr></table>
+<li>On the <b>Lines</b> tab set the <b>Color</b> for the <b>Caps</b> to <b>Gray</b> and <b>Median Line</b> to <b>White</b>. <br />Click <b>OK</b>. The plot should appear as shown below:
+<br /><a  class="image"><img alt="Box Chart Raw Data Indexed Data Plot box chart2.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Box_Chart_Raw_Data_Indexed_Data_Plot_box_chart2.png?v=65147" width="569"  /></a>
+<br />
+</ol>
+<h3><a name="Customizing_Data_Symbols_and_Distribution_Curves"></a><span class="mw-headline">Customizing Data Symbols and Distribution Curves</span></h3>
+<ol><li> Double click any box in the graph to open the <b>Plot Details</b> dialog. </li>
+<li> On the <b>Symbol</b> tab. Set the <b>Size</b> to <b>5</b>, the <b>Shape</b> to <b>2 Circle</b> and the <b>Interior</b> to <b>Open</b>. </li>
+<li> Click the <b>Edge Color</b> button, go to <b>By Points</b> sub-tab, under Color Options radio box, select <b>Col(B): "Machines"</b> under the <b>Indexing</b> dropdown list. The symbol's edge colors will be indexed to column B. All symbols with Machine value <b>A386</b> will be one color and the ones with  <b>C334</b>will be a different color:
+<dl><dd><a  class="image"><img alt="Box Chart Raw Data Indexed Data Plot Symbol Color.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/700px-Box_Chart_Raw_Data_Indexed_Data_Plot_Symbol_Color.png?v=65148" width="700"   /></a></dd></dl></li>
+<li> Reopen the <b>Color Chooser</b> again for <b>Edge Color</b>, the edge color has been indexed to Col(B), click the yellow pen after selected <b>Color List</b> to open the <b>Increment Editor</b> dialog. In this dialog, set the first two <b>Color Values</b> as <b>Blue</b> and <b>Dark Cyan</b>. Click OK button to close the editor and click Apply bottom to apply the symbol color.
+<dl><dd><a  class="image"><img alt="Box Chart Raw Data Indexed Data Plot Color List.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Box_Chart_Raw_Data_Indexed_Data_Plot_Color_List.png?v=65151" width="587"  /></a></dd></dl></li>
+<li> To customize the distribution curve color, on the <b>Distribution</b> tab, set the Distribution Curve <b>Color</b> to <b>Gray</b>. Click <b>OK</b> to close the dialog.
+<dl><dd><a  class="image"><img alt="Box Chart Raw Data Indexed Data Plot box basic2.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Box_Chart_Raw_Data_Indexed_Data_Plot_box_basic2.png?v=65153" width="562"  /></a></dd></dl></li></ol>
+<h3><a name="Customizing_the_Axes"></a><span class="mw-headline">Customizing the Axes</span></h3>
+<p>For grouped plots support multi-row tick label tables. The corresponding axis icons in the <b>Tick Labels</b> tab of <b>Axis dialog</b> starts from the last table row, e.g. <b>Bottom 1</b>, <b>Bottom 2</b>, ..., <b>Bottom N</b>. This means the first row from the bottom will correspond to <b>Bottom1</b> and so forth. 
+</p>
+<ol><li>To move the tick label row with <b>SEG 1</b>, <b>SEG 2</b> and <b>SEG 3</b> to the top X axis, click on the labels in this row, and in the popup mini toolbar, click the <b>Move to Opposite</b> button to move this row to the top. 
+<dl><dd><a  class="image"><img alt="Tutorial Grouped Box Axis 01.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Tutorial_Grouped_Box_Axis_01.png?v=65165" width="579"  /></a> </dd></dl></li>
+<li> Click on axis labels in the bottom axis table, and in the popup mini toolbar, click on the <b>Add Row</b> button to select <b>Count</b> to add a new table row with Count information.
+<dl><dd><a  class="image"><img alt="Tutorial Grouped Box Axis 01a.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Tutorial_Grouped_Box_Axis_01a.png?v=65166" width="724"  /></a> </dd></dl></li>
+<li> Click the bottom table row again, in the popup mini toolbar, click on <b>Add Row</b> button to add a "Mean" row. Now, there are 3 table rows at bottom axis.</li>
+<li>Click the first bottom label row, and in the popup mini toolbar, set <b>Fill Color</b> to <b>LT Gray</b>; Click on the second bottom label row, set its color to <b>Gray</b> with the mini toolbar; Click on the third bottom label row to set its color to <b>LT Gray</b>; click on the top axis label row to set its color to <b>LT Gray</b>.
+<dl><dd><a  class="image"><img alt="Tutorial Grouped Box Axis 01b.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Tutorial_Grouped_Box_Axis_01b.png?v=65181" width="490"  /></a></dd></dl></li>
+<li> Double-click on a bottom table row to open the <b>Axis</b> dialog. With <b>Ctrl</b> key been pressed, select Bottom 1, Bottom 2, Bottom 3 in the left panel and go to <b>Table</b> sub-tab, clear the <b>Inside Border</b> box as below.
+<dl><dd><a  class="image"><img alt="Tutorial Grouped Box Axis 01e.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Tutorial_Grouped_Box_Axis_01e.png?v=65170" width="564"  /></a></dd></dl></li>
+<li> Click the <b>Apply</b> button. Select <b>Top 1</b> in the left panel and go to <b>Table</b> sub-tab, clear all boxes  except the <b>Near Parallel Border</b> box. Click OK button.</li>
+<li> Click on the bottom axis table to select all three rows, and in the popup mini toolbar, click <b>Show Table Row Title</b> button and then use the following button <b>Table Row Title at End</b> to put the title at the head of the rows.
+<dl><dd><a  class="image"><img alt="Tutorial Grouped Box Axis 01f.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Tutorial_Grouped_Box_Axis_01f.png?v=65182" width="640"  /></a></dd></dl></li>
+<li>Double-click on the axis labels of Y axis to open the Axis dialog again. For the Y Axis change to the following settings:
+<ul><li><b>Scale</b> tab (<b>Vertical</b> icon): Set <b>Increment</b> to <b>5000</b></li>
+<li><b>Tick Labels</b> tab &gt;&gt; <b>Display</b> tab (<b>Left</b> icon): Set <b>Display</b> to <b>Scientific 10^3</b></li></ul></li>
+<li>Click <b>OK</b> to close the dialog. </li>
+<li>Select Y axis title <b>Range</b> and press the <b>Delete</b> key to remove it.</li></ol>
+<h3><a name="Updating_the_Legend_Object"></a><span class="mw-headline">Updating the Legend Object</span></h3>
+<ol><li> Right click the box chart legend and select <b>Legend: Box Chart Components...</b> to open the <b>Enhanced Box Legend: legendbox</b> dialog. Deselect all the components except for <b>Data</b>: 
+<dl><dd><a  class="image"><img alt="Group Box Chart Legend 01.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Group_Box_Chart_Legend_01.png?v=65173" width="290"  /></a></dd></dl></li>
+<li> Click the <b>OK</b> button. The legend will show only the data symbols. Double click the legend text to go into in-place edit mode. Delete the first row of the legend. Select and drag to move the legend object to a better location. </li>
+<li> To remove the black line around the legend, click the legend object, and in the popup mini toolbar, click <b>Frame</b> button to remove the frame.
+<dl><dd><a  class="image"><img alt="Group Box Chart Legend 02.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Group_Box_Chart_Legend_02.png?v=65175" width="367"  /></a></dd></dl></li></ol>
+
+

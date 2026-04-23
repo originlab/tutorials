@@ -1,0 +1,92 @@
+<h1 class="firstHeading">6.5.1 Complicated Fill Area</h1><p class='urlname' style='display: none'>complicated-fill-area</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">What You Will Learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Creating_the_Basic_Plot"><span class="tocnumber">3</span> <span class="toctext">Creating the Basic Plot</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Steps_to_Eliminate_Overlapping_Fill_Areas"><span class="tocnumber">4</span> <span class="toctext">Steps to Eliminate Overlapping Fill Areas</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Further_Customizations"><span class="tocnumber">5</span> <span class="toctext">Further Customizations</span></a></li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Complicated_Fill_Area/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Complicated_Fill_Area/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=294" target="_blank">Fill Area Between Curves</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=13" target="_blank">Layer Contents</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=248" target="_blank">Add Reference Lines to Graph</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Complicated_Fill_Area/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Complicated_Fill_Area/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/fill-area-under-intersection-of-two-curves" target="_blank">Fill Area Under Intersection of Two Curves</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/fill-area-above-curve" target="_blank">Fill Area Above and Below Curve</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p><a  class="image"><img alt="Complicated Fill Area 18.png" src="../images/Complicated_Fill_Area/Complicated_Fill_Area_18.png?v=44638" width="762"  /></a>
+</p>
+<p class="version" >Minimum Origin Version Required: 9.1 SR0</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">What You Will Learn</span></h2>
+<ul><li>Fill area between curves with two different colors.</li>
+<li>Use an ordered plot sequence to implement complex graph fills.</li></ul>
+<h2><a name="Creating_the_Basic_Plot"></a><span class="mw-headline">Creating the Basic Plot</span></h2>
+<p>This tutorial is associated with <i>&lt;Origin EXE Folder&gt;\Samples\Tutorial Data.opj</i>. Note that this tutorial requires numerous steps to produce a complex graph. Users should understand that this is not a basic Origin graphing tutorial.
+</p>
+<ol><li>Open the  Tutorial Data.opj and browse to folder <i>Multiple Fill Area</i>.</li>
+<li>Activate workbook <b>Book2</b>, <b>Sheet1</b>. Highlight columns C through F, then click <b>Plot &gt; Basic 2D&#160;: Line</b>. A grouped line plot is created.</li>
+<li>Select and delete the X axis title and legend object from the graph.</li>
+<li>Double-click on any plot to open the <b>Plot Details</b> dialog. Go to <b>Line</b> tab and set <b>Transparency</b> to 100%.
+<dl><dd><a  class="image"><img alt="Complicated Fill Area 01.png" src="../images/Complicated_Fill_Area/Complicated_Fill_Area_01.png?v=67442" width="501"  /></a></dd></dl></li>
+<li>Go to <b>Group</b> tab and set <b>Edit Mode</b> to <b>Independent</b>, then click <b>Apply</b>. This will allow us to specify custom fill area modes for each line.
+<dl><dd><a  class="image"><img alt="Complicated Fill Area 02.png" src="../images/Complicated_Fill_Area/Complicated_Fill_Area_02.png?v=28109" width="409"  /></a></dd></dl></li>
+<li>Highlight the first plot in the left side of Plot Details. On the <b>Line</b> tab, enable <b>Fill Area Under Curve</b> and select <b>Fill to data plot - Above Below Colors</b>.
+<dl><dd><a  class="image"><img alt="Complicated Fill Area 03.png" src="../images/Complicated_Fill_Area/Complicated_Fill_Area_03.png?v=67443" width="796"  /></a></dd></dl></li>
+<li>Go to <b>Pattern_Above</b> tab and choose settings as shown below.
+<dl><dd><a  class="image"><img alt="Complicated Fill Area 04.png" src="../images/Complicated_Fill_Area/Complicated_Fill_Area_04.png?v=67444" width="631"  /></a></dd></dl></li>
+<li>Go to <b>Pattern_Below</b> tab and set <b>Fill Color</b> to <i>Red</i>, the click <b>Apply</b>. The first filled area part of our plot is added.
+<dl><dd><a  class="image"><img alt="Complicated Fill Area 05.png" src="../images/Complicated_Fill_Area/Complicated_Fill_Area_05.png?v=28113" width="382"  /></a></dd></dl></li>
+<li>Highlight the second plot in the left side of Plot Details. Go to the <b>Line</b> tab, enable <b>Fill Area Under Curve</b> and select <b>Fill to data plot - One Color</b>.
+<dl><dd><a  class="image"><img alt="Complicated Fill Area 06.png" src="../images/Complicated_Fill_Area/Complicated_Fill_Area_06.png?v=67445" width="798"  /></a></dd></dl></li>
+<li>On the <b>Pattern</b> tab, choose settings as shown below.
+<dl><dd><a  class="image"><img alt="Complicated Fill Area 07.png" src="../images/Complicated_Fill_Area/Complicated_Fill_Area_07.png?v=67447" width="580"  /></a></dd></dl></li>
+<li>Repeat step 6~8 for the third plot in graph but on the <b>Pattern_Above</b> tab, set <b>Fill Color</b> to <i>None</i> and <b>Transparency</b> to <i>0</i> (you must clear <b>Follow Line Transparency</b>). On the <b>Pattern_Below</b> tab, set <b>Fill Color</b> to <i>Blue</i>.</li>
+<li>Your stacked fill area plot should now look like this:
+<dl><dd><a  class="image"><img alt="Complicated Fill Area 08.png" src="../images/Complicated_Fill_Area/Complicated_Fill_Area_08.png?v=28117" width="368"  /></a></dd></dl></li></ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Complicated_Fill_Area/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>As an alternative to the Plot Details <b>Line</b> tab controls, note that you can select any two plots in the graph layer using the Ctrl key, then apply fills between the selected curves using Mini Toolbar buttons.
+</p>
+<dl><dd><a  class="image"><img alt="MT fill area between curves.png" src="../images/Complicated_Fill_Area/MT_fill_area_between_curves.png?v=67451" width="356"  /></a></dd></dl>
+</td></tr></table>
+<h2><a name="Steps_to_Eliminate_Overlapping_Fill_Areas"></a><span class="mw-headline">Steps to Eliminate Overlapping Fill Areas</span></h2>
+<p>In the graph we just created, there are some overlapping fill areas that we do not want. We will hide them by adding a white fill area to cover them. We will be using the <b>Layer Contents</b> dialog box to add datasets to the graph, some of them multiple times.
+</p>
+<ol><li>From the menu, select <b>Graph: Layer Contents</b>. Use the right-pointing arrow button in the middle of the dialog to add these plots to the datasets to the right side of the dialog. 
+<dl><dd><a  class="image"><img alt="Complicated Fill Area 09A.png" src="../images/Complicated_Fill_Area/Complicated_Fill_Area_09A.png?v=51054" width="793"  /></a></dd></dl></li>
+<li> Use the <b>Ungroup</b> button to ungroup any plots that come over as groups. Grouping is denoted by the <b>g<i>n</i></b> beside each dataset. You want to <i>make sure that no groups exist</i> (you can ignore the first four datasets that were added).</li>
+<li> Arrange added plots in exactly the order shown. Use the up- or down-arrow buttons above the right side list, to rearrange the list as needed. Note that only ungrouped plots can be independently ordered. When your list looks like the figure above, click <b>OK</b> to close the <b>Layer Contents</b> dialog box.</li>
+<li> Double-click on a data plot to open the Plot Details dialog box. </li>
+<li> In the left side of Plot Details, highlight the fifth plot down (C(Y)). On the <b>Line</b> tab, check <b>Fill Area Under Curve</b>, and from the drop-down choose <b>Fill to data plot - Above Below Colors</b>, <b>Color</b> = <i>Red</i> and <b>Transparency</b> = <i>0</i>. On the <b>Pattern_Above</b> tab, <b>Transparency</b> = 0 and <b>Fill Color</b> = <i>White</i>. On the <b>Pattern_Below</b> tab <b>Fill Color</b> = <i>Red</i>.</li>
+<li> Highlight the sixth plot down (D(Y)) and set <b>Color</b> = <i>Red</i> and <b>Transparency</b> = <i>0</i>. </li>
+<li> Highlight the seventh plot down (E(Y)). On the <b>Line</b> tab, check <b>Fill Area Under Curve</b>, and from the drop-down choose <b>Fill to data plot - Above Below Colors</b>,  <b>Color</b> = <i>Blue</i> and <b>Transparency</b> = <i>0</i>. On the <b>Pattern_Above</b> tab set <b>Fill Color</b> to <i>White</i> and <b>Transparency</b> to <i>0</i>. On the <b>Pattern_Below</b> tab, <b>Fill Color</b> = <b>Blue</b>.</li>
+<li> On the eighth plot down (F(Y)), click the <b>Line</b> tab and set <b>Color</b> to <i>Black</i> and <b>Transparency</b> to <i>0</i>.</li>
+<li> On the ninth plot down (H(Y)), click the <b>Line</b> tab and set <b>Color</b> to <i>Orange</i> and <b>Transparency</b> to <i>0</i>.</li>
+<li> On the tenth plot down (I(Y)), click the <b>Line</b> tab and set <b>Color</b> to <i>Blue</i> and <b>Transparency</b> to <i>0</i>.</li>
+<li> For the eleventh and twelfth plots (B(Y), G(Y) respectively), click the <b>Line</b> tab and set the line <b>Color</b> to <i>Gray</i> and the <b>Transparency</b> to <i>0</i>. </li>
+<li> For the thirteenth plot down (E(Y)), click the <b>Line</b> tab and from the drop-down set <b>Fill to data plot - Above Below Colors</b>, <b>Transparency</b> = <i>0</i>. On the <b>Pattern_Above</b> tab, set <b>Fill Color</b> = <i>None</i>, <b>Transparency</b> = <i>0</i>; on the <b>Pattern_Below</b> tab, <b>Fill Color</b> = <i>White</i>.</li>
+<li> For the fourteenth plot down (C(Y)), click the <b>Line</b> tab and verify that <b>Color</b> = <i>Black</i> and <b>Transparency</b> = <i>0</i>.</li>
+<li> For the fifteenth (last) plot down, click the <b>Line</b> tab and set <b>Color</b> = <i>Red</i> and <b>Transparency</b> = <i>0</i>.</li>
+<li> Close <b>Plot Details</b> and click the <b>Rescale</b> button <a  class="image"><img alt="Button Rescale.png" src="../images/Complicated_Fill_Area/Button_Rescale.png?v=48501" width="22"  /></a> on the <b>Graph</b> toolbar. Your graph should look roughly like the following. To polish your graph, continue with the last section.</li></ol>
+<dl><dd><dl><dd><a  class="image"><img alt="Complicated Fill Area Rough Graph.png" src="../images/Complicated_Fill_Area/Complicated_Fill_Area_Rough_Graph.png?v=51062" width="506"  /></a></dd></dl></dd></dl>
+<h2><a name="Further_Customizations"></a><span class="mw-headline">Further Customizations</span></h2>
+<ol><li> Double-click on the X axis (bottom, horizontal) tick labels. This opens the X Axis dialog box. Click the <b>Scale</b> tab and set the date range From <i>1/1/2013</i> To <i>8/20/2013</i>. Set <b>Minor Ticks Count</b> = <i>0</i>.</li>
+<li> On the <b>Tick Labels</b> tab set <b>Display</b> to show a three-letter abbreviation for month (e.g. <i>Apr</i>). </li>
+<li> Click Apply.</li>
+<li> To draw a box around the whole graph layer, choose <b>View</b>: <b>Show</b>: <b>Frame</b>.</li>
+<li> Lastly, to add the dashed lines at temperature = <i>-10</i> and <i>+110</i>, double-click on the Y axis (left, vertical). Click on the <b>Reference Lines</b> tab and enter the following:
+<dl><dd><a  class="image"><img alt="Complicated Fill Area Reference Lines.png" src="../images/Complicated_Fill_Area/Complicated_Fill_Area_Reference_Lines.png?v=51004" width="485"  /></a></dd></dl></li>
+<li> Click the <b>Details</b> button and in the <b>Reference Lines</b> dialog box, clear <b>Auto Format</b>, set <b>Style</b> to <b>Dash</b> and <b>Thickness</b> to <i>1</i>. Do this for both the -10 and +110 lines and click <b>OK</b>.</li>
+<li> In the <b>Axis</b> dialog box, click <b>OK</b> to close the dialog. Your graph should now look like this:</li></ol>
+<dl><dd><dl><dd><a  class="image"><img alt="Complicated Fill Area Final Graph.png" src="../images/Complicated_Fill_Area/Complicated_Fill_Area_Final_Graph.png?v=51060" width="504"  /></a></dd></dl></dd></dl>
+
+

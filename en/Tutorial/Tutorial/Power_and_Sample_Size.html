@@ -1,0 +1,103 @@
+<h1 class="firstHeading">5.9 Power and Sample Size</h1><p class='urlname' style='display: none'>Power-SampleSize</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#.28PSS.29One-Sample_t-Test"><span class="tocnumber">3</span> <span class="toctext">(PSS)One-Sample t-Test</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#.28PSS.29Two-Sample_t-Test"><span class="tocnumber">4</span> <span class="toctext">(PSS)Two-Sample t-Test</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#.28PSS.29Paired-Sample_t-Test"><span class="tocnumber">5</span> <span class="toctext">(PSS)Paired-Sample t-Test</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#.28PSS.29One-Way_ANOVA"><span class="tocnumber">6</span> <span class="toctext">(PSS)One-Way ANOVA</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Power and sample size analysis is useful in design of experiments. Insufficient data translates into a lack of power to reject a false null hypothesis and collecting too much data is a waste of time and resources. Therefore, it is essential to determine the sample size requirements prior to conducting an experiment. The power of the experiment can be computed for a given sample size, and required sample sizes can be computed for given power values.
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to calculate sample size or estimate power value to design experiments, using some practical examples.
+</p>
+<h2><a name=".28PSS.29One-Sample_t-Test"></a><span class="mw-headline">(PSS)One-Sample t-Test</span></h2>
+<p><b>Background:</b><br />
+A sociologist wants to determine whether the average infant mortality rate in the United States is equal to 8. In experiment design, the difference of rate cannot vary more than 0.5. And it is already known that the standard deviation should be 2.1 from pilot studies. 
+<br /><br />
+<b>Question:</b>
+<br />What would the sample size be, in order to estimate the average infant mortality rate at a confidence level of 95% (<img src="../images/Power_and_Sample_Size/math-7b7f9dbfea05c83784f8b85149852f08.png?v=0" title="\alpha" alt="\alpha" class="tex"/>=0.05) for power values of 0.7, 0.8 and 0.9?
+<br />
+<b>Steps in Origin:</b>
+</p>
+<ol><li>Activate an empty worksheet, select <b>Statistics: Power and Sample Size: (PSS) One-sample t-test</b>;</li>
+<li>In the <b>PSS_tTest1</b> dialog box, choose the following settings and click <b>OK</b>.</li></ol>
+<p><a  class="image"><img alt="Tutorial PSS 001.png" src="../images/Power_and_Sample_Size/Tutorial_PSS_001.png?v=44713" width="433"  /></a><br /><br />
+</p><p><b>Origin Output:</b>
+<br />A result sheet will be generated, listing the calculated sample size for hypothetical powers.<br />
+<a  class="image"><img alt="Tutorial PSS 002.png" src="../images/Power_and_Sample_Size/Tutorial_PSS_002.png?v=12904" width="309"  /></a><br /><br />
+</p><p><br />
+<b>Result Interpretation:</b>
+<br />According to results, when designing his experiment the sociologist should conduct a survey of 111 samples for a power value of 0.7; 141 samples for power value of 0.8; and 188 samples for power value of 0.9.
+</p>
+<h2><a name=".28PSS.29Two-Sample_t-Test"></a><span class="mw-headline">(PSS)Two-Sample t-Test</span></h2>
+<p><b>Background:</b>
+<br />A doctor's office participates in two local insurance plans, Healthwise and Medcare. The purpose is to compare the mean time (in days) until reimbursement of claims for the two plans. Historical data shows that for the Healthwise plan, the average time is 32 days and the standard deviation is 7.5 days. For the Medcare plan, the average reimbursement time is 42 days and the standard deviation is 3.5 days. 
+<br /><br />
+<b>Question:</b>
+<br />If 10 claims from each plan were selected and the corresponding reimbursement times were recorded, what is the power to detect the difference in mean reimbursement times between the 2 plans by 5% or more?
+<br /><br />
+<b>Steps in Origin:</b>
+</p>
+<ol><li>Compute the pooled standard deviation as:
+<dl><dd><img src="../images/Power_and_Sample_Size/math-c65ff368584626545d265cc2abd9362d.png?v=0" title="\sqrt{((5-1)^{*}7.5^{\land} 2+(5-1)^{*}3.5^{\land }2)/(5+5-2)}=5.85235" alt="\sqrt{((5-1)^{*}7.5^{\land} 2+(5-1)^{*}3.5^{\land }2)/(5+5-2)}=5.85235" class="tex"/><br /><br />*Note that this value will be used as the standard deviation later for the power calculation.</dd></dl></li>
+<li>Sample size of 1st group and 2nd group should be 10 (20 samples total).</li>
+<li>Activate an empty worksheet and select <b>Statistics: Power and Sample Size: (PSS) Two-Sample t-Test</b>,</li>
+<li>In the <b>PSS_tTest2</b> dialog box, choose the following settings and click <b>OK</b>.<br /></li></ol>
+<p><a  class="image"><img alt="Tutorial PSS 003.png" src="../images/Power_and_Sample_Size/Tutorial_PSS_003.png?v=44714" width="461"  /></a>
+<br /><br />
+</p><p><b>Origin Output:</b>
+<br />A result sheet will be generated, showing the calculated power.
+</p><p><a  class="image"><img alt="Tutorial PSS 004.png" src="../images/Power_and_Sample_Size/Tutorial_PSS_004.png?v=12906" width="323"  /></a>
+</p><p><br />
+<b>Interpretation of Results:</b>
+<br />We can conclude that the doctor's office has a 0.95054:1 (or 95%) chance of detecting a difference if it collects 10 claims for each plan. The chance that you will fail to reject the null hypothesis and incorrectly conclude that the two means are not different is 4.946% (1 - 0.95054).
+</p>
+<h2><a name=".28PSS.29Paired-Sample_t-Test"></a><span class="mw-headline">(PSS)Paired-Sample t-Test</span></h2>
+<p><b>Background:</b>
+<br />Two machines of the same type are used to measure the depth of an amorphous silicon (a-Si) thin film. To determine if there is a difference in the two machines measurements, an engineer plans a study to compare the depth measurements made by the two machines.
+</p><p>In a previous study on depth of the a-Si thin film, the standard deviation of the difference was found to be 2µm. In addition, it is known that the difference in measurement by the two machines should not exceed 0.5µm, and the average depth measured by Machine #1 is 5000µm.
+</p><p><b>Question:</b>
+<br />How many samples must be taken at a confidence level of 99% to obtain power values of 0.8, 0.9 and 0.95?
+</p><p><b>Steps in Origin:</b>
+<br />From the information above, it is concluded that the mean of the 1st group is 5000 µm and the mean of the 2nd group is 5000.5 µm.
+</p>
+<ol><li>Activate an empty worksheet and select <b>Statistics: Power and Sample Size: (PSS) Paired t-Test</b></li>
+<li>In the <b>PSS_tTestPair</b> dialog box, set controls as in the following image and click <b>OK</b>.</li></ol>
+<p><a  class="image"><img alt="Paired t test.PNG" src="../images/Power_and_Sample_Size/Paired_t_test.PNG?v=44715" width="433"  /></a>
+</p><p><b>Origin Output:</b>
+<br />A result sheet will be generated, listing the required sample size at different power values.
+</p><p><a  class="image"><img alt="Paired t test result.PNG" src="../images/Power_and_Sample_Size/Paired_t_test_result.PNG?v=14389" width="343"  /></a>
+</p><p><b>Interpretation of Results:</b>
+<br />We conclude that the engineer has an 80% chance of detecting a difference if 191 thin film samples are measured; a 90% chance if 242 thin film samples are measured; and a 95% chance if 289 thin film samples are measured by each machine.
+</p>
+<h2><a name=".28PSS.29One-Way_ANOVA"></a><span class="mw-headline">(PSS)One-Way ANOVA</span></h2>
+<p><b>Background:</b>
+<br />Researchers are interested in whether different plants have different nitrogen contents. They planned to record nitrogen contents in milligrams for 4 species of plants (80 observations per species). Previous research suggests that the square root of MSE (Mean Squared Error) is 60 and the CSS (corrected sum of squares) of the means is 400. 
+</p><p><b>Question:</b>
+<br />Is the plan feasible? (i.e. will the calculated power be acceptable?)
+</p><p><br />
+<b>Steps in Origin:</b>
+</p>
+<ol><li>The sample size for each group is 80.</li>
+<li>Activate an empty worksheet and select <b>Statistics: Power and Sample Size: (PSS)One Way ANOVA</b></li>
+<li>In the <b>PSS_ANOVA1</b> dialog box, choose the following settings and click <b>OK</b>.</li></ol>
+<p><a  class="image"><img alt="Tutorial PSS 007.png" src="../images/Power_and_Sample_Size/Tutorial_PSS_007.png?v=70448" width="506"  /></a>
+</p><p><br />
+</p><p><b>Origin Output:</b>
+<br />A result sheet is generated, and the power value is calculated from the known condition.
+</p><p><a  class="image"><img alt="Tutorial PSS 008.png" src="../images/Power_and_Sample_Size/Tutorial_PSS_008.png?v=12912" width="309"  /></a>
+</p><p><br />
+</p><p><b>Interpretation of Results:</b>
+<br />It appears that the original research plan is deficient. There is only a 69% chance of detecting a difference from each group. To get more reliable results, researchers must collect more samples per species of plant.
+</p>
+
+
+
+
+

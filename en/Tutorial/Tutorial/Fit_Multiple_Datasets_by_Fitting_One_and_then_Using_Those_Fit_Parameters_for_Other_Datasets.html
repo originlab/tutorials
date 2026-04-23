@@ -1,0 +1,59 @@
+<h1 class="firstHeading">4.2.2.32 Fit Multiple Datasets by Fitting One and then Using Those Fit Parameters for Other Datasets</h1><p class='urlname' style='display: none'>Fitting-MultiDataset</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Create_a_User-Defined_Function_in_Fitting_Function_Builder"><span class="tocnumber">3.1</span> <span class="toctext">Create a User-Defined Function in Fitting Function Builder</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Fit_Multiple_Dataset_with_User-Defined_Fitting_Function"><span class="tocnumber">3.2</span> <span class="toctext">Fit Multiple Dataset with User-Defined Fitting Function</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>In some cases, you might have multiple datasets, and want to fit them using the user-defined function without parameter initial code. For increased efficiency, you can fit one and then apply the fit parameters for other datasets.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 8.6</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li> Create a user-defined fitting function in Fitting Function Builder</li>
+<li> Perform an independent fit.</li>
+<li> Fit one of multiple datasets by doing 1-iteration, full-iteration.</li>
+<li> Apply the parameter values of one dataset to other datasets.</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="Create_a_User-Defined_Function_in_Fitting_Function_Builder"></a><span class="mw-headline">Create a User-Defined Function in Fitting Function Builder</span></h3>
+<p>The <a class="external text" href="../../UserGuide/Category/The_Fitting_Function_Builder.html"><b>Fitting Function Builder</b></a> can be used to create or edit a user-defined function. In the following section, we will define a fitting function <i>MyExp</i> with this tool.
+</p>
+<ol><li> Select <b>Tools: Fitting Function Builder...</b> from the main menu  (or press <b>F8</b>) to open the <b>Fitting Function Builder</b>. Select the <b>Create a New Function</b> radio box. 
+<dl><dd><a  class="image"><img alt="Tutorial User Defined Function 07.png" src="../images/Fit_Multiple_Datasets_by_Fitting_One_and_then_Using_Those_Fit_Parameters_for_Other_Datasets/Tutorial_User_Defined_Function_07.png?v=26834" width="575"  /></a></dd></dl></li>
+<li> Click the <b>Next</b> button to go to the <b>Name and Type</b> page. Enter <i>MyExp</i> in the <b>Function Name</b> box and select the <b>Origin C</b> radio box for the <b>Function Type</b>.
+<dl><dd><a  class="image"><img alt="Tutorial User Defined Function 08.png" src="../images/Fit_Multiple_Datasets_by_Fitting_One_and_then_Using_Those_Fit_Parameters_for_Other_Datasets/Tutorial_User_Defined_Function_08.png?v=26835" width="573"  /></a></dd></dl></li>
+<li> Click the <b>Next</b> button to go to the <b>Variables and Parameters</b> page. Enter the variables and parameters as shown in the following screenshot:
+<dl><dd><a  class="image"><img alt="Tutorial User Defined Function 09.png" src="../images/Fit_Multiple_Datasets_by_Fitting_One_and_then_Using_Those_Fit_Parameters_for_Other_Datasets/Tutorial_User_Defined_Function_09.png?v=26836" width="574"  /></a></dd></dl></li>
+<li> Click the <b>Next</b> button to go to the <b>Origin C Fitting Function</b> page. Enter the function body <i>y=y0+a*exp(b*x)</i> in the <b>Function Body</b> box. To verify the correctness of the function, click the button beside the Function box to open the Origin Code Builder.
+<dl><dd><a  class="image"><img alt="Tutorial User Defined Function 10.png" src="../images/Fit_Multiple_Datasets_by_Fitting_One_and_then_Using_Those_Fit_Parameters_for_Other_Datasets/Tutorial_User_Defined_Function_10.png?v=26837" width="574"  /></a></dd>
+<dd>In the <b>Code Builder</b>, click the <b>Compile</b> button to compile the function. If passed, the message <i>Compile Done</i> will show, and then you can click the <b>Return to Dialog</b> button to return to the <b>Fitting Function Builder</b>.</dd>
+<dd><a  class="image"><img alt="Tutorial User Defined Function 11.png" src="../images/Fit_Multiple_Datasets_by_Fitting_One_and_then_Using_Those_Fit_Parameters_for_Other_Datasets/Tutorial_User_Defined_Function_11.png?v=26838" width="520"  /></a></dd></dl></li>
+<li> Click the <b>Finish</b> button to create this fitting function <i>MyExp</i>.</li></ol>
+<h3><a name="Fit_Multiple_Dataset_with_User-Defined_Fitting_Function"></a><span class="mw-headline">Fit Multiple Dataset with User-Defined Fitting Function</span></h3>
+<ol><li> Import <i>\Samples\Curve Fitting\Exponential Decay.dat</i> to Origin worksheet.</li>
+<li> Highlight all columns and then select <b>Analysis: Fitting: Non-linear Curve Fit</b> from the menu to open the <b>NLFit</b> dialog.</li>
+<li>Select the function just defined in <b>Settings</b> tab, <b>Function Selection</b> page:
+<dl><dd><a  class="image"><img alt="Fit Multiple Datasets by Fitting One Firstly.png" src="../images/Fit_Multiple_Datasets_by_Fitting_One_and_then_Using_Those_Fit_Parameters_for_Other_Datasets/Fit_Multiple_Datasets_by_Fitting_One_Firstly.png?v=14693" width="774"  /></a></dd></dl></li>
+<li>Switch to <b>Parameters</b> tab, enter <i>80</i>, <i>100</i>, <i>-5</i> on the <b>Value</b> column as initial values for <i>y0</i>, <i>a</i>, <i>b</i> of the first dataset. Then select <i>1</i> from the independent fit drop-down list and iterate the first dataset until converged. 
+<dl><dd><a  class="image"><img alt="Fit Multiple Datasets by Fitting One Firstly 01.png" src="../images/Fit_Multiple_Datasets_by_Fitting_One_and_then_Using_Those_Fit_Parameters_for_Other_Datasets/Fit_Multiple_Datasets_by_Fitting_One_Firstly_01.png?v=11746" width="766"  /></a></dd></dl></li>
+<li> The parameter values are calculated and the fitting result is hinted in the buttom left corner of this dialog. 
+<dl><dd><a  class="image"><img alt="Fit Multiple Datasets by Fitting One Firstly 02.png" src="../images/Fit_Multiple_Datasets_by_Fitting_One_and_then_Using_Those_Fit_Parameters_for_Other_Datasets/Fit_Multiple_Datasets_by_Fitting_One_Firstly_02.png?v=11749" width="766"  /></a></dd></dl></li>
+<li> To initialize the parameters of other datasets, apply the parameter values of the first dataset to other datasets by right-clicking the values, and then selecting <b>Apply Whole Set of "Value" to All Datasets</b> from the fly-out menu.
+<dl><dd><a  class="image"><img alt="Fit Multiple Datasets by Fitting One Firstly 03.png" src="../images/Fit_Multiple_Datasets_by_Fitting_One_and_then_Using_Those_Fit_Parameters_for_Other_Datasets/Fit_Multiple_Datasets_by_Fitting_One_Firstly_03.png?v=11752" width="553"  /></a></dd></dl></li>
+<li> Click <b>Fit</b> button to finish the fitting for all datasets.
+<dl><dd><a  class="image"><img alt="Fit Multiple Datasets by Fitting One Firstly 04.png" src="../images/Fit_Multiple_Datasets_by_Fitting_One_and_then_Using_Those_Fit_Parameters_for_Other_Datasets/Fit_Multiple_Datasets_by_Fitting_One_Firstly_04.png?v=11756" width="473"  /></a></dd></dl></li></ol>
+
+
+
+
+
+

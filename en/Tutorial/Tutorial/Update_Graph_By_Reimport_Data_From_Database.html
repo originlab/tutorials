@@ -1,0 +1,72 @@
+<h1 class="firstHeading">9.3.6 Update Graph By Reimport Data From Database</h1><p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Add_Button_to_Run_LabTalk_Script"><span class="tocnumber">3.1</span> <span class="toctext">Add Button to Run LabTalk Script</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Use_Button_to_Modify_the_Import"><span class="tocnumber">3.2</span> <span class="toctext">Use Button to Modify the Import</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<table class="noborder">
+	<tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Update_Graph_By_Reimport_Data_From_Database/Alert_icon.png?v=0" width="57"  border="0" /></td><td><p>The database used in this tutorial has been set up on Microsoft Azure. 
+</p>
+	</td>
+	</tr>
+	</table>
+<p>This tutorial is a continuation of previous Tutorial <a class="external text" href="../../Tutorial/Tutorial/Update_Database_Importing_By_LabTalk_Substitution.html">Update Database Importing By LabTalk Substitution</a>. It shows how to add a button on graph with LabTalk script to open a <a class="external text" href="../../LabTalk/Script/Getting_Numeric_and_String_Input.html">GetN dialog</a> to enter company name and reimport database based on the new company name and get updated graph.
+</p><p>The procedure is  based on Origin 2023b.
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li> Add a button on the graph with script.</li>
+<li> How to create a simple dialog to get new input.</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="Add_Button_to_Run_LabTalk_Script"></a><span class="mw-headline">Add Button to Run LabTalk Script</span></h3>
+<ol>
+<li> Right click at bottom-right corner of the graph1 created by the previous Tutorial <a class="external text" href="../../Tutorial/Tutorial/Update_Database_Importing_By_LabTalk_Substitution.html">Update Database Importing By LabTalk Substitution</a>.
+Choose <b>Add Text...</b>. And type <b>Modify...</b> to create a text label. 
+<li> Right click on the text <b>Update</b> and choose <b>Properties...</b> context menu to open <b>Text Object</b> dialog. Go to <b>Programming</b> tab. Note: In versions before Origin 2017, choose <b>Programming Control...</b> from the menu to open the <b>Programming Control</b> dialog. 
+<li> Set <b>Script, Run After</b> to <i>Button Up</i>, and put the following script to the bottom text box. Click <b>OK</b>.
+<pre class="lt" style="font-family:monospace;">string thecompany<span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;Professional Sales and Service&quot;</span>; <span style="color: #008000;">//set first company name</span>
+<span style="color: #008000;">//The following 3 lines create a dialog to assign new thecompany$ string value</span>
+getN
+<span style="color: #000000;">&#40;</span>Company Name<span style="color: #000000;">&#41;</span> thecompany<span style="color: #000080;">$</span> <span style="color: #008000;">//(Company Name) will be edit box label in dialog</span>
+<span style="color: #000000;">&#40;</span>Which Company to Analyze<span style="color: #000000;">&#41;</span>; <span style="color: #008000;">//this is dialog title</span>
+
+dbimport iw<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #000000;">&#91;</span>book1<span style="color: #000000;">&#93;</span>sheet1<span style="color: #000080;">!</span>; <span style="color: #008000;">//reimport data of new company from database to Sheet1 of Book1</span></pre>
+<dl><dd><a  class="image"><img alt="Modify button script.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/Modify_button_script.png?v=72327" width="623"  /></a></dd></dl>
+<p>The text object turns into a button 
+</p>
+<dl><dd><a  class="image"><img alt="Modify button graph1.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/Modify_button_graph1.png?v=72329" width="637"  /></a></dd></dl>
+</ol>
+<h3><a name="Use_Button_to_Modify_the_Import"></a><span class="mw-headline">Use Button to Modify the Import</span></h3>
+<ol> 
+<li>Click the Modify... button and enter new company name <b>Riding Cycles</b>
+<dl><dd><a  class="image"><img alt="GetN company.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/GetN_company.png?v=72330" width="231"  /></a></dd></dl>
+<li> Click <b>OK</b>. Data will be reimported into sheet1 of Book1 and the graph will be auto updated. 
+<dl><dd><a  class="image"><img alt="ImportDB for LT sub colum graph2.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/ImportDB_for_LT_sub_colum_graph2.png?v=72303" width="776"  /></a></dd></dl>
+<li> To see all company names and total number of orders. Right click Sheet1 tab and choose <b>Duplicate Without Data</b> to create Sheet2.
+<dl><dd> Click the <a  class="image"><img alt="DBConnector.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/DBConnector.png?v=72156" width="20"  /></a> on Sheet2 and choose <b>SQL Editor</b>.</dd></dl>
+Modify the Query to be 
+<pre class="sql" style="font-family:monospace;"><span style="color: #993333; font-weight: bold;">SELECT</span> SalesLT<span style="color: #66cc66;">.</span>Customer<span style="color: #66cc66;">.</span>CompanyName<span style="color: #66cc66;">,</span> <span style="color: #993333; font-weight: bold;">SUM</span><span style="color: #66cc66;">&#40;</span>SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>OrderQty <span style="color: #66cc66;">&#41;</span> <span style="color: #993333; font-weight: bold;">AS</span> OrderCounts
+<span style="color: #993333; font-weight: bold;">FROM</span> SalesLT<span style="color: #66cc66;">.</span>Customer
+<span style="color: #993333; font-weight: bold;">INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderHeader 
+<span style="color: #993333; font-weight: bold;">ON</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderHeader<span style="color: #66cc66;">.</span>CustomerID <span style="color: #66cc66;">=</span>SalesLT<span style="color: #66cc66;">.</span>Customer<span style="color: #66cc66;">.</span>CustomerID 
+<span style="color: #993333; font-weight: bold;">INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail
+<span style="color: #993333; font-weight: bold;">ON</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderHeader<span style="color: #66cc66;">.</span>SalesOrderID <span style="color: #66cc66;">=</span>SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>SalesOrderID 
+<span style="color: #993333; font-weight: bold;">GROUP</span> <span style="color: #993333; font-weight: bold;">BY</span> SalesLT<span style="color: #66cc66;">.</span>Customer<span style="color: #66cc66;">.</span>CompanyName
+<span style="color: #993333; font-weight: bold;">ORDER</span> <span style="color: #993333; font-weight: bold;">BY</span> <span style="color: #993333; font-weight: bold;">SUM</span><span style="color: #66cc66;">&#40;</span>SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>OrderQty <span style="color: #66cc66;">&#41;</span> <span style="color: #993333; font-weight: bold;">DESC</span></pre>
+<li>Click OK. All company names and total order numbers show so user can easily refer to this sheet when modifying to another company name to reimport. 
+<dl><dd><a  class="image"><img alt="Db import company names.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/Db_import_company_names.png?v=72337" width="845"  /></a></dd></dl>
+</ol>
+
+

@@ -1,0 +1,295 @@
+<h1 class="firstHeading">4.2.2.28 Parameter Initialization for Rational Functions</h1><p class='urlname' style='display: none'>RationalFunc-InitialParameter</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">Example and Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Algorithm"><span class="tocnumber">3.1</span> <span class="toctext">Algorithm</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Import_Data"><span class="tocnumber">3.2</span> <span class="toctext">Import Data</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Define_Fitting_Function_and_Initialize_Parameters"><span class="tocnumber">3.3</span> <span class="toctext">Define Fitting Function and Initialize Parameters</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Fit_the_Curve"><span class="tocnumber">3.4</span> <span class="toctext">Fit the Curve</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Fitting_Results"><span class="tocnumber">3.5</span> <span class="toctext">Fitting Results</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Sample_Data"><span class="tocnumber">3.6</span> <span class="toctext">Sample Data</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Parameter_Initialization_for_Rational_Functions/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Parameter_Initialization_for_Rational_Functions/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=60" target="_blank">User-defined Fitting Functions</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Parameter_Initialization_for_Rational_Functions/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Parameter_Initialization_for_Rational_Functions/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/use-initial-formula-to-better-guess-fitting-parameter-values-from-data" target="_blank">Use Initial Formula to Better Guess Fitting Parameter Values from Data</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/reinitializing-fitting-parameters-automatically-with-new-data" target="_blank">Reinitializing Fitting Parameters Automatically with New Data</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>In this tutorial, we will show you how to calculate initial parameters for rational fitting functions using the multiple linear regression method, and perform a fit of the data using calculated initial parameters.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 9.0 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to: 
+</p>
+<ul><li> Calculate initial parameters for rational fitting functions.</li>
+<li> Perform multiple linear regression using Origin C code.</li></ul>
+<h2><a name="Example_and_Steps"></a><span class="mw-headline">Example and Steps</span></h2>
+<h3><a name="Algorithm"></a><span class="mw-headline">Algorithm</span></h3>
+<p>In this tutorial, we will use the following rational function as an example:
+</p>
+<dl><dd><img src="../images/Parameter_Initialization_for_Rational_Functions/math-7b22b261a734d77ec481710d31438e8b.png?v=0" title="y=\frac{a+bx+cx^2}{1+dx+ex^2}" alt="y=\frac{a+bx+cx^2}{1+dx+ex^2}" class="tex"/></dd></dl>
+<p>where <b>x</b> is the independent variable, <b>y</b> is the dependent variable, and <b>a</b>, <b>b</b>, <b>c</b>, <b>d</b>, <b>e</b> are fitting parameters.
+</p><p>Multiplying both sides by the denominator on the right side yields:
+</p>
+<dl><dd><img src="../images/Parameter_Initialization_for_Rational_Functions/math-49984b4bd157baa38e5969f39a0fa57a.png?v=0" title="y+dxy+ex^2y\;=\;a+bx+cx^2" alt="y+dxy+ex^2y\;=\;a+bx+cx^2" class="tex"/>  </dd></dl>
+<p>and the equation can be expressed as:
+</p>
+<dl><dd><img src="../images/Parameter_Initialization_for_Rational_Functions/math-4c28a5eb57421ca39fddb4a5931fb8b6.png?v=0" title="y\;=\;a+bx+cx^2-dxy-ex^2y" alt="y\;=\;a+bx+cx^2-dxy-ex^2y" class="tex"/> </dd></dl>
+<p>Substituting fitting data <img src="../images/Parameter_Initialization_for_Rational_Functions/math-5ea4666bfd7816bb9cee6f5bd2d85bef.png?v=0" title="(x_i, y_i) \;\;  i=1 \ldots N" alt="(x_i, y_i) \;\;  i=1 \ldots N" class="tex"/> into the equation gives:
+</p>
+<dl><dd><img src="../images/Parameter_Initialization_for_Rational_Functions/math-f7c9b3743c7733a99d22122a25cb0b63.png?v=0" title="&#10;\begin{cases}&#10;a+bx_1+cx_1^2-dx_1y_1-ex_1^2y_1=y_1 \\&#10;a+bx_2+cx_2^2-dx_2y_2-ex_2^2y_2=y_2 \\&#10;\vdots \\&#10;a+bx_N+cx_N^2-dx_Ny_N-ex_N^2y_N=y_N \\&#10;\end{cases}&#10;" alt="&#10;\begin{cases}&#10;a+bx_1+cx_1^2-dx_1y_1-ex_1^2y_1=y_1 \\&#10;a+bx_2+cx_2^2-dx_2y_2-ex_2^2y_2=y_2 \\&#10;\vdots \\&#10;a+bx_N+cx_N^2-dx_Ny_N-ex_N^2y_N=y_N \\&#10;\end{cases}&#10;" class="tex"/></dd></dl>
+<p>Hence estimating initial parameters for a rational polynomial fitting function becomes a multiple linear regression problem with linear coefficients <b>a</b>, <b>b</b>, <b>c</b>, <b>d</b>, <b>e</b>.
+</p>
+<dl><dd><img src="../images/Parameter_Initialization_for_Rational_Functions/math-4d9d5f2c4d5d2f042e52603a4ef53034.png?v=0" title="&#10;\begin{bmatrix}&#10;1 &amp; x_1 &amp; x_1^2 &amp; -x_1y_1 &amp; -x_1^2y_1 \\&#10;1 &amp; x_2 &amp; x_2^2 &amp; -x_2y_2 &amp; -x_2^2y_2 \\&#10;\vdots \\&#10;1 &amp; x_N &amp; x_N^2 &amp; -x_Ny_N &amp; -x_N^2y_N \\&#10;\end{bmatrix}&#10;\begin{bmatrix}&#10;a \\&#10;b \\&#10;c \\&#10;d \\&#10;e \\&#10;\end{bmatrix}=&#10;\begin{bmatrix}&#10;y_1 \\&#10;y_2 \\&#10;\vdots \\&#10;y_N \\&#10;\end{bmatrix}&#10;" alt="&#10;\begin{bmatrix}&#10;1 &amp; x_1 &amp; x_1^2 &amp; -x_1y_1 &amp; -x_1^2y_1 \\&#10;1 &amp; x_2 &amp; x_2^2 &amp; -x_2y_2 &amp; -x_2^2y_2 \\&#10;\vdots \\&#10;1 &amp; x_N &amp; x_N^2 &amp; -x_Ny_N &amp; -x_N^2y_N \\&#10;\end{bmatrix}&#10;\begin{bmatrix}&#10;a \\&#10;b \\&#10;c \\&#10;d \\&#10;e \\&#10;\end{bmatrix}=&#10;\begin{bmatrix}&#10;y_1 \\&#10;y_2 \\&#10;\vdots \\&#10;y_N \\&#10;\end{bmatrix}&#10;" class="tex"/></dd></dl>
+<p>Origin provides a function <a class="external text" href="../../OriginC/OriginC/Ocmath_multiple_linear_regression_(global_function).html">ocmath_multiple_linear_regression</a> in Origin C for multiple linear regression, which can be called in initialization code.
+</p>
+<h3><a name="Import_Data"></a><span class="mw-headline">Import Data</span></h3>
+<ol><li> Open a new workbook.</li>
+<li> Copy data in <a href="#Sample_Data">Sample Data</a> to the workbook.</li>
+<li> Highlight column B, and select <b>Plot: Symbol: Scatter</b> from Origin menu. The graph should look like:</li></ol>
+<dl><dt><dl><dd><a  class="image"><img alt="Rational PI G1.png" src="../images/Parameter_Initialization_for_Rational_Functions/Rational_PI_G1.png?v=13918" width="509"  /></a></dt></dl></dd></dl>
+<h3><a name="Define_Fitting_Function_and_Initialize_Parameters"></a><span class="mw-headline">Define Fitting Function and Initialize Parameters</span></h3>
+<p>The fitting function can be defined using the <b>Fitting Function Builder</b> tool.
+</p>
+<ol>
+<li> Select <b>Tools: Fitting Function Builder</b> from Origin menu.
+<li> In the <b>Fitting Function Builder</b> dialog's <b>Goal</b> page, click the <b>Next</b> button.
+<li> In the <b>Name and Type</b> page, select <b>User Defined</b> from the <b>Select or create a Category</b> drop-down list, type <b>rationalfunc</b> in the <b>Function Name</b> field, and select <b>Expression</b> in the <b>Function Type</b> group. Click the <b>Next</b> button.
+<li> In the <b>Variables and Parameters</b> page, type <b>a, b, c, d, e</b> in the <b>Parameters</b> field. Click the <b>Next</b> button.
+<li> In the <b>Expression Function</b> page, type the following script in the <b>Function Body</b> box.
+<pre class="oc" style="font-family:monospace;"><span style="color: #000000;">&#40;</span>a<span style="color: #000040;">+</span>b<span style="color: #000040;">*</span>x<span style="color: #000040;">+</span>c<span style="color: #000040;">*</span>x<span style="color: #000040;">^</span><span style="color: #0000dd;">2</span><span style="color: #000000;">&#41;</span><span style="color: #000040;">/</span><span style="color: #000000;">&#40;</span><span style="color: #0000dd;">1</span><span style="color: #000040;">+</span>d<span style="color: #000040;">*</span>x<span style="color: #000040;">+</span>e<span style="color: #000040;">*</span>x<span style="color: #000040;">^</span><span style="color: #0000dd;">2</span><span style="color: #000000;">&#41;</span></pre>
+<p>Click the <b>Evaluate</b> button, and it shows y=1 at x=1, hence this implies the expression is correct. Click the <b>Next</b> button.
+</p>
+<li> In the <b>Parameter Initialization Code</b> page, select <b>Use Custom Code</b> radio butto, click the <b>Open Code Builder</b> button <a  class="image"><img alt="User-Defined Fitting Functions-2.png" src="../images/Parameter_Initialization_for_Rational_Functions/User-Defined_Fitting_Functions-2.png?v=4571" width="19"  /></a> to the right of the <b>Initialization Code</b> box, and initialize fitting parameters as follows, in terms of the <a href="#Algorithm">algorithm</a>.
+
+<pre class="oc" style="font-family:monospace;">  UINT nOSizeN <span style="color: #000080;">=</span> x_data.<span style="color: #000000;">GetSize</span><span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>; <span style="color: #008000;">//Number of points</span>
+  UINT nVSizeM <span style="color: #000080;">=</span> <span style="color: #0000dd;">5</span>; <span style="color: #008000;">//Number of parameters</span>
+	
+  matrix mX<span style="color: #000000;">&#40;</span>nOSizeN, <span style="color: #0000dd;">5</span><span style="color: #000000;">&#41;</span>;
+	
+  <span style="color: #008000;">//Construct matrix for data points of independent variables </span>
+  vector vCa<span style="color: #000000;">&#40;</span>nOSizeN<span style="color: #000000;">&#41;</span>, vCb, vCc, vCd, vCe;
+  vCa <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>;
+  mX.<span style="color: #000000;">SetColumn</span><span style="color: #000000;">&#40;</span> vCa, <span style="color: #0000dd;">0</span> <span style="color: #000000;">&#41;</span>;
+  vCb <span style="color: #000080;">=</span> x_data;
+  mX.<span style="color: #000000;">SetColumn</span><span style="color: #000000;">&#40;</span> vCb, <span style="color: #0000dd;">1</span> <span style="color: #000000;">&#41;</span>;
+  vCc <span style="color: #000080;">=</span> x_data<span style="color: #000040;">^</span><span style="color: #0000dd;">2</span>;
+  mX.<span style="color: #000000;">SetColumn</span><span style="color: #000000;">&#40;</span> vCc, <span style="color: #0000dd;">2</span> <span style="color: #000000;">&#41;</span>;
+  vCd <span style="color: #000080;">=</span> <span style="color: #000040;">-</span>x_data<span style="color: #000040;">*</span>y_data;
+  mX.<span style="color: #000000;">SetColumn</span><span style="color: #000000;">&#40;</span> vCd, <span style="color: #0000dd;">3</span> <span style="color: #000000;">&#41;</span>;
+  vCe <span style="color: #000080;">=</span> <span style="color: #000040;">-</span>x_data<span style="color: #000040;">^</span><span style="color: #0000dd;">2</span><span style="color: #000040;">*</span>y_data;
+  mX.<span style="color: #000000;">SetColumn</span><span style="color: #000000;">&#40;</span> vCe, <span style="color: #0000dd;">4</span> <span style="color: #000000;">&#41;</span>;
+	
+  <span style="color: #008000;">//Options for multiple linear regression</span>
+  LROptions stLROptions;
+  stLROptions.<span style="color: #000000;">UseReducedChiSq</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>;
+  stLROptions.<span style="color: #000000;">FixIntercept</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>; <span style="color: #008000;">//Fix the intercept at 0.</span>
+	
+  FitParameter stFitParameters<span style="color: #000000;">&#91;</span> <span style="color: #0000dd;">6</span> <span style="color: #000000;">&#93;</span>; <span style="color: #008000;">// should be nVSizeM+1</span>
+  UINT nFitSize <span style="color: #000080;">=</span> nVSizeM <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span>;
+	
+  <span style="color: #0000ff;">int</span> nRet <span style="color: #000080;">=</span> ocmath_multiple_linear_regression<span style="color: #000000;">&#40;</span>mX, nOSizeN, nVSizeM, y_data, 
+    <span style="color: #0000ff;">NULL</span>, <span style="color: #0000dd;">0</span>, <span style="color: #000040;">&amp;</span>stLROptions, stFitParameters, nFitSize <span style="color: #000000;">&#41;</span>;
+	            
+  <span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span> nRet <span style="color: #000080;">==</span> STATS_NO_ERROR <span style="color: #000000;">&#41;</span>
+  <span style="color: #000000;">&#123;</span>
+    a <span style="color: #000080;">=</span> stFitParameters<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #000000;">&#93;</span>.<span style="color: #000000;">Value</span>;
+    b <span style="color: #000080;">=</span> stFitParameters<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">2</span><span style="color: #000000;">&#93;</span>.<span style="color: #000000;">Value</span>;
+    c <span style="color: #000080;">=</span> stFitParameters<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">3</span><span style="color: #000000;">&#93;</span>.<span style="color: #000000;">Value</span>;
+    d <span style="color: #000080;">=</span> stFitParameters<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">4</span><span style="color: #000000;">&#93;</span>.<span style="color: #000000;">Value</span>;
+    e <span style="color: #000080;">=</span> stFitParameters<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">5</span><span style="color: #000000;">&#93;</span>.<span style="color: #000000;">Value</span>;
+  <span style="color: #000000;">&#125;</span></pre>
+<p>Click the <b>Compile</b> button to compile the code. And click the <b>Return to Dialog</b> button. Click <b>Finish</b> to close the <b>Fitting Function Builder</b> dialog.
+</p>
+</ol>
+<h3><a name="Fit_the_Curve"></a><span class="mw-headline">Fit the Curve</span></h3>
+<ol>
+<li> Select <b>Analysis: Fitting: Nonlinear Curve Fit</b> from Origin menu. In the <b>NLFit</b> dialog, select <b>Settings: Function Selection</b>, in the page select <b>User Defined</b> from the <b>Category</b> drop-down list and <b>rationalfunc</b> function from the <b>Function</b> drop-down list.
+<li> Click the <b>Parameters</b> tab. Initial parameters calculated from initialization code are listed in the dialog, and the fitting function curve for initial parameters is shown as follows. It seems that initial parameters from initialization code are very good.
+<br />
+<a  class="image"><img alt="Rational PI G2.png" src="../images/Parameter_Initialization_for_Rational_Functions/Rational_PI_G2.png?v=13919" width="509"  /></a>
+<li> Click the <b>Fit</b> button to fit the curve.
+</ol>
+<h3><a name="Fitting_Results"></a><span class="mw-headline">Fitting Results</span></h3>
+<p>The fitted curve should look like:
+</p>
+<dl><dt><dl><dd><a  class="image"><img alt="Rational PI G3.png" src="../images/Parameter_Initialization_for_Rational_Functions/Rational_PI_G3.png?v=42021" width="501"  /></a></dt></dl></dd></dl>
+<p>Fitted Parameters are shown as follows:
+</p>
+<table class="simple">
+<tr>
+<th><b>Parameter</b>
+</th>
+<th><b>Value</b>
+</th>
+<th><b>Standard Error</b>
+</th></tr>
+<tr>
+<th><b>a</b>
+</th>
+<td>3.17139
+</td>
+<td>0.30284
+</td></tr>
+<tr>
+<th><b>b</b>
+</th>
+<td> -1.65602
+</td>
+<td>1.76748
+</td></tr>
+<tr>
+<th><b>c</b>
+</th>
+<td>0.26407
+</td>
+<td>1.81764
+</td></tr>
+<tr>
+<th><b>d</b>
+</th>
+<td>3.6884
+</td>
+<td>0.26362
+</td></tr>
+<tr>
+<th><b>e</b>
+</th>
+<td>5.31812
+</td>
+<td>0.55265
+</td></tr></table>
+<h3><a name="Sample_Data"></a><span class="mw-headline">Sample Data</span></h3>
+<table class="simple">
+<tr>
+<th width="80px">x
+</th>
+<th width="80px">y
+</th></tr>
+<tr>
+<td> -1.5
+</td>
+<td>1.13173
+</td></tr>
+<tr>
+<td> -1.39474
+</td>
+<td>0.8262
+</td></tr>
+<tr>
+<td> -1.28947
+</td>
+<td>1.06999
+</td></tr>
+<tr>
+<td> -1.18421
+</td>
+<td>1.37155
+</td></tr>
+<tr>
+<td> -1.07895
+</td>
+<td>0.79569
+</td></tr>
+<tr>
+<td> -0.97368
+</td>
+<td>2.11346
+</td></tr>
+<tr>
+<td> -0.86842
+</td>
+<td>2.32006
+</td></tr>
+<tr>
+<td> -0.76316
+</td>
+<td>3.9205
+</td></tr>
+<tr>
+<td> -0.65789
+</td>
+<td>5.81904
+</td></tr>
+<tr>
+<td> -0.55263
+</td>
+<td>7.38037
+</td></tr>
+<tr>
+<td> -0.44737
+</td>
+<td>8.31272
+</td></tr>
+<tr>
+<td> -0.34211
+</td>
+<td>11.39718
+</td></tr>
+<tr>
+<td> -0.23684
+</td>
+<td>8.39808
+</td></tr>
+<tr>
+<td> -0.13158
+</td>
+<td>4.7305
+</td></tr>
+<tr>
+<td> -0.02632
+</td>
+<td>4.11105
+</td></tr>
+<tr>
+<td>0.07895
+</td>
+<td>2.39105
+</td></tr>
+<tr>
+<td>0.18421
+</td>
+<td>1.65394
+</td></tr>
+<tr>
+<td>0.28947
+</td>
+<td>0.42953
+</td></tr>
+<tr>
+<td>0.39474
+</td>
+<td>0.83337
+</td></tr>
+<tr>
+<td>0.5
+</td>
+<td>1.18758
+</td></tr></table>
+<table class="note">
+
+<tr>
+<td><b>Note</b>: You can also use this method to initialize parameters for other rational polynomial fitting functions.
+</td></tr></table>
+
+
+
+
+
+

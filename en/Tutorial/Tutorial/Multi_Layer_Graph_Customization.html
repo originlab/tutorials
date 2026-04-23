@@ -1,0 +1,98 @@
+<h1 class="firstHeading">6.3.3 Multi Layer Graph Customization</h1><p class='urlname' style='display: none'>MultiLayer-Graph-Customization</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Scale_Elements"><span class="tocnumber">3.1</span> <span class="toctext">Scale Elements</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Merging_Graph_Windows"><span class="tocnumber">3.2</span> <span class="toctext">Merging Graph Windows</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Common_Display_Controls_for_Simultaneous_Edits_to_Multiple_Layers"><span class="tocnumber">3.3</span> <span class="toctext">Common Display Controls for Simultaneous Edits to Multiple Layers</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Fix_Scale_Factors"><span class="tocnumber">3.4</span> <span class="toctext">Fix Scale Factors</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Fit_Layers_to_Page"><span class="tocnumber">3.5</span> <span class="toctext">Fit Layers to Page</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Graph_Legend_Adjustments_for_Panel_Graphs"><span class="tocnumber">3.6</span> <span class="toctext">Graph Legend Adjustments for Panel Graphs</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>The <b>graph layer</b> is the basic building block of all Origin graphs. A graph layer consists of a set of coordinate axes and (usually) one or more data plots, plus attached axis titles, plot legends, text labels, drawn objects, button objects, etc. The graph layer can be moved to any location or resized to any dimensions within the graph window. An Origin graph window contains between 1 and 1,024 graph layers.
+</p><p>When working with graphs that contain multiple layers, it helps to have some tools and a strategy for applying customizations to multiple layers a time, as opposed to simply modifying each plot or each axis scale individually. Beginning with Origin 2018b, you can edit multiple graph layers simultaneously using the Plot Details <b>Layers</b> tab <b>Common Display</b> controls.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 2018b</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<ul><li> How to control the scaling of elements (axis titles, tick labels and graph legends) when graphs are merged.</li>
+<li> How to merge graph windows containing a single layer into a multi-panel graph.</li>
+<li> How to configure the merged graph so that plot or axis customizations made in one layer are applied to all layers.</li>
+<li> How to fix scaling issues with fonts in merged graphs.</li>
+<li> How to remove white space from the merged, multi-panel graph.</li>
+<li> How to remove unneeded legend objects and customize one object so that it serves as a legend for the multi-panel graph.</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<ol><li> Start a new project. Press <b>F11</b> to open <b>Origin Central</b>, click the <b>Graph Samples</b> tab, set the graph drop-down list to <b>Multi-Panel Graphs</b> and double-click on the <b>Multiple Panel Graph from Index Data</b>.
+<dl><dd> <a  class="image"><img alt="OC GraphSamp MultiPan.png" src="../images/Multi_Layer_Graph_Customization/OC_GraphSamp_MultiPan.png?v=55796" width="450"  /></a></dd></dl></li>
+<li> In the worksheet that opens, click on the <b>Output Data</b> tab and resize the window so that you can see all 12 columns of data. Note that the column headings have (1) a green lock on them, indicating that these are calculated values and (2) the <a class="external text" href="../../UserGuide/UserGuide/Set_Column_Designation.html">column designations</a> repeat in the pattern <i>X1, Y1, Y1, X2, Y2, Y2,</i> etc.</li>
+<li> Select columns <i>B(Y1)</i> and <i>C(Y1)</i> and click the <b>Line + Symbol</b> button <a  class="image"><img alt="Button Line And Symbol.png" src="../images/Multi_Layer_Graph_Customization/Button_Line_And_Symbol.png?v=1449" width="22"  /></a> on the <b>2D Graphs</b> toolbar. Repeat the process for columns <i>E(Y2)</i>+<i>F(Y2)</i>, <i>H(Y3)</i>+<i>I(Y3)</i>, <i>K(Y4)</i>+<i>L(Y4)</i>. You should now have 4 similar graph windows, each containing a single graph layer with two plots (Note that you don't need to select the X column when making these graphs because Origin's default behavior is to plot Y values against any X column immediately to the left of selected Y columns).
+<dl><dd> <a  class="image"><img alt="Mult lay graph cust 01.png" src="../images/Multi_Layer_Graph_Customization/Mult_lay_graph_cust_01.png?v=55797" width="750"  /></a></dd></dl></li></ol>
+<h3><a name="Scale_Elements"></a><span class="mw-headline">Scale Elements</span></h3>
+<p>We are going to merge the above graph windows into a single 4-panel graph window but before we do that, we will briefly discuss element (axis titles, graph legends, etc.) scaling so that we understand how to control this in a merged graph.
+</p>
+<ol><li> Click on one of the four graph windows -- it doesn't matter which one -- and click <b>Format: Layer</b>. </li>
+<li> In the Plot Details dialog box, click the <b>Display</b> tab and note the <b>Scale Elements</b> settings. By default, <b>Scale With Layer Frame</b> is selected. This tells us that when the size of the layer is changed, the size of attached elements such as the axis titles, graph legend, etc., will be scaled accordingly. </li>
+<li> Click <b>OK</b> to close Plot Details, then right-click on the graph window title bar and choose <b>Duplicate</b>. You now have two identical windows. </li>
+<li> Click on the duplicated window and click <b>Format: Layer</b>, again. Click on the <b>Display</b> tab again, but this time, set <b>Scale Elements</b> to <b>Fixed Factor: 1</b>, then click <b>OK</b> to close Plot Details. We now have two identical graphs, one with <b>Scale Elements</b> = <b>Scale With Layer Frame</b> and one with <b>Scale Elements</b> = <b>Fixed Factor: 1</b>.</li>
+<li> Reposition and resize your identical graphs so that we can do a side-by-side comparison.
+<dl><dd> <a  class="image"><img alt="Mult lay graph cust 02.png" src="../images/Multi_Layer_Graph_Customization/Mult_lay_graph_cust_02.png?v=55798" width="750"  /></a></dd>
+<dd> As mentioned, we ultimately plan to merge 4 separate graphs into a single, 4-panel graph and in doing so, we must shrink the size of our graphs to fit four to a page. What will be the effect of shrinking on text elements, for instance?  We have set up a comparison to identical graphs, one with elements set to scale with the layer and one with elements set to a fixed size.</dd></dl></li>
+<li> In the graph window that is set to <b>Scale With Layer Frame</b>, click once in an empty portion of the graph page and when the green selection handles appear, hold the CTRL key and drag a corner handle so that the graph covers approximately 25% of the page. </li>
+<li> Repeat the last step with the graph window that is set to <b>Fixed Factor: 1</b>.</li>
+<li> Now, compare the resulting smaller graphs and note, in particular, the difference in the way that the various elements -- the plot symbols, the text and legend objects -- behaved when the graph was made smaller.
+<dl><dd> <a  class="image"><img alt="Mult lay graph cust 03.png" src="../images/Multi_Layer_Graph_Customization/Mult_lay_graph_cust_03.png?v=55799" width="668"  /></a></dd>
+<dd> We can see that setting the elements to <b>Fixed Factor: 1</b> is probably going to cause problems when four graphs are merged onto a single page, so when we merge, we will leave the default setting for each of the merged graphs to <b>Scale With Layer Frame</b>.</dd></dl></li>
+<li> So that you don't get it mixed up with the other graphs, delete the "Fixed Factor" graph.</li></ol>
+<h3><a name="Merging_Graph_Windows"></a><span class="mw-headline">Merging Graph Windows</span></h3>
+<ol><li> With all four (and <i>only</i> the four) of your original graph windows showing in the workspace, choose <b>Graph: Merge Graph Windows</b> and open the <b>Merge Graph Windows</b> dialog box.</li>
+<li> Make sure that all four graphs are listed in the <b>Graphs</b> box, then expand the <b>Scale Elements</b> branch and make sure that <b>Scale Mode</b> is set to <i>Auto</i>. Note the Preview pane to the right side of the dialog box, showing an approximation of your final, merged graph. <b>Tip:</b> If you want to keep your original graphs, make sure the <b>Keep Source Graphs</b> box is checked, or the graphs will be destroyed.</li>
+<li> Click <b>OK</b> and a four-panel graph is created. Note the four layer icons in the upper-left corner of the merged graph -- one icon for each graph layer.
+<dl><dd> <a  class="image"><img alt="Mult lay graph cust 04.png" src="../images/Multi_Layer_Graph_Customization/Mult_lay_graph_cust_04.png?v=55804" width="582"  /></a></dd></dl></li></ol>
+<h3><a name="Common_Display_Controls_for_Simultaneous_Edits_to_Multiple_Layers"></a><span class="mw-headline">Common Display Controls for Simultaneous Edits to Multiple Layers</span></h3>
+<p>Suppose that we want to customize some elements or properties of the layers, plots and axes in a multi-panel graph? We could make edits to each layer, one-by-one, but this would be tedious. Beginning with Origin 2018b, you can use <a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Layers_Tab.html">the Plot Details <b>Layers</b> tab <b>Common Display</b> controls</a> to apply edits made to one layer, to other layers.
+</p>
+<ol><li> With your 4-panel (merged graph) active, click <b>Format: Page</b>. This opens the Plot Details dialog box.</li>
+<li> Click on the <b>Layers</b> tab.</li>
+<li> Under <b>Common Display</b>, check the <b>Plot Properties</b> box. As the "blue hint" tells us, we should check the appropriate boxes here <i>first</i>, <i>then</i> make customizations at the Layer/Plot level. We can use the <b>Apply to</b> controls to selectively apply <b>Common Display</b> changes (see documentation of <a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Layers_Tab.html"><b>Apply to</b></a> controls).</li>
+<li> In the left panel of Plot Details, click the arrow to the left of the <i>Layer1</i> icon to expand to show the two data plots in the layer.
+<dl><dd> <a  class="image"><img alt="Mult lay graph cust 05.png" src="../images/Multi_Layer_Graph_Customization/Mult_lay_graph_cust_05.png?v=55808" width="723"  /></a></dd></dl></li>
+<li> Click on the first plot in the layer, then on the <b>Symbol</b> tab to the right side of Plot Details, click on the symbol gallery (downward-pointing arrow) and change plot symbol shape to Circle, then change <b>Size</b> to <i>15</i>. Leave <b>Symbol Color</b> as <i>Auto</i> as that will allow symbol color to follow line color. Click <b>OK</b> to close Plot Details and note that the symbol size is increased in all plots in our 4-panel plot. </li>
+<li> We can continue to customize our 4-panel plot using <b>Format</b> and <b>Style</b> toolbar buttons. Click on one of the gray plots and note that both plots in the layer are now highlighted. Pause slightly and click a second time on the gray plot and this time, you will see that only <i>that</i> plot is selected.</li>
+<li> Click the Line/Border Color button on the Style toolbar and choose <i>Navy</i>. Note that gray plots in each of the four panels are now navy blue in color. The graph should look something like this:
+<dl><dd> <a  class="image"><img alt="Mult lay graph cust 06.png" src="../images/Multi_Layer_Graph_Customization/Mult_lay_graph_cust_06.png?v=55811" width="582"  /></a></dd></dl></li></ol>
+<h3><a name="Fix_Scale_Factors"></a><span class="mw-headline">Fix Scale Factors</span></h3>
+<p>At this point, we have a satisfactory graph and we may consider our work finished. However, one thing that we should be aware of is that when the four graphs were merged, the scaling down of font size produced one small issue. 
+</p>
+<ol><li> Select one of the graph legend objects, then hover over it with your mouse and you will see a tooltip that appears something like this:
+<dl><dd> <a  class="image"><img alt="Mult lay graph cust 07.png" src="../images/Multi_Layer_Graph_Customization/Mult_lay_graph_cust_07.png?v=55812" width="283"  /></a></dd>
+<dd> The tooltip reports that the (font) size = <i>22</i> but that the actual size is 10.1. This occurs because, as we expected, the font was scaled down when we merged graphs.  The problem now is that we have a font size that <i>looks</i> like it is <i>10.1</i> but Origin still thinks of it as a size = <i>22</i> (Look to the <b>Font Size</b> list on the Format toolbar and it will report the original size of <i>22</i>). We can correct this conflict with a simple menu command.</dd></dl></li>
+<li> With the graph window active, choose <b>Graph: Fix Scale Factors</b> and accept the default value of <i>1</i> by clicking <b>OK</b>. Now, select one of the four legend objects, hover and you'll see that the tooltip now reports that both size and actual = <i>10.1</i> (the decimal is not meaningful as Origin rounds to the nearest 0.5). Note also, that the Format toolbar now reports <b>Font Size</b> = <i>10</i>.</li></ol>
+<p>While we could have skipped this detail, it is not uncommon for users to want to be confused by conflicting information about scaled font sizes and this menu item is the best way to reset font size so that you know just what you are working with.
+</p>
+<h3><a name="Fit_Layers_to_Page"></a><span class="mw-headline">Fit Layers to Page</span></h3>
+<p>At this point, our graph looks satisfactory but we could do a couple of things to improve it. One would be to remove extra white space from the graph. We have a couple of options there but one quick way to do this is to choose the Fit Layers to Page menu item.
+</p>
+<ol><li> With the graph window active, choose <b>Graph: Fit Layers to Page</b>. This opens the <b>Fit Layers to Page:gfitp</b> dialog.</li>
+<li> Set a <b>Margin</b> of <i>5</i> and clear the <b>Maintain Layer Aspect Ratios</b> box, then click OK. Our graph layers are slightly re-proportioned and the white space around the outside is reduced.</li></ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Multi_Layer_Graph_Customization/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>If you are exporting or copying your graph to an external application, <a class="external text" href="../../UserGuide/UserGuide/Export_Margin_Offsets.html">the <b>Export Margin Offsets</b> dialog box</a> can also be used to remove white space from the outside of the graph.
+</p></td></tr></table>
+<h3><a name="Graph_Legend_Adjustments_for_Panel_Graphs"></a><span class="mw-headline">Graph Legend Adjustments for Panel Graphs</span></h3>
+<p>We don't need the four graph legend objects since each panel plots the same two variables. So, we will eliminate three objects and slightly reconfigure the fourth to act as a legend object for the four panels.
+</p>
+<ol><li> Press CTRL + select three of the legend objects and when the green selection handles appear surrounding the three, press Delete.</li>
+<li> Drag the remaining legend object to the top-center of the graph page.</li>
+<li> With the legend object still selected (green handles showing), press CTRL again and drag one of the green handles on the <i>side</i> of the legend object and drag it out horizontally until it looks like this:</li></ol>
+<p><a  class="image"><img alt="Mult lay graph cust 08.png" src="../images/Multi_Layer_Graph_Customization/Mult_lay_graph_cust_08.png?v=55815" width="538"  /></a>
+</p>
+<ol><li> Center the graph legend on top of the page. Your graph should now look something like this:
+<dl><dd> <a  class="image"><img alt="Mult lay graph cust 09.png" src="../images/Multi_Layer_Graph_Customization/Mult_lay_graph_cust_09.png?v=55817" width="583"  /></a></dd></dl></li></ol>
+
+

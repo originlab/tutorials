@@ -1,0 +1,144 @@
+<h1 class="firstHeading">5.5.6 Tutorial for Capability Analysis</h1><p class='urlname' style='display: none'>Tutorial-CA</p>
+<div class="toclimit-2"><div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Notes_for_Starting"><span class="tocnumber">1</span> <span class="toctext">Notes for Starting</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Normal_Capability_Analysis"><span class="tocnumber">2</span> <span class="toctext">Normal Capability Analysis</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Background"><span class="tocnumber">2.1</span> <span class="toctext">Background</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Steps_in_Origin"><span class="tocnumber">2.2</span> <span class="toctext">Steps in Origin</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Interpreting_the_Results"><span class="tocnumber">2.3</span> <span class="toctext">Interpreting the Results</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Between_Within_Capability_Analysis"><span class="tocnumber">3</span> <span class="toctext">Between Within Capability Analysis</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#Background_2"><span class="tocnumber">3.1</span> <span class="toctext">Background</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Steps_in_Origin_2"><span class="tocnumber">3.2</span> <span class="toctext">Steps in Origin</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Interpreting_the_Results_2"><span class="tocnumber">3.3</span> <span class="toctext">Interpreting the Results</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="#Non-normal_Capability_Analysis"><span class="tocnumber">4</span> <span class="toctext">Non-normal Capability Analysis</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="#Background_3"><span class="tocnumber">4.1</span> <span class="toctext">Background</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Steps_in_Origin_3"><span class="tocnumber">4.2</span> <span class="toctext">Steps in Origin</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Interpreting_the_Results_3"><span class="tocnumber">4.3</span> <span class="toctext">Interpreting the Results</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="#Binomial_Capability_Analysis"><span class="tocnumber">5</span> <span class="toctext">Binomial Capability Analysis</span></a>
+<ul>
+<li class="toclevel-2 tocsection-15"><a href="#Background_4"><span class="tocnumber">5.1</span> <span class="toctext">Background</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#Steps_in_Origin_4"><span class="tocnumber">5.2</span> <span class="toctext">Steps in Origin</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#Interpreting_the_Results_4"><span class="tocnumber">5.3</span> <span class="toctext">Interpreting the Results</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-18"><a href="#Poisson_Capability_Analysis"><span class="tocnumber">6</span> <span class="toctext">Poisson Capability Analysis</span></a>
+<ul>
+<li class="toclevel-2 tocsection-19"><a href="#Background_5"><span class="tocnumber">6.1</span> <span class="toctext">Background</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="#Steps_in_Origin_5"><span class="tocnumber">6.2</span> <span class="toctext">Steps in Origin</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="#Interpreting_the_Results_5"><span class="tocnumber">6.3</span> <span class="toctext">Interpreting the Results</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<h2><a name="Notes_for_Starting"></a><span class="mw-headline">Notes for Starting</span></h2>
+<ul><li> Download the sample project file from <a class="external text" href="https://blog.originlab.com/wp-content/uploads/2023/10/SPCData.zip" target="_blank">here</a> and open it in Origin.</li></ul>
+<ul><li> Start this tutorial with the app <a class="external text" href="https://www.originlab.com/fileExchange/details.aspx?fid=934" target="_blank"><b>Statistical Process Control</b></a> installed. If you have not installed the app, see <a class="external text" href="https://www.originlab.com/doc/User-Guide/Apps" target="_blank">Apps for Origin</a> to find and install the app.</li></ul>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Tutorial_CA/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p><i><b>Topics for Further Reading</b></i>:
+</p>
+<ul><li> <a href="../../App/Category/Capability_Analysis(App).html" title="Category:Capability Analysis(App)">Introduction:Capability Analysis</a></li>
+<li> <a href="../../App/App/Algorithm_CA.html" title="App:Algorithm CA">Algorithms:Capability Analysis</a></li></ul>
+</td></tr></table>
+<h2><a name="Normal_Capability_Analysis"></a><span class="mw-headline">Normal Capability Analysis</span></h2>
+<h5><a name="Background"></a><span class="mw-headline">Background</span></h5>
+<p>A quality engineer wants to evaluate the pipe production process. He collected data for height (feet) of pipe at 150 samples. 
+</p><p>He want to check whether the mean of the pipe height is 5 and the difference of their height can not vary more than 0.02 (4.98, 5.02)
+</p>
+<h5><a name="Steps_in_Origin"></a><span class="mw-headline">Steps in Origin</span></h5>
+<ol><li> Open folder <b>1. Normal</b>. Activate the workbook <b>Height of Pipe</b>.</li>
+<li> Highlight column A in worksheet. Click the <b>Statistical Process Control</b> icon <a  class="image"><img alt="SPC Icon.png" src="../images/Tutorial_CA/SPC_Icon.png?v=73813" width="32"  /></a> in the <b>Apps Gallery</b> window.</li>
+<li> Select the <b>Capability Analysis</b> tab, select <b>Normal Capability Analysis</b>
+<dl><dd><a  class="image"><img alt="NPA GUI.png" src="../images/Tutorial_CA/700px-NPA_GUI.png?v=73648" width="700"   /></a></dd></dl></li>
+<li> In the <b>Input</b> tab of the opened dialog, column A is selected automatically as <b>Measurement Data</b>. Choose <b>Subgroup Size By</b> to be <b>Constant</b> and set the <b>Subgroup Size Constant</b> to be <b>1</b>
+<dl><dd><a  class="image"><img alt="NPA Input.png" src="../images/Tutorial_CA/380px-NPA_Input.png?v=73880" width="380"   /></a></dd></dl></li>
+<li> In the <b>Limits</b> tab, set <b>Lower Spec</b> to be <b>4.98</b>, <b>Upper Spec</b> to be <b>5.02</b> and <b>Target</b> to be <b>5</b>
+<dl><dd><a  class="image"><img alt="NPA Limit.png" src="../images/Tutorial_CA/380px-NPA_Limit.png?v=73830" width="380"   /></a></dd></dl></li>
+<li> Click <b>OK</b> button. A graph with report tables will be created</li></ol>
+<h5><a name="Interpreting_the_Results"></a><span class="mw-headline">Interpreting the Results</span></h5>
+<p>The process is approximately centered and all observed measurements are within the specification limits. The capability indices Cpk, Ppk, and Cpm are all greater than 1.33, which is a generally accepted minimum value for a capable process. Therefore, the width meets the production requirements
+</p>
+<dl><dd><a  class="image"><img alt="NPA Report.png" src="../images/Tutorial_CA/600px-NPA_Report.png?v=73831" width="600"   /></a></dd></dl>
+<h2><a name="Between_Within_Capability_Analysis"></a><span class="mw-headline">Between Within Capability Analysis</span></h2>
+<h5><a name="Background_2"></a><span class="mw-headline">Background</span></h5>
+<p>A engineer wants to access the production process of the stainless steel sheet. 
+</p><p>He collects 4 measurements of the thickness from 20 consecutive steel sheets.  The thickness much be 3 ± 0.1 mm. 
+</p>
+<h5><a name="Steps_in_Origin_2"></a><span class="mw-headline">Steps in Origin</span></h5>
+<ol><li> Open folder <b>2. Between-Within</b>, activate the workbook <b>Steel Sheet</b></li>
+<li> Click the <b>Statistical Process Control</b> icon <a  class="image"><img alt="SPC Icon.png" src="../images/Tutorial_CA/SPC_Icon.png?v=73813" width="32"  /></a> in the <b>Apps Gallery</b> window.</li>
+<li> Keep in the <b>Capability Analysis</b> tab, select <b>Between/Within Capability Analysis</b></li>
+<li> In the <b>Input</b> tab of the opened dialog, select column A to be <b>Measurement Data</b>. Choose <b>Subgroup Size By</b> to be <b>Column</b> and set the <b>Subgroup Size Column</b> to be Column B
+<dl><dd><a  class="image"><img alt="BCA Input.png" src="../images/Tutorial_CA/380px-BCA_Input.png?v=73836" width="380"   /></a></dd></dl></li>
+<li> In the <b>Limits</b> tab, set <b>Lower Spec</b> to be <b>2.9</b>, <b>Upper Spec</b> to be <b>3.1</b> and <b>Target</b> to be <b>3</b>
+<dl><dd><a  class="image"><img alt="BCA limit.png" src="../images/Tutorial_CA/380px-BCA_limit.png?v=76914" width="380"   /></a></dd></dl></li>
+<li> Click <b>OK</b> button. A graph with report tables will be created</li></ol>
+<h5><a name="Interpreting_the_Results_2"></a><span class="mw-headline">Interpreting the Results</span></h5>
+<p>Not all the measurements are within the specification limits. For between/within capability, Cp is 1.188, which indicates that the specification spread is 1.19 times greater than the 6-σ spread in the process. Cp and Cpk is a slightly different, indicating that the process is slightly off centered. For overall capability, Pp, Ppk, and Cpm are very close to each other, indicating that the process is centered and on target. However, Ppk is less than 1.33, which is a generally accepted minimum value for a capable process. We can conclude that the process is good but its capability still could be improved.
+</p>
+<dl><dd><a  class="image"><img alt="BCA Results.png" src="../images/Tutorial_CA/600px-BCA_Results.png?v=73840" width="600"   /></a></dd></dl>
+<h2><a name="Non-normal_Capability_Analysis"></a><span class="mw-headline">Non-normal Capability Analysis</span></h2>
+<h5><a name="Background_3"></a><span class="mw-headline">Background</span></h5>
+<p>There is a dataset of weight values which follows the weibull distribution. We hope the data are not larger than 1. 
+</p>
+<h5><a name="Steps_in_Origin_3"></a><span class="mw-headline">Steps in Origin</span></h5>
+<ol><li> Opened folder <b>3. Nonnormal</b>. Activate the workbook <b>Weibull</b></li>
+<li> Click the <b>Statistical Process Control</b> icon <a  class="image"><img alt="SPC Icon.png" src="../images/Tutorial_CA/SPC_Icon.png?v=73813" width="32"  /></a> in the <b>Apps Gallery</b> window.</li>
+<li> Keep in the <b>Capability Analysis</b> tab, select <b>Non-normal Capability Analysis</b></li>
+<li> In the <b>Input</b> tab of the opened dialog, <b>Measurement Data</b> to be column A.</li>
+<li> In the <b>Distribution'<i> tab, set </i></b><i>Distribution<b> to be </b>Weibull<b>, set </b>Method<b> to be </b>Estimate Parameters<b>.  Keep </b>Fix Shape At</i> box to be empty.
+<dl><dd><a  class="image"><img alt="NCA Distribution.png" src="../images/Tutorial_CA/250px-NCA_Distribution.png?v=73844" width="250"   /></a></dd></dl></li>
+<li> In the <b>Limits</b> tab, set <b>Upper Spec</b> to be <b>1</b>, keep all other text box to be empty.
+<dl><dd><a  class="image"><img alt="NCA Limit.png" src="../images/Tutorial_CA/250px-NCA_Limit.png?v=73845" width="250"   /></a></dd></dl></li>
+<li> Click <b>OK</b> button. A graph with report tables will be created</li></ol>
+<h5><a name="Interpreting_the_Results_3"></a><span class="mw-headline">Interpreting the Results</span></h5>
+<p>The dataset appear to follow  the fitted curve of weibull distribution. All the measurements falls below the upper specification limits. We can say the process meets requirements
+</p>
+<dl><dd><a  class="image"><img alt="NCA Results.png" src="../images/Tutorial_CA/600px-NCA_Results.png?v=73846" width="600"   /></a></dd></dl>
+<h2><a name="Binomial_Capability_Analysis"></a><span class="mw-headline">Binomial Capability Analysis</span></h2>
+<p>The binomial capability analysis is used to determine if the percentage of defective items in a process meets customer specifications. There are only two possible outcomes when you examine one item: it is either defective or not defective.
+</p>
+<h5><a name="Background_4"></a><span class="mw-headline">Background</span></h5>
+<p>The manager of a shop performs service satisfaction survey every day for 25 days and mark down the number of unsatisfied users. 
+</p><p>He wants to know how well the service meets specifications.
+</p>
+<h5><a name="Steps_in_Origin_4"></a><span class="mw-headline">Steps in Origin</span></h5>
+<ol><li> Opened folder <b>4. Binomial</b>, activate the workbook <b>Survey</b>.</li>
+<li> Click the <b>Statistical Process Control</b> icon <a  class="image"><img alt="SPC Icon.png" src="../images/Tutorial_CA/SPC_Icon.png?v=73813" width="32"  /></a> in the <b>Apps Gallery</b> window.</li>
+<li> Keep in the <b>Capability Analysis</b> tab, select <b>Binnomial Capability Analysis</b></li>
+<li> In the <b>Input</b> tab of the opened dialog, set <b>Defectives</b> to be column B. Choose <b>Sample Size By</b> to be <b>Column</b> and set the <b>Sample Size Column</b> to be Column A
+<dl><dd><a  class="image"><img alt="BinCA Input.png" src="../images/Tutorial_CA/380px-BinCA_Input.png?v=73849" width="380"   /></a></dd></dl></li>
+<li> Click <b>OK</b> button. A graph with report tables will be created</li></ol>
+<h5><a name="Interpreting_the_Results_4"></a><span class="mw-headline">Interpreting the Results</span></h5>
+<p>From the P chart we can see  all samples fall within the control limit line, so overall it appears the process is in control.  The Cumulative&#160;%Defactive Chart shows that,  the estimated average percent of defects stabilizes at around 20%. In the Rate of Defectives plot, the points are randomly distributed around the average line.
+In the <b>Summary Stats</b> table, the Process Z value is 0.853, it's much lower than 2. It indicates that the service does not meet the specifications. About 20% users are not satisfied with the service. 
+</p>
+<dl><dd><a  class="image"><img alt="BinCA Results.png" src="../images/Tutorial_CA/600px-BinCA_Results.png?v=73957" width="600"   /></a></dd></dl>
+<h2><a name="Poisson_Capability_Analysis"></a><span class="mw-headline">Poisson Capability Analysis</span></h2>
+<h5><a name="Background_5"></a><span class="mw-headline">Background</span></h5>
+<p>We want to evaluate the plastic film production process. Data are collected once an hour on the plastic film. An area is cut out and the blemishes are counted. The area in
+cm2 and the number of blemishes are recorded. We have recorded the data for the last 100 hours. We want to know whether the production meets requirements.
+</p>
+<h5><a name="Steps_in_Origin_5"></a><span class="mw-headline">Steps in Origin</span></h5>
+<ol><li> Select the folder <b>5. Poisson</b> in <b>Project Explorer</b>, activate the workbook <b>Plastic Film</b></li>
+<li> Click the <b>Statistical Process Control</b> icon <a  class="image"><img alt="SPC Icon.png" src="../images/Tutorial_CA/SPC_Icon.png?v=73813" width="32"  /></a> in the <b>Apps Gallery</b> window.</li>
+<li> Keep in the <b>Capability Analysis</b> tab, select <b>Poisson Capability Analysis</b></li>
+<li> In the <b>Input</b> tab of the opened dialog, set <b>Defectives</b> to be column B. Choose <b>Sample Size By</b> to be <b>Column</b> and set the <b>Sample Size Column</b> to be Column A
+<dl><dd><a  class="image"><img alt="PoiCA Input.png" src="../images/Tutorial_CA/380px-PoiCA_Input.png?v=73855" width="380"   /></a></dd></dl></li>
+<li> Click <b>OK</b> button. A graph with report tables will be created</li></ol>
+<h5><a name="Interpreting_the_Results_5"></a><span class="mw-headline">Interpreting the Results</span></h5>
+<p>The U Chart assesses the state of statistical control of the results. There is one out-of-control point in the U Chart. Generally we can say the process is stable. The Cumulative DPU chart is used to determine if you have enough samples for a valid estimate of the average DPU. In the Cumulative DPU graph we can see data are flatten out along the average DPU line. That means we have enough samples to be sure that the estimated mean DPU is valid. 
+</p><p>From the Summary Stats table, we can see the mean DPU (defects per unit) is 0.115. That is , there is 1 defect every 8.69 cm^2(1/0.115). The LCL and UCI are 0.108 and 0.121. That is, we are 95% confident that the mean DPU falls within the interval (0.108, 0.121).
+</p>
+<dl><dd><a  class="image"><img alt="PoiCA Results 01.png" src="../images/Tutorial_CA/600px-PoiCA_Results_01.png?v=76744" width="600"   /></a></dd></dl>
+
+

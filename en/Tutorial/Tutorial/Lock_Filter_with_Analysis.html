@@ -1,0 +1,37 @@
+<h1 class="firstHeading">4.5.2.4 Lock Filter with Analysis</h1><p class='urlname' style='display: none'>Lock-Filter</p>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Generally, when graphing or analysis is done on data with a filter, changes in the filter condition of the source worksheet trigger recalculation for the analysis results and graph.
+</p><p>However for <a class="external text" href="../../UserGuide/UserGuide/Copy_Columns_to_New_Destination.html">Copy Columns</a> and <a class="external text" href="../../UserGuide/UserGuide/Pivot_Table.html">Pivot Table</a>, in the Recalculate lock icon context menu, there are <a class="external text" href="../../UserGuide/UserGuide/Data_Filter.html#Save_Data_Filter_into_Operation">three worksheet filter options</a>. These are used to control whether the results will be affected by further filter changes.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 9.1 SR0 </p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<ul><li> How to copy columns to a new sheet or new workbook</li>
+<li> How to lock a Data Filter condition on copied columns</li>
+<li> How to push back the Data Filter condition to the source worksheet</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<ol>
+<li>Import the Origin sample data <i>automobile.dat</i> which is located in <b>&lt;Origin Program Folder&gt; \Samples\Statistics</b>.
+
+<li>Highlight the <b>Make</b> column then from the menu choose <b>Column: Filter: Add or Remove Filter</b> or select the <b>Filter</b> button from the <b>Worksheet</b> toolbar. 
+<br /><a  class="image"><img alt="Lock Filter with Analysis 01.png" src="../images/Lock_Filter_with_Analysis/Lock_Filter_with_Analysis_01.png?v=25528" width="521"  /></a>
+<li> To show only the <b>Honda</b> data, click on the filter icon <a  class="image"><img alt="Button Add Or Remove Data Filter.png" src="../images/Lock_Filter_with_Analysis/Button_Add_Or_Remove_Data_Filter.png?v=13394" width="23"  /></a> that appears on the top left of the column's first cell. Choose <b>Select All</b> to clear all the options. Select <b>Honda</b>. Click the <b>OK</b> button. 
+<br /><a  class="image"><img alt="Lock Filter with Analysis 02.png" src="../images/Lock_Filter_with_Analysis/Lock_Filter_with_Analysis_02.png?v=25530" width="429"  /></a>
+<li> To copy columns to a different sheet, hold down the CTRL key and select the <b>Make</b>, <b>Power</b> and <b>Engine Displacement</b> columns. Next, right-click and select the <b>Copy Columns to...</b> in the context menu.
+
+<li> In the <b>colcopy</b> dialog, select <b>Auto</b> in the <b>Recalculate</b> drop-down list. Make sure the <b>Destination Columns</b> is set to a new worksheet in the same workbook (see Tip, below). A new sheet with the copied columns will be created. 
+<br /><a  class="image"><img alt="Lock Filter with Analysis 03.png" src="../images/Lock_Filter_with_Analysis/Lock_Filter_with_Analysis_03.png?v=56260" width="680"  /></a>
+
+<li>Click and drag the sheet tab of the copied worksheet to blank Origin workspace. This will create a new workbook to hold the copied data so the copied data and original data can now be compared side by side.
+
+<li> Click on the green Recalculate lock icon on the top left of the first cells' in the columns of this copied sheet. Select <b>Worksheet Filters: Lock</b> in the context menu. The filter conditions will be saved into the operation. 
+<br /><a  class="image"><img alt="Lock Filter with Analysis 04.png" src="../images/Lock_Filter_with_Analysis/Lock_Filter_with_Analysis_04.png?v=32901" width="483"  /></a>
+
+<li>In the source worksheet, add Data Filter to <b>Power</b> column, and click on the filter icon to select <b>Greater Than...</b>. In the <b>Simple Number Filter</b> dialog, set <b>Value</b> to 100, and click <b>OK</b>. The filter will show only the <b>Power</b> data above 100 in the original workbook but since the filter was locked in the copied workbook the data in it will no longer update. 
+
+<li>The filter conditions on the original workbook were changed and in order to set them back to the way they are in the copied workbook, use <b>Push Back</b>. In the copied sheet, click on the green lock in column(A) and select <b>Worksheet Filters: Push Back</b> from the context menu. This will result in the data filter condition in the original workbook being pushed back so that the filter condition set on <b>Power</b> no longer applies.
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Lock_Filter_with_Analysis/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>The lock filters options are only available in the <i>new</i> sheet created by column copy. If you copy columns to the <i>same</i> worksheet, the options will not show in the <b>Recalculate</b> lock icon's context menu.
+</p></td></tr></table>
+
+

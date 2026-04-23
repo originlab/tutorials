@@ -1,0 +1,94 @@
+<h1 class="firstHeading">4.8.4 Batch Processing with Word Template for Reporting</h1><p class='urlname' style='display: none'>BatchProcess-WordTemplate</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Add_Bookmarks_to_Analysis_Template"><span class="tocnumber">3.1</span> <span class="toctext">Add Bookmarks to Analysis Template</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Link_Analysis_Results_to_Word_Template"><span class="tocnumber">3.2</span> <span class="toctext">Link Analysis Results to Word Template</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Sending_One_Time_Results_to_Word_Template_to_Create_Word_Report"><span class="tocnumber">3.3</span> <span class="toctext">Sending One Time Results to Word Template to Create Word Report</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Batch_Process_and_Export_Results_to_Word.2FPDF_Files"><span class="tocnumber">3.4</span> <span class="toctext">Batch Process and Export Results to Word/PDF Files</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Origin can perform batch analysis of multiple files and output cell-linked analysis results to an external Word template for reporting.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 2016 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li> Add bookmarks from a Word template to a specific Analysis Template</li>
+<li> Link analysis results to bookmarked cells in Word template and adjust the sizes of graphs to be exported</li>
+<li> Sending one time results to Word template for reporting</li>
+<li> Perform batch analysis of multiple files and export results to Word/PDF files</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<p>In this tutorial we will use a built-in Word template <i>Sensor Analysis Report.dotx</i> which is located at <i>&lt;Origin EXE folder&gt;\Samples\Batch Processing\</i> folder. To view the bookmark labels on the Word template, with the file open go to <b>File: Options</b> to open <b>Word Options</b> dialog. Then select <b>Advanced</b> on the left panel and scroll down to section <b>Show document content</b> on the right panel and check <b>Show bookmarks</b> checkbox there.
+</p>
+<dl><dd><a  class="image"><img alt="Batch Processing with Word Template for Reporting 01a.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Batch_Processing_with_Word_Template_for_Reporting_01a.png?v=40481" width="488"  /></a></dd></dl>
+<h3><a name="Add_Bookmarks_to_Analysis_Template"></a><span class="mw-headline">Add Bookmarks to Analysis Template</span></h3>
+<ol><li> Start Origin. Click <b>File: Open</b> and browse to <i>&lt;Origin EXE&gt;\Samples\Batch Processing\</i> folder and select the file <b>Sensor Analysis.ogw</b> (NOT "Sensor Analysis.ogwu") and open it.</li>
+<li> Activate worksheet <i>Data</i>, click the button <a  class="image"><img alt="Button Import ASCII.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Button_Import_ASCII.png?v=1202" width="20"  /></a> and browse to <i>&lt;Origin EXE folder&gt;\Samples\Curve Fitting\</i> folder and select file <b>Sensor01.dat</b> to import data for analysis.</li>
+<li> Go to menu <b>File: Add Word Bookmarks to Analysis Template...</b> to open dialog. Click the browse button <a  class="image"><img alt="Tutorial Import 005.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Tutorial_Import_005.png?v=249" width="19"  /></a> to the right of the <b>Word template</b> box and browse to <i>&lt;Origin EXE folder&gt;\Samples\Batch Processing\</i> folder to select <b>Sensor Analysis Report.dotx</b>.</li>
+<li> Click to select all bookmark entries in the <b>Bookmarks</b> list under <b>Select Bookmarks</b> and click <b>OK</b> to add a <i>Bookmarks</i> sheet to the active analysis template. 
+<dl><dd><a  class="image"><img alt="Batch Processing with Word Template for Reporting 01.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Batch_Processing_with_Word_Template_for_Reporting_01.png?v=40463" width="485"  /></a></dd></dl></li></ol>
+<h3><a name="Link_Analysis_Results_to_Word_Template"></a><span class="mw-headline">Link Analysis Results to Word Template</span></h3>
+<ol>
+<li>Click on the <i>Bookmarks</i> tab.</li>
+<li>In the <i>Links</i> column, right-click the cell to the right of <i>FileName</i>  and select <b>Insert Variables</b>.
+<li>In the Insert Variables dialog, click the <b>Info</b> tab, expand the SYSTEM.IMPORT node and highlight FILENAME. Click  the <b>Insert</b> button to insert the file name into the worksheet cell.
+<li>Right-click the cell beside <i>FileDate</i> and again choose <b>Insert Variables</b>, expand the SYSTEM.IMPORT node, highlight FILEDATE and click  the <b>Insert</b> button to insert the file date into the worksheet cell. Note that the value that is inserted is a <a class="external text" href="../../UserGuide/UserGuide/Dates_and_Times_in_Origin.html">Julian Day</a> value, the number that Origin uses internally to store date-time data. To display in a more familiar date format, right-click the cell and select <b>Format Cells</b>.
+<li>From the <b>Format</b> drop-down list, select <i>Date</i> and click <b>OK</b> to close the dialog.
+<li>Right-click the cell beside the <i>FittedGraph</i> cell and select <b>Insert Graph</b>. Click the browse button <a  class="image"><img alt="Tutorial Import 005.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Tutorial_Import_005.png?v=249" width="19"  /></a> to the right of the <b>Graphs</b> box to open <b>Graph Browser</b> dialog. Check the <b>Show Embedded Graph</b> box to display a list of worksheet-embedded graphs. Click to select the <i>FitLine</i> graph and add it to panel on the right. Click <b>OK</b> twice to insert the graph into <b>Bookmarks</b> worksheet. In the <i>GraphWidth</i> column to the right, enter <i>250</i> (units = point size) to specify the size of the graph that will be exported to Word.</li>
+<p><a  class="image"><img alt="Batch Processing with Word Template for Reporting 02.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Batch_Processing_with_Word_Template_for_Reporting_02.png?v=39881" width="783"  /></a>
+</p>
+<li>Repeat the last step for the row <i>ResidualPlot</i>.
+<li>For bookmarks related to parameter values, we will copy and paste link values from the report sheet <i>FitLinear1</i>. Click the report sheet <i>FitLinear1</i> and locate the <b>Parameters</b> table. Click on the data cell at the intersection of <i>Intercept</i> and <i>Value</i>, right-click and select <b>Copy</b>. Return to the <b>Bookmarks</b> sheet, right-click the cell to the right of <i>InterceptValue</i> and select <b>Paste Link</b> to create a link between bookmarks in the Word template and values in report sheet.
+<li>Repeat this "Copy and Paste Link" operation to fill in the rest of cells in the <i>Links</i> column (you'll find the <i>RSquare</i> value beside <i>Adj. R-Square</i> in the <i>Statistics</i> table). When done, click <b>File: Save Workbook as Analysis Template...</b> to save the analysis template as <b>Sensor Analysis Template.ogw</b> or <b>.ogwu</b> . 
+<br /><a  class="image"><img alt="Batch Processing with Word Template for Reporting 04.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Batch_Processing_with_Word_Template_for_Reporting_04.png?v=56342" width="847"  /></a>
+</li>
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Batch_Processing_with_Word_Template_for_Reporting/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>You can follow the steps in the previous tutorial "<a href="../../Tutorial/Tutorial/Creating_a_Custom_Report_Sheet.html" title="Tutorial:Creating a Custom Report Sheet">Creating a Custom Report Sheet</a>" to learn how to copy and paste results as link to desired cell.
+</p></td></tr></table>
+<h3><a name="Sending_One_Time_Results_to_Word_Template_to_Create_Word_Report"></a><span class="mw-headline">Sending One Time Results to Word Template to Create Word Report</span></h3>
+<p>Sometimes we may just want to analyze one data file and quickly create one Word report. Continue from the example above, suppose we have all results linked to Word bookmarks as shown in <i>Bookmarks</i> worksheet, to create an one time Word report for active sheet you can simply click Export to Word button <a  class="image"><img alt="Button Create Word Report.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Button_Create_Word_Report.png?v=44537" width="30"  /></a> on the top left corner to create it.
+</p><p>You can further specify where to output the Word report in appeared <b>Export Path</b> dialog.
+</p>
+<h3><a name="Batch_Process_and_Export_Results_to_Word.2FPDF_Files"></a><span class="mw-headline">Batch Process and Export Results to Word/PDF Files</span></h3>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Batch_Processing_with_Word_Template_for_Reporting/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>Beginning with <b>Origin 2020</b>, you can export <b>PDF</b> and <b>MS Word</b> reports as a single multi-page File. To do so, check the <b>Export as multi-page File</b> box before running you batch operation.
+</p></td></tr></table> 
+<ol>
+<li>Start with a new project.
+<li>Click on the <b>Batch Processing</b> button <a  class="image"><img alt="Button Batch Processing.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Button_Batch_Processing.png?v=6032" width="23"  /></a>.
+<li>Make sure <b>Load Analysis Template</b> is selected as <b>Batch Processing Mode</b>. In the <b>Analysis Template</b> drop-down, select the <b>Sensor Analysis Template.ogw(u)</b> file we created earlier (you may need to click the button to the right of the list and browse to the created file).
+<li>Select <b>PDF</b> from <b>Export to</b> drop-down list to export report as PDF file.
+<li>Click the browse button <a  class="image"><img alt="Tutorial Import 005.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Tutorial_Import_005.png?v=249" width="19"  /></a> to the right of the <b>Word template</b> box and browse to <i>&lt;Origin EXE folder&gt;\Samples\Batch Processing\</i> folder to select <b>Sensor Analysis Report.dotx</b>.
+<li>Optionally you can click browse button <a  class="image"><img alt="Tutorial Import 005.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Tutorial_Import_005.png?v=249" width="19"  /></a> on the right of <b>Export Path</b> to specify another path for export.
+<li>Click on the browse button <a  class="image"><img alt="Tutorial Import 005.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Tutorial_Import_005.png?v=249" width="19"  /></a> to the right of <b>File List</b>, browse to the <i>&lt;Origin EXE Folder&gt;\Samples\Curve Fitting</i> folder and select all sensor files <b>Sensor0<i>#</i>.dat</b>.
+<li>Click <b>Add File(s)</b>, then click <b>OK</b>.
+<li>Select <b>File Name</b> as <b>Dataset Identifier</b>.
+<li>Make sure the <b>Data Sheet</b> drop-down is set as <b>Data</b>.
+<li>Make sure the <b>Result Sheet</b> drop-down is set as <b>Result</b>.
+<li>Make sure that <b>Delete Intermediate Workbook</b> is cleared.
+<li>Click <b>OK</b> to close the dialog and process the "Sensor" data files.</li>
+<p><br />
+<a  class="image"><img alt="Batch Processing with Word Template for Reporting 05.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Batch_Processing_with_Word_Template_for_Reporting_05.png?v=61114" width="761"  /></a>
+<br />
+</p>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Batch_Processing_with_Word_Template_for_Reporting/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>If you forget where to look for your exported PDF files, the location is output to <b>Messages Log</b>.
+</p></td></tr></table>
+<p>A sample of exported PDF version report is as following:
+<br /><a  class="image"><img alt="Batch Processing with Word Template for Reporting 07.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Batch_Processing_with_Word_Template_for_Reporting_07.png?v=54388" width="508"  /></a>
+</p>
+</li>
+</ol>
+
+

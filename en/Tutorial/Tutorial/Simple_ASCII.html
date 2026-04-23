@@ -1,0 +1,56 @@
+<h1 class="firstHeading">9.2.1 Single ASCII</h1><p class='urlname' style='display: none'>SingleASCII</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a></li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Simple_ASCII/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Simple_ASCII/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=240" target="_blank">Data Connectors</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=358" target="_blank">Matlab Connector Improvements in Origin 2020b</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Simple_ASCII/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Simple_ASCII/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+<ul><li> <a class="external text" href="https://blog.originlab.com/data-connector-json" target="_blank">Origin Web Data Connector in 2019b</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/data-connector-improvements-in-origin-2020b" target="_blank">Data Connector Improvements in Origin 2020b</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/using-origin-project-as-data-repository-with-the-origin-connector" target="_blank">Using an Origin Project as a Data Repository for the Origin Connector</a></li>
+<li> <a class="external text" href="https://blog.originlab.com/exclude-imported-data-when-saving-project" target="_blank">Exclude imported data when saving project</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>The <b>Data: Connect to File: Text/CSV</b> menu allows you to automatically import a single ASCII file where the data columns are delimited orderly and it consists of few header lines (maybe just a short description for the file and then names and units for the columns).
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to Import ASCII file by Data Connector.
+</p>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<p>Select from Origin menu <b>Helo: Open Folder: Sample Folder</b> to open Windows Explorer to the Samples folder under Origin program folder (by default installed in the Program Files folder). Browse to the \<i>Import and Export</i> subfolder. Open the file <i>S15-125-03.dat</i> in Windows Notepad. You can see that this file includes header lines and data lines. For Single ASCII files, Origin's Data Connector can auto detect file header/subheader and extract this information to the worksheet headers, such as <i>Long Name</i>, <i>Units</i>, etc.
+</p>
+<dl><dd><br /><a  class="image"><img alt="Tutorial Import 001.png" src="../images/Simple_ASCII/Tutorial_Import_001.png?v=297" width="430"  /></a><br /><br /></dd></dl>
+<p><b>Note:</b> Header lines are lines of text that are not part of the data and do not share the same delimiter formatting as the data. Subheader lines also are not part of the data, but share the same delimiter formatting and therefore correspond to particular columns of data.
+</p><p><br />
+To Import this file<br />
+</p>
+<ol><li>Select <b>Data: Connect to File: Text/CSV</b> from the main menu. In the opened dialog, browse to folder \<i>&lt;Origin grogram folder&gt;\Samples\Import and Export</i>, and highlight the file <i>S15-125-03.dat</i>.<br /><br /></li>
+<li>Double-click this file or click the <b>Open</b> button to open the <b>Import Options</b> dialog, in which you can view and specify the settings for how to import the file. <br /><br /></li>
+<li>By default, Origin auto detects the main header, subheader, and data will be imported from subheader. In this example, Origin automatically sets the first line,<br /><code>Time	Delta Temperature Magnetic Field Position</code><br />as the column Long Name and the second line,<br /><code>(sec) (K) (Oe) (mm)</code><br />as Units. <br /><br /><a  class="image"><img alt="Tutorial Import 003.png" src="../images/Simple_ASCII/Tutorial_Import_003.png?v=64545" width="377"  /></a><br /><br />Change <b>Save file header to</b> to <b>Book organizer</b> to save the main header information to <i>info</i> tree of book organzer (open by right clicking on workbook title bar and select <b>Show Organizer</b>)</li>
+<li>Click <b>OK</b> to accept these settings and import data into worksheet.<br /><br /><a  class="image"><img alt="Tutorial Import 004.png" src="../images/Simple_ASCII/Tutorial_Import_004.png?v=64544" width="447"  /></a><br /><br /></li></ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Simple_ASCII/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>Please note that the imported data are protected by default and you can not change it. You may see the hint below
+</p>
+<dl><dd><a  class="image"><img alt="Connector hint.png" src="../images/Simple_ASCII/250px-Connector_hint.png?v=64548" width="250"   /></a></dd></dl>
+<p><span class='headerInParagraph'>To enable data editing</span>
+</p>
+<ul><li> Click the green icon on the upper-left corner of worksheet and choose <b>Disconnect Sheet</b> or <b>Remove the Data Connector</b> from context menu</li></ul>
+<dl><dd><a  class="image"><img alt="Remove data connector.png" src="../images/Simple_ASCII/250px-Remove_data_connector.png?v=64561" width="250"   /></a></dd></dl>
+<p><br />
+For more details, please refer to the page: <a class="external text" href="../../QuickHelp/QuickHelp/How_to_allow_changing_data_when_data_connector_is_used.html">How to allow changing data when data connector is used?</a>
+</p><p><br />
+</p></td></tr></table>
+
+

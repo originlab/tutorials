@@ -1,0 +1,88 @@
+<h1 class="firstHeading">5.1.2 Cross Tabulation and Chi-square</h1><p class='urlname' style='display: none'>Crosstab</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#User_Story"><span class="tocnumber">3</span> <span class="toctext">User Story</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Preparing_Data_for_Analysis"><span class="tocnumber">4</span> <span class="toctext">Preparing Data for Analysis</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Performing_Cross_Tabulation_and_Chi-square"><span class="tocnumber">5</span> <span class="toctext">Performing Cross Tabulation and Chi-square</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Interpreting_The_Results"><span class="tocnumber">6</span> <span class="toctext">Interpreting The Results</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#Frequency_Distribution"><span class="tocnumber">6.1</span> <span class="toctext">Frequency Distribution</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Detecting_Relationships_Between_Age_and_Financial_Status"><span class="tocnumber">6.2</span> <span class="toctext">Detecting Relationships Between Age and Financial Status</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Assessing_the_Strength_of_the_Relationship"><span class="tocnumber">6.3</span> <span class="toctext">Assessing the Strength of the Relationship</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Cross tabulation is particularly useful for analyzing categorical data. In these analyses, a contingency table is used to display the frequency distribution of two or more variables. Analyses based on the table can determine whether there is a significant relationship between variables, and assess the strength of the relationship between the variables.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 2016 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you:
+</p>
+<ol><li> How to perform the Cross Tabulation.</li>
+<li> How to interpret the results.</li></ol>
+<h2><a name="User_Story"></a><span class="mw-headline">User Story</span></h2>
+<p>Our data are from the <b>Montana Economic Outlook Poll</b> conducted in May 1992, with accompanying demographics for 209 out of 418 poll respondents. We have data on seven variables: <b>Age</b>(under 35, 35-54, 55 and over),<b>Sex</b>(male, female),<b>Financial Status</b>(worse, same, or better than a year ago), etc. With the data, we want to learn:
+</p>
+<ol><li> The frequency distribution of financial status in three different age groups, and whether male and female differ in the distribution.</li>
+<li> Whether there is significant relationship between "Financial status" and "Age" for  male and female groups.</li>
+<li> The strength of the relationship.</li></ol>
+<h2><a name="Preparing_Data_for_Analysis"></a><span class="mw-headline">Preparing Data for Analysis</span></h2>
+<ol><li> Open a new project or a new workbook.  Import the data file <b>\Samples\Statistics\MontanacOutlookPoll.dat</b> </li>
+<li> We begin by sorting the categorical values.
+<ul><li> On the <b>MontanacOutlookPoll</b> worksheet, highlight column <b>B</b> and right click to select <b>Set As Categorical</b>. Double-click on <b>Unsorted</b> in the Categories label row to open the <b>Categories</b> dialog box. Check <b>Customize Categories (Add, Delete, Set Arbitrary Order)</b> box. Then use the Move To Top <a  class="image"><img alt="Category Tab Button ToTop 92.png" src="../images/Cross_Tabulation/Category_Tab_Button_ToTop_92.png?v=32106" width="24"  /></a>, Move Up <a  class="image"><img alt="Category Tab Button Move Up 92.png" src="../images/Cross_Tabulation/Category_Tab_Button_Move_Up_92.png?v=32104" width="24"  /></a>, Move Down <a  class="image"><img alt="Category Tab Button Move Down 92.png" src="../images/Cross_Tabulation/Category_Tab_Button_Move_Down_92.png?v=32105" width="24"  /></a> and Move To Bottom  buttons <a  class="image"><img alt="Category Tab Button ToBottom 92.png" src="../images/Cross_Tabulation/Category_Tab_Button_ToBottom_92.png?v=32107" width="24"  /></a> to reorder categories as "under 35", "35-54" and "55 and over":</li></ul>
+<dl><dd><a  class="image"><img alt="Crosstab0.png" src="../images/Cross_Tabulation/Crosstab0.png?v=63941" width="532"  /></a></dd></dl>
+<ul><li> Repeat the same steps for column <b>C</b> so that the categorical mapping is <b>&lt;Female, Male&gt;</b></li>
+<li> Repeat the same steps for column <b>G</b> so that the categorical mapping is <b>&lt;Better, Same, Worse&gt;</b></li></ul></li></ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Cross_Tabulation/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>To exclude missing values from analysis, we should <a href="../../Tutorial/Tutorial/Categorical_Values_Ordering_and_Sharing.html" title="Tutorial:Categorical Values Ordering and Sharing">set the columns as categorical</a>. Otherwise the missing values will be kept as numeric values. 
+</p></td></tr></table>
+<h2><a name="Performing_Cross_Tabulation_and_Chi-square"></a><span class="mw-headline">Performing Cross Tabulation and Chi-square</span></h2>
+<ol><li>Open the Cross Tabulation and Chi-square dialog by choosing the menu item <b>Statistics: Descriptive Statistics: Cross Tabulation and Chi-square</b>. </li>
+<li>Click on the <b>Input</b> tab. The data is in raw data mode, so select column <b>B</b>, <b>G</b> and <b>C</b> for <b>Row</b>, <b>Column</b> and <b>Layer</b>, respectively. 
+<dl><dd><a  class="image"><img alt="Crosstab1.png" src="../images/Cross_Tabulation/Crosstab1.png?v=42167" width="356"  /></a></dd></dl></li>
+<li> Click on the <b>Statistics</b> tab, uncheck the <b>Expected Counts</b>, <b>Residuals</b>, <b>Standardized Residuals</b> and <b>Adjusted Residuals</b> and accept all the other default settings. 
+<dl><dd><a  class="image"><img alt="Crosstab2.png" src="../images/Cross_Tabulation/Crosstab2.png?v=41830" width="334"  /></a></dd></dl></li>
+<li> On the <b>Tests</b> tab, select the <b>Chi-Square Test</b> check box. Expand the <b>Measures of Association</b> branch, and then select the <b>Contingency Coefficients</b>, <b>Phi</b>, and <b>Cramer's V</b> boxes (for measuring nominal association).  
+<dl><dd><a  class="image"><img alt="Crosstab3.png" src="../images/Cross_Tabulation/Crosstab3.png?v=42170" width="253"  /></a>                          </dd></dl></li>
+<li> Click on the <b>Output</b> tab and select the <b>Mosaic Plot</b> check box. Accept the other default settings and click <b>OK</b>.
+<dl><dd><a  class="image"><img alt="Crosstab44.png" src="../images/Cross_Tabulation/Crosstab44.png?v=41556" width="389"  /></a></dd></dl></li></ol>
+<h2><a name="Interpreting_The_Results"></a><span class="mw-headline">Interpreting The Results</span></h2>
+<p>Go to sheet <b>Crosstab1</b>
+</p>
+<h3><a name="Frequency_Distribution"></a><span class="mw-headline">Frequency Distribution</span></h3>
+<p>We can get frequency distribution information from the <b>Mosaic Plot</b> and  the <b>Contingency Table</b>. The area of each rectangle in the <b>Mosaic Plot</b>is proportional to the percentage of the Y variable for each level of the X variable, so we can visually compare the frequency distribution of "Financial status" and  "Age" for female, male and total. From the <b>Contingency Table</b> we can get more  specific information. Combining the <b>Mosaic Plot</b> with <b>Contingency Table</b>, we learn:
+</p>
+<ol><li>There is a major difference between younger and older women's views. 
+<ul><li> A majority of women under 35, 59.5%, feel they have better financial status. A majority of women 55 and over, 58.3% think their financial status remains the same. </li>
+<li> Fewer women under 35, 11.9%,  think their wealth status remains the same, while fewer women over 55, 11.1% think that they are better off financially.</li></ul>
+<dl><dd><a  class="image"><img alt="Crosstab5.png" src="../images/Cross_Tabulation/350px-Crosstab5.png?v=42195" width="350"   /></a> <a  class="image"><img alt="Crosstab6.png" src="../images/Cross_Tabulation/400px-Crosstab6.png?v=42178" width="400"   /></a></dd></dl></li>
+<li>Compared to women, men's feeling for financial status shows another interesting pattern:
+<ul><li> Men show no significant difference in financial status between age groups.</li>
+<li> Men between 35 - 54 are a little more likely to be confident of their financial status.</li></ul>
+<dl><dd><a  class="image"><img alt="Crosstab7.png" src="../images/Cross_Tabulation/350px-Crosstab7.png?v=42191" width="350"   /></a> <a  class="image"><img alt="Crosstab8.png" src="../images/Cross_Tabulation/350px-Crosstab8.png?v=42183" width="350"   /></a></dd></dl></li>
+<li> Regardless of the sex of respondents, there are some trends by age:
+<ul><li> People under 55 are more likely to be confident of their financial status</li>
+<li> People over 55 are more likely to feel that their financial status did not change. </li></ul>
+<dl><dd><a  class="image"><img alt="Crosstab9.png" src="../images/Cross_Tabulation/350px-Crosstab9.png?v=42192" width="350"   /></a> <a  class="image"><img alt="Crosstab10.png" src="../images/Cross_Tabulation/400px-Crosstab10.png?v=42189" width="400"   /></a></dd></dl></li></ol>
+<h3><a name="Detecting_Relationships_Between_Age_and_Financial_Status"></a><span class="mw-headline">Detecting Relationships Between Age and Financial Status</span></h3>
+<p>The <b>Chi-Square Tests</b> Table show test results for the independence of row and column variables. 
+If the <b>Prob&gt;ChiSq</b> is less than 0.05, this means the row and column variables, in this case age and financial status, are significantly related. Note the conclusions in the footnotes beneath the table. We conclude that:
+</p>
+<dl><dd><ul><li> Women of different ages differ in financial status.</li>
+<li> In contrast, there is no evidence to show an association between men's age and their financial status. </li>
+<li> Regardless sex, people of different ages usually differ in financial status.</li></ul>
+<dl><dd><a  class="image"><img alt="Crosstab11.png" src="../images/Cross_Tabulation/Crosstab11.png?v=72026" width="654"  /></a></dd></dl></dd></dl>
+<h3><a name="Assessing_the_Strength_of_the_Relationship"></a><span class="mw-headline">Assessing the Strength of the Relationship</span></h3>
+<p>The <b>Measures of Association</b> table helps in assessing the strength of the relationship between "Financial status" and "Age". As this is a 3*3 table(three levels for Age and three levels for Financial status), we can choose a <b>Contingency Coefficient</b> to compare across layers. (See the <a class="external text" href="../../UserGuide/Category/Cross_Tabulation.html#Selecting_Methods_for_Measuring_Association">introduction page</a> for the difference of the three statistics). From the table we can see
+</p>
+<dl><dd><ul><li> Women's financial status shows a stronger association with age than is the case with men. (0.444 v.s. 0.155)</li></ul>
+<dl><dd><a  class="image"><img alt="Crosstab12.png" src="../images/Cross_Tabulation/Crosstab12.png?v=42234" width="600"  /></a></dd></dl></dd></dl>
+
+

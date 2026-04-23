@@ -1,0 +1,90 @@
+<h1 class="firstHeading">4.2.1.1 Linear Fitting and Outlier Removal</h1><p class='urlname' style='display: none'>Linear-Fitting</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Masking_plotted_data_by_selecting_points_in_the_worksheet"><span class="tocnumber">3.1</span> <span class="toctext">Masking plotted data by selecting points in the worksheet</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Masking_plotted_data_by_selecting_points_in_the_graph"><span class="tocnumber">3.2</span> <span class="toctext">Masking plotted data by selecting points in the graph</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Linear_Fitting/Video_Image.png?v=58041" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Linear_Fitting/Video_Text_Image.png?v=64565" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/jwplayer.html?v=ftp/mm_tutorials/mp4/Linear_Fit_with_Outlier_Removal.mp4%7C767%7C600" target="_blank">Linear Fitting</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Linear_Fitting/Website_blog_icon_circle.png?v=64566" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Linear_Fitting/Blog_Image_33x33px.png?v=64564" width="135"  /></a>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>An outlier is typically described as a data point or observation in a collection of data points that is "very distant" from the other points and thus could be due to, for example, some fault in the measurement procedure. Identification and removal of outliers is often controversial, and is typically "more acceptable" in situations where the model used to describe the data is well known and well accepted.
+</p><p><br />
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li>Perform linear regression on a set of data points</li>
+<li>Examine the Residuals Table in the output and "identify" outliers</li>
+<li>Use the Masking Tool to remove the outlier points</li>
+<li>Use the Recalculation mechanism to automatically update the result after outlier removal</li></ul>
+<p>The procedure described in this tutorial is also applicable to other fitting tools such as Polynomial and Nonlinear Fitting
+</p>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<ol>
+<li>Start with a new workbook and import the file \<i>Samples</i>\<i>Curve Fitting</i>\<i>Outlier.dat</i>.
+
+<li>Click and select the second column and use the menu item <b>Plot: Symbol: Scatter</b> to create a scatter plot.
+
+<li>With the graph active, use the menu item <b>Analysis: Fitting: Linear Fit...</b> to bring up the Linear Fit dialog. Note that if you have used the Linear Fit dialog before, there will be a fly-out menu and you need to select the <b>Open Dialog...</b> sub menu. 
+
+<li>In the <b>Fit Control</b> tab, clear the <b>Apparent Fit</b> check box.
+
+<br /><br /><a  class="image"><img alt="DOC-2411 Tutorial FitLinear 007a Magenta.png" src="../images/Linear_Fitting/DOC-2411_Tutorial_FitLinear_007a_Magenta.png?v=63025" width="603"  /></a><br /><br />
+
+<li>In the <b>Residual Analysis</b> tab in the dialog, and check the <b>Standardized</b> check box.
+
+<br /><br /><a  class="image"><img alt="DOC-2411 Tutorial FitLinear 003a Magenta.png" src="../images/Linear_Fitting/DOC-2411_Tutorial_FitLinear_003a_Magenta.png?v=42377" width="576"  /></a><br /><br />
+
+<li>Change the <b>Recalculate</b> drop-down at the top of the dialog to <b>Auto</b> and press the <b>OK</b> button at the bottom of the dialog. The dialog will close and linear regression will be performed on the data.
+
+<br /><br /><a  class="image"><img alt="DOC-2411 Tutorial FitLinear 004a Magenta.png" src="../images/Linear_Fitting/DOC-2411_Tutorial_FitLinear_004a_Magenta.png?v=42375" width="606"  /></a><br /><br />
+
+<li>Select the <b>FitLinearCurve1</b> result sheet in the data workbook and scroll to the right side to view the <b>Standardized Residual</b> column. You will note that the value in row 6 of this column is <code>-2.54889</code>:
+
+<br /><br /><a  class="image"><img alt="DOC-2411 Tutorial FitLinear 001a Magenta.png" src="../images/Linear_Fitting/DOC-2411_Tutorial_FitLinear_001a_Magenta.png?v=38942" width="601"  /></a><br /><br />
+</ol>
+<h3><a name="Masking_plotted_data_by_selecting_points_in_the_worksheet"></a><span class="mw-headline">Masking plotted data by selecting points in the worksheet</span></h3>
+<p>At this point, we can mask data using either the worksheet or the graph. We will start by demonstrating how to mask plotted data from the worksheet.
+</p>
+<ol><li> Return to the original <i>Outlier</i> sheet and highlight row <i>6</i>.</li>
+<li> On the Mini Toolbar that pops up, click the <b>Mask/UnMask Data</b> button and note that the outlier is now masked (marked as red) in the graph window.</li>
+<li> Click on row 6 again and toggle the <b>Mask/Unmask Data</b> button to remove the mask from the point, noting that the point reverts to black.</li></ol>
+<dl><dd><a  class="image"><img alt="Tutorial FitLinear 001b Magenta.png" src="../images/Linear_Fitting/Tutorial_FitLinear_001b_Magenta.png?v=63027" width="575"  /></a></dd></dl>
+<h3><a name="Masking_plotted_data_by_selecting_points_in_the_graph"></a><span class="mw-headline">Masking plotted data by selecting points in the graph</span></h3>
+<p>To mask data in the graph:
+</p>
+<ol>
+<li>Make the graph active and then click and hold down the mouse left button on the "Regional Mask Tool" button in the Tools toolbar.  Select the "Masked Points on Active Plot" submenu which will be the first item in the fly-out menu:
+
+<br /><br /><a  class="image"><img alt="Tutorial FitLinear 002.png" src="../images/Linear_Fitting/Tutorial_FitLinear_002.png?v=6515" width="235"  /></a><br /><br />
+
+<li>With the above submenu selected, go to the graph and click on the 6th data point to mask the point (note that you can drag out a rectangle around the point).
+
+<br /><br /><a  class="image"><img alt="Tutorial FitLinear 005.png" src="../images/Linear_Fitting/Tutorial_FitLinear_005.png?v=40683" width="561"  /></a><br /><br />
+
+Whether you have masked the point in the worksheet or masked the point in the graph window, masking the point changes the input data to the linear fit operation and the auto update mechanism is triggered. The linear fit will be repeated with this particular masked point left out. The fit curve in the graph and the parameters table will automatically update. The resulting graph should look like this:
+
+<br /><br /><a  class="image"><img alt="Tutorial FitLinear 006.png" src="../images/Linear_Fitting/Tutorial_FitLinear_006.png?v=40685" width="566"  /></a>
+</ol>
+
+
+
+
+
+

@@ -1,0 +1,51 @@
+<h1 class="firstHeading">4.3.12 Sound Processing</h1><p class='urlname' style='display: none'>sound-processing</p>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Origin features some useful signal processing tools, such as smoothing, FFT filtering, and spectral analysis tools like the Fast Fourier Transform (FFT) . These can be useful for performing sound analysis. This tutorial will remove a specific noise from an audio signal (.WAV file) based on the spectral range of the noise. 
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 9 SR0</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">What You Will Learn</span></h2>
+<ol><li> Import a sound file (.WAV) into Origin.</li>
+<li> How to view sampling interval information.</li>
+<li> How to use FFT gadget to check the frequency spectra of a signal.</li>
+<li> Perform FFT filter on the audio signal.</li>
+<li> Export a filtered signal as a .WAV file.</li></ol>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<p>In this tutorial, we will use "Origin8 Message.wav" and "Dial Tone.wav" which can be found under the subfolder "\Samples\Signal Processing\" of the Origin installation folder. 
+</p><p>Play the sound file "Origin 8 Message.wav" and you will hear a dial tone noise in the background. The 2nd file is a recording of the dial tone. 
+</p>
+<ol>
+<li> Start Origin, and create a new project with an empty worksheet in a workbook.
+<li> Select menu <b>File: Import: Sound (WAV)...</b> to open the <b>Sound</b> dialog. (Hint: if this menu item is not shown, select menu <b>File: Import: Customize...</b> to open the <b>Import Menu Customization</b> dialog to add it.) Navigate to the "\Samples\Signal Processing\" folder and double click "Origin 8 Message.wav" and "Dial Tone.wav" to add them to the import list. Make sure <b>Show Options Dialog</b> is checked and click <b>OK</b>.
+<dl><dd><a  class="image"><img alt="WAV Sound 01.png" src="../images/Sound_Processing/WAV_Sound_01.png?v=28659" width="592"  /></a></dd></dl>
+<li> In the <b>Import and Export: impWav</b> dialog, click the triangle button to to the right of <b>Dialog Theme</b>, and select <i>System Default</i> from the context menu. Then expand <b>Import Options</b> node, change <b>Multi-File (except 1st) Import Mode</b> to <i>Start New Sheets</i>.
+<dl><dd><a  class="image"><img alt="WAV Sound 02.png" src="../images/Sound_Processing/WAV_Sound_02.png?v=28660" width="668"  /></a></dd></dl>
+<li> Click <b>OK</b> to import the two sound files into two worksheets:
+<dl><dd><a  class="image"><img alt="WAV Sound 03.png" src="../images/Sound_Processing/WAV_Sound_03.png?v=28661" width="396"  /></a></dd></dl>
+<li> In each worksheet, we can see the <b>Sampling Interval</b> has the same value of <i>2.26757E-5 (second)</i>. Click the <i>i</i> icon in the top left corner of the column and the <b>Column additional information</b> dialog pops up with the sampling interval information. Click <b>OK</b> to close this dialog.
+<dl><dd><a  class="image"><img alt="WAV Sound 04.png" src="../images/Sound_Processing/WAV_Sound_04.png?v=28662" width="497"  /></a></dd></dl>
+<li> With <b>Dial Tone</b> worksheet activated, highlight column A, and select menu <b>Plot: Line: Line</b> to make a line plot.
+<dl><dd><a  class="image"><img alt="WAV Sound 05.png" src="../images/Sound_Processing/WAV_Sound_05.png?v=28663" width="418"  /></a></dd></dl>
+<li> Using this graph, select menu <b>Gadgets: FFT...</b> to open the <b>Data Exploration: addtool_curve_fft</b> dialog. Using the default settings, click <b>OK</b> button to perform an FFT of the data and create the <b>FFTPREVIEW</b> graph with the results.
+<dl><dd><a  class="image"><img alt="WAV Sound 06.png" src="../images/Sound_Processing/WAV_Sound_06.png?v=28665" width="418"  /></a></dd>
+<dd><a  class="image"><img alt="WAV Sound 07.png" src="../images/Sound_Processing/WAV_Sound_07.png?v=28666" width="681"  /></a></dd></dl>
+<li> Uncheck the <b>Log Scale</b> checkbox on the <b>FFTPREVIEW</b> graph, and then select menu <b>Graph: Rescale to Show All</b> to rescale the graph. We can see that the distribution of frequency is mainly under 2000 Hertz with the largest peaks being under 500 Hertz.
+<dl><dd><a  class="image"><img alt="WAV Sound 08.png" src="../images/Sound_Processing/WAV_Sound_08.png?v=28685" width="681"  /></a></dd></dl>
+<li> Activate the worksheet <b>Origin 8 Message</b> and highlight column A. Select menu <b>Analysis: Signal Processing: FFT Filters</b> to open the <b>Signal Processing: fft_filters</b> dialog. In the dialog, change <b>Recalculate</b> to <i>None</i>, select <i>High Pass</i> for <b>Filter Type</b>, uncheck the <b>Auto</b> checkbox for <b>Cutoff Frequency</b> and change value to 500. Clear <b>Keep DC Offset</b> checkbox. We can auto preview the result by ticking the <b>Auto Preview</b> checkbox at the bottom, and the result will be shown in the right panel, which can be shown or hidden by using the button in the bottom right corner of the left panel.
+<dl><dd><a  class="image"><img alt="WAV Sound 09.png" src="../images/Sound_Processing/WAV_Sound_09.png?v=33759" width="748"  /></a></dd></dl>
+Note: If <b>Recalculate</b> is not <i>None</i>, the results need to be copied to new columns without the recalculate lock for changing the <b>Data Type</b>, see step 11 below.
+<li> Click <b>OK</b> to generate the results. We can see that the filtered result is in floating point format. In order to create a new WAV file, we need to convert this to an integer format.
+<dl><dd><a  class="image"><img alt="WAV Sound 10.png" src="../images/Sound_Processing/WAV_Sound_10.png?v=28682" width="455"  /></a></dd></dl>
+<li> Highlight column D (the filtered result column), and then choose <b>Properties...</b> item from the right-click context menu, to open the <b>Column Properties</b> dialog. In this dialog, expand <b>Options</b> node, set <b>Format</b> to <i>Numeric</i>, then change <b>Data Type</b> to <i>Short(2)</i>. Click <b>OK</b> to apply these settings to column D and close this dialog.
+<dl><dd><a  class="image"><img alt="WAV Sound 11.png" src="../images/Sound_Processing/WAV_Sound_11.png?v=28683" width="407"  /></a></dd></dl>
+<li> Keeping column D highlighted, select menu <b>File: Export: Sound (WAV)...</b>. In the open dialog, enter a file name (such as <i>Origin 8 Message_filtered.wav</i>) and save to a familiar location. Make sure the <b>Show Options Dialog</b> checkbox is ticked.
+<li> Click <b>Save</b> button and the <b>Import and Export: expWAV</b> dialog pops up. Clear the <b>Auto</b> checkbox for <b>Column</b>, and change it to 4. 
+<dl><dd><a  class="image"><img alt="WAV Sound 12.png" src="../images/Sound_Processing/WAV_Sound_12.png?v=28672" width="493"  /></a></dd></dl>
+Note: The <b>Column</b> is specified for the Y column, and Origin will find its sampling interval if exists or its associated X column. If no X column or the X column is not even spacing, there will be error messages.
+<li> Click <b>OK</b> to export column D as a wave file. Now you can play this wave file and hear that the dial tone has been removed. Note that information with the same spectra as the dial tone is also removed.
+</ol>
+
+
+
+
+
+

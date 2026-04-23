@@ -1,0 +1,79 @@
+<h1 class="firstHeading">4.5.2.5 Unstacking and Sorting Worksheet Columns by Label</h1><p class='urlname' style='display: none'>Unstack-Sort-Columns-by-Label</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Adding_Data_Filters_to_Categorical_Columns"><span class="tocnumber">3.1</span> <span class="toctext">Adding Data Filters to Categorical Columns</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Labeling_the_Plot.2C_Cleaning_up_Cosmetic_Issues"><span class="tocnumber">3.2</span> <span class="toctext">Labeling the Plot, Cleaning up Cosmetic Issues</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>When working with a dataset -- particularly one that was not created with any particular analysis or plotting operation in mind -- one is often faced with "cleaning up" (e.g. rearranging, reducing, etc.) the data before you can do any useful work on it. This can be particularly challenging when the dataset is large and where "cut and paste" rearrangement of data is not practical. Even a CSV file that has a simple row x column arrangement, frequently needs some "massaging" prior to analysis or graphing.
+</p>
+<dl><dd><a  class="image"><img alt="Unstack Sort Columns by Label 0.png" src="../images/Unstack_Sort_Columns_by_Label/Unstack_Sort_Columns_by_Label_0.png?v=63365" width="789"  /></a></dd></dl>
+<p>In this tutorial, we will connect to a large <a class="external text" href="http://www.fao.org/faostat/en/#data/ET" target="_blank">UN-FAO dataset of global temperature data for years 1961 - 2019</a>, perform a couple of operations to rearrange the data, then apply data filters to two categorical data columns before plotting the result as an interactive <a class="external text" href="https://blog.originlab.com/plotting-horizontally-arranged-data-using-row-wise-plotting-in-origin-2019" target="_blank">row-wise line series graph with error bars</a>.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 2021</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<ul><li> How to Connect to a web data source</li>
+<li> How to "unstack" a worksheet based on categories in one of the columns</li>
+<li> How to sort unstacked columns by column label</li>
+<li> How to set filters on multiple columns to manage a large dataset and view trends in data</li>
+<li> How to plot a row-wise graph on filtered data</li>
+<li> How to create a dynamic graph title that uses substitution of column metadata to label your graph</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<ol><li> With a workbook active, click <b>Data: Connect to Web</b>. In the Connect to Web dialog, copy the following into the URL box, then click <b>OK</b>:
+<dl><dd> https://www.dropbox.com/scl/fi/nzs4ly3yffvya65dqt4b8/FAO_Temperature_Change.csv?rlkey=wns0x5j0so2mceu98atexuief&amp;st=115mg663&amp;dl=1</dd></dl></li>
+<li> Accept the CSV Import Options settings and click <b>OK</b> to connect the web-data to the Origin worksheet.</li>
+<li> Resize the workbook so that you can get a good look at your data columns and note a few things:
+<ul><li> the second column, labeled <i>Area</i> is a repeating list of geographic regions and economic groupings. </li>
+<li> the fourth column, labeled <i>Months</i> is a repeating list of time periods (months, quarters, years).</li>
+<li> the sixth column, labeled <i>Element</i> contains <i>Temperature change</i> and <i>Standard Deviation</i> categories.</li>
+<li> columns labeled <i>Y1961</i> to <i>Y2019</i> contain both <i>Temperature change</i> and <i>Standard Deviation</i> measurements for years <i>1961</i> - <i>2019</i>.</li>
+<li> While there are potentially many ways we could manipulate and plot this data, the horizontal arrangement of the data, plus the inclusion of an error measurement (std. deviation) suggests a <a class="external text" href="https://blog.originlab.com/plotting-horizontally-arranged-data-using-row-wise-plotting-in-origin-2019" target="_blank">row-wise plot with error bars</a>. However, we will need to rearrange our data to get it into a form that we can plot.</li></ul></li>
+<li> We begin with the need to split the <i>Temperature change</i> and <i>Standard Deviation</i> data into separate columns, by year (i.e. what we want is to have a sequence of measurement &gt; std. dev, measurement &gt; std. dev., grouped by year). For this, we will use <a class="external text" href="../../UserGuide/UserGuide/Unstacking_Worksheet_Columns.html">the <b>Unstack Columns</b> tool</a>. Click <b>Restructure: Unstack Columns</b> and open the dialog box.</li>
+<li> The temperature data is in the <i>Y1961</i> - <i>Y2019</i> columns so click the flyout (arrow) button to the right of <b>Data to be Unstacked</b> and choose <b>Select Columns</b>. In the Column Browser dialog, scroll until you can see <i>LName</i> = <i>Y1961</i>, then hold the <i>Ctrl</i> + <i>Shift</i> keys and press the <i>End</i> key on your keyboard. This will select all temperature data columns. Click the <b>Add as One Block</b> button and click <b>OK</b> to close the Browser.</li>
+<li> Click the <b>Group Columns</b> flyout button and choose <b>F(Y): Element</b>.
+<dl><dd><a  class="image"><img alt="Unstack Sort Columns by Label.png" src="../images/Unstack_Sort_Columns_by_Label/Unstack_Sort_Columns_by_Label.png?v=63070" width="580"  /></a></dd></dl></li>
+<li> Under <b>Options</b>, (a) check the <b>Include Other Column(s)</b> box, then (b) click the "Select from Worksheet" button  <a  class="image"><img alt="Button Select Data Interactive.png" src="../images/Unstack_Sort_Columns_by_Label/Button_Select_Data_Interactive.png?v=1685" width="18"  /></a> to the right of the text box. When the dialog rolls up, hold down the <i>Ctrl</i> key and select worksheet columns <i>B(Y)</i> and <i>D(Y)</i> by clicking on the column headers. Click the <a  class="image"><img alt="Button Select Data Interactive Back.png" src="../images/Unstack_Sort_Columns_by_Label/Button_Select_Data_Interactive_Back.png?v=63333" width="22"  /></a> button to restore the dialog, accept remaining dialog defaults and click <b>OK</b> to close and generate your output.</li>
+<li> Click on the added <i>UnstackCols1</i> tab and note that we now have a clean separation of <i>Temperature change</i> and <i>Standard Deviation</i> measurements. However, we need to reorder columns by year so that each year's Temperature change is followed by its Standard Deviation. We cannot rearrange columns in this sheet because of the "operations locks", so we will proceed by making a copy of the sheet, then removing the operations from the copied sheet (leaving our original output intact).</li>
+<li> Right-click on the <i>UnstackCols1</i> sheet tab and choose <b>Duplicate</b>. On the UnstackCols2 sheet that is added, click on the green lock icon in the upper-left corner and choose <b>Recalculate Mode: None</b>. Click <b>OK</b> on the attention message.
+<dl><dd> <a  class="image"><img alt="Unstack Sort Columns by Label 2.png" src="../images/Unstack_Sort_Columns_by_Label/Unstack_Sort_Columns_by_Label_2.png?v=63072" width="604"  /></a></dd></dl></li>
+<li> Now that the protected operations are removed from the output sheet, we are free to sort the columns by label. Click on the <i>UnstackCols2</i> tab and drag the sheet out to create a separate book. Click on the column <i>C(Y)</i> header (<i>Y1961</i>) to select it, then press Ctrl + Shift + End to select all remaining columns. Click <b>Worksheet: Sort Columns by Label</b> and set the following:
+<dl><dd> <a  class="image"><img alt="Unstack Sort Columns by Label 3.png" src="../images/Unstack_Sort_Columns_by_Label/Unstack_Sort_Columns_by_Label_3.png?v=63088" width="791"  /></a></dd></dl></li>
+<li> Click <b>OK</b> to rearrange columns so that each year's Temperature change measurement is followed by its Standard Deviation measurement. Now, right-click on the still-selected data and choose <b>Set As: Custom...</b> and enter <i>YE</i> in the <b>Designation</b> box, then click <b>OK</b>. This will set the selected columns, in sequence, as <i>Y</i>, <i>yEr</i>&#177;, setting the worksheet up for plotting.
+<dl><dd> <a  class="image"><img alt="Unstack Sort Columns by Label 4.png" src="../images/Unstack_Sort_Columns_by_Label/Unstack_Sort_Columns_by_Label_4.png?v=63090" width="368"  /></a></dd></dl></li>
+<li> <b>One minor detail</b>: Scroll the worksheet so that you can see column <b>C</b> (<i>Long Name</i> = <i>Y1961</i>) and double-click in the <b>Units</b> cell, type a left paren then right-click and choose <b>Symbol Map</b>. Browse the Symbol Map to find a "degree" symbol (F0B0), <b>Insert</b> and <b>Close</b>. Type a capital "C" and a closing paren. Then hover on the lower right corner of the cell until you see the "+" cursor and double-click to extend the (&#176;C) to the end of the sheet.
+<dl><dd><a  class="image"><img alt="Unstack Sort Columns by Label 4a.png" src="../images/Unstack_Sort_Columns_by_Label/Unstack_Sort_Columns_by_Label_4a.png?v=63344" width="793"  /></a></dd></dl></li></ol>
+<h3><a name="Adding_Data_Filters_to_Categorical_Columns"></a><span class="mw-headline">Adding Data Filters to Categorical Columns</span></h3>
+<p>At this point, we have a very large dataset and trying to plot all data in our worksheet would overwhelm the row-wise plot we want to create. To better see trends in the data and make comparisons, we will add data filters to the <i>Area</i> and <i>Months</i> columns.
+</p>
+<ol><li> Click on the <i>Area</i> column header to select the column, then click <b>Column: Filter: Add/Remove Filter</b>. A filter icon is added to the column heading. Click on the column filter icon and clear the <b>Select All</b> box and clear all check marks, then check the boxes beside <i>Africa</i>, <i>Antarctica</i>, <i>Asia</i>, <i>Australia &amp; New Zealand</i>, <i>Europe</i>, <i>Northern America</i> and <i>South America</i>, then click <b>OK</b>.</li>
+<li> Click on the <i>Months</i> column header to select the column, then click <b>Column: Filter: Add/Remove Filter</b>. Click on the column filter icon and clear the <b>Select All</b> box and clear all check marks, then check the box beside <i>Meteorological year</i> and click <b>OK</b>. </li>
+<li> Select the <i>Area</i> column, right-click and choose <b>Set As X</b>. Press Ctrl and select column C, then press Shift + End to select the remaining columns in the worksheet.</li>
+<li> Click <b>Plot &gt; Basic 2D: Row-wise...</b>. Click the flyout button beside the <b>Y Label</b> in box and choose <i>A(X): Area</i> and <b>X Data in</b> <i>Column label</i>, then click <b>OK</b>.</li>
+<li> Once the graph is created (it may take a few moments), choose <b>Format: Page</b>, click the <b>Legends/Titles</b> tab to the right and set <b>Translation mode of&#160;%(1),&#160;%(2)</b> to <i>@LA: Long Name</i>.
+<dl><dd><a  class="image"><img alt="Unstack Sort Columns by Label 5.png" src="../images/Unstack_Sort_Columns_by_Label/Unstack_Sort_Columns_by_Label_5.png?v=63346" width="587"  /></a></dd></dl></li></ol>
+<h3><a name="Labeling_the_Plot.2C_Cleaning_up_Cosmetic_Issues"></a><span class="mw-headline">Labeling the Plot, Cleaning up Cosmetic Issues</span></h3>
+<ol><li> Double-click on the crowded axis tick labels on the horizontal axis. On the <b>Tick Labels</b> &gt; <b>Format</b> sub-tab,  set <b>Rotate(deg.)</b> = <i>Auto</i> and check the <b>Auto Hide Overlapped Labels</b> box.</li>
+<li> Click the <b>Scale</b> tab and set <b>From</b> to <i>0</i>, <b>To</b> to <i>60</i>, <b>Rescale</b> to <i>Fixed</i> and <b>Minor Ticks</b> to <b>Count</b> = <i>0</i>. Click OK to close the dialog.</li>
+<li> Right-click in the upper-center portion of the graph window, choose <b>Add Text</b> and in the text object, enter the following text:
+<dl><dd> Months:&#160;%([Book2]Unstackcols2,@WL,B[F],W)</dd></dl></li>
+<li> Right-click on the label object and choose <b>Properties</b>. Click on the <b>Programming</b> tab and set <b>Link to (%,$), Substitution Level</b> to <i>1</i> and click <b>OK</b>. The label now reads "Months: Meteorological year" which is the filter condition that is set for column <i>Months</i> (This is an example of a text substitution of worksheet information. For more information, see <a class="external text" href="../../LabTalk/LabTalk/Legend_Substitution_Notation.html#Legend_Text_Customization">Text Label Substitution</a>).</li>
+<li> To change the graph aspect ratio and be able to change graph proportions as desired, choose <b>Format: Page</b> and on the <b>Miscellaneous</b> tab, set <b>View Mode</b> = <i>Window View</i>. Click <b>OK</b> to close Plot Details.</li>
+<li> Press the Ctrl key and <a class="external text" href="../../UserGuide/Category/Graph_Legends_and_Color_Scales.html#General_Legend_Customizations">drag the graph legend horizontally</a> to create a one-line legend.</li>
+<li> Finally, choose <b>View: Show</b> and place a check mark beside <b>Frame</b>. This adds a frame to the graph layer. Reposition your page title and legend, as needed.</li></ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Unstack_Sort_Columns_by_Label/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>By clicking on one of the plots in the <a class="external text" href="../../GettingStarted/OriginLab/The_Origin_Interface.html#Object_Manager"><b>Object Manager</b></a>, you dim all others, giving you a better view of the trend in a single plot.
+</p>
+<dl><dd><a  class="image"><img alt="Unstack Sort Columns by Label 6.png" src="../images/Unstack_Sort_Columns_by_Label/Unstack_Sort_Columns_by_Label_6.png?v=63358" width="674"  /></a></dd></dl>
+</td></tr></table>
+
+

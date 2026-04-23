@@ -1,0 +1,128 @@
+<h1 class="firstHeading">4.1.10 Using Multiple Gadgets</h1><p class='urlname' style='display: none'>Using-Multiple-Gadgets</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Create_a_layout_for_multiple_gadget_windows"><span class="tocnumber">3</span> <span class="toctext">Create a layout for multiple gadget windows</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Using_Quick_Peaks_gadget_to_find_baseline"><span class="tocnumber">4</span> <span class="toctext">Using Quick Peaks gadget to find baseline</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Using_Quick_Fit_to_find_the_linear_fit_of_the_curve"><span class="tocnumber">5</span> <span class="toctext">Using Quick Fit to find the linear fit of the curve</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Using_Intersect_gadget_to_find_intersection_point"><span class="tocnumber">6</span> <span class="toctext">Using Intersect gadget to find intersection point</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Update_the_output"><span class="tocnumber">7</span> <span class="toctext">Update the output</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Multiple gadgets can be used in combination to achieve certain goals. To avoid overlapping of several gadget windows over same plot, we can arrange them into different layers to layout them onto different panels. The results from all other gadgets can be eventually added to the last gadget window and kept updated at each new output. In this tutorial, we will illustrate an example to show how we can combine the use of <b>Quick Peaks</b>, <b>Quick Fit</b> and <b>Intersect</b> gadgets to find the intersection point between the baseline and slope of a curve.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 2016 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you:
+</p>
+<ul><li>how to  simultaneously use multiple gadgets to analyze same data.</li>
+<li>how to output Gadget analyzed results onto a specific graph and keep them updated.</li>
+<li>how to find the intersection point of baseline with the linear fitting of a curve.</li></ul>
+<h2><a name="Create_a_layout_for_multiple_gadget_windows"></a><span class="mw-headline">Create a layout for multiple gadget windows</span></h2>
+<ol>
+<li>Start with a new workbook and import the file \<i>Samples</i>\<i>Curve Fitting</i>\<i>Gaussian.dat</i>.
+
+<li>To avoid overlapping the gadgets in one graph, we are going to prepare a multi-layer graph as shown below with same data in each layer.
+
+<li>Click and select the second column and use the menu item <b>Plot:Multi-Curve:4 Panel</b> to create a 4 panel plot.
+
+<br /><br /><a  class="image"><img alt="Tutorial Using Multiple Gadgets 01.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_01.png?v=28830" width="591"  /></a><br /><br />
+
+<table class="note">
+
+<tr>
+<td><b>Note:</b> To make the explanation of following steps more clear, we marked above figure with blue font to help you distinguish the layers in the graph.
+</td></tr></table>
+<li>Go back to the workbook, select the <b>Amplitude</b> column, and position the cursor at the edge of the column, until you see the cursor turn into <a  class="image"><img alt="Button Drag Column to Graph.png" src="../images/Using_Multiple_Gadgets/Button_Drag_Column_to_Graph.png?v=4979" width="34"  /></a>. Then you can drag-and-drop the column into layer 2 on the graph page and click <b>OK</b> to close the appeared dialog box. Do it again to add the plot to layer 3 in the panel, and then click the bottom right area to select the unwanted layer 4 and use the <b>Delete</b> key on the keyboard to delete it.
+
+<br /><br /><a  class="image"><img alt="Tutorial Using Multiple Gadgets 02.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_02.png?v=28794" width="591"  /></a><br /><br />
+
+</ol>
+<h2><a name="Using_Quick_Peaks_gadget_to_find_baseline"></a><span class="mw-headline">Using Quick Peaks gadget to find baseline</span></h2>
+<ol>
+
+<li>Select <b>Gadgets:Quick Peaks</b> from the Origin menu when layer 1 is active to bring up the <b>Data Exploration:addtool_quickpeaks</b> dialog box. According to the lineshape of this curve, spline connection would be a better choice for fitting the baseline. To do so, go to the <b>Baseline</b> tab, choose <b>Spline</b> in the <b>Connect Method</b> drop-down list to connect anchor points with spline method.
+
+<br /><br /><a  class="image"><img alt="Tutorial Using Multiple Gadgets 03.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_03.png?v=45875" width="381"  /></a><br /><br />
+
+<li>Since we do not want to create new columns in the source sheet to save baseline data at every new output, we can save the result to a new workbook and the newly created baseline data will replace existing data instead. To do so, go to <b>Output to</b> tab, uncheck the <b>Append to Worksheet</b> box and check the <b>Output Baseline to Worksheet</b> to output baseline data into a new book QkPeak with sheet name as Baseline.
+
+<br /><br /><a  class="image"><img alt="Tutorial Using Multiple Gadgets 04.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_04.png?v=62714" width="436"  /></a><br /><br />
+
+
+<li>Click <b>OK</b> to close the dialog box. Place the mouse cursor over the edge of the Region of Interest (ROI), when the cursor turns into a double arrow icon, you can resize the box as needed.
+
+<br /><br /><a  class="image"><img alt="Tutorial Using Multiple Gadgets 06.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_06.png?v=28798" width="591"  /></a><br /><br />
+
+<li>Click the triangle button <a  class="image"><img alt="Triangle Button.png" src="../images/Using_Multiple_Gadgets/Triangle_Button.png?v=358" width="18"  /></a> at the top right corner of the ROI to open the fly-out menu and choose <b>New Output(O)</b> to output baseline data.
+
+<br /><br /><a  class="image"><img alt="Tutorial Using Multiple Gadgets 07.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_07.png?v=28799" width="591"  /></a><br /><br />
+
+</ol>
+<h2><a name="Using_Quick_Fit_to_find_the_linear_fit_of_the_curve"></a><span class="mw-headline">Using Quick Fit to find the linear fit of the curve</span></h2>
+<ol>
+
+<li>Activate the second layer by clicking on the layer icon <a  class="image"><img alt="Button Layer Icon 02.png" src="../images/Using_Multiple_Gadgets/Button_Layer_Icon_02.png?v=28791" width="19"  /></a> on the top left corner of the graph or directly click on the plotting area of top right panel.
+
+<li>Select <b>Gadgets:Quick Fit:Linear(System)</b> from the Origin menu to bring up the <b>Quick Fit</b> ROI, and adjust the position and range of appeared ROI properly to perform linear fitting over the left half of the peak envelope.
+
+<br /><br /><a  class="image"><img alt="Tutorial Using Multiple Gadgets 08.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_08.png?v=28800" width="591"  /></a><br /><br />
+
+<li>Click the triangle button <a  class="image"><img alt="Triangle Button.png" src="../images/Using_Multiple_Gadgets/Triangle_Button.png?v=358" width="18"  /></a> at the top right corner of the ROI to open the fly-out menu and choose <b>Preferences</b> to customize <b>Quick Fit Preferences</b> dialog box.
+
+<li>Since we do not need other unnecessary output about this linear fitting,  we can go to the <b>Label Box</b> tab, uncheck <b>Add Label Box to Graph</b>.
+
+<br /><br /><a  class="image"><img alt="Tutorial Using Multiple Gadgets 09.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_09.png?v=45877" width="413"  /></a><br /><br />
+
+<li>For the same purpose, to avoid outputting summary report we can go to the <b>Report</b> tab, choose <b>None</b> in the <b>Output To</b> drop down list and click <b>OK</b> to close the dialog box.
+
+<br /><br /><a  class="image"><img alt="Tutorial Using Multiple Gadgets 10.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_10.png?v=45878" width="413"  /></a><br /><br />
+
+<li>Return to the triangle button <a  class="image"><img alt="Triangle Button.png" src="../images/Using_Multiple_Gadgets/Triangle_Button.png?v=358" width="18"  /></a> at the top right corner of the ROI, choose <b>New Output(O)</b> to output linearly fitted results to worksheet.
+
+</ol>
+<h2><a name="Using_Intersect_gadget_to_find_intersection_point"></a><span class="mw-headline">Using Intersect gadget to find intersection point</span></h2>
+<ol>
+
+<li>Before we apply the <b>Intersect</b> gadget, the first step to do is to add the fitted baseline and linearly fitted line from last two gadgets to the third plot. To do so, click on the layer icon <a  class="image"><img alt="Button Layer Icon 03.png" src="../images/Using_Multiple_Gadgets/Button_Layer_Icon_03.png?v=28792" width="20"  /></a> on the top left corner to activate layer 3. Right click on the layer icon <a  class="image"><img alt="Button Layer Icon 03.png" src="../images/Using_Multiple_Gadgets/Button_Layer_Icon_03.png?v=28792" width="20"  /></a> to choose <b>Layer Contents</b> to bring up <b>Layer Contents-Layer 3</b> window. Select the data with long name <b>QuickFit Y1</b> and <b>Baseline Y of Amplitude</b> and add them to the right panel through the right arrow icon <a  class="image"><img alt="Button Arrow Right 91.png" src="../images/Using_Multiple_Gadgets/Button_Arrow_Right_91.png?v=28828" width="24"  /></a>.
+
+<br /><br /><a  class="image"><img alt="Tutorial Using Multiple Gadgets 11v.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_11v.png?v=40818" width="714"  /></a><br /><br />
+
+<li>Click <b>OK</b> to close the window and the fitted baseline and linear line will display in the third layer.
+
+<br /><br /><a  class="image"><img alt="Tutorial Using Multiple Gadgets 12.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_12.png?v=28804" width="591"  /></a><br /><br />
+
+<li>Select <b>Gadgets:Intersect</b> from the Origin menu when layer 3 is active to bring up the <b>Data Exploration:addtool_curve_intersect</b> dialog box. Click <b>OK</b> to close the dialog box and it will bring up <b>Intersect</b> Gadget ROI.
+
+<br /><br /><a  class="image"><img alt="Tutorial Using Multiple Gadgets 13.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_13.png?v=28805" width="306"  /></a><br /><br />
+
+<li>Position and resize the ROI properly to have the intersection point between baseline and slope inside the box. To exclude other intersection points with the original curve, go to the triangle button <a  class="image"><img alt="Triangle Button.png" src="../images/Using_Multiple_Gadgets/Triangle_Button.png?v=358" width="18"  /></a> at the top right corner of the ROI and uncheck <b>Plot(1) Amplitude</b> from the context menu of <b>Change Data</b>.
+
+<br /><br /><a  class="image"><img alt="Tutorial Using Multiple Gadgets 14.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_14.png?v=28808" width="601"  /></a><br /><br />
+
+<li>Return to the triangle button <a  class="image"><img alt="Triangle Button.png" src="../images/Using_Multiple_Gadgets/Triangle_Button.png?v=358" width="18"  /></a> at the top right corner of the ROI, choose <b>New Output(O)</b> to output the result of intersection point between baseline and linearly fitted line.
+
+<br /><br /><a  class="image"><img alt="Tutorial Using Multiple Gadgets 15.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_15.png?v=28806" width="594"  /></a><br /><br />
+</ol>
+<h2><a name="Update_the_output"></a><span class="mw-headline">Update the output</span></h2>
+<ol>
+<li>Click on the layer icon <a  class="image"><img alt="Button Layer Icon 01.png" src="../images/Using_Multiple_Gadgets/Button_Layer_Icon_01.png?v=28790" width="20"  /></a> to activate layer 1, reposition <b>Quick Peaks</b> ROI to create a new baseline. Then go to the triangle button <a  class="image"><img alt="Triangle Button.png" src="../images/Using_Multiple_Gadgets/Triangle_Button.png?v=358" width="18"  /></a> at the top right corner of the ROI, choose <b>New Output(O)</b> to output the newly created baseline.
+
+<li>Click on the layer icon <a  class="image"><img alt="Button Layer Icon 02.png" src="../images/Using_Multiple_Gadgets/Button_Layer_Icon_02.png?v=28791" width="19"  /></a> to activate layer 2, reposition <b>Quick Fit</b> ROI to the other side of the curve so it will create a new linear fit line. Then go to the triangle button <a  class="image"><img alt="Triangle Button.png" src="../images/Using_Multiple_Gadgets/Triangle_Button.png?v=358" width="18"  /></a> at the top right corner of the ROI, choose <b>Update Last Output(O)</b> to output linearly fitted line result.
+
+<li>Click on the layer icon <a  class="image"><img alt="Button Layer Icon 03.png" src="../images/Using_Multiple_Gadgets/Button_Layer_Icon_03.png?v=28792" width="20"  /></a> to activate layer 3, reposition <b>Intersect</b> ROI to have the intersection point between newly created baseline and linearly fitted line inside the box. Then go to the triangle button <a  class="image"><img alt="Triangle Button.png" src="../images/Using_Multiple_Gadgets/Triangle_Button.png?v=358" width="18"  /></a> at the top right corner of the ROI, choose <b>New Output(O)</b> to output the result of new intersection point.
+
+<br /><br /><a  class="image"><img alt="Tutorial Using Multiple Gadgets 16.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_16.png?v=28807" width="591"  /></a><br /><br />
+
+</ol>
+
+
+
+
+
+

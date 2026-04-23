@@ -1,0 +1,165 @@
+<h1 class="firstHeading">4.2.2.18 Fitting with Convolution</h1><p class='urlname' style='display: none'>Fitting-Convolution</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">Example and Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Background"><span class="tocnumber">3.1</span> <span class="toctext">Background</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Define_the_Function"><span class="tocnumber">3.2</span> <span class="toctext">Define the Function</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Fit_the_Curve"><span class="tocnumber">3.3</span> <span class="toctext">Fit the Curve</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>When performing curve fitting to experimental data, one may encounter the need to account for instrument response in the data. One way to do this is to first perform deconvolution on the data to remove the instrument response, and then perform curve fitting as a second step. However, deconvolution is not always reliable as the results can be very sensitive to any noise present in the data. A more reliable way is to perform convolution of the fitting function with the instrument response while performing the fitting. This tutorial will demonstrate how to perform convolution while fitting.
+</p>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Fitting_With_Convolution/Tip_icon.png?v=8477" width="57"  border="0" /></td><td><p>If your data is a convolution of Gauss and Exponential functions, you can simply use built-in fitting function <a class="external text" href="../../UserGuide/UserGuide/GaussMod.html">GaussMod</a> in <b>Peak Functions</b> category to directly fit your data.
+</p></td></tr></table>
+<p class="version" >Minimum Origin Version Required: Origin 2016 SR0.</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to:
+</p>
+<ul><li> Access fitting information during iterations.</li>
+<li> Perform convolution while fitting.</li></ul>
+<h2><a name="Example_and_Steps"></a><span class="mw-headline">Example and Steps</span></h2>
+<h3><a name="Background"></a><span class="mw-headline">Background</span></h3>
+<p>Let's start this example by importing \<i>Samples</i>\<i>Curve Fitting</i>\<i>FitConv.dat</i>.
+</p>
+<dl><dd><a  class="image"><img alt="Tutorial Fitting With Convolution 001.png" src="../images/Fitting_With_Convolution/Tutorial_Fitting_With_Convolution_001.png?v=4311" width="189"  /></a></dd></dl>
+<p>The source data includes sampling points, output signal, and the impulse response. This experiment assumes that the output signal was the convolution of an exponential decay function with a Gaussian response:
+</p>
+<dl><dd><a  class="image"><img alt="Tutorial Fitting With Convolution 002.png" src="../images/Fitting_With_Convolution/Tutorial_Fitting_With_Convolution_002.png?v=4312" width="485"  /></a></dd></dl>
+<p>Now that we already have the output signal and response data, we can get the exponential decay function by fitting the signal with the below model:
+</p>
+<dl><dd><img src="../images/Fitting_With_Convolution/math-8e34ad167a7c75e17660203787f4ef33.png?v=0" title="y = y_0 + \int_{-\infty}^{+\infty} Ae^{-tx} \otimes Response, dx" alt="y = y_0 + \int_{-\infty}^{+\infty} Ae^{-tx} \otimes Response, dx" class="tex"/></dd></dl>
+<h3><a name="Define_the_Function"></a><span class="mw-headline">Define the Function</span></h3>
+<p>Obviously, column 1 and column 2 are x and y respectively in the function. How about column 3, the impulse response? We will access this column within the fitting function, and compute the theoretical exponential curve from the sampling points. Then we can use fast Fourier transform to perform the convolution.
+</p><p>Press <b>F9</b> to open the <b>Fitting Function Organizer</b> and define a function like:
+</p>
+<table class="blank">
+<tr>
+<th width="150">
+</th>
+<th>
+</th></tr>
+<tr>
+<td> <b>Function Name:</b>
+</td>
+<td> FitConv
+</td></tr>
+<tr>
+<td> <b>Function Type:</b>
+</td>
+<td> User-Defined
+</td></tr>
+<tr>
+<td> <b>Independent Variables:</b>
+</td>
+<td> x
+</td></tr>
+<tr>
+<td> <b>Dependent Variables:</b>
+</td>
+<td> y
+</td></tr>
+<tr>
+<td> <b>Parameter Names:</b>
+</td>
+<td> y0, A, t
+</td></tr>
+<tr>
+<td> <b>Function Form:</b>
+</td>
+<td> <font color="blue">Origin C</font>
+</td></tr>
+<tr>
+<td> <b>Function:</b>
+</td>
+<td>
+</td></tr></table>
+<p>Click the button (icon) beside the <b>Function</b> box and write the function body in <b>Code Builder</b>:
+</p>
+<pre class="oc" style="font-family:monospace;"><span style="color: #0000ff;">#pragma</span> warning<span style="color: #000000;">&#40;</span>error <span style="color: #000000;">:</span> <span style="color: #0000dd;">15618</span><span style="color: #000000;">&#41;</span>
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>origin.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+<span style="color: #008000;">// Header files need to be included</span>
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>ONLSF.<span style="color: #000000;">H</span><span style="color: #000080;">&gt;</span>
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>fft_utils.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+<span style="color: #008000;">//</span>
+<span style="color: #008000;">// </span>
+<span style="color: #0000ff;">void</span> _nlsfFitConv<span style="color: #000000;">&#40;</span>
+<span style="color: #008000;">// Fit Parameter(s):</span>
+<span style="color: #0000ff;">double</span> y0, <span style="color: #0000ff;">double</span> A, <span style="color: #0000ff;">double</span> t,
+<span style="color: #008000;">// Independent Variable(s):</span>
+<span style="color: #0000ff;">double</span> x,
+<span style="color: #008000;">// Dependent Variable(s):</span>
+<span style="color: #0000ff;">double</span><span style="color: #000040;">&amp;</span> y<span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>
+	<span style="color: #008000;">// Beginning of editable part	</span>
+	NLFitContext <span style="color: #000040;">*</span>pCtxt <span style="color: #000080;">=</span> Project.<span style="color: #000000;">GetNLFitContext</span><span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>;
+        Worksheet wks;
+        DataRange dr;
+        <span style="color: #0000ff;">int</span> c1,c2;
+        dr <span style="color: #000080;">=</span> pCtxt<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>GetSourceDataRange<span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>; <span style="color: #008000;">//Get the source data range</span>
+        dr.<span style="color: #000000;">GetRange</span><span style="color: #000000;">&#40;</span>wks, c1, c2<span style="color: #000000;">&#41;</span>;  <span style="color: #008000;">//Get the source data worksheet</span>
+	<span style="color: #0000ff;">if</span> <span style="color: #000000;">&#40;</span> pCtxt <span style="color: #000000;">&#41;</span>
+	<span style="color: #000000;">&#123;</span>	
+		<span style="color: #008000;">// Vector for the output signal in each iteration.</span>
+		<span style="color: #0000ff;">static</span> vector vSignal;
+		<span style="color: #008000;">// If parameters were updated, we will recalculate the convolution result.</span>
+		<span style="color: #0000ff;">BOOL</span> bIsNewParamValues <span style="color: #000080;">=</span> pCtxt<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>IsNewParamValues<span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>;
+		<span style="color: #0000ff;">if</span> <span style="color: #000000;">&#40;</span> bIsNewParamValues <span style="color: #000000;">&#41;</span>
+		<span style="color: #000000;">&#123;</span>
+			<span style="color: #008000;">// Read sampling and response data from worksheet.</span>
+			Dataset dsSampling<span style="color: #000000;">&#40;</span>wks, <span style="color: #0000dd;">0</span><span style="color: #000000;">&#41;</span>;
+			Dataset dsResponse<span style="color: #000000;">&#40;</span>wks, <span style="color: #0000dd;">2</span><span style="color: #000000;">&#41;</span>;
+			<span style="color: #0000ff;">int</span> iSize <span style="color: #000080;">=</span> dsSampling.<span style="color: #000000;">GetSize</span><span style="color: #000000;">&#40;</span><span style="color: #000000;">&#41;</span>;
+			
+			vector vResponse, vSample;
+			
+			vResponse <span style="color: #000080;">=</span> dsResponse;
+			vSample <span style="color: #000080;">=</span> dsSampling;
+
+			vSignal.<span style="color: #000000;">SetSize</span><span style="color: #000000;">&#40;</span>iSize<span style="color: #000000;">&#41;</span>;
+			vResponse.<span style="color: #000000;">SetSize</span><span style="color: #000000;">&#40;</span>iSize<span style="color: #000000;">&#41;</span>;
+			vSample.<span style="color: #000000;">SetSize</span><span style="color: #000000;">&#40;</span>iSize<span style="color: #000000;">&#41;</span>;
+			
+			<span style="color: #008000;">// Compute the exponential decay curve</span>
+			vSignal <span style="color: #000080;">=</span> A <span style="color: #000040;">*</span> <span style="color: #000000;">exp</span><span style="color: #000000;">&#40;</span> <span style="color: #000040;">-</span>t<span style="color: #000040;">*</span>vSample <span style="color: #000000;">&#41;</span>;
+			<span style="color: #008000;">// Perform convolution</span>
+			<span style="color: #0000ff;">int</span> iRet <span style="color: #000080;">=</span> fft_fft_convolution<span style="color: #000000;">&#40;</span>iSize, vSignal, vResponse<span style="color: #000000;">&#41;</span>;
+                        <span style="color: #008000;">//Correct the convolution by multiplying the sampling interval</span>
+                        vSignal <span style="color: #000080;">=</span> <span style="color: #000000;">&#40;</span>vSample<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">1</span><span style="color: #000000;">&#93;</span><span style="color: #000040;">-</span>vSample<span style="color: #000000;">&#91;</span><span style="color: #0000dd;">0</span><span style="color: #000000;">&#93;</span><span style="color: #000000;">&#41;</span><span style="color: #000040;">*</span>vSignal;
+
+	
+		<span style="color: #000000;">&#125;</span>
+		
+		NLSFCURRINFO    stCurrInfo;
+		pCtxt<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>GetFitCurrInfo<span style="color: #000000;">&#40;</span><span style="color: #000040;">&amp;</span>stCurrInfo<span style="color: #000000;">&#41;</span>;
+		<span style="color: #008000;">// Get the data index for the iteration</span>
+		<span style="color: #0000ff;">int</span> nCurrentIndex <span style="color: #000080;">=</span> stCurrInfo.<span style="color: #000000;">nCurrDataIndex</span>;
+		<span style="color: #008000;">// Get the evaluated y value</span>
+		y <span style="color: #000080;">=</span> vSignal<span style="color: #000000;">&#91;</span>nCurrentIndex<span style="color: #000000;">&#93;</span> <span style="color: #000040;">+</span> y0;
+		<span style="color: #008000;">// For compile the function, since we haven't use x here.</span>
+		x;
+	<span style="color: #000000;">&#125;</span>
+	<span style="color: #008000;">// End of editable part</span>
+<span style="color: #000000;">&#125;</span></pre>
+<p>Traditionally, for a particular x, the function will return the corresponding y value. However, when convolution is involved, we need to perform the operation on the entire curve, not only for a particular data point. So, from Origin 8 SR2, we introduced the <a class="external text" href="../../OriginC/Category/NLFitContext_(class).html">NLFitContext class</a> to achieve some key information within the fitter. In each iteration, we use NLFitContext to monitor the fitted parameters; once they are updated, we will compute the convolution using the fast Fourier transform by the <a class="external text" href="../../OriginC/OriginC/Fft_fft_convolution_(global_function).html">fft_fft_convolution</a> method. The results are saved in the vSignal vector. Then for each x, we can get the evaluated y from vSignal with the current data index in NLSFCURRINFO.
+</p>
+<h3><a name="Fit_the_Curve"></a><span class="mw-headline">Fit the Curve</span></h3>
+<p>In the fitting function body, we read the response data directly from the active worksheet. So, you should perform the fit from the worksheet. 
+</p>
+<ol><li> Highlight column B and press <b>Ctrl + Y</b> to bring up the <b>Nonlinear Fitting</b> dialog. </li>
+<li> Choose <i>X Data Type</i> from <i>Fitted Curves</i> page as <i><b>Same as Input Data</b></i>.</li>
+<li> Go back to the Function Selection page to select the <i>FitConv</i> function you just defined.</li>
+<li> Go to the Parameter tab to initialize the parameters as y0=0, A=10, t=1.</li>
+<li> Click the <b>Fit</b> button to generate the results.</li></ol>
+<p>If you use a fitting function similar to this tutorial, please note when you run <b>NLFit</b> in Origin, in <b>NLFit</b> dialog, choose <b>X Data Type</b> from <b>Fitted Curves</b> page as <b>Same as Input Data</b>.
+</p>
+

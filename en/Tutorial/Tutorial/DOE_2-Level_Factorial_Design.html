@@ -1,0 +1,90 @@
+<h1 class="firstHeading">5.5.10 DOE:2-Level Factorial Design</h1><p class='urlname' style='display: none'>Level-Factorial-Design</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Steps"><span class="tocnumber">2</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Create_Factorial_Design"><span class="tocnumber">2.1</span> <span class="toctext">Create Factorial Design</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Analyze_Design"><span class="tocnumber">2.2</span> <span class="toctext">Analyze Design</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Optimize_Response"><span class="tocnumber">2.3</span> <span class="toctext">Optimize Response</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Origin’s Design of Experiments app allows users to design experiments, fit models to collected data, and identify the best factor settings to optimize responses.
+</p><p>In this example, we explore a 2K experiment with a single replicate. These designs are commonly used when experiments are costly, time-consuming, or when the number of factors (K) is large. 
+</p><p>A company is introducing a new line of waterproof paint and are interested in identifying factors that influence drying time. They selected three potential factors: temperature, humidity, and a paint additive. The company is interested in performing a screening experiment to identify the factors that significantly affect the drying time.
+</p><p><br />
+</p>
+<p class="version" >Minimum Origin Version Required: OriginPro 2025b SR0</p>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="Create_Factorial_Design"></a><span class="mw-headline">Create Factorial Design</span></h3>
+<ol>
+<li>Select and click on the <b>Design of Experiments</b> app on in the <b>Stats</b>  in the <b>Apps Gallery</b>
+<br /><a  class="image"><img alt="2-Level Factorial Design 01.png" src="../images/DOE_2-Level_Factorial_Design/2-Level_Factorial_Design_01.png?v=77092" width="152"  /></a>
+
+<li>Click on <b>Create Design</b> and select <b>Factorial Design</b> in the pop-up list.
+<br /><a  class="image"><img alt="2-Level Factorial Design 02.png" src="../images/DOE_2-Level_Factorial_Design/700px-2-Level_Factorial_Design_02.png?v=77093" width="700"   /></a>
+
+<li>In the <b>Factorial Design</b> dialog, select <b>2-Level Factorial</b> as Factorial Type.
+And then enter 3 factors (Temperature, Humidity and Additive) in the table under the <b>Factors</b> tab as following image:
+<br /><a  class="image"><img alt="2-Level Factorial Design 03.png" src="../images/DOE_2-Level_Factorial_Design/700px-2-Level_Factorial_Design_03.png?v=77094" width="700"   /></a>
+
+<li>Go to <b>Setting</b> tab. Select <b>Full Factorial</b> design with one Block and one Replicate. Here, the number of Total Runs is 8.
+<br /><a  class="image"><img alt="2-Level Factorial Design 04.png" src="../images/DOE_2-Level_Factorial_Design/700px-2-Level_Factorial_Design_04.png?v=77097" width="700"   /></a>
+
+<li>Go to <b>Miscellaneous</b> tab and turn off the <b>Randomize Design</b> option. (The option to Randomize the Design should be used for a real-life example but for the purpose of this tutorial.)
+<br /><a  class="image"><img alt="2-Level Factorial Design 05.png" src="../images/DOE_2-Level_Factorial_Design/700px-2-Level_Factorial_Design_05.png?v=77100" width="700"   /></a>
+
+<li>Go to <b> Output</b> tab and turn off the <b>Alias Table</b> option.
+<br /><a  class="image"><img alt="2-Level Factorial Design 06.png" src="../images/DOE_2-Level_Factorial_Design/700px-2-Level_Factorial_Design_06.png?v=77096" width="700"   /></a>
+
+<li>Go to <b> Dialog Theme</b> tab. Click <b>Save</b> button and save these settings as an XML file named <i><b>2level</b></i>.
+If you would like to reuse these settings, you can click on <b>Load</b> button and open the saved file or click on &lt;Last Used&gt;.
+<br /><a  class="image"><img alt="2-Level Factorial Design 07.png" src="../images/DOE_2-Level_Factorial_Design/700px-2-Level_Factorial_Design_07.png?v=77101" width="700"   /></a>
+
+<li>Click <b>OK</b> to generate the <b>Design Summary</b>, <b>Coded Design</b> and <b>Design Table</b> worksheets.
+<br /><a  class="image"><img alt="2-Level Factorial Design 08.png" src="../images/DOE_2-Level_Factorial_Design/2-Level_Factorial_Design_08.png?v=77102" width="738"  /></a>
+</ol>
+<h3><a name="Analyze_Design"></a><span class="mw-headline">Analyze Design</span></h3>
+<ol>
+<li>In column H of <b>Design Table</b> worksheet, enter the measured <b>Drying Time</b> dataset.
+<br /><a  class="image"><img alt="2-Level Factorial Design 09.png" src="../images/DOE_2-Level_Factorial_Design/2-Level_Factorial_Design_09.png?v=77103" width="824"  /></a>
+
+<li>Select and click on the <b>Design of Experiments</b> app again, and then click on <b>Analyze Design</b>.
+<br /><a  class="image"><img alt="2-Level Factorial Design 10.png" src="../images/DOE_2-Level_Factorial_Design/700px-2-Level_Factorial_Design_10.png?v=77104" width="700"   /></a>
+
+<li>In the <b>Model</b> tab, select <b>Drying Time</b> under <b>Response</b> drop-down list. Click the <b>+</b> button for <b>Model Terms</b> to confirm the <b>Select Terms up to Order</b> =1.
+<br /><a  class="image"><img alt="2-Level Factorial Design 11.png" src="../images/DOE_2-Level_Factorial_Design/750px-2-Level_Factorial_Design_11.png?v=77105" width="750"   /></a>
+
+<li>Go to <b>Quantities </b> tab, and select <b>Coefficients Type</b> as <b>Uncoded</b>.
+<br /><a  class="image"><img alt="2-Level Factorial Design 12.png" src="../images/DOE_2-Level_Factorial_Design/700px-2-Level_Factorial_Design_12.png?v=77106" width="700"   /></a>
+
+<li>Go to <b>Plots</b> tab, add the <b>Fitted Plot</b> option to <b>Plots</b> list. Click <b>OK</b>.
+<br /><a  class="image"><img alt="2-Level Factorial Design 13.png" src="../images/DOE_2-Level_Factorial_Design/700px-2-Level_Factorial_Design_13.png?v=77107" width="700"   /></a>
+
+<li>In the result sheet <b>DOEAnalysis</b>, you can find All factors (Temperature, Humidity and Additive) show significance.
+<br /><a  class="image"><img alt="2-Level Factorial Design 14.png" src="../images/DOE_2-Level_Factorial_Design/2-Level_Factorial_Design_14.png?v=77108" width="720"  /></a>
+</ol>
+<h3><a name="Optimize_Response"></a><span class="mw-headline">Optimize Response</span></h3>
+<ol>
+<li>To optimize the response, click on <b>Optimize Response</b> of this app. Click on <b>View Model</b> to display the model terms.
+<br /><a  class="image"><img alt="2-Level Factorial Design 15.png" src="../images/DOE_2-Level_Factorial_Design/700px-2-Level_Factorial_Design_15.png?v=77111" width="700"   /></a>
+
+<li>Set <b>Goal</b> Minimize for Drying Time. Click on <b>Set Lower/Upper Limits</b> to generate system values. Then click <b>OK</b>.
+<br /><a  class="image"><img alt="2-Level Factorial Design 16.png" src="../images/DOE_2-Level_Factorial_Design/700px-2-Level_Factorial_Design_16.png?v=77112" width="700"   /></a>
+
+<li>In the <b>DOEOptimization</b> result sheet, the <b>Solution</b> table displays the combination of values for Temperature, Humidity, and Additive where Drying Time is minimized. The Prediction table shows the fitted values for Drying Time at these values.
+<br /><a  class="image"><img alt="2-Level Factorial Design 17.png" src="../images/DOE_2-Level_Factorial_Design/2-Level_Factorial_Design_17.png?v=77113" width="751"  /></a>
+<br />
+Double click on the <b>Optimization Plot</b> to open the interactive window. Move the red lines over the range of values for temperature, humidity, and additive to obtain different Desirability scores.
+<br /><a  class="image"><img alt="2-Level Factorial Design 18.png" src="../images/DOE_2-Level_Factorial_Design/2-Level_Factorial_Design_18.png?v=77114" width="666"  /></a>
+</ol>
+
+
+
+
+
+

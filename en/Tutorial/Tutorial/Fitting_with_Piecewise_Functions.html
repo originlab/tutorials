@@ -1,0 +1,144 @@
+<h1 class="firstHeading">4.2.2.21 Fitting with Piecewise Functions</h1><p class='urlname' style='display: none'>Fitting-Piecewise</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">Example and Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Define_the_Function"><span class="tocnumber">3.1</span> <span class="toctext">Define the Function</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Fit_the_Curve"><span class="tocnumber">3.2</span> <span class="toctext">Fit the Curve</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>We will show you how to define piecewise fitting function in this tutorial.
+</p>
+<p class="version" >Minimum Origin Version Required: Origin 8.0 SR6</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+<p>This tutorial will show you how to: 
+</p>
+<ul><li> Define piecewise (conditional) fitting functions.</li></ul>
+<h2><a name="Example_and_Steps"></a><span class="mw-headline">Example and Steps</span></h2>
+<p>We can start this tutorial by importing the sample \<i>Samples</i>\<i>Curve Fitting</i>\<i>Exponential Decay</i>.<i>dat</i> data file. Highlight column D and plot a Scatter Graph. You can fit this curve using built-in functions under Growth/Sigmoidal category, however, in this tutorial, we will separate the curve into two parts by a piecewise function.
+</p>
+<dl><dd><a  class="image"><img alt="Tutorial Fitting with Piecewise Functions 001.png" src="../images/Fitting_with_Piecewise_Functions/Tutorial_Fitting_with_Piecewise_Functions_001.png?v=4828" width="279"  /></a></dd></dl>
+<p>So the equation will be:
+</p>
+<dl><dd><img src="../images/Fitting_with_Piecewise_Functions/math-283a8f0a9b16b947c827fd94c4e94bbb.png?v=0" title="y =&#10;\begin{cases}&#10;a+bx+e^{-\frac{x-x_c}{t1}}, &amp; \mbox{if } x&lt;x_c \\&#10;a+bx, &amp; \mbox{if } x \ge x_c&#10;\end{cases}" alt="y =&#10;\begin{cases}&#10;a+bx+e^{-\frac{x-x_c}{t1}}, &amp; \mbox{if } x&lt;x_c \\&#10;a+bx, &amp; \mbox{if } x \ge x_c&#10;\end{cases}" class="tex"/></dd></dl>
+<h3><a name="Define_the_Function"></a><span class="mw-headline">Define the Function</span></h3>
+<p>Press <b>F9</b> to open the <b>Fitting Function Organizer</b> and define a function like:
+</p>
+<dl><dd><table class="simple">
+
+<tr>
+<td width="150"> <b>Function Name:</b>
+</td>
+<td> piecewise
+</td></tr>
+<tr>
+<td> <b>Function Type:</b>
+</td>
+<td> User-Defined
+</td></tr>
+<tr>
+<td> <b>Independent Variables:</b>
+</td>
+<td> x
+</td></tr>
+<tr>
+<td> <b>Dependent Variables:</b>
+</td>
+<td> y
+</td></tr>
+<tr>
+<td> <b>Parameter Names:</b>
+</td>
+<td> xc, a, b, t1
+</td></tr>
+<tr>
+<td> <b>Function Form:</b>
+</td>
+<td> <font color="blue">Origin C</font>
+</td></tr>
+<tr>
+<td> <b>Function:</b>
+</td>
+<td>
+</td></tr></table></dd></dl>
+<p>Click the <a  class="image"><img alt="User-Defined Fitting Functions-2.png" src="../images/Fitting_with_Piecewise_Functions/User-Defined_Fitting_Functions-2.png?v=4571" width="19"  /></a> button on the right of the <b>Function</b> edit box and define the fitting function in Code Builder using:
+</p>
+<pre class="oc" style="font-family:monospace;"><span style="color: #0000ff;">void</span> _nlsfpiecewise<span style="color: #000000;">&#40;</span>
+<span style="color: #008000;">// Fit Parameter(s):</span>
+<span style="color: #0000ff;">double</span> xc, <span style="color: #0000ff;">double</span> a, <span style="color: #0000ff;">double</span> b, <span style="color: #0000ff;">double</span> t1,
+<span style="color: #008000;">// Independent Variable(s):</span>
+<span style="color: #0000ff;">double</span> x,
+<span style="color: #008000;">// Dependent Variable(s):</span>
+<span style="color: #0000ff;">double</span><span style="color: #000040;">&amp;</span> y<span style="color: #000000;">&#41;</span>
+<span style="color: #000000;">&#123;</span>
+	<span style="color: #008000;">// Beginning of editable part</span>
+	<span style="color: #008000;">// Divide the curve by if condition.</span>
+	<span style="color: #0000ff;">if</span><span style="color: #000000;">&#40;</span>x<span style="color: #000080;">&lt;</span>xc<span style="color: #000000;">&#41;</span> <span style="color: #000000;">&#123;</span>
+		y <span style="color: #000080;">=</span> a<span style="color: #000040;">+</span>b<span style="color: #000040;">*</span>x<span style="color: #000040;">+</span><span style="color: #000000;">exp</span><span style="color: #000000;">&#40;</span><span style="color: #000040;">-</span><span style="color: #000000;">&#40;</span>x<span style="color: #000040;">-</span>xc<span style="color: #000000;">&#41;</span><span style="color: #000040;">/</span>t1<span style="color: #000000;">&#41;</span>;
+	<span style="color: #000000;">&#125;</span> <span style="color: #0000ff;">else</span> <span style="color: #000000;">&#123;</span>
+		y <span style="color: #000080;">=</span> a<span style="color: #000040;">+</span>b<span style="color: #000040;">*</span>x;
+	<span style="color: #000000;">&#125;</span>
+	<span style="color: #008000;">// End of editable part</span>
+<span style="color: #000000;">&#125;</span></pre>
+<h3><a name="Fit_the_Curve"></a><span class="mw-headline">Fit the Curve</span></h3>
+<p>Press <b>Ctrl + Y</b> to bring up NLFit dialog with the graph window active. Select the <i>piecewise</i> function we defined and initialize the parameter values:
+</p>
+<dl><dd><table class="simple" style="width:120px">
+
+<tr>
+<td width="20"><b>xc:</b>
+</td>
+<td> 1
+</td></tr>
+<tr>
+<td> <b>a:</b>
+</td>
+<td> 1
+</td></tr>
+<tr>
+<td> <b>b:</b>
+</td>
+<td> -1
+</td></tr>
+<tr>
+<td> <b>t1:</b>
+</td>
+<td> 0.1
+</td></tr></table></dd></dl>
+<p>Click <b>Fit</b> button to generate the results:
+</p>
+<dl><dd><table class="simple" style="width:120px">
+
+<tr>
+<td width="20"><b>xc:</b>
+</td>
+<td> 0.24
+</td></tr>
+<tr>
+<td> <b>a:</b>
+</td>
+<td> 36.76585
+</td></tr>
+<tr>
+<td> <b>b:</b>
+</td>
+<td> -24.62876
+</td></tr>
+<tr>
+<td> <b>t1:</b>
+</td>
+<td> 0.04961
+</td></tr></table></dd></dl>
+<p>Note that this function is sensitive to <i>xc</i> and <i>t1</i>, different initial values could generate different results.
+</p>
+
+
+
+
+

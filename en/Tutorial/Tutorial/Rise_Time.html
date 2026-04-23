@@ -1,0 +1,44 @@
+<h1 class="firstHeading">4.3.11 Rise Time</h1><p class='urlname' style='display: none'>RiseTime</p>
+<h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>In a step-like signal, rise time refers to the time required to change from a specified low value to a specified high value (or from a specified high value to a specified low value in the case of fall time). Origin's rise time tool allows you to graphically select a rectangular area tracing a rising or falling step in the signal, and from it calculate the rise time or fall time for this selected step.
+</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">What You Will Learn</span></h2>
+<p>With this tutorial, you will learn how to:
+</p>
+<ol><li> Use the Rise Time gadget tool to calculate the fall time.</li>
+<li> Change the settings for fall time calculation.</li>
+<li> Set the display elements on the graph.</li>
+<li> Select the desired output options and output the result to worksheet.</li></ol>
+<h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+<ol><li> Start a new workbook. Select <b>Help: Open Folder: Sample Folder...</b> to open the "Samples" folder. In this folder, open the <i>Signal Processing</i> subfolder and find the file <i>Step Signal with Random Noise.dat</i>. Drag-and-drop this file into the empty worksheet to import it.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Rise Time 1.png" src="../images/Rise_Time/SP_Tutorial_Rise_Time_1.png?v=24058" width="396"  /></a></dd></dl></li>
+<li> Highlight column B and make a line plot of it by selecting <b>Plot: Line: Line</b> from the menu.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Rise Time 2.png" src="../images/Rise_Time/SP_Tutorial_Rise_Time_2.png?v=24059" width="415"  /></a></dd></dl></li>
+<li> Click the <b>Scale In</b> (<a  class="image"><img alt="SP Tutorial Rise Time 3.png" src="../images/Rise_Time/SP_Tutorial_Rise_Time_3.png?v=24060" width="22"  /></a>) button on the <b>Tools</b> toolbar, then select a range along the X axis from about 500 to 700, so that we can focus on this portion of the plot.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Rise Time 4.png" src="../images/Rise_Time/SP_Tutorial_Rise_Time_4.png?v=24061" width="415"  /></a></dd></dl></li>
+<li> With the graph active, choose <b>Gadgets: Rise Time...</b> from the menu to launch the tool.</li>
+<li> In the dialog box, click the <b>ROI Box</b> tab and set <b>X Scale</b> <b>From</b> to <b>510</b> and <b>To</b> to <b>650</b>. Set <b>Tool</b> to <b>Fall Time</b> and <b>Method</b> to <b>Histogram</b>.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Rise Time 5.png" src="../images/Rise_Time/SP_Tutorial_Rise_Time_5.png?v=24062" width="417"  /></a></dd></dl></li>
+<li> Click the <b>Fall Range</b> tab and change <b>From (%) of Step Height</b> to <b>20</b> and <b>To (%) of Step Height</b> to <b>80</b>. 
+<dl><dd> <a  class="image"><img alt="SP Tutorial Rise Time 6.png" src="../images/Rise_Time/SP_Tutorial_Rise_Time_6.png?v=24063" width="417"  /></a></dd></dl></li>
+<li> Click the <b>Quantities</b> tab, check only three check boxes: <b>Dataset Name(name)</b>, <b>Fall Range(dVref)</b> and <b>Fall Time(dT)</b>.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Rise Time 7.png" src="../images/Rise_Time/SP_Tutorial_Rise_Time_7.png?v=43385" width="462"  /></a></dd></dl></li>
+<li> Click the <b>Output To</b> tab, clear <b>Script Window</b> and check <b>Append to Worksheet</b>.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Rise Time 8.png" src="../images/Rise_Time/SP_Tutorial_Rise_Time_8.png?v=24065" width="417"  /></a></dd></dl></li>
+<li> Click the <b>Display on Graph</b> tab, expand the <b>Indicator</b> branch, and change <b>Edge Color</b> to <b>Blue</b>. Check <b>Fall Range</b>.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Rise Time 9.png" src="../images/Rise_Time/SP_Tutorial_Rise_Time_9.png?v=24066" width="417"  /></a></dd></dl></li>
+<li> Click <b>OK</b> to add the rectangular region-of-interest (ROI) to the graph.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Rise Time 10.png" src="../images/Rise_Time/SP_Tutorial_Rise_Time_10.png?v=24067" width="415"  /></a></dd></dl></li>
+<li> As the above image shows, the two red horizontal lines delineate the upper level and lower level. The vertical distance between the two blue lines is the fall range, shown by the two indicator points on the line plot. At the top of the rectangle, the fall time and fall range are reported.</li>
+<li> Click on the triangle button in the upper-right corner of the ROI to open a menu and select <b>Fix ROI Position</b>, so that the yellow ROI rectangle is locked in place.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Rise Time 11.png" src="../images/Rise_Time/SP_Tutorial_Rise_Time_11.png?v=24068" width="490"  /></a></dd></dl></li>
+<li> Open the menu again and click <b>New Output</b> to output the results. Open the menu again and choose <b>Go to Report Worksheet</b>.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Rise Time 12.png" src="../images/Rise_Time/SP_Tutorial_Rise_Time_12.png?v=24069" width="490"  /></a></dd></dl></li>
+<li> The report worksheet is activated and we can see that the three parameters that we chose on the <b>Quantities</b> tab are reported.
+<dl><dd> <a  class="image"><img alt="SP Tutorial Rise Time 13.png" src="../images/Rise_Time/SP_Tutorial_Rise_Time_13.png?v=24070" width="472"  /></a></dd></dl></li></ol>
+
+
+
+
+
+
