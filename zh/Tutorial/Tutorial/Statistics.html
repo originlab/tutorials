@@ -1,0 +1,67 @@
+<h1 class="firstHeading">10 统计</h1><p class='urlname' style='display: none'>GSB-statistics</p>
+<p>Origin提供了多种用于统计分析的工具。高级统计工具仅在OriginPro版本使用。在这一课中，我们仅使用标准版Origin中提供的统计工具。
+</p>
+<h3><a name=".E6.8F.8F.E8.BF.B0.E7.BB.9F.E8.AE.A1"></a><span class="mw-headline">描述统计</span></h3>
+<ol>
+<li>使用上一课保存的项目文件，在<b>项目管理器</b>中新建一个文件夹，并将其重命名为  <i><b>统计</b></i>。 打开空的文件夹。</li>
+<li>新建一个工作簿，并导入文件<i>&lt;Origin EXE 路径&gt;\Samples\Statisitcs\body.dat</i>.</li>
+<li>拖选<b>D(Height)</b>列的前<b>5</b>行。 在界面右下角的状态栏中，将显示被选择数据的基本统计量(平均值, 总和, 计数) 。
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Statistics/Mini_bulb.png?v=14486" /></td><td><p>您可以右键单击状态栏中列出的统计信息，以自定义在此显示的统计量信息。
+</p></td></tr></table>
+<p><a  class="image"><img alt="GST Statistics 01.png" src="../images/Statistics/400px-GST_Statistics_01.png?v=4532" width="400"   /></a>
+</p>
+</li>
+<li>在菜单中，选择<b>统计：描述统计：列统计</b>。 在打开的对话框中，选择<b>输入</b>选项卡， 并展开<b>范围 1</b>，点击<b>数据范围</b>右边的交互按钮<a  class="image"><img alt="Button Select Data Interactive.png" src="../images/Statistics/Button_Select_Data_Interactive.png?v=4533" width="18"  /></a>， 返回到工作表，再拖选<b>D</b>和<b>E</b>列，然后再次点击交互按钮返回对话框。</li>
+<p><br />
+</p>
+<li>在<b>组</b>控制按钮中, 点击三角按钮<a  class="image"><img alt="Context menu button.jpg" src="../images/Statistics/Context_menu_button.jpg?v=4534" width="22"  /></a>并选择<b>B(Y): age</b>列。再次点击三角按钮，选择<b>C(Y):gender</b>列，并在<b>组</b>列表框的中选择<b>..."gender"</b>，使用<b>上移</b> 按钮<a  class="image"><img alt="Move up button.png" src="../images/Statistics/Move_up_button.png?v=4535" width="20"  /></a>将其移动列表顶部。</li>
+<li>点击<b>确定</b>，生成报告。<br />
+<a  class="image"><img alt="GST Statistics 02.png" src="../images/Statistics/300px-GST_Statistics_02.png?v=4536" width="300"   /></a></li> 
+<li>在报告表<b>描述统计</b>节点右侧点击下三角按钮<a  class="image"><img alt="Downward triangle button.png" src="../images/Statistics/Downward_triangle_button.png?v=4537" width="14"  /></a>并从快捷菜单选择<b>位数...</b>。</li>
+<li>在打开对话框中, 把<b>位数</b>改为<b>设置小数位数=</b>并设置<b>小数位</b>为<b>1</b>。 点击<b>确定</b>，更新报告中所有表格的显示格式。</li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Statistics/Mini_bulb.png?v=14486" /></td><td><p>在所有全部报告表中的数值显示可以通过全局设置。在主菜单下，选择<b>设置：选项</b>，进入<b>选项</b>对话框的<b>数值格式</b>选项卡，<b>报告中的数据位数</b>可以控制在所有全部报告表中的数值显示。
+</p></td></tr></table>
+</ol>
+<h3><a name=".E6.AD.A3.E6.80.81.E6.80.A7.E6.A3.80.E9.AA.8C"></a><span class="mw-headline">正态性检验</span></h3>
+<ol>
+<li>单击<b>新建工作簿</b><a  class="image"><img alt="Button New Workbook.png" src="../images/Statistics/Button_New_Workbook.png?v=4941" width="23"  /></a>按钮，创建一个新的工作簿。 </li>
+<li>双击A列的<b>F(x)</b>标签行，在单元格的编辑模式下，输入公式：
+<pre class="lt" style="font-family:monospace;">nint<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">100</span><span style="color: #000080;">+</span><span style="color: #0000dd;">20</span><span style="color: #000080;">*</span>normal<span style="color: #000000;">&#40;</span><span style="color: #0000dd;">100</span><span style="color: #000000;">&#41;</span><span style="color: #000000;">&#41;</span></pre>
+该列被以100为中心的随机整数填充。</li>
+<li>选中A列，并点击<b>统计：描述统计：正态性检验</b>打开对话框。所选择列被自动设置为<b>输入数据</b>。应用默认设置，点击<b>确定</b>，则会生成<b>正态性检验</b>的报告表。在<b>Shapiro-Wilk</b>表格下的脚注指示这个数据如预期那样，是正态分布的。<br />
+<a  class="image"><img alt="GST Statistics 03.png" src="../images/Statistics/300px-GST_Statistics_03.png?v=4538" width="300"   /></a></li> 
+</ol>
+<h3><a name=".E9.A2.91.E6.95.B0.E5.88.86.E5.B8.83"></a><span class="mw-headline">频数分布</span></h3>
+<ol>
+<li>选择上一节所用到的工作簿<b>Sheet1</b>。 仍选中A列, 然后选择<b>统计：描述统计：频数分布</b>。</li>
+<li>在对话框中应用默认设置，点击<b>确定</b>。</li>
+<li>在结果工作表中, 选择<b>E(Y)</b>列。在<b>2D 图形</b>工具栏, 点击<b>柱状图</b>按钮 <a  class="image"><img alt="Button Column.png" src="../images/Statistics/Button_Column.png?v=4539" width="22"  /></a>旁的三角按钮, 然后选择<b>带标签的柱状图</b> <a  class="image"><img alt="Button Column Label.png" src="../images/Statistics/Button_Column_Label.png?v=4540" width="21"  /></a>。这会创建一幅频数作为标签的直方图。<br />
+<a  class="image"><img alt="GST Statistics 04.png" src="../images/Statistics/200px-GST_Statistics_04.png?v=4541" width="200"   /></a></li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Statistics/Mini_bulb.png?v=14486" /></td><td><p>当工作表为当前活动窗口时，<b>绘图: 统计</b>菜单提供多种直方图绘图选项。<b>频数分布</b>工具提供了一种先处理计数，再从结果绘制直方图的替代方法。这允许更多的灵活性和自定义设置，例如向柱状图添加标签。
+</p></td></tr></table>
+</ol>
+<h3><a name=".E5.8D.95.E5.9B.A0.E7.B4.A0.E6.96.B9.E5.B7.AE.E5.88.86.E6.9E.90"></a><span class="mw-headline">单因素方差分析</span></h3>
+<ol>
+<li>新建工作簿，点击<b>导入单个ASCII文件</b>按钮<a  class="image"><img alt="Button Import Single ASCII.png" src="../images/Statistics/Button_Import_Single_ASCII.png?v=4485" width="25"  /></a>。浏览<i>&lt;Origin EXE 路径&gt;\Samples\Statistics</i>的文件夹，在<b>文件名</b>左下角的下拉菜单列表，选择<b>文本文件 (*.txt)</b>.<br />
+<a  class="image"><img alt="GST Statistics 05.png" src="../images/Statistics/150px-GST_Statistics_05.png?v=4542" width="150"   /></a></li>
+<li>选择导入文件<b>nitrogen.txt</b></li>
+<li>在菜单上，选择<b>统计：方差分析：单因素方差分析...</b>打开相应对话框。在<b>输入</b>选项卡下，设置<b>输入数据</b>为<b>索引数据</b>，点击<b>因子</b>右边的三角按钮并选择<b>A(X): plant</b>，再点击<b>数据</b>右边的三角按钮并选择<b>B(Y): nitrogen</b>。</li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Statistics/Mini_bulb.png?v=14486" /></td><td><p><b>方差分析</b>对话框对输入模式提供两个选项：<b>索引数据</b>和<b>原始数据</b>。您可以参考<a href="../../QuickHelp/QuickHelp/What_is_indexed_versus_raw_data_and_how_to_I_transform_from_one_to_another.html" title="QuickHelp:What is indexed versus raw data and how to I transform from one to another">FAQ-333: What is indexed versus raw data and how to I transform from one to another?</a>来更好地理解每种模式如何安排数据。
+</p></td></tr></table>
+<li>在对话框的<b>均值比较</b>选项卡, 选择<b>Tukey</b>复选框。再选择<b>绘图</b>选项卡，并选上<b>均值比较图</b>。点击<b>确定</b>，关闭对话框并生成报告。</li>
+<li>选择<b>ANOVA1Way1</b>报告表，我们可以从结果作出以下结论：
+<ul>
+<li>方差分析表格(<b>总体方差分析</b>) 反映了p值是小于0.05, 因此这四组中至少有两组存在显著不同的均值。<br />
+<a  class="image"><img alt="GST Statistics 06.png" src="../images/Statistics/300px-GST_Statistics_06.png?v=4543" width="300"   /></a></li>
+<li>双击打开<b>均值比较图</b>。红色图形表示显著不同的均值。 <b>PLANT4</b>具有最小的均值，并且与其他三组显著不同。<br />
+<a  class="image"><img alt="GST Statistics 07.png" src="../images/Statistics/250px-GST_Statistics_07.png?v=4544" width="250"   /></a></li>
+</ul>
+<p>保存您的项目文件。
+</p>
+</ol>
+
+

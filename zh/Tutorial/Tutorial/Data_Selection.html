@@ -1,0 +1,65 @@
+<h1 class="firstHeading">3 数据选择</h1><p class='urlname' style='display: none'>GSB-data-selection</p>
+<p><br />
+在这一课中，我们将学习如何用灵活地选择绘图数据。
+</p>
+<h3><a name=".E4.BD.BF.E7.94.A8.E5.A4.9A.E4.B8.AA.E5.B7.A5.E4.BD.9C.E8.A1.A8.E7.9A.84.E6.95.B0.E6.8D.AE.E7.BB.98.E5.9B.BE"></a><span class="mw-headline">使用多个工作表的数据绘图</span></h3>
+<ol>
+<li>使用在 <a href="../../Tutorial/Tutorial/Graph_Templates_Themes_and_Batch_Plotting.html" title="Tutorial:Graph Templates Themes and Batch Plotting">第二课: 图形模板与批量绘图</a>中保存的项目文件。选择任意工作簿, 并确认没有任何数据列被选择. 你可以点击数据列外的灰色区域，以取消对列的选择。</li>
+<li>选择菜单<b>绘图 &gt; 基础2D图: 折线图</b>，打开<b>图表绘制</b>对话框。</li>
+<li> 如果上部面板没有展开，点击在对话框右边的 <a  class="image"><img alt="Double Up Arrow Button.jpg" src="../images/Data_Selection/Double_Up_Arrow_Button.jpg?v=4481" width="24"  /></a> 按钮使其展开。</li>
+<li> 在左侧面板， <b>可用数据</b>的下拉列表中选择 <b>当前文件夹中的工作表</b>。
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Data_Selection/Mini_bulb.png?v=14486" /></td><td><p>如果希望使用项目中任意位置的工作表，则在下拉列表中选<b>项目中的工作表</b>。
+</p></td></tr></table></li>
+<li> 按住Shift键，同时选择<b>Trial Run 1</b>, <b>Trial Run 2</b> and <b>Trial Run 3</b> 这三个工作表。</li>
+<li> 使用中间面板中的复选框，指定<i>Time</i>为<b>X</b>， <i>Position</i> 为 <b>Y</b>，然后单击<b>确定</b>按钮创建图形。<br />
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Data_Selection/Mini_bulb.png?v=14486" /></td><td><p>这个对话框有一个底部面板，对于含有多个图层的图形，可以利用这个面板将数据分配到不同的图层中。若该面板在展开的状态，您可以简单地将其隐藏，然后单击<b>确定</b>创建图形。
+</p></td></tr></table>
+<a  class="image"><img alt="GST Data Selection 001.png" src="../images/Data_Selection/450px-GST_Data_Selection_001.png?v=4482" width="450"   /></a></li>
+<li> 现在我们可以编辑此图的图例。右键单击图例，选择<b>图例：更新图例...</b>
+
+<li> 在打开的对话框中，设置<b>图例的自动译码模式</b>为<b>自定义</b>。然后清除<b>图例的自定义格式 (@D, @LU 等)</b>内的内容，然后点击右边的<a  class="image"><img alt="GST Right Arrow Button.png" src="../images/Data_Selection/GST_Right_Arrow_Button.png?v=4483" width="20"  /></a> 按钮，在弹出菜单中选择 <b>@WS: 工作表的显示名称</b>。</li>
+<li>在编辑框中，在<i>@WS</i>字符后面输入一个连字符 <i>-</i>， 然后再点击右边的箭头按钮，并且选择<b>@LD"Sample": Sample</b>，这是将工作表中的列标题行“Sample” 的值加入到图例中。点击<b>确定</b>按钮。最终工作表的名称和sample行的参数值会在图例中显示。
+<br /><a  class="image"><img alt="GST Data Selection 041.png" src="../images/Data_Selection/350px-GST_Data_Selection_041.png?v=4484" width="350"   /></a>
+</li>
+</ol>
+<h3><a name=".E4.BD.BF.E7.94.A8.E5.8F.A6.E4.B8.80.E5.88.97.E7.9A.84.E6.95.B0.E6.8D.AE.E4.BD.9C.E4.B8.BA.E8.AE.BE.E5.AE.9A.E5.9B.BE.E5.BD.A2.E9.A2.9C.E8.89.B2.E7.9A.84.E5.8F.82.E6.95.B0"></a><span class="mw-headline">使用另一列的数据作为设定图形颜色的参数</span></h3>
+<ol>
+<li>选择<b>项目管理器</b>，右键单击上方面板上的根目录，并且选择<b>新建文件夹</b>。</li>
+<li>右键单击新建的文件夹，并<b>重命名</b> 为 <i><b>Data Selection</b></i>。 点击此空文件夹并打开。</li>
+<li> 单击<b>导入单个ASCII</b>按钮 <a  class="image"><img alt="Button Import Single ASCII.png" src="../images/Data_Selection/Button_Import_Single_ASCII.png?v=4485" width="25"  /></a> ，浏览 <i>&lt;Origin EXE Path&gt;\Samples\Graphing</i> 文件夹，选择文件<i>US Mean Temperature.dat</i>并导入。</li>
+<li> 我们希望绘制美国主要城市的位置数据（<i>Longitude</i>和<i>Latitude</i>列）为散点图，然后将各个点的颜色映射到对应的年平均气温（<i>Annual</i>列）。 单击<b>January</b>列的列标题，拖动选择所有的月份数据列直到<b>December</b>列，右键单击选择<b>隐藏或取消隐藏列：隐藏</b>。</li>
+<li> 选择<i>Longitude</i>列，单击右键并选择<b>设置为: X</b></li>
+<li> 选择<i>Latitude</i>，并单击在左下方工具栏上的<b>散点图</b>按钮<a  class="image"><img alt="Button Scatter Plot.png" src="../images/Data_Selection/Button_Scatter_Plot.png?v=4486" width="25"  /></a>，绘制longitude相对latitude的散点图。</li>
+<li> 点击绘图，在弹出的迷你工具栏中，点击<b>符号边缘颜色</b>按钮去展开我们的颜色选择器，切换到<b>按点</b>选项卡。在这个选项卡中，点击<b>颜色映射</b>下拉菜单，然后在列表中选择<b>Col(P): "Annual"</b>。符号颜色会被匹配到列<i>Annual</i>。<br />
+<a  class="image"><img alt="GST Data Selection 05.png" src="../images/Data_Selection/400px-GST_Data_Selection_05.png?v=9220" width="400"   /></a>
+</li>
+<li> 现在可以设置坐标轴的长度来缩放图上X和Y值的范围。点击图层的空白位置去选择整个图层，在弹出的迷你工具栏中，点击<b>图层对话框</b>按钮，在弹出菜单中选择<b>属性</b>。 <br />
+<a  class="image"><img alt="GST Data Selection MT 01.png" src="../images/Data_Selection/400px-GST_Data_Selection_MT_01.png?v=9221" width="400"   /></a><br />
+<b>绘图细节</b>对话框会被打开，同时左面板中Layer1节点会被选中。然后，去到右侧的<b>大小</b>选项卡，勾选<b>轴长和轴刻度以X:Y轴比例关联</b>复选框，并保持比例为<i>1</i>。点击确认退出对话框查看效果。
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Data_Selection/Mini_bulb.png?v=14486" /></td><td><p>当然，你也可以直接双击图层的空白处去打开绘图细节对话框，左面板中Layer1节点同样会被选中。
+</p></td></tr></table>
+</li>
+<li> 现在我们使用其他的调色板并将它的颜色映射到绘图上。单击在图上的任意数据点，然后点击<b>样式</b>工具栏上的<b>调色板</b>按钮<a  class="image"><img alt="Palette Button.png" src="../images/Data_Selection/Palette_Button.png?v=4488" width="38"  /></a>，从中选择 <i>Temperature</i>色板，以便更好地表现数据。点击图上的任意位置取消选择该图形。
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Data_Selection/Mini_bulb.png?v=14486" /></td><td><p>你也可以使用<a class="external text" href="https://www.originlab.com/fileExchange/details.aspx?fid=240" target="_blank">Maps Online</a> App在图上添加一个地图。<a class="external text" href="https://blog.originlab.com/graphing/placing-3d-bars-on-a-map" target="_blank">这个blog</a>就是一个很好例子。 
+</p></td></tr></table>
+<p><a  class="image"><img alt="GST Data Selection 06.png" src="../images/Data_Selection/300px-GST_Data_Selection_06.png?v=4489" width="300"   /></a>
+</p>
+</li>
+<li>在菜单上，选择<b>文件：保存项目</b>， 以保存修改后的项目文件。</li>
+</ol>
+<h3><a name=".E4.BD.BF.E7.94.A8.E5.A4.9A.E4.B8.AA.E4.B8.8D.E7.9B.B8.E9.82.BB.E5.88.97.E7.BB.98.E5.9B.BE"></a><span class="mw-headline">使用多个不相邻列绘图</span></h3>
+<ol>
+<li>单击在<b>标准</b>工具栏中的<b>新建工作簿</b>按钮<a  class="image"><img alt="Button New Workbook.png" src="../images/Data_Selection/Button_New_Workbook.png?v=4941" width="23"  /></a> 打开一个新的工作簿。</li>
+<li>单击在<b>标准</b>工具栏中的<b>导入Excel</b> 按钮<a  class="image"><img alt="Button Import Excel.png" src="../images/Data_Selection/Button_Import_Excel.png?v=4491" width="25"  /></a>，在打开的文件对话框中，浏览此文件夹 <i>&lt;Origin EXE Path&gt;\Samples\Import and Export</i>，选择<i>United States Energy (1980-2013).xls</i>文件，点击添加文件，并且确认<b>显示选项对话框</b>的复选框已被选上，点击<b>确定</b>。</li>
+<li>在'<i>Excel 导入选项<b>对话框，把</b>主标题行<b>设为 2。并设置：</b></i><b>长名称</b>=1，<b>单位</b>=2</li>
+<li> 点击<b>确定</b>导入文件。然后去到的第一个工作表<i>Oil</i>，按住<b>Ctrl</b>键，选择<i>Crude Oil Production</i>, <i>Oil Consumption</i> 和 <i> Total Oil Production</i> 这三列.<br />
+<a  class="image"><img alt="GST Data Selection 08.png" src="../images/Data_Selection/800px-GST_Data_Selection_08.png?v=11192" width="800"   /></a></li>
+<li>然后在菜单上选择<b>绘图&gt; 基础 2D 图: 堆积图...</b>，使用对话框上的默认设置绘制出堆积图。</li>
+<li>保存你的项目文件</li>
+</ol>
+
+

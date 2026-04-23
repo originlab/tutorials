@@ -1,0 +1,63 @@
+<h1 class="firstHeading">6 3D图和等高线图</h1><p class='urlname' style='display: none'>GSB-3d-contour</p>
+<p><br />
+在这一课，我们将会学习如果绘制3D图，等高线图和剖面图。 绘制这类型的图形的数据，在工作簿中需要被整理为XYZ列或单元格数组，或者是在矩阵中的数据。
+</p>
+<h3><a name="3D_.E6.9B.B2.E9.9D.A2.E5.9B.BE"></a><span class="mw-headline">3D 曲面图</span></h3>
+<ol>
+<li>使用上节课中保存的项目文件，添加一个新的文件夹并命名为<b>3D and Contour</b>。点击打开这个空的文件夹。</li>
+<li>单击在<b>标准</b>工具栏上的<b>新建工具簿</b>按钮 <a  class="image"><img alt="Button New Workbook.png" src="../images/3D_and_Contour/Button_New_Workbook.png?v=4941" width="23"  /></a>。</li>
+<li>导入文件<i>&lt;Origin EXE Path&gt;\Samples\Matrix Conversion and Gridding\</i>XYZ Random Gaussian.dat<i>.</li></i>
+<li>选中C列再右键单击其标题，并在弹出菜单中选择<b>设置为：Z</b>。</li>
+<li>选中C列，然后在菜单上选择<b>绘图&gt; 3D：3D颜色映射曲面</b> 绘制出一个曲面图。</li>
+<li>双击在图形窗口左上角的标示为<b>1</b>的图层图标，打开<b>图层内容</b>对话框。</li>
+<li>在对话框左侧的面板上，选择<b>C(Z)</b>。在中间部分，单击在<b>A</b>按钮旁的箭头，并在下拉列表中选择 <b>3D 散点图/轨迹图/矢量图</b>。单击<b>添加绘图</b>按钮 <a  class="image"><img alt="Button Add plot.png" src="../images/3D_and_Contour/Button_Add_plot.png?v=4504" width="24"  /></a> 把绘图数据添加到右边的面板上。<br />
+<a  class="image"><img alt="GST surface contour 02.png" src="../images/3D_and_Contour/500px-GST_surface_contour_02.png?v=4505" width="500"   /></a></li>
+<li>单击<b>确定</b>关闭对话框。此时独立的数据点将显示在曲面图上。</li>
+<li>长按<b>R</b> 键，则可以使用鼠标任意地旋转曲面图。</li>
+</ol>
+<h3><a name=".E5.9B.BE.E5.83.8F.E5.89.96.E9.9D.A2.E5.9B.BE"></a><span class="mw-headline">图像剖面图</span></h3>
+<ol>
+<li>单击在<b>标准</b>工具栏上的<b>新建矩阵</b>按钮 <a  class="image"><img alt="Button New Matrix.png" src="../images/3D_and_Contour/Button_New_Matrix.png?v=4942" width="23"  /></a>，打开一个新的矩阵窗口。</li>
+<li>在菜单上选择<b>数据：从文件导入：图像到矩阵窗口...</b>，打开文件夹<i>&lt;Origin EXE Path&gt;\Samples\Image Processing and Analysis</i>，选择文件<i>cell.jpg</i>并导入到矩阵中。</li>
+<li>当矩阵窗口为当前窗口时，选择<b>绘图&gt; 等高线图：图像剖面</b>，则可绘制出图像剖面图，并打开<b>图片/等高线剖面</b>的对话框。</li>
+<li>在对话框中，选择<b>HLine</b>选项卡，为了加宽水平线范围，展开<b>宽度</b>并设置<b>像素</b>值为<b>50</b>。</li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/3D_and_Contour/Mini_bulb.png?v=14486" /></td><td><p>通过对话框中的按钮，你可以添加更多的水平线，垂直线或者任意线。添加在图像上的线的（同方向上）剖面曲线，将会显示在对应的图层上。剖面曲线也可以通过矩阵或者工作簿的数据来绘制。
+</p></td></tr></table>
+</ol>
+<h3><a name=".E4.BD.BF.E7.94.A8.E8.99.9A.E6.8B.9F.E7.9F.A9.E9.98.B5.E7.BB.98.E5.88.B6.E7.AD.89.E9.AB.98.E7.BA.BF.E5.9B.BE.E5.92.8C.E6.9B.B2.E9.9D.A2.E5.9B.BE"></a><span class="mw-headline">使用虚拟矩阵绘制等高线图和曲面图</span></h3>
+<ol>
+<li>单击<b>新建工作簿</b>按钮 <a  class="image"><img alt="Button Import Wizard.png" src="../images/3D_and_Contour/Button_Import_Wizard.png?v=4864" width="25"  /></a>，创建一个新的工作簿。 </li>
+<li>单击<b>导入向导</b>按钮<a  class="image"><img alt="Button Import Wizard.png" src="../images/3D_and_Contour/Button_Import_Wizard.png?v=4864" width="25"  /></a>。在打开的对话框中，点击在<b>文件</b> 框旁边的 <b>...</b>按钮 <a  class="image"><img alt="Button dot dot dot.png" src="../images/3D_and_Contour/Button_dot_dot_dot.png?v=4508" width="19"  /></a>， 打开<i>&lt;Origin EXE Path&gt;\Samples\Graphing</i> 文件夹，选择<i>waterfall.dat</i> 文件。在<b>导入向导</b>对话框中， 点击<b>完成</b> 导入文件。<br />
+<a  class="image"><img alt="GST surface contour 05.png" src="../images/3D_and_Contour/400px-GST_surface_contour_05.png?v=4509" width="400"   /></a></li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/3D_and_Contour/Mini_bulb.png?v=14486" /></td><td><p><b>导入向导</b> 可用于解析ASCII文件，从而从标题行中提取变量。您所选择的这个文件已经有一个预定义的过滤器，当您单击完成按钮时，该过滤器将会被应用于导入文件。
+</p></td></tr></table>
+<li>移动光标到工作簿的左上角，直到光标形状如下图，然后单击鼠标，则可选择此工作表中的所有列。 <br />
+<a  class="image"><img alt="GST surface contour 06.png" src="../images/3D_and_Contour/250px-GST_surface_contour_06.png?v=4510" width="250"   /></a></li>
+<li>在菜单上选择 <b>绘图&gt; 等高线图：等高线图-颜色填充</b>，则会打开<b>plotvm</b>对话框。由于数据在工作表中而非矩阵窗口内，因此在对话框中，你需要为<b>虚拟矩阵</b>指定数据结构。</li>
+<li>设置<b>Y值在</b>为<b>列标签</b>, 然后设<b>列标签</b>为<b>Excitation Wavelength(nm)</b>。</li>
+<li>单击<b>确定</b>按钮应用设置，创建等高线图。</li>
+<li>单击在右侧工具栏上的<b>启动/禁用快速模式</b>按钮<a  class="image"><img alt="Button Speedmode.png" src="../images/3D_and_Contour/Button_Speedmode.png?v=4511" width="24"  /></a>，关闭图形快速设置。</li>
+<li>回到带有waterfall数据的工作表，保持整个工作表整个被选中的情况下，在菜单上选择<b>绘图&gt;3D：曲面图：带投影的3D颜色映射曲面图</b> </li>
+<li> <b>plotvm</b> 对话框被打开。注意在对话框顶部的<b>对话框主题</b>被设置为<b>&lt;sheet&gt;</b>，这是因为上次使用过的设置被保存在工作表中，点击<b>确定</b>使用相同的设置，则可绘制带有等高线投影的曲面图。</li>
+<li>双击等高线投影，打开<b>绘图细节</b>对话框。注意在<b>曲面</b>选项卡中，<b>扁平</b>复选框已选上，并且设置偏移值为100%，此设置使数据图以平面等高线图显示在立体图形的顶部。 单击<b>确定</b>关闭绘图详细对话框。<br />
+<a  class="image"><img alt="GST surface contour 08.png" src="../images/3D_and_Contour/400px-GST_surface_contour_08.png?v=4512" width="400"   /></a></li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/3D_and_Contour/Mini_bulb.png?v=14486" /></td><td><p>通过指定适当的偏移值，可以将来自不同的矩阵或虚拟矩阵的数据绘制到同一个的3D图中，更可以进一步指定数据图平面化，这样可便于在同一个图中查看相关的数据。
+</p></td></tr></table>
+<li>双击<b>Z</b>坐标轴打开<b>坐标轴</b>对话框。在<b>刻度</b>选项卡，设置<b>结束</b>为 4000，并点击确定。这使3D曲面图更易于查看，而等高线投影仍然显示在立体图形的顶平面上。</li>
+</ol>
+<h3><a name="3D_.E5.87.BD.E6.95.B0.E5.9B.BE"></a><span class="mw-headline">3D 函数图</span></h3>
+<ol>
+<li>在菜单上选择<b>文件：新建：函数图：3D函数图</b>。</li>
+<li>在对话框中，单击在顶部的<b>主题</b>框旁边的三角按钮<a  class="image"><img alt="Triangle button.png" src="../images/3D_and_Contour/Triangle_button.png?v=13640" width="15"  /></a>，然后在弹出菜单上选择 <b>Mexican Hat(System)</b>，以加载此示例的设置。</li>
+<li>点击<b>确定</b>绘制此图。</li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/3D_and_Contour/Mini_bulb.png?v=14486" /></td><td><p>可在现有的图形中添加一个参数函数图，从而使图形与实际数据结合。浏览<a class="external text" href="https://www.originlab.com/3dfunctions" target="_blank">3D 函数图库</a> ，可以参考和下载更多的例子。
+</p></td></tr></table>
+<p>保存你的项目文件。
+</p>
+</ol>
+
+

@@ -1,0 +1,46 @@
+<h1 class="firstHeading">9 波峰分析</h1><p class='urlname' style='display: none'>GSB-pa-tutorial</p>
+<p><br />
+在这节课中，我们将演示如何进行拟合，包括重叠峰解卷积和基线校正。
+</p>
+<h3><a name=".E9.80.9A.E8.BF.87.E8.A7.A3.E5.8D.B7.E7.A7.AF.E8.BF.9B.E8.A1.8C.E5.A4.9A.E5.B3.B0.E6.8B.9F.E5.90.88"></a><span class="mw-headline">通过解卷积进行多峰拟合</span></h3>
+<ol>
+<li>继续使用上节课保存的项目文件，在项目管理器中新建一个文件夹，并重命名为<i><b>峰值分析</b></i>，进入这个空文件夹。</li>
+<li>在新的工作簿中，导入此文件<i>&lt;Origin EXE Path&gt;\Samples\Spectroscopy\HiddenPeaks.dat</i>。</li>
+<li>选中B列，并绘制折线图。</li>
+<li>选择图形窗口为当前窗口，点击<b>分析：峰值及基线：多峰拟合</b>。打开<b>多峰拟合</b>对话框，在<b>峰函数</b>下拉列表中选择<b>Gauss</b>，并点击<b>确定</b>. </li>
+<li><b>取点</b>对话框在图形窗口中打开。提示，你可以在图形窗口中调整对话框位置。在图形上，双击一个峰的中心则可选中它。如下图所示，选择总共7个峰，包括两个隐藏峰：<br />
+<a  class="image"><img alt="Peak analysis 01.png" src="../images/Peak_Analysis/250px-Peak_analysis_01.png?v=4528" width="250"   /></a></li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Peak_Analysis/Mini_bulb.png?v=14486" /></td><td><p>如果在<b>取点</b>对话框中点击<b>打开NLFit</b>按钮，将打开NLFit对话框，根据你选择的值作为峰中心(centers)初始化值，你可以根据需要进一步控制拟合过程。
+</p></td></tr></table>
+<li>选择完所有7个峰，点击<b>拟合</b>按钮，一份拟合报表将添加到工作簿。</li> 
+</ol>
+<h3><a name=".E5.90.AB.E5.9F.BA.E7.BA.BF.E7.9A.84.E5.B3.B0.E6.8B.9F.E5.90.88"></a><span class="mw-headline">含基线的峰拟合</span></h3>
+<ol>
+<li>课程的这部分需要使用到OriginPro版本上的功能，假设你正在使用OriginPro。新建一个工作簿，并导入文件<i>&lt;Origin EXE Path&gt;\Samples\Spectroscopy\Peaks_on_Exponential_Baseline.dat</i>。</li>
+<li>选中B列，并选择<b>分析：峰值及基线：峰值分析</b>。打开<b>峰值分析</b>对话框，同时预览窗口将显示所选数据。
+
+<li>在对话框下方，选择<b>目标</b>为<b>峰拟合(Pro)</b>，同时对话框的上方将会更新，显示峰拟合过程中涉及的步骤图。
+
+<li>点击<b>下一步</b>，进入<b>基线模式</b>界面。在<b>基线模式</b>下拉列表中，选择<b>用户自定义</b>。再点击<b>下一步</b>，进入<b>创建基线</b>界面。此时，在预览窗口中显示了8个添加在光谱图被红线连接的锚点，添加在光谱图上的红线就是使用当前设置创建的基线。 现在点击<b>上一步</b>按钮返回到<b>基线模式</b>界面，进一步调整基线模式设置。</li>
+<li>在<b>所找到点的数目</b>下，点击<b>查找</b>按钮，找出光谱图的基线锚点，则8个锚点被添加到预览图上。<br />
+<a  class="image"><img alt="Peak analysis 02.png" src="../images/Peak_Analysis/300px-Peak_analysis_02.png?v=4529" width="300"   /></a></li>
+<li>取消勾选<b>启用自动查找</b>，然后点击<b>添加</b>按钮，在谱图上添加一个或多个锚点。双击频谱尾部，如下图所示，添加1个锚点。<br />
+<a  class="image"><img alt="Peak analysis 03.png" src="../images/Peak_Analysis/400px-Peak_analysis_03.png?v=4530" width="400"   /></a></li>
+<li>提示，你也可以选择并删除锚点，点击<b>完成</b>返回<b>峰值分析</b>对话框。</li>
+<li>勾选<b>对齐到频谱</b>，强制锚点对齐到频谱中最近的数据点，点击<b>下一步</b>.</li>
+<li>在<b>创建基线</b>界面，<b>连接方式</b>下拉列表中选择<b>拟合</b>，并在<b>拟合</b>分支的<b>函数</b>下拉列表中，选择<b>ExpDec2</b>，然后单击两次<b>下一步</b>按钮跳转到<b>寻峰</b>界面。</li>
+<li>点击<b>查找</b>按钮，在预览窗口找到两个峰。</li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Peak_Analysis/Mini_bulb.png?v=14486" /></td><td><p>有几个选项可用于寻峰，包括了二阶导数法查找重叠峰，还可以查看二阶导数曲线，并启动平滑查找噪声数据中的峰。
+</p></td></tr></table>
+<li>点击<b>下一步</b>进入<b>峰拟合</b>界面，应用默认设置，并单击<b>完成</b>按钮，运行峰拟合，生成一个包含拟合结果的图形。</li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Peak_Analysis/Mini_bulb.png?v=14486" /></td><td><p>你可以点击<b>拟合控制</b>按钮控制拟合过程，包括固定和共享参数，指定界限和约束条件。
+</p></td></tr></table>
+<li>现在，我们可对<b>拟合结果</b>表进行自定义，隐藏一些我们不需要显示的峰性质。右击表格，在弹出菜单中选择<b>峰报告项...</b>，打开<b>峰报告项</b>对话框，其中列出了表中可以包含的所有性质，你可以在对话框中移除性质或者改变性质排序。选择<b>峰值重心</b>并点击<b>移除</b>按钮隐藏它，对<b>通过积分数据得到峰面积（%）</b>进行相应操作，然后点击<b>确定</b>更新图中的表格。<br />
+<a  class="image"><img alt="Peak analysis 04.png" src="../images/Peak_Analysis/600px-Peak_analysis_04.png?v=4531" width="600"   /></a></li>
+</ol>
+<p>保存你的项目文件。
+</p>
+

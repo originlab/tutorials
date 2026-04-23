@@ -1,0 +1,77 @@
+<h1 class="firstHeading">2 图形模板和批量绘图</h1><p class='urlname' style='display: none'>GSB-template-theme-batchplotting</p>
+<p>在这一课中，我们将学习图形模板的创建和使用，以及如何批量绘图。 
+</p>
+<h2><a name=".E5.9B.BE.E5.BD.A2.E6.A8.A1.E6.9D.BF"></a><span class="mw-headline">图形模板</span></h2>
+<p>请打开在我们在<a href="../../Tutorial/Tutorial/Create_Your_First_Graph.html" title="Tutorial:Create Your First Graph">第一课: 我的第一张绘图</a>中保存的项目文件。点选图形窗口。
+</p>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Graph_Templates_Themes_and_Batch_Plotting/Mini_bulb.png?v=14486" /></td><td><p>可以通过菜单列表<b>文件：最近使用的项目</b>来快速打开最近保存过的项目文件。
+</p></td></tr></table>
+<ol>
+<li> 点击X轴，在弹出的迷你工具栏中，点击<b>显示相反的轴</b>按钮去显示上X轴。对Y轴做同样的操作去显示右Y轴。<br />
+<a  class="image"><img alt="Graph Templates Themes and Batch Plotting TM 01.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/350px-Graph_Templates_Themes_and_Batch_Plotting_TM_01.png?v=11186" width="350"   /></a></li>
+<li> 现在让我们将这个图形保存为模板。右键单击图形窗口的标题栏，从弹出菜单中选择<b>保存模板为...</b>。 </li>
+<li> 在打开的对话框中，输入<b>模板名</b>为<b>My Line</b>，点击<b>确定</b>来保存这个模板。</li>
+<li> 接下来我们要生成一列新的数据。选中工作表窗口，右键单击右边的灰色区域，从弹出菜单中选择<b>添加新列</b>。 </li>
+<li> 点选新加的这一列的<b>F(x)</b>单元格，右键，并选择菜单<b>打开对话框...</b>。你也可以使用快捷键<b>Ctrl+Q</b>来直接打开对话框。
+<li> 在打开的对话框中，选择菜单<b>变量：从工作表中选择区域添加范围变量</b>来打开<b>在工作表中选择</b>对话框。选中工作表中的前两列，点击 <a  class="image"><img alt="Button expand.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/Button_expand.png?v=4476" width="15"  /></a>按钮来确认选区，接着在弹出的对话框中，接受<b>插入模式</b>的默认设置，点击<b>确定</b>。这样，两个范围变量就添加到了<b>执行公式之前运算的脚本</b>面板中。</li>
+<li>在上方面板中输入以下公式：
+<pre class="lt" style="font-family:monospace;"> Mmovavg<span style="color: #000000;">&#40;</span>B,<span style="color: #0000dd;">2</span><span style="color: #000000;">&#41;</span></pre>
+<p><a  class="image"><img alt="Template theme 02.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/350px-Template_theme_02.png?v=11187" width="350"   /></a><br />
+</p>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Graph_Templates_Themes_and_Batch_Plotting/Mini_bulb.png?v=14486" /></td><td><p>对话框的<b>公式：加载示例</b>菜单提供了一些给列赋值的例子。<b>函数</b>菜单分门别类地列出了大量函数可供选择。你也可以使用公式编辑文本框右上角的搜索按钮来搜索适合的函数。
+</p></td></tr></table></li>
+<li> 点击<b>确定</b>关闭对话框。C列被相应地赋值。在C列的<b>注释</b>单元格里输入<b>sin(x)/x</b>。</li>
+<li> 点击C列的标题选中整列。从菜单中选择<b>绘图 &gt; 我的模板</b>，然后选择我们之前保持的<b>My Line</b>模板。这将生成一张从C列绘制的曲线图。 <br />
+<a  class="image"><img alt="Template theme 03.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/250px-Template_theme_03.png?v=11188" width="250"   /></a>
+</li>
+</ol>
+<h2><a name=".E6.89.B9.E9.87.8F.E7.BB.98.E5.9B.BE"></a><span class="mw-headline">批量绘图</span></h2>
+<p>在这一小节中，我们首先绘制一张图，然后使用新的数据来“复制”这张图，以达到批量绘图的目的。
+</p>
+<ol>
+<li> 展开界面左侧的<b>项目管理器</b>。在上方面板中，右键单击根目录并选择<b>新建文件夹</b>。</li>
+<li> 右击刚创建的文件夹，选择<b>重命名</b>，并输入名字<b>Batch Plotting</b>。点击这个空的文件夹将它打开。</li>
+<li> 选择<b>帮助：打开文件夹：程序文件夹</b>菜单打开origin的程序文件夹，找到并打开子文件夹<i>\Samples\Import and Export\</i>。按住<b>Shift</b>键并选择以下三个文件：
+<table class="tbl">
+
+<tr>
+<td>* S15-125-03.dat
+</td>
+<td>* S21-235-07.dat
+</td>
+<td>* S32-014-04.dat
+</td></tr></table>
+</li>
+<li> 将选中的文件拖拽到Origin的工作区当中。这三个文件将会被分别导入到三个新的工作簿中。<br />
+<a  class="image"><img alt="Template theme 05.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/400px-Template_theme_05.png?v=4479" width="400"   /></a>
+
+<table class="note">
+
+<tr>
+<td><b>提示:</b> 若要使用拖拽的方式导入数据，<a class="external text" href="../../QuickHelp/QuickHelp/Why_does_not_drag_and_drop_work.html">请勿以管理员身份运行Origin</a>。
+</td></tr></table>
+</li>
+<li> 选择其中一个工作簿，点击B列的标题并拖拽鼠标到D列，选中这三列。然后选择<b>绘图 &gt; 多面板/多轴: 3Ys Y-YY</b>. 
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Graph_Templates_Themes_and_Batch_Plotting/Mini_bulb.png?v=14486" /></td><td><p>Origin会自动在所选Y列的左边查找X列，并根据所选Y列和在它左边、与它最接近的X列来画图。
+</p></td></tr></table></li>
+<li>右击一条曲线，选择<b>绘图更改为：折线图</b>上下文菜单，去把被选中的绘图的绘图类型改为<b>折线</b>。<br />
+<a  class="image"><img alt="Graph Templates Themes and Batch Plotting TM 02.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/Graph_Templates_Themes_and_Batch_Plotting_TM_02.png?v=9215" width="397"  /></a><br />
+再次点击该绘图，在弹出的迷你工具栏中，使用<b>线的粗细</b>下拉菜单<a  class="image"><img alt="Button Border Width.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/Button_Border_Width.png?v=4467" width="40"  /></a>将线宽设置为<b>3</b>.<br />
+<a  class="image"><img alt="Graph Templates Themes and Batch Plotting TM 03.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/Graph_Templates_Themes_and_Batch_Plotting_TM_03.png?v=9216" width="378"  /></a><br />
+然后，对其他两个绘图做同样的设置，从而得到以下绘图。<br />
+<a  class="image"><img alt="Graph Templates Themes and Batch Plotting TM 04.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/Graph_Templates_Themes_and_Batch_Plotting_TM_04.png?v=9217" width="372"  /></a>
+</li>
+<li> 接下来，我们将使用新的数据来“克隆”这张图。右击图形窗口的标题栏，选择<b>复制(批量绘图)：选择新工作簿复制</b>。</li>
+<li> 在打开的对话框中，按住<b>Shift</b>键，选中上方的框内列出的两个工作簿。
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Graph_Templates_Themes_and_Batch_Plotting/Mini_bulb.png?v=14486" /></td><td><p>你可以从<b>用...来匹配绘图列</b>的下拉菜单中选择合适的匹配条件，Origin会自动筛选项目中所有的工作表，并把那些在该匹配条件下，跟当前图形具有相同数据组织结构的工作表列出来。
+</p></td></tr></table></li>
+<li> 点击<b>确定</b>。若弹出询问“是否要重新调整坐标轴范围以显示全部”的提示框，选择<b>是</b>并点击<b>确定</b>。这样，我们就从两个工作簿中分别画出了两张风格相似的图。<br />
+<a  class="image"><img alt="Template theme 04.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/400px-Template_theme_04.png?v=4480" width="400"   /></a></li>
+<li> 从菜单中选择<b>文件: 保存项目</b>，保存我们修改过的项目文件。</li>
+</ol>
+
+

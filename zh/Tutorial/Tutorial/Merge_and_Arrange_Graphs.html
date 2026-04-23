@@ -1,0 +1,89 @@
+<h1 class="firstHeading">4 组合和排列图形</h1><p class='urlname' style='display: none'>GSB-Merge-Arrange-graphs</p>
+<p><br />
+在这一课中，我们将学习如何绘制多幅图，将他们合并在一起，并对合并后图形中的图层进行调整。我们还将学习如何保存图形为可复制的模板，方便我们用类似结构的数据进行快速画图。
+</p>
+<h2><a name=".E5.AF.BC.E5.85.A5.E6.95.B0.E6.8D.AE.E5.B9.B6.E7.BB.98.E5.9B.BE"></a><span class="mw-headline">导入数据并绘图</span></h2>
+<ol>
+<li> 打开我们在<a href="../../Tutorial/Tutorial/Data_Selection.html" title="Tutorial:Data Selection">第三课: 数据选择</a>中保存的项目。 在<b>项目管理器</b>中的在根目录下，创建一个新的文件夹，并命名为<i><b>Merging Graphs</b></i>。打开这个空的文件夹。
+
+<li> 点击<b>标准</b>工具栏上的<b>新建工作簿</b>按钮<a  class="image"><img alt="Button New Workbook.png" src="../images/Merge_and_Arrange_Graphs/Button_New_Workbook.png?v=4941" width="23"  /></a>。点选菜单 <b>帮助: 打开文件夹: 示例文件夹</b> 打开 "Samples" 文件夹。在这文件夹里，打开 <i>Statistics</i> 子文件夹，在其中找到 <i>automobile.dat</i> 文件，把该文件拖拉进新建的 Origin 工作簿导入它<br /></li>
+<li> 点击列标题选中C列，点击<b>2D图形</b>工具栏上的<b>散点图</b>按钮<a  class="image"><img alt="Button Scatter.png" src="../images/Merge_and_Arrange_Graphs/Button_Scatter.png?v=4494" width="22"  /></a>，绘制一个散点图。</li>
+<li> 点击图中任一点选中散点图，右击并从弹出菜单中选择 <b>更改X：[automobile]automobile!G(Y):EnginDisplacement</b>，更换X数据。此时将会弹出提示信息，询问是否需要为新的数据调整坐标轴范围。选择<b>是</b>并点击<b>确定</b>。
+<br />
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Merge_and_Arrange_Graphs/Mini_bulb.png?v=14486" /></td><td><p>提示信息对话框提供了多种选项。若选择了<b>是，以后也这样做，无须再问。</b>，此提示信息将不再弹出。若要重新激活所有的提示信息，可在菜单中选择<b>帮助：重新激活提醒信息</b>。
+</p></td></tr></table>
+<p><a  class="image"><img alt="Merge and arrange graph 01.png" src="../images/Merge_and_Arrange_Graphs/Merge_and_arrange_graph_01.png?v=4495" width="800"  /></a>
+</p>
+</li>
+<li> 选中图例，按<b>删除</b>键将其删除。
+
+<li> 接下来我们将改变数据来创建这幅图的副本。首先，回到工作表中，点击窗口右上角的关闭按钮<b>X</b>。在弹出的对话框中，选择<b>隐藏</b>以隐藏当前工作表窗口。<br />
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Merge_and_Arrange_Graphs/Mini_bulb.png?v=14486" /></td><td><p>被隐藏的窗口在<b>项目管理器</b>中的显示为半透明的状态。双击其图标可重新打开这个窗口。
+</p></td></tr></table> </li>
+<li> 右击图形窗口的标题栏并选择<b>复制</b>，生成此图形的副本，再重复操作两次，则可得到4个图形窗口。</li>
+<li> 在菜单上，选择<b>窗口：纵向平铺</b>使这4个图形窗口在工作区域铺开。</li>
+<li> 利用上述右键菜单中的<b>改变X</b>/<b>改变Y</b>选项， 按照下列步骤，改变副本图形中的X/Y数据，并为新的数据调整坐标轴范围：
+<ul><li> 副本 1：更改 Y ：<i>[automobile]automobile!D(Y):0^60 mph</i></li>
+<li> 副本 2：更改 X ：<i>[automobile]automobile!E(Y):Weight</i></li>
+<li> 副本 3：更改 X ：<i>[automobile]automobile!F(Y):Gas Mileage</i></li></ul>
+</li>
+<li>选择Power vs. Weight 的图形，并做更多的修改。点击绘图，在弹出的迷你工具栏中，改变以下的绘图属性：
+<ul><li> 设<b>符号颜色</b>为<b>橄榄绿</b></li>
+<li> 改变<b>符号形状</b>为<b>圆形</b></li>
+<li> 设置<b>透明度</b>为56%</li></ul>
+<a  class="image"><img alt="Merge and arrange graph TM 01.png" src="../images/Merge_and_Arrange_Graphs/400px-Merge_and_arrange_graph_TM_01.png?v=9226" width="400"   /></a>
+</li>
+<li>双击Y坐标轴，打开<b>坐标轴</b>对话框，按如下所示更改轴属性：
+<ul><li> 选择<b>刻度线标签</b>选项卡，按住键盘的<b>Ctrl</b>键，在左侧选择<b>下轴</b>和<b>左轴</b> 两个坐标轴。</li>
+<li> 在<b>显示</b>子选项卡中，设置<b>显示</b>为<b>工程学：1K</b> 。</li>
+<li> 选中<b>设置小数位数</b>复选框，设置<b>小数位</b>为0。 单击<b>确定</b>，关闭对话框。</li></ul>
+<a  class="image"><img alt="Merge and arrange graph 02.png" src="../images/Merge_and_Arrange_Graphs/Merge_and_arrange_graph_02.png?v=4496" width="443"  /></a>
+</li>
+<li>现在我们可以将这图中设定了格式复制到其余三副图中。右键单击如上任意空白位置，例如坐标轴外围，然后在弹出菜单中选择<b>复制格式：所有样式格式</b>。
+
+<li>在主菜单中，选着<b>编辑：粘贴格式(高级)...</b>。 在打开的<b>应用格式</b>对话框中，在<b>适用范围</b>下拉列表中选择<b>当前文件夹的所有图</b>。单击<b>应用</b> 按钮，则图形格式被复制到其余的图上，然后点击<b>关闭</b>按钮。
+</ol>
+<h3><a name=".E5.90.88.E5.B9.B6.E5.92.8C.E6.8E.92.E5.88.97.E5.9B.BE.E5.BD.A2"></a><span class="mw-headline">合并和排列图形</span></h3>
+<ol>
+<li>现在我们可以合并4个图形。在主菜单中，选择<b>图：合并图表</b>。</li>
+<li><b>合并图表</b>对话框被打开。应用对话框中的默认设置，单击<b>确定</b>按钮，则生成一个含有4个图层的图形窗口。</li>
+<li> 我们可以对在新合并图形中的4个图层进行重新排列。在主菜单上，选择<b>图：图层管理</b>，打开<b>图层管理</b>对话框。</li>
+<li>选择<b>排列图层</b>选项卡，展开<b>间距(页面尺寸的%)</b>节点。按如下所示设置：
+<ul><li> 水平间距= 15</li>
+<li> 垂直间距= 15</li>
+<li> 左边距= 10</li>
+<li> 右边距= 5 </li>
+<li> 上边距= 5</li>
+<li> 下边距= 15</li></ul>
+单击<b>应用</b>按钮。
+</li>
+<li>选择<b>显示</b>选项卡，按住<b>Ctrl</b>键，并在左侧的<b>图层选择</b>表格中选择全部4个图层。然后在<b>选项</b>节点下选在<b>缩放元素</b>，并设置<b>缩放模式</b>为<b>固定因子</b>，且<b>固定因子</b>=1</li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Merge_and_Arrange_Graphs/Mini_bulb.png?v=14486" /></td><td><p>默认情况下 Origin 图形中的元素是根据图层大小缩放的，也就是说如果你拖拽或者缩放图层，或者在合并图表时缩放图层，文本字体和其他图形对象会根据你的图层大小重新缩放。如果把<b>缩放模式</b>设为<b>固定因子</b>，字体和线宽就不会自动缩放了。（也可以在<b>绘图细节</b>对话框的<b>大小</b>选项卡 (左边选图层)，修改这个设置）
+</p></td></tr></table></li>
+<li>单击<b>应用</b>按钮，在点击<b>确定</b>关闭此对话框。<br />
+<a  class="image"><img alt="Merge and arrange graph 03.png" src="../images/Merge_and_Arrange_Graphs/Merge_and_arrange_graph_03.png?v=4497" width="497"  /></a>
+<br />则合并图形如下所示：:<br />
+<a  class="image"><img alt="Merge and arrange graph 04.png" src="../images/Merge_and_Arrange_Graphs/350px-Merge_and_arrange_graph_04.png?v=4498" width="350"   /></a></li>
+<p><br />
+</p>
+<li>双击<b>项目管理器</b>下面板中<i>automobile</i>工作簿图标，使其成为当前窗口。选择B列，点击<b>添加/移除数据筛选器</b>按钮<a  class="image"><img alt="Button Add Or Remove Data Filter.png" src="../images/Merge_and_Arrange_Graphs/Button_Add_Or_Remove_Data_Filter.png?v=4138" width="23"  /></a> 在数据列上添加筛选器。</li>
+<li>单击在列标题左上角的筛选器图标，反选<b>(选择全部)</b>复选框以取消选择全部，然后选择<b>Honda</b>复选框，并单击<b>确定</b>，此时工作表中只会显示制造商是<i>Honda</i>的数据行，而其他的行将被隐藏起来，并且所有以上创建的图形也跟随数据的改变而更新。
+<br /><a  class="image"><img alt="Merge and arrange graph 05.png" src="../images/Merge_and_Arrange_Graphs/Merge_and_arrange_graph_05.png?v=4499" width="263"  /></a></li>
+</ol>
+<h3><a name=".E5.8F.AF.E5.A4.8D.E5.88.B6.E6.A8.A1.E6.9D.BF.E5.92.8C.E6.99.BA.E8.83.BD.E7.BB.98.E5.9B.BE"></a><span class="mw-headline">可复制模板和智能绘图</span></h3>
+<ol>
+<li>现在我们来保存合并图形作为图形模板。在右键单击图形窗口的标题栏，选择<b>保存模板为</b>，打开<b>template_saveas</b>对话框。</li>
+<li>确认已选<b>标志为可复制的模板</b>，并且<b>用...来匹配绘图列</b>设置为<b>长名称</b>。输入<i>MyMergeGraph</i>作为模板名，并点击<b>确定</b>。消息被发送到<b>消息日志</b>，并告诉您模板已保存。
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Merge_and_Arrange_Graphs/Mini_bulb.png?v=14486" /></td><td><p>可复制模板除了绘图设置外还会记录下你的图里的数据结构，对复杂图形，绘图数据涉及多个数据列或数据表，普通的绘图模板未必适用，但用可复制模板，如果你有其他相同结构的数据，就可以画出同样的图。
+</p></td></tr></table>
+</li>
+<li>当<i>automobile</i>工作簿为当前窗口，选在B列的筛选器，选择<i>Honda</i> and <i>Lexus</i> ，单击<b>确定</b>以同时显示两个制造商。</li>
+<li>当工作簿仍为当前窗口，在主菜单中选择<b>绘图 &gt; 我的模板：MyMergeGraph</b>，则可绘制出一个与先前的合并图具有相同的数据分配和格式的新图形。</li>
+<p>保存项目文件。</p>
+</ol>
+
+

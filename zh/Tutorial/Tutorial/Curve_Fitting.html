@@ -1,0 +1,61 @@
+<h1 class="firstHeading">8 曲线拟合</h1><p class='urlname' style='display: none'>GSB-curve-fitting</p>
+<p><br />
+</p><p>在这一课中，我们将学习如何进行线性以及非线性拟合。
+</p>
+<h3><a name=".E5.AD.98.E5.9C.A8.E5.BC.82.E5.B8.B8.E5.80.BC.E7.9A.84.E7.BA.BF.E6.80.A7.E6.8B.9F.E5.90.88"></a><span class="mw-headline">存在异常值的线性拟合</span></h3>
+<ol>
+<li> 使用上一节课中保存的项目， 在项目管理器的根目录下添加一个新的文件夹并命名为 <i><b>Curve Fitting</b></i>。</li>
+<li> 导入文件 <i>&lt;Origin安装路径&gt;\Samples\Curve Fitting\Outliers.dat</i>。</li>
+<li> 选择第二列来创建一个散点图。</li>
+<li> 选择如下菜单<b>分析(A): 拟合(F): 线性拟合(L)</b>。在打开的对话框中，使用默认设置并点击<b>确定</b>以进行线性拟合。</li>
+<li> 在图中，右击拟合结果表并选择 <b>表中的输出量</b>。 去掉<b>截距</b>，<b>斜率</b>以及<b>Pearson's r</b>以外的所有输出量(按住CTRL 键点选多行)。 点击 <b>确定</b> 并调整结果表大小。</li>
+<li> 然后，点击左侧工具栏上的<b>屏蔽当前绘图的点</b>按钮<a  class="image"><img alt="Button Mask Data.png" src="../images/Curve_Fitting/Button_Mask_Data.png?v=4516" width="25"  /></a>，然后屏蔽图右下方的数据点，因为这个点明显的偏离剩余其他点。</li>
+<li> 此时图中左上角的锁变成黄色<a  class="image"><img alt="Yellow Lock.png" src="../images/Curve_Fitting/Yellow_Lock.png?v=4517" width="18"  /></a>，表明源数据已被更改且拟合结果需要更新。</li> 
+<li> 按下ESC键使光标切换回指针模式。然后点击黄色的锁并在弹出菜单上选择<b>重新计算模式：自动</b>。 拟合结果就会被更新。</li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Curve_Fitting/Mini_bulb.png?v=14486" /></td><td><p>您可通过点击<b>常规</b>工具栏上的 <b>重新计算</b> 按钮<a  class="image"><img alt="Button Run for All OPS.png" src="../images/Curve_Fitting/Button_Run_for_All_OPS.png?v=4518" width="25"  /></a>去更新该项目中所有的待更新操作。 
+</p></td></tr></table>
+<li> 回到图中并使用屏蔽工具屏蔽图中右上方的偏离点。这次您可以看到结果会自动更新。最终您可以得到如下的图:
+<br /><a  class="image"><img alt="Mini tut curve fit 1.png" src="../images/Curve_Fitting/Mini_tut_curve_fit_1.png?v=4519" width="405"  /></a></li>
+</ol>
+<h3><a name=".E9.9D.9E.E7.BA.BF.E6.80.A7.E6.8B.9F.E5.90.88"></a><span class="mw-headline">非线性拟合</span></h3>
+<ol>
+<li> 创建一个新的工作簿并导入文件<i>&lt;Origin安装路径&gt;\Samples\Curve Fitting\Gaussian.dat</i>。</li>
+<li> 选择名为<i>Amplitude</i>的数据列去创建一个散点图。</li>
+<li> 回到工作簿，选择名为<i>Error</i>的数据列，右击并在右键菜单中选择<b>设置为: Y 误差</b>。</li>
+<li> 移动光标到所选列的右侧边缘。光标变成<a  class="image"><img alt="Drag Drop Cursor.png" src="../images/Curve_Fitting/Drag_Drop_Cursor.png?v=4520" width="34"  /></a>时，您就可以拖放该列到图上。这样，数据就会被添加为已有的散点图的误差棒。</li>
+<li> 现在我们开始拟合数据。点击菜单<b>分析(A): 拟合(F): 非线性曲线拟合(N)</b>以打开<b>NLFit</b>对话框。</li>
+<li> 在<b>函数选取</b>页面，分别设置<b>类别</b>为<b>Peak Functions</b>，<b>函数</b>为<b>Gauss</b>。</li>
+<li> 点击<b>拟合</b>按钮进行拟合，然后在弹出对话框上选择<b>否</b>以保持当前活动窗口仍为图形窗口。<br />
+<a  class="image"><img alt="Nonlinear Curve Fit cn.png" src="../images/Curve_Fitting/350px-Nonlinear_Curve_Fit_cn.png?v=11199" width="350"   /></a>
+</li>
+<li> 现在我们打算固定参数<i>y0</i>的值为 <i>0</i>，并对应的更新拟合结果。 点击图层左上角的绿锁并选择<b>更改参数</b>。</li>
+<li> 之前的对话框将被重新打开，且保持了上次的所有设置。切换到<b>参数</b>选项卡，选中<i>y0</i>的<b>固定</b>复选框并设置其<b>值</b>为<i>0</i>。
+<br /><a  class="image"><img alt="GST Curve Fitting 01.png" src="../images/Curve_Fitting/GST_Curve_Fitting_01.png?v=4521" width="300"  /></a></li>
+<li> 点击<b>拟合</b>按钮以更新结果并关闭对话框。在图中已更新的结果表里，我们可以看到<img src="../images/Curve_Fitting/math-1c9d6409af68a33d266754cb5eba223d.png?v=0" title="y0 = 0 \pm 0" alt="y0 = 0 \pm 0" class="tex"/>。
+</li>
+</ol>
+<h3><a name=".E5.85.B1.E4.BA.AB.E5.8F.82.E6.95.B0.E7.9A.84.E5.85.A8.E5.B1.80.E6.8B.9F.E5.90.88"></a><span class="mw-headline">共享参数的全局拟合</span></h3>
+<ol>
+<li> 创建新的工作簿并导入文件<i>&lt;Origin安装路径&gt;\Samples\Curve Fitting\Exponential Decay.dat</i>。</li>
+<li> 拖动鼠标选择三个Y列去创建一个包含三条图线的线图。</li>
+<li> 我们打算同时拟合这三个图线,且把拟合范围定在x=0.4s~1.0s。在左侧<b>工具</b>工具栏上，点击<b>当前图形上的选择</b><a  class="image"><img alt="Button Select On Active Plot.png" src="../images/Curve_Fitting/Button_Select_On_Active_Plot.png?v=4522" width="31"  /></a>右侧的下箭头按钮。 在快捷菜单上，点击<b>所有图形上的选择</b>项。 然后转到图形窗口，按住鼠标并拖动，画一个x范围大概为0.4到1的矩形，此操作将选出所有图线的该x范围内的数据。<br />
+<a  class="image"><img alt="Mini tut curve fit 2.png" src="../images/Curve_Fitting/Mini_tut_curve_fit_2.png?v=4523" width="660"  /></a></li>
+<li>同时按下<b>CTRL+Y</b>键以快速打开<b>NLFit</b>对话框。然后分别设置<b>类别</b>为<b>Exponential</b>以及<b>函数</b>为<b>ExpDec1</b>。</li>
+<li> 点击<b>设置</b>选项卡下的<b>数据选择</b>子选项卡，展开<b>输入数据</b>节点，刚刚选择三条图线段已被设为输入数据。您可展开 <b>范围<i>#</i></b>节点并通过<b>按行</b>或<b>按X</b>来调整输入数据的范围。</li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Curve_Fitting/Mini_bulb.png?v=14486" /></td><td><p>如果没有在多个图线上选择部分范围，Origin将把当前活动图线作为输入数据，即便图中包含多个图线。如果是这种情况，您点击<b>输入数据 </b><br />右侧的<a  class="image"><img alt="Button Right Triangle.png" src="../images/Curve_Fitting/Button_Right_Triangle.png?v=4524" width="22"  /></a>按钮并选择<b>添加当前页面中的所有绘图</b>。
+</p></td></tr></table>
+<li> 更改<b>多数据拟合模式</b>为<b>全局拟合</b>，切换至<b>参数</b>选项卡并点击<b>拟合直至收敛</b>按钮 <a  class="image"><img alt="Fit until converge.png" src="../images/Curve_Fitting/Fit_until_converge.png?v=4525" width="26"  /></a>，在不关闭对话框的情况下同时拟合三条图线。
+</li>
+<li> 在全局拟合中您可设置共享参数。选中时间常量的 <i><b>t1</b></i>的<b>共享</b>复选框。 您可看到参数列表中其余图线的时间参数会被移除。
+</li>
+<li> 点击<b>拟合</b>按钮并在弹出的对话框中选择<b>是</b>以跳转到结果工作表。 如果没有弹出对话框，您可点击图上的锁选择<b>转到结果</b>。
+<li> 向下滚动至结果工作表里的<i>汇总</i>表，可以看到所有时间常量<i><b>t1</b></i>共享同一参数值。<br />
+<a  class="image"><img alt="GST Curve Fitting 02.png" src="../images/Curve_Fitting/GST_Curve_Fitting_02.png?v=4526" width="574"  /></a></li>
+<li> 点击<b>汇总</b>节点旁的下箭头按钮然后选择<b>创建副本为新表</b>。 一个新的包含该拟合结果的工作表将被添加在当前工作簿中。</li>
+<li> 在该工作表中，选择列D，E创建一个柱状图，用于显示振幅参数(A1)在三个数据之间的变化。<br />
+<a  class="image"><img alt="Mini tut curve fit 3.png" src="../images/Curve_Fitting/Mini_tut_curve_fit_3.png?v=4527" width="298"  /></a></li>
+</ol>
+
+

@@ -1,0 +1,33 @@
+<h1 class="firstHeading">11 分析模板</h1><p class='urlname' style='display: none'>GSB-analysis-template-lesson</p>
+<p><br />
+在这一课中，我们将学习如何创建分析模板并将其重新用于新数据。
+</p>
+<ol>
+<li>使用上一节课中保存的项目文件，在<b>项目管理器</b>的根目录下添加一个新的文件夹并命名为 <i><b>Analysis Template</b></i>。</li>
+<li>新建工作簿，导入文件 <i>&lt;Origin 安装目录&gt;\Samples\Curve Fitting\Sensor01.dat</i>。</li>
+<li>选中<b>B</b>列，在菜单上选择<b>绘图 &gt; 我的模板：My Line</b>，使用<a href="../../Tutorial/Tutorial/Create_Your_First_Graph.html" title="Tutorial:Create Your First Graph">第一节课</a>中我们保存的模板<i>My Line.otp</i>创建一个折线图。</li>
+<li>选择图形窗口，并在菜单上选择<b>分析：拟合：线性拟合...</b>打开<b>线性拟合</b>对话框。</li>
+<li>选择<b>拟合控制</b>选项卡，勾选<b>固定截距</b>复选框以强制拟合曲线穿过零点(0,0)，并将<b>重新计算</b>模式设置为<b>自动</b>。点击<b>确定</b>以进行线性拟合，拟合的曲线和结果表格将添加到图形窗口中。</li>
+<li>右键单击结果表格，在弹出菜单中选择<b>表中的输出量</b>。在打开的对话框中，移除除了<b>斜率</b>，<b>调整后R平方</b>之外的所有条目，然后点击<b>确定</b>按钮以更新表格。</li>
+<li>双击X坐标轴打开<b>坐标轴</b>对话框，选择<b>刻度</b>选项卡，按住 <b>Ctrl</b> 键，在左侧的列表框中同时选中<b>水平</b>和<b>垂直</b>坐标轴。更改<b>缩放</b>为<b>自动</b>，然后点击<b>确定</b>。这将确保在数据更改时，坐标轴范围能自动更新。
+<br /><a  class="image"><img alt="First graph 10.png" src="../images/Analysis_Template/350px-First_graph_10.png?v=4545" width="350"   /></a></li>
+<li>选中并删除图形上的图例。</li>
+<li>回到源工作簿，右键单击任意一个工作表选项卡，然后从弹出的菜单中选择<b>添加图形为新的工作表</b>。
+<br /><a  class="image"><img alt="Analysis Template 01.png" src="../images/Analysis_Template/450px-Analysis_Template_01.png?v=11208" width="450"   /></a>
+</li>
+<li>现在，源数据和所有的分析结果都在同一个工作簿中，我们可以将其保存成一个<b>分析模板</b>。选择菜单<b>文件：保存工作簿为分析模板...</b>，将工作簿保存为<i>My Sensor Analysis.ogw</i>。
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Analysis_Template/Mini_bulb.png?v=14486" /></td><td><p>任何具有输入和输出操作链接的工作簿（以输出工作表或输出列上的操作锁为标识）都可以另存为分析模板。一个最简单的示例是包含列值计算的工作表。
+</p></td></tr></table>
+</li>
+<li>使用菜单<b>文件：最近使用的工作簿</b>，打开<b>My Sensor Analysis.ogw</b>分析模板。注意，此时源数据工作表、结果工作表和图形都是空白的。</li>
+<li>选择第一个工作表，导入另外一个数据文件 <i>&lt;Origin 安装目录&gt;\Samples\Curve Fitting\Sensor02.dat</i>。 </li>
+<li>由于之前已将线性拟合工具中的<b>重新计算</b>模式设置为<b>自动</b>，则数据导入后，线性拟合的结果跟内嵌图形将自动更新。
+</li>
+</ol>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Analysis_Template/Mini_bulb.png?v=14486" /></td><td><p>分析模板可以手动使用以一次处理一个文件，也可以用于对多个数据文件或数据集执行的批处理分析。请阅读<a class="external text" href="../../Tutorial/Category/Batch_Processing_(Tutorials).html">Batch Processing tutorial</a>这一课以学习更多内容。
+</p></td></tr></table>
+<p>保存项目文件。
+</p>
+
