@@ -1,0 +1,77 @@
+﻿<h1 class="firstHeading">Verteilungsanpassung</h1><p class='urlname' style='display: none'>dist-fit</p>
+<p><br /></p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#User_Story"><span class="tocnumber">3</span> <span class="toctext">Anwenderbericht</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Choosing_Distributions"><span class="tocnumber">4</span> <span class="toctext">Verteilungen w&auml;hlen</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Performing_Distribution_Fit"><span class="tocnumber">5</span> <span class="toctext">Verteilungsanpassung durchf&uuml;hren</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Comparing_and_Selecting_Fitting_Models"><span class="tocnumber">6</span> <span class="toctext">Anpassungsmodelle vergleichen und ausw&auml;hlen</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Making_Estimations"><span class="tocnumber">7</span> <span class="toctext">Sch&auml;tzungen durchf&uuml;hren</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+<p>Das Verteilungsmodell zu kennen, hilft Ihnen dabei, mit der richtigen Analyse fortzufahren. Es ist auch hilfreich, eine Sch&auml;tzung f&uuml;r Ihre Daten durchzuf&uuml;hren. Das Hilfsmittel <b>Verteilungsanpassung</b> unterst&uuml;tzt Anwender bei der Untersuchung der Verteilung ihrer Daten und der Sch&auml;tzung der Parameter f&uuml;r die Verteilung.</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+<p>Dieses Tutorial zeigt Ihnen:</p>
+<ul><li> eine Verteilungsanpassung f&uuml;r praktische Daten mit Origin ausf&uuml;hren, </li>
+<li> Die erzeugten Ergebnisse interpretieren</li></ul>
+<h2><a name="User_Story"></a><span class="mw-headline">Anwenderbericht</span></h2>
+<p>Ein Bauunternehmer m&ouml;chte entscheiden, wie viele neue H&auml;user er im n&auml;chsten Jahr bauen soll. Diese Entscheidung basiert auf den Daten der H&auml;user, die in der Umgebung verkauft wurden. Er m&ouml;chte Folgendes wissen:</p>
+<dl><dd><ul><li>Wenn er 80 neue H&auml;user baut, wie gro&szlig; ist die Wahrscheinlichkeit, dass sie alle verkauft werden?</li>
+<li>Er glaubt, dass er einen Profit machen kann, wenn eine Wahrscheinlichkeit von mindestens 60% besteht, dass er alle seine H&auml;user verkaufen wird. Wie viele H&auml;user sollte er bauen?</li></ul></dd></dl>
+<p><br /> Um dieses Problem zu l&ouml;sen, muss der Bauunternehmer:</p>
+<dl><dd><ul><li> eine Verteilungsanpassung f&uuml;r die Beispieldaten (verkaufte H&auml;user in der Umgebung) durchf&uuml;hren,</li>
+<li> die beste Anpassungsl&ouml;sung ausw&auml;hlen,</li>
+<li> mit Hilfe der kumulativen Verteilungsfunktion der ausgew&auml;hlten Verteilung die Wahrscheinlichkeit berechnen.</li>
+<li> Wenn die Wahrscheinlichkeit mehr als 60% betr&auml;gt, ist der Plan zu &uuml;berdenken.</li></ul></dd></dl>
+<h2><a name="Choosing_Distributions"></a><span class="mw-headline">Verteilungen w&auml;hlen</span></h2>
+<ol><li> &Ouml;ffnen Sie ein neues Projekt oder eine neue Arbeitsmappe. Importieren Sie die Datendatei <b>\Samples\Statistics\HouseSold.dat</b></li>
+<li> Markieren Sie Spalte B und w&auml;hlen Sie <b>Zeichnen: Statistik: Histogramm</b> im Origin-Men&uuml;.<dl><dd><a  class="image"><img alt="Dist fit histogram.png" src="../images/Distribution_Fit/Dist_fit_histogram.png" width="387"  /></a></dd></dl></li>
+<li> Bedenken Sie die untenstehenden Fakten, wenn Sie sich f&uuml;r eine Verteilung entscheiden:<ul><li> Die Daten basieren auf ganzzahligen Werten, so dass Sie die Anpassung von sowohl kontinuierlichen als auch diskreten Verteilungen in Betracht ziehen k&ouml;nnen. (Bei gleitenden Punktzahlen stehen nur kontinuierliche Verteilungen zur Auswahl.) Da kontinuierliche Verteilungen jedoch normalerweise die besseren Anpassungen als diskrete Verteilungen bieten, m&ouml;chten wir aus den kontinuierlichen Verteilungen w&auml;hlen.</li>
+<li> Der Wert des Verlaufs neuer H&auml;user ist ein positiver Wert. Sie m&uuml;ssen daher keine Normalverteilung betrachten, die negative Werte annehmen kann.</li>
+<li> Sehen Sie sich das Histogramm an. Die Daten bilden einen Cluster um einen Wert. Damit m&uuml;ssen Sie auch die Exponentialverteilung nicht ber&uuml;cksichtigen, da sie f&uuml;r extrem asymmetrische Daten geeignet ist.</li></ul></li></ol>
+<h2><a name="Performing_Distribution_Fit"></a><span class="mw-headline">Verteilungsanpassung durchf&uuml;hren</span></h2>
+<ol><li> Wechseln Sie zur&uuml;ck zu dem Arbeitsblatt <b>HouseSold</b> und markieren Sie die Spalte B. W&auml;hlen Sie im Men&uuml; <b>Statistik: Deskriptive Statistik: Verteilungsanpassung</b>.</li>
+<li> Erweitern Sie in dem aufgerufenen Dialog den Zweig <b>Verteilungen</b>, deaktivieren Sie das Kontrollk&auml;stchen <b>Normal</b> und w&auml;hlen Sie die folgenden drei Verteilungen basierend auf den Schlussfolgerungen aus dem Abschnitt <a href="#Choosing_Distributions">Verteilungen w&auml;hlen</a> aus:<ul><li> <b>LogNormal</b></li>
+<li> <b>Weibull</b></li>
+<li> <b>Gamma</b></li></ul>
+<dl><dd><a  class="image"><img alt="DOC-2411 Dist fit dlg settings a.png" src="../images/Distribution_Fit/DOC-2411_Dist_fit_dlg_settings_a.png" width="505"  /></a></dd></dl></li>
+<li> Erweitern Sie den Zweig <b>Diagramme</b> und w&auml;hlen Sie <b>Wahrscheinlichkeitsdiagramm</b>.<dl><dd><a  class="image"><img alt="DOC-2411 Dist fit dlg settings b.png" src="../images/Distribution_Fit/DOC-2411_Dist_fit_dlg_settings_b.png" width="482"  /></a></dd></dl></li>
+<li> Aktivieren Sie im Zweig <b>G&uuml;te der Anpassung</b> alle drei Methoden. Klicken Sie auf <b>OK</b>, um die Einstellungen anzuwenden und den Dialog zu schlie&szlig;en.<dl><dd><a  class="image"><img alt="DOC-2411 Dist fit dlg settings c.png" src="../images/Distribution_Fit/DOC-2411_Dist_fit_dlg_settings_c.png" width="505"  /></a></dd></dl></li></ol>
+<h2><a name="Comparing_and_Selecting_Fitting_Models"></a><span class="mw-headline">Anpassungsmodelle vergleichen und ausw&auml;hlen</span></h2>
+<p>Sie k&ouml;nnen ein Anpassungsmodell basierend auf folgenden Ergebnissen der Verteilungsanpassung vergleichen und ausw&auml;hlen:</p>
+<ul><li> <b>Wahrscheinlichkeitsdiagramm (P-P-Diagramm)</b><dl><dd> Je n&auml;her die Punkte bei der Referenzlinie liegen, desto besser eignet sich die Verteilung f&uuml;r den Datensatz. In Bezug auf das Wahrscheinlichkeitsdiagramm sind die Verteilungen lognormal und gamma beide gute Modelle f&uuml;r die Daten.</dd>
+<dd> <a  class="image"><img alt="Dist fit prob plot.png" src="../images/Distribution_Fit/Dist_fit_prob_plot.png" width="692"  /></a></dd></dl></li>
+<li>  Tabelle <b>Tests der Anpassungsg&uuml;te</b><dl><dd> Sehen Sie sich die p-Werte in der Tabelle an. Wenn der p-Wert kleiner ist als 0,05, wird die Verteilung auf einem Niveau von 0,05 zur&uuml;ckgewiesen. Der p-Wert von lognormal und gamma ist gr&ouml;&szlig;er als 0,05. Die <b>Test der Anpassungsg&uuml;te</b> zeigen, dass sowohl lognormal als auch gamma gute Modell f&uuml;r die Daten sind. </dd>
+<dd> <a  class="image"><img alt="Dist fit results goodness of fit.png" src="../images/Distribution_Fit/Dist_fit_results_goodness_of_fit.png" width="627"  /></a></dd></dl></li></ul>
+<p>Aus den Tabellen <b>Wahrscheinlichkeitsdiagramm</b> und <b>Tests der Anpassungsg&uuml;te</b> kann die Schlussfolgerung gezogen werden, dass lognormal und gamma beide eine gute Wahl sind. Hier wird lognormal als Beispiel f&uuml;r die weitere Analyse gew&auml;hlt.</p>
+<h2><a name="Making_Estimations"></a><span class="mw-headline">Sch&auml;tzungen durchf&uuml;hren</span></h2>
+<p>Sobald das beste Verteilungsmodell gefunden wurde, k&ouml;nnen Sie die Funktionen CDF und INV verwenden, um diese Wahrscheinlichkeiten zu berechnen:</p>
+<ul><li> Wenn er 80 neue H&auml;user baut, wie gro&szlig; ist die Wahrscheinlichkeit, dass sie alle verkauft werden?</li>
+<li> Wie viele H&auml;user sollten gebaut werden, wenn er hofft, eine Wahrscheinlichkeit von 60% zu haben, sie alle zu verkaufen?</li></ul>
+<ol><li> Um die erste Frage zu beantworten, &ouml;ffnen Sie das <b>Befehlsfenster</b> oder das <b>Skriptfenster</b> im Men&uuml; <b>Fenster</b> und geben Sie Befehle wie unten zu sehen ein:<dl><dd> <pre class="lt" style="font-family:monospace;">logncdf<span style="color: #000000;">(</span><span style="color: #0000dd;">80</span>, <span style="color: #0000dd;">3,94262</span>, <span style="color: #0000dd;">0,35614</span><span style="color: #000000;">)</span> <span style="color: #000080;">=</span></pre></dd>
+<dd>wobei 3,94262 Mu ist und 0,35614 Sigma. Sie erhalten diese Werte aus der Tabelle <b>Parametersch&auml;tzungen</b> im Berichtsblatt.</dd>
+<dd> <a  class="image"><img alt="Dist fit results parameter estimates.png" src="../images/Distribution_Fit/Dist_fit_results_parameter_estimates.png" width="623"  /></a></dd></dl></li>
+<li>Sie erhalten<dl><dd><pre class="lt" style="font-family:monospace;">logncdf<span style="color: #000000;">(</span><span style="color: #0000dd;">80</span>, <span style="color: #0000dd;">3,94262</span>, <span style="color: #0000dd;">0,35614</span><span style="color: #000000;">)</span> <span style="color: #000080;">=</span>  <span style="color: #0000dd;">0,89136185728793</span></pre></dd>
+<dd> Sie k&ouml;nnen schlussfolgern, dass die Wahrscheinlichkeit, die H&auml;user NICHT alle zu verkaufen, bei 89% liegt, wenn der Bauunternehmer 80 neue H&auml;user baut.</dd></dl></li></ol>
+<ol><li> Um die zweite Frage zu beantworten, f&uuml;hren Sie das Skript unten im <b>Befehlsfenster</b> oder <b>Skriptfenster</b> aus:<dl><dd> <pre class="lt" style="font-family:monospace;">logninv<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span><span style="color: #000080;">-</span><span style="color: #0000dd;">0.6</span>, <span style="color: #0000dd;">3.94262</span>, <span style="color: #0000dd;">0.35614</span><span style="color: #000000;">)</span> <span style="color: #000080;">=</span></pre></dd></dl></li>
+<li>Sie erhalten<dl><dd><pre class="lt" style="font-family:monospace;">logninv<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span><span style="color: #000080;">-</span><span style="color: #0000dd;">0,6</span>, <span style="color: #0000dd;">3,94262</span>, <span style="color: #0000dd;">0,35614</span><span style="color: #000000;">)</span> <span style="color: #000080;">=</span>  <span style="color: #0000dd;">47,105650533425</span></pre></dd>
+<dd> Sie k&ouml;nnen schlussfolgern, dass der Bauunternehmer wahrscheinlich einen Gewinn macht, wenn er 47 neue H&auml;user baut.</dd></dl></li></ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Distribution_Fit/Tip_icon.png" width="57"  border="0" /></td><td><p>Da im <a href="#Choosing_Distributions">Abschnitt <b>Verteilung w&auml;hlen</b></a> das Modell lognormal gew&auml;hlt wird, verwenden Sie logncdf und logninv f&uuml;r die Sch&auml;tzung. Wenn Sie gamma w&auml;hlen, k&ouml;nnen Sie <a class="external text" href="../../LabTalk/LabTalk/Gamcdf_(function).html">gamcdf</a> und <a class="external text" href="../../LabTalk/LabTalk/Gaminv_(function).html">gaminv</a> f&uuml;r die Sch&auml;tzung verwenden. Sie werden zu &auml;hnlichen Schl&uuml;ssen kommen.</p></td></tr></table>
+<table class="note">
+
+<tr>
+<td><b>Hinweise:</b>Es gibt auch andere Deskriptive Statistiken und Diagramme, die sich aus der <b>Verteilungsanpassung</b> ergeben, die Ihnen dabei helfen, einen schnellen &Uuml;berblick &uuml;ber Ihre Daten zu erhalten.<dl><dd><ul><li> Tabelle <b>Deskriptive Statistik</b></li>
+<li> Tabelle <b>Quantile</b></li>
+<li> <b>Histogramm</b></li>
+<li> <b>Boxdiagramm</b></li>
+<li> <b>CDF</b> (Cumulative Distribution Function Plot, Diagramm der kumulativen Verteilungsfunktion)</li></ul></dd></dl>
+</td></tr></table>
+
+
+
+    

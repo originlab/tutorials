@@ -1,0 +1,305 @@
+﻿<h1 class="firstHeading">Apps für Origin erstellen und aktualisieren</h1>
+
+  <p class='urlname' style='display: none'>Create-Update-Apps</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#App_Files_Specifications"><span class="tocnumber">3</span> <span class="toctext">Spezifikationen für App-Dateien</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Icon_files"><span class="tocnumber">3.1</span> <span class="toctext">Dateien für Symbol</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Programming_files"><span class="tocnumber">3.2</span> <span class="toctext">Programmierungsdateien</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#Other_files"><span class="tocnumber">3.3</span> <span class="toctext">Weitere Dateien</span></a></li>
+        </ul>
+      </li>
+
+      <li class="toclevel-1 tocsection-7">
+        <a href="#Building_an_App"><span class="tocnumber">4</span> <span class="toctext">Eine App erstellen</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-8"><a href="#Uploading_App_to_File_Exchange_Website"><span class="tocnumber">4.1</span> <span class="toctext">Eine App auf die Webseite Dateiaustausch hochladen</span></a></li>
+
+          <li class="toclevel-2 tocsection-9">
+            <a href="#Modifying_an_App"><span class="tocnumber">4.2</span> <span class="toctext">Eine App modifizieren</span></a>
+
+            <ul>
+              <li class="toclevel-3 tocsection-10"><a href="#Modify_App_Settings"><span class="tocnumber">4.2.1</span> <span class="toctext">App-Einstellungen modifizieren</span></a></li>
+
+              <li class="toclevel-3 tocsection-11"><a href="#Add.2C_Remove_or_Change_Files_in_App_Folder"><span class="tocnumber">4.2.2</span> <span class="toctext">Dateien des App-Ordners hinzufügen, entfernen oder ändern</span></a></li>
+
+              <li class="toclevel-3 tocsection-12"><a href="#Upload_Modified_OPX_to_File_Exchange_Page"><span class="tocnumber">4.2.3</span> <span class="toctext">Modifiziertes OPX auf die Webseite Dateiaustausch hochladen</span></a></li>
+
+              <li class="toclevel-3 tocsection-13"><a href="#Request_Approval_from_OriginLab"><span class="tocnumber">4.2.4</span> <span class="toctext">Genehmigung von OriginLab anfragen</span></a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p><a class="external text" href="../../UserGuide/UserGuide/Apps.html"><b>Apps</b></a> sind benutzerdefinierte Applikationen für Origin, die spezifische Aufgaben der grafischen Darstellung und/oder Analyse durchführen. Origin-Anwender können nach Apps suchen und diese von dem Bereich <a class="external text" href="http://www.originlab.com/fileexchange/" target="_blank">Dateiaustausch</a> der OriginLab-Webseite herunterladen und installieren. Origin-Anwender können Apps erstellen und mit anderen über die Seite Dateiaustausch teilen. Dieses Tutorial enthält die Richtlinien zum Erstellen einer Apps und ausführlich beschriebene Schritte zum Erstellen, Hochladen und Modifizieren einer App.</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>Eine App erstellen</li>
+
+    <li>Eine App auf die Webseite Dateiaustausch hochladen</li>
+
+    <li>Eine App modifizieren und zur Genehmigung einsenden</li>
+  </ul>
+
+  <h2><a name="App_Files_Specifications"></a><span class="mw-headline">Spezifikationen für App-Dateien</span></h2>
+
+  <p>Die folgenden Dateien werden für Apps unterstützt/gebraucht:</p>
+
+  <h5><a name="Icon_files"></a><span class="mw-headline">Dateien für Symbol</span></h5>
+
+  <dl>
+    <dd>
+      <dl>
+        <dd>
+          <b>Datei für Symbol</b> (erforderlich)
+
+          <dl>
+            <dd>Dies sollte eine png-Datei mit einer Größe von 32*32 Pixel sein. Dieses Symbol wird im Fenster der <a class="external text" href="../../UserGuide/UserGuide/Apps.html"><b>Apps-Galerie</b></a> in Origin angezeigt.</dd>
+          </dl>
+        </dd>
+
+        <dd>
+          <b>Datei für kleines Symbol</b> (optional)
+
+          <dl>
+            <dd>Dies sollte eine bmp-Datei mit einer Größe von 16*16 Pixel und 16 Farben (4 Bits) sein. Sie ist über <b>Ansicht: Symbolleisten: Schaltflächengruppe Apps</b> in Origin verfügbar. Sie kann als eine Schaltfläche verwendet werden, indem sie zu einer Symbolleiste hinzugefügt wird.</dd>
+          </dl>
+        </dd>
+      </dl>
+    </dd>
+  </dl>
+
+  <h5><a name="Programming_files"></a><span class="mw-headline">Programmierungsdateien</span></h5>
+
+  <p>Es werden X-Funktions-, *.ogs-, *.c-, *.h- und DLL-Dateien unterstützt. Beachten Sie, dass der Name der X-Funktionsdatei nicht der mit dem Namen der *.c-Datei identisch sein sollte, wenn beide existieren.</p>
+
+  <h5><a name="Other_files"></a><span class="mw-headline">Weitere Dateien</span></h5>
+
+  <p>Alle anderen Dateien wie die zur Dokumentation (*.chm, *.pdf), Bilddateien, Beispieldaten etc. können eingebunden werden.</p>
+
+  <h2><a name="Building_an_App"></a><span class="mw-headline">Eine App erstellen</span></h2>
+
+  <p>1. Gehen Sie zu dem Ordner <b>Apps</b> im Bereich <b>AppData</b> Ihrer Origin-Installation. Sie können den folgenden Befehl im Befehls-/Skriptfenster eingeben, um zu diesem Ordner zu navigieren:</p>
+  <pre class="lt" style="font-family:monospace;">
+<span style="color: #000080;">%</span>@A<span style="color: #000080;">=</span>; <span style="color: #008000;">// The output can be, e.g., C:\Users\XXX\AppData\Local\OriginLab\Apps\</span>
+</pre>
+
+  <p>2. Öffnen Sie den Ordner in dem Pfad, der in Schritt 1 gefunden wurde, und erstellen Sie hier einen Unterordner. Beachten Sie, dass der Name des Unterordners als der Name Ihrer App verwendet wird. Legen Sie die Dateien für Ihre App in diesem Unterordner ab.<br>
+  3. Starten Sie Origin und klicken Sie auf die Schaltfläche <b>Code Builder</b> <a class="image"><img alt="Button Code Builder.png" src="../images/Create_and_Update_Apps_for_Origin/Button_Code_Builder.png" width="23"></a> auf der Origin-Bedienoberfläche.<br>
+  4. Klicken Sie im Fenster <b>Code Builder</b> mit der rechten Maustaste auf den Ordner <b>Apps</b> im linken Bedienfeld <b>Arbeitsplatz</b>. Wählen Sie <b>Vorhandenen Ordner hinzufügen</b> im Kontextmenü und navigieren Sie zum in Schritt 2 erstellten Ordner, um ihn hinzuzufügen. Erweitern Sie den Ordner im Feld Arbeitsplatz. Alle Dateien im dem Ordner werden aufgelistet.<br>
+  Beachten Sie, wenn Sie keinen vorhandenen App-Ordner haben, dass Sie im Kontextmenü <b>Neu</b> wählen, um einen neuen Unterordner im App-Ordner zu erstellen. Wenn Sie mit der rechten Maustaste auf eine Datei klicken, können Sie wählen, die Datei zu entfernen. Klicken Sie mit der rechten Maustaste auf den Ordner. Sie können mehr Dateien hinzufügen, sogar Dateien, die sich nicht im aktuellen Ordner befinden.</p>
+
+  <dl>
+    <dd>
+      <dl>
+        <dd><a class="image"><img alt="AppCodeBuildDlg.png" src="../images/Create_and_Update_Apps_for_Origin/AppCodeBuildDlg.png" width="301"></a></dd>
+      </dl>
+    </dd>
+  </dl>
+
+  <p>5. Klicken Sie mit der rechten Maustaste auf den neu erstellten App-Ordner im Arbeitsplatz des Code Builders und wählen Sie <b>Erzeugen</b> im Kontextmenü. Der Dialog <b>Packdateien verwalten</b> wird geöffnet.</p>
+
+  <dl>
+    <dd>
+      <dl>
+        <dd><a class="image"><img alt="AppGenerateDlg.png" src="../images/Create_and_Update_Apps_for_Origin/AppGenerateDlg.png" width="369"></a></dd>
+      </dl>
+    </dd>
+  </dl>
+
+  <p>6. Tun Sie im Dialog <b>Packdateien verwalten</b> Folgendes:</p>
+
+  <ul>
+    <li>
+      <b>Zweig Paket:</b>
+
+      <dl>
+        <dd>
+          <b>Name</b>
+
+          <dl>
+            <dd>Ändern Sie nicht das Feld <b>Name</b>, weil sich sonst auch der Ordnername ändert.</dd>
+          </dl>
+        </dd>
+
+        <dd>
+          <b>Beschreibung</b>
+
+          <dl>
+            <dd>Geben Sie Beschreibungen der App in diesem Feld ein. Die Beschreibungen werden im Abschnitt <b>Summary</b> (Zusammenfassung) auf der Webseite Dateiaustausch angezeigt.</dd>
+          </dl>
+        </dd>
+
+        <dd>
+          <b>Version</b>
+
+          <dl>
+            <dd>Geben Sie die aktuelle Version der App an. Sie können zwei Dezimalstellen verwenden, z. B. 1.11.</dd>
+          </dl>
+        </dd>
+
+        <dd>
+          <b>Erforderliche Origin-Version</b>
+
+          <dl>
+            <dd>Geben Sie die erforderliche Origin-Version an. Für Origin 2016 sollten Sie 9.3 statt 2016 angeben.</dd>
+          </dl>
+        </dd>
+      </dl>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <b>Zweig App:</b>
+
+      <dl>
+        <dd>
+          <b>Symbol</b>
+
+          <dl>
+            <dd>Geben Sie den Dateinamen für das Symbol an, das im Fenster der App-Galerie angezeigt werden soll.</dd>
+          </dl>
+        </dd>
+
+        <dd>
+          <b>Symbol (klein)</b>
+
+          <dl>
+            <dd>Geben Sie den Dateinamen für das kleine Symbol an, das in der Symbolleiste verwendet wird.</dd>
+          </dl>
+        </dd>
+
+        <dd>
+          <b>Skript starten</b>
+
+          <dl>
+            <dd>Das auszuführende LabTalk-Skript, nachdem Sie auf das Symbol der App geklickt haben. Wenn Sie einen X-Funktions-Dialog öffnen möchten, können Sie Ihr Skript folgendermaßen schreiben: xfname -d; Sie können Ihr Skript auch auf einen Abschnitt in der ogs-Datei zielen lassen und diesen Abschnitt ausführen, z. B.. run.section(%Afoldername\ogsname,sectionname).</dd>
+          </dl>
+        </dd>
+
+        <dd>
+          <b>Nach Fenster aktivieren</b>
+
+          <dl>
+            <dd>Legen Sie den/die aktive/n Fenstertyp/en fest, die für die App aktiviert werden sollten. Beispielweise sollte das Diagrammfenster für die Latex App, aktiv sein.</dd>
+          </dl>
+        </dd>
+      </dl>
+    </li>
+  </ul>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Create_and_Update_Apps_for_Origin/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Auch wenn es selten erforderlich sein wird, können Sie festlegen, dass Ihre App für Notizfenster aktiviert ist, indem Sie den Knoten <b>Nach LabTalk-Ausdruck aktivieren</b> erweitern und neben <b>LabTalk-Ausdruck</b> Folgendes eingeben:</p>
+
+        <p><i><b>note.active=1</b></i></p><br>
+        <br>
+      </td>
+    </tr>
+  </table>
+
+  <p> </p>
+
+  <ul>
+    <li>
+      <b>Zweig LabTalk-Skript:</b>
+
+      <dl>
+        <dd>
+          <dl>
+            <dd>Legen Sie das LabTalk-Skript für vor und nach der Installation sowie vor der Deinstallation fest.</dd>
+          </dl>
+        </dd>
+      </dl>
+    </li>
+  </ul>
+
+  <dl>
+    <dd>
+      <dl>
+        <dd><a class="image"><img alt="AppSetDlg.png" src="../images/Create_and_Update_Apps_for_Origin/AppSetDlg.png" width="700"></a></dd>
+      </dl>
+    </dd>
+  </dl>
+
+  <p>7. Wenn die Einstellungen in <b>Packdateien verwalten</b> beendet sind, klicken Sie im Menü auf <b>Datei: Speichern</b>. Die .opx-Datei wird gespeichert. Der opx-Name kann sich vom Ordnernamen unterscheiden. Die opx-Datei für eine App ist nun fertig. Sie können die Datei einfach per Drag&amp;Drop in Origin ziehen, um sie zu installieren. Beachten Sie, dass Sie Origin möglicherweise <b>nicht als Administrator</b> ausführen dürfen, um die Datei in Origin zu ziehen.</p>
+
+  <p> </p>
+
+  <h3><a name="Uploading_App_to_File_Exchange_Website"></a><span class="mw-headline">Eine App auf die Webseite Dateiaustausch hochladen</span></h3>
+
+  <p>Wenn die Paketdatei der App fertiggestellt ist, können Sie sie auf die Webseite Dateiaustausch hochladen, um sie mit der Öffentlichkeit zu teilen. Dazu folgen Sie den Schritten unten:</p>
+
+  <ol>
+    <li>Gehen Sie zur <a class="external text" href="http://www.originlab.com/fileexchange/" target="_blank"><b>Webseite Dateiaustausch</b></a> und klicken Sie auf <b>Submit a file</b> unten rechts, um die Seite <b>Submit File</b> zu öffnen. Wählen Sie <b>Dateityp</b> (File Type) als <b>App</b> und geben Sie die übrigen erforderlichen Informationen ein, <b>Dateikategorie</b> (File Category), <b>Erstellt mit Origin:</b> (Created using Origin:) etc. Beachten Sie, dass die Informationen, die in dem App-Paket enthalten sind, automatisch extrahiert werden, wie <b>Origin-Version mindestens erforderlich</b> (Minimum Origin Version Required), <b>Titel</b> (Title), <b>Zusammenfassung</b> (Summary).</li>
+
+    <li>Laden Sie die OPX-Paketdatei für die App und den Screenshot hoch, klicken Sie auf <b>Submit</b> (Senden), um Ihre App einzusenden, und erstellen Sie eine im Dateiaustausch eine Unterseite für die App.</li>
+
+    <li>Sie können die OPX-Datei dann von der Webseite, die Sie erstellt haben, herunterladen und sie per Drag&amp;Drop in Origin ziehen, um sie zu testen. Der opx-Datei wird während des Downloads eine Paket-ID zugewiesen.</li>
+
+    <li>Sie können mit dem Bearbeiten der Webseite für Ihre App fortfahren. Wenn Sie fertig sind, können Sie auf die Schaltfläche <b>Update</b> klicken, um die Webseite zu aktualisieren.</li>
+
+    <li>Wenn Sie bereit sind, Ihre App freizugeben, klicken Sie auf die Schaltfläche <b>Request Approval</b> (Genehmigung anfordern) unten im Formular <b>Update</b>. OriginLab wird Sie per E-Mail benachrichtigen, wenn Ihre App genehmigt wurde. Der Genehmigungsstatus wird ebenfalls auf der Seite <b>Update File</b> (Datei aktualisieren) durch die Optionen <b>OriginLab Tested</b> (Von OriginLab geprüft) und <b>OriginLab Approved</b> (Von OriginLab genehmigt) angezeigt.</li>
+
+    <li>Sobald Ihre App genehmigt wurde, wird sie automatisch in der Menüliste <b>Hilfsmittel: Apps auf Dateiaustausch</b> gezeigt.</li>
+  </ol>
+
+  <h3><a name="Modifying_an_App"></a><span class="mw-headline">Eine App modifizieren</span></h3>
+
+  <h5><a name="Modify_App_Settings"></a><span class="mw-headline">App-Einstellungen modifizieren</span></h5>
+
+  <ol>
+    <li>Wählen Sie <b>Hilfsmittel: Packdateien verwalten</b> im Origin-Menü aus. Wählen Sie <b>Hilfsmittel: Installierte Pakete durchsuchen</b> im Dialogmenü von <b>Packdateien verwalten</b>. Wählen Sie die App und klicken auf <b>Öffnen</b>.</li>
+
+    <li>Sie können die Einstellungen im Dialog ändern. Wenn Ihre Dateien im Ordner modifiziert sind, können Sie auf die Schaltfläche <b>Dateien neu packen</b> klicken.</li>
+
+    <li>Wählen Sie <b>Datei: Speichern</b>, um die App-OPX-Packdatei zu speichern.</li>
+  </ol>
+
+  <h5><a name="Add.2C_Remove_or_Change_Files_in_App_Folder"></a><span class="mw-headline">Dateien des App-Ordners hinzufügen, entfernen oder ändern</span></h5>
+
+  <p>Wenn Sie im App-Ordner Dateien hinzufügen, entfernen oder Dateinamen ändern müssen, können Sie diese Operationen durchführen, indem mit der rechten Maustaste auf den App-Ordner im Feld <b>Arbeitsplatz</b> im <a class="external text" href="CodeBuilderUsersGuide.chm::/Category/Code_Builder_Interface(CodeBuilder).html"><b>Code Builder</b></a> klicken und die entsprechende Option im Kontextmenü auswählen. Wenn Sie fertig sind, klicken Sie auf <b>Erzeugen</b> im Kontextmenü, um das App-Paket neu zu erzeugen.<br>
+  Beachten Sie, dass beim Entfernen von Dateien oder Ändern von Dateinamen die ursprünglichen Daten im App-Ordner unter <i>C:\Users\XXX\AppData\Local\OriginLab\Apps\</i> bleiben sollten, auch wenn sie nicht verwendet werden, da ansonsten die alten Einstellungen in der opx-Datei nicht im Dialog <b>Packdateien verwalten</b> beibehalten werden, wenn Sie auf die Schaltfläche <b>Erzeugen</b> klicken.</p>
+
+  <h5><a name="Upload_Modified_OPX_to_File_Exchange_Page"></a><span class="mw-headline">Modifiziertes OPX auf die Webseite Dateiaustausch hochladen</span></h5>
+
+  <p>Melden Sie sich an der Origin-Webseite an, gehen Sie zur Seite des Dateiaustauschs, die Sie für Ihre App erstellt haben, und laden Sie die aktualisierte OPX-Datei auf die Seite des Dateiaustauschs hoch. Aktualisieren Sie die Webseite nach Bedarf, einschließlich der Hinweise, was in der aktuellen Version der App aktualisiert wurde. Anwender erfahren über das Menü <b>Hilfsmittel: Apps auf Dateiaustausch: <i>* IhreApp</i> (installiert)</b> von diesem Update, da die App mit einem Sternchen * markiert ist, falls sie zuvor installiert wurde.</p>
+
+  <dl>
+    <dd>
+      <dl>
+        <dd><a class="image"><img alt="AppUpdates.png" src="../images/Create_and_Update_Apps_for_Origin/AppUpdates.png" width="257"></a></dd>
+      </dl>
+    </dd>
+  </dl>
+
+  <h5><a name="Request_Approval_from_OriginLab"></a><span class="mw-headline">Genehmigung von OriginLab anfragen</span></h5>
+
+  <p>Klicken Sie auf die Schaltfläche <b>Request Approval</b> (Genehmigung anfordern) auf der Webseite Dateiaustausch Ihrer App und warten Sie auf die Benachrichtigung von OriginLab.</p>

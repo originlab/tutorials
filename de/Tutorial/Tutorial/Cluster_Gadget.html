@@ -1,0 +1,211 @@
+﻿<h1 class="firstHeading">Minitool Clustermanipulation</h1>
+
+  <p class='urlname' style='display: none'>Cluster-Gadget</p>
+
+  <p>&#160;</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#Perform_basic_statistics"><span class="tocnumber">3</span> <span class="toctext">Einfache Statistiken durchführen</span></a></li>
+
+      <li class="toclevel-1 tocsection-4"><a href="#Exclude_the_data_points_in_a_cluster"><span class="tocnumber">4</span> <span class="toctext">Datenpunkte in einem Cluster ausschließen</span></a></li>
+
+      <li class="toclevel-1 tocsection-5"><a href="#Get_statistics_results_for_points_outside_of_the_ROI"><span class="tocnumber">5</span> <span class="toctext">Statistikergebnisse für Punkte außerhalb der grafischen Datenauswahl (ROI) ermitteln</span></a></li>
+
+      <li class="toclevel-1 tocsection-6"><a href="#Color_data_points_in_different_regions"><span class="tocnumber">6</span> <span class="toctext">Datenpunkte in verschiedenen Bereichen einfärben</span></a></li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Origin unterstützt das <a class="external text" href="../../UserGuide/UserGuide/Cluster.html"><b>Minitool Clustermanipulation</b></a>, um einfache Statistiken für einen grafisch festgelegten Bereich (ROI) in einem Diagramm durchzuführen. Das Minitool kann auch verwendet werden, um Datenpunkte zu bearbeiten, zu löschen, zu maskieren oder zu kategorisieren. Die Statistikergebnisse werden dynamisch aktualisiert, wenn die grafische Datenauswahl (ROI) verschoben oder in ihrer Größe verändert wird.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 2016 SR0 (nur Pro)</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <ul>
+    <li>Einfache Statistiken für eine grafische Datenauswahl (ROI) in einem Diagramm durchführen</li>
+
+    <li>Datenpunkte in einem Diagramm bearbeiten, z.B. Punkte löschen oder maskieren, mit Hilfe von Menüoptionen oder Schaltflächen</li>
+
+    <li>Statistiken für Punkte innerhalb und außerhalb der ROI anzeigen oder ausgeben</li>
+
+    <li>Datenpunkte kategorisieren und Punkte mit kategorialen Daten farbig abbilden</li>
+  </ul>
+
+  <h2><a name="Perform_basic_statistics"></a><span class="mw-headline">Einfache Statistiken durchführen</span></h2>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe und importieren Sie die Origin-Beispieldaten der Datei <i>Categorical Data.dat</i>, die sich im <i>&lt;Origin-Programmordner&gt;\Samples\Graphing</i> befindet.<br>
+    Klicken Sie mit der rechten Maustaste auf Col(D) und wählen Sie <b>Worksheet sortieren: Aufsteigend</b>. Das Arbeitsblatt wird entsprechend der Kategorie <i>Drug</i> sortiert.</li>
+
+    <li>Markieren Sie bei gedrückter <b>Strg-</b>Taste drei Teile der Spalte Col(B) getrennt voneinander.
+
+      <dl>
+        <dd><a class="image"><img alt="Cluster Gadget 01.png" src="../images/Cluster_Gadget/Cluster_Gadget_01.png" width="382"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie <b>Zeichnen: Einfache 2D: Punktdiagramm</b> im Hauptmenü, um ein Diagramm zu erstellen. Das Diagramm mit den drei Zeichnungen zeigt den Abbau für jede Droge an.
+
+      <dl>
+        <dd><a class="image"><img alt="Cluster Gadget 02.png" src="../images/Cluster_Gadget/Cluster_Gadget_02.png" width="421"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf die Diagrammlegende und wählen Sie <b>Einstellungen</b>, um den Dialog <b>Objekteigenschaften</b> zu öffnen. Bearbeiten Sie dann die Legende wie unten zu sehen. Klicken Sie auf <b>OK</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Cluster Gadget 10.png" src="../images/Cluster_Gadget/Cluster_Gadget_10.png" width="534"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie <b>Minitools: Cluster</b> im Origin-Menü, um den Dialog <b>Cluster: addtool_cluster</b> aufzurufen. Wählen Sie <b>Kreis</b> in der Auswahlliste <b>Umriss</b> auf der Registerkarte <b>Grafische Datenauswahl</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Cluster Gadget 03.png" src="../images/Cluster_Gadget/Cluster_Gadget_03.png" width="404"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>. Ein gelber Kreis, die <b>ROI</b>, wird der Zeichnung hinzugefügt und der Dialog <b>Minitool Cluster</b> geöffnet.
+
+      <dl>
+        <dd><a class="image"><img alt="Cluster Gadget 04.png" src="../images/Cluster_Gadget/Cluster_Gadget_04.png" width="722"></a></dd>
+      </dl>
+    </li>
+
+    <li>Verschieben Sie den gelben Kreis zu dem Bereich, für den Sie die Statistik ermitteln möchten. Die Ergebnisse werden auf der Registerkarte <b>Innere Punkte</b> des Dialogs angezeigt.
+
+      <dl>
+        <dd><a class="image"><img alt="Cluster Gadget 05.png" src="../images/Cluster_Gadget/Cluster_Gadget_05.png" width="735"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Statistikbericht ausgeben</b> <a class="image"><img alt="Button Output Statistics Report.png" src="../images/Cluster_Gadget/Button_Output_Statistics_Report.png" width="24"></a>. Die Ergebnisse werden im Ergebnisfenster, Skriptfenster und in der Arbeitsmappe Cluster ausgegeben.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Zum Berichtsblatt gehen</b> <a class="image"><img alt="Button Go To Report Worksheet.png" src="../images/Cluster_Gadget/Button_Go_To_Report_Worksheet.png" width="24"></a>. Die Arbeitsmappe <b>Cluster</b> wird angezeigt.
+
+      <dl>
+        <dd><a class="image"><img alt="Cluster Gadget 11.png" src="../images/Cluster_Gadget/Cluster_Gadget_11.png" width="538"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Cluster_Gadget/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Wenn Sie Origin 2021b oder höher haben, haben Sie mehr Optionen für die Form der grafischen Datenauswahl (ROI-Feld). Setzen Sie im Dialog addtool_cluster die <b>Form</b> auf <b>Beliebige Form</b>. Wenn Sie auf <b>OK</b> klicken, wird ein kleiner Dialog <b>ROI erstellen</b> geöffnet, in dem Sie auf eine Formschaltfläche klicken -- ohne den Dialog ROI erstellen zu schließen -- <a class="external text" href="../../UserGuide/Category/Creating_Drawing_Objects.html">und eine Form in Ihrem Diagramm aufziehen</a> können. Behalten Sie diesen Dialog geöffnet, bis Sie das gewünschte ROI-Feld erhalten, und klicken Sie dann auf <b>Fertig</b>. Das <b>Minitool Clustermanipulation</b> wird geöffnet.</p>
+
+        <p>Beachten Sie auch, dass die Symbolleiste des Minitools Clustermanipulation jetzt Schaltflächen hat, um das <b>ROI zu modifizieren</b> und ein <b>Neues ROI hinzuzufügen</b> (zum Hinzufügen von mehreren ROIs zum Diagramm).</p>
+
+        <dl>
+          <dd><a class="image"><img alt="OH cluster gadget tip figure.png" src="../images/Cluster_Gadget/OH_cluster_gadget_tip_figure.png" width="569"></a></dd>
+        </dl>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Exclude_the_data_points_in_a_cluster"></a><span class="mw-headline">Datenpunkte aus einem Cluster ausschließen</span></h2>
+
+  <p>In diesem Abschnitt zeigen wir Ihnen, wie Sie ein bestimmtes Datendiagramm aus dem Cluster ausschließen. Basierend auf dem obenstehenden Beispiel, führen wir eine einfache Statistik für <i>Recovery of Drug A</i> und <i>Recovery of Drug B</i> durch und schließen dabei <i>Recovery of Placebo</i> aus.</p>
+
+  <ol>
+    <li>Klicken Sie auf das Menü <b>Daten</b> im Dialog <b>Minitool Cluster</b> und deaktivieren Sie <b>Plot(1)</b> und <b>Plot(2)</b>. Die erste und zweite Reihe im unteren Bedienfeld werden grau und können nicht mehr mit den Schaltflächen des Dialogs bearbeitet werden.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Datenpunkte maskieren</b> <a class="image"><img alt="Button Mask Data Points.png" src="../images/Cluster_Gadget/Button_Mask_Data_Points.png" width="24"></a>. Die Datenpunkte für <i>Recovery of Placebo</i> werden in der grafischen Datenauswahl maskiert, und die Farbe wird rot. Gleichzeitig verwandeln sich die Statistikergebnisse für <i>Recovery of Placebo</i> in fehlende Werte.<br>
+    <br>
+    <a class="image"><img alt="Cluster Gadget 07.png" src="../images/Cluster_Gadget/Cluster_Gadget_07.png" width="732"></a><br>
+    <br></li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Statistikbericht ausgeben</b> <a class="image"><img alt="Button Output Statistics Report.png" src="../images/Cluster_Gadget/Button_Output_Statistics_Report.png" width="24"></a>. Die Ergebnisse werden im Ergebnisfenster, Skriptfenster und in der Arbeitsmappe Cluster ausgegeben.</li>
+  </ol>
+
+  <h2><a name="Get_statistics_results_for_points_outside_of_the_ROI"></a><span class="mw-headline">Statistikergebnisse für Punkte außerhalb der grafischen Datenauswahl (ROI) ermitteln</span></h2>
+
+  <ol>
+    <li>Klicken Sie auf <b>Einstellungen: Einstellungen</b> im Dialogmenü <b>Minitool Cluster</b>, um der Dialog <b>Clustermanipulation Einstellungen</b> aufzurufen.</li>
+
+    <li>Wechseln Sie zur Registerkarte <b>Berechnung</b>. Aktivieren Sie das Kontrollkästchen <b>Äußere Punkte berechnen</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Cluster Gadget 08.png" src="../images/Cluster_Gadget/Cluster_Gadget_08.png" width="290"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>OK</b>. Die Statistikergebnisse für Punkte außerhalb der grafischen Datenauswahl werden auf der Registerkarte <b>Äußere Punkte</b> gezeigt.
+
+      <dl>
+        <dd><a class="image"><img alt="Cluster Gadget 09.png" src="../images/Cluster_Gadget/Cluster_Gadget_09.png" width="569"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Statistikbericht ausgeben</b> <a class="image"><img alt="Button Output Statistics Report.png" src="../images/Cluster_Gadget/Button_Output_Statistics_Report.png" width="24"></a>. Die Ergebnisse für innere und äußere Punkte werden im Ergebnisfenster, Skriptfenster und in der Arbeitsmappe ausgegeben.</li>
+  </ol>
+
+  <h2><a name="Color_data_points_in_different_regions"></a><span class="mw-headline">Datenpunkte in verschiedenen Bereichen einfärben</span></h2>
+
+  <p>Sie können Datenpunkte im Diagramm direkt kategorisieren und die kategoriale Gruppenspalte im Quellarbeitsblatt ausgeben. Weiterhin können die Symbole auf die kategoriale Gruppenspalte abgebildet werden.</p>
+
+  <p>Erstellen Sie eine neue Arbeitsmappe und importieren Sie die Beispieldaten <i>&lt;Origin Program Folder&gt;\Samples\Graphing\Categorical Data.dat</i> neu. Markieren Sie Spalte B und erstellen Sie ein Punktdiagramm.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Cluster Gadget 12.png" src="../images/Cluster_Gadget/Cluster_Gadget_12.png" width="402"></a></dd>
+  </dl>
+
+  <p>Datenpunkte werden in 4 Gruppen geclustert. Wir verwenden die Funktion <b>Kategorien erstellen</b> des <b>Minitools Cluster</b>, um eine kategoriale Spalte gemäß der Clustergruppen zu erstellen und die Symbolfarbe auf diese Spalte abzubilden.</p>
+
+  <ol>
+    <li>Wählen Sie <b>Minitool: Clustermanipulation</b>, um den Dialog <b>Cluster: addtool_cluster</b> aufzurufen. Wählen Sie <b>Kreis</b> in der Auswahlliste <b>Umriss</b> auf der Registerkarte <b>Grafische Datenauswahl</b>.<br>
+    Klicken Sie auf <b>OK</b>, um einen gelben Kreis für die grafische Datenauswahl (ROI) zu der Zeichnung hinzuzufügen und den Dialog des <b>Minitools Cluster</b> aufzurufen.</li>
+
+    <li>Verschieben das ROI-Feld und passen Sie seine Größe an, so dass nur der erste Datenpunktcluster unten links erfasst wird.
+
+      <dl>
+        <dd><a class="image"><img alt="Cluster Gadget 13.png" src="../images/Cluster_Gadget/Cluster_Gadget_13.png" width="402"></a><br></dd>
+      </dl>Klicken Sie auf die Schaltfläche <b>Kategorien erstellen</b> <a class="image"><img alt="Button Create Categories.png" src="../images/Cluster_Gadget/Button_Create_Categories.png" width="24"></a> im Dialog <b>Minitool Cluster</b>, um den Dialog <b>Kategorialen Wert erstellen</b> zu öffnen. Geben Sie <i>Gruppe</i> für <b>Kategoriengruppenname</b> und <i>1</i> für <b>Kategorie</b> ein. Aktivieren Sie das Kontrollkästchen <b>Farbdaten nach Kategorie</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Cluster Gadget 14.png" src="../images/Cluster_Gadget/Cluster_Gadget_14.png" width="366"></a><br></dd>
+      </dl>Klicken Sie auf <b>OK</b>. Eine neue kategoriale Spalte mit dem Namen "Gruppe" wird zu dem Quelldatenblatt hinzugefügt, und Datenpunkte innerhalb des ROI-Felds werden mit "1" in dieser <b>Spalte (Gruppe)</b> gekennzeichnet. Punktdiagramme verwenden diese kategoriale Spalte auch als Farbindex.
+
+      <dl>
+        <dd><a class="image"><img alt="Cluster Gadget 15.png" src="../images/Cluster_Gadget/Cluster_Gadget_15.png" width="463"></a><br></dd>
+      </dl>
+    </li>
+
+    <li>Wiederholen Sie Schritt 2 für die restlichen 3 Cluster und kennzeichnen Sie sie nacheinander mit 2, 3, 4.
+
+      <dl>
+        <dd><a class="image"><img alt="Cluster Gadget 16.png" src="../images/Cluster_Gadget/Cluster_Gadget_16.png" width="625"></a><br></dd>
+      </dl>Das Quellarbeitsblatt sollte folgendermaßen aussehen:
+
+      <dl>
+        <dd><a class="image"><img alt="Cluster Gadget 17.png" src="../images/Cluster_Gadget/Cluster_Gadget_17.png" width="463"></a><br></dd>
+      </dl>Schließen Sie das <b>Minitool Clustermanipulation</b>.
+    </li>
+
+    <li>Das folgende Diagramm wird angezeigt:
+
+      <dl>
+        <dd><a class="image"><img alt="Cluster Gadget 19.png" src="../images/Cluster_Gadget/Cluster_Gadget_19.png" width="410"></a></dd>
+      </dl>
+    </li>
+
+    <li>Löschen Sie die ursprüngliche Legende. Wählen Sie <b>Grafik: Legende: Kategoriale Werte...</b>, um den Dialog <b>legendcat</b> aufzurufen. Deaktivieren Sie das Kontrollkästchen <b>Alle Kategorien zeigen</b>. Klicken Sie auf <b>OK</b>. Das Punktdiagramm mit neuer Legende sollte in etwa folgendermaßen aussehen.
+
+      <dl>
+        <dd><a class="image"><img alt="Cluster Gadget 20.png" src="../images/Cluster_Gadget/Cluster_Gadget_20.png" width="410"></a></dd>
+      </dl>
+    </li>
+  </ol>

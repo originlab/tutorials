@@ -1,0 +1,199 @@
+﻿<h1 class="firstHeading">Einfache ANOVA</h1>
+
+  <p class='urlname' style='display: none'>1WayANOVA</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Indexed_Data_Mode"><span class="tocnumber">3.1</span> <span class="toctext">Modus Indizierte Daten</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Raw_Data_Mode"><span class="tocnumber">3.2</span> <span class="toctext">Modus Rohdaten</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/One_Way_ANOVA/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/One_Way_ANOVA/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=5" target="_blank">Varianzanalyse</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%"><a class="image"><img alt="Website blog icon circle.png" src="../images/One_Way_ANOVA/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/One_Way_ANOVA/Blog_Image_33x33px.png" width="135"></a></td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Die Statistikanalyse verfügt über zwei Modi der Dateneingabe: Index- und Rohdaten. Wenn eine statistische Analyse durchgeführt wird, besteht normalerweise keine Notwendigkeit, einen gesamten Datensatz zu verwenden; Origin bietet mehrere Methoden der Datenauswahl. Die Datenauswahl kann über die Schaltfläche des interaktiven <b>Datenselektors</b> (grafisch) oder mit dem Dialog <b>Spaltenbrowser</b> durchgeführt werden.</p>
+
+  <p>In diesem Tutorial erfahren Sie, wie Sie die zwei Methoden der Dateneingabe verwenden, so dass der statistische Test der Varianzanalyse (ANOVA) durchgeführt werden kann.</p>
+
+  <p>Eine ANOVA ist eine parametrische Methode zum Vergleichen der Mittelwerte von mehreren Gruppen. Außerdem stellt sie eine Erweiterung des t-Tests von zwei unabhängigen Stichproben dar. Eine ANOVA ist leistungsstärker als ein multipler t-Test, da sie die Wahrscheinlichkeit, dass ein Fehler der Fehlerart I auftritt, besser kontrollieren kann, wenn die Anzahl der Gruppen relativ groß ist. Wenn Sie beispielsweise die Mittelwerte von 5 Gruppen mit Hilfe eines t-Tests vergleichen, zehn multiple t-Tests, dann wird jeder mit einem Signifikanzniveau von 0,05 durchgeführt, was zu einer Gesamtwahrscheinlichkeit von 1-(1-0,05)^10=0,401 führt, dass ein Fehler der Fehlerart I auftritt. Unter den gleichen Umständen beträgt die Wahrscheinlichkeit, dass es Fehler der Fehlerart I auftritt, bei einer ANOVA 0,05.</p>
+
+  <p>Die ANOVA erfordert normalverteilte Daten und gleiche Varianzen. Werden diese Anforderungen nicht erfüllt, sollte eine nichtparametrische Analyse verwendet werden.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 2016 SR0</p>
+
+  <h2><a name="What_You_Will_Learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>verschiedene Modi der Dateneingabe im statistischen Analysedialog verwenden</li>
+
+    <li>Tests auf Normalverteilung durchführen</li>
+
+    <li>Einfache ANOVA durchführen</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <p>Origin kann eine ANOVA mit indizierten oder Rohdaten durchführen.</p>
+
+  <p>Wenn der Indexdatenmodus verwendet wird, müssen die Daten in einer Faktorspalte und einer Datenspalte organisiert sein.</p>
+
+  <dl>
+    <dd>
+      <dl>
+        <dd><a class="image"><img alt="Tutorial ANOVA 008.png" src="../images/One_Way_ANOVA/Tutorial_ANOVA_008.png" width="242"></a><br></dd>
+      </dl>
+    </dd>
+  </dl>
+
+  <p>Wenn der Rohdatenmodus verwendet wird, müssen die Daten mit verschiedenen Stufen in verschiedenen Spalten organisiert sein.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Tutorial ANOVA 009.png" src="../images/One_Way_ANOVA/Tutorial_ANOVA_009.png" width="382"></a><br></dd>
+  </dl>
+
+  <p>&#160;</p>
+
+  <h3><a name="Indexed_Data_Mode"></a><span class="mw-headline">Modus Indexdaten</span></h3>
+
+  <p>Der Stickstoffgehalt in Milligramm wurde für 4 Pflanzenarten aufgezeichnet. Wir interessieren uns dafür, ob verschiedene Pflanzen signifikant unterschiedliche Stickstoffgehalte haben. Daher verwenden wir die Daten im Indexmodus im Rahmen einer einfachen ANOVA.</p>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe und wählen Sie <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b> im Menü, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner <i>Statistics</i>. Dort befindet sich die Datei <i>nitrogen.txt</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das leere Arbeitsblatt, um sie zu importieren.</li>
+
+    <li>Zuerst führen wir einen Test auf Normalverteilung für jede Datengruppe durch, um zu bestimmen, ob die Daten normalverteilt sind. Markieren Sie die erste Spalte der Arbeitsmappe und wählen Sie im Menü <b>Arbeitsblatt: Worksheet sortieren: Aufsteigend</b>.</li>
+
+    <li>Wählen Sie im Menü <b>Statistik: Deskriptive Statistik: Test auf Normalverteilung: Dialog öffnen</b>. Erweitern Sie im Dialog <b>Test auf Normalverteilung</b> auf der Registerkarte <b>Eingabe</b> den Zweig <b>Eingabedaten</b> und <b>Bereich 1</b>. Klicken Sie auf die dreieckige Schaltfläche rechts von <b>Datenbereich</b> und wählen Sie <b>B(Y): nitrogen</b>. Klicken Sie dann auf die dreieckige Schaltfläche rechts von <b>Gruppe</b> und wählen Sie <b>A(X): plant</b>. Klicken Sie auf <b>OK</b>.</li>
+
+    <li style="list-style: none">
+      <p><a class="image"><img alt="DOC-2411 ANOVAn1a Magenta.png" src="../images/One_Way_ANOVA/DOC-2411_ANOVAn1a_Magenta.png" width="659"></a></p>
+    </li>
+
+    <li>Gehen Sie bei aktivem Arbeitsblatt <b>nitrogen</b> im Menü auf <b>Statistik: ANOVA: Einfache ANOVA</b>. Legen Sie im Dialog <b>ANOVAOneWay</b> auf der Registerkarte <b>Eingabe</b> die <b>Eingabedaten</b> auf <b>Indiziert</b> fest. Klicken Sie auf die dreieckige Schaltfläche rechts von <b>Faktor</b> und wählen Sie <b>A(X): plant</b>. Klicken Sie dann auf die dreieckige Schaltfläche rechts von <b>Daten</b> und wählen Sie <b>B(Y): nitrogen</b>.</li>
+
+    <li style="list-style: none">
+      <dl>
+        <dd><a class="image"><img alt="DOC-2411 ANOVA03a Magenta.png" src="../images/One_Way_ANOVA/DOC-2411_ANOVA03a_Magenta.png" width="735"></a><br></dd>
+      </dl>
+    </li>
+
+    <li>Aktivieren Sie auf der Registerkarte <b>Mittelwertevergleich</b> das Kontrollkästchen <b>Tukey</b>. Aktivieren Sie auf der Registerkarte <b>Test auf gleiche Varianz</b> das Kontrollkästchen <b>Levene</b>. Aktivieren Sie auf der Registerkarte <b>Trennschärfeanalyse</b> das Kontrollkästchen <b>Tatsächliche Trennschärfe</b>. Aktivieren Sie auf der Registerkarte <b>Diagramme</b> die Kontrollkästchen <b>Mittelwertdiagramm [StAbw als Fehler]</b> sowie <b>Mittelwertvergleichsdiagramm</b>. Klicken Sie auf <b>OK</b>.</li>
+  </ol>
+
+  <dl>
+    <dd><a class="image"><img alt="DOC-2411 ANOVA03b Magenta.png" src="../images/One_Way_ANOVA/DOC-2411_ANOVA03b_Magenta.png" width="994"></a><br></dd>
+  </dl>
+
+  <p><b>Ergebnisinterpretationen</b></p>
+
+  <ul>
+    <li>Im Berichtsblatt ANOVA1Way1 sehen Sie einen Zweig <b>Homogenität des Varianztests</b>. Wenn die Ergebnisse nicht sichtbar sind, klicken Sie auf den Knoten, um den Zweig zu erweitern. Da der p-Wert größer als 0,05 ist, wird davon ausgegangen, dass die vier Gruppen die gleiche Varianz haben.<br></li>
+  </ul>
+
+  <dl>
+    <dd><a class="image"><img alt="ANOVA04.png" src="../images/One_Way_ANOVA/ANOVA04.png" width="401"></a><br></dd>
+  </dl>
+
+  <ul>
+    <li>Die ANOVA-Tabelle (ANOVA gesamt) zeigt einen p-Wert an, der kleiner ist als 0,05. Daher haben mindestens zwei der vier Gruppen signifikant unterschiedliche Mittelwerte.
+
+      <p>&#160;</p>
+    </li>
+  </ul>
+
+  <dl>
+    <dd><a class="image"><img alt="ANOVA05.png" src="../images/One_Way_ANOVA/ANOVA05.png" width="488"></a><br>
+    <br></dd>
+  </dl>
+
+  <ul>
+    <li>Durch Erweitern der Ergebnisse unter "Mittelwertvergleiche" werden weitere Informationen hinsichtlich der Verhältnisse zwischen den Gruppen aufgeführt.</li>
+  </ul>
+
+  <dl>
+    <dd><a class="image"><img alt="ANOVA06.png" src="../images/One_Way_ANOVA/ANOVA06.png" width="624"></a><br>
+    <br></dd>
+  </dl>
+
+  <ul>
+    <li>Hier sehen Sie, dass der Mittelwert von PLANT4 sich signifikant von den anderen drei Gruppen unterscheidet. Durch Betrachten des <b>Mittelwertdiagramms</b> und des <b>Mittelwertvergleichsdiagramms</b> können wir erkennen, dass PLANT4 den kleinsten Mittelwert hat und signifikant unterschiedlich ist von den anderen drei Gruppen.</li>
+  </ul>
+
+  <dl>
+    <dd><a class="image"><img alt="ANOVA07.png" src="../images/One_Way_ANOVA/ANOVA07.png" width="395"></a><br></dd>
+
+    <dd><a class="image"><img alt="ANOVA09.png" src="../images/One_Way_ANOVA/ANOVA09.png" width="551"></a><br></dd>
+  </dl>
+
+  <ul>
+    <li>In der Tabelle "Trennschärfen" beträgt die <b>Tatsächliche Trennschärfe</b> = 0,99976, das heißt, die Wahrscheinlichkeit, dass ein Fehler der Fehlerart II auftritt, ist fast gleich null.</li>
+  </ul>
+
+  <dl>
+    <dd><a class="image"><img alt="ANOVA10.png" src="../images/One_Way_ANOVA/ANOVA10.png" width="288"></a><br></dd>
+  </dl>
+
+  <h3><a name="Raw_Data_Mode"></a><span class="mw-headline">Modus Rohdaten</span></h3>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe und wählen Sie <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b> im Menü, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner <i>Statistics</i>. Dort befindet sich die Datei <i>nitrogen_raw.txt</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das leere Arbeitsblatt, um sie zu importieren.</li>
+
+    <li>Wählen Sie <b>Statistik: ANOVA: Einfache ANOVA</b>.</li>
+
+    <li>Setzen Sie auf der Registerkarte <b>Eingabe</b> die <b>Eingabedaten</b> auf <b>Roh</b> und dann die <b>Anzahl der Ebenen</b> auf <b>4</b>.</li>
+
+    <li>Klicken Sie auf die Schaltfläche zum Navigieren <a class="image"><img alt="ANOVA inpurt data browse.png" src="../images/One_Way_ANOVA/ANOVA_inpurt_data_browse.png" width="35"></a> rechts von <b>Daten</b> und wählen Sie <b>Aus Arbeitsblatt wählen</b>. Der Dialog wird minimiert.</li>
+
+    <li>Markieren Sie alle vier Spalten (Plant1, Plant2, Plant3, Plant4) und klicken Sie auf dem minimierten Dialog auf <b>Fertig</b>. Klicken Sie auf <b>OK</b>, um die ANOVA durchzuführen.</li>
+
+    <li>Untersuchen Sie die Analyseergebnisse und Sie werden sehen, dass wir zu denselben Schlussfolgerungen kommen wie bei Verwendung des <b>Modus der indizierten Daten</b>.<br></li>
+  </ol>
+
+  <p>&#160;</p>
+
+  <dl>
+    <dd><a class="image"><img alt="DOC-2411 ANOVA311a.png" src="../images/One_Way_ANOVA/DOC-2411_ANOVA311a.png" width="849"></a><br></dd>
+  </dl>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/One_Way_ANOVA/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Wenn der <b>Stufenname</b> auf <b>Auto</b> gesetzt ist, übernimmt er den Spaltenlangnamen der ausgewählten Daten.</p>
+      </td>
+    </tr>
+  </table><br>
+  <br>

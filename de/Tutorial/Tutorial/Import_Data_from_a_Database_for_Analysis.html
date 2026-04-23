@@ -1,0 +1,243 @@
+﻿<h1 class="firstHeading">Daten aus einer Datenbank für die Analyse importieren</h1>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Contents</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Import_Data_from_Database"><span class="tocnumber">3.1</span><span class="toctext">Daten aus einer Datenbank importieren</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Data_Filter_and_Statistics"><span class="tocnumber">3.2</span> <span class="toctext">Datenfilter und Statistik</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#Radar_Plot"><span class="tocnumber">3.3</span> <span class="toctext">Radardiagramm</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Import_Data_from_a_Database_for_Analysis/Alert_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Die in diesem Tutorial verwendete Datenbank wurde auf Microsoft Azure eingerichtet.</p>
+      </td>
+    </tr>
+  </table>
+
+  <p>Dieses Tutorial zeigt, wie Daten aus einer Datenbank in ein Origin-Arbeitsblatt mit Hilfe des SQL-Editors importiert werden. Danach werden einige Operationen wie Filter, Statistik etc. für die Daten durchgeführt, um das gewünschte Ergebnis für die grafische Darstellung zu erhalten.</p>
+
+  <p><br>
+  Das Vorgehen basiert auf Origin 2023b.</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>zwei SQL-Abfragen der gleichen Datenbank in zwei Blätter einer Arbeitsmappe mit Hilfe des SQL-Editors importieren.</li>
+
+    <li>den Datenfilter auf die Arbeitsblattdaten anwenden,</li>
+
+    <li>deskriptive Spaltenstatistik durchführen,</li>
+
+    <li>Diagramme wie Säulendiagramme etc. erstellen.</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <h3><a name="Import_Data_from_Database"></a><span class="mw-headline">Daten aus einer Datenbank importieren</span></h3>
+
+  <ol>
+    <li>Öffnen Sie ein neues Projekt. Wählen Sie im Menü <b>Daten: Mit Datenbank verbinden: Neu...</b> oder klicken Sie auf die Schaltfläche <b>SQL-Editor öffnen</b> auf der Symbolleiste <b>Datenbankzugriff</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDataDatabase 1.png" src="../images/Import_Data_from_a_Database_for_Analysis/ImportDataDatabase_1.png" width="257"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie die Option <b>Verbindungszeichenkette</b> aus und klicken Sie auf OK. Fügen Sie die Verbindungszeichenkette unten ein.
+      <pre class="sql" style="font-family:monospace;">
+Driver<span style="color: #66cc66;">=</span><span style="color: #66cc66;">{</span><span style="color: #993333; font-weight: bold;">SQL</span> Server<span style="color: #66cc66;">}</span>; Server<span style="color: #66cc66;">=</span>olab<span style="color: #66cc66;">.</span><span style="color: #993333; font-weight: bold;">DATABASE</span><span style="color: #66cc66;">.</span>windows<span style="color: #66cc66;">.</span>net; Port<span style="color: #66cc66;">=</span><span style="color: #cc66cc;">1433</span>; <span style="color: #993333; font-weight: bold;">DATABASE</span><span style="color: #66cc66;">=</span>sample1; Uid<span style="color: #66cc66;">=</span>Olabts; Pwd<span style="color: #66cc66;">=</span>Origin@2024;
+</pre>
+
+      <p>Wenn Sie ODBC Drive 18 for SQL Server benutzen, verwenden Sie</p>
+      <pre class="sql" style="font-family:monospace;">
+Driver<span style="color: #66cc66;">=</span><span style="color: #66cc66;">{</span>ODBC Driver <span style="color: #cc66cc;">18</span> <span style="color: #993333; font-weight: bold;">FOR</span> <span style="color: #993333; font-weight: bold;">SQL</span> Server<span style="color: #66cc66;">}</span>; Server<span style="color: #66cc66;">=</span>olab<span style="color: #66cc66;">.</span><span style="color: #993333; font-weight: bold;">DATABASE</span><span style="color: #66cc66;">.</span>windows<span style="color: #66cc66;">.</span>net; Port<span style="color: #66cc66;">=</span><span style="color: #cc66cc;">1433</span>; <span style="color: #993333; font-weight: bold;">DATABASE</span><span style="color: #66cc66;">=</span>sample1; Uid<span style="color: #66cc66;">=</span>Olabts; Pwd<span style="color: #66cc66;">=</span>Origin@2024;;
+</pre>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Test</b>, um zu prüfen, ob die Verbindung in Ordnung ist. Wenn er in Ordnung ist, klicken Sie auf die Schaltfläche <b>OK</b>, um die Verbindung zur Datenbank herzustellen.</li>
+
+    <li>Klicken Sie im linken Bedienfeld doppelt auf den Knoten <i>SalesLT.Product</i>. Rechts wird dann <b>select * from SalesLT.Product</b> gezeigt.</li>
+
+    <li style="list-style: none">
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for Analysis SQL.png" src="../images/Import_Data_from_a_Database_for_Analysis/ImportDB_for_Analysis_SQL.png" width="598"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Vorschau der Ergebnisdaten</b> <a class="image"><img alt="Button db Preview Import.png" src="../images/Import_Data_from_a_Database_for_Analysis/Button_db_Preview_Import.png" width="24"></a>, um die Daten im unteren Bedienfeld anzuzeigen.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>OK</b>, um die Daten in das aktive Arbeitsblatt zu importieren.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for Analysis book1.png" src="../images/Import_Data_from_a_Database_for_Analysis/ImportDB_for_Analysis_book1.png" width="659"></a></dd>
+      </dl>
+    </li>
+
+    <li>Um Daten, die auf einer anderen SQL-Abfrage aus der gleichen Datenbank basieren, in ein neues Blatt zu importieren, klicken Sie mit der rechten Maustaste auf den Blattreiter und wählen Sie <b>Blatt ohne Daten duplizieren</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for Analysis Dup no data.png" src="../images/Import_Data_from_a_Database_for_Analysis/ImportDB_for_Analysis_Dup_no_data.png" width="335"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie in Sheet2 auf <a class="image"><img alt="DBConnector.png" src="../images/Import_Data_from_a_Database_for_Analysis/DBConnector.png" width="20"></a> und wählen Sie den SQL-Editor ...</li>
+
+    <li>Wählen Sie <b>Anfrage: LabTalk...</b>, um den Dialog <b>Einstellungen der Unterstützung von LabTalk</b> zu öffnen. Aktivieren Sie das Kontrollkästchen <b>Substitution durch LabTalk (%, $) aktivieren</b> und geben Sie folgendes Skript in das Textfeld ein.
+      <pre class="lt" style="font-family:monospace;">
+int cate<span style="color: #000080;">=</span><span style="color: #0000dd;">1</span>;
+</pre>
+
+      <p>Der Dialog sieht folgendermaßen aus:</p>
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for Analysis LT substitution.png" src="../images/Import_Data_from_a_Database_for_Analysis/ImportDB_for_Analysis_LT_substitution.png" width="523"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um zum SQL-Editor zurückzukehren. Geben Sie dann das folgende SQL-Skript in das obere rechte Bedienfeld ein. Diese SQL fragt zwei Spalte aus der Datenbank ab, eine ist der Kategoriename des Produkts, die andere ist die Summe von LineTotalfor jeder Kategorie in Parent Category 1.
+      <pre class="sql" style="font-family:monospace;">
+<span style="color: #993333; font-weight: bold;">SELECT</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>Name<span style="color: #66cc66;">,</span> <span style="color: #993333; font-weight: bold;">SUM</span><span style="color: #66cc66;">(</span>SALEANDPRODUCT<span style="color: #66cc66;">.</span>LineTotal<span style="color: #66cc66;">)</span> <span style="color: #993333; font-weight: bold;">AS</span> LineTotal <span style="color: #993333; font-weight: bold;">FROM</span> <span style="color: #66cc66;">(</span><span style="color: #993333; font-weight: bold;">SELECT</span> SALEINFO<span style="color: #66cc66;">.</span>LineTotal<span style="color: #66cc66;">,</span> PRODUCTINFO<span style="color: #66cc66;">.</span>ProductCategoryID <span style="color: #993333; font-weight: bold;">FROM</span> <span style="color: #66cc66;">(</span><span style="color: #993333; font-weight: bold;">SELECT</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderHeader<span style="color: #66cc66;">.</span>OrderDate<span style="color: #66cc66;">,</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>LineTotal<span style="color: #66cc66;">,</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>ProductID <span style="color: #993333; font-weight: bold;">FROM</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderHeader <span style="color: #993333; font-weight: bold;">INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail <span style="color: #993333; font-weight: bold;">ON</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderHeader<span style="color: #66cc66;">.</span>SalesOrderID<span style="color: #66cc66;">=</span>SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>SalesOrderID<span style="color: #66cc66;">)</span> <span style="color: #993333; font-weight: bold;">AS</span> SALEINFO <span style="color: #993333; font-weight: bold;">INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> <span style="color: #66cc66;">(</span><span style="color: #993333; font-weight: bold;">SELECT</span> SalesLT<span style="color: #66cc66;">.</span>Product<span style="color: #66cc66;">.</span>ProductID<span style="color: #66cc66;">,</span> SalesLT<span style="color: #66cc66;">.</span>Product<span style="color: #66cc66;">.</span>ProductCategoryID <span style="color: #993333; font-weight: bold;">FROM</span> SalesLT<span style="color: #66cc66;">.</span>Product<span style="color: #66cc66;">)</span> <span style="color: #993333; font-weight: bold;">AS</span> PRODUCTINFO <span style="color: #993333; font-weight: bold;">ON</span> SALEINFO<span style="color: #66cc66;">.</span>ProductID<span style="color: #66cc66;">=</span>PRODUCTINFO<span style="color: #66cc66;">.</span>ProductID<span style="color: #66cc66;">)</span> <span style="color: #993333; font-weight: bold;">AS</span> SALEANDPRODUCT <span style="color: #993333; font-weight: bold;">INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory <span style="color: #993333; font-weight: bold;">ON</span> SALEANDPRODUCT<span style="color: #66cc66;">.</span>ProductCategoryID<span style="color: #66cc66;">=</span>SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>ProductCategoryID <span style="color: #993333; font-weight: bold;">WHERE</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>ParentProductCategoryID <span style="color: #66cc66;">=</span> $<span style="color: #66cc66;">(</span>cate<span style="color: #66cc66;">)</span> <span style="color: #993333; font-weight: bold;">GROUP</span> <span style="color: #993333; font-weight: bold;">BY</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>Name <span style="color: #993333; font-weight: bold;">ORDER</span> <span style="color: #993333; font-weight: bold;">BY</span> LineTotal
+</pre>
+    </li>
+
+    <li>Klicken Sie auf die letzte Schaltfläche <a class="image"><img alt="Button db Preview LabTalk Substitute.png" src="../images/Import_Data_from_a_Database_for_Analysis/Button_db_Preview_LabTalk_Substitute.png" width="23"></a>, um das Skript der SQL-Anfrage mit substituierten Variablen anzuzeigen. Klicken Sie auf die Schaltfläche <b>Vorschau der Ergebnisdaten</b> <a class="image"><img alt="Button db Preview Import.png" src="../images/Import_Data_from_a_Database_for_Analysis/Button_db_Preview_Import.png" width="24"></a>, um die Daten im unteren Bedienfeld anzuzeigen.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for Analysis LT preview.png" src="../images/Import_Data_from_a_Database_for_Analysis/ImportDB_for_Analysis_LT_preview.png" width="797"></a></dd>
+      </dl>
+    </li>
+
+    <li>Bevor Sie den Dialog schließen, wählen Sie Datei: Verbindung und Anfrage speichern unter ... Speichern Sie sie als <i>LineTotal_by_parentCategory.ODQ</i>.</li>
+
+    <li>Klicken Sie auf <b>OK</b>. Das Abfrageergebnis wird in Sheet2 gezeigt.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for Analysis total by cate.png" src="../images/Import_Data_from_a_Database_for_Analysis/ImportDB_for_Analysis_total_by_cate.png" width="319"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Data_Filter_and_Statistics"></a><span class="mw-headline">Datenfilter und Statistik</span></h3>
+
+  <ol>
+    <li>Anstatt SUM(), INNER JION, GROUP BY zu verwenden, um zu den Statistiken zu gelangen, können Sie als Erstes eine einfache Abfrage durchführen und die Spalten importieren, für die Sie sich interessieren. Danach verwenden Sie Origins Filter und Statistiken etc., um das gewünschte Ergebnis und Grafik zu erhalten.</li>
+
+    <li>Öffnen Sie dieses Mal eine neue Mappe. Zum Beispiel Book2.</li>
+
+    <li>Wählen Sie Daten: Mit Datebank verbinden im Menü und wählen Sie LineTotal_by_parentCategory.ODQ aus.</li>
+
+    <li>Ersetzen Sie die rechte Seite mit der folgenden Abfrage, mit der mehrere Tabellen zusammengefügt und 3 Spalten abgefragt werden: Category Name, ParentCategoryID und LineTotal.
+      <pre class="sql" style="font-family:monospace;">
+<span style="color: #993333; font-weight: bold;">SELECT</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>Name <span style="color: #66cc66;">,</span>SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>ParentProductCategoryID<span style="color: #66cc66;">,</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>LineTotal <span style="color: #993333; font-weight: bold;">FROM</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail <span style="color: #993333; font-weight: bold;">INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>Product <span style="color: #993333; font-weight: bold;">ON</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>productID <span style="color: #66cc66;">=</span> SalesLT<span style="color: #66cc66;">.</span>Product<span style="color: #66cc66;">.</span>ProductID <span style="color: #993333; font-weight: bold;">INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory <span style="color: #993333; font-weight: bold;">ON</span> SalesLT<span style="color: #66cc66;">.</span>Product<span style="color: #66cc66;">.</span>ProductCategoryID <span style="color: #66cc66;">=</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>ProductCategoryID <span style="color: #993333; font-weight: bold;">ORDER</span> <span style="color: #993333; font-weight: bold;">BY</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>ProductCategoryID
+</pre>
+    </li>
+
+    <li>Markieren Sie Spalte <b>B</b> (Langname ist ParentProductCategoryID) und fügen Sie dann einen Datenfilter zu dieser Spalte hinzu, indem Sie auf die Schaltfläche <b>Datenfilter hinzufügen/entfernen</b> auf der Symbolleiste <b>Worksheet-Daten</b> klicken.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDataDatabase 9.png" src="../images/Import_Data_from_a_Database_for_Analysis/ImportDataDatabase_9.png" width="410"></a></dd>
+      </dl>
+    </li>
+
+    <li>Ein Filtersymbol wird in der oberen linken Ecke des Spaltenkopfes angezeigt. Klicken Sie darauf und wählen Sie dann im Kontextmenü <b>Ist gleich ...</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for Analysis filterContext.png" src="../images/Import_Data_from_a_Database_for_Analysis/ImportDB_for_Analysis_filterContext.png" width="467"></a></dd>
+      </dl>
+    </li>
+
+    <li>Ein Dialog wird geöffnet. Behalten Sie den Standard-<b>Wert</b> mit 0 und klicken Sie auf <b>OK</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for Analysis equals1.png" src="../images/Import_Data_from_a_Database_for_Analysis/ImportDB_for_Analysis_equals1.png" width="286"></a></dd>
+      </dl>
+    </li>
+
+    <li>Markieren Sie Spalte C (LineTotal) und wählen Sie dann im Menü <b>Statistik: Deskriptive Statistik: Spaltenstatistik</b>, um den Dialog <b>Spaltenstatistik</b> zu öffnen.</li>
+
+    <li>Setzen Sie in dem aufgerufenen Dialog Spalte B als den <b>Gruppierungsbereich</b>. Sie können auf die dreieckige Schaltfläche klicken, um die Spalte aus der Liste auf der rechten Seite auszuwählen.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for Analysis stats db 1.png" src="../images/Import_Data_from_a_Database_for_Analysis/ImportDB_for_Analysis_stats_db_1.png" width="447"></a></dd>
+      </dl>
+    </li>
+
+    <li>Aktivieren Sie auf der Registerkarte <b>Diagramme</b> das Kontrollkästchen <b>Boxdiagramme</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for Analysis stats db 2.png" src="../images/Import_Data_from_a_Database_for_Analysis/ImportDB_for_Analysis_stats_db_2.png" width="335"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>OK</b>, um die Ergebnisse zu erzeugen.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for Analysis stats box.png" src="../images/Import_Data_from_a_Database_for_Analysis/ImportDB_for_Analysis_stats_box.png" width="679"></a></dd>
+      </dl>
+    </li>
+
+    <li>Es ist sehr einfach, die Filterbedingung zu ändern und aktualisierte Statistiken zu erhalten. Gehen Sie z. B. zurück zu Sheet1. Klicken Sie doppelt auf <b>=1</b> und ändern Sie es in <b>=2</b>.</li>
+
+    <li>Gehen Sie zum Blatt DescStatsOnCol1. Das Neuberechnungsschloss wird gelb, was bedeutet, dass die Eingabe sich geändert hat. Klicken Sie darauf und wählen Sie Neuberechnen. Jetzt wird das LineTotal von allen Produkten in parentCategoryID=2 gezeigt.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for Analysis stats box cate2.png" src="../images/Import_Data_from_a_Database_for_Analysis/ImportDB_for_Analysis_stats_box_cate2.png" width="697"></a></dd>
+      </dl>
+
+      <table class="noborder">
+        <tr>
+          <td style="vertical-align:top" width="60"><img src="../images/Import_Data_from_a_Database_for_Analysis/Tip_icon.png" width="57" border="0" alt=""></td>
+
+          <td>
+            <p>Sie können auf das Neuberechnungsschloss klicken und den Neuberechnungsmodus auf Auto setzen. Wenn die Quelldaten oder der Filter sich ändern, wird das Statistikergebnis automatisch aktualisiert.</p>
+          </td>
+        </tr>
+      </table>
+    </li>
+  </ol>
+
+  <h3><a name="Radar_Plot"></a><span class="mw-headline">Radardiagramm</span></h3>
+
+  <ol>
+    <li>Das Hilfsmittel <b>Spaltenstatistik</b> erzeugt auch ein Ergebnisblatt, das Sie für weitere Analysen oder grafische Darstellungen nutzen können.</li>
+
+    <li>Gehen Sie zum Blatt <b>DescStatsQuantities1</b>.</li>
+
+    <li>Markieren Sie Spalte F (Sum) und wählen Sie im Menü <b>Zeichnen: Spezialisiert: Radar</b>, um ein Radardiagramm zu erstellen.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for Analysis radar.png" src="../images/Import_Data_from_a_Database_for_Analysis/ImportDB_for_Analysis_radar.png" width="581"></a></dd>
+      </dl>
+    </li>
+
+    <li>Kehren Sie zum Blatt <b>DescStatsQuantities1</b> zurück, fügen Sie einen Filter zu Spalte B (Name) hinzu und schließen Sie <b>Mountain Frames</b>, <b>Road Frames</b> und <b>Touring Frames</b> aus. Skalieren Sie die Achse neu, um mehr Einzelheiten zu den Produkten mit kleineren Summenwerten von LineTotal zu sehen.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for Analysis radar2.png" src="../images/Import_Data_from_a_Database_for_Analysis/ImportDB_for_Analysis_radar2.png" width="854"></a></dd>
+      </dl>
+    </li>
+  </ol>

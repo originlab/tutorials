@@ -1,0 +1,68 @@
+﻿<h1 class="firstHeading">Lineares Anpassen und Entfernen von Ausreißern</h1>
+
+  <p class='urlname' style='display: none'>Linear-Fitting</p>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Ein Ausreißer wird üblicherweise als ein Datenpunkt oder eine Beobachtung in einer Sammlung beschrieben, der bzw. die "sehr unterschiedlich" von den anderen Punkten ist, und daher z. B. auf Fehler im Messverfahren zurückgeführt werden können. Die Identifizierung und das Entfernen von Ausreißern ist oft umstritten. Es ist normalerweise "akzeptierbarer" in Situationen, in denen das Modell die Daten gewöhnlich als bekannt und akzeptiert beschreibt.</p>
+
+  <p>&#160;</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>eine lineare Regression an einem Satz von Datenpunkten durchführen,</li>
+
+    <li>die Residuen-Tabelle in der Ausgabe untersuchen und Ausreißer ermitteln,</li>
+
+    <li>mit dem Maskierungshilfsmittel Ausreißerpunkte entfernen,</li>
+
+    <li>die Neuberechnung verwenden, um automatisch das Ergebnis nach dem Entfernen der Ausreißer zu aktualisieren.</li>
+  </ul>
+
+  <p>Das Verfahren, das in diesem Tutorial beschrieben wird, ist gleichermaßen anwendbar auf andere Anpassungshilfsmittel wie polynomiale und nichtlineare Anpassungen.</p>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe und importieren Sie die Datei \<i>Samples</i>\<i>Curve Fitting</i>\<i>Outlier.dat</i></li>
+
+    <li>Klicken Sie auf und markieren Sie die zweite Spalte und wählen Sie den Menüpunkt <b>Zeichnen: Symbol: Punktdiagramm</b>, um ein Punktdiagramm zu erstellen.</li>
+
+    <li>Gehen Sie bei aktiven Diagramm zum Menüpunkt <b>Analyse: Anpassen: Linearer Fit</b>, um den Dialog Lineare Anpassung aufzurufen. Bitte beachten Sie, dass, wenn Sie den Dialog Lineare Anpassung vorher verwendet haben, ein Ausklappmenü erscheint und Sie <b>Dialog öffnen</b> wählen müssen.</li>
+
+    <li>Deaktivieren Sie auf der Registerkarte <b>Fit-Optionen</b> das Kontrollkästchen <b>Scheinbarer Fit</b>.<br>
+    <br>
+    <a class="image"><img alt="DOC-2411 Tutorial FitLinear 007a Magenta.png" src="../images/Linear_Fitting/DOC-2411_Tutorial_FitLinear_007a_Magenta.png" width="608" height="414"></a><br>
+    <br></li>
+
+    <li>Aktivieren Sie auf der Registerkarte <b>Residuenanalyse</b> im Dialog das Kontrollkästchen <b>Standardisiert</b>.<br>
+    <br>
+    <a class="image"><img alt="DOC-2411 Tutorial FitLinear 003a Magenta.png" src="../images/Linear_Fitting/DOC-2411_Tutorial_FitLinear_003a_Magenta.png" width="576" height="139"></a><br>
+    <br></li>
+
+    <li>Ändern Sie die Auswahlliste <b>Neu berechnen</b> im oberen Bereich des Dialogs mit <b>Auto</b> und und drücken Sie im unteren Bereich auf <b>OK</b>. Der Dialog wird geschlossen, und es wird eine lineare Regression für diese Daten durchgeführt.<br>
+    <br>
+    <a class="image"><img alt="DOC-2411 Tutorial FitLinear 004a Magenta.png" src="../images/Linear_Fitting/DOC-2411_Tutorial_FitLinear_004a_Magenta.png" width="606" height="126"></a><br>
+    <br></li>
+
+    <li>Wählen Sie das Ergebnisblatt <b>FitLinearCurve1</b> in der Datenarbeitsmappe und scrollen Sie zur rechten Seite, um die Spalte <b>Standardisiertes Residuum</b> zu sehen. Sie werden feststellen, dass der Wert in Zeile 6 dieser Spalte <code>-2,54889</code> ist:<br>
+    <br>
+    <a class="image"><img alt="DOC-2411 Tutorial FitLinear 001a Magenta.png" src="../images/Linear_Fitting/DOC-2411_Tutorial_FitLinear_001a_Magenta.png" width="601" height="326"></a><br>
+    <br></li>
+
+    <li>Aktivieren Sie das Diagramm und klicken Sie mit der linken Maustaste, die Sie dabei gedrückt halten, auf "Regionales Maskierungshilfsmittel" in der Symbolleiste Hilfsmittel. Wählen Sie das Untermenü "Maskierung zu aktiver Zeichnung hinzufügen", das als erster Punkt im Ausklappmenü angezeigt wird.<br>
+    <br>
+    <a class="image"><img alt="Tutorial FitLinear 002.png" src="../images/Linear_Fitting/Tutorial_FitLinear_002.png" width="235" height="164"></a><br>
+    <br></li>
+
+    <li>Gehen Sie bei dem oben ausgewähltem Untermenü zum Diagramm und markieren Sie den 6. Datenpunkt, um den Punkt zu maskieren. (Beachten Sie, dass Sie ein Rechteck um den Punkt aufziehen können.)<br>
+    <br>
+    <a class="image"><img alt="Tutorial FitLinear 005.png" src="../images/Linear_Fitting/Tutorial_FitLinear_005.png" width="561" height="415"></a><br>
+    <br>
+    Die Maskierung dieses Punktes wird die Eingabedaten der linearen Anpassung verändern und einen automatischen Aktualisierungsmechanismus auslösen. Die lineare Anpassung wird ohne diesen spezifischen maskierten Punkt wiederholt. Die Anpassungskurve im Diagramm und die Parametertabelle werden automatisch aktualisiert. Das Diagramm sollte am Ende folgendermaßen aussehen:<br>
+    <br>
+    <a class="image"><img alt="Tutorial FitLinear 006.png" src="../images/Linear_Fitting/Tutorial_FitLinear_006.png" width="566" height="414"></a></li>
+  </ol>

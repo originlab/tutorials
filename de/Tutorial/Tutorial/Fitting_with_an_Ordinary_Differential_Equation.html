@@ -1,0 +1,202 @@
+﻿<h1 class="firstHeading">Mit einer gewöhnlichen Differenzialgleichung anpassen</h1>
+
+  <p class='urlname' style='display: none'>Fitting-Ordinary-Differential-Equation</p>
+
+  <p>&#160;</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">Beispiele und Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Import_Data"><span class="tocnumber">3.1</span> <span class="toctext">Daten importieren</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Define_Fitting_Function"><span class="tocnumber">3.2</span> <span class="toctext">Anpassungsfunktion definieren</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#Fit_the_Curve"><span class="tocnumber">3.3</span> <span class="toctext">Kurve anpassen</span></a></li>
+
+          <li class="toclevel-2 tocsection-7"><a href="#Fitting_Results"><span class="tocnumber">3.4</span> <span class="toctext">Anpassungsergebnisse</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/Fitting_with_an_Ordinary_Differential_Equation/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/Fitting_with_an_Ordinary_Differential_Equation/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=60" target="_blank">Benutzerdefinierte Anpassungsfunktionen</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%"><a class="image"><img alt="Website blog icon circle.png" src="../images/Fitting_with_an_Ordinary_Differential_Equation/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Fitting_with_an_Ordinary_Differential_Equation/Blog_Image_33x33px.png" width="135"></a></td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>In diesem Tutorial erfahren Sie, wie Sie eine gewöhnliche Differenzialgleichung (<b>ODE</b>) in dem Dialog <b>Fitfunktionen erstellen</b> definieren und eine Anpassung der Daten mit dieser Anpassungsfunktion durchführen.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 9.1 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>eine ODE-Anpassungsfunktion definieren.</li>
+
+    <li>NAG-Funktionen mit Origin C-Code aufrufen.</li>
+
+    <li>das ODE-Ergebnis nur neu berechnen, wenn die Parameter aktualisiert werden.</li>
+
+    <li>für das ODE-Ergebnis eine Interpolation durchführen.</li>
+  </ul>
+
+  <h2><a name="Example_and_Steps"></a><span class="mw-headline">Beispiel und Schritte</span></h2>
+
+  <p>In diesem Tutorial wird beispielhaft eine gewöhnliche Differenzialgleichung erster Ordnung verwendet:</p>
+
+  <dl>
+    <dd><img src="../images/Fitting_with_an_Ordinary_Differential_Equation/math-3139ba5ac00c6da70c79240db577d5af.png" title="\frac{\mathrm{d} y}{\mathrm{d} x}=ay" alt="\frac{\mathrm{d} y}{\mathrm{d} x}=ay" class="tex"></dd>
+
+    <dd><img src="../images/Fitting_with_an_Ordinary_Differential_Equation/math-fa0aad52f07a3069cc4b0a22552679b3.png" title="y|_{x=x0}=y0" alt="y|_{x=x0}=y0" class="tex"></dd>
+  </dl>
+
+  <p>wobei <b>a</b> ein Parameter in der gewöhnlichen Differenzialgleichung und <b>y0</b> der Anfangswert für die gewöhnliche Differenzialgleichung (ODE) ist. Die NAG-Funktionen <b>d02pvc</b> und <b>d02pcc</b> werden mit der Runge-Kutta-Methode aufgerufen, um das <b>ODE</b>-Problem zu lösen.</p>
+
+  <h3><a name="Import_Data"></a><span class="mw-headline">Daten importieren</span></h3>
+
+  <ol>
+    <li>Öffnen Sie eine leere Arbeitsmappe. Wählen Sie <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b> im Menü, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner <i>Curve Fitting</i>. Dort befindet sich die Datei <i>Exponential Growth.dat</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das leere Arbeitsblatt, um sie zu importieren.</li>
+
+    <li>Markieren Sie Spalte <b>B</b> und wählen Sie <b>Zeichnen: Symbol: Punktdiagramm</b> im Origin-Menü. Das Diagramm sollte folgendermaßen aussehen:
+
+      <dl>
+        <dd><a class="image"><img alt="Fit ODEex.jpg" src="../images/Fitting_with_an_Ordinary_Differential_Equation/Fit_ODEex.jpg" width="503"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Define_Fitting_Function"></a><span class="mw-headline">Anpassungsfunktion definieren</span></h3>
+
+  <p>Die Anpassungsfunktion kann mit Hilfe des Hilfsmittels <b>Fitfunktionen erstellen</b> definiert werden.</p>
+
+  <ol>
+    <li>Wählen Sie <b>Hilfsmittel: Fitfunktionen erstellen</b> im Origin-Menü.</li>
+
+    <li>Stellen Sie sicher, dass im Dialog <b>Fitfunktion erstellen</b> auf der Seite <b>Ziel</b> die Option <b>Neue Funktion erstellen</b> aktiviert ist. Klicken Sie auf die Schaltfläche <b>Weiter</b>.</li>
+
+    <li>Wählen Sie auf der Seite <b>Name und Typ</b> in der Auswahlliste <b>Eine Kategorie auswählen oder erstellen</b> die Option <b>Benutzerdefiniert</b>. Geben Sie für <b>Funktionsname</b> den Text <b>FitODE</b> ein. Aktivieren Sie im Abschnitt <b>Funktionstyp</b> die Option <b>Origin C</b>. Klicken Sie auf <b>Weiter</b>.</li>
+
+    <li>Geben Sie auf der Seite <b>Variablen und Parameter</b> die Parameter <b>a, y0</b> in das Feld <b>Parameter</b> ein. Klicken Sie auf <b>Weiter</b>.</li>
+
+    <li>Klicken Sie auf der Seite <b>Origin C-Anpassungsfunktion</b> auf die Schaltfläche <a class="image"><img alt="User-Defined Fitting Functions-2.png" src="../images/Fitting_with_an_Ordinary_Differential_Equation/User-Defined_Fitting_Functions-2.png" width="19"></a> rechts vom Bearbeitungsfeld <b>Funktionskörper</b> und definieren Sie die Funktion im <b>Code Builder</b> folgendermaßen. Binden Sie Kopfdateien für NAG und Anpassung ein:
+      <pre class="oc" style="font-family:monospace;">
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>oc_nag.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span> <span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>ONLSF.<span style="color: #000000;">H</span><span style="color: #000080;">&gt;</span>
+</pre>
+
+      <p>Definieren Sie eine statische Funktion, um die ODE durch Aufrufen von NAG-Funktionen zu lösen. Rufen Sie die NAG-Funktion <b>d02pvc</b> auf, um das ODE-Modell zu erzeugen, und <b>d02pcc</b>, um das Modell zu lösen.</p>
+      <pre class="oc" style="font-family:monospace;">
+<span style="color: #0000ff;">struct</span> user   <span style="color: #008000;">// parameter in the ODE</span> <span style="color: #000000;">{</span> <span style="color: #0000ff;">double</span> a; <span style="color: #000000;">}</span>; <span style="color: #008000;">//Define the differentiate equation: y'=a*y</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> NAG_CALL f<span style="color: #000000;">(</span><span style="color: #0000ff;">double</span> t, Integer neq, <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">double</span> <span style="color: #000040;">*</span>y, <span style="color: #0000ff;">double</span> <span style="color: #000040;">*</span>yp, Nag_Comm <span style="color: #000040;">*</span>comm<span style="color: #000000;">)</span> <span style="color: #000000;">{</span> neq; <span style="color: #008000;">//Number of ordinary differential equations</span> t; <span style="color: #008000;">//Independent variable</span> y; <span style="color: #008000;">//Dependent variables</span> yp; <span style="color: #008000;">//First derivative</span> <span style="color: #0000ff;">struct</span> user <span style="color: #000040;">*</span>sp <span style="color: #000080;">=</span> <span style="color: #000000;">(</span><span style="color: #0000ff;">struct</span> user <span style="color: #000040;">*</span><span style="color: #000000;">)</span><span style="color: #000000;">(</span>comm<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>p<span style="color: #000000;">)</span>; <span style="color: #0000ff;">double</span> a; a <span style="color: #000080;">=</span> sp<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>a; yp<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span> <span style="color: #000080;">=</span> a<span style="color: #000040;">*</span>y<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span>; <span style="color: #000000;">}</span> <span style="color: #008000;">//Use Runge-Kutta ODE23 to solve ODE</span> <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">bool</span> nag_ode_fit<span style="color: #000000;">(</span> <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">double</span> a, <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">double</span> y0, <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">double</span> tstart, <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">double</span> tend, <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">int</span> nout, vector <span style="color: #000040;">&amp;</span>vP <span style="color: #000000;">)</span> <span style="color: #000000;">{</span> <span style="color: #008000;">//nout: Number of points to output     </span> <span style="color: #0000ff;">if</span><span style="color: #000000;">(</span> nout <span style="color: #000080;">&lt;</span> <span style="color: #0000dd;">2</span> <span style="color: #000000;">)</span> <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span>; vP.<span style="color: #000000;">SetSize</span><span style="color: #000000;">(</span> nout <span style="color: #000000;">)</span>; vP<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span> <span style="color: #000080;">=</span> y0; <span style="color: #0000ff;">int</span> neq <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>; <span style="color: #008000;">//Number of ordinary differential equations</span> Nag_RK_method method; <span style="color: #0000ff;">double</span> hstart, tgot, tinc; <span style="color: #0000ff;">double</span> tol, twant; <span style="color: #0000ff;">int</span> i, j; vector thres<span style="color: #000000;">(</span>neq<span style="color: #000000;">)</span>, ygot<span style="color: #000000;">(</span>neq<span style="color: #000000;">)</span>, ymax<span style="color: #000000;">(</span>neq<span style="color: #000000;">)</span>, ypgot<span style="color: #000000;">(</span>neq<span style="color: #000000;">)</span>, ystart<span style="color: #000000;">(</span>neq<span style="color: #000000;">)</span>; Nag_ErrorAssess errass; Nag_Comm comm; <span style="color: #0000ff;">struct</span> user s; s.<span style="color: #000000;">a</span> <span style="color: #000080;">=</span> a; comm.<span style="color: #000000;">p</span> <span style="color: #000080;">=</span> <span style="color: #000000;">(</span>Pointer<span style="color: #000000;">)</span><span style="color: #000040;">&amp;</span>s; ystart<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span> <span style="color: #000080;">=</span> y0; <span style="color: #0000ff;">for</span> <span style="color: #000000;">(</span>i<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span>; i<span style="color: #000080;">&lt;</span>neq; i<span style="color: #000040;">++</span><span style="color: #000000;">)</span> thres<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span> <span style="color: #000080;">=</span> 1.0e<span style="color: #000040;">-</span>8; errass <span style="color: #000080;">=</span> Nag_ErrorAssess_off; hstart <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>; method <span style="color: #000080;">=</span> Nag_RK_2_3; tinc <span style="color: #000080;">=</span> <span style="color: #000000;">(</span>tend<span style="color: #000040;">-</span>tstart<span style="color: #000000;">)</span><span style="color: #000040;">/</span><span style="color: #000000;">(</span>nout<span style="color: #000040;">-</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span>; tol <span style="color: #000080;">=</span> 1.0e<span style="color: #000040;">-</span>3; NagError nagErr1; <span style="color: #008000;">//Setup ODE</span> <span style="color: #0000ff;">int</span> iwsav<span style="color: #000000;">[</span><span style="color: #0000dd;">130</span><span style="color: #000000;">]</span>; <span style="color: #0000ff;">double</span><span style="color: #000040;">*</span> rwsav <span style="color: #000080;">=</span> <span style="color: #000000;">(</span><span style="color: #0000ff;">double</span><span style="color: #000040;">*</span><span style="color: #000000;">)</span><span style="color: #000000;">malloc</span><span style="color: #000000;">(</span><span style="color: #000000;">(</span><span style="color: #0000dd;">350</span> <span style="color: #000040;">+</span> <span style="color: #0000dd;">32</span><span style="color: #000040;">*</span>neq<span style="color: #000000;">)</span><span style="color: #000040;">*</span><span style="color: #000000;">sizeof</span><span style="color: #000000;">(</span><span style="color: #0000ff;">double</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>; nag_ode_ivp_rkts_setup<span style="color: #000000;">(</span>neq, tstart, tend, ystart, tol, thres, method, errass, hstart, iwsav, rwsav, <span style="color: #000040;">&amp;</span>nagErr1<span style="color: #000000;">)</span>; <span style="color: #0000ff;">if</span><span style="color: #000000;">(</span> nagErr1.<span style="color: #000000;">code</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span> NE_NOERROR <span style="color: #000000;">)</span> <span style="color: #000000;">{</span> <span style="color: #000000;">free</span><span style="color: #000000;">(</span>rwsav<span style="color: #000000;">)</span>; <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span>; <span style="color: #000000;">}</span> <span style="color: #0000ff;">for</span> <span style="color: #000000;">(</span>j<span style="color: #000080;">=</span><span style="color: #0000dd;">1</span>; j<span style="color: #000080;">&lt;</span>nout; j<span style="color: #000040;">++</span><span style="color: #000000;">)</span> <span style="color: #000000;">{</span> twant <span style="color: #000080;">=</span> tstart <span style="color: #000040;">+</span> j<span style="color: #000040;">*</span>tinc; NagError nagErr2; <span style="color: #008000;">//Solve ODE</span> nag_ode_ivp_rkts_range<span style="color: #000000;">(</span>f, neq, twant, <span style="color: #000040;">&amp;</span>tgot, ygot, ypgot, ymax, <span style="color: #000040;">&amp;</span>comm, iwsav, rwsav, <span style="color: #000040;">&amp;</span>nagErr2<span style="color: #000000;">)</span>; <span style="color: #0000ff;">if</span><span style="color: #000000;">(</span> nagErr2.<span style="color: #000000;">code</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span> NE_NOERROR <span style="color: #000000;">)</span> <span style="color: #000000;">{</span> <span style="color: #000000;">free</span><span style="color: #000000;">(</span>rwsav<span style="color: #000000;">)</span>; <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span>; <span style="color: #000000;">}</span> vP<span style="color: #000000;">[</span>j<span style="color: #000000;">]</span> <span style="color: #000080;">=</span> ygot<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span>; <span style="color: #000000;">}</span> <span style="color: #000000;">free</span><span style="color: #000000;">(</span>rwsav<span style="color: #000000;">)</span>; <span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span>; <span style="color: #000000;">}</span>
+</pre>
+
+      <p>Definieren Sie den Körper der Fitfunktion <b>_nlsfFitODE</b>:</p>
+      <pre class="oc" style="font-family:monospace;">
+NLFitContext <span style="color: #000040;">*</span>pCtxt <span style="color: #000080;">=</span> Project.<span style="color: #000000;">GetNLFitContext</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>; <span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span> pCtxt <span style="color: #000000;">)</span> <span style="color: #000000;">{</span> <span style="color: #0000ff;">static</span> vector vX, vY; <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">int</span> nSize; <span style="color: #0000ff;">BOOL</span> bIsNewParamValues <span style="color: #000080;">=</span> pCtxt<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>IsNewParamValues<span style="color: #000000;">(</span><span style="color: #000000;">)</span>; <span style="color: #008000;">// If parameters were updated, we will recalculate the ODE result.</span> <span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span> bIsNewParamValues <span style="color: #000000;">)</span> <span style="color: #000000;">{</span> <span style="color: #008000;">//Initial and final values of the independent variable</span> <span style="color: #0000ff;">double</span> tstart <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.02</span>, tend <span style="color: #000080;">=</span> <span style="color: #0000dd;">2</span>, tinc; <span style="color: #0000ff;">int</span> nout <span style="color: #000080;">=</span> <span style="color: #0000dd;">100</span>; <span style="color: #008000;">//Number of points</span> tinc <span style="color: #000080;">=</span> <span style="color: #000000;">(</span>tend<span style="color: #000040;">-</span>tstart<span style="color: #000000;">)</span><span style="color: #000040;">/</span><span style="color: #000000;">(</span>nout<span style="color: #000040;">-</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span>; vX.<span style="color: #000000;">Data</span><span style="color: #000000;">(</span> tstart, tend, tinc <span style="color: #000000;">)</span>; nSize <span style="color: #000080;">=</span> vX.<span style="color: #000000;">GetSize</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>; <span style="color: #0000ff;">if</span><span style="color: #000000;">(</span> <span style="color: #000040;">!</span>nag_ode_fit<span style="color: #000000;">(</span> a, y0, tstart, tend, nout, vY<span style="color: #000000;">)</span> <span style="color: #000000;">)</span> <span style="color: #0000ff;">return</span>; <span style="color: #000000;">}</span> <span style="color: #008000;">//Interpolate y from fitting data's x on the ODE result.</span> ocmath_interpolate<span style="color: #000000;">(</span> <span style="color: #000040;">&amp;</span>x, <span style="color: #000040;">&amp;</span>y, <span style="color: #0000dd;">1</span>, vX, vY, nSize <span style="color: #000000;">)</span>; <span style="color: #000000;">}</span>
+</pre>
+
+      <p>Klicken Sie auf die Schaltfläche <b>Kompilieren</b>, um den Funktionskörper zu kompilieren. Um zum Dialog zurückzukehren, klicken Sie auf <b>Zurück zum NSLF</b>. Die Schaltfläche <b>Auswerten</b> im Dialog zeigt die schwarze Figur einer laufenden Person. Wenn Sie auf sie klicken wird der Wert y = 2,6627270424371 gezeigt. Dies impliziert, dass die Funktion funktioniert. Klicken Sie auf <b>Weiter</b>.</p>
+    </li>
+
+    <li>Wählen Sie auf der Seite <b>Parameterinitialisierungscode</b> die Option <b>Benutzerdefinierten Code verwenden</b> und geben Sie den Code in das Feld <b>Initialisierungscode</b> ein:
+      <pre class="oc" style="font-family:monospace;">
+<span style="color: #008000;">//Set the start y value in fitting data as the initial value of y0</span> y0 <span style="color: #000080;">=</span> y_data<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span>; a <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>;
+</pre>
+
+      <p>Klicken Sie auf die Schaltfläche <b>Fertigstellen</b>.</p>
+    </li>
+  </ol>
+
+  <p>&#160;</p>
+
+  <table class="note">
+    <tr>
+      <td><b>Hinweis:</b> Um die angepassten Parameter zu überwachen, wurde die Klasse <a class="external text" href="../../OriginC/Category/NLFitContext_(class).html">NLFitContext</a> zum Definieren von Anpassungsfunktionen eingeführt, um einige Schlüsselinformationen innerhalb des Fitters zu erreichen.</td>
+    </tr>
+  </table>
+
+  <h3><a name="Fit_the_Curve"></a><span class="mw-headline">Kurve anpassen</span></h3>
+
+  <ol>
+    <li>Markieren Sie Spalte <b>B</b> und wählen Sie <b>Analyse: Anpassen: Nichtlinearer Fit</b> im Origin-Menü. Wählen Sie im Dialog <b>NLFit</b> auf der Seite <b>Einstellungen: Funktionsauswahl</b> die Option <b>User Defined</b> in der Auswahlliste <b>Kategorie</b> und die Funktion <b>FitODE</b> in der Liste <b>Funktion</b>.</li>
+
+    <li>Gehen Sie zur Registerkarte <b>Parameter</b> und legen Sie <b>y0</b>, wie im Dialog gezeigt, fest.
+
+      <dl>
+        <dd>
+          <dl>
+            <dd><a class="image"><img alt="Fit ODE FitP.jpg" src="../images/Fitting_with_an_Ordinary_Differential_Equation/Fit_ODE_FitP.jpg" width="422"></a></dd>
+          </dl>
+        </dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Fit</b>, um die Kurve anzupassen.</li>
+  </ol>
+
+  <h3><a name="Fitting_Results"></a><span class="mw-headline">Anpassungsergebnisse</span></h3>
+
+  <p>Die angepasste Kurve sollte folgendermaßen aussehen:</p>
+
+  <dl>
+    <dd>
+      <dl>
+        <dd><a class="image"><img alt="Fit ODE Curve.png" src="../images/Fitting_with_an_Ordinary_Differential_Equation/Fit_ODE_Curve.png" width="423"></a></dd>
+      </dl>
+    </dd>
+  </dl>
+
+  <p>Die angepassten Parameter werden in der folgenden Tabelle gezeigt:</p>
+
+  <table class="simple">
+    <tr>
+      <th><b>Parameter</b></th>
+
+      <th><b>Wert</b></th>
+
+      <th><b>Standardfehler</b></th>
+    </tr>
+
+    <tr>
+      <th><b>a</b></th>
+
+      <td>1,30272</td>
+
+      <td>0,00858</td>
+    </tr>
+
+    <tr>
+      <th><b>y0</b></th>
+
+      <td>0,77038</td>
+
+      <td>0</td>
+    </tr>
+  </table>
+
+  <p><br>
+  <b>Hinweis:</b> Die Anpassung mit komplexeren ODE-Anpassungsfunktionen kann auch auf ähnliche Weise durchgeführt werden.</p>

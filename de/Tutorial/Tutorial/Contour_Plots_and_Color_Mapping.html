@@ -1,0 +1,279 @@
+﻿<h1 class="firstHeading">Konturdiagramme und Farbabbildung</h1>
+
+  <p class='urlname' style='display: none'>Contour-Color-Map</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#Create_Contour_Plot_from_Matrix"><span class="tocnumber">3</span> <span class="toctext">Konturdiagramm aus Matrix erstellen</span></a></li>
+
+      <li class="toclevel-1 tocsection-4"><a href="#Customize_Levels.2C_Lines_and_Color_Map"><span class="tocnumber">4</span> <span class="toctext">Ebenen, Linien und Farbpalette benutzerdefiniert anpassen</span></a></li>
+
+      <li class="toclevel-1 tocsection-5"><a href="#Create_a_Contour_Plot_from_XYZ_Data"><span class="tocnumber">5</span> <span class="toctext">Konturdiagramm aus XYZ-Daten erstellen</span></a></li>
+
+      <li class="toclevel-1 tocsection-6"><a href="#Show_the_Triangulation_Grid"><span class="tocnumber">6</span> <span class="toctext">Triangulationsgitter zeigen</span></a></li>
+
+      <li class="toclevel-1 tocsection-7"><a href="#Apply_Custom_Boundary"><span class="tocnumber">7</span> <span class="toctext">Benutzerdefinierte Rahmen anwenden</span></a></li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/Contour_Plots_and_Color_Mapping/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/Contour_Plots_and_Color_Mapping/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=33" target="_blank">Konturdiagramme und Farbabbildung</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=280" target="_blank">Konturebenen</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=279" target="_blank">3D- und Konturdiagramme aus einer virtuellen Matrix zeichnen</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=190" target="_blank">4D-XYZ-Diagramm mit benutzerdefinierter Grenze</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%">
+        <a class="image"><img alt="Website blog icon circle.png" src="../images/Contour_Plots_and_Color_Mapping/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Contour_Plots_and_Color_Mapping/Blog_Image_33x33px.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="http://blog.originlab.com/xyz-contour-plot-with-colormap-from-second-z-and-custom-boundary" target="_blank">XYZ-Konturdiagramm mit Farbabbildung aus zweitem Z und benutzerdefinierte Grenze</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/how-to-make-a-contour-plot-of-difference-of-two-contours" target="_blank">Wie wird ein Konturdiagramm der Diferenz zwischen zwei Konturen erstellt?</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/plot-stacked-contour-plots-in-a-cylinder-coordinates" target="_blank">Gestapelte Konturdiagramme in zylindrischen Koordinaten</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/create-cylinder-and-colored-by-a-different-data-souce" target="_blank">Konturdiagramm in zylindrischen Koordinaten</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/faster-plotting-for-large-data-in-origin-2020" target="_blank">Schnelleres Zeichnen für große Datensätze in Origin 2020</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/how-to-create-a-3d-surface-plot-animation" target="_blank">Animation eines 3D-Oberflächendiagramms erstellen</a></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Origin bietet rechteckige, polare und ternäre Konturdiagramme. Für <b>rechteckige Konturdiagramme</b> können sich die Daten entweder in einer Matrix oder in einem Arbeitsblatt in XYZ-Format befinden. <b>Polare Konturdiagramme</b> können aus drei Datenspalten in einem Arbeitsblatt erzeugt werden, entweder als R <img src="../images/Contour_Plots_and_Color_Mapping/math-b9dce96eb3d5a71b28f9f198c28d2d1b.png" title="\Theta" alt="\Theta" class="tex"> Z oder <img src="../images/Contour_Plots_and_Color_Mapping/math-b9dce96eb3d5a71b28f9f198c28d2d1b.png" title="\Theta" alt="\Theta" class="tex"> R Z. <b>Ternäre Konturdiagramme</b> können aus Arbeitsblattdaten erzeugt werden, die im Format X Y Z Z vorliegen, wobei die 2. Z-Spalte den 4. Parameter enthält, d.h. den Höhenwert bei einem gegebenen XYZ-Punkt im ternären Raum.</p>
+
+  <p>Viele Optionen sind für das benutzerdefinierte Anpassen von Konturdiagrammen verfügbar, wie z.B. das Einstellen von verschiedenen Haupt- und Nebenkonturebenen, das Anzeigen von Konturlinien nur auf den Hauptebenen, das Anwenden von Farbpaletten und auch das Festlegen einer benutzerdefinierten Grenze im Fall von Konturdiagrammen, die direkt aus dem Arbeitsblatt erstellt wurden.</p>
+
+  <h2><a name="What_You_Will_Learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>Werte in einer Matrix setzen und ein Konturdiagramm erstellen,</li>
+
+    <li>Ebenen, Linien und Farbpaletten benutzerdefiniert anpassen,</li>
+
+    <li>Daten aus Konturlinien extrahieren,</li>
+
+    <li>ein Konturdiagramm direkt aus XYZ-Daten erstellen,</li>
+
+    <li>einen benutzerdefinierten Rahmen verwenden.</li>
+  </ul>
+
+  <h2><a name="Create_Contour_Plot_from_Matrix"></a><span class="mw-headline">Ein Konturdiagramm aus einer Matrix erstellen</span></h2>
+
+  <ol>
+    <li>Um eine neue Matrix zu erstellen, klicken Sie auf die Schaltfläche <b>Neue Matrix</b> <a class="image"><img alt="CreateNewMatrix.png" src="../images/Contour_Plots_and_Color_Mapping/CreateNewMatrix.png" width="24"></a>. Bewegen Sie die Maus dann zu der oberen linken Ecke der Matrix, bis sich die Form des Zeigers verändert, wie im folgenden Bild zu sehen, und klicken Sie einmal darauf, um die gesamte Matrix zu markieren.
+
+      <dl>
+        <dd><a class="image"><img alt="SelectWholeMatrix.png" src="../images/Contour_Plots_and_Color_Mapping/SelectWholeMatrix.png" width="356"></a></dd>
+      </dl>Um die Dimensionen festzulegen, klicken Sie mit der rechten Maustaste und wählen Sie <b>Matrixdimension/Beschriftungen</b> im Kontextmenü. Ändern Sie auf der Registerkarte XY-Abbildung die Einstellung folgendermaßen.
+
+      <dl>
+        <dd><a class="image"><img alt="SetDimension.png" src="../images/Contour_Plots_and_Color_Mapping/SetDimension.png" width="419"></a></dd>
+      </dl>
+    </li>
+
+    <li>Geben Sie Daten in die Matrix ein, indem Sie sie markieren und mit der rechten Maustaste auf sie klicken. Wählen Sie <b>Werte der Matrix setzen</b> im Kontextmenü, um den Dialog <b>Werte setzen</b> zu öffnen. Geben Sie <b>i*sin(x) - j*cos(y)</b> in das Bearbeitungsfeld <b>Formel</b> ein und klicken Sie auf <b>OK</b>, um Daten zu erzeugen. Die Matrix sollte folgendermaßen aussehen:
+
+      <dl>
+        <dd><a class="image"><img alt="ShowRowColumnIndex.png" src="../images/Contour_Plots_and_Color_Mapping/ShowRowColumnIndex.png" width="420"></a></dd>
+      </dl>
+    </li>
+
+    <li>Jeder Datenpunkt in der Matrix entspricht zwei verschiedenen Arten von Indizes. Eine Art besteht aus dem Spalten- und dem Zeilenindex. Die andere sind die X- und Y-Koordinaten. Um die X- und Y-Koordinaten zu sehen, wählen Sie <b>Ansicht: X/Y zeigen</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="ShowXYCoordinatesNew.png" src="../images/Contour_Plots_and_Color_Mapping/ShowXYCoordinatesNew.png" width="420"></a></dd>
+      </dl>
+    </li>
+
+    <li>Sie können aber auch über <b>Ansicht: Bildmodus</b> die Bildform der Matrix anzeigen.
+
+      <dl>
+        <dd><a class="image"><img alt="MatirxShowAsImage.png" src="../images/Contour_Plots_and_Color_Mapping/MatirxShowAsImage.png" width="313"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie <b>Ansicht: Datenmodus</b>, um den Bildmodus zu verlassen. Erstellen Sie ein Konturdiagramm, indem Sie die Matrix aktivieren und <b>Zeichnen: Kontur: Kontur - Farbabbildung</b> auswählen. Das Diagramm sollte folgendermaßen aussehen:
+
+      <dl>
+        <dd><a class="image"><img alt="OriginalContourGraphNew.png" src="../images/Contour_Plots_and_Color_Mapping/OriginalContourGraphNew.png" width="446"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h2><a name="Customize_Levels.2C_Lines_and_Color_Map"></a><span class="mw-headline">Ebenen, Linien und Farbpalette benutzerdefiniert anpassen</span></h2>
+
+  <p>Origin macht die benutzerdefinierte Anpassung der Konturdiagramme sehr einfach und umfasst dabei auch das Ändern der Farbskala und das Hinzufügen von Beschriftungen.</p>
+
+  <ol>
+    <li>Aktivieren Sie <b>Graph1</b> und wählen Sie <b>Grafik: Bearbeitungsmodus</b>, um den Dialog zu öffnen. Setzen Sie den <b>Entwurfsmodus</b> auf <b>Aus</b> und klicken Sie auf <b>OK</b>.</li>
+
+    <li>Klicken Sie auf das Konturdiagramm in <b>Graph1</b> und dann auf die Schaltfläche <b>Ebenen festlegen</b> in der Minisymbolleiste. Klicken Sie im Dialog <b>Ebenen festlegen</b> auf die Schaltfläche <b>Min./Max. suchen</b> und setzen Sie die <b>Hauptebenen</b> auf <b>8</b> und die <b>Nebenebenen</b> auf <b>32</b>. Klicken Sie auf <b>OK</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Contour Plots Mini Toolbar Set Levels.png" src="../images/Contour_Plots_and_Color_Mapping/Contour_Plots_Mini_Toolbar_Set_Levels.png" width="733"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf das Konturdiagramm und dann auf die Schaltfläche <b>Paletten</b> in den Minisymbolleisten. Wählen Sie dann die Palette <b>Rainbow</b> in der Auswahlliste.
+
+      <dl>
+        <dd><a class="image"><img alt="Contour Plots Mini Toolbar Palettes.png" src="../images/Contour_Plots_and_Color_Mapping/Contour_Plots_Mini_Toolbar_Palettes.png" width="613"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie zweimal auf eine Konturlinie (zwei separate einzelne Klicks), um alle Linien auf dieser Ebene auszuwählen. Legen Sie danach die Farbe mit Hilfe der Schaltfläche <b>Linien-/Rahmenfarbe</b> <a class="image"><img alt="Tutorial81LineAndBordColorGreen.png" src="../images/Contour_Plots_and_Color_Mapping/Tutorial81LineAndBordColorGreen.png" width="36"></a> auf der Symbolleiste <b>Format</b> mit <b>Grün</b> fest. Setzen Sie auch die Breite mit Hilfe der gleichen Symbolleiste und der Schaltfläche <b>Linien-/Rahmenbreite</b> <a class="image"><img alt="Tutorial81WidthNew.png" src="../images/Contour_Plots_and_Color_Mapping/Tutorial81WidthNew.png" width="42"></a> auf <b>3</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Contour Plots Custom Contour Lines.png" src="../images/Contour_Plots_and_Color_Mapping/Contour_Plots_Custom_Contour_Lines.png" width="438"></a></dd>
+      </dl>
+    </li>
+
+    <li>Stellen Sie sicher, dass nur eine Konturlinie ausgewählt ist (nicht alle Konturlinien auf dieser Ebene) und klicken Sie mit der rechten Maustaste auf diese markierte Konturlinie. Wählen Sie <b>Konturbeschriftung hinzufügen</b>, um eine Beschriftung hinzuzufügen.
+
+      <dl>
+        <dd><a class="image"><img alt="Contour Plots Add Contour Label.png" src="../images/Contour_Plots_and_Color_Mapping/Contour_Plots_Add_Contour_Label.png" width="486"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie zweimal auf eine Konturlinie, um sie auszuwählen, dann mit der rechten Maustaste und wählen Sie <b>Konturlinien extrahieren</b>. Origin extrahiert die Daten für die Konturlinie in ein Arbeitsblatt. Das folgende Bild zeigt einen Teil der Daten im Arbeitsblatt.
+
+      <dl>
+        <dd><a class="image"><img alt="Contour Plots Extract Contour Lines.png" src="../images/Contour_Plots_and_Color_Mapping/Contour_Plots_Extract_Contour_Lines.png" width="382"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <p>&#160;</p>
+
+  <h2><a name="Create_a_Contour_Plot_from_XYZ_Data"></a><span class="mw-headline">Konturdiagramm aus XYZ-Daten erstellen</span></h2>
+
+  <p>Origin kann Konturdiagramme direkt und ohne eine Zwischenmatrix aus den XYZ-Daten in einem Arbeitsblatt erstellen. Die Delaunay-Triangulation wird verwendet, um die Konturlinien zu berechnen und zu zeichnen.</p>
+
+  <ol>
+    <li>Öffnen Sie ein leeres Arbeitsblatt. Wählen Sie <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b> im Menü, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner <i>Matrix Conversion and Gridding</i>. Dort befindet sich die Datei <i>3D XYZ.dat</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das leere Arbeitsblatt, um sie zu importieren.<br></li>
+
+    <li>Markieren Sie die dritte Spalte und klicken Sie mit der rechten Maustaste auf sie, um <b>Setzen als: Als Z setzen</b> auszuwählen. Wählen Sie dann <b>Zeichnen: Kontur: Kontur - Farbabbildung</b>, um ein Diagramm zu erzeugen, wie im folgenden Bild zu sehen:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial81CreateXYZContour.png" src="../images/Contour_Plots_and_Color_Mapping/Tutorial81CreateXYZContour.png" width="452"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h2><a name="Show_the_Triangulation_Grid"></a><span class="mw-headline">Triangulationsgitternetz zeigen</span></h2>
+
+  <ol>
+    <li>Zeigen Sie das Triangulationsgitternetz an, das verwendet wird, um ein Konturdiagramm der Daten zu erstellen. Die einzelnen Datenpunkte befinden sich auf den Knoten oder Eckpunkten des Gitternetzes.</li>
+
+    <li>Öffnen Sie ein leeres Arbeitsblatt. Wählen Sie <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b> im Menü, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner <i>Matrix Conversion and Gridding</i>. Dort befindet sich die Datei <i>XYZ Random Gaussian.dat</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das leere Arbeitsblatt, um sie zu importieren.<br></li>
+
+    <li>Markieren Sie die dritte Spalte und klicken Sie mit der rechten Maustaste auf sie, um <b>Setzen als: Als Z setzen</b> auszuwählen. Wählen Sie <b>Zeichnen: Kontur: Kontur - Farbabbildung</b>, um ein Konturdiagramm zu erstellen.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial81NewContourGraph.png" src="../images/Contour_Plots_and_Color_Mapping/Tutorial81NewContourGraph.png" width="452"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie zum Öffnen des Dialogs <b>Details Zeichnung</b> doppelt auf das Konturdiagramm. Wechseln Sie zur Registerkarte <b>Farbplatte/Kontur</b> und klicken Sie auf die Überschrift <b>Linie</b>, um den Dialog <b>Konturlinien</b> zu öffnen. Deaktivieren Sie in diesem Dialog das Kontrollkästchen <b>Nur auf Hauptebenen zeigen</b> und aktivieren Sie <b>Alle verbergen</b>, um alle Konturlinien zu verbergen. Klicken Sie auf <b>OK</b>, um diesen Dialog zu schließen. Aktivieren Sie dann die Kontrollkästchen <b>Gitterlinien zeigen</b> und <b>Datenpunkte zeigen</b> auf der Registerkarte Farbpalette/Kontur. Bestätigen Sie mit <b>OK</b>, um den Dialog <b>Details Zeichnung</b> zu schließen.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial81ShowGrideLinesNew.png" src="../images/Contour_Plots_and_Color_Mapping/Tutorial81ShowGrideLinesNew.png" width="244"></a></dd>
+      </dl>Das auf das Konturdiagramm gelegte Gitternetz sollte folgendermaßen aussehen:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial81ContourShowGridLine.png" src="../images/Contour_Plots_and_Color_Mapping/Tutorial81ContourShowGridLine.png" width="442"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h2><a name="Apply_Custom_Boundary"></a><span class="mw-headline">Benutzerdefinierten Rahmen verwenden</span></h2>
+
+  <p>Eine benutzerdefinierte Grenze kann auf Konturdiagramme angewendet werden, die direkt aus XYZ-Daten erzeugt wurden, wobei Anwender die Datenpunkte für die Grenze in zusätzlichen Spalten des gleichen Arbeitsblatts bereit stellen. Diese Funktion ist nützlich, wenn Sie spezielle Grenzdaten haben, die den Umfang eines Objekts definieren, wie beispielsweise das Profil eines Motors, während die Kontur die Motortemperatur zeigt.</p>
+
+  <ol>
+    <li>Wir fahren mit dem Arbeitsblatt und dem Konturdiagramm fort, das im vorherigen Beispiel mit <b>XYZ Random Gaussian.dat</b> erstellt wurde.</li>
+
+    <li>Gehen Sie zur Arbeitsmappe <b>XYZRandomGaus</b> und klicken Sie zweimal auf die Schaltfläche <b>Neue Spalten anhängen</b> <a class="image"><img alt="Tutorial81AddColumns.png" src="../images/Contour_Plots_and_Color_Mapping/Tutorial81AddColumns.png" width="24"></a>, um zwei Spalten hinzuzufügen. Markieren Sie die zwei Spalten und klicken Sie mit der rechten Maustaste darauf. Wählen Sie <b>Setzen als: XY XY</b> im Kontextmenü und geben Sie vier Datenzeilen ein:
+
+      <table class="simple">
+        <tr>
+          <td>12</td>
+
+          <td>10</td>
+        </tr>
+
+        <tr>
+          <td>18</td>
+
+          <td>12</td>
+        </tr>
+
+        <tr>
+          <td>16</td>
+
+          <td>18</td>
+        </tr>
+
+        <tr>
+          <td>14</td>
+
+          <td>16</td>
+        </tr>
+      </table>
+    </li>
+
+    <li>Klicken Sie zum Öffnen des Dialogs <b>Details Zeichnung</b> doppelt auf das Konturdiagramm. Wechseln Sie zur Registerkarte <b>Konturinfo</b> im rechten Bedienfeld. Legen Sie die Werte in dem Dialog so fest, wie im folgenden Bild zu sehen, um die Grenze für das Konturdiagramm benutzerdefiniert anzupassen. Denken Sie daran, die Kontrollkästchen <b>Gitternetzlinien zeigen</b> und <b>Datenpunkte zeigen</b> auf der Registerkarte <b>Farbpalette/Kontur</b> zu deaktivieren. Klicken Sie auf <b>OK</b>, um den Dialog Details Zeichnung zu schließen.</li>
+
+    <li style="list-style: none">
+      <dl>
+        <dd><a class="image"><img alt="Tutorial81ContourCustomizeBoundary.png" src="../images/Contour_Plots_and_Color_Mapping/Tutorial81ContourCustomizeBoundary.png" width="371"></a></dd>
+      </dl>
+
+      <p>Das Diagramm sollte folgendermaßen aussehen:</p>
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial81ContourCustomizeBoundaryPlot.png" src="../images/Contour_Plots_and_Color_Mapping/Tutorial81ContourCustomizeBoundaryPlot.png" width="441"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Contour_Plots_and_Color_Mapping/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Vor Origin 2018 SR0 erzeugte die Anwendung einer benutzerdefinierten Grenze manchmal eine imperfekte Füllung an den Rändern der Grenze. Dies wurde in 2018 verbessert. Der Anwender kann das vorherige Verhalten beim Füllen der Kontur mit Hilfe der <a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#T">Systemvariable @TCSM</a> wiederherstellen.</p>
+
+        <dl>
+          <dd><a class="image"><img alt="Tri contour smooth mode.png" src="../images/Contour_Plots_and_Color_Mapping/Tri_contour_smooth_mode.png" width="297"></a></dd>
+        </dl>
+      </td>
+    </tr>
+  </table>

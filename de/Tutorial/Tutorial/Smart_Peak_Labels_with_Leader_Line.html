@@ -1,0 +1,49 @@
+﻿<h1 class="firstHeading">Intelligente Beschriftung von Peaks mit Verbindungslinie</h1><p class='urlname' style='display: none'>SmartLabels</p>
+<p><br /></p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Inhalt</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps_to_Add_Smart_labels"><span class="tocnumber">3</span> <span class="toctext">Intelligente Beschriftungen hinzuf&uuml;gen</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Steps_to_Customize_a_Single_Point_and_its_Label"><span class="tocnumber">4</span> <span class="toctext">Einen einzelnen Punkt und seine Beschriftung benutzerdefiniert anpassen</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#More_Customization_Steps"><span class="tocnumber">5</span> <span class="toctext">Weitere Schritte der benutzerdefinierten Anpassung</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+<p>Bei Linien-/Symboldiagrammen im kartesischen 2D-Koordinatensystem unterst&uuml;tzt Origin intelligente Beschriftungen, die automatisch neu positioniert werden, um eine &Uuml;berschneidung zu vermeiden. Verbindungslinien (sowohl gerade als auch krumme Linien) k&ouml;nnen hinzugef&uuml;gt werden, um Datenpunkte und ihre Beschriftungen miteinander zu verbinden.</p><p><a  class="image"><img alt="Smart Peak Labels with Leader Line 01.png" src="../images/Smart_Peak_Labels_with_Leader_Line/Smart_Peak_Labels_with_Leader_Line_01.png" width="623"  /></a></p>
+<p class="version" >Origin-Version mind. erforderlich: Origin 2016 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+<p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+<ul><li> intelligente Beschriftungen mit Verbindungslinien hinzuf&uuml;gen.</li>
+<li> einen speziellen Datenpunkt hinzuf&uuml;gen und seine Beschriftung benutzerdefiniert anpassen.</li></ul>
+<h2><a name="Steps_to_Add_Smart_labels"></a><span class="mw-headline">Intelligente Beschriftungen hinzuf&uuml;gen</span></h2>
+<p>Dieses Tutorial basiert auf dem Projekt: <i>&lt;Origin-Verzeichnis&gt;\Samples\Tutorial Data.opj</i>.</p>
+<ol><li>&Ouml;ffnen Sie das Projekt <b>Tutorial Data.opj</b> und navigieren Sie zu dem Ordner <i>Smart Peak Labels with Leader Line</i> im <b>Projekt Explorer</b>. </li>
+<li> Es gibt zwei Bl&auml;tter in der Arbeitsmappe <b>A100527IR</b>. <i>100-52-7-IR</i> sind IR-Absorptionsdaten, und <i>Peak_Centers1</i> ist das Ergebnis f&uuml;r die Peakzentren, die von Origins Hilfsmittel <b>Peaks analysieren</b> gefunden wurden. </li>
+<li> Markieren Sie Spalte Col(B) im Blatt <i>100-52-7-IR</i>, um ein Liniendiagramm zu zeichnen, indem Sie im Men&uuml; <b>Zeichnen: Einfache 2D: Liniendiagramm</b> w&auml;hlen.</li>
+<li> Klicken Sie doppelt auf das Layersymbol 1, um den Dialog <b>Layerinhalt</b> zu &ouml;ffnen. Markieren Sie col(pcy) im linken Bedienfeld. Klicken Sie auf die Auswahlliste neben Schaltfl&auml;che <b>A</b> in der Mitte und w&auml;hlen Sie <b>Punktdiagramm</b> als Diagrammtyp. Klicken Sie auf die Schaltfl&auml;che <b>-&gt;</b>, um die Daten zu dem Diagramm hinzuzuf&uuml;gen.<dl><dd><a  class="image"><img alt="Smart Peak Labels with Leader Line 02v.png" src="../images/Smart_Peak_Labels_with_Leader_Line/Smart_Peak_Labels_with_Leader_Line_02v.png" width="716"  /></a></dd></dl></li>
+<li> W&auml;hlen Sie im Dialog <b>Details Zeichnung</b> die zweite Zeichnung im linken Bedienfeld, gehen Sie zur Registerkarte <b>Symbol</b> und nehmen Sie folgende Einstellungen vor:<dl><dd><a  class="image"><img alt="Smart Peak Labels with Leader Line 03.png" src="../images/Smart_Peak_Labels_with_Leader_Line/Smart_Peak_Labels_with_Leader_Line_03.png" width="530"  /></a></dd></dl></li>
+<li> Wechseln Sie zur Registerkarte <b>Beschriftung</b>, aktivieren Sie das Kontrollk&auml;stchen <b>Aktivieren</b> und nehmen Sie die Einstellungen, wie unten zu sehen, vor:<dl><dd><a  class="image"><img alt="Smart Peak Labels with Leader Line 04.png" src="../images/Smart_Peak_Labels_with_Leader_Line/Smart_Peak_Labels_with_Leader_Line_04.png" width="520"  /></a></dd></dl></li>
+<li> Klicken Sie auf die Schaltfl&auml;che <b>Anwenden</b>. Sie werden sehen, dass sich einige Beschriftungen &uuml;berschneiden.<dl><dd><a  class="image"><img alt="Smart Peak Labels with Leader Line 05.png" src="../images/Smart_Peak_Labels_with_Leader_Line/Smart_Peak_Labels_with_Leader_Line_05.png" width="450"  /></a> </dd></dl></li>
+<li> Gehen Sie zur&uuml;ck zur Registerkarte <b>Beschriftung</b>, aktivieren Sie das Kontrollk&auml;stchen <b>Automatische Neupositionierung, um &Uuml;berschneidungen zu vermeiden</b>, w&auml;hlen Sie <i>Y</i> in der Auswahlliste <b>Richtung der Neupositionierung</b> und legen Sie die Gruppe <b>Verbindungslinien</b> wie unten fest: Setzen Sie auch den <b>Vertikalen Versatz</b> auf <b>170</b>, so dass die Verbindungslinien offensichtlicher sind<dl><dd><a  class="image"><img alt="Smart Peak Labels with Leader Line 06.png" src="../images/Smart_Peak_Labels_with_Leader_Line/Smart_Peak_Labels_with_Leader_Line_06.png" width="547"  /></a></dd></dl></li>
+<li> Klicken Sie auf OK, um den Dialog zu schlie&szlig;en. Sie werden feststellen, dass die Beschriftungen intelligent neu positioniert werden.</li></ol>
+<h2><a name="Steps_to_Customize_a_Single_Point_and_its_Label"></a><span class="mw-headline">Einen einzelnen Punkt und seine Beschriftung benutzerdefiniert anpassen</span></h2>
+<ol><li> Die Beschriftung des h&ouml;chsten Peaks ist nicht zu sehen. Klicken Sie doppelt auf die Y-Achse, um den Dialog <b>Achsen</b> zu &ouml;ffnen, w&auml;hlen Sie das Symbol <b>Vertikal</b> auf der Registerkarte <b>Skalierung</b> und legen Sie die Werte f&uuml;r <b>Von</b> und <b>Bis</b> mit <i>-0,05</i> bzw. <i>0,8</i> fest. Klicken Sie auf OK, um die Einstellung anzuwenden.<dl><dd><a  class="image"><img alt="Smart Peak Labels with Leader Line 10.png" src="../images/Smart_Peak_Labels_with_Leader_Line/Smart_Peak_Labels_with_Leader_Line_10.png" width="524"  /></a></dd></dl></li>
+<li> Dr&uuml;cken Sie die Strg-Taste und klicken Sie doppelt auf die Beschriftung des h&ouml;chsten Peaks <b>1730</b>, um den Dialog <b>Details Zeichnung</b> zu &ouml;ffnen. Der Knoten <b>18</b> wird im linken Bedienfeld gezeigt. Es handelt sich hierbei um den Zeilenindex dieses speziellen Punkts.</li>
+<li> Gehen Sie zur Registerkarte <b>Beschriftung</b> dieses Punkts und passen Sie ihn weiter benutzerdefiniert an.<dl><dd><a  class="image"><img alt="Smart Peak Labels with Leader Line 08.png" src="../images/Smart_Peak_Labels_with_Leader_Line/Smart_Peak_Labels_with_Leader_Line_08.png" width="976"  /></a></dd></dl></li>
+<li> Wechseln Sie zur Registerkarte <b>Symbole</b>, um Symbolform und -gr&ouml;&szlig;e zu &auml;ndern.<dl><dd><a  class="image"><img alt="Smart Peak Labels with Leader Line 07.png" src="../images/Smart_Peak_Labels_with_Leader_Line/Smart_Peak_Labels_with_Leader_Line_07.png" width="762"  /></a></dd></dl></li></ol>
+<h2><a name="More_Customization_Steps"></a><span class="mw-headline">Weitere Schritte der benutzerdefinierten Anpassung</span></h2>
+<p>Die folgenden Schritte k&ouml;nnen das Diagramm weiterf&uuml;hrend benutzerdefiniert anpassen, um genau so auszusehen, wie das Bild unter <b>Zusammenfassung</b>.</p>
+<ol><li> Klicken Sie doppelt auf die X-Achse, um den Dialog<b> Achsen</b> zu &ouml;ffnen. Legen Sie f&uuml;r die X-Achse die Werte <b>Von</b> und <b>Bis</b> mit <i>400</i> bzw. <i>3500</i> fest.</li>
+<li> Um die oberen und rechten Rahmen um das Diagramm zu zeigen, w&auml;hlen Sie die Seite <b>Gitternetze</b> im Dialog <b>Achsen</b>. Aktivieren Sie das Kontrollk&auml;stchen <b>Gegen&uuml;ber</b> im Zweig <b>Zus&auml;tzliche Linien</b> sowohl f&uuml;r <b>Horizontal</b> als auch f&uuml;r <b>Vertikal</b>. </li>
+<li> Um die Layergr&ouml;&szlig;e zu &auml;ndern, w&auml;hlen Sie <b>Format: Layer</b> im Hauptmen&uuml;. Der Dialog <b>Details Zeichnung</b> wird ge&ouml;ffnet. Wechseln Sie zur Registerkarte <b>Gr&ouml;&szlig;e und Performance</b> und &auml;ndern Sie die Layergr&ouml;&szlig;e in der Gruppe <b>Layerbereich</b>, wie unten zu sehen:<dl><dd><a  class="image"><img alt="Smart Peak Labels with Leader Line 09.png" src="../images/Smart_Peak_Labels_with_Leader_Line/Smart_Peak_Labels_with_Leader_Line_09.png" width="388"  /></a></dd></dl></li>
+<li> Markieren Sie die Legende und dr&uuml;cken Sie die Taste <b>Entfernen</b>, um sie zu l&ouml;schen.</li></ol>
+
+
+
+
+
+
+
+    

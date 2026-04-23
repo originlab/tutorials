@@ -1,0 +1,101 @@
+﻿<h1 class="firstHeading">Abgeleitete Parameter in Standardfunktionen modifizieren</h1>
+
+  <p class='urlname' style='display: none'>Fitting-AddDerivPara</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#Adding_Derived_Parameters"><span class="tocnumber">3</span> <span class="toctext">Abgeleitete Parameter hinzufügen</span></a></li>
+
+      <li class="toclevel-1 tocsection-4"><a href="#Removing_Derived_Parameters"><span class="tocnumber">4</span> <span class="toctext">Abgeleitete Parameter entfernen</span></a></li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Abgeleitete Parameter sind zusätzliche Parameter, die mit den angepassten Parameterwerten berechnet werden. Sie können Ihre eigenen abgeleiteten Parameter für alle standardmäßigen oder benutzerdefinierten Anpassungsfunktionen definieren.<br>
+  Sie sind nicht in den Anpassungsprozess eingebunden und werden nur am Ende des Anpassungsvorgangs berechnet.</p>
+
+  <p>&#160;</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <ul>
+    <li>Abgeleitete Parameter in einer standardmäßigen Anpassungsfunktion mit dem Hilfsmittel Fitfunktionen verwalten hinzufügen</li>
+
+    <li>Abgeleitete Parameter in einer standardmäßigen Anpassungsfunktion mit dem Hilfsmittel Fitfunktionen verwalten entfernen</li>
+  </ul>
+
+  <h2><a name="Adding_Derived_Parameters"></a><span class="mw-headline">Abgeleitete Parameter hinzufügen</span></h2>
+
+  <ol>
+    <li style="list-style: none">Die integrierte Gauss-Funktion passt den Peakbereich mit der folgenden Gleichung an: <img src="../images/Adding_Derived_Parameters/math-5634aa2f2bcef1a03e1d02c8bf5f9bb8.png" title="y=y_0+\frac A{w\sqrt{\pi/2}}e^{-2\frac{(x-x_c)^2}{w^2}}" alt="y=y_0+\frac A{w\sqrt{\pi/2}}e^{-2\frac{(x-x_c)^2}{w^2}}" class="tex"><br>
+    Angenommen, dass Sie auch die Peakhöhe wissen möchten, führen Sie folgende Berechnung durch: <img src="../images/Adding_Derived_Parameters/math-a619775795de9d8539a132d0e28e5c8e.png" title="h=\frac A{w\sqrt{\pi/2}}" alt="h=\frac A{w\sqrt{\pi/2}}" class="tex"><br>
+    <br></li>
+
+    <li>Wählen Sie <b>Hilfsmittel: Fitfunktionen verwalten</b> im Menü. Wählen Sie im linken Bedienfeld des Dialogs <b>Origin Basic Functions: Gauss</b>.</li>
+
+    <li>Gehen Sie zu dem Abschnitt <b>Abgeleitete Parameter</b> und geben Sie <i>h=A/(w*sqrt(PI/2))</i> ein.<br>
+      <br>
+      <a class="image"><img alt="Add Derived Para 01a.png" src="../images/Adding_Derived_Parameters/Add_Derived_Para_01a.png" width="568"></a><br>
+      <br>
+      <b>Hinweis:</b>
+
+      <ul>
+        <li>Jeder abgeleitete Parameter sollte in einer separaten Zeile festgelegt werden.</li>
+
+        <li>Abgeleitete Parameter können nicht aus anderen abgeleiteten Parametern berechnet werden.</li>
+      </ul>
+    </li>
+
+    <li>Klicken Sie auf <b>Speichern</b> und dann auf <b>OK</b>.</li>
+
+    <li>Öffnen Sie ein leeres Arbeitsblatt. Wählen Sie <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b> im Menü, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner Curve Fitting. Dort befindet sich die Datei <i>Gaussian.dat</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das leere Arbeitsblatt, um sie zu importieren.</li>
+
+    <li>Markieren Sie Spalte A und B und wählen Sie dann <b>Analyse: Anpassen: Nichtlinearer Fit</b>, um den Dialog <b>NLFIT</b> zu öffnen, und dann die Option <b>Gauss</b> in der Auswahlliste Funktion zu wählen.<br>
+    <br>
+    <a class="image"><img alt="Add Derived Para 04a.png" src="../images/Adding_Derived_Parameters/Add_Derived_Para_04a.png" width="790"></a></li>
+
+    <li>Wechseln Sie zur Registerkarte <b>Code</b> und klicken Sie auf <b>Abgeleitete Parameter</b> im linken Bedienfeld. Die abgeleiteten Parameter werden im rechten Bedienfeld aufgelistet.<br>
+    <br>
+    <a class="image"><img alt="Add Derived Para 02a.png" src="../images/Adding_Derived_Parameters/Add_Derived_Para_02a.png" width="782"></a></li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Fit</b>, um die Berichtsblätter zu erzeugen. Nach der Anpassung berechnet Origin die Höhe und fügt das Ergebnis in die Tabelle Parameter im Ergebnisblatt der Anpassung ein.<br>
+    <br>
+    <a class="image"><img alt="Add Derived Para 03a.png" src="../images/Adding_Derived_Parameters/Add_Derived_Para_03a.png" width="643"></a></li>
+
+    <li>Wenn Sie das Konfidenzintervall für abgeleitete Parameter ermitteln möchten, können Sie auf das grüne Schloss klicken und <b>Parameter ändern</b> ändern, um zum Dialog <b>NLFit</b> zurückzukehren. Klicken Sie auf die Option <b>Erweitert</b> auf der Registerkarte <b>Einstellungen</b>, erweitern Sie den Zweig <b>Eigenschaften</b> im rechten Bedienfeld und aktivieren Sie die Kontrollkästchen <b>UEG</b> und <b>OEG</b> im Zweig <b>Fit-Parameter</b>. Klicken Sie zur Neuberechnung auf die Schaltfläche <b>Fit</b>.<br>
+    <br>
+    <a class="image"><img alt="Derive LCL.png" src="../images/Adding_Derived_Parameters/Derive_LCL.png" width="762"></a></li>
+
+    <li>Die Konfidenzintervalle <i>UEG 95%</i> und <i>OEG 95%</i> werden dann sowohl für Parameter als auch abgeleitete Parameter wie unten berechnet:<br>
+    <br>
+    <a class="image"><img alt="Derive LCL1.png" src="../images/Adding_Derived_Parameters/Derive_LCL1.png" width="716"></a></li>
+  </ol>
+
+  <h2><a name="Removing_Derived_Parameters"></a><span class="mw-headline">Abgeleitete Parameter entfernen</span></h2>
+
+  <p>Sie können abgeleitete Parameter aus dem Ergebnisblatt auch entfernen. Fahren Sie mit dem Tutorial oben fort, indem Sie die folgenden Schritte befolgen:</p>
+
+  <ol>
+    <li>Wählen Sie <b>Hilfsmittel: Fitfunktionen verwalten</b> im Menü, um den Dialog zu öffnen. Wählen Sie im linken Bedienfeld des Dialogs <b>Origin Basic Functions: Gauss</b>.</li>
+
+    <li>Gehen Sie zu dem Abschnitt <b>Abgeleitete Parameter</b> und entfernen Sie den Ausdruck <i>h=A/(w*sqrt(PI/2))</i> aus dem Feld:<br>
+    <br>
+    <a class="image"><img alt="Add Derived Para 05a.png" src="../images/Adding_Derived_Parameters/Add_Derived_Para_05a.png" width="568"></a></li>
+
+    <li>Sie müssen vielleicht ein oder zwei Sekunden warten, bevor die Schaltfläche <b>Speichern</b> aktiviert wird. Klicken Sie auf <b>Speichern</b> und dann auf <b>OK</b>, um den Dialog zu schließen.</li>
+
+    <li>Klicken Sie auf das grüne Schloss oben links im Ergebnisblatt <i>FitNL1</i>, um Parameter zu ändern, und klicken Sie dann erneut auf <b>Fit</b> im angezeigten Dialog <b>NLFit (Gauss)</b>. Sie sehen, dass der abgeleitete Parameter <i>h</i> aus der Ergebnistabelle entfernt wurde.<br>
+    <br>
+    <a class="image"><img alt="Add Derived Para 06a.png" src="../images/Adding_Derived_Parameters/Add_Derived_Para_06a.png" width="793"></a></li>
+  </ol>
+
+  <p>&#160;</p>

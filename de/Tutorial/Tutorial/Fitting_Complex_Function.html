@@ -1,0 +1,211 @@
+﻿<h1 class="firstHeading">Anpassen komplexer Funktionen</h1><a name="Summary"></a>
+
+  <h2><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Beim Anpassen einer komplexen Funktion können wir die komplexe Funktion leicht in zwei Funktionen unterteilen: eine entspricht ihrem realen Teil und die andere dem imaginären. Mit diesen zwei Funktionen können wir die komplexe Anpassungsfunktion mit zwei abhängigen Variablen im Dialog <b>Fitfunktionen verwalten</b> definieren. Auf diesen kann über das Dialogfeld <b>NLFit</b> zugegriffen werden. Unten wird dargestellt, wie mit der komplexen Funktion angepasst wird. Weitere Einzelheiten zum Anpassen mit mehreren abhängigen und unabhängigen Variablen lesen Sie bitte unter <a href="../../Tutorial/Tutorial/Fitting_with_Multiple_Independent_Variables.html" title="Tutorial:Fitting with Multiple Independent Variables">Anpassen mit mehreren unabhängigen Variablen</a>.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: 8.0 SR6</p><a name="What_you_will_learn"></a>
+
+  <h2><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>eine anwenderdefinierte komplexe Anpassungfunktion mit zwei abhängigen und einer unabhängigen Variablen erstellen.</li>
+
+    <li>mit solch einer Funktion in NLFit eine Anpassung durchführen.</li>
+  </ul><a name="Steps"></a>
+
+  <h2><span class="mw-headline">Schritte</span></h2>
+
+  <ol start="1">
+    <li>Markieren Sie die unten stehenden Spalten (einschließlich Headerzeile) und klicken Sie mit der rechten Maustaste, um <b>Kopieren</b> zu wählen. Die Daten werden dadurch in die Zwischenablage kopiert.
+
+      <table style="width:240px">
+        <tr>
+          <th>Omega</th>
+
+          <th>Y1</th>
+
+          <th>Y2</th>
+        </tr>
+
+        <tr>
+          <td>0</td>
+
+          <td>3</td>
+
+          <td>0</td>
+        </tr>
+
+        <tr>
+          <td>0,01</td>
+
+          <td>2,88462</td>
+
+          <td>-0,28846</td>
+        </tr>
+
+        <tr>
+          <td>0,02</td>
+
+          <td>2,58621</td>
+
+          <td>-0,51724</td>
+        </tr>
+
+        <tr>
+          <td>0,03</td>
+
+          <td>2,20588</td>
+
+          <td>-0,66176</td>
+        </tr>
+
+        <tr>
+          <td>0,04</td>
+
+          <td>1,82927</td>
+
+          <td>-0,73171</td>
+        </tr>
+
+        <tr>
+          <td>0,05</td>
+
+          <td>1,5</td>
+
+          <td>-0,75</td>
+        </tr>
+
+        <tr>
+          <td>0,06</td>
+
+          <td>1,22951</td>
+
+          <td>-0,7377</td>
+        </tr>
+
+        <tr>
+          <td>0,07</td>
+
+          <td>1,01351</td>
+
+          <td>-0,70946</td>
+        </tr>
+
+        <tr>
+          <td>0,08</td>
+
+          <td>0,8427</td>
+
+          <td>-0,67416</td>
+        </tr>
+
+        <tr>
+          <td>0,09</td>
+
+          <td>0,70755</td>
+
+          <td>-0,63679</td>
+        </tr>
+
+        <tr>
+          <td>0,1</td>
+
+          <td>0,6</td>
+
+          <td>-0,6</td>
+        </tr>
+
+        <tr>
+          <td>0,11</td>
+
+          <td>0,5137</td>
+
+          <td>-0,56507</td>
+        </tr>
+      </table>
+    </li>
+
+    <li>Wählen Sie <b>Import: Importassistent</b>, um das Dialogfeld Importassistent zu öffnen. Wählen Sie dann <b>Zwischenablage</b> in der Gruppe <b>Datenquelle</b> und klicken Sie auf <b>Fertigstellen</b>, um die Daten zu importieren.<br>
+    <img alt="Image:ComplexfittingClipboard2.png" src="../images/Fitting_Complex_Function/ComplexfittingClipboard2.png" width="300" height="170" border="0"><br></li>
+
+    <li>Wählen Sie <b>Hilfsmittel: Fit-Funktions-Manager</b> im Menü (oder drücken Sie <b>F9</b>), um den <span class="db">Fit-Funktions-Manager</span> aufzurufen und eine neue Anpassungsfunktion mit dem Namen <b>ComplexFitting</b> in <b>Neue Kategorie</b> zu definieren (erstellen Sie die Kategorie, falls sie nicht existiert):
+
+      <table class="blank">
+        <tr>
+          <td width="170"><b>Funktionsname:</b></td>
+
+          <td>
+            <p>ComplexFitting</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="170"><b>Funktionstyp:</b></td>
+
+          <td>
+            <p>User-Defined</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="170"><b>Unabhängige Variable:</b></td>
+
+          <td>
+            <p>omega</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="170"><b>Abhängige Variable:</b></td>
+
+          <td>
+            <p>y1,y2</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="170"><b>Parameternamen:</b></td>
+
+          <td>
+            <p>A,tau</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="170"><b>Funktionsform:</b></td>
+
+          <td>
+            <p>Origin C</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="170"><b>Funktion:</b></td>
+
+          <td>
+            <p>complex cc = A/(1+1i*omega*tau);<br>
+            y1 = cc.m_re;<br>
+            y2 = cc.m_im;</p>
+          </td>
+        </tr>
+      </table>
+
+      <p>Hinweis: Zum Verwenden der imaginären Einheit "i" für die Erstellung von komplexen Zahlen müssen Sie es in Origin C als "1i" schreiben wie in der Zeile <b>Funktion</b> oben. Und <b>Komplex</b> ist eine Klasse, die einen komplexen Zahlendatentyp implementiert. Sie enthält beides, eine reale und eine imaginäre Komponente.</p>
+
+      <p>Weitere Einzelheiten zum Erstellen von anwenderdefinierten Anpassungsfunktionen finden Sie unter <a href="../../Tutorial/Tutorial/User_Defined_Fitting_Function_using_OC.html" title="Tutorial:User Defined Fitting Function using OC">Benutzerdefinierte Anpassungsfunktion mit Hilfe von Origin C</a>.</p>
+    </li>
+
+    <li>Markieren Sie alle Spalten und wählen Sie im Menü <b>Analyse: Anpassen: Nichtlinearer Fit</b> aus, um das Dialogfeld NLFit zu öffnen. Wählen Sie die Funktion <b>ComplexFitting</b> unter <b>Neue Kategorie</b> auf der Seite <b>Einstellungen: Funktionsauswahl</b>. Legen Sie die Eingabedatensätze auf der Seite <b>Datenauswahl</b> folgendermaßen ein:<br>
+    <img alt="Image:ComplexFitSelectData.png" src="../images/Fitting_Complex_Function/ComplexFitSelectData.png" width="580" height="365" border="0"></li>
+
+    <li>Wählen Sie die <b>Registerkarte Parameter</b> und legen Sie die Initialisierungswerte wie folgt fest:<br>
+    <img alt="Image:ComplexFitParameter.png" src="../images/Fitting_Complex_Function/ComplexFitParameter.png" width="252" height="107" border="0"></li>
+
+    <li>Klicken Sie auf <b>Fit</b>, um das Anpassungsberichtsblatt zu erzeugen. Sie können die Ergebnisse im Berichtsblatt folgendermaßen lesen:<br>
+    <img alt="Image:ComplexfittingPara.png" src="../images/Fitting_Complex_Function/ComplexfittingPara.png" width="233" height="69" border="0"><br>
+    <img alt="Image:ComplexFitResultsStas.png" src="../images/Fitting_Complex_Function/ComplexFitResultsStas.png" width="262" height="142" border="0"><br>
+    In der Statistiktabelle ist zu sehen, dass die Anpassung recht erfolgreich war.</li>
+  </ol>

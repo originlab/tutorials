@@ -1,0 +1,271 @@
+﻿<h1 class=firstHeading>Konturdiagramm mit überlagertem Vektordiagramm</h1>
+<p class=urlname style="display: none;">Contour-Overlay-Vector</p>
+<div id=toc class=toc>
+<div id=toctitle>
+<h2>Inhalt</h2>
+</div>
+<ol><li class="toclevel-1 tocsection-1"><a href="#Summary"><span class=tocnumber>1</span> 
+ <span class=toctext>Zusammenfassung</span></a></li>
+	<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+ class=tocnumber>2</span> <span class=toctext>Was Sie lernen werden</span></a></li>
+	<li class="toclevel-1 tocsection-3">
+	<a href="#Steps"><span class=tocnumber>3</span> <span class=toctext>Schritte</span></a> 
+ 
+	<ol><li class="toclevel-2 tocsection-4"><a href="#Create_the_Contour_Graph"><span 
+ class=tocnumber>3.1</span> <span class=toctext>Konturdiagramm erstellen</span></a></li>
+		<li class="toclevel-2 tocsection-5"><a href="#Create_the_XYAM_Vector_Graph"><span 
+ class=tocnumber>3.2</span> <span class=toctext>XYWG-Vektordiagramm erstellen</span></a></li>
+		<li class="toclevel-2 tocsection-6"><a href="#Merge_the_Two_Graphs"><span 
+ class=tocnumber>3.3</span> <span class=toctext>Zwei Diagramme zusammenfügen</span></a></li>
+	</ol>
+	</li>
+</ol>
+</div>
+<p>&nbsp;</p>
+<table class=simple x-use-null-cells style="width: 80%;" width=80%>
+
+<tr style="vertical-align: top;">
+<td style="width: 40%;" width=40%><implicit_p><a class=image><img alt="Video Image.png" 
+ src="../images/Contour_Plot_with_Vector_Overlay/Video_Image.png" style="width: 33px; height: 33px; border-style: none; border-style: none;" 
+ width=33 height=33 border=0></a> <a class=image><img alt="Video Text Image.png" 
+ src="../images/Contour_Plot_with_Vector_Overlay/Video_Text_Image.png" 
+ style="width: 135px; height: 33px; border-style: none; border-style: none;" 
+ width=135 height=33 border=0></a> 
+<ul><li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=33" 
+ target=_blank>Konturdiagramme und Farbabbildung</a></li>
+	<li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=280" 
+ target=_blank>Konturebenen</a></li>
+	<li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=346" 
+ target=_blank>2D- und 3D-Diagramme in einem Fenster zusammenfügen</a></li>
+	<li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=279" 
+ target=_blank>3D- und Konturdiagramme aus einer virtuellen Matrix zeichnen</a></li>
+	<li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=190" 
+ target=_blank>4D-XYZ-Diagramm mit benutzerdefinierter Grenze</a></li>
+</ul></td>
+<td style="width: 40%;" width=40%><implicit_p><a class=image><img alt="Website blog icon circle.png" 
+ src="../images/Contour_Plot_with_Vector_Overlay/Website_blog_icon_circle.png" 
+ style="width: 31px; height: 28px; border-style: none; border-style: none;" 
+ width=31 height=28 border=0></a> <a class=image><img alt="Blog Image 33x33px.png" 
+ src="../images/Contour_Plot_with_Vector_Overlay/Blog_Image_33x33px.png" 
+ style="width: 135px; height: 33px; border-style: none; border-style: none;" 
+ width=135 height=33 border=0></a> 
+<ul><li><a class="external text" href="http://blog.originlab.com/xyz-contour-plot-with-colormap-from-second-z-and-custom-boundary" 
+ target=_blank>XYZ-Konturdiagramm mit Farbabbildung aus zweitem Z und benutzerdefinierte 
+ Grenze</a></li>
+	<li><a class="external text" href="http://blog.originlab.com/how-to-make-a-contour-plot-of-difference-of-two-contours" 
+ target=_blank>Wie wird ein Konturdiagramm der Diferenz zwischen zwei Konturen 
+ erstellt?</a></li>
+	<li><a class="external text" href="http://blog.originlab.com/streamline-vector-plot" 
+ target=_blank>Feldlinien-Vektordiagramm</a></li>
+</ul></td></tr>
+</table>
+<h2><a name=Summary></a><span class=mw-headline>Zusammenfassung</span></h2>
+<p>Dieses Tutorial zeigt Ihnen, wie Sie ein Konturdiagramm mit überlagertem 
+ Vektordiagramm erstellen.</p>
+<dl><dd><implicit_p><a class=image><img alt="Contour with Vector 01.png" 
+ src="../images/Contour_Plot_with_Vector_Overlay/Contour_with_Vector_01.png" 
+ style="width: 452px; height: 345px; border-style: none; border-style: none;" 
+ width=452 height=345 border=0></a></dd>
+</dl>
+<h2><a name=What_you_will_learn></a><span class=mw-headline>Was Sie lernen 
+ werden</span></h2>
+<p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+<ul><li>ein Konturdiagramm und seine Farbskala erstellen und anpassen,</li>
+	<li>ein XYWG-Vektordiagramm erstellen,</li>
+	<li>zwei Diagramme zusammenfügen.</li>
+</ul>
+<h2><a name=Steps></a><span class=mw-headline>Schritte</span></h2>
+<p>Dieses Tutorial basiert auf dem Projekt: <i>&lt;Origin-Verzeichnis&gt;\Samples\Tutorial 
+ Data.opj</i>.<br>
+Sie können dieses Diagramm auch im Lernzentrum finden. (Wählen Sie <b>Hilfe: 
+ Lernzentrum</b> im Menü oder drücken Sie die Taste <b>F11</b>. Öffnen 
+ Sie dann <b>Diagrammbeispiel: Contour</b>.)</p>
+<h3><a name=Create_the_Contour_Graph></a><span class=mw-headline>Konturdiagramm 
+ erstellen</span></h3>
+<ol><li>Öffnen Sie <b>Tutorial Data.opj</b> und navigieren Sie zum Ordner 
+ <b>Contour Plot with Vector Overlay</b> im <b>Projekt Explorer</b> (PE).</li>
+	<li>Aktivieren Sie die Matrix <b>W147</b> und wählen Sie <b>Zeichnen: 
+ Kontur: Kontur - Farbabbildung</b> im Menü. Das folgende Diagramm wird 
+ erstellt:<a class=image><br>
+	<img alt="Contour with Vector 02.png" src="../images/Contour_Plot_with_Vector_Overlay/Contour_with_Vector_02.png" 
+ style="width: 393px; height: 315px; border-style: none; border-style: none;" 
+ width=393 height=315 border=0></a></li>
+	<li>
+	Klicken Sie auf die Zeichnung und dann in der Popup-Minisymbolleiste 
+ auf die Schaltfläche <b>Ebenen festlegen</b>, um den Dialog <b>Ebenen 
+ festlegen</b> zu öffnen. Legen Sie dann folgende Ebenen fest: 
+	<ul><li><dl><dd><implicit_p><a class=image><img alt="Contour with Vector 03.png" 
+ src="../images/Contour_Plot_with_Vector_Overlay/Contour_with_Vector_03.png" 
+ style="width: 580px; height: 395px; border-style: none; border-style: none;" 
+ width=580 height=395 border=0></a></dd>
+		</dl></li>
+		<li>
+		Klicken Sie auf OK. Klicken Sie erneut auf die Zeichnung. Klicken 
+ Sie in der Minisymbolleiste auf die Schaltfläche <b>Palette</b>, um <b>Temperature</b> 
+ aus der Liste auszuwählen. 
+		<dl><dd><implicit_p><a class=image><img alt="Contour with Vector 03a.png" 
+ src="../images/Contour_Plot_with_Vector_Overlay/Contour_with_Vector_03a.png" 
+ style="width: 627px; height: 542px; border-style: none; border-style: none;" 
+ width=627 height=542 border=0></a></dd>
+		</dl>
+		</li>
+		<li>
+		Klicken Sie erneut auf die Zeichnung. Klicken Sie in der Minisymbolleiste 
+ auf die Schaltfläche <b>Konturstil</b>, um <b>Farbskala ohne Konturlinien</b> 
+ aus der Liste auszuwählen. 
+		<dl><dd><implicit_p><a class=image><img alt="Contour with Vector 03b.png" 
+ src="../images/Contour_Plot_with_Vector_Overlay/Contour_with_Vector_03b.png" 
+ style="width: 454px; height: 376px; border-style: none; border-style: none;" 
+ width=454 height=376 border=0></a></dd>
+		</dl>
+		</li>
+	</ul>
+	</li>
+	<li>Lassen Sie uns Vorbereitungen für den dritten Abschnitt <a href="#Merge_the_Two_Graphs"><b>Zwei 
+ Diagramme zusammenfügen</b></a> treffen. Klicken Sie zuerst auf die X-Achse 
+ und dann in der Minisymbolleiste auf die Schaltfläche <b>Hilfsstrichsbeschriftung 
+ zeigen</b>, um die Beschriftungen zu verbergen. Klicken Sie dann bei erweiterter 
+ Minisymbolleiste auf <b>Stil der Hilfsstriche</b>, um <b>Kein</b> aus 
+ der Liste auszuwählen.<a class=image><br>
+	<img alt="Contour with Vector 05.png" src="../images/Contour_Plot_with_Vector_Overlay/Contour_with_Vector_05.png" 
+ style="width: 500px; height: 276px; border-style: none; border-style: none;" 
+ width=500 height=276 border=0></a><br>
+	Löschen Sie die X- und Y-Achsentitel.</li>
+	<li>
+	Um die Farbskala zu ändern, klicken Sie doppelt auf das Skalenobjekt, 
+ um den Dialog <b>Steuerung der Farbskala</b> zu öffnen. Nehmen Sie folgende 
+ Einstellungen vor: 
+	<ul><li>
+		Im Zweig <b>Beschriftungen</b>: 
+		<ul><li>Deaktivieren Sie das Kontrollkästchen <b>Auto</b> im ZWeig 
+ Anzeige und setzen Sie <b>Benutzerdefiniertes Format</b> auf <b>*1</b>.</li>
+			<li>Setzen Sie die <b>Schriftgröße</b> auf <b>22</b>.</li>
+		</ul>
+		</li>
+		<li>
+		Auf der Seite <b>Layout</b>: 
+		<ul><li>Wählen Sie <b>Schwarze Linie</b> in der Auswahlliste <b>Hintergrund</b>.</li>
+			<li>Setzen Sie die <b>Breite der Farbbalken</b> auf <b>100.</b></li>
+		</ul>
+		</li>
+		<li>Geben Sie auf der Seite <b>Titel</b> <i>w(ms\+(-1))</i> im 
+ Feld <b>Titel</b> ein und setzen Sie die Schriftgröße auf 26.</li>
+		<li>Deaktivieren Sie auf der Seite <b>Linie und Hilfsstriche</b> 
+ die Kontrollkästchen <b>Linie und Hilfsstriche rechts zeigen</b> und <b>Rand 
+ zeigen</b>.</li>
+		<li style="list-style: none;" class=p><p><a class=image><img alt="Contour with Vector 06.png" 
+ src="../images/Contour_Plot_with_Vector_Overlay/Contour_with_Vector_06.png" 
+ style="width: 750px; height: 751px; border-style: none; border-style: none;" 
+ width=750 height=751 border=0></a></p></li>
+		<li>Klicken Sie dann auf <b>OK</b> und positionieren Sie die Farbskala 
+ auf der gewünschten Stelle (rechts vom Diagramm), indem Sie sie mit Ihrer 
+ Maus ziehen.</li>
+	</ul>
+	</li>
+	<li>Das Konturdiagramm sollte jetzt, wie unten zu sehen, aussehen:<a 
+ class=image><br>
+	<img alt="Contour with Vector 07.png" src="../images/Contour_Plot_with_Vector_Overlay/Contour_with_Vector_07.png" 
+ style="width: 405px; height: 319px; border-style: none; border-style: none;" 
+ width=405 height=319 border=0></a></li>
+</ol>
+<h3><a name=Create_the_XYAM_Vector_Graph></a><span class=mw-headline>XYWG-Vektordiagramm 
+ erstellen</span></h3>
+<ol><li>Aktivieren Sie das Arbeitsblatt <b>WOR81147</b>, markieren Sie 
+ die letzten drei Spalten und wählen Sie <b>Zeichnen: Spezialisiert: Vektor 
+ XYWG</b> im Menü.</li>
+	<li>Klicken Sie doppelt auf einen Vektor, um den Dialog <b>Details 
+ Zeichnung</b> auf der Registerkarte <b>Vektor</b> aufzurufen. Verwenden 
+ Sie die untenstehenden Einstellungen:<a class=image><br>
+	<img alt="Contour with Vector 08.png" src="../images/Contour_Plot_with_Vector_Overlay/Contour_with_Vector_08.png" 
+ style="width: 481px; height: 445px; border-style: none; border-style: none;" 
+ width=481 height=445 border=0></a><br>
+	Klicken Sie dann auf <b>OK</b>.</li>
+	<li>
+	Um die Achsenskalierungen zu aktualisieren, wählen Sie <b>Format: Achsen: 
+ X-Achse</b>. Der Dialog wird geöffnet. Nehmen Sie folgende Einstellungen 
+ vor: 
+	<ul><li>Setzen Sie auf der Registerkarte <b>Skalierung</b> X <b>von 
+ = 1</b>, <b>bis = 10</b> und den <b>Wert des Inkrements = 2</b>.<a class=image><br>
+		<img alt="Contour with Vector 09.png" src="../images/Contour_Plot_with_Vector_Overlay/Contour_with_Vector_09.png" 
+ style="width: 563px; height: 421px; border-style: none; border-style: none;" 
+ width=563 height=421 border=0></a></li>
+		&nbsp; 
+		<li>Wählen Sie auf der Registerkarte <b>Skalierung</b> das Symbol 
+ <b>Vertikal</b> im linken Bedienfeld des Dialogs <b>Achsen</b>. Legen 
+ Sie die Skalierung von Y mit <b>von = 5</b>, <b>bis = 95</b> und den <b>Wert 
+ des Inkrements = 10</b> fest.</li>
+		<li>Gehen Sie zur Registerkarte <b>Linie und Hilfsstriche</b> im 
+ Dialog <b>Achsen</b>. Drücken Sie die <b>Strg</b>-Taste, um die Symbole 
+ <b>Oben</b> und <b>Rechts</b> im linken Bedienfeld auszuwählen. Aktivieren 
+ Sie dann das Kontrollkästchen <b>Linie und Hilfsstriche zeigen</b> und 
+ setzen Sie den <b>Stil</b> der <b>Großen Hilfsstriche</b> und <b>Kleinen 
+ Hilfsstriche</b> auf <b>Innen</b>. Auf diese Weise werden die obere X- 
+ und die rechte Y-Achse mit Linien und Hilfsstrichen angezeigt.<a class=image><br>
+		<img alt="Contour with Vector 13.png" src="../images/Contour_Plot_with_Vector_Overlay/Contour_with_Vector_13.png" 
+ style="width: 508px; height: 601px; border-style: none; border-style: none;" 
+ width=508 height=601 border=0></a></li>
+		&nbsp; 
+		<li>Klicken Sie auf <b>OK</b>.</li>
+	</ul>
+	</li>
+	<li>Zu diesem Zeitpunkt bemerken Sie vielleicht, dass die Vektoren 
+ über die Grenzen der Achsen (Layerrahmen) hinausragen. Um sicherzustellen, 
+ dass sie innerhalb des Layerrahmens angezeigt werden, wählen Sie <b>Format: 
+ Layer</b> und aktivieren Sie auf der Registerkarte <b>Anzeige und Performance</b> 
+ das Kontrollkästchen <b>Nur innerhalb des Rahmens</b>. Klicken Sie auf 
+ <b>OK</b>.<a class=image><br>
+	<img alt="Contour with Vector 10.png" src="../images/Contour_Plot_with_Vector_Overlay/Contour_with_Vector_10.png" 
+ style="width: 621px; height: 180px; border-style: none; border-style: none;" 
+ width=621 height=180 border=0></a></li><br><br>
+	<li>Klicken Sie mit der rechten Maustaste auf die Legende des Vektordiagramms 
+ und wählen Sie <b>Einstellungen</b> im Kontextmenü, um die <b>Objekteigenschaften</b> 
+ aufzurufen. Legen Sie die Optionen im Dialog, wie unten gezeigt, fest:<a 
+ class=image><br>
+	<img alt="Contour with Vector 11.png" src="../images/Contour_Plot_with_Vector_Overlay/Contour_with_Vector_11.png" 
+ style="width: 534px; height: 386px; border-style: none; border-style: none;" 
+ width=534 height=386 border=0><br>
+	<img alt="Contour with Vector 11-b.png" src="../images/Contour_Plot_with_Vector_Overlay/Contour_with_Vector_11-b.png" 
+ style="width: 534px; height: 442px; border-style: none; border-style: none;" 
+ width=534 height=442 border=0></a></li>
+</ol>
+<h3><a name=Merge_the_Two_Graphs></a><span class=mw-headline>Zwei Diagramme 
+ zusammenfügen</span></h3>
+<p>Das Kontur- und das Vektordiagramm wurden durch die obenstehenden Schritte 
+ erstellt und sind jetzt bereit, zusammengefügt zu werden.</p>
+<ol><li><b style="font-weight: bold;">Minimieren</b> oder <b>verbergen</b> 
+ Sie alle anderen Diagramme außer dem oben erstellten Kontur- und Vektordiagramm. 
+ Wählen Sie, während eines der beiden Diagramme aktiviert ist, <b>Grafik: 
+ Grafikfenster zusammenfügen...</b> im Menü.</li>
+	<li>
+	Legen Sie im Dialog <b>merge_graph</b> die Einstellungen folgendermaßen 
+ fest: 
+	<ul><li>Erweitern Sie den Zweig <b>Einstellungen Anordnung</b> und 
+ setzen Sie die <b>Anzahl der Zeilen</b> auf <b>1</b>.</li>
+		<li>Erweitern Sie den Knoten <b>Abstände (in % der Seitenabmessungen)</b> 
+ und geben Sie einen Wert von ungefähr &quot;25&quot; im Textfeld <b>Rechter 
+ Rand</b>, um die Farbskalenlegende aus dem Konturdiagramm zu zeigen. Klicken 
+ Sie auf <b>OK</b>.<a class=image><br>
+		<img alt="Contour with Vector 12.png" src="../images/Contour_Plot_with_Vector_Overlay/650px-Contour_with_Vector_12.png" 
+ style="width: 650px; height: 453px; border-style: none; border-style: none;" 
+ width=650 height=453 border=0></a></li>
+	</ul>
+	</li>
+	<li>
+	Um die Schriftart für alle Objekte auf <b>Verdana</b> zu setzen: 
+	<ul><li>Passen Sie die Objekte einzeln an, indem Sie auf das Objekt 
+ klicken und <b>Verdana</b> mit Hilfe der Schaltfläche <b>Schriftart</b> 
+ <a class=image><img alt="Button Font.png" src="../images/Contour_Plot_with_Vector_Overlay/Button_Font.png" 
+ style="width: 126px; height: 19px; border-style: none; border-style: none;" 
+ width=126 height=19 border=0></a> auf der Symbolleiste <b>Format</b> auswählen.</li>
+	</ul>
+	<i style="font-style: italic;">oder</i> 
+	<ul><li>Verwenden Sie das Hilfsmittel <a class="external text" href="../../UserGuide/UserGuide/Theme_Organizer.html"><b>Designs 
+ verwalten</b></a>, um ein Schriftdesign für das aktuelle Diagramm zu erstellen 
+ und dann anzuwenden.</li>
+	</ul>
+	</li>
+	<li>Das Ergebnisdiagramm sollte folgendermaßen aussehen:<a class=image><br>
+	<img alt="Contour with Vector 01.png" src="../images/Contour_Plot_with_Vector_Overlay/Contour_with_Vector_01.png" 
+ style="width: 452px; height: 345px; border-style: none; border-style: none;" 
+ width=452 height=345 border=0></a></li>
+</ol>

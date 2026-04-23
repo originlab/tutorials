@@ -1,0 +1,175 @@
+﻿<h1 class="firstHeading">Stapelverarbeitung mit Word-Vorlage zum Erzeugen von Berichten</h1>
+
+  <p class='urlname' style='display: none'>BatchProcess-WordTemplate</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Add_Bookmarks_to_Analysis_Template"><span class="tocnumber">3.1</span> <span class="toctext">Lesezeichen zu Analysevorlage hinzufügen</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Link_Analysis_Results_to_Word_Template"><span class="tocnumber">3.2</span> <span class="toctext">Analyseergebnisse mit Word-Vorlage verknüpfen</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#Sending_One_Time_Results_to_Word_Template_to_Create_Word_Report"><span class="tocnumber">3.3</span> <span class="toctext">Einmalige Ergebnisse an eine Word-Vorlage zum Erstellen eines Word-Berichts senden</span></a></li>
+
+          <li class="toclevel-2 tocsection-7"><a href="#Batch_Process_and_Export_Results_to_Word.2FPDF_Files"><span class="tocnumber">3.4</span> <span class="toctext">Stapelanalyse durchführen und Ergebnisse in Word-/PDF-Dateien exportieren</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Origin kann eine Stapelanalyse von mehreren Dateien durchführen und die mit Zellen verknüpften Analyseergebnisse in eine externe Word-Vorlage für die Berichtserstellung ausgeben.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 2016 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>Lesezeichen von einer Word-Vorlage zu einer spezifischen Analysevorlage hinzufügen</li>
+
+    <li>Analyseergebnisse mit durch Lesezeichen markierte Zellen in der Word-Vorlage verknüpfen und die Größe der zu exportierenden Diagramme anpassen</li>
+
+    <li>Einmalige Ergebnisse an eine Word-Vorlage zum Erstellen eines Word-Berichts senden</li>
+
+    <li>eine Stapelanalyse von mehreren Dateien durchführen und die Ergebnisse in Word-/PDF-Dateien ausgeben</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <p>In diesem Tutorial werden Sie die Word-Standardvorlage <i>Sensor Analysis Report.dotx</i> verwenden, die sich in dem Ordner <i>&lt;Origin-Verzeichnis&gt;\Samples\Batch Processing\</i> befindet. Um die Beschriftungen der Lesezeichen auf der Word-Vorlage anzuzeigen, gehen Sie bei geöffneter Datei zu <b>Datei: Optionen</b>. Der Dialog <b>Word-Optionen</b> wird aufgerufen. Wählen Sie dann <b>Erweitert</b> im linken Bedienfeld, scrollen Sie zu dem Abschnitt <b>Dokumentinhalt zeigen</b> im rechten Bedienfeld und aktivieren Sie das Kontrollkästchen <b>Lesezeichen zeigen</b>.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Batch Processing with Word Template for Reporting 01a.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Batch_Processing_with_Word_Template_for_Reporting_01a.png" width="488"></a></dd>
+  </dl>
+
+  <h3><a name="Add_Bookmarks_to_Analysis_Template"></a><span class="mw-headline">Lesezeichen zu Analysevorlage hinzufügen</span></h3>
+
+  <ol>
+    <li>Starten Sie Origin. Klicken Sie auf <b>Datei: Öffnen</b>, navigieren Sie zum Ordner <i>&lt;Origin&gt;\Samples\Batch Processing\</i>, wählen Sie die Datei <b>Sensor Analysis.ogw</b> (NICHT "Sensor Analysis.ogwu") und öffnen Sie sie.</li>
+
+    <li>Aktivieren Sie das Arbeitsblatt <i>Data</i>, klicken Sie auf die Schaltfläche <a class="image"><img alt="Button Import ASCII.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Button_Import_ASCII.png" width="20"></a> und navigieren Sie zum Ordner <i>&lt;Origin-Verzeichnis&gt;\Samples\Curve Fitting\</i>. Wählen Sie die Datei <b>Sensor01.dat</b>, um die Daten für die Analyse zu importieren.</li>
+
+    <li>Wählen Sie im Menü <b>Datei: Word-Lesezeichen zu Analysevorlage hinzufügen</b>, um den Dialog zu öffnen. Klicken Sie auf die Schaltfläche des Browsers <a class="image"><img alt="Tutorial Import 005.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Tutorial_Import_005.png" width="19"></a> rechts von dem Feld <b>Word-Vorlage</b> und navigieren Sie zum Ordner <i>&lt;Origin-Verzeichnis&gt;\Samples\Batch Processing\</i>, um <b>Sensor Analysis Report.dotx</b> auszuwählen.</li>
+
+    <li>Klicken Sie einmal, um alle Lesezeicheneinträge in der Liste <b>Lesezeichen</b> im Zweig <b>Lesezeichen auswählen</b> zu markieren, und klicken Sie auf <b>OK</b>, um ein <i>Lesezeichen</i> zu einer aktiven Analysevorlage hinzuzufügen.
+
+      <dl>
+        <dd><a class="image"><img alt="Batch Processing with Word Template for Reporting 01.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Batch_Processing_with_Word_Template_for_Reporting_01.png" width="485"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Link_Analysis_Results_to_Word_Template"></a><span class="mw-headline">Analyseergebnisse mit Word-Vorlage verknüpfen</span></h3>
+
+  <ol>
+    <li>Klicken Sie auf die Registerkarte <i>Lesezeichen</i>.</li>
+
+    <li>Kliken Sie in der Spalte <i>Links</i> mit der Maustaste auf die Zelle rechts von <i>FileName</i> und wählen Sie <b>Variablen einfügen</b>.</li>
+
+    <li>Klicken Sie im Dialog Variablen einfügen auf die Registerkarte <b>Info</b>, erweitern Sie den Knoten SYSTEM.IMPORT und markieren Sie FILENAME. Klicken Sie auf die Schaltfläche <b>Einfügen</b>, um den Dateinamen in die Arbeitsblattzelle einzufügen.</li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf die Zelle neben <i>FileDate</i> und wählen Sie <b>Variablen einfügen</b>, erweitern Sie den Knoten SYSTEM.IMPORT, markieren Sie FILEDATE und klicken Sie auf die Schaltfläche <b>Einfügen</b>, um das Dateidatum in die Arbeitsblattzelle einzufügen. Beachten Sie, dass der Wert, der eingefügt wird, ein <a class="external text" href="../../UserGuide/UserGuide/Dates_and_Times_in_Origin.html">Julianischer Tages</a>wert ist, d. h. die Zahl, die Origin intern zum Speichern von Datums-/Zeitdaten verwendet. Damit es als vertrautes Datumsformat angezeigt wird, klicken Sie mit der rechten Maustaste auf die Zelle und wählen Sie <b>Zellen formatieren</b>.</li>
+
+    <li>Wählen Sie in der Auswahlliste <b>Format</b> die Option <i>Datum</i> und klicken Sie auf <b>OK</b>, um den Dialog zu schließen.</li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf die Zelle neben der Zelle <i>FittedGraph</i> und wählen Sie <b>Diagramm einfügen</b>. Klicken Sie auf die Schaltfläche zum Navigieren <a class="image"><img alt="Tutorial Import 005.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Tutorial_Import_005.png" width="19"></a> rechts von dem Feld <b>Diagramme</b>, um den Dialog <b>Diagrammbrowser</b> zu öffnen. Aktivieren Sie <b>Eingebettetes Diagramm zeigen</b>, um eine Liste der im Arbeitsblatt eingebetteten Diagramme anzuzeigen. Klicken Sie einmal, um das Diagramm <i>FitLine</i> auszuwählen, und fügen Sie es zum rechten Bedienfeld hinzu. Klicken Sie zweimal auf <b>OK</b>, um das Diagramm in das Arbeitsblatt <b>Lesezeichen</b> einzufügen. Geben Sie in der Spalte <i>GraphWidth</i> auf der rechten Seite <i>250</i> (Einheiten = Punktgröße) ein, um die Größe des Diagramms, das in Word exportiert wird, festzulegen.</li>
+
+    <li style="list-style: none">
+      <p><a class="image"><img alt="Batch Processing with Word Template for Reporting 02.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Batch_Processing_with_Word_Template_for_Reporting_02.png" width="783"></a></p>
+    </li>
+
+    <li>Wiederholen Sie den letzten Schritt für die Zeile <i>ResidualPlot</i>.</li>
+
+    <li>Bei Lesezeichen, die mit Parameterwerten in Verbindung stehen, können Sie Werte aus dem Berichtsblatt <i>FitLinear1</i> kopieren und als Verknüpfung einfügen. Klicken Sie auf das Berichtsblatt <i>FitLinear1</i> und suchen die Tabelle <b>Parameter</b>. Klicken Sie auf die Datenzelle beim Schnittpunkt von <i>Schnittpunkt mit der Y-Achse</i> und <i>Wert</i>, klicken Sie mit der rechten Maustaste und wählen Sie <b>Kopieren</b>. Kehren Sie zu dem Blatt <b>Lesezeichen</b> zurück, klicken Sie mit der rechten Maustaste rechts von <i>InterceptValue</i> und wählen Sie <b>Link einfügen</b>, um die Verknüpfung zwischen Lesezeichen in der Word-Vorlage und Werten im Berichtsblatt herzustellen.</li>
+
+    <li>Wiederholen Sie die Operation "Kopieren und Link einfügen", um den Rest der Zellen in der Spalte <i>Links</i> zu füllen (Sie finden den Wert <i>R-Quadrat</i> neben <i>Kor. R-Quadrat</i> in der Tabelle <i>Statistik</i>). Wenn Sie damit fertig sind, wählen Sie im Menü <b>Datei: Arbeitsmappe als Analysevorlage speichern</b> und speichern Sie die Analysevorlage als <b>Sensoranalysevorlage.ogw</b> oder <b>.ogwu</b>.<br>
+    <a class="image"><img alt="Batch Processing with Word Template for Reporting 04.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Batch_Processing_with_Word_Template_for_Reporting_04.png" width="847"></a></li>
+  </ol>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Batch_Processing_with_Word_Template_for_Reporting/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Sie können den Schritten in dem vorhergehenden Tutorial "<a href="../../Tutorial/Tutorial/Creating_a_Custom_Report_Sheet.html" title="Tutorial:Creating a Custom Report Sheet">Ein benutzerdefiniertes Berichtsblatt erstellen</a>" folgen, um zu lernen, wie Sie Ergebnisse kopieren und als Link in gewünschte Zellen einfügen.</p>
+      </td>
+    </tr>
+  </table>
+
+  <h3><a name="Sending_One_Time_Results_to_Word_Template_to_Create_Word_Report"></a><span class="mw-headline">Einmalige Ergebnisse an eine Word-Vorlage zum Erstellen eines Word-Berichts senden</span></h3>
+
+  <p>Manchmal möchten Sie vielleicht nur eine Datendatei analysieren und schnell einen Word-Bericht erstellen. Fahren Sie mit dem obigen Beispiel fort. Angenommen, Sie haben alle Ergebnisse mit Word-Textmarken verknüpft, wie im Arbeitsblatt <i>Lesezeichen</i> gezeigt, um einen einmaligen Word-Bericht für das aktive Blatt zu erstellen. Dann können Sie einfach auf die Schaltfläche In Word exportieren <a class="image"><img alt="Button Create Word Report.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Button_Create_Word_Report.png" width="30"></a> oben links klicken, um ihn zu erstellen.</p>
+
+  <p>Weiterhin können Sie im angezeigten Dialog <b>Exportpfad</b> festlegen, wo der Word-Bericht ausgegeben werden soll.</p>
+
+  <h3><a name="Batch_Process_and_Export_Results_to_Word.2FPDF_Files"></a><span class="mw-headline">Stapelanalyse durchführen und Ergebnisse in Word-/PDF-Dateien exportieren</span></h3>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Batch_Processing_with_Word_Template_for_Reporting/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Seit <b>Origin 2020</b> können Sie Berichte im Format <b>PDF</b> und <b>MS Word</b> als einzelne mehrseitige Datei exportieren. Dazu aktivieren Sie das Kontrollkästchen <b>Als mehrseitige Datei exportieren</b>, bevor Sie Ihre Stapeloperation ausführen.</p>
+      </td>
+    </tr>
+  </table>
+
+  <ol>
+    <li>Öffnen Sie ein neues Projekt.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Stapelverarbeitung</b> <a class="image"><img alt="Button Batch Processing.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Button_Batch_Processing.png" width="23"></a>.</li>
+
+    <li>Stellen Sie sicher, dass <b>Analysevorlage laden</b> als der <b>Modus der Stapelverarbeitung</b> ausgewählt ist. Wählen Sie in der Auswahlliste <b>Analysevorlage</b> die Datei <b>Sensoranalysevorlage.ogw(u)</b>, die Sie zuvor erstellt haben (Sie müssen möglicherweise auf die Schaltfläche rechts von der Liste klicken und zu der gespeicherten Datei navigieren).</li>
+
+    <li>Wählen Sie die Option <b>PDF</b> in der Auswahlliste <b>Exportieren in</b>, um den Bericht als PDF-Datei zu exportieren.</li>
+
+    <li>Klicken Sie auf die Schaltfläche des Browsers <a class="image"><img alt="Tutorial Import 005.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Tutorial_Import_005.png" width="19"></a> rechts von dem Feld <b>Word-Vorlage</b> und navigieren Sie zum Ordner <i>&lt;Origin-Verzeichnis&gt;\Samples\Batch Processing\</i>, um <b>Sensor Analysis Report.dotx</b> auszuwählen.</li>
+
+    <li>Optional können Sie auf die Schaltfläche zum Navigieren <a class="image"><img alt="Tutorial Import 005.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Tutorial_Import_005.png" width="19"></a> rechts von <b>Exportpfad</b> klicken, um einen anderen Pfad für den Export festzulegen.</li>
+
+    <li>Klicken Sie auf die Schaltfläche zum Navigieren <a class="image"><img alt="Tutorial Import 005.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Tutorial_Import_005.png" width="19"></a> rechts von <b>Dateiliste</b>, navigieren Sie zum Ordner <i>&lt;Origin-Verzeichnis&gt;\Samples\Curve Fitting</i> und wählen Sie alle Sensordateien <b>Sensor0<i>#</i>.dat</b>.</li>
+
+    <li>Klicken Sie auf <b>Hinzufügen</b> und dann auf <b>OK</b>.</li>
+
+    <li>Wählen Sie <b>Dateiname</b> unter <b>Datensatzidentifikator</b>.</li>
+
+    <li>Stellen Sie sicher, dass in der Auswahlliste <b>Datenblatt</b> die Option <b>Daten</b> festgelegt ist.</li>
+
+    <li>Stellen Sie sicher, dass in der Auswahlliste <b>Ergebnisblatt</b> die Option <b>Ergebnis</b> festgelegt ist.</li>
+
+    <li>Stellen Sie sicher, dass <b>Zwischenmappen löschen</b>.</li>
+
+    <li>Klicken Sie auf <b>OK</b>, um den Dialog zu schließen und die "Sensor"daten zu verarbeiten.</li>
+
+    <li style="list-style: none">
+      <p><br>
+      <a class="image"><img alt="Batch Processing with Word Template for Reporting 05-vNext.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Batch_Processing_with_Word_Template_for_Reporting_05.png" width="761"></a></p>
+
+      <table class="noborder">
+        <tr>
+          <td style="vertical-align:top" width="60"><img src="../images/Batch_Processing_with_Word_Template_for_Reporting/Tip_icon.png" width="57" border="0" alt=""></td>
+
+          <td>
+            <p>Falls Sie vergessen, wo Sie Ihre exportierten PDF-Dateien finden, wird der Speicherort im <b>Meldungsprotokoll</b> ausgegeben.</p>
+          </td>
+        </tr>
+      </table>
+
+      <p>Ein Beispiel für den exportierten Bericht in PDF-Version finden Sie im Folgenden:<br>
+      <a class="image"><img alt="Batch Processing with Word Template for Reporting 07.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Batch_Processing_with_Word_Template_for_Reporting_07.png" width="508"></a></p>
+    </li>
+  </ol>

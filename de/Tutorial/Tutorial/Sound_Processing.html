@@ -1,0 +1,111 @@
+﻿<h1 class="firstHeading">Klangverarbeitung</h1>
+
+  <p class='urlname' style='display: none'>sound-processing</p>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Origin enthält einige nützliche Hilfsmittel zur Signalverarbeitung wie Glättung, FFT-Filterung etc. sowie für die Spektralanalyse wie die Schnelle Fourier-Transformation (FFT) . Dies kann bei der Durchführung einer Klanganalyse hilfreich sein. Dieses Tutorial wird ein spezifisches Rauschen, basierend auf dem Spektralbereich des Rauschens, aus einem Audiosignal (.WAV-Datei) entfernen.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: 9.0 SR0</p>
+
+  <h2><a name="What_You_Will_Learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <ol>
+    <li>Eine Klangdatei (.WAV) in Origin importieren</li>
+
+    <li>Informationen zum Abtastintervall anzeigen</li>
+
+    <li>Das Minitool FFT verwenden, um die Frequenzspektren eines Signals zu prüfen</li>
+
+    <li>FFT-Filter auf das Audiosignal durchführen</li>
+
+    <li>Ein gefiltertes Signal als .WAV-Datei exportieren</li>
+  </ol>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <p>In diesem Tutorial werden die Dateien "Origin8 Message.wav" und "Dial Tone.wav" verwendet, die sich im Unterordner "\Samples\Signal Processing\" des Origin-Installationsverzeichnisses befinden.</p>
+
+  <p>Spielen Sie die Klangdatei "Origin 8 Message.wav" ab. Sie werden ein Wählgeräusch im Hintergrund hören. Die zweite Datei ist eine Aufzeichnung des Wähltons.</p>
+
+  <ol>
+    <li>Starten Sie Origin und erstellen Sie ein neues Projekt mit einem leeren Arbeitsblatt in einer Arbeitsmappe.</li>
+
+    <li>Wählen Sie im Menü <b>Datei: Import: Sound (WAV)...</b>, um den Dialog für den <b>Sound</b> zu öffnen. (Hinweis: Wenn dieses Menüelement nicht gezeigt wird, wählen Sie <b>Datei: Import: Anpassen...</b>, um den Dialog <b>Benutzerdefinierte Anpassung des Importmenüs</b> zu öffnen und es hinzuzufügen.) Navigieren Sie zu dem Ordner "\Samples\Signal Processing\" und klicken Sie doppelt auf "Origin 8 Message.wav" und "Dial Tone.wav", um sie zur Importliste hinzuzufügen. Stellen Sie sicher, dass <b>Optionendialog zeigen</b> aktiviert ist, und klicken Sie auf <b>OK</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="WAV Sound 01.png" src="../images/Sound_Processing/WAV_Sound_01.png" width="592" height="431"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie im Dialog <b>Import and Export: impWav</b> auf die dreieckige Schaltfläche rechts vom <b>Dialogdesign</b> und wählen Sie <i>Systemstandard</i> im Kontextmenü. Setzen Sie im Zweig <b>Importoptionen</b> die Auswahlliste <b>Mehrere Dateien (Ausnahme 1.) Importmodus</b> auf die Option <i>Neue Datenblätter öffnen</i>.
+
+      <dl>
+        <dd><a class="image"><img alt="WAV Sound 02.png" src="../images/Sound_Processing/WAV_Sound_02.png" width="668" height="481"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um die zwei Klangdateien in zwei Arbeitsblätter zu importieren:<a class="image"><img alt="WAV Sound 03.png" src="../images/Sound_Processing/WAV_Sound_03.png" width="396" height="322"></a></li>
+
+    <li>In jedem Arbeitsblatt hat das <b>Abtastintervall</b> den gleichen Wert von <i>2.26757E-5</i> . Klicken Sie auf das Symbol <i>i</i> oben links in der Spalte. Der Dialog <b>Erweiterte Spalteninformationen</b> wird aufgerufen. Er enthält die Informationen zum Abtastintervall. Klicken Sie auf <b>OK</b>, um den Dialog zu schließen.
+
+      <dl>
+        <dd><a class="image"><img alt="WAV Sound 04.png" src="../images/Sound_Processing/WAV_Sound_04.png" width="497" height="214"></a></dd>
+      </dl>
+    </li>
+
+    <li>Markieren Sie bei aktiviertem Arbeitsblatt <b>Dial Tone</b> die Spalte A und wählen Sie im Menü <b>Zeichnen: Linie: Liniendiagramm</b>, um ein Liniendiagramm zu erstellen.
+
+      <dl>
+        <dd><a class="image"><img alt="WAV Sound 05.png" src="../images/Sound_Processing/WAV_Sound_05.png" width="418" height="347"></a></dd>
+      </dl>
+    </li>
+
+    <li>Aktivieren Sie dieses Diagramm und wählen Sie im Menü <b>Minitools: FFT...</b>, um den Dialog <b>Data Exploration: addtool_curve_fft</b> zu öffnen. Behalten Sie die Standardeinstellungen bei und klicken Sie auf <b>OK</b>, um eine FFT der Daten durchzuführen, und erstellen Sie das Diagramm <b>FFTPREVIEW</b> mit den Ergebnissen.
+
+      <dl>
+        <dd><a class="image"><img alt="WAV Sound 06.png" src="../images/Sound_Processing/WAV_Sound_06.png" width="418" height="347"></a></dd>
+
+        <dd><a class="image"><img alt="WAV Sound 07.png" src="../images/Sound_Processing/WAV_Sound_07.png" width="681" height="330"></a></dd>
+      </dl>
+    </li>
+
+    <li>Deaktivieren Sie das Kontrollkästchen <b>Log Scale</b> auf dem Diagramm <b>FFTPREVIEW</b> und wählen Sie im Menü <b>Grafik: Neu skalieren</b>, um das Diagramm neu zu skalieren. Sie können sehen, dass die Verteilung der Frequenz sich hauptsächlich unter 2000 Hertz befindet, wobe die größten Peaks unter 500 Hertz liegen.
+
+      <dl>
+        <dd><a class="image"><img alt="WAV Sound 08.png" src="../images/Sound_Processing/WAV_Sound_08.png" width="681" height="330"></a></dd>
+      </dl>
+    </li>
+
+    <li>Aktivieren Sie das Arbeitsblatt <b>Origin 8 Message</b> und markieren Sie Spalte A. Wählen Sie <b>Analyse: Signalverarbeitung: FFT-Filter</b>, um den Dialog <b>Signal Processing: fft_filters</b> zu öffnen. Ändern Sie im Dialog den Modus <b>Neu berechnen</b> in <i>Kein</i>, wählen Sie den <b>Filtertyp</b> <i>Hochpass</i>, deaktivieren Sie das Kontrollkästchen <b>Auto</b> bei <b>Grenzfrequenz</b> und ändern Sie den Wert in 500. Deaktivieren Sie das Kontrollkästchen <b>DC-Offset behalten</b>. Durch Aktivieren des Kontrollkästchens <b>Automatische Vorschau</b> unten können Sie sich eine Vorschau anzeigen lassen. Das Ergebnis wird im rechten Bedienfeld gezeigt, das Sie je nach Belieben mit Hilfe der Schaltfläche mit den blauen Pfeilen anzeigen oder verbergen können.
+
+      <dl>
+        <dd><a class="image"><img alt="WAV Sound 09.png" src="../images/Sound_Processing/WAV_Sound_09.png" width="748" height="352"></a></dd>
+      </dl>Hinweis: Wenn <b>Neu berechnen</b> nicht auf <i>Kein</i> gesetzt ist, müssen die Ergebnisse in neue Spalten ohne Neuberechnungssperre kopiert werden, um den <b>Datentyp</b> zu ändern. Siehe Schritt 11 unten.
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um die Ergebnisse zu erzeugen. Das gefilterte Ergebnis wird als Fließpunkte angezeigt. Um eine neue WAV-Datei zu erstellen, müssen Sie dieses Ergebnis in ein ganzzahliges Format konvertieren.
+
+      <dl>
+        <dd><a class="image"><img alt="WAV Sound 10.png" src="../images/Sound_Processing/WAV_Sound_10.png" width="455" height="383"></a></dd>
+      </dl>
+    </li>
+
+    <li>Markieren Sie Spalte D (die gefilterte Ergebnisspalte) und wählen Sie dann <b>Einstellungen...</b> im Kontextmenü, das Sie über einen Rechtsklick aufrufen, um den Dialog <b>Spalteneigenschaften</b> zu öffnen. Erweitern Sie den Zweig <b>Optionen</b>, setzen Sie das <b>Format</b> auf <i>Numerisch</i> und ändern Sie den <b>Datentyp</b> in <i>Short(2)</i>. Klicken Sie auf <b>OK</b>, um diese Einstellungen auf Spalte D anzuwenden und den Dialog zu schließen.
+
+      <dl>
+        <dd><a class="image"><img alt="WAV Sound 11.png" src="../images/Sound_Processing/WAV_Sound_11.png" width="407" height="533"></a></dd>
+      </dl>
+    </li>
+
+    <li>Lassen Sie Spalte D markiert und wählen Sie <b>Datei: Export: Sound (WAV)...</b>. Geben Sie in dem geöffneten Dialog einen Dateinamen ein (z.B <i>Origin 8 Message_filtered.wav</i>) und speichern Sie die Datei in dem gewünschten Verzeichnis. Stellen Sie sicher, dass das Kontrollkästchen <b>Optionendialog zeigen</b> aktiviert ist.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Speichern</b>, und der Dialog <b>Import and Export: expWAV</b> wird geöffnet. Deaktivieren Sie das Kontrollkästchen <b>Auto</b> für <b>Spalte</b> und geben Sie 4 ein.
+
+      <dl>
+        <dd><a class="image"><img alt="WAV Sound 12.png" src="../images/Sound_Processing/WAV_Sound_12.png" width="493" height="309"></a></dd>
+      </dl>Hinweis: Die <b>Spalte</b> wird für die Y-Spalte festgelegt. Origin findet ihr Abtastintervall, falls eines vorhanden ist, oder die verbundene X-Spalte. Wenn keine X-Spalte existiert oder die X-Spalte nicht äquidistant verteilt ist, wird eine Fehlermeldung angezeigt.
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um Spalte D als eine .wav-Datei zu exportieren. Sie können diese .wav-Datei jetzt abspielen und hören, dass der Wählton entfernt wurde. Beachten Sie, dass die Informationen, die das gleiche Spektrum wie der Wählton haben, ebenfalls entfernt wurden.</li>
+  </ol>

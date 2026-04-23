@@ -1,0 +1,170 @@
+﻿<h1 class="firstHeading">Clusteranalyse</h1>
+
+  <p class='urlname' style='display: none'>Cluster-Analysis</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#Hierarchical_Cluster_Analysis"><span class="tocnumber">2</span> <span class="toctext">Hierarchische Clusteranalyse</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#Analyzing_Original_Data_with_K-Means_Cluster"><span class="tocnumber">3</span> <span class="toctext">Originaldaten mit der K-Means-Clusteranalyse analysieren</span></a></li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/Cluster_Analysis/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/Cluster_Analysis/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=343" target="_blank">Clusteranalyse in OriginPro</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%">
+        <a class="image"><img alt="Website blog icon circle.png" src="../images/Cluster_Analysis/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Cluster_Analysis/Blog_Image_33x33px.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="http://blog.originlab.com/dendrograms-in-originpro-2020" target="_blank">Dendrogramme in OriginPro 2020</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/performing-principal-component-analysis-for-chemometric-spectra-using-origins-app" target="_blank">Hauptkomponentenanalyse fpr Origin App Chemometric Spectra durchführen</a></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Wir führen eine Clusteranalyse für die Durchschnittstemperaturen in Städten der USA über einen Zeitraum von drei Jahren durch.</p>
+
+  <p>Hierbei beginnen wir mit einer hierarchischen Clusteranalyse mit zufällig ausgewählten Daten, um die beste Methode zum Clustern zu finden. Die K-Means-Analyse, eine schnelle Clustermethode, wird dann für den gesamten ursprünglichen Datensatz durchgeführt.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 2020</p>
+
+  <h2><a name="Hierarchical_Cluster_Analysis"></a><span class="mw-headline">Hierarchische Clusteranalyse</span></h2>
+
+  <ol>
+    <li>Öffnen Sie ein neues Projekt oder eine neue Arbeitsmappe. Importieren Sie die Datendatei <b>\Samples\Graphing\US Mean Temperature.dat</b>.</li>
+
+    <li>Markieren Sie die Spalten D bis O.</li>
+
+    <li>Wählen Sie <b>Statistik: Multivariate Analyse: Hierarchische Clusteranalyse</b>, um den Dialog zu öffnen.</li>
+
+    <li>Klicken Sie auf der Registerkarte <b>Eingabe</b> auf die <b>dreieckige Schaltfläche</b> <a class="image"><img alt="Button Select Data Right Triangle.png" src="../images/Cluster_Analysis/Button_Select_Data_Right_Triangle.png" width="18"></a> neben <b>Variablen</b> und klicken Sie dann auf <b>Spalten wählen</b> im Kontextmenü.
+
+      <dl>
+        <dd><a class="image"><img alt="Cluster ex2 hcluster dialog1.png" src="../images/Cluster_Analysis/Cluster_ex2_hcluster_dialog1.png" width="567"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie im unteren Bedienfeld des Dialogfelds Spaltenbrowser auf die Schaltfläche <b>...</b>. Legen Sie den Datenbereich auf <b>1</b> bis <b>100</b> fest. Klicken Sie auf <b>OK</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Cluster ex2 col browser.png" src="../images/Cluster_Analysis/Cluster_ex2_col_browser.png" width="700"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Registerkarte <b>Einstellungen</b> und stellen Sie sicher, dass <b>Cluster</b> auf <b>Beobachtungen</b> gesetzt ist und <b>Anzahl der Cluster</b> auf <b>1</b>. Wählen Sie für die <b>Cluster-Methode</b> die Option <b>Entferntester Nachbar</b> und klicken Sie dann auf <b>OK</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Hcluster ex2 dialog1.png" src="../images/Cluster_Analysis/Hcluster_ex2_dialog1.png" width="386"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wechseln Sie zum Blatt <b>Cluster 1</b>. Nach der Untersuchung des sich ergebenden Dendrogramms werden die Daten in 5 Gruppen geclustert.
+
+      <dl>
+        <dd><a class="image"><img alt="Dendrogram2.PNG" src="../images/Cluster_Analysis/Dendrogram2.PNG" width="708"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf das Schlosssymbol in dem Dendrogramm oder Ergebnisbaum und dann auf <b>Parameter ändern</b> im Kontextmenü.</li>
+
+    <li>Setzen Sie auf der Registerkarte <b>Einstellungen</b> die <b>Anzahl der Cluster</b> auf <b>5</b> und aktivieren Sie dann das Kontrollkästchen <b>Clusterzentrum</b> im Zweig <b>Eigenschaften</b>. Klicken Sie auf <b>OK</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Cluster ex2 hcluster dialog.png" src="../images/Cluster_Analysis/Cluster_ex2_hcluster_dialog.png" width="386"></a></dd>
+
+        <dd><a class="image"><img alt="Cluster ex2 hcluster dialog01.png" src="../images/Cluster_Analysis/Cluster_ex2_hcluster_dialog01.png" width="367"></a></dd>
+      </dl>
+    </li>
+
+    <li>In dem sich ergebenden Dendrogramm ist deutlich zu sehen, wie die Beobachtungen geclustert sind. Beachten Sie, dass Sie doppelt auf das eingebettete Dendrogramm im Berichtsblatt klicken können, um das Dendrogramm in seinem eigenen Fenster zu öffnen. Von hier aus können Sie das Dendrogramm benutzerdefiniert anpassen -- beispielsweise Textbeschriftungen, Pfeile etc. hinzufügen --und dann auf die Schaltfläche <b>Schließen</b> <a class="image"><img alt="Button close embedded.png" src="../images/Cluster_Analysis/Button_close_embedded.png" width="32"></a> in der oberen rechten Ecke des Diagrammfensters klicken, um die Änderungen im eingebetteten Diagramm im Berichtsblatt zu übernehmen.
+
+      <dl>
+        <dd><a class="image"><img alt="Hcluster ex2 dendrogram.png" src="../images/Cluster_Analysis/Hcluster_ex2_dendrogram.png" width="752"></a></dd>
+      </dl>
+    </li>
+
+    <li>Um sich auf einen bestimmten Unterbaum zu konzentrieren, klicken Sie auf einen Knoten, um ihn auszuwählen. Klicken Sie dann mit der rechten Maustaste auf ihn und wählen Sie <b>Zweig in neuem Fenster duplizieren</b>. Der ausgewählte Unterbaum wird in einem neuen Diagrammfenster geöffnet.
+
+      <dl>
+        <dd><a class="image"><img alt="Dendrogram zoom1.PNG" src="../images/Cluster_Analysis/Dendrogram_zoom1.PNG" width="796"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Cluster_Analysis/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <dl>
+          <dd>Beachten Sie, dass Sie seit Origin 2019b auf der Registerkarte <b>Diagramm</b> des Dialogs <b>hcluster</b> eine Option für die Anzeige von <a class="external text" href="../../UserGuide/UserGuide/The_Hierarchical_Cluster_Analysis_Dialog_Box.html#Plot"><b>Ähnlichkeit</b></a> auf der Y-Achse Ihres Dendrogramms finden können (<b>Distanz</b> ist noch immer die Standardauswahl).</dd>
+        </dl>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Analyzing_Original_Data_with_K-Means_Cluster"></a><span class="mw-headline">Originaldaten mit der K-Means-Clusteranalyse analysieren</span></h2>
+
+  <ol>
+    <li>Klicken Sie mit der rechten Maustaste auf <b>Clusterzentrum</b> und wählen Sie <b>Eine Kopie als neues Blatt erstellen</b> im Kontextmenü. Das neu erstellte Blatt <b>Clusterzentrum</b> wird als <b>Anfängliche Clusterzentren</b> in der K-Means-Clusteranalyse verwendet.
+
+      <dl>
+        <dd><a class="image"><img alt="Cluster ex2 cluster center.png" src="../images/Cluster_Analysis/Cluster_ex2_cluster_center.png" width="496"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wechseln Sie zum Arbeitsblatt mit den Quelldaten (US Mean Temperature) und markieren Sie Col(D) bis Col(O). Wählen Sie <b>Statistik: Multivariate Analyse: K-Means-Clusteranalyse</b>.</li>
+
+    <li>Aktivieren Sie das Kontrollkästchen <b>Anfängliche Clusterzentren festlegen</b> auf der Registerkarte <b>Optionen</b>. Klicken Sie auf die <b>interaktive Schaltfläche</b> <a class="image"><img alt="Button Select Data Interactive.png" src="../images/Cluster_Analysis/Button_Select_Data_Interactive.png" width="18"></a> neben <b>Anfängliche Clusterzentren</b>. Der Dialog wird minimiert.</li>
+
+    <li>Wechseln Sie zu <b>Clusterzentrum</b> und markieren Sie Col(D) bis Col(O). Klicken Sie auf die Schaltfläche im minimierten Dialog, um den Dialog wiederherzustellen.</li>
+
+    <li>Wählen Sie auf der Registerkarte <b>Diagramm</b> die Option <b>Zusätzliches Gruppendiagramm</b>. Klicken Sie auf die <b>interaktive Schaltfläche</b> <a class="image"><img alt="Button Select Data Interactive.png" src="../images/Cluster_Analysis/Button_Select_Data_Interactive.png" width="18"></a> neben <b>X-Bereich</b>. Der Dialog wird minimiert. Wechseln Sie zurück zum Quellarbeitsblatt <b>US Mean Temperature</b> und markieren Sie die Spalte <b>Col(B):Longtitude</b>. Klicken Sie auf die Schaltfläche im minimierten Dialogfeld, um es wiederherzustellen.</li>
+
+    <li>Klicken Sie auf die <b>dreieckige Schaltfläche</b> <a class="image"><img alt="Button Select Data Right Triangle.png" src="../images/Cluster_Analysis/Button_Select_Data_Right_Triangle.png" width="18"></a> neben <b>Y-Bereich</b> und wählen Sie dann <b>C(Y), Latitude</b>. Klicken Sie auf <b>OK</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Kmeans ex2 dialog.png" src="../images/Cluster_Analysis/Kmeans_ex2_dialog.png" width="447"></a></dd>
+      </dl>
+    </li>
+
+    <li>Aktivieren Sie das Arbeitsblatt <b>K-Means Plot Data1</b>. Sie können sehen, dass die Daten in 5 Gruppen geclustert wurden, entsprechend den Breitengraden der Städte.
+
+      <dl>
+        <dd><a class="image"><img alt="Group graph.png" src="../images/Cluster_Analysis/Group_graph.png" width="421"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Cluster_Analysis/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Anwender können auch das Ausgabeziel der Spalte <b>Clusterzugehörigkeit</b> auswählen, z. B. direkt neben den Eingabedaten, für mögliche weitere Operationen.</p>
+
+        <p><a class="image"><img alt="Cluster Membership.png" src="../images/Cluster_Analysis/Cluster_Membership.png" width="586"></a></p><br>
+        <br>
+      </td>
+    </tr>
+  </table>

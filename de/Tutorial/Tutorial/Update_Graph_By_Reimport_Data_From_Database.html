@@ -1,0 +1,112 @@
+﻿<h1 class="firstHeading">Diagramm durch Neuimport von Daten aus Datenbank aktualisieren</h1>
+
+  <p>&#160;</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Add_Button_to_Run_LabTalk_Script"><span class="tocnumber">3.1</span> <span class="toctext">Schaltfläche zum Ausführen eines LabTalk-Skripts hinzufügen</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Use_Button_to_Modify_the_Import"><span class="tocnumber">3.2</span> <span class="toctext">Schaltfläche zum Modifizieren des Imports verwenden</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Update_Graph_By_Reimport_Data_From_Database/Alert_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Die in diesem Tutorial verwendete Datenbank wurde auf Microsoft Azure eingerichtet.</p>
+      </td>
+    </tr>
+  </table>
+
+  <p>Dieses Tutorial ist eine Fortsetzung des vorherigen Tutorials <a class="external text" href="../../Tutorial/Tutorial/Update_Database_Importing_By_LabTalk_Substitution.html">Datenbankimport durch LabTalk-Substitution aktualisieren</a>. Es zeigt, wie Sie mit LabTalk-Skript eine Schaltfläche zum Diagramm hinzufügen, um den <a class="external text" href="../../LabTalk/Script/Getting_Numeric_and_String_Input.html">Dialog GetN</a> zu öffnen, einen Unternehmensnamen einzugeben und die Datenbank, basierend auf dem neuen Unternehmensnamen, neu zu importieren und eine aktualisierte Grafik zu erhalten.</p>
+
+  <p>Das Vorgehen basiert auf Origin 2023b.</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>Fügen Sie mit Skript eine Schaltfläche zum Diagramm hinzu.</li>
+
+    <li>Wie Sie einen einfachen Dialog erstellen, um eine neue Eingabe zu erhalten.</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <h3><a name="Add_Button_to_Run_LabTalk_Script"></a><span class="mw-headline">Schaltfläche zum Ausführen eines LabTalk-Skripts hinzufügen</span></h3>
+
+  <ol>
+    <li>Klicken Sie mit der rechten Maustaste in die untere rechte Ecke von Graph1, das Sie im vorherigen Tutorial <a class="external text" href="../../Tutorial/Tutorial/Update_Database_Importing_By_LabTalk_Substitution.html">Datenbankimport durch LabTalk-Substitution aktualisieren</a> erstellt haben. Wählen Sie <b>Text hinzufügen ...</b>. Geben Sie <b>Modizifieren</b> ein, um eine Textbeschriftung zu erstellen.</li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf den Text <b>Update</b> und wählen Sie <b>Einstellungen</b> im Kontextmenü, um den Dialog <b>Textobjekt</b> zu öffnen. Gehen Sie zur Registerkarte <b>Programmierung</b>. Hinweis: Wählen Sie in Versionen vor Origin 2017 <b>Programmierablauf</b> im Menü, um den Dialog <b>Programmierablauf</b> zu öffnen.</li>
+
+    <li>Setzen Sie <b>Kriterien für Skriptausführung</b> auf <i>Mausklick</i> und geben Sie das folgende Skript in das untere Textfeld ein. Klicken Sie auf <b>OK</b>.
+      <pre class="lt" style="font-family:monospace;">
+string thecompany<span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">"Professional Sales and Service"</span>; <span style="color: #008000;">//set first company name</span> <span style="color: #008000;">//The following 3 lines create a dialog to assign new thecompany$ string value</span> getN <span style="color: #000000;">(</span>Company Name<span style="color: #000000;">)</span> thecompany<span style="color: #000080;">$</span> <span style="color: #008000;">//(Company Name) will be edit box label in dialog</span> <span style="color: #000000;">(</span>Which Company to Analyze<span style="color: #000000;">)</span>; <span style="color: #008000;">//this is dialog title</span> dbimport iw<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #000000;">[</span>book1<span style="color: #000000;">]</span>sheet1<span style="color: #000080;">!</span>; <span style="color: #008000;">//reimport data of new company from database to Sheet1 of Book1</span>
+</pre>
+
+      <dl>
+        <dd><a class="image"><img alt="Modify button script.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/Modify_button_script.png" width="623"></a></dd>
+      </dl>
+
+      <p>Das Textobjekt verwandelt sich in eine Schaltfläche.</p>
+
+      <dl>
+        <dd><a class="image"><img alt="Modify button graph1.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/Modify_button_graph1.png" width="637"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Use_Button_to_Modify_the_Import"></a><span class="mw-headline">Schaltfläche zum Modifizieren des Imports verwenden</span></h3>
+
+  <ol>
+    <li>Klicken Sie auf die Schaltfläche Modifizieren... und geben Sie den neuen Unternehmensnamen <b>Riding Cycles</b> ein.
+
+      <dl>
+        <dd><a class="image"><img alt="GetN company.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/GetN_company.png" width="231"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>. Die Daten werden erneut in Sheet1 von Book1 importiert und das Diagramm wird automatisch aktualisiert.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for LT sub colum graph2.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/ImportDB_for_LT_sub_colum_graph2.png" width="776"></a></dd>
+      </dl>
+    </li>
+
+    <li>Um alle Unternehmensnamen und die Gesamtanzahl der Bestellungen zu sehen: Klicken Sie mit der rechten Maustaste auf den Reiter und wählen Sie <b>Ohne Daten duplizieren</b>, um Sheet2 zu erstellen.
+
+      <dl>
+        <dd>Klicken Sie auf <a class="image"><img alt="DBConnector.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/DBConnector.png" width="20"></a> im Sheet2 und wählen Sie <b>SQL-Editor</b>.</dd>
+      </dl>Modifizieren Sie Anfrage folgendermaßen:
+      <pre class="sql" style="font-family:monospace;">
+<span style="color: #993333; font-weight: bold;">SELECT</span> SalesLT<span style="color: #66cc66;">.</span>Customer<span style="color: #66cc66;">.</span>CompanyName<span style="color: #66cc66;">,</span> <span style="color: #993333; font-weight: bold;">SUM</span><span style="color: #66cc66;">(</span>SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>OrderQty <span style="color: #66cc66;">)</span> <span style="color: #993333; font-weight: bold;">AS</span> OrderCounts <span style="color: #993333; font-weight: bold;">FROM</span> SalesLT<span style="color: #66cc66;">.</span>Customer <span style="color: #993333; font-weight: bold;">INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderHeader <span style="color: #993333; font-weight: bold;">ON</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderHeader<span style="color: #66cc66;">.</span>CustomerID <span style="color: #66cc66;">=</span>SalesLT<span style="color: #66cc66;">.</span>Customer<span style="color: #66cc66;">.</span>CustomerID <span style="color: #993333; font-weight: bold;">INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail <span style="color: #993333; font-weight: bold;">ON</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderHeader<span style="color: #66cc66;">.</span>SalesOrderID <span style="color: #66cc66;">=</span>SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>SalesOrderID <span style="color: #993333; font-weight: bold;">GROUP</span> <span style="color: #993333; font-weight: bold;">BY</span> SalesLT<span style="color: #66cc66;">.</span>Customer<span style="color: #66cc66;">.</span>CompanyName <span style="color: #993333; font-weight: bold;">ORDER</span> <span style="color: #993333; font-weight: bold;">BY</span> <span style="color: #993333; font-weight: bold;">SUM</span><span style="color: #66cc66;">(</span>SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>OrderQty <span style="color: #66cc66;">)</span> <span style="color: #993333; font-weight: bold;">DESC</span>
+</pre>
+    </li>
+
+    <li>Klicken Sie auf OK. Alle Unternehmensnamen und die Gesamtanzahl der Bestellungen werden gezeigt, so dass Anwender beim Ändern des Unternehmensnamens für einen Neuimport einfach auf dieses Blatt verweisen können.
+
+      <dl>
+        <dd><a class="image"><img alt="Db import company names.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/Db_import_company_names.png" width="845"></a></dd>
+      </dl>
+    </li>
+  </ol>

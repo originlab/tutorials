@@ -1,0 +1,233 @@
+﻿<h1 class="firstHeading">Tutorial for Process Overview</h1>
+
+  <p class='urlname' style='display: none'>Tutorial-PO</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Contents</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Notes_for_Starting"><span class="tocnumber">1</span> <span class="toctext">Notes for Starting</span></a></li>
+
+      <li class="toclevel-1 tocsection-2">
+        <a href="#Normal_Process_Overview"><span class="tocnumber">2</span> <span class="toctext">Normal Process Overview</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-3"><a href="#Background"><span class="tocnumber">2.1</span> <span class="toctext">Background</span></a></li>
+
+          <li class="toclevel-2 tocsection-4"><a href="#Steps_in_Origin"><span class="tocnumber">2.2</span> <span class="toctext">Steps in Origin</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Interpreting_the_Results"><span class="tocnumber">2.3</span> <span class="toctext">Interpreting the Results</span></a></li>
+        </ul>
+      </li>
+
+      <li class="toclevel-1 tocsection-6">
+        <a href="#Between_Within_Process_Overview"><span class="tocnumber">3</span> <span class="toctext">Between Within Process Overview</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-7"><a href="#Background_2"><span class="tocnumber">3.1</span> <span class="toctext">Background</span></a></li>
+
+          <li class="toclevel-2 tocsection-8"><a href="#Steps_in_Origin_2"><span class="tocnumber">3.2</span> <span class="toctext">Steps in Origin</span></a></li>
+
+          <li class="toclevel-2 tocsection-9"><a href="#Interpreting_the_Results_2"><span class="tocnumber">3.3</span> <span class="toctext">Interpreting the Results</span></a></li>
+        </ul>
+      </li>
+
+      <li class="toclevel-1 tocsection-10">
+        <a href="#Non-normal_Process_Overview"><span class="tocnumber">4</span> <span class="toctext">Non-normal Process Overview</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-11"><a href="#Background_3"><span class="tocnumber">4.1</span> <span class="toctext">Background</span></a></li>
+
+          <li class="toclevel-2 tocsection-12"><a href="#Steps_in_Origin_3"><span class="tocnumber">4.2</span> <span class="toctext">Steps in Origin</span></a></li>
+
+          <li class="toclevel-2 tocsection-13"><a href="#Interpreting_the_Results_3"><span class="tocnumber">4.3</span> <span class="toctext">Interpreting the Results</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h2><a name="Notes_for_Starting"></a><span class="mw-headline">Notes for Starting</span></h2>
+
+  <ul>
+    <li>Download the sample project file from <a class="external text" href="https://blog.originlab.com/wp-content/uploads/2023/10/SPCData.zip" target="_blank">here</a> and open it in Origin.</li>
+  </ul>
+
+  <ul>
+    <li>Start this tutorial with the app <a class="external text" href="https://www.originlab.com/fileExchange/details.aspx?fid=934" target="_blank"><b>Statistical Process Control</b></a> installed. If you have not installed the app, see <a class="external text" href="https://www.originlab.com/doc/User-Guide/Apps" target="_blank">Apps for Origin</a> to find and install the app.</li>
+  </ul>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Tutorial_PO/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p><i><b>Topics for Further Reading</b></i>:</p>
+
+        <ul>
+          <li><a href="../../Tutorial/Category/Process_Overview(App).html" title="Category:Process Overview(App)">Introduction:Process Overview</a></li>
+
+          <li><a href="../../Tutorial/App/Algorithm_PO.html" title="App:Algorithm PO">Algorithms:Process Overview</a></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <p>&#160;</p>
+
+  <h2><a name="Normal_Process_Overview"></a><span class="mw-headline">Normal Process Overview</span></h2>
+
+  <h5><a name="Background"></a><span class="mw-headline">Background</span></h5>
+
+  <p>A quality engineer wants to evaluate the capsule filling process of the machine. The capsule weight needs to be 215 ± 17 mg</p>
+
+  <p>He collected the filling weight of 8 capsules every 10 minutes from 8:30 to 12:00. He wants to evaluate how well the weight of capsule fillings meet the requirements</p>
+
+  <h5><a name="Steps_in_Origin"></a><span class="mw-headline">Steps in Origin</span></h5>
+
+  <ol>
+    <li>Open folder <b>1. Normal</b>, activate the workbook <b>Capsule Weight</b></li>
+
+    <li>Highlight column B ~ I in worksheet. Click the <b>Statistical Process Control</b> icon <a class="image"><img alt="SPC Icon.png" src="../images/Tutorial_PO/SPC_Icon.png" width="32"></a> in the <b>Apps Gallery</b> window.</li>
+
+    <li>Select the <b>Process Overview</b> tab, select <b>Normal Process Overview</b>
+
+      <dl>
+        <dd><a class="image"><img alt="PO Normal GUI.png" src="../images/Tutorial_PO/700px-PO_Normal_GUI.png" width="700"></a></dd>
+      </dl>
+    </li>
+
+    <li>In the <b>Input</b> tab of the opened dialog, column B ~ I is selected automatically as <b>Measurement Data</b>. Select the check box <b>Subgroups Arranged in Rows Across Columns</b>
+
+      <dl>
+        <dd><a class="image"><img alt="PO Normal Input.png" src="../images/Tutorial_PO/500px-PO_Normal_Input.png" width="500"></a></dd>
+      </dl>
+    </li>
+
+    <li>In the <b>Limits</b> tab, set <b>Lower Spec</b> to be <b>198</b>, <b>Upper Spec</b> to be <b>232</b> and <b>Target</b> to be <b>215</b>
+
+      <dl>
+        <dd><a class="image"><img alt="PO Normal Limit.png" src="../images/Tutorial_PO/380px-PO_Normal_Limit.png" width="380"></a></dd>
+      </dl>
+    </li>
+
+    <li>Click <b>OK</b> button. A graph with report tables will be created</li>
+  </ol>
+
+  <h5><a name="Interpreting_the_Results"></a><span class="mw-headline">Interpreting the Results</span></h5>
+
+  <p>From the Xbar chart and conclusion of Test1, we can see the point 5 falls out of the UCL.</p>
+
+  <p>The Capability Histogram shows not not the observations fall within the LSL and USL.</p>
+
+  <p>In addition, Cpk is 0.837, which is less than 1.</p>
+
+  <p>The process is not capable.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="PO Normal Results.png" src="../images/Tutorial_PO/800px-PO_Normal_Results.png" width="800"></a></dd>
+  </dl>
+
+  <h2><a name="Between_Within_Process_Overview"></a><span class="mw-headline">Between Within Process Overview</span></h2>
+
+  <h5><a name="Background_2"></a><span class="mw-headline">Background</span></h5>
+
+  <p>A engineer wants to access the production process of the stainless steel sheet.</p>
+
+  <p>He collects 4 measurements of the thickness from 20 consecutive steel sheets. The thickness much be 3 ± 0.1 mm.</p>
+
+  <h5><a name="Steps_in_Origin_2"></a><span class="mw-headline">Steps in Origin</span></h5>
+
+  <ol>
+    <li>Open folder <b>2. Between-Within</b>, activate the workbook <b>Steel Sheet</b></li>
+
+    <li>Click the <b>Statistical Process Control</b> icon <a class="image"><img alt="SPC Icon.png" src="../images/Tutorial_PO/SPC_Icon.png" width="32"></a> in the <b>Apps Gallery</b> window.</li>
+
+    <li>Keep in the <b>Process Overview</b> tab, select <b>Between/Within Process Overview</b></li>
+
+    <li>In the <b>Input</b> tab of the opened dialog, select column A to be <b>Measurement Data</b>. Choose <b>Subgroup Size By</b> to be <b>Column</b> and set the <b>Subgroup Size Column</b> to be Column B
+
+      <dl>
+        <dd><a class="image"><img alt="BCA Input.png" src="../images/Tutorial_PO/380px-BCA_Input.png" width="380"></a></dd>
+      </dl>
+    </li>
+
+    <li>In the <b>Limits</b> tab, set <b>Lower Spec</b> to be <b>29</b>, <b>Upper Spec</b> to be <b>31</b> and <b>Target</b> to be <b>30</b>
+
+      <dl>
+        <dd><a class="image"><img alt="BCA limit.png" src="../images/Tutorial_PO/380px-BCA_limit.png" width="380"></a></dd>
+      </dl>
+    </li>
+
+    <li>Click <b>OK</b> button. A graph with report tables will be created</li>
+  </ol>
+
+  <h5><a name="Interpreting_the_Results_2"></a><span class="mw-headline">Interpreting the Results</span></h5>
+
+  <p>No points fall beyond the control limits in the Individuals, Moving Range, and Range charts, it indicates that the process is stable.</p>
+
+  <p>Data points are close to the reference line in the Probability plot, that means the data are normally distributed.</p>
+
+  <p>In the Capability Histogram, all the observations are within the specification limits .</p>
+
+  <p>Cp is 1.188, which indicates that the specification spread is 1.19 times greater than the 6-σ spread in the process. Cp(1.188) and Cpk(1.093) is not so close to each other, indicating that the process is slightly off centered. For overall capability, Pp(1.046), Ppk(0.962), and Cpm(1.02) are all less than 1.33, which is a generally accepted minimum value for a capable process.</p>
+
+  <p>We can conclude that the process is good but its capability still could be improved.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="PO BW Results.png" src="../images/Tutorial_PO/900px-PO_BW_Results.png" width="900"></a></dd>
+  </dl>
+
+  <h2><a name="Non-normal_Process_Overview"></a><span class="mw-headline">Non-normal Process Overview</span></h2>
+
+  <h5><a name="Background_3"></a><span class="mw-headline">Background</span></h5>
+
+  <p>There is a dataset of weight values which follows the weibull distribution. We hope the data are not larger than 1.</p>
+
+  <h5><a name="Steps_in_Origin_3"></a><span class="mw-headline">Steps in Origin</span></h5>
+
+  <ol>
+    <li>Opened folder <b>3. Nonnormal</b>. Activate the workbook <b>Weibull</b></li>
+
+    <li>Click the <b>Statistical Process Control</b> icon <a class="image"><img alt="SPC Icon.png" src="../images/Tutorial_PO/SPC_Icon.png" width="32"></a> in the <b>Apps Gallery</b> window.</li>
+
+    <li>Keep in the <b>Process Overview</b> tab, select <b>Non-normal Process Overview</b></li>
+
+    <li>In the <b>Input</b> tab of the opened dialog, column A will be selected automatically as <b>Measurement Data</b>. Choose <b>Subgroup Size By</b> to be <b>Constant</b> and set the <b>Subgroup Size Constant</b> to be 1
+
+      <dl>
+        <dd><a class="image"><img alt="PO nonnormal input.png" src="../images/Tutorial_PO/500px-PO_nonnormal_input.png" width="500"></a></dd>
+      </dl>
+    </li>
+
+    <li>In the <b>Limits</b> tab, set <b>Upper Spec</b> to be <b>1</b>, keep all other text box to be empty.
+
+      <dl>
+        <dd><a class="image"><img alt="NCA Limit.png" src="../images/Tutorial_PO/250px-NCA_Limit.png" width="250"></a></dd>
+      </dl>
+    </li>
+
+    <li>In the <b>Distribution</b> tab, set <b>Distribution</b> to be <b>Auto</b>. It means it will automatically find and report the best distribution according the AD values
+
+      <dl>
+        <dd><a class="image"><img alt="PO nonnormal distribution.png" src="../images/Tutorial_PO/500px-PO_nonnormal_distribution.png" width="500"></a></dd>
+      </dl>
+    </li>
+
+    <li>Click <b>OK</b> button. A graph with report tables will be created</li>
+  </ol>
+
+  <h5><a name="Interpreting_the_Results_3"></a><span class="mw-headline">Interpreting the Results</span></h5>
+
+  <p>The probability plot indicates that the dataset follows 3-parameter Weibull distribution.</p>
+
+  <p>No points fall beyond the control limits in the Individuals and Moving Range charts, it indicates that the process is stable.</p>
+
+  <p>In the Capability Histogram, all the observation fall below the upper specification limits.</p>
+
+  <p>The process meets requirements</p>
+
+  <dl>
+    <dd><a class="image"><img alt="PO Nonnormal Results.png" src="../images/Tutorial_PO/800px-PO_Nonnormal_Results.png" width="800"></a></dd>
+  </dl>

@@ -1,0 +1,245 @@
+﻿<h1 class="firstHeading">Karte mit Kachelraster aus Basisdiagramm</h1>
+
+  <p class='urlname' style='display: none'>Tile-Grid-Map</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_will_you_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Prepare_a_Base_Graph"><span class="tocnumber">3.1</span> <span class="toctext">Basisdiagramm vorbereiten</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Create_a_Tile_Grid_Map_from_the_Base_Graph"><span class="tocnumber">3.2</span> <span class="toctext">Karte mit Kachelraster aus Basisdiagramm erstellen</span></a></li>
+
+          <li class="toclevel-2 tocsection-6">
+            <a href="#How_to_Obtain_the_Arrangement_Data"><span class="tocnumber">3.3</span> <span class="toctext">Anordnungsdaten erhalten</span></a>
+
+            <ul>
+              <li class="toclevel-3 tocsection-7"><a href="#How_to_use_the_Arrangement_Column_Data_when_Plot_Tile_Grid_Map"><span class="tocnumber">3.3.1</span> <span class="toctext">Daten der Anordnungsspalte beim Zeichnen einer Karte mit Kachelraster verwenden</span></a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 40%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/Tile_Grid_Map/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/Tile_Grid_Map/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://youtu.be/5KGr_g7T-jg" target="_blank">Karte mit Kachelraster mit Zeichnung in OriginPro</a></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie eine <a class="external text" href="../../UserGuide/UserGuide/Tile_Grid_Map.html">Karte mit Kachelraster</a> aus einem Basisdiagramm erstellen.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Tile Grid Map 01.png" src="../images/Tile_Grid_Map/750px-Tile_Grid_Map_01.png" width="750"></a></dd>
+  </dl>
+
+  <p>Dies ist eine Karte mit Kachelraster der USA für die Rate der Eigentumsdelikte der einzelnen Bundesstaaten. Jede Kachel wird auf Grundlage eines Basisdiagramms erstellt und stellt einen einzelnen Bundesstaat dar.</p>
+
+  <h2><a name="What_will_you_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>ein Basisdiagramm vorbereiten,</li>
+
+    <li>eine Karte mit Kachelraster aus Basisdiagramm erstellen,</li>
+
+    <li>die Anordnungsdaten der Kacheln ermitteln.</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <p>Dieses Tutorial ist mit dem Beispielprojekt "Maps - Tile Grid Map for US Crime Rate" verbunden, das Sie im <b>Lernzentrum</b> finden (im Menü <b>Hilfe: Lernzentrum</b> wählen oder die Taste <b>F11</b> drücken), indem Sie nach dem Stichwort "Karte mit Kachelraster" suchen.</p>
+
+  <ol>
+    <li>Suchen und öffnen Sie das Beispielprojekt im <b>Lernzentrum</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Tile Grid Map 02.png" src="../images/Tile_Grid_Map/750px-Tile_Grid_Map_02.png" width="750"></a></dd>
+      </dl>
+    </li>
+
+    <li>Aktivieren Sie die Arbeitsmappe. Im Blatt "PlotData" sind die Zeichnungsdaten aller Bundesstaaten seitlich nebeneinander angeordnet zum Zeichnen der Kacheln. Die zwei der Spaltenbeschriftungszeilen "Column" und "Row" speichern die Griddingdaten für Spalte-Zeile zum Anordnen der Kacheln. Die Spaltenzeile "postal" enthält die Identifizierer der Bundesstaaten.
+
+      <dl>
+        <dd><a class="image"><img alt="Tile Grid Map 03.png" src="../images/Tile_Grid_Map/750px-Tile_Grid_Map_03.png" width="750"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <table class="note">
+    <tr>
+      <td>
+        <b>Hinweis:</b>
+
+        <ul>
+          <li>In diesem Beispiel werden die Griddingdaten in den Spaltenbeschriftungszeilen "Column" und "Row" aus dem Blatt "Arrangements" transponiert.</li>
+
+          <li>Das Blatt "Arrangements" ist auf der <a class="external text" href="https://www.originlab.com/fileexchange/details.aspx?v=0&amp;fid=1003" target="_blank">Online-Vorlage "Gitternetzanordnungen für Karte mit Kachelraster"</a> kopiert.</li>
+        </ul>
+
+        <p>Wie Sie diese Anordnungsdaten erhalten, wird Ihnen im Abschnitt <a href="#How_to_Obtain_the_Arrangement_Data">"Anordnungsdaten der Kacheln erhalten"</a> gezeigt.</p>
+      </td>
+    </tr>
+  </table>
+
+  <h3><a name="Prepare_a_Base_Graph"></a><span class="mw-headline">Ein Basisdiagramm vorbereiten</span></h3>
+
+  <ol>
+    <li>Markieren Sie die Spalten col(B)~col(D) und wählen Sie <b>Zeichnen &gt; Balken, Kreis, Fläche: Gestapelte Fläche</b> im Menü, um ein gestapeltes Flächendiagramm zu zeichnen.
+
+      <dl>
+        <dd><a class="image"><img alt="Tile Grid Map 04.png" src="../images/Tile_Grid_Map/600px-Tile_Grid_Map_04.png" width="600"></a></dd>
+      </dl>
+    </li>
+
+    <li>Entfernen Sie das Legendenfeld, verbergen Sie die Hilfsstriche und Hilfsstrichsbeschriftungen für die X- und Y-Achse, zeigen Sie den Layerrahmen, füllen Sie den Layerhintergrund mit einer gewünschten Farbe und ändern Sie die Flächenfarbe mit einer vordefinierten Farbliste.
+
+      <dl>
+        <dd><a class="image"><img alt="Tile Grid Map 05.gif" src="../images/Tile_Grid_Map/Tile_Grid_Map_05.gif" width="639"></a></dd>
+      </dl>
+    </li>
+
+    <li>Das Basisdiagramm ist fertig.
+
+      <dl>
+        <dd><a class="image"><img alt="Tile Grid Map 06.png" src="../images/Tile_Grid_Map/Tile_Grid_Map_06.png" width="437"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Create_a_Tile_Grid_Map_from_the_Base_Graph"></a><span class="mw-headline">Eine Karte mit Kachelraster aus Basisdiagramm erstellen</span></h3>
+
+  <ol>
+    <li>Aktivieren Sie die Quellarbeitsmappe. Markieren Sie alle Spalten im Blatt "PlotData" und wählen Sie <b>Zeichnen &gt; Karte: Karte mit Kachelraster</b>, um den Dialog <b>plottilemap</b> zu öffnen.
+
+      <dl>
+        <dd><a class="image"><img alt="Tile Grid Map 07.png" src="../images/Tile_Grid_Map/800px-Tile_Grid_Map_07.png" width="800"></a></dd>
+
+        <dd>In diesem Dialog:</dd>
+      </dl>
+
+      <ul>
+        <li>Wählen Sie <b>Basisdiagramm</b> als <b>Diagrammtyp</b>. Klicken Sie dann auf die Schaltfläche <b>Diagramm auswählen</b> <a class="image"><img alt="Button Select a Graph.png" src="../images/Tile_Grid_Map/Button_Select_a_Graph.png" width="22"></a> am Ende des Felds <b>Basisdiagramm</b>, um das soeben erstellte Basisdiagramm zu wählen.</li>
+
+        <li>Aktivieren Sie das Kontrollkästchen <b>Identifizierer zeigen</b> und wählen Sie dann <b>postal</b> als <b>Identifizierer</b>.</li>
+
+        <li>Wählen Sie die Beschriftungszeilen "Column" und "Row" in der Auswahlliste <b>Spalte</b> bzw. <b>Zeile</b>.</li>
+      </ul>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um die Karte mit Kachelraster zu erstellen. Wenn Sie in der Karte mit Kachelraster eine Kachel benutzerdefiniert anpassen, werden alle Kacheln zusammen aktualisiert. Verschieben Sie eine Beschriftung und ändern Sie ihre Schriftgröße.
+
+      <dl>
+        <dd><a class="image"><img alt="Tile Grid Map 09.gif" src="../images/Tile_Grid_Map/Tile_Grid_Map_09.gif" width="681"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="How_to_Obtain_the_Arrangement_Data"></a><span class="mw-headline">Anordnungsdaten erhalten</span></h3>
+
+  <p>Im Beispielprojekt wurden die Griddingdaten gut in den Spaltenbeschriftungszeilen angeordnet. Sie können ganz einfach im Dialog plottilemap auf sie zugreifen. Wenn Sie solche Spaltenbeschriftungszeilen nicht haben, können Sie, abgesehen von der manuellen Eingabe dieser Werte in die Zellen, die folgende Methode verwenden, um sie zu erhalten.</p>
+
+  <ol>
+    <li>Zuerst müssen Sie eine Tabelle vorbereiten, um zu zeigen, wie die Kacheln nach dem Spalten-Zeilen-Gridding angeordnet werden sollen.
+
+      <dl>
+        <dd><a class="image"><img alt="Tile Grid Map 08.png" src="../images/Tile_Grid_Map/Tile_Grid_Map_08.png" width="514"></a></dd>
+
+        <dd>Sie können die Tabelle manuell erstellen und den Griddingindex für Spalte-Zeile verwenden, um die Kacheln zu positionieren.</dd>
+
+        <dd>Für das aktuelle Beispieldiagramm wurde bereits eine Online-Vorlage bereitgestellt, damit Sie die Anordnungstabelle herunterladen können.</dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie <b>Zeichnen &gt; Vorlagencenter</b> im Menü, um das <b>Vorlagencenter</b> zu öffnen. Wählen Sie in diesem Dialog "Mappe" für <b>Vorlagentyp</b> und suchen Sie nach dem Stichwort "Kachel", um die Vorlage "Gitternetzanordnungen für Karte mit Kachelraster" zu finden. Klicken Sie auf die Schaltfläche <b>Download and Install</b>, um die Vorlage zu installieren.
+
+      <dl>
+        <dd><a class="image"><img alt="Tile Grid Map 09.png" src="../images/Tile_Grid_Map/750px-Tile_Grid_Map_09.png" width="750"></a></dd>
+      </dl>
+    </li>
+
+    <li>Schließen Sie das <b>Vorlagencenter</b> und wählen Sie dann im Menü <b>Datei: Neu: Arbeitsmappe: Navigieren</b>, um den Dialog <b>Neue Mappe</b> aufzurufen. Wählen Sie die Vorlage "Gitternetzanordnungen für Karte mit Kachelraster" und klicken Sie auf die Schaltfläche <b>Öffnen</b>, um sie zu öffnen.
+
+      <dl>
+        <dd><a class="image"><img alt="Tile Grid Map 10.png" src="../images/Tile_Grid_Map/750px-Tile_Grid_Map_10.png" width="750"></a></dd>
+      </dl>
+    </li>
+
+    <li>Schließen Sie den Dialog <b>Neue Mappe</b>. Gehen Sie zum Blatt "United States_Arrangement". Sie sehen die Anordnungsdaten des Gitternetzes für die US-Bundesstaaten.
+
+      <dl>
+        <dd><a class="image"><img alt="Tile Grid Map 11.png" src="../images/Tile_Grid_Map/Tile_Grid_Map_11.png" width="638"></a></dd>
+
+        <dd>Sie können die Position der Staatencodes zurücksetzen, um die Kachelanordnung, falls notwendig, zu ändern.</dd>
+      </dl>
+    </li>
+
+    <li>Sie erhalten die Gitternetzkoordinaten für alle Bundesstaaten. Markieren Sie die Spalten <b>B</b>~<b>L</b> im Blatt und wählen Sie <b>Restrukturieren: Spalten stapeln</b> im Menü, um den Dialog <b>Spalten stapeln</b> zu öffnen.
+
+      <dl>
+        <dd>Wählen Sie die Beschriftungszeile "Column" als <b>Gruppenzeile(n)</b>. Aktivieren Sie das Kontrollkästchen <b>Andere Spalte(n) einschließen</b> und wählen Sie <b>col(A)</b>. Aktivieren Sie das Kontrollkästchen <b>Fehlende Zeilen ausschließen</b>. Geben Sie "StateCode" im Feld <b>Langname der Datenspalte</b> ein.</dd>
+
+        <dd><a class="image"><img alt="Tile Grid Map 12.png" src="../images/Tile_Grid_Map/450px-Tile_Grid_Map_12.png" width="450"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>. Es wird ein neues Blatt erstellt, entsprechend dem Arbeitsblatt "United States_Grid_Index".
+
+      <dl>
+        <dd><a class="image"><img alt="Tile Grid Map 13.png" src="../images/Tile_Grid_Map/Tile_Grid_Map_13.png" width="464"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h4><a name="How_to_use_the_Arrangement_Column_Data_when_Plot_Tile_Grid_Map"></a><span class="mw-headline">Daten der Anordnungsspalte beim Zeichnen einer Karte mit Kachelraster verwenden</span></h4>
+
+  <p>Wenn Sie diese drei Spalten oben haben, können Sie sie verwenden, um die Kacheln bei den festgelegten Positionen zu zeichnen.</p>
+
+  <ol>
+    <li>Kopieren Sie dieses Blatt in die Quellarbeitsmappe "all_us_states_local_agencies_fbi_crime_data".
+
+      <dl>
+        <dd><a class="image"><img alt="Tile Grid Map 14.png" src="../images/Tile_Grid_Map/Tile_Grid_Map_14.png" width="410"></a></dd>
+
+        <dd><b>Hinweis:</b> Das Blatt "Arrangements" wurde bereits mit den Daten der Anordnungsspalte im Beispielprojekt erstellt.</dd>
+      </dl>
+    </li>
+
+    <li>Das Basisdiagramm wurde bereits im Voraus vorbereitet. Markieren Sie nun alle Spalten im Blatt "PlotData", um <b>Zeichnen &gt; Karte: Karte mit Kachelraster</b> auszuwählen und den Dialog <b>plottilemap</b> zu öffnen. Wählen Sie <b>Basisdiagramm</b> als <b>Diagrammtyp</b> und dann das von Ihnen vorbereitete Basisdiagramm. Aktivieren Sie das Kontrollkästchen <b>Identifizierer</b> und wählen Sie "postal" für <b>Identifizierer</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Tile Grid Map 15.png" src="../images/Tile_Grid_Map/Tile_Grid_Map_15.png" width="477"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Info aus Beschriftungszeile setzen</b>, um die Daten der Anordnungsspalte auszuwählen, sie in Spaltenbeschriftungszeilen umzuwandeln und in das Quellarbeitsblatt "PlotData" einzufügen.
+
+      <dl>
+        <dd><a class="image"><img alt="Tile Grid Map 16.gif" src="../images/Tile_Grid_Map/Tile_Grid_Map_16.gif" width="800"></a></dd>
+
+        <dd>Wie Sie erkennen können, wurden die Anordnungsdaten umgewandelt und mit den Zeichnungsdaten in das Quellarbeitsblatt eingefügt. Sie werden automatisch in der Gruppe <b>Layeranordnung</b> des Dialogs plottilemap ausgewählt.</dd>
+      </dl>
+    </li>
+  </ol>

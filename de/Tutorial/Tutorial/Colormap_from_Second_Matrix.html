@@ -1,0 +1,120 @@
+﻿<h1 class="firstHeading">Farbabbildung aus zweiter Matrix</h1>
+
+  <p class='urlname' style='display: none'>3D-Colormap-Other-Mat</p>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Origin kann vierdimensionale Daten durch Farbabbildung eines Oberflächendiagramms mit Hilfe einer zweiten Matrix darstellen.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Colormap from second matrix 1.png" src="../images/Colormap_from_Second_Matrix/Colormap_from_second_matrix_1.png" width="566"></a></dd>
+  </dl>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 2015 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <ul>
+    <li>Eine farbige Oberfläche aus einer Matrix erstellen</li>
+
+    <li>Ein Oberflächendiagramm mit Hilfe einer zweiten Matrix durch Farbabbildung darstellen</li>
+
+    <li>Ebenen und Paletten der Farbabbildung benutzerdefiniert anpassen</li>
+
+    <li>Beleuchtung im Diagramm steuern <font color="red">(Ab Origin 9 SR0)</font></li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <p>Dieses Tutorial basiert auf dem Projekt <b>Tutorial Data</b>: <i>&lt;Origin-Verzeichnis&gt;\Samples\Tutorial Data.opj</i>.</p>
+
+  <ol>
+    <li>Öffnen Sie das Projekt <b>Tutorial Data</b> und navigieren Sie zum Ordner <i>Surface with Colormap from Another Matrix</i> im <b>Projekt Explorer</b>.</li>
+
+    <li>Aktivieren Sie die Matrix <b>MBook1D</b>. Sie sollten zwei Miniaturbilder über den Matrixdaten sehen, gleich unter der Titelleiste. (Wenn Sie diese Miniaturbilder nicht sehen, klicken Sie mit der rechten Maustaste auf die Matrixtitelleiste und wählen Sie <b>Miniaturbild zeigen</b>.) Wählen Sie dann Miniaturbild 1 aus.</li>
+
+    <li>Klicken Sie im Hauptmenü auf <b>Zeichnen &gt; 3D: 3D-farbige Oberfläche</b>, um ein Oberflächendiagramm zu erzeugen.
+
+      <dl>
+        <dd><a class="image"><img alt="Colormap from second matrix 2.png" src="../images/Colormap_from_Second_Matrix/Colormap_from_second_matrix_2.png" width="426"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie zum Öffnen des Dialogs <b>Details Zeichnung</b> doppelt auf das Diagramm. Wählen Sie <b>(MBook1D)MSheet1</b> im linken Bedienfeld. Wechseln Sie im rechten Bedienfeld zur Registerkarte <b>Füllen</b>. Wählen Sie <b>Konturfüllung aus Matrix</b>. Wählen Sie dann <b>Mat(2)</b> für die vordere Oberfläche.
+
+      <dl>
+        <dd><a class="image"><img alt="Colormap from second matrix 04.png" src="../images/Colormap_from_Second_Matrix/Colormap_from_second_matrix_04.png" width="772"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wechseln Sie zur Registerkarte <b>Farbpalette/Kontur</b> und klicken Sie auf die Überschrift <b>Ebene...</b>, um den Dialog Ebenen festlegen zu öffnen. Klicken Sie in diesem Dialog auf die Schaltfläche <b>Min./Max. suchen</b> und legen Sie die <b>Anz. Hauptebenen</b> und <b>Anz. Nebenebenen</b> auf <i>10</i> und <i>9</i> fest. Klicken Sie auf OK, um den Dialog zu schließen.
+
+      <dl>
+        <dd><a class="image"><img alt="Colormap from second matrix 05.png" src="../images/Colormap_from_Second_Matrix/Colormap_from_second_matrix_05.png" width="538"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Überschrift <b>Füllung</b>, um den Dialog <b>Füllung</b> zu öffnen. Wählen Sie die Option <b>Palette laden</b> und klicken Sie dann auf die Schaltfläche <b>Palette auswählen</b>, um die Palette <b>Rainbow</b> auszuwählen. Klicken Sie auf OK, um diesen Dialog zu schließen.
+
+      <dl>
+        <dd><a class="image"><img alt="Colormap from second matrix 005.png" src="../images/Colormap_from_Second_Matrix/Colormap_from_second_matrix_005.png" width="538"></a></dd>
+      </dl>
+    </li>
+
+    <li>Aktivieren Sie das Kontrollkästchen <b>Konturen aktivieren</b>. Klicken Sie auf die Überschrift <b>Linie</b>, um den Dialog <b>Konturlinien</b> zu öffnen. Aktivieren Sie in diesem Dialog das Kontrollkästchen <b>Nur auf Hauptebenen zeigen</b> und legen Sie die <b>Linieneigenschaften</b>, wie unten zu sehen, fest. Klicken Sie auf OK, um den Dialog zu schließen.
+
+      <dl>
+        <dd><a class="image"><img alt="Colormap from second matrix 016.png" src="../images/Colormap_from_Second_Matrix/Colormap_from_second_matrix_016.png" width="541"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wechseln Sie zur Registerkarte <b>Drahtgitter</b> und deaktivieren Sie das Kontrollkästchen <b>Aktivieren</b>, um das Drahtgitter zu deaktivieren.</li>
+
+    <li>Wählen Sie <b>Layer1</b> im linken Bedienfeld und wechseln Sie zur Registerkarte <b>Beleuchtung</b> im rechten Bedienfeld. Wählen Sie <b>Direktional</b> unter <b>Modus</b>. Legen Sie für <b>Horizontal</b> und <b>Vertikal</b> die Werte <i>124</i> bzw. <i>40</i> fest und ändern Sie die Farbe von <b>Diffus</b> in <i>Hellgrau</i> und von <b>Spiegel</b> in <i>Grau</i>. Setzen Sie den <b>Glanz</b> dann auf <i>7</i>.
+
+      <dl>
+        <dd><a class="image"><img alt="Colormap from second matrix 06.png" src="../images/Colormap_from_Second_Matrix/Colormap_from_second_matrix_06.png" width="771"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wechseln Sie zur Registerkarte <b>Ebenen</b>, setzen Sie die Farbe auf <b>Grau</b> und wählen Sie <b>Vordere Ecke</b> in der Auswahlliste Würfel.
+
+      <dl>
+        <dd><a class="image"><img alt="Colormap from second matrix 013.png" src="../images/Colormap_from_Second_Matrix/Colormap_from_second_matrix_013.png" width="532"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wechseln Sie zur Registerkarte <b>Achsen</b> und nehmen Sie dort die Einstellungen, wie unten zu sehen, vor. Klicken Sie auf <b>OK</b>, um den Dialog zu schließen.
+
+      <dl>
+        <dd><a class="image"><img alt="Colormap from second matrix 014.png" src="../images/Colormap_from_Second_Matrix/Colormap_from_second_matrix_014.png" width="441"></a></dd>
+      </dl>
+    </li>
+
+    <li>Lassen Sie das Grafikfenster aktiviert. Wählen Sie <b>Einfügen: Farbskala</b>, um eine neue Farbskala in das Diagrammfenster hinzuzufügen.</li>
+
+    <li>Klicken Sie doppelt auf die Farbskala, um den Dialog <b>Eigenschaften Farbskala</b> zu öffnen. Wählen Sie <b>Layout</b> im linken Bedienfeld, setzen Sie die <b>Dicke der Farbbalken</b> mit <b>150</b> fest und aktivieren Sie das Kontrollkästchen <b>Umgekehrte Reihenfolge</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Colormap from second matrix 9.png" src="../images/Colormap_from_Second_Matrix/Colormap_from_second_matrix_9.png" width="526"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie <b>Beschriftungen</b> im linken Bedienfeld und setzen Sie im rechten Bedienfeld die <b>Schriftgröße</b> auf <i>14</i>, wie unten zu sehen:
+
+      <dl>
+        <dd><a class="image"><img alt="Colormap from second matrix 11.png" src="../images/Colormap_from_Second_Matrix/Colormap_from_second_matrix_11.png" width="532"></a></dd>
+
+        <dd>Klicken Sie auf <b>OK</b>, um das Dialogfeld <b>Eigenschaften Farbskala</b> zu schließen.</dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie doppelt auf den X-, Y- und Z-Achsentitel und geben Sie "X distance", "Y distance" und "Height" ein. Fügen Sie oberhalb der Farbskala ein Textobjekt "Pressure(psi)" ein.</li>
+
+    <li>Das Diagramm sollte am Ende folgendermaßen aussehen:
+
+      <dl>
+        <dd><a class="image"><img alt="Colormap from second matrix 1.png" src="../images/Colormap_from_Second_Matrix/Colormap_from_second_matrix_1.png" width="566"></a></dd>
+      </dl>
+    </li>
+  </ol>

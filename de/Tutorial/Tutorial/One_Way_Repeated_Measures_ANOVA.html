@@ -1,0 +1,120 @@
+﻿<h1 class="firstHeading">Einfache ANOVA mit wiederholten Messungen</h1>
+
+  <p class='urlname' style='display: none'>1WayRepeatedMeasuresANOVA</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Indexed_data_mode"><span class="tocnumber">3.1</span> <span class="toctext">Modus Indizierte Daten</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Results_Interpretation"><span class="tocnumber">3.2</span> <span class="toctext">Interpretation der Ergebnisse</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Die einfache ANOVA bei wiederholten Messungen ähnelt der einfachen ANOVA, verarbeitet jedoch eine abhängige Variable, die wiederholten Messungen unterliegt. In dieser Situation ist die Annahme der Unabhängigkeit der allgemeinen einfachen ANOVA nicht vertretbar, da es wahrscheinlich eine Korrelation zwischen den Stufen des wiederholten Faktors gibt.</p>
+
+  <p>Wie die einfache ANOVA kann die einfache ANOVA mit wiederholten Messungen herangezogen werden, um zu testen, ob Mittelwerte gleich sind oder nicht. Diese Mittelwerte schließen den Mittelwert unterschiedlicher Messungen und den Mittelwert unterschiedlicher Objekte ein. Diese Ergebnisse werden in der Tabelle mit dem Titel <i>Test auf Effekte innerhalb der Versuchsobjekte</i> bzw.<i>Test auf Effekte zwischen den Versuchsobjekten</i> ausgegeben. Beachten Sie, dass die ANOVA bei wiederholten Messungen in Origin balancierte Sampledaten benötigt, das heißt den gleichen Stichprobenumfang auf jeder Stufe.</p>
+
+  <p>&#160;</p>
+
+  <p class="version">Origin-Version mind. erforderlich: 8.6 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>indizierte Daten in den Dialog der statistischen Analyse eingeben.</li>
+
+    <li>die einfache ANOVA mit wiederholten Messungen durchführen,</li>
+
+    <li>die Ergebnisse einer einfachen ANOVA bei wiederholten Messungen interpretieren.</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <p>Origin kann eine <b>einfache ANOVA mit wiederholten Messungen</b> sowohl für indizierte als auch für Rohdaten durchführen. Wenn für die <b>einfache ANOVA mit wiederholten Messungen</b> der Indexmodus verwendet wird, sollten die Daten in drei Spalten organsisiert sein: <b>Faktor</b>, <b>Daten</b> und <b>Subjekt</b>. Wenn der Rohdatenmodus verwendet wird, sollten sich die verschiedenen Stufen in verschiedenen Spalten befinden.</p>
+
+  <h3><a name="Indexed_data_mode"></a><span class="mw-headline">Datenmodus Indiziert</span></h3>
+
+  <p>Die Daten enthalten Messungen für 3 verschiedene Dosen von 20 Subjekten. Unser Interesse besteht darin herauszufidnen, ob die verschiedenen Dosen unterschiedliche Effekte auf die Subjekte haben. Um dies zu testen, führen wir eine einfache ANOVA mit wiederholten Messungen durch, wobei wir indizierte Daten verwenden.</p>
+
+  <ol>
+    <li>Öffnen Sie ein leeres Arbeitsblatt. Wählen Sie <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b> im Menü, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner <i>Statistics</i>. Dort befindet sich die Datei <i>One Way_RM_ANOVA_indexed.dat</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das leere Arbeitsblatt, um sie zu importieren.</li>
+
+    <li>Wählen Sie <b>Statistik: ANOVA: Einfache ANOVA mit wiederholten Messungen</b>, um den Dialog zu öffnen. Wählen Sie auf der Registerkarte <b>Eingabe</b> dieses Dialogs die Option <b>Indiziert</b> in der Auswahlliste <b>Eingabedaten</b> und setzen Sie die Spalten <b>B(dose)</b>, <b>C(Data)</b> und <b>A(Subject)</b> auf <b>Faktor</b>, <b>Daten</b> bzw. <b>Subjekt</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="OnermANOVA 1.png" src="../images/One_Way_Repeated_Measures_ANOVA/OnermANOVA_1.png" width="429"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wechseln Sie zur Registerkarte <b>Mittelwertevergleich</b> und aktivieren Sie das Kontrollkästchen vor <b>Bonferroni</b>, um den Bonferroni-Test zu aktivieren.
+
+      <dl>
+        <dd><a class="image"><img alt="OnermANOVA 2.png" src="../images/One_Way_Repeated_Measures_ANOVA/OnermANOVA_2.png" width="295"></a></dd>
+      </dl>
+    </li>
+
+    <li>Aktivieren Sie die Kontrollkästchen <b>Mittelwertdiagramm (SE als Fehler)</b> und <b>Mittelwertvergleichsdiagramm</b> auf der Registerkarte <b>Diagramme</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="OnermANOVA 3.png" src="../images/One_Way_Repeated_Measures_ANOVA/OnermANOVA_3.png" width="281"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um die Analyse durchzuführen.</li>
+  </ol>
+
+  <h3><a name="Results_Interpretation"></a><span class="mw-headline">Interpretation der Ergebnisse</span></h3>
+
+  <p>Go to the worksheet <b>ANOVAOneWayRM1</b>, where the analysis results are listed.</p>
+
+  <p>Sie können dieses Kapitel der <a class="external text" href="../../UserGuide/UserGuide/Interpreting_Results_of_Repeated_Measures_ANOVA.html">Hilfe</a> verwenden, um die Ergebnisse der ANOVA mit wiederholten Messungen zu interpretieren.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Onrreanova2.png" src="../images/One_Way_Repeated_Measures_ANOVA/Onrreanova2.png" width="439"></a></dd>
+  </dl>
+
+  <p>Origin druckt die MANOVA automatische mit den wiederholten Messungen aus, um deren Effekte zu erkennen. Beachten Sie, dass die vier verschiedenen Methoden (Pillai-Spur, Wilks' Lambda, Hotelling-Spur und die größte charakteristische Wurzel nach Roy) identische F-Statistiken und Wahrscheinlichkeiten, <b>P=0,06455</b>, erzeugen, so dass die Mittelwerte unter den Bedingungen der drei Stufen statistisch nicht unterschiedlich sind. Vergleichen Sie dies mit dem folgenden Bericht der ANOVA . Wir können sehen, dass die Schlussfolgerung konservativ ist.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Onermanova3.png" src="../images/One_Way_Repeated_Measures_ANOVA/Onermanova3.png" width="824"></a></dd>
+  </dl>
+
+  <p>Diese Tabelle zeigt die Ergebnisse des Mauchly-Test (Sphärizitätstest). Aus den Testergebnissen können wir ersehen, dass die Sphärizität hält. Von Interesse ist in diesem Fall der Wert von <b>Wahrsch. &gt; Chi-Qdr</b>, der das Signifikanzniveau des Mauchly-Tests darstellt. Aus diesem Beispiel können wir ersehen, dass das Signifikanzniveau (0,44609) größer als 0,05 ist. Daher wurde die Annahme der Sphärizität nicht verletzt.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="RMANOVA4.png" src="../images/One_Way_Repeated_Measures_ANOVA/RMANOVA4.png" width="609"></a></dd>
+  </dl>
+
+  <p>Diese Tabelle stellt den F-Wert für den Faktor zusätzlich zu dem zugehörigen Signifikanzniveau und der Effektgröße bereit. Da unsere Daten der Annahme der Sphärizität folgen, können wir schlussfolgern, dass die Mittelwerte unter den Bedingungen der drei Stufen statistisch unterschiedlich sind (P = 0,03908 &lt; 0.05), wenn eine ANOVA mit wiederholten Messungen und <b>angenommener Sphärizität</b> verwendet wird. Mit anderen Worten: die Dosis ist ein signifikanter Faktor.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Onerm3.png" src="../images/One_Way_Repeated_Measures_ANOVA/Onerm3.png" width="754"></a></dd>
+  </dl>
+
+  <p>Die in der vorherigen Tabelle dargestellten Ergebnisse haben gezeigt, dass es eine signifikante Gesamtdifferenz unter den Mittelwerten gibt, wir jedoch nicht wissen, wodurch diese Differenzen verursacht werden. Diese Tabelle zeigt die Ergebnisse des Bonferroni-Tests, der ersichtlich macht, welche speziellen Mittelwerte sich unterscheiden. In diesem Fall haben die Mittelwerte von Dose = 10 und Dose = 20 eine signifikante Differenz (<b>P = 0,03402 &lt; 0,05 und Sig Flag = 1</b>).</p>
+
+  <p>Von den beiden Zeichnungen unten ausgehend können wir leicht zu der gleichen Schlussfolgerung kommen.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Onerm4.png" src="../images/One_Way_Repeated_Measures_ANOVA/Onerm4.png" width="450"></a></dd>
+
+    <dd><a class="image"><img alt="Onerm05.png" src="../images/One_Way_Repeated_Measures_ANOVA/Onerm05.png" width="494"></a></dd>
+  </dl>

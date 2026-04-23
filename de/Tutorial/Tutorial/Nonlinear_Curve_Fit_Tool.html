@@ -1,0 +1,139 @@
+﻿<h1 class="firstHeading">Hilfsmittel Nichtlinearer Kurvenfit</h1>
+
+  <p class='urlname' style='display: none'>Fitting-NLFit-Basic</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#Use_a_built-in_function_to_fit_the_data"><span class="tocnumber">3</span> <span class="toctext">Daten mit einer Standardfunktion anpassen</span></a></li>
+
+      <li class="toclevel-1 tocsection-4"><a href="#Define_and_fit_with_a_user-defined_function"><span class="tocnumber">4</span> <span class="toctext">Mit einer benutzerdefinierten Funktion definieren und anpassen</span></a></li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Die nichtlineare Anpassung wird bei Origin mit Hilfe des Dialogs Nichtlinearer Fit (NLFit) durchgeführt. Das Hilfsmittel NLFit beinhaltet mehr als 200 standardmäßige Anpassungsfunktionen, die in vielen verschiedenen Disziplinen verwendet werden.</p>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Nonlinear_Curve_Fit_Tool/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Um eine schnelle und einfache Anpassung ohne Öffnen des NLFit-Dialogs durchzuführen, testen Sie das <a href="../../Tutorial/Tutorial/Quick_Fit_Gadget.html" title="Tutorial:Quick Fit Gadget">Minitool Quick Fit</a>.</p>
+      </td>
+    </tr>
+  </table>
+
+  <p class="version">Origin-Version mind. erforderlich: 8.5</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <ul>
+    <li>Eine Anpassung mit einer Standardanpassungsfunktion durchführen</li>
+
+    <li>NLFit-Einstellungen mit Hilfe der Funktion Neu berechnen ändern</li>
+
+    <li>Mit einer benutzerdefinierten Funktion definieren und anpassen</li>
+  </ul>
+
+  <h2><a name="Use_a_built-in_function_to_fit_the_data"></a><span class="mw-headline">Daten mit einer Standardfunktion anpassen</span></h2>
+
+  <ol>
+    <li>Klicken Sie auf <b>Datei: Öffnen...</b>, um das Projekt <b>Intro_to_Nonlinear Curve Fit Tool.opj</b> im Verzeichnis <b>\Samples\Curve Fitting</b> zu öffnen und den Ordner <b>Built-In Function</b> im Projekt Explorer auszuwählen.</li>
+
+    <li>Wählen Sie bei aktivem <b>Graph1</b> im Menü <b>Analyse: Anpassen: Nichtlinearer Fit</b>, um den Dialog <b>NLFit</b> aufzurufen, und wählen Sie dann <b>Gauss</b> in der Auswahlliste <b>Funktion</b>:<br>
+    <a class="image"><img alt="Nonlinear Curve Fit Tool 001.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_001.png" width="750"></a></li>
+
+    <li>Die Initialisierungsparameterwerte werden auf der Registerkarte <b>Parameter</b> automatisch zugewiesen, da die Standardfunktionen Parameterinitialisierungscode enthalten.<br>
+    Wenn Sie zur Registerkarte <b>Residuen</b> wechseln, können Sie die aktuellen Residuen sehen und bewerten, ob die aktuellen Anpassungsergebnisse akzeptabel sind.<br>
+    <a class="image"><img alt="Nonlinear Curve Fit Tool 002.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_002.png" width="750"></a></li>
+
+    <li>Beachten Sie, dass eine mit Hilfe der Initialisierungsparameterwerte gezeichnete angepasste Kurve im Diagramm gezeigt wird.<br>
+    <a class="image"><img alt="Nonlinear Curve Fit Tool 003.png" src="../images/Nonlinear_Curve_Fit_Tool/Nonlinear_Curve_Fit_Tool_003.png" width="414"></a></li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Fit bis konvergiert</b> <a class="image"><img alt="Button Fit Untill Converged.png" src="../images/Nonlinear_Curve_Fit_Tool/Button_Fit_Untill_Converged.png" width="26"></a>. Um zu prüfen, ob die Anpassungsoperation erfolgreich war, klicken Sie auf die Registerkarte <b>Nachrichten</b> und beachten Sie die Anzahl der Iterationen, den Wert des reduzierten Chi-Quadrats, den R^2-Wert etc.<br>
+    <a class="image"><img alt="Nonlinear Curve Fit Tool 004.png" src="../images/Nonlinear_Curve_Fit_Tool/Nonlinear_Curve_Fit_Tool_004.png" width="385"></a></li>
+
+    <li>Klicken Sie auf <b>OK</b>. Das Berichtsblatt <b>FitNL1</b> mit den Anpassungsergebnissen, einschließlich Parameterwerte und Fit-Statistik, wird erstellt.<br>
+    <a class="image"><img alt="Nonlinear Curve Fit Tool 005.png" src="../images/Nonlinear_Curve_Fit_Tool/Nonlinear_Curve_Fit_Tool_005.png" width="645"></a></li>
+
+    <li>Öffnen Sie den Dialog des nichtlinearen Kurvenfits erneut, indem Sie auf das grüne Schloss in der oberen linken Ecke des Diagramms klicken und <b>Parameter ändern</b> auswählen.<br>
+    <a class="image"><img alt="Nonlinear Curve Fit Tool 006.png" src="../images/Nonlinear_Curve_Fit_Tool/Nonlinear_Curve_Fit_Tool_006.png" width="414"></a></li>
+
+    <li>Wechseln Sie zur Registerkarte <b>Parameter</b>, ändern Sie den Wert von <i>xc</i> in <i>25</i> (beachten Sie, dass Sie den Wert durch einen Doppelklick auf die Zelle bearbeiten können) und aktivieren Sie das Kontrollkästchen <b>Fest</b>.<br>
+    <a class="image"><img alt="Nonlinear Curve Fit Tool 007.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_007.png" width="750"></a></li>
+
+    <li>Klicken Sie wieder auf die Schaltfläche <b>Fit bis konvergiert</b> <a class="image"><img alt="Button Fit Untill Converged.png" src="../images/Nonlinear_Curve_Fit_Tool/Button_Fit_Untill_Converged.png" width="26"></a> und dann auf <b>OK</b>.</li>
+
+    <li>Im Berichtsblatt können Sie sehen, dass das Festlegen des Werts von <i>xc</i> auf 25 einen Standardfehler von 0 ergibt.<br>
+    <a class="image"><img alt="Nonlinear Curve Fit Tool 008.png" src="../images/Nonlinear_Curve_Fit_Tool/Nonlinear_Curve_Fit_Tool_008.png" width="549"></a></li>
+  </ol>
+
+  <h2><a name="Define_and_fit_with_a_user-defined_function"></a><span class="mw-headline">Mit einer benutzerdefinierten Funktion definieren und anpassen</span></h2>
+
+  <p>In diesem Abschnitt soll gezeigt werden, wie Sie Ihre eigene Anpassungsfunktion definieren und sie im Hilfsmittel Nichtlinearer Kurvenfit verwenden.<br>
+  Unsere Funktion lautet <b>y=y0+a*exp(-b*x)</b>.</p>
+
+  <ol>
+    <li>Mit der Projektdatei, die im ersten geöffneten Abschnitt verwendet wurde. Wählen Sie im Menü <b>Hilfsmittel: Fitfunktionen erstellen</b>, um den entsprechenden Dialog <b>Fitfunktionen erstellen</b> aufzurufen.</li>
+
+    <li>Klicken Sie auf der Seite Ziel auf <b>Eine neue Funktion erstellen</b> und klicken Sie dann auf die Schaltfläche <b>Weiter</b>, um zur Seite <b>Name und Typ</b> zu gelangen.<br>
+    <a class="image"><img alt="Nonlinear Curve Fit Tool 009.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_009.png" width="750"></a></li>
+
+    <li>Geben Sie der Funktion auf der Seite <b>Name und Typ</b> einen Namen und wählen Sie einen Funktionstyp aus. Diese Funktion wird per Standard in der Kategorie <b>Benutzerdefiniert</b> abgelegt.
+
+      <ul>
+        <li>Legen Sie <b>MeineFunktion</b> als den <b>Funktionsnamen</b> fest.</li>
+
+        <li>Wählen Sie <b>Ausdruck</b> aus der Liste <b>Funktionstyp</b>. Beachten Sie, dass das linke Bedienfeld Hinweise zu dem ausgewählten Funktionstyp anzeigt.</li>
+
+        <li>Klicken Sie auf die Schaltfläche <b>Weiter</b>, um zur Seite <b>Variablen und Parameter</b> zu gelangen.<br></li>
+      </ul><a class="image"><img alt="Nonlinear Curve Fit Tool 010.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_010.png" width="750"></a>
+    </li>
+
+    <li>Stellen Sie auf der Seite <b>Variablen und Parameter</b> sicher, dass für <b>Unabhängige Variablen</b> <i>x</i> und für <b>Abhängige Variablen</b> <i>y</i> angegeben ist. Geben Sie dann die durch Komma getrennten Werte <i>y0, a, b</i> in das Textfeld <b>Parameter</b> ein. Klicken Sie auf die Schaltfläche <b>Weiter</b>.<br>
+    <a class="image"><img alt="Nonlinear Curve Fit Tool 011.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_011.png" width="750"></a></li>
+
+    <li>Führen Sie auf der Seite <b>Funktionskörper</b> die folgenden Operationen durch:
+
+      <ul>
+        <li>Legen Sie die <b>Initialisierungswerte</b> für die Parameter wie unten fest.</li>
+
+        <li>Geben Sie im Bearbeitungsfeld <b>Funktionskörper</b> <i>y0+a*exp(-b*x)</i> ein.</li>
+
+        <li>Verwenden Sie die <b>Schnellprüfung</b>, um die Gültigkeit der aktuellen Funktion zu testen. Nachdem Sie einen Wert für die unabhängigen Variablen <i>X</i> eingegeben haben, klicken Sie auf die Schaltfläche <b>Auswerten</b> <a class="image"><img alt="Button Evaluate.png" src="../images/Nonlinear_Curve_Fit_Tool/Button_Evaluate.png" width="23"></a>. Sie erhalten einen Ausgabewert der abhängigen Variablen <i>Y</i>, der verwendet werden kann, um die Gültigkeit dieser Funktion zu prüfen.<br></li>
+      </ul><a class="image"><img alt="Nonlinear Curve Fit Tool 012.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_012.png" width="750"></a>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Fertigstellen</b>, um die Definition dieser Funktion abzuschließen.</li>
+
+    <li>Öffnen Sie den Projekt Explorer (<b>Ansicht: Projekt Explorer</b>) und wählen Sie den Ordner <b>User-Defined Function</b>.</li>
+
+    <li>Markieren Sie Spalte A und B in [Book1]Sheet1 und wählen Sie im Menü <b>Analyse: Anpassen: Nichtlinearer Fit</b>, um den Dialog <b>NLFit</b> zu öffnen. Wählen Sie die Kategorie <b>Benutzerdefiniert</b> und die Funktion <b>MeineFunktion</b> auf der Seite <b>Funktionsauswahl</b> und der Registerkarte <b>Einstellungen</b>:<br>
+    <a class="image"><img alt="Nonlinear Curve Fit Tool 013.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_013.png" width="750"></a></li>
+
+    <li>Indem Sie wiederholt auf die Schaltfläche <b>1 Iteration</b> klicken, können Sie die Änderung in den Parameterwerten sowie die zunehmende Konformität der angepassten Kurve verfolgen.
+
+      <ul>
+        <li>Klicken Sie auf die Schaltfläche "1 Iteration" <a class="image"><img alt="Button 1 Iteration.png" src="../images/Nonlinear_Curve_Fit_Tool/Button_1_Iteration.png" width="26"></a>.<br></li>
+      </ul><a class="image"><img alt="Nonlinear Curve Fit Tool 014.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_014.png" width="750"></a>
+
+      <ul>
+        <li>Klicken Sie erneut auf die Schaltfläche 1 Iteration <a class="image"><img alt="Button 1 Iteration.png" src="../images/Nonlinear_Curve_Fit_Tool/Button_1_Iteration.png" width="26"></a>.<br></li>
+      </ul><a class="image"><img alt="Nonlinear Curve Fit Tool 015.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_015.png" width="750"></a>
+
+      <ul>
+        <li>Klicken Sie auf die Schaltfläche <b>Fit bis konvergiert</b>.<a class="image"><img alt="Button Fit Untill Converged.png" src="../images/Nonlinear_Curve_Fit_Tool/Button_Fit_Untill_Converged.png" width="26"></a><br></li>
+      </ul><a class="image"><img alt="Nonlinear Curve Fit Tool 016.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_016.png" width="750"></a>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>OK</b>, und das Berichtsblatt FitNL1 der Anpassungsergebnisse wird erstellt. Hier finden Sie die Parameterwerte für die beste Anpassung und weitere Fit-Statistiken.</li>
+  </ol>

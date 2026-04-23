@@ -1,0 +1,110 @@
+﻿<h1 class="firstHeading">Kurvenanpassung</h1>
+
+  <p class='urlname' style='display: none'>GSB-curve-fitting</p>
+
+  <p>&#160;</p>
+
+  <p>In dieser Lektion erfahren Sie, wie Sie eine lineare und eine nichtlineare Regression durchführen.</p>
+
+  <h3><a name="Linear_Fit_with_Outliers"></a><span class="mw-headline">Lineare Anpassung mit Ausreißer</span></h3>
+
+  <ol>
+    <li>Beginnen Sie mit dem Projekt, das Sie in der letzten Lektion gespeichert haben, und fügen Sie einen neuen Ordner mit dem Namen <i><b>Kurvenanpassung</b></i> auf der Hauptebene des Projekt Explorers hinzu.</li>
+
+    <li>Importieren Sie die Datei <i>&lt;Origin-Verzeichnis&gt;\Samples\Curve Fitting\Outlier.dat</i>.</li>
+
+    <li>Markieren Sie die zweite Spalte und erstellen Sie ein Punktdiagramm.</li>
+
+    <li>Wählen Sie im Menü <b>Analyse: Anpassen: Linearer Fit</b>. Übernehmen Sie die Standardeinstellungen in dem sich öffnenden Dialog und klicken Sie auf <b>OK</b>, um die lineare Anpassung durchzuführen.</li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf die Tabelle der Anpassungsergebnisse und wählen Sie <b>Mengen in Tabelle</b>. Entfernen Sie alle Einträge außer <b>Schnittpunkt mit der Y-Achse</b>, <b>Steigung</b> und <b>Pearsons r</b> (verwenden Sie die Strg-Taste + wählen Sie mehrere Optionen aus). Klicken Sie auf <b>OK</b> und verändern Sie ggf. die Größe der Ergebnistabelle.</li>
+
+    <li>Klicken Sie jetzt auf die Schaltfläche <b>Punkte auf aktiver Zeichnung maskieren</b> <a class="image"><img alt="Button Mask Data.png" src="../images/Curve_Fitting/Button_Mask_Data.png" width="25"></a> auf der Symbolleiste links und maskieren Sie den Punkt rechts unten, der eindeutig<br>
+    getrennt von dem Rest der Datenpunkte ist.</li>
+
+    <li>Das Schloss oben links von der Diagrammseite wird gelb <a class="image"><img alt="Yellow Lock.png" src="../images/Curve_Fitting/Yellow_Lock.png" width="18"></a> und zeigt damit an, dass die Daten sich geändert haben. Die Anpassungsergebnisse müssen aktualisiert werden.</li>
+
+    <li>Drücken Sie die ESC-Taste, um den Cursor zurück in den Zeigermodus zu bringen. Klicken Sie dann auf das gelbe Schloss und wählen Sie im Ausklappmenü <b>Modus Neu berechnen: Auto</b>. Die Anpassungsergebnisse werden aktualisiert.</li>
+
+    <li style="list-style: none">
+      <table class="mtip">
+        <tr>
+          <td style="vertical-align:top"><img src="../images/Curve_Fitting/Mini_bulb.png" alt=""></td>
+
+          <td>
+            <p>Sie können alle ausstehenden Operationen in einem Projekt aktualisieren, indem Sie auf die Schaltfläche <b>Neu berechnen</b> <a class="image"><img alt="Button Run for All OPS.png" src="../images/Curve_Fitting/Button_Run_for_All_OPS.png" width="25"></a> klicken, die sich auf der Symbolleiste Standard befindet.</p>
+          </td>
+        </tr>
+      </table>
+    </li>
+
+    <li>Kehren Sie zum Diagramm zurück und verwenden Sie das Maskierungshilfsmittel, um den Ausreißer oben zu maskieren. Sie werden sehen, dass die Ergebnisse automatisch aktualisiert werden. Ihr Diagramm sollte in etwa dem folgenden Bild entsprechen:<br>
+    <a class="image"><img alt="Mini tut curve fit 1.png" src="../images/Curve_Fitting/Mini_tut_curve_fit_1.png" width="305"></a></li>
+  </ol>
+
+  <h3><a name="Nonlinear_Curve_Fit"></a><span class="mw-headline">Nichtlinearer Fit</span></h3>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe und importieren Sie die Datei <i>&lt;Origin-Verzeichnis&gt;\Samples\Curve Fitting\Gaussian.dat</i>.</li>
+
+    <li>Markieren Sie die Spalte mit dem Namen <i>Amplitude</i> und erstellen Sie ein Punktdiagramm.</li>
+
+    <li>Gehen Sie zurück zur Arbeitsmappe und markieren Sie die Spalte mit dem Namen <i>Fehler</i>. Klicken Sie dann mit der rechten Maustaste und wählen Sie <b>Setzen als: Y-Fehlerbalken</b> im Kontextmenü.</li>
+
+    <li>Platzieren Sie den Mauscursor nah am rechten Rand der markierten Spalte. Der Cursor verwandelt sich in ein <a class="image"><img alt="Drag Drop Cursor.png" src="../images/Curve_Fitting/Drag_Drop_Cursor.png" width="34"></a>. Ziehen Sie nun die Spalte per Drag&amp;Drop auf das Diagramm. Die Daten werden als Fehlerbalken zu dem Punktdiagramm hinzugefügt.</li>
+
+    <li>Passen Sie jetzt diese Daten an. Wählen Sie im Menü <b>Analyse: Anpassen: Nichtlinearer Fit</b>, um den Dialog <b>NLFit</b> zu öffnen.</li>
+
+    <li>Setzen Sie auf der Seite <b>Funktionsauswahl</b> die Auswahlliste <b>Kategorie</b> auf <b>Peakfunktionen</b> und die Auswahlliste <b>Funktion</b> auf <b>Gauss</b>.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Fit</b>, um die Anpassung durchzuführen, und wählen Sie <b>Nein</b> im aufgerufenen Dialog, damit das Diagrammfenster aktiv bleibt.<br>
+    <a class="image"><img alt="Nonlinear Curve Fit.png" src="../images/Curve_Fitting/Nonlinear_Curve_Fit.png" width="401"></a><br></li>
+
+    <li>Nun soll <i>y0</i> als <i>0</i> festgelegt werden, und die Ergebnisse sollen aktualisiert werden. Klicken Sie auf das grüne Schloss oben links auf der Diagrammseite und wählen Sie <b>Parameter ändern</b>.</li>
+
+    <li>Der Dialog wird erneut geöffnet und zwar mit den Einstellungen, die das letzte Mal für diese Operation verwendet wurden. Gehen Sie zu der Registerkarte <b>Parameter</b>, aktivieren Sie das Kontrollkästchen <b>Fest</b> für <i>y0</i> und geben Sie den <b>Wert</b> mit <i>0</i> an.<br>
+    <a class="image"><img alt="GST Curve Fitting 01.png" src="../images/Curve_Fitting/GST_Curve_Fitting_01.png" width="266"></a></li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Fit</b>, um die Datei zu aktualisieren und den Dialog zu schließen. Aus der aktualisierten Tabelle im Diagramm können wir ersehen, dass <img src="../images/Curve_Fitting/math-1c9d6409af68a33d266754cb5eba223d.png" title="y0 = 0 \pm 0" alt="y0 = 0 \pm 0" class="tex">.</li>
+  </ol>
+
+  <h3><a name="Global_Fit_with_Parameter_Sharing"></a><span class="mw-headline">Globales Anpassen mit gemeinsamer Parameternutzung</span></h3>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe und importieren Sie die Datei <i>&lt;Origin-Verzeichnis&gt;\Samples\Curve Fitting\Exponential Decay.dat</i>.</li>
+
+    <li>Markieren Sie alle drei Y-Spalten und erstellen Sie ein Liniendiagramm.</li>
+
+    <li>Sie möchten alle drei Datenzeichnungen gleichzeitig über den X-Bereich von 0,4 s bis 1,0 s anpassen. Klicken Sie auf der Symbolleiste <b>Hilfsmittel</b> auf der linken Seite der Bedienoberfläche auf den nach unten weisenden Pfeil rechts von der Schaltfläche <b>Auswahl in aktiver Zeichnung</b> <a class="image"><img alt="Button Select On Active Plot.png" src="../images/Curve_Fitting/Button_Select_On_Active_Plot.png" width="31"></a>. Wählen Sie im Ausklappmenü <b>Auswahl in allen Zeichnungen</b>. Gehen Sie zu dem Diagramm und ziehen Sie ein Rechteck auf, das ungefähr den X-Bereich von 0,4 bis 1,0 umfasst, einschließlich der drei Kurven in dem Prozess.<br>
+    <a class="image"><img alt="Mini tut curve fit 2.png" src="../images/Curve_Fitting/Mini_tut_curve_fit_2.png" width="487"></a></li>
+
+    <li>Drücken Sie <b>Strg+Y</b>, um den Dialog <b>NLFit</b> schnell zu öffnen. Setzen Sie die <b>Kategorie</b> auf <b>Exponential</b> und die <b>Funktion</b> auf <b>ExpDec1</b>.</li>
+
+    <li>Klicken Sie auf <b>Datenauswahl</b> auf der Registerkarte <b>Einstellungen</b> und erweitern Sie den Zweig <b>Eingabedaten</b>. Sie können sehen, dass alle drei Kurven hinzugefügt wurden. Sie können den Zweig <b>Bereich<i>#</i></b> erweitern, um die Datenbereiche weiter anzupassen, entweder nach Zeilenindex oder nach X-Wert.</li>
+
+    <li style="list-style: none">
+      <table class="mtip">
+        <tr>
+          <td style="vertical-align:top"><img src="../images/Curve_Fitting/Mini_bulb.png" alt=""></td>
+
+          <td>
+            <p>Wenn keine Bereichsauswahl auf den Zeichnungen vorgenommen wurde, wählt Origin nur die aktive Datenzeichnung aus dem Diagrammlayer, das mehrere Zeichnungen enthält. In diesem Fall können Sie auf die Schaltfläche <a class="image"><img alt="Button Right Triangle.png" src="../images/Curve_Fitting/Button_Right_Triangle.png" width="22"></a> rechts von <b>Eingabedaten</b> klicken und <b>Alle Zeichnungen in aktiver Seite einfügen</b> auswählen.</p>
+          </td>
+        </tr>
+      </table>
+    </li>
+
+    <li>Ändern Sie <b>Fitmodus für mehrere Datensätze</b> in <b>Globaler Fit</b>. Wechseln Sie zur Registerkarte <b>Parameter</b> und klicken Sie auf die Schaltfläche <b>Fit bis konvergiert</b> <a class="image"><img alt="Fit until converge.png" src="../images/Curve_Fitting/Fit_until_converge.png" width="26"></a>, um alle drei Kurven gleichzeitig anzupassen. Der Dialog bleibt geöffnet.</li>
+
+    <li>Sie können Parameter während einer globalen Anpassung gemeinsam mit anderen nutzen. Aktivieren Sie das Kontrollkästchen <b>Teilen</b> für die Zeitkonstante <i><b>t1</b></i>. Sie werden merken, dass der Zeitparameter für die anderen Kurven aus der Parameterliste entfernt wurde.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Fit</b> und wählen Sie <b>Ja</b> in dem angezeigten Dialog, um zum Berichtsblatt zu wechseln. Wenn die Nachfrage nicht angezeigt wird, können Sie auf das grüne Schloss im Diagramm klicken und <b>Gehe zu Ergebnissen</b>.</li>
+
+    <li>Scrollen Sie in der Tabelle <i>Zusammenfassung</i> im Bericht nach unten. Sie können sehen, dass alle Zeitkonstanten <i><b>t1</b></i> die gleichen Werte teilen.<br>
+    <a class="image"><img alt="GST Curve Fitting 02.png" src="../images/Curve_Fitting/GST_Curve_Fitting_02.png" width="677"></a></li>
+
+    <li>Klicken Sie jetzt auf die Schaltfläche mit nach unten weisenden Pfeil neben dem Zweig <b>Zusammenfassung</b> und wählen Sie <b>Kopie als neues Blatt erstellen</b>. Es wird ein neues Arbeitsblatt mit den Anpassungsergebnissen zu der Mappe hinzugefügt.</li>
+
+    <li>Markieren Sie Spalte D und E und erstellen Sie ein Säulendiagramm, um anzuzeigen, wie der Amplitudenparameter (A1) sich über die drei Datensätze geändert hat.<br>
+    <a class="image"><img alt="Mini tut curve fit 3.png" src="../images/Curve_Fitting/Mini_tut_curve_fit_3.png" width="298"></a></li>
+  </ol>

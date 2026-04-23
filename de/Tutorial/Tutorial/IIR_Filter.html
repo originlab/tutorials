@@ -1,0 +1,146 @@
+﻿<h1 class="firstHeading">IIR-Filter</h1>
+
+  <p class='urlname' style='display: none'>IIR-Filter</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Design_and_Apply_IIR_Filter"><span class="tocnumber">3.1</span> <span class="toctext">IIR-Filter erzeugen und anwenden</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Compare_Results_with_FFT_Filter"><span class="tocnumber">3.2</span> <span class="toctext">Ergebnisse mit FFT-Filter vergleichen</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#Ripples_in_FFT_Filter"><span class="tocnumber">3.3</span> <span class="toctext">Restwelligkeit (Rippel) im FFT-Filter</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/IIR_Filter/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/IIR_Filter/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=84" target="_blank">IIR-Filter</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%"><a class="image"><img alt="Website blog icon circle.png" src="../images/IIR_Filter/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/IIR_Filter/Blog_Image_33x33px.png" width="135"></a></td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>In OriginPro ist es möglich, digitale IIR-Filter (Infinite Impulse Response) zu entwerfen, zu analysieren und zu implementieren. Der IIR-Filter unterstützt vier Methoden, einschließlich <b>Butterworth</b>, <b>Tschebyscheff Typ I</b>, <b>Tschebyscheff Typ II</b>, und <b>Elliptisch</b>.</p>
+
+  <p>Dadurch haben Anwender mehr Auswahl in der Signalverarbeitung.</p>
+
+  <p>&#160;</p>
+
+  <p class="version">Origin-Version mind. erforderlich: 9.0 SR0</p>
+
+  <h2><a name="What_You_Will_Learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen:</p>
+
+  <ul>
+    <li>einen IIR-Filter erzeugen und anwenden.</li>
+
+    <li>IIR-Filter und FFT-Filter vergleichen.</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <h3><a name="Design_and_Apply_IIR_Filter"></a><span class="mw-headline">IIR-Filter erzeugen und anwenden</span></h3>
+
+  <ol>
+    <li>Öffnen Sie ein neues Arbeitsblatt und importieren Sie die Datei <b>EMG Recording.dat</b> aus dem Verzeichnis <i>\Samples\Signal Processing\</i>.</li>
+
+    <li>Markieren Sie Spalte B und wählen Sie <b>Analyse: Signalverarbeitung: IIR-Filter</b> im Menü, um das Dialogfeld zu öffnen.</li>
+
+    <li>Ändern Sie den Antworttyp in <b>Hochpass</b>, behalten Sie die Methode <b>Butterworth</b> bei, deaktivieren Sie <b>Minimum</b> für Filterordnung und setzen Sie sie auf <b>4</b>. Setzen Sie im Zweig Frequenzspezifikation die Grenzfrequenz (Fc) auf <b>20</b> und aktivieren Sie dann die <b>Vorwärts-Rückwärts-Filterung</b>. Die Dialogeinstellungen sollten dem folgenden Bild entsprechen. Der IIR-Filter ist entworfen.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial IIR 001.png" src="../images/IIR_Filter/Tutorial_IIR_001.png" width="483"></a><br></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um dem erstellten IIR-Filter auf den Eingabedatensatz anzuwenden.</li>
+
+    <li>Es wird eine neue Spalte für die gefilterten Daten zu den ursprünglichen Daten hinzugefügt sowies ein neues SOS-Matrixblatt.</li>
+  </ol>
+
+  <h3><a name="Compare_Results_with_FFT_Filter"></a><span class="mw-headline">Ergebnisse mit FFT-Filter vergleichen</span></h3>
+
+  <ol>
+    <li>Markieren Sie Spalte B im ursprünglichen Arbeitsblatt und führen Sie den FFT-Filter über <b>Analyse: Signalverarbeitung: FFT-Filter</b> aus.</li>
+
+    <li>Wählen Sie in dem geöffneten Dialogfeld <b>Hochpass</b> für Filtertyp und setzen Sie <b>20</b> als Grenzfrequenz.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial IIR 002.png" src="../images/IIR_Filter/Tutorial_IIR_002.png" width="483"></a><br></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf OK. Spalte C im Arbeitsblatt EMGRecording enthält das gefilterte Ergebnis des zuvor entworfenen IIR-Filters. Markieren Sie Spalte B und Spalte C, um ein Liniendiagramm mit der Schaltfläche <a class="image"><img alt="Button Line.png" src="../images/IIR_Filter/Button_Line.png" width="22"></a> zu erzeugen (Graph 1).</li>
+
+    <li>Verwenden Sie die Skalierung mit Hilfe der Schaltfläche <a class="image"><img alt="Button Scale In.png" src="../images/IIR_Filter/Button_Scale_In.png" width="22"></a>, um den Bereich zwischen 12,5 s und 13,3 s zu vergrößern.</li>
+
+    <li>Spalte E im Arbeitsblatt EMGRecording enthält das gefilterte Ergebnis des IIR-Filters. Markieren Sie Spalte B und Spalte E, um ein Liniendiagramm mit der Schaltfläche <a class="image"><img alt="Button Line.png" src="../images/IIR_Filter/Button_Line.png" width="22"></a> zu erzeugen (Graph 2).</li>
+
+    <li>Verwenden Sie auch die Skalierung mit Hilfe der Schaltfläche <a class="image"><img alt="Button Scale In.png" src="../images/IIR_Filter/Button_Scale_In.png" width="22"></a>, um den Bereich zwischen 12,5 s und 13,3 s zu vergrößern. Die zwei Diagramme könnten für einen visuellen Vergleich verwendet werden.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial IIR 003.png" src="../images/IIR_Filter/Tutorial_IIR_003.png" width="500"></a><br></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <ul>
+    <li>Beachten Sie, dass es viele Restwelligkeiten (Rippel) im Ergebnis des FFT-Filters gibt, aber fast keine im Ergebnis des IIR-Filters.</li>
+  </ul>
+
+  <h3><a name="Ripples_in_FFT_Filter"></a><span class="mw-headline">Restwelligkeit (Rippel) im FFT-Filter</span></h3>
+
+  <ol>
+    <li>Markieren Sie die Spalte E und klicken Sie auf die Schaltfläche <a class="image"><img alt="Button Line.png" src="../images/IIR_Filter/Button_Line.png" width="22"></a>, um ein Liniendiagramm (Graph 3) zu erstellen.</li>
+
+    <li>Aktivieren Sie Graph 3, wählen Sie <b>Minitools: FFT</b> und setzen Sie die X-Skalierung auf Von <b>12,664</b> Bis <b>13,052</b>.</li>
+
+    <li>Klicken Sie auf OK, um das Vorschaufenster aufzurufen, in dem die Rippel fast reine 20,125 Hz Sine betragen.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial IIR 004.png" src="../images/IIR_Filter/Tutorial_IIR_004.png" width="533"></a><br></dd>
+      </dl>
+    </li>
+
+    <li>Jetzt versuchen wir, diese Restwelligkeit bei 20,125 Hz durch Anwenden eines anderen Hochpassfilters bei 25 Hz zu entfernen. Dabei bleibt Spalte E markiert. Wählen Sie <b>Analyse: Signalverarbeitung: FFT-Filter</b>.</li>
+
+    <li>Wählen Sie <b>Hochpass</b> für Filtertyp und setzen Sie die Grenzfrequenz auf <b>25</b>.</li>
+
+    <li>Das Ergebnis wird in Spalte G aufgeführt. Markieren Sie Spalte G und klicken Sie auf die Schaltfläche <a class="image"><img alt="Button Line.png" src="../images/IIR_Filter/Button_Line.png" width="22"></a>, um ein Liniendiagramm (Graph 4) zu erstellen.</li>
+
+    <li>Aktivieren Sie Graph 4, wählen Sie <b>Minitools: FFT</b> und setzen Sie die X-Skalierung auf Von <b>12,664</b> Bis <b>13,052.</b> Im Vorschaufenster sind noch immer Rippel zu sehen. Sie sind nun versetzt von 20,125 Hz auf 25,157 Hz.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial IIR 005.png" src="../images/IIR_Filter/Tutorial_IIR_005.png" width="533"></a><br></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <ul>
+    <li>Beachten Sie, dass die Rippel (Restwelligkeit) durch den FFT-Filter bei diesem Datensatz nicht entfernt werden konnten.</li>
+  </ul>

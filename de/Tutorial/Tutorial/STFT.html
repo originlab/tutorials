@@ -1,0 +1,79 @@
+﻿<h1 class="firstHeading">Kurzzeit-Fourier-Transformation (STFT)</h1>
+
+  <p class="urlname" style='display: none'>STFT</p>
+
+  <h2><a name="Summary"></a> <span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Die Kurzzeit-Fourier-Transformation (STFT) ist eine Zeit-Frequenz-Analyse und eignet sich zum Analysieren von nicht-stationären Signalen. Die STFT stellen Informationen zu Änderungen der Frequenz über die Zeit bereit.</p>
+
+  <h2><a name="What_You_Will_Learn"></a> <span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>In diesem Tutorial lernen Sie, wie Sie:</p>
+
+  <ol>
+    <li>eine Kurzzeit-Fourier-Transformation (STFT) durchführen.</li>
+
+    <li>Dialogeinstellungen ändern, um die Zeit- und Frequenzauflösung zu verbessern.</li>
+
+    <li>den Fenstertyp ändern, um die Auflösung zu verbessern.</li>
+  </ol>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe und importieren Sie die Daten aus dem <b>&lt;Origin-Verzeichnis&gt;\Samples\Signal Processing\Chirp Signal.dat</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial STFT 1.png" src="../images/STFT/SP_Tutorial_STFT_1.png" width="396" height="322"></a></dd>
+      </dl>
+    </li>
+
+    <li>Markieren Sie Spalte B und wählen Sie im Menü <b>Analyse: Signalverarbeitung: STFT</b>, um den Dialog <b>Signal Processing: stft</b> zu öffnen.</li>
+
+    <li>Aktivieren Sie unten im Dialog das Kontrollkästchen <b>Automatische Vorschau</b>, so dass Sie Ihre Ergebnisse im rechten Bedienfeld sehen können. Deaktivieren Sie das Kontrollkästchen <b>Auto</b> neben <b>Fensterlänge</b> und <b>Überlappung</b>. Setzen Sie dann die <b>Fensterlänge</b> auf <b>8</b> und die <b>Überlappung</b> auf <b>7</b>. <b>Fenstertyp</b> ist <b>Hanning</b>, und die <b>Option</b> ist <b>Amplitudenergebnis</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial STFT 2.png" src="../images/STFT/SP_Tutorial_STFT_2.png" width="1147" height="527"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um die STFT mit den gewählten Einstellungen durchzuführen und Ihre Ergebnisse zu erhalten, einschließlich einer Matrixmappe mit Daten und einem Konturdiagramm mit Farbfüllung.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial STFT 3.png" src="../images/STFT/SP_Tutorial_STFT_3.png" width="509" height="420"></a></dd>
+      </dl>
+    </li>
+
+    <li>Sie können in dem obenstehenden Bild ersehen, dass die Zeitauflösung gut ist, die Frequenz jedoch nicht so augenfällig. Klicken Sie auf das Schloss im Diagramm und wählen Sie dann <b>Parameter ändern</b> im Menü. Dadurch öffnet sich der Dialog STFT erneut. Ändern Sie dann den <b>Fenstertyp</b> in <b>Rechteck</b> und klicken Sie auf <b>OK</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial STFT 4.png" src="../images/STFT/SP_Tutorial_STFT_4.png" width="509" height="420"></a></dd>
+      </dl>
+    </li>
+
+    <li>Jetzt ist die Auflösung von Zeit und Frequenz besser zu erkennen. Bitte beachten Sie, dass es nicht möglich ist, sowohl für Zeit als auch für Frequenz zu optimieren; die beste Möglichkeit besteht darin, das Gleichgewicht zwischen diesen beiden zu finden.</li>
+
+    <li>Um das Ergebnis in 3D anzuzeigen, aktivieren Sie die Ergebnismatrix und wählen Sie im Menü <b>Zeichnen: 3D-Oberfläche: Farbabbildung</b>, um eine 3D-Oberfläche des Ergebnisses zu erstellen.</li>
+
+    <li>Klicken Sie doppelt auf das 3D-Diagramm, um den Dialog <b>Details Zeichnung</b> zu öffnen, und gehen Sie zur Registerkarte <b>Farbpalette/Kontur</b> im rechten Bedienfeld. Klicken Sie auf die Überschrift <b>Linie</b>, um den Dialog <b>Konturlinien</b> zu öffnen und <b>Alle (Linien) zu verbergen</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial STFT 5.png" src="../images/STFT/SP_Tutorial_STFT_5.png" width="580" height="539"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wechseln Sie zur Registerkarte <b>Drahtgitter</b> und deaktivieren Sie das Kontrollkästchen <b>Aktivieren</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial STFT 6.png" src="../images/STFT/SP_Tutorial_STFT_6.png" width="580" height="462"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um diese Einstellungen fertigzustellen. Um eine bessere Anzeige zu erhalten, drehen Sie das Diagramm.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial STFT 7.png" src="../images/STFT/SP_Tutorial_STFT_7.png" width="553" height="453"></a></dd>
+      </dl>
+    </li>
+  </ol>
+  

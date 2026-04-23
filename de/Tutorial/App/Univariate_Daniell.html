@@ -1,0 +1,81 @@
+﻿<h1 class="firstHeading">Univariate Spectral Density with Daniell Method</h1>
+
+  <p class='urlname' style='display: none'>Univariate-Daniell</p>
+
+  <h2><a name="Tutorial"></a><span class="mw-headline">Tutorial</span></h2>
+
+  <ol>
+    <li>Open the sample project file in Origin, go to Folder <b>Spectral Analysis</b> using the Project Explorer. Activate the workbook <b>Univariate spectral data</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Uni dan pe data.png" src="../images/Univariate_Daniell/700px-Uni_dan_pe_data.png" width="700"></a></dd>
+      </dl>
+    </li>
+
+    <li>Highlight column B in worksheet. Click the Time Series Analysis App icon <a class="image"><img alt="Time Series Analysis icon.png" src="../images/Univariate_Daniell/Time_Series_Analysis_icon.png" width="50"></a> in the Apps Gallery window.</li>
+
+    <li>Choose <b>Spectral Analysis</b> tab. Click <b>Univariate Spectral Density with Daniell Method</b> icon to open the dialog.
+
+      <dl>
+        <dd><a class="image"><img alt="Uni dan toolbar.png" src="../images/Univariate_Daniell/700px-Uni_dan_toolbar.png" width="700"></a></dd>
+      </dl>
+    </li>
+
+    <li>In the <b>Setting</b> branch, choose <b>No correction</b>. Enter 0.2,10 and 0.5 in Tapering Proportion, Smoothing Window Width and Shape Ratio of Trapezium Window respectively.
+
+      <dl>
+        <dd><a class="image"><img alt="Uni dan dialog.png" src="../images/Univariate_Daniell/700px-Uni_dan_dialog.png" width="700"></a></dd>
+      </dl>
+    </li>
+
+    <li>Click Preview button to display smoothed spectrum.</li>
+
+    <li>Click OK button to output the report.
+
+      <dl>
+        <dd><a class="image"><img alt="Uni dan report.png" src="../images/Univariate_Daniell/700px-Uni_dan_report.png" width="700"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h2><a name="Algorithm"></a><span class="mw-headline">Algorithm</span></h2>
+
+  <ul>
+    <li>Tapering factors</li>
+  </ul>
+
+  <dl>
+    <dd><img src="../images/Univariate_Daniell/math-d7bff206f4eaa1848292b5f4e8e69e14.png" title="\left\{\begin{array}{ll}\frac{1}{2}(1-cos(\frac{\pi(t-\frac{1}{2})}{T}))&amp;1\leqslant t\leqslant T \cr\frac{1}{2}(1-cos(\frac{\pi(n-t+\frac{1}{2})}{T}))&amp;n+1-T\leqslant t\leqslant n \cr1&amp;Otherwise\end{array}\right." alt="\left\{\begin{array}{ll}\frac{1}{2}(1-cos(\frac{\pi(t-\frac{1}{2})}{T}))&amp;1\leqslant t\leqslant T \cr\frac{1}{2}(1-cos(\frac{\pi(n-t+\frac{1}{2})}{T}))&amp;n+1-T\leqslant t\leqslant n \cr1&amp;Otherwise\end{array}\right." class="tex"></dd>
+
+    <dd>where <img src="../images/Univariate_Daniell/math-7121a6cb9d2604fa18f655d01a516343.png" title="T=[\frac{np}{2}]" alt="T=[\frac{np}{2}]" class="tex"> and <img src="../images/Univariate_Daniell/math-83878c91171338902e0fe0fb97a8c47a.png" title="p" alt="p" class="tex"> is the tapering proportion.</dd>
+  </dl>
+
+  <ul>
+    <li>Smoothed sample spectrum</li>
+  </ul>
+
+  <dl>
+    <dd>The unsmoothed sample spectrum</dd>
+
+    <dd><img src="../images/Univariate_Daniell/math-6d7f5937d09329edc2cb8f4862817299.png" title="f^*(\omega) = \frac{1}{2}\pi|\sum_{t=1}^{n}x_texp(i\omega t)|^2" alt="f^*(\omega) = \frac{1}{2}\pi|\sum_{t=1}^{n}x_texp(i\omega t)|^2" class="tex"></dd>
+
+    <dd>is calculated for frequency values</dd>
+
+    <dd><img src="../images/Univariate_Daniell/math-9ace5450053b8f9c2e3d91498801af8b.png" title="\omega_k = \frac{2\pi k}{K},k=0,1...,[K/2]" alt="\omega_k = \frac{2\pi k}{K},k=0,1...,[K/2]" class="tex"></dd>
+
+    <dd>where [ ] denotes the integer part.</dd>
+
+    <dd>The smoothed spectrum is returned as a subset of these frequencies for which <img src="../images/Univariate_Daniell/math-a5f3c6a11b03839d46af9fb43c97c188.png" title="K" alt="K" class="tex"> is a multiple of a chosen value <img src="../images/Univariate_Daniell/math-4b43b0aee35624cd95b910189b3dc231.png" title="r" alt="r" class="tex">, i.e.,</dd>
+
+    <dd><img src="../images/Univariate_Daniell/math-16b8cf51e33d19da91aaac244e4051e4.png" title="\omega_{rl}=v_l=\frac{2\pi l}{L},l=0,1,...,[L/2]" alt="\omega_{rl}=v_l=\frac{2\pi l}{L},l=0,1,...,[L/2]" class="tex"></dd>
+
+    <dd>where <img src="../images/Univariate_Daniell/math-03093f31f4efc826e7bd52917ac3a7ca.png" title="K=r\times L" alt="K=r\times L" class="tex"></dd>
+  </dl>
+
+  <h2><a name="Reference"></a><span class="mw-headline">Reference</span></h2>
+
+  <ol>
+    <li><span id="Ref1"><span><a class="external text" href="https://d2mvzyuse3lwjc.cloudfront.net/pdfs/NAG26/Manual/html/g13/g13cbc.html" target="_blank">nag_tsa_spectrum_univar (g13cbc)</a></span></span></li>
+  </ol>
+
+  <p>&#160;</p>

@@ -1,0 +1,188 @@
+﻿<h1 class=firstHeading>Tutorial:Calculating Double Integral with NAG Functions 
+ From Origin C</h1>
+<p class=urlname style="display: none;">Integer-Call-NAG</p>
+<p>&nbsp;</p>
+<div id=toc class=toc>
+<div id=toctitle>
+<h2>Contents</h2>
+</div>
+<ol><li class="toclevel-1 tocsection-1"><a href="#Summary"><span class=tocnumber>1</span> 
+ <span class=toctext>Summary</span></a></li>
+	<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+ class=tocnumber>2</span> <span class=toctext>What you will learn</span></a></li>
+	<li class="toclevel-1 tocsection-3">
+	<a href="#Example_and_Steps"><span class=tocnumber>3</span> <span class=toctext>Example 
+ and Steps</span></a> 
+	<ol><li class="toclevel-2 tocsection-4"><a href="#Using_nag_multid_quad_monte_carlo_1"><span 
+ class=tocnumber>3.1</span> <span class=toctext>Using <i>nag_multid_quad_monte_carlo_1</i></span></a></li>
+		<li class="toclevel-2 tocsection-5"><a href="#Using_nag_multid_quad_adapt_1"><span 
+ class=tocnumber>3.2</span> <span class=toctext>Using <i>nag_multid_quad_adapt_1</i></span></a></li>
+	</ol>
+	</li>
+</ol>
+</div>
+<h2><a name=Summary></a><span class=mw-headline>Summary</span></h2>
+<p>Origin/OriginPro includes the complete NAG Mark 9 numerical library. 
+ This library provides multiple method for numerical integration. All functions 
+ are accessible from Origin C. In this tutorial, you will call NAG functions 
+ to perform the double integration. Note that an infinite NAG integrator 
+ is used here.</p>
+<h2><a name=What_you_will_learn></a><span class=mw-headline>What you will 
+ learn</span></h2>
+<p>This tutorial will show you how to:</p>
+<ul><li>Call NAG functions in Origin C</li>
+	<li>Solve definite double Integral using the NAG integration routine</li>
+</ul>
+<h2><a name=Example_and_Steps></a><span class=mw-headline>Example and Steps</span></h2>
+<p>To calculate the double integration. You need to call function in NAG 
+ library category <a class="external text" href="http://www.originlab.com/pdfs/nagcl25/manual/pdf/d01/d01intro.pdf">D01 
+ Quadrature</a>. This category provides functions for the numerical evaluation 
+ of definite integrals in one or more dimensions. Two function with different 
+ algorithm is available for double integral, which is <a class="external text" 
+ href="http://www.originlab.com/pdfs/nagcl09/manual/pdf/d01/d01wcc.pdf" 
+ target=_blank>nag_multid_quad_adapt_1</a> and <a class="external text" 
+ href="http://www.originlab.com/pdfs/nagcl09/manual/pdf/d01/d01xbc.pdf" 
+ target=_blank>nag_multid_quad_monte_carlo_1</a>. In this tutorial, you 
+ will learn to use them to solve the integral formula below:</p>
+<p><img src="../images/Calculating_Double_Integral_with_NAG_Functions_From_Origin_C/math-4f781fe2d5acc176ac6b3968cad552bd.png" 
+ title="\int_{0}^{1}\int_{0}^{1}xy(x+y)dxdy" alt="\int_{0}^{1}\int_{0}^{1}xy(x+y)dxdy" 
+ class=tex style="width: 159px; height: 42px;" width=159 height=42 border=0></p>
+<p>You are recommended to read the relevant tutorial <a href="../../Tutorial/Tutorial/Calling_NAG_Functions_From_Origin_C.html" 
+ title="Tutorial:Calling NAG Functions From Origin C">Calling NAG Functions 
+ From Origin C</a>, to study how to run and test the code below for calculation. 
+ Then you can copy and pase the code into new created .c file in <b>Code 
+ Builder</b> and run the compile and build process. Below is the Origin 
+ C code with comments:</p>
+<h3><a name=Using_nag_multid_quad_monte_carlo_1></a><span class=mw-headline>Using 
+ <i>nag_multid_quad_monte_carlo_1</i></span></h3>
+<pre class=oc style="font-family: monospace;">
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>Origin.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span><span style="color: #0000ff;">
+#include</span> <span style="color: #000080;">&lt;</span>OC_nag.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span> 
+ <span style="color: #0000ff;">
+#define</span> MAXCLS <span style="color: #0000dd;">20000</span> <spaces>&nbsp;&nbsp;</spaces><span style="color: #008000;">//maximum number of integrand evaluations to be allowed</span>
+ <span style="color: #0000ff;">
+double</span> NAG_CALL f<span style="color: #000000;">(</span>Integer ndim, <span style="color: #0000ff;">double</span> x<span style="color: #000000;">[</span><span style="color: #000000;">]</span>, Nag_User <span style="color: #000040;">*</span>comm<span style="color: #000000;">)</span> <spaces>&nbsp;</spaces><span style="color: #000000;">
+{</span>
+ <spaces>&nbsp;</spaces><span style="color: #0000ff;">return</span> x<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span><span style="color: #000040;">*</span>x<span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span><span style="color: #000040;">*</span><span style="color: #000000;">(</span>x<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span><span style="color: #000040;">+</span>x<span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span>; <spaces>&nbsp;</spaces><span style="color: #008000;">//define the function formula <spaces>&nbsp;</span></spaces><span style="color: #000000;">
+}</span>
+ <span style="color: #0000ff;">
+int</span> multid_quad_monte_carlo<span style="color: #000000;">(</span><span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>Integer exit_status <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>, k, maxcls <span style="color: #000080;">=</span> MAXCLS, mincls;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>Integer ndim <span style="color: #000080;">=</span><span style="color: #0000dd;">2</span>; <spaces>&nbsp;</spaces><span style="color: #008000;">// the number of dimensions of the integral</span>
+ 
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>NagError fail;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>Nag_MCMethod method;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>Nag_Start cont;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>Nag_User comm;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">double</span> a<span style="color: #000000;">[</span><span style="color: #0000dd;">2</span><span style="color: #000000;">]</span>, b<span style="color: #000000;">[</span><span style="color: #0000dd;">2</span><span style="color: #000000;">]</span>, acc, <span style="color: #000040;">*</span>comm_arr, eps, finest; <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>comm_arr<span style="color: #000080;">=</span><span style="color: #0000ff;">NULL</span>;
+ 
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span>ndim <span style="color: #000080;">&lt;</span> <span style="color: #0000dd;">1</span><span style="color: #000000;">)</span><span style="color: #000000;">{</span>
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #000000;">printf</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;Invalid ndim.<span style="color: #666666; font-weight: bold;">\n</span>&quot;</span><span style="color: #000000;">)</span>;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>exit_status <span style="color: #000080;">=</span> <span style="color: #000040;">-</span><span style="color: #0000dd;">1</span>;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">return</span> exit_status; <spaces>&nbsp;&nbsp;</spaces>
+ <spaces>&nbsp;&nbsp;&nbsp;</spaces><span style="color: #000000;">}</span> 
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">for</span> <span style="color: #000000;">(</span>k <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>; k <span style="color: #000080;">&lt;</span> ndim; k<span style="color: #000040;">++</span><span style="color: #000000;">)</span><span style="color: #000000;">{</span>
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>a<span style="color: #000000;">[</span>k<span style="color: #000000;">]</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.0</span>; <spaces>&nbsp;&nbsp;</spaces><span style="color: #008000;">// the lower limits of integration</span>
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>b<span style="color: #000000;">[</span>k<span style="color: #000000;">]</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1.0</span>; <spaces>&nbsp;&nbsp;</spaces><span style="color: #008000;">// the upper limits of integration</span>
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #000000;">}</span>
+ 
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>eps <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.01</span>; <spaces>&nbsp;</spaces><span style="color: #008000;">//the relative accuracy required</span>
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>mincls <span style="color: #000080;">=</span> <span style="color: #0000dd;">1000</span>; <span style="color: #008000;">//minimum number of integrand evaluations to be allowed</span>
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>method <span style="color: #000080;">=</span> Nag_ManyIterations;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>cont <span style="color: #000080;">=</span> Nag_Cold;
+ 
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #008000; font-style: regular;">/* nag_multid_quad_monte_carlo_1 (d01xbc).
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>* Multi-dimensional quadrature, using Monte Carlo method,
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>* thread-safe
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>*/</span> <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>
+nag_multid_quad_monte_carlo_1<span style="color: #000000;">(</span>ndim, f, method, cont, a, b, <span style="color: #000040;">&amp;</span>mincls, maxcls,eps, <span style="color: #000040;">&amp;</span>finest, <span style="color: #000040;">&amp;</span>acc, <span style="color: #000040;">&amp;</span>comm_arr, <span style="color: #000040;">&amp;</span>comm, <span style="color: #000040;">&amp;</span>fail<span style="color: #000000;">)</span>;
+ <span style="color: #0000ff;">
+if</span> <span style="color: #000000;">(</span>fail.<span style="color: #000000;">code</span> <span style="color: #000080;">==</span> NE_NOERROR <span style="color: #000040;">||</span> fail.<span style="color: #000000;">code</span> <span style="color: #000080;">==</span> NE_QUAD_MAX_INTEGRAND_EVAL<span style="color: #000000;">)</span><span style="color: #000000;">{</span>
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span>fail.<span style="color: #000000;">code</span> <span style="color: #000080;">==</span> NE_QUAD_MAX_INTEGRAND_EVAL<span style="color: #000000;">)</span><span style="color: #000000;">{</span>
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #000000;">printf</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;Error from nag_multid_quad_monte_carlo_1 (d01xbc).<span style="color: #666666; font-weight: bold;">\n</span>%s<span style="color: #666666; font-weight: bold;">\n</span>&quot;</span>,fail.<span style="color: #000000;">message</span><span style="color: #000000;">)</span>;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>exit_status <span style="color: #000080;">=</span> <span style="color: #0000dd;">2</span>;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #000000;">}</span>
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #008000;">//output the calculation results</span>
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #000000;">printf</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;Requested accuracy = %7.2e<span style="color: #666666; font-weight: bold;">\n</span>&quot;</span>, eps<span style="color: #000000;">)</span>;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #000000;">printf</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;Estimated value = %7.5f<span style="color: #666666; font-weight: bold;">\n</span>&quot;</span>, finest<span style="color: #000000;">)</span>;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #000000;">printf</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;Estimated accuracy = %7.2e<span style="color: #666666; font-weight: bold;">\n</span>&quot;</span>, acc<span style="color: #000000;">)</span>;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #000000;">printf</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;Number of evaluations = %6d<span style="color: #666666; font-weight: bold;">\n</span>&quot;</span>, mincls<span style="color: #000000;">)</span>; <spaces>&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #000000;">
+}</span><span style="color: #0000ff;">
+else</span><span style="color: #000000;">{</span>
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #000000;">printf</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;Error from nag_multid_quad_monte_carlo_1 (d01xbc).<span style="color: #666666; font-weight: bold;">\n</span>%s<span style="color: #666666; font-weight: bold;">\n</span>&quot;</span>,fail.<span style="color: #000000;">message</span><span style="color: #000000;">)</span>;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>exit_status <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>;<span style="color: #000000;">
+}</span><span style="color: #008000; font-style: regular;">
+/* Free memory allocated internally */</span><span style="color: #0000ff;">
+if</span> <span style="color: #000000;">(</span>comm_arr<span style="color: #000000;">)</span> 
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>NAG_FREE<span style="color: #000000;">(</span>comm_arr<span style="color: #000000;">)</span>;
+ <span style="color: #0000ff;">
+return</span> exit_status;<span style="color: #000000;">
+}</span>
+</pre>
+<p>Then you can call the functions in LabTalk Console. The results will 
+ be like this:</p>
+<pre class=oc style="font-family: monospace;">
+Requested accuracy <span style="color: #000080;">=</span> 1.00e<span style="color: #000040;">-</span>002
+Estimated value <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.33326</span>
+Estimated accuracy <span style="color: #000080;">=</span> 2.23e<span style="color: #000040;">-</span>004
+Number of evaluations <span style="color: #000080;">=</span> <spaces>&nbsp;&nbsp;</spaces><span style="color: #0000dd;">1552</span>
+</pre>
+<h3><a name=Using_nag_multid_quad_adapt_1></a><span class=mw-headline>Using 
+ <i>nag_multid_quad_adapt_1</i></span></h3>
+<pre class=oc style="font-family: monospace;">
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>OC_nag.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span> <span style="color: #0000ff;">
+#include</span> <span style="color: #000080;">&lt;</span>Origin.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span><span style="color: #0000ff;">
+#define</span> NDIM <span style="color: #0000dd;">2</span> <spaces>&nbsp;&nbsp;</spaces><span style="color: #008000;">//the number of dimensions of the integral</span><span style="color: #0000ff;">
+#define</span> MAXPTS <span style="color: #0000dd;">1000</span><span style="color: #000040;">*</span>NDIM <spaces>&nbsp;&nbsp;</spaces><span style="color: #008000;">//maximum number of integrand evaluations to be allowed</span>
+ <span style="color: #0000ff;">
+double</span> NAG_CALL f<span style="color: #000000;">(</span>Integer n, <span style="color: #0000ff;">double</span> x<span style="color: #000000;">[</span><span style="color: #000000;">]</span>, Nag_User <span style="color: #000040;">*</span>comm<span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">return</span> x<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span><span style="color: #000040;">*</span>x<span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span><span style="color: #000040;">*</span><span style="color: #000000;">(</span>x<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span><span style="color: #000040;">+</span>x<span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span>; <spaces>&nbsp;</spaces><span style="color: #008000;">//define the function formula <spaces>&nbsp;</span></spaces><span style="color: #000000;">
+}</span>
+ <span style="color: #0000ff;">
+int</span> <spaces>&nbsp;</spaces>multid_quad_adapt<span style="color: #000000;">(</span><span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>Integer exit_status <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>Integer ndim <span style="color: #000080;">=</span> NDIM;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>Integer maxpts <span style="color: #000080;">=</span> MAXPTS;
+ 
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">double</span> a<span style="color: #000000;">[</span><span style="color: #0000dd;">2</span><span style="color: #000000;">]</span>, b<span style="color: #000000;">[</span><span style="color: #0000dd;">2</span><span style="color: #000000;">]</span>;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>Integer k;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">double</span> finval;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>Integer minpts;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">double</span> acc, eps;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>Nag_User comm;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>NagError fail; <spaces>&nbsp;</spaces>
+ 
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">for</span> <span style="color: #000000;">(</span>k <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>; k <span style="color: #000080;">&lt;</span> <span style="color: #0000dd;">2</span>; k<span style="color: #000040;">++</span><span style="color: #000000;">)</span>
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #000000;">{</span>
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>a<span style="color: #000000;">[</span>k<span style="color: #000000;">]</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.0</span>; <span style="color: #008000;">//the lower limits of integration</span>
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>b<span style="color: #000000;">[</span>k<span style="color: #000000;">]</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1.0</span>; <span style="color: #008000;">//the upper limits of integration</span>
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #000000;">}</span> <spaces>&nbsp;&nbsp;&nbsp;&nbsp;</spaces>
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>eps <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.001</span>;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>minpts <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>; <spaces>&nbsp;&nbsp;</spaces>
+ 
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>nag_multid_quad_adapt_1<span style="color: #000000;">(</span>ndim, f, a, b, <span style="color: #000040;">&amp;</span>minpts, maxpts, eps, <span style="color: #000040;">&amp;</span>finval,<span style="color: #000040;">&amp;</span>acc, <span style="color: #000040;">&amp;</span>comm, <span style="color: #000040;">&amp;</span>fail<span style="color: #000000;">)</span>;
+ 
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span>fail.<span style="color: #000000;">code</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span> NE_NOERROR <span style="color: #000040;">&amp;&amp;</span> fail.<span style="color: #000000;">code</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span> NE_QUAD_MAX_INTEGRAND_EVAL<span style="color: #000000;">)</span>
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #000000;">{</span> <spaces>&nbsp;&nbsp;&nbsp;&nbsp;</spaces>
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #000000;">printf</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;Error from nag_multid_quad_monte_carlo_1 (d01xbc).<span style="color: #666666; font-weight: bold;">\n</span>%s<span style="color: #666666; font-weight: bold;">\n</span>&quot;</span>,fail.<span style="color: #000000;">message</span><span style="color: #000000;">)</span>;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>exit_status <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">return</span> exit_status;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #000000;">}</span> <spaces>&nbsp;&nbsp;&nbsp;&nbsp;</spaces>
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #008000;">//output the calculation results</span>
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #000000;">printf</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;Requested accuracy = %7.2e<span style="color: #666666; font-weight: bold;">\n</span>&quot;</span>, eps<span style="color: #000000;">)</span>;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #000000;">printf</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;Estimated value = %7.5f<span style="color: #666666; font-weight: bold;">\n</span>&quot;</span>, finval<span style="color: #000000;">)</span>;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #000000;">printf</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;Estimated accuracy = %7.2e<span style="color: #666666; font-weight: bold;">\n</span>&quot;</span>, acc<span style="color: #000000;">)</span>; 
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span>;<span style="color: #000000;">
+}</span>
+</pre>
+<p>Then you can call the functions in LabTalk Console. The results will 
+ be like this:</p>
+<pre class=oc style="font-family: monospace;">
+Requested accuracy <span style="color: #000080;">=</span> 1.00e<span style="color: #000040;">-</span>003
+Estimated value <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.33333</span>
+Estimated accuracy <span style="color: #000080;">=</span> 3.33e<span style="color: #000040;">-</span>016
+</pre>

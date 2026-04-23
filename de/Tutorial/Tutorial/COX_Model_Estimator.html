@@ -1,0 +1,100 @@
+﻿<h1 class="firstHeading">Proportionales Hazardmodell nach Cox</h1>
+
+  <p class='urlname' style='display: none'>COX-Model-Estimator</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#Perform_COX_Model_Estimator"><span class="tocnumber">3</span> <span class="toctext">Schätzung mit dem proportionalen Hazardmodell nach Cox durchführen</span></a></li>
+
+      <li class="toclevel-1 tocsection-4"><a href="#Interpreting_the_Results"><span class="tocnumber">4</span> <span class="toctext">Ergebnisse interpretieren</span></a></li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Die Schätzung mit dem proportionalem Hazardmodell nach Cox ist eine klassische Halbparameter-Methode im Bereich der Lebensdaueranalyse. Ein Cox-Modell stellt eine Schätzung der Wirkung bereit, die auf die Lebensdauer bzw. das Überleben von Variablen und dem Risiko des Todeseintritts bei dem Einzelnen ausgeübt wird. Mit Hilfe der Regressionsanalyse nach Cox erhalten wir eine Gleichung für das Risiko (Hazard) als eine Funktion von mehreren Variablen. Ein positiver Regressionskoeffizient für eine erklärende Variable bedeutet, dass das Risiko (Hazard) höher ist bei höheren Werten dieser Variablen, während bei einem negativen Regressionskoeffizient für eine erklärende Variable das Risiko niedriger ist bei höheren Werten dieser Variablen.</p>
+
+  <p>Die Annahme der proportionalen Hazardmodelle lautet: Beobachtungen sollten unabhängig sein, und die Hazardrate sollte über die Zeit konstant sein; das heißt, die Proportionalität der Risiken von einem Fall zu nächsten sollte nicht über die Zeit variieren.</p>
+
+  <p>&#160;</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>eine Schätzung mit dem proportionalen Hazardmodell nach Cox durchführen.</li>
+
+    <li>die Ergebnisse interpretieren.</li>
+  </ul>
+
+  <h2><a name="Perform_COX_Model_Estimator"></a><span class="mw-headline">Eine Schätzung mit dem proportionalen Hazardmodell nach Cox durchführen</span></h2>
+
+  <ol>
+    <li>Öffnen Sie ein leeres Arbeitsblatt. Wählen Sie <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b> im Menü, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner <i>Statistics</i>. Dort befindet sich die Datei <i>phm_Cox.dat</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das leere Arbeitsblatt, um sie zu importieren.<br></li>
+
+    <li>Wählen Sie <b>Statistik: Lebensdaueranalyse: Proportionales Hazardmodell, Cox</b>, um das Dialogfeld zu öffnen.</li>
+
+    <li>Geben Sie die Spalte <b>A(X): month</b> in den <b>Zeitbereich</b> ein. Geben Sie entsprechend die Spalte <b>B(Y): status</b> in den <b>Zensorbereich</b> ein.</li>
+
+    <li>Klicken Sie auf die interaktive Schaltflläche für die Datenauswahl und wählen Sie die Spalten <b>Charlson</b> und <b>tKt_v</b> im Bearbeitungsfeld Kovariatebereich.</li>
+
+    <li>Wählen Sie <b>0</b> als den Zensierungswert aus der entsprechenden Auswahlliste.</li>
+
+    <li>Aktivieren Sie die Kontrollkästchen <b>Überleben</b> und <b>Hazard</b> in der Gruppe Überlebensdiagramme.</li>
+
+    <li>Klicken Sie auf <b>OK</b>, um die Schätzung mit dem proportionalen Hazardmodell nach Cox durchzuführen.</li>
+  </ol>
+
+  <dl>
+    <dd><a class="image"><img alt="Cox01.png" src="../images/COX_Model_Estimator/Cox01.png" width="478"></a></dd>
+  </dl>
+
+  <h2><a name="Interpreting_the_Results"></a><span class="mw-headline">Ergebnisse interpretieren</span></h2>
+
+  <p>Wechseln Sie zum Arbeitsblatt <b>CoxPHM1</b> für den Analysebericht.</p>
+
+  <ol>
+    <li>In der Tabelle "Zusammenfassung der Ereignis- und zensierten Werte" können wir sehen, dass <b>Zensiert</b> =112 und <b>Prozent zensiert</b> = 0,8.
+
+      <dl>
+        <dd><a class="image"><img alt="Cox02.png" src="../images/COX_Model_Estimator/Cox02.png" width="301"></a></dd>
+      </dl>
+    </li>
+
+    <li>Die folgende Tabelle zeigt das Testergebnis an, ob das Modell signifikant ist oder nicht. Beachten Sie, dass die Nullhypothese <img src="../images/COX_Model_Estimator/math-216577fa474a2c877b6d9918f60e2ab3.png" title="\beta 1= \beta 2=0" alt="\beta 1= \beta 2=0" class="tex"> lautet. In diesem Beispiel ist <b>Wahrsch. &gt; ChiQuadr.</b> = 4E(-4) &lt; 0,05, daher weisen wir die Nullhypothese zurück, d. h., entweder <img src="../images/COX_Model_Estimator/math-a246865ea0b897294a430ec2967a9c3c.png" title="\beta 1" alt="\beta 1" class="tex"> oder <img src="../images/COX_Model_Estimator/math-c8802e29d66912b327f95b429851e38c.png" title="\beta 2" alt="\beta 2" class="tex"> oder beides <img src="../images/COX_Model_Estimator/math-f4fb341e4e3e1228ad4038e6d594a775.png" title="\neq 0" alt="\neq 0" class="tex">.
+
+      <dl>
+        <dd><a class="image"><img alt="Cox03.png" src="../images/COX_Model_Estimator/Cox03.png" width="327"></a></dd>
+      </dl>
+    </li>
+
+    <li>In der Tabelle "Analyse der Parameterschätzungen" beträgt die Koeffizientenschätzung von charlson 0,2876 und <b>Wahrsch. &gt; ChiQuadr.</b> = 5E-4 &lt; 0,05 , das heißt, dass <img src="../images/COX_Model_Estimator/math-e3ef09148d8f72ce6608f85e5f54d42a.png" title="\beta1=0,287" alt="\beta1=0,287" class="tex"> und charlson eine signifikante Variable ist. Die Hazardrate kann als die vorhergesagte Änderung des Risikos interpretiert werden für eine Einheitenerhöhung im Prädiktor. Für die Variable charlson beträgt die Rate <b>Hazard-Verhältnis</b> = 1,333. Das bedeutet, dass das Risiko (Hazard) 1,333 mal so groß ist, wenn das Inkrement von charlson einer Einheit entspricht. Entsprechend ist <b>tKt_v</b> eine signifikante Variable. Die Koeffizientenschätzung von <b>tKt_v</b> ist <img src="../images/COX_Model_Estimator/math-2b68eb262cdde92957c74c4c615fec9c.png" title="\beta2= -0,837" alt="\beta2= -0,837" class="tex"> und das Hazardverhältnis = 0,433. Wir kennen die Hazardfunktion: h(t,x)=h<small>0</small>(t)*exp(0,2876*<i>charlson</i>-0,837*<i>tKt_v</i>).
+
+      <dl>
+        <dd><a class="image"><img alt="Cox04.png" src="../images/COX_Model_Estimator/Cox04.png" width="509"></a></dd>
+      </dl>
+    </li>
+
+    <li>Das Überlebenszeitfunktionsdiagramm zeigt den Anteil der Einzelnen, die zu jeder Stunde überleben, und eine visuelle Anzeige der Modellvorhersage. Die horizontale Achse zeigt den Zeitpunkt zum Ereignis. Die vertikale Achse zeigt die Überlebenswahrscheinlichkeit.
+
+      <dl>
+        <dd><a class="image"><img alt="Cox5.png" src="../images/COX_Model_Estimator/Cox5.png" width="441"></a></dd>
+      </dl>
+    </li>
+
+    <li>Das Diagramm der Hazardfunktion zeigt die sofortige Wahrscheinlichkeit des Eintretens eines gegebenen Ereignisses zu einem bestimmten Zeitpunkt an.
+
+      <dl>
+        <dd><a class="image"><img alt="Cox6.png" src="../images/COX_Model_Estimator/Cox6.png" width="434"></a></dd>
+      </dl>
+    </li>
+  </ol>

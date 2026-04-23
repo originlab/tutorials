@@ -1,0 +1,363 @@
+﻿<h1 class="firstHeading">Diagramm von mehreren Feldern mit eingebetteten Zeichnungen der hoch aufgelösten Spektren zum Energieverlust von Elektronen</h1>
+
+  <p class='urlname' style='display: none'>Panel-Graph-w-Inset-Plots</p>
+
+  <p>&#160;</p>
+
+  <table id="toc" class="toc">
+    <tr>
+      <td>
+        <div id="toctitle">
+          <h2>Inhalt</h2>
+        </div>
+
+        <ul>
+          <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+          <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+          <li class="toclevel-1 tocsection-3">
+            <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+            <ul>
+              <li class="toclevel-2 tocsection-4"><a href="#Using_the_Plot_Setup_dialog"><span class="tocnumber">3.1</span> <span class="toctext">Dialog Diagrammeinstellungen verwenden</span></a></li>
+
+              <li class="toclevel-2 tocsection-5"><a href="#Adding_Inset_Graphs"><span class="tocnumber">3.2</span> <span class="toctext">Eingebettete Diagramme hinzufügen</span></a></li>
+
+              <li class="toclevel-2 tocsection-6"><a href="#Merging_Graphs"><span class="tocnumber">3.3</span> <span class="toctext">Diagramme zusammenfügen</span></a></li>
+
+              <li class="toclevel-2 tocsection-7"><a href="#Customizing_Plots_and_the_Copy_Format_Feature"><span class="tocnumber">3.4</span> <span class="toctext">Zeichnungen benutzerdefiniert anpassen und die Funktion Format kopieren</span></a></li>
+
+              <li class="toclevel-2 tocsection-8"><a href="#Using_the_Layer_Management_Dialog_Box_to_Link_and_Customize_Axes"><span class="tocnumber">3.5</span> <span class="toctext">Im Dialog Layermanagement Achsen verknüpfen und benutzerdefiniert anpassen</span></a></li>
+
+              <li class="toclevel-2 tocsection-9"><a href="#Adding_Titles.2C_Legend_and_Text_Objects"><span class="tocnumber">3.6</span> <span class="toctext">Titel, Legenden und Textobjekte hinzufügen</span></a></li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Origin kann verwendet werden, um ein Diagramm mit drei Feldern zu erstellen, in dem Zeichnungen eingebettet sind, wie im Bild unten zu sehen:</p>
+
+  <p><a class="image"><img alt="Energy-loss Spectra22.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra22.png" width="615" height="544"></a></p>
+
+  <p class="version">Origin-Version mind. erforderlich: 2015 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>den Dialog <b>Diagrammeinstellungen</b> verwenden, um Kurven in einem Diagramm mit Daten aus mehreren Arbeitsmappen zu erstellen.</li>
+
+    <li>eingebettete Diagramme hinzufügen.</li>
+
+    <li>Stilformate kopieren und einfügen.</li>
+
+    <li>Verwenden Sie den Dialog <b>Layermanagement</b>, um Achsen zu verknüpfen.</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <h3><a name="Using_the_Plot_Setup_dialog"></a><span class="mw-headline">Dialog Diagrammeinstellungen verwenden</span></h3>
+
+  <p>Dieses Tutorial basiert auf dem Projekt: &lt;Origin-Verzeichnis&gt;\Samples\Tutorial Data.opj.</p>
+
+  <ol>
+    <li>Öffnen Sie das Projekt Tutorial Data.opj und<br>
+    navigieren Sie zu dem Ordner <i>Three Panel Graph with Inset Graphs</i>.</li>
+
+    <li>Aktivieren Sie die Arbeitsmappen <b>Measured</b> und <b>Original name: BOS".</b></li>
+
+    <li>Stellen Sie sicher, dass in keiner der beiden Arbeitsmappen etwas ausgewählt ist und klicken Sie auf die Schaltfläche Liniendiagramm <a class="image"><img alt="Button Line.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Line.png" width="22" height="23"></a> auf der Symbolleiste <b>2D-Grafiken</b>.</li>
+
+    <li>Der Dialog <b>Diagrammeinstellungen</b> wird geöffnet.<br>
+      <a class="image"><img alt="Energy-loss Spectra02.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra02.png" width="701" height="530"></a>
+
+      <table class="noborder">
+        <tr>
+          <td style="vertical-align:top" width="60"><img src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Tip_icon.png" width="57" height="57" border="0" alt=""></td>
+
+          <td>
+            <p>Um alle drei Bedienfelder im Dialog <b>Diagrammeinstellungen</b> anzuzeigen, erweitern Sie bitte das Bedienfeld <b>Diagrammtyp</b>, indem Sie auf <a class="image"><img alt="Button Expand Preview Up.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Expand_Preview_Up.png" width="24" height="23"></a> klicken, und erweitern Sie das Bedienfeld <b>Verfügbare Daten</b>, indem Sie erneut auf <a class="image"><img alt="Button Expand Preview Up.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Expand_Preview_Up.png" width="24" height="23"></a> klicken.</p>
+
+            <p>Bitte lesen Sie unter <a class="external text" href="../../Tutorial/Tutorial/Plotting_using_Plot_Setup.html">Mit Hilfe des Dialogs Diagrammeinstellungen zeichnen</a> weitere Informationen zu diesem Thema.</p><br>
+            <br>
+          </td>
+        </tr>
+      </table>
+    </li>
+
+    <li>Wählen Sie unter <b>Verfügbare Daten</b> die Option <b>Arbeitsblätter in Ordner</b> in der Auswahlliste. Auf diese Weise wird sicher gestellt, dass im Bedienfeld auf der rechten Seite die Daten aus allen Arbeitsmappe im aktuellen Ordner verfügbar sind.<br>
+    <a class="image"><img alt="Energy-loss Spectra03.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra03.png" width="429" height="186"></a></li>
+
+    <li>Stellen Sie weiterhin sicher, dass das Arbeitsblatt <b>Original name: BOS</b> ausgewählt ist (siehe oben). Aktivieren Sie im mittleren Bedienfeld das zu <b>X</b> und <b>A4</b> zugehörige Kontrollkästchen und das Kontrollkästchen für <b>Y</b> und <b>B4</b>.</li>
+
+    <li>Dadurch wird Spalte col(A4) als X-Werte und Spalte col(B4) als Y-Werte gesetzt, unabhängig von der Spaltenzuweisung in der Arbeitsmappe. Wählen Sie <b>Hinzufügen</b>, und eine neue Kurve wird in dem vorhandenen Layer im dritten Bedienfeld erstellt:<br>
+    <a class="image"><img alt="Energy-loss Spectra04.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra04.png" width="641" height="263"></a></li>
+
+    <li>Ändern Sie im ersten Bedienfeld die markierte Arbeitsmappe und wählen Sie nun <b>Measured</b>.</li>
+
+    <li>Setzen den <b>Diagrammtyp</b> links auf <b>Punktdiagramm</b>.</li>
+
+    <li>Aktivieren Sie im zweiten Bedienfeld die Kontrollkästchen wie unten gezeigt:<br>
+    <a class="image"><img alt="Energy-loss Spectra05.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra05.png" width="470" height="468"></a></li>
+
+    <li>Wählen Sie <b>Hinzufügen</b>, und die Zeichnung wird zu dem Layer im dritten Bedienfeld hinzugefügt. Klicken Sie auf <b>OK</b>, um den Dialog zu schließen. Das Diagramm sollte wie in der Abbildung unten aussehen:<br>
+    <a class="image"><img alt="Energy-loss Spectra06.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra06.png" width="417" height="328"></a></li>
+
+    <li>Aktivieren Sie eine der Arbeitsmappen und befolgen Sie die obenstehenden Anweisungen, um zwei weitere Diagramme zu erstellen, indem Sie die folgenden Zuweisungen im Dialog <b>Diagrammeinstellungen</b> verwenden (denken Sie daran, den Diagrammtyp für die Daten aus <i>Measured</i> in Punktdiagramm zu ändern):</li>
+  </ol>
+
+  <table border="1" align="left">
+    <caption>
+      <em>Graph 2</em>
+    </caption>
+
+    <tr>
+      <th>Arbeitsblattname</th>
+
+      <th>X setzen als</th>
+
+      <th>Y setzen als</th>
+    </tr>
+
+    <tr>
+      <td>Original name: BOS</td>
+
+      <td>A1</td>
+
+      <td>B1</td>
+    </tr>
+
+    <tr>
+      <td>Measured</td>
+
+      <td>C</td>
+
+      <td>D</td>
+    </tr>
+  </table>
+
+  <table border="1" align="center">
+    <caption>
+      <em>Graph 3</em>
+    </caption>
+
+    <tr>
+      <th>Arbeitsblattname</th>
+
+      <th>X setzen als</th>
+
+      <th>Y setzen als</th>
+    </tr>
+
+    <tr>
+      <td>Original name: BOS</td>
+
+      <td>A2</td>
+
+      <td>B2</td>
+    </tr>
+
+    <tr>
+      <td>Measured</td>
+
+      <td>A</td>
+
+      <td>B</td>
+    </tr>
+  </table>
+
+  <p>&#160;</p>
+
+  <h3><a name="Adding_Inset_Graphs"></a><span class="mw-headline">Eingebettete Diagramme hinzufügen</span></h3>
+
+  <ol>
+    <li>Klicken Sie auf die Schaltfläche <b>Eingefügtes Diagramm mit Daten hinzufügen</b> <a class="image"><img alt="Button Add Inset Graph With Data.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Add_Inset_Graph_With_Data.png" width="23" height="23"></a> auf der Symbolleiste <b>Diagramm</b>, um ein eingebettetes Diagramm zu jedem Diagramm hinzuzufügen. Jedes eingebettete Diagramm wird in seinem eigenen Layer angezeigt, und jedes Diagramm kann benutzerdefiniert angepasst, vergrößert, geschwenkt und verschoben werden wie das Hauptdiagramm in voller Größe, aus dem es erstellt wurde.</li>
+
+    <li>Markieren Sie jedes Diagramm und ziehen Sie es in die Mitte:
+
+      <dl>
+        <dd><a class="image"><img alt="Energy-loss Spectra10.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra10.png" width="392" height="330"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Merging_Graphs"></a><span class="mw-headline">Diagramme zusammenfügen</span></h3>
+
+  <ol>
+    <li>Wählen Sie im Origin-Menü <b>Grafik: Grafikfenster zusammenfügen: Dialog öffnen</b>. Alternativ klicken Sie auf die Schaltfläche <a class="image"><img alt="Button Merge.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Merge.png" width="23" height="23"></a> auf der Symbolleiste <b>Diagramm</b>.</li>
+
+    <li>In dem aufgerufenen Dialog <b>Graph Manipulation: merge_graph</b> erweitern Sie den Zweig <b>Einstellungen Anordnung</b> und setzen Sie die <b>Anzahl der Zeilen</b> auf <b>3</b> und <b>Anzahl der Spalten</b> auf <b>1</b>. Im Bedienfeld auf der rechten Seite wird die Vorschau angezeigt.</li>
+
+    <li>Aktivieren Sie das Kontrollkästchen <b>Jedes Quelldiagramm als eine Einheit behandeln</b>, um die Diagramme und die entsprechenden eingebetteten Diagramme verknüpft zu lassen.</li>
+
+    <li>Aktivieren Sie <b>Achsenrahmen zeigen</b>, um jedem Diagramm einen Rahmen hinzuzufügen.
+
+      <dl>
+        <dd><a class="image"><img alt="Energy-loss Spectra11-vNext.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra11.png" width="798" height="500"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um den Dialog zu schließen.</li>
+  </ol>
+
+  <h3><a name="Customizing_Plots_and_the_Copy_Format_Feature"></a><span class="mw-headline">Zeichnungen benutzerdefiniert anpassen und die Funktion Format kopieren</span></h3>
+
+  <ol>
+    <li>Klicken Sie zum Öffnen des Dialogs <b>Details Zeichnung</b> doppelt auf das erste Diagramm.</li>
+
+    <li>Verwenden Sie die Schaltfläche <a class="image"><img alt="Button Expand Left.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Expand_Left.png" width="29" height="24"></a>, um das linke Bedienfeld zu erweitern. Klicken Sie auf den Pfeil neben dem Symbol von <b>Layer1</b>, um ihn zu erweitern und den Inhalt von Layer1 anzuzeigen.</li>
+
+    <li>Markieren Sie die Zeichnung <i>[ Measured ]Sheet1!E[ X ]...</i> und ändern Sie auf der Registerkarte <b>Symbole</b> das Symbol in einen Kreis, die <b>Größe</b> in <b>5</b> und die <b>Symbolfarbe</b> in <b>Rot</b>. Klicken Sie auf <b>Übernehmen</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Energy-loss Spectra12.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra12.png" width="709" height="155"></a></dd>
+      </dl>
+    </li>
+
+    <li>Markieren Sie die Zeichnung <i>[ Fitted ]Sheet1!A4[ X ],B4...</i> und setzen Sie auf der Registerkarte <b>Linie</b> die Linienfarbe auf <b>Blau</b>.</li>
+
+    <li>Klicken Sie auf <b>OK</b>, um den Dialog zu schließen.</li>
+
+    <li>Der nächste Schritt besteht darin, dieses Farbschema auf alle Hauptdiagramme und eingebetteten Diagramme anzuwenden, um zu verhindern, sie alle manuell zu ändern. Klicken Sie mit der linken Maustaste auf das angepasste Diagramm und wählen Sie im Kontextmenü <b>Format kopieren: Alle Stilformate</b>:
+
+      <dl>
+        <dd><a class="image"><img alt="Energy-loss Spectra13.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra13.png" width="512" height="398"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf alle restlichen Diagramme und wählen Sie im Kontextmenü <b>Format einfügen</b>:
+
+      <dl>
+        <dd><a class="image"><img alt="Energy-loss Spectra14.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra14.png" width="499" height="363"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Using_the_Layer_Management_Dialog_Box_to_Link_and_Customize_Axes"></a><span class="mw-headline">Im Dialog Layermanagement Achsen verknüpfen und benutzerdefiniert anpassen</span></h3>
+
+  <p>Der nächste Schritt besteht darin, die Skalierungen der Achsen festzulegen und die Achsenunterbrechungen hinzuzufügen, um die wichtigen Teile der Diagramme zu zeigen.</p>
+
+  <ol>
+    <li>Wählen Sie <b>Grafik: Layerverwaltung</b>. In dem aufgerufenen Dialog sehen Sie auf der linken Seite ein Bedienfeld mit dem Namen <b>Layerauswahl</b>. Es listet alle sechs Layer in diesem Diagramm auf - 3 für Hauptdiagramme und 3 für eingebettete Diagramme.</li>
+
+    <li>Um eine der Hauptdiagrammachsen benutzerdefiniert anzupassen und die Änderungen auf die zwei anderen Hauptdiagramme anzuwenden, werden die Achsen auf der Registerkarte <b>Verknüpfung</b> verknüpft. Der erste Layer kann nicht verknüpft werden. Dies ist der Layer, der benutzerdefiniert angepasst wird und mit dem die anderen Diagramme verknüpft werden. Wählen Sie <b>Layer 3</b> und setzen Sie auf der Registerkarte <b>Verknüpfung</b> die Option <b>Verknüpfen mit</b> auf <b>1</b> und <b>Verknüpfung der X-Achse</b> sowie <b>Verknüpfung der Y-Achse</b> auf <b>Gerade [1 zu 1]</b> (wie unten zu sehen):
+
+      <dl>
+        <dd><a class="image"><img alt="Energy-loss Spectra15.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra15.png" width="1057" height="341"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>Übernehmen</b>.</li>
+
+    <li>Tun Sie dasselbe für <b>Layer 5</b> und klicken Sie auf <b>Anwenden</b>.</li>
+
+    <li>Klicken Sie auf <b>OK</b>, um den Dialog zu schließen.</li>
+
+    <li>Klicken Sie doppelt auf eine der Achsen im ersten Diagramm, um den <b>Dialog Achsen</b> zu öffnen.</li>
+
+    <li>Klicken Sie auf das Symbol <b>Horizontal</b> auf der Registerkarte <b>Skalierung</b> und setzen Sie <b>Von</b> und <b>Bis</b> auf <i>-250</i> bzw. <i>1500</i>. Setzen Sie den Wert des Inkrements für die <i>Großen Hilfsstriche</i> auf <i>250</i>.
+
+      <dl>
+        <dd><a class="image"><img alt="Energy-loss Spectra07.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra07.png" width="525" height="398"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie jetzt das Symbol <b>Horizontal</b> auf der Registerkarte <b>Unterbrechungen</b> und setzen Sie die <b>Anzahl der Unterbrechungen</b> auf <b>1</b>.</li>
+
+    <li>Wählen Sie <b>Unterbrechung1</b> im Zweig <b>Unterbrechungen</b> und erstellen Sie eine Unterbrechung <b>Von: 850</b>, <b>Bis: 1250</b>.</li>
+
+    <li>Deaktivieren Sie auf derselben Seite das Kontrollkästchen <b>Auto</b> für <b>Position (% der Achsenlänge)</b> und legen Sie <i>75</i> fest.
+
+      <dl>
+        <dd><a class="image"><img alt="Energy-loss Spectra08.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra08.png" width="529" height="359"></a></dd>
+      </dl>
+    </li>
+
+    <li>Gehen Sie zum Symbol <b>Vertikal</b> auf der Registerkarte <b>Skalierung</b> und setzen Sie die Skalierung auf Von <i>0</i> Bis <i>0,22</i> mit Inkrementen von <i>0,1</i>.
+
+      <dl>
+        <dd><a class="image"><img alt="Energy-loss Spectra09.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra09.png" width="529" height="400"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie <b>OK</b> aus. Alle drei Diagramme geben nun Ihre Änderungen wieder.</li>
+
+    <li>Um die eingefügten Diagramme benutzerdefiniert anzupassen, vergrößern Sie das erste Diagramm in Layer2 mit der Schaltfläche <b>Zoomen-Schwenken</b> <a class="image"><img alt="Button Panning.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Panning.png" width="22" height="22"></a> auf der Symbolleiste <b>Hilfsmittel</b>. Verwenden Sie zum Vergrößern das Mausrad.
+
+      <dl>
+        <dd><a class="image"><img alt="Energy-loss Spectra16.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra16.png" width="659" height="412"></a></dd>
+      </dl>
+    </li>
+
+    <li>Sobald Sie es vergrößert haben, wählen Sie die Schaltfläche <b>Zeiger</b> <a class="image"><img alt="Button Pointer.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Pointer.png" width="23" height="23"></a> auf der Symbolleiste <b>Hilfsmittel</b>, um den Zoommodus zu verlassen. Klicken Sie zum Öffnen des Dialogs <b>Details Zeichnung</b> doppelt auf das eingebettete Diagramm. Wählen Sie die Zeichnung <i>[Measured]Sheet1!E[X]...</i> und aktivieren Sie auf der Registerkarte <b>Ankerlinien</b> das Kontrollkästchen <b>Vertikal</b>. Klicken Sie auf <b>OK</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Energy-loss Spectra17.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra17.png" width="592" height="222"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie doppelt auf eine der Achsen.</li>
+
+    <li>Setzen Sie im <b>Dialog Achsen</b> die Skalierung der <b>X-Achse</b> auf der Registerkarte <b>Skalierung</b> auf die Werte <b>Von: 1350</b> und <b>Bis: 1450</b> mit Inkrementen von <b>50</b>.</li>
+
+    <li>Setzen Sie bei aktivem Symbol <b>Vertikal</b> die Werte der Skalierung auf <b>Von</b> 0 und <b>Bis</b> 0,03. Wechseln Sie zur Registerkarte <b>Linien und Hilfsstriche</b> und setzen Sie bei aktivem Symbol <b>Links</b> die <i>Großen Hilfsstriche</i> auf <b>Kein</b> und die <b>Kleinen Hilfsstriche</b> auf <b>Kein</b>.</li>
+
+    <li>Klicken Sie auf <b>OK</b>, um den Dialog zu schließen. Wählen Sie die Hilfsstrichsbeschriftungen auf der linken Y-Achse und drücken Sie <b>Entfernen</b>, um sie zu entfernen. Tun Sie dasselbe mit den Achsenbeschriftungen.</li>
+
+    <li>Drücken Sie zur Verkleinerung <b>Strg+W</b>, um wieder zu der Normalgröße zurückzukehren.</li>
+
+    <li>Markieren Sie das benutzerdefinierte eingebettete Diagramm, klicken Sie mit der rechten Maustaste darauf und wählen Sie <b>Format kopieren: Alle Stilformate</b> im Kontextmenü.</li>
+
+    <li>Markieren Sie genauso die zwei anderen eingebetteten Diagramme, klicken Sie mit der rechten Maustaste und wählen Sie <b>Format einfügen</b>, um die Einstellungen der Ankerlinien zu duplizieren.</li>
+
+    <li>Wiederholen Sie die zwei obenstehenden Schritte, indem Sie dieses Mal <b>Format kopieren: Skalierungen</b> wählen, um die Achseneinstellungen zu duplizieren.</li>
+  </ol>
+
+  <h3><a name="Adding_Titles.2C_Legend_and_Text_Objects"></a><span class="mw-headline">Titel, Legenden und Textobjekte hinzufügen</span></h3>
+
+  <ol>
+    <li>Aktivieren Sie den ersten Layer, indem Sie auf das Layersymbol oben links im Diagramm klicken. Klicken Sie mit der rechten Maustaste auf das Diagramm und wählen Sie im Kontextmenü <b>Layertitel hinzufügen/modifizieren</b>. Geben Sie in dem angezeigten Feld <b>Wurtzite GaN</b> ein, ändern Sie die Schriftgröße und -typ und ziehen Sie es in die gewünschte Position:
+
+      <dl>
+        <dd><a class="image"><img alt="Energy-loss Spectra18.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra18.png" width="264" height="163"></a></dd>
+      </dl>
+    </li>
+
+    <li>Markieren Sie die Legendenobjekte für das zweite und dritte Diagramm und drücken Sie <b>Entfernen</b>.</li>
+
+    <li>Markieren Sie die verbleibende Legende, klicken Sie mit der rechten Maustaste und wählen Sie <b>Einstellungen</b>. Geben Sie im Dialog <b>Objekteigenschaften</b> den Text <b>Fitted</b> anstelle von <b>%(1)</b> ein und <b>Measured</b> anstelle von <b>%(2)</b>. Platzieren Sie beide in der gleichen Zeile. Legen Sie, wenn Sie möchten, die Schriftgröße fest und setzen Sie den <b>Hintergrund</b> auf <b>Kein</b>. Klicken Sie auf <b>OK</b> und ziehen Sie die Legende in eine geeignete Position.
+
+      <dl>
+        <dd><a class="image"><img alt="Energy-loss Spectra19.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra19.png" width="442" height="263"></a></dd>
+      </dl>
+    </li>
+
+    <li>Löschen Sie die Titel der ersten und dritten Y-Achse. Klicken Sie doppelt auf den zweiten und geben Sie <b>Intensity [arb. units]</b> ein. Tun Sie dasselbe bei dem einzelnen X-Achsentitel und beschriften Sie ihn mit <b>Energy Loss [cm-1]</b>.</li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf das Diagramm und wählen Sie <b>Text hinzufügen</b> im Kontextmenü oder wählen Sie die Schaltfläche <a class="image"><img alt="Button Text Tool.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Text_Tool.png" width="23" height="24"></a> auf der Symbolleiste <b>Hilfsmittel</b>. Fügen Sie, wie unten gezeigt, Textobjekte ein. Verwenden Sie die Schaltfläche <a class="image"><img alt="Button Subscript.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Subscript.png" width="23" height="23"></a> zum Schreiben von tiefgestellten Zeichen:
+
+      <dl>
+        <dd><a class="image"><img alt="Energy-loss Spectra20.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra20.png" width="509" height="219"></a></dd>
+      </dl>
+    </li>
+
+    <li>Markieren Sie jedes der eingebetteten Diagramme und ändern Sie Größe oder Position nach Wunsch. Verwenden Sie die Schaltfläche <a class="image"><img alt="Button Arrow Tool.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Arrow_Tool.png" width="22" height="23"></a> auf der Symbolleiste <b>Hilfsmittel</b>, um an den gewünschten Stellen in den eingefügten Diagrammen Pfeile zu erstellen:
+
+      <dl>
+        <dd><a class="image"><img alt="Energy-loss Spectra21.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra21.png" width="531" height="292"></a></dd>
+      </dl>
+    </li>
+
+    <li>Das Diagramm sollte am Ende folgendermaßen aussehen:
+
+      <dl>
+        <dd><a class="image"><img alt="Energy-loss Spectra22.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra22.png" width="615" height="544"></a></dd>
+      </dl>
+    </li>
+  </ol>

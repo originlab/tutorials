@@ -1,0 +1,113 @@
+﻿<h1 class="firstHeading">Einführung in X-Funktionen</h1>
+
+  <p>&#160;</p><a name="Summary" id="Summary"></a>
+
+  <h2><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>X-Funktionen bieten eine strukturierte Programmierumgebung zum Erstellen von Origin-Hilfsmitteln. Anders als beim einfachen GetN ist es dem Anwender durch das Erstellen von Hilfsmitteln mit Hilfe der X-Funktionen möglich, sich auf den eigentlichen Datenverarbeitungscode zu konzentrieren und sich nicht um die Codes für die Benutzeroberfläche kümmern zu müssen.</p>
+
+  <p>Die meisten Dialogfelder/Funktionen in Origin 8 sind X-Funktionen, und viele von ihnen können vom Menü und von der Befehlszeile aus ausgeführt werden. Die Flexibilität der laufenden X-Funktionen macht sie zu einer attraktiven Möglichkeit, Origin benutzerdefiniert anzupassen.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: 8.0 SR0</p><a name="What_you_will_learn" id="What_you_will_learn"></a>
+
+  <h2><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <ul>
+    <li>Erstellen einer X-Funktion,</li>
+
+    <li>Erstellen des Zugriffs auf die X-Funktion über Skript,</li>
+
+    <li>Verwenden der X-Funktion im Dialogmodus.</li>
+  </ul><a name="Create_an_X-Function" id="Create_an_X-Function"></a>
+
+  <h2><span class="mw-headline">Erstellen einer X-Funktion</span></h2>
+
+  <ol>
+    <li>Wählen Sie <b>Hilfsmittel: X-Funktion Builder</b> oder drücken Sie <b>F10</b>, um das Dialogfeld <b>X-Funktion Builder</b> zu öffnen.</li>
+
+    <li>Setzen Sie <b>Name</b>, <b>Beschriftung</b> und <b>Daten</b> der 1. Variable auf <b>ix</b>, <b>Quelle</b> und <b>&lt;aktiv&gt;.</b></li>
+
+    <li>Klicken Sie mit der rechten Maustaste in das Listenfeld und wählen Sie im Kontextmenü <b>Variablen hinzufügen</b> aus.</li>
+
+    <li>Setzen Sie <b>Name</b>, <b>Beschriftung</b>, <b>Eingabe/Ausgabe</b> und <b>Daten</b> der 2. Variablen auf <b>ox</b>, <b>Ziel</b>, <b>Ausgabe</b> und <b>&lt;neu&gt;</b>.</li>
+
+    <li>Wählen <b>Datei: Speichern</b>, um die X-Funktion als vcopy zu speichern.
+
+      <dl>
+        <dd><img alt="Image:Vcopy.png" src="../images/Introduction_to_X-Functions/Vcopy.png" border="0"></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <img alt="Image:Button_Code_Builder.png" src="../images/Introduction_to_X-Functions/Button_Code_Builder.png" border="0">, um den <b>Code Builder</b> zu öffnen.</li>
+
+    <li>Fügen Sie die folgenden Codes in die Funktion vcopy im Code Builder ein.</li>
+  </ol>
+  <pre class="oc">
+<span class="hcp1">void</span> vcopy<span class="hcp2">(</span><span class="hcp1">const</span> vector<span class="hcp3">&amp;</span> ix, vector<span class="hcp3">&amp;</span> ox<span class="hcp2">)</span>
+<span class="hcp2">{</span>
+ 
+        <span class="hcp1">if</span> <span class="hcp2">(</span><span class="hcp3">!</span>ix <span class="hcp3">||</span> <span class="hcp3">!</span>ox<span class="hcp2">)</span>
+            XF_THROW<span class="hcp2">(</span>CER_NO_DATA<span class="hcp2">)</span>;
+ 
+        ox <span style="color: #000080;">=</span> ix;   
+ 
+<span class="hcp2">}</span>
+</pre><a name="Make_X-Function_script_Accessible" id="Make_X-Function_script_Accessible"></a>
+
+  <h2><span class="mw-headline">Über Skript zugängliche Funktionen</span></h2>
+
+  <ol>
+    <li>Klicken Sie auf die Schaltfläche <b>Zurück zum Dialog</b> im <b>Code Builder</b>.</li>
+
+    <li>Speichern Sie im <b>X-Funktion Builder</b> Ihre Änderung. <img alt="Image:Button_Save_Project.png" src="../images/Introduction_to_X-Functions/Button_Save_Project.png" border="0"></li>
+
+    <li>Öffnen Sie durch Klicken die X-Funktion in der <b>Baumansicht</b>. <img alt="Image:TreeView.png" src="../images/Introduction_to_X-Functions/TreeView.png" border="0"></li>
+
+    <li>Öffnen Sie den Zweig <b>Nutzungskontext</b>. Stellen Sie sicher, dass das Kontrollkästchen <b>Labtalk</b> aktiviert ist.
+
+      <dl>
+        <dd><img alt="Image:Vcopy lt.png" src="../images/Introduction_to_X-Functions/Vcopy_lt.png" border="0"></dd>
+      </dl>
+    </li>
+
+    <li>Speichern Sie die X-Funktion und schließen Sie das Dialogfeld <b>X-Funktion.</b></li>
+
+    <li>Füllen Sie Spalte(A) des aktiven Arbeitsblatts mit Zeilennummern.</li>
+
+    <li>Geben Sie folgendes Skript im Befehlsfenster ein. Spalte(A) wird in Spalte(B) kopiert.
+
+      <dl>
+        <dd><code>vcopy col(a) col(b)</code></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <p> </p><a name="Dialog-Mode_of_X-Function" id="Dialog-Mode_of_X-Function"></a>
+
+  <h2><span class="mw-headline">Dialogmodus der X-Funktion</span></h2>
+
+  <ol>
+    <li>Öffnen Sie das Dialogfeld <b>X-Funktion</b> und öffnen Sie VCOPY.OXF in der <b>Baumansicht</b>.</li>
+
+    <li>Öffnen Sie den Zweig <b>Nutzungskontext</b>.</li>
+
+    <li>Öffnen Sie den Zweig <b>Menüs</b>, stellen Sie sicher, dass <b>Einfache GetNBox</b> aus dem Listenfeld <b>Dialog N automatisch erhalten</b> ausgewählt ist.
+
+      <dl>
+        <dd><img alt="Image:Vcopy smpdlg.png" src="../images/Introduction_to_X-Functions/Vcopy_smpdlg.png" border="0"></dd>
+      </dl>
+    </li>
+
+    <li>Speichern Sie die X-Funktion und schließen Sie das Dialogfeld <b>X-Funktion.</b></li>
+
+    <li>Geben Sie das folgende Skript im Befehlsfenster ein. Der Dialog von VCOPY.OXF wird geöffnet
+
+      <dl>
+        <dd><code>vcopy -d</code></dd>
+
+        <dd><img alt="Image:Vcopy dlg.png" src="../images/Introduction_to_X-Functions/Vcopy_dlg.png" border="0"></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <p> </p>

@@ -1,0 +1,230 @@
+﻿<h1 class="firstHeading">Datenbankimport durch LabTalk-Substitution aktualisieren</h1>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Import_Data_from_Database"><span class="tocnumber">3.1</span><span class="toctext">Daten aus einer Datenbank importieren</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Plot_a_Column_Graph"><span class="tocnumber">3.2</span> <span class="toctext">Ein Säulendiagramm zeichnen</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#Update_Database_Importing_By_LabTalk_Substitution"><span class="tocnumber">3.3</span> <span class="toctext">Datenbankimport durch LabTalk-Substitution aktualisieren</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Update_Database_Importing_By_LabTalk_Substitution/Alert_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Die in diesem Tutorial verwendete Datenbank wurde auf Microsoft Azure eingerichtet.</p>
+      </td>
+    </tr>
+  </table>
+
+  <p>Dieses Tutorial zeigt, wie Sie mit einer definierten LabTalk-Variable in SQL Daten aus einer Datenbank in ein Origin-Arbeitsblatt importieren und ein Säulendiagramm aus den importierten Daten zeichnen. Ändern Sie dann die LabTalk-Variable und importieren Sie die Datenbank erneut.</p>
+
+  <p>Das Vorgehen basiert auf Origin 2023b.</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>Daten mit dem SQL-Editor importieren,</li>
+
+    <li>die LabTalk-Substitution in SQL-Aussagen verwenden,</li>
+
+    <li>ein Säulendiagramm erstellen,</li>
+
+    <li>Datenbankimport durch LabTalk-Substitution aktualisieren.</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <h3><a name="Import_Data_from_Database"></a><span class="mw-headline">Daten aus einer Datenbank importieren</span></h3>
+
+  <ol>
+    <li>Öffnen Sie ein neues Projekt. Wählen Sie im Menü <b>Daten: Mit Datenbank verbinden: Neu...</b> oder klicken Sie auf die Schaltfläche <b>SQL-Editor öffnen</b> auf der Symbolleiste <b>Datenbankzugriff</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDataDatabase 1.png" src="../images/Update_Database_Importing_By_LabTalk_Substitution/ImportDataDatabase_1.png" width="257"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie die Option <b>Verbindungszeichenkette</b> aus und klicken Sie auf OK. Fügen Sie die Verbindungszeichenkette unten ein.
+      <pre class="sql" style="font-family:monospace;">
+Driver<span style="color: #66cc66;">=</span><span style="color: #66cc66;">{</span><span style="color: #993333; font-weight: bold;">SQL</span> Server<span style="color: #66cc66;">}</span>; Server<span style="color: #66cc66;">=</span>olab<span style="color: #66cc66;">.</span><span style="color: #993333; font-weight: bold;">DATABASE</span><span style="color: #66cc66;">.</span>windows<span style="color: #66cc66;">.</span>net; Port<span style="color: #66cc66;">=</span><span style="color: #cc66cc;">1433</span>; <span style="color: #993333; font-weight: bold;">DATABASE</span><span style="color: #66cc66;">=</span>sample1; Uid<span style="color: #66cc66;">=</span>Olabts; Pwd<span style="color: #66cc66;">=</span>Origin@2024;
+</pre>
+
+      <p>Wenn Sie ODBC Drive 18 for SQL Server benutzen, verwenden Sie</p>
+      <pre class="sql" style="font-family:monospace;">
+Driver<span style="color: #66cc66;">=</span><span style="color: #66cc66;">{</span>ODBC Driver <span style="color: #cc66cc;">18</span> <span style="color: #993333; font-weight: bold;">FOR</span> <span style="color: #993333; font-weight: bold;">SQL</span> Server<span style="color: #66cc66;">}</span>; Server<span style="color: #66cc66;">=</span>olab<span style="color: #66cc66;">.</span><span style="color: #993333; font-weight: bold;">DATABASE</span><span style="color: #66cc66;">.</span>windows<span style="color: #66cc66;">.</span>net; Port<span style="color: #66cc66;">=</span><span style="color: #cc66cc;">1433</span>; <span style="color: #993333; font-weight: bold;">DATABASE</span><span style="color: #66cc66;">=</span>sample1; Uid<span style="color: #66cc66;">=</span>Olabts; Pwd<span style="color: #66cc66;">=</span>Origin@2024;
+</pre>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>OK</b>, um die Verbindung zur Datenbank herzustellen.</li>
+
+    <li>Kopieren und fügen Sie die folgende Abfrage in das Textfeld des SQL-Editors ein. Die Abfrage zeigt die Gesamtverkäufe jedes Produkts nach jeweiligem <b>Unternehmens</b>namen.
+      <pre class="sql" style="font-family:monospace;">
+<span style="color: #993333; font-weight: bold;">SELECT</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>Name <span style="color: #993333; font-weight: bold;">AS</span> ProductName<span style="color: #66cc66;">,</span> <span style="color: #993333; font-weight: bold;">SUM</span><span style="color: #66cc66;">(</span>SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>LineTotal<span style="color: #66cc66;">)</span> <span style="color: #993333; font-weight: bold;">AS</span> <span style="color: #ff0000;">'%(company$)'</span> <span style="color: #993333; font-weight: bold;">FROM</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail <span style="color: #993333; font-weight: bold;">INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>Product <span style="color: #993333; font-weight: bold;">ON</span> SalesLT<span style="color: #66cc66;">.</span>Product<span style="color: #66cc66;">.</span>ProductID<span style="color: #66cc66;">=</span>SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>ProductID <span style="color: #993333; font-weight: bold;">INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderHeader <span style="color: #993333; font-weight: bold;">ON</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderHeader<span style="color: #66cc66;">.</span>SalesOrderID <span style="color: #66cc66;">=</span>SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>SalesOrderID <span style="color: #993333; font-weight: bold;">INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory <span style="color: #993333; font-weight: bold;">ON</span> SalesLT<span style="color: #66cc66;">.</span>Product<span style="color: #66cc66;">.</span>ProductCategoryID <span style="color: #66cc66;">=</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>ProductCategoryID <span style="color: #993333; font-weight: bold;">INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>Customer <span style="color: #993333; font-weight: bold;">ON</span> SalesLT<span style="color: #66cc66;">.</span>Customer<span style="color: #66cc66;">.</span>CustomerID <span style="color: #66cc66;">=</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderHeader<span style="color: #66cc66;">.</span>CustomerID <span style="color: #993333; font-weight: bold;">WHERE</span> SalesLT<span style="color: #66cc66;">.</span>Customer<span style="color: #66cc66;">.</span>CompanyName <span style="color: #993333; font-weight: bold;">LIKE</span> <span style="color: #ff0000;">'%(company$)'</span> <span style="color: #993333; font-weight: bold;">GROUP</span> <span style="color: #993333; font-weight: bold;">BY</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>Name
+</pre>
+    </li>
+
+    <li>Um eine LabTalk-Zeichenkettenvariable für das Unternehmen hinzuzufügen, wählen Sie <b>Anfrage: LabTalk...</b>. Der Dialog <b>Einstellungen der Unterstützung von LabTalk</b> wird geöffnet.
+
+      <dl>
+        <dd><a class="image"><img alt="Db LT Script1.png" src="../images/Update_Database_Importing_By_LabTalk_Substitution/Db_LT_Script1.png" width="532"></a></dd>
+      </dl>
+    </li>
+
+    <li>Aktivieren Sie das Kontrollkästchen <b>Substitution durch LabTalk (%,$) aktivieren</b>.</li>
+
+    <li>Geben Sie das Skript unten:
+      <pre class="lt" style="font-family:monospace;">
+string company<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">"Professional Sales and Service"</span>;
+</pre>in dem Feld <b>Skript vor Anfrage</b> ein, um eine LabTalk-Zeichenkettenvariable <b>company</b> zu definieren. Klicken Sie auf <b>OK</b>.<br>
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for LT sub company.png" src="../images/Update_Database_Importing_By_LabTalk_Substitution/ImportDB_for_LT_sub_company.png" width="522"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <a class="image"><img alt="Db editor labtalk.png" src="../images/Update_Database_Importing_By_LabTalk_Substitution/Db_editor_labtalk.png" width="23"></a>, um eine Vorschau der SQL-Abfragezeichenkette mit substituierter LabTalk-Variable im Feld des SQL-Editors anzuzeigen.<br>
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for LT sub company SQL.png" src="../images/Update_Database_Importing_By_LabTalk_Substitution/ImportDB_for_LT_sub_company_SQL.png" width="718"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>OK</b>, um die Daten in die Arbeitsmappe zu importieren. Per Standard wird die SQL zusammen mit dem Arbeitsblatt gespeichert.</li>
+
+    <li>Das Symbol oben links in der Arbeitsmappe weist darauf hin, dass das Blatt eine SQL-Abfrage enthält.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for LT sub company1 imported.png" src="../images/Update_Database_Importing_By_LabTalk_Substitution/ImportDB_for_LT_sub_company1_imported.png" width="363"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Plot_a_Column_Graph"></a><span class="mw-headline">Ein Säulendiagramm zeichnen</span></h3>
+
+  <ol>
+    <li>Markieren Sie Spalte B und zeichnen Sie ein Säulendiagramm.</li>
+
+    <li>Blenden Sie Rahmen und Gitternetz ein. Blenden Sie die Hilfsstriche aus und entfernen Sie die Achsentitel. Drehen Sie die Hilfsstrichbeschriftungen.</li>
+
+    <li>Klicken Sie in den weißen Bereich innerhalb des Layerrahmens, um den Layer auszuwählen, und klicken Sie auf die Minisymbolleistenschaltfläche Automatisch neu skalieren, so dass die Achse bei neuen Daten automatisch neu skaliert wird.
+
+      <dl>
+        <dd><a class="image"><img alt="Axis auto rescale.png" src="../images/Update_Database_Importing_By_LabTalk_Substitution/Axis_auto_rescale.png" width="346"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die obere Kante der weißen Fläche im Diagramm und wählen Sie die Minisymbolleistenschaltfläche <b>Seitentitel hinzufügen</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Add page title mt.png" src="../images/Update_Database_Importing_By_LabTalk_Substitution/Add_page_title_mt.png" width="386"></a></dd>
+      </dl>
+    </li>
+
+    <li>Geben Sie <b>%(1,@LA)</b> ein. Dies ist die Substitution, um den Spaltenlangnamen der ersten Zeichnung zu zeigen.</li>
+
+    <li>Klicken Sie auf <b>%(1, @LA)</b> und auf die Minisymbolleistenschaltfläche <b>Verknüpfung zur Substitution</b>, um sie zu aktivieren.
+
+      <dl>
+        <dd><a class="image"><img alt="Add page title link to substitution.png" src="../images/Update_Database_Importing_By_LabTalk_Substitution/Add_page_title_link_to_substitution.png" width="346"></a></dd>
+      </dl>
+    </li>
+
+    <li>Der Langname von Spalte B wird als Seitentitel verwendet. Das endgültige Diagramm sieht folgendermaßen aus.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for LT sub colum graph1.png" src="../images/Update_Database_Importing_By_LabTalk_Substitution/ImportDB_for_LT_sub_colum_graph1.png" width="636"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Update_Database_Importing_By_LabTalk_Substitution"></a><span class="mw-headline">Datenbankimport durch LabTalk-Substitution aktualisieren</span></h3>
+
+  <p>Es gibt mehrere Stellen in SQL mit den Unternehmensinfos. Der Vorteil beim Verwenden der LabTalk-Variable ist, dass Anwender nur die Variable im Dialog <b>Einstellungen der Unterstützung von LabTalk</b> ändern müssen. Alle Stellen mit dieser Variable werden bei Ausführung ersetzt.</p>
+
+  <ol>
+    <li>Aktivieren Sie das Arbeitsblatt mit Daten aus der obigen Datenbank. Klicken Sie auf die Schaltfläche <b>SQL-Editor</b> <a class="image"><img alt="Button db Create.png" src="../images/Update_Database_Importing_By_LabTalk_Substitution/Button_db_Create.png" width="24"></a>. Der SQL-Editor wird wieder geöffnet, dieses Mal mit den gespeicherten Einstellungen.</li>
+
+    <li>Wählen Sie im Menü <b>Anfrage: LabTalk...</b> im SQL-Editor, um den Dialog <b>Einstellungen der Unterstützung von LabTalk</b> zu öffnen. Wechseln Sie jetzt zu
+      <pre class="lt" style="font-family:monospace;">
+string company<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">"Riding Cycles"</span>;
+</pre>
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for LT sub company2.png" src="../images/Update_Database_Importing_By_LabTalk_Substitution/ImportDB_for_LT_sub_company2.png" width="522"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf OK, um zum SQL-Editor zurückzukehren. Klicken Sie auf OK, um die Arbeitsmappe zu importieren. Die Grafik wird automatisch aktualisiert.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for LT sub colum graph2.png" src="../images/Update_Database_Importing_By_LabTalk_Substitution/ImportDB_for_LT_sub_colum_graph2.png" width="776"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <p>Dazu müssen Sie aber den Dialog des SGL-Editors jedes Mal öffnen, um die Variablenwerte, die sich nicht eignen, zu ändern. Eine bequemere Methode zum Modifizieren der Einstellungen der LabTalk-Unterstützung ist <b>die Verwendung von globalen Variablen. Sie können dann die globalen Variablen außerhalb des SQL-Editors modifizieren und neu importieren.</b></p>
+
+  <ol>
+    <li>Aktivieren Sie erneut das Arbeitsblatt und klicken Sie auf <a class="image"><img alt="Button db Create.png" src="../images/Update_Database_Importing_By_LabTalk_Substitution/Button_db_Create.png" width="24"></a>, um den <b>SQL-Editor</b> zu öffnen.</li>
+
+    <li>Wählen Sie im Menü <b>Anfrage: LabTalk...</b> und ändern Sie die Einstellungen der LabTalk-Unterstützung folgendermaßen.
+      <pre class="lt" style="font-family:monospace;">
+string company<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">""</span>; <span style="color: #008000;">// For the first company substitution</span> if<span style="color: #000000;">(</span>exist<span style="color: #000000;">(</span>thecompany<span style="color: #000080;">$</span>, <span style="color: #0000dd;">18</span><span style="color: #000000;">)</span> <span style="color: #000080;">==</span> <span style="color: #0000dd;">18</span><span style="color: #000000;">)</span> <span style="color: #008000;">// if thecompany$ exists</span> <span style="color: #000000;">{</span> company<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> thecompany<span style="color: #000080;">$</span>; <span style="color: #008000;">// if yes, assign to company$</span> <span style="color: #000000;">}</span> else <span style="color: #000000;">{</span> company<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">"Professional Sales and Service"</span>; <span style="color: #008000;">// if no, use "Professional Sales and Service" as company$</span> <span style="color: #000000;">}</span>
+</pre>
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for LT sub global.png" src="../images/Update_Database_Importing_By_LabTalk_Substitution/ImportDB_for_LT_sub_global.png" width="521"></a></dd>
+      </dl>
+    </li>
+
+    <li style="list-style: none">Klicken Sie auf <b>OK</b>, um den Dialog <b>SQL-Editor</b> zu schließen.</li>
+
+    <li>Stellen Sie sicher, dass das Arbeitsblatt mit der Datenbank das aktive Fenster ist.</li>
+
+    <li>Wählen Sie im Menü <b>Fenster: Skriptfenster</b>, um das Skriptfenster zu öffnen.</li>
+
+    <li>Fügen Sie folgendes Skript in das Skriptfenster ein. Markieren Sie alles und drücken Sie ENTER, um die Befehle auszuführen.
+      <pre class="lt" style="font-family:monospace;">
+string thecompany<span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">"Action Bicycle Specialists"</span>; <span style="color: #008000;">//define global string variable thecompany$</span> dbimport; <span style="color: #008000;">//import data from database</span>
+</pre>
+    </li>
+
+    <li>Die Daten im Arbeitsblatt und Diagramm werden aktualisiert.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for LT sub company3.png" src="../images/Update_Database_Importing_By_LabTalk_Substitution/ImportDB_for_LT_sub_company3.png" width="793"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <p>Hinweis:</p>
+
+  <ol>
+    <li>"Global" bedeutet, dass die LabTalk-Variablen vom SQL-Editor "gesehen" und für Substitutionen verwendet werden können. Variablen, die ohne Deklaration erstellt wurden (nur zugelassen für die Typen Double, Zeichenkette und Datensatz), z. B. <i>name$="Smith"</i>, werden Projektvariablen und mit der Origin-Projektdatei gepeichert.</li>
+
+    <li>Der letzte LabTalk-Befehl <i>dbimport</i> ist der gleiche, der auch beim Klicken auf die Schaltfläche <b>Daten importieren</b> <a class="image"><img alt="Button db Import Data.png" src="../images/Update_Database_Importing_By_LabTalk_Substitution/Button_db_Import_Data.png" width="25"></a> auf der Symbolleiste <b>Datenbankzugriff</b> ausgeführt wird.</li>
+
+    <li>Verwenden Sie <i>string company$ = "%%Supplies";</i>, um Unternehmen zu finden, die mit <b>Supplies</b> enden. Nach der Substitution sieht die SQL folgendermaßen aus: <b>WHERE SalesLT.Customer.CompanyName LIKE '%Supplies'</b>.</li>
+  </ol>

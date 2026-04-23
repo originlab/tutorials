@@ -1,0 +1,42 @@
+﻿<h1 class="firstHeading">Weibull-Fit</h1><p class='urlname' style='display: none'>Weibull-Fit</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Inhalt</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Perform_Weibull_Fit"><span class="tocnumber">3</span> <span class="toctext">Weibull-Fit durchf&uuml;hren</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Interpreting_the_Result"><span class="tocnumber">4</span> <span class="toctext">Ergebnisse interpretieren</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+<p>Der Weibull-Fit ist eine Art der parametrischen Methode zum Analysieren des Verh&auml;ltnisses zwischen Lebensdauerfunktion (&Uuml;berlebenszeitfunktion) und Ausfallzeit. Nach der Analyse erhalten wir Parametersch&auml;tzungen, die die &Uuml;berlebens- und Hazardfunktionen der Weibull-Verteilung bestimmen.</p><p>Weibull-Verteilung:</p><p><img src="../images/Weibull_Fit/math-87198063c34af4438e5b1f5283a57c54.png" title="f(x)=\frac{b}{a }({\frac{x-\theta }{a }})^{b-1}e^{(-\left({\frac{x-\theta }{a }}\right)^{b})}" alt="f(x)=\frac{b}{a }({\frac{x-\theta }{a }})^{b-1}e^{(-\left({\frac{x-\theta }{a }}\right)^{b})}" class="tex"/> wobei <img src="../images/Weibull_Fit/math-4fd5766f07334764346efe1a997cf223.png" title="x &gt;\theta" alt="x &gt;\theta" class="tex"/>, f&uuml;r <img src="../images/Weibull_Fit/math-e9494e3c8b6f841c5ca3d4ea415143ad.png" title="a, b &gt; 0" alt="a, b &gt; 0" class="tex"/></p><p>&Uuml;berlebensfunktion:</p><p><img src="../images/Weibull_Fit/math-cd2821c3f78161db7022b9621b9ed96c.png" title="S(x)=e^{(-\left({\frac{x-\theta }{a}}\right)^{b})}" alt="S(x)=e^{(-\left({\frac{x-\theta }{a}}\right)^{b})}" class="tex"/></p><p>Hazardfunktion:</p><p><img src="../images/Weibull_Fit/math-6dfce5f2f045c9872f0738ee477d914e.png" title="h(x)=\frac{b}{a}\left({\frac{x-\theta }{a}}\right)^{b-1}" alt="h(x)=\frac{b}{a}\left({\frac{x-\theta }{a}}\right)^{b-1}" class="tex"/></p><p>wobei b der Formparameter, <img src="../images/Weibull_Fit/math-0cc175b9c0f1b6a831c399e269772661.png" title="a" alt="a" class="tex"/> der Skalierungsparameter und <img src="../images/Weibull_Fit/math-2554a2bb846cffd697389e5dc8912759.png" title="\theta" alt="\theta" class="tex"/> der Lageparameter ist. In Origin diskutiert der Weibull-Fit nur c und a und nimmt an, dass <img src="../images/Weibull_Fit/math-2554a2bb846cffd697389e5dc8912759.png" title="\theta" alt="\theta" class="tex"/> = 0.</p><p>Wenn b &gt; 1, wird das Risiko (Hazard) erh&ouml;ht, wenn b = 1, ist das Risikso konstant (exponentielles Modell), wenn b &lt; 1, wird das Risiko verringert.</p>
+<p class="version" >Origin-Version mind. erforderlich: 9.1 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+<p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+<ul><li>Weibull-Fit durchf&uuml;hren</li>
+<li>den Analysebericht erkl&auml;ren</li></ul>
+<h2><a name="Perform_Weibull_Fit"></a><span class="mw-headline">Weibull-Fit durchf&uuml;hren</span></h2>
+<ol><li>&Ouml;ffnen Sie ein leeres Arbeitsblatt. W&auml;hlen Sie <b>Hilfe: Ordner &ouml;ffnen: Sample-Ordner ...</b> im Men&uuml;, um den Ordner &quot;Samples&quot; zu &ouml;ffnen. &Ouml;ffnen Sie in diesem Ordner den Unterordner <i>Statistics</i>. Dort befindet sich die Datei <i>weibull fit.dat</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das leere Arbeitsblatt, um sie zu importieren.</li>
+<li>W&auml;hlen Sie <b>Statistik: Lebensdaueranalyse: Weibull-Fit</b>, um den Dialog zu &ouml;ffnen.</li>
+<li>Geben Sie die Spalte<b> A(X)</b> in den <b>Zeitbereich</b> ein. Geben Sie entsprechend die Spalte <b>B(Y)</b> in den <b>Zensorbereich</b> ein.</li>
+<li>W&auml;hlen Sie <b>0</b> als den Zensierungswert aus der entsprechenden Auswahlliste.</li>
+<li>Erweitern Sie den Zweig <b>Diagramme</b> und aktivieren Sie <b>&Uuml;berlebensdiagramm</b> und <b>Hazarddiagramm</b>.<br /><a  class="image"><img alt="W01.png" src="../images/Weibull_Fit/W01.png" width="491"  /></a></li>
+<li>Klicken Sie auf <b>OK</b>, um die Analyse des Weibull-Fits durchzuf&uuml;hren.</li></ol>
+<dl><dd><a  class="image"><img alt="W04.png" src="../images/Weibull_Fit/W04.png" width="576"  /></a></dd></dl>
+<h2><a name="Interpreting_the_Result"></a><span class="mw-headline">Interpretieren von Ergebnissen</span></h2>
+<p>Wechseln Sie zum Arbeitsblatt <b>WeibullFit1</b> f&uuml;r den Analysebericht.</p>
+<ul><li>In der Tabelle &quot;Zusammenfassung der Ereignis- und zensierten Werte&quot; k&ouml;nnen wir sehen, dass <b>Zensiert</b> =19 und <b>Prozent zensiert</b> = 0,2111.</li></ul>
+<dl><dd><a  class="image"><img alt="W02.png" src="../images/Weibull_Fit/W02.png" width="310"  /></a></dd></dl>
+<ul><li>Der Tabelle &quot;Analyse der Parametersch&auml;tzungen&quot; k&ouml;nnen wir alle Parametersch&auml;tzungen f&uuml;r die Weibull-Verteilung entnehmen.<br />Schnittpunkt mit der Y-Achse = <img src="../images/Weibull_Fit/math-2554a2bb846cffd697389e5dc8912759.png" title="\theta" alt="\theta" class="tex"/> = 4,1959, (<img src="../images/Weibull_Fit/math-2554a2bb846cffd697389e5dc8912759.png" title="\theta" alt="\theta" class="tex"/> ist der Schnittpunkt der kleinen Extremwertverteilung, <img src="../images/Weibull_Fit/math-2554a2bb846cffd697389e5dc8912759.png" title="\theta" alt="\theta" class="tex"/> = ln(Weibull-Skalierung))<br />Weibull-Skalierung = <img src="../images/Weibull_Fit/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/> = 66,4153,<br />Weibull-Skalierung = c = 2,0204,<br />Skalierung = 0,495 (Skalierung = 1/c).</li></ul>
+<dl><dd><a  class="image"><img alt="W03.png" src="../images/Weibull_Fit/W03.png" width="455"  /></a></dd>
+<dd>c &gt; 1, das hei&szlig;t, wir k&ouml;nnen schlussfolgern, dass das Risiko mit der Zeit erh&ouml;ht.</dd></dl>
+<ul><li>Au&szlig;erdem erhalten wir die &Uuml;berlebens- und die Hazardfunktion:</li></ul>
+<dl><dd><a  class="image"><img alt="W05.png" src="../images/Weibull_Fit/W05.png" width="418"  /></a> <a  class="image"><img alt="W06.png" src="../images/Weibull_Fit/W06.png" width="388"  /></a></dd></dl>
+
+
+
+
+
+
+
+    

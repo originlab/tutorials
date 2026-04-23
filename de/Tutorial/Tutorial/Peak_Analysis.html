@@ -1,0 +1,92 @@
+﻿<h1 class="firstHeading">Peakanalyse</h1>
+
+  <p class='urlname' style='display: none'>GSB-pa-tutorial</p>
+
+  <p><br>
+  In dieser Lektion führen Sie eine Anpassung durch, einschließlich der Entfaltung von sich überschneidenden Peaks und einer Basislinienkorrektur.</p>
+
+  <h3><a name="Multiple_Peak_Fit_with_Deconvolution"></a><span class="mw-headline">Mehrere Peaks mit Entfaltung anpassen</span></h3>
+
+  <ol>
+    <li>Fahren Sie mit der Projektdatei fort, die Sie im Rahmen der vorherigen Lektion gespeichert haben. Erstellen Sie einen neuen Ordner im Projekt Explorer und geben Sie ihm den Namen <i><b>Peakanalyse</b></i>. Gehen Sie dann zum leeren Ordner.</li>
+
+    <li>Importieren Sie in eine neue Arbeitsmappe die Datei <i>&lt;Origin-Verzeichnis&gt;\Samples\Spectroscopy\HiddenPeaks.dat</i>.</li>
+
+    <li>Markieren Sie Spalte B und erstellen Sie ein Liniendiagramm.</li>
+
+    <li>Klicken Sie bei aktivem Diagrammfenster auf <b>Analyse: Peaks und Basislinie: Mehrere Peaks anpassen</b>. Dadurch wird der Dialog <b>Mehrere Peaks anpassen</b> geöffnet. Setzen Sie die Auswahlliste <b>Peakfunktion</b> auf <i>Gauss</i> und klicken Sie auf <b>OK</b>.</li>
+
+    <li>Der Dialog <b>Punkte holen</b> wird innerhalb des Diagrammfensters geöffnet. Beachten Sie, dass Sie diesen Dialog innerhalb des Fensters neu positionieren können. Klicken Sie doppelt auf ein Peakzentrum, um es auszuwählen. Wählen Sie insgesamt 7 Peaks wie im folgenden Bild, einschließlich zwei verborgene Peaks:<br>
+    <a class="image"><img alt="Peak analysis 01.png" src="../images/Peak_Analysis/250px-Peak_analysis_01.png" width="250"></a></li>
+
+    <li style="list-style: none">
+      <table class="mtip">
+        <tr>
+          <td style="vertical-align:top"><img src="../images/Peak_Analysis/Mini_bulb.png" alt=""></td>
+
+          <td>
+            <p>Wenn Sie auf die Schaltfläche <b>NLFit öffnen</b> im Dialog <b>Punkte holen</b> klicken, wird der Dialog NLFit aufgerufen, wobei die Peakzentren mit Ihrer Auswahl initialisiert sind. Sie können den Anpassungsprozess, wie gewünscht, weiterführend steuern.</p>
+          </td>
+        </tr>
+      </table>
+    </li>
+
+    <li>Nachdem Sie alle sieben Peaks ausgewählt haben, klicken Sie auf die Schaltfläche <b>Fit</b>. Es wird ein Anpassungsbericht zu der Arbeitsmappe hinzugefügt.</li>
+  </ol>
+
+  <h3><a name="Fit_Peaks_with_Baseline"></a><span class="mw-headline">Peaks mit Basislinie anpassen</span></h3>
+
+  <ol>
+    <li>Dieser Teil der Lektion geht davon aus, dass Sie OriginPro zur Verfügung haben. Öffnen Sie eine neue Arbeitsmappe und importieren Sie die Datei <i>&lt;Origin-Verzeichnis&gt;\Samples\Spectroscopy\Peaks_on_Exponential_Baseline.dat</i>.</li>
+
+    <li>Markieren Sie Spalte B und wählen Sie im Menü <b>Analyse: Peaks und Basislinie: Peaks analysieren</b>. Der Dialog <b>Peaks analysieren</b> wird geöffnet, und ein Vorschaufenster zeigt die ausgewählten Daten an.</li>
+
+    <li>Wählen Sie im unteren Bedienfeld die Option <b>Peaks anpassen (Pro)</b> unter <b>Ziel</b>. Das obere Bedienfeld wird aktualisiert und zeigt die Abfolge der Schritte an, die der Peakanpassungsprozess durchlaufen wird.</li>
+
+    <li>Klicken Sie auf <b>Weiter</b>. Wählen Sie auf der Seite <b>Modus Basislinie</b> die Option <b>Benutzerdefiniert</b> für <b>Modus Basislinie</b>. Klicken Sie auf <b>Nächstes</b>, um zur Seite <b>Basislinie erzeugen</b> zu gelangen. Sie können dann im Vorschaufenster sehen, dass 8 Ankerpunkte, die durch eine rote Linie verbunden sind, zu dem Spektrum hinzugefügt werden. Dies ist die Basislinie, die mit Hilfe der aktuellen Einstellungen erstellt wurde. Klicken Sie jetzt auf die Schaltfläche <b>Vorheriges</b>, um zur Seite <b>Modus Basislinie</b> zurückzukehren und die Einstellungen des Basislinienmodus anzupassen.</li>
+
+    <li>Klicken Sie unter <b>Anzahl der Punkte zum Suchen</b> auf die Schaltfläche <b>Suchen</b>, um die Ankerpunkte der Basislinie im Spektrum zu finden. Es werden acht (8) Ankerpunkte hinzugefügt.<br>
+    <a class="image"><img alt="Peak analysis 02.png" src="../images/Peak_Analysis/300px-Peak_analysis_02.png" width="300"></a></li>
+
+    <li>Deaktivieren Sie das Kontrollkästchen <b>Automatische Suche aktivieren</b> und klicken Sie dann auf die Schaltfläche <b>Hinzufügen</b>, um einen oder mehrere Ankerpunkte zu dem Spektrum hinzuzufügen. Klicken Sie doppelt auf das Ende des Spektrums, wie im folgenden Bild zu sehen, um 1 Ankerpunkt hinzuzufügen.<br>
+    <a class="image"><img alt="Peak analysis 03.png" src="../images/Peak_Analysis/400px-Peak_analysis_03.png" width="400"></a></li>
+
+    <li>Beachten Sie, dass Sie Ankerpunkte auch auswählen und löschen können. Klicken Sie auf <b>Fertig</b>, um zum Dialog <b>Peaks analysieren</b> zurückzukehren.</li>
+
+    <li>Aktivieren Sie das Kontrollkästchen <b>An Spektrum ausrichten</b>, um Ankerpunkte dazu zu bringen, sich an dem nächsten Datenpunkt im Spektrum auszurichten. Klicken Sie auf <b>Weiter</b>.</li>
+
+    <li>Wählen Sie auf der Seite <b>Basislinie erstellen</b> die Option <b>Anpassen (Pro)</b> unter <b>Verbinden mit</b>. Wählen Sie <b>ExpDec2</b> für <b>Funktion</b> im Zweig <b>Anpassen</b>. Klicken Sie zweimal auf die Schaltfläche <b>Nächstes</b>, um zur Seite <b>Peaks suchen</b> zu gelangen.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Suchen</b>. In der Vorschau werden zwei (2) Peaks gefunden.</li>
+
+    <li style="list-style: none">
+      <table class="mtip">
+        <tr>
+          <td style="vertical-align:top"><img src="../images/Peak_Analysis/Mini_bulb.png" alt=""></td>
+
+          <td>
+            <p>Es stehen mehrere Optionen zum Suchen von Peaks zur Verfügung, einschließlich einer Methode der 2. Ableitung, um sich überschneidende Peaks zu suchen. Sie können sich auch die Kurve der 2. Ableitung anzeigen lassen und die Glättung einschalten, um Peaks in rauschenden Daten zu suchen.</p>
+          </td>
+        </tr>
+      </table>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Nächstes</b>, um zur Seite <b>Peaks anpassen (Pro)</b> zu gelangen. Übernehmen Sie die Standardeinstellungen und klicken Sie auf <b>Fertig</b>, um eine Peakanpassung durchzuführen. Ein Diagramm, das Anpassungsergebnisse enthält, wird erzeugt.</li>
+
+    <li style="list-style: none">
+      <table class="mtip">
+        <tr>
+          <td style="vertical-align:top"><img src="../images/Peak_Analysis/Mini_bulb.png" alt=""></td>
+
+          <td>
+            <p>Sie können auf die Schaltfläche <b>Fit-Steuerung</b> klicken, um den Anpassungsprozess zu steuern, einschließlich Festlegen und Teilen der Parameter sowie Definieren der Grenzen und Nebenbedingungen.</p>
+          </td>
+        </tr>
+      </table>
+    </li>
+
+    <li>Jetzt soll die Tabelle der <b>Anpassungsergebnisse</b> benutzerdefiniert angepasst werden, um einige Peakeigenschaften zu verbergen, die nicht angezeigt werden sollen. Klicken Sie mit der rechten Maustaste auf die Tabelle und wählen Sie im Kontextmenü <b>Peakreportfelder</b>. Der Dialog <b>Peakreportfeld</b> wird geöffnet, der alle Eigenschaften, die in der Tabelle aufgeführt werden können, auflistet. Sie können die Reihenfolge der Eigenschaften in diesem Dialog entfernen oder ändern. Wählen Sie <b>Peak Schwerpunkt Zentrum</b> und klicken Sie auf die Schaltfläche <b>Entfernen</b>, um diese Option zu verbergen. Tun Sie dasselbe für <b>Peakfläche durch Integrieren der Daten(%)</b>. Klicken Sie auf <b>OK</b>, um die Tabelle in dem Diagramm zu aktualisieren.<br>
+    <a class="image"><img alt="Peak analysis 04.png" src="../images/Peak_Analysis/600px-Peak_analysis_04.png" width="600"></a></li>
+  </ol>
+
+  <p>Speichern Sie Ihre Projektdatei.</p>

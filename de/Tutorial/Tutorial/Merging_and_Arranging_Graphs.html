@@ -1,0 +1,246 @@
+﻿<h1 class="firstHeading">Diagramme zusammenfügen und anordnen</h1>
+
+  <p class='urlname' style='display: none'>Customize-Merge-Arrange-Graph</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#Aligning_Layers_using_the_Object_Edit_Toolbar"><span class="tocnumber">3</span> <span class="toctext">Layer mit Hilfe der Symbolleiste Objekt bearbeiten ausrichten</span></a></li>
+
+      <li class="toclevel-1 tocsection-4"><a href="#Displaying_Opposite_Axes_with_a_Nonlinear_Formula"><span class="tocnumber">4</span> <span class="toctext">Gegenüber liegende Achsen mit nichtlinearer Formel anzeigen</span></a></li>
+
+      <li class="toclevel-1 tocsection-5"><a href="#Using_Layer_Management_to_Link_and_Position_Layers"><span class="tocnumber">5</span> <span class="toctext">Layer-Management zum Verknüpfen und Positionieren von Layern verwenden</span></a></li>
+
+      <li class="toclevel-1 tocsection-6"><a href="#Merge_Multiple_Graphs"><span class="tocnumber">6</span> <span class="toctext">Mehrere Diagramme zusammenfügen</span></a></li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/Merging_and_Arranging_Graphs/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/Merging_and_Arranging_Graphs/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=57" target="_blank">Diagrammlayer verknüpfen</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=372" target="_blank">Legende, mehrzeiligen Text, LAyer und Text ausrichten</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=166" target="_blank">Dialog Grafikfenster zusammenfügen</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=346" target="_blank">2D- und 3D-Diagramme in einem Fenster zusammenfügen</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=316" target="_blank">Diagramme in festgelegter Reihenfolge zusammenfügen und beschriften</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%">
+        <a class="image"><img alt="Website blog icon circle.png" src="../images/Merging_and_Arranging_Graphs/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Merging_and_Arranging_Graphs/Blog_Image_33x33px.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="http://blog.originlab.com/make-stacked-graph-with-same-axis-unit-length" target="_blank">Länge der Achseneinheit von gestapelten Diagrammen angleichen</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/plot-multi-panel-graphs-by-group" target="_blank">Diagramme mit mehrere Feldern nach Gruppe zeichnen</a></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Im Dialog <b>Grafikfenster zusammenfügen</b> können Sie die Auswahl der Diagramme, die Sie zusammenfügen möchten, unter allen Diagrammen in Ihrem Projekt wählen. Er besitzt außerdem Einstellungen zum Festlegen, wie Sie die einzelnen Diagramme auf der neuen Seite angeordnet haben möchten.</p>
+
+  <p>Mit der Symbolleiste <b>Objekt bearbeiten</b> können Sie ganz einfach mehrere Layer ausrichten und sie in der Größe verändern.</p>
+
+  <p>Der Dialog <b>Layer Management</b> lässt Sie auf einer einzelnen Diagrammseite Layer hinzufügen, anordnen und verknüpfen.</p>
+
+  <p>Mit der <b>Minisymbolleiste</b> (seit Origin 2020) können Sie die Diagrammelemente einfacher und interaktiver bearbeiten.</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>Layer schnell in der Größe verändern und ausrichten,</li>
+
+    <li>eine zweite Achse mit einem nichtlinearen Verhältnis zur ersten Achse hinzufügen,</li>
+
+    <li>die Layerverwaltung zum komplexeren Positionieren und Verknüpfen von Layern verwenden,</li>
+
+    <li>mehrere Grafiken in einer Grafik zusammenfügen.</li>
+  </ul>
+
+  <h2><a name="Aligning_Layers_using_the_Object_Edit_Toolbar"></a><span class="mw-headline">Layer mit Hilfe der Symbolleiste Objekt bearbeiten ausrichten</span></h2>
+
+  <ol>
+    <li>Wählen Sie <b>Datei: Öffnen</b> und öffnen Sie das Projekt <b>\<i>Samples</i>\<i>Graphing</i>\<i>Layer Management.opj</i></b>. Gehen Sie zu dem Unterordner <b><i>Arranging Layers</i></b>. (Wenn Sie die Unterordner nicht sehen können, klicken Sie auf <b>Ansicht: Projekt Explorer</b>, um das Fenster des Projekt Explorers von Origin zu öffnen.)</li>
+
+    <li>Verwenden Sie das Hilfsmittel <b>Objekt bearbeiten</b>, um das Diagramm neu anzuordnen. Daher müssen Sie sicherstellen, dass die Symbolleiste sichtbar ist. Sollte sie dies nicht sein, können Sie sie über <b>Ansicht: Symbolleisten</b> öffnen.<br>
+    <a class="image"><img alt="Tutorial81 Merging and Arranging Graphs Object Toolbar.png" src="../images/Merging_and_Arranging_Graphs/Tutorial81_Merging_and_Arranging_Graphs_Object_Toolbar.png" width="389"></a></li>
+
+    <li>Halten Sie auf dem Diagramm die <b>Shift</b>-Taste gedrückt und klicken Sie auf alle vier Layer, um sie als Gruppe auszuwählen. Drücken Sie dann auf die Schaltflächen <b>Gleiche Breite</b> <a class="image"><img alt="Button Uniform Width.png" src="../images/Merging_and_Arranging_Graphs/Button_Uniform_Width.png" width="23"></a> und <b>Gleiche Höhe</b> <a class="image"><img alt="Button Uniform Height.png" src="../images/Merging_and_Arranging_Graphs/Button_Uniform_Height.png" width="23"></a> auf der Symbolleiste <b>Objekt bearbeiten</b>, um eine einheitliche Höhe und Breite für sie festzulegen. Klicken Sie dann auf die weiße Fläche im Layer, um alle Diagrammlayer zu deaktivieren.</li>
+
+    <li>Halten Sie die <b>Shift</b>-Taste gedrückt und klicken Sie auf die zwei unteren Layer, um sie auszuwählen. Klicken Sie dann auf die Schaltfläche <b>Unten</b> <a class="image"><img alt="Button Bottom.png" src="../images/Merging_and_Arranging_Graphs/Button_Bottom.png" width="23"></a> auf der Symbolleiste Objekt bearbeiten, um sie auszurichten. Klicken Sie dann auf die weiße Fläche im Layer, um alle Diagrammlayer zu deaktivieren.</li>
+
+    <li>Halten Sie die <b>Shift</b>-Taste gedrückt, markieren Sie entsprechend die beiden oberen Layer und klicken Sie dann auf die Schaltfläche <b>Oben</b> <a class="image"><img alt="Button Top.png" src="../images/Merging_and_Arranging_Graphs/Button_Top.png" width="23"></a>, um sie auszurichten. Klicken Sie dann auf die weiße Fläche im Layer, um alle Diagrammlayer zu deaktivieren.</li>
+
+    <li>Markieren Sie den oberen und unteren Layer auf der linken Seite und klicken Sie auf die Ausrichtungsschaltfläche <b>Links</b> <a class="image"><img alt="Button Left.png" src="../images/Merging_and_Arranging_Graphs/Button_Left.png" width="23"></a>. Klicken Sie dann auf die weiße Fläche im Layer, um alle Diagrammlayer zu deaktivieren.</li>
+
+    <li>Wählen Sie die beiden Layer auf der rechten Seite aus und klicken Sie auf die Schaltfläche <b>Rechts</b> <a class="image"><img alt="Button Right.png" src="../images/Merging_and_Arranging_Graphs/Button_Right.png" width="23"></a>.</li>
+
+    <li>Speichern Sie die Änderungen nicht in Ihrem Projekt, da das gleiche Projekt später verwendet wird, um die Layerverwaltung zu erläutern.</li>
+  </ol>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Merging_and_Arranging_Graphs/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Die Symbolleiste Objekt bearbeiten bietet Ihnen eine Möglichkeit, Layer schnell auszurichten und in der Größe zu verändern. Der erste Layer, den Sie auswählen, ist der Referenzlayer. Alle anderen werden in Relation zu diesem zuerst ausgewählten Layer angepasst. Das Hilfsmittel <b>Layer-Management</b> bietet zusätzliche Optionen wie Neuanordnung und Verknüpfung von Layern.</p>
+      </td>
+    </tr>
+  </table>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Merging_and_Arranging_Graphs/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Eine andere Möglichkeit, Layer in einem Diagramm mit mehreren Layern auszuwählen, besteht darin, Strg oder Shift zu drücken, während Sie auf die Layersymbole des Diagramms klicken.</p>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Displaying_Opposite_Axes_with_a_Nonlinear_Formula"></a><span class="mw-headline">Gegenüberliegende Achsen mit nichtlinearer Formel anzeigen</span></h2>
+
+  <p>Ein 2D-Diagrammlayer von Origin ist eine Zusammenstellung von X- und Y-Achsen. Zu beiden können gegenüber liegende Achsen angezeigt werden. Außerdem kann die gegenüberliegende Achse auch mit Hilfe einer benutzerdefinierten nichtlinearen Formel in Bezug auf die primäre Achse die Beschriftungen anzeigen.</p>
+
+  <ol>
+    <li>Wechseln Sie im Fenster des Projekt Explorers zu dem Unterordner <b>Nonlinear Axis</b>.</li>
+
+    <li>Aktivieren Sie das Diagrammfenster und klicken Sie auf die unteren X-Achsenlinien. Die Minisymbolleiste wird angezeigt. Klicken Sie auf die Schaltfläche Gegenüberliegende Achse zeigen, um die obere X-Achse zu zeigen.<br>
+    <a class="image"><img alt="Merging and Arranging Graphs b1.png" src="../images/Merging_and_Arranging_Graphs/Merging_and_Arranging_Graphs_b1.png" width="520"></a></li>
+
+    <li>Die obere X-Achse wird auf dem Layer angezeigt. Klicken Sie auf die Achsenlinie, um die Minisymbolleiste zu erweitern. Klicken Sie auf die Schaltfläche <b>Hilfsstrichsbeschriftungen zeigen</b>, um die Achsenbeschriftungen anzuzeigen. Klicken Sie dann auf die Schaltfläche <b>Hilfsstrichsstil</b>, um die Hilfsstriche auf <b>Innen</b> zu setzen.<br>
+    <a class="image"><img alt="Merging and Arranging Graphs b2.png" src="../images/Merging_and_Arranging_Graphs/Merging_and_Arranging_Graphs_b2.png" width="632"></a></li>
+
+    <li>Klicken Sie doppelt auf die Achsenbeschriftungen der oberen X-Achse, um die Registerkarte <b>Beschriftung der Hilfsstriche</b> des Dialog <b>Achsen</b> zu öffnen. Sie möchten die Beschriftungen auf der oberen Achse in Energieeinheiten anzeigen. Das Verhältnis zwischen Wellenlänge (untere X) und Energie (obere X) ist:<br>
+    Energie (eV) = 1240/Wellenlänge (nm). Geben Sie also <i>1240/x</i> im Feld <b>Formel</b> ein.<br>
+    <a class="image"><img alt="Merging and Arranging Graphs 001.png" src="../images/Merging_and_Arranging_Graphs/Merging_and_Arranging_Graphs_001.png" width="440"></a></li>
+
+    <li>Klicken Sie auf OK. Die Achsenbeschriftungen zeigen das korrekte Verhältnis zur unteren X.
+
+      <table class="noborder">
+        <tr>
+          <td style="vertical-align:top" width="60"><img src="../images/Merging_and_Arranging_Graphs/Tip_icon.png" width="57" border="0" alt=""></td>
+
+          <td>
+            <ul>
+              <li>Auch wenn Sie ein nichtlineares Verhältnis für die rechte Y-Achse einrichten, müssen Sie in der <b>Formel</b> <b>x</b> statt <b>y</b> verwenden.</li>
+
+              <li>Sie können ähnliche Einstellungen auch im Dialog <b>Grafik: Layerverwaltung</b> vornehmen, um eine gegenüber liegende Achse hinzuzufügen:<br></li>
+            </ul>
+
+            <p><a class="image"><img alt="Tutorial81 Merging and Arranging Graphs LM Top Axis.png" src="../images/Merging_and_Arranging_Graphs/Tutorial81_Merging_and_Arranging_Graphs_LM_Top_Axis.png" width="513"></a></p>
+          </td>
+        </tr>
+      </table>
+    </li>
+
+    <li>Fügen Sie ein Textobjekt <b>Energy (eV)</b> als den oberen X-Achsentitel ein:<br>
+    <a class="image"><img alt="Tutorial81 Merging and Arranging Graphs Change Title.png" src="../images/Merging_and_Arranging_Graphs/Tutorial81_Merging_and_Arranging_Graphs_Change_Title.png" width="447"></a></li>
+
+    <li>In dem Bild oben ist die erste Hilfsstrichsbeschriftung der oberen Achse ein fehlender Wert für Energie, der der Wellenlänge bei 0 entspricht. Um ihn zu verbergen, klicken Sie auf die obere Achsenlinie, um die Minisymbolleiste zu zeigen. Klicken Sie auf die Schaltfläche <b>Dialog Achse</b>, um <b>Spezielle Hilfsstriche</b> im Kontextmenü auszuwählen. Der Dialog <b>Spezielle Hilfsstriche</b> wird geöffnet.<br>
+    <a class="image"><img alt="Merging and Arranging Graphs b3.png" src="../images/Merging_and_Arranging_Graphs/Merging_and_Arranging_Graphs_b3.png" width="520"></a></li>
+
+    <li>Wählen Sie im geöffneten Dialog <b>Achsenbeginn</b> im linken Bedienfeld und wählen Sie dann <b>Verbergen</b> in der Auswahlliste <b>Zeigen</b>. Klicken Sie auf <b>OK</b>, um diese Einstellungen anzuwenden und den Dialog Achsen zu schließen.<br>
+    <a class="image"><img alt="Tutorial81 Merging and Arranging Graphs Hide Tick.png" src="../images/Merging_and_Arranging_Graphs/Tutorial81_Merging_and_Arranging_Graphs_Hide_Tick.png" width="543"></a></li>
+  </ol>
+
+  <h2><a name="Using_Layer_Management_to_Link_and_Position_Layers"></a><span class="mw-headline">Layerverwaltung zum Verknüpfen und Positionieren von Layern verwenden</span></h2>
+
+  <p>Das Hilfsmittel Layer-Management kann verwendet werden, um Layer zu positionieren, in der Größe zu verändern, austauschen und zu verknüpfen:</p>
+
+  <ol>
+    <li>Öffnen Sie erneut das Projekt <b>\<i>Samples</i>\<i>Graphing</i>\<i>Layer Management.opj</i></b> und wechseln Sie dann in den Unterordner mit dem Namen <b><i>Arranging Layers</i></b>. Sie können das Projekt wieder öffnen, indem Sie <b>Datei: Zuletzt verwendete Projekte: Layer Management.opj</b> auswählen. Speichern Sie keine Änderungen im Projekt.</li>
+
+    <li>Rufen Sie das Hilfsmittel <b>Layer Management</b> über <b>Grafik: Layer-Verwaltung</b> auf. Klicken Sie dann im linken Bedienfeld auf den Namen, um die die Layernamen umzubenennen, so dass sie von oben nach unten folgende Reihenfolge haben: Peak 1, Peak 2, Peak 3, Peak 4. Die Layernamen entsprechen jetzt der Legende für jeden Layer.<br>
+    <a class="image"><img alt="Tutorial81 Merging and Arranging Graphs LM Left Panel.png" src="../images/Merging_and_Arranging_Graphs/Tutorial81_Merging_and_Arranging_Graphs_LM_Left_Panel.png" width="547"></a></li>
+
+    <li>Wechseln Sie jetzt zur Registerkarte <b>Anordnen</b> und tun Sie Folgendes:
+
+      <ol>
+        <li>Aktivieren Sie das Kontrollkästchen <b>Achsenrahmen zeigen</b>.</li>
+
+        <li>Setzen Sie den <b>Horizontalen Abstand</b> und den <b>Vertikalen Abstand</b> auf 0.<br>
+        <a class="image"><img alt="Tutorial81 Merging and Arranging Graphs Arrange Tab.png" src="../images/Merging_and_Arranging_Graphs/Tutorial81_Merging_and_Arranging_Graphs_Arrange_Tab.png" width="589"></a></li>
+
+        <li>Klicken Sie auf <b>Übernehmen</b>.</li>
+      </ol>
+
+      <p>Auf diese Weise werden die Layer in der Größe verändert und neu positioniert, so dass sie ausgerichtet sind, und Hilfsstriche und Beschriftungen werden an den Stellen ausgeblendet, wo sich Layer überschneiden.</p>
+    </li>
+
+    <li>Gehen Sie zur Registerkarte <b>Achsen</b>, halten Sie die <b>Strg</b>-Taste gedrückt und wählen Sie Peak 1 und 3 in der Liste auf der linken Seite aus. Erweitern Sie den Zweig <b>Links</b> und setzen Sie die Richtung der Hilfsstriche auf <b>Innen</b>. Klicken Sie dann auf <b>Anwenden</b>.<br>
+    <a class="image"><img alt="Tutorial81 Merging and Arranging Graphs Axes Tab.png" src="../images/Merging_and_Arranging_Graphs/Tutorial81_Merging_and_Arranging_Graphs_Axes_Tab.png" width="510"></a></li>
+
+    <li>Wählen Sie jetzt Peak 3 und 4 aus, ändern Sie die Richtung der Hilfsstriche von <b>Unten</b> auf <b>Innen</b> und klicken Sie auf <b>Anwenden</b>. Wählen Sie dann Peak 1 und 2, setzen Sie die Hilfsstriche von <b>Oben</b> auf <b>Innen</b> und klicken Sie auf <b>Anwenden</b>.</li>
+
+    <li>Wechseln Sie jetzt zur Registerkarte <b>Verknüpfung</b> und wählen Sie Peak 2, 3 und 4 in der linken Liste aus. Verknüpfen Sie sie mit Layer 1, wobei Sie sicherstellen, dass die X-Achsen mit <b>Gerade (1 zu 1)</b> verknüpft haben, und klicken Sie auf <b>Anwenden</b>.<br>
+    <a class="image"><img alt="Tutorial81 Merging and Arranging Graphs Link Tab.png" src="../images/Merging_and_Arranging_Graphs/Tutorial81_Merging_and_Arranging_Graphs_Link_Tab.png" width="626"></a><br>
+    Klicken Sie auf <b>OK</b>, um den Dialog zu schließen.</li>
+
+    <li>Klicken Sie auf das obere linke Layer, d.h. Layer 1, und verändern Sie es dann durch Ziehen in der Größe ud verschieben Sie es. Beachten Sie, dass die Unterlayer sich entsprechend mit verändern, da sie durch die Dimension mit Layer 1 verknüpft sind.<br>
+    <a class="image"><img alt="Tutorial81 Merging and Arranging Graphs Resize Layer.png" src="../images/Merging_and_Arranging_Graphs/Tutorial81_Merging_and_Arranging_Graphs_Resize_Layer.png" width="361"></a></li>
+
+    <li>Klicken Sie auf die obere Achse von Layer 1 und klicken Sie dann auf die Schaltfläche <b>Achsenskalierung</b> in der Minisymbolleiste. Der Dialog <b>Achsenskalierung</b> wird geöffnet. Ändern Sie die Skalierung in <b>Von</b> <i>10</i> <b>Bis</b> <i>35</i> und klicken Sie auf <b>OK</b>. Sie werden sehen, dass alle anderen Layer jetzt im gleichen Skalierungsbereich der X-Achse angezeigt werden.<br>
+    <a class="image"><img alt="Tutorial81 Merging and Arranging Graphs Link X Axis.png" src="../images/Merging_and_Arranging_Graphs/Tutorial81_Merging_and_Arranging_Graphs_Link_X_Axis.png" width="800"></a></li>
+  </ol>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Merging_and_Arranging_Graphs/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Wenn die Layer verknüpft werden, werden sie als eine Einheit behandelt. Wenn Sie die Layer neu angeordnet werden, sollten Sie zuerst die Verknüpfung aufheben. Sie können sie nach der Neuanordnung neu verknüpfen.</p>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Merge_Multiple_Graphs"></a><span class="mw-headline">Mehrere Diagramme zusammenfügen</span></h2>
+
+  <p>In diesem Abschnitt fügen Sie zwei Diagramme aus unterschiedlichen Unterordnern aus demselben Projekt zusammen, während die Layer wie eine Einheit behandelt werden.</p>
+
+  <ol>
+    <li>Klicken Sie bei aktivem Graph 1 aus dem Unterordner <b>Arranging Layers</b> auf die Schaltfläche <b>Neu skalieren</b>.</li>
+
+    <li>Wählen Sie <b>Grafik: Grafikfenster zusammenfügen</b> im Hauptmenü, um den Dialog zu öffnen.</li>
+
+    <li>Tun Sie folgendes:
+
+      <ul>
+        <li>Klicken Sie auf die dreieckige Schaltfläche rechts von <b>Diagramme</b> und wählen Sie im Ausklappmenü <b>Alle im Projekt</b>. <b>Graph1</b> und <b>Graph2</b> werden im Feld <b>Vorschau</b> gezeigt (nicht gezeigt).</li>
+
+        <li>Stellen Sie sicher, dass <b>Anzahl der Zeilen</b> = <b>2</b> und <b>Anzahl der Spalten</b> = <b>1</b>.</li>
+
+        <li>Stellen Sie sicher, dass <b>Jedes Quelldiagramm als eine Einheit behandeln</b> aktiviert ist.</li>
+
+        <li>Setzen Sie das <b>Vertikaler Abstand</b> auf <b>20</b>.</li>
+      </ul>
+
+      <dl>
+        <dd><a class="image"><img alt="Merging Graphs01.png" src="../images/Merging_and_Arranging_Graphs/Merging_Graphs01.png" width="602"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um den Dialog zu schließen. Es wird ein neues Diagramm erstellt.<br>
+    <a class="image"><img alt="Merging Graphs02.png" src="../images/Merging_and_Arranging_Graphs/Merging_Graphs02.png" width="539"></a></li>
+  </ol>

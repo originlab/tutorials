@@ -1,0 +1,86 @@
+﻿<h1 class="firstHeading">Neue Origin C-Funktionen zu Origin hinzufügen</h1><a name="Summary"></a>
+
+  <h2><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Auf Funktionen, die mit Origin C geschrieben wurden, kann von verschiedenen Stellen der Origin-Oberfläche aus zugegriffen werden, wie z.B. dem Skriptfenster, wenn sie folgende Kriterien erfüllen: Die Funktion sollte entweder Void (wie im vorhergehenden Tutorial), Double, String oder Vektoren des Typs Double oder String ausgeben. Von Origin an die Funktion weitergegebene Variablen sollten vom Typ Double oder String oder Vektoren dieser Typen sein. Funktionen, die diese Kriterien nicht erfüllen, können nicht von der Origin-Benutzeroberfläche aus aufgerufen werden, aber von innerhalb anderer Origin C-Funktionen. Beachten Sie, dass das Aufrufen einer Origin C-Funktion, die den Typ int akzeptiert und ausgibt, von der Origin-Benutzeoberfläche aus aufgerufen werden kann, da die Oberfläche nur Double unterstützt, dass dies aber zu einer Verkürzung der Daten führen kann.</p>
+
+  <p>In diesem Tutorial werden Sie in das Schreiben einer mathematischen Funktion eingeführt, die berechnete Werte zurückgibt. Zunächst wird eine Funktion erstellt, die den Typ Double in Origin ausgibt. Dann wird eine Funktion erstellt, die Vektoren des Typs Double ausgibt.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: 8.0 SR0</p><a name="What_you_will_learn"></a>
+
+  <h2><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Eine neue Funktion hinzufügen und diese Funktion im Skriptfenster ausführen</p><a name="Steps"></a>
+
+  <h2><span class="mw-headline">Schritte</span></h2>
+
+  <ol>
+    <li>Starten Sie eine neue Origin C-Datei im <b>Code Builder</b>.</li>
+
+    <li>Geben Sie den folgenden Code ein:</li>
+  </ol>
+  <pre class="oc">
+<span style="color: #0000ff;">double</span> myfunc1<span style="color: #000000;">(</span><span style="color: #0000ff;">double</span> x, <span style="color: #0000ff;">double</span> a<span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+         <span style="color: #0000ff;">return</span> <span style="color: #000000;">sin</span><span style="color: #000000;">(</span> a <span style="color: #000040;">*</span> x <span style="color: #000000;">)</span>;        
+<span style="color: #000000;">}</span>
+</pre>
+
+  <ol start="3">
+    <li>Klicken Sie auf die Schaltfläche <b>Erstellen <img alt="Image:Button_Build.png" src="../images/Adding_New_Origin_C_Functions_to_Origin/Button_Build.png" width="22" height="21" border="0"></b>, um Ihre Funktion zu kompilieren.</li>
+  </ol>
+
+  <p>Diese Funktion kann jetzt von der Origin-Benutzeroberfläche aufgerufen werden, z.B. vom Skriptfenster aus.</p>
+
+  <ol start="4">
+    <li>Gehen Sie zum Skriptfenster, geben Sie die folgenden Zeilen ein und drücken Sie <b>Enter</b> am Ende von jeder Zeile:</li>
+  </ol>
+  <pre>
+y = myfunc1(2, 3)
+y =
+</pre>
+
+  <p>Sie können auch Arbeitsblattzellen statt der absoluten Zahlen verwenden:</p>
+
+  <ol start="5">
+    <li>Aktivieren Sie ein Arbeitsblatt und geben Sie eine Zahl in die erste Zeile der Spalte A ein. Geben Sie den folgenden Befehl im Skriptfenster ein und drücken Sie <b>Enter</b>:</li>
+  </ol>
+  <pre>
+col(B)[1] = myfunc1(col(A)[1], 3)
+</pre>
+
+  <p>Beachten Sie, dass eine Funktion wie myfunc1, die Double akzeptiert und ausgibt, auch dazu verwendet werden kann, Vektoroperationen durchzuführen.</p>
+
+  <ol start="6">
+    <li>Füllen Sie die Zeilen 1 bis 10 der Spalte A mit einigen Zahlen und geben Sie Folgendes in das Skriptfenster ein:</li>
+  </ol>
+  <pre>
+col(B) = myfunc1(col(A), 3)
+</pre>
+
+  <p>In dem oben stehenden Beispiel ruft Origin die Funktion myfunc1 für jede Zeile der Spalte A auf. Um Vektoroperationen wie oben durchzuführen, ist es effektiver, Funktionen zu schreiben, die Vektoren akzeptieren und ausgeben.</p>
+
+  <ol start="7">
+    <li>Gehen Sie zurück zum Code Builder, fügen Sie die folgende Funktion zur gleichen Datei hinzu und kompilieren Sie die Datei, indem Sie auf die Schaltfläche <b>Erstellen</b> klicken. <img alt="Image:Button_Build.png" src="../images/Adding_New_Origin_C_Functions_to_Origin/Button_Build.png" width="22" height="21" border="0"></li>
+  </ol>
+  <pre class="oc">
+vector<span style="color: #000080;">&lt;</span><span style="color: #0000ff;">double</span><span style="color: #000080;">&gt;</span> myfunc2<span style="color: #000000;">(</span>vector<span style="color: #000080;">&lt;</span><span style="color: #0000ff;">double</span><span style="color: #000080;">&gt;</span>  vecIn, <span style="color: #0000ff;">double</span> a<span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>  
+       vector<span style="color: #000080;">&lt;</span><span style="color: #0000ff;">double</span><span style="color: #000080;">&gt;</span> vecOut;
+       vecOut <span style="color: #000080;">=</span> <span style="color: #000000;">sin</span><span style="color: #000000;">(</span> a <span style="color: #000040;">*</span> vecIn <span style="color: #000000;">)</span>;
+       <span style="color: #0000ff;">return</span> vecOut;
+<span style="color: #000000;">}</span>
+</pre>
+
+  <ol start="8">
+    <li>Gehen Sie zurück zur Origin-Benutzeroberfläche, füllen Sie Spalte A mit einigen neuen Zahlen und geben Sie Folgendes in das Skriptfenster ein:</li>
+  </ol>
+  <pre>
+col(B) = myfunc2(col(A), 3)
+</pre>
+
+  <p>Die Funktion myfunc2 wird nur einmal aufgerufen, um die gesamte Spalte zu berechnen.</p>
+
+  <p>Beachten Sie, dass Sie diese Funktionen an anderen Stellen wie im Dialogfeld "Werte setzen" verwenden können. Die Funktion der automatischen Neuberechnung des Dialogs "Werte setzen" kann durch Aktivieren des entsprechenden Kontrollkästchens in diesem Dialog aktiviert werden. Solange die Origin C-Funktion kompiliert wird und von Origin aus aufgerufen werden kann, führen alle Änderungen in der Quellspalte zu einer Aktualisierung der Zielspalte.</p>
+
+  <p> </p>

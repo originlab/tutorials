@@ -1,0 +1,274 @@
+﻿<h1 class="firstHeading">Windrosendiagramm</h1><p class='urlname' style='display: none'>Windrose-Graph</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Inhalt</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_will_you_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a><ul>
+<li class="toclevel-2 tocsection-4"><a href="#Part_1:_Create_a_Windrose_Graph_from_Binned_Data"><span class="tocnumber">3.1</span> <span class="toctext">Teil 1: Windrosendiagramm aus eingeteilten Daten erstellen</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Part_2:_Create_a_Windrose_from_Raw_Data"><span class="tocnumber">3.2</span> <span class="toctext">Teil 2: Windrosendiagramm aus Rohdaten erstellen</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Sample_Data"><span class="tocnumber">4</span> <span class="toctext">Beispieldaten</span></a><ul>
+<li class="toclevel-2 tocsection-7"><a href="#Binned_Data"><span class="tocnumber">4.1</span> <span class="toctext">Eingeteilte Daten</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Raw_Data"><span class="tocnumber">4.2</span> <span class="toctext">Rohdaten</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+<p>Windrosendiagramme werden verwendet, um die Windgeschwindigkeits- und Windrichtungsdaten darzustellen, die &uuml;ber einen Zeitraum an einem bestimmten Standort gesammelt wurden. Dieses Tutorial zeigt, wie Sie Windrosendiagramme aus sowohl Roh- als auch Indexdaten erstellen:<br /><br /> <a  class="image"><img alt="Two Windrose Plot.png" src="../images/Windrose_Graph/750px-Two_Windrose_Plot.png" width="750"   /></a></p>
+<h2><a name="What_will_you_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+<p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+<ul><li>ein Windrosendiagramm aus eingeteilten Daten erstellen,</li>
+<li>die Hilfsstrichsbeschriftungen der Richtung f&uuml;r das Windrosendiagramm benutzerdefiniert anpassen,</li>
+<li>ein Windrosendiagramm aus Rohdaten erstellen.</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+<p>Dieses Tutorial basiert auf dem Projekt: <i>&lt;Origin-Verzeichnis&gt;\Samples\Tutorial Data.opj</i>. <br /> Sie k&ouml;nnen dieses Diagramm auch im Lernzentrum finden. (W&auml;hlen Sie <b>Hilfe: Lernzentrum</b> im Men&uuml; oder dr&uuml;cken Sie die Taste <b>F11</b>. &Ouml;ffnen Sie dann <b>Diagrammbeispiel: Spezialisierte Diagramme</b>.)</p>
+<h3><a name="Part_1:_Create_a_Windrose_Graph_from_Binned_Data"></a><span class="mw-headline">Teil 1: Ein Windrosendiagramm aus eingeteilten Daten erstellen</span></h3>
+<ol>
+<li>&Ouml;ffnen Sie <b>Tutorial Data.opj</b> und navigieren Sie zum Ordner <b>Wind Rose</b> im <b>Projekt Explorer</b> (PE). <br />(Wenn Sie keine Projektdatei haben, importieren Sie bitte <a href="../../Tutorial/Tutorial/Windrose_Graph.html#Binned_Data" title="Tutorial:Windrose Graph">hier</a> die Beispieldaten.)<li>Aktivieren Sie die Arbeitsmappe <b>Book6E</b>. Markieren Sie alle Arbeitsblattspalten und klicken Sie auf die Schaltfl&auml;che <b>Windrose - Eingeteilte Daten</b> auf der Symbolleiste <b>2D-Grafiken</b>, wie unten gezeigt, oder w&auml;hlen Sie <b>Zeichnen: Spezialisiert: Windrose - Eingeteilte Daten</b> im Hauptmen&uuml;.<br /> <a  class="image"><img alt="Windrose button.png" src="../images/Windrose_Graph/Windrose_button.png" width="388"  /></a><br /><li>Klicken Sie doppelt auf die Radialachse des Polardiagramms, um den Dialog <b>Achsen</b> zu &ouml;ffnen. Gehen Sie bei ausgew&auml;hltem <b>Radial - Innen 1</b> zur Registerkarte <b>Zeigen</b> und deaktivieren Sie das Kontrollk&auml;stchen <b>Zeigen</b>, um die innere Radialachse auszuschalten. <br /> <a  class="image"><img alt="Windrose Graph inner axis01.png" src="../images/Windrose_Graph/400px-Windrose_Graph_inner_axis01.png" width="400"   /></a><br /> W&auml;hlen Sie die Option Radial - Au&szlig;en 2 im linken Bedienfeld und aktivieren Sie das Kontrollk&auml;stchen Zeigen, um die &auml;u&szlig;ere Achse einzuschalten.<br /> <a  class="image"><img alt="Windrose Graph inner axis02.png" src="../images/Windrose_Graph/450px-Windrose_Graph_inner_axis02.png" width="450"   /></a><br /> Klicken Sie auf die Schaltfl&auml;che <b>OK</b>, um nur die Radialachse links unten zu zeigen.<br /> <a  class="image"><img alt="Windrose Graph inner axis03.png" src="../images/Windrose_Graph/Windrose_Graph_inner_axis03.png" width="479"  /></a><li>Klicken Sie auf einen der Balken im Diagramm und in der angezeigten Minisymbolleiste auf die Schaltfl&auml;che <b>F&uuml;llfarbe</b> <a  class="image"><img alt="Popup Fill Color.png" src="../images/Windrose_Graph/Popup_Fill_Color.png" width="24"  /></a> auf der Registerkarte <b>Gruppe</b> <a  class="image"><img alt="Popup Group Tab.png" src="../images/Windrose_Graph/Popup_Group_Tab.png" width="37"  /></a>, um die Farbauswahl zu erweitern. W&auml;hlen Sie in der Farbauswahl auf der Unterregisterkarte <b>Nach Zeichnungen</b> die Farbliste oder -palette, die Sie auf die Balkenfarbe anwenden m&ouml;chten. <a  class="image"><img alt="Windrose Graph FillColor.png" src="../images/Windrose_Graph/550px-Windrose_Graph_FillColor.png" width="550"   /></a><li>Klicken Sie auf die Schaltfl&auml;che <b>Text</b> <a  class="image"><img alt="Button Text Tool.png" src="../images/Windrose_Graph/Button_Text_Tool.png" width="23"  /></a>, um das Objekt <b>Text</b> als Diagrammtitel hinzuzuf&uuml;gen. Geben Sie <i>Sample of Wind Rose (Binned Data)</i> in das Objekt <b>Text</b> ein.<br /> <a  class="image"><img alt="Windrose Graph 2.png" src="../images/Windrose_Graph/Windrose_Graph_2.png" width="476"  /></a></ol>
+<h3><a name="Part_2:_Create_a_Windrose_from_Raw_Data"></a><span class="mw-headline">Teil 2: Ein Windrosendiagramm aus Rohdaten erstellen</span></h3>
+<ol>
+<li>Gehen Sie zum Projektordner <i>Statistical and Specialized Graphs: Specialized: Wind Rose</i> und aktivieren Sie die Arbeitsmappe <b>Book7E</b>, Arbeitsblatt <b>Raw Data</b>. (Wenn Sie keine Projektdatei haben, importieren Sie bitte hier die <a href="../../Tutorial/Tutorial/Windrose_Graph.html#Raw_Data" title="Tutorial:Windrose Graph">Beispieldaten</a>.)<li>Markieren Sie die Spalten A und B. Klicken Sie auf die Schaltfl&auml;che <b>Windrose - Rohdaten</b> auf der Symbolleiste 2D-Grafiken wie unten gezeigt oder w&auml;hlen Sie <b>Zeichnen: Spezialisiert: Windrose - Rohdaten</b> im Hauptmen&uuml;.<br /> <a  class="image"><img alt="Windrose Raw Data Button.png" src="../images/Windrose_Graph/Windrose_Raw_Data_Button.png" width="364"  /></a><br /> Legen Sie im aufgerufenen Dialog die untenstehenden Einstellungen fest und klicken Sie auf OK, um das Windrosendiagramm zu erstellen:<br /> <a  class="image"><img alt="Windrose Raw Data Settings.png" src="../images/Windrose_Graph/Windrose_Raw_Data_Settings.png" width="599"  /></a><li>F&uuml;hren Sie die gleichen Operationen wie in Schritt 3 in <a href="#Part_1:_Create_a_Windrose_Graph_from_Binned_Data">Teil 1</a> durch, um die Radialachse links unten zu verschieben. Gehen Sie zur Registerkarte <b>Hilfsstrichsbeschriftungen</b> f&uuml;r <b>Radial - Au&szlig;en 2</b>, um das Suffix &quot;%&quot; f&uuml;r die Hilfsstrichsbeschriftungen der Radialachse zu entfernen.<li>F&uuml;hren Sie die gleichen Operationen wie in Schritt 4 in <a href="#Part_1:_Create_a_Windrose_Graph_from_Binned_Data">Teil 1</a> durch, um die F&uuml;llfarbe f&uuml;r die gestapelten Balken zu &auml;ndern.<br /> Das Diagramm sollte am Ende dem im Bild unten entsprechen:<br /> <a  class="image"><img alt="Wind Rose Example Raw Data.png" src="../images/Windrose_Graph/Wind_Rose_Example_Raw_Data.png" width="493"  /></a></ol>
+<h2><a name="Sample_Data"></a><span class="mw-headline">Beispieldaten</span></h2>
+<h3><a name="Binned_Data"></a><span class="mw-headline">Eingeteilte Daten</span></h3>
+<p>Um <b>eingeteilte Daten</b> in das Arbeitsblatt zu importieren, k&ouml;nnen Sie die <b>Binned Data 1</b> (einschlie&szlig;lich der &Uuml;berschrift) kopieren und dann <b>Datei: Importassistent</b> ausw&auml;hlen. Aktivieren Sie die Option <b>Zwischenablage</b> in der Gruppe <b>Datenquelle</b> und klicken Sie dann auf die Schaltfl&auml;che <b>Fertigstellen</b>, um die Daten in Origin zu importieren.<br /> <a  class="image"><img alt="Import Wizard Clipboard.png" src="../images/Windrose_Graph/Import_Wizard_Clipboard.png" width="319"  /></a><br /></p>
+<dl><dd><table class="simple">
+<tr>
+<th>Richtung</th>
+<th>0-4</th>
+<th>4-8</th>
+<th>8-12</th>
+<th>12-16</th>
+<th>16-20</th></tr>
+<tr>
+<td>22,5</td>
+<td>3,125</td>
+<td>3,125</td>
+<td>3,125</td>
+<td>6,25</td>
+<td>0</td></tr>
+<tr>
+<td>45</td>
+<td>0</td>
+<td>3,125</td>
+<td>3,125</td>
+<td>0</td>
+<td>0</td></tr>
+<tr>
+<td>67,5</td>
+<td>0</td>
+<td>6,25</td>
+<td>0</td>
+<td>0</td>
+<td>0</td></tr>
+<tr>
+<td>90</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>3,125</td></tr>
+<tr>
+<td>112,5</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td></tr>
+<tr>
+<td>135</td>
+<td>3,125</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>3,125</td></tr>
+<tr>
+<td>157,5</td>
+<td>0</td>
+<td>0</td>
+<td>9,375</td>
+<td>3,125</td>
+<td>0</td></tr>
+<tr>
+<td>180</td>
+<td>3,125</td>
+<td>3,125</td>
+<td>0</td>
+<td>3,125</td>
+<td>3,125</td></tr>
+<tr>
+<td>202,5</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td></tr>
+<tr>
+<td>225</td>
+<td>0</td>
+<td>0</td>
+<td>3,125</td>
+<td>0</td>
+<td>0</td></tr>
+<tr>
+<td>247,5</td>
+<td>0</td>
+<td>3,125</td>
+<td>0</td>
+<td>3,125</td>
+<td>3,125</td></tr>
+<tr>
+<td>270</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>3,125</td></tr>
+<tr>
+<td>292,5</td>
+<td>0</td>
+<td>6,25</td>
+<td>3,125</td>
+<td>0</td>
+<td>0</td></tr>
+<tr>
+<td>315</td>
+<td>0</td>
+<td>0</td>
+<td>3,125</td>
+<td>3,125</td>
+<td>0</td></tr>
+<tr>
+<td>337,5</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td></tr>
+<tr>
+<td>360</td>
+<td>0</td>
+<td>6,25</td>
+<td>0</td>
+<td>0</td>
+<td>0</td></tr>
+<tr>
+<td>382,5</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td></tr></table></dd></dl>
+<h3><a name="Raw_Data"></a><span class="mw-headline">Rohdaten</span></h3>
+<p>Um <b>Rohdaten</b> in das Arbeitsblatt zu importieren, k&ouml;nnen Sie die <b>Raw Data</b> (einschlie&szlig;lich der &Uuml;berschrift) kopieren und dann <b>Datei: Importassistent</b> ausw&auml;hlen. Aktivieren Sie das Kontrollk&auml;stchen <b>Zwischenablage</b> in der Gruppe <b>Datenquelle</b> und klicken Sie dann auf die Schaltfl&auml;che <b>Fertigstellen</b>, um die Daten in Origin zu importieren.<br /><br /></p>
+<dl><dd><a  class="image"><img alt="Import Wizard Clipboard.png" src="../images/Windrose_Graph/Import_Wizard_Clipboard.png" width="319"  /></a><br /><br /></dd></dl>
+<dl><dd><table class="simple">
+<tr>
+<th>Richtung</th>
+<th>Geschwindigkeit</th></tr>
+<tr>
+<td>311,5</td>
+<td>12,75</td></tr>
+<tr>
+<td>142,7</td>
+<td>11,18</td></tr>
+<tr>
+<td>161,6</td>
+<td>5,9</td></tr>
+<tr>
+<td>277,3</td>
+<td>8,24</td></tr>
+<tr>
+<td>155,3</td>
+<td>13,46</td></tr>
+<tr>
+<td>40,8</td>
+<td>8,57</td></tr>
+<tr>
+<td>43,4</td>
+<td>4,38</td></tr>
+<tr>
+<td>1,3</td>
+<td>10,91</td></tr>
+<tr>
+<td>78,8</td>
+<td>18,72</td></tr>
+<tr>
+<td>237,8</td>
+<td>16,22</td></tr>
+<tr>
+<td>114,6</td>
+<td>0,88</td></tr>
+<tr>
+<td>2,1</td>
+<td>12,05</td></tr>
+<tr>
+<td>290,5</td>
+<td>4,6</td></tr>
+<tr>
+<td>174,1</td>
+<td>3,29</td></tr>
+<tr>
+<td>267,6</td>
+<td>16,64</td></tr>
+<tr>
+<td>8</td>
+<td>5,6</td></tr>
+<tr>
+<td>213,9</td>
+<td>8,04</td></tr>
+<tr>
+<td>134,8</td>
+<td>17,26</td></tr>
+<tr>
+<td>137,6</td>
+<td>11,87</td></tr>
+<tr>
+<td>46,1</td>
+<td>5,48</td></tr>
+<tr>
+<td>4,5</td>
+<td>13,47</td></tr>
+<tr>
+<td>311,2</td>
+<td>10,17</td></tr>
+<tr>
+<td>154,4</td>
+<td>11,17</td></tr>
+<tr>
+<td>176,2</td>
+<td>18,91</td></tr>
+<tr>
+<td>348,1</td>
+<td>4,11</td></tr>
+<tr>
+<td>225,2</td>
+<td>6,65</td></tr>
+<tr>
+<td>236,4</td>
+<td>12,87</td></tr>
+<tr>
+<td>11,7</td>
+<td>1,07</td></tr>
+<tr>
+<td>278,9</td>
+<td>4,36</td></tr>
+<tr>
+<td>356,5</td>
+<td>5,01</td></tr>
+<tr>
+<td>58,9</td>
+<td>7,3</td></tr>
+<tr>
+<td>161,8</td>
+<td>15,6</td></tr></table></dd></dl>
+
+
+
+
+
+
+
+    

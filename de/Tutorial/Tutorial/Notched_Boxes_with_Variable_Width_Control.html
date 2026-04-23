@@ -1,0 +1,197 @@
+﻿<h1 class="firstHeading">Gekerbte Boxen mit variablen-gesteuerter Breite</h1>
+
+  <p class='urlname' style='display: none'>notched-boxes</p>
+
+  <p>&#160;</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#Steps_to_Control_Box_Width_by_Variable"><span class="tocnumber">3</span> <span class="toctext">Boxbreite mit Variablen steuern</span></a></li>
+
+      <li class="toclevel-1 tocsection-4"><a href="#More_Box_Style_Customization_Steps"><span class="tocnumber">4</span> <span class="toctext">Weitere Schritte der benutzerdefinierten Anpassung des Boxstils</span></a></li>
+
+      <li class="toclevel-1 tocsection-5"><a href="#More_Axis_Customization_Steps"><span class="tocnumber">5</span> <span class="toctext">Weitere Schritte der benutzerdefinierten Anpassung von Achsen</span></a></li>
+
+      <li class="toclevel-1 tocsection-6"><a href="#Steps_to_Add_National_Average_Line_and_Min.26Max_Range"><span class="tocnumber">6</span> <span class="toctext">Linie für den nationalen Durchschnitt und Min&amp;Max-Bereich hinzufügen</span></a></li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Origins Boxdiagramm ist vielseitig anpassbar. Dieses Tutorial zeigt, wie Sie ein gekerbtes Boxdiagramm erstellen und die Boxbreite über einen anderen Datensatz bestimmen.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Tutorial Box Plot 01.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_01.png" width="579"></a></dd>
+  </dl>
+
+  <p class="version">Origin-Version mind. erforderlich: 2015 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <ul>
+    <li>Einstellungen eines Boxdiagramms benutzerdefiniert anpassen,</li>
+
+    <li>Einen Datensatz verwenden, um die Boxbreite zu steuern</li>
+
+    <li>Dialog Achsen für Boxdiagramme benutzerdefiniert anpassen</li>
+
+    <li>Ein Füllflächendiagramm als Hintergrund hinzufügen</li>
+  </ul>
+
+  <h2><a name="Steps_to_Control_Box_Width_by_Variable"></a><span class="mw-headline">Boxbreite mit Variablen steuern</span></h2>
+
+  <p>Dieses Tutorial basiert auf dem Projekt: <i>&lt;Origin-Verzeichnis&gt;\Samples\Tutorial Data.opj</i>.</p>
+
+  <p>Sie finden dieses Diagramm auch über den <b>Origin-Navigator</b>. (Wählen Sie <b>Hilfe: Origin-Navigator</b> oder drücken Sie die Taste <b>F11</b> und wechseln Sie dann zur Registerkarte <b>Diagrammbeispiel</b>. Wählen Sie in der Auswahlliste <b>Boxdiagramme</b>.)</p>
+
+  <ol>
+    <li>Öffnen Sie das Projekt <b>Tutorial Data.opj</b> und navigieren Sie zu dem Ordner <i>Box Variable Width</i>.</li>
+
+    <li>Aktivieren Sie die Arbeitsmappe <b>Book7</b>, markieren Sie die Spalten <b>A~F</b> und wählen Sie dann <b>Zeichnen: Statistisch: Boxdiagramm</b>. Markieren und löschen Sie als Nächstes das Legendenobjekt aus dem Diagramm.</li>
+
+    <li>Klicken Sie doppelt auf eine der Boxen, um den Dialog <b>Details Zeichnung</b> zu öffnen und zu der Registerkarte <b>Box</b> zu gehen. Legen Sie den <b>Stil</b> auf <b>Gekerbte Box</b> fest. Aktivieren Sie das Kontrollkästchen <b>Boxbreite nach Parameter</b> und setzen Sie dann die <b>Boxbreite (%)</b> auf <b>Number of Vehicles (in million)</b>. Geben Sie <i>1,2</i> als <b>Skalierungsfaktor</b> ein. Aktivieren Sie das Kontrollkästchen <b>Ausreißer</b>. <b>Ausreißer auf einer Linie</b> ist automatisch aktiviert.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Box Plot 04.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_04.png" width="457"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf OK, um den Dialog zu schließen. Wechseln Sie zur <b>Objektverwaltung</b>, die sich rechts im Origin-Arbeitsbereich befindet, und deaktivieren Sie das letzte Diagramm. Klicken Sie auf die Schaltfläche <b>Neu skalieren</b> <a class="image"><img alt="Button Rescale.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Button_Rescale.png" width="22"></a>, um das Diagramm neu zu skalieren.
+
+      <dl>
+        <dd><a class="image"><img alt="Notched Boxes 01.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Notched_Boxes_01.png" width="220"></a></dd>
+
+        <dd>Das Diagramm sieht dann folgendermaßen aus:</dd>
+
+        <dd><a class="image"><img alt="Tutorial Box Plot 01 2.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_01_2.png" width="442"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h2><a name="More_Box_Style_Customization_Steps"></a><span class="mw-headline">Weitere Schritte der benutzerdefinierten Anpassung des Boxstils</span></h2>
+
+  <p>Die folgenden Schritte passen das Boxdiagramm weiter benutzerdefiniert an.</p>
+
+  <ol>
+    <li>Um die gleiche Farbe für jede Box verwenden, klicken Sie doppelt auf eine der Boxen, um den Dialog <b>Details Zeichnung</b> zu öffnen. Wechseln Sie zur Registerkarte <b>Muster</b>. Setzen Sie die <b>Randfarbe</b> auf <b>Orange</b>. Setzen Sie die <b>Breite</b> auf <b>1,5</b>.</li>
+
+    <li>Um die Boxen mit Farbe zu füllen, erweitern Sie die Auswahlliste <b>Füllfarbe</b> und wählen Sie dann auf der Registerkarte Einzeln ein helles Orange, wie unten zu sehen:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Box Plot 03.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_03.png" width="521"></a></dd>
+      </dl>
+    </li>
+
+    <li>Beachten Sie, dass durch Hinzufügen des Kontrollkästchens <b>Ausreißer</b> auf der Registerkarte <b>Box</b> eine Registerkarte <b>Symbol</b> hinzugefügt wurde. Verwenden Sie die Bedienelemente auf dieser Registerkarte, um das Ausreißersymbol, wie unten gezeigt, benutzerdefiniert anzupassen:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Box Plot 05.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_05.png" width="448"></a></dd>
+      </dl>
+    </li>
+
+    <li>Um die Symbole 99% und 1% auszublenden, gehen Sie zur Registerkarte <b>Perzentile</b> und deaktivieren Sie das Kontrollkästchen sowohl für <b>99%</b> als auch für <b>1%</b>. Wählen Sie das zweite Symbol in der ersten Zeile für <b>Mittelwert</b>:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Box Plot 06.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_06.png" width="382"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um alle Änderungen zu übernehmen.</li>
+  </ol>
+
+  <h2><a name="More_Axis_Customization_Steps"></a><span class="mw-headline">Weitere Schritte der benutzerdefinierten Anpassung von Achsen</span></h2>
+
+  <ol>
+    <li>Um durchgezogene Gitternetzlinien zwischen den Boxen zu zeigen, klicken Sie doppelt auf die X-Achse, um den Dialog <b>Achsen</b> zu öffnen. Gehen Sie bei ausgewähltem Symbol <b>Horizontal</b> zur Registerkarte <b>Skalierung</b> und setzen Sie die <b>Anzahl</b> der <b>Kleinen Hilfsstriche</b> auf <b>1</b>:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Box Plot 11.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_11.png" width="407"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wechseln Sie zur Registerkarte <b>Gitternetze</b> und wählen Sie das Symbol <b>Vertikal</b> aus. Aktivieren Sie das Kontrollkästchen <b>Zeigen</b> im Zweig <b>Nebengitternetzlinien</b> und setzen Sie den <b>Stil</b> auf <b>Durchgezogen</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Box Plot 12.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_12.png" width="393"></a></dd>
+      </dl>
+    </li>
+
+    <li>Gehen Sie zur Registerkarte <b>Linie und Hilfsstriche</b> und setzen Sie den Stil der Hilfsstriche für die X-Achse (<b>Unten</b>) folgendermaßen:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Box Plot 14.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_14.png" width="457"></a></dd>
+      </dl>
+    </li>
+
+    <li>Halten Sie die <b>Strg</b>-Taste gedrückt und wählen Sie die Symbole <b>Oben</b> und <b>Rechts</b>. Aktivieren Sie das Kontrollkästchen <b>Linie und Hilfsstriche zeigen</b>, um die Linie und die Hilfsstriche der oberen X- und rechten Y-Achse anzuzeigen. Setzen Sie den Stil der Hilfsstriche auf <b>Kein</b>:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Box Plot 13.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_13.png" width="622"></a></dd>
+      </dl>
+    </li>
+
+    <li>Gehen Sie zur Registerkarte <b>Skalierung</b> und wählen Sie das Symbol <b>Vertikal</b>. Nehmen Sie folgende Einstellungen vor:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Box Plot 15.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_15.png" width="454"></a></dd>
+      </dl>
+    </li>
+
+    <li>Gehen Sie zur Registerkarte <b>Beschriftung der Hilfsstriche</b>, stellen Sie sicher, dass das Symbol <b>Links</b> ausgewählt ist und geben Sie das Präfix <i>$</i> ein.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Box Plot 16.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_16.png" width="398"></a></dd>
+      </dl>
+    </li>
+
+    <li>Gehen Sie zur Registerkarte <b>Titel</b>, stellen Sie sicher, dass das Symbol <b>Links</b> ausgewählt ist, und ändern Sie den Text des Titels der Y-Achse in <i>Gasoline Prices</i>.</li>
+
+    <li>Klicken Sie auf <b>OK</b>, um den Dialog <b>Achsen</b> zu schließen.</li>
+
+    <li>Um einen Titel und eine Fußnote zu dem Diagramm hinzuzufügen, klicken Sie mit der rechten Maustaste in den weißen Bereich des Diagramms und wählen Sie im Kontextmenü <b>Layertitel hinzufügen/modifizieren</b>. Geben Sie <i>US Weekly Retail Gasoline Prices</i> ein. Markieren Sie den Titel und verwenden Sie die Symbolleiste <b>Format</b>, um die Schriftgröße auf <b>26</b> zu setzen. Klicken Sie mit der rechten Maustaste unter die Hilfsstrichsbeschriftungen der X-Achse und wählen Sie <b>Text hinzufügen</b> im Kontextmenü. Klicken Sie im direkten Bearbeitungsmodus auf die Schaltfläche <i><b>I</b></i> auf der Symbolleiste <b>Format</b> und geben Sie dann <i>Box width indicates number of vehicles in each area</i> als Fußnote ein. Sie wird kursiv angezeigt.</li>
+  </ol>
+
+  <h2><a name="Steps_to_Add_National_Average_Line_and_Min.26Max_Range"></a><span class="mw-headline">Linie für den nationalen Durchschnitt und Min&amp;Max-Bereich hinzufügen</span></h2>
+
+  <p>Jetzt werden drei Referenzlinien zur Y-Achse hinzugefügt, um den nationalen und den Bereich Minimum-Maximum des nationalen Benzinpreises zu zeigen.</p>
+
+  <ol>
+    <li>Klicken Sie doppelt auf die Y-Achse, um den Dialog Achsen erneut zu öffnen. Gehen Sie zur Registerkarte <b>Referenzlinien</b> und klicken Sie auf die Schaltfläche <b>Details...</b>, um den Dialog Referenzlinien zu öffnen.<br>
+    <a class="image"><img alt="Tutorial Box Plot 09b.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_09b.png" width="643"></a></li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Hinzufügen</b> unten im Dialog <b>Referenzlinien</b>, um eine Referenzlinie hinzuzufügen. Wählen Sie diese neue Linie aus, setzen Sie den <b>Wertetyp</b> auf <b>Statistik</b> und geben Sie <i>Mean(plotdata(6, Y))</i> im Feld <b>Bei Achsenwert</b> ein (Sie können auf den Pfeil am Ende dieses Felds klicken, um ein Standardmuster auszuwählen). Ändern Sie den Linienstil in <b>Königsblau</b> und <b>Strich</b> und aktivieren Sie das Kontrollkästchen <b>Zeigen</b> im Zweig <b>Beschriftung</b>.<br>
+    <a class="image"><img alt="Tutorial Box Plot 09c.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_09c.png" width="687"></a></li>
+
+    <li>Klicken Sie erneut auf die Schaltfläche <b>Hinzufügen</b>, um die zweite Referenzlinie hinzuzufügen. Wenn diese Linie im Feld <b>Referenzlinien bei</b> ausgewählt ist, setzen Sie den <b>Wertetyp</b> auf <b>Statistik</b> und geben Sie <i>min(plotdata(6, Y))</i> im Feld <b>Bei Achsenwert</b> ein. Setzen Sie den Linienstil auf <b>Königsblau</b> und <b>Kompakt</b>.<br>
+    <a class="image"><img alt="Tutorial Box Plot 09d.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_09d.png" width="690"></a></li>
+
+    <li>Klicken Sie erneut auf die Schaltfläche <b>Hinzufügen</b>, um die dritte Referenzlinie hinzuzufügen. Wenn diese Linie im Feld <b>Referenzlinien bei</b> ausgewählt ist, setzen Sie den <b>Wertetyp</b> auf <b>Statistik</b> und geben Sie <i>max(plotdata(6, Y))</i> im Feld <b>Bei Achsenwert</b> ein. Setzen Sie den Linienstil auf <b>Königsblau</b> und <b>Kompakt</b>.</li>
+
+    <li>Klicken Sie auf OK, um den Dialog zu schließen und die Referenzlinien zur Tabelle der Linien hinzuzufügen.<br>
+    <a class="image"><img alt="Tutorial Box Plot 10.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_10.png" width="709"></a></li>
+
+    <li>Geben Sie <b>Nationaler Durchschnitt</b> in der Zelle <b>Beschriftungstext</b> der ersten hinzugefügten Linie ein. Wählen Sie die Linie <b>Füllen in</b> für die zweite und dritte Referenzlinie, wie unten zu sehen, aus:<br>
+    <a class="image"><img alt="Notched box ReferLines 01.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Notched_box_ReferLines_01.png" width="585"></a></li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Anwenden</b>, um die Referenzlinien zum Diagramm hinzuzufügen. Klicken Sie erneut auf die Schaltfläche <b>Details...</b>, um den Dialog <b>Referenzlinien</b> zu öffnen. Wählen Sie die zweite Linie im rechten Bedienfeld und setzen Sie die <b>Füllfarbe</b> im Zweig <b>Muster</b> auf <b>Zyan</b> und die <b>Transparenz</b> auf <i>90</i>. Klicken Sie auf OK.<br>
+    <a class="image"><img alt="Notched box ReferLines 02.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Notched_box_ReferLines_02.png" width="690"></a></li>
+
+    <li>Klicken Sie auf OK, um den Dialog zu schließen. Gehen Sie zurück zum Diagramm und klicken Sie mit der rechten Maustaste auf die Beschriftung der Mittelwertlinie, um <b>Eigenschaften</b> im Kontextmenü auszuwählen. Der Dialog <b>Textobjekt</b> wird geöffnet. Geben Sie den Text unten ein und nehmen Sie die Formateinstellungen vor:<br>
+      <pre class="lt" style="font-family:monospace;">
+National Average <span style="color: #000080;">$$</span><span style="color: #000000;">(</span>v, <span style="color: #000080;">*</span><span style="color: #0000dd;">3</span><span style="color: #000000;">)</span>
+</pre><br>
+
+      <p><a class="image"><img alt="Notched box ReferLines 03.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Notched_box_ReferLines_03.png" width="620"></a></p>
+    </li>
+
+    <li>Klicken Sie auf OK. Am Ende erhalten Sie das endgültige Diagramm.<br>
+    <a class="image"><img alt="Tutorial Box Plot 01.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_01.png" width="579"></a></li>
+  </ol>

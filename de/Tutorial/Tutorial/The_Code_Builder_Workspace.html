@@ -1,0 +1,246 @@
+﻿<h1 class="firstHeading">Der Arbeitsbereich des Code Builders</h1>
+
+  <p class='urlname' style='display: none'>Code-Builder-Workspace</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#The_Workspace_File"><span class="tocnumber">3</span> <span class="toctext">Die Arbeitsbereichsdatei</span></a></li>
+
+      <li class="toclevel-1 tocsection-4"><a href="#Workspace_Folders"><span class="tocnumber">4</span> <span class="toctext">Arbeitsbereichsordner</span></a></li>
+
+      <li class="toclevel-1 tocsection-5"><a href="#Build_on_Startup"><span class="tocnumber">5</span> <span class="toctext">Startverhalten festlegen</span></a></li>
+
+      <li class="toclevel-1 tocsection-6"><a href="#Configure_Code_Builder_Interface"><span class="tocnumber">6</span> <span class="toctext">Benutzeroberfläche des Code Builders konfigurieren</span></a></li>
+
+      <li class="toclevel-1 tocsection-7"><a href="#Create_an_App_Using_Apps_folder_in_Workspace"><span class="tocnumber">7</span> <span class="toctext">Eine App mit Hilfe des Ordners Apps im Arbeitsbereich erstellen</span></a></li>
+
+      <li class="toclevel-1 tocsection-8"><a href="#Frequently_Used_Hot_Keys"><span class="tocnumber">8</span> <span class="toctext">Häufig verwendete Tastenkombinationen</span></a></li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>In diesem Tutorial erstellen Sie einen Arbeitsbereich im Code Builder von Origin, fügen eine Quelldatei mit einer neuen Funktion hinzu und erstellen, testen und speichern dann die Arbeitsbereichsdatei. Darüber hinaus konfigurieren Sie das Aussehen des Code Builders.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 2016 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>einen Arbeitsbereichsdatei erstellen,</li>
+
+    <li>Arbeitsbereichsordner erstellen,</li>
+
+    <li>das Startverhalten festlegen,</li>
+
+    <li>die Benutzeroberfläche des Code Builders konfigurieren,</li>
+
+    <li>eine App mit Hilfe des Ordners Apps im Arbeitsbereich erstellen,</li>
+
+    <li>Tastenkombinationen zur Beschleunigung Ihrer Arbeit verwenden.</li>
+  </ul>
+
+  <h2><a name="The_Workspace_File"></a><span class="mw-headline">Die Arbeitsbereichsdatei</span></h2>
+
+  <p>Ein Arbeitsbereich ist eine Sammlung von Dateien, die von einer einzelnen Menüoption in Origins Code Builder geöffnet werden kann (<b>Datei: Arbeitsbereich öffnen</b>). Dazu können alle Textdateien gehören. Es muss sich nicht notwendigerweise um Quellcodedateien handeln; es können beispielsweise auch Notizen sein.</p>
+
+  <p>Alle Dateien, die über einen Arbeitsbereich in der Mehrdokumentenoberfläche geöffnet werden, können einzeln bearbeitet und gespeichert werden. Zusätzlich zu den Dateien, die auf der Mehrdokumentenoberfläche geöffnet werden, können die Quellcodedateien über das Menü <b>Datei: Zum Arbeitsbereich hinzufügen</b> zum Fenster des Arbeitsbereichs hinzugefügt werden.</p>
+
+  <p>Durch Einbinden der Quellcodedateien in das Arbeitsbereichsfenster können Sie mit den entsprechenden Menüoptionen oder Symbolleistenschaltflächen einzelne oder mehrere Dateien erstellen. Auf Headerdateien kann innerhalb von Quelldateien verwiesen werden und müssen nicht in das Arbeitsbereichsfenster geladen oder gar auf der Mehrdokumentenoberfläche geöffnet werden.</p>
+
+  <p>Da Sie einen Arbeitsbereich unter einem neuen Namen speichern können, ist es möglich, mehrere Arbeitsbereichsdateien zu haben. Es kann allerdings nur jeweils eine Arbeitsbereichsdatei geöffnet sein.</p>
+
+  <p><br>
+  Um ein Histogramm zu erstellen:</p>
+
+  <ol>
+    <li>Klicken Sie auf der Symbolleiste <b>Standard</b> auf die Schaltfläche <b>Code Builder</b> <a class="image"><img alt="Button Code Builder.png" src="../images/The_Code_Builder_Workspace/Button_Code_Builder.png" width="23"></a>.</li>
+
+    <li>Wählen Sie im Menü Code Builder die Option <b>Datei: Neuer Arbeitsbereich</b>. Auf diese Weise wird ein neuer Arbeitsbereich mit dem Standardnamen "Untitled.ocw" erstellt.</li>
+
+    <li>Wählen Sie im Menü Code Builder die Option <b>Datei: Neu</b>. Dadurch öffnet sich der Dialog <b>Neue Datei</b>.</li>
+
+    <li>Wählen Sie <b>C File</b> und geben Sie <b>foo</b> im Textfeld <b>Dateiname</b> ein. Die Kontrollkästchen <b>Zu Arbeitsbereich hinzufügen</b> und <b>Mit Standardinhalten füllen</b> sollten aktiviert sein. Sie können das Standardverzeichnis akzeptieren. Klicken Sie auf <b>OK</b>.</li>
+
+    <li>Geben Sie in FOO.C, die unter der Zeile "\\start your functions here" anfängt, Folgendes ein:</li>
+  </ol>
+  <pre class="oc" style="font-family:monospace;">
+<span style="color: #0000ff;">void</span> bar<span style="color: #000000;">(</span><span style="color: #000000;">)</span> <span style="color: #000000;">{</span> <span style="color: #000000;">printf</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">"Hello World!<span style="color: #666666; font-weight: bold;">\n</span>"</span><span style="color: #000000;">)</span>; <span style="color: #000000;">}</span>
+</pre>
+
+  <ol start="6">
+    <li>Klicken Sie auf die Schaltfläche <b>Erstellen</b> <a class="image"><img alt="Button Build.png" src="../images/The_Code_Builder_Workspace/Button_Build.png" width="23"></a> (oder verwenden Sie <b>Shift+F8</b>). Origin speichert automatisch die Quelldatei und kompiliert und verknüpft die Funktion.</li>
+  </ol>
+
+  <ol start="7">
+    <li>Wählen Sie im Origin-Menü <b>Fenster: Skriptfenster</b>.</li>
+  </ol>
+
+  <ol start="8">
+    <li>Um unserer neue Funktion zu testen, geben Sie Folgendes ein:</li>
+  </ol>
+  <pre>
+bar
+</pre>
+
+  <ol start="9">
+    <li>Drücken Sie <b>Enter</b>.</li>
+  </ol>
+
+  <p>Origin antwortet mit <b>Hello World!</b></p>
+
+  <ol start="10">
+    <li>Wählen Sie im Menü Code Builder die Option <b>Datei: Arbeitsbereich speichern unter</b>.</li>
+  </ol>
+
+  <p>Die Abbildung zeigt die Arbeitsbereichsdatei foo.ocw, die eine einzelne Quelldatei foo.c auf der Mehrdokumentenoberfläche enthält. Die Datei wurde zum Arbeitsbereichsfenster hinzugefügt. Das Ausgabefenster zeigt, dass die Datei kompiliert wurde. Die Quelldatei enthält eine einzelne Funktion "bar( )", die in der Baumstruktur des Arbeitsbereichs aufgeführt wird. <a class="image"><img alt="The Code Builder Workspace 1.png" src="../images/The_Code_Builder_Workspace/The_Code_Builder_Workspace_1.png" width="947"></a></p>
+
+  <h2><a name="Workspace_Folders"></a><span class="mw-headline">Arbeitsbereichordner</span></h2>
+
+  <p>Der Arbeitsbereich des Code Builders hat sechs Unterordner: Apps, Project, System, Temporary, User [AutoLoad] und User. Dateien, die vom Anwender hinzugefügt wurden, wie z.B. foo.c, werden im Unterordner User abgelegt. Origin selbst verwendet Origin C für viele Analyseroutinen. Wenn auf diese Routinen zugegriffen wird, werden die Origin C-Quelldateien in den Arbeitsbereich geladen, entweder in den Unterordner System oder in den temporären Unterordner. Der Unterordner Project ist für Unterordner reserviert, die mit dem Origin-Projekt gespeichert und geladen worden sind. Das Anhängen einer Datei an ein Projekt wird in einem anderen Tutorial beschrieben.</p>
+
+  <h2><a name="Build_on_Startup"></a><span class="mw-headline">Das Startverhalten festlegen</span></h2>
+
+  <p>Wenn Sie mit der rechten Maustaste auf <b>Origin C-Arbeitsbereich</b> klicken, verfügt das Kontextmenü über eine Option <b>Bei Start erstellen</b>. Wenn diese Option aktiviert ist, wird der letzte Arbeitsbereich, den Sie gespeichert haben, beim Neustart von Origin geladen. Alle Quelldateien in dem Arbeitsbereich werden erstellt und alle Funktionen in den Quelldateien sind zur sofortigen Nutzung verfügbar.</p>
+
+  <p>Weitere Informationen zum Erstellen von individuellen Quelldateien beim Programmstart durch Einfügen von Informationen in der Datei ORIGIN.INI finden Sie unter <a class="external text" href="../../OriginC/OCGuide/Compiling,_Linking_and_Loading.html#Build_Individual_Source_File_on_Origin_Startup">Bei Start erstellen</a>.</p>
+
+  <p>Damit ist das Tutorial zum <b>Arbeitsbereich des Code Builders</b> beendet.</p>
+
+  <h2><a name="Configure_Code_Builder_Interface"></a><span class="mw-headline">Die Benutzeroberfläche des Code Builders konfigurieren</span></h2>
+
+  <p>Anwenden können die Oberfläche des Code Builders konfigurieren, einschließlich Schriftarten und Farben, Farbe der Klammern, Symbolgröße und so weiter.</p>
+
+  <ol>
+    <li>Öffnen Sie den Dialog <b>Optionen</b> im <b>Code Builder</b>, indem Sie im Hauptmenü <b>Einstellungen: Optionen</b> wählen. Gehen Sie zur Registerkarte <b>Schriftarten und Farben</b> und wählen Sie das <b>Design</b> <b>Dark</b>. Es wird eine Oberfläche mit dunklem Hintergrund und heller Schrift erzeugt. Sie können auch die Schriftgröße und -art in diesem Dialog anpassen.
+
+      <dl>
+        <dd><a class="image"><img alt="Interface1.png" src="../images/The_Code_Builder_Workspace/Interface1.png" width="573"></a></dd>
+      </dl>
+    </li>
+
+    <li>Gehen Sie im Dialog <b>Optionen</b> zur Registerkarte <b>Allgemein</b> und ändern Sie die Eigenschaften für <b>Mehrere farbige Klammern aktivieren</b> in <b>True</b>. Klicken Sie auf <b>OK</b>. Die geschachtelten "()" im Code werden in mehreren Farben angezeigt.
+
+      <dl>
+        <dd><a class="image"><img alt="ColorBracket.png" src="../images/The_Code_Builder_Workspace/ColorBracket.png" width="590"></a></dd>
+      </dl>
+    </li>
+
+    <li>Öffnen Sie den Dialog <b>Anpassen</b>, indem Sie im Hauptmenü <b>Ansicht: Symbolleisten</b> wählen. Gehen Sie zur Registerkarte <b>Optionen</b> und aktivieren Sie das Kontrollkästchen <b>Große Symbole verwenden</b>. Die Symbole der Schaltflächen auf den Symbolleisten werden dann groß angezeigt. (Beachten Sie, dass diese Einstellung auf Ihrem System möglicherweise nicht gut funktioniert, abhängig von Ihren Anzeigeeinstellungen.) Schließen Sie den Dialog <b>Anpassen</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="LargeIons.png" src="../images/The_Code_Builder_Workspace/LargeIons.png" width="461"></a></dd>
+      </dl>
+    </li>
+
+    <li>Sie können steuern, ob jedes Bedienfeld anzeigt wird oder nicht, indem Sie im Hauptmenü <b>Ansicht</b> wählen. Die ausgewählten Bedienfelder werden im <b>Code Builder</b> gezeigt.
+
+      <dl>
+        <dd><a class="image"><img alt="View.png" src="../images/The_Code_Builder_Workspace/View.png" width="564"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h2><a name="Create_an_App_Using_Apps_folder_in_Workspace"></a><span class="mw-headline">Eine App mit Hilfe des Ordners Apps im Arbeitsbereich erstellen</span></h2>
+
+  <p>Um ein AppPaket zu erzeugen, müssen Sie die Verwendung des Ordners <b>Apps</b> im Arbeitsbereich des Code Builders mit des Hilfsmittels <a class="external text" href="../../UserGuide/UserGuide/Package_Manager.html">Packdateien verwalten</a> kombinieren. Die folgenden Schritte zeigen Ihnen, wie eine Packdatei für eine App erstellt wird.</p>
+
+  <p>1. Klicken Sie auf der Symbolleiste <b>Standard</b> auf die Schaltfläche <b>Code Builder</b> <a class="image"><img alt="Button Code Builder.png" src="../images/The_Code_Builder_Workspace/Button_Code_Builder.png" width="23"></a>, um den Code Builder zu öffnen.</p>
+
+  <p>2. Stellen Sie sicher, dass das Fenster <b>Arbeitsplatz</b> geöffnet ist. Sollte es das nicht sein, können Sie es im Menü <b>Ansicht: Arbeitsbereich</b> aufrufen. Klicken Sie mit der rechten Maustaste auf den Ordner <b>Apps</b> im <b>Origin C Arbeitsbereich</b> und wählen Sie <b>Neu</b>, um einen neuen Ordner hinzuzufügen.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Package1.png" src="../images/The_Code_Builder_Workspace/Package1.png" width="311"></a></dd>
+  </dl>
+
+  <p>3. Klicken Sie mit der rechten Maustaste auf den neu hinzugefügten Ordner <i>Untitled</i> und wählen Sie die Option <b>Umbenennen</b>, um dem Ordner den Namen "MeineApp" zu geben.</p>
+
+  <p>4. Klicken Sie mit der rechten Maustaste auf den Ordner <i>MeineApp</i> und wählen Sie <b>Dateien hinzufügen</b>, um den Dialog <b>Dateien zu Arbeitsplatz hinzufügen</b> zu öffnen. Navigieren Sie zu den vorbereiteten Dateien und wählen Sie sie aus. Klicken Sie dann auf die Schaltfläche <b>Öffnen</b>, um sie zu dem aktuellen Ordner hinzuzufügen.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Package3.png" src="../images/The_Code_Builder_Workspace/Package3.png" width="364"></a></dd>
+  </dl>
+
+  <p>5. Klicken Sie mit der rechten Maustaste auf den Ordner <i>MeineApp</i>, um die Option <b>Erzeugen</b> zu wählen. Sie werden direkt an das Hilfsmittel <a class="external text" href="../../UserGuide/UserGuide/Package_Manager.html"><b>Packdateien verwalten</b></a> weitergeleitet.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Package4.png" src="../images/The_Code_Builder_Workspace/Package4.png" width="364"></a></dd>
+  </dl>
+
+  <p>6. Sie können die hinzugefügten Dateien im unteren Bedienfeld von <b>Packdateien verwalten</b> sehen. Jetzt können Sie ein paar Informationen über <i>MeineApp</i> im Zweig <b>Paket</b> eingeben, wie unten zu sehen. Damit die App als Symbol in der <a class="external text" href="../../UserGuide/UserGuide/Apps.html#The_Apps_Gallery"><b>Apps-Galerie</b></a> angezeigt wird, müssen Sie ein bmp-Bild von 32*32 (in Pixel) vorbereiten und seinen Namen mit Erweiterung im Bearbeitungsfeld <b>Symbol</b> eingeben. Danach besteht die Möglichkeit, LabTalk-Skript im Feld <b>Skript starten</b> einzugeben, um Origin die Anweisung zu geben, was es beim Start der App tun soll.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Package5.png" src="../images/The_Code_Builder_Workspace/Package5.png" width="482"></a></dd>
+  </dl>
+
+  <p>7. Wählen Sie <b>Datei: Speichern</b>, um die Packdatei als .opx-Datei zu speichern. Später können Sie diese .opx-Datei per Drag&amp;Drop in den Origin-Arbeitsbereich ziehen, um diese App zu installieren.</p>
+
+  <h2><a name="Frequently_Used_Hot_Keys"></a><span class="mw-headline">Häufig verwendete Tastenkombinationen</span></h2>
+
+  <p>Die <b>Tastenkombinationen</b> im Code Builder machen die Arbeit mit dem Code effizient. In den folgenden Abschnitten werden nacheinander nützliche Tastenkombinationen eingeführt.</p>
+
+  <p>Laden Sie zuerst bitte <a class="external text" href="http://blog.originlab.com/wp-content/uploads/2017/01/OriginCExamples.zip" target="_blank">diese zip-Datei</a> herunter, extrahieren Sie sie und navigieren Sie dann zum Unterordner <i>\Origin C Examples\Programming Guide\Practical Examples</i>, um <b>AccessMatrix hinzuzufügen. c</b> durch Rechtsklick auf den Anwenderordner und Auswahl von "Dateien hinzufügen"</p>
+
+  <ul>
+    <li><b>Strg+F2</b> und <b>F2</b></li>
+  </ul>
+
+  <p><b>Strg+F2</b> fügt ein 'Lesezeichen umschalten' bei einer spezifischen Zeile ein. Sie können die Taste <b>F2</b> verwenden, um zum nächsten 'Lesezeichen umschalten' zu gelangen.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Hotkey3.png" src="../images/The_Code_Builder_Workspace/Hotkey3.png" width="380"></a></dd>
+  </dl>
+
+  <ul>
+    <li><b>Strg+F3</b> und <b>F3</b></li>
+  </ul>
+
+  <p><b>Strg+F3</b> markiert alle ausgewählten Wörter ("MatData") im Code. Sie können die Taste <b>F3</b> verwenden, um zum nächsten markierten "MatData" zu gelangen.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="HotKey2.png" src="../images/The_Code_Builder_Workspace/HotKey2.png" width="240"></a></dd>
+  </dl>
+
+  <ul>
+    <li><b>Strg+]</b></li>
+  </ul>
+
+  <p>Mit dieser Tastenkombination finden Sie übereinstimmende Klammern im Code.</p>
+
+  <ul>
+    <li><b>F9</b></li>
+  </ul>
+
+  <p>Diese Taste fügt ein 'Haltepunkt umschalten' bei einer spezifischen Zeile ein.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="HotKey4.png" src="../images/The_Code_Builder_Workspace/HotKey4.png" width="297"></a></dd>
+  </dl>
+
+  <ul>
+    <li><b>Strg+/</b> und <b>Strg + Shift + /</b></li>
+  </ul>
+
+  <p>Diese Tastenkombination <b>Strg+/</b> kommentiert die ausgewählten Zeilen, während <b>Strg + Shift + /</b> sie auskommentiert.</p>
+
+  <ul>
+    <li><b>Strg + Alt + O</b></li>
+  </ul>
+
+  <p>Nach Erstellen der *.c- und *.h-Dateien mit dem gleichen Namen können Sie die Tastenkombination <b>Strg+Alt+O</b> dazu verwenden, zwischen ihnen hin- und herzuschalten.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="HotKey5.png" src="../images/The_Code_Builder_Workspace/HotKey5.png" width="445"></a></dd>
+  </dl>
+
+  <p>Bitte lesen Sie auch <a class="external text" href="CodeBuilderUsersGuide.chm::/CodeBuilder/Menu_Items_Toolbars_and_Status_Bar.html#Hotkeys_in_Code_Builder">Tastenkombinationen im Code Builder</a>, um weitere Informationen zu diesem Thema zu erhalten.</p>

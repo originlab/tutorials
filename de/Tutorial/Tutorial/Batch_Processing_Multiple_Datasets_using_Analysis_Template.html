@@ -1,0 +1,76 @@
+﻿<h1 class="firstHeading">Stapelverarbeitung mehrerer Datensätze</h1>
+
+  <p>&#160;</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Perform_fitting_on_one_data_firstly"><span class="tocnumber">3.1</span> <span class="toctext">Anpassung zuerst für einen Datensatz durchführen</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Performing_the_fitting_on_multiple_datasets_with_Batch_Processing_tool"><span class="tocnumber">3.2</span> <span class="toctext">Anpassung für mehrere Datensätze mit dem Hilfsmittel Stapelverarbeitung durchführen</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Mit Origin können Anwender eine Stapelverarbeitung von mehreren Dateien oder Datensätzen mit Hilfe einer Analysevorlage oder der aktuell aktiven Arbeitsmappe mit Analyseoperationen durchführen. Diese Tutorial legt den Schwerpunkt auf die Stapelanalyse von mehreren Datensätzen mit Hilfe der aktuellen aktiven Arbeitsmappen-/Analysevorlage.</p>
+
+  <h2><a name="What_You_Will_Learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>eine Analyse auf einen Beispieldatensatz durchführen und ein neues Ergebnisblatt mit den gewünschten Ergebnissen erstellen,</li>
+
+    <li>die Stapelverarbeitung von mehreren Datensätzen mit Hilfe der aktuell aktiven Arbeitsmappe, die die Analyseoperationen mit der Neuberechnung enthält, durchführen.</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <h3><a name="Perform_fitting_on_one_data_firstly"></a><span class="mw-headline">Anpassung zuerst für einen Datensatz durchführen</span></h3>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe, klicken Sie auf die Schaltfläche <a class="image"><img alt="Button Import ASCII.png" src="../images/Batch_Processing_Multiple_Datasets_using_Analysis_Template/Button_Import_ASCII.png" width="20"></a> und navigieren Sie zum Ordner <i>&lt;Origin-Verzeichnis&gt;\Samples\Curve Fitting\</i>. Wählen Sie die Datei <b>Sensor01.dat</b>, um die Daten mit den Standardimporteinstellungen zu importieren.</li>
+
+    <li>Markieren Sie Spalte B und verwenden Sie <b>Analyse: Anpassen: Linearer Fit</b>, um den Dialog <b>Lineare Anpassung</b> zu öffnen. Setzen Sie <b>Neu berechnen</b> auf <b>Auto</b> und gehen Sie dann zur Registerkarte <b>Fit-Steuerung</b>. Aktivieren Sie das Kontrollkästchen <b>Fester Schnittpunkt mit der Y-Achse</b> und setzen Sie <b>Fester Schnittpunkt mit der Y-Achse bei</b> auf <i>0</i>.</li>
+
+    <li>Klicken Sie auf <b>OK</b>, um die Anpassung durchzuführen.</li>
+
+    <li>Gehen Sie zum Blatt <b>FitLinear1</b> und klicken Sie auf den nach unten weisenden Pfeil neben dem Zweig <b>Zusammenfassung</b>, um <b>Kopie als neues Blatt erstellen</b> auszuwählen. Ein neues Blatt, "Summary", mit den Anpassungsergebnissen wird erstellt. Gehen Sie zu diesem neuen Blatt, benennen Sie es in "Result" um und löschen Sie col(A).</li>
+  </ol>
+
+  <h3><a name="Performing_the_fitting_on_multiple_datasets_with_Batch_Processing_tool"></a><span class="mw-headline">Anpassung für mehrere Datensätze mit dem Hilfsmittel Stapelverarbeitung durchführen</span></h3>
+
+  <ol>
+    <li>Aktivieren Sie die Arbeitsmappe. Wählen Sie <b>Datei: Stapelverarbeitung</b> im Menü oder klicken Sie auf die Schaltfläche <b>Stapelverarbeitung</b> <a class="image"><img alt="Button Batch Processing.png" src="../images/Batch_Processing_Multiple_Datasets_using_Analysis_Template/Button_Batch_Processing.png" width="23"></a> auf der Symbolleiste Standard, um den Dialog <b>Stapelverarbeitung</b> öffnen.</li>
+
+    <li>Aktivieren Sie das Kontrollkästchen <b>Wiederholter Import in aktives Fenster der Analysevorlage</b> für den <b>Modus Stapelverarbeitung</b>.<br>
+    <b>Hinweis:</b> Sie können auch <a href="../../Tutorial/Tutorial/Analysis_Template_and_Batch_Processing.html" title="Tutorial:Analysis Template and Batch Processing">eine Analysevorlage speichern und sie mit der Schaltfläche <b>Analysevorlage laden</b></a> in Ihren Stapelverarbeitungsroutinen verwenden.</li>
+
+    <li>Wählen Sie <b>Aus Dateien importieren</b> aus der Auswahlliste <b>Datenquelle</b>.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Durchsuchen</b> <a class="image"><img alt="Tutorial Import 005.png" src="../images/Batch_Processing_Multiple_Datasets_using_Analysis_Template/Tutorial_Import_005.png" width="19"></a> neben dem Feld <b>Dateiliste</b> und wählen Sie alle Sensordaten <i>Sensor##.dat</i> im Ordner <i>&lt;Origin EXE Folder&gt;\Samples\Curve Fitting</i>.</li>
+
+    <li>Wählen Sie <b>Dateiname</b> für <b>Datensatzidentifikator</b>.</li>
+
+    <li>Stellen Sie sicher, dass in der Auswahlliste <b>Datenblatt</b> die Option <b>Sensor01</b> ausgewählt ist.</li>
+
+    <li>Stellen Sie sicher, dass in der Auswahlliste <b>Ergebnisblatt</b> die Option <b>Zusammenfassung</b> festgelegt ist.<br>
+    <a class="image"><img alt="Tutorial Batch Processing Datasets 002.png" src="../images/Batch_Processing_Multiple_Datasets_using_Analysis_Template/420px-Tutorial_Batch_Processing_Datasets_002.png" width="420"></a></li>
+
+    <li>Klicken Sie auf <b>OK</b>. Alle Sensordaten werden analysiert und eine Arbeitsmappe, "Summary", wird erzeugt, die die zusammengefassten Analyseergebnisse, basierend auf dem Blatt <b>Result</b> im ursprünglichen Arbeitsblatt, anzeigt.<br>
+    <a class="image"><img alt="Tutorial BatchProcessing 006.png" src="../images/Batch_Processing_Multiple_Datasets_using_Analysis_Template/450px-Tutorial_BatchProcessing_006.png" width="450"></a></li>
+  </ol>

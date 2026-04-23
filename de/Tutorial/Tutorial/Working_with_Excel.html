@@ -1,0 +1,262 @@
+﻿<h1 class="firstHeading">Mit Excel arbeiten</h1>
+
+  <p class='urlname' style='display: none'>Working-with-Excel</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#Copy-pasting_Data_from_Excel"><span class="tocnumber">3</span> <span class="toctext">Daten aus Excel kopieren und einfügen</span></a></li>
+
+      <li class="toclevel-1 tocsection-4"><a href="#Importing_Excel_File"><span class="tocnumber">4</span> <span class="toctext">Excel-Datei importieren</span></a></li>
+
+      <li class="toclevel-1 tocsection-5"><a href="#Open_Excel_File_in_Origin"><span class="tocnumber">5</span> <span class="toctext">Excel-Dateien in Origin öffnen</span></a></li>
+
+      <li class="toclevel-1 tocsection-6"><a href="#Setting_External_Excel_File_Path_Relative_to_OPJ_Path"><span class="tocnumber">6</span> <span class="toctext">Externen Excel-Dateipfad relativ zum OPJ-Pfad festlegen</span></a></li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Origin bietet flexible Möglichkeiten, um mit Excel zu interagieren. Sie können entweder Excel-Daten in eine Origin-Arbeitsmappe importieren oder eine Excel-Mappe innerhalb von Origin öffnen. Wenn Sie einen kompletten Zugriff auf alle Zeichnungs- und Analysefunktionen von Origin brauchen, wollen Sie möglicherweise auch Ihre Excel-Datendateien in Origin importieren. Wenn es wichtig ist, eine separate Excel-Arbeitsmappe zu behalten -- damit vielleicht andere Kollegen, die nicht mit Origin arbeiten, Zugang zu dieser Datei haben -- können Sie Ihre Excel-Dateien direkt öffnen. In diesem Kapitel erhalten Sie eine kurze Einführung zum Arbeiten mit Excel.</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>Daten aus Excel mit voller Genauigkeit kopieren und einfügen,</li>
+
+    <li>eine Excel-Datei in eine Origin-Arbeitsmappe importieren,</li>
+
+    <li>eine Excel-Datei in Origin öffnen,</li>
+
+    <li>eine Excel-Datei mit einem Pfad relativ zur Origin-Projektdatei speichern.</li>
+  </ul>
+
+  <h2><a name="Copy-pasting_Data_from_Excel"></a><span class="mw-headline">Daten aus Excel kopieren und einfügen</span></h2>
+
+  <p>Manchmal möchten Sie vielleicht einfach Daten aus Excel kopieren und in Origin einfügen, anstatt zu importieren oder Excel zu öffnen. Die folgenden Schritte zeigen, wie ein solcher Vorgang des Kopierens und Einfügens Daten mit voller Genauigkeit einlesen kann.</p>
+
+  <ol>
+    <li>Starten Sie Excel und Origin getrennt.</li>
+
+    <li>Öffnen Sie die Datei <b>&lt;Origin-Installationsverzeichnis&gt;\Samples\Graphing\ExcelData.XLS</b> in Excel.</li>
+
+    <li>Markieren Sie Spalte B bis L. Klicken Sie mit der rechten Maustaste und rufen Sie den Dialog <b>Zellen formatieren</b> auf. Setzen Sie die Anzahl der Dezimalstellen auf 2. Jetzt zeigt Excel weniger Dezimalstellen.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorials81 Working with Excel 001.png" src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_001.png" width="464"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die obere linke Zelle im Excel-Blatt, um das gesamte Blatt zu markieren, klicken Sie mit der rechten Maustaste und wählen Sie <b>Kopieren</b> oder verwenden Sie die Tastenkombination <b>Strg</b>+<b>C</b> zum Kopieren.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorials81 Working with Excel 002.png" src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_002.png" width="291"></a></dd>
+      </dl>
+    </li>
+
+    <li>Positionieren Sie in einer neuen Arbeitsmappe in Origin den Cursor in Zeile 1 der Spalte 1 und drücken Sie <b>Strg</b>+<b>V</b> oder klicken Sie mit der rechten Maustaste und wählen Sie <b>Einfügen</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorials81 Working with Excel 003.png" src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_003.png" width="315"></a></dd>
+      </dl>
+    </li>
+
+    <li>Beachten Sie, dass die Zahlen mit voller Genauigkeit in Origin eingefügt werden, nicht nur die Zahlen mit den in Excel angezeigten Stellen (2). Wie im Beispiel unten gezeigt, werden die eingekreisten Zahlenwerte mit 2 Dezimalstellen in Excel (0,35) angezeigt, aber mit allen drei Dezimalstellen in Origin (0,348) importiert.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorials81 Working with Excel 004.png" src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_004.png" width="350"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie in Origin mit der rechten Maustaste auf Zeile 1 des Headers und wählen Sie <b>Als Kommentar setzen</b> aus, um diese Zeile zu einem Origin-Spaltenkommentar zu machen.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorials81 Working with Excel 005.png" src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_005.png" width="522"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie mit der rechten Maustaste erneut auf Zeile 1 und wählen Sie die Option <b>Als Langname setzen</b>. Die Zeilen 1 und 2 in Excel werden dann zu dem Arbeitsblattkopf in Origin:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorials81 Working with Excel 018.png" src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_018.png" width="575"></a></dd>
+      </dl>
+    </li>
+
+    <li>Sie können doppelt auf Spalte 1 klicken, sie auf <b>Datum</b> setzen und dann die Daten zeichnen.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorials81 Working with Excel 006.png" src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_006.png" width="396"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Working_with_Excel/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>In Schritt 5 können Sie mit der rechten Maustaste klicken, um <b>Link einfügen</b> auszuwählen. Sie können aber auch die Tastenkombination Strg+Alt+V drücken, anstatt <b>Einfügen</b> zu wählen, oder Sie drücken Strg+V. In der FOlge erstellen Sie eine DDE-Verknüpfung zwischen den Excel-Daten und der Origin-Arbeitsmappe. Auf diese Weise ändern sich die verknüpften Daten in der Origin-Arbeitsmappe, sobald sich die Werte in Excel verändern. Mehr hierzu erfahren Sie in <a class="external text" href="http://blog.originlab.com/graphing/dynamic-data-exchange-dde-with-excel-workbooks-in-origin-2017" target="_blank">diesem Blog</a>.</p>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Importing_Excel_File"></a><span class="mw-headline">Excel-Datei importieren</span></h2>
+
+  <p>Origin unterstützt den direkten Import von Excel-Dateien in Origin-Arbeitsmappen. Es werden mehrere Blätter unterstützt. Außerdem sind Bedienelemente verfügbar, mit denen spezielle Zeilen im Excel-Blatt festgelegt werden können, die in einem Origin-Arbeitsblatt als Headerinformationen, einschließlich Langname und Kommentare, genutzt werden. Falls Sie Analyseoperationen oder Datenbearbeitung an Ihren Excel-Daten durchführen wollen, sollten Sie die Daten in Origin importieren.</p>
+
+  <ol>
+    <li>Verwenden Sie bei einer neuen aktiven Arbeitsmappe in Origin das Menü <b>Daten: Aus Datei importieren: Excel (XLS, XLSX, XLSM)...</b>.</li>
+
+    <li>Wählen Sie die Datei <b>&lt;Origin-Verzeichnis&gt;\samples\graphing\Excel Data.xls</b> und stellen Sie sicher, dass das Kontrollkästchen <b>Optionendialog zeigen</b> aktiviert ist.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorials81 Working with Excel 019.png" src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_019.png" width="584"></a></dd>
+      </dl>
+    </li>
+
+    <li>Lassen Sie in dem sich öffnenden Dialog das Kontrollkästchen <b>Verwenden der Excel COM-Komponente zum Importieren</b> aktiviert.</li>
+
+    <li>Setzen Sie <b>Index der Zeilen für Kommentare von</b> auf 1.</li>
+
+    <li>Setzen Sie <b>Index der Zeilen für Langnamen</b> auf 2 und klicken Sie zum Importieren auf <b>OK</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorials81 Working with Excel 007.png" src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_007.png" width="621"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie in die Zelle <b>Kommentare</b> in Spalte 1, halten Sie die <b>Strg</b>-Taste gedrückt und ziehen Sie den unteren rechten Punkt quer über alle Spalten mit Daten. Auf diese Weise kopieren Sie die gleichen Kommentare in alle Spalten.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorials81 Working with Excel 008.png" src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_008.png" width="287"></a></dd>
+      </dl>
+    </li>
+
+    <li>Drücken Sie <b>F4</b>, um den Dialog Format aufzurufen, wechseln Sie zur Registerkarte <b>Format</b>, wählen Sie in der Auswahlliste <b>Anwenden auf</b> die Option <b>Kommentare</b> und setzen Sie <b>Dynamisches Zusammenfassen</b> auf <b>Horizontal</b>. Klicken Sie auf <b>OK</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorials81 Working with Excel 009.png" src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_009.png" width="310"></a></dd>
+      </dl>Auf diese Weise werden die Kommentarzellen zusammengefügt und der Titel in der Mitte aller Datenspalten gezeigt:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorials81 Working with Excel 010.png" src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_010.png" width="398"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h2><a name="Open_Excel_File_in_Origin"></a><span class="mw-headline">Excel-Dateien in Origin öffnen</span></h2>
+
+  <p>Manchmal kann es praktisch sein, Daten in einer externen .xls-Datei zu speichern, aber die Datei einfach nur innerhalb von Origin als Excel-Fenster zu öffnen und dann mit den Daten zu arbeiten. Wenn Sie Excel-Dateien (.xls oder .xlsx) als Excel-Arbeitsmappen in Origin öffnen, wird eine OLE-Instanz von Microsoft Excel gestartet. Sie können direkt mit Excel-Arbeitsmappendaten zeichnen, auf viele Analysefunktionen sowie das Erstellen von 3D-Diagrammen kann dabei aber nicht zugegriffen werden.</p>
+
+  <ol>
+    <li>Wählen Sie <b>Datei: Excel öffnen...</b> und dann die Datei <b>\Samples\Graphing\Excel Data.xls</b>.</li>
+
+    <li>Eine neues Excel-Fenster wird im Origin-Arbeitsbereich geöffnet. Wenn dieses Fenster aktiv ist, hat das Origin-Hauptmenü unterschiedliche Optionen, von denen manche Excel-spezifisch sind. Außerdem stehen die Excel-Symbolleisten zur Verfügung.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorials81 Working with Excel 011.png" src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_011.png" width="598"></a></dd>
+      </dl>
+    </li>
+
+    <li>Markieren Sie den Excel-Datenbereich <b>A3:A26</b> und klicken Sie mit der rechten Maustaste. Wählen Sie <b>Zellen formatieren</b>, um sicher zu stellen, dass die Daten das Format <b>Datum</b> haben.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorials81 Working with Excel 020.png" src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_020.png" width="421"></a></dd>
+      </dl>
+    </li>
+
+    <li>Jetzt gehen Sie zum Menü <b>Zeichnen</b> in Origin und wählen Sie <b>Mehrere Y: Doppelte Y-Achse</b>.</li>
+
+    <li>Markieren Sie <b>A3:A26</b> im Excel-Blatt und klicken Sie auf <b>X</b> im Dialog <b>Daten zum Zeichnen auswählen</b>, um die X-Daten zuzuweisen.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorials81 Working with Excel 013.png" src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_013.png" width="415"></a></dd>
+      </dl>
+    </li>
+
+    <li>Markieren Sie <b>B3:C26</b> im Excel-Blatt und klicken Sie auf <b>Y</b> im Dialog <b>Daten zum Zeichnen auswählen</b>, um die X-Daten zuzuweisen. Wählen Sie <b>Mehrere Layer</b> in der Auswahlliste <b>Zeichnen in</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorials81 Working with Excel 014.png" src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_014.png" width="410"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>Zeichnen</b>, um ein Diagramm mit doppelter Y-Achse zu erstellen:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorials81 Working with Excel 015.png" src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_015.png" width="409"></a></dd>
+      </dl>
+    </li>
+
+    <li>Standardmäßig zeigt Origin die Beschriftungen der Hilfsstriche für die Zeit (Time) auf der X-Achse im Format TT.MM.JJJJ an. Klicken Sie doppelt auf die X-Achse, um den <b>Dialog Achsen</b> zu öffnen. Wählen Sie das Symbol <b>Horizontal</b> auf der Registerkarte <b>Skalierung</b> und geben Sie für die Skalierung von <b>01.01.1970</b> bis <b>01.01.2000</b> ein.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorials81 Working with Excel 021.png" src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_021.png" width="514"></a></dd>
+      </dl>Wählen Sie das Symbol <b>Unten</b> auf der Registerkarte <b>Beschriftung der Hilfsstriche</b> und ändern Sie die <b>Anzeige</b> auf Jahr.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorials81 Working with Excel 022.png" src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_022.png" width="517"></a></dd>
+      </dl>Klicken Sie auf <b>OK</b>, um diese Einstellungen anzuwenden und den Dialog Achsen zu schließen. Das Diagramm sollte dem folgenden Bild entsprechen:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorials81 Working with Excel 023.png" src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_023.png" width="409"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Working_with_Excel/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Nach Öffnen von Excel in Origin wird ein Symbolleisten-Platzhalter dort sichtbar, wo das Excel-Menü sich befunden hat, wenn Sie zu einem anderen Origin-Fenster wechseln. Um ihn zu entfernen, klicken Sie mit der rechten Maustaste und wählen Sie <b>Symbolleisten-Platzhalter verbergen</b> oder <b>Symbolleisten-Platzhalter immer verbergen</b>.</p>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Setting_External_Excel_File_Path_Relative_to_OPJ_Path"></a><span class="mw-headline">Externen Excel-Dateipfad relativ zum OPJ-Pfad festlegen</span></h2>
+
+  <p>Das Origin-Projekt kann ein Excel-Fenster enthalten, das mit einer externen Excel-Datei verknüpft ist. In solch einem Fall kann es sich als nützlich erweisen, die Excel-Datei in dem gleichen Ordner wie das Origin-Projekt oder in einem Unterordner des Origin-Projektordners zu speichern. Die zwei Dateien werden übertragbarer, wie in den folgenden Schritten zu sehen:</p>
+
+  <ol>
+    <li>Schließen Sie Excel, wenn es ausgeführt wird.</li>
+
+    <li>Führen Sie die Schritte im obigen Abschnitt <b>Excel-Datei in Origin öffnen</b> durch und erstellen Sie (optional) ein Diagramm.</li>
+
+    <li>Speichern Sie das OPJ in einem Verzeichnis wie "C:\Eigene Dateien\Mein Projekt.opj".</li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf das Excel-Fenster und wählen Sie <b>Arbeitsmappe speichern unter</b>. Speichern Sie es in einem (neuen) Unterordner des OPJ-Speicherorts, wie z.B. "C:\Eigene Dateien\Daten\MeineDaten.xls".
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorials81 Working with Excel 016.png" src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_016.png" width="368"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie mit der rechten Maustaste erneut auf den Titel des Excel-Fensters und wählen Sie <b>Einstellungen</b>. Aktivieren Sie das Kontrollkästchen <b>Relativ zum aktuellen Projektpfad (opj)</b>. Beachten Sie, dass der Excel-Dateipfad im Feld unten zu einem relativen Pfad von "Daten\MeineDaten.xls" geändert wird.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorials81 Working with Excel 017.png" src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_017.png" width="410"></a></dd>
+      </dl>
+    </li>
+
+    <li>Speichern Sie das OPJ erneut. Sie können jetzt die gesamte Unterordnerstruktur kopieren, angefangen beim Speicherort des OPJ, und sie auf einen externen Speicher (d.h. einen Memory Stick oder Ähnliches) übertragen oder die gesamte Ordnerstruktur zippen. Wenn sie auf einem anderen Computer geöffnet wird, sucht Origin die Excel-Datei relativ zu dem OPJ-Pfad.</li>
+  </ol>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Working_with_Excel/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Befindet sich Ihre Excel-Datei an einem anderen Speicherort und Sie möchten sie aber im gleichen Pfad speichern wie das OPJ, können Sie die Excel-Datei in Origin öffnen, dann mit der rechten Maustaste auf den Titel klicken, <b>Eigenschaften</b> auswählen und auf die Schaltfläche <b>Beim Speichern zum OPJ-Pfad wechseln</b> klicken. Beim Speichern der OPJ-Datei wird die Excel-Datei von ihrem aktuellen Speicherort aus in den gleichen Pfad kopiert, in dem auch das OPJ gespeichert ist.</p>
+      </td>
+    </tr>
+  </table>

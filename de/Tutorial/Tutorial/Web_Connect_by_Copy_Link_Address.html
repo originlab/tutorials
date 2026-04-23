@@ -1,0 +1,197 @@
+﻿<h1 class="firstHeading">Mit Webdaten verbinden durch Kopieren der Link-Adresse</h1>
+
+  <p class='urlname' style='display: none'>Web-Connect-Copy-Link</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#Connect_to_Web_Data_File_by_Copy_Link_Address"><span class="tocnumber">3</span> <span class="toctext">Mit der Datei der Webdaten verbinden durch Kopieren der Link-Adresse</span></a></li>
+
+      <li class="toclevel-1 tocsection-4"><a href="#Plotting_Connector-imported_Data_with_Plot_Setup"><span class="tocnumber">4</span> <span class="toctext">Konnektor-importierte Daten mit dem Dialog Diagrammeinstellungen zeichnen</span></a></li>
+
+      <li class="toclevel-1 tocsection-5"><a href="#How_to_Manage_Caching_of_Web_Data"><span class="tocnumber">5</span> <span class="toctext">Zwischenspeicherung der Webdaten verwalten</span></a></li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/Web_Connect_by_Copy_Link_Address/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/Web_Connect_by_Copy_Link_Address/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=240" target="_blank">Datenkonnektoren</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=174" target="_blank">Eine Einführung in die App Maps Online</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=175" target="_blank">App Google Map</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=158" target="_blank">Ein 3D-Balkendiagramm auf der XY-Ebene mit Hilfe der App Maps Online erstellen</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%">
+        <a class="image"><img alt="Website blog icon circle.png" src="../images/Web_Connect_by_Copy_Link_Address/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Web_Connect_by_Copy_Link_Address/Blog_Image_33x33px.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="http://blog.originlab.com/data-connector-json" target="_blank">Origins Webdaten-Konnektor in 2019b</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/importing-json-data-from-a-web-service-in-origin-2019" target="_blank">JSON-Daten von einem Webservice in Origin 2019 importieren</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/covid-19-test-positivity-rates-in-different-us-states" target="_blank">COVID-19, Positive Testraten in unterschiedlichen US-amerikanischen Bundesstaaten</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/covid-19-real-time-report-from-china" target="_blank">COVID-19, Echtzeitbericht aus China</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/covid-19-world-situation-report-of-confirmed-case" target="_blank">COVID-19, Tägliches Update des Berichts zur Weltlage der bestätigten Fälle</a></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <p>&#160;</p>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p><a class="external text" href="../../UserGuide/Category/Data_Connector.html"><b>Datenkonnektoren</b></a> stellen eine ideale Möglichkeit dar, eine "Live-Verbindung" zu Datendateien herzustellen, die regelmäßig aktualisiert werden. Der traditionelle Dateiimport nötigt den Anwender, die Daten jedes Mal neu zu importieren, wenn die Quelldaten modifiziert werden. Wenn jedoch ein Konnektor zu einer Arbeitsmappe hinzugefügt wird, kann dieser die Datenquelle automatisch jedes Mal abfragen, wenn das Projekt geöffnet wird, wodurch die Datenverwaltung durch den Anwender sehr viel einfacher wird.</p>
+
+  <dl>
+    <dd>
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Data Connect To Web.png" src="../images/Web_Connect_by_Copy_Link_Address/Tutorial_Data_Connect_To_Web.png" width="800"></a></dd>
+      </dl>
+    </dd>
+  </dl>
+
+  <p>In diesem Tutorial werden wir zeigen, wie Sie eine Verbindung zu Erdbebendaten in "Echtzeit" auf der Webseite des United States Geological Survey (USGS) herstellen, wie Sie das verbundene Projekt konfigurieren, damit es die Daten beim Öffnen automatisch importiert und wie Sie das Zwischenspeichern der Daten verwalten, so dass Sie sicher sein können, jedes Mal die aktuellen Daten beim Öffnen Ihres Projekts zu erhalten.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 2021</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <ul>
+    <li>Wie Sie eine Verbindung zu einer im Web gespeicherten CSV-Datei durch Kopieren der URL herstellen.</li>
+
+    <li>Wie Sie Origins kostenlose App Maps Online verwenden, um ein Hintergrundbild für geografische Daten zu erstellen</li>
+
+    <li>Wie Sie den Dialog Diagrammeinstellungen mit über Datenkonnektor importierten Daten verwenden und sich dabei die Arbeit ersparen, die Spalten neu anzuordnen.</li>
+
+    <li>Wie Sie ein Projekt, das einen Webkonnektor (CSV) verwendet, speichern und erneut öffnen.</li>
+
+    <li>Wie Sie Origins Mechanismus zum Zwischenspeichern bearbeiten, so dass die Daten beim Öffnen des Projekts immer aktualisiert werden.</li>
+  </ul>
+
+  <h2><a name="Connect_to_Web_Data_File_by_Copy_Link_Address"></a><span class="mw-headline">Mit der Datei der Webdaten verbinden durch Kopieren der Link-Adresse</span></h2>
+
+  <ol>
+    <li>Öffnen Sie ein neues Projekt. Es sollte eine neue Arbeitsmappe im Arbeitsbereich zu sehen sein.</li>
+
+    <li>Navigieren Sie zu dieser Seite auf der USGS-Webseite: <a class="external free" href="https://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php" target="_blank">https://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php</a></li>
+
+    <li>In der Spalte auf der rechten Seite sehen Sie unter "Feeds" eine Liste der Links zu den CSV-Datendateien, die jede Minute aktualisiert werden.</li>
+
+    <li>Scrollen Sie nach unten und klicken Sie unter "Past 30 Days" mit der rechten Maustaste auf "All Earthquakes" und wählen Sie <b>Link-Adresse kopieren</b>.</li>
+
+    <li>Kehren Sie zu Origin zurück und wählen Sie bei aktiver Arbeitsmappe <b>Daten: Mit Web verbinden</b>.</li>
+
+    <li>Fügen Sie die Link-Adresse, die Sie soeben kopiert haben, durch Drücken von Strg + V in das Feld der URL ein und klicken Sie auf <b>OK</b>.</li>
+
+    <li>Übernehmen Sie alle Standardeinstellungen im Dialog <b>CSV-Importoptionen</b> und klicken Sie auf <b>OK</b>. Die Daten der USGS-Webseite werden in die Arbeitsmappe importiert. Beachten Sie die grüne Farbe des Konnektorsymbols <a class="image"><img alt="Dadta connector icon connect.png" src="../images/Web_Connect_by_Copy_Link_Address/Dadta_connector_icon_connect.png" width="16"></a>. Sie gibt an, dass die Datenverbindung aktiviert ist.</li>
+  </ol>
+
+  <h2><a name="Plotting_Connector-imported_Data_with_Plot_Setup"></a><span class="mw-headline">Konnektor-importierte Daten mit dem Dialog Diagrammeinstellungen zeichnen</span></h2>
+
+  <p>In diesem Abschnitt des Tutorials verwenden wir <a class="external text" href="https://www.originlab.com/fileExchange/details.aspx?fid=240" target="_blank">OriginLabs kostenlose App <b>Maps Online</b></a>, um eine Hintergrundkarte für ein Punktdiagramm von Breitengrad, Längengrad, Erdbebenstärke und Tiefe zu erstellen.</p>
+
+  <p>Aufgrund der <a class="external text" href="../../UserGuide/Category/Data_Connector.html">"Sperrung"</a> der mit Datenkonnektor importierten Daten können wir die Spalten nicht neu anordnen. Standardmäßig erfordert Origin, dass sich die Spalten mit den X-Daten links von den Y-Datenspalten befinden. In unserem gesperrten Arbeitsblatt befinden sich die X-Daten (<i>longitude</i>) jedoch <i>rechts</i> von unseren Y-Daten (<i>latitude</i>). Der Dialog <b>Diagrammeinstellungen</b> ist in dieser Situation die Lösung, da wir die Spalten "ganz nebenbei" zuordnen können, ohne etwas verschieben zu müssen (und die "Live"-Verbindung zu unseren Daten verlieren).</p>
+
+  <ol>
+    <li>Drücken Sie F10, um das App-Center zu öffnen. Klicken Sie auf die Registerkarte <b>Suchen</b> und geben Sie bei aktiver <b>Kategorie</b> = <i>Alle</i> das Stichwort "maps" im Suchfeld ein. Wenn die App <b>Maps Online</b> mit einem grünen Häkchen daneben gezeigt wird, haben Sie die App bereits installiert. Wenn das Symbol für <b>Download and Install</b> icon <a class="image"><img alt="AppCenter download button.png" src="../images/Web_Connect_by_Copy_Link_Address/AppCenter_download_button.png" width="20"></a> angezeigt wird, klicken Sie auf das Symbol, um die App in Ihrer Origin-Software zu installieren.</li>
+
+    <li>Klicken Sie auf die Apps-Galerie (standardmäßig rechts in Ihrem Arbeitsbereich angedockt) und öffnen Sie die App <b>Maps Online</b>. Klicken Sie im Dialog box auf die Auswahlliste <b>Map</b>, wählen Sie <i>Nasa Earth Observations (NEO) WMS</i> und setzen Sie <b>Layer</b> auf <i>BlueMarbleNG</i>. Klicken Sie dann auf <b>OK</b>. Wir haben jetzt eine Hintergrundkarte zum Zeichnen unserer Erdbebendaten.</li>
+
+    <li>Wählen Sie im Menü <b>Grafik: Setup Diagramm</b> (falls es nicht angezeigt wird, <a class="external text" href="../../UserGuide/Category/Plot_Setup.html">erweitern Sie das obere und untere Bedienfeld</a> des Dialogs). Setzen Sie die <b>Verfügbaren Daten</b> = <i>Arbeitsblätter im Ordner</i>. Sie sollten nun das Blatt <i>all-month</i> im oberen Bedienfeld sehen. Markieren Sie das Blatt im oberen Bedienfeld.</li>
+
+    <li>Setzen Sie im mittleren Bedienfeld den <b>Diagrammtyp</b> = <b>Punktdiagramm</b> und den Längengrad <i>longitude</i> = <b>X</b> und den Breitengrad <i>latitude</i> = <b>Y</b>, wie zu sehen. Klicken Sie auf die Schaltfläche <b>Hinzufügen</b> unten rechts im mittleren Bedienfeld. Klicken Sie auf <b>OK</b>, um das Punktdiagramm der Breiten- und Längengraddaten auf Ihrer Karte anzuzeigen.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Data Connect To Web 2.png" src="../images/Web_Connect_by_Copy_Link_Address/Tutorial_Data_Connect_To_Web_2.png" width="821"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie doppelt auf die Zeichnung, um den Dialog Details Zeichnung zu öffnen, und nehmen Sie die Einstellungen vor, die auf dem folgenden Screenshot gezeigt werden, indem Sie diese <a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Symbol_Tab.html">Bedienelemente der Registerkarte <b>Symbole</b></a> festlegen: <b>Größe</b> = <i>Col(E): "mag"</i>, <b>Skalierungsfaktor</b> = <i>3</i>, <b>Größenformel</b> = <i>(s-s1)/(s2-s1)</i>, <b>Symbolfarbe</b> = <b>Nach Punkten</b> auf <i>Map:Col(D):"depth"</i>. Zusammengefasst verwenden wir die Werte von <i>latitude</i> und <i>longitude</i>, um unsere Streupunkte auf der Karte zu positionieren; wir verwenden die Daten von <i>mag</i> (Erdbebenstärke) zum Steuern der Symbolgröße und die Daten von <i>depth</i> (Tiefe) zum <a class="external text" href="../../UserGuide/UserGuide/Using_a_Dataset_to_Control_Plot_Color.html#Color_Mapping">Steuern der Symbolfarbe</a>.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Data Connect To Web 3.png" src="../images/Web_Connect_by_Copy_Link_Address/Tutorial_Data_Connect_To_Web_3.png" width="714"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf der Symbolleiste <b>Hilfsmittel</b> auf die Schaltfläche <b>Farbskala hinzufügen</b> und klicken Sie dann auf die Farbskala, um den Dialog Steuerung der Farbskala zu öffnen. Aktivieren Sie auf der Registerkarte Ebenen die Optionen <b>Erste Ebene ausblenden</b> und <b>Letzte Ebene ausblenden</b>. Deaktivieren Sie auf der Registerkarte <b>Layout</b> das Kontrollkästchen <b>Umgekehrte Reihenfolge</b>. Aktivieren Sie auf der Registerkarte Titel das Kontrollkästchen Zeigen. Klicken Sie auf <b>OK</b>, um den Dialog zu schließen. Sie können auch eine Blasenskala zur Karte hinzufügen, um die relativen Symbolgrößen zu zeigen (da die Größe auf die Erdbebenstärke abgebildet wird).</li>
+
+    <li>Wir können ein paar kosmetische Anpassungen an unserem Diagramm vornehmen, zum Beispiel die <a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Print_Dimensions_Tab.html">Einstellungen <b>Drucken/Druckbereich</b></a> verwenden, um die Seitengröße so zu verändern, dass sie besser auf das Seitenverhältnis des Kartenbildes passt. Zusätzlich können wir <a class="external text" href="../../UserGuide/UserGuide/Title_2.html">Achsentitel hinzufügen</a> und Schriftarten und -größen mittels der Schaltflächen auf der <a class="external text" href="../../GettingStarted/OriginLab/Customizing_Graphs.html#Mini_Toolbars">Minisymbolleiste</a> anpassen.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Data Connect To Web final.png" src="../images/Web_Connect_by_Copy_Link_Address/Tutorial_Data_Connect_To_Web_final.png" width="799"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Web_Connect_by_Copy_Link_Address/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Wenn Sie die Maus über einen gezeichneten Punkt in Ihrem Diagramm bewegen, sehen Sie einen <a class="external text" href="../../UserGuide/UserGuide/Data_info_Tool.html#Data_Point_Tooltip">benutzerdefinierbaren Tooltipp für den Datenpunkt</a>. Klicken Sie vorsichtig mit der rechten Maustaste auf den Tooltipp, wählen Sie <b>Einstellungen</b> und modifizieren Sie den Tooltipp, so dass er alle Ihre Diagrammvariablen anzeigt -- <i>latitude</i>, <i>longitude</i>, <i>magnitude</i> und <i>depth</i>, in beliebiger Reihenfolge und beliebigem numerischen Format.</p>
+
+        <p><a class="image"><img alt="Tutorial Data Connect To Web Tip.png" src="../images/Web_Connect_by_Copy_Link_Address/Tutorial_Data_Connect_To_Web_Tip.png" width="800"></a></p><br>
+        <br>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="How_to_Manage_Caching_of_Web_Data"></a><span class="mw-headline">Zwischenspeicherung der Webdaten verwalten</span></h2>
+
+  <p>Datenkonnektoren wurden zum Teil entwickelt, um den Import von sehr großen Datendateien zu erleichtern. Konnektoren nutzen die Strategie, große Dateiimporte nicht zu speichern (<a class="external text" href="../../UserGuide/Category/Data_Connector.html#Excluding_or_Saving_Imported_Data">Standard ist &gt; 500kB</a>) und dadurch Festplattenspeicher zu sparen. Wenn Sie eine Anzahl von verbundenen Arbeitsmappen in Ihrer Projektdatei haben, können Sie die Dateien nach Bedarf selektiv erneut mit den Dateien verbinden, so dass Sie nur die Daten importieren, auf die Sie jetzt Zugriff brauchen.</p>
+
+  <p>In dem Bestreben, die Anzahl an aktualisierten Verbindungen zu steuern -- immerhin ist dies zeitaufwändig und kann länger dauern -- fügten die Entwickler von OriginLab die Systemvariable <a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#C"><b>@CFDT</b></a> hinzu. Diese steuert die Länge der Zeit zwischen den Abfragen der Quelldaten durch den Konnektor. Daten, die über <b>Mit Web verbinden</b> importiert wurden, werden für einen Zeitraum im Zwischenspeicher gespeichert, der <b>@CFDT</b> Sekunden pro 100 kB der Dateigröße entspricht (z. B werden verbundene Daten in einer Datei von 10 MB für 900 * 100 = 90.000 s oder ~24 h gespeichert).</p>
+
+  <p>Außerdem gibt es einen LabTalk-Befehl -- <code>delete -web</code> --, mit dem der Zwischenspeicher bei Bedarf geleert werden kann. Im Rahmen unseres Erdbebenprojektes möchten wir sicherstellen, dass wir immer die neuesten Daten erhalten, deshalb nutzen wir diese Funktion.</p>
+
+  <p><i><b>In diesem Abschnitt der Übung konfigurieren wir unser Projekt so, dass:</b></i></p>
+
+  <dl>
+    <dd>
+      <ul>
+        <li>Die Daten automatisch importiert werden, sobald das Projekt geöffnet wird.</li>
+
+        <li>Der Zwischenspeicher beim Öffnen des Projekts geleert wird, so dass wir sicher sein können, immer die neuesten Informationen zu haben.</li>
+      </ul>
+    </dd>
+  </dl>
+
+  <ol>
+    <li>Wählen Sie <b>Datei: Projekt speichern unter</b>, vergeben Sie einen Dateinamen wie <i>USGS_Earthquake_All_30d.opju</i> und klicken Sie auf <b>Speichern</b>.</li>
+
+    <li>Klicken Sie auf das Konnektorsymbol des Arbeitsblatts und wählen Sie <b>Automatisch Importieren</b> &gt; <b>Beim Öffnen des Projekts</b>.</li>
+
+    <li>Wählen Sie im Origin-Menü <b>Ansicht: Code Builder</b>. Der <a class="external text" href="CodeBuilderUsersGuide.chm::/Category/Code_Builder_Interface(CodeBuilder).html"><b>Code Builder</b></a> ist Origins integrierte Entwicklungsumgebung (IDE) zum Entwickeln von LabTalk-, Origin-C- und Python-Code. Erweitern Sie im Bedienfeld <b>Arbeitsbereich</b> links im Dialog den Zweig <b>Projekt</b> und klicken Sie doppelt auf die Datei <i>ProjectEvents.OGS</i>. Die Datei wird in den Arbeitsbereich des Code Builders geladen. <a class="external text" href="../../LabTalk/Script/ProjectEvents_Script.html"><i>ProjectEvents.OGS</i></a> ist eine spezielle Datei, die mit jedem Origin-Projekt gespeichert und verwendet wird, um LabTalk-Skript auf verschiedene Ereignisse hin zu speichern und auszuführen, wie beim Öffnen des Projekts. Wir haben bereits erwähnt, dass wir über einen LabTalk-Befehl verfügen, der zum Leeren der zwischengespeicherten Webdaten verwendet werden kann. Wir passen daher <i>ProjectEvents.OGS</i> benutzerdefiniert an, um eine einfache Skriptzeile auszuführen, so dass unsere Webdaten beim Öffnen des Projekts immer aktualisiert werden. Scrollen Sie nach oben bis zum Abschnitt <i>[AfterOpenDoc]</i>, fügen Sie die folgenden zwei Skriptzeilen hinzu und klicken Sie dann auf die Schaltfläche <b>Speichern</b> auf der Symbolleiste des Code Builders.
+      <pre class="lt" style="font-family:monospace;">
+delete <span style="color: #000080;">-</span>web; type <span style="color: #000080;">-</span>b <span style="color: #ff00ff;">"The web cache has been cleared. Project data have been refreshed."</span>
+</pre>
+
+      <p>ProjectEvents sollte in etwa so aussehen:</p>
+
+      <p><a class="image"><img alt="Tutorial Data Connect To Web 4.png" src="../images/Web_Connect_by_Copy_Link_Address/Tutorial_Data_Connect_To_Web_4.png" width="799"></a></p>
+    </li>
+
+    <li>Wählen Sie <b>Datei: Speichern</b>, um Ihr Projekt mitsamt dem Inhalt von ProjectEvents.OGS zu speichern.</li>
+
+    <li>Schließen Sie jetzt Ihr Projekt und klicken Sie dann über <b>Datei: Zuletzt verwendete Projekte</b> auf Ihre zuletzt gespeichertes und geschlossenes Projekt. Eine Warnmeldung sollte angezeigt werden, dass der "Webzwischenspeicher gelöscht wurde. Projektdaten wurden aktualisiert." Danach sollte das Arbeitsblatt mit Daten gefüllt und das Diagramm der Erdbeben auf der Weltkarte erneut erzeugt werden.</li>
+  </ol>

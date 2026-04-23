@@ -1,0 +1,174 @@
+﻿<h1 class="firstHeading">Stapelverarbeitung von gruppierten Datensätzen mit Hilfe einer von Analysevorlagen für Blätter mit mehreren Datensätzen</h1>
+
+  <p class='urlname' style='display: none'>BatchProcess-GroupData</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#How_the_Analysis_Template_Works"><span class="tocnumber">3</span> <span class="toctext">Funktionsweise einer Analysevorlage</span></a></li>
+
+      <li class="toclevel-1 tocsection-4">
+        <a href="#Steps"><span class="tocnumber">4</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-5">
+            <a href="#Create_Multi-Data_Sheets_Analysis_Template"><span class="tocnumber">4.1</span> <span class="toctext">Analysevorlage für Blätter mit mehreren Datensätzen erstellen</span></a>
+
+            <ul>
+              <li class="toclevel-3 tocsection-6"><a href="#Import_CSV_Files_into_Sequential_Data_Sheets"><span class="tocnumber">4.1.1</span> <span class="toctext">CSV-Dateien in aufeinander folgende Datenblätter importieren</span></a></li>
+
+              <li class="toclevel-3 tocsection-7"><a href="#Perform_Nonlinear_Fit_to_Obtain_Peak_Area"><span class="tocnumber">4.1.2</span> <span class="toctext">Peakfläche mit Hilfe eines nichtlinearen Fits ermitteln</span></a></li>
+
+              <li class="toclevel-3 tocsection-8"><a href="#Prepare_Data_for_Linear_Fit"><span class="tocnumber">4.1.3</span> <span class="toctext">Daten für linearen Fit vorbereiten</span></a></li>
+
+              <li class="toclevel-3 tocsection-9"><a href="#Perform_Linear_Fit_and_Create_Result_Sheet"><span class="tocnumber">4.1.4</span> <span class="toctext">Linearen Fit durchführen und Ergebnisblatt erstellen</span></a></li>
+            </ul>
+          </li>
+
+          <li class="toclevel-2 tocsection-10"><a href="#Batch_Analyze_Files_in_Groups"><span class="tocnumber">4.2</span> <span class="toctext">Stapelanalyse von Dateien in Gruppen</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Origin kann eine Stapelanalyse auf gruppierte Datensätze mit Hilfe einer Analysevorlage für mehrere Datensätze durchführen.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: 2016 SR0</p>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Batch_Processing_Grouped_Datasets_Using_Multi_Data_Sheets_Analysis_Template/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Auch wenn die Methode nicht so flexibel oder leistungsstark wie die Stapelverarbeitung ist, können Sie Import- und Analyseoperationen in der aktiven Arbeitsmappe "klonen". Dazu verwenden Sie die Vorgehensweise, die in <a href="../../Tutorial/Tutorial/Importing_Multiple_Files_into_Workbooks_Cloned_from_Active_Workbook.html" title="Tutorial:Importing Multiple Files into Workbooks Cloned from Active Workbook">diesem Tutorial</a> beschrieben wird.</p>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>Analysevorlage für Blätter mit mehreren Datensätzen erstellen</li>
+
+    <li>Stapelanalyse auf gruppierte Datensätze mit Hilfe einer Analysevorlage durchführen</li>
+  </ul>
+
+  <h2><a name="How_the_Analysis_Template_Works"></a><span class="mw-headline">Funktionsweise einer Analysevorlage</span></h2>
+
+  <p>Die als Referenz verwendete Analysevorlage für mehrere Datensätze <b>Multi-Data Sheets Analysis.ogw</b>, die Sie erstellen werden, befindet sich im Ordner <i>&lt;Origin-Ordner&gt;\Samples\Batch Processing</i>. Diese Analysevorlage verarbeitet 10 CSV-Dateien, die sich in dem Ordner <i>&lt;Origin-Ordner&gt;\Samples\Batch Processing</i> in Gruppen von 5 befinden. Alle 5 Datendateien werden in aufeinander folgende Datenblätter in der Analysevorlage importiert und ein nicht-linearer Fit wird durchgeführt, um die Peakfläche und ihren Standardfehler von jeder Kurve zu ermitteln. Am Ende führen Sie eine lineare Anpassung auf die Peakfläche vs. die Temperaturdaten, die aus dem Dateinamen extrahiert wurden, durch und geben die Ergebnisse aus.</p>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <h3><a name="Create_Multi-Data_Sheets_Analysis_Template"></a><span class="mw-headline">Analysevorlage für Blätter mit mehreren Datensätzen erstellen</span></h3>
+
+  <h5><a name="Import_CSV_Files_into_Sequential_Data_Sheets"></a><span class="mw-headline">CSV-Dateien in aufeinander folgende Datenblätter importieren</span></h5>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe. Klicken Sie im Menü auf <b>Daten: Mehrere Dateien verbinden</b>, um den Dialog <b>files2dc</b> zu öffnen.</li>
+
+    <li>Setzen Sie die Auswahlliste <b>Datenkonnektor</b> auf <i>CSV</i>, navigieren Sie dann zum Ordner <i>&lt;Origin-Verzeichnis&gt;\Samples\Batch Processing</i> und wählen Sie die ersten fünf Datendateien aus.</li>
+
+    <li>Aktivieren Sie das Kontrollkästchen <b>Gleiche Mappe</b> und klicken Sie auf <b>OK</b>.</li>
+  </ol>
+
+  <h5><a name="Perform_Nonlinear_Fit_to_Obtain_Peak_Area"></a><span class="mw-headline">Peakfläche mit Hilfe eines nichtlinearen Fits ermitteln</span></h5>
+
+  <ol start="4">
+    <li>Markieren Sie Spalte 2 in Blatt <i>T275k</i>, halten Sie Strg + Y gedrückt oder gehen Sie im Menü zu <b>Analyse: Anpassen: Nichtlinearer Fit</b>, um den Dialog <b>NLFit</b> zu öffnen.</li>
+
+    <li>Setzen Sie <b>Neu berechnen</b> auf <i>Auto</i>.</li>
+
+    <li>Wählen Sie <b>Gauss</b> unter <b>Funktion</b> in der Kategorie <b>Origin Basic Functions</b>.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Fit</b>, um die Anpassung durchzuführen. Klicken Sie auf <b>OK</b> in der Befehlsaufforderung, um sie zu schließen.</li>
+
+    <li>Wiederholen Sie die Schritte 4 bis 7 für die Datensätze <i>T285k</i>, <i>T295K</i>, <i>T305K</i> und <i>T315K</i>, um Peakflächen für alle fünf Peaks zu ermitteln.</li>
+  </ol>
+
+  <h5><a name="Prepare_Data_for_Linear_Fit"></a><span class="mw-headline">Daten für linearen Fit vorbereiten</span></h5>
+
+  <ol start="8">
+    <li>Klicken Sie mit der rechten Maustaste auf den Reiter <i>FitNLCurve5</i> und wählen Sie <b>Hinzufügen</b>, um ein Arbeitsblatt hinzuzufügen. Klicken Sie doppelt auf den Namen und geben Sie <i>TempData</i> als Blattname ein.</li>
+
+    <li>Halten Sie Strg+D gedrückt, um den Dialog <b>Neue Spalten hinzufügen</b> und geben Sie <i>2</i> in das Bearbeitungsfeld ein, um 2 zusätzliche Spalten hinzuzufügen. Klicken Sie auf <b>OK</b>, um den Dialog zu schließen.</li>
+
+    <li>Legen Sie den <b>Langnamen</b> der 4 Spalten mit <i>Datendatei</i>, <i>Temperatur</i>, <i>Flächenwert</i> bzw. <i>Flächenfehler</i> fest.</li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf die erste Datenzelle in der Spalte <i>Datendatei</i> und wählen Sie <b>Variable einfügen</b>, um den Dialog zu öffnen. Klicken Sie im rechten Bedienfeld auf den Knoten <i>Mappe</i> und aktivieren Sie <b>Blattebene zeigen</b>, um die Blätter in der Mappe zu zeigen. Klicken Sie dann auf das Blatt <i>T275K</i> im rechten Bedienfeld und klicken Sie auf die Registerkarte <b>Beschriftung</b> im linken Bedienfeld. Klicken Sie auf die Eigenschaft <b>Name</b>, um diese Zeile zu markieren, und klicken Sie auf die Schaltfläche <b>Einfügen</b>, um den Blattnamen in diese Zelle einzufügen.</li>
+
+    <li>Wiederholen Sie diesen Schritt für die anderen vier Blätter, um den Blattnamen zu der Spalte <i>Datendatei</i> hinzuzufügen.</li>
+
+    <li>Als Nächstes soll die Temperaturangabe aus dem Blattnamen in die erste Spalte extrahiert werden. Dazu markieren Sie die Spalte <i>Temperatur</i> und klicken Sie mit der rechten Maustaste, um <b>Werte setzen</b> auszuwählen. Geben Sie die Formel unten in das Bearbeitungsfeld ein, um die mittleren 3 Zahlen aus dem Dateiname zu extrahieren, und klicken Sie auf <b>OK</b>, um den Dialog zu schließen und die Einstellung anzuwenden.
+      <pre class="lt" style="font-family:monospace;">
+Value<span style="color: #000000;">(</span>mid<span style="color: #000000;">(</span>col<span style="color: #000000;">(</span>A<span style="color: #000000;">)</span>,<span style="color: #0000dd;">2</span>,<span style="color: #0000dd;">3</span><span style="color: #000000;">)</span><span style="color: #000080;">$</span><span style="color: #000000;">)</span>
+</pre>
+    </li>
+
+    <li>Gehen Sie zu Blatt <i>FitNL1</i> und markieren Sie die zwei Wertezellen unter der Variablen <i><b>A</b></i> im Zweig <i>Zusammenfassung</i>. Klicken Sie mit rechten Maustaste und wählen Sie <b>Kopieren</b>, um die Daten zu kopieren. Gehen Sie dann zu Blatt <i>TempData</i> und fügen und verknüpfen Sie die Daten in der ersten Zeile in Spalte <i>Flächenwert</i> und <i>Flächenfehler</i>. Wiederholen Sie diesen Schritt für die anderen vier Datendateien.</li>
+
+    <li>Legen Sie die Zuordnung der Spalte <i>Temperatur</i> mit <b>X</b> und die der Spalte <i>Flächenfehler</i> mit <b>Y-Fehler</b> fest.</li>
+  </ol>
+
+  <h5><a name="Perform_Linear_Fit_and_Create_Result_Sheet"></a><span class="mw-headline">Linearen Fit durchführen und Ergebnisblatt erstellen</span></h5>
+
+  <ol start="16">
+    <li>Markieren Sie die Spalten <i>Flächenwert</i> und <i>Flächenfehler</i> und gehen Sie im Menü zu <b>Analyse: Anpassen: Linearer Fit</b>, um den Dialog zu öffnen. Wählen Sie für den Modus <b>Neu berechnen</b> die Option <b>Auto</b> und klicken Sie auf <b>OK</b>, um die lineare Anpassung durchzuführen und den Dialog zu schließen. Klicken Sie auf <b>OK</b> in der Befehlsaufforderung, um sie zu schließen.</li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf den Reiter <i>FitLinearCurve1</i> und wählen Sie <b>Hinzufügen</b>, um ein neues Blatt hinzuzufügen und es <i>Ergebnisse</i> zu nennen.</li>
+
+    <li>Halten Sie Strg+D gedrückt, um den Dialog <b>Neue Spalten hinzufügen</b> und geben Sie <i>3</i> in das Bearbeitungsfeld ein, um 3 neue Spalten hinzuzufügen.</li>
+
+    <li>Legen Sie den <b>Langnamen</b> der 5 Spalten mit <i>Wert des Schnittpunkts mit Y-Achse</i>, <i>Fehler des Schnittpunkts mit Y-Achse</i>, <i>Wert der Steigung</i>, <i>Fehler der Steigung</i> bzw. <i>Korr.</i> <i>R-Quadrat</i> fest.</li>
+
+    <li>Gehen Sie zu Blatt <i>FitLinear1</i>, kopieren Sie 5 Wertezellen im Zweig <b>Zusammenfassung</b> und gehen Sie zurück zum Blatt <i>Ergebnisse</i>. Klicken Sie auf die erste Zelle in der ersten Datenzeile, um sie als Link einzufügen.</li>
+
+    <li>Wählen Sie im Menü <b>Datei: Arbeitsmappe als Analysevorlage speichern...</b>, um es als Analysevorlage zu speichern und nennen Sie diese <i>Analyse von Blättern mit mehreren Datensätzen</i>.</li>
+  </ol>
+
+  <h3><a name="Batch_Analyze_Files_in_Groups"></a><span class="mw-headline">Stapelanalyse von Dateien in Gruppen</span></h3>
+
+  <p>Unter <i>&lt;Origin-Ordner\Samples\Batch Processing</i> gibt es 10 CSV-Datendateien. Angenommen, Sie möchten die Dateien in zwei Gruppen gruppieren und sie folgendermaßen neu ordnen: Gruppe 1 mit <i>T365K</i>, <i>T345K</i>, <i>T325K</i>, <i>T305K</i>, <i>T285K</i>; Gruppe 2 mit <i>T355K</i>, <i>T335K</i>, <i>T315K</i>, <i>T295K</i>, <i>T275K</i>. Nun werden diese beiden gruppierten Dateien mit Hilfe der Analysevorlage verarbeitet, die oben erstellt wurde.</p>
+
+  <ol>
+    <li>Wählen Sie im Menü <b>Datei: Stapelverarbeitung</b>, um den Dialog zu öffnen, und klicken Sie auf die Schaltfläche zum Suchen weiterer Optionen neben dem Bearbeitungsfeld <b>Analysevorlage</b>, um zur Analysevorlage <b>Multi-Data Sheets Analysis.ogw</b> zu navigieren.</li>
+
+    <li>Klicken Sie auf die Schaltfläche neben dem Bearbeitungsfeld <b>Dateiliste</b>, um den Dialog <b>Öffnen</b> aufzurufen. Ziehen die CSV-Dateien zuerst eine nach der anderen, um sie dem Bild unten entsprechend neu zu ordnen, und klicken Sie auf die Schaltfläche <b>Hinzufügen)</b>, um Dateien zu der Liste hinzufügen. Klicken Sie auf <b>OK</b>, um den Dialog zu verlassen.<br>
+    <a class="image"><img alt="Tutorial Batch Processing Multi Data Sheets 01.png" src="../images/Batch_Processing_Grouped_Datasets_Using_Multi_Data_Sheets_Analysis_Template/550px-Tutorial_Batch_Processing_Multi_Data_Sheets_01.png" width="550"></a></li>
+
+    <li>Wählen Sie <b>Dateiname</b> als <b>Datensatzidentifikator</b>, das Blatt <b>Results</b> als <b>Ergebnisblatt</b> und deaktivieren Sie das Kontrollkästchen <b>Zwischenmappen löschen</b>.<br>
+    <a class="image"><img alt="Tutorial Batch Processing Multi Data Sheets 02.png" src="../images/Batch_Processing_Grouped_Datasets_Using_Multi_Data_Sheets_Analysis_Template/550px-Tutorial_Batch_Processing_Multi_Data_Sheets_02.png" width="550"></a></li>
+
+    <li>Klicken Sie auf <b>OK</b>, um die Verarbeitung zu starten. Und klicken Sie auf OK, um die Einstellungen des Dialogs Stapelverarbeitung in der verwendeten Analysevorlage zu speichern (erst verfügbar ab Origin 2018b). Die Ergebnisse werden in die Arbeitsmappe <b>Zusammenfassung</b> ausgegeben, wie unten gezeigt:<br>
+    <a class="image"><img alt="Tutorial Batch Processing Multi Data Sheets 03.png" src="../images/Batch_Processing_Grouped_Datasets_Using_Multi_Data_Sheets_Analysis_Template/Tutorial_Batch_Processing_Multi_Data_Sheets_03.png" width="799"></a></li>
+  </ol>
+
+  <p>&#160;</p>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Batch_Processing_Grouped_Datasets_Using_Multi_Data_Sheets_Analysis_Template/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Beachten Sie die drei Schaltflächen, die oben im <b>Ausgabeblatt</b> (Mappe <i>Summary</i>, Blatt <i>Results</i>) hinzugefügt wurden:</p>
+
+        <ul>
+          <li><b>Mappe(n) öffnen</b>: Wenn Sie <b>Zwischenmappen löschen</b> aktivieren (siehe Schritt 3 oben) und später entscheiden, dass Sie sie doch brauchen, können Sie die entsprechenden Zeilen im Blatt <i>Results</i> markieren und auf diese Schaltfläche klicken, um die gelöschten Mappen erneut zu erzeugen.</li>
+
+          <li><b>Erneut verarbeiten</b>: Klicken Sie auf diese Schaltfläche, um den Import erneut auszuführen und die Ergebnisse zu aktualisieren, wenn Änderungen an den externen Datendateien vorgenommen wurden.</li>
+
+          <li><b>Aktualisieren</b>: Klicken Sie auf diese Schaltfläche, um Ergebnisse zu aktualisieren, wenn sich etwas auf der Eingabeseite Ihrer Analyse geändert hat (z. B. Maskieren der Daten in Ihren Datenblättern).</li>
+        </ul>
+      </td>
+    </tr>
+  </table>

@@ -1,0 +1,159 @@
+﻿<h1 class="firstHeading">Mehrere Minitools verwenden</h1>
+
+  <p class='urlname' style='display: none'>Using-Multiple-Gadgets</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#Create_a_layout_for_multiple_gadget_windows"><span class="tocnumber">3</span> <span class="toctext">Ein Layout für mehrere Minitoolfenster erstellen</span></a></li>
+
+      <li class="toclevel-1 tocsection-4"><a href="#Using_Quick_Peaks_gadget_to_find_baseline"><span class="tocnumber">4</span> <span class="toctext">Die Basislinie mit Hilfe des Minitools Peakanalyse suchen</span></a></li>
+
+      <li class="toclevel-1 tocsection-5"><a href="#Using_Quick_Fit_to_find_the_linear_fit_of_the_curve"><span class="tocnumber">5</span> <span class="toctext">Mit Hilfe des Minitools Quick Fit die lineare Anpassung der Kurve suchen</span></a></li>
+
+      <li class="toclevel-1 tocsection-6"><a href="#Using_Intersect_gadget_to_find_intersection_point"><span class="tocnumber">6</span> <span class="toctext">Mit Hilfe des Minitools Kurvenschnittpunkte den Kurvenschnittpunkt suchen</span></a></li>
+
+      <li class="toclevel-1 tocsection-7"><a href="#Update_the_output"><span class="tocnumber">7</span> <span class="toctext">Die Ausgabe aktualisieren</span></a></li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Sie können mehrere Minitools kombinieren, um bestimmte Ziele zu erreichen. Um zu verhindern, dass sich mehrere Minitoolfenster auf derselben Zeichnung überschneiden, können Sie sie in verschiedenen Layern anordnen und auf diese Weise ein Layout erstellen, das sie auf verschiedenen Ebenen anzeigt. Die Ergebnisse aller anderen Minitools können am Ende zu dem letzten Minitoolfenster hinzugefügt und mit jeder neuen Ausgabe aktualisiert werden. In diesem Tutorial wird an einem Beispiel veranschaulicht, wie Sie die Verwendung der Minitools <b>Peakanalyse</b>, <b>Quick Fit</b> und <b>Kurvenschnittpunkte</b> kombinieren können, um die Kurvenschnittpunkte zwischen der Basislinie und der Steigung einer Kurve zu suchen.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 2016 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen:</p>
+
+  <ul>
+    <li>gleichzeitig mehrere Minitools verwenden, um die gleichen Daten zu analysieren.</li>
+
+    <li>mit einem Minitool analysierte Ergebnisse auf einem spezifischen Diagramm ausgeben und diese auf einem aktuellen Stand halten.</li>
+
+    <li>den Kurvenschnittpunkt der Basislinie mit der linearen Anpassung einer Kurve suchen.</li>
+  </ul>
+
+  <h2><a name="Create_a_layout_for_multiple_gadget_windows"></a><span class="mw-headline">Ein Layout für mehrere Minitoolfenster erstellen</span></h2>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe und importieren Sie die Datei \<i>Samples</i>\<i>Curve Fitting</i>\<i>Gaussian.dat</i>.</li>
+
+    <li>Sie werden, wie unten zu sehen, ein Diagramm mit mehreren Layern, die jeweils die gleichen Daten beinhalten, vorbereiten, um die Überschneidung der Minitools in einem Diagramm zu verhindern.</li>
+
+    <li>Markieren Sie die zweite Spalte und wählen Sie im Menü <b>Zeichnen: Mehrere Kurven: 4-fach</b>, um ein Diagramm mit vier Feldern zu erstellen.<br>
+      <br>
+      <a class="image"><img alt="Tutorial Using Multiple Gadgets 01.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_01.png" width="591"></a><br>
+      <br>
+
+      <table class="note">
+        <tr>
+          <td><b>Hinweis:</b> Um die Erklärung der folgenden Schritte deutlicher zu machen, wurde die obige Abbildung blau beschriftet, damit Sie die Layer im Diagramm besser unterscheiden können.</td>
+        </tr>
+      </table>
+    </li>
+
+    <li>Gehen Sie zurück zur Arbeitsmappe, wählen Sie die Spalte <b>Amplitude</b> und positionieren Sie den Cursor am Rand der Spalte, bis der Cursor folgendermaßen angezeigt wird: <a class="image"><img alt="Button Drag Column to Graph.png" src="../images/Using_Multiple_Gadgets/Button_Drag_Column_to_Graph.png" width="34"></a>. Ziehen Sie dann die Spalte per Drag&amp;Drop in Layer 2 auf der Diagrammseite und klicken Sie auf <b>OK</b>, um den angezeigten Dialog zu schließen. Tun Sie dasselbe noch mal, um dieses Mal die Zeichnung in Layer 3 hinzuzufügen, und klicken Sie dann in den Bereich rechts unten, um den nicht benötigten Layer 4 zu markieren und ihn mit der Taste <b>Entfernen</b> auf der Tastatur zu löschen<br>
+    <br>
+    <a class="image"><img alt="Tutorial Using Multiple Gadgets 02.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_02.png" width="591"></a><br>
+    <br></li>
+  </ol>
+
+  <h2><a name="Using_Quick_Peaks_gadget_to_find_baseline"></a><span class="mw-headline">Die Basislinie mit Hilfe des Minitools Peakanalyse suchen</span></h2>
+
+  <ol>
+    <li>Wählen Sie <b>Minitools: Peakanalyse</b> im Origin-Menü bei aktivem Layer 1, um den Dialog <b>Data Exploration:addtool_quickpeaks</b> aufzurufen. Nach der Linienform dieser Kurve bietet sich die Spline-Verbindung als bessere Wahl für die Anpassung der Basislinie an. Dazu gehen Sie zur Registerkarte <b>Basislinie</b> und wählen die Option <b>Spline</b> in der Auswahlliste <b>Verbindungsmethode</b>, um die Ankerpunkte mit der Spline-Methode zu verbinden.<br>
+    <br>
+    <a class="image"><img alt="Tutorial Using Multiple Gadgets 03.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_03.png" width="381"></a><br>
+    <br></li>
+
+    <li>Da keine neuen Spalten im Quellblatt hinzugefügt werden sollen, um die Basisliniendaten von jeder neuen Ausgabe zu speichern, können Sie das Ergebnis in einer neuen Arbeitsmappe speichern. Die neu erzeugten Basisliniendaten ersetzen dann stattdessen die vorhandenen Daten. Dazu gehen Sie zur Registerkarte <b>Ausgabe in</b>, deaktivieren Sie das Kontrollkästchen <b>An Arbeitsblatt anhängen</b> und aktivieren das Kontrollkästchen <b>Basislinie in Arbeitsblatt ausgeben</b>, um die Basisliniendaten in einer neuen Mappe QkPeak mit dem Blattnamen Baseline auszugeben.<br>
+    <br>
+    <a class="image"><img alt="Tutorial Using Multiple Gadgets 04-vNext.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_04.png" width="436"></a><br>
+    <br></li>
+
+    <li>Klicken Sie auf <b>OK</b>, um den Dialog zu schließen. Positionieren Sie den Mauscursor am Rand des ROI-Felds der grafischen Datenauswahl. Sobald der Cursor sich in einen Doppelpfeil verwandelt, können Sie das Feld nach Wunsch in der Größe verändern.<br>
+    <br>
+    <a class="image"><img alt="Tutorial Using Multiple Gadgets 06.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_06.png" width="591"></a><br>
+    <br></li>
+
+    <li>Klicken Sie auf die dreieckige Schaltfläche <a class="image"><img alt="Triangle Button.png" src="../images/Using_Multiple_Gadgets/Triangle_Button.png" width="18"></a> in der oberen rechten Ecke der grafischen Datenauswahl, um das Ausklappmenü zu öffnen und <b>Neue Ausgabe (O)</b> zu wählen.<br>
+    <br>
+    <a class="image"><img alt="Tutorial Using Multiple Gadgets 07.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_07.png" width="591"></a><br>
+    <br></li>
+  </ol>
+
+  <h2><a name="Using_Quick_Fit_to_find_the_linear_fit_of_the_curve"></a><span class="mw-headline">Mit Hilfe des Minitools Quick Fit die lineare Anpassung der Kurve suchen</span></h2>
+
+  <ol>
+    <li>Aktivieren Sie den zweiten Layer, indem Sie entweder auf das Layersymbol klicken <a class="image"><img alt="Button Layer Icon 02.png" src="../images/Using_Multiple_Gadgets/Button_Layer_Icon_02.png" width="19"></a>, das sich in der linken oberen Ecke des Diagramms befindet, oder direkt auf den Zeichnungsbereich des oberen rechten Feldes.</li>
+
+    <li>Wählen Sie <b>Minitools: Quick Fit: Linear(System)</b> im Origin-Menü, um die grafische Datenauswahl (ROI) von <b>Quick Fit</b> aufzurufen, und passen Sie Position und Bereich des angezeigten ROI-Felds so an, dass eine lineare Anpassung über die linke Hälfte der Peakumhüllung durchgeführt wird.<br>
+    <br>
+    <a class="image"><img alt="Tutorial Using Multiple Gadgets 08.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_08.png" width="591"></a><br>
+    <br></li>
+
+    <li>Klicken Sie auf die dreieckige Schaltfläche <a class="image"><img alt="Triangle Button.png" src="../images/Using_Multiple_Gadgets/Triangle_Button.png" width="18"></a> in der oberen rechten Ecke der grafischen Datenauswahl, um das Ausklappmenü zu öffnen und die Option <b>Einstellungen</b> zu wählen. Im Dialog <b>Quick Fit Einstellungen</b> legen Sie die Einstellungen benutzerdefiniert fest.</li>
+
+    <li>Da Sie keine weitere unnötige Ausgabe zu dieser linearen Anpassung brauchen, können Sie zur Registerkarte <b>Beschriftungsfeld</b> wechseln und das Kontrollkästchen <b>Beschriftungsfeld zum Diagramm hinzufügen</b> deaktivieren.<br>
+    <br>
+    <a class="image"><img alt="Tutorial Using Multiple Gadgets 09.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_09.png" width="413"></a><br>
+    <br></li>
+
+    <li>Zu dem gleichen Zweck - Verhindern der Ausgabe des Zusammenfassungsberichts - können Sie auf der Registerkarte <b>Bericht</b> die Option <b>Kein</b> in der Auswahlliste <b>Ausgabe in</b> wählen. Klicken Sie auf <b>OK</b>, um den Dialog zu schließen.<br>
+    <br>
+    <a class="image"><img alt="Tutorial Using Multiple Gadgets 10.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_10.png" width="413"></a><br>
+    <br></li>
+
+    <li>Verwenden Sie erneut die dreieckige Schaltfläche <a class="image"><img alt="Triangle Button.png" src="../images/Using_Multiple_Gadgets/Triangle_Button.png" width="18"></a> oben rechts im ROI-Feld und wählen Sie <b>Neue Ausgabe (O)</b>, um linear angepasste Ergebnisse in das Arbeitsblatt auszugeben.</li>
+  </ol>
+
+  <h2><a name="Using_Intersect_gadget_to_find_intersection_point"></a><span class="mw-headline">Mit Hilfe des Minitools Kurvenschnittpunkte den Kurvenschnittpunkt suchen</span></h2>
+
+  <ol>
+    <li>Bevor Sie das Minitool <b>Kurvenschnittpunkte</b> anwenden, besteht der erste Schritt darin, die angepasste Basislinie und die linear angepasste Linie aus den beiden letzten Minitools zu der dritten Zeichnung hinzuzufügen. Dazu klicken Sie auf das Layersymbol <a class="image"><img alt="Button Layer Icon 03.png" src="../images/Using_Multiple_Gadgets/Button_Layer_Icon_03.png" width="20"></a> oben links, um Layer 3 zu aktivieren. Klicken Sie mit der rechten Maustaste auf das Layersymbol <a class="image"><img alt="Button Layer Icon 03.png" src="../images/Using_Multiple_Gadgets/Button_Layer_Icon_03.png" width="20"></a> und wählen Sie <b>Inhalt Layer</b>, um das Fenster <b>Layerinhalt - Layer 3</b> aufzurufen. Markieren Sie die Daten mit den Langnamen <b>QuickFit Y1</b> sowie <b>Baseline Y of Amplitude</b> und fügen Sie sie mit Hilfe des nach rechts zeigenden Pfeils <a class="image"><img alt="Button Arrow Right 91.png" src="../images/Using_Multiple_Gadgets/Button_Arrow_Right_91.png" width="24"></a> zum rechten Bedienfeld hinzu.<br>
+    <br>
+    <a class="image"><img alt="Tutorial Using Multiple Gadgets 11v.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_11v.png" width="714"></a><br>
+    <br></li>
+
+    <li>Klicken Sie auf <b>OK</b>, um das Fenster zu schließen. Die angepasste Basislinie und die lineare Linie werden im dritten Layer angezeigt.<br>
+    <br>
+    <a class="image"><img alt="Tutorial Using Multiple Gadgets 12.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_12.png" width="591"></a><br>
+    <br></li>
+
+    <li>Wählen Sie <b>Minitools: Kurvenschnittpunkte</b> im Origin-Menü bei aktivem Layer 3, um den Dialog <b>Data Exploration:addtool_curve_intersect</b> aufzurufen. Klicken Sie auf <b>OK</b>, um den Dialog zu schließen. Die grafische Datenauswahl ROI des Minitools <b>Kurvenschnittpunkte</b> wird aufgerufen.<br>
+    <br>
+    <a class="image"><img alt="Tutorial Using Multiple Gadgets 13.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_13.png" width="306"></a><br>
+    <br></li>
+
+    <li>Positionieren Sie das ROI-Feld und verändern Sie seine Größe, so dass der Schnittpunkt zwischen Basislinie und Steigung innerhalb des Feldes liegt. Um andere Kurvenschnittpunkte mit der ursprünglichen Kurve auszuschließen, verwenden Sie die dreieckige Schaltfläche <a class="image"><img alt="Triangle Button.png" src="../images/Using_Multiple_Gadgets/Triangle_Button.png" width="18"></a> oben rechts in der grafischen Datenauswahl und deaktivieren Sie <b>Plot(1) Amplitude</b> im Kontextmenü von <b>Daten ändern</b>.<br>
+    <br>
+    <a class="image"><img alt="Tutorial Using Multiple Gadgets 14.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_14.png" width="601"></a><br>
+    <br></li>
+
+    <li>Verwenden Sie erneut die dreieckige Schaltfläche <a class="image"><img alt="Triangle Button.png" src="../images/Using_Multiple_Gadgets/Triangle_Button.png" width="18"></a> oben rechts im ROI-Feld und wählen Sie <b>Neue Ausgabe (O)</b>, um das Ergebnis der Kurvenschnittpunkte zwischen Basislinie und linear angepasste Linie auszugeben.<br>
+    <br>
+    <a class="image"><img alt="Tutorial Using Multiple Gadgets 15.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_15.png" width="594"></a><br>
+    <br></li>
+  </ol>
+
+  <h2><a name="Update_the_output"></a><span class="mw-headline">Die Ausgabe aktualisieren</span></h2>
+
+  <ol>
+    <li>Klicken Sie auf das Layersymbol <a class="image"><img alt="Button Layer Icon 01.png" src="../images/Using_Multiple_Gadgets/Button_Layer_Icon_01.png" width="20"></a>, um Layer 1 zu aktivieren. Positionieren Sie das ROI-Feld der <b>Peakanalyse</b> neu, um eine neue Basislinie zu erstellen. Gehen Sie zu der dreieckigen Schaltfläche <a class="image"><img alt="Triangle Button.png" src="../images/Using_Multiple_Gadgets/Triangle_Button.png" width="18"></a> oben rechts im ROI-Feld und wählen Sie <b>Neue Ausgabe (O)</b>, um die neu erzeugte Basislinie auszugeben.</li>
+
+    <li>Klicken Sie auf das Layersymbol <a class="image"><img alt="Button Layer Icon 02.png" src="../images/Using_Multiple_Gadgets/Button_Layer_Icon_02.png" width="19"></a>, um Layer 2 zu aktivieren. Positionieren Sie das ROI-Feld des <b>Quick Fit</b> auf der anderen Seite der Kurve, so dass eine neue lineare Anpassungslinie erzeugt wird. Klicken Sie dann auf die dreieckige Schaltfläche <a class="image"><img alt="Triangle Button.png" src="../images/Using_Multiple_Gadgets/Triangle_Button.png" width="18"></a> oben rechts von der grafischen Datenauswahl und wählen Sie <b>Letzte Ausgabe aktualisieren</b>, um das Ergebnis der linear angepassten Linie auszugeben.</li>
+
+    <li>Klicken Sie auf das Layersymbol <a class="image"><img alt="Button Layer Icon 03.png" src="../images/Using_Multiple_Gadgets/Button_Layer_Icon_03.png" width="20"></a>, um Layer 3 zu aktivieren. Positionieren Sie das ROI-Feld der <b>Kurvenschnittpunkte</b> neu, um die Kurvenschnittpunkte zwischen der neu erzeugten Basislinie und der linear angepassten Linie innerhalb des Felds zu ermitteln. Gehen Sie zu der dreieckigen Schaltfläche <a class="image"><img alt="Triangle Button.png" src="../images/Using_Multiple_Gadgets/Triangle_Button.png" width="18"></a> oben rechts im ROI-Feld und wählen Sie <b>Neue Ausgabe (O)</b>, um das Ergebnis des neuen Kurvenschnittpunkts auszugeben.<br>
+    <br>
+    <a class="image"><img alt="Tutorial Using Multiple Gadgets 16.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_16.png" width="591"></a><br>
+    <br></li>
+  </ol>

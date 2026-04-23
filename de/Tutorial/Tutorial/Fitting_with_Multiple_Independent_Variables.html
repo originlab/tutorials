@@ -1,0 +1,109 @@
+﻿<h1 class="firstHeading">Anpassen mit mehreren unabhängigen Variablen</h1><a name="Summary"></a>
+
+  <h2><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Das Hilfsmittel <b>Fitfunktionen verwalten</b> kann verwendet werden, um anwenderdefinierte Funktionen mit mehr als einer unabhängigen oder abhängigen Variablen zu erstellen. Das Dialogfeld <b>NLFit</b> kann dann verwendet werden, um diese Funktionen anzupassen. Mit dem Vorschaufenster im Dialogfeld Fitter kann nur eine Größe gegen eine andere gezeichnet werden. Allerdings wird der Anpassungsvorgang sogar dann korrekt ausgeführt, wenn die Vorschau <i>keinen Sinn macht</i>, sobald geeignete Daten- und Parameterzuordnungen vorgenommen wurden.</p>
+
+  <p>Beachten Sie, dass Sie, wenn Sie mehrere unabhängige Variablen mit einer Gleichung des Typs<br>
+  <i>y = A0 + A1 * x1 + A2 * x2 + ...</i><br>
+  anpassen wollen, das Hilfsmittel Mehrfache Regression anstatt des Dialogfelds Nichtinearer Fit verwenden können.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: 8.0 SR6</p><a name="What_you_will_learn"></a>
+
+  <h2><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>eine anwenderdefinierte Anpassungsfunktion mit zwei unabhängigen Variablen und einer abhängigen Variablen erstellen können.</li>
+
+    <li>mit dieser Funktion in NLFit anpassen.</li>
+  </ul><a name="Steps"></a>
+
+  <h2><span class="mw-headline">Schritte</span></h2>
+
+  <ol start="1">
+    <li>Öffnen Sie eine neue Arbeitsmappe und importieren Sie die Datei \<i>Samples\Curve Fitting\Activity.dat.</i></li>
+
+    <li>Wählen Sie <b>Hilfsmittel: Fitfunktionen verwalten</b> im Menü (oder drücken Sie <b>F9</b>), um den Dialog <span class="db">Fitfunktionen verwalten</span> aufzurufen und eine neue Anpassungsfunktion mit dem Namen <b>MultiIndep</b> in <b>Neue Kategorie</b> zu definieren (erstellen Sie die Kategorie, falls sie nicht existiert):
+
+      <table class="blank">
+        <tr>
+          <td width="170"><b>Funktionsname:</b></td>
+
+          <td>
+            <p>MultiIndep</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="170"><b>Funktionstyp:</b></td>
+
+          <td>
+            <p>User-Defined</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="170"><b>Unabhängige Variable:</b></td>
+
+          <td>
+            <p>substr,inhib</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="170"><b>Abhängige Variable:</b></td>
+
+          <td>
+            <p>act</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="170"><b>Parameternamen:</b></td>
+
+          <td>
+            <p>ki,km,vm</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="170"><b>Funktionsform:</b></td>
+
+          <td>
+            <p>Origin C</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="170"><b>Funktion:</b></td>
+
+          <td>
+            <p>double mix = inhib / ki;<br>
+            act = vm * substr / (km + (1 + mix) * substr);</p>
+          </td>
+        </tr>
+      </table>
+
+      <p><b>HINWEIS:</b> Da wir Origin C verwenden, muss die Groß- und Kleinschreibung der definierten Namen und ihrer Verwendung in der Funktionsdefinition übereinstimmen, z.B. ist Substr NICHT gleich substr.</p>
+
+      <p>Klicken Sie auf Speichern und OK, um die Funktion zu speichern und den Dialog 'Fitfunktionen verwalten' zu schließen.</p>
+
+      <p>Weitere Einzelheiten zum Erstellen von anwenderdefinierten Anpassungsfunktionen finden Sie unter <a href="../../Tutorial/Tutorial/User_Defined_Fitting_Function_using_OC.html" title="Tutorial:User Defined Fitting Function using OC">Benutzerdefinierte Anpassungsfunktion mit Hilfe von Origin C</a>.</p>
+    </li>
+
+    <li>Markieren Sie <font color="olive"><b>NUR</b></font> Spalte C und wählen Sie im Menü <b>Analyse: Anpassen: Nichtlinearer Fit</b> aus, um das Dialogfeld NLFit zu öffnen. Wählen Sie die Funktion <b>MultiIndep</b> aus <b>Neue Kategorie</b> auf der Seite <b>Einstellungen: Funktionsauswahl</b>. Stellen Sie die Eingabedatensätze auf der Seite <b>Datenauswahl</b> folgendermaßen ein:<br>
+    <img alt="Image:MultiFittingDataSelection1.png" src="../images/Fitting_with_Multiple_Independent_Variables/MultiFittingDataSelection1.png" width="630" height="367" border="0"></li>
+
+    <li>Wählen Sie die Seite <b>Fit-Kurven</b> und erweitern Sie den Zweig <b>Angepasstes Kurvendiagramm</b>. Wählen Sie dann <b>Das Gleiche wie die Eingabedaten</b> aus der Auswahlliste neben dem Zweig <b>X-Datentyp</b>.<br>
+    <img alt="Image:MultiFittingFittingCurves1.png" src="../images/Fitting_with_Multiple_Independent_Variables/MultiFittingFittingCurves1.png" width="629" height="351" border="0"></li>
+
+    <li>Wählen Sie die <b>Registerkarte Parameter</b> und stellen Sie die Initialisierungswerte wie folgt ein:<br>
+    <img alt="Image:MultiFittingSettingPara1.png" src="../images/Fitting_with_Multiple_Independent_Variables/MultiFittingSettingPara1.png" width="254" height="121" border="0"></li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Fit</b>, um die Anpassung durchzuführen. Sie können die Ergebnisse im Berichtsblatt folgendermaßen lesen:<br>
+    <img alt="Image:MultiIndepParameter.png" src="../images/Fitting_with_Multiple_Independent_Variables/MultiIndepParameter.png" width="237" height="90" border="0"><br>
+    <img alt="Image:MultiIndepStat.png" src="../images/Fitting_with_Multiple_Independent_Variables/MultiIndepStat.png" width="263" height="143" border="0"><br>
+    In der Statistiktabelle ist zu sehen, dass die Anpassung recht erfolgreich war.</li>
+  </ol>

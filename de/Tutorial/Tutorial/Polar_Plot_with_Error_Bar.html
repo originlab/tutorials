@@ -1,0 +1,89 @@
+﻿<h1 class="firstHeading">Polardiagramm mit Fehlerbalken</h1>
+
+  <p class='urlname' style='display: none'>Polar-ErrBar</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a></li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie ein polares Konturdiagramm mit Fehlerbalken erstellen.</p>
+
+  <dl>
+    <dd>
+      <dl>
+        <dd><a class="image"><img alt="Polar Plot with Error Bar 06.png" src="../images/Polar_Plot_with_Error_Bar/Polar_Plot_with_Error_Bar_06.png" width="518"></a></dd>
+      </dl>
+    </dd>
+  </dl>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>ein Polardiagramm mit Fehlerbalken erstellen,</li>
+
+    <li>das Diagramm mit Hilfe der Dialoge Details Zeichnung und Achsen benutzerdefiniert anpassen.</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <ol>
+    <li>Importieren Sie die Datendatei <b>PolarPlotwithErrorBar.dat</b> im <i>&lt;Origin-Verzeichnis&gt;\Samples\Graphing\</i>. <font color="red">(Origin-Version mind. erforderlich: 2015 SR0)</font>Sie können <a class="external text" href="http://www.originlab.com/ftp/graph_gallery/data/Polar_Plot_with_Error_Bar.txt" target="_blank">diese Datendatei</a> aber auch direkt herunterladen und in Origin importieren.</li>
+
+    <li>Fahren Sie mit mit Ihrer Maus über Spalte col(C), bis der Cursor als nach unten weisender Pfeil angezeigt wird, und klicken Sie dann, um Spalte C zu markieren. Klicken Sie mit der rechten Maustaste, um das Kontextmenü aufzurufen, und setzen Sie diese Spalte als <b>Y-Fehler</b>.</li>
+
+    <li>Um das Polardiagramm der Daten mit Fehlerbalken zu zeichnen, markieren Sie alle Spalten. Wählen Sie im Menü <b>Zeichnen: Spezialisiert: Polar Theta(X) r(Y)</b> oder klicken Sie auf die Schaltfläche <b>Polar Kontur Theta(X) r(Y)</b> <a class="image"><img alt="Button Polar Theta R.png" src="../images/Polar_Plot_with_Error_Bar/Button_Polar_Theta_R.png" width="22"></a> auf der Symbolleiste <b>2D Grafiken</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Polar Plot with Error Bar 02.png" src="../images/Polar_Plot_with_Error_Bar/Polar_Plot_with_Error_Bar_02.png" width="388"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie zum Öffnen des Dialogs <b>Details Zeichnung</b> doppelt auf das Diagramm. Ändern Sie auf der Registerkarte Fehlerbalken die <b>Farbe</b> in Magenta und entfernen Sie die negativen Fehlerbalken, indem Sie das Kontrollkästchen <b>Minus</b>, wie unten gezeigt, deaktivieren:
+
+      <dl>
+        <dd><a class="image"><img alt="Polar Plot with Error Bar 03.png" src="../images/Polar_Plot_with_Error_Bar/Polar_Plot_with_Error_Bar_03.png" width="716"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wenn das linke Bedienfeld von <b>Details Zeichnung</b> ausgeblendet ist, klicken Sie auf die Schaltfläche mit den zwei Pfeilen unten links im Dialog. Das linke Bedienfeld stellt eine Baumansicht des Layers und der Daten dar, die der Anwender modifiziert. Es zeigt unten auch eine Liste der <b>Diagrammtypen</b> an. Verwenden Sie die Auswahlliste <b>Diagrammtyp</b>, um die Zeichnung von einem <b>Linien</b>- in ein <b>Punktdiagramm</b> umzuwandeln. Dies verändert die Registerkarten im rechten Bedienfeld und fügt die Registerkarte <b>Symbole</b> hinzu. Ändern Sie auf der Registerkarte Symbole Symbolstil, Symbolfarbe und die Transparenz, wie unten zu sehen. Um die Symbolfarbe auszuwählen, verwenden Sie die Option <b>Individuell</b> in der Auswahlliste der <b>Symbolfarbe</b>. Klicken Sie auf <b>OK</b>, um den Dialog zu schließen.
+
+      <dl>
+        <dd><a class="image"><img alt="Polar Plot with Error Bar 04.png" src="../images/Polar_Plot_with_Error_Bar/Polar_Plot_with_Error_Bar_04.png" width="775"></a></dd>
+      </dl>
+    </li>
+
+    <li>Der nächste Schritt besteht darin, die Gitternetzlinien der Radialachsen zu modifizieren. Bei diesen handelt es sich um die kreisförmigen Gitternetzlinien zwischen den inneren und äußeren Winkelachsen. Klicken Sie auf der linken Seite des Diagramms doppelt auf die vertikale Achse, um den Dialog <b>Achsen</b> (d.h. Radialachsen) zu öffnen. Wählen Sie auf der Seite <b>Gitternetze</b> die Option <b>Radial</b> im linken Bedienfeld. Ändern Sie die den <b>Stil</b> der Hauptgitternetzlinien in <b>Striche</b> und deaktivieren Sie das Kontrollkästchen <b>zeigen</b> für die Nebengitternetzlinien, wie unten zu sehen:
+
+      <dl>
+        <dd><a class="image"><img alt="Polar Plot with Error Bar 05.png" src="../images/Polar_Plot_with_Error_Bar/Polar_Plot_with_Error_Bar_05.png" width="558"></a></dd>
+      </dl>
+    </li>
+
+    <li>Ändern Sie auf die gleiche Weise die Gitternetzlinien der Winkelachsen, d.h. die Gitternetzlinien, die aus der Mitte der Zeichnung zu den Rändern gehen. Wählen Sie auf der Seite <b>Gitternetze</b> die Option <b>Winkel</b> im linken Bedienfeld. Ändern Sie den <b>Stil</b> der Hauptgitternetzlinien in <b>Striche</b>, setzen Sie <b>Anfang bei</b> auf <b>Radialer Anfang</b> und deaktivieren Sie das Kontrollkästchen <b>Zeigen</b> für die Nebengitternetzlinien. Klicken Sie auf <b>OK</b>, um die Änderungen zu speichern.
+
+      <dl>
+        <dd><a class="image"><img alt="Polar Plot with Error Bar 07.png" src="../images/Polar_Plot_with_Error_Bar/Polar_Plot_with_Error_Bar_07.png" width="558"></a></dd>
+      </dl>
+    </li>
+
+    <li>Das fertiggestellte Polardiagramm sollte folgendermaßen aussehen:
+
+      <dl>
+        <dd><a class="image"><img alt="Polar Plot with Error Bar 06.png" src="../images/Polar_Plot_with_Error_Bar/Polar_Plot_with_Error_Bar_06.png" width="518"></a></dd>
+      </dl>
+    </li>
+  </ol>

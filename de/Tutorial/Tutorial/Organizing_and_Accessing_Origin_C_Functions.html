@@ -1,0 +1,161 @@
+﻿<h1 class="firstHeading">Organisieren und Zugreifen auf Origin C-Funktionen</h1><a name="Summary" id="Summary"></a>
+
+  <h2><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>In diesem Tutorial wird erläutert, wie Sie Ihre Origin C-Funktionen aufrufen können.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: 8.0 SR0</p><a name="What_you_will_learn" id="What_you_will_learn"></a>
+
+  <h2><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>Ihre Origin C-Funktion mit dem Projekt speichern,</li>
+
+    <li>Ihre Programme mit visuellen Objekten verbinden,</li>
+
+    <li>Ihre Origin C-Funktion mit Hilfe von Skript laden und kompilieren.</li>
+  </ul><a name="Saving_your_Origin_C_Function_with_your_Project" id="Saving_your_Origin_C_Function_with_your_Project"></a>
+
+  <h2><span class="mw-headline">Ihre Origin C-Funktion mit dem Projekt speichern</span></h2>
+
+  <p>Eine Möglichkeit, Ihre Origin C-Funktionen zu laden und zu kompilieren, besteht darin, die Origin C-Datei als Anhang an Ihre Origin-Projektdatei (*.OPJ) anzuhängen. Wenn eine Projektdatei geöffnet ist, werden alle angehängten Dateien, aussortiert und in einem temporären Ordner gespeichert. Zusätzlich wird jede angehängte Origin C-Datei auch automatisch in den Arbeitsbereich des Code Builders geladen und kompiliert. Die Funktion ist dann bereit, beim Öffnen der Origin-Projektdatei aufgerufen zu werden.</p>
+
+  <ol>
+    <li>Erstellen Sie eine neue Origin-Projektdatei, indem Sie auf die Schaltfläche <b>Neues Projekt</b> <img alt="Image:Button_New.png" src="../images/Organizing_and_Accessing_Origin_C_Functions/Button_New.png" border="0"> auf der Symbolleiste <b>Standard</b> klicken.</li>
+
+    <li>Klicken Sie auf der Symbolleiste <b>Standard</b> auf die Schaltfläche <b>Code Builder</b> <img alt="Image:Button_Code_Builder.png" src="../images/Organizing_and_Accessing_Origin_C_Functions/Button_Code_Builder.png" border="0">.</li>
+
+    <li>Wählen Sie im Menü Code Builder die Option <b>Datei: Neu</b>. Dadurch öffnet sich das Dialogfeld <b>Neue Datei</b>.</li>
+
+    <li>Wählen Sie im oberen Listenfeld <b>C File</b>.</li>
+
+    <li>Geben Sie in dem Textfeld <b>Dateiname</b> <b>Test</b> ein und lassen Sie das Kontrollkästchen <b>Zu Arbeitsbereich hinzufügen</b> aktiviert. Klicken Sie auf <b>OK</b>. Die Datei Test.c wird zum Arbeitsbereich hinzugefügt.</li>
+
+    <li>Wählen und kopieren Sie die folgende Funktion und fügen Sie sie in die Datei Test.c ein. Stellen Sie sicher, dass Sie den untenstehenden Text der Zeile ?//start your functions here? kopieren.</li>
+  </ol>
+  <pre class="oc">
+<span class="hcp1">void</span> Plot_Data<span class="hcp2">(</span>string strTemplate, string strData<span class="hcp2">)</span> 
+<span class="hcp2">{</span>
+        <span class="hcp3">// Create a graph window from a Template</span>
+        GraphPage gp;                   
+        <span class="hcp1">BOOL</span> bOK <span class="hcp4">=</span> gp.<span class="hcp2">Create</span><span class="hcp2">(</span>strTemplate, CREATE_VISIBLE<span class="hcp2">)</span>;
+        <span class="hcp1">if</span><span class="hcp2">(</span> <span style="color: #000040;">!</span>bOK <span class="hcp2">)</span>
+                <span class="hcp1">return;</span>
+ 
+        <span class="hcp3">// Attach the first layer (0) to a GraphLayer object      </span>
+        GraphLayer gl <span class="hcp4">=</span> gp.<span class="hcp2">Layers</span><span class="hcp2">(</span><span class="hcp5">0</span><span class="hcp2">)</span>; 
+ 
+        <span class="hcp3">//Attach a dataset to a Curve object      </span>
+        Curve crv<span class="hcp2">(</span>strData<span class="hcp2">)</span>; 
+ 
+        <span class="hcp3">// Add the Curve to the graph layer       </span>
+        <span class="hcp1">int</span> nPlot <span class="hcp4">=</span> gl.<span class="hcp2">AddPlot</span><span class="hcp2">(</span>crv<span class="hcp2">)</span>;   
+        <span class="hcp1">if</span><span class="hcp2">(</span>nPlot <span class="hcp4">&gt;=</span> <span class="hcp5">0</span><span class="hcp2">)</span>      
+        <span class="hcp2">{</span>                  
+                <span class="hcp3">// Set plot color to Green(2)</span>
+                gl.<span class="hcp2">DataPlots</span><span class="hcp2">(</span>nPlot<span class="hcp2">)</span>.<span class="hcp2">SetColor</span><span class="hcp2">(</span><span class="hcp5">2</span>, <span class="hcp1">TRUE</span><span class="hcp2">)</span>;
+ 
+                <span class="hcp3">// Rescale this graph layer</span>
+                gl.<span class="hcp2">Rescale</span><span class="hcp2">(</span><span class="hcp2">)</span>;
+        <span class="hcp2">}</span>
+<span class="hcp2">}</span>
+</pre>
+
+  <p>Die Funktion Plot_Data hat zwei Argumente: (1) den Vorlagennamen und (2) den Namen eines Y-Datensatzes, der im Layer enthalten (gezeichnet) werden soll.</p>
+
+  <ol start="7">
+    <li>Klicken Sie auf die Schaltfläche <b>Erstellen</b> <img alt="Image:Button_Build.png" src="../images/Organizing_and_Accessing_Origin_C_Functions/Button_Build.png" border="0">, um die Datei zu kompilieren und zu verknüpfen.</li>
+  </ol>
+
+  <ol start="8">
+    <li>Fügen Sie die Datei Test.c per Drag&amp;Drop aus dem Unterordnerverzeichnis User des Arbeitsbereichbaums in den Unterordner des Projekts ein. (<b>Hinweis:</b> Möglicherweise müssen Sie erst den Zweig des Unterordners User erweitern, um den Eintrag Test.c anzuzeigen, bevor Sie die Datei hinüberziehen können).</li>
+  </ol>
+
+  <ol start="9">
+    <li>Gehen Sie zurück zur Origin-Benutzeroberfläche und speichern Sie das Projekt durch Klicken auf die Schatfläche <b>Speichern</b> <img alt="Image:Button_Save_Project.png" src="../images/Organizing_and_Accessing_Origin_C_Functions/Button_Save_Project.png" border="0"> auf der Symbolleiste Standard. Geben Sie dem Projekt den Namen Test.OPJ und speichern Sie es an einem Speicherort Ihrer Wahl.</li>
+  </ol>
+
+  <ol start="10">
+    <li>Die Origin C-Datei Test.c wird jetzt mit dem Projekt gespeichert. Um dies zu überprüfen, schließen Sie das Projekt und gehen Sie zurück zum Code Builder. Sie werden sehen, dass es keine Einträge in dem Unterordner Project des Arbeitsbereichbaums gibt. Gehen Sie jetzt zurück zur Origin-Oberfläche und öffnen Sie das Projekt erneut. Gehen Sie zum Code Builder und überprüfen Sie, dass Test.c jetzt im Unterordner Project aufgeführt wird (<b>Hinweis:</b> Sie müssen möglicherweise den Zweig des Unterordners Project erweitern, um den Eintrag Test.c zu sehen).</li>
+  </ol><a name="Associating_your_Programs_with_Visual_Objects" id="Associating_your_Programs_with_Visual_Objects"></a>
+
+  <h2><span class="mw-headline">Ihre Programme mit visuellen Objekten verbinden</span></h2>
+
+  <p>Sie lernen, wie Sie in einem Arbeitsblatt eine Schaltfläche erstellen und die Schaltfläche so programmieren, dass sie die Origin C-Funktion in der Datei Test.c aufruft, die sie mit dem Projekt gespeichert haben.</p>
+
+  <ol>
+    <li>Öffnen Sie das Projekt Test.OPJ, das Sie in Schritt 9 (<a href="../../Tutorial/Tutorial/Organizing_and_Accessing_Origin_C_Functions.html#Saving_your_Origin_C_Function_with_your_Project" tutorial:organizing="" and="" accessing="" origin="" c="">vorheriger Abschnitt</a>) gespeichert haben.</li>
+
+    <li>Markieren Sie die Spalten A(X) und B(Y), klicken Sie mit der rechten Maustaste und wählen Sie <b>Spalte füllen mit: Zeilennummern.</b></li>
+
+    <li>Wählen Sie <b>Format: Worksheet</b>, um das Dialogfeld <b>Arbeitsblatteigenschaften</b> zu öffnen.</li>
+
+    <li>Setzen Sie auf der Registerkarte <b>Größe</b> den Zweig <b>Abmessungen Arbeitsblatt</b> bei <b>Abstand von oben</b> auf <b>40</b> und klicken Sie auf <b>OK</b>, um das Dialogfeld zu schließen.</li>
+  </ol>
+
+  <dl>
+    <dd><img alt="Image:Organizing_and_Accessing_Origin_C_Functions_1.png" src="../images/Organizing_and_Accessing_Origin_C_Functions/Organizing_and_Accessing_Origin_C_Functions_1.png" border="0"></dd>
+  </dl>
+
+  <p>Das Arbeitsblatt hat jetzt ausreichend Platz über den Spaltenüberschriften, um eine Textbeschriftung hinzuzufügen.</p>
+
+  <p>Klicken Sie mit der rechten Maustaste in den Bereich direkt über den zwei Spalten und wählen Sie <b>Text hinzufügen</b>.</p>
+
+  <ol start="5">
+    <li>Geben Sie beim Cursor <b>Daten zeichnen</b> ein.</li>
+  </ol>
+
+  <ol start="6">
+    <li>Klicken Sie einmal außerhalb der Textbeschriftung, damit diese nicht mehr ausgewählt ist.</li>
+  </ol>
+
+  <ol start="7">
+    <li>Klicken Sie mit der rechten Maustaste auf die Textbeschriftung und wählen Sie <b>Programmablauf</b>, um das Dialogfeld <b>Programmablauf</b> zu öffnen.(<b>Hinweis:</b> Wählen Sie bitte <b>Eigenschaften Beschriftung</b> in Origin 7.5.)</li>
+  </ol>
+
+  <ol start="8">
+    <li>Wählen Sie <b>Mausklick</b> aus der Auswahlliste <b>Kriterien für Skriptausführung</b>.</li>
+  </ol>
+
+  <ol start="9">
+    <li>Geben Sie den folgenden Text in das Textfeld unten im Dialogfeld ein.</li>
+  </ol>
+  <pre>
+Plot_Data("scatter","book1_b");
+</pre>
+
+  <ol start="10">
+    <li>Klicken Sie auf <b>OK</b>.</li>
+  </ol>
+
+  <p>Ihre Textbeschriftung sieht jetzt aus wie eine Schaltfläche.</p>
+
+  <dl>
+    <dd><img alt="Image:Organizing_and_Accessing_Origin_C_Functions_2.png" src="../images/Organizing_and_Accessing_Origin_C_Functions/Organizing_and_Accessing_Origin_C_Functions_2.png" border="0"></dd>
+  </dl>
+
+  <ol start="11">
+    <li>Klicken Sie auf die Schaltfläche <b>Daten zeichnen</b> in Ihrem Arbeitsblatt.</li>
+  </ol>
+
+  <ol start="12">
+    <li>Die Funktion Plot_Data in Ihrer Datei Test.c wird aufgerufen, ein Punktdiagramm wird gezeichnet.</li>
+  </ol>
+
+  <table class="note">
+    <tr>
+      <td><b>Hinweise:</b> Das Skript hinter der Schaltfläche geht davon aus, dass sich Daten in Spalte B(Y) des Arbeitsblatts Data1 befinden und es einen verbundenen X-Datensatz gibt.</td>
+    </tr>
+  </table><a name="Loading_and_Compiling_your_Origin_C_Function_from_script" id="Loading_and_Compiling_your_Origin_C_Function_from_script"></a>
+
+  <h2><span class="mw-headline">Laden und Kompilieren Ihrer Origin C-Funktion mit Hilfe von LabTalk-Skript</span></h2>
+
+  <p>In diesem Tutorial wurde erklärt, wie eine Origin C-Funktion mit einer Projektdatei gespeichert und dann von der Origin-Oberfläche aus auf die Funktion zugegriffen wird. Das Speichern einer Origin C-Datei mit einem Projekt beschränkt den Zugriff in dieser Datei auf ausschließlich dieses Projekt. Wenn ein neues Projekt geöffnet wird, sind die Funktionen nicht mehr verfügbar.</p>
+
+  <p>Um auf Funktionen in einer Origin C-Datei, die lokal gespeichert ist, zuzugreifen, kann die Datei programmatisch mit LabTalk-Skript geladen und kompiliert werden. Der Skriptbefehl zum Durchführen des programmatischen Ladens und Kompilierens lautet run.LoadOC. Weitere Informationen zur Verwendung dieses Befehls finden Sie in der Hilfe von <b>LabTalk</b> (<b>Hilfe: Programmierung: Labtalk</b>).</p>
+
+  <p>Damit ist das Tutorial <b>Origin C-Funktionen</b> abgeschlossen.</p>
+
+  <p> </p>

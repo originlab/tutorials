@@ -1,0 +1,140 @@
+﻿<h1 class="firstHeading">Anpassungskurve durch bestimmte Punkte</h1>
+
+  <table id="toc" class="toc" summary="Contents">
+    <tr>
+      <td>
+        <div id="toctitle">
+          <h2>Inhalt</h2>
+        </div>
+
+        <ul>
+          <li class="toclevel-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+          <li class="toclevel-1"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+          <li class="toclevel-1">
+            <a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">Beispiele und Schritte</span></a>
+
+            <ul>
+              <li class="toclevel-2"><a href="#Fixing_Function_Parameters"><span class="tocnumber">3.1</span> <span class="toctext">Funktionsparameter festlegen</span></a></li>
+
+              <li class="toclevel-2"><a href="#Use_Linear_Constraint"><span class="tocnumber">3.2</span> <span class="toctext">Lineare Nebenbedingungen verwenden</span></a></li>
+
+              <li class="toclevel-2"><a href="#Use_weighting"><span class="tocnumber">3.3</span> <span class="toctext">Gewichtung verwenden</span></a></li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <p>&#160;</p><a name="Summary"></a>
+
+  <h2><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen drei Methoden, mit denen Sie eine Anpassungskurve 'zwingen' können, durch einen bestimmten Punkt zu gehen. Die Wahl der Methode hängt von dem Funktionsausdruck und dem Datenpunkt ab, durch den Ihre Kurve verlaufen soll.</p><a name="What_you_will_learn"></a>
+
+  <h2><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <ul>
+    <li>Verschiedene Methoden, um den Verlauf einer Kurve durch einen bestimmten Punkt zu bewirken</li>
+
+    <li>Festlegen von Anpassungsparametern während der nichtlinearen Anpassung</li>
+
+    <li>Verwenden der allgemeinen linearen Nebenbedingungen bei der nichtlinearen Anpassung</li>
+
+    <li>Anpassen mit Gewichtung</li>
+  </ul><a name="Example_and_Steps"></a>
+
+  <h2><span class="mw-headline">Beispiel und Schritte</span></h2><a name="Fixing_Function_Parameters"></a>
+
+  <h3><span class="mw-headline">Funktionsparameter festlegen</span></h3>
+
+  <p>Diese Methode funktioniert nur, wenn der Punkt, den Sie anpassen möchten, in Bezug zu einem Funktionsparameter steht. Ein typisches Beispiel: 'Zwingen' Sie die angepasste Linie dazu, durch den Ursprung (0, 0) zu gehen, wenn Sie eine Gerade anpassen, <span class="texhtml"><i>y</i> = <i>a</i> + <i>b</i> * <i>x</i></span>. In diesem besonderen Fall wissen wir, dass die Gerade durch (0, 0) geht, wenn <span class="texhtml"><i>a</i> = 0</span> ist.</p>
+
+  <ol>
+    <li>Importieren Sie die Daten "<i>\Samples\Curve Fitting\Linear Fit.dat</i>" in das Origin-Arbeitsblatt.</li>
+
+    <li>Markieren Sie eine der Y-Spalten, zum Beispiel Spalte D, und wählen Sie <b>Analyse: Anpassen: Nichlinearer Fit</b>, um das Dialogfeld <b>NLFit</b> aufzurufen.</li>
+
+    <li>Wählen Sie die Funktion <b><i>Line</i></b>, nachdem Sie die Kategorie <b><i>Polynomial</i></b> ausgewählt haben.</li>
+
+    <li>Klicken Sie auf die Seite <b>Fit-Kurven</b> auf der Registerkarte <b>Einstellungen</b>. Stellen Sie im Zweig <b>X-Datentyp</b> sicher, dass für <b>Bereich</b> die Option <i><b>Eingabedatenbereich + Grenze verwenden</b></i> ausgewählt ist, und geben Sie dann <b>10</b> im Bearbeitungsfeld <b>Bereichsrand (%)</b> ein. Diese Option verlängert die Anpassungskurve.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Fit bis konvergiert <img alt="Image:Button_Fit_Untill_Converged.png" src="../images/Fit_Curve_Through_Certain_Points/Button_Fit_Untill_Converged.png" width="26" height="23" border="0"></b>. Sie können auf der Registerkarte <b>Fit-Kurve</b> sehen, dass die Kurve nicht durch den Ursprung geht.<br>
+    <br>
+    <img alt="Image:Fit_Line_Not_Through_Origin.png" src="../images/Fit_Curve_Through_Certain_Points/Fit_Line_Not_Through_Origin.png" width="710" height="569" border="0"></li>
+
+    <li>Wechseln Sie jetzt zur Registerkarte <b>Parameter</b>, aktivieren Sie das Kontrollkästchen <b>Fest</b> für Parameter <b>A</b> und geben Sie für den Wert <b>0</b> ein. Klicken Sie auf <b>Fit bis konvergiert</b>, um die Kurve erneut anzupassen. Jetzt können Sie sehen, dass die Kurve durch den Ursprung geht.<br>
+    <br>
+    <img alt="Image:Fit_Line_Through_Zero.png" src="../images/Fit_Curve_Through_Certain_Points/Fit_Line_Through_Zero.png" width="709" height="560" border="0"></li>
+  </ol>
+
+  <table class="note">
+    <tr>
+      <td>
+        <p><b>Hinweis</b>: Sie können auch die Option <b>Fester Schnittpunkt mit der Y-Achse</b> im Dialogfeld <b>Lineare Anpassung</b> verwenden, um die lineare angepasste Gerade dazu zu bringen, durch den Ursprung zu verlaufen.</p>
+      </td>
+    </tr>
+  </table><a name="Use_Linear_Constraint"></a>
+
+  <h3><span class="mw-headline">Lineare Nebenbedingungen verwenden</span></h3>
+
+  <p>Diese Methode funktioniert, wenn die Anpassungsfunktion auf einem linearen Modell basiert wie <i><b>Line</b></i>, <i><b>Parabola</b></i> oder <i><b>Cubic</b></i> etc.</p>
+
+  <p>Wir zeigen Ihnen, wie Sie die angepasste Kurve durch einen bestimmten Punkt verlaufen lassen können, indem Sie lineare Nebendingungen verwenden:</p>
+
+  <ol>
+    <li>Importieren Sie die Daten "<i>\Samples\Curve Fitting\Polynomial Fit.dat</i>" in das Origin-Arbeitsblatt.</li>
+
+    <li>Markieren Sie Spalte B und drücken Sie <b>Strg + Y</b>, um das Dialogfeld <b>NLFit</b> aufzurufen.</li>
+
+    <li>Wählen Sie <b>Parabola</b> (<span class="texhtml"><i>y</i> = <i>A</i> + <i>B</i> * <i>x</i> + <i>C</i> * <i>x</i><sup>2</sup></span>) in der Kategorie <b>Polynomial</b>. Auf der Registerkarte <b>Fit-Kurve</b> können Sie sehen, dass der Initialisierungswert bereits gut an die Daten angepasst ist.</li>
+
+    <li>Angenommen, Sie möchten die Kurve durch den Punkt <span class="texhtml">(10,100)</span> verlaufen lassen. Setzen Sie <span class="texhtml">(10,100)</span> in die Anpassungsfunktion (<span class="texhtml"><i>y</i> = <i>A</i> + <i>B</i> * <i>x</i> + <i>C</i> * <i>x</i><sup>2</sup></span>) ein. Sie haben dann <span class="texhtml">100 = <i>A</i> + 10 * <i>B</i> + 100 * <i>C</i></span>. Sie können diese Gleichung als eine lineare Nebenbedingung verwenden. Wechseln Sie zur Seite <b>Bedingungen</b> auf der Registerkarte <b>Code</b>. Aktivieren Sie das Kontrollkästchen <b>Lineare Nebenbedingungen aktivieren</b> und geben Sie den folgenden Ausdruck in das Bearbeitungsfeld ein.
+      <pre class="lt">
+A <span style="color: #000080;">+</span> <span style="color: #0000dd;">10</span><span style="color: #000080;">*</span>B <span style="color: #000080;">+</span> <span style="color: #0000dd;">100</span><span style="color: #000080;">*</span>C <span style="color: #000080;">=</span> <span style="color: #0000dd;">100</span>
+</pre>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Fit bis konvergiert <img alt="Image:Button_Fit_Untill_Converged.png" src="../images/Fit_Curve_Through_Certain_Points/Button_Fit_Untill_Converged.png" width="26" height="23" border="0"></b>. Sie können sehen, dass die angepasste Kurve von den Datenpunkten abweicht, aber durch den festgelegten Punkt verläuft.<br>
+    <br>
+    <img alt="Image:Through_Point_by_Constraints.png" src="../images/Fit_Curve_Through_Certain_Points/Through_Point_by_Constraints.png" width="708" height="575" border="0"></li>
+  </ol><a name="Use_weighting"></a>
+
+  <h3><span class="mw-headline">Gewichtung verwenden</span></h3>
+
+  <p>Wenn die Parameter Eigenwerte sind wie z.B. obere und untere Asymptote und Ihre Rohdaten die Punkte enthalten, durch die Ihre Kurve verlaufen soll, können Sie die Kurve anpassen, indem Sie diesen speziellen Punkten größere Gewichtungen zuweisen. Dies ist keine analytische Lösung, aber Sie können größere Gewichtungen zuweisen, um den Fehler zu reduzieren:</p>
+
+  <ol>
+    <li>Bereiten Sie die Daten vor, indem Sie folgendes Skript ausführen:
+      <pre class="lt">
+newbook;
+string fname<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> system.<span style="color: #000080;">path</span>.<span style="color: #000080;">program</span><span style="color: #000080;">$</span>;
+fname<span style="color: #000080;">$</span> <span style="color: #000080;">+</span><span style="color: #000080;">=</span> <span style="color: #ff00ff;">"Samples\Curve Fitting\Replicate Response Data.dat"</span>;
+impasc fname<span style="color: #000080;">$</span> options.<span style="color: #000080;">PartImp</span>.<span style="color: #000080;">Partial</span><span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">1</span> options.<span style="color: #000080;">PartImp</span>.<span style="color: #000080;">LastCol</span><span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">2</span>;
+wks.<span style="color: #000080;">addcol</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+col<span style="color: #000000;">(</span>a<span style="color: #000000;">)</span> <span style="color: #000080;">=</span> log<span style="color: #000000;">(</span>col<span style="color: #000000;">(</span>a<span style="color: #000000;">)</span><span style="color: #000000;">)</span> <span style="color: #000080;">+</span> <span style="color: #0000dd;">5</span>;
+col<span style="color: #000000;">(</span>c<span style="color: #000000;">)</span><span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">100</span>;
+for<span style="color: #000000;">(</span>int ii <span style="color: #000080;">=</span> <span style="color: #0000dd;">2</span>; ii <span style="color: #000080;">&lt;</span> wks.<span style="color: #000080;">maxrows</span>; ii<span style="color: #000080;">++</span><span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+    col<span style="color: #000000;">(</span>c<span style="color: #000000;">)</span><span style="color: #000000;">[</span>ii<span style="color: #000000;">]</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>;
+<span style="color: #000000;">}</span>
+col<span style="color: #000000;">(</span>c<span style="color: #000000;">)</span><span style="color: #000000;">[</span>wks.<span style="color: #000080;">maxrows</span><span style="color: #000000;">]</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">100</span>;
+</pre>
+    </li>
+
+    <li>Zuerst stellen Sie fest, wie die angepasste Kurve ohne Gewichtung aussieht. Markieren Sie Spalte B und rufen Sie das Dialogfeld NLFit über <b>Analyse: Anpassen: Nichtlinearer Fit</b> auf. Wählen Sie die Funktion <b>Logistic</b> in der Kategorie <b>Growth/Sigmoidal</b>. Klicken Sie auf die Schaltfläche <b>Fit bis konvergiert <img alt="Image:Button_Fit_Untill_Converged.png" src="../images/Fit_Curve_Through_Certain_Points/Button_Fit_Untill_Converged.png" width="26" height="23" border="0"></b>. Auf der Registerkarte <b>Fit-Kurve</b> können Sie sehen, dass die Kurve nicht durch einen der Punkte weiter oben verläuft.<br>
+    <br>
+    <img alt="Image:Fit_Not_Through_Asymptote.png" src="../images/Fit_Curve_Through_Certain_Points/Fit_Not_Through_Asymptote.png" width="774" height="605" border="0"></li>
+
+    <li>Beachten Sie, dass im Arbeitsblatt der Rohdaten eine Spalte C vorbereitet ist und für den ersten und letzten Datenpunkt große Werte zugewiesen wurden. Wenn wir diese Spalte für die Gewichtung verwenden, erhalten die zwei Punkte mehr Einfluss auf die angepasste Kurve und 'zwingen' die Kurve daher, durch diese zwei Punkte zu verlaufen.<br>
+    <br>
+    <img alt="Image:Large_Weight_for_Asymptote.png" src="../images/Fit_Curve_Through_Certain_Points/Large_Weight_for_Asymptote.png" width="343" height="261" border="0"><br>
+    <br>
+    Aktivieren Sie jetzt die Seite <b>Datenauswahl</b> auf der Registerkarte <b>Einstellungen</b>. Erweitern Sie den Zweig <b>Eingabedaten</b>, wie unten zu sehen, um die Option Gewichtung zu zeigen. Wählen Sie die Methode <b>Direkte Gewichtung</b> und weisen Sie Spalte <b>C</b> als Gewichtungsdatensatz zu. Klicken Sie auf die Schaltfläche <b>Fit bis konvergiert <img alt="Image:Button_Fit_Untill_Converged.png" src="../images/Fit_Curve_Through_Certain_Points/Button_Fit_Untill_Converged.png" width="26" height="23" border="0"></b>.<br>
+    <br>
+    <img alt="Image:Fit_Through_Asymptote.png" src="../images/Fit_Curve_Through_Certain_Points/Fit_Through_Asymptote.png" width="710" height="606" border="0"><br>
+    <br>
+    Die Ergebnisvorschau zeigt, dass die angepasste Kurve durch den ersten und letzten Datenpunkt geht.</li>
+  </ol>

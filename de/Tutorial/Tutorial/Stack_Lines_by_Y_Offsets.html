@@ -1,0 +1,225 @@
+﻿<h1 class="firstHeading">Gestapelte Liniendiagramme mit Y-Versatz</h1>
+
+  <p class='urlname' style='display: none'>StackLine-YOffset</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Create_a_Stack_Line_Plot"><span class="tocnumber">3.1</span> <span class="toctext">Ein gestapeltes Liniendiagramm erstellen</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Customize_the_Stack_Line_Plot"><span class="tocnumber">3.2</span> <span class="toctext">Das gestapelte Liniendiagramm benutzerdefiniert anpassen</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#Add_XY_Scaler"><span class="tocnumber">3.3</span> <span class="toctext">XY-Skala hinzufügen</span></a></li>
+
+          <li class="toclevel-2 tocsection-7"><a href="#Drag_and_Change_Plot_Offset"><span class="tocnumber">3.4</span> <span class="toctext">Versatz der Zeichnungen ändern</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/Stack_Lines_by_Y_Offsets/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/Stack_Lines_by_Y_Offsets/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=383" target="_blank">Gestapeltes Browserdiagramm</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%">
+        <a class="image"><img alt="Website blog icon circle.png" src="../images/Stack_Lines_by_Y_Offsets/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Stack_Lines_by_Y_Offsets/Blog_Image_33x33px.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="http://blog.originlab.com/stack-lines-in-groups-with-y-offset" target="_blank">Gestapelte Liniendiagramme mit Y-Versatz</a></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie ein Diagramm mit gestapelten Linien mit Y-Versatz erstellen.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Stack Lines by Y Offsets tutorial 1.png" src="../images/Stack_Lines_by_Y_Offsets/Stack_Lines_by_Y_Offsets_tutorial_1.png" width="378"></a></dd>
+  </dl>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 2015 SR0</p>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Stack_Lines_by_Y_Offsets/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Neben den gestapelten einzelnen Liniendiagrammen, die in diesem Tutorial beschrieben werden können Sie gestapelte Liniendiagramm erstellen, die aus Untergruppen von Linien bestehen, wobei die Untergruppen versetzt werden. Siehe Einzelheiten unter <a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Stack_Tab.html#Offset_Between_Subgroup_.28in_Group_tab.29_for_Constant.2FAuto">Registerkarte Stapeln (Details Zeichnung)</a>.</p>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <ul>
+    <li>Ein Diagramm mit gestapelten Linien und Y-Versatz erstellen</li>
+
+    <li>Ein rechteckiges Objekt benutzerdefiniert anpassen</li>
+
+    <li>Eine neue XY-Skala hinzufügen</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <p>Dieses Tutorial basiert auf dem Projekt <b>Tutorial Data</b>: <i>&lt;Origin-Verzeichnis&gt;\Samples\Tutorial Data.opj</i>.</p>
+
+  <h4><a name="Create_a_Stack_Line_Plot"></a><span class="mw-headline">Ein gestapeltes Liniendiagramm erstellen</span></h4>
+
+  <ol>
+    <li>Öffnen Sie das Projekt <b>Tutorial Data</b> und navigieren Sie zum Ordner <i>Stack Lines by Y Offsets</i> im <b>Projekt Explorer</b>.</li>
+
+    <li>Markieren Sie alle Spalten im Datenarbeitsblatt <b>Book6A</b> und wählen Sie dann im Menü <b>Zeichnen: Einfache 2D: Linien mit Y-Versatz</b>, um ein Diagramm mit gestapelten Linien mit Y-Versatz zu erstellen.</li>
+  </ol>
+
+  <h4><a name="Customize_the_Stack_Line_Plot"></a><span class="mw-headline">Das gestapelte Liniendiagramm benutzerdefiniert anpassen</span></h4>
+
+  <ol>
+    <li>Löschen Sie die folgenden Objekte, indem Sie sie markieren und dann die Taste <b>Entfernen</b> auf Ihrer Tastatur drücken:
+
+      <dl>
+        <dd>Legende</dd>
+
+        <dd>Y-Achse</dd>
+
+        <dd>Beschriftungen der Y-Achse</dd>
+
+        <dd>Titel der Y-Achse</dd>
+
+        <dd>Titel der X-Achse</dd>
+
+        <dd><a class="image"><img alt="Stack Lines by Y Offsets tutorial 2.png" src="../images/Stack_Lines_by_Y_Offsets/Stack_Lines_by_Y_Offsets_tutorial_2.png" width="421"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die X-Achse und wählen Sie in der Minisymbolleiste die Schalfläche <b>Achsenskalierung</b> <a class="image"><img alt="Axis Scale button.png" src="../images/Stack_Lines_by_Y_Offsets/Axis_Scale_button.png" width="24"></a>, um den Dialog <b>Achsenskalierung - X</b> zu öffnen. Setzen Sie den Wert für <b>Bis</b> auf <i>10</i>. Klicken Sie auf <b>OK</b>, um den Dialog zu schließen.
+
+      <dl>
+        <dd><a class="image"><img alt="Stack Lines by Y Offsets tutorial 3.png" src="../images/Stack_Lines_by_Y_Offsets/Stack_Lines_by_Y_Offsets_tutorial_3.png" width="254"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h4><a name="Add_XY_Scaler"></a><span class="mw-headline">XY-Skala hinzufügen</span></h4>
+
+  <ol>
+    <li>Klicken Sie auf die Schaltfläche <b>Rechteck</b> in der Symbolleiste <b>Hilfsmittel</b> und erstellen Sie ein Rechteck auf dem Diagramm.</li>
+
+    <li>Klicken Sie doppelt auf das Rechteck, um den Dialog Eigenschaften zu öffnen. Ändern Sie die folgenden Einstellungen.
+
+      <dl>
+        <dd>
+          Registerkarte <b>Füllen</b>
+
+          <dl>
+            <dd><b>Füllfarbe</b> = Hellgelb</dd>
+          </dl>
+        </dd>
+
+        <dd><a class="image"><img alt="Stack Lines by Y Offsets tutorial 4.png" src="../images/Stack_Lines_by_Y_Offsets/Stack_Lines_by_Y_Offsets_tutorial_4.png" width="458"></a></dd>
+
+        <dd>
+          Registerkarte <b>Dimension</b>
+
+          <dl>
+            <dd><b>Einheit</b> = Skala</dd>
+
+            <dd><b>Links</b> = 0,25</dd>
+
+            <dd><b>Oben</b> = 9000</dd>
+
+            <dd><b>Rechts</b> = 3,75</dd>
+
+            <dd><b>Unten</b> = 5000</dd>
+          </dl>
+        </dd>
+
+        <dd><a class="image"><img alt="Stack Lines by Y Offsets tutorial 5.png" src="../images/Stack_Lines_by_Y_Offsets/Stack_Lines_by_Y_Offsets_tutorial_5.png" width="458"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf OK, um den Dialog <b>Objekteigenschaften</b> zu schließen.</li>
+
+    <li>Wählen Sie <b>Einfügen: XY-Skalierer</b> im Origin-Menü, um einen neue XY-Skalierer zu erstellen.</li>
+
+    <li>Klicken Sie doppelt auf die Skala, um den Dialog <b>Eigenschaften Skala</b> zu öffnen. Legen Sie folgende Eigenschaften im Dialog fest:
+
+      <dl>
+        <dd>
+          Zweig <b>Schrifteinstellungen</b>
+
+          <dl>
+            <dd><b>Schriftgröße</b> = 24</dd>
+          </dl>
+        </dd>
+
+        <dd>
+          Zweig <b>X</b>
+
+          <dl>
+            <dd><b>Länge (Skala)</b> = 2</dd>
+
+            <dd><b>Titel</b> = 2</dd>
+          </dl>
+        </dd>
+
+        <dd>
+          Zweig <b>Y</b>
+
+          <dl>
+            <dd><b>Position</b> = Rechts</dd>
+
+            <dd><b>Länge (Skala)</b> = 2500</dd>
+
+            <dd><b>Titel</b> = 2500</dd>
+          </dl>
+        </dd>
+
+        <dd><a class="image"><img alt="Stack Lines by Y Offsets tutorial 6.png" src="../images/Stack_Lines_by_Y_Offsets/Stack_Lines_by_Y_Offsets_tutorial_6.png" width="274"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf OK, um den Dialog <b>Eigenschaften Skala</b> zu schließen.</li>
+
+    <li>Verschieben Sie das Skalaobjekt auf das von Ihnen erstellte Rechteck.</li>
+  </ol>
+
+  <h4><a name="Drag_and_Change_Plot_Offset"></a><span class="mw-headline">Versatz der Zeichnungen ändern</span></h4>
+
+  <ol>
+    <li>Klicken Sie einmal auf die obere Datenzeichnung, um sie auszuwählen.
+
+      <dl>
+        <dd><a class="image"><img alt="Stack Lines by Y Offsets tutorial 7.png" src="../images/Stack_Lines_by_Y_Offsets/Stack_Lines_by_Y_Offsets_tutorial_7.png" width="500"></a></dd>
+      </dl>
+    </li>
+
+    <li>Ziehen Sie mit der Maus, um die Datenzeichnung zu verschieben.
+
+      <dl>
+        <dd><a class="image"><img alt="Stack Lines by Y Offsets tutorial 8.png" src="../images/Stack_Lines_by_Y_Offsets/Stack_Lines_by_Y_Offsets_tutorial_8.png" width="500"></a></dd>
+
+        <dd><b>Hinweis:</b> Alternativ können Sie zur Registerkarte <b>Versatz</b> im Dialog <b>Details Zeichnung</b> gehen und den Y-Versatz dort ändern.</dd>
+      </dl>
+    </li>
+  </ol>

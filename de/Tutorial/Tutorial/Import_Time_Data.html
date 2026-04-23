@@ -1,0 +1,100 @@
+﻿<h1 class="firstHeading">Zeitdaten importieren</h1>
+
+  <p class='urlname' style='display: none'>Import-Time-Data</p>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Das Importieren von Datums-/Zeit-Daten wurde für die neueren Versionen von Origin stark verbessert. <b>Origin 2020b</b> fügte einen verbesserten Import von Datums-/Zeitdaten für den <a class="external text" href="../../UserGuide/UserGuide/Connecting_to_File.html#Text.2FCSV_Connector"><b>Text-/CSV-Konnektor</b></a> hinzu und <b>Origin 2021</b> verbesserte den Umgang mit Datums/-Zeitdaten beim <a class="external text" href="../../QuickHelp/QuickHelp/How_to_paste_date_time_from_Excel.html">Kopieren/Einfügen von MS Excel</a>.</p>
+
+  <p>Es kann jedoch noch immer vorkommen, dass ein Datums-/Zeitformat nicht automatisch von Origin verarbeitet wird. Wenn das passiert, können Sie Origins Importassistenten verwenden, damit er Ihnen beim Analysieren und Formatieren der Datums-/Zeitdaten hilft. Dieses Tutorial zeigt Ihnen, wie Sie solch ein benutzerdefiniertes Datums-/Zeitformat mit Hilfe des Importassistenten importieren.</p>
+
+  <p>&#160;</p>
+
+  <p class="version">Origin-Version mind. erforderlich: 8.0 SR3</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial umfasst:</p>
+
+  <ul>
+    <li>Importieren von Daten mit mehreren Trennzeichen</li>
+
+    <li>Definieren eines benutzerdefinierten Formats für Datum/Zeit</li>
+
+    <li>Ändern der Anzeigeeinstellungen für das benutzerdefinierte Format für Datum/Zeit</li>
+
+    <li>Wie werden Importeinstellungen in einem Filter für die erneute Verwendung gespeichert?</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <ol>
+    <li>Wir importieren in diesem Tutorial die Datei <i>\Samples\Import and Export\Custom Date and Time.dat</i>. Vor Importieren der Datei werfen wir zuerst einen Blick auf die Datenstruktur.<br>
+      <br>
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Import Time Data 005.png" src="../images/Import_Time_Data/Tutorial_Import_Time_Data_005.png" width="330"></a><br>
+        <br></dd>
+      </dl>Zwischen <i>Datum</i> und <i>Zeit</i> wird ein Leerzeichen angezeigt. Zum Trennen der<i>Zeit</i> vom Rest der Daten wird eine Registerkarte verwendet. Daher benutzen wir mehrere Trennzeichen, um diese Datemdatei zu importieren.
+    </li>
+
+    <li>Öffnen Sie die Datei im <span class="db">Importassistenten</span>. Akzeptieren Sie die Standardeinstellungen auf allen Seiten, bis sie zur Seite <b>Datenspalten</b> gelangen. Origin verwendet standardmäßig die Registerkarte, um die Daten in zwei Spalten zu unterteilen. Aktivieren Sie zum Unterteilen von <i>Datum</i> und <i>Zeit</i> das Kontrollkästchen <b>Tab/Leerzeichen</b> in der Gruppe <b>Trennzeichen</b>.<br>
+      <br>
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Import Time Data 010.png" src="../images/Import_Time_Data/Tutorial_Import_Time_Data_010.png" width="741"></a><br>
+        <br></dd>
+      </dl>Beachten Sie im Vorschaufeld, dass der Spaltentitel <b>A(Y)(T&amp;N)</b> ist, wobei <b>(T&amp;N)</b> das Datenformat <i>Text &amp; Numerisch</i> bedeutet. Da das Datum "." zum Trennen von Tag, Monat und Jahr verwendet, verwendet Origin standardmäßig die erste Spalte als<i>Text</i>. Für die zweite Spalte <i>Zeit</i> zeigt Origin die zugrunde liegenden Werte. Um Daten korrekt zu importieren, sollten die Spalteneigenschaften geändert werden.
+    </li>
+
+    <li>Geben Sie im Bearbeitungsfeld <b>Benutzerdefiniertes Datumsformat</b> ein:<br>
+      <br>
+
+      <dl>
+        <dd><code>dd'.'MM'.'yyyy</code><br>
+        <br></dd>
+      </dl>wobei <i>dd</i>, <i>MM</i> und <i>yyyy</i> jeweils die Tage, Monate und das Jahr bedeuten. Da der "." als Trennzeichen verwendet wird, brauchen wir einfache Anführungszeichen bei der Formatspezifizierung. Nach Eingabe des benutzerdefinierten Formats drücken Sie auf die Schaltfläche <b>Anwenden</b> neben dem Bearbeitungsfeld. Klicken Sie dann mit der rechten Maustaste auf den Header der ersten Spalte in der Vorschau und wählen Sie <i>Datum</i> aus dem Kontextmenü:<br>
+      <br>
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Import Time Data 015.png" src="../images/Import_Time_Data/Tutorial_Import_Time_Data_015.png" width="627"></a><br>
+        <br></dd>
+      </dl>Der Spaltentitel ändert sich dann in <b>A(Y)(D)</b>, was bedeutet, dass es sich nun um eine Datenspalte für <i>Datum</i> handelt.
+    </li>
+
+    <li>Gleichermaßen klicken Sie mit der rechten Maustaste auf den Header der zweiten Spalte und wählen Sie <i>Zeit</i>, um diese Spalte als Zeitspalte zu setzen:<br>
+      <br>
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Import Time Data 020.png" src="../images/Import_Time_Data/Tutorial_Import_Time_Data_020.png" width="627"></a><br>
+        <br></dd>
+      </dl>Die Zeitdatenanzeige ist jetzt im langen Format zu sehen. Wir können die Anzeigeeinstellungen nach dem Import ändern.
+    </li>
+
+    <li>Klicken Sie 2x auf <b>Weiter</b>, um zur Seite <b>Filter speichern</b> zu gelangen. Aktivieren Sie das Kontrollkästchen <b>Filter speichern</b> und die Option <b>Im Ordner Anwenderdateien</b>, um die Importeinstellungen in einem Filter zu speichern. Geben Sie den Filterdateinamen als <b>Benutzerdefiniertes Datum und Zeit</b> im Bearbeitungsfeld <b>Dateiname Filter (.OIF Erweiterung wird angehängt)</b> ein.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Fertigstellen</b>, um die Datei zu importieren. Klicken Sie dann doppelt auf den zweiten Spaltentitel, um das Dialogfeld <span class="db">Spalteneigenschaften</span> zu öffnen, und setzen Sie die Zeitanzeige als:<br>
+      <br>
+
+      <dl>
+        <dd><code>HH:mm:ss.##</code><br>
+        <br></dd>
+      </dl>Die endgültigen Arbeitsblattdaten nach dem Import werden folgendermaßen dargestellt:<br>
+      <br>
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Import Time Data 025.png" src="../images/Import_Time_Data/Tutorial_Import_Time_Data_025.png" width="369"></a></dd>
+      </dl>
+    </li>
+
+    <li>Öffnen Sie den Windows Explorer und navigieren Sie zum Ordner <i>\Samples\Import and Export\</i>. Suchen Sie die Datei <i>Custom Date and Time.dat</i> heraus und ziehen Sie sie per Drag&amp;Drop in den Origin-Arbeitsbereich. Der Dialog <b>Filter auswählen</b> wird geöffnet und fordert Sie auf, einen Filter auszuwählen.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Import Time Data 026.png" src="../images/Import_Time_Data/Tutorial_Import_Time_Data_026.png" width="285"></a><br></dd>
+      </dl>Wählen Sie den Filter <b>Benutzerdefiniertes Datum und Zeit</b> aus, den Sie gerade gespeichert haben. Er wird verwendet, um die Datei zu importieren.
+    </li>
+  </ol>
+
+  <p><b>Hinweis:</b> Im Fall dieser besonderen Datendatei hat die erste Spalte genau dasselbe Datum in jeder Zeile. Zu diesem Zeitpunkt möchten Sie vielleicht diese erste Spalte auf Ignorieren setzen, indem Sie mit der rechten Maustaste auf den Spaltenheader klicken und <i>Ignorieren</i> aus dem Kontextmenü auswählen. Dann können Sie die 2. Spalte als Typ X setzen und die Daten in der dritten Spalte gegen die Zeitdaten in der 2. Spalte zeichnen.</p>
+
+  <p>&#160;</p>

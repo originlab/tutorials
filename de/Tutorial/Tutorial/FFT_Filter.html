@@ -1,0 +1,150 @@
+﻿<h1 class="firstHeading">FFT-Filter</h1>
+
+  <p class='urlname' style='display: none'>FFT-Filter</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#Low-pass_Filter"><span class="tocnumber">3</span> <span class="toctext">Tiefpassfilter</span></a></li>
+
+      <li class="toclevel-1 tocsection-4"><a href="#Band-pass_Filter"><span class="tocnumber">4</span> <span class="toctext">Bandpassfilter</span></a></li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%"><a class="image"><img alt="Video Image.png" src="../images/FFT_Filter/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/FFT_Filter/Video_Text_Image.png" width="135"></a></td>
+
+      <td style="width: 40%">
+        <a class="image"><img alt="Website blog icon circle.png" src="../images/FFT_Filter/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/FFT_Filter/Blog_Image_33x33px.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="http://blog.originlab.com/how-to-remove-dc-offset-before-performing-fft" target="_blank">Wie wird ein DC-Offset vor dem Durchführen einer FFT entfernt?</a></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Origin enthält einen FFT-Filter, der Filterung mit Hilfe der Fourier-Transformation durchführt, mit der die Frequenzkomponenten im Eingabedatensatz analysiert werden.</p>
+
+  <p>Es gibt sechs Filtertypen in der Funktion des FFT-Filters: Tiefpass, Hochpass, Bandpass, Bandblock und Schwellenwert und Tiefpass Parabolisch. Tiefpassfilter blocken alle Frequenzkomponenten über der Grenzfrequenz, so dass nur die niedrigen Frequenzkomponenten durchkommen. Hochpassfilter sind genau das Gegenteil: Sie blocken die Frequenzkomponenten, die unter der Grenzfrequenz liegen.</p>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie eine Filterung mit Tiefpass und Bandpass mit Hilfe des FFT-Filters von Origin durchgeführt wird.</p>
+
+  <p>&#160;</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>eine Tiefpassfilterung durchführen.</li>
+
+    <li>eine Bandpassfilterung durchführen.</li>
+  </ul>
+
+  <h2><a name="Low-pass_Filter"></a><span class="mw-headline">Tiefpassfilter</span></h2>
+
+  <ol>
+    <li>Öffnen Sie eine leere Arbeitsmappe. Wählen Sie <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b> im Menü, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner <i>Signal Processing</i>. Dort befindet sich die Datei <i>Origin 8 Message.wav</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das leere Arbeitsblatt, um sie zu importieren.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial FFT Filter 001.png" src="../images/FFT_Filter/Tutorial_FFT_Filter_001.png" width="321"></a></dd>
+      </dl>
+    </li>
+
+    <li>Markieren Sie Spalte A(Y) und klicken Sie auf die Schaltfläche <b>Linie</b> <a class="image"><img alt="Button Line.png" src="../images/FFT_Filter/Button_Line.png" width="22"></a> auf der Symbolleiste <b>2D-Grafiken</b>, um ein Liniendiagramm zu erstellen.</li>
+
+    <li>Dieses Signal ist eine Schallwelle. Es ist bereits bekannt, dass die Hochfrequenzkomponenten als Rauschen betrachtet werden können und blockiert werden sollten. Deswegen wird die Methode <b>Tiefpass</b> im Hilfsmittel <b>FFT-Filter</b> verwendet, um grob die tiefen Frequenzkomponenten für die weitere Analyse zu vermitteln.</li>
+
+    <li>Stellen Sie sicher, dass das Liniendiagramm aktiv ist, und wählen Sie dann <b>Analyse: Signalverarbeitung: FFT-Filter</b>, um den Dialog zu öffnen.</li>
+
+    <li>Stellen Sie sicher, dass der <b>Filtertyp</b> auf <b>Tiefpass</b> gesetzt ist.</li>
+
+    <li>Aktivieren Sie das Kontrollkästchen <b>Automatische Vorschau</b>, um das Bedienfeld <b>Vorschau</b> zu aktivieren.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial FFT Filter 002 v.png" src="../images/FFT_Filter/Tutorial_FFT_Filter_002_v.png" width="516"></a></dd>
+
+        <dd>Die oberen beiden Bilder zeigen das Signal in der Zeitdomäne, während das untere Bild das Signal in der Frequenzdomäne nach der Fast-Fourier-Transformation zeigt. Die X-Position der roten vertikalen Linie entspricht dem Wert für die Grenzfrequenz. Indem Sie die vertikale Linie horizontal verschieben, können Sie die Vorschau des Vergleichs zwischen dem ursprünglichen Signal und dem gefilterten Signal in Echtzeit im oberen Bereich des Bedienfelds sehen.</dd>
+      </dl>
+    </li>
+
+    <li>Verschieben Sie die vertikale Linie in die X-Position der Peakamplitude (wie im Bild unten zu sehen). Beachten Sie, dass während dieses Schritts von Menschen verursachte Fehler entstehen können. Dies ist allerdings akzeptabel, da hier das Signal nur grob gefiltert werden soll.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial FFT Filter 009 v.png" src="../images/FFT_Filter/Tutorial_FFT_Filter_009_v.png" width="485"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um den FFT-Filter auf das ursprüngliche Signal anzuwenden.</li>
+
+    <li>Das Signal nach der Filterung wird zu der Datenzeichnung des ursprünglichen Signals hinzugefügt. Wählen Sie <b>Grafik: Entwurfsmodus</b> und schalten Sie den Entwurfsmodus in diesem Diagramm aus. Das Diagramm sollte am Ende folgendermaßen aussehen:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial FFT Filter 004.png" src="../images/FFT_Filter/Tutorial_FFT_Filter_004.png" width="524"></a></dd>
+      </dl>
+    </li>
+
+    <li>In dem Ergebnisdiagramm können Sie sehen, dass die Hochfrequenzkomponenten von dem Tiefpass-FFT-Filter blockiert werden.</li>
+  </ol>
+
+  <h2><a name="Band-pass_Filter"></a><span class="mw-headline">Bandpassfilter</span></h2>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe. Wählen Sie <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b> im Menü, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner <i>Signal Processing</i>. Dort befindet sich die Datei <i>fftfilter3.dat</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das leere Arbeitsblatt, um sie zu importieren.</li>
+
+    <li>Markieren Sie Spalte B und klicken Sie auf die Schaltfläche <b>Linie</b> <a class="image"><img alt="Button Line.png" src="../images/FFT_Filter/Button_Line.png" width="22"></a> auf der Symbolleiste für <b>2D-Grafiken</b>, um ein Liniendiagramm zu erstellen.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial FFT Filter 008.png" src="../images/FFT_Filter/Tutorial_FFT_Filter_008.png" width="509"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie bei aktivem Diagramm im Menü <b>Analyse: Signalverarbeitung: FFT-Filter</b>. Der Dialog <b>fft_filters</b> wird geöffnet.</li>
+
+    <li>Aktivieren Sie das Kontrollkästchen <b>Automatische Vorschau</b>, um das Bedienfeld <b>Vorschau</b> zu aktivieren.</li>
+
+    <li>Aus der Frequenzdomäne (Bild unten) können Sie ersehen, dass dieses Signal Komponenten auf mehreren unterschiedlichen Frequenzen hat. Jetzt ermitteln Sie die Komponente um ca. 300Hz. Verwenden Sie die Methode <b>Bandpass</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial FFT Filter 005.png" src="../images/FFT_Filter/Tutorial_FFT_Filter_005.png" width="626"></a></dd>
+      </dl>
+    </li>
+
+    <li>Legen Sie den <b>Filtertyp</b> auf <b>Bandpass</b> fest.
+
+      <dl>
+        <dd>Sobald <b>Bandpass</b> gewählt wird, sind zwei vertikale rote Linien in dem Vorschaufeld zu sehen, die sich auf die untere und die obere Grenzfrequenz beziehen. Entsprechend können Sie diese beiden Linien verschieben und die Echtzeitvorschau der Filterungsergebnisse in dem oberen Bereich dieses Bedienfelds erhalten.</dd>
+      </dl>
+    </li>
+
+    <li>Geben Sie die Werte der unteren und oberen Grenzfrequenz gemäß dem untenstehenden Bild ein:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial FFT Filter 006.png" src="../images/FFT_Filter/Tutorial_FFT_Filter_006.png" width="740"></a></dd>
+
+        <dd>Solange sich nur der gewünschte Amplitudenpeak innerhalb des Grenzfrequenzbereichs befindet, sollte der Fehler beim Filtern als akzeptabel betrachtet werden, auch wenn die Werte der oberen und unteren Grenzfrequenz sich leicht für verschiedene Fälle unterscheiden können.</dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie zum Ausführen der Filterung auf <b>OK</b>.</li>
+
+    <li>Sie erhalten die Komponenten bei einer Frequenz von um die 300 Hz nach der Filterung.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial FFT Filter 007.png" src="../images/FFT_Filter/Tutorial_FFT_Filter_007.png" width="565"></a></dd>
+      </dl>
+    </li>
+  </ol>

@@ -1,0 +1,167 @@
+﻿<h1 class="firstHeading">Zweifache ANOVA mit gemischtem Design</h1>
+
+  <p class='urlname' style='display: none'>2Way-Mixed-Design-ANOVA</p>
+
+  <p>&#160;</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#User_Story"><span class="tocnumber">3</span> <span class="toctext">Anwenderbericht</span></a></li>
+
+      <li class="toclevel-1 tocsection-4"><a href="#Preparing_Analysis_Data"><span class="tocnumber">4</span> <span class="toctext">Analysedaten vorbereiten</span></a></li>
+
+      <li class="toclevel-1 tocsection-5"><a href="#Performing_Two-Way_Mixed-Design_ANOVA"><span class="tocnumber">5</span> <span class="toctext">Zweifache ANOVA mit gemischtem Design durchführen</span></a></li>
+
+      <li class="toclevel-1 tocsection-6"><a href="#Interpreting_the_Results"><span class="tocnumber">6</span> <span class="toctext">Ergebnisse interpretieren</span></a></li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Die zweifache ANOVA mit gemischtem Design ist auch unter dem Namen zweifaches Split-Plot-Design (SPANOVA) bekannt. Es handelt sich hierbei um eine ANOVA eines Faktors mit wiederholten Messungen und einem Faktor zwischen den Gruppen.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: 2016 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>die zweifache ANOVA mit gemischtem Design durchführen,</li>
+
+    <li>die Ergebnisse der zweifachen ANOVA mit gemischtem Design interpretieren.</li>
+  </ul>
+
+  <h2><a name="User_Story"></a><span class="mw-headline">Anwenderbericht</span></h2>
+
+  <p>Ein Forscher möchte wissen, ob eine Behandlung Menschen beim Abnehmen helfen kann. Es nehmen 48 Personen (24 männlich) an der Untersuchung teil. Die Forscher zeichneten ihre Gewichte alle drei Monate während des Behandlungsprogramms auf.</p>
+
+  <h2><a name="Preparing_Analysis_Data"></a><span class="mw-headline">Analysedaten vorbereiten</span></h2>
+
+  <p>Um die zweifache ANOVA mit gemischtem Design durchzuführen, werden die Daten wie unten angeordnet.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Mixed design anova 1.png" src="../images/Two_Way_Mixed_Design_ANOVA/400px-Mixed_design_anova_1.png" width="400"></a></dd>
+  </dl>
+
+  <table class="note">
+    <tr>
+      <td><b>Hinweise:</b> Die Daten können auch im Indexmodus für die zweifache ANOVA mit gemischtem Design angeordnet werden. Daten für den Indexmodus dieses Tutorials finden Sie unter den Beispieldaten in \Samples\Statistics\ANOVA\two-way rm ANOVA1_indexed.dat.</td>
+    </tr>
+  </table>
+
+  <h2><a name="Performing_Two-Way_Mixed-Design_ANOVA"></a><span class="mw-headline">Zweifache ANOVA mit gemischtem Design durchführen</span></h2>
+
+  <ol>
+    <li>Öffnen Sie ein neues Projekt oder eine neue Arbeitsmappe. Importieren Sie die Datendatei <i>\Samples\Statistics\ANOVA\two-way rm ANOVA1_raw.dat</i>.</li>
+
+    <li>Wählen Sie <b>Statistik: ANOVA: Zweifache ANOVA mit wiederholten Messungen</b> im Origin-Menü.</li>
+
+    <li>Wählen Sie im geöffneten Dialog die Registerkarte <b>Eingabe</b>.
+
+      <ul>
+        <li>Setzen Sie die <b>Eingabedaten</b> auf <b>Roh</b>.</li>
+
+        <li>Erweitern Sie den Zweig <b>Faktor A</b>, ändern Sie den <b>Namen</b> in <b>Gewicht</b> und setzen Sie die <b>Anzahl der Stufen</b> auf 3. Erweitern Sie den Zweig <b>Faktor B</b>, ändern Sie den <b>Namen</b> in <b>Geschlecht</b> und deaktivieren Sie das Kontrollkästchen <b>Wiederholen</b>.</li>
+
+        <li>Setzen Sie im Zweig <b>Daten</b> die Spalten <b>C</b>, <b>D</b> und <b>E</b> auf <b>Gewicht Stufe1</b>, <b>Gewicht Stufe2</b> bzw. <b>Gewicht Stufe3</b> und die Spalte <b>B</b> auf <b>Geschlecht</b>.</li>
+
+        <li>Aktivieren Sie das Kontrollkästchen <b>Wechselwirkungen</b>.</li>
+      </ul>
+
+      <dl>
+        <dd><a class="image"><img alt="Mixed design anova 2.png" src="../images/Two_Way_Mixed_Design_ANOVA/800px-Mixed_design_anova_2.png" width="800"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie die Registerkarte <b>Deskriptive Statistik</b>. Aktivieren Sie alle Kontrollkästchen.
+
+      <dl>
+        <dd><a class="image"><img alt="Mixed design anova 3.png" src="../images/Two_Way_Mixed_Design_ANOVA/Mixed_design_anova_3.png" width="327"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie die Registerkarte <b>Mittelwertevergleich</b> und aktivieren Sie das Kontrollkästchen <b>Bonferroni</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Mixed design anova 4.png" src="../images/Two_Way_Mixed_Design_ANOVA/Mixed_design_anova_4.png" width="327"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um die Analyse durchzuführen.</li>
+  </ol>
+
+  <h2><a name="Interpreting_the_Results"></a><span class="mw-headline">Ergebnisse interpretieren</span></h2>
+
+  <p>Wechseln Sie zum Arbeitsblatt <b>ANOVATwoWayRM1</b>, in dem die Analyseergebnisse aufgeführt sind.</p>
+
+  <p>Sie können diese <a class="external text" href="../../UserGuide/UserGuide/Interpreting_Results_of_Repeated_Measures_ANOVA.html">Seite der Hilfe zum Interpretieren von Ergebnissen</a> verwenden, um die Ergebnisse der ANOVA mit wiederholten Messungen zu interpretieren. .</p>
+
+  <ol>
+    <li>Aus der Tabelle von <b>Mauchlys Test der Sphärizität</b> können wir ersehen, dass <b>Wahrsch. &gt; ChiQdr</b> (0,01258) &lt; 0,05. Die wiederholte Messungsvariable <b>Weight (Gewicht)</b> erfüllt also die Sphärizitätsannahme nicht. Die <b>Greenhouse-Geisser</b>-Korrektur etc. sollte in Betracht gezogen werden. Während das Epsilon größer als 0,75 ist, sehen wir uns die Korrekturen nach Huynh und Feldt in Schritt 2 unten an.
+
+      <dl>
+        <dd><a class="image"><img alt="Mixed design anova 6.png" src="../images/Two_Way_Mixed_Design_ANOVA/700px-Mixed_design_anova_6.png" width="700"></a></dd>
+      </dl>
+    </li>
+
+    <li>Der Tabelle <b>Tests innerhalb der Subjekte</b> können Sie Folgendes entnehmen:
+
+      <ul>
+        <li>Für <b>Gewicht</b> ist der p-Wert ungefähr 0 in der Spalte <b>Wahrsch. &gt; F</b> . Er weist darauf hin, dass das Gewicht eine signifikante Wirkung, das heißt, die Gewichte ändern sich mit der Zeit.</li>
+
+        <li>Die Wechselwirkung <b>Weight*Gender</b> (Gewicht*Geschlecht) ist nicht signifikant unterschiedlich (p-Wert = 0,14025). Es lässt sich schlussfolgern, dass es keinen signifikanten Wechslungswirkungseffekt <b>Weight*Gender</b> gibt.</li>
+      </ul>
+
+      <dl>
+        <dd><a class="image"><img alt="Mixed design anova 7.png" src="../images/Two_Way_Mixed_Design_ANOVA/650px-Mixed_design_anova_7.png" width="650"></a></dd>
+      </dl>
+    </li>
+
+    <li>Sie können weiterhin untersuchen, wie die Gewichte sich über die Zeit während der Behandlung ändern. Erweitern Sie den Zweig <b>Gewicht</b>. Der Tabelle können Sie entnehmen:
+
+      <ul>
+        <li>Die Tabelle <b>Deskriptive Statistik</b> zeigt, dass die Gewichte geringer werden.</li>
+
+        <li>In der Tabelle <b>Paarweiser Vergleich</b> weist die <b>1</b> in der Spalte <b>Sig Flag</b> darauf hin, dass das Paar der Gruppe signifikant unterschiedlich ist. Sie können die Schlussfolgerung ziehen, dass die Gewichte sich signifikant verringern.</li>
+      </ul>
+
+      <dl>
+        <dd><a class="image"><img alt="Mixed design anova 9.png" src="../images/Two_Way_Mixed_Design_ANOVA/800px-Mixed_design_anova_9.png" width="800"></a></dd>
+      </dl>
+    </li>
+
+    <li>Der Tabelle <b>Tests der Zwischen-Subjekt-Effekte</b> können Sie entnehmen, dass <b>Geschlecht</b> eine signifikante Wirkung hat, das heißt, Weiblich und Männlich können signifikant unterschiedlich sein.
+
+      <dl>
+        <dd><a class="image"><img alt="Mixed design anova 8.png" src="../images/Two_Way_Mixed_Design_ANOVA/Mixed_design_anova_8.png" width="480"></a></dd>
+      </dl>
+    </li>
+
+    <li>Einzelheiten sehen Sie im Zweig <b>Geschlecht</b>.
+
+      <ul>
+        <li>Es gibt nur zwei Stufen für Geschlecht. Sie wissen bereits, dass sie signifikant unterschiedlich sind. Daher müssen sie keinen Blick auf die Tabelle des <b>Paarweisen Vergleichs</b> werfen.</li>
+
+        <li>Aus der Tabelle der <b>Deskriptiven Statistik</b> können Sie ersehen, dass das durchschnittliche Gewicht der Männer höher ist als das der Frauen.</li>
+      </ul>
+
+      <dl>
+        <dd><a class="image"><img alt="Mixed design anova 10.png" src="../images/Two_Way_Mixed_Design_ANOVA/350px-Mixed_design_anova_10.png" width="350"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <table class="note">
+    <tr>
+      <td><b>Hinweise</b>: Da es keine ernste Verletzung der Annahme von Sphärizität gibt, können Sie die Tabelle <b>Multivariate Tests</b> ignorieren. Weitere Einzelheiten finden Sie auf der <a class="external text" href="../../UserGuide/UserGuide/Interpreting_Results_of_Repeated_Measures_ANOVA.html#Multivariate_Tests">Hilfsseite zum Interpretieren der Ergebnisse</a>.</td>
+    </tr>
+  </table>

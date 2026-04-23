@@ -1,0 +1,283 @@
+﻿<h1 class="firstHeading">Anpassen der Integralfunktion mit parametrischer Grenze mit Hilfe der NAG-Bibliothek</h1>
+
+  <p>&#160;</p><a name="Summary"></a>
+
+  <h2><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Bevor Sie sich in dieses Tutorial vertiefen, empfehlen wir Ihnen, zunächst das relevante Tutorial in <a href="../../Tutorial/Tutorial/Fitting_with_Integral_using_NAG_Library.html" tutorial:fitting="" with="" integral="" using="" nag="">Anpassen mit Integralfunktion mit Hilfe der NAG-Bibliothek</a> zu lesen. Im Bezug auf die Programmierung sind die beiden Tutorials grundlegend gleich, außer das Sie in diesem hier lernen werden, wie Sie eine Origin C-Anpassungsfunktion mit Anpassungsparametern innerhalb der Integralgrenze definieren, während in dem vorherigen Tutorial eine unabhängige Anpassungsvariable innerhalb der Integralgrenze definiert wurde. Beachten Sie auch, dass hier <b>ein anderer NAG-Integrator</b> verwendet wird.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: 8.0 SR6</p><a name="What_you_will_learn"></a>
+
+  <h2><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>eine Anpassungsfunktion mit endlichem Integral mit Hilfe der NAG-Integrationsroutine erstellen,</li>
+
+    <li>eine Anpassungsfunktion mit einer parametrischen Integralgrenze erstellen,</li>
+
+    <li>eine logarithmische Funktion verwenden, um eine große Endanweisung aus der Anpassungsfunktion zu skalieren.</li>
+  </ul><a name="Example_and_Steps"></a>
+
+  <h2><span class="mw-headline">Beispiel und Schritte</span></h2>
+
+  <p>Wir passen die <a href="#Sample_Data" title="">Beispieldaten</a> unten auf dieser Seite mit dem folgenden Modell an:</p>
+
+  <dl>
+    <dd><img class="tex" alt="y=\int_{c}^{d} \frac { \cosh { ((x_i + b^2 \cdot x^2) /(b + x))}}{a+(x_i^2+x^2)}\, dx_i" src="../images/math/5/3/1/531c094d62c9bf5d0007d64d3cbdbc9c.png"></dd>
+  </dl>
+
+  <p>Beachten Sie, dass wir <img class="tex" alt="x_i \," src="../images/math/a/c/8/ac840fba3ce6957bef1a8b6fd5044da3.png"> verwenden, um auf die unabhängige Integralvariable hinzuweisen, während <img class="tex" alt="X" src="../images/math/6/b/2/6b206a28e60f665e235f89f460448467.png"> auf die unabhängige Anpassungsvariable hinweist. Die Modellparameter <span class="texhtml"><i>a</i></span>, <span class="texhtml"><i>b</i></span>, <span class="texhtml"><i>c</i></span> und <span class="texhtml"><i>d</i></span> sind angepasste Parameter, die wir aus den Beispieldaten erhalten wollen. Um die Daten vorzubereiten, müssen Sie die Beispieldaten nur in ein Origin-Worksheet kopieren. Der Anpassungsvorgang gleicht dem in dem vorherigen Tutorial:</p><a name="Define_Fitting_Function_in_Fitting_Function_Organizer"></a>
+
+  <h3><span class="mw-headline">Anpassungsfunktion in Fit-Funktionsorganizer definieren</span></h3>
+
+  <p>Drücken Sie <b>F9</b>, um den Fit-Funktionsorganizer zu öffnen und die anwenderdefinierte Integralfunktion <b><i>nag_integration_fitting_cosh</i></b> zur Kategorie <b><i>FittingWithIntegral</i></b> ähnlich wie beim ersten Tutorial hinzuzufügen.</p>
+
+  <dl>
+    <dd>
+      <table class="blank">
+        <tr>
+          <th width="150"></th>
+
+          <th></th>
+        </tr>
+
+        <tr>
+          <td><b>Funktionsname:</b></td>
+
+          <td>nag_integration_fitting_cosh</td>
+        </tr>
+
+        <tr>
+          <td><b>Funktionstyp:</b></td>
+
+          <td>User-Defined</td>
+        </tr>
+
+        <tr>
+          <td><b>Unabhängige Variable:</b></td>
+
+          <td>x</td>
+        </tr>
+
+        <tr>
+          <td><b>Abhängige Variable:</b></td>
+
+          <td>y</td>
+        </tr>
+
+        <tr>
+          <td><b>Parameternamen:</b></td>
+
+          <td>a, b, c, d</td>
+        </tr>
+
+        <tr>
+          <td><b>Funktionsform:</b></td>
+
+          <td><font color="blue">Origin C</font></td>
+        </tr>
+
+        <tr>
+          <td><b>Funktion:</b></td>
+
+          <td></td>
+        </tr>
+      </table>
+    </dd>
+  </dl>
+
+  <p>Klicken Sie auf die Schaltfläche (Symbol) neben dem Feld <b>Funktion</b>, um den Code Builder zu öffnen und die Anpassungsfunktion folgendermaßen zu definieren und zu kompilieren: (<font color="red">Hinweis:</font> Denken Sie daran, die Funktion nach dem Kompilieren zu speichern und Sie an das Dialogfeld Funktionsorganizer zurückzugeben):</p>
+  <pre class="oc">
+<span class="hcp1">#include</span><span class="hcp2"> &lt;</span>origin.<span class="hcp3">h</span><span class="hcp2">&gt;</span>
+<span class="hcp4">// Add your special include files here.</span>
+<span class="hcp4">// For example, if you want to fit with functions from the NAG library, </span>
+<span class="hcp4">// add the header file for the NAG functions here.</span>
+<span class="hcp1">#include</span> <span class="hcp2">&lt;</span>oc_nag8.<span class="hcp3">h</span><span class="hcp2">&gt;</span>
+ 
+ 
+<span class="hcp4">// Add code here for other Origin C functions that you want to define in this file,</span>
+<span class="hcp4">// and access in your fitting function.</span>
+<span class="hcp1">struct</span> user
+<span class="hcp3">{</span>
+        <span class="hcp1">double</span> a, b, fitX;  <span class="hcp4">// fitX the independent variable of fitting function</span>
+ 
+<span class="hcp3">}</span>;
+<span class="hcp1">static</span><span class="hcp1"> double </span>NAG_CALL f_callback<span class="hcp3">(</span><span class="hcp1">double</span> x, Nag_User <span class="hcp5">*</span>comm<span class="hcp3">)</span>  <span class="hcp4">// x is the independent variable of the integrand</span> 
+<span class="hcp3">{</span>
+ 
+        <span class="hcp1">struct</span> user <span class="hcp5">*</span>sp <span class="hcp2">=</span> <span class="hcp3">(</span><span class="hcp1">struct</span> user <span class="hcp5">*</span><span class="hcp3">)</span><span class="hcp3">(</span>comm<span class="hcp5">-</span><span class="hcp2">&gt;</span>p<span class="hcp3">)</span>;
+ 
+        <span class="hcp1">double</span> aa, bb, fitX; <span class="hcp4">// temp variable to accept the parameters in the Nag_User communication struct</span>
+        aa <span class="hcp2">=</span> sp<span class="hcp5">-</span><span class="hcp2">&gt;</span>a;
+        bb <span class="hcp2">=</span> sp<span class="hcp5">-</span><span class="hcp2">&gt;</span>b;
+        fitX <span class="hcp2">=</span> sp<span class="hcp5">-</span><span class="hcp2">&gt;</span>fitX;
+ 
+        <span class="hcp1">return</span> <span class="hcp3">cosh</span><span class="hcp3">(</span><span class="hcp3">(</span>x<span class="hcp5">*</span>x<span class="hcp5">+</span>bb<span class="hcp5">*</span>bb<span class="hcp5">*</span>fitX<span class="hcp5">*</span>fitX<span class="hcp3">);</span><span class="hcp5">/</span><span class="hcp3">(</span>bb<span class="hcp5">+</span>fitX<span class="hcp3">)</span><span class="hcp3">)</span><span class="hcp5">/</span><span class="hcp3">(</span>aa<span class="hcp5">+</span><span class="hcp3">(</span>x<span class="hcp5">*</span>x<span class="hcp5">+</span>fitX<span class="hcp5">*</span>fitX<span class="hcp3">)</span><span class="hcp3">)</span>;
+<span class="hcp3">}</span>
+ 
+<span class="hcp4">// You can access C functions defined in other files, if those files are loaded and compiled </span>
+<span class="hcp4">// in your workspace, and the functions have been prototyped in a header file that you have</span>
+<span class="hcp4">// included above. </span>
+ 
+<span class="hcp4">// You can access NLSF object methods and properties directly in your function code.</span>
+ 
+<span class="hcp4">// You should follow C-language syntax in defining your function. </span>
+<span class="hcp4">// For instance, if your parameter name is P1, you cannot use p1 in your function code. </span>
+<span class="hcp4">// When using fractions, remember that integer division such as 1/2 is equal to 0, and not 0.5</span>
+<span class="hcp4">// Use 0.5 or 1/2.0 to get the correct value.</span>
+ 
+<span class="hcp4">// For more information and examples, please refer to the "User-Defined Fitting Function" </span>
+<span class="hcp4">// section of the Origin Help file.</span>
+ 
+<span class="hcp4">//----------------------------------------------------------</span>
+<span class="hcp4">// </span>
+<span class="hcp1">void</span> _nlsfnag_integration_fitting_cosh<span class="hcp3">(</span>
+<span class="hcp4">// Fit Parameter(s):</span>
+<span class="hcp1">double</span> a, <span class="hcp1">double</span> b, <span class="hcp1">double</span> c, <span class="hcp1">double</span> d,
+<span class="hcp4">// Independent Variable(s):</span>
+<span class="hcp1">double</span> x,
+<span class="hcp4">// Dependent Variable(s):</span>
+<span class="hcp1">double</span><span class="hcp5">&amp;</span> y<span class="hcp3">)</span>
+<span class="hcp3">{</span>
+        <span class="hcp4">// Beginning of editable part</span>
+        <span class="hcp1">double</span> epsabs <span class="hcp2">=</span> <span class="hcp6">0,00001</span>, epsrel <span class="hcp2">=</span> <span class="hcp6">0,0000001</span>, result, abserr;
+        Integer max_num_subint <span class="hcp2">=</span> <span class="hcp6">500</span>;  
+        <span class="hcp4">// you may use epsabs and epsrel and this quantity to enhance your desired precision </span>
+        <span class="hcp4">// when not enough precision encountered</span>
+ 
+        Nag_QuadProgress qp;
+        <span class="hcp1">static</span> NagError fail;
+ 
+        <span class="hcp4">// the parameters parameterize the integrand can be input to the call_back function</span>
+        <span class="hcp4">// through the Nag_User communication struct </span>
+        Nag_User comm;  
+        <span class="hcp1">struct</span> user s;
+        s.<span class="hcp3">a</span> <span class="hcp2">=</span> a;
+        s.<span class="hcp3">b</span> <span class="hcp2">=</span> b;
+        s.<span class="hcp3">fitX</span> <span class="hcp2">=</span> x;
+        comm.<span class="hcp3">p</span> <span class="hcp2">=</span> <span class="hcp3">(;</span>Pointer<span class="hcp3">);</span><span class="hcp5">&amp;</span>s;
+ 
+        d01sjc<span class="hcp3">(</span>f_callback, c, d, epsabs, epsrel, max_num_subint, <span class="hcp5">&amp;</span>result, <span class="hcp5">&amp;</span>abserr, <span class="hcp5">&amp;</span>qp, <span class="hcp5">&amp;</span>comm, <span class="hcp5">&amp;</span>fail<span class="hcp3">)</span>;
+ 
+ 
+        <span class="hcp4">// you may want to exam the error by printing out error message, just uncomment the following lines</span>
+        <span class="hcp4">// if (fail.code!= NE_NOERROR)</span>
+        <span class="hcp4">// printf("%s\n", fail.message);</span>
+ 
+ 
+        <span class="hcp4">// For the error other than the following three errors which are due to bad input parameters </span>
+        <span class="hcp4">// or allocation failure  NE_INT_ARG_LT  NE_BAD_PARAM   NE_ALLOC_FAIL</span>
+        <span class="hcp4">// You will need to free the memory allocation before calling the integration routine again to </span>
+        <span class="hcp4">// avoid memory leakage</span>
+        <span class="hcp1">if</span> <span class="hcp3">(</span>fail.<span class="hcp3">code</span> <span class="hcp5">!</span><span class="hcp2">=</span> NE_INT_ARG_LT <span class="hcp5">&amp;&amp;</span> fail.<span class="hcp3">code</span> <span class="hcp5">!</span><span class="hcp2">=</span> NE_BAD_PARAM <span class="hcp5">&amp;&amp;</span> fail.<span class="hcp3">code</span> <span class="hcp5">!</span><span class="hcp2">=</span> NE_ALLOC_FAIL<span class="hcp3">)</span>
+        <span class="hcp3">{</span>
+                NAG_FREE<span class="hcp3">(</span>qp.<span class="hcp3">sub_int_beg_pts</span><span class="hcp3">)</span>;
+                NAG_FREE<span class="hcp3">(</span>qp.<span class="hcp3">sub_int_end_pts</span><span class="hcp3">)</span>;
+                NAG_FREE<span class="hcp3">(</span>qp.<span class="hcp3">sub_int_result</span><span class="hcp3">)</span>;
+                NAG_FREE<span class="hcp3">(</span>qp.<span class="hcp3">sub_int_error</span><span class="hcp3">)</span>;
+        <span class="hcp3">}</span>
+ 
+ 
+        y <span class="hcp2">=</span> <span class="hcp3">log</span><span class="hcp3">(</span>result<span class="hcp3">)</span>; 
+        <span class="hcp4">// note use log of the integral result as return as the integral result is large, </span>
+        <span class="hcp4">// you are not necessary to do so </span>
+ 
+        <span class="hcp4">// End of editable part</span>
+<span class="hcp3">}</span>
+</pre>
+
+  <p>In dem oben stehenden Code definieren wir den Integrand als eine Rückfragefunktion <b><i>f_callback</i></b> gleich außerhalb des Anpassungsfunktionskörpers <b><i>_nlsfnag_integration_fitting_cosh</i></b>. Beachten Sie, dass wir die Integrandfunktion mit den Variablen <b><i>a</i></b>, <b><i>b</i></b> und <b><i>fitX</i></b> parametrisieren und sie an die Rückfragefunktion durch <i>Nag_User</i> weitergeben. Danach führen wir die Integration mit Hilfe des NAG-Integrators <b><i>d01sjc</i></b> durch. Außerdem können Sie auch die anderen <a href="../../OriginC/OriginC/D01_Quadrature.html" title="http://ocwiki.originlab.com/index.php?title=OriginC:D01_Quadrature" rel="nofollow">Quadraturroutinen</a> verwenden, wenn Sie möchten. In dem aktuellen Beispiel verwenden wir auch eine logarithmische Skalierung für die Anpassungsfunktion. (Die Beispieldaten sind bereits durch eine logarithmische Funktion skaliert.)</p>
+
+  <p>Kompilieren Sie den Code, kehren Sie zum Dialogfeld zurück, speichern Sie dann die Anpassungsfunktion im Funktionsorganizer und öffnen Sie das Dialogfeld <b>Nichtlinearer Fit</b> im Menü <b>Analyse</b> - <b>Anpassen.</b> Sie können dann diese anwenderdefinierte Anpassungsfunktion auf der Seite <b>Funktionsauswahl</b> auf der Registerkarte <b>Einstellung</b> auswählen.</p><a name="Set_the_Initial_Values_for_the_Parameters"></a>
+
+  <h3><span class="mw-headline">Initialisierungswerte für die Parameter einstellen</span></h3>
+
+  <p>Gleichermaßen müssen Sie, da es sich um eine anwenderdefinierte Anpassungsfunktion handelt, die Initialisierungsschätzwerte für die Parameter zur Verfügung stellen. Sie können sie manuell auf der Registerkarte <b>Parameter</b> im Dialogfeld <b>Nichtlinearer Fit</b> setzen. Für das aktuelle Beispiel können Sie die Initialisierungswerte für die Parameter <span class="texhtml"><i>a</i> = 1</span>, <span class="texhtml"><i>b</i> = 10</span>, <span class="texhtml"><i>c</i> = 3</span>, <span class="texhtml"><i>d</i> = 4</span> setzen. Nachdem die Parameter initialisiert sind, können Sie die Anpassung durchführen, um das Anpassungsergebnis, wie unten zu sehen, zu erhalten.</p><a name="Sample_Data"></a>
+
+  <h2><span class="mw-headline">Beispieldaten</span></h2>
+
+  <dl>
+    <dd>
+      <table style="width:480px">
+        <tr>
+          <td>
+            <table style="width:240px">
+              <tr>
+                <th>X</th>
+
+                <th>Y</th>
+              </tr>
+
+              <tr>
+                <td>-5</td>
+
+                <td>498,19046</td>
+              </tr>
+
+              <tr>
+                <td>-4,33333</td>
+
+                <td>329,43196</td>
+              </tr>
+
+              <tr>
+                <td>-3,66667</td>
+
+                <td>210,28005</td>
+              </tr>
+
+              <tr>
+                <td>-3</td>
+
+                <td>126,55799</td>
+              </tr>
+
+              <tr>
+                <td>-2,33333</td>
+
+                <td>69,01544</td>
+              </tr>
+
+              <tr>
+                <td>-1,66667</td>
+
+                <td>31,3555</td>
+              </tr>
+
+              <tr>
+                <td>-1</td>
+
+                <td>9,1393</td>
+              </tr>
+
+              <tr>
+                <td>-0,33333</td>
+
+                <td>-0,84496</td>
+              </tr>
+
+              <tr>
+                <td>0,33333</td>
+
+                <td>-0,99914</td>
+              </tr>
+
+              <tr>
+                <td>1</td>
+
+                <td>6,86736</td>
+              </tr>
+            </table>
+          </td>
+
+          <td>
+            <b>Ergebnisse:</b>
+
+            <p><img alt="Image:FitResultCosh.PNG" src="../images/Fitting_Integral_Function_with_parametric_limit_using_NAG_Library/FitResultCosh.PNG" width="176" height="92" border="0"></p>
+          </td>
+        </tr>
+      </table>
+    </dd>
+  </dl>

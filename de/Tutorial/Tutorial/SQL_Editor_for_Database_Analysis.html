@@ -1,0 +1,285 @@
+﻿<h1 class="firstHeading">SQL-Editor für Datenbankanalyse</h1>
+
+  <p class='urlname' style='display: none'>SQL-Editor-for-Database-Analysis</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Import_Data_from_Database"><span class="tocnumber">3.1</span><span class="toctext">Daten aus einer Datenbank importieren</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Filter_Data"><span class="tocnumber">3.2</span> <span class="toctext">Daten filtern</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#Create_Pivot_Table_and_Plot_Column_Graph"><span class="tocnumber">3.3</span> <span class="toctext">Pivot-Tabelle erstellen und Säulendiagramm zeichnen</span></a></li>
+
+          <li class="toclevel-2 tocsection-7"><a href="#Customize_Graph_and_Create_Analysis_Template"><span class="tocnumber">3.4</span> <span class="toctext">Diagramm benutzerdefiniert anpassen und Analysevorlage erstellen</span></a></li>
+
+          <li class="toclevel-2 tocsection-8"><a href="#Add_Graph_in_Worksheet_and_Save_Analysis_Template"><span class="tocnumber">3.5</span> <span class="toctext">Diagramm in Arbeitsblatt einfügen und Analysevorlage speichern</span></a></li>
+
+          <li class="toclevel-2 tocsection-9"><a href="#Change_Query_and_Re-import_Data_to_Automatically_Update_Analysis"><span class="tocnumber">3.6</span> <span class="toctext">Abfrage ändern und Daten neu importieren, um Analyse automatisch zu aktualisieren</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/SQL_Editor_for_Database_Analysis/Alert_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Die in diesem Tutorial verwendete Datenbank wurde auf Microsoft Azure eingerichtet.</p>
+      </td>
+    </tr>
+  </table>
+
+  <p>Dieses Tutorial zeigt, wie Daten aus einer Datenbank mit Hilfe des SQL-Editors importiert werden, wie allgemeine Operationen wie Spaltenfilterung und Pivot-Tabelle durchgeführt werden und wie dann das Ergebnis der Pivot-Tabelle zum Zeichnen des Diagramms verwendet wird. Fügen Sie das Diagramm am Ende in eine Arbeitsmappe ein, so dass alles eingeschlossen ist und die Arbeitsmappe als Analysevorlage zur zukünftigen Nutzung gespeichert werden kann.</p>
+
+  <p><br>
+  Das Vorgehen basiert auf Origin 2023b.</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>den SQL-Editor verwenden, um Daten aus der Datenbank zu importieren.</li>
+
+    <li>einen Spaltenfilter hinzufügen, um Produkte von Interesse zu zeigen.</li>
+
+    <li>eine Pivot-Tabelle für die Gesamtkosten der verschiedenen Produkte in verschiedenen Ländern erstellen.</li>
+
+    <li>ein Säulendiagramm zeichnen, um das Ergebnis grafisch darzustellen.</li>
+
+    <li>das Diagramm in das Arbeitsblatt einfügen und solch eine alleinstehende Arbeitsmappe als Analysevorlage speichern.</li>
+
+    <li>die Analysevorlage speichern und die Daten neu importieren.</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <h3><a name="Import_Data_from_Database"></a><span class="mw-headline">Daten aus einer Datenbank importieren</span></h3>
+
+  <ol>
+    <li>Öffnen Sie ein neues Projekt. Wählen Sie im Menü <b>Daten: Mit Datenbank verbinden: Neu...</b> oder klicken Sie auf die Schaltfläche <b>SQL-Editor öffnen</b> auf der Symbolleiste <b>Datenbankzugriff</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDataDatabase 1.png" src="../images/SQL_Editor_for_Database_Analysis/ImportDataDatabase_1.png" width="257"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie die Option <b>Verbindungszeichenkette</b> aus und klicken Sie auf OK. Fügen Sie die Verbindungszeichenkette unten ein.
+      <pre class="sql" style="font-family:monospace;">
+Driver<span style="color: #66cc66;">=</span><span style="color: #66cc66;">{</span><span style="color: #993333; font-weight: bold;">SQL</span> Server<span style="color: #66cc66;">}</span>; Server<span style="color: #66cc66;">=</span>olab<span style="color: #66cc66;">.</span><span style="color: #993333; font-weight: bold;">DATABASE</span><span style="color: #66cc66;">.</span>windows<span style="color: #66cc66;">.</span>net; Port<span style="color: #66cc66;">=</span><span style="color: #cc66cc;">1433</span>; <span style="color: #993333; font-weight: bold;">DATABASE</span><span style="color: #66cc66;">=</span>sample1; Uid<span style="color: #66cc66;">=</span>Olabts; Pwd<span style="color: #66cc66;">=</span>Origin@2024;
+</pre>
+
+      <p>Wenn Sie ODBC Drive 18 for SQL Server benutzen, verwenden Sie</p>
+      <pre class="sql" style="font-family:monospace;">
+Driver<span style="color: #66cc66;">=</span><span style="color: #66cc66;">{</span>ODBC Driver <span style="color: #cc66cc;">18</span> <span style="color: #993333; font-weight: bold;">FOR</span> <span style="color: #993333; font-weight: bold;">SQL</span> Server<span style="color: #66cc66;">}</span>; Server<span style="color: #66cc66;">=</span>olab<span style="color: #66cc66;">.</span><span style="color: #993333; font-weight: bold;">DATABASE</span><span style="color: #66cc66;">.</span>windows<span style="color: #66cc66;">.</span>net; Port<span style="color: #66cc66;">=</span><span style="color: #cc66cc;">1433</span>; <span style="color: #993333; font-weight: bold;">DATABASE</span><span style="color: #66cc66;">=</span>sample1; Uid<span style="color: #66cc66;">=</span>Olabts; Pwd<span style="color: #66cc66;">=</span>Origin@2024;
+</pre>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>OK</b>, um die Verbindung zur Datenbank herzustellen.</li>
+
+    <li>Kopieren und fügen Sie die folgende Abfrage in das Textfeld des SQL-Editors ein. Die Abfrage zeigt Daten für das Jahr 2003:
+      <pre class="sql" style="font-family:monospace;">
+<span style="color: #993333; font-weight: bold;">SELECT</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>LineTotal<span style="color: #66cc66;">,</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>Name<span style="color: #66cc66;">,</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>ParentProductCategoryID<span style="color: #66cc66;">,</span> SalesLT<span style="color: #66cc66;">.</span>Address<span style="color: #66cc66;">.</span>StateProvince<span style="color: #66cc66;">,</span>SalesLT<span style="color: #66cc66;">.</span>Address<span style="color: #66cc66;">.</span>CountryRegion <span style="color: #993333; font-weight: bold;">FROM</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail <span style="color: #993333; font-weight: bold;">INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>Product <span style="color: #993333; font-weight: bold;">ON</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>ProductID <span style="color: #66cc66;">=</span> SalesLT<span style="color: #66cc66;">.</span>Product<span style="color: #66cc66;">.</span>ProductID <span style="color: #993333; font-weight: bold;">INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory <span style="color: #993333; font-weight: bold;">ON</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>ProductCategoryID <span style="color: #66cc66;">=</span>SalesLT<span style="color: #66cc66;">.</span>Product<span style="color: #66cc66;">.</span>ProductCategoryID <span style="color: #993333; font-weight: bold;">INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderHeader <span style="color: #993333; font-weight: bold;">ON</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderHeader<span style="color: #66cc66;">.</span>SalesOrderID <span style="color: #66cc66;">=</span>SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>SalesOrderID <span style="color: #993333; font-weight: bold;">INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>CustomerAddress <span style="color: #993333; font-weight: bold;">ON</span> SalesLT<span style="color: #66cc66;">.</span>CustomerAddress<span style="color: #66cc66;">.</span>CustomerID <span style="color: #66cc66;">=</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderHeader<span style="color: #66cc66;">.</span>CustomerID <span style="color: #993333; font-weight: bold;">INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>Address <span style="color: #993333; font-weight: bold;">ON</span> SalesLT<span style="color: #66cc66;">.</span>Address<span style="color: #66cc66;">.</span>AddressID <span style="color: #66cc66;">=</span>SalesLT<span style="color: #66cc66;">.</span>CustomerAddress<span style="color: #66cc66;">.</span>AddressID <span style="color: #993333; font-weight: bold;">ORDER</span> <span style="color: #993333; font-weight: bold;">BY</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>ParentProductCategoryID
+</pre>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>OK</b>, um die Daten in die Arbeitsmappe zu importieren. Per Standard wird die SQL zusammen mit dem Arbeitsblatt gespeichert.</li>
+
+    <li>Das Symbol oben links in der Arbeitsmappe weist darauf hin, dass das Blatt eine SQL-Abfrage enthält.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for Analysis template afterimport.png" src="../images/SQL_Editor_for_Database_Analysis/ImportDB_for_Analysis_template_afterimport.png" width="586"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Filter_Data"></a><span class="mw-headline">Daten filtern</span></h3>
+
+  <ol>
+    <li>Origin hat eine Datenfilterfunktion, die der von Excel sehr ähnlich ist. Sie können diese Funktion verwenden, um spezifische Daten für die grafische Darstellung und Analyse zu verwenden, ohne den Rest der Daten zu entfernen.</li>
+
+    <li>Wählen Sie die Spalten C (ParentProductCategoryID) und E (CountryRegion) und klicken Sie dann auf die Schaltfläche <b>Datenfilter hinzufügen/entfernen</b> auf der Symbolleiste <b>Arbeitsblattdaten</b>, um einen Filter für sie hinzuzufügen.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDataDatabase 9.png" src="../images/SQL_Editor_for_Database_Analysis/ImportDataDatabase_9.png" width="410"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf das Trichtersymbol in Spalte E. Deaktivieren Sie in der angezeigten Liste die Option <i>United Kingdom</i> und klicken Sie auf <b>OK</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for Analysis template filter.png" src="../images/SQL_Editor_for_Database_Analysis/ImportDB_for_Analysis_template_filter.png" width="216"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wenn eine Erinnerungsmeldung über die verborgenen Daten angezeigt wird, aktivieren Sie die Option <b>Ja</b> und klicken Sie auf <b>OK</b>.</li>
+
+    <li>Klicken Sie auf das Trichtersymbol in Spalte C. Es zeigt numerische Filtermenüs wie Ist gleich, Kleiner als, ...., da die ParentProductCategoryID als Zahlen betrachtet werden.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for Analysis template filterC.png" src="../images/SQL_Editor_for_Database_Analysis/ImportDB_for_Analysis_template_filterC.png" width="249"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie <b>Ist gleich ...</b> und geben Sie <b>1</b> als Wert ein. Klicken Sie auf <b>OK</b>.</li>
+
+    <li>Jetzt zeigt das Arbeitsblatt nur die Verkäufe verschiedener Fahrräder in den USA.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for Analysis template filter done.png" src="../images/SQL_Editor_for_Database_Analysis/ImportDB_for_Analysis_template_filter_done.png" width="578"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Create_Pivot_Table_and_Plot_Column_Graph"></a><span class="mw-headline">Pivot-Tabelle erstellen und Säulendiagramm zeichnen</span></h3>
+
+  <ol>
+    <li>Wir können eine Pivot-Tabelle erstellen, um die Gesamtverkäufe der verschiedenen Fahrradtypen in verschiedenen Ländern zu sehen.</li>
+
+    <li>Wählen Sie ohne Auswahl im Arbeitsblatt <b>Restrukturieren &gt; Pivot-Tabelle</b>.</li>
+
+    <li>Im aufgerufenen Dialog setzen Sie den Neuberechnungsmodus auf <i>Auto</i>. Dadurch wird die Bearbeitung der Pivot-Tabelle aktualisiert, wenn die Daten vom SQL-Editor neu importiert werden.</li>
+
+    <li>Legen Sie für die <b>Zeilenquelle</b> <i>Name</i> fest.</li>
+
+    <li>Legen Sie für die <b>Spaltenquelle</b> <i>StateProvince</i> fest (die Spalte mit dem Filter).</li>
+
+    <li>Um die Gesamtverkäufe anzuzeigen, setzen Sie die Option <b>Zusammenfassen nach</b> auf <b>Summe</b> und die angezeigte Option <b>Datenquelle der Pivot-Tabelle</b> auf <i>LineTotal</i>.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for Analysis template pivotDB.png" src="../images/SQL_Editor_for_Database_Analysis/ImportDB_for_Analysis_template_pivotDB.png" width="436"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>. Ein neues Arbeitsblatt mit dem Namen <i>Pivot1</i> wird erstellt. Geben Sie ihm den Namen <i>Zusammenfassung</i>.</li>
+
+    <li>Markieren Sie jetzt die Daten der Pivot-Tabelle und klicken Sie auf die Schaltfläche <b>Säulendiagramm</b>, um ein Säulendiagramm zu erstellen.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for Analysis template column.png" src="../images/SQL_Editor_for_Database_Analysis/ImportDB_for_Analysis_template_column.png" width="621"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Customize_Graph_and_Create_Analysis_Template"></a><span class="mw-headline">Diagramm benutzerdefiniert anpassen und Analysevorlage erstellen</span></h3>
+
+  <p>Die Verkäufe in Kalifornien sind viel höher als die in anderen Bundesstaaten, wodurch die Spalten mit den Verkäufen in Utah schwer zu sehen ist. Wir können außerdem die Farbe und das Muster der Säulen/Balken benutzerdefiniert anpassen, um sie ansprechender zu gestalten.</p>
+
+  <ol>
+    <li>Klicken Sie einmal auf eine beliebige Säule von Kalifornien. Gehen Sie auf der aufgerufenen Minisymbolleiste zur Registerkarte Einzeln und klicken Sie auf "Auf rechter Y zeichnen", so dass die Säulen für Kalifornien gegen die rechte Y-Achse gezeichnet werden.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for Analysis template ca right graph.png" src="../images/SQL_Editor_for_Database_Analysis/ImportDB_for_Analysis_template_ca_right_graph.png" width="432"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie doppelt auf den Titel der rechten Y-Achse und legen Sie ihn mit <b>%(1Y, @LC)</b> fest. Das bedeutet, dass die Kommentarinfos der Zeichnung des ersten Y als Achsentitel verwendet werden. Der Titel der rechten Y-Achse wird <b>California</b> (Kalifornien).</li>
+
+    <li>Klicken Sie doppelt auf den Titel der linken Y-Achse und ändern Sie ihn in <b>Others</b> (Andere).</li>
+
+    <li>Klicken Sie doppelt auf eine der Y-Achsen, um den Dialog <b>Achsen</b> zu öffnen.</li>
+
+    <li>Wählen Sie <b>Links</b> und <b>Rechts</b> im linken Bedienfeld. Setzen Sie auf der Registerkarte <b>Skalierung</b> die Auswahlliste <b>Neuskalieren</b> auf <b>Festgelegt von - Auto bis</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for Analysis template axis fixfrom autoto.png" src="../images/SQL_Editor_for_Database_Analysis/ImportDB_for_Analysis_template_axis_fixfrom_autoto.png" width="463"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie <b>Horizontal</b> im linken Bedienfeld. Setzen Sie auf der Registerkarte <b>Skalierung</b> die Auswahlliste <b>Neuskalieren</b> auf <b>Auto</b>.</li>
+
+    <li>Gehen Sie zur Registerkarte Beschriftung der Hilfsstriche, wählen Sie <b>Links</b> und <b>Rechts</b> im linken Bedienfeld und setzen Sie Anzeige auf <b>Technisch: 1K</b>. Klicken Sie auf <b>OK</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Set Axis Recalc(b).png" src="../images/SQL_Editor_for_Database_Analysis/Set_Axis_Recalc_28b_29.png" width="504"></a></dd>
+      </dl>
+    </li>
+
+    <li>Passen Sie die Füllfarben und die Muster der Säulen, die Legende, die horizontalen Hilfstrichssbeschriftungen etc. benutzerdefiniert an. Beispielsweise:
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for Analysis template axis final graph.png" src="../images/SQL_Editor_for_Database_Analysis/ImportDB_for_Analysis_template_axis_final_graph.png" width="417"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Add_Graph_in_Worksheet_and_Save_Analysis_Template"></a><span class="mw-headline">Diagramm in Arbeitsblatt einfügen und Analysevorlage speichern</span></h3>
+
+  <ol>
+    <li>Klicken Sie mit der rechten Maustaste auf den Blattreiter Summary (Zusammenfassung) und wählen Sie <b>Diagramm als Blatt hinzufügen: [Graph1]</b>, um das Diagramm als ein separates Blatt zur Arbeitsmappe hinzuzufügen.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for Analysis template graph sheet.png" src="../images/SQL_Editor_for_Database_Analysis/ImportDB_for_Analysis_template_graph_sheet.png" width="405"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wenn Sie das Diagramm weiter benutzerdefiniert anpassen müssen, klicken Sie doppelt darauf, um das unabhängige Diagrammfenster wieder aufzurufen. Nehmen Sie die Anpassungen vor. Klicken Sie dann auf die Schaltfläche Zurück im Diagrammfenstertitel, um es wieder im Arbeitsblatt einzufügen.</li>
+
+    <li>Jetzt ist die Arbeitsmappe alleinstehend und enthält alles: Datenbankverbindung, Datenfilterung, Analyse (Pivot-Tabelle) und Diagramm.</li>
+
+    <li>Wählen Sie <b>Datei: Arbeitsmappe als Analysevorlage speichern</b> und geben Sie ihr den Namen <b>LineTotal_By_State</b> (Gesamtverkäufe_nach_Bundesstaat).</li>
+  </ol>
+
+  <h3><a name="Change_Query_and_Re-import_Data_to_Automatically_Update_Analysis"></a><span class="mw-headline">Abfrage ändern und Daten neu importieren, um Analyse automatisch zu aktualisieren</span></h3>
+
+  <ol>
+    <li>Wählen Sie im Menü <b>Datei: Zuletzt verwendete Mappen</b>, um die Analysevorlage <b>LineTotal_by_State</b>, die Sie soeben gespeichert haben, zu laden. Eine leere Analysevorlagenmappe wird geöffnet.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for Analysis template load.png" src="../images/SQL_Editor_for_Database_Analysis/ImportDB_for_Analysis_template_load.png" width="577"></a></dd>
+      </dl>
+    </li>
+
+    <li>Gehen Sie zu <b>Sheet1</b>. Klicken Sie auf <a class="image"><img alt="DBConnector.png" src="../images/SQL_Editor_for_Database_Analysis/DBConnector.png" width="20"></a> und dann auf <b>Import</b> oder klicken Sie auf die Schaltfläche <b>Daten importieren</b> <a class="image"><img alt="Button db Import Data.png" src="../images/SQL_Editor_for_Database_Analysis/Button_db_Import_Data.png" width="25"></a>, um aus der Datenbank neu zu importieren.</li>
+
+    <li>Das Blatt <b>Summary</b> und das Blatt <b>Graph1</b> werden ebenfalls beide aktualisiert.
+
+      <dl>
+        <dd>
+          <dl>
+            <dd><a class="image"><img alt="ImportDB for Analysis template load imp.png" src="../images/SQL_Editor_for_Database_Analysis/ImportDB_for_Analysis_template_load_imp.png" width="457"></a></dd>
+          </dl>
+        </dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie in der neuen Arbeitsmappe auf den Trichter in Spalte C und ändern Sie nur die Aktivierung von 2.
+
+      <dl>
+        <dd><a class="image"><img alt="ImportDB for Analysis template mod filter.png" src="../images/SQL_Editor_for_Database_Analysis/ImportDB_for_Analysis_template_mod_filter.png" width="458"></a></dd>
+      </dl>
+    </li>
+
+    <li>Sie können auch auf <a class="image"><img alt="DBConnector.png" src="../images/SQL_Editor_for_Database_Analysis/DBConnector.png" width="20"></a> klicken und den <b>SQL-Editor</b>, um die Abfrage zu modifizieren.</li>
+  </ol>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/SQL_Editor_for_Database_Analysis/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <ul>
+          <li>Sie müssen den Filter eventuell manuell erneut anwenden <a class="image"><img alt="Reapply filter.png" src="../images/SQL_Editor_for_Database_Analysis/Reapply_filter.png" width="25"></a>, nachdem Sie neue Daten aus der Datenbank importiert haben, oder Sie wählen <b>Arbeitsblatt: Worksheet Skript...</b> im Menü. Aktivieren Sie das Kontrollkästchen <b>Nach Import</b> und geben Sie das Skript <b>wks.runfilter()</b> ein. Dadurch werden nach jedem Import neuer Daten alle Filter automatisch angewendet.</li>
+
+          <li>Wenn Sie die Projektdatei (OPJU) speichern, werden die importierten Datenbankdaten ausgeschlossen, so dass die Dateigröße des OPJU nicht zu riesig wird. Sie können aber auf <a class="image"><img alt="DBConnector.png" src="../images/SQL_Editor_for_Database_Analysis/DBConnector.png" width="20"></a> klicken und die Option <b>Importierte Daten beim Speichern ausschließen</b> deaktivieren so dass die Daten in der OPJU-Datei verbleiben.</li>
+
+          <li>Oder Sie lassen <b>Importierte Daten beim Speichern ausschließen</b> aktiviert, klicken stattdessen auf <a class="image"><img alt="DBConnector.png" src="../images/SQL_Editor_for_Database_Analysis/DBConnector.png" width="20"></a> und aktivieren den <b>Automatischen Import</b>, so dass bei jedem erneuten Öffnen der OPJU-Datei die Datenbankdaten automatisch importiert werden.</li>
+        </ul>
+      </td>
+    </tr>
+  </table>

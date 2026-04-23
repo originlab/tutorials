@@ -1,0 +1,145 @@
+﻿<h1 class="firstHeading">Layer hinzufügen und anordnen</h1>
+
+  <p class='urlname' style='display: none'>Customize-Add-Arrange-Layer</p>
+
+  <table id="toc" class="toc">
+    <tr>
+      <td>
+        <div id="toctitle">
+          <h2>Inhalt</h2>
+        </div>
+
+        <ul>
+          <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+          <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+          <li class="toclevel-1 tocsection-3">
+            <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+            <ul>
+              <li class="toclevel-2 tocsection-4"><a href="#Importing_data"><span class="tocnumber">3.1</span> <span class="toctext">Daten importieren</span></a></li>
+
+              <li class="toclevel-2 tocsection-5"><a href="#Plotting_the_data"><span class="tocnumber">3.2</span> <span class="toctext">Daten zeichnen</span></a></li>
+
+              <li class="toclevel-2 tocsection-6"><a href="#How_to_tell_what_data_is_plotted_in_a_layer.3F"><span class="tocnumber">3.2</span> <span class="toctext">Welche Daten sind in welchem Layer gezeichnet?</span></a></li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Ein Diagrammseite umfasst üblicherweise drei Elemente: einen Satz X-, Y- (und Z-) Koordinatenachsen, ein oder mehrere Diagramme und entsprechende Text- bzw. Grafikbeschriftungen. Origin kombiniert diese drei Elemente in einer verschiebbaren, in der Größe veränderlichen Einheit, die als Layer bezeichnet wird. Während eine Seite mehrere Layer enthält (maximal 121), ist nur ein Layer zur gleichen Zeit aktiv.</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <ul>
+    <li>Bestimmen, wie viele Layer ein Diagramm hat</li>
+
+    <li>Bestimmen, welche Daten sich in welchem Layer befinden</li>
+
+    <li>Layer austauschen</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <h3><a name="Importing_data"></a><span class="mw-headline">Daten importieren</span></h3>
+
+  <ol>
+    <li>Klicken Sie auf die Schaltfläche <b>ASCII-Dateidaten</b> <a class="image"><img alt="Button Import Single ASCII.png" src="../images/Adding_and_Arranging_Layers/Button_Import_Single_ASCII.png" width="23" height="23"></a> in der Standardsymbolleiste. Der Dialog ASCII wird geöffnet.</li>
+
+    <li>Suchen Sie im Origin-Ordner nach dem Ordner Samples und dann nach dem Diagrammordner Graphing. Wählen Sie <u>Wind.dat</u> aus der Liste der Dateien.</li>
+
+    <li>Klicken Sie auf <b>Öffnen</b>. Die Datendatei wird in das Arbeitsblatt importiert.</li>
+  </ol>
+
+  <h3><a name="Plotting_the_data"></a><span class="mw-headline">Daten zeichnen</span></h3>
+
+  <ol>
+    <li>Markieren Sie die Spalten Speed und Power.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Liniendiagramm</b><a class="image"><img alt="Button Line.png" src="../images/Adding_and_Arranging_Layers/Button_Line.png" width="22" height="23"></a> auf der Symbolleiste <b>2D-Grafiken</b>. Es wird ein Liniendiagramm erzeugt. Offenbar wäre es besser, wenn diese Daten in einem Diagramm mit doppelter Y-Achse gezeichnet würden, einem Diagramm mit zwei steuernden Y-Achsen.</li>
+
+    <li>Klicken Sie auf X, um dieses Fenster zu <b>schließen</b>. Sie werden gefragt, ob das Fenster verborgen oder gelöscht werden soll. Klicken Sie auf die Schaltfläche <b>Verbergen</b>. (Wenn Sie löschen, können Sie diesen Vorgang nicht rückgängig machen und müssen das Diagramm ggf. neu erstellen. Wenn Sie das Fenster verbergen, wird es geschlossen, kann aber später wieder mit Hilfe des Projekt Explorers sichtbar gemacht werden.)</li>
+
+    <li>Die Spalten Speed und Power sollten noch immer markiert sein. Klicken Sie die Schaltfläche <b>Doppelte Y-Achse</b> <a class="image"><img alt="Button Double Y Axis.png" src="../images/Adding_and_Arranging_Layers/Button_Double_Y_Axis.png" width="22" height="23"></a> in der Symbolleiste 2D Grafiken an. Dieses neue Diagramm enthält 2 Layer.</li>
+  </ol>
+
+  <h3><a name="How_to_tell_what_data_is_plotted_in_a_layer.3F"></a><span class="mw-headline">Welche Daten sind in welchem Layer gezeichnet?</span></h3>
+
+  <p>Eine Methode ist die Legende:</p>
+
+  <ol>
+    <li>Klicken Sie doppelt auf Graph1 im Fenster des Projekt Explorers. Das Diagramm öffnet sich und wird zum aktiven Unterfenster.</li>
+
+    <li>Wählen Sie <b>Format: Seite</b> und gehen Sie zur Registerkarte <b>Legenden/Titel</b>.</li>
+
+    <li>Stellen Sie den <b>Übersetzungsmodus der Autom. Legende</b> auf <i>Datenbereich</i> ein.</li>
+
+    <li>Klicken Sie auf <b>OK</b>.</li>
+  </ol>
+
+  <p>Eine zweite Methode ist die Statusleiste:</p>
+
+  <ol>
+    <li>Klicken Sie doppelt auf Graph2 im Fenster des Projekt Explorers. Graph2 ist jetzt im Vordergrund und wird das aktive Unterfenster.</li>
+
+    <li>Klicken Sie auf das Symbol von Layer <a class="image"><img alt="Button Layer Icon.png" src="../images/Adding_and_Arranging_Layers/Button_Layer_Icon.png" width="22" height="22"></a>, um Layer 1 zu aktivieren.</li>
+
+    <li>Unten rechts in der Statusleiste von Origin sehen Sie [WIND]WIND!Col(Speed)[1:12].</li>
+
+    <li>Wiederholen Sie den Schritt für Layer 2 und Sie sehen [WIND]WIND!Col(Power)[1:12].</li>
+  </ol>
+
+  <p>Ein dritte Methode ist das Menü:</p>
+
+  <ol>
+    <li>Aktivieren Sie Graph2.</li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf das Symbol von Layer 1. Unten im Kontextmenü können Sie die Diagrammliste sehen. Das Diagramm mit dem Häkchen ist aktiv.</li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf Layer 2, um die Datenliste anzuzeigen, die darin gezeichnet ist.</li>
+
+    <li>Beachten Sie, dass Sie auch das Menü <b>Daten</b> auswählen können, um die Diagrammliste anzuzeigen.</li>
+  </ol>
+
+  <ol>
+    <li style="list-style: none">Eine vierte Methode stellt der Dialog <b>Diagrammeinstellungen</b> dar.</li>
+
+    <li>Bei noch aktivem Graph2 klicken Sie mit der rechten Maustaste auf das Symbol von Layer 1 und wählen Sie <b>Setup Diagramm</b>.</li>
+
+    <li>Erweitern Sie bei geöffnetem Dialog der <b>Diagrammeinstellungen</b> die Diagrammliste, so dass Sie die Daten in Layer 2 sehen können. Der Vorteil hierbei ist, dass Sie die Daten in allen Layern gleichzeitig sehen können.
+
+      <table class="noborder">
+        <tr>
+          <td style="vertical-align:top" width="60"><img src="../images/Adding_and_Arranging_Layers/Tip_icon.png" width="57" height="57" border="0" alt=""></td>
+
+          <td>
+            <p>Um alle drei Bedienfelder im Dialog <b>Diagrammeinstellungen</b> anzuzeigen, erweitern Sie bitte das Bedienfeld <b>Diagrammtyp</b>, indem Sie auf <a class="image"><img alt="Button Expand Preview Up.png" src="../images/Adding_and_Arranging_Layers/Button_Expand_Preview_Up.png" width="24" height="23"></a> klicken, und erweitern Sie das Bedienfeld <b>Verfügbare Daten</b>, indem Sie erneut auf <a class="image"><img alt="Button Expand Preview Up.png" src="../images/Adding_and_Arranging_Layers/Button_Expand_Preview_Up.png" width="24" height="23"></a> klicken.</p>
+
+            <p>Bitte lesen Sie unter <a class="external text" href="../../Tutorial/Tutorial/Plotting_using_Plot_Setup.html">Zeichnen mit Hilfe des Dialogs Diagrammeinstellungen</a> weitere Informationen zu diesem Thema.</p><br>
+            <br>
+          </td>
+        </tr>
+      </table>
+    </li>
+
+    <li>Deaktivieren Sie das Kontrollkästchen Zeigen für das Diagramm <b>Speed</b>.</li>
+
+    <li>Klicken Sie auf <b>OK</b>. Dieses Diagramm ist nur verborgen, so dass die Legende es immer noch im Layer anzeigt.</li>
+  </ol>
+
+  <p>Die letzte Methode nutzt den Dialog <b>Details Zeichnung</b>.</p>
+
+  <ol>
+    <li>Klicken Sie doppelt auf eines der Diagramme Linie + Symbol in Graph2.</li>
+
+    <li>Erweitern Sie den Baum, so dass Sie den Inhalt von <b>Layer1</b> und <b>Layer2</b> sehen können.</li>
+
+    <li>Deaktivieren Sie die Diagramme <b>Speed</b> und <b>Power</b>.</li>
+
+    <li>Klicken Sie auf <b>OK</b>.</li>
+  </ol>

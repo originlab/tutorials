@@ -1,0 +1,270 @@
+﻿<h1 class="firstHeading">Marginale Verteilungskurve</h1>
+
+  <p class='urlname' style='display: none'>Marginal-Distribution-Curve</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#Steps_to_Use_the_Filter_Lock"><span class="tocnumber">3</span> <span class="toctext">Filter blockieren</span></a></li>
+
+      <li class="toclevel-1 tocsection-4"><a href="#Steps_to_Create_a_Plot_with_Marginal_Distribution_Curves"><span class="tocnumber">4</span> <span class="toctext">Zeichnung mit marginalen Verteilungskurven erstellen</span></a></li>
+
+      <li class="toclevel-1 tocsection-5"><a href="#Steps_to_Plot_Grouped_Marginal_Distribution_Curves"><span class="tocnumber">5</span> <span class="toctext">Gruppierte marginale Verteilungskurven zeichnen</span></a></li>
+
+      <li class="toclevel-1 tocsection-6"><a href="#Steps_to_Group_the_Plots"><span class="tocnumber">6</span> <span class="toctext">Zeichnungen gruppieren</span></a></li>
+
+      <li class="toclevel-1 tocsection-7"><a href="#Steps_to_Further_Customization"><span class="tocnumber">7</span> <span class="toctext">Weitere benutzerdefinierte Anpassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-8"><a href="#Steps_to_Reposition_the_Graph_Layers"><span class="tocnumber">8</span> <span class="toctext">Diagrammlayer neu positionieren</span></a></li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Diagramme in Origin sind vielseitig anpassbar. Dieses Tutorial zeigt, wie ein marginales Histogramm benutzerdefiniert angezeigt wird, um die Verteilungskurven anstatt von Säulen anzuzeigen.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Marginal distribution curve 01.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_01.png" width="532"></a></dd>
+  </dl>
+
+  <p class="version">Origin-Version mind. erforderlich: 2015 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <ul>
+    <li>Marginales Histogramm erstellen</li>
+
+    <li>Filtersperre verwenden, um Zeichnungen mit unterschiedlichen Filterbedingungen zu erstellen.</li>
+
+    <li>Zeichnungen manuell gruppieren.</li>
+  </ul>
+
+  <h2><a name="Steps_to_Use_the_Filter_Lock"></a><span class="mw-headline">Filter blockieren</span></h2>
+
+  <p>Origin9.1 beinhaltet eine besondere Funktion, die Ihnen erlaubt, unterschiedliche Datenfilter in einem einzelnen Quellarbeitsblatt einzurichten und beispielsweise Daten für jede Filterbedingung zu zeichnen, ohne die vorhergehende Zeichnung zu beeinträchtigen. Dies ist möglich durch das Kopieren von gefilterten Daten in ein neues Arbeitsblatt und das Positionieren einer "Filtersperre" auf die gefilterten Daten.</p>
+
+  <ol>
+    <li>Importieren Sie die Datei &lt;Origin-Verzeichnis&gt;\Samples\Statistics\automobile.dat in eine leere Arbeitsmappe.</li>
+
+    <li>Markieren Sie Spalte col(A), klicken Sie mit der rechten Maustaste und wählen Sie <b>Filter: Filter hinzufügen oder entfernen</b>.</li>
+
+    <li>Klicken Sie auf das Filtersymbol im Spaltenkopf und wählen Sie <b>Zwischen...</b>.</li>
+
+    <li>Legen Sie im Dialog <b>Zwischen</b> die Werte für <b>Von</b> und <b>Bis</b> auf 1992 bzw. 1995 und klicken Sie auf <b>OK</b>.</li>
+
+    <li>Markieren Sie die Spalte Col("Power") und Col("Weight"). Klicken Sie mit der rechten Maustaste und wählen Sie <b>Spalten kopieren in</b>.</li>
+
+    <li>Geben Sie im Dialog <b>colcopy</b> <b>1992~1995!&lt;new&gt;</b> im Textfeld <b>Zielspalten</b> ein, wie unten zu sehen, und klicken Sie auf <b>OK</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Marginal distribution curve 02.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_02.png" width="397"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie im neu erstellten Blatt auf das grüne Schloss im Kopf von Spalte Col(A) und wählen Sie <b>Arbeitsblattfilter: Blockieren</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Marginal distribution curve 03.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_03.png" width="277"></a></dd>
+      </dl>
+    </li>
+
+    <li>Gehen Sie zurück zum Blatt "automobile" und wiederholen Sie die Schritte 4 - 7 zweimal mit den Filterbedingungen für Col("Year") 1996~1999 sowie 2000~2004. Sie müssen jedes Mal einen Blattnamen manuell im Dialog <b>colcopy</b> eingeben. Die Filterbedingungen werden mit jedem Blatt blockiert. Sie können Sie mit Hilfe des Kontextmenüs <b>Arbeitsblattfilter: Auf Quellarbeitsblatt verwenden</b> zurücknehmen.</li>
+  </ol>
+
+  <h2><a name="Steps_to_Create_a_Plot_with_Marginal_Distribution_Curves"></a><span class="mw-headline">Zeichnung mit marginalen Verteilungskurven erstellen</span></h2>
+
+  <ol>
+    <li>Gehen Sie zu Blatt "1992~1995", markieren Sie alle Spalten und wählen Sie <b>Zeichnen: Statistisch: Marginale Histogramme</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Marginal distribution curve 04.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_04.png" width="457"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie doppelt auf einen Balken im obigen Histogramm, um den Dialog <b>Details Zeichnung</b> zu öffnen. Wechseln Sie zur Registerkarte <b>Daten</b> und setzen Sie <b>Verteilungskurve: Typ</b> auf <b>Normal</b>. Dies gilt für <b>Layer 2</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Marginal distribution curve 05.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_05.png" width="356"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wechseln Sie zur Registerkarte <b>Muster</b> und nehmen Sie die unten gezeigten Einstellungen vor, um die Einteilungsbalken zu verbergen.
+
+      <dl>
+        <dd><a class="image"><img alt="Marginal distribution curve 06.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_06.png" width="452"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wechseln Sie zur Registerkarte <b>Linie</b> und setzen die Farbe auf <b>Schwarz</b>. Klicken Sie auf <b>Anwenden</b>, um die Änderungen zu sehen.
+
+      <dl>
+        <dd><a class="image"><img alt="Marginal distribution curve 07.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_07.png" width="452"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wiederholen Sie Schritt 2 bis 4 für Layer 3 (rechtes Histogramm).
+
+      <dl>
+        <dd><a class="image"><img alt="Marginal distribution curve 08.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_08.png" width="446"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h2><a name="Steps_to_Plot_Grouped_Marginal_Distribution_Curves"></a><span class="mw-headline">Gruppierte marginale Verteilungskurven zeichnen</span></h2>
+
+  <ol>
+    <li>Wählen Sie <b>Grafik: Setup Diagramm</b> im Menü.
+
+      <table class="noborder">
+        <tr>
+          <td style="vertical-align:top" width="60"><img src="../images/Marginal_Distribution_Curve/Tip_icon.png" width="57" border="0" alt=""></td>
+
+          <td>
+            <p>Um alle drei Bedienfelder im Dialog <b>Diagrammeinstellungen</b> anzuzeigen, erweitern Sie bitte das Bedienfeld <b>Diagrammtyp</b>, indem Sie auf <a class="image"><img alt="Button Expand Preview Up.png" src="../images/Marginal_Distribution_Curve/Button_Expand_Preview_Up.png" width="24"></a> klicken, und erweitern Sie das Bedienfeld <b>Verfügbare Daten</b>, indem Sie erneut auf <a class="image"><img alt="Button Expand Preview Up.png" src="../images/Marginal_Distribution_Curve/Button_Expand_Preview_Up.png" width="24"></a> klicken.</p>
+
+            <p>Bitte lesen Sie unter <a class="external text" href="../../Tutorial/Tutorial/Plotting_using_Plot_Setup.html">Mit Hilfe des Dialogs Diagrammeinstellungen zeichnen</a> weitere Informationen zu diesem Thema.</p><br>
+            <br>
+          </td>
+        </tr>
+      </table>
+    </li>
+
+    <li>Wählen Sie im linken Bedienfeld <b>Layer1</b>. Legen Sie die Bedienelemente wie unten gezeigt fest und klicken Sie auf <b>Hinzufügen</b>.<br>
+    <a class="image"><img alt="Marginal distribution curve 09.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_09.png" width="681"></a></li>
+
+    <li>Fügen Sie das Histogramm "Power" zu Layer2 hinzu.<br>
+    <a class="image"><img alt="Marginal distribution curve 10.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_10.png" width="683"></a></li>
+
+    <li>Fügen Sie das Histogramm "Weight" zu Layer3 hinzu.</li>
+
+    <li>Wiederholen Sie Schritt 2 bis 4, um die Daten 2000~2004 zu jedem Layer hinzuzufügen. Die Diagrammliste sollte folgendermaßen aussehen:<br>
+    <a class="image"><img alt="Marginal distribution curve 22 Plot list.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_22_Plot_list.png" width="677"></a></li>
+
+    <li>Klicken Sie auf <b>OK</b>, um den Dialog <b>Details Zeichnung</b> zu schließen und das Diagramm neu zu skalieren.</li>
+  </ol>
+
+  <h2><a name="Steps_to_Group_the_Plots"></a><span class="mw-headline">Zeichnungen gruppieren</span></h2>
+
+  <ol>
+    <li>Klicken Sie mit der rechten Maustaste auf das Layersymbol <a class="image"><img alt="Layer Icon 1st.png" src="../images/Marginal_Distribution_Curve/Layer_Icon_1st.png" width="19"></a> oben links im Diagrammfenster und wählen Sie <b>Layerinhalt</b>.</li>
+
+    <li>Markieren Sie alle drei Zeichnungen und klicken Sie auf <b>Gruppe</b>. Klicken Sie dann auf <b>OK</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Marginal distribution curve 12.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_12.png" width="339"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wiederholen Sie Schritt 2 für Layer 2 und Layer 3.
+
+      <dl>
+        <dd><a class="image"><img alt="Marginal distribution curve 11.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_11.png" width="470"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h2><a name="Steps_to_Further_Customization"></a><span class="mw-headline">Weitere benutzerdefinierte Anpassungen</span></h2>
+
+  <ol>
+    <li>Klicken Sie doppelt auf die untere Achse, um den<b>Dialog Achsen</b> für Layer 1 zu öffnen, gehen Sie dann zur Registerkarte <b>Skalierung</b> und legen Sie die Achsenskalierung für <b>Horizontal</b> (X-Achse) und <b>Vertikal</b> (Y-Achse) jeweils folgendermaßen fest:
+
+      <dl>
+        <dd><a class="image"><img alt="Marginal distribution curve 17.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_17.png" width="434"></a></dd>
+
+        <dd><a class="image"><img alt="Marginal distribution curve 17b.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_17b.png" width="439"></a></dd>
+      </dl>
+    </li>
+
+    <li>Bestätigen Sie mit <b>OK</b>, um den Dialog Achsen zu schließen. Klicken Sie doppelt auf das Diagramm, um den Dialog <b>Details Zeichnung</b> zu öffnen, und wählen Sie die erste Datenzeichnung in <b>Layer 1</b>, um zur Registerkarte <b>Gruppe</b> zu gehen. Setzen Sie den <b>Symboltyp</b> auf <b>Kein</b> und duplizieren Sie folgende Einstellungen:
+
+      <dl>
+        <dd><a class="image"><img alt="Marginal distribution curve 13.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_13.png" width="760"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b> , um den Dialog zu schließen. Wechseln Sie zur Registerkarte <b>Symbole</b> und legen Sie folgende Einstellungen fest.
+
+      <dl>
+        <dd><a class="image"><img alt="Marginal distribution curve 14.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_14.png" width="563"></a></dd>
+      </dl>
+    </li>
+
+    <li>Gehen Sie zu <b>Layer 2</b>, Registerkarte <b>Daten</b>, und setzen Sie die Einteilungsskalierung auf die gleichen Werte wie die X-Skalierung. Klicken Sie dann auf <b>Anwenden</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Marginal distribution curve 19.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_19.png" width="452"></a></dd>
+      </dl>
+    </li>
+
+    <li>Gehen Sie für die Zeichnungen in Layer 2 zur Registerkarte <b>Gruppe</b> und setzen Sie den <b>Bearbeitungsmodus</b> auf <b>Unabhängig</b>. so dass Sie die Zeichnungsstile individuell benutzerdefiniert anpassen können. Klicken Sie auf <b>Anwenden</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Marginal distribution curve 15.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_15.png" width="741"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf Registerkarte <b>Muster</b> und blenden Sie die Balken für alle drei Datenzeichnungen in Layer2 aus (wie in <a href="../../Tutorial/Tutorial/Marginal_Distribution_Curve.html#Steps_to_Create_a_Plot_with_Marginal_Distribution_Curves" title="Tutorial:Marginal Distribution Curve">Schritte zum Erstellen einer Zeichnung mit marginalen Verteilungskurven, Schritt 3</a>.</li>
+
+    <li>Gehen Sie zur Registerkarte <b>Linie</b> der Datenzeichnung 1992~1995 und legen Sie die Optionen, wie unten gezeigt, fest.
+
+      <dl>
+        <dd><a class="image"><img alt="Marginal distribution curve 16.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_16.png" width="286"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wiederholen Sie Schritt 7 für die anderen beiden Zeichnungen in Layer 2 und legen Sie die Symbolfarbe entsprechend Layer 1 fest.</li>
+
+    <li>Wiederholen Sie Schritt 5 - 8 für Layer 3. Klicken Sie auf <b>OK</b>, um den Dialog <b>Details Zeichnung</b> zu schließen und die Einstellungen anzuwenden.</li>
+
+    <li>Aktivieren Sie Layer 1 und wählen Sie <b>Grafik: Legende: Datenzeichnungen</b> im Menü.</li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf die Legende und wählen Sie <b>Einstellungen</b>. Setzen Sie den <b>Hintergrund</b> auf <b>Schwarze Linie</b> und die Größe auf <b>18</b>. Klicken Sie auf <b>OK</b>.</li>
+
+    <li>Verwenden Sie <b>Format: Seiteneigenschaften</b>, um den Dialog <b>Details Zeichnung - Seite</b> zu öffnen, gehen Sie zur Registerkarte <b>Legenden/Titel</b> und nehmen Sie folgende Einstellungen vor, so dass der Arbeitsblattname als Legendentext verwendet wird:
+
+      <dl>
+        <dd><a class="image"><img alt="Marginal distribution curve 16b.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_16b.png" width="374"></a></dd>
+      </dl>
+    </li>
+
+    <li>Ziehen Sie die Legende je nach Bedarf in eine neue Position. Zu diesem Zeitpunkt sollte das Diagramm folgendermaßen aussehen:
+
+      <dl>
+        <dd><a class="image"><img alt="Marginal distribution curve 16c.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_16c.png" width="488"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h2><a name="Steps_to_Reposition_the_Graph_Layers"></a><span class="mw-headline">Diagrammlayer neu positionieren</span></h2>
+
+  <ol>
+    <li>Klicken Sie doppelt auf die untere Achse, um den <b>Dialog Achsen</b> für Layer 1 zu öffnen, gehen Sie zur Registerkarte <b>Gitternetze</b>, halten Sie die <b>Strg</b>-Taste gedrückt, um die Symbole <b>Vertikal</b> und <b>Horizontal</b> auszuwählen, und nehmen Sie folgende Einstellungen vor:
+
+      <dl>
+        <dd><a class="image"><img alt="Marginal distribution curve 18.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_18.png" width="424"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um den Dialog zu schließen. Öffnen Sie den <b>Dialog Achsen</b> für Layer 2. Gehen Sie zur Registerkarte <b>Linie und Hilfsstriche</b>, stellen Sie sicher, dass das Achsensymbol <b>Unten</b> ausgewählt ist, und deaktivieren Sie das Kontrollkästchen <b>Linie und Hilfsstriche zeigen</b>, um die untere Achsenlinie auszublenden. Tun Sie das Gleiche für die Achsenlinie <b>Links</b> in Layer 3.</li>
+
+    <li>Öffnen Sie den Dialog <b>Layermanagement</b>, markieren Sie Layer 2, gehen Sie zur Registerkarte <b>Größe/Position</b>, aktivieren Sie <b>Verschieben</b> und geben Sie für <b>Oben</b> -35 ein. Klicken Sie auf <b>Übernehmen</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Marginal distribution curve 20.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_20.png" width="465"></a></dd>
+      </dl>
+    </li>
+
+    <li>Legen Sie für <b>Links</b> von Layer 3 den Wert 102 fest. Klicken Sie auf <b>Übernehmen</b>. Klicken Sie auf <b>OK</b>, um den Dialog zu schließen.
+
+      <dl>
+        <dd><a class="image"><img alt="Marginal distribution curve 21.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_21.png" width="476"></a></dd>
+      </dl>
+    </li>
+  </ol>

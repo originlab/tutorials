@@ -1,0 +1,134 @@
+﻿<h1 class="firstHeading">Peakanalyse durch Stapelverarbeitung mit Hilfe eines Design mit Skript vor jedem Prozess</h1>
+
+  <p class='urlname' style='display: none'>BatchPA-Script-Before</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_Will_You_Learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Save_Analysis_Settings_as_a_Theme"><span class="tocnumber">3.1</span> <span class="toctext">Analyseeinstellungen als Design speichern</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Prepare_Script_for_Pre-processing_Peak_Data"><span class="tocnumber">3.2</span> <span class="toctext">Skript zur Vorverarbeitung der Peakdaten vorbereiten</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#Batch_Analyze_Datasets_Using_Analysis_Theme"><span class="tocnumber">3.3</span> <span class="toctext">Datenanalyse durch Stapelverarbeitung mit Hilfe eines Analysedesigns</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/Batch_Peak_Analysis_Using_Theme_with_Script_Before_Each_Process/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/Batch_Peak_Analysis_Using_Theme_with_Script_Before_Each_Process/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=130" target="_blank">Einführung in die Stapelverarbeitung ohne Programmierung</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=146" target="_blank">Vorverarbeitung der Daten für die Stapelanalyse</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=43" target="_blank">Dialogdesigns: Zeitsparende funktion zum Wiederaufrufen von Einstellungen des Analysedialogs</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=69" target="_blank">Stapelverarbeitung der Peakdaten mit Hilfe eines Designs</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%">
+        <a class="image"><img alt="Website blog icon circle.png" src="../images/Batch_Peak_Analysis_Using_Theme_with_Script_Before_Each_Process/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Batch_Peak_Analysis_Using_Theme_with_Script_Before_Each_Process/Blog_Image_33x33px.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="http://blog.originlab.com/sequentially-initialize-fitting-parameters-in-batch-peak-analysis" target="_blank">Anpassungsparameter für die Peakanalyse mit Stapelverarbeitung sequenziell initialisieren</a></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Origin kann die Peakanalyse durch Stapelverarbeitung von mehreren Datensätzen mit Hilfe eines <a class="external text" href="../../UserGuide/UserGuide/The_peak_analyzer_themes.html"><b>Analysedesigns</b></a> durchführen. Sie können die Peakdaten vorverarbeiten, z. B. unerwünschte Datensätze ausschließen, bevor Sie die Daten dann tatsächlich mit Hilfe eines vor jedem Prozess festgelegten Skripts eingeben. Beachten Sie, dass dieses Tutorial, auch wenn <b>Peakanalyse durch Stapelverarbeitung mit Design</b> keine auf OriginPro beschränkte Funktion ist, das Ziel des Dialogs <b>Peaks anpassen</b> verwendet wird, um das Design zu erstellen, und <b>Peaks anpassen</b> ist eine Pro-Funktion.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: 2016 SR0</p>
+
+  <h2><a name="What_Will_You_Learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>Analyseeinstellungen als ein Design für die Peakanalyse durch Stapelverarbeitung speichern,</li>
+
+    <li>ein Skript vor jedem Prozess schreiben, um die Daten vorzuverarbeiten,</li>
+
+    <li>eine Peakanalyse durch Stapelverarbeitung mit Hilfe eines Analysedesigns durchführen.</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <h3><a name="Save_Analysis_Settings_as_a_Theme"></a><span class="mw-headline">Analyseeinstellungen als Design speichern</span></h3>
+
+  <p>Dieses Tutorial basiert auf dem Projekt: <i>&lt;Origin-Verzeichnis&gt;\Samples\Tutorial Data.opj</i>.</p>
+
+  <ol>
+    <li>Öffnen Sie <b>Tutorial Data.opj</b> und navigieren Sie zu dem Ordner <b>Script Before Process in Batch PA</b> im <b>Projekt Explorer</b>.</li>
+
+    <li>Klicken Sie auf das Arbeitsblatt <b>Data1</b> in der Arbeitsmappe. Markieren Sie Spalte <i>B</i> und wählen Sie im Menü <b>Analyse: Peaks und Basislinie: Peaks analysieren</b>, um den Dialog zu öffnen. Wählen Sie <b>Peaks anpassen (Pro)</b> als <b>Ziel</b>.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Nächstes</b> und wählen Sie <b>Kein</b> in der Liste <b>Modus Basislinie</b>. Klicken Sie zweimal auf die Schaltfläche <b>Nächstes</b>, um zur Seite <b>Peaks anpassen (Pro)</b> zu gelangen, erweitern Sie den Zweig <b>Diagramm konfigurieren</b> unter <b>Ergebnis</b> und setzen Sie <b>Berichtsdiagramm erstellen</b> auf <b>&lt;Keine&gt;</b>, um das Erzeugen eines Berichtsdiagramms auszuschalten. Dadurch kann der Analyseprozess beschleunigt werden.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <a class="image"><img alt="Button Save Theme.png" src="../images/Batch_Peak_Analysis_Using_Theme_with_Script_Before_Each_Process/Button_Save_Theme.png" width="21"></a> neben <b>Dialogdesign</b> und wählen Sie <b>Speichern unter</b>, um den Dialog <b>Design speichern unter...</b> zu öffnen. Geben Sie im Bearbeitungsfeld <b>Designname</b> <i>MyPeakAnalysis</i> ein und klicken Sie auf <b>OK</b>, um es zu speichern.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Fertig</b>, um die Analyse durchzuführen und die Ergebnisse auszugeben.</li>
+  </ol>
+
+  <h3><a name="Prepare_Script_for_Pre-processing_Peak_Data"></a><span class="mw-headline">Skript zur Vorverarbeitung der Peakdaten vorbereiten</span></h3>
+
+  <p>Der Dialog <b>Peakanalyse durch Stapelverarbeitung mit Design</b> zeigt drei Bearbeitungsfelder, um Skript vor jedem Prozess, nach jedem Prozess und am Ende von allen Prozessen auszuführen. In diesem Abschnitt wird hauptsächlich gezeigt, wie Sie Skript schreiben, das vor jedem Prozess ausgeführt wird, um die Peakdaten vorzuverarbeiten.</p>
+
+  <ol>
+    <li>Aktivieren Sie das Arbeitsblatt <b>Data1</b> erneut. Sie können den Sparklines der verschiedenen Datensätze entnehmen, dass einige Peakdaten sehr viel Rauschen enthalten, z.B. die Spalten <i>C</i>, <i>E</i> und <i>F</i>. Rauschen, das ein gewisses Maß erreicht, soll aus dem Datensatz ausgeschlossen werden.</li>
+
+    <li>Die Methode, die in diesem Tutorial verwendet wird, um festzustellen, ob die Daten rauschen, folgt der untenstehenden Routine. (Falls Sie die Beschriftungszeile der Sparklines nicht sehen, klicken Sie mit der rechten Maustaste auf Ihre Arbeitsblattspalten und aktivieren Sie <b>Ansicht: Sparklines</b>):
+
+      <ul>
+        <li>Filtern Sie die Rohdaten mit einem Hochpass-FFT-Filter, um das hochfrequente Rauschen aus den Daten zu ermitteln.</li>
+
+        <li>Suchen Sie nach der Standardabweichung (SD) des Rauschens und den entsprechenden Rohdaten.</li>
+
+        <li>Legen Sie ein Kriterium fest, dass, wenn das Verhältnis des Quadrats der Standardabweichung des Rauschens zu dem Quadrat der Standardabweichung von den Rohdaten über 30% ist, das Rauschen in den Daten als zu hoch betrachtet wird und die Daten demnach aus der Stapelanalyse ausgeschlossen werden.</li>
+      </ul>
+    </li>
+
+    <li>Befolgen Sie die obenstehenden Routine. Das Skript zum vorherigen Ausschluss von rauschenden Daten sieht folgendermaßen aus:
+      <pre class="lt" style="font-family:monospace;">
+dataset dr; fft_filters iy<span style="color: #000000;">:</span><span style="color: #000080;">=</span>_ry filter<span style="color: #000000;">:</span><span style="color: #000080;">=</span>high oy<span style="color: #000000;">:</span><span style="color: #000080;">=</span>dr; <span style="color: #008000;">// Perform high-pass fft filter to obtain noise</span> stats dr; double nSD <span style="color: #000080;">=</span> stats.<span style="color: #000080;">sd</span>; <span style="color: #008000;">// Calculate SD of noise</span> stats _ry; double sSD <span style="color: #000080;">=</span> stats.<span style="color: #000080;">sd</span>; <span style="color: #008000;">// Calculate SD of raw data</span> if<span style="color: #000000;">(</span>nSD<span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000080;">/</span>sSD<span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000080;">&gt;</span><span style="color: #0000dd;">0.3</span><span style="color: #000000;">)</span> <span style="color: #008000;">// Set noise identification criteria</span> _skip<span style="color: #000080;">=</span><span style="color: #0000dd;">1</span>; else _skip<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span>;
+</pre>
+
+      <p>wobei sich <i>_ry</i> auf die aktuellen Y-Daten bezieht und <i>_skip</i> bestimmt, ob der aktuelle Datensatz übersprungen wird.</p>
+    </li>
+  </ol>
+
+  <h3><a name="Batch_Analyze_Datasets_Using_Analysis_Theme"></a><span class="mw-headline">Datenanalyse durch Stapelverarbeitung mit Hilfe eines Analysedesigns</span></h3>
+
+  <ol>
+    <li>Aktivieren Sie das Arbeitsblatt <b>Data1</b>, markieren Sie alle Spalten in dem Blatt und wählen Sie im Menü <b>Analyse: Peaks und Basislinie: Peakanalyse durch Stapelverarbeitung mit Design</b>, um den Dialog zu öffnen.</li>
+
+    <li>Wählen Sie <i>MyPeakAnalysis</i> in der Auswahlliste <b>Design</b> und <b>Peakeigenschaften (Pro)</b> in der Auswahlliste <b>Ergebnisblatt</b>.</li>
+
+    <li>Um Ergebnisse in einem festgelegten Blatt auszugeben, können Sie die Bereichssyntax in dem Bearbeitungsfeld <b>Ausgabeblatt</b> eingeben. Angenommen, Sie möchten das Blatt <i>MyResults</i> in der Mappe <i>MySummary</i> exportieren. Dann können Sie <i>[MySummary]MyResults!</i> in dem Bearbeitungsfeld eingeben.</li>
+
+    <li>Geben Sie das Skript, das wir im Abschnitt oben geschrieben haben, in <b>Skript vor jedem Prozess</b> im Knoten <b>Skript</b> ein. (<b>Hinweis:</b> Klicken Sie auf die Schaltfläche rechts vom Textfeld. Ein Bearbeitungsfeld wird geöffnet, in das Sie Ihr Skript einfügen und in dem Sie es bearbeiten können).<br>
+    <a class="image"><img alt="BatchPA Using Theme Script Before Each Process 01.png" src="../images/Batch_Peak_Analysis_Using_Theme_with_Script_Before_Each_Process/450px-BatchPA_Using_Theme_Script_Before_Each_Process_01.png" width="450"></a></li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>OK</b>, um die Peakanalyse durch Stapelverarbeitung durchzuführen. Sie können sehen, dass Datensätze, die Rauschen enthalten, (Spalte C, E und F) in den Blättern <b>MyResults</b> ausgeschlossen sind.<br>
+    <a class="image"><img alt="BatchPA Using Theme Script Before Each Process 02.png" src="../images/Batch_Peak_Analysis_Using_Theme_with_Script_Before_Each_Process/700px-BatchPA_Using_Theme_Script_Before_Each_Process_02.png" width="700"></a></li>
+  </ol>

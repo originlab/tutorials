@@ -1,0 +1,391 @@
+﻿<h1 class="firstHeading">Einem Histogramm mehrere angepasste Kurven hinzufügen</h1>
+
+  <p class='urlname' style='display: none'>MultiFittedCurve-in-Histogram</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Contents</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Frequency_Count"><span class="tocnumber">3.1</span> <span class="toctext">Häufigkeitszählung</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Fit_peaks"><span class="tocnumber">3.2</span> <span class="toctext">Peaks anpassen</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#Add_the_fitted_curves"><span class="tocnumber">3.3</span> <span class="toctext">Angepasste Kurven hinzufügen</span></a></li>
+
+          <li class="toclevel-2 tocsection-7"><a href="#Sample_Data"><span class="tocnumber">3,4</span> <span class="toctext">Beispieldaten</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Mit Origin können Sie die Peaks aus dem Ergebnis der Häufigkeitszählung anpassen. Außerdem können angepasste Kurven zu dem neuen Layer des Histogramms hinzugefügt werden.</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <ul>
+    <li>Histogramm zeichnen</li>
+
+    <li>Mit der Häufigkeitszählung Statistikwerte berechnen</li>
+
+    <li>Mit dem Hilfsmittel 'Peaks analysieren' Peaks suchen und eine Anpassung durchführen</li>
+
+    <li>Neue Layer hinzufügen</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <p>Kopieren Sie die <a href="#Sample_Data">Beispieldaten</a> und fügen Sie sie in Origin ein. Legen Sie die Spalte als Y fest (indem Sie die Spalte markieren und <b>Spalte: Als Y setzen</b> im Origin-Menü wählen). Zeichnen Sie diese Daten als Histogramm, indem Sie im Menü auf <span class="menu">Zeichnen: Einfache 2D: Histogramm</span> klicken.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Histogram Not Fitted curve.png" src="../images/Add_multiple_fitted_curves_in_a_Histogram/Histogram_Not_Fitted_curve.png" width="457"></a></dd>
+  </dl>
+
+  <h3><a name="Frequency_Count"></a><span class="mw-headline">Häufigkeitszählung</span></h3>
+
+  <ol>
+    <li>Markieren Sie die Beispieldaten, öffnen Sie dann den Dialog der <b>Häufigkeitszählung</b> über <span class="menu">Statistik: Deskriptive Statistik: Häufigkeiten zählen</span>.</li>
+
+    <li>Klicken Sie zum Fertigstellen auf <b>OK</b>. Ein neues Ergebnisblatt wird erzeugt.</li>
+  </ol>
+
+  <h3><a name="Fit_peaks"></a><span class="mw-headline">Peaks anpassen</span></h3>
+
+  <ol>
+    <li>Wählen Sie Col(Counts) im Blatt <b>FreqCounts1</b> und öffnen Sie dann den Dialog <b>Mehrere Peaks anpassen</b> über das Menü <b>Analyse: Peaks und Basislinie: Mehrere Peaks anpassen</b>.</li>
+
+    <li>Wählen Sie im aufgerufenen Dialog Gaussian unter <b>Peakfunktion</b> und klicken Sie auf <b>OK</b>.</li>
+
+    <li>Ein Diagrammfenster wird automatisch erzeugt, damit der Anwender Peaks aus dem Diagramm wählen kann. Klicken Sie doppelt auf das Peakzentrum, um einen Peak auszuwählen. Wählen Sie auf diese Weise nacheinander zwei Peaks.<br>
+    <a class="image"><img alt="MultiFittedCurve pickpeaks.png" src="../images/Add_multiple_fitted_curves_in_a_Histogram/MultiFittedCurve_pickpeaks.png" width="437"></a><br>
+    <b>Hinweis</b>: Sie können einmal auf das Peakzentrum klicken und dann die Pfeiltasten nach links oder rechts auf der Tastatur verwenden, um das Zentrum leicht zu verschieben. Sobald Sie dies getan haben, drücken Sie zum Bestätigen die Enter-Taste.</li>
+
+    <li>Die Basislinie muss bei Y = 0 festgelegt werden. Dazu klicken Sie auf die <b>NLFit öffnen</b>, um den Dialog <b>NLFit</b> aufzurufen. Gehen Sie zur Registerkarte Parameter. Setzen Sie den <b>Wert</b> des Parameters <i>y0</i> auf 0 und aktivieren Sie das Kontrollkästchen <b>Fest</b>. Klicken Sie auf die Schaltfläche <b>Fit</b>, um die Anpassung durchzuführen.
+
+      <table class="noborder">
+        <tr>
+          <td style="vertical-align:top" width="60"><img src="../images/Add_multiple_fitted_curves_in_a_Histogram/Tip_icon.png" width="57" border="0" alt=""></td>
+
+          <td>
+            <p>Wenn Ihre Basislinie kompliziert ist oder wenn Sie möchten, dass Origin Peaks mit einer bestimmten Methode automatisch sucht, verwenden Sie bitte <b>Peaks analysieren</b> (wird geöffnet über <b>Analyse: Peaks und Basislinie: Peaks analysieren</b>). Beachten Sie, dass <b>Peaks analysieren</b> leistungsstarke Bedienelemente bietet, die sich nicht nur für die zwei erwähnten Fälle eignen.</p>
+          </td>
+        </tr>
+      </table>
+    </li>
+
+    <li>Es werden zwei Blätter, <b>nlfitpeaks1</b> und <b>nlfitpeaksCurve1</b>, zur Quellarbeitsmappe hinzugefügt, die den Anpassungsbericht und die Daten der angepassten Kurve enthalten.</li>
+  </ol>
+
+  <p>&#160;</p>
+
+  <h3><a name="Add_the_fitted_curves"></a><span class="mw-headline">Angepasste Kurven hinzufügen</span></h3>
+
+  <ol>
+    <li>Aktivieren Sie das Histogramm und fügen Sie einen Layer hinzu, indem Sie <span class="db">Einfügen: Neuer Layer (Achsen): Rechte Y</span> im Hauptmenü auswählen.</li>
+
+    <li>Klicken Sie doppelt auf das Symbol <b>Layer2</b>, um den Dialog <b>Layerinhalt</b> zu öffnen.</li>
+
+    <li>Halten Sie die <b>Strg</b>-Taste gedrückt, um col("Fit Peak 1") und col("Fit Peak 2") im Blatt <b>nlfitpeaksCurve1</b> im linken Bedienfeld auszuwählen. Klicken Sie auf die dreieckige Schaltfläche neben der Schaltfläche <b>A</b> und wählen Sie die Linie im Ausklappmenü aus. Klicken Sie auf die Schaltfläche <b>-&gt;</b>, um sie zum rechten Bedienfeld hinzuzufügen.</li>
+
+    <li>Klicken Sie auf OK. Zwei angepasste Kurven wurden zum Histogramm hinzugefügt.</li>
+
+    <li>Klicken Sie zum Öffnen des Dialogs <span class="db">Details Zeichnung</span> doppelt auf das Diagramm. Wählen Sie <b>RightY</b> im linken Bedienfeld, gehen Sie auf die Registerkarte <b>Achsen verbinden</b> im rechten Bereich und wählen Sie <b>Gerade (1 zu 1)</b> für <b>Verbindung der X-Achsen</b> und <b>Verbindung der Y-Achsen</b> aus. Klicken Sie auf OK, um den Dialog zu schließen.</li>
+
+    <li>Die angepassten Kurven werden dem Histogramm mit der richtigen Skalierung hinzugefügt. Im Folgenden sehen Sie das sich ergebende Diagramm mit entfernter Y-Achse.<br>
+    <a class="image"><img alt="Histogram Fitted curve.png" src="../images/Add_multiple_fitted_curves_in_a_Histogram/Histogram_Fitted_curve.png" width="473"></a></li>
+  </ol>
+
+  <h3><a name="Sample_Data"></a><span class="mw-headline">Beispieldaten</span></h3>
+
+  <dl>
+    <dd>
+      <table class="simple">
+        <tr>
+          <td>0,631</td>
+        </tr>
+
+        <tr>
+          <td>0,642</td>
+        </tr>
+
+        <tr>
+          <td>0,652</td>
+        </tr>
+
+        <tr>
+          <td>0,662</td>
+        </tr>
+
+        <tr>
+          <td>0,669</td>
+        </tr>
+
+        <tr>
+          <td>0,676</td>
+        </tr>
+
+        <tr>
+          <td>0,677</td>
+        </tr>
+
+        <tr>
+          <td>0,69</td>
+        </tr>
+
+        <tr>
+          <td>0,691</td>
+        </tr>
+
+        <tr>
+          <td>0,696</td>
+        </tr>
+
+        <tr>
+          <td>0,697</td>
+        </tr>
+
+        <tr>
+          <td>0,699</td>
+        </tr>
+
+        <tr>
+          <td>0,699</td>
+        </tr>
+
+        <tr>
+          <td>0,7</td>
+        </tr>
+
+        <tr>
+          <td>0,7</td>
+        </tr>
+
+        <tr>
+          <td>0,708</td>
+        </tr>
+
+        <tr>
+          <td>0,712</td>
+        </tr>
+
+        <tr>
+          <td>0,718</td>
+        </tr>
+
+        <tr>
+          <td>0,731</td>
+        </tr>
+
+        <tr>
+          <td>0,744</td>
+        </tr>
+
+        <tr>
+          <td>0,749</td>
+        </tr>
+
+        <tr>
+          <td>0,751</td>
+        </tr>
+
+        <tr>
+          <td>0,752</td>
+        </tr>
+
+        <tr>
+          <td>0,753</td>
+        </tr>
+
+        <tr>
+          <td>0,758</td>
+        </tr>
+
+        <tr>
+          <td>0,758</td>
+        </tr>
+
+        <tr>
+          <td>0,759</td>
+        </tr>
+
+        <tr>
+          <td>0,761</td>
+        </tr>
+
+        <tr>
+          <td>0,761</td>
+        </tr>
+
+        <tr>
+          <td>0,763</td>
+        </tr>
+
+        <tr>
+          <td>0,763</td>
+        </tr>
+
+        <tr>
+          <td>0,763</td>
+        </tr>
+
+        <tr>
+          <td>0,765</td>
+        </tr>
+
+        <tr>
+          <td>0,767</td>
+        </tr>
+
+        <tr>
+          <td>0,768</td>
+        </tr>
+
+        <tr>
+          <td>0,768</td>
+        </tr>
+
+        <tr>
+          <td>0,769</td>
+        </tr>
+
+        <tr>
+          <td>0,769</td>
+        </tr>
+
+        <tr>
+          <td>0,77</td>
+        </tr>
+
+        <tr>
+          <td>0,771</td>
+        </tr>
+
+        <tr>
+          <td>0,771</td>
+        </tr>
+
+        <tr>
+          <td>0,772</td>
+        </tr>
+
+        <tr>
+          <td>0,774</td>
+        </tr>
+
+        <tr>
+          <td>0,775</td>
+        </tr>
+
+        <tr>
+          <td>0,775</td>
+        </tr>
+
+        <tr>
+          <td>0,776</td>
+        </tr>
+
+        <tr>
+          <td>0,776</td>
+        </tr>
+
+        <tr>
+          <td>0,776</td>
+        </tr>
+
+        <tr>
+          <td>0,777</td>
+        </tr>
+
+        <tr>
+          <td>0,778</td>
+        </tr>
+
+        <tr>
+          <td>0,779</td>
+        </tr>
+
+        <tr>
+          <td>0,78</td>
+        </tr>
+
+        <tr>
+          <td>0,78</td>
+        </tr>
+
+        <tr>
+          <td>0,781</td>
+        </tr>
+
+        <tr>
+          <td>0,784</td>
+        </tr>
+
+        <tr>
+          <td>0,784</td>
+        </tr>
+
+        <tr>
+          <td>0,785</td>
+        </tr>
+
+        <tr>
+          <td>0,785</td>
+        </tr>
+
+        <tr>
+          <td>0,789</td>
+        </tr>
+
+        <tr>
+          <td>0,789</td>
+        </tr>
+
+        <tr>
+          <td>0,791</td>
+        </tr>
+
+        <tr>
+          <td>0,794</td>
+        </tr>
+
+        <tr>
+          <td>0,795</td>
+        </tr>
+
+        <tr>
+          <td>0,796</td>
+        </tr>
+
+        <tr>
+          <td>0,798</td>
+        </tr>
+
+        <tr>
+          <td>0,798</td>
+        </tr>
+
+        <tr>
+          <td>0,803</td>
+        </tr>
+
+        <tr>
+          <td>0,82</td>
+        </tr>
+
+        <tr>
+          <td>0,831</td>
+        </tr>
+      </table>
+    </dd>
+  </dl>

@@ -1,0 +1,73 @@
+﻿<h1 class="firstHeading">Bivariate Spectral Density with Lag Window</h1>
+
+  <p class='urlname' style='display: none'>Bivariate-Lag</p>
+
+  <p>&#160;</p>
+
+  <h2><a name="Tutorial"></a><span class="mw-headline">Tutorial</span></h2>
+
+  <ol>
+    <li>Open the sample project file in Origin, go to Folder <b>Spectral Analysis</b> using the Project Explorer. Activate the workbook <b>Bivariate spectral data</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Bi dan pe data.png" src="../images/Bivariate_Lag/700px-Bi_dan_pe_data.png" width="700"></a></dd>
+      </dl>
+    </li>
+
+    <li>Highlight column A and B in worksheet. Click the Time Series Analysis App icon <a class="image"><img alt="Time Series Analysis icon.png" src="../images/Bivariate_Lag/Time_Series_Analysis_icon.png" width="50"></a> in the Apps Gallery window.</li>
+
+    <li>Choose <b>Spectral Analysis</b> tab. Click <b>Bivariate Spectral Density with Lag Window</b> icon to open the dialog.
+
+      <dl>
+        <dd><a class="image"><img alt="Bi lag toolbar.png" src="../images/Bivariate_Lag/700px-Bi_lag_toolbar.png" width="700"></a></dd>
+      </dl>
+    </li>
+
+    <li>In the <b>Setting</b> branch, choose <b>No correction</b>. Enter 0.2 in <b>Tapering Proportion</b>. Choose Tukey window type. Enter 50 and 0 in <b>Cut-off of Lag Window</b> and <b>Aligment Shift between Two Time Series</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Bi lag dialog.png" src="../images/Bivariate_Lag/700px-Bi_lag_dialog.png" width="700"></a></dd>
+      </dl>
+    </li>
+
+    <li>Click Preview button to display smoothed spectrum.</li>
+
+    <li>Click OK button to output the report.
+
+      <dl>
+        <dd><a class="image"><img alt="Bi lag report.png" src="../images/Bivariate_Lag/Bi_lag_report.png" width="700"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h2><a name="Algorithm"></a><span class="mw-headline">Algorithm</span></h2>
+
+  <p>The smoothed sample cross spectrum is a complex valued function of frequency <img src="../images/Bivariate_Lag/math-260b57b4fdee8c5a001c09b555ccd28d.png" title="\omega" alt="\omega" class="tex">, <img src="../images/Bivariate_Lag/math-4c33483daabde50b6ca6c5bb7e0ad2f3.png" title="f_{xy}(\omega)=cf(\omega)+iqf(\omega)" alt="f_{xy}(\omega)=cf(\omega)+iqf(\omega)" class="tex">, defined by its real part or co-spectrum</p>
+
+  <dl>
+    <dd><img src="../images/Bivariate_Lag/math-a1f1e9ce07e733423a9e2b573e311312.png" title="cf(\omega)=\frac{1}{2\pi}\sum_{k=-M+1}^{M-1}\omega_kC_{xy}(k+S)cos(\omega k)" alt="cf(\omega)=\frac{1}{2\pi}\sum_{k=-M+1}^{M-1}\omega_kC_{xy}(k+S)cos(\omega k)" class="tex"></dd>
+  </dl>
+
+  <p>and imaginary part or quadrature spectrum:</p>
+
+  <dl>
+    <dd><img src="../images/Bivariate_Lag/math-1fb140e59f9b42534e36bec232217607.png" title="qf(\omega)=\frac{1}{2\pi}\sum_{k=-M+1}^{M-1}\omega_kC_{xy}(k+S)sin(\omega k)" alt="qf(\omega)=\frac{1}{2\pi}\sum_{k=-M+1}^{M-1}\omega_kC_{xy}(k+S)sin(\omega k)" class="tex"></dd>
+  </dl>
+
+  <p>where <img src="../images/Bivariate_Lag/math-f2e2d16c1fee53f14e7528b152d4f262.png" title="\omega_k =\omega_{-k}" alt="\omega_k =\omega_{-k}" class="tex">, for <img src="../images/Bivariate_Lag/math-69084fd858c17592a83c85ec136e1f9e.png" title="k=0,1,...,M-1" alt="k=0,1,...,M-1" class="tex">, is the smoothing lag window as described in <a href="../../Tutorial/App/Univariate_Lag.html#Algorithm" title="App:Univariate Lag">Univariate Spectral Density with Lag Window</a>.</p>
+
+  <p>The results are calculated for frequency values</p>
+
+  <dl>
+    <dd><img src="../images/Bivariate_Lag/math-a17d49c12718ff1f6716a9b6d001a028.png" title="\omega_j = \frac{2\pi j}{L},j=0,1...,[L/2]" alt="\omega_j = \frac{2\pi j}{L},j=0,1...,[L/2]" class="tex"></dd>
+  </dl>
+
+  <p>where [ ] denotes the integer part.</p>
+
+  <h2><a name="Reference"></a><span class="mw-headline">Reference</span></h2>
+
+  <ol>
+    <li><span id="Ref1"><span><a class="external text" href="https://d2mvzyuse3lwjc.cloudfront.net/pdfs/NAG26/Manual/html/g13/g13ccc.html" target="_blank">nag_tsa_spectrum_bivar_cov (g13ccc)</a></span></span></li>
+  </ol>
+
+  <p>&#160;</p>

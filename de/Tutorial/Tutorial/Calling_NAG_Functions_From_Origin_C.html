@@ -1,0 +1,168 @@
+﻿<h1 class="firstHeading">NAG-Funktionen mit Origin C aufrufen</h1>
+
+  <p class='urlname' style='display: none'>OC-Call-NAG</p>
+
+  <table id="toc" class="toc">
+    <tr>
+      <td>
+        <div id="toctitle">
+          <h2>Inhalt</h2>
+        </div>
+
+        <ul>
+          <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+          <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+          <li class="toclevel-1 tocsection-3"><a href="#Understand_NAG_Functions"><span class="tocnumber">3</span> <span class="toctext">NAG-Funktionen verstehen</span></a></li>
+
+          <li class="toclevel-1 tocsection-4"><a href="#Get_Ready_to_Debug_Sample_Code"><span class="tocnumber">4</span> <span class="toctext">Debuggen von Beispielcode vorbereiten</span></a></li>
+
+          <li class="toclevel-1 tocsection-5"><a href="#Include_the_NAG_Header"><span class="tocnumber">5</span> <span class="toctext">NAG-Header einbinden</span></a></li>
+
+          <li class="toclevel-1 tocsection-6"><a href="#How_to_See_the_Declaration_of_NAG_Function"><span class="tocnumber">6</span> <span class="toctext">Deklaration der NAG-Funktion anzeigen</span></a></li>
+
+          <li class="toclevel-1 tocsection-7"><a href="#How_to_Get_NAG_Error_Code"><span class="tocnumber">7</span> <span class="toctext">NAG-Fehlercode ermitteln</span></a></li>
+
+          <li class="toclevel-1 tocsection-8"><a href="#How_to_Use_Function_Pointer"><span class="tocnumber">8</span> <span class="toctext">Funktionszeiger verwenden</span></a></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Das Aufrufen einer NAG-Funktion mit Hilfe einer Origin C-Funktion ähnelt dem Aufrufen jeder anderen ORigin C-Funktion sehr. Sie müssen sich mit der gewünschten NAG-Funktion vertraut machen, um zu verstehen, welche Parameter die Funktion benötigt, die als Argumente weitergegeben werden, und welche Parameter die Funktion ausgibt. Sobald Sie die Funktion kennen, müssen Sie einen Code entwickeln, der den Anforderungen der Funktion entspricht.</p>
+
+  <p>Die NAG-Headerdatei, die den Prototyp der Funktion enthält, muss eingeschlossen werden, erforderliche Parameter müssen korrekt deklariert, in der Größe angepasst und initiiert werden, und der Funktionsaufruf muss dem Prototypen der Funktion, wie in der Headerdatei beschrieben, folgen. Das Ziel dieses Tutorials ist zu zeigen, wie eine NAG-Funktion mit Hilfe einer Origin C-Funktion aufgerufen wird.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 8.1 SR1</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>NAG-Funktionen verstehen,</li>
+
+    <li>das Debuggen von Beispielcode vorbereiten,</li>
+
+    <li>NAG-Header einbinden,</li>
+
+    <li>die Deklaration der NAG-Funktion anzeigen,</li>
+
+    <li>NAG-Fehlercode ermitteln,</li>
+
+    <li>den Funktionszeiger verwenden.</li>
+  </ul>
+
+  <h2><a name="Understand_NAG_Functions"></a><span class="mw-headline">NAG-Funktionen verstehen</span></h2>
+
+  <p>Die wichtigste Quelle, um NAG-Funktionen verstehen zu lernen, ist die <a class="external text" href="../../OriginC/OriginC/Accessing_NAG_Functions_Category_and_Help.html">NAG-Bibliothek</a>. Die Bibliothek befindet sich auch in der Hilfe zu Origin C. Ein Beispiel ist die NAG-Funktion d01ajc:</p>
+
+  <ol>
+    <li>Wählen Sie im Origin-Menü Hilfe: Programmierung: OriginC. Erweitern Sie in der Origin C Reference das Kapitel Global Functions, dann das Kapitel zu NAG-Funktionen, und wählen Sie Accessing NAG Functions Category and Help.</li>
+
+    <li>Wählen Sie die Kategorie Quadrature (d01) und dann die Funktion nag_1d_quad_gen (d01ajc).</li>
+
+    <li>Die ausgewählte Seite ist eine PDF-Datei. Sehen Sie sich die Funktion nag_1d_quad_gen in Ruhe an, bis Sie die Beschreibung der Funktion, den Prototyp der Funktion und die Beschreibung aller Argumente verstanden haben. Beispieldaten und ein Beispielprogramm, das die Funktion aufruft, sind ebenfalls enthalten.</li>
+  </ol>
+
+  <p>Die zweitwichtigste Quelle, um sich über Origin C-NAG-Funktionen zu informieren, sind die Beispiele. Wählen Sie im Origin-Menü Hilfe: Programmierung: OriginC, erweitern Sie das Oberkapitel Examples, dann das Kapitel Analysis und wählen Sie Accessing NAG Functions. Es gibt einige Beispiele, die Ihnen zeigen, wie NAG-Funktionen in Origin C aufgerufen werden.</p>
+
+  <h2><a name="Get_Ready_to_Debug_Sample_Code"></a> <span class="mw-headline">Debuggen von Beispielcode vorbereiten</span></h2>
+
+  <p>Der beste Weg, um zu verstehen, wie man eine Origin C-Funktion schreibt, die eine NAG-Funktion aufruft, besteht darin, eine Beispielfunktion im Modus Debuggen nachzuvollziehen. Befolgen Sie die Schritte unten, um Origin und den Code Builder so einzurichten, dass Sie solch eine Beispielfunktion von Origin C im Modus Debuggen ausführen können.</p>
+
+  <ol>
+    <li>Wählen Sie im Menü Code Builder die Option <b>Datei: Neu</b>. Der Dialog <b>Neue Datei</b> wird geöffnet.</li>
+
+    <li>Geben Sie in dem Textfeld <b>Dateiname</b> das Wort <b>TestNAG</b> ein und lassen Sie das Kontrollkästchen <b>Zu Arbeitsbereich hinzufügen</b> aktiviert. Klicken Sie auf <b>OK</b>. Die Datei TestNAG.c wird zum Arbeitsbereich hinzugefügt.</li>
+
+    <li>Wählen und kopieren Sie die folgende Funktion und fügen Sie sie in die Datei TestNAG.c ein. Stellen Sie sicher, dass Sie den untenstehenden Text unter der Zeile "// Include your own header files here." einfügen.</li>
+  </ol>
+  <pre class="oc" style="font-family:monospace;">
+<span style="color: #008000;">// Include your own header files here.</span> <span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>OC_nag8.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span> � <span style="color: #008000;">///////////////////////////////////////////////////////////////</span> <span style="color: #008000;">// Start your functions here.</span> � <span style="color: #008000;">//NAG_CALL denotes proper calling convention. </span><span style="color: #008000;">You may treat it  <span style="color: #008000;">//like a function pointer and define your own integrand </span> <span style="color: #0000ff;">double</span> NAG_CALL f<span style="color: #000000;">(</span><span style="color: #0000ff;">double</span> x<span style="color: #000000;">)</span> <span style="color: #000000;">{</span> <span style="color: #0000ff;">return</span> <span style="color: #000000;">(</span>x<span style="color: #000040;">*</span><span style="color: #000000;">sin</span><span style="color: #000000;">(</span>x<span style="color: #000040;">*</span><span style="color: #0000dd;">30.0</span><span style="color: #000000;">)</span><span style="color: #000040;">/</span><span style="color: #000000;">sqrt</span><span style="color: #000000;">(</span><span style="color: #0000dd;">1.0</span><span style="color: #000040;">-</span>x<span style="color: #000040;">*</span>x<span style="color: #000040;">/</span><span style="color: #000000;">(</span>PI<span style="color: #000040;">*</span>PI<span style="color: #000040;">*</span><span style="color: #0000dd;">4.0</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>; <span style="color: #000000;">}</span> � <span style="color: #0000ff;">void</span> nag_d01ajc_ex<span style="color: #000000;">(</span><span style="color: #000000;">)</span> <span style="color: #000000;">{</span> <span style="color: #0000ff;">double</span> a <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.0</span>; <span style="color: #0000ff;">double</span> b <span style="color: #000080;">=</span> PI <span style="color: #000040;">*</span> <span style="color: #0000dd;">2.0</span>;  <span style="color: #008000;">// integration interval</span> � <span style="color: #0000ff;">double</span> epsabs, abserr, epsrel, result; <span style="color: #008000;">// you may use epsabs and epsrel and this quantity to enhance </span> <span style="color: #008000;">// your desired precision when not enough precision encountered</span> epsabs <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.0</span>; epsrel <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.0001</span>; <span style="color: #008000;">// The max number of sub-intervals needed to evaluate the </span> <span style="color: #008000;">// function in the integral. </span><span style="color: #008000;">The more diffcult the integrand  <span style="color: #008000;">// the larger max_num_subint should be.</span> <span style="color: #008000;">// For most problems 200 to 500 is adequate and recommmended</span> <span style="color: #0000ff;">int</span> max_num_subint <span style="color: #000080;">=</span> <span style="color: #0000dd;">200</span>; �
+        Nag_QuadProgress qp; <span style="color: #0000ff;">static</span> NagError fail; d01ajc<span style="color: #000000;">(</span>f, a, b, epsabs, epsrel, max_num_subint, <span style="color: #000040;">&amp;</span>result, <span style="color: #000040;">&amp;</span>abserr, <span style="color: #000040;">&amp;</span>qp, <span style="color: #000040;">&amp;</span>fail<span style="color: #000000;">)</span>; � <span style="color: #008000;">// For the error other than the following three errors.</span> <span style="color: #008000;">// which are due to bad input parameters or allocation failure</span> <span style="color: #008000;">// NE_INT_ARG_LT NE_BAD_PARAM NE_ALLOC_FAIL. </span> <span style="color: #008000;">// You will need to free the memory allocation before calling </span> <span style="color: #008000;">// the integration routine again to avoid memory leakage.</span> <span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span>fail.<span style="color: #000000;">code</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span> NE_INT_ARG_LT <span style="color: #000040;">&amp;&amp;</span> fail.<span style="color: #000000;">code</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span> NE_BAD_PARAM <span style="color: #000040;">&amp;&amp;</span> fail.<span style="color: #000000;">code</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span>  NE_ALLOC_FAIL<span style="color: #000000;">)</span> <span style="color: #000000;">{</span> NAG_FREE<span style="color: #000000;">(</span>qp.<span style="color: #000000;">sub_int_beg_pts</span><span style="color: #000000;">)</span>; NAG_FREE<span style="color: #000000;">(</span>qp.<span style="color: #000000;">sub_int_end_pts</span><span style="color: #000000;">)</span>; NAG_FREE<span style="color: #000000;">(</span>qp.<span style="color: #000000;">sub_int_result</span><span style="color: #000000;">)</span>; NAG_FREE<span style="color: #000000;">(</span>qp.<span style="color: #000000;">sub_int_error</span><span style="color: #000000;">)</span>; <span style="color: #000000;">}</span> � <span style="color: #000000;">printf</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">"%10.6f"</span>, result<span style="color: #000000;">)</span>; <span style="color: #000000;">}</span></span></span>
+</pre>
+
+  <h2><a name="Include_the_NAG_Header"></a> <span class="mw-headline">NAG-Header einbinden</span></h2>
+  <pre class="oc" style="font-family:monospace;">
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>OC_nag8.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+</pre>
+
+  <p>Diese Headerdatei enthält alle Headerdateien der NAG-Funktionen und alle Typ- und Fehlercodedefinitionen. Es sollte daher ausreichen, diese eine Funktion einzuschließen.</p>
+
+  <h2><a name="How_to_See_the_Declaration_of_NAG_Function"></a><span class="mw-headline">Deklaration der NAG-Funktion anzeigen</span></h2>
+
+  <p>Sehen Sie sich die Deklaration der NAG-Funktionen in der Headerdatei an:</p>
+
+  <ol>
+    <li>Aktivieren Sie die Datei TestNAG.c, die im Abschnitt oben erstellt wurde, und verschieben Sie die Laufleiste, um die Zeile #include &lt;OC_nag8.h&gt; zu suchen.</li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf eine beliebige Stelle in der Zeile und wählen Sie <b>Open "OC_nag8.h"</b>. Dadurch wird die Headerdatei geöffnet, die alle NAG-Header enthält.</li>
+
+    <li>Geben Sie in das Suchfeld <a class="image"><img alt="Code Builder Search.PNG" src="../images/Calling_NAG_Functions_From_Origin_C/Code_Builder_Search.PNG" width="184" height="26"></a> <b>NAG\nagd01.h</b> ein und drücken Sie auf <b>Enter</b>, um diese Zeile zu suchen. Die Funktion <b>d01ajc</b> gehört zur Kategorie d01, deshalb sollte der Headerdateiname nagd01.h sein.</li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf eine beliebige Stelle dieser Zeile und wählen Sie <b>Open "NAG\nagd01.h"</b>. Dadurch wird die Headerdatei geöffnet, die den Prototypen der Funktionen enthält.</li>
+
+    <li>Geben Sie das Suchfeld <b>d01ajc</b> ein und drücken Sie <b>Enter</b>, um zur Deklaration dieser Funktion zu gelangen.</li>
+  </ol>
+
+  <p>Die Deklaration der Funktionen aus der NAG-PDF finden Sie hier:</p>
+
+  <ul>
+    <li><a class="external text" href="../../OriginC/OriginC/Accessing_NAG_Functions_Category_and_Help.html#Accessing_NAG_Functions_Category%7CAccessing">NAG-PDF - Online</a></li>
+
+    <li><a class="external text" href="../../OriginC/OriginC/Accessing_NAG_Functions_Category_and_Help.html#Getting_Help%7CDownload">NAG-PDF - Dateien</a></li>
+  </ul>
+
+  <h2><a name="How_to_Get_NAG_Error_Code"></a><span class="mw-headline">NAG-Fehlercode ermitteln</span></h2>
+
+  <ol>
+    <li>Reaktivieren Sie das Fenster TestNAG.c im Code Builder. In dieser Datei ist die <b>NagError</b>-Variable <b>fail</b> definiert und wird als letztes Argument an die Funktion <b>d01ajc</b> weitergegeben.</li>
+
+    <li>Die NAG-Funktion gibt den Fehlercode in dem Codeelement NagError-Variable aus. In diesem Beispiel kann auf den NAG-Fehlercode über <b>fail.code</b> zugegriffen werden.</li>
+  </ol>
+
+  <p>Fehlercodes:</p>
+
+  <ol start="3">
+    <li>Öffnen Sie die Origin C-Hilfe im Origin-Menü <b>Hilfe: Programmierung: OriginC</b>, erweitern Sie die Mappe Origin C Reference, dann Global Functions, dann NAG Functions und wählen Sie Accessing NAG Functions Category and Help.</li>
+  </ol>
+
+  <ol start="4">
+    <li>Wählen Sie in der Tabelle der <b>Chapters of NAG C Library</b> die Funktion <b>d01</b>, um zur Seite Quadrature zu gelangen, und wählen Sie d01ajc in der Tabelle dieser Kategorie, um die PDF-Hilfe dieser NAG-Funktion zu öffnen.</li>
+  </ol>
+
+  <ol start="5">
+    <li>Ziehen Sie die Scrollleiste der Seite hinunter bis zum Abschnitt <b>6 Error Indicators and Warnings</b>. Dort werden alle Fehlercodes für diese Funktion und verwandte Beschreibungen aufgelistet. Sie können diese Fehlercodes in Origin C direkt verwenden, wenn die korrekte Headerdatei eingebunden ist (der Header &lt;OC_nag8.h&gt; enthält alle NAG-Header; &lt;NAG8\nag_errlist.h&gt; kann aber auch direkt eingebunden sein). Beispielsweise wird NE_INT_ARG_LT, NE_BAD_PARAM, NE_ALLOC_FAIL in der Datei TestNAG.c verwendet.</li>
+  </ol>
+
+  <h2><a name="How_to_Use_Function_Pointer"></a><span class="mw-headline">Funktionszeiger verwenden</span></h2>
+
+  <ol>
+    <li>Öffnen Sie die Datei nagd01.h im Origin-Programmverzeichnis \OriginC\system\NAG.</li>
+
+    <li>Suchen Sie in dieser Datei nach der Deklaration der Funktion <b>d01ajc</b>. Der erste Argumenttyp dieser Funktion ist <b>NAG_D01AJC_FUN</b>.</li>
+
+    <li>Klicken Sie zur Markierung doppelt auf <b>NAG_D01AJC_FUN</b>. Wählen Sie im Menü <b>Bearbeiten: In Dateien suchen</b>, um den Dialog zum <b>Suchen in Dateien</b> aufzurufen. Nehmen Sie die gleichen Einstellungen vor, wie im folgenden Bild zu sehen, und klicken Sie auf die Schaltfläche Suchen.
+
+      <dl>
+        <dd><a class="image"><img alt="Code Builder Find in Files.PNG" src="../images/Calling_NAG_Functions_From_Origin_C/Code_Builder_Find_in_Files.PNG" width="399" height="186"></a></dd>
+      </dl>
+    </li>
+
+    <li>Die Suchergebnisse werden im Ausgabefenster angezeigt. Klicken Sie doppelt auf die Zeile nag_types.h, um zu dieser Datei zu gelangen, <b>typedef NAG_D01_FUN NAG_D01AJC_FUN</b>. Die Definition von NAG_D01_FUN findet sich gleich daneben.</li>
+
+    <li>Die Definition von NAG_D01_FUN ist:
+      <pre class="oc" style="font-family:monospace;">
+<span style="color: #0000ff;">typedef</span> <span style="color: #0000ff;">double</span> <span style="color: #000000;">(</span>NAG_CALL <span style="color: #000040;">*</span> NAG_D01_FUN<span style="color: #000000;">)</span><span style="color: #000000;">(</span><span style="color: #0000ff;">double</span><span style="color: #000000;">)</span>;
+</pre>Die benutzerdefinierte Funktion sollte den gleichen Rückgabetyp und die gleiche Argumentenliste behalten wie diese Definition. <b>NAG_CALL</b> kennzeichnet eine geeignete Aufrufkonvention und sollte in Ihrer eigenen Funktion verwendet werden.
+    </li>
+
+    <li>Aktivieren Sie die Datei TestNAG.c. Es gibt eine Funktion mit dem Namen <b>f</b>. Sie verwendet als Funktionszeiger in <b>d01ajc</b> das erste Argument.</li>
+  </ol>
+  <pre class="oc" style="font-family:monospace;">
+<span style="color: #0000ff;">double</span> NAG_CALL f<span style="color: #000000;">(</span><span style="color: #0000ff;">double</span> x<span style="color: #000000;">)</span> <span style="color: #000000;">{</span> <span style="color: #0000ff;">return</span> <span style="color: #000000;">(</span>x<span style="color: #000040;">*</span><span style="color: #000000;">sin</span><span style="color: #000000;">(</span>x<span style="color: #000040;">*</span><span style="color: #0000dd;">30.0</span><span style="color: #000000;">)</span><span style="color: #000040;">/</span><span style="color: #000000;">sqrt</span><span style="color: #000000;">(</span><span style="color: #0000dd;">1.0</span><span style="color: #000040;">-</span>x<span style="color: #000040;">*</span>x<span style="color: #000040;">/</span><span style="color: #000000;">(</span>PI<span style="color: #000040;">*</span>PI<span style="color: #000040;">*</span><span style="color: #0000dd;">4.0</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>; <span style="color: #000000;">}</span>
+</pre>

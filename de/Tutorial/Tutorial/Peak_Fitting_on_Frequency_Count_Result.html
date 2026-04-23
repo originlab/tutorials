@@ -1,0 +1,46 @@
+﻿<h1 class="firstHeading">Verteilungsanpassung mit Wahrscheinlichkeitsdichtefunktion und kumulativer Verteilungsfunktion</h1><p class='urlname' style='display: none'>PeakFit-on-FreqCountResult</p>
+<p><br /></p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Inhalt</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">Beispiele und Schritte</span></a><ul>
+<li class="toclevel-2 tocsection-4"><a href="#Generating_Normally_Distributed_Data_for_Fitting"><span class="tocnumber">3.1</span> <span class="toctext">Normalverteilte Daten zur Anpassung erzeugen</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Fitting_with_Probability_Density_Function_.28PDF.29"><span class="tocnumber">3.2</span> <span class="toctext">Mit Wahrscheinlichkeitsdichtefunktion (PDF) anpassen</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Fitting_with_Cumulative_Distribution_Function_.28CDF.29"><span class="tocnumber">3.3</span> <span class="toctext">Mit kumulativer Verteilungsfunktion (CDF) anpassen</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+<p>Um die Positions- oder Skalierungsparameter einer Stichprobenverteilung herauszufinden, kann eine <a href="../../Tutorial/Tutorial/Distribution_Fit.html" title="Tutorial:Distribution Fit">Verteilungsanpassung f&uuml;r die Daten durchgef&uuml;hrt</a> werden. Sie k&ouml;nnen jedoch auch eine Wahrscheinlichkeitsdichtefunktion oder kumulative Verteilungsfunktion f&uuml;r eingeteilte Daten anpassen, um diese Werte zu erhalten. Dieses Tutorial zeigt Ihnen, wie Sie diese Parameter durch Kurvenanpassung sch&auml;tzen.</p>
+<p class="version" >Origin-Version mind. erforderlich: 2016 SR2</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+<ul><li> Normalverteilte Daten zur Anpassung erzeugen</li>
+<li> Mit Wahrscheinlichkeitsdichtefunktion (PDF) anpassen</li>
+<li> Mit kumulativer Verteilungsfunktion (CDF) anpassen</li></ul>
+<h2><a name="Example_and_Steps"></a><span class="mw-headline">Beispiel und Schritte</span></h2>
+<h3><a name="Generating_Normally_Distributed_Data_for_Fitting"></a><span class="mw-headline">Normalverteilte Daten zur Anpassung erzeugen</span></h3>
+<ol>
+<li> F&uuml;hren Sie das folgende Skript aus, um den Stichprobendatensatz zu erstellen:<pre class="lt" style="font-family:monospace;">newbook; col<span style="color: #000000;">(</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span> <span style="color: #000080;">=</span> normal<span style="color: #000000;">(</span><span style="color: #0000dd;">1000</span><span style="color: #000000;">)</span> <span style="color: #000080;">*</span> <span style="color: #0000dd;">2</span> <span style="color: #000080;">+</span> <span style="color: #0000dd;">5</span>;</pre>Dieses Skript erzeugt 1000 normalverteilte Punkte, wobei der <i>Mittelwert ≈ 5</i> und <i>σ ≈ 2</i> ist. </li>
+<li> Sie k&ouml;nnen zuerst die einfache deskriptive Statistik f&uuml;r diese Spalte durchf&uuml;hren, um die entsprechende Ausgabe der <i>Momente</i> zu sehen.<br /> <br /> Markieren Sie die Datenspalte und w&auml;hlen Sie <b>Statistik: Deskriptive Statistik: Spaltenstatistik</b>, um den Dialog zu &ouml;ffnen. Stellen Sie sicher, dass auf der Registerkarte <b>Eigenschaften</b> die Kontrollk&auml;stchen <b><i>Mittelwert</i></b> und <b><i>Standardabweichung</i></b> aktiviert sind. Klicken Sie dann auf <b>OK</b>, um einen Bericht zu erzeugen. <br /><br /><a  class="image"><img alt="Fitting on Frequency Count Stats Result.png" src="../images/Peak_Fitting_on_Frequency_Count_Result/250px-Fitting_on_Frequency_Count_Stats_Result.png" width="250"   /></a><br /> Sie k&ouml;nnen dem Berichtsarbeitsblatt entnehmen, dass der Mittelwert und die Standardabweichung nah an dem Wert liegen, den Sie gerade festgelegt haben. </li>
+</ol>
+<h3><a name="Fitting_with_Probability_Density_Function_.28PDF.29"></a><span class="mw-headline">Mit Wahrscheinlichkeitsdichtefunktion (PDF) anpassen</span></h3>
+<ol>
+<li>Um die Daten mit der PDF anzupassen, sollten Sie zuerst die eingeteilten Daten mit dem Hilfsmittel <b>H&auml;ufigkeiten z&auml;hlen</b> berechnen. Markieren Sie die Spalte der Quelldaten und w&auml;hlen Sie <b>Statistik: Deskriptive Statistik: H&auml;ufigkeiten z&auml;hlen</b> im Men&uuml;. Dieser Dialog z&auml;hlt die Anzahl der Datenpunkte in den festgelegten Klasseneinteilungen.<ul><li> Erweitern Sie den Zweig <b>Steuerung Berechnung</b> und stellen Sie sicher, dass <b>Klassenbreite</b> in der Gruppe <b>Schritt nach</b> aktiviert ist. Setzen Sie die <b>Klassenbreite</b> auf <i>0,5</i> (Sie m&uuml;ssen dazu das Kontrollk&auml;stchen <b>Auto</b> deaktivieren).</li>
+<li> Stellen Sie sicher, dass die Kontrollk&auml;stchen <b>Klassenmitte</b>, <b>Anzahl</b> und <b>Kumulative Anzahl</b> im Zweig <b>Zu berechnende Eigenschaften</b> aktiviert sind. Klicken Sie auf <b>OK</b>, um die Daten zu z&auml;hlen.</li></ul>
+</li>
+<li> Markieren Sie die Spalte <i>Counts</i> im Ergebnisblatt und w&auml;hlen Sie dann im Men&uuml; <b>Zeichnen: 2D: Balken: S&auml;ulendiagramm</b>, um ein S&auml;ulendiagramm zu erstellen. Jetzt haben wir das Histogramm der Quelldaten.</li>
+<li> W&auml;hlen Sie bei aktivem Diagramm <b>Analyse: Anpassen: Nichtlinearer Fit</b> im Men&uuml;, um den Dialog <b>NLFit</b> aufzurufen. W&auml;hlen Sie dann die Funktion <b><i>Gauss</i></b> in der Kategorie <b>Statistics</b>. Belassen Sie die anderen Optionen bei der Standardeinstellung und klicken Sie direkt auf die Schaltfl&auml;che <b>Fit</b>, um den Anpassungsbericht auszugeben. <br /><a  class="image"><img alt="Fitting on Frequency Count Fit Result.png" src="../images/Peak_Fitting_on_Frequency_Count_Result/Fitting_on_Frequency_Count_Fit_Result.png" width="527"  /></a><br /><br /> Aus dem Anpassungsbericht geht hervor, dass das angepasste <i>xc</i> und <i>sigma</i> nah bei <i>5</i> und <i>2</i> liegen. </li>
+</ol>
+<h3><a name="Fitting_with_Cumulative_Distribution_Function_.28CDF.29"></a><span class="mw-headline">Mit kumulativer Verteilungsfunktion (CDF) anpassen</span></h3>
+<ol>
+<li> Um die Daten mit CDF anzupassen, sollten Sie von den kumulativen eingeteilten Daten ausgehen. W&auml;hlen Sie das Blatt <b>FreqCounts1</b> aus dem vorherigen Abschnitt. Markieren Sie die Spalte <i>Cumulative Count</i>. W&auml;hlen Sie im Men&uuml; <b>Zeichnen: 2D: Symbol: Punktdiagramm</b>, um die CDF-Punkte zu zeichnen. </li>
+<li> W&auml;hlen Sie bei aktivem Diagramm <b>Analyse: Anpassen: Nichtlinearer Fit</b> im Men&uuml;, um den Dialog <b>NLFit</b> aufzurufen. W&auml;hlen Sie dann die Funktion <b><i>NormalCDF</i></b> in der Kategorie <b>Statistics</b>. Belassen Sie die anderen Optionen bei der Standardeinstellung und klicken Sie direkt auf die Schaltfl&auml;che <b>Fit</b>, um den Anpassungsbericht auszugeben.<br /> <a  class="image"><img alt="Fitting on Frequency Count Fit Result 2.png" src="../images/Peak_Fitting_on_Frequency_Count_Result/Fitting_on_Frequency_Count_Fit_Result_2.png" width="579"  /></a> <br /><br />Aus dem Anpassungsbericht geht hervor, dass das angepasste <i>xc</i> und <i>w</i> nah bei <i>5</i> und <i>2</i> liegen.</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Peak_Fitting_on_Frequency_Count_Result/Tip_icon.png" width="57"  border="0" /></td><td><p>Nachdem Sie eingeteilte Daten &uuml;ber das Hilfsmittel <b>H&auml;ufigkeiten z&auml;hlen</b> erhalten haben, k&ouml;nnen Sie auch die eingeteilten Daten mit Ihrer benutzerdefinierten Wahrscheinlichkeitsdichtefunktion oder kumulativen Verteilungsfunktion anpassen. <a href="../../Tutorial/Tutorial/Nonlinear_Curve_Fit_Tool.html#Define_and_fit_with_a_user-defined_function" title="Tutorial:Nonlinear Curve Fit Tool">Lesen Sie diese Seite zum Definieren und Anpassen mit einer benutzerdefinierten Funktion.</a></p></td></tr></table>
+
+
+
+    

@@ -1,0 +1,171 @@
+﻿<h1 class="firstHeading">Auf Grundlage benutzerdefinierter Diagrammvorlagen zeichnen</h1>
+
+  <p class='urlname' style='display: none'>Plot-User-Template</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2">
+        <a href="#Standard_Template"><span class="tocnumber">2</span> <span class="toctext">Standardvorlage</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-3"><a href="#Create_and_Save_a_Standard_Graph_Template"><span class="tocnumber">2.1</span> <span class="toctext">Standarddiagrammvorlage erstellen und speichern</span></a></li>
+
+          <li class="toclevel-2 tocsection-4"><a href="#Plot_New_Data_into_Standard_Template"><span class="tocnumber">2.2</span> <span class="toctext">Neue Daten in Standardvorlage zeichnen</span></a></li>
+        </ul>
+      </li>
+
+      <li class="toclevel-1 tocsection-5">
+        <a href="#Cloneable_Template"><span class="tocnumber">3</span> <span class="toctext">Klonbare Vorlage</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-6"><a href="#Save_Graph_as_a_Cloneable_Template"><span class="tocnumber">3.1</span> <span class="toctext">Diagramm als eine klonbare Vorlage speichern</span></a></li>
+
+          <li class="toclevel-2 tocsection-7"><a href="#Clone_a_Graph_Using_Cloneable_Template"><span class="tocnumber">3.2</span> <span class="toctext">Ein Diagramm mit Hilfe klonbarer Vorlagen klonen</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/Plot_from_User_Defined_Graph_Template/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/Plot_from_User_Defined_Graph_Template/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=49" target="_blank">Diagrammvorlagen</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=133" target="_blank">Intelligentes Zeichnen mit klonbaren Diagrammvorlagen</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%"><a class="image"><img alt="Website blog icon circle.png" src="../images/Plot_from_User_Defined_Graph_Template/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Plot_from_User_Defined_Graph_Template/Blog_Image_33x33px.png" width="135"></a></td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>In diesem Tutorial wird Ihnen gezeigt, wie ein Diagramm als benutzerdefinierte Vorlage gespeichert wird und neue Daten in die gespeicherte benutzerdefinierte Vorlage gezeichnet werden. Es gibt in Origin zwei verfügbare Arten von Diagrammvorlagen: Standardvorlage und klonbare Vorlage. Eine klonbare Vorlage kann einfach verwendet werden, um ein Diagramm aus einer neuen Arbeitsmappe/einem neuem Arbeitsblatt trotz der Komplexität der Datenzusammensetzung im Zieldiagramm zu klonen. Allerdings gibt es eine Bedingung, die darin besteht, dass neue Daten die gleiche Datenstruktur haben müssen wie die Daten im Zieldiagramm. Im Vergleich hat die Standardvorlage mehr Freiheit bezüglich der Datenquelle, kann dafür aber nicht Diagramme mit einer komplizierten Layerhierarchie oder Datenstruktur duplizieren.</p>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>ein Diagramm als Standardvorlage erstellen und speichern,</li>
+
+    <li>neue Daten in eine Standardvorlage zeichnen,</li>
+
+    <li>ein Diagramm als klonbare Vorlage speichern,</li>
+
+    <li>Daten mit der gleichen Datenstruktur in eine klonbare Vorlage zeichnen.</li>
+  </ul>
+
+  <h2><a name="Standard_Template"></a><span class="mw-headline">Standardvorlage</span></h2>
+
+  <h3><a name="Create_and_Save_a_Standard_Graph_Template"></a><span class="mw-headline">Standarddiagrammvorlage erstellen und speichern</span></h3>
+
+  <p>Dieses Tutorial basiert auf dem Projekt: <i>&lt;Origin-Verzeichnis&gt;\Samples\Tutorial Data.opj</i>.</p>
+
+  <ol>
+    <li>Öffnen Sie das Projekt <b>Tutorial Data.opj</b> und navigieren Sie zu dem Ordner <b>Custom Axis Scale to Show Different Scale Range</b>.</li>
+
+    <li>Markieren Sie Spalte <b>B</b> <i>Exothermic Energy</i> und <b>C</b> <i>Energy-SD</i> und klicken Sie auf die Schaltfläche <a class="image"><img alt="Button Scatter.png" src="../images/Plot_from_User_Defined_Graph_Template/Button_Scatter.png" width="22"></a> auf der Symbolleiste <b>2D-Grafiken</b>, um ein Punktdiagramm mit Y-Fehlerbalken zu erstellen.</li>
+
+    <li>Als Nächstes soll das Symbol benutzerdefiniert angepasst werden, so dass es am Ende ein blauer, ausgefüllter Kreis ist. Dazu klicken Sie doppelt auf einen Datenpunkt im Diagramm, um den Dialog <b>Details Zeichnung - Diagrammeigenschaften</b> aufzurufen.</li>
+
+    <li>Stellen Sie sicher, dass die erste Zeichnung unter <b>Layer1</b> im linken Bedienfeld ausgewählt ist. Gehen Sie zur Registerkarte <b>Symbole</b>. Wählen Sie den ausgefüllten Kreis über der Schaltfläche des nach unten weisenden Dreiecks unter <b>Vorschau</b> aus und setzen Sie die <b>Symbolfarbe</b> auf der Registerkarte <b>Einzeln</b> der <a class="external text" href="../../UserGuide/UserGuide/Customizing_Data_Plot_Colors.html"><b>Farbauswahl</b></a> auf <b>Blau</b>. Klicken Sie auf OK.
+
+      <dl>
+        <dd>
+          <dl>
+            <dd><a class="image"><img alt="Plot From User Defined Template 01.png" src="../images/Plot_from_User_Defined_Graph_Template/Plot_From_User_Defined_Template_01.png" width="418"></a></dd>
+          </dl>
+        </dd>
+      </dl>
+    </li>
+
+    <li>Um das Ganze als Standardvorlage zu speichern, klicken Sie mit der rechten Maustaste auf die Titelleiste des Fensters <i>Graph1</i> und wählen <b>Template speichern unter</b>, um den Dialog zu öffnen.</li>
+
+    <li>Geben Sie <i>BlauerKreis</i> als <b>Vorlagenname</b> ein und fügen Sie eine Beschreibung wie <i>Blauer ausgefüllter Kreis</i> im Bearbeitungsfeld <b>Vorlagenbeschreibung</b> hinzu.</li>
+
+    <li>Wenn Sie möchten, dass der Langname der neu erstellten Diagramme nach dem Langnamen der ersten Zeichnung benannt ist, klicken Sie auf die Schaltfläche für weitere Optionen neben dem Bearbeitungsfeld <b>Diagrammlangname vordefinieren</b> und wählen Sie <b>@LL: Langname</b>. <i>%(1,@LL)</i> wird für <b>Diagrammlangname vordefinieren</b> angezeigt.</li>
+
+    <li>Stellen Sie sicher, dass das Kontrollkästchen <b>Als klonbare Vorlage markieren</b> deaktiviert ist. Klicken Sie auf die Schaltfläche <b>OK</b>, um es als Standardvorlage zu speichern.</li>
+  </ol>
+
+  <h3><a name="Plot_New_Data_into_Standard_Template"></a><span class="mw-headline">Neue Daten in Standardvorlage zeichnen</span></h3>
+
+  <ol>
+    <li>Gehen Sie zurück zur Arbeitsmappe, markieren Sie die Spalten <i>Temperature</i> und <i>Temperature-SD</i> und wählen Sie im Menü <b>Zeichnen: Meine Vorlagen: BlauerKreis (Benutzerdefiniert)</b>, um das Diagramm zu erstellen. Der Langname des Diagrammfensters lautet <b>Temperature</b>.</li>
+  </ol>
+
+  <dl>
+    <dd>
+      <dl>
+        <dd><a class="image"><img alt="Plot From User Defined Template 02.png" src="../images/Plot_from_User_Defined_Graph_Template/Plot_From_User_Defined_Template_02.png" width="418"></a></dd>
+      </dl>
+    </dd>
+  </dl>
+
+  <h2><a name="Cloneable_Template"></a><span class="mw-headline">Klonbare Vorlage</span></h2>
+
+  <h3><a name="Save_Graph_as_a_Cloneable_Template"></a><span class="mw-headline">Diagramm als eine klonbare Vorlage speichern</span></h3>
+
+  <ol>
+    <li>Drücken Sie die Taste <b>F11</b> oder wählen Sie im Menü <b>Hilfe: Lernzentrum</b>, um den Dialog <b>Lernzentrum</b> zu öffnen. Wählen Sie im linken Bedienfeld <b>Diagrammbeispiel</b> und suchen Sie nach <b>Raman</b>.</li>
+
+    <li>Klicken Sie doppelt auf das Diagramm, das ausgegeben wird, um den Unterordner <b>Raman Spectrum</b> zu öffnen.</li>
+
+    <li>Das Diagramm <b>Raman Spectrum</b> wurde aus Daten in verschiedene Arbeitsblättern der Arbeitsmappe <i>Peak1</i> gezeichnet, inklusive Datenbeschriftung. Es ist schwierig, mit einer Standardvorlage neue Daten wie diese mit einem Klick zu zeichnen. Speichern Sie aus diesem Grund das Diagramm als klonbare Vorlage und klonen Sie dieses Diagramm unter Verwendung der Daten in der Arbeitsmappe <i>Peak2</i>.
+
+      <dl>
+        <dd>
+          <dl>
+            <dd><a class="image"><img alt="Plot From User Defined Template 03.png" src="../images/Plot_from_User_Defined_Graph_Template/Plot_From_User_Defined_Template_03.png" width="432"></a></dd>
+          </dl>
+        </dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie dazu auf die Titelleiste des Diagrammfensters <b>Raman Spectrum</b> und wählen Sie <b>Template speichern unter</b> aus, um den Dialog <b>Utilities\File: template_saveas</b> zu öffnen.</li>
+
+    <li>Geben Sie <i>MeinePeakvorlage</i> in <b>Vorlagenname</b> ein. Jetzt soll <b>Raman Spectrum</b> + <i>Arbeitsmappenlangname</i> als Diagrammlangname verwendet werden. Dazu klicken Sie auf die Schaltfläche für weitere Optionen neben dem Bearbeitungsfeld <b>Diagrammvorlage vordefinieren</b> und wählen Sie <b>@WL: Mappenlangname</b>, um den rechten Teil zuerst einzufügen. Geben Sie dann <i>Raman Spectrum</i> vor dem hinzugefügten <i>%(1, @WL)</i> ein.</li>
+
+    <li>Stellen Sie sicher, dass das Kontrollkästchen <b>Als klonbare Vorlage markieren</b> aktiviert ist. Erweitern Sie den Zweig und stimmen Sie die Spalten und Arbeitsblätter aufeinander ab, indem Sie die Optionen <b>Spalte stimmt überein mit</b> und <b>Blatt stimmt überein mit</b> auf <b>Index</b> setzen.</li>
+
+    <li>Klicken Sie auf <b>OK</b>, um den Dialog zu verlassen und die Vorlage zu speichern.</li>
+  </ol>
+
+  <dl>
+    <dd>
+      <dl>
+        <dd><a class="image"><img alt="Plot From User Defined Template 04.png" src="../images/Plot_from_User_Defined_Graph_Template/Plot_From_User_Defined_Template_04.png" width="697"></a></dd>
+      </dl>
+    </dd>
+  </dl>
+
+  <h3><a name="Clone_a_Graph_Using_Cloneable_Template"></a><span class="mw-headline">Ein Diagramm mit Hilfe klonbarer Vorlagen klonen</span></h3>
+
+  <ol>
+    <li>Aktivieren Sie die Arbeitsmappe mit dem Titel <b>Peak2</b> und klicken Sie auf die Schaltfläche <b>Mit Template</b><a class="image"><img alt="Button Template Library.png" src="../images/Plot_from_User_Defined_Graph_Template/Button_Template_Library.png" width="23"></a>, um den Dialog Vorlagenbibliothek aufzurufen.
+
+      <dl>
+        <dd><a class="image"><img alt="Plot From User Defined Template 05.png" src="../images/Plot_from_User_Defined_Graph_Template/Plot_From_User_Defined_Template_05.png" width="786"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie die klonbare Vorlage <b>MeinePeakvorlage</b> per Klick aus (gekennzeichnet mit Dolly-Symbol) und klicken Sie auf die Schaltfläche <b>Zeichnen</b>, um das Diagramm zu klonen.
+
+      <dl>
+        <dd><a class="image"><img alt="Plot From User Defined Template 06.png" src="../images/Plot_from_User_Defined_Graph_Template/Plot_From_User_Defined_Template_06.png" width="432"></a></dd>
+      </dl>
+    </li>
+
+    <li>Alternativ können Sie die Arbeitsmappe <b>Peak2</b> aktivieren und das Menü <b>Zeichnen: Meine Vorlagen: MeinePeakvorlage (Benutzerdefiniert)</b> verwenden, um das Diagramm direkt zu klonen.</li>
+  </ol>

@@ -1,0 +1,126 @@
+﻿<h1 class="firstHeading">Partieller Korrelationskoeffizient</h1>
+
+  <p class='urlname' style='display: none'>Partial-Corr-Coef</p>
+
+  <p>&#160;</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#User_Story"><span class="tocnumber">3</span> <span class="toctext">Anwenderbericht</span></a></li>
+
+      <li class="toclevel-1 tocsection-4"><a href="#Detect_Relationship_with_Pearson.27s_R"><span class="tocnumber">4</span> <span class="toctext">Beziehung mit Pearsons r entdecken</span></a></li>
+
+      <li class="toclevel-1 tocsection-5"><a href="#Revealing_the_Real_Relationship_with_Partial_Correlation_Coefficients"><span class="tocnumber">5</span> <span class="toctext">Reale Beziehung mit partiellen Korrelationskoeffizienten offenbaren</span></a></li>
+
+      <li class="toclevel-1 tocsection-6"><a href="#Conclusion"><span class="tocnumber">6</span> <span class="toctext">Schlussfolgerung</span></a></li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Der partielle Korrelationskoeffizient ist ein Hilfsmittel zum Messen der linearen Beziehung zwischen zwei zufälligen Variablen, nachdem die Effekte einer oder mehrerer Steuervariablen ausgeschlossen wurden.</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen:</p>
+
+  <ul>
+    <li>wie Sie eine partielle Korrelation in Origin durchführen (anhand eines praktischen Beispiels),</li>
+
+    <li>wie Sie die erzeugten Ergebnisse interpretieren.</li>
+  </ul>
+
+  <h2><a name="User_Story"></a><span class="mw-headline">Anwenderbericht</span></h2>
+
+  <p>Es stehen öffentliche Daten der Weltbank zur Verfügung, die 11 Messgrößen (Gesundheitsausgaben, BIP, Bevölkerung etc.) nach Land, für die Jahre 2000 bis 2010. Sie möchten die Beziehung zwischen Internetnutzung, Nutzung von Mobiltelefonen sowie den Gesundheitsausgaben in den USA untersuchen.</p>
+
+  <h2><a name="Detect_Relationship_with_Pearson.27s_R"></a><span class="mw-headline">Beziehung mit Pearsons r entdecken</span></h2>
+
+  <p>Dieses Tutorial basiert auf dem Projekt: <i>&lt;Origin-Verzeichnis&gt;\Samples\Tutorial Data.opj</i>.</p>
+
+  <ol>
+    <li>Öffnen Sie <b>Tutorial Data.opj</b> und navigieren Sie zum Ordner <b>Partial Correlation Coefficient</b> und aktivieren Sie die Mappe <b>Partial Correlation Coefficient</b>.</li>
+
+    <li>Aktivieren Sie <b>Sheet1</b> mit den Quelldaten. Sie haben bereits einen Datenfilter angewendet, um Daten für die USA zwischen 2000 und 2010 zu erhalten.</li>
+
+    <li>Zuerst verwenden Sie das Hilfsmittel <b>Korrelationskoeffizient</b>, um die Beziehung zwischen <b>Nutzer von mobilen Telefonen</b>, <b>Gesamtanzahl der Internetnutzer</b>, <b>Gesundheitsausgaben pro Kopf der Bevölkerung</b> und dem <b>BIP pro Kopf der Bevölkerung</b> visuell zu erfassen.
+
+      <ol>
+        <li>Drücken Sie die <b>Strg</b>-Taste und markieren Sie <b>Col(E)</b>, <b>Col(U1)</b>, <b>Col(H)</b> und <b>Col(S)</b>.</li>
+
+        <li>Wählen Sie im Menü <b>Statistik: Deskriptive Statistik: Korrelationskoeffizient</b>.</li>
+
+        <li>Aktivieren Sie in dem geöffneten Dialog die Kontrollkästchen <b>Punktdiagramme</b> und <b>Konfidenzellipse hinzufügen</b> im Zweig <b>Diagramme</b>. Deaktivieren Sie das Kontrollkästchen <b>Signifikanz in Ergebnistabelle zeigen</b> und aktivieren Sie das Kontrollkästchen <b>Signifikante Korrelationen markieren</b>.
+
+          <dl>
+            <dd><a class="image"><img alt="Partial corr coef 1.png" src="../images/Partial_Correlation_Coefficient/Partial_corr_coef_1.png" width="475"></a></dd>
+          </dl>
+        </li>
+      </ol>
+    </li>
+
+    <li>Aus dem Korrelationskoeffizient nach Pearson und der Matrix von Streudiagrammen können Sie ersehen:
+
+      <ul>
+        <li>Die Streudaten sind relativ linear.</li>
+
+        <li>Die Form der Konfidenzellipsen ist schmal.</li>
+
+        <li>Alle Korrelationskoeffizienten nach Pearson werden mit rot gekennzeichnet.</li>
+
+        <li>Jeder Korrelationskoeffizient nach Pearson ist größer als 0,9.</li>
+      </ul>
+
+      <dl>
+        <dd>Scheinbar besteht eine starke Beziehung zwischen <b>Nutzer von mobilen Telefonen</b>, <b>Gesamtanzahl der Internetnutzer</b>, <b>Gesundheitsausgaben pro Kopf der Bevölkerung</b> und <b>BIP pro Kopf der Bevölkerung</b>.</dd>
+
+        <dd><a class="image"><img alt="Partial corr coef 2.png" src="../images/Partial_Correlation_Coefficient/500px-Partial_corr_coef_2.png" width="500"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h2><a name="Revealing_the_Real_Relationship_with_Partial_Correlation_Coefficients"></a><span class="mw-headline">Reale Beziehung mit partiellen Korrelationskoeffizienten offenbaren</span></h2>
+
+  <p>Auch wenn es scheint, dass <b>Nutzer von mobilen Telefonen</b>, <b>Gesamtanzahl der Internetnutzer</b> and <b>Gesundheitsausgaben pro Kopf der Bevölkerung</b> eine starke Beziehung haben, wissen Sie, dass das <b>BIP pro Kopf der Bevölkerung</b> diese drei Messgrößen ebenfalls beeinflusst. Sie möchten die reale Beziehung der drei Messgrößen nach Ausschluss des Effekts durch das <b>BIP pro Kopf der Bevölkerung</b> messen.</p>
+
+  <ol>
+    <li>Aktivieren Sie das Blatt mit den Quelldaten. Drücken Sie die <b>Strg</b>-Taste und markieren Sie <b>Col(E)</b>, <b>Col(U1)</b> und <b>Col(H)</b>.</li>
+
+    <li>Wählen Sie <b>Statistik: Deskriptive Statistik: Partieller Korrelationskoeffizient</b>.</li>
+
+    <li>In dem geöffneten Dialog werden die drei markierten Spalten automatisch als <b>Variablen</b> ausgewählt.</li>
+
+    <li>Sie möchten den Effekt des <b>BIP pro Kopf der Bevölkerung</b> entfernen, daher wählen Sie <b>Col(S)</b> als <b>Steuervariablen</b>. Aktivieren Sie das Kontrollkästchen <b>Signifikante Korrelationen markieren</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Partial corr coef 3.png" src="../images/Partial_Correlation_Coefficient/Partial_corr_coef_3.png" width="484"></a></dd>
+      </dl>
+    </li>
+
+    <li>Gehen Sie zum Blatt <b>PCorr1</b>. Es enthält die partiellen Korrelationskoeffizienten nach Ausschluss des Effekts des <b>BIP pro Kopf der Bevölkerung</b>. Sie können sehen:
+
+      <ul>
+        <li>Nur <b>Nutzer von mobilen Telefonen</b> und <b>Gesundheitsausgaben pro Kopf der Bevölkerung</b> eine signifikante Beziehung haben (Der Wert der partiellen Korrelation ist mit rot gekennzeichnet). Aber die reale Beziehung ist nicht so stark wie <b>Pearsons r</b> zuvor gezeigt zu haben schien. (Partielle Korr. = 0,87307 vs. Pearsons Korr = 0,99157).</li>
+
+        <li>Der partielle Korrelationskoeffizient für <b>Nutzer von mobilen Telefonen</b> und <b>Gesamtanzahl der Internetnutzer</b> verringerte sich auf 0,26178. Sie haben keine signifikante Beziehung.</li>
+
+        <li>Es gibt keinen Nachweis, um zu zeigen, dass <b>Gesamtanzahl der Internetnutzer</b> und <b>Gesundheitsausgaben pro Kopf der Bevölkerung</b> eine Beziehung haben (Partieller Korr. = 0,07615), während Sie vorher Pearsons r = 0,96685 ermittelt haben.</li>
+      </ul>
+
+      <dl>
+        <dd><a class="image"><img alt="Partial corr coef 4.png" src="../images/Partial_Correlation_Coefficient/Partial_corr_coef_4.png" width="650"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h2><a name="Conclusion"></a><span class="mw-headline">Schlussfolgerung</span></h2>
+
+  <p>Warum ergeben sich dermaßen unterschiedliche Ergebnisse? Wenn Sie den Wert von Pearsons r des <b>BIP pro Kopf der Bevölkerung</b> zwischen den anderen drei Messgrößen betrachten, können Sie sehen, dass <b>BIP pro Kopf der Bevölkerung</b> von den drei Messgrößen beeinflusst wurde. Auch wenn es keine Beziehung zwischen <b>Gesamtanzahl der Internetnutzer</b> und <b>Gesundheitsausgaben pro Kopf der Bevölkerung</b>, <b>Gesamtanzahl der Internetnutzer</b> und <b>Nutzer von mobilen Telefonen</b> gibt, wird die "falsche Beziehung" noch immer durch Pearsons r aufgrund des Effekts des <b>BIP pro Kopf der Bevölkerung</b> angezeigt. Partielle Korrelationskoeffizienten sind für die Untersuchung der wahren Beziehung zwischen den zwei Faktoren nützlich, indem die Effekte der korrelierten Steuervariablen entfernt werden. Die Statistik ist für Experimente sinnvoll, mit denen verschiedene, in Wechselbeziehung stehende Phänomene zu untersuchen sind.</p>

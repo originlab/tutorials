@@ -1,0 +1,420 @@
+﻿<h1 class="firstHeading">Diagramm erstellen</h1>
+
+  <p class='urlname' style='display: none'>Create-Graph</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#Create_a_Plot_Quickly_by_Selecting_Data"><span class="tocnumber">3</span> <span class="toctext">Zeichnung direkt durch Auswählen der Daten erstellen</span></a></li>
+
+      <li class="toclevel-1 tocsection-4"><a href="#Change_X.2FY_Data_of_the_Plot"><span class="tocnumber">4</span> <span class="toctext">X/Y-Daten der Zeichnung ändern</span></a></li>
+
+      <li class="toclevel-1 tocsection-5">
+        <a href="#Add_Data_to_an_Existing_Graph_and_Update_Legend"><span class="tocnumber">5</span> <span class="toctext">Daten zu einem vorhandenen Diagramm hinzufügen und Legende aktualisieren</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-6"><a href="#By_Drag_and_Drop"><span class="tocnumber">5.1</span> <span class="toctext">Mit Drag&amp;Drop</span></a></li>
+
+          <li class="toclevel-2 tocsection-7"><a href="#By_Copy_for_Plotting_Mini_Toolbar"><span class="tocnumber">5.2</span> <span class="toctext">Mit der Minisymbolleiste Zum Zeichnen kopieren</span></a></li>
+
+          <li class="toclevel-2 tocsection-8"><a href="#By_Layer_Contents_Dialog"><span class="tocnumber">5.3</span> <span class="toctext">Mit Dialog Layerinhalt</span></a></li>
+        </ul>
+      </li>
+
+      <li class="toclevel-1 tocsection-9"><a href="#Create_a_Plot_using_Plot_Setup"><span class="tocnumber">6</span> <span class="toctext">Zeichnung mit Hilfe des Dialogs Diagrammeinstellungen erstellen</span></a></li>
+
+      <li class="toclevel-1 tocsection-10">
+        <a href="#Plot_Grouped_Data_As"><span class="tocnumber">7</span> <span class="toctext">Gruppierte Daten zeichnen als</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-11"><a href="#Trellis_Plot"><span class="tocnumber">7.1</span> <span class="toctext">Trellis-Diagramm</span></a></li>
+
+          <li class="toclevel-2 tocsection-12"><a href="#Grouped_Box_Plot"><span class="tocnumber">7.2</span> <span class="toctext">Gruppierte Boxdiagramme</span></a></li>
+        </ul>
+      </li>
+
+      <li class="toclevel-1 tocsection-13"><a href="#Plot_Graphs_by_Label"><span class="tocnumber">8</span> <span class="toctext">Diagramme nach Beschriftung zeichnen</span></a></li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/Graphing_Data_From_Multiple_Sheets/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/Graphing_Data_From_Multiple_Sheets/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=369" target="_blank">Daten aus Arbeitsblatt oder Matrix in Grafik kopieren</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=256" target="_blank">Zeichnungen zu einer Grafik per Drag&amp;Drop hinzufügen</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=169" target="_blank">Trellis-Diagramm</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=237" target="_blank">Trellis-Diagramm mit doppelter Y-Achse</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=364" target="_blank">Bedienfeldrahmen in Trelli-Diagramm benutzerdefiniert anpassen</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=13" target="_blank">Zeichnungen mit Layerinhalt hinzufügen, gruppieren und neu ordnen</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=231" target="_blank">Objektverwaltung</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%">
+        <a class="image"><img alt="Website blog icon circle.png" src="../images/Graphing_Data_From_Multiple_Sheets/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Graphing_Data_From_Multiple_Sheets/Blog_Image_33x33px.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="http://blog.originlab.com/quick-graphs-with-graph-maker-app" target="_blank">Schnelle Diagramme mit der App Graph Maker</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/creating-grouped-bar-plots-in-origin-2016" target="_blank">Einfachere Methode zum Bestimmen von Farben in gruppierten Balkendiagrammen in Origin 2016</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/plotting-barcolumn-graphs-with-indexed-patterns" target="_blank">Balken-/Säulendiagramme mit indizierten Mustern zeichnen</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/how-to-control-the-increment-list" target="_blank">Inkrementliste steuern</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/plot-multi-panel-graphs-by-group" target="_blank">Diagramme mit mehrere Feldern nach Gruppe zeichnen</a></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Origin verfügt über eine Vorlagenbibliothek. Sie können Vorlagen modifizieren oder Ihre eigenen erstellen und sie zu der Sammlung hinzufügen. Das Erstellen eines Diagramms in Origin ist sehr einfach, indem erst die gewünschten Daten und dann eine Vorlage aus einem Menü oder den Diagrammsymbolleisten ausgewählt wird. Der Dialog <b>Diagrammeinstellungen</b> bietet mehr Flexibilität beim Erstellen von Zeichnungen wie dem Zeichnen von Daten aus mehreren Mappen oder Blättern.<br>
+  <br>
+  Seit Origin 2016 gibt es die leistungsstärkere "klonbare" Vorlage. Diese Vorlagen wurden für das sogenannte "Intelligente Zeichnen" entwickelt. Dies bedeutet, dass Sie ein Diagramm mit einer komplizierten Layerhierarchie oder mit Quelldaten, die nicht über einfache Auswahl festgelegt werden können, klonen können. In diesem <a href="../../Tutorial/Tutorial/Plot_from_User_Defined_Graph_Template.html" title="Tutorial:Plot from User Defined Graph Template">Tutorial zum Zeichnen mit benutzerdefinierten Diagrammvorlagen</a> wird erläutert, wie sowohl Standard- als auch klonbare Vorlagen gespeichert und verwendet werden können.</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>Daten in einem Arbeitsblatt auswählen und schnell ein Diagramm erstellen,</li>
+
+    <li>die X/Y-Eingabe der Datenzeichnung mit dem Kontextmenü ändern,</li>
+
+    <li>Daten zu einem vorhandenen Diagramm hinzufügen oder entfernen,</li>
+
+    <li>mit dem Dialog Diagrammeinstellungen Daten aus mehreren Blättern zeichnen,</li>
+
+    <li>Diagrammgruppen mit Beschriftung zeichnen.</li>
+  </ul>
+
+  <h2><a name="Create_a_Plot_Quickly_by_Selecting_Data"></a><span class="mw-headline">Zeichnung direkt durch Auswählen der Daten erstellen</span></h2>
+
+  <ol>
+    <li>Klicken Sie auf die Schaltfläche <b>Mit mehreren Dateien verbinden</b> <a class="image"><img alt="Button Connect Multiple Files.png" src="../images/Graphing_Data_From_Multiple_Sheets/Button_Connect_Multiple_Files.png" width="19"></a>, um den Dialog des Konnektors zu öffnen. Um mehrere ASCII zu importieren, wählen Sie <b>CSV</b> unter <b>Datenkonnektor</b>.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>...</b> neben dem Bearbeitungsfeld <b>Dateinamen</b>. Wählen Sie die Dateien <b>S15-125-03.dat</b>, <b>S21-235-07.dat</b> und <b>S32-014-04.dat</b> im Verzeichnis <i>\Samples\Import and Export\</i> aus und klicken Sie auf <b>Hinzufügen</b>, um diese drei Dateien zu dem Bedienfeld unten hinzuzufügen. Klicken Sie auf <b>OK</b>, um sie zum Bearbeitungsfeld <b>Dateinamen</b> hinzuzufügen.</li>
+
+    <li>Aktivieren Sie das Kontrollkästchen <b>Gleiche Mappe</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Connecting Data 003.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorial_Connecting_Data_003.png" width="440"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>. Die importierten Ergebnisse sollten folgendermaßen aussehen:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 003.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorials81_Graphing_Data_From_Multiple_Sheets_003.png" width="447"></a></dd>
+      </dl>
+    </li>
+
+    <li>Aktivieren Sie das dritte Arbeitsblatt S32-014-4. Um ein Diagramm mit drei Layern zu erstellen, markieren Sie die drei Y-Spalten Delta Temperature, Magnetic Field und Position und wählen dann <b>Zeichnen &gt; Mehrere Felder/Achsen: 3Y, Y-YY</b>. Hinweis: Es ist nicht notwendig, die Spalte Time zu markieren, da Origin die Y-Spalten automatisch gegen die verbundene X-Spalte in dem Arbeitsblatt zeichnet.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 004.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorials81_Graphing_Data_From_Multiple_Sheets_004.png" width="445"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h2><a name="Change_X.2FY_Data_of_the_Plot"></a><span class="mw-headline">X/Y-Daten der Zeichnung ändern</span></h2>
+
+  <p>Verwenden Sie das gleiche Arbeitsblatt wie aus dem vorherigen Beispiel.</p>
+
+  <ol>
+    <li>Markieren Sie Spalte B und klicken Sie auf die Schaltfläche <b>Linie</b> <a class="image"><img alt="Button Line.png" src="../images/Graphing_Data_From_Multiple_Sheets/Button_Line.png" width="22"></a>, um ein Liniendiagramm zu erzeugen.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Creating Graph New 00.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorial_Creating_Graph_New_00.png" width="351"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf das Diagramm und führen Sie den Cursor im Kontextmenü auf <b>Y ändern</b>. Wählen Sie dann Spalte C (Magnetic Field) im Ausklappmenü.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Creating Graph New 01.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorial_Creating_Graph_New_01.png" width="616"></a></dd>
+      </dl>
+    </li>
+
+    <li>Möglicherweise wird Ihnen eine Erinnerungsmeldung zur Neuskalierung des Diagramms angezeigt, um alle Daten zu zeigen. Wählen Sie <b>Ja</b> und klicken Sie auf <b>OK</b>, so dass die aktualisierte Zeichnung automatisch skaliert wird.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Creating Graph New 02.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorial_Creating_Graph_New_02.png" width="459"></a></dd>
+      </dl>
+    </li>
+
+    <li>Die Zeichnung sollte aktualisiert folgendermaßen aussehen:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Creating Graph New 03.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorial_Creating_Graph_New_03.png" width="341"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Graphing_Data_From_Multiple_Sheets/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Mit diesem Kontextmenü können Sie die X- oder Y-Daten der aktuellen Zeichnung in eine andere Spalte im aktuellen Projekt verschieben. Diese Spalte kann eine beliebige Spalte sein, die nicht die aktuelle X- oder Y-Datenspalte ist, unabhängig von der Spaltenzuordnung. Wählen Sie im Menü <b>Spalte auswählen</b>, um Spalten aus dem aktuellen Ordner bzw. Projekt festzulegen.</p>
+
+        <p>Sie können auch das Kontextmenü <b>Arbeitsblatt ändern</b> verwenden, um die aktuellen X- und Y-Daten zu ändern, so dass sie den Spalten mit dem gleichen Spaltenindex in einem anderen Arbeitsblatt der aktuellen Arbeitsmappe entsprechen, unabhängig von der Spaltenzuordnung und dem Spaltenkurzname.</p>
+
+        <p><a class="image"><img alt="Tutorial Creating Graph New 04.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorial_Creating_Graph_New_04.png" width="307"></a></p><br>
+        <br>
+      </td>
+    </tr>
+  </table>
+
+  <p><b>Hinweis:</b> Sie können die Dialoge <b>Layerinhalt</b> oder <b>Diagrammeinstellungen</b> verwenden, um die Eingabedaten zu ändern.</p>
+
+  <h2><a name="Add_Data_to_an_Existing_Graph_and_Update_Legend"></a><span class="mw-headline">Daten zu einem vorhandenen Diagramm hinzufügen und Legende aktualisieren</span></h2>
+
+  <h3><a name="By_Drag_and_Drop"></a><span class="mw-headline">Mit Drag&amp;Drop</span></h3>
+
+  <ol>
+    <li>Wechseln Sie zurück zur Mappe mit den drei verschiedenen Datenblättern aus dem obenstehenden Beispiel.</li>
+
+    <li>Markieren Sie die Spalte <b>Delta Temperature</b> (Spalte B) auf dem ersten Blatt und wählen Sie dann <b>Zeichnen: Einfache 2D: Liniendiagramm</b>, um ein Liniendiagramm zu erzeugen.</li>
+
+    <li>Gehen Sie zurück zur Arbeitsmappe. Wählen Sie für jedes der verbliebenen Blätter die Spalte <b>Delta Temperature</b> und positionieren Sie den Cursor am Rand der Spalte, bis der Cursor folgendermaßen angezeigt wird: <a class="image"><img alt="Button Drag Column to Graph.png" src="../images/Graphing_Data_From_Multiple_Sheets/Button_Drag_Column_to_Graph.png" width="34"></a>.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 005.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorials81_Graphing_Data_From_Multiple_Sheets_005.png" width="412"></a></dd>
+      </dl>
+    </li>
+
+    <li>Sie können die Spalte dann mit Drag&amp;Drop auf die Diagrammseite ziehen. Dem aktuellen Layer wird eine weitere Kurve hinzugefügt.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 006.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorials81_Graphing_Data_From_Multiple_Sheets_006.png" width="362"></a></dd>
+      </dl>
+    </li>
+
+    <li>Nach Hinzufügen der anderen Kurven erweitern Sie das Bedienfeld <b>Objektverwaltung</b>, das standardmäßig oben rechts im Origin-Arbeitsbereich befestigt ist (Sie können das Menü <b>Ansicht: Objektverwaltung</b> verwenden, um sie ggf. neu zu laden). Klicken Sie mit der rechten Maustaste auf die letzte Zeichnung unter Layer1, um <b>Als Gruppenende festlegen</b> auszuwählen und so die drei Kurven zu gruppieren.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 008.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorials81_Graphing_Data_From_Multiple_Sheets_008.png" width="310"></a></dd>
+      </dl>
+    </li>
+
+    <li>Durch das Gruppieren der Diagramme können Sie schnell präsentationsreife Grafiken erstellen, da jede Auswahl in der Gruppe andere Attributeinstellungen besitzt (Linienfarbe = schwarz, rot, grün...; Symbolform = Quadrat, Kreis, Dreieck... usw.).</li>
+
+    <li>Wählen Sie <b>Grafik: Legende: Legende aktualisieren</b>, um den Dialog der X-Funktion <i>legendupdate</i> zu öffnen. Legen Sie den <b>Übersetzungsmodus der Autom. Legende</b> auf <i>Benutzerdefiniert</i> fest. Geben Sie <i>@WS</i> für <b>Benutzerdefiniertes Legendenformat</b> ein.<br>
+    <a class="image"><img alt="Graphing tutorial legend update.png" src="../images/Graphing_Data_From_Multiple_Sheets/Graphing_tutorial_legend_update.png" width="427"></a></li>
+
+    <li>Klicken Sie auf <b>OK</b>. Die Legende enthält jetzt den Arbeitsblattnamen für jede Datenzeichnung.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 009.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorials81_Graphing_Data_From_Multiple_Sheets_009.png" width="361"></a></dd>
+      </dl>
+    </li>
+
+    <li style="list-style: none">
+      <table class="noborder">
+        <tr>
+          <td style="vertical-align:top" width="60"><img src="../images/Graphing_Data_From_Multiple_Sheets/Tip_icon.png" width="57" border="0" alt=""></td>
+
+          <td>
+            <p>Der Standarddiagrammtyp des Drag&amp;Drop-Diagramms ist <b>Aktuell</b>, das dem aktuell aktiven Diagramm entspricht. Sie können die Standardoption jedoch ändern. Dazu klicken Sie auf <b>Einstellungen: Optionen</b>, wechseln zur <a class="external text" href="../../UserGuide/UserGuide/The_(Options)_Graph_Tab.html">Registerkarte <b>Grafik</b></a> und ändern die Einstellung der Auswahlliste <b>Drag&amp;Drop-Diagramm</b>.</p>
+          </td>
+        </tr>
+      </table>
+    </li>
+  </ol>
+
+  <h3><a name="By_Copy_for_Plotting_Mini_Toolbar"></a><span class="mw-headline">Mit der Minisymbolleiste Kopieren zum Zeichnen</span></h3>
+
+  <p>In diesem Abschnitt verwenden wir die Minisymbolleiste <b>Zum Zeichnen kopieren</b>, um neue Zeichnungen zu einem existierenden Diagramm hinzuzufügen.</p>
+
+  <ol>
+    <li>Wechseln Sie zurück zur Mappe mit den drei verschiedenen Datenblättern aus dem obenstehenden Beispiel.</li>
+
+    <li>Markieren Sie die Spalte <b>Delta Temperature</b> (Spalte B) auf dem ersten Blatt <i>S15-125-03</i> und wählen Sie dann <b>Zeichnen: Einfache 2D: Liniendiagramm</b>, um ein Liniendiagramm zu erzeugen.</li>
+
+    <li>Gehen Sie zurück zur Arbeitsmappe. Aktivieren Sie das zweite Blatt <i>S21-235-07</i>. Markieren Sie die Spalte <b>Delta Temperature</b>, und eine Minisymbolleiste wird angezeigt. Klicken Sie auf die Schaltfläche <b>Zum Zeichnen kopieren</b>. <a class="image"><img alt="Copy for plotting button.png" src="../images/Graphing_Data_From_Multiple_Sheets/Copy_for_plotting_button.png" width="25"></a>
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 020.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorials81_Graphing_Data_From_Multiple_Sheets_020.png" width="687"></a></dd>
+      </dl>
+    </li>
+
+    <li>Aktivieren Sie das Diagrammfenster und drücken Sie <b>Strg+P</b>, um die kopierten Spaltendaten als eine Linienkurve in den aktuellen Layer zu zeichnen.</li>
+
+    <li>Für das restliche Blatt <i>S32-014-04</i> wiederholen Sie den Prozess von Kopieren und Einfügen des Datensatzes in das existierende Diagramm, um die neue Linie der Delta Temperature aus <i>S32-014-04</i> hinzuzufügen.</li>
+  </ol>
+
+  <h3><a name="By_Layer_Contents_Dialog"></a><span class="mw-headline">Mit Dialog Layerinhalt</span></h3>
+
+  <p>Der Dialog <b>Layerinhalt</b> wird in erster Linie zum Hinzufügen und Entfernen von Datenzeichnungen aus dem Diagrammlayer genutzt. Seit Origin 2016 können Sie Layer ohne Schließen des Dialogs wechseln, wodurch es leichter wird, Zeichnungen zu oder aus einem Diagramm mit mehreren Layern hinzuzufügen bzw. zu entfernen. Um dies zu erläutern, kehren wir zu dem Diagramm mit 3 Layern zurück, das wir in der ersten Übung dieses Tutorials erstellt haben:</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Layer contents starting graph.png" src="../images/Graphing_Data_From_Multiple_Sheets/Layer_contents_starting_graph.png" width="439"></a></dd>
+  </dl>
+
+  <p>In der ersten Übung zeichneten Sie Daten aus Blatt S32-014-04. In dieser Übung werden die Daten aus Blatt S32-014-04 mit den Daten aus Blatt S21-235-07 getauscht.</p>
+
+  <ol>
+    <li>Klicken Sie mit der rechten Maustaste auf das Symbol von Layer <b>1</b> in der oberen linken Ecke des Diagrammfensters und wählen Sie <b>Inhalt Layer</b>.</li>
+
+    <li>Klicken Sie in dem aufgerufenen Dialog auf die Auswahlliste in der oberen linken Ecke und wählen Sie <b>Arbeitsblätter im Ordner</b>.</li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf die Überschriften des linken Bedienfelds, löschen Sie den <b>Mappenname</b> und wählen Sie <b>Blatt</b> (wenn dies nicht bereits angezeigt wird), so dass Sie sehen können, welche Arbeitsblätter welche Arbeitsmappendatensätze enthalten. Klicken Sie dann auf die Überschrift Blatt, um die Datensätze nach Blattname zu sortieren.
+
+      <dl>
+        <dd><a class="image"><img alt="Layer Contents Headings.png" src="../images/Graphing_Data_From_Multiple_Sheets/Layer_Contents_Headings.png" width="444"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie in dem rechten Bedienfeld des Dialogs Layerinhalt <b>Delta Temperature</b> aus dem Blatt S32-014-04 und klicken Sie auf die Schaltfläche <b>Zeichnung entfernen</b> <a class="image"><img alt="Remove plot button.png" src="../images/Graphing_Data_From_Multiple_Sheets/Remove_plot_button.png" width="24"></a>, um die Zeichnung aus dem Diagrammlayer 1 zu entfernen.
+
+      <dl>
+        <dd><a class="image"><img alt="Layer Contents swap plot.png" src="../images/Graphing_Data_From_Multiple_Sheets/Layer_Contents_swap_plot.png" width="800"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie im linken Bedienfeld <b>Delta Temperature</b> aus dem Blatt S21-235-07 und klicken Sie auf die Schaltfläche <b>Zeichnung hinzufügen</b> <a class="image"><img alt="Button Add plot.png" src="../images/Graphing_Data_From_Multiple_Sheets/Button_Add_plot.png" width="24"></a>. Klicken Sie dann auf <b>Anwenden</b>, um die neue Zeichnung zu Layer 1 hinzuzufügen. Sie haben jetzt einen Datensatz mit einem anderen ausgetauscht.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Layer(1)</b> oben im Dialog und wählen Sie <b>Layer wechseln &gt; 2. Layer 2</b>.</li>
+
+    <li>Wiederholen Sie den Prozess des Entfernens des bestehenden Datensatzes <b>Magnetic Field</b> aus Layer 2 und ersetzen Sie ihn mit dem Datensatz Magnetic Field aus Blatt S21-235-07. Klicken Sie dann auf <b>Anwenden</b>.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Layer (2)</b> und wählen Sie <b>Layer wechseln &gt; 3. Layer 3</b>. Wiederholen Sie den Prozess, den Datensatz <b>Position</b> im Blatt S32-014-04 mit dem Datensatz Position im Blatt S21-235-07 zu tauschen. Klicken Sie dann auf <b>Anwenden</b> und schließen Sie den Dialog.</li>
+  </ol>
+
+  <dl>
+    <dd><a class="image"><img alt="Layer contents finished graph.png" src="../images/Graphing_Data_From_Multiple_Sheets/Layer_contents_finished_graph.png" width="439"></a></dd>
+  </dl>
+
+  <h2><a name="Create_a_Plot_using_Plot_Setup"></a><span class="mw-headline">Zeichnung mit Hilfe des Dialogs Diagrammeinstellungen erstellen</span></h2>
+
+  <p>Der Dialog Diagrammeinstellungen ist für eine Reihe von Zeichenaufgaben, einschließlich dem Erstellen von Diagrammen, Verändern des Diagrammtyps, Hinzufügen und Entfernen von Zeichnungen zum oder aus dem Diagramm, Gruppieren oder Auflösen von Gruppierungen und Bearbeiten des Zeichenbereichs, nützlich.</p>
+
+  <ol>
+    <li>Wechseln Sie zurück zu Ihrer Arbeitsmappe und stellen Sie sicher, dass keine Daten ausgewählt sind. Es ist nicht wichtig, welches Arbeitsblatt aktiv ist; wichtig ist, dass keine Spalten markiert sind.</li>
+
+    <li>Wählen Sie <b>Zeichnen &gt; Mehrere Felder/Achsen: 4-fach</b> im Menü. Ohne ausgewählte Daten öffnet Origin den Dialog <b>Diagrammeinstellungen</b>, mit dem Sie die Daten wählen können, die sie zeichnen möchten.</li>
+
+    <li>Erweitern Sie das obere Bedienfeld durch Klicken auf die Schaltfläche <a class="image"><img alt="Button Expand Preview Up.png" src="../images/Graphing_Data_From_Multiple_Sheets/Button_Expand_Preview_Up.png" width="24"></a>. Halten Sie die <b>Strg</b>-Taste gedrückt, um die drei Arbeitsblätter zu markieren. Alternativ können Sie einfach auf Ihre Auswahl klicken und sie dann ziehen, so dass alle drei Arbeitsblätter markiert werden.<br>
+    <a class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 010.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorials81_Graphing_Data_From_Multiple_Sheets_010.png" width="548"></a></li>
+
+    <li>Im mittleren Bedienfeld werden gemeinsame Spalten aller drei Blätter angezeigt. In diesem Fall haben alle drei Blätter ähnliche Daten mit entsprechenden Spaltennamen. Klicken Sie auf die Schaltfläche <a class="image"><img alt="Button Switch to Custom Mode.png" src="../images/Graphing_Data_From_Multiple_Sheets/Button_Switch_to_Custom_Mode.png" width="24"></a> oben rechts in diesem Bedienfeld, um die verfügbaren Diagrammspalten mt einem ähnlichen Spaltenlangnamen in einer Liste zu zeigen. Dieser Modus ist einfacher, da Sie die Kontrollkästchen X- und Y-Zuweisung nicht aktivieren müssen.<br>
+    <a class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 011.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorials81_Graphing_Data_From_Multiple_Sheets_011.png" width="441"></a></li>
+
+    <li>Öffnen Sie das untere Bedienfeld des Dialogs, die Diagrammliste, wenn es nicht bereits zu sehen ist. <b>Layer 1</b> ist markiert. Wählen Sie <b>Delta Temperature</b> im mittleren Bereich und klicken Sie dann auf die Schaltfläche <b>Hinzufügen</b>. Da Sie bereits die drei Arbeitsblätter in Schritt 3 ausgewählt haben, werden alle Spalten <b>Delta Temperature</b> aus jedem der drei Arbeitsblätter zu Layer 1 hinzugefügt.<br>
+    <a class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 012.png" src="../images/Graphing_Data_From_Multiple_Sheets/600px-Tutorials81_Graphing_Data_From_Multiple_Sheets_012.png" width="600"></a></li>
+
+    <li>Wiederholen Sie diese Schritte, um alle Spalten <b>Magnetic Field</b> und <b>Position</b> jeweils zu Layer 2 und Layer 3 hinzuzufügen.<br>
+    <a class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 013.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorials81_Graphing_Data_From_Multiple_Sheets_013.png" width="454"></a><br>
+    Beachten Sie, dass in jedem Layer die drei Diagramme automatisch gruppiert werden.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>OK</b>, um das Diagramm zu erstellen.<br>
+    <a class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 014.png" src="../images/Graphing_Data_From_Multiple_Sheets/500px-Tutorials81_Graphing_Data_From_Multiple_Sheets_014.png" width="500"></a></li>
+
+    <li>Sie werden bemerken, dass die Standardlegende, die für jeden Layer erstellt wurde, nicht besonders hilfreich ist. Das Diagrammlegendenobjekt von Origin kann in hohem Maß benutzerdefiniert angepasst werden. Bevor wir also fortfahren, werden wir die Standardlegende modifizieren. Klicken Sie mit der rechten Maustaste auf das Legendenobjekt und wählen Sie <b>Legende: Legende aktualisieren</b> im Kontextmenü.</li>
+
+    <li>Nehmen Sie im aufgerufenen Dialog die gleichen Einstellungen vor wie in Schritt 8 des Abschnitts <a href="#By_Drag_and_Drop"><b>Mit Drag&amp;Drop</b></a>. Beachten Sie, dass die Syntax für das <b>Benutzerdefinierte Legendenformat</b> <b>@WS</b> die <a class="external text" href="../../LabTalk/LabTalk/Legend_Substitution_Notation.html#List_of_.40Options">LabTalk-Substitutionsnotation</a> für den Namen des Arbeitsblatts ist, das die Daten für jedes Liniendiagramm enthält.</li>
+
+    <li>Sie haben einen zusätzlichen (leeren) Layer auf der Diagrammseite. Um diesen Layer zu löschen, klicken Sie einmal zum Auswählen auf ihn und drücken Sie dann die Taste <b>Entf</b> auf der Tastatur. Seien Sie vorsichtig, nicht auch das Diagrammfenster zu löschen, da dies im nächsten Abschnitt dieses Tutorials benötigt wird.<br>
+    <a class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 015.png" src="../images/Graphing_Data_From_Multiple_Sheets/500px-Tutorials81_Graphing_Data_From_Multiple_Sheets_015.png" width="500"></a></li>
+  </ol>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Graphing_Data_From_Multiple_Sheets/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>In dem obigen Diagramm ist die Legende für jeden Layer die gleiche. Sie können zwei von ihnen löschen. Oder nehmen Sie die untenstehenden Einstellungen im <a class="external text" href="../../UserGuide/UserGuide/The_legendupdate_Dialog_Box.html">Dialog <b>Legend Update</b></a> vor, um nur eine Legende für das gesamte Diagrammfenster anzuzeigen.</p>
+
+        <p><a class="image"><img alt="Legend Update dlg merge legends.png" src="../images/Graphing_Data_From_Multiple_Sheets/400px-Legend_Update_dlg_merge_legends.png" width="400"></a><br>
+        <br>
+        Sobald die Einstellungen angewendet werden, können Sie die Strg-Taste drücken und doppelt auf den Legendentext klicken, um weitere direkte Bearbeitungen vorzunehmen; oder Sie können mit der rechten Maustaste auf das Legendenfeld klicken, um <b>Eigenschaften</b> im Kontextmenü auszuwählen und eine weiterführende Bearbeitung im Dialog <a class="external text" href="../../UserGuide/Category/Text_and_Drawing_Objects.html"><b>Textobjekt</b></a> vorzunehmen.</p><br>
+        <br>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Plot_Grouped_Data_As"></a><span class="mw-headline">Gruppierte Daten zeichnen als</span></h2>
+
+  <p>Wenn Ihre Daten eine Spalte mit kategorialen Daten enthalten oder mehrere Spalten eine Art geschachtelte Teilgruppierung der Daten darstellt, wie unten zu sehen,</p>
+
+  <dl>
+    <dd><a class="image"><img alt="GroupedPlot 01.png" src="../images/Graphing_Data_From_Multiple_Sheets/300px-GroupedPlot_01.png" width="300"></a><br></dd>
+  </dl>
+
+  <p>dann möchten Sie Ihre Daten womöglich folgendermaßen zeichnen:</p>
+
+  <h3><a name="Trellis_Plot"></a><span class="mw-headline">Trellis-Diagramm</span></h3>
+
+  <p>Ab Origin 2017 kann mit Origin ein <a class="external text" href="../../UserGuide/UserGuide/Trellis.html">Trellis-Diagramm</a> erstellt werden, das einen Layer mit den <i>M X N</i> Feldern besitzt.</p>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe.
+
+      <ol>
+        <li>Öffnen Sie ein leeres Arbeitsblatt. Wählen Sie <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b> im Menü, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner <i>Statistics</i>. Dort befindet sich die Datei <i>2010.dat</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das leere Arbeitsblatt, um sie zu importieren.</li>
+      </ol>
+    </li>
+  </ol>
+
+  <ul class="noindent">
+    <li>Markieren Sie col(H)~col(J) und wählen Sie im Menü <b>Zeichnen &gt; Kategorial: Trellis-Diagramm</b>. Der Dialog <a class="external text" href="../../XFunction/X-Function/Plot_group.html">plot_group</a> wird geöffnet. Wählen Sie die Spalte col("City") als horizontale Gruppenvariable und die Spalte col("Gender") als vertikale Gruppenvariable für die Felder.<br>
+    <a class="image"><img alt="GroupedPlot 02.png" src="../images/Graphing_Data_From_Multiple_Sheets/500px-GroupedPlot_02.png" width="500"></a></li>
+
+    <li>Klicken Sie auf die Schaltfläche OK, um das Diagramm zu zeichnen. Klicken Sie auf die X-Achse und in der angezeigten Minisymbolleiste auf die Schaltfläche <b>Achsenskalierung</b> <a class="image"><img alt="Button axis scale.png" src="../images/Graphing_Data_From_Multiple_Sheets/Button_axis_scale.png" width="20"></a>. Setzen Sie in dem Dialog, der geöffnet wird, die Werte für <b>Von</b> und <b>Bis</b> der horizontalen Achse auf <i>-10</i> und <i>90</i>. Sie erhalten das Diagramm unten:<br>
+    <a class="image"><img alt="GroupedPlot 03.png" src="../images/Graphing_Data_From_Multiple_Sheets/450px-GroupedPlot_03.png" width="450"></a></li>
+  </ul>
+
+  <p>Wie Sie sehen können, verfügt dieses Trellis-Diagramm nur über einen Layer mit jedoch sechs Feldern (<b>2×3</b>): 2 Zeilen stellen die Variable "Gender" dar, <i>Female</i> und <i>Male</i>; drei Spalten repräsentieren die Variable "City", <i>A</i>, <i>B</i> und <i>C</i>.</p>
+
+  <h3><a name="Grouped_Box_Plot"></a><span class="mw-headline">Gruppiertes Boxdiagramm</span></h3>
+
+  <p>Neben dem Trellis-Diagramm können Sie auch diese Art von Daten als ein gruppierte Box-/Säulendiagramm zeichnen.</p>
+
+  <ol>
+    <li>Aktivieren Sie erneut das Quellarbeitsblatt oben. Markieren Sie die Spalte col("Salary") und wählen Sie im Menü <b>Zeichnen &gt; Kategorial: Gruppierte Boxdiagramme, Index</b>, um den Dialog <a class="external text" href="../../UserGuide/UserGuide/Grouped_Box_Charts-Indexed_Data.html">plot_gdoxindexed</a> aufzurufen. Wählen Sie col("Gender") und col("City") als <b>Gruppenspalten</b>.<br>
+    <a class="image"><img alt="GroupedPlot 04.png" src="../images/Graphing_Data_From_Multiple_Sheets/450px-GroupedPlot_04.png" width="450"></a></li>
+
+    <li>Klicken Sie auf die Schaltfläche OK, um das Diagramm zu zeichnen.<br>
+    <a class="image"><img alt="GroupedPlot 05.png" src="../images/Graphing_Data_From_Multiple_Sheets/350px-GroupedPlot_05.png" width="350"></a></li>
+
+    <li style="list-style: none">
+      <p>Zu sehen ist, dass die Daten in col("Salary") als ein gruppiertes Boxdiagramm gezeichnet wurden: zwei Gruppen nach "Gender", <i>Female</i> and <i>Male</i>; innerhalb dieser zwei Gruppen dann drei Teilgruppen nach "City", <i>A</i>, <i>B</i> und <i>C</i>.</p>
+    </li>
+  </ol>
+
+  <h2><a name="Plot_Graphs_by_Label"></a><span class="mw-headline">Diagramme nach Beschriftung zeichnen</span></h2>
+
+  <p>Origin bietet eine neue Zeichenoption <b>Mehrfach nach Beschriftung</b>, mit der es möglich ist, ein Diagramm mit mehreren Layern zu erstellen, wobei jeder Layer mehrere Zeichnungen mit der gleichen Beschriftung enthält.</p>
+
+  <ol>
+    <li>Öffnen Sie die Datei <b>Samples\Graphing\Automobile Data.ogw</b> (Hinweis: Stellen Sie sicher, dass Ihr Filter zum Öffnen von Dateien auf <b>Arbeitsmappen(*.ogw)</b>) festgelegt ist.<br>
+    <a class="image"><img alt="Plot Grouped Plot wks.png" src="../images/Graphing_Data_From_Multiple_Sheets/Plot_Grouped_Plot_wks.png" width="613"></a></li>
+
+    <li>Klicken Sie auf die obere linke Ecke des Arbeitsblatts, um das gesamte Blatt zu markieren. Wählen Sie <b>Zeichnen &gt; Mehrere Felder/Achsen: Mehrfach nach Beschriftung</b>, um den Dialog <b>plotbylabel</b> zu öffnen.</li>
+
+    <li>Legen Sie die Dialogoptionen, wie folgt, fest und klicken Sie auf die Schaltfläche <b>OK</b>, um das Diagramm zu erstellen.<br>
+    <a class="image"><img alt="Plot by label dlg.png" src="../images/Graphing_Data_From_Multiple_Sheets/Plot_by_label_dlg.png" width="895"></a><br>
+    Das Diagramm sollte folgendermaßen aussehen:<br>
+    <a class="image"><img alt="Grouped Graphs By Label.png" src="../images/Graphing_Data_From_Multiple_Sheets/Grouped_Graphs_By_Label.png" width="591"></a></li>
+  </ol>

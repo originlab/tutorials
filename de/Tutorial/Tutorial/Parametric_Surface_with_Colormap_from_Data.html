@@ -1,0 +1,160 @@
+﻿<h1 class="firstHeading">Parametrische Oberflächendiagramme mit Farbabbildung aus Daten</h1>
+
+  <p class='urlname' style='display: none'>3D-ParaSurf-DataColormap</p>
+
+  <p>&#160;</p>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>In diesem Tutorial wird eine 3D-Kugel mit Hilfe der Daten aus drei Matrizen erstellt. Es wird auch gezeigt, wie die Oberfläche gefüllt wird, um die Kontur der Oberflächentemperatur mit Hilfe der Daten aus einer anderen Matrix anzuzeigen.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Parametric Surface with Colormap from Data 15.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_15.png" width="436"></a></dd>
+  </dl>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 2015 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>parametrische Oberflächendiagramme aus Matrixdaten erstellen,</li>
+
+    <li>Konturfüllungen aus einer anderen Matrix festlegen,</li>
+
+    <li>parametrische 3D-Oberflächendiagramme benutzerdefiniert anpassen.</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <p>Dieses Tutorial basiert auf dem Projekt: <i>&lt;Origin-Verzeichnis&gt;\Samples\Tutorial Data.opj</i>.<br>
+  Sie können dieses Diagramm auch im Lernzentrum finden. (Wählen Sie <b>Hilfe: Lernzentrum</b> im Menü oder drücken Sie die Taste <b>F11</b>. Öffnen Sie dann <b>Diagrammbeispiel: 3D-Funktionsdiagramme</b>.)</p>
+
+  <ol>
+    <li>Öffnen Sie das Projekt <b>Tutorial Data.opj</b> und navigieren Sie zu dem Ordner <b>Parametric Surface with Colormap from Data</b> im <b>Project Explorer</b> (PE).</li>
+
+    <li>Aktivieren Sie die Matrix <i>FUNCA:1/4</i> und markieren Sie die Daten. Klicken Sie auf die Schaltfläche <a class="image"><img alt="Button Multiple Color Map Surfaces.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Button_Multiple_Color_Map_Surfaces.png" width="21"></a> auf der Symbolleiste <b>3D- und Konturdiagramme</b>, um ein Oberflächendiagramm mit Farbabbildung, wie unten zu sehen, zu erstellen. Sie können dieses Oberflächendiagramm mit Farbabbildung auch erstellen, indem Sie <b>Zeichnen: 3D: 3D Farbabbildung</b> im Hauptmenü wählen.
+
+      <dl>
+        <dd><a class="image"><img alt="Parametric Surface with Colormap from Data 01.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_01.png" width="518"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie zum Aufrufen des Dialogs <b>Details Zeichnung</b> doppelt auf die Zeichnung. Aktivieren Sie auf der Registerkarte <b>Oberfläche</b> das Kontrollkästchen <b>Parametrische Oberfläche</b> und setzen Sie <b>X-Matrix</b> und <b>Y-Matrix</b> auf <b>Mat(2)</b> bzw. <b>Mat(3)</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Parametric Surface with Colormap from Data 02.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_02.png" width="465"></a></dd>
+
+        <dd>Klicken Sie auf <b>OK</b>, um den Dialog zu schließen.</dd>
+      </dl>
+    </li>
+
+    <li>Um die gesamte farbkodierte Oberfläche im Achsenbereich anzuzeigen, verwenden Sie die Schaltfläche Neuskalierung <a class="image"><img alt="Button Rescale.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Button_Rescale.png" width="22"></a> auf der Symbolleiste <b>Diagramm</b>. Das Oberflächendiagramm mit Farbabbildung sollte folgendermaßen aussehen:
+
+      <dl>
+        <dd><a class="image"><img alt="Parametric Surface with Colormap from Data 03.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_03.png" width="518"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie zum Öffnen des Dialogs <b>Details Zeichnung</b> doppelt auf das Diagramm. Dieser Dialog wird verwendet, um die Oberfläche benutzerdefiniert anzupassen. Deaktivieren Sie auf der Registerkarte <b>Füllung</b> das Kontrollkästchen in der Gruppe Vordergrundoberfläche vor <b>Identisch</b> und setzen Sie <b>Konturfüllung aus Matrix</b> auf <b>Mat(4)</b>. Klicken Sie auf <b>Übernehmen</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Parametric Surface with Colormap from Data 04.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_04.png" width="412"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wechseln Sie zur Registerkarte <b>Farbpalette/Kontur</b>. Klicken Sie auf die Überschrift <b>Ebene</b>, um den Dialog <b>Ebenen festlegen</b> zu öffnen. Klicken Sie auf <b>Min./Max. suchen</b> und legen <b>Anz. Hauptebenen</b> und <b>Anz. Nebenebenen</b> auf<b>16</b> bzw. <b>8</b> fest. Klicken Sie auf <b>OK</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Parametric Surface with Colormap from Data 05.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_05.png" width="539"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Überschrift <b>Füllung</b>, um den Dialog <b>Füllung</b> zu öffnen. Dieser Dialog wird verwendet, um die Farbskala benutzerdefiniert anzupassen. Die Option <b>Palette laden</b> gibt dem Anwender die Möglichkeit, aus einer Liste von verschiedenen Paletten zu wählen. Wählen Sie für <b>Palette laden</b> die Option <b>Temperature</b> aus. Klicken Sie auf <b>OK</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Parametric Surface with Colormap from Data 06.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_06.png" width="474"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Registerkarte <b>Drahtgitter</b>. Setzen Sie die <b>Linienbreite</b> auf <b>0,05</b>, indem Sie in dem Schriftfeld den Wert direkt eingeben, anstatt das Auswahlmenü zu verwenden. Legen Sie im Abschnitt Vordergrund die <b>Linienfarbe</b> mit <b>Hellgrau</b> fest. Klicken Sie auf <b>Übernehmen</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Parametric Surface with Colormap from Data 07.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_07.png" width="413"></a></dd>
+      </dl>
+    </li>
+
+    <li>Aktivieren Sie auf der Registerkarte <b>Numerisches Format</b> die Option <b>Dezimalstellen</b> und setzen Sie den Wert auf <b>0</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Parametric Surface with Colormap from Data 08.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_08.png" width="506"></a></dd>
+
+        <dd>Klicken Sie auf <b>OK</b>, um diese Einstellungen anzuwenden und den Dialog <b>Details Zeichnung</b> zu schließen. Das Diagramm sollte folgendermaßen aussehen:</dd>
+
+        <dd><a class="image"><img alt="Parametric Surface with Colormap from Data 09.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_09.png" width="478"></a></dd>
+      </dl>
+    </li>
+
+    <li>Im nächsten Schritt werden die Achsen geändert. Klicken Sie doppelt auf die Z-Achse, um den Dialog der <b>Achsen</b> zu öffnen. Gehen Sie zur Registerkarte <b>Skalierung</b> und wählen Sie das Symbol <b>Z</b>. Setzen Sie den Wert für <b>Von</b> und <b>Bis</b> auf <b>-400</b> bzw. <b>400</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Parametric Surface with Colormap from Data 10.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_10.png" width="448"></a></dd>
+      </dl>
+    </li>
+
+    <li>Gehen Sie zur Registerkarte <b>Titel</b> und halten Sie die <b>Strg</b>-Taste gedrückt, um die Symbole <b>X</b>, <b>Y</b> und <b>Z</b> gleichzeitig auszuwählen. Deaktivieren Sie das Kontrollkästchen <b>Zeigen</b>, um den Achsentitel für alle Achsen auszublenden. Klicken Sie auf <b>OK</b>, um den Dialog zu schließen.
+
+      <dl>
+        <dd><a class="image"><img alt="Parametric Surface with Colormap from Data 16.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_16.png" width="416"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie doppelt auf die XY-Ebene, um den Dialog Details Zeichnung auf der Ebene <b>Layereigenschaften</b> zu öffnen. Um die Achsen zu verbergen, deaktivieren Sie auf der Registerkarte <b>Anzeige</b> die Kontrollkästchen <b>X-Achsen</b>, <b>Y-Achsen</b>, <b>Z-Achsen</b> im Abschnitt Elemente zeigen.
+
+      <dl>
+        <dd><a class="image"><img alt="Parametric Surface with Colormap from Data 11.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_11.png" width="468"></a></dd>
+      </dl>
+    </li>
+
+    <li>Um die YZ- und ZX-Ebenen zu verbergen, klicken Sie auf die Registerkarte <b>Ebenen</b> und deaktivieren Sie die Kontrollkästchen <b>YZ</b>, <b>ZX</b>. Setzen Sie die <b>Farbe</b> der übrig gebliebenen <b>XY</b>-Ebene auf <b>Hellgrau</b>. Klicken Sie auf <b>OK</b>, um den Dialog zu schließen.
+
+      <dl>
+        <dd><a class="image"><img alt="Parametric Surface with Colormap from Data 12.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_12.png" width="532"></a></dd>
+      </dl>
+    </li>
+
+    <li>Im nächsten Schritt wird die Farbskala benutzerdefiniert angepasst. Klicken Sie doppelt auf sie, um den Dialog <b>Eigenschaften Farbskala</b> zu öffnen. Gehen Sie zum Knoten <b>Beschriftungen</b> und setzen Sie die Schriftart auf <b>Verdana</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Parametric Surface with Colormap from Data 13.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_13.png" width="451"></a></dd>
+      </dl>
+    </li>
+
+    <li>Gehen Sie zum Knoten <b>Linie und Hilfsstriche</b> und blenden Sie Rahmen und Hilfsstriche aus:
+
+      <dl>
+        <dd><a class="image"><img alt="Parametric Surface with Colormap from Data 13b.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_13b.png" width="515"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um die Einstellung anzuwenden, und schließen Sie den Dialog. Markieren und ziehen Sie das Objekt der Farbskala an die gewünschte Stelle.</li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf den weißen Bereich des Diagrammlayers, um ein Kontextmenü aufzurufen, und wählen Sie <b>Layertitel hinzufügen/modifizieren</b>. Klicken Sie auf eine andere Stelle, um die Auswahl des Textfelds aufzuheben, klicken Sie dann mit der rechten Maustaste auf sie und wählen Sie <b>Einstellungen</b> im Kontextmenü, um den Dialog <b>Objekteigenschaften</b> aufzurufen. Legen Sie die Schriftart <b>Verdana</b> fest und geben Sie <b>Surface Temperature (\+(o)C)</b> im Inhaltsverzeichnis ein. Klicken Sie auf <b>OK</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Parametric Surface with Colormap from Data 14.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_14.png" width="534"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf das Diagrammlayer innerhalb des 3D-Rahmens (nicht Datenzeichnung) und dann auf die Schaltfläche <b>Drehen</b>, wie im Bild unten zu sehen, um den Drehmodus zu aktivieren. Andere Möglichkeiten, um das 3D-Diagramm zu drehen, umfassen die rote Schaltfläche zum Drehen auf der Symbolleiste <b>Hilfsmittel</b>, die verschiedenen Schaltflächen der Symbolleiste <b>3D-Drehung</b> sowie die Auswahl der Zeichnung, das Drücken der Taste <b>R</b> und die Verwendung des Cursors.
+
+      <dl>
+        <dd><a class="image"><img alt="Parametric Surface with Colormap from Data 17.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_17.png" width="445"></a></dd>
+
+        <dd>Drehen Sie die Zeichnung, um eine bessere Ansicht zu erhalten. Das Diagramm sollte dem Bild unten entsprechen:</dd>
+
+        <dd><a class="image"><img alt="Parametric Surface with Colormap from Data 15.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_15.png" width="436"></a></dd>
+      </dl>
+    </li>
+  </ol>

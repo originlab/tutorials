@@ -1,0 +1,196 @@
+﻿<h1 class="firstHeading">Daten aus Arbeitsblatt extrahieren</h1>
+
+  <p class='urlname' style='display: none'>Extract-Wks-Data</p>
+
+  <p>&#160;</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#Dialog_Overview"><span class="tocnumber">3</span> <span class="toctext">Dialogübersicht</span></a></li>
+
+      <li class="toclevel-1 tocsection-4">
+        <a href="#Define_the_Condition"><span class="tocnumber">4</span> <span class="toctext">Bedingung definieren</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-5"><a href="#Extract_Numerical_Data"><span class="tocnumber">4.1</span> <span class="toctext">Numerische Daten extrahieren</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#Extract_Strings"><span class="tocnumber">4.2</span> <span class="toctext">Zeichenketten extrahieren</span></a></li>
+
+          <li class="toclevel-2 tocsection-7"><a href="#Extract_Time_Data"><span class="tocnumber">4.3</span> <span class="toctext">Zeitdaten extrahieren</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/Extract_Worksheet_Data/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/Extract_Worksheet_Data/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=17" target="_blank">Arbeitsblattdaten extrahieren</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%">
+        <a class="image"><img alt="Website blog icon circle.png" src="../images/Extract_Worksheet_Data/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Extract_Worksheet_Data/Blog_Image_33x33px.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="http://blog.originlab.com/extract-masked-points-to-a-new-workbook-automatically" target="_blank">Maskierte Punkte automatisch in eine neue Arbeitsmappe extrahieren</a></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie den Dialog <span class="db">Daten aus Arbeitsblatt extrahieren</span> verwenden.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 2019b</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>numerische und Zeitdaten extrahieren,</li>
+
+    <li>ein Alias in einer Extraktionsbedingung verwenden,</li>
+
+    <li>LabTalk-Funktionen in einer Extraktionsbedingung verwenden.</li>
+  </ul>
+
+  <h2><a name="Dialog_Overview"></a><span class="mw-headline">Dialogübersicht</span></h2>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Extract_Worksheet_Data/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Der Dialog <b>Daten aus Arbeitsblatt extrahieren</b> unterscheidet sich leicht von dem Bild unten, wenn (a) <b>Zellennotation für Tabellenkalkulationsblätter (SCN)</b> in der aktiven Arbeitsmappe ausgeschaltet ist (Sie sehen dieses Symbol <a class="image"><img alt="Button SCN OFF.png" src="../images/Extract_Worksheet_Data/Button_SCN_OFF.png" width="22"></a> in der oberen linken Ecke der Arbeitsmappe) oder (b) Sie SCN eingeschaltet haben, aber das Kästchen <b>Alias verwenden</b> in der oberen rechten Ecke von Daten aus Arbeitsblatt extrahieren aktiviert ist. Der Dialog <b>Daten aus Arbeitsblatt extrahieren</b> wurde für Version <b>2019b</b> modifiziert, um Spalten flexibler benennen zu können. Sie können dieses Tutorial immer noch bearbeiten, wenn Sie Spaltenaliase definieren. Anweisungen hierzu finden Sie unter <a class="external text" href="../../UserGuide/UserGuide/Extract_Worksheet_Data.html#Select_Column_Variables_for_If_Test"><b>Spaltenvariablen für If-Abfrage wählen</b></a>.</p>
+      </td>
+    </tr>
+  </table>
+
+  <dl>
+    <dd><a class="image"><img alt="Tutorial Extract Worksheet Data 005.png" src="../images/Extract_Worksheet_Data/Tutorial_Extract_Worksheet_Data_005.png" width="699"></a><br>
+    <br></dd>
+  </dl>
+
+  <p>Grundsätzlich gibt es zwei Hauptbedienfelder in dem Dialog <span class="db">Daten aus Arbeitsblatt extrahieren</span>:</p>
+
+  <ul>
+    <li>Das linke Bedienfeld listet alle Spalten im aktiven Arbeitsblatt auf. Klicken Sie mit der rechten Maustaste auf das linke Bedienfeld und wählen Sie, welche Spalteneigenschaften angezeigt werden sollen (z. B. <i>Format</i>, <i>1. Wert</i> etc). Beachten Sie, dass diese Spalten, die in der Spalte <b>Extrahieren</b> aktiviert sind, ausgegeben werden, wenn Sie im Dialog auf <b>OK</b> klicken.</li>
+  </ul>
+
+  <ul>
+    <li>Im rechten Feld stellen Sie Extraktionsbedingungen ein, testen sie und führen Sie sie aus. Wenn SCN ausgeschaltet ist oder Sie das Kontrollkästchen <b>Alias verwenden</b> aktiviert haben, markieren Sie die Arbeitsblattspalten, die Sie in der Extraktionsbedingung im linken Bedienfeld verwenden möchten, und klicken Sie dann auf die Schaltfläche <a class="image"><img alt="Button Select To Right.png" src="../images/Extract_Worksheet_Data/Button_Select_To_Right.png" width="20"></a>, um sie in das Feld <b>Spaltenvariablen für If-Abfrage wählen</b> zu verschieben. Sie haben dann die Aliase, die Sie zum Definieren Ihrer <b>Bedingung</b> brauchen. Wenn Sie beabsichtigen, Spaltennamen oder Indizes anstatt von Aliasen zu verwenden, können Sie Ihre <b>Bedingung</b> einfach direkt definieren.</li>
+  </ul>
+
+  <h2><a name="Define_the_Condition"></a><span class="mw-headline">Bedingung definieren</span></h2>
+
+  <h3><a name="Extract_Numerical_Data"></a><span class="mw-headline">Numerische Daten extrahieren</span></h3>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe und importieren Sie die Datei \<i>Samples</i>\<i>Statistics</i>\<i>body.dat</i>.</li>
+
+    <li>Wählen Sie im Menü <b>Arbeitsblatt: Daten aus Arbeitsblatt extrahieren</b>, um den Dialog Daten aus Arbeitsblatt extrahieren zu öffnen.<br>
+    Wenn Sie die <a class="external text" href="../../UserGuide/Category/Worksheet_Query.html#What_Can_I_Enter_in_Condition_Text_Box.3F">korrekte Syntax</a> kennen, können Sie Ihren Ausdruck direkt in das Feld <b>Bedingung</b> eingeben. Um Ihnen beim Erzeugen Ihres Ausdrucks zu helfen, können Sie die Schaltflächen rechts von <b>Bedingung</b> verwenden. Außerdem können Sie Funktionen und Variablen aus dem Menü <b>Funktion</b> einfügen.</li>
+
+    <li>Um die Daten der Individuen, die mindestens 160 cm groß sind, zu extrahieren, geben Sie Folgendes im Bedingungsfeld ein:
+      <pre class="lt" style="font-family:monospace;">
+col<span style="color: #000000;">(</span>height<span style="color: #000000;">)</span><span style="color: #000080;">&gt;=</span><span style="color: #0000dd;">160</span>
+</pre>
+    </li>
+
+    <li>Wenn es mehrere Bedingungen gibt, können Sie die Bedingungen durch logische Operatoren <b>AND, OR, NOT</b> kombinieren. Wir fügen eine zweite Bedingung hinzu, die auf Individuen testet, die nicht mehr als 50 kg wiegen. Klicken Sie auf die Schaltfläche <b>AND</b> und geben Sie Folgendes nach <b>AND</b> ein:
+      <pre class="lt" style="font-family:monospace;">
+col<span style="color: #000000;">(</span>weight<span style="color: #000000;">)</span><span style="color: #000080;">&lt;=</span><span style="color: #0000dd;">50</span>
+</pre>
+
+      <p>Ihr Ausdruck sollte nun folgendermaßen aussehen:</p>
+
+      <dl>
+        <dd>
+          <dl>
+            <dd><a class="image"><img alt="Tutorial extract worksheet data.png" src="../images/Extract_Worksheet_Data/Tutorial_extract_worksheet_data.png" width="554"></a></dd>
+          </dl>
+        </dd>
+      </dl>
+    </li>
+
+    <li>Um Ihre Abfrage zu testen, klicken Sie auf die Schaltfläche <b>Alle Zeilen</b>, um alle Zeilen auszuwählen (beachten Sie, dass die <i>0</i> in <i>1</i> <b>bis</b> <i>0</i> die letzte Zeile im Blatt bezeichnet). Klicken Sie dann auf <b>Test -- Auswählen falls wahr</b>, um Ihren Ausdruck zu testen. Origin gibt 5 gefundene Einträge aus.
+
+      <dl>
+        <dd>
+          <dl>
+            <dd><a class="image"><img alt="Tutorial test extract.png" src="../images/Extract_Worksheet_Data/Tutorial_test_extract.png" width="554"></a></dd>
+          </dl>
+        </dd>
+      </dl>
+    </li>
+
+    <li>Akzeptieren Sie andere Standardeinstellungen und klicken Sie auf die Schaltfläche <b>OK</b>. Eine neue Arbeitsmappe, die die 5 gefundenen Einträge enthält, wird erstellt.</li>
+  </ol>
+
+  <h3><a name="Extract_Strings"></a><span class="mw-headline">Zeichenketten extrahieren</span></h3>
+
+  <p>Beim Extrahieren der Zeichenketten sollten Sie die Zeichenketten in doppelte Anführungszeichen setzen (z. B. "California").</p>
+
+  <ol>
+    <li>Um nur weibliche Subjekte (<b>F</b>) zu extrahieren, geben wir Folgendes in das Feld <b>Bedingung</b> ein:
+      <pre class="lt" style="font-family:monospace;">
+col<span style="color: #000000;">(</span>gender<span style="color: #000000;">)</span> <span style="color: #000080;">==</span> <span style="color: #ff00ff;">"F"</span>
+</pre>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Alle Zeilen</b> und klicken Sie dann auf <b>Test -- Auswählen falls wahr</b>. Eine Meldung zeigt, dass 18 Einträge gefunden wurden.</li>
+
+    <li>Übernehmen Sie die Standardeinstellungen und klicken Sie auf <b>OK</b>, um den Dialog zu schließen und Daten für weibliche Subjekte in eine neue Arbeitsmappe zu extrahieren.</li>
+  </ol>
+
+  <h3><a name="Extract_Time_Data"></a><span class="mw-headline">Zeitdaten extrahieren</span></h3>
+
+  <p><a class="external text" href="../../UserGuide/UserGuide/Dates_and_Times_in_the_Worksheet.html">Datums- und Zeitdaten</a> sind intern als numerische Werte in Origin gespeichert. Das Datum ist der ganzzahlige Zahl des numerischen Werts, während Zeit den Bruchteil darstellt. Sie können die Funktionen <a class="external text" href="../../LabTalk/LabTalk/Int_(function).html">int()</a> und <a class="external text" href="../../LabTalk/LabTalk/Int_(function).html">frac()</a> verwenden, um zum ganzzahligen Teil bzw. Bruchteil einer Zahl zurückzukehren, und die Funktionen <a class="external text" href="../../LabTalk/LabTalk/Date_(function).html">Date(MM/DD/YY)</a> und <a class="external text" href="../../LabTalk/LabTalk/Time_(function).html">Time(HH:mm:ss)</a>, um Zeichenketten in numerische <a class="external text" href="../../UserGuide/UserGuide/Dates_and_Times_in_Origin.html">Julianische Tages</a>daten zu konvertieren.</p>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe. Wählen Sie <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b> im Menü, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner <i>Import and Export</i>. Dort befindet sich die Datei <i>Custom Date and Time.dat</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das leere Arbeitsblatt, um sie zu importieren. Beachten Sie, dass die "Datums/Zeit"-Daten in Spalte A links ausgerichtet sind, was darauf hinweist, dass sie als Textzeichenketten behandelt werden und nicht als wahre Datums-/Zeitdaten (die numerisch sind).</li>
+
+    <li>Markieren Sie Spalte A, klicken Sie mit der rechten Maustaste und wählen Sie <b>Einstellungen</b>. Setzen Sie das <b>Format</b> = <b>Datum</b>, <b>Anzeige</b> = <b>Benutzerdefinierte Anzeige</b> und geben Sie in <b>Benutzerdefinierte Anzeige</b> Folgendes ein:
+      <pre class="lt" style="font-family:monospace;">
+dd<span style="color: #ff00ff;">'.'</span>MM<span style="color: #ff00ff;">'.'</span>yyyy HH<span style="color: #ff00ff;">':'</span>mm<span style="color: #ff00ff;">':'</span>ss<span style="color: #ff00ff;">'.'</span>##
+</pre>
+
+      <p>Dies formatiert die Datums-/Zeitzeichenketten in Spalte A als numerische Datums-/Zeitdaten.</p>
+    </li>
+
+    <li>Als Nächstes extrahieren wir den Anteil der Arbeitsblattdaten, der in den Zeitraum 10:00:00 und 11:00:00 fällt. Klicken Sie auf <b>Arbeitsblatt: Daten aus Arbeitsblatt extrahieren</b> und geben Sie im Feld <b>Bedingung</b> Folgendes ein:
+      <pre class="lt" style="font-family:monospace;">
+frac<span style="color: #000000;">(</span>A<span style="color: #000000;">)</span> <span style="color: #000080;">&gt;</span> Time<span style="color: #000000;">(</span><span style="color: #0000dd;">10</span><span style="color: #000000;">:</span>00<span style="color: #000000;">:</span>00<span style="color: #000000;">)</span> AND frac<span style="color: #000000;">(</span>A<span style="color: #000000;">)</span> <span style="color: #000080;">&lt;</span> Time<span style="color: #000000;">(</span><span style="color: #0000dd;">11</span><span style="color: #000000;">:</span>00<span style="color: #000000;">:</span>00<span style="color: #000000;">)</span>
+</pre>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Alle Zeilen</b> und klicken Sie dann auf <b>Test -- Auswählen falls wahr</b>. Eine Meldung zeigt, dass 120 Einträge gefunden wurden.</li>
+
+    <li>Übernehmen Sie die Standardeinstellungen und klicken Sie auf <b>OK</b>, um den Dialog zu schließen und Daten, die zwischen 10:00:00 und 11:00:00 aufgezeichnet wurden, in eine neue Arbeitsmappe zu extrahieren.</li>
+  </ol>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Extract_Worksheet_Data/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Sie könnten die Daten mit Hilfe eines <a class="external text" href="../../UserGuide/Category/Data_Connector.html"><b>Datenkonnektors</b></a> in Schritt 1 importiert haben. Ein einfacher Drag&amp;Drop der Datendatei <i>Custom Date and Time.dat</i> würde die Datums- und Zeitdaten in zwei Spalten aufteilen, jede richtig als Datum und Zeit formatiert. Dies erspart Ihnen die Mühe, die Daten mit Hilfe der Zeichenkette in Schritt 2 manuell formatieren zu müssen.</p>
+      </td>
+    </tr>
+  </table>

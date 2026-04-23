@@ -1,0 +1,105 @@
+﻿<h1 class="firstHeading">Anpassen mit Integral mit Hilfe der LabTalk-Funktion</h1><p class='urlname' style='display: none'>Fitting-Integral-LabTalk</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Inhalt</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">Beispiele und Schritte</span></a><ul>
+<li class="toclevel-2 tocsection-4"><a href="#The_Fitting_Model"><span class="tocnumber">3.1</span> <span class="toctext">Das Anpassungsmodell</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Define_the_Function"><span class="tocnumber">3.2</span> <span class="toctext">Funktion definieren</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Fit_the_Curve"><span class="tocnumber">3.3</span> <span class="toctext">Kurve anpassen</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+<p>Ab Version <font color="red"><b>Origin 8.6</b></font>f&uuml;hrt Origin eine neue LabTalk-Funktion ein, <b><i>integral()</i></b>, um eindimensionale Integration durchzuf&uuml;hren. Diese Funktion gibt den Integralwert zur&uuml;ck von:</p>
+<dl><dd><img src="../images/Fitting_with_Integral_using_LabTalk_Function/math-6bb27c3d9ef3c72c9673506a3f93ba77.png" title="\int_{LowerLimit}^{UpperLimit} f(t, arg1, arg2, ...), dt" alt="\int_{LowerLimit}^{UpperLimit} f(t, arg1, arg2, ...), dt" class="tex"/></dd></dl>
+<p>Die Schnittstelle der Funktion <i>integral()</i> wird wie unten definiert:</p>
+<dl><dd><pre class="lt" style="font-family:monospace;">integral<span style="color: #000000;">(</span>integrandName, LowerLimit, UpperLimit <span style="color: #000000;">[</span>, arg1, arg2, ...<span style="color: #000000;">]</span><span style="color: #000000;">)</span></pre></dd></dl>
+<p>wobei <i>integrandName</i> hier der Funktionsname des Integrands ist:</p>
+<dl><dd><img src="../images/Fitting_with_Integral_using_LabTalk_Function/math-44e9632335932e89ea0c00546a31810a.png" title="f(t, arg1, arg2, ...)\," alt="f(t, arg1, arg2, ...)\," class="tex"/></dd></dl>
+<p>Mit anderen Worten tut die Funktion <i>integral()</i> Folgendes:</p>
+<ul>
+<li> Akzeptieren einer anderen Funktion (das erste Argument) als Integrand,<li> Durchf&uuml;hren einer Integration f&uuml;r festgelegte untere und obere Grenzen und Zur&uuml;ckgeben des Integralwerts,<li> Ggf. Weitergeben der aufeinander folgenden Argumente (<i>Arg1</i>, <i>Arg2</i>, ...) an die Integrandfunktion.</ul>
+<p>Hiermit kann eine Anpassungsfunktion mit der Funktion <i>integral() </i>definiert und geeignete Anpassungsparameter an den Integrand weitergegeben werden, um eine Integration bei der Kurvenanpassung durchzuf&uuml;hren.</p><p>In diesem Tutorial &auml;ndern wir das andere Tutorial zum <a href="../../Tutorial/Tutorial/Fitting_with_Integral_using_NAG_Library.html" title="Tutorial:Fitting with Integral using NAG Library">Aufrufen von NAG-Funktionen, um eine Integration w&auml;hrend der Anpassung durchzuf&uuml;hren</a> in LabTalk-Form um und zeigen, wie Sie einfach und ohne gro&szlig;e Umst&auml;nde eine Integrationsfunktion anpassen.</p>
+<p class="version" >Origin-Version mind. erforderlich: Origin 8.6</p>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Fitting_with_Integral_using_LabTalk_Function/Tip_icon.png" width="57"  border="0" /></td><td><p>Seit Origin 2018b k&ouml;nnen Sie eine implizite Funktion mit Hilfe von Integralen definieren.</p></td></tr></table>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+<p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+<ul><li> eine Anpassungsfunktion mit dem Hilfsmittel &apos;Fitfunktionen erstellen&apos; erstellen.</li>
+<li> eine Fitfunktion mit einem bestimmten Integral mit Hilfe einer LabTalk-Funktion erstellen.</li>
+<li> den Initialisierungscode f&uuml;r die Anpassungsfunktion einrichten.</li></ul>
+<h2><a name="Example_and_Steps"></a><span class="mw-headline">Beispiel und Schritte</span></h2>
+<h3><a name="The_Fitting_Model"></a><span class="mw-headline">Das Anpassungsmodell</span></h3>
+<p>Das Anpassungsmodell wird wie folgt geschrieben</p>
+<dl><dd><img src="../images/Fitting_with_Integral_using_LabTalk_Function/math-957656d43fc6d5ccaa64ce6fec8b95aa.png" title="y=y_0+\int_{-\infty}^{x} \frac{A}{w\sqrt{\frac{\pi}{2}}} e^{-2\frac{(t-x_c)^2}{w^2}}, dt" alt="y=y_0+\int_{-\infty}^{x} \frac{A}{w\sqrt{\frac{\pi}{2}}} e^{-2\frac{(t-x_c)^2}{w^2}}, dt" class="tex"/></dd></dl>
+<p>In der Anpassungsfunktion gibt es vier Parameter. Um eine Integration durchzuf&uuml;hren, m&uuml;ssen drei von ihnen an den Integrand weitergegeben und die unabh&auml;ngige Variable als obere Grenze verwendet werden. Daher sollten Sie zuerst den Integrand definieren und dann die Funktion <i>integral()</i>, um Integration in Ihrem Anpassungsfunktionsk&ouml;rper durchzuf&uuml;hren.</p>
+<h3><a name="Define_the_Function"></a><span class="mw-headline">Die Funktion definieren</span></h3>
+<ol>
+<li> Dr&uuml;cken Sie <b>F8</b>, um den Dialog <b><i>Fitfunktionen erstellen</i></b> zu &ouml;ffnen. Stellen Sie sicher, dass Sie die Option <i><b>Eine neue Funktion erstellen</b></i> ausgew&auml;hlt haben, und klicken Sie auf <i><b>Weiter</b></i>, um zur n&auml;chsten Seite zu gelangen.<li> Geben Sie auf der Seite <i><b>Name und Typ</b></i> einen Funktionsnamen ein, z. B. <i><b>MyIntegGauss</b></i>. Belassen Sie den Standardfunktionstyp auf <i><b>Ausdruck</b></i> und aktivieren Sie dann das Kontrollk&auml;stchen <i><b>Integration w&auml;hrend der Anpassung einschlie&szlig;en</b></i>. Dadurch gelangen Sie im n&auml;chsten Schritt auf eine neue Seite. <br /><br /><a  class="image"><img alt="Fit Integral by LT 001.png" src="../images/Fitting_with_Integral_using_LabTalk_Function/Fit_Integral_by_LT_001.png" width="788"  /></a><br /><br /><li> Auf der Seite <b><i>Integrand</i></b> k&ouml;nnen Sie den Ausdruck des Integranden definieren. Momentan unterst&uuml;tzt Origin nur eindimensionale Integrale, d.h., der Integrand sollte EINE Integrationsvariable haben. In diesem Beispiel lautet der Ausdruck des Integranden: <br /><br /><dl><dd><img src="../images/Fitting_with_Integral_using_LabTalk_Function/math-8a4d1221a758d820e24674171057f538.png" title="\frac{A}{w\sqrt{\frac{\pi}{2}}} e^{-2\frac{(t-x_c)^2}{w^2}}" alt="\frac{A}{w\sqrt{\frac{\pi}{2}}} e^{-2\frac{(t-x_c)^2}{w^2}}" class="tex"/></dd></dl><br /> Die anderen Variablen wie <i>xc</i>, <i>w</i> und <i>A</i> sind Parameter des Integranden. Um sie von den Anpassungsparametern zu unterscheiden, wurden sie hier <i>Argumente</i> genannt und verwenden stattdessen die Argumentennamen <i>ixc</i>, <i>iw</i> und <i>iA</i>. Zu einem sp&auml;teren Zeitpunkt k&ouml;nnen Anpassungsparameter an diese Argumente weitergegeben werden. Die Integranddefinition sollte folgenderma&szlig;en aussehen: <br /><br /><a  class="image"><img alt="Fit Integral by LT 002.png" src="../images/Fitting_with_Integral_using_LabTalk_Function/Fit_Integral_by_LT_002.png" width="573"  /></a><br /><br /> Beachten Sie, dass dies eine LabTalk-Funktion ist. Um den Integrationswert zu erhalten, m&uuml;ssen Sie eine  <b><font color="red">RETURN</font></b> -Anweisung im Funktionsk&ouml;rper haben. Der Ausdruck des Integranden in diesem Beispiel sollte sein:<pre class="lt" style="font-family:monospace;">return iA <span style="color: #000080;">*</span> exp<span style="color: #000000;">(</span><span style="color: #000080;">-</span><span style="color: #0000dd;">2</span><span style="color: #000080;">*</span><span style="color: #000000;">(</span>t<span style="color: #000080;">-</span>ixc<span style="color: #000000;">)</span><span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000080;">/</span>iw<span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span> <span style="color: #000080;">/</span> <span style="color: #000000;">(</span>iw<span style="color: #000080;">*</span>sqrt<span style="color: #000000;">(</span>PI<span style="color: #000080;">/</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>;</pre>
+<li> Wenn alle Einstellungen vorgenommen wurden, klicken Sie auf <b><i>Weiter</i></b>, um zur Seite <b><i>Variablen und Parameter</i></b> zu gelangen, auf der Sie die Variablen und Parameter f&uuml;r die Anpassungsfunktion definieren k&ouml;nnen, wie unten zu sehen: <br /><br /><a  class="image"><img alt="Fit Integral by LT 003.png" src="../images/Fitting_with_Integral_using_LabTalk_Function/Fit_Integral_by_LT_003.png" width="573"  /></a><br /><br /><li> Auf der n&auml;chsten Seite <b><i>Funktion</i></b> definieren Sie den Anpassungsfunktionsk&ouml;rper. Wenn Sie zu Beginn des Assistenten des Assistenten Fitfunktionen erstellen die Wahl getroffen haben, eine Integration in Ihrer Anpassungsfunktion einzuschlie&szlig;en, wird eine zus&auml;tzliche Registerkarte <b><i>Integrand</i></b> auf dieser Seite angezeigt. Auf dieser Registerkarte k&ouml;nnen Sie die Anpassungsvariablen und Parameter mit den Elementen des Integranden abbilden, einschlie&szlig;lich untere Grenze, obere Grenze und Integrandargumente. Und in diesem Beispiel werden die Variablen, wie unten zu sehen, abgebildet:<table class="simple">
+<tr>
+<th> Integrandelemente</th>
+<th> Werte, die an Integrand weitergegeben werden</th></tr>
+<tr>
+<td> Untere Grenze</td>
+<td> -inf</td></tr>
+<tr>
+<td> Obere Grenze</td>
+<td> x</td></tr>
+<tr>
+<td> ixc</td>
+<td> xc</td></tr>
+<tr>
+<td> iw</td>
+<td> w</td></tr>
+<tr>
+<td> iA</td>
+<td> A</td></tr></table>
+<p>Wenn alle Abbildungen entsprechend der obenstehenden Tabelle festgelegt wurden, klicken Sie auf die Schaltfl&auml;che <b><i>Einf&uuml;gen</i></b>. Daraufhin wird die gut vorbereitete Funktion <i>integral()</i> in das Feld des <b><i>Funktionsk&ouml;rpers</i></b> eingef&uuml;gt:</p>
+<pre class="lt" style="font-family:monospace;">integral<span style="color: #000000;">(</span>MyIntegrand, <span style="color: #000080;">-</span>inf ,x ,xc ,w ,A<span style="color: #000000;">)</span></pre>
+<p>Dieser Ausdruck beinhaltet das Durchf&uuml;hren einer Integration f&uuml;r die Funktion mit dem Namen <i>MyIntegrand</i> von negativ unendlich bis <i>x</i> und die Weitergabe der drei Anpassungsparameter <i>xc</i>, <i>w</i> und <i>A</i> an den Integranden.<br /></p><p>Durch Hinzuf&uuml;gen des Parameters Konstante <i>y0</i> zu dem Ausdruck, sollte der gesamte Anpassungsfunktionsk&ouml;rper folgenderma&szlig;en lauten:</p>
+<pre class="lt" style="font-family:monospace;">y0 <span style="color: #000080;">+</span> integral<span style="color: #000000;">(</span>MyIntegrand, <span style="color: #000080;">-</span>inf, x, xc ,w ,A<span style="color: #000000;">)</span>;</pre>
+<p>Die Seite sieht dann m&ouml;glicherweise wie unten zu sehen aus:</p><p><br /><a  class="image"><img alt="Fit Integral by LT 004.png" src="../images/Fitting_with_Integral_using_LabTalk_Function/Fit_Integral_by_LT_004.png" width="573"  /></a><br /><br /></p>
+<li> Wechseln Sie zur Registerkarte <b><i>Parameter</i></b> und geben Sie einige geeignete Initialisierungswerte f&uuml;r jeden Anpassungsparameter ein: <br /><br /><a  class="image"><img alt="Fit Integral by LT 005.png" src="../images/Fitting_with_Integral_using_LabTalk_Function/Fit_Integral_by_LT_005.png" width="346"  /></a><br /><br /> Jetzt k&ouml;nnen Sie auf die Schaltfl&auml;che <b><i>Fertigstellen</i></b> klicken, um diese Anpassungsfunktion zu speichern.</ol>
+<h3><a name="Fit_the_Curve"></a><span class="mw-headline">Kurve anpassen</span></h3>
+<p>Kopieren Sie die folgenden Daten und f&uuml;gen Sie sie in ein Origin-Arbeitsblatt ein:</p>
+<dl><dd><table class="simple" style="width:120px">
+<tr>
+<th> X</th>
+<th> Y</th></tr>
+<tr>
+<td> -1.69897</td>
+<td> 0.13136</td></tr>
+<tr>
+<td> -1.22185</td>
+<td> 0.34384</td></tr>
+<tr>
+<td> -0.92082</td>
+<td> 0.6554</td></tr>
+<tr>
+<td> -0.82391</td>
+<td> 0.73699</td></tr>
+<tr>
+<td> -0.69897</td>
+<td> 1.00157</td></tr>
+<tr>
+<td> 0</td>
+<td> 1.70785</td></tr>
+<tr>
+<td> 0.30103</td>
+<td> 2.31437</td></tr>
+<tr>
+<td> 0.69897</td>
+<td> 2.77326</td></tr>
+<tr>
+<td> 1</td>
+<td> 2.79321</td></tr></table></dd></dl>
+<p>Markieren Sie <i>Y</i>-Spalte und dr&uuml;cken Sie <b><i>Strg + Y</i></b>, um den Dialog <i><b>NLFit</b></i> aufzurufen. W&auml;hlen Sie die Funktion, die Sie gerade definiert haben, und klicken Sie auf die Schaltfl&auml;che <b><i>Fit</i></b>, um die Anpassung durchzuf&uuml;hren. Das Anpassungsergebnis sollte dem Ergebnis entsprechen, das man mit Hilfe der NAG-Funktion erreicht:</p>
+<dl><dd><a  class="image"><img alt="Fit Integral by LT 006.png" src="../images/Fitting_with_Integral_using_LabTalk_Function/Fit_Integral_by_LT_006.png" width="314"  /></a></dd></dl>
+
+
+
+    

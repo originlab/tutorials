@@ -1,0 +1,234 @@
+﻿<h1 class=firstHeading>Benutzerdefinierte Anpassungsfunktion mit Hilfe 
+ der GNU Scientific Library</h1>
+<p><br />
+Dieser Artikel stellt dar, wie die GSL-Funktion als Anpassungsfunktion 
+ verwendet wird. </p>
+<p class=version>Origin-Version mind. erforderlich: 8.0 SR6</p>
+<p>1. Wir passen die Beispieldaten nach dem folgenden Modell an: </p>
+<dl><dd><implicit_p><img class=tex alt="y=y_0+a\int_{0}^{x} e^{\beta \cdot t}\, dt" 
+ src="../images/math/0/4/b/04bfe10e745875938676da2c31a2b153.png" / style="width: 175px; height: 42px; border-style: none;" 
+ width=175 height=42 border=0> </dd>
+</dl>
+<pre>
+0,1 bis 0,10517
+0,2 bis 0,2214
+0,3 bis 0,34986
+0,4 bis 0,49182
+0,5 bis 0,64872
+0,6 bis 0,82212
+0,7 bis 1,01375
+0,8 bis 1,22554
+0,9 bis 1,4596
+1 bis 1,71828
+1,1 bis 2,00417
+1,2 bis 2,32012
+1,3 bis 2,6693
+1,4 bis 3,0552
+1,5 bis 3,48169
+1,6 bis 3,95303
+1,7 bis 4,47395
+1,8 bis 5,04965
+1,9 bis 5,68589
+2 bis 6,38906
+2,1 bis 7,16617
+2,2 bis 8,02501
+2,3 bis 8,97418
+2,4 bis 10,02318
+2,5 bis 11,18249
+2,6 bis 12,46374
+2,7 bis 13,87973
+2,8 bis 15,44465
+2,9 bis 17,17415
+3 bis 19,08554
+3,1 bis 21,19795
+3,2 bis 23,53253
+</pre>
+<p><br />
+2. Fügen Sie die Datei ocgsl.h in <b>(Anwenderdateiordner)</b> ein und 
+ stellen Sie sicher, dass die gsl-DLLs vor dem nächsten Schritt in denselben 
+ Speicherort kopiert werden. Siehe <a href="../../OriginC/OCGuide/Calling_GNU_Scientific_Library.html">Aufrufen der GNU Scientific Library</a>. </p>
+<p><br />
+<b>ocgsl.h</b></p>
+<pre class=oc>
+<span style="color: #0000ff;">#pragma</span> dll<span style="color: #000000;">(</span>libgsl, header<span style="color: #000000;">)</span> <span style="color: #008000;">
+// this is OC special pragma, </span><span style="color: #008000;">
+// header keyword is to indicate libgsl.dll is in same location as this file</span>
+ <span style="color: #0000ff;">
+#define</span> GSL_EXPORT	<span style="color: #008000;">// for OC, this is not needed, so make it empty</span>
+ <span style="color: #008000;">
+// you can directly search and copy gsl function prototypes here</span>
+ <span style="color: #0000ff;">
+typedef</span> <span style="color: #0000ff;">double</span> <span style="color: #000000;">(</span><span style="color: #000040;">*</span> FUNC<span style="color: #000000;">)</span><span style="color: #000000;">(</span><span style="color: #0000ff;">double</span> x, <span style="color: #0000ff;">void</span> <span style="color: #000040;">*</span> params<span style="color: #000000;">)</span>;
+ <span style="color: #0000ff;">
+struct</span> gsl_function_struct <span style="color: #000000;">
+{</span>
+	FUNC function;
+	<span style="color: #0000ff;">void</span> <span style="color: #000040;">*</span> params;<span style="color: #000000;">
+}</span>;
+ <span style="color: #0000ff;">
+typedef</span> <span style="color: #0000ff;">struct</span> gsl_function_struct gsl_function;
+ <span style="color: #0000ff;">
+typedef</span> <span style="color: #0000ff;">struct</span><span style="color: #000000;">
+{</span>
+ <spaces>&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">size_t</span> limit;
+ <spaces>&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">size_t</span> size;
+ <spaces>&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">size_t</span> nrmax;
+ <spaces>&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">size_t</span> i;
+ <spaces>&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">size_t</span> maximum_level;
+ <spaces>&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">double</span> <span style="color: #000040;">*</span>alist;
+ <spaces>&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">double</span> <span style="color: #000040;">*</span>blist;
+ <spaces>&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">double</span> <span style="color: #000040;">*</span>rlist;
+ <spaces>&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">double</span> <span style="color: #000040;">*</span>elist;
+ <spaces>&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">size_t</span> <span style="color: #000040;">*</span>order;
+ <spaces>&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">size_t</span> <span style="color: #000040;">*</span>level;<span style="color: #000000;">
+}</span>
+gsl_integration_workspace;
+ 
+GSL_EXPORT gsl_integration_workspace <span style="color: #000040;">*</span>gsl_integration_workspace_alloc <span style="color: #000000;">(;</span><span style="color: #0000ff;">const</span> <span style="color: #0000ff;">size_t</span> n<span style="color: #000000;">)</span>;
+ 
+GSL_EXPORT <span style="color: #0000ff;">void</span> gsl_integration_workspace_free <span style="color: #000000;">(</span>gsl_integration_workspace <span style="color: #000040;">*</span> w<span style="color: #000000;">)</span>;
+ 
+GSL_EXPORT <span style="color: #0000ff;">int</span> gsl_integration_qag <span style="color: #000000;">(</span><span style="color: #0000ff;">const</span> gsl_function <span style="color: #000040;">*</span> f,
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">double</span> a, <span style="color: #0000ff;">double</span> b,
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">double</span> epsabs, <span style="color: #0000ff;">double</span> epsrel, <span style="color: #0000ff;">size_t</span> limit,
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">int</span> key,
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>gsl_integration_workspace <span style="color: #000040;">*</span> workspace,
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">double</span> <span style="color: #000040;">*</span>result, <span style="color: #0000ff;">double</span> <span style="color: #000040;">*</span>abserr<span style="color: #000000;">)</span>;
+</pre>
+<p><br />
+3. Drücken Sie F9, um den Dialog <b>Fitfunktionen verwalten</b> zu öffnen 
+ und dann eine neue Funktion hinzuzufügen: </p>
+<p><img alt="Image:Use_GSL_as_fit_function.png" src="../images/User_Defined_Fitting_Funciton_using_GNU_Scientific_Library/Use_GSL_as_fit_function.png" 
+ / style="width: 569px; height: 490px; border-style: none; border-style: none;" 
+ width=569 height=490 border=0> </p>
+<p>4. Drücken Sie auf die Schaltfläche auf der rechten Seite des Felds 
+ <b>Funktion</b>, um den Code Builder zu öffnen und die folgenden Codes 
+ zu kompilieren: <b>_nlfgsl_integration_qag.fit</b></p>
+<pre class=oc>
+<span style="color: #0000ff;">#include</span> <span style="color: #ff00ff;">&quot;..<span style="color: #666666; font-weight: bold;">\o</span>cgsl.h&quot;</span>
+ <span style="color: #0000ff;">
+static</span> <span style="color: #0000ff;">double</span> f_callback<span style="color: #000000;">(</span><span style="color: #0000ff;">double</span> x, <span style="color: #0000ff;">void</span> <span style="color: #000040;">*</span> params<span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+	<span style="color: #0000ff;">double</span> alpha <span style="color: #000080;">=</span> <span style="color: #000040;">*</span><span style="color: #000000;">(</span><span style="color: #0000ff;">double</span> <span style="color: #000040;">*</span><span style="color: #000000;">)</span>params;
+	<span style="color: #0000ff;">return</span> <span style="color: #000000;">exp</span><span style="color: #000000;">(</span>alpha<span style="color: #000040;">*</span>x<span style="color: #000000;">)</span>;<span style="color: #000000;">
+}</span>
+ <span style="color: #0000ff;">
+void</span> _nlsfgsl_integration_qag<span style="color: #000000;">(</span><span style="color: #008000;">
+// Fit Parameter(s):</span><span style="color: #0000ff;">
+double</span> y0, <span style="color: #0000ff;">double</span> a, <span style="color: #0000ff;">double</span> beta,<span style="color: #008000;">
+// Independent Variable(s):</span><span style="color: #0000ff;">
+double</span> x,<span style="color: #008000;">
+// Dependent Variable(s):</span><span style="color: #0000ff;">
+double</span><span style="color: #000040;">&amp;</span> y<span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+	<span style="color: #008000;">// Beginning of editable part</span>
+	<span style="color: #0000ff;">double</span> result, err, expected <span style="color: #000080;">=</span> <span style="color: #0000dd;">-4,0</span>;
+ 
+	<span style="color: #008000;">// Allocates a workspace suffcient to hold 1000 double precision intervals,</span>
+	<span style="color: #008000;">// their integration results and error estimates</span>
+	gsl_integration_workspace <span style="color: #000040;">*</span>ww <span style="color: #000080;">=</span> gsl_integration_workspace_alloc<span style="color: #000000;">(</span><span style="color: #0000dd;">1000</span><span style="color: #000000;">)</span>;
+ 
+	gsl_function F;
+	F.<span style="color: #000000;">function</span> <span style="color: #000080;">=</span> f_callback;
+	F.<span style="color: #000000;">params</span> <span style="color: #000080;">=</span> <span style="color: #000040;">&amp;</span>beta;
+ 
+	<span style="color: #008000;">// integral interval (0, x), within the desired absolute</span>
+	<span style="color: #008000;">// error 0 and relative error 1e-7</span>
+	gsl_integration_qag<span style="color: #000000;">(</span><span style="color: #000040;">&amp;</span>F, <span style="color: #0000dd;">0</span>, x, <span style="color: #0000dd;">0</span>, 1e<span style="color: #0000dd;">-7</span>, <span style="color: #0000dd;">1000</span>, <span style="color: #0000dd;">0</span>, ww, <span style="color: #000040;">&amp;</span>result, <span style="color: #000040;">&amp;</span>err<span style="color: #000000;">)</span>;
+ 
+	<span style="color: #008000;">// frees the memory associated with the workspace w</span>
+	gsl_integration_workspace_free <span style="color: #000000;">(</span>ww<span style="color: #000000;">)</span>;
+ 
+	y <span style="color: #000080;">=</span> y0 <span style="color: #000040;">+</span> a<span style="color: #000040;">*</span>result;
+ 
+	<span style="color: #008000;">// End of editable part</span><span style="color: #000000;">
+}</span>
+</pre>
+<p><br />
+Außerdem gibt es die folgende ausführlichere, aber ebenfalls effiziente 
+ Version der Anpassungsfunktion: </p>
+<pre class=oc>
+<span style="color: #008000;">//----------------------------------------------------------</span><span style="color: #008000;">
+//</span><span style="color: #0000ff;">
+#include</span> <span style="color: #000080;">&lt;</span>ONLSF.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span> <span style="color: #0000ff;">
+#include</span> <span style="color: #ff00ff;">&quot;..<span style="color: #666666; font-weight: bold;">\o</span>cgsl.h&quot;</span> <spaces>&nbsp;&nbsp;</spaces>
+ <span style="color: #0000ff;">
+static</span> <span style="color: #0000ff;">double</span> f_callback<span style="color: #000000;">(</span><span style="color: #0000ff;">double</span> x, <span style="color: #0000ff;">void</span> <span style="color: #000040;">*</span> params<span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+	<span style="color: #0000ff;">double</span> alpha <span style="color: #000080;">=</span> <span style="color: #000040;">*</span><span style="color: #000000;">(</span><span style="color: #0000ff;">double</span> <span style="color: #000040;">*</span><span style="color: #000000;">)</span>params;
+	<span style="color: #0000ff;">return</span> <span style="color: #000000;">exp</span><span style="color: #000000;">(</span>alpha<span style="color: #000040;">*</span>x<span style="color: #000000;">)</span>;<span style="color: #000000;">
+}</span>
+ <span style="color: #0000ff;">
+void</span> _nlsfgsl_integration_qag<span style="color: #000000;">(</span><span style="color: #008000;">
+// Fit Parameter(s):</span><span style="color: #0000ff;">
+double</span> y0, <span style="color: #0000ff;">double</span> a, <span style="color: #0000ff;">double</span> beta,<span style="color: #008000;">
+// Independent Variable(s):</span><span style="color: #0000ff;">
+double</span> x,<span style="color: #008000;">
+// Dependent Variable(s):</span><span style="color: #0000ff;">
+double</span><span style="color: #000040;">&amp;</span> y<span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+	<span style="color: #008000;">// Beginning of editable part</span>
+ 
+	NLFitContext <span style="color: #000040;">*</span>pCtxt <span style="color: #000080;">=</span> Project.<span style="color: #000000;">GetNLFitContext</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+	<span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span> pCtxt <span style="color: #000000;">)</span>
+	<span style="color: #000000;">{</span>
+	 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">static</span> vector vInteg;
+	 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>NLSFCURRINFO <spaces>&nbsp;&nbsp;&nbsp;</spaces>stCurrInfo;
+	 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>pCtxt<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>GetFitCurrInfo<span style="color: #000000;">(;</span><span style="color: #000040;">&amp;</span>stCurrInfo<span style="color: #000000;">)</span>;
+	 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">int</span> nCurrentIndex <span style="color: #000080;">=</span> stCurrInfo.<span style="color: #000000;">nCurrDataIndex</span>;
+ 
+	 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">BOOL</span> bIsNewParamValues <span style="color: #000080;">=</span> pCtxt<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>IsNewParamValues<span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+	 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span> bIsNewParamValues <span style="color: #000000;">)</span>
+	 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #000000;">{</span>
+	 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>		vector vx;
+			pCtxt<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>GetIndepData<span style="color: #000000;">(</span><span style="color: #000040;">&amp;</span>vx<span style="color: #000000;">)</span>;
+			<span style="color: #0000ff;">int</span> nSize <span style="color: #000080;">=</span> vx.<span style="color: #000000;">GetSize</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+			vInteg.<span style="color: #000000;">SetSize</span><span style="color: #000000;">(</span>nSize<span style="color: #000000;">)</span>;
+ 
+			<span style="color: #008000;">// Allocates a workspace suffcient to hold 1000 double precision intervals,</span>
+			<span style="color: #008000;">// their integration results and error estimates</span>
+			gsl_integration_workspace <span style="color: #000040;">*</span>ww <span style="color: #000080;">=</span> gsl_integration_workspace_alloc<span style="color: #000000;">(</span><span style="color: #0000dd;">1000</span><span style="color: #000000;">)</span>;
+ 
+			gsl_function F;
+			F.<span style="color: #000000;">function</span> <span style="color: #000080;">=</span> f_callback;
+			F.<span style="color: #000000;">params</span> <span style="color: #000080;">=</span> <span style="color: #000040;">&amp;</span>beta;
+ 
+			<span style="color: #0000ff;">double</span> result, err, expected <span style="color: #000080;">=</span> <span style="color: #0000dd;">-4,0</span>;
+			<span style="color: #0000ff;">for</span><span style="color: #000000;">(</span><span style="color: #0000ff;">int</span> ii<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span>; ii<span style="color: #000080;">&lt;</span>nSize; <span style="color: #000040;">++</span>ii<span style="color: #000000;">)</span>
+			<span style="color: #000000;">{</span>
+				<span style="color: #008000;">// integral interval (0, vx[ii]), within the desired absolute</span>
+				<span style="color: #008000;">// error 0 and relative error 1e-7</span>
+				gsl_integration_qag<span style="color: #000000;">(</span><span style="color: #000040;">&amp;</span>F, <span style="color: #0000dd;">0</span>, vx<span style="color: #000000;">[</span>ii<span style="color: #000000;">]</span>, <span style="color: #0000dd;">0</span>, 1e<span style="color: #0000dd;">-7</span>, <span style="color: #0000dd;">1000</span>, <span style="color: #0000dd;">0</span>, ww, <span style="color: #000040;">&amp;</span>result, <span style="color: #000040;">&amp;</span>err<span style="color: #000000;">)</span>;
+				vInteg<span style="color: #000000;">[</span>ii<span style="color: #000000;">]</span> <span style="color: #000080;">=</span> result;
+			<span style="color: #000000;">}</span>
+ 
+			<span style="color: #008000;">// frees the memory associated with the workspace w</span>
+			gsl_integration_workspace_free <span style="color: #000000;">(</span>ww<span style="color: #000000;">)</span>;
+ 
+	 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #000000;">}</span>
+ 
+	 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>y <span style="color: #000080;">=</span> y0 <span style="color: #000040;">+</span> a<span style="color: #000040;">*</span>vInteg<span style="color: #000000;">[</span>nCurrentIndex<span style="color: #000000;">]</span>;
+	 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>x;
+	<span style="color: #000000;">}</span>
+ 
+	<span style="color: #008000;">// End of editable part</span><span style="color: #000000;">
+}</span>
+</pre>
+<p><br />
+5. Fügen Sie die folgenden Initialisierungscodes hinzu: </p>
+<p><b style="font-weight: bold;">Parameter Init</b></p>
+<pre class=oc>
+<span style="color: #008000;">//Code to be executed to initialize parameters</span>
+sort<span style="color: #000000;">(</span> x_y_curve <span style="color: #000000;">)</span>;<span style="color: #0000ff;">
+double</span> coeff<span style="color: #000000;">[</span><span style="color: #0000dd;">2</span><span style="color: #000000;">]</span>;
+fitpoly<span style="color: #000000;">(</span> x_y_curve, <span style="color: #0000dd;">1</span>, coeff<span style="color: #000000;">)</span>; <spaces>&nbsp;</spaces>
+a <span style="color: #000080;">=</span> coeff<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span>;
+y0 <span style="color: #000080;">=</span> coeff<span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span>;
+beta<span style="color: #000080;">=</span><span style="color: #0000dd;">1,0</span>
+</pre>
+<p>6. Anpassung mit Hilfe der benutzerdefinierten Funktion <b>gsl_integration_qag</b>, 
+ hier sind die Ergebnisse: </p>
+<p><br />
+y0 = -1,06363E-6 </p>
+<p>a = 1 </p>
+<p>beta=1 </p>

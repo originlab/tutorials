@@ -1,0 +1,149 @@
+﻿<h1 class="firstHeading">Diagrammvorlagen und Stapelzeichnen</h1>
+
+  <p class='urlname' style='display: none'>GSB-template-theme-batchplotting</p>
+
+  <p><br>
+  In dieser Lektion erfahren Sie etwas über Diagrammvorlagen und wie Sie per Stapelverarbeitung zeichnen.</p>
+
+  <h2><a name="Graph_Templates"></a><span class="mw-headline">Diagrammvorlagen</span></h2>
+
+  <p>Sie beginnen mit der Projektdatei, die Sie in <a href="../../Tutorial/Tutorial/Create_Your_First_Graph.html" title="Tutorial:Create Your First Graph">Lektion 1: Mein erstes Diagramm</a> gespeichert haben. Klicken Sie auf das Diagrammfenster, um es auszuwählen.</p>
+
+  <table class="mtip">
+    <tr>
+      <td style="vertical-align:top"><img src="../images/Graph_Templates_Themes_and_Batch_Plotting/Mini_bulb.png" alt=""></td>
+
+      <td>
+        <p>Sie können die zuletzt gespeicherten Projektdateien schnell über die Liste unter <b>Datei: Zuletzt verwendete Projekte</b> öffnen.</p>
+      </td>
+    </tr>
+  </table>
+
+  <ol>
+    <li>Klicken Sie auf die X-Achse und in der Popup-Minisymbolleiste auf die Schaltfläche <b>Gegenüberliegende Achse zeigen</b>, um die obere X-Achse zu zeigen. Tun Sie dasselbe mit der Y-Achse, um die rechte Y-Achse zu zeigen.<br>
+    <a class="image"><img alt="Graph Templates Themes and Batch Plotting TM 01.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/Graph_Templates_Themes_and_Batch_Plotting_TM_01.png" width="406"></a></li>
+
+    <li>Speichern Sie das Diagramm jetzt als Vorlage. Klicken Sie mit der rechten Maustaste auf die Titelleiste des Diagrammfensters und wählen Sie im Kontextmenü <b>Template speichern unter...</b></li>
+
+    <li>Legen Sie im Dialog den <b>Vorlagenname</b> mit <b>MeinLiniendiagramm</b> fest und klicken Sie auf <b>OK</b>, um die Vorlage zu speichern.</li>
+
+    <li>Erzeugen Sie nun eine neue Datenspalte. Aktivieren Sie das Arbeitsblatt und klicken Sie auf die Schaltfläche <b>Neue Spalte hinzufügen</b> <a class="image"><img alt="Button Add New Columns.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/Button_Add_New_Columns.png" width="22"></a> auf der Symbolleiste <b>Standard</b>, um ganz rechts eine neue Spalte hinzuzufügen.</li>
+
+    <li>Klicken Sie in die Zelle <b>F(x)</b> dieser neuen Spalte und geben Sie Folgendes ein:
+      <pre class="lt" style="font-family:monospace;">
+<span style="color: #000080;">=</span>Mmovavg<span style="color: #000000;">(</span>B,<span style="color: #0000dd;">2</span><span style="color: #000000;">)</span>
+</pre>
+
+      <p><br>
+      Beachten Sie, wenn Sie "=" und dann einen Ausdruck eingeben, dass die möglichen Ausdrücke aufgelistet werden und Sie dadurch die Option haben, den Ausdruck automatisch zu vervollständigen. Ein Benachrichtungsfeld mit einer einfachen Beschreibung des Ausdrucks wird angezeigt.</p>
+
+      <table class="mtip">
+        <tr>
+          <td style="vertical-align:top"><img src="../images/Graph_Templates_Themes_and_Batch_Plotting/Mini_bulb.png" alt=""></td>
+
+          <td>
+            <p>Sie können eine Spalte auch mit einem Ausdruck füllen, indem Sie mit der rechten Maustaste auf die Zelle <b>F(x)</b> dieser Spalte klicken und <b>Dialog öffnen...</b> im Kontextmenü auswählen.</p>
+
+            <p><a class="image"><img alt="Template theme 02.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/400px-Template_theme_02.png" width="400"></a><br>
+            <br>
+            Verwenden Sie das Menü <b>Formel: Sample laden</b> in diesem Dialog, um verschiedene Beispiele zum Festlegen von Spaltenwerten anzuzeigen. Das Menü <b>Funktion</b> bietet eine große Auswahl von Funktionen. Sie können mit der Schaltfläche Suchen <a class="image"><img alt="SCV Search button.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/SCV_Search_button.png" width="26"></a> auch nach geeigneten Funktionen suchen.</p><br>
+            <br>
+          </td>
+        </tr>
+      </table>
+    </li>
+
+    <li>Drücken Sie die Taste <b>Enter</b>, um einen Datensatz der modifizierten gleitenden Durchschnitte unter Verwendung der Daten aus Spalte B, beginnend bei Zeile 2, auszugeben. Geben Sie <b>MMovAvg</b> in die Zelle <b>Langname</b> der Spalte ein.</li>
+
+    <li>Klicken Sie auf den Header von Spalte C, um die gesamte Spalte auszuwählen. Wählen Sie im Menü <b>Zeichnen: Anwendervorlagen</b> und im Ausklappmenü die Vorlage <b>Mein Liniendiagramm</b>, die Sie zuvor erstellt haben. Ein neues Diagramm wird mit Hilfe der Daten aus Spalte C erstellt.<br>
+    <a class="image"><img alt="Template theme 03.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/350px-Template_theme_03.png" width="350"></a></li>
+  </ol>
+
+  <h2><a name="Batch_Plotting"></a><span class="mw-headline">Stapelzeichnen</span></h2>
+
+  <p>In diesem Abschnitt soll das Zeichnen per Stapelverarbeitung durchgeführt werden, indem zuerst ein Diagramm gezeichnet und dann dieses Diagramm unter Verwendung von anderen Daten geklont wird.</p>
+
+  <ol>
+    <li>Gehen Sie zum <b>Projekt Explorer</b>. Klicken Sie im oberen Bedienfeld mit der rechten Maustaste auf die Hauptverzeichnisebene und wählen Sie <b>Neuer Ordner</b>.</li>
+
+    <li>Geben Sie dem Ordner den Namen <b>Stapelzeichnen</b>. Klicken Sie auf den leeren Ordner, um ihn zu öffnen.</li>
+
+    <li>Wählen Sie <b>Hilfe: Ordner öffnen: Programmordner</b>, um den Origin-Programmordner zu öffnen und zum Unterordner <b>\Samples\Import and Export\</b> zu navigieren und auch diesen zu öffnen. Drücken Sie die <b>Shift</b>-Taste und wählen Sie die folgenden drei Dateien:
+
+      <table class="tbl">
+        <tr>
+          <td>
+            <ul>
+              <li>S15-125-03.dat</li>
+            </ul>
+          </td>
+
+          <td>
+            <ul>
+              <li>S21-235-07.dat</li>
+            </ul>
+          </td>
+
+          <td>
+            <ul>
+              <li>S32-014-04.dat</li>
+            </ul>
+          </td>
+        </tr>
+      </table>
+    </li>
+
+    <li>Ziehen Sie die ausgewählten Dateien per Drag&amp;Drop in den Origin-Arbeitsbereich. Die ausgewählten Dateien werden in drei neue Arbeitsmappen importiert.<br>
+      <a class="image"><img alt="Template theme 05.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/400px-Template_theme_05.png" width="400"></a>
+
+      <table class="note">
+        <tr>
+          <td><b>Hinweis:</b> Um Datendateien per Drag&amp;Drop zu importieren, <a class="external text" href="../../QuickHelp/QuickHelp/Why_does_not_drag_and_drop_work.html">dürfen Sie Origin nicht als Administrator ausführen</a>.</td>
+        </tr>
+      </table>
+    </li>
+
+    <li>Wählen Sie eine der Arbeitsmappen, klicken Sie dann auf den Header von Spalte B und ziehen Sie die Maus zur Spalte D, um alle drei Spalten zu markieren. Wählen Sie dann im Menü <b>Zeichnen &gt; Mehrere Felder/Achsen: 3Y, Y-YY</b>.
+
+      <table class="mtip">
+        <tr>
+          <td style="vertical-align:top"><img src="../images/Graph_Templates_Themes_and_Batch_Plotting/Mini_bulb.png" alt=""></td>
+
+          <td>
+            <p>Origin bezieht die X-Spalte links von der Auswahl ein und zeichnet die ausgewählten Daten gegen die 1. Spalte im Arbeitsblatt.</p>
+          </td>
+        </tr>
+      </table>
+    </li>
+
+    <li>Klicken Sie auf eine Zeichnung und ändern Sie in der Minisymbolleiste den Diagrammtyp in <b>Linie</b>. Dazu verwenden Sie die Auswahlliste <b>Diagramm ändern in</b> <a class="image"><img alt="Button Change Plot to.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/Button_Change_Plot_to.png" width="24"></a>.<br>
+    <a class="image"><img alt="Graph Templates Themes and Batch Plotting TM 02.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/400px-Graph_Templates_Themes_and_Batch_Plotting_TM_02.png" width="400"></a><br>
+    Klicken Sie auf die Zeichnung und ändern Sie in der Minisymbolleiste die Breite in <b>3</b>. Dazu verwenden Sie die Auswahlliste <b>Liniendicke</b> <a class="image"><img alt="Button Border Width.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/Button_Border_Width.png" width="40"></a>.<br>
+    <a class="image"><img alt="Graph Templates Themes and Batch Plotting TM 03.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/400px-Graph_Templates_Themes_and_Batch_Plotting_TM_03.png" width="400"></a><br>
+    Tun Sie dasselbe mit zwei anderen Zeichnungen, um das folgende Liniendiagramm zu erhalten.<br>
+    <a class="image"><img alt="Graph Templates Themes and Batch Plotting TM 04.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/400px-Graph_Templates_Themes_and_Batch_Plotting_TM_04.png" width="400"></a></li>
+
+    <li>Klonen Sie jetzt dieses Diagramm unter Verwendung der Daten in den anderen Arbeitsmappen. Klicken Sie mit der rechten Maustaste auf die Titelleiste des Diagrammfensters. Wählen Sie <b>Stapelzeichnen...</b>. Der Dialog <b>Arbeitsmappe auswählen</b> wird geöffnet.</li>
+
+    <li>Legen Sie im Dialog die Einstellungen, wie im Bild unten zu sehen, fest. Stellen Sie sicher, dass Sie die Mappen markieren.
+
+      <table class="mtip">
+        <tr>
+          <td style="vertical-align:top"><img src="../images/Graph_Templates_Themes_and_Batch_Plotting/Mini_bulb.png" alt=""></td>
+
+          <td>
+            <p>Sie können die Auswahlliste <b>Zeichnungsspalten stimmen überein mit</b> entsprechend festlegen, um Arbeitsblätter in dem Projekt zu finden, die mit der Datenkonfiguration des aktuellen Diagramms übereinstimmen.</p>
+          </td>
+        </tr>
+      </table>
+    </li>
+
+    <li style="list-style: none">
+      <p><a class="image"><img alt="BatchPlotting book.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/400px-BatchPlotting_book.png" width="400"></a></p>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>. Wenn Sie dazu aufgefordert werden, die Achsen neu zu skalieren und alle Daten zu zeigen, wählen Sie <i>Ja</i>. Klicken Sie auf OK. Es werden zwei ähnliche Diagramme mit den Daten aus den zwei anderen Arbeitsblättern erstellt.<br>
+    <a class="image"><img alt="Template theme 04.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/400px-Template_theme_04.png" width="400"></a></li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Projekt speichern</b> <a class="image"><img alt="Button Save Porject.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/Button_Save_Porject.png" width="22"></a> auf der Symbolleiste <b>Standard</b>, um Ihr modifiziertes Projekt zu speichern.</li>
+  </ol>

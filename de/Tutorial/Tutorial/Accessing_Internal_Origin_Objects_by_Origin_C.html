@@ -1,0 +1,193 @@
+﻿<h1 class=firstHeading>Mit Origin C auf interne Origin-Objekte zugreifen</h1>
+<a name=Summary id=Summary></a>
+<h2><span class=mw-headline>Zusammenfassung</span></h2>
+<p>Auf interne Origin-Objekte (wie Projekt Explorer-Ordner, Origin-Fenster 
+ (Seiten), Layer, Diagramme, Grafikobjekte, Datensätze etc.) wird mit Hilfe 
+ von Origin C-Klassen zugegriffen. Um auf ein internes Origin-Objekt zuzugreifen 
+ oder es programmatisch zu steuern, müssen Sie es an ein Origin C-Objekt 
+ anhängen.</p>
+<p>Um dieses an ein internes Origin-Objekt anzuhängen, müssen Sie es zunächst 
+ finden mit Hilfe der Eigenschaften, Methoden und Sammlungen einer Container-Klasse. 
+ Herkömmliche Container-Klassen umfassen Projekt, Ordner, Seite, Diagrammseite, 
+ Layer, Diagrammlayer, Arbeitsblatt, Matrixlayer und Sammelklassen. Sobald 
+ es gefunden wird, kann ein internes Origin-Objekt einfach an ein Origin 
+ C-Objekt des entsprechenden Typs angehängt werden.</p>
+<p>Das interne Origin-Objekt wird dann programmatisch gesteuert, indem 
+ die Klassenmethoden und Eigenschaften des angehängten Origin C-Objekts 
+ bearbeitet werden. In diesem Tutorial wird erläutert, wie bestimmte interne 
+ Origin-Objekte gesucht und diese an Objekte angehängt werden. Außerdem 
+ wird Ihnen gezeigt, wie Sie durch Bearbeiten der Methoden und Eigenschaften 
+ der angehängten Origin C-Objekte auf diese Objekte zugreifen.</p>
+<p class=version>Origin-Version mind. erforderlich: 8.1 SR1</p>
+<a name=What_you_will_learn id=What_you_will_learn></a>
+<h2><span class=mw-headline>Was Sie lernen werden</span></h2>
+<p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+<ul><li>auf mit Arbeitsblättern verbundene Objekte zugreifen,</li>
+	<li>auf mit Diagrammen verbundene Objekte zugreifen.</li>
+</ul>
+<a name=Accessing_Worksheet_Related_Objects id=Accessing_Worksheet_Related_Objects></a>
+<h2><span class=mw-headline>Zugriff auf mit Arbeitsblättern verbundenen 
+ Objekten</span></h2>
+<p>Kenntnisse zu den Origin C-Projektklassen (Project.h), den Sammelklassen 
+ (Collection.h) und den Ordnerklassen (Folder.h) sind bei dem Versuch zu 
+ verstehen, wie bestimmte interne Origin-Objekte zu finden sind, sehr nützlich. 
+ Möglicherweise ist es einigen Anwendern eine Hilfe, sich vorher über diese 
+ Klassen in der <b>Origin C-Referenz: Klassen</b> der <b>Origin C -Hilfe</b> 
+ oder in den oben stehenden Headerdateien, die sich im Unterordner ..\Origin\OriginC\system 
+ befinden, zu informieren. </p>
+<p>Um mit diesem Tutorial zu beginnen:</p>
+<ol><li>Klicken Sie auf der Symbolleiste <b>Standard</b> auf die Schaltfläche 
+ <b>Neues Projekt</b> <img alt="Image:Button_New.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_New.png" 
+ style="border-style: none; width: 22px; height: 23px; border-style: none;" 
+ width=22 height=23 border=0>.</li>
+	<li>Klicken Sie auf der Symbolleiste <b>Standard</b> auf die Schaltfläche 
+ <b>Code Builder</b> <img alt="Image:Button_Code_Builder.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Code_Builder.png" 
+ style="border-style: none; width: 23px; height: 23px; border-style: none;" 
+ width=23 height=23 border=0>.</li>
+	<li>Wählen Sie im Menü <b>Code Builder</b> die Option <b>Datei: Neuer 
+ Arbeitsbereich</b>.</li>
+	<li>Klicken Sie im Menü <b>Code Builder</b> auf die Schaltfläche <b>Öffnen</b> 
+ <img alt="Image:Button_Open.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Open.png" 
+ style="border-style: none; width: 23px; height: 23px; border-style: none;" 
+ width=23 height=23 border=0>.</li>
+	<li>Navigieren Sie zu dem Ordner \Samples\Origin C Examples\Programming 
+ Guide\Introduction to Accessing Origin Objects im Verzeichnis der Origin-Software, 
+ wählen Sie AccessWorksheetObjectsTutorial.c, aktivieren Sie das Kontrollkästchen 
+ <b>Zu Arbeitsbereich hinzufügen</b> und klicken Sie auf <b>Öffnen</b>.</li>
+	<li>Klicken Sie auf der Symbolleiste <b>Code Builder</b> auf die Schaltfläche 
+ <b>Alle neu erstellen</b> <img alt="Bild:Button_Rebuild_All.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Rebuild_All.png" 
+ style="border-style: none; width: 22px; height: 21px; border-style: none;" 
+ width=22 height=21 border=0>. Dadurch wird die Datei kompiliert und verknüpft.</li>
+	<li>Prüfen Sie im Menü Code Builder unter <b>Ansicht</b>, dass die 
+ Fenster der <b>LabTalk-Konsole</b> (Befehls- &amp; Ergebnisfenster) und 
+ der <b>Lokalen Variablen</b> angezeigt werden (das Menüelement ist jeweils 
+ aktiviert).</li>
+	<li>Wählen Sie im Menü <b>Code Builder</b> die Option <b>Hilfsmittel: 
+ Benutzerdefiniert</b>. Wählen Sie die Registerkarte Symbolleisten und 
+ stellen Sie sicher, dass das Kontrollkästchen für die Symbolleiste <b>Debug</b> 
+ aktiviert ist.</li>
+	<li>Aktivieren Sie im Code Builder AccessWorksheetObjectsTutorial.c.</li>
+	<li>Klicken Sie oben auf die Zeile:</li>
+</ol>
+<pre>
+PageBase pb;
+</pre>
+<p>Sie können den Cursor an einer beliebigen Stelle auf der Zeile positionieren.</p>
+<ol start=11><li>Wählen Sie im Menü Code Builder die Option <b>Debuggen: 
+ Haltepunkt umschalten</b>. Alternativ drücken Sie <b>F9</b> oder klicken 
+ Sie auf die Schaltfläche <b>Haltepunkt umschalten</b> <img alt="Bild:Button_Toggle_Breakpoint.png" 
+ src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Toggle_Breakpoint.png" 
+ style="border-style: none; width: 22px; height: 21px; border-style: none;" 
+ width=22 height=21 border=0> auf der Symbolleiste <b>Debug</b>.</li>
+</ol>
+<p>In dem grauen Rahmen wird links neben der obigen Linie ein brauner Kreis 
+ angezeigt und zeigt an, dass für die Linie ein Haltepunkt für das Debuggen 
+ festgelegt wurde.</p>
+<ol start=12><li>Aktivieren Sie im Arbeitsbereich des Code Builders die 
+ LabTalk-Konsole (Befehls- &amp; Ergebnisfenster) und geben Sie Folgendes 
+ ein:</li>
+</ol>
+<pre>
+AccessWorksheetObjectsTutorial
+</pre>
+<ol start=13><li>Drücken Sie <b>Enter</b>, um die Funktion auszuführen.</li>
+</ol>
+<dl><dd><implicit_p><img alt="Image:AccessWorksheetObjectsTutorial_1.png" 
+ src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/AccessWorksheetObjectsTutorial_1.png" 
+ style="border-style: none; width: 369px; height: 177px; border-style: none;" 
+ width=369 height=177 border=0></dd>
+</dl>
+<ol start=14><li>Klicken Sie auf der Symbolleiste <b>Debug</b> auf die 
+ Schaltfläche <b>In Aufruf springen</b>. <img alt="Image:Button_Step_Into.png" 
+ src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Step_Into.png" 
+ style="border-style: none; width: 22px; height: 21px; border-style: none;" 
+ width=22 height=21 border=0></li>
+</ol>
+<ol start=15><li>Klicken Sie wiederholt auf die Schaltfläche <b>In Aufruf 
+ springen</b> <img alt="Image:Button_Step_Into.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Step_Into.png" 
+ style="border-style: none; width: 22px; height: 21px; border-style: none;" 
+ width=22 height=21 border=0> und lesen Sie dabei die Kommentare zu jeder 
+ Anweisung. Stoppen Sie regelmäßig und verändern Sie Größe und/oder Position 
+ des Fenster der Lokalen Variablen, um den aktuellen Laufzeitwert jeder 
+ Variablen anzuzeigen.</li>
+</ol>
+<dl><dd><implicit_p><img alt="Image:AccessWorksheetObjectsTutorial_2.png" 
+ src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/AccessWorksheetObjectsTutorial_2.png" 
+ style="border-style: none; width: 600px; height: 488px; border-style: none;" 
+ width=600 height=488 border=0></dd>
+</dl>
+<a name=Accessing_Graph_Related_Objects id=Accessing_Graph_Related_Objects></a>
+<h2><span class=mw-headline>Zugriff auf mit Diagrammen verbundene Objekte</span></h2>
+<ol><li>Kehren Sie zum <i>Origin-</i>Arbeitsbereich zurück und klicken 
+ Sie auf der Symbolleiste <b>Standard</b> auf die Schaltfläche <b>Öffnen</b> 
+ <img alt="Image:Button_Open.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Open.png" 
+ style="border-style: none; width: 23px; height: 23px; border-style: none;" 
+ width=23 height=23 border=0>.</li>
+	<li>Navigieren Sie zu dem Unterordner \Samples\Origin C Examples\Programming 
+ Guide\Introduction to Accessing Origin Objects, wählen Sie das Projekt 
+ AccessGraphObjectsTutorial.OPJ und klicken Sie auf <b>Öffnen</b>. Sie 
+ werden möglicherweise aufgefordert, Änderungen in einem unbenannten Projekt 
+ zu speichern. Klicken Sie auf <b>Nein</b>. Ein Arbeitsblatt und Diagramm 
+ sollten geöffnet werden.</li>
+	<li>Wählen Sie im Menü Code Builder die Option <b>Datei: Neuer Arbeitsbereich</b>. 
+ Klicken Sie auf <b>Nein</b>, wenn Sie gefragt werden, ob Sie die Änderungen 
+ am Arbeitsbereich speichern möchten.</li>
+	<li>Klicken Sie im Code Builder auf die Schaltfläche <b>Öffnen</b> 
+ <img alt="Image:Button_Open.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Open.png" 
+ style="border-style: none; width: 23px; height: 23px; border-style: none;" 
+ width=23 height=23 border=0>.</li>
+	<li>Navigieren Sie zu dem Ordner \Samples\Origin C Examples\Programming 
+ Guide\Introduction to Accessing Origin Objects, wählen Sie AccessGraphObjectsTutorial.c, 
+ aktivieren Sie das Kontrollkästchen <b>Zu Arbeitsbereich hinzufügen</b> 
+ und klicken Sie auf <b>Öffnen</b>.</li>
+	<li>Klicken Sie auf die Schaltfläche <b>Alle neu erstellen</b> <img 
+ alt="Image:Button_Rebuild_All.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Rebuild_All.png" 
+ style="border-style: none; width: 22px; height: 21px; border-style: none;" 
+ width=22 height=21 border=0>, um die Datei zu kompilieren und zu verknüpfen.</li>
+	<li>Prüfen Sie im Menü Code Builder unter <b>Ansicht</b>, dass die 
+ Fenster der <b>LabTalk-Konsole</b> (Befehls- &amp; Ergebnisfenster) und 
+ der <b>Lokalen Variablen</b> angezeigt werden (das Menüelement ist jeweils 
+ aktiviert).</li>
+	<li>Wählen Sie im Menü Code Builder die Option <b>Hilfsmittel: Benutzerdefiniert</b>. 
+ Wählen Sie die Registerkarte Symbolleisten und stellen Sie sicher, dass 
+ das Kontrollkästchen für die Symbolleiste <b>Debug</b> aktiviert ist.</li>
+	<li>Aktivieren Sie im Arbeitsbereich des Code Builders die Datei AccessGraphObjectsTutorial.c.</li>
+	<li>Klicken Sie oben auf die Zeile:</li>
+</ol>
+<pre>
+GraphPage gp;
+</pre>
+<p>Sie können den Cursor an einer beliebigen Stelle auf der Zeile positionieren.</p>
+<ol start=11><li>Wählen Sie im Menü Code Builder die Option <b>Debuggen: 
+ Haltepunkt umschalten</b>. Alternativ drücken Sie <b>F9</b> oder klicken 
+ Sie auf die Schaltfläche <b>Haltepunkt umschalten</b> <img alt="Image:Button_Toggle_Breakpoint.png" 
+ src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Toggle_Breakpoint.png" 
+ style="border-style: none; width: 22px; height: 21px; border-style: none;" 
+ width=22 height=21 border=0> auf der Symbolleiste <b>Debug</b>.</li>
+</ol>
+<p>In dem grauen Rahmen wird links neben der obigen Linie ein brauner Kreis 
+ angezeigt und zeigt an, dass für die Linie ein Haltepunkt für das Debuggen 
+ festgelegt wurde.</p>
+<ol start=12><li>Aktivieren Sie die LabTalk-Konsole (Befehls- &amp; Ergebnisfenster) 
+ im Code Builder und geben Sie Folgendes ein:</li>
+</ol>
+<pre>
+AccessGraphObjectsTutorial
+</pre>
+<ol start=13><li>Drücken Sie <b>Enter</b>, um die Funktion auszuführen.</li>
+</ol>
+<ol start=14><li>Klicken Sie auf der Symbolleiste <b>Debug</b> auf die 
+ Schaltfläche <b>In Aufruf springen</b>. <img alt="Image:Button_Step_Into.png" 
+ src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Step_Into.png" 
+ style="border-style: none; width: 22px; height: 21px; border-style: none;" 
+ width=22 height=21 border=0></li>
+</ol>
+<ol start=15><li>Klicken Sie wiederholt auf die Schaltfläche <b>In Aufruf 
+ springen</b> <img alt="Image:Button_Step_Into.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Step_Into.png" 
+ style="border-style: none; width: 22px; height: 21px; border-style: none;" 
+ width=22 height=21 border=0> und lesen Sie dabei die Kommentare zu jeder 
+ Anweisung. Stoppen Sie regelmäßig und verändern Sie Größe und/oder Position 
+ des Fenster der Lokalen Variablen, um den aktuellen Laufzeitwert jeder 
+ Variablen anzuzeigen.</li>
+</ol>
+<p>Damit ist das Tutorial <b>Interne Origin-Objekte</b> abgeschlossen.</p>

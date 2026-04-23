@@ -1,0 +1,284 @@
+﻿<h1 class=firstHeading>Anpassungsfunktion mit nicht-konstantem Hintergrund</h1>
+<table id=toc class=toc summary=Contents x-use-null-cells>
+
+<tr><td>
+<div id=toctitle>
+<h2>Inhalt</h2>
+</div>
+<ol><li class=toclevel-1><a href="#Summary"><span class=tocnumber>1</span> 
+ <span class=toctext>Zusammenfassung</span></a></li>
+	<li class=toclevel-1><a href="#What_you_will_learn"><span class=tocnumber>2</span> 
+ <span class=toctext>Was Sie lernen werden</span></a></li>
+	<li class=toclevel-1>
+	<a href="#Example_and_Steps"><span class=tocnumber>3</span> <span class=toctext>Beispiele 
+ und Schritte</span></a> 
+	<ol><li class=toclevel-2><a href="#Prepare_the_Data"><span class=tocnumber>3.1</span> 
+ <span class=toctext>Vorbereiten der Daten</span></a></li>
+		<li class=toclevel-2><a href="#Define_the_Function"><span class=tocnumber>3.1</span> 
+ <span class=toctext>Definieren der Funktion</span></a></li>
+		<li class=toclevel-2><a href="#Auto_Parameter_Initialization"><span 
+ class=tocnumber>3.3</span> <span class=toctext>Automatische Parameterinitialisierung</span></a></li>
+		<li class=toclevel-2><a href="#Fit_the_Curve"><span class=tocnumber>3.2</span> 
+ <span class=toctext>Anpassen der Kurve</span></a></li>
+	</ol>
+	</li>
+</ol></td></tr>
+</table>
+
+<p>&nbsp;</p>
+<a name=Summary></a>
+<h2><span class=mw-headline>Zusammenfassung</span></h2>
+<p>Viele Standardfunktionen von Origin werden definiert mit:</p>
+<dl><dd><implicit_p><img class=tex alt="\begin{matrix}y=y_0+......\end{matrix}" 
+ src="../images/math/2/e/0/2e0257d13eb4d9f8408c5480e59956f1.png" style="width: 117px; height: 18px;" 
+ width=117 height=18 border=0></dd>
+</dl>
+<p>, wobei y0 als der &quot;konstante Hintergrund&quot; betrachtet werden 
+ kann. Wie ist es möglich, Kurven mit nicht-konstantem Hintergrund anzupassen? 
+ Eine Möglichkeit besteht in der Verwendung des Impulsanalysators. Der 
+ Impulsanalysator bietet mehrere Methoden, um die Basislinie zu subtrahieren, 
+ einschließlich des exponentiellen oder polynomialen Hintergrunds. In diesem 
+ Tutorial zeigen wir Ihnen, wie Sie so eine Kurve mit Hilfe des Impulsanalysators 
+ anpassen können.</p>
+<p class=version>Origin-Version mind. erforderlich: 8.0 SR6</p>
+<a name=What_you_will_learn></a>
+<h2><span class=mw-headline>Was Sie lernen werden</span></h2>
+<ul><li>Prüfen der <a href="../../Tutorial/Tutorial/Extract_Worksheet_Data.html" 
+ title="Tutorial:Extract Worksheet Data">Arbeitsblattanfrage</a></li>
+	<li>Angeben einer Standardfunktion mit Hilfe der Methode <a href="../../UserGuide/UserGuide/User-Defined_Fitting_Functions.html#Defining_a_function" 
+ title="http://docwiki.originlab.com/index.php?title=UserGuide:User-Defined_Fitting_Functions#Defining_a_function" 
+ rel=nofollow>nlfx<i>FuncName</i></a></li>
+	<li>Automatisches Initialisieren der Parameter</li>
+</ul>
+<a name=Example_and_Steps></a>
+<h2><span class=mw-headline>Beispiel und Schritte</span></h2>
+<a name=Prepare_the_Data></a>
+<h3><span class=mw-headline>Vorbereiten der Daten</span></h3>
+<p>Beginnen Sie dieses Tutorial durch den Import der Datei \<i>Samples</i>\<i>Spectroscopy</i>\<i>Peaks 
+ on Exponential Baseline.dat</i>. Die Sparkline des Arbeitsblatts zeigt 
+ uns, dass es in der Kurve zwei Peaks gibt. Um das Problem zu vereinfachen, 
+ passen wir in diesem Beispiel nur einen Peak an.</p>
+<dl><dd><implicit_p><img alt="Image:Fit_Function_with_Nonconstant_Background_001.png" 
+ src="../images/Fit_Function_with_Non-constant_Background/Fit_Function_with_Nonconstant_Background_001.png" 
+ style="width: 274px; height: 229px; border-style: none;" width=274 height=229 
+ border=0><br>
+	</dd>
+</dl>
+<p>Rufen Sie jetzt das <a href="../../UserGuide/UserGuide/Extract_Worksheet_Data.html" 
+ title="http://docwiki.originlab.com/index.php?title=UserGuide:Extract_Worksheet_Data" 
+ rel=nofollow>Dialogfeld Arbeitsblattanfrage</a> über <b>Worksheet&nbsp;: 
+ Arbeitsblattanfrage</b> auf. Extrahieren Sie die Daten von Zeile 1 bis 
+ Zeile 240:</p>
+<dl><dd><implicit_p><img alt="Image:Fit_Function_with_Nonconstant_Background_002.png" 
+ src="../images/Fit_Function_with_Non-constant_Background/Fit_Function_with_Nonconstant_Background_002.png" 
+ style="width: 478px; height: 524px; border-style: none;" width=478 height=524 
+ border=0><br>
+	</dd>
+</dl>
+<p>Die anzupassende Kurve sollte folgendermaßen aussehen:</p>
+<dl><dd><implicit_p><img alt="Image:Fit_Function_with_Nonconstant_Background_003.png" 
+ src="../images/Fit_Function_with_Non-constant_Background/Fit_Function_with_Nonconstant_Background_003.png" 
+ style="width: 261px; height: 208px; border-style: none;" width=261 height=208 
+ border=0></dd>
+</dl>
+<a name=Define_the_Function></a>
+<h3><span class=mw-headline>Definieren der Funktion</span></h3>
+<p>Wie unten dargestellt, betrachten wir die Quellkurve als die Kombination 
+ einer exponentiellen Zerfallskomponente (der Hintergrund) und einem Voigt-Peak:</p>
+<dl><dd><implicit_p><img alt="Image:Fit_Function_with_Nonconstant_Background_004.png" 
+ src="../images/Fit_Function_with_Non-constant_Background/Fit_Function_with_Nonconstant_Background_004.png" 
+ style="width: 266px; height: 197px; border-style: none;" width=266 height=197 
+ border=0><br>
+	</dd>
+</dl>
+<p>Soll die gesamte Gleichung aufgeschrieben werden, um die Funktion zu 
+ definieren, sähe das folgendermaßen aus:</p>
+<dl><dd><implicit_p><img class=tex alt="y=y_0+A_1e^{-x/t1}+A_2\frac{2w_L\ln{2}}{\pi^{\frac{3}{2}}w^2_G}\int_{-\infty}^{\infty}\frac{e^{-t^2}}{\left( \sqrt{\ln2}\frac{w_L}{w_G} \right)^2 + \left( \sqrt{4\ln{2}}\frac{x-x_c}{w_G}-t \right)^2}dt" 
+ src="../images/math/3/9/0/390e52b4f14575d81ffdbeb5c0210b5b.png" style="width: 613px; height: 65px;" 
+ width=613 height=65 border=0></dd>
+</dl>
+<p>Es handelt sich hierbei um eine komplizierte Gleichung, die eine unendliche 
+ Integration enthält. Das Aufschreiben einer solchen Gleichung ist mühsam. 
+ Wir haben allerdings bereits diese zwei Standardfunktionen:</p>
+<p>ExpDec1:</p>
+<dl><dd><implicit_p><img class=tex alt="\begin{matrix}y=y_0+Ae^{-x/t}\end{matrix}" 
+ src="../images/math/d/e/9/de9b04c2ab74b4eb63f4183ecebeaad2.png" style="width: 138px; height: 25px;" 
+ width=138 height=25 border=0></dd>
+</dl>
+<p>Voigt:</p>
+<dl><dd><implicit_p><img class=tex alt="y=y_0+A\frac{2w_L\ln{2}}{\pi^{\frac{3}{2}}w^2_G}\int_{-\infty}^{\infty}\frac{e^{-t^2}}{\left( \sqrt{\ln2}\frac{w_L}{w_G} \right)^2 + \left( \sqrt{4\ln{2}}\frac{x-x_c}{w_G}-t \right)^2}dt" 
+ src="../images/math/4/1/c/41c80b9ec29e778586c27f545316b3bc.png" style="width: 512px; height: 65px;" 
+ width=512 height=65 border=0></dd>
+</dl>
+<p>Daher können wir einfach die Methode <b>nlfx<i>FuncName</i></b> verwenden, 
+ um diese zwei Standardfunktionen anzugeben und eine neue Funktion zu erstellen. 
+ Drücken Sie <b>F9</b>, um den Dialog <b>Fitfunktionen verwalten</b> zu 
+ öffnen und unten eine Funktion zu definieren:</p>
+<table class=blank x-use-null-cells>
+
+<tr><th style="width: 150px;" width=150px>
+<p>&nbsp;</th>
+<th>
+<p>&nbsp;</th></tr>
+<tr><td><b style="font-weight: bold;">Funktionsname:</b></td>
+<td>ExpVoigt</td></tr>
+<tr><td><b style="font-weight: bold;">Funktionstyp:</b></td>
+<td>Benutzerdefiniert</td></tr>
+<tr><td><b style="font-weight: bold;">Unabhängige Variable:</b></td>
+<td>x</td></tr>
+<tr><td><b style="font-weight: bold;">Abhängige Variable:</b></td>
+<td>y</td></tr>
+<tr><td><b style="font-weight: bold;">Parameternamen:</b></td>
+<td>y0, A1, t1, xc, A2, wG, wL</td></tr>
+<tr><td><b style="font-weight: bold;">Funktionsform:</b></td>
+<td><font style="color: #0000ff;" color=#0000FF>Origin C</font></td></tr>
+<tr><td><b style="font-weight: bold;">Funktion:</b></td>
+<td>y = nlf_ExpDec1(x, y0, A1, t1) + nlf_Voigt(x, y0, xc, A2, wG, wL) - 
+ y0;</td></tr>
+</table>
+<table class=note x-use-null-cells>
+
+<tr><td><b style="font-weight: bold;">Hinweis:</b> 
+<ol><li style="list-style: none;">
+	Einige der Standardfunktionsnamen sind nicht konsistent mit dem tatsächlichen 
+ Namen der DLL-Funktion. Wie die Voigt-Funktion ist dies in Voigt5.FDF 
+ definiert. Wenn Sie die FDF-Datei mit Notepad öffnen, können Sie eine 
+ Zeile im Abschnitt [GENERAL INFORMATION] (Allgemeine Informationen) sehen, 
+ die besagt:
+	<dl><dd>Function Source=fgroup.Voigt5</dd>
+	</dl>
+	Der Name nach &quot;fgroup&quot; ist der tatsächliche Name, der in 
+ <b>nlf_<i>FuncName</i></b> eingegeben werden sollte. 
+	</li>
+	<li style="list-style: none;" class=p>
+	<p>In Versionen vor <font style="color: #ff0000;" color=#FF0000><b>Origin 
+ 8.1 SR2</b></font> sollte der Funktionskörper die alte Notation <i>nlfxFuncName</i> 
+ verwenden und definiert werden durch:</p>
+	<pre class=oc>
+	y <span style="color: #000080;">=</span> nlfxExpDec1<span style="color: #000000;">(</span>x, y0, A1, t1<span style="color: #000000;">)</span> <span style="color: #000040;">+</span> nlfxVoigt<span style="color: #000000;">(;</span>x, y0, xc, A2, wG, wL<span style="color: #000000;">)</span> <span style="color: #000040;">-</span> y0;
+	x; xc; A1; t1; A2; wG; wL;
+	</pre>
+	Die Parameter werden am Ende aufgelistet, um zu vermeiden, dass der 
+ Fehler &quot;parameter not used inside the function body&quot; (Parameter 
+ werden in dem Funktionskörper nicht verwendet) auftritt, obwohl Sie diese 
+ Parameter bereits verwenden. Falls nicht, können Sie die Funktion nicht 
+ erfolgreich kompilieren. 
+	</li>
+</ol></td></tr>
+</table>
+<p>Klicken Sie auf die Schaltfläche <img alt="Image:User-Defined Fitting Functions-2.png" 
+ src="../images/Fit_Function_with_Non-constant_Background/User-Defined_Fitting_Functions-2.png" 
+ style="width: 19px; height: 25px; border-style: none;" width=19 height=25 
+ border=0> rechts von den <b>Parametereinstellungen</b> und geben Sie diese 
+ Parameterinitialisierungswerte ein:</p>
+<dl><dd><table class=blank x-use-null-cells>
+	
+	<tr><th style="width: 20px;" width=20px>
+	<p>&nbsp;</th>
+	<th>
+	<p>&nbsp;</th></tr>
+	<tr><td><b style="font-weight: bold;">Y0</b></td>
+	<td>0</td></tr>
+	<tr><td><b style="font-weight: bold;">A1</b></td>
+	<td>5</td></tr>
+	<tr><td><b style="font-weight: bold;">t1:</b></td>
+	<td>50</td></tr>
+	<tr><td><b style="font-weight: bold;">xc:</b></td>
+	<td>100</td></tr>
+	<tr><td><b style="font-weight: bold;">A2</b></td>
+	<td>50</td></tr>
+	<tr><td><b style="font-weight: bold;">wG:</b></td>
+	<td>10</td></tr>
+	<tr><td><b style="font-weight: bold;">wL:</b></td>
+	<td>10</td></tr>
+	</table></dd>
+</dl>
+<p>Der endgültige Teil der Funktionsdefinition sollte folgendermaßen aussehen:</p>
+<dl><dd><implicit_p><img alt="Image:Fit_Function_with_Nonconstant_Background_006.png" 
+ src="../images/Fit_Function_with_Non-constant_Background/Fit_Function_with_Nonconstant_Background_006.png" 
+ style="width: 394px; height: 474px; border-style: none;" width=394 height=474 
+ border=0></dd>
+</dl>
+<a name=Auto_Parameter_Initialization></a>
+<h3><span class=mw-headline>Automatische Parameterinitialisierung</span></h3>
+<p>Im obenstehenden Abschnitt wurden die festen Parameterinitialisierungswerte 
+ gesetzt. Wenn die die möglichen Anpassungsergebnisse kennen, können Sie 
+ die Initialisierungswerte dementsprechend festlegen. Aber was passiert, 
+ wenn sich die Daten ändern? Origin bietet eine Origin C-Schnittstelle 
+ zum &quot;groben Schätzen&quot; der Initialisierungswerte. Um den Parameterinitialisierungscode 
+ zu verwenden, stellen Sie sicher, dass die Kontrollkästchen <b>Automatische 
+ Initialisierung aktivieren</b> und <b>Origin C verwenden</b> aktiviert 
+ sind, und bearbeiten Sie den Code im Code Builder, indem Sie auf das Symbol 
+ <img alt="Image:User-Defined Fitting Functions-2.png" src="../images/Fit_Function_with_Non-constant_Background/User-Defined_Fitting_Functions-2.png" 
+ style="width: 19px; height: 25px; border-style: none;" width=19 height=25 
+ border=0> klicken.<br>
+(P.S: Sollten Sie die Initialisierungswerte gut kennen oder Codierung nicht 
+ mögen, überspringen Sie bitte diesen Abschnitt.)</p>
+<dl><dd><implicit_p><img alt="Image:Fit_Function_with_Nonconstant_Background_007.png" 
+ src="../images/Fit_Function_with_Non-constant_Background/Fit_Function_with_Nonconstant_Background_007.png" 
+ style="width: 332px; height: 214px; border-style: none;" width=332 height=214 
+ border=0><br>
+	</dd>
+</dl>
+<p>Jetzt, da die Kurve sich aus zwei Komponenten zusammensetzt, können 
+ wir die Parameterwerte grob schätzen, indem diese zwei Teile getrennt 
+ werden. Der Initialisierungscode beinhaltet dann Folgendes:</p>
+<ol><li>Verwenden Sie die Funktion <a href="../../OriginC/OriginC/Get_exponent_(global_function).html" 
+ title="http://ocwiki.originlab.com/index.php?title=OriginC:Peak_pos_%28global_function%29" 
+ rel=nofollow>get_exponent</a> zum Anpassen der Kurve und erhalten Sie 
+ auf diese Weise die Parameterwerte für die exponentielle Komponente.</li>
+	<li>Entfernen Sie den Hintergrund -- exponentielle Komponente -- aus 
+ den Quelldaten.</li>
+	<li>Führen Sie eine Annäherung an den Impuls durch den Gauss-Impuls 
+ mit Hilfe der Funktion <a href="../../OriginC/OriginC/Peak_pos_%28global_function%29.html" 
+ title="http://ocwiki.originlab.com/index.php?title=OriginC:Peak_pos_%28global_function%29" 
+ rel=nofollow>peak_pos</a> durch und legen Sie die Initialisierungswerte 
+ für die Impulskomponente fest.</li>
+</ol>
+<p>Der Initialisierungscode im Code Builder sollte folgendermaßen aussehen:</p>
+<pre class=oc>
+<span style="color: #0000ff;">void</span> _nlsfParamExpVoigt<span style="color: #000000;">(</span> <span style="color: #008000;">
+// Fit Parameter(s):</span><span style="color: #0000ff;">
+double</span><span style="color: #000040;">&amp;</span> y0, <span style="color: #0000ff;">double</span><span style="color: #000040;">&amp;</span> A1, <span style="color: #0000ff;">double</span><span style="color: #000040;">&amp;</span> t1, <span style="color: #0000ff;">double</span><span style="color: #000040;">&amp;</span> xc, <span style="color: #0000ff;">double</span><span style="color: #000040;">&amp;</span> A2, <span style="color: #0000ff;">double</span><span style="color: #000040;">&amp;</span> wG, <span style="color: #0000ff;">double</span><span style="color: #000040;">&amp;</span> wL,<span style="color: #008000;">
+// Independent Dataset(s):</span>
+vector<span style="color: #000040;">&amp;</span> x_data,<span style="color: #008000;">
+// Dependent Dataset(s):</span>
+vector<span style="color: #000040;">&amp;</span> y_data,<span style="color: #008000;">
+// Curve(s):</span>
+Curve x_y_curve,<span style="color: #008000;">
+// Auxilary error code: </span><span style="color: #0000ff;">
+int</span><span style="color: #000040;">&amp;</span> nErr<span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #008000;">// Beginning of editable part</span>
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">int</span> nSign;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #008000;">// Evaluates the parameters' value, y0, ln(A) and R for y = y0+A*exp(R*x).</span>
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>t1 <span style="color: #000080;">=</span> get_exponent<span style="color: #000000;">(</span>x_data, y_data, <span style="color: #000040;">&amp;</span>y0, <span style="color: #000040;">&amp;</span>A1, <span style="color: #000040;">&amp;</span>nSign<span style="color: #000000;">)</span>;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #008000;">// Set the exponential component values for the fitting function.</span>
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>t1 <span style="color: #000080;">=</span> <span style="color: #0000dd;">-1</span><span style="color: #000040;">/</span>t1;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>A1 <span style="color: #000080;">=</span> nSign<span style="color: #000040;">*</span><span style="color: #000000;">exp</span><span style="color: #000000;">(</span>A1<span style="color: #000000;">)</span>;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #008000;">// Remove the exponential component from the curve;</span>
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>x_y_curve <span style="color: #000080;">=</span> x_y_curve <span style="color: #000040;">-</span> <span style="color: #000000;">(</span>y0 <span style="color: #000040;">+</span> A1 <span style="color: #000040;">*</span> <span style="color: #000000;">exp</span><span style="color: #000000;">(</span><span style="color: #000040;">-</span>x_data<span style="color: #000040;">/</span>t1<span style="color: #000000;">)</span><span style="color: #000000;">)</span>;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #008000;">// Fit to get peak values.</span>
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>xc <span style="color: #000080;">=</span> peak_pos<span style="color: #000000;">(</span>x_y_curve, <span style="color: #000040;">&amp;</span>wG, <span style="color: #000040;">&amp;</span>y0, <span style="color: #000040;">&amp;</span>A2<span style="color: #000000;">)</span>;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>wL <span style="color: #000080;">=</span> wG;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #008000;">// End of editable part</span><span style="color: #000000;">
+}</span>
+</pre>
+<table class=note x-use-null-cells>
+
+<tr><td><b style="font-weight: bold;">Hinweis:</b> 
+<p>Wenn Sie <b>Automatische Initialisierung aktivieren</b> aktivieren und 
+ den Initialisierungscode eingeben, deckt sich dieser Code mit den Initialisierungswerten 
+ in <b>Parametereinstellungen</b>.</td></tr>
+</table>
+<a name=Fit_the_Curve></a>
+<h3><span class=mw-headline>Anpassen der Kurve</span></h3>
+<p>Unabhängig davon, welche Parameterinitialisierungsmethode Sie verwenden, 
+ markieren Sie Spalte B und drücken Sie <b>Strg + Y</b>, um das Dialogfeld 
+ NLFit aufzurufen. Wählen Sie dann die Funktion ExpVoigt und führen Sie 
+ die Anpassung durch. Das Ergebnis sollte folgendermaßen aussehen:</p>
+<dl><dd><implicit_p><img alt="Image:Fit_Function_with_Nonconstant_Background_008.png" 
+ src="../images/Fit_Function_with_Non-constant_Background/Fit_Function_with_Nonconstant_Background_008.png" 
+ style="width: 277px; height: 144px; border-style: none;" width=277 height=144 
+ border=0></dd>
+</dl>

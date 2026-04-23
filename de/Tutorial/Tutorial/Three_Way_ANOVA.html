@@ -1,0 +1,100 @@
+﻿<h1 class="firstHeading">Dreifache ANOVA</h1><p class='urlname' style='display: none'>ThreeWay-ANOVA</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#User_Story"><span class="tocnumber">3</span> <span class="toctext">Anwenderbericht</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Performing_Three-Way_ANOVA"><span class="tocnumber">4</span> <span class="toctext">Dreifache ANOVA durchf&uuml;hren</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Examining_Significant_Interactions"><span class="tocnumber">5</span> <span class="toctext">Signifikante Wechselwirkungen untersuchen</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Interpreting_Results"><span class="tocnumber">6</span> <span class="toctext">Ergebnisse interpretieren</span></a><ul>
+<li class="toclevel-2 tocsection-7"><a href="#Overall_ANOVA"><span class="tocnumber">6.1</span> <span class="toctext">ANOVA gesamt</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Means_Comparison_and_Means_Plot_of_the_Three_Main_Effects"><span class="tocnumber">6.2</span> <span class="toctext">Mittelwertevergleich und Mittelwertdiagramm der drei Haupteffekte</span></a><ul>
+<li class="toclevel-3 tocsection-9"><a href="#Comparison_between_Developing_and_Developed_Country"><span class="tocnumber">6.2.1</span> <span class="toctext">Vergleich zwischen Entwicklungs- und entwickelten L&auml;ndern</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#Comparison_between_Years"><span class="tocnumber">6.2.2</span> <span class="toctext">Vergleich zwischen Jahren</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="#Comparison_between_Regions"><span class="tocnumber">6.2.3</span> <span class="toctext">Vergleich zwischen Regionen</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-12"><a href="#Comparing_Same_Level_Between_Different_Groups"><span class="tocnumber">6.3</span> <span class="toctext">Gleiche Ebene zwischen verschiedenen Gruppen vergleichen</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br /></p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Three_Way_ANOVA/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Three_Way_ANOVA/Video_Text_Image.png" width="135"  /></a><ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=5" target="_blank">Varianzanalyse</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Three_Way_ANOVA/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Three_Way_ANOVA/Blog_Image_33x33px.png" width="135"  /></a></td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+<p>Die dreifache ANOVA testet auf Haupteffekte und Wechselwirkungseffekte zwischen allen Kombinationen der drei Faktoren auf eine abh&auml;ngige Variable.</p>
+<p class="version" >Origin-Version mind. erforderlich: 2016 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+<ol><li> Eine dreifache ANOVA f&uuml;r praktische Daten mit Origin ausf&uuml;hren</li>
+<li> Die erzeugten Ergebnisse interpretieren</li></ol>
+<h2><a name="User_Story"></a><span class="mw-headline">Anwenderbericht</span></h2>
+<p>Es stehen Ihnen einige &ouml;ffentliche Daten der Weltbank zur Verf&uuml;gung. Drei Faktoren werden einbezogen: Region(Asien/Europa/Afrika etc.), Entwicklungsindex (Entwicklungs-/Entwickelte L&auml;nder) und Jahr (2000/2005/2010). Sie m&ouml;chten verstehen, wie diese drei Faktoren die Anzahl der Internetnutzer beeinflusst und ob es signifikante Unterschiede zwischen den Gruppen gibt.</p>
+<h2><a name="Performing_Three-Way_ANOVA"></a><span class="mw-headline">Dreifache ANOVA durchf&uuml;hren</span></h2>
+<ol><li> W&auml;hlen Sie im Men&uuml; <b>Hilfe: Lernzentrum</b>, um den Dialog Lernzentrum zu &ouml;ffnen. W&auml;hlen Sie <b>Analysebeispiel</b> auf der linken Seite und dann <b>Statistik - ANOVA</b> in der Auswahlliste <b>Beispiele in</b> auf der rechten Seite.</li>
+<li> Klicken Sie doppelt auf das dritte Element im Listenfeld, um den Ordner <i>Three Way ANOVA(Pro)</i> zu &ouml;ffnen.</li>
+<li> Klicken Sie auf das Arbeitsblatt <b>Sheet1</b>, das die Quelldaten enth&auml;lt. </li>
+<li> Klicken Sie auf <b>Statistik: ANOVA: Dreifache ANOVA</b>.</li>
+<li> Legen Sie auf der Registerkarte <b>Eingabe</b> des ge&ouml;ffneten Dialogs die <b>Eingabedaten</b> auf <b>Indiziert</b> fest. Erweitern Sie dann den Zweig <b>Eingabedaten</b>, markieren Sie die Spalten C,D, B und E f&uuml;r <b>Faktor A</b>,<b>Faktor B</b>, <b>Faktor C</b> bzw. <b>Daten</b><dl><dd><a  class="image"><img alt="Three way anova 1.png" src="../images/Three_Way_ANOVA/Three_way_anova_1.png" width="528"  /></a></dd></dl></li>
+<li> Stellen Sie sicher, dass auf der Registerkarte <b>Modell</b> alle Kontrollk&auml;stchen aktiviert sind. Dies bestimmt, dass ein vollfaktorielles Modell f&uuml;r die dreifache ANOVA verwendet wird.<dl><dd><a  class="image"><img alt="Three way anova 4.png" src="../images/Three_Way_ANOVA/Three_way_anova_4.png" width="528"  /></a></dd></dl></li>
+<li> Klicken Sie auf <b>OK</b>, um die Einstellung anzuwenden und den Dialog zu schlie&szlig;en.</li>
+<li> Gehen Sie zum Blatt <b>ANOVA3Way1</b>. Die Tabelle <b>ANOVA gesamt</b> beinhaltet die ANOVA-Testergebnisse f&uuml;r die Haupteffekte und die Wechselwirkungen. Wenn der <b>p-Wert</b> weniger als 0,05 ist, bedeutet dies, dass die Stufen in dem entsprechenden Faktor signifikant unterschiedlich sind. Beachten Sie die Schlussfolgerungen in den Fu&szlig;noten unter der Tabelle.<dl><dd><a  class="image"><img alt="Three way anova 3.png" src="../images/Three_Way_ANOVA/Three_way_anova_3.png" width="821"  /></a></dd>
+<dd>Aus der obenstehenden Tabelle <b>ANOVA gesamt</b> k&ouml;nnen Sie ersehen, dass die zweifache Wechselwirkung der Faktoren <b>Developing Index*Year</b> (Entwicklung Index*Jahr) nicht signifikant (p-Wert = 0,23954) ist. Die dreifache Wechselwirkung der Faktoren <b>Region*Developing Index*Year</b> ist nicht signifikant. (p-Wert = 0,88834).</dd></dl></li></ol>
+<h2><a name="Examining_Significant_Interactions"></a><span class="mw-headline">Signifikante Wechselwirkungen untersuchen</span></h2>
+<p>Im Folgenden werden die Faktoren mit einer signifikanten Wechselwirkung weiter untersucht.</p>
+<ol><li> Klicken Sie auf das gr&uuml;ne Schloss in dem Blatt <b>ANOVA3Way1</b> und w&auml;hlen Sie <b>Parameter &auml;ndern</b> im Kontextmen&uuml;.<dl><dd><a  class="image"><img alt="Three way anova 5.png" src="../images/Three_Way_ANOVA/Three_way_anova_5.png" width="223"  /></a></dd></dl></li>
+<li> Deaktivieren Sie auf der Registerkarte <b>Modell</b> die Kontrollk&auml;stchen <b>Effekt A*B</b> und <b>Effekt A*B*C</b>, bei denen keine Wechselwirkung zwischen den Faktoren entdeckt werden konnte.<dl><dd><a  class="image"><img alt="Three way anova 6.png" src="../images/Three_Way_ANOVA/Three_way_anova_6.png" width="528"  /></a></dd></dl></li>
+<li> Aktivieren Sie auf der Registerkarte <b>Mittelwertevergleich</b> das Kontrollk&auml;stchen vor <b>Bonferroni</b>. Der Bonferroni-Test ist der am weitesten verbreitete Post-hoc-Test. Er pr&uuml;ft den gesamten Fehler 1. Art.</li>
+<li> Aktivieren Sie auf der Registerkarte <b>Mittelwertevergleich</b> alle verf&uuml;gbaren Kontrollk&auml;stchen. (<b>Effekt A*B</b> und <b>Effekt A*B*C</b> werden deaktiviert, weil sie nicht in das Modell eingeschlossen sind.)<dl><dd><a  class="image"><img alt="Three way anova 7.png" src="../images/Three_Way_ANOVA/Three_way_anova_7.png" width="528"  /></a></dd></dl></li>
+<li> Klicken Sie auf <b>OK</b>, um die Einstellung anzuwenden und den Dialog zu schlie&szlig;en.</li></ol>
+<h2><a name="Interpreting_Results"></a><span class="mw-headline">Ergebnisse interpretieren</span></h2>
+<p>Die Ergebnisse in dem Blatt <b>ANOVA3Way1</b> werden mit Hilfe der neuen Berechnungsparameter aktualisiert.</p>
+<h3><a name="Overall_ANOVA"></a><span class="mw-headline">ANOVA gesamt</span></h3>
+<p><a  class="image"><img alt="Three way anova 8.png" src="../images/Three_Way_ANOVA/Three_way_anova_8.png" width="576"  /></a></p><p>Der Tabelle k&ouml;nnen Sie entnehmen, dass alle verbleibenden Effekte signifikant unterschiedlich sind. Sie k&ouml;nnen die Ergebnisse des <b>Mittelwertevergleichs</b> und <b>Mittelwertdiagramme</b> verwenden, um im Weiteren Unterschiede zwischen den einzelnen Gruppen zu entdecken.</p>
+<h3><a name="Means_Comparison_and_Means_Plot_of_the_Three_Main_Effects"></a><span class="mw-headline">Mittelwertevergleich und Mittelwertdiagramm der drei Haupteffekte</span></h3>
+<p>Wenn Sie den Zweig <b>ANOVA: Mittelwertevergleich: Bonferroni-Test</b> erweitern, k&ouml;nnen Sie die Tabelle des Mittelwertevergleichs f&uuml;r jeden Effekt sehen. Sie ist zusammen mit dem <b>Mittelwertdiagramm</b> unten im Ergebnisblatt hilfreich f&uuml;r den paarweisen Vergleich zwischen Mitgliedern einer Gruppe.</p>
+<h4><a name="Comparison_between_Developing_and_Developed_Country"></a><span class="mw-headline">Vergleich zwischen Entwicklungs- und entwickelten L&auml;ndern</span></h4>
+<p><a  class="image"><img alt="Three way anova 9.png" src="../images/Three_Way_ANOVA/Three_way_anova_9.png" width="676"  /></a></p><p>Dem Ergebnis oben k&ouml;nnen Sie entnehmen, dass die Anzahl der Internetnutzer aus Entwicklungsl&auml;ndern viel geringer ist als die von entwickelten L&auml;ndern.</p>
+<h4><a name="Comparison_between_Years"></a><span class="mw-headline">Vergleich zwischen Jahren</span></h4>
+<p><a  class="image"><img alt="Three way anova 10.png" src="../images/Three_Way_ANOVA/Three_way_anova_10.png" width="569"  /></a></p><p>Dem Ergebnis oben k&ouml;nnen Sie entnehmen, dass die Anzahl der Internetnutzer zwischen 2000 und 2010 stark zugenommen hat.</p>
+<h4><a name="Comparison_between_Regions"></a><span class="mw-headline">Vergleich zwischen Regionen</span></h4>
+<p><a  class="image"><img alt="Three way anova 11.png" src="../images/Three_Way_ANOVA/Three_way_anova_11.png" width="651"  /></a></p><p>Die Ergebnisse oben besagen:</p>
+<ul><li> Internetnutzer in Afrika sind signifikant weniger als in anderen Kontinenten.</li>
+<li> Internetnutzer im Mittleren Osten sind signifikant weniger als in Europa und Amerika.</li>
+<li> Es gibt keinen signifikanten Unterschied zwischen anderen Kontinentpaaren.</li></ul>
+<h3><a name="Comparing_Same_Level_Between_Different_Groups"></a><span class="mw-headline">Gleiche Ebene zwischen verschiedenen Gruppen vergleichen</span></h3>
+<p>Sie k&ouml;nnen die Stufen der Stichproben zwischen den verschiedenen Gruppen mit den Ergebnissen des <b>Mittelwertevergleichs</b> der Wechselwirkungen vergleichen. Im Folgenden wird gezeigt, wie ein Datenfilter verwendet wird, um schnell die Ergebnisse anzuzeigen, an denen Sie interessiert sind.</p>
+<ol>
+<li>Erweitern Sie im Blatt <b>ANOVA3Way1</b> den Zweig <b>ANOVA: Mittelwertevergleich: Bonferroni-Test</b>.<li>Klicken Sie auf die dreieckige Schaltfl&auml;che neben <b>Wechselwirkungen</b> und w&auml;hlen Sie <b>Kopie als neues Blatt erstellen</b> im Kontextmen&uuml;. <br /><a  class="image"><img alt="Three way anova 12.png" src="../images/Three_Way_ANOVA/Three_way_anova_12.png" width="478"  /></a></li>
+<li> Gehen Sie zu dem erzeugten Blatt <b>Wechselwirkungen</b>. Jetzt werden Entwicklungs- und entwickelte L&auml;ndern in verschiedenen Regionen miteinander verglichen, indem ein Datenfilter auf die Ergebnisse angewendet wird.<ol>
+<li>Markieren Sie Spalte C, klicken Sie auf die Schaltfl&auml;che <b>Datenfilter hinzuf&uuml;gen/entfernen</b> <a  class="image"><img alt="Button Add Or Remove Data Filter.png" src="../images/Three_Way_ANOVA/Button_Add_Or_Remove_Data_Filter.png" width="23"  /></a>, um einen Datenfilter zu der Spalte hinzuzuf&uuml;gen.<li>Klicken Sie auf das Symbol <b>Filter</b> <a  class="image"><img alt="Filter icon.png" src="../images/Three_Way_ANOVA/Filter_icon.png" width="15"  /></a> auf dem Spaltenheader und w&auml;hlen Sie <b>Benutzerdefinierter Filter</b>.<li>Aktivieren Sie das Kontrollk&auml;stchen <b>Erweitert</b> in der unteren rechten Ecke des Dialogs &Ouml;ffnen. F&uuml;gen Sie das folgende Skript im Feld <b>Bedingung</b> hinzu.<pre class="lt" style="font-family:monospace;">col<span style="color: #000000;">(</span>c<span style="color: #000000;">)</span><span style="color: #000080;">$</span><span style="color: #000080;">==</span>col<span style="color: #000000;">(</span>f<span style="color: #000000;">)</span><span style="color: #000080;">$</span></pre>
+<p><br /><a  class="image"><img alt="Three way anova 13.png" src="../images/Three_Way_ANOVA/450px-Three_way_anova_13.png" width="450"   /></a></p>
+</li>
+</ol>
+</li>
+<li>Den Ergebnissen unten k&ouml;nnen Sie entnehmen:<ul>
+<li>Die Internetnutzer in entwickelten und Entwicklungsl&auml;ndern unterscheiden sich nicht signifikant in Afrika und im Mittleren Osten.<li>Die Internetnutzer in entwickelten L&auml;ndern sind signifikant mehr als in den Entwicklungsl&auml;ndern auf den folgenden vier Kontinenten.<table class="tbl">
+
+<tr>
+<td>1. Asien</td>
+<td>2. Europa</td>
+<td>3. Amerika</td>
+<td>4. Ozeanien</td></tr></table>
+<p><br /><a  class="image"><img alt="Three way anova 14.png" src="../images/Three_Way_ANOVA/750px-Three_way_anova_14.png" width="750"   /></a> <br /><a  class="image"><img alt="Three way anova 15.png" src="../images/Three_Way_ANOVA/300px-Three_way_anova_15.png" width="300"   /></a></p>
+</li>
+</ul>
+</li>
+</ol>
+
+
+
+
+
+
+
+    

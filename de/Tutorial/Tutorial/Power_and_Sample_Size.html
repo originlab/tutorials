@@ -1,0 +1,156 @@
+﻿<h1 class="firstHeading">Trennschärfe und Stichprobenumfang</h1>
+
+  <p class='urlname' style='display: none'>Power-SampleSize</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#.28PSS.29One-Sample_t-Test"><span class="tocnumber">3</span> <span class="toctext">t-Test bei einer Stichprobe</span></a></li>
+
+      <li class="toclevel-1 tocsection-4"><a href="#.28PSS.29Two-Sample_t-Test"><span class="tocnumber">4</span> <span class="toctext">t-Test bei zwei Stichproben</span></a></li>
+
+      <li class="toclevel-1 tocsection-5"><a href="#.28PSS.29Paired-Sample_t-Test"><span class="tocnumber">5</span> <span class="toctext">t-Test bei verbundenen Stichproben</span></a></li>
+
+      <li class="toclevel-1 tocsection-6"><a href="#.28PSS.29One-Way_ANOVA"><span class="tocnumber">6</span> <span class="toctext">Einfache ANOVA</span></a></li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Die Analyse von Trennschärfe und Stichprobenumfang ist nützlich in der Versuchsplanung. Unzureichende Daten bedeuten eine zu geringe Trennschärfe, um eine falsche Nullhypothese zurückzuweisen, und das Sammeln von zu vielen Daten ist eine Verschwendung von Zeit und Ressourcen. Daher ist es grundsätzlich wichtig, die Anforderungen an den Stichprobenumfang vor dem Durchführen eines Experiments zu bestimmen. Die Trennschärfe des Experiments kann für einen gegebenen Stichprobenumfang berechnet werden. Genauso können erforderliche Stichprobenumfänge für gegebene Trennschärfewerte berechnet werden.</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie den Wert eines Stichprobenumfangs oder der geschätzten Trennschärfe berechnen, um Experimente mit Hilfe verschiedener praktische Beispiele zu entwerfen.</p>
+
+  <h2><a name=".28PSS.29One-Sample_t-Test"></a><span class="mw-headline">t-Test bei einer Stichprobe</span></h2>
+
+  <p><b>Hintergrund:</b><br>
+  Ein Soziologe möchte bestimmen, ob die durchschnittliche Kindersterblichkeitsrate in den USA gleich 8 ist oder nicht. Im Versuchsaufbau kann die Differenz der Rate nicht mehr als 0,5 variieren. Es ist bereits aus der Pilotstudie bekannt, dass die Standardabweichung 2,1 betragen sollte.<br>
+  <br>
+  <b>Frage:</b><br>
+  Wie groß wäre der Stichprobenumfang, um die durchschnittliche Kindersterblichkeitsrate bei einem Konfidenzniveau von 95 % (<img src="../images/Power_and_Sample_Size/math-7b7f9dbfea05c83784f8b85149852f08.png" title="\alpha" alt="\alpha" class="tex"> = 0,05) für die Trennschärfewerte von 0,7, 0,8 und 0,9 zu schätzen?<br>
+  <b>Schritte in Origin:</b></p>
+
+  <ol>
+    <li>Aktivieren Sie ein leeres Arbeitsblatt und wählen Sie <b>Statistik: Trennschärfe und Stichprobenumfang: t-Test bei einer Stichprobe</b>.</li>
+
+    <li>Wählen Sie im Dialog <b>PSS_tTest1</b> die folgenden Einstellungen und klicken Sie auf <b>OK</b>.</li>
+  </ol>
+
+  <p><a class="image"><img alt="Tutorial PSS 001.png" src="../images/Power_and_Sample_Size/Tutorial_PSS_001.png" width="433"></a></p><br>
+
+  <p><b>Origin-Ausgabe:</b><br>
+  Es wird ein Ergebnisblatt erzeugt, das den berechneten Stichprobenumfang für die hypothetischen Trennschärfen auflistet.<br>
+  <a class="image"><img alt="Tutorial PSS 002.png" src="../images/Power_and_Sample_Size/Tutorial_PSS_002.png" width="309"></a></p><br>
+
+  <p><br>
+  <b>Ergebnisinterpretation:</b><br>
+  Gemäß der Ergebnisse sollte der Soziologe für den Versuchsaufbau eine Umfrage von 111 Stichproben für einen Trennschärfewert von 0,7, 141 Stichproben für einen Trennschärfewert von 0,8 und 188 Stichproben für einen Trennschärfewert von 0,9 durchführen.</p>
+
+  <h2><a name=".28PSS.29Two-Sample_t-Test"></a><span class="mw-headline">t-Test bei zwei Stichproben</span></h2>
+
+  <p><b>Hintergrund:</b><br>
+  Eine Arztpraxis arbeitet mit zwei örtlichen Krankenkassen zusammen, Healthwise und Medcare. Es soll der Mittelwert des Zeitraums (in Tagen) verglichen werden, den die beiden Kassen für das Durchführen von Rückerstattungen benötigen. Historische Daten zeigen, dass der durchschnittliche Wert von Healthwise bei 32 Tagen liegt und die Standardabweichung 7,5 Tage beträgt. Der durchschnittliche Rückerstattungszeitraum für Medcare liegt bei 42 Tagen, und die Standardabweichung beträgt 3,5 Tage.<br>
+  <br>
+  <b>Frage:</b><br>
+  Wenn 10 Forderungen an jede Kasse ausgewählt und die entsprechenden Rückerstattungszeiträume erfasst werden, welche Trennschärfe ist notwendig, um die Differenz der Mittelwerte der Rückerstattungszeiten zwischen den 2 Krankenkassen mit 5 % oder mehr zu erkennen?<br>
+  <br>
+  <b>Schritte in Origin:</b></p>
+
+  <ol>
+    <li>Berechnen Sie die gepoolte Standardabweichung als:
+
+      <dl>
+        <dd><img src="../images/Power_and_Sample_Size/math-c65ff368584626545d265cc2abd9362d.png" title="\sqrt{((5-1)^{*}7,5^{\land} 2+(5-1)^{*}3,5^{\land }2)/(5+5-2)}=5,85235" alt="\sqrt{((5-1)^{*}7,5^{\land} 2+(5-1)^{*}3,5^{\land }2)/(5+5-2)}=5,85235" class="tex"><br>
+        <br>
+        *Beachten Sie, dass dieser Wert später als Standardabweichung für die Berechnung der Trennschärfe verwendet wird.</dd>
+      </dl>
+    </li>
+
+    <li>Die Stichprobengröße der ersten Gruppe und zweiten Gruppe sollte 10 betragen (20 Stichproben insgesamt).</li>
+
+    <li>Aktivieren Sie ein leeres Arbeitsblatt und wählen Sie <b>Statistik: Trennschärfe und Stichprobenumfang: t-Test bei zwei Stichproben</b>.</li>
+
+    <li>Wählen Sie im Dialog <b>PSS_tTest2</b> die folgenden Einstellungen und klicken Sie auf <b>OK</b>.<br></li>
+  </ol>
+
+  <p><a class="image"><img alt="Tutorial PSS 003.png" src="../images/Power_and_Sample_Size/Tutorial_PSS_003.png" width="461"></a></p><br>
+
+  <p><b>Origin-Ausgabe:</b><br>
+  Es wird ein Ergebnisblatt erstellt, das die berechnete Trennschärfe zeigt.</p>
+
+  <p><a class="image"><img alt="Tutorial PSS 004.png" src="../images/Power_and_Sample_Size/Tutorial_PSS_004.png" width="323"></a></p>
+
+  <p><br>
+  <b>Ergebnisinterpretation:</b><br>
+  Dem Ergebnis nach können wir schlussfolgern, dass die Arztpraxis mit einer Wahrscheinlichkeit von 0,95054:1 (oder 95 %) eine Differenz erkennen kann, wenn 10 Forderungen für jede Krankenkasse gesammelt werden. Die Wahrscheinlichkeit, dass Sie die Nullhypothese fälschlicherweise nicht verwerfen und schlussfolgern, dass die zwei Mittelwerte nicht unterschiedlich sind, liegt bei 4,946% (1 - 0,95054).</p>
+
+  <h2><a name=".28PSS.29Paired-Sample_t-Test"></a><span class="mw-headline">t-Test bei verbundenen Stichproben</span></h2>
+
+  <p><b>Hintergrund:</b><br>
+  Zwei Maschinen des gleichen Typs werden verwendet, um die Dicke einer Dünnschicht aus amorphen Silizium (a-Si) zu messen. Um zu bestimmen, ob es eine Differenz in den zwei Maschinenmessungen gibt, plant ein Ingenieur eine Untersuchung, um die Tiefenmessungen der beiden Maschinen zu vergleichen.</p>
+
+  <p>Bei einer vorhergehenden Untersuchung zur Dicke einer a-Si-Dünnschicht wurde die Standardabweichung der Differenz bei 2 µm liegend festgestellt. Außerdem ist bekannt, dass die Differenz der Messung durch die zwei Maschinen 0,5 µm nicht überschreiten sollte. Die durchschnittliche Dicke, die von Maschine 1 gemessen wurde, liegt bei 5000 µm.</p>
+
+  <p><b>Frage:</b><br>
+  Wie viele Stichproben müssen bei einem Konfidenzniveau von 99 % für die Trennschärfewerte von 0,8, 0,9, 0,95 verwendet werden?</p>
+
+  <p><b>Schritte in Origin:</b><br>
+  Gemäß der obenstehenden Informationen wird geschlussfolgert, dass der Mittelwert der ersten Gruppe bei 5000 µm liegt und der Mittelwert der zweiten Gruppe bei 5000,5 µm.</p>
+
+  <ol>
+    <li>Aktivieren Sie ein leeres Arbeitsblatt und wählen Sie <b>Statistik: Trennschärfe und Stichprobenumfang: t-Test bei verbundenen Stichproben</b>.</li>
+
+    <li>Wählen Sie im Dialog <b>PSS_tTestPair</b> die Einstellungen im folgenden Bild und klicken Sie auf <b>OK</b>.</li>
+  </ol>
+
+  <p><a class="image"><img alt="Paired t test.PNG" src="../images/Power_and_Sample_Size/Paired_t_test.PNG" width="433"></a></p>
+
+  <p><b>Origin-Ausgabe:</b><br>
+  Es wird ein Ergebnisblatt erzeugt, das den erforderlichen Stichprobenumfang für die verschiedenen Trennschärfewerte auflistet.</p>
+
+  <p><a class="image"><img alt="Paired t test result.PNG" src="../images/Power_and_Sample_Size/Paired_t_test_result.PNG" width="343"></a></p>
+
+  <p><b>Ergebnisinterpretation:</b><br>
+  Wir können schlussfolgern, dass der Ingenieur mit einer Wahrscheinlichkeit von 80 % eine Differenz erkennt, wenn 191 Stichproben der Dünnschicht von jeder Maschine gemessen werden. Bei 242 gemessenen Stichproben beträgt die Wahrscheinlichkeit 90 % und bei 289 gemessenen Stichproben der Dünnschicht 95 %.</p>
+
+  <h2><a name=".28PSS.29One-Way_ANOVA"></a><span class="mw-headline">Einfache ANOVA</span></h2>
+
+  <p><b>Hintergrund:</b><br>
+  Forscher möchten herausfinden, ob unterschiedliche Pflanzen einen unterschiedlichen Stickstoffgehalt haben. Sie planten, den Stickstoffgehalt in Milligramm von 4 Pflanzenarten (80 Beobachtungen pro Pflanzenart) zu erfassen. Die bisherige Forschung geht davon aus, dass die Quadratwurzel von MSE (Fehler des Mittelwerts der Quadrate) 60 und die CSS (korrigierte Summe der Quadrate) des Mittelwerts 400 sind.</p>
+
+  <p><b>Frage:</b><br>
+  Ist der Plan durchführbar? (Das heißt, ist die berechnete Trennschärfe akzeptabel?)</p>
+
+  <p><br>
+  <b>Schritte in Origin:</b></p>
+
+  <ol>
+    <li>Der Stichprobenumfang für jede Gruppe ist 80.</li>
+
+    <li>Aktivieren Sie ein leeres Arbeitsblatt und wählen Sie <b>Statistik: Trennschärfe und Stichprobenumfang: Einfache ANOVA</b></li>
+
+    <li>Wählen Sie im Dialog <b>PSS_ANOVA1</b> die folgenden Einstellungen und klicken Sie auf <b>OK</b>.</li>
+  </ol>
+
+  <p><a class="image"><img alt="Tutorial PSS 007.png" src="../images/Power_and_Sample_Size/Tutorial_PSS_007.png" width="506"></a></p>
+
+  <p>&#160;</p>
+
+  <p><b>Origin-Ausgabe:</b><br>
+  Ein Ergebnisblatt wird erzeugt, und der Trennschärfewert wird basierend auf der bekannten Bedingung berechnet.</p>
+
+  <p><a class="image"><img alt="Tutorial PSS 008.png" src="../images/Power_and_Sample_Size/Tutorial_PSS_008.png" width="309"></a></p>
+
+  <p>&#160;</p>
+
+  <p><b>Ergebnisinterpretation:</b><br>
+  Es sieht so aus, als wäre der ursprüngliche Versuchsplan mangelhaft. Die Wahrscheinlichkeit, eine Differenz in den Gruppen zu entdecken, liegt bei 69 %. Um verlässlichere Ergebnisse zu erhalten, müssen die Forscher mehr Stichproben von jeder Pflanzenart sammeln.</p>

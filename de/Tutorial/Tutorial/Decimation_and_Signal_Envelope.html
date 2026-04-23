@@ -1,0 +1,120 @@
+﻿<h1 class="firstHeading">Dezimierung und Signalumhüllung</h1>
+
+  <p class='urlname' style='display: none'>Decimation-and-Signal-Envelope</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#Decimation"><span class="tocnumber">3</span> <span class="toctext">Dezimierung</span></a></li>
+
+      <li class="toclevel-1 tocsection-4"><a href="#Signal_Envelope"><span class="tocnumber">4</span> <span class="toctext">Signalumhüllung</span></a></li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Die Dezimierung wird verwendet, um die Größe der Signalfolge zu reduzieren und alle N Stichproben zu einer zusammenzufassen.</p>
+
+  <p>Die Umhüllungserkennung fügt eine Umhüllungskurve zu dem Eingabesignal hinzu. Origins Hilfsmittel der Signalumhüllung berechnet eine Umhüllung und zeichnet eine obere, eine untere oder beide Umhüllungen.</p>
+
+  <h2><a name="What_You_Will_Learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ol>
+    <li>ein Signal dezimieren, um die Größe der Eingangssignalsequenz zu reduzieren.</li>
+
+    <li>eine Umhüllungserkennung durchführen, um die Umhüllungskurve hinzuzufügen.</li>
+  </ol>
+
+  <h2><a name="Decimation"></a><span class="mw-headline">Dezimierung</span></h2>
+
+  <p>In diesem Tutorial wird eine Dezimierung für die Daten der Anzahl von Sonnenflecken durchgeführt. Messungen der Anzahl der Sonnenflecken wurden jeden Monat für mehr als 200 Jahre erfasst. Sie verwenden die Dezimierung, um den Datensatz auf eine Sonnenfleckenanzahl für jedes Jahr zu reduzieren.</p>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe und importieren Sie die Datei aus dem <b>&lt;Origin-Verzeichnis&gt;\Samples\Signal Processing\Sunspot.dat</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Decimation 1.png" src="../images/Decimation_and_Signal_Envelope/SP_Tutorial_Decimation_1.png" width="396"></a></dd>
+      </dl>
+    </li>
+
+    <li>Markieren Sie Spalte A. Klicken Sie mit der rechten Maustaste auf die Spalte und wählen Sie <b>Setzen als: Als Y setzen</b>, um die Diagrammzuordnung dieser Spalte auf Y festzulegen. Dies stellt sicher, dass die Anzahl der Sonnenflecken nicht mit Spalte A als X verbunden ist. Der Grund hierfür ist, dass es für die Dezimierung erforderlich ist, eine streng monotonische X-Spalte zu haben.</li>
+
+    <li>Markieren Sie Spalte C und wählen Sie im Menü <b>Analyse: Signalverarbeitung: Dezimierung</b>. Der Dialog <b>Dezimierung: decimate</b> wird geöffnet.</li>
+
+    <li>Setzen Sie in dem Dialog den <b>Neuabtastfaktor</b> auf <b>12</b>. Setzen Sie den <b>Filtertyp</b> auf <b>Filter des gleitenden Durchschnitts</b>. Um das Ergebnis im rechten Bedienfeld anzuzeigen, aktivieren Sie das Kontrollkästchen <b>Automatische Vorschau</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Decimation 2.png" src="../images/Decimation_and_Signal_Envelope/SP_Tutorial_Decimation_2.png" width="729"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um das Ergebnis auszugeben.</li>
+
+    <li>Markieren Sie im Arbeitsblatt Spalte D (die aus dem Ergebnis erzeugte X-Spalte), klicken Sie mit der rechten Maustaste und wählen Sie <b>Einfügen</b> im Kontextmenü, um eine neue Spalte einzufügen. Klicken Sie erneut mit der rechten Maustaste und wählen Sie <b>Setzen als: Als Y setzen</b>, um die Zuordnung der Spalte in <i>Y</i> zu ändern.</li>
+
+    <li>Markieren Sie die neu eingefügte Spalte und klicken Sie mit der rechten Maustaste auf sie, um <b>Setzen als: Als X setzen</b> im Kontextmenü zu wählen. Die Spalte wird dann eine <i>X</i>-Spalte. Klicken Sie mit der rechten Maustaste erneut auf die Spalte und wählen Sie <b>Spaltenwerte errechnen</b>, um den Dialog <b>Werte setzen</b> aufzurufen, und geben Sie <img src="../images/Decimation_and_Signal_Envelope/math-0aa77325e9a00497ce87512a376dbfa0.png" title="data(1749, 1749+255)" alt="data(1749, 1749+255)" class="tex"> in das Textfeld ein und klicken Sie auf <b>OK</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Decimation 3.png" src="../images/Decimation_and_Signal_Envelope/SP_Tutorial_Decimation_3.png" width="401"></a></dd>
+      </dl>
+    </li>
+
+    <li>Markieren Sie Spalte A, klicken Sie mit der rechten Maustaste, wählen Sie <b>Setzen als: Als X setzen</b> im Kontextmenü aus und legen Sie die Spaltenzuordnung auf <i>X</i> fest. Am Ende sollte das Arbeitsblatt folgendermaßen aussehen.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Decimation 4.png" src="../images/Decimation_and_Signal_Envelope/SP_Tutorial_Decimation_4.png" width="562"></a></dd>
+      </dl>
+    </li>
+
+    <li>Drücken Sie die Strg-Taste und markieren Sie Spalte C und E. Wählen Sie im Menü <b>Zeichnen: Einfache 2D: 2-fach Vertikal</b>, um ein Diagramm zu erstellen. Beachten Sie, dass die dezimierte Linie viel glatter aussieht, wie das Bild unten zeigt.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Decimation 5.png" src="../images/Decimation_and_Signal_Envelope/SP_Tutorial_Decimation_5.png" width="420"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h2><a name="Signal_Envelope"></a><span class="mw-headline">Signalumhüllung</span></h2>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe.</li>
+
+    <li>Wählen Sie im Menü <b>Daten: Aus Datei importieren: Einzelnes ASCII</b>, um die Daten <b>&lt;Origin-Verzeichnis&gt;\Samples\Signal Processing\Gaussian Envelope.dat</b> zu importieren.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Envelope 1.png" src="../images/Decimation_and_Signal_Envelope/SP_Tutorial_Envelope_1.png" width="396"></a></dd>
+      </dl>
+    </li>
+
+    <li>Markieren Sie Spalte B und wählen Sie im Menü <b>Zeichnen: Einfache 2D: Liniendiagramm</b>, um ein Liniendiagramm zu erstellen.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Envelope 2.png" src="../images/Decimation_and_Signal_Envelope/SP_Tutorial_Envelope_2.png" width="582"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie, wenn dieses Diagramm aktiv ist, im Menü <b>Analyse: Signalverarbeitung: Umhüllung</b>. Der Dialog <b>Umhüllung: envelope</b> wird geöffnet.</li>
+
+    <li>Setzen Sie im Dialog den <b>Umhüllungstyp</b> auf <b>Beide Hüllkurven</b> und die <b>Glättungspunkte</b> auf <b>10</b>. Aktivieren Sie die <b>Automatische Vorschau</b>, um das Ergebnis im rechten Bedienfeld in der Vorschau anzuzeigen.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Envelope 3.png" src="../images/Decimation_and_Signal_Envelope/SP_Tutorial_Envelope_3.png" width="699"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um das Diagramm mit der oberen und unteren Umhüllungskurve zu erstellen.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Envelope 4.png" src="../images/Decimation_and_Signal_Envelope/SP_Tutorial_Envelope_4.png" width="582"></a></dd>
+      </dl>
+    </li>
+  </ol>

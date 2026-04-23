@@ -1,0 +1,212 @@
+﻿<h1 class="firstHeading">Lineare Anpassung für kinetische Modelle</h1>
+
+  <p class='urlname' style='display: none'>Linear-Fit-For-Kinetic-Models</p>
+
+  <table id="toc" class="toc">
+    <tr>
+      <td>
+        <div id="toctitle">
+          <h2>Inhalt</h2>
+        </div>
+
+        <ul>
+          <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+          <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+          <li class="toclevel-1 tocsection-3">
+            <a href="#Linear_fit_for_Langmuir_model"><span class="tocnumber">3</span> <span class="toctext">Lineare Anpassung für Langmuir-Modelle</span></a>
+
+            <ul>
+              <li class="toclevel-2 tocsection-4"><a href="#Identify_transformed_independent_and_dependent_variables"><span class="tocnumber">3.1</span> <span class="toctext">Transformierte unabhängige und abhängige Variablen identifizieren</span></a></li>
+
+              <li class="toclevel-2 tocsection-5"><a href="#Create_new_independent_and_dependent_variable_data"><span class="tocnumber">3.2</span> <span class="toctext">Neue unabhängige und abhängige Variablendaten erstellen</span></a></li>
+
+              <li class="toclevel-2 tocsection-6"><a href="#Linear_fit_on_transformed_linear_data"><span class="tocnumber">3.3</span> <span class="toctext">Lineare Anpassung auf transformierte lineare Daten</span></a></li>
+
+              <li class="toclevel-2 tocsection-7"><a href="#Apparent_linear_fit_on_original_non-linear_data"><span class="tocnumber">3.4</span> <span class="toctext">Scheinbare lineare Anpassung auf nichtlineare Originaldaten</span></a></li>
+            </ul>
+          </li>
+
+          <li class="toclevel-1 tocsection-8">
+            <a href="#Solutions_for_other_non-linear_kinetic_models"><span class="tocnumber">4</span> <span class="toctext">Lösungen für weitere nichtlineare kinetische Modelle</span></a>
+
+            <ul>
+              <li class="toclevel-2 tocsection-9"><a href="#Freudlich_equation"><span class="tocnumber">4.1</span> <span class="toctext">Freudlich-Gleichung</span></a></li>
+
+              <li class="toclevel-2 tocsection-10"><a href="#Lagergren.27s_pseudo-first_order"><span class="tocnumber">4.2</span> <span class="toctext">Pseudo-erste Ordnung nach Lagergren</span></a></li>
+
+              <li class="toclevel-2 tocsection-11"><a href="#Ho.27s_pseudo-second_order"><span class="tocnumber">4.3</span> <span class="toctext">Pseudo-zweite Ordnung nach Ho</span></a></li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Nichtlineare kinetische Modelle werden weitläufig in vielen Disziplinen eingesetzt, z.B. in den Naturwissenschaften wie Physik, Chemie, Biologie. Experimentell werden alle ausschlaggebenden Parameter in kinetischen Modellen durch das Anpassen der Rohdaten ermittelt. Intuitiv werden Rohdaten durch die Durchführung einer nichtlinearen Anpassung mit dem Ausdruck direkt aus der kinetischen Gleichung angepasst. Alternativ kann eine lineare Anpassung durchgeführt werden, wenn die Gleichung so transformiert werden kann, dass die abhängige Variable in einem linearen Verhältnis zur unabhängigen Variable steht.</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>eine lineare Anpassung auf das gleiche nichtlineare kinetische Modell mit Hilfe verschiedener linearer Transformationen durchführen,</li>
+
+    <li>eine scheinbare lineare Anpassung auf nichtlineare kinetische Modelle durchführen.</li>
+  </ul>
+
+  <h2><a name="Linear_fit_for_Langmuir_model"></a><span class="mw-headline">Lineare Anpassung für Langmuir-Modelle</span></h2>
+
+  <h3><a name="Identify_transformed_independent_and_dependent_variables"></a><span class="mw-headline">Transformierte unabhängige und abhängige Variablen identifizieren</span></h3>
+
+  <p>Das Langmuir-Modell wird durch die nichtlineare Gleichung unten beschrieben:</p>
+
+  <p><br>
+  <br>
+  <img src="../images/Linear_Fit_For_Kinetic_Models/math-57abb1dd18566ddae9368a8578f2f447.png" title="y = \frac{ym*K*x}{1+K*x}" alt="y = \frac{ym*K*x}{1+K*x}" class="tex"></p><br>
+
+  <p>wobei ym, K Parameter sind, die durch Anpassung ermittelt werden sollen.</p>
+
+  <p>Um eine lineare Anpassung auf das Langmuir-Modell durchzuführen, können Sie es auf zwei verschiedenen Wegen in eine lineare Gleichung transformieren:</p>
+
+  <ol>
+    <li>Transformieren Sie es in eine traditionelle lineare Langmuir-Gleichung:<br>
+    <br>
+    <img src="../images/Linear_Fit_For_Kinetic_Models/math-b9755ab93b51a8b31c24af0c9aaf3b75.png" title="y = -\frac{1}{K}\frac{y}{x}+ym" alt="y = -\frac{1}{K}\frac{y}{x}+ym" class="tex"><br>
+    <br>
+    , wobei die unabhängige Variable y/x ist, die abhängige Variable y, die Steigung -1/K und der Schnittpunkt mit der Y-Achse ym.</li>
+
+    <li>Transformieren Sie es in eine doppelt reziproke lineare Langmuir-Gleichung:<br>
+    <br>
+    <img src="../images/Linear_Fit_For_Kinetic_Models/math-3d8319ab99a2a16fa8021e10a7da96c6.png" title="\frac{1}{y} = \frac{1}{ym*K}\frac{1}{x}+\frac{1}{ym}" alt="\frac{1}{y} = \frac{1}{ym*K}\frac{1}{x}+\frac{1}{ym}" class="tex"><br>
+    <br>
+    , wobei die unabhängige Variable 1/x ist, die abhängige Variable 1/y, die Steigung 1/(ym*K) und der Schnittpunkt mit der Y-Achse 1/ym.</li>
+  </ol>
+
+  <h3><a name="Create_new_independent_and_dependent_variable_data"></a><span class="mw-headline">Neue unabhängige und abhängige Variablendaten erstellen</span></h3>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <i>ASCII-Datendatei</i> <a class="image"><img alt="Import Single ASCII.png" src="../images/Linear_Fit_For_Kinetic_Models/Import_Single_ASCII.png" width="26" height="24"></a>, um den Dialog zum <b>Importieren von ASCII-Dateien</b> aufzurufen. Navigieren Sie zu dem Ordner <i>\Samples\Curve Fitting</i> und wählen Sie die Datei <i>LangmuirModel.dat</i>. Stellen Sie sicher, dass das Kontrollkästchen <b>Optionendialog zeigen</b> aktiviert ist, und klicken Sie auf <b>OK</b>, um den Dialog <b>impASC</b> zu öffnen. Wählen Sie <b>Nein</b> in der Auswahlliste <b>Sparklines hinzufügen</b> im Zweig <b>Importoptionen</b> und klicken Sie auf <b>OK</b>, um den Import fertigzustellen.</li>
+
+    <li>Rufen Sie den Dialog <b>Neue Spalten hinzufügen</b> mit Hilfe von Strg+D auf, geben Sie 4 ein und klicken Sie auf <b>OK</b>, um 4 Spalten hinzuzufügen, in denen der transformierte XY-Datensatz später gespeichert wird.</li>
+
+    <li>Für die traditionelle Transformation des linearen Langmuir-Modells ist die unabhängige Variable jetzt y/x und die abhängige Variable noch y. Geben Sie y/x und y als Langname für Spalte C bzw. D ein, so dass sie im Diagramm später als Titel der X-Achse bzw. Y-Achse angezeigt werden.</li>
+
+    <li>Geben Sie Col(B)/Col(A) in der Formelzelle <b>F(x) =</b> in Spalte <i>C</i> ein, um den Wert für die unabhängige Variable y/x festzulegen, und drücken Sie ENTER. Markieren Sie Spalte <i>C</i>, klicken Sie mit der rechten Maustaste und wählen Sie <b>Setzen als: Als X setzen</b>, um sie zum Standard für den X-Datensatz der Zeichenspalte <i>D</i> zu machen.</li>
+
+    <li>Geben Sie Col(B) in der Formelzelle <b>F(x) =</b> in Spalte <i>D</i> ein, um den Wert für die abhängige Variable y festzulegen, und drücken Sie ENTER.</li>
+
+    <li>Für die doppelt reziproke Transformation des linearen Langmuir-Modells ist die unabhängige Variable 1/x und die abhängige Variable 1/y. Legen Sie entsprechend den Langnamen der Spalten <i>E</i> und <i>F</i> als 1/x bzw. 1/y fest und setzen Sie ihre Spaltenwerte mit 1/Col(A) und 1/Col(B). Weisen Sie Spalte <i>E</i> als X zu.</li>
+
+    <li>Das Arbeitsblatt sieht dann folgendermaßen aus:<br>
+    <br>
+    <a class="image"><img alt="Linear Fit Kinetic Model 07.png" src="../images/Linear_Fit_For_Kinetic_Models/Linear_Fit_Kinetic_Model_07.png" width="538" height="354"></a><br>
+    <br></li>
+  </ol>
+
+  <h3><a name="Linear_fit_on_transformed_linear_data"></a><span class="mw-headline">Lineare Anpassung auf transformierte lineare Daten</span></h3>
+
+  <ol>
+    <li>Zuerst wird eine lineare Anpassung auf die traditionelle lineare Langmuir-Transformation durchgeführt. Markieren Sie Spalte<i>D</i>und wählen Sie im Menü <b>Zeichnen: Symbol: Punktdiagramm</b>, um ein Punktdiagramm zu erstellen.</li>
+
+    <li>Um eine lineare Anpassung durchzuführen, wählen Sie <b>Analyse: Anpassen: Linearer Fit: Dialog öffnen</b>, um den Dialog <b>Lineare Anpassung</b> aufzurufen. Klicken Sie auf <b>OK</b>, um den Dialog zu schließen. Wählen Sie in der angezeigten Befehlseingabe die Option <b>Nein</b> und klicken Sie auf <b>OK</b>.<br>
+    <br>
+    <a class="image"><img alt="Linear Fit Kinetic Model 17 v.png" src="../images/Linear_Fit_For_Kinetic_Models/Linear_Fit_Kinetic_Model_17_v.png" width="502" height="452"></a><br>
+    <br></li>
+
+    <li>Entsprechend wird die lineare Anpassung auf die doppelt reziproke lineare Langmuir-Transformation durchgeführt. Markieren Sie Spalte F und befolgen Sie die obenstehenden Schritte, um ein Punktdiagramm zu erstellen und dann eine lineare Anpassung durchzuführen.<br>
+    <br>
+    <a class="image"><img alt="Linear Fit Kinetic Model 15 v.png" src="../images/Linear_Fit_For_Kinetic_Models/Linear_Fit_Kinetic_Model_15_v.png" width="569" height="446"></a><br>
+    <br></li>
+  </ol>
+
+  <p>Die Koeffizienten im Langmuir-Modell können dann mit Hilfe der entsprechenden Ausdrücke für Steigung und Schnittpunkt mit der y-Achse berechnet werden.</p>
+
+  <h3><a name="Apparent_linear_fit_on_original_non-linear_data"></a><span class="mw-headline">Scheinbare lineare Anpassung auf nichtlineare Originaldaten</span></h3>
+
+  <p>Alternativ können Sie die scheinbare lineare Anpassung verwenden, um die lineare Anpassung direkt auf die nichtlinearen kinetischen Rohdaten durchzuführen, indem nur die Achsenskalierungen benutzerdefiniert angepasst werden. Nehmen Sie das kinetische Langmuir-Modell als Beispiel. Basierend auf der doppelten reziproken Langmuir-Transformation können Sie sehen, dass die Inverse der originalen abhängigen Variablen 1/y in einem linearen Verhältnis zur der Inversen der originalen abhängigen Variable 1/x steht. Daher würden, wenn die X-Skalierung auf 1/x und die Y-Skalierung auf 1/y gesetzt ist, die kinetischen Langmuir-Rohdaten mit Linearität angezeigt werden.</p>
+
+  <ol>
+    <li>Um eine scheinbare lineare Anpassung auf kinetische Langmuir-Rohdaten durchzuführen, markieren Sie die Spalte <i>B</i> und wählen Sie <b>Zeichnen: Symbol: Punktdiagramm</b>, um ein nichtlineares Punktdiagramm zu erstellen.<br>
+    <br>
+    <a class="image"><img alt="Linear Fit Kinetic Model 10.png" src="../images/Linear_Fit_For_Kinetic_Models/Linear_Fit_Kinetic_Model_10.png" width="553" height="479"></a><br>
+    <br></li>
+
+    <li>Klicken Sie auf doppelt auf die X-Achse, um den Dialog <b>Achsen</b> zu öffnen, und setzen Sie <b>Von</b> auf <i>0,08</i> und <b>Bis</b> auf <i>3</i>. Wählen Sie dann <b>Benutzerdefinierte Formel</b> in der Auswahlliste <b>Typ</b> und geben Sie 1/x als <b>Direkte Formel</b> und 1/x als <b>Inverse Formel</b> ein. Wählen Sie <b>Fest ab</b> in der Auswahlliste <b>Neuskalieren</b>. Klicken Sie auf <b>OK</b>, um den Dialog zu schließen.<br>
+    <br>
+    <a class="image"><img alt="Linear Fit Kinetic Model 18.png" src="../images/Linear_Fit_For_Kinetic_Models/Linear_Fit_Kinetic_Model_18.png" width="525" height="555"></a><br>
+    <br></li>
+
+    <li>Wie im Diagramm zu sehen, sind die Standardhilfsstriche der X-Achse nicht gut voneinander getrennt. Um die Anzeige der Hilfsstriche auf der X-Achse zu verbessern, erstellen Sie einen Datensatz, mit dem die Positionen der Hilfsstriche festgelegt werden. Dazu aktivieren Sie das Arbeitsblatt <i>LangmuirModel</i> und drücken die Tasten Strg+D, um eine Spalte hinzuzufügen. Geben Sie den Datensatz <i>0,1, 0,15, 0,2, 0,3, 0,4, 0,7, 1, 3</i> in die neu hinzugefügte Spalte <i>G</i> ein.</li>
+
+    <li>Um die Spalte <i>G</i> als Positionen für die großen Hilfsstriche zu verwenden, klicken Sie doppelt auf die X-Achse. Der Dialog <b>Achsen</b> wird geöffnet. Gehen Sie dann zum Zweig <b>Große Hilfsstriche</b> und wählen Sie <b>Nach Datensatz</b> in der Auswahlliste <b>Typ</b>. Wählen Sie <i>[LangmuirModel]LangmuirModel!G</i> in der Auswahlliste <b>Datensatz</b>.<br>
+    <br>
+    <a class="image"><img alt="Linear Fit Kinetic Model 19.png" src="../images/Linear_Fit_For_Kinetic_Models/Linear_Fit_Kinetic_Model_19.png" width="554" height="598"></a><br>
+    <br></li>
+
+    <li>Klicken Sie auf das Symbol <b>Vertikal</b> im linken Bedienfeld und wählen Sie <b>Benutzerdefinierte Formel</b> in der Auswahlliste <b>Typ</b> und geben Sie 1/x in den Feldern <b>Direkte Formel</b> und <b>Inverse Formel</b> ein. Klicken Sie auf <b>OK</b>, um den Dialog zu schließen.<br>
+    <br>
+    <a class="image"><img alt="Linear Fit Kinetic Model 12.png" src="../images/Linear_Fit_For_Kinetic_Models/Linear_Fit_Kinetic_Model_12.png" width="622" height="620"></a><br>
+    <br></li>
+
+    <li>Um die scheinbare lineare Anpassung durchzuführen, wählen Sie <b>Analyse: Anpassen: Linearer Fit: Dialog öffnen</b>, um den Dialog <b>Lineare Anpassung</b> zu öffnen. Das Kontrollkästchen <b>Scheinbarer Fit</b> ist standardmäßig aktiviert.<br>
+    <br>
+    <a class="image"><img alt="Linear Fit Kinetic Model 13.png" src="../images/Linear_Fit_For_Kinetic_Models/Linear_Fit_Kinetic_Model_13.png" width="442" height="733"></a><br>
+    <br></li>
+
+    <li>Klicken Sie auf <b>OK</b>, um den Dialog zu schließen, und wählen Sie die Option <b>Nein</b> in der Befehlseingabe. Klicken Sie dann auf <b>OK</b>.<br>
+    <br>
+    <a class="image"><img alt="Linear Fit Kinetic Model 16 v.png" src="../images/Linear_Fit_For_Kinetic_Models/Linear_Fit_Kinetic_Model_16_v.png" width="512" height="391"></a><br>
+    <br></li>
+  </ol>
+
+  <h2><a name="Solutions_for_other_non-linear_kinetic_models"></a><span class="mw-headline">Lösungen für weitere nichtlineare kinetische Modelle</span></h2>
+
+  <h3><a name="Freudlich_equation"></a><span class="mw-headline">Freudlich-Gleichung</span></h3>
+
+  <p>Die nichtlineare kinetische Gleichung für die Pseudo-zweite Ordnung und das Modell nach Ho sieht folgendermaßen aus:</p>
+
+  <p><img src="../images/Linear_Fit_For_Kinetic_Models/math-ca3db92f4dd5755e86ab3c380f82dd04.png" title="ln(y) = ln(K)+\frac{ln(x)}{n}" alt="ln(y) = ln(K)+\frac{ln(x)}{n}" class="tex"></p>
+
+  <p>wobei die unabhängige Variable ln(x) ist, die abhängige Variable ln(y), die Steigung 1/n und der Schnittpunkt mit der Y-Achse ln(K), K. n sind die noch zu bestimmenden Koeffizienten.</p>
+
+  <p>Die scheinbare lineare Anpassung wird empfohlen, seit die Ln-Skalierung eine standardmäßige Skalierungseinstellung ist. Um dieses nichtlineare kinetische Modell anzupassen, verwenden Sie den scheinbaren Fit und setzen dabei beide Skalierungen, sowohl für die X- als auch für die Y-Achse, auf Ln-Skalierung.</p>
+
+  <p>Alternativ können Sie eine lineare Anpassung durchführen, nachdem Sie den Ln-Wert des X- und Y-Datensatzes berechnet haben. Einzelheiten können Sie in dem Beispiel zum Langmuir-Modell oben nachlesen.</p>
+
+  <h3><a name="Lagergren.27s_pseudo-first_order"></a><span class="mw-headline">Pseudo-erste Ordnung nach Lagergren</span></h3>
+
+  <p>Die nichtlineare kinetische Gleichung für die Pseudo-erste Ordnung oder das Modell nach Lagergren sieht folgendermaßen aus:</p>
+
+  <p><img src="../images/Linear_Fit_For_Kinetic_Models/math-236960c3fc94165d6fff6cb1e7e6df51.png" title="log(q_{e,exp}-y) = \frac{log(q_{e,fit})-k_1*x}{2.303}" alt="log(q_{e,exp}-y) = \frac{log(q_{e,fit})-k_1*x}{2.303}" class="tex"></p>
+
+  <p>wobei die unabhängige Variable x, die abhängige Variable <img src="../images/Linear_Fit_For_Kinetic_Models/math-f736214c95d83a2fd4242b68c9ba7398.png" title="log(q_{e,exp}-y)" alt="log(q_{e,exp}-y)" class="tex">, die Steigung <img src="../images/Linear_Fit_For_Kinetic_Models/math-fb7c53d135157c134052a8a20d093297.png" title="-k_{1}/2,303" alt="-k_{1}/2,303" class="tex"> und der Schnittpunkt mit der Y-Achse und <img src="../images/Linear_Fit_For_Kinetic_Models/math-533073f62589dfd38673f6ca973be488.png" title="log(q_{e,fit})/2,303" alt="log(q_{e,fit})/2,303" class="tex"> eine bekannte Konstante ist. <img src="../images/Linear_Fit_For_Kinetic_Models/math-5329d5e4c37a4ce07e1aa5937393c6bb.png" title="-k_{1}" alt="-k_{1}" class="tex"> und <img src="../images/Linear_Fit_For_Kinetic_Models/math-2f77e3b1dd87ca5e875a7b85d8609012.png" title="q_{e,fit}" alt="q_{e,fit}" class="tex"> sind die noch zu bestimmenden Koeffizienten.</p>
+
+  <p><br>
+  Die scheinbare lineare Anpassung wird empfohlen, seit die Log-Skalierung eine standardmäßige Skalierungseinstellung ist. Um dieses nichtlineare kinetische Modell anzupassen, berechnen Sie zuerst <img src="../images/Linear_Fit_For_Kinetic_Models/math-70d24d63065b8de2615989576039b007.png" title="q_{e,exp}-y" alt="q_{e,exp}-y" class="tex"> und verwenden dann den scheinbaren Fit mit nur der Skalierung der Y-Achse festgelegt auf Log.</p>
+
+  <p>Alternativ berechnen Sie zuerst <img src="../images/Linear_Fit_For_Kinetic_Models/math-52c53bb5c4cbc099adbc10de9cee9918.png" title="Log(q_{e,exp}-y)" alt="Log(q_{e,exp}-y)" class="tex"> und verwenden dann die neu erstellten Daten, um die lineare Anpassung direkt durchzuführen. Einzelheiten können Sie in dem Beispiel zum Langmuir-Modell oben nachlesen.</p>
+
+  <h3><a name="Ho.27s_pseudo-second_order"></a><span class="mw-headline">Pseudo-zweite Ordnung nach Ho</span></h3>
+
+  <p>Die nichtlineare kinetische Gleichung für die Pseudo-zweite Ordnung und das Modell nach Ho sieht folgendermaßen aus:</p>
+
+  <p><img src="../images/Linear_Fit_For_Kinetic_Models/math-24d1561f31ef60f9c8d2b62788bad694.png" title="\frac{x}{y} = \frac{1}{k_{2}q_e^2}+\frac{x}{q_e}" alt="\frac{x}{y} = \frac{1}{k_{2}q_e^2}+\frac{x}{q_e}" class="tex"></p>
+
+  <p>wobei die unabhängige Variable x, die abhängige Variable x/y, die Steigung <img src="../images/Linear_Fit_For_Kinetic_Models/math-357e74328be026c05600e2621ea50122.png" title="1/q{_{e}}" alt="1/q{_{e}}" class="tex"> und der Schnittpunkt mit der Y-Achse <img src="../images/Linear_Fit_For_Kinetic_Models/math-1b4a279c1f8b58c43c0703cfbf08505f.png" title="1/(k_{2}q_e^2)" alt="1/(k_{2}q_e^2)" class="tex"> ist. <img src="../images/Linear_Fit_For_Kinetic_Models/math-565916fdc4f0364b33ce9c7f270984a2.png" title="k_{2}" alt="k_{2}" class="tex"> und <img src="../images/Linear_Fit_For_Kinetic_Models/math-b4d66375940a034a87c1355eff23cadb.png" title="q_e" alt="q_e" class="tex"> sind die noch zu bestimmenden Koeffizienten.</p>
+
+  <p>Um dieses Modell linear anzupassen, müssen Sie zuerst x/y berechnen und diese neu erstellten Daten für die Durchführung der linearen Anpassung verwenden.</p>
+
+  <p>Alternativ können Sie diese Gleichung in die untenstehenden Form transformieren:</p>
+
+  <p><br>
+  <img src="../images/Linear_Fit_For_Kinetic_Models/math-aa42657d3a47a8fa3ef9cd8ea23b7399.png" title="\frac{1}{y} = \frac{1}{k_{2}q_e^2}\frac{1}{x}+\frac{1}{q_e}" alt="\frac{1}{y} = \frac{1}{k_{2}q_e^2}\frac{1}{x}+\frac{1}{q_e}" class="tex"></p>
+
+  <p>wobei die unabhängige Variable 1/x, die abhängige Variable 1/y, die Steigung <img src="../images/Linear_Fit_For_Kinetic_Models/math-1b4a279c1f8b58c43c0703cfbf08505f.png" title="1/(k_{2}q_e^2)" alt="1/(k_{2}q_e^2)" class="tex"> und der Schnittpunkt mit der Y-Achse ist.</p>
+
+  <p>Für diese Transformation können Sie entweder eine lineare Anpassung durchführen, sobald Sie neue unabhängige Variablendaten mit 1/x und neue abhängige Variablendaten mit 1/y erstellt haben. Oder Sie können eine scheinbare lineare Anpassung durchführen, indem Sie die Skalierungen für X- und Y-Achse beide auf 1/x-Skalierung festlegen. Weitere Einzelheiten finden Sie im Abschnitt zum Langmuir-Modell.</p>

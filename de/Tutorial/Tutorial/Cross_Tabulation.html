@@ -1,0 +1,215 @@
+﻿<h1 class="firstHeading">Kreuztabelle und Chi-Quadrat</h1>
+
+  <p class='urlname' style='display: none'>Crosstab</p>
+
+  <p>&#160;</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#User_Story"><span class="tocnumber">3</span> <span class="toctext">Anwenderbericht</span></a></li>
+
+      <li class="toclevel-1 tocsection-4"><a href="#Preparing_Data_for_Analysis"><span class="tocnumber">4</span> <span class="toctext">Daten für Analyse vorbereiten</span></a></li>
+
+      <li class="toclevel-1 tocsection-5"><a href="#Performing_Cross_Tabulation_and_Chi-square"><span class="tocnumber">5</span> <span class="toctext">Kreuztabelle und Chi-Quadrat durchführen</span></a></li>
+
+      <li class="toclevel-1 tocsection-6">
+        <a href="#Interpreting_The_Results"><span class="tocnumber">6</span> <span class="toctext">Ergebnisse interpretieren</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-7"><a href="#Frequency_Distribution"><span class="tocnumber">6.1</span> <span class="toctext">Häufigkeitenverteilung</span></a></li>
+
+          <li class="toclevel-2 tocsection-8"><a href="#Detecting_Relationships_Between_Age_and_Financial_Status"><span class="tocnumber">6.2</span> <span class="toctext">Beziehung zwischen Alter und Finanzstatus ermitteln</span></a></li>
+
+          <li class="toclevel-2 tocsection-9"><a href="#Assessing_the_Strength_of_the_Relationship"><span class="tocnumber">6.3</span> <span class="toctext">Stärke der Beziehung bewerten</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Die Kreuztabelle ist nützlich zum Analysieren von kategorialen Daten. In diesen Analysen wird eine Kontingenztabelle verwendet, um die Häufigkeitsverteilung der zwei oder mehr Variablen anzuzeigen. Die Analysen, die auf der Tabelle basieren, können bestimmen, ob es eine signifikante Beziehung zwischen Variablen gibt, und die Stärke der Beziehung zwischen den Variablen bewerten.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 2016 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen:</p>
+
+  <ol>
+    <li>das Durchführen der Kreuztabelle</li>
+
+    <li>das Interpretieren der Ergebnisse</li>
+  </ol>
+
+  <h2><a name="User_Story"></a><span class="mw-headline">Anwenderbericht</span></h2>
+
+  <p>Unsere Daten stammen aus der Umfrage <b>Montana Economic Outlook Poll</b>, die im Mai 1992 durchgeführt wurde, mit demografischen Daten für 209 von 418 Befragten. Diese Datendatei enthält sieben Variablen: <b>Alter</b> (unter 35, 35-54, 55 und älter), <b>Geschlecht</b> (männlich, weiblich), <b>finanzieller Status</b> (schlechter, gleich, besser als vor einem Jahr) etc. Mit den Daten soll gezeigt werden:</p>
+
+  <ol>
+    <li>Die Häufigkeitenverteilung des finanziellen Status bei drei verschiedenen Altersgruppen und ob sich männlich und weiblich bei der Verteilung unterscheiden.</li>
+
+    <li>Ob es eine signifikante Beziehung zwischen "Finanziellem Status" und "Alter" für die männliche und weibliche Gruppe gibt.</li>
+
+    <li>Die Stärke der Beziehung</li>
+  </ol>
+
+  <h2><a name="Preparing_Data_for_Analysis"></a><span class="mw-headline">Analysedaten vorbereiten</span></h2>
+
+  <ol>
+    <li>Öffnen Sie ein neues Projekt oder eine neue Arbeitsmappe. Importieren Sie die Datendatei <b>\Samples\Statistics\MontanacOutlookPoll.dat</b>.</li>
+
+    <li>Sie beginnen mit dem Sortieren der kategorialen Werte.
+
+      <ul>
+        <li>Markieren Sie im Arbeitsblatt der Umfrage <b>MontanaOutlookPoll</b> die Spalte <b>B</b> und klicken Sie mit der rechten Maustaste, um die Option <b>Als Kategorisch setzen</b> zu wählen. Klicken Sie in der Beschriftungszeile Kategorien doppelt auf <b>Unsortiert</b>, um den Dialog <b>Kategorien</b> aufzurufen. Aktivieren Sie das Kontrollkästchen <b>Kategorien benutzerdefiniert anpassen (Hinzufügen, Löschen, Beliebige Reihenfolge festlegen)</b>. Verwenden Sie dann die Schaltflächen An erste Stelle verschieben <a class="image"><img alt="Category Tab Button ToTop 92.png" src="../images/Cross_Tabulation/Category_Tab_Button_ToTop_92.png" width="24"></a>, Nach oben verschieben <a class="image"><img alt="Category Tab Button Move Up 92.png" src="../images/Cross_Tabulation/Category_Tab_Button_Move_Up_92.png" width="24"></a>, Nach unten verschieben <a class="image"><img alt="Category Tab Button Move Down 92.png" src="../images/Cross_Tabulation/Category_Tab_Button_Move_Down_92.png" width="24"></a> und Nach unten verschieben <a class="image"><img alt="Category Tab Button ToBottom 92.png" src="../images/Cross_Tabulation/Category_Tab_Button_ToBottom_92.png" width="24"></a>, um die Kategorien als "unter 35", "35-54" und "55 und älter" neu zu ordnen:</li>
+      </ul>
+
+      <dl>
+        <dd><a class="image"><img alt="Crosstab0.png" src="../images/Cross_Tabulation/Crosstab0.png" width="532"></a></dd>
+      </dl>
+
+      <ul>
+        <li>Wiederholen Sie die gleichen Schritte für Spalte <b>C</b>, so dass die kategoriale Abbildung <b>&lt;Female, Male&gt;</b> ist (&lt;Weiblich, Männlich&gt;).</li>
+
+        <li>Wiederholen Sie die gleichen Schritte für Spalte <b>G</b>, so dass die kategoriale Abbildung <b>&lt;Better, Same, Worse&gt;</b> ist (&lt;Besser, Gleich, Schlechter&gt;).</li>
+      </ul>
+    </li>
+  </ol>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Cross_Tabulation/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Um fehlende Werte aus der Analyse auszuschließen, sollten Sie <a href="../../Tutorial/Tutorial/Categorical_Values_Ordering_and_Sharing.html" title="Tutorial:Categorical Values Ordering and Sharing">die Spalten als kategorisch festlegen</a>. Ansonsten werden die fehlenden Werte als numerische Werte behandelt.</p>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Performing_Cross_Tabulation_and_Chi-square"></a><span class="mw-headline">Kreuztabelle und Chi-Quadrat durchführen</span></h2>
+
+  <ol>
+    <li>Öffnen Sie den Dialog der Kreuztabelle und des Chi-Quadrats, indem Sie im Menü <b>Statistik: Deskriptive Statistik: Kreuztabelle und Chi-Quadrat</b> wählen.</li>
+
+    <li>Klicken Sie auf die Registerkarte <b>Eingabe</b>. Die Daten sind im Modus Rohdaten. Markieren Sie daher die Spalten <b>B</b>, <b>G</b> und <b>C</b> für <b>Zeile</b>, <b>Spalte</b> bzw. <b>Layer</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Crosstab1.png" src="../images/Cross_Tabulation/Crosstab1.png" width="356"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Registerkarte <b>Statistik</b>, deaktivieren Sie die Kontrollkästchen <b>Erwartete Anzahl</b>, <b>Residuum</b>, <b>Standardisiertes Residuum</b> und <b>Korrigiertes Residuum</b>. Akzeptieren Sie all die anderen Standardeinstellungen.
+
+      <dl>
+        <dd><a class="image"><img alt="Crosstab2.png" src="../images/Cross_Tabulation/Crosstab2.png" width="334"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Registerkarte <b>Tests</b> und aktivieren Sie das Kontrollkästchen <b>Chi-Quadrat-Test</b>. Erweitern Sie den Zweig <b>Assoziationsmaße</b> und aktivieren Sie dann die Kontrollkästchen <b>Kontingenzkoeffizienten</b>, <b>Phi</b> und <b>Cramérs V</b> (zum Messen der nominalen Assoziation).
+
+      <dl>
+        <dd><a class="image"><img alt="Crosstab3.png" src="../images/Cross_Tabulation/Crosstab3.png" width="253"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Registerkarte <b>Ausgabe</b> und aktivieren Sie das Kontrollkästchen <b>Mosaikdiagramm</b>. Übernehmen Sie die anderen Standardeinstellungen und klicken Sie auf <b>OK</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Crosstab44.png" src="../images/Cross_Tabulation/Crosstab44.png" width="389"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h2><a name="Interpreting_The_Results"></a><span class="mw-headline">Ergebnisse interpretieren</span></h2>
+
+  <p>Wechseln Sie zum Blatt <b>Crosstab1</b>.</p>
+
+  <h3><a name="Frequency_Distribution"></a><span class="mw-headline">Häufigkeitenverteilung</span></h3>
+
+  <p>Sie erhalten Informationen zur Häufigkeitenverteilung von dem <b>Mosaikdiagramm</b> und der <b>Kontingenztabelle</b>. Die Fläche von jedem Rechteck im <b>Mosaikdiagramm</b> ist proportional zu dem Prozentanteil der Y-Variablen auf jeder Stufe der X-Variablen, so dass Sie visuell die Häufigkeitenverteilung des "Finanzstatus" und "Alters" für weiblich, männlich und gesamt vergleichen können. Der <b>Kreuztabelle</b> können Sie noch spezifischere Informationen entnehmen. Wenn Sie das <b>Mosaikdiagramm</b> mit der <b>Kreuztabelle</b> kombinieren, erfahren Sie Folgendes:</p>
+
+  <ol>
+    <li>Es gibt einen großen Unterschied zwischen den Ansichten von jungen und älteren Frauen.
+
+      <ul>
+        <li>Die Mehrheit der Frauen unter 35, 59,5%, haben das Gefühl, dass sie einen besseren finanziellen Status haben. Die Mehrheit der Frauen über 55 und älter, 58,3%, denken, dass ihr finanzieller Status gleichbleibend ist.</li>
+
+        <li>Weniger Frauen unter 35, 11,9%, denken, dass ihr Wohlstandsstatus gleichbleibend ist, während weniger Frauen über 55, 11,1%, denken, dass sie finanziell besser dastehen.</li>
+      </ul>
+
+      <dl>
+        <dd><a class="image"><img alt="Crosstab5.png" src="../images/Cross_Tabulation/350px-Crosstab5.png" width="350"></a> <a class="image"><img alt="Crosstab6.png" src="../images/Cross_Tabulation/400px-Crosstab6.png" width="400"></a></dd>
+      </dl>
+    </li>
+
+    <li>Im Vergleich zu Frauen zeigt das Empfinden von Männern in Bezug auf ihren finanziellen Status ein anderes interessantes Muster:
+
+      <ul>
+        <li>Männer zeigen keinen signifikanten Unterschied beim finanziellen Status zwischen den Altersgruppen.</li>
+
+        <li>Männer im Alter von 35-54 tendieren dazu, etwas mehr Vertrauen in ihren finanziellen Status zu haben.</li>
+      </ul>
+
+      <dl>
+        <dd><a class="image"><img alt="Crosstab7.png" src="../images/Cross_Tabulation/350px-Crosstab7.png" width="350"></a> <a class="image"><img alt="Crosstab8.png" src="../images/Cross_Tabulation/350px-Crosstab8.png" width="350"></a></dd>
+      </dl>
+    </li>
+
+    <li>Unabhängig vom Geschlecht der Befragten gibt es einige Trends nach Altersgruppe:
+
+      <ul>
+        <li>Personen unter 55 haben eher Vertrauen in ihren finanziellen Status.</li>
+
+        <li>Personen über 55 haben eher das Gefühl, dass sich der finanzielle Status nicht geändert hat.</li>
+      </ul>
+
+      <dl>
+        <dd><a class="image"><img alt="Crosstab9.png" src="../images/Cross_Tabulation/350px-Crosstab9.png" width="350"></a> <a class="image"><img alt="Crosstab10.png" src="../images/Cross_Tabulation/400px-Crosstab10.png" width="400"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Detecting_Relationships_Between_Age_and_Financial_Status"></a><span class="mw-headline">Beziehung zwischen Alter und Finanzstatus ermitteln</span></h3>
+
+  <p>Die Tabelle <b>Chi-Quadrat-Tests</b> zeigt die Testergebnisse für die Unabhängigkeit der Zeilen- und Spaltenvariablen. Wenn <b>Wahrsch.&gt;Chi-Qdr.</b> kleiner ist als 0,05, bedeutet dies, dass die Zeilen- und Spaltenvariablen, hier Alter und Finanzstatus, eine signifikante Beziehung haben. Beachten Sie die Schlussfolgerungen in den Fußnoten unter der Tabelle. Sie können schlussfolgern, dass:</p>
+
+  <dl>
+    <dd>
+      <ul>
+        <li>Frauen in unterschiedlichem Alter eine unterschiedliche finanzielle Situation haben,</li>
+
+        <li>Dagegen gibt es keinen Nachweis dafür, dass eine Verbindung zwischen dem Alter von Männern und ihrem Finanzstatus besteht.</li>
+
+        <li>Unabhängig vom Geschlecht haben Personen in unterschiedlichem Alter eine unterschiedliche finanzielle Situation.</li>
+      </ul>
+
+      <dl>
+        <dd><a class="image"><img alt="Crosstab11.png" src="../images/Cross_Tabulation/Crosstab11.png" width="654"></a></dd>
+      </dl>
+    </dd>
+  </dl>
+
+  <h3><a name="Assessing_the_Strength_of_the_Relationship"></a><span class="mw-headline">Stärke der Beziehung bewerten</span></h3>
+
+  <p>Die Tabelle <b>Assoziationsmaße</b> kann helfen, die Stärke der Beziehung zwischen "Finanzstatus" und "Alter" zu bestimmen. Da dies eine 3*3-Tabelle ist (drei Stufen für Alter und drei Stufen für Finanzstatus), können Sie <b>Kontingenzkoeffizienten</b> wählen, um layerübergreifend zu vergleichen. (Lesen Sie bitte die <a class="external text" href="../../UserGuide/Category/Cross_Tabulation.html#Selecting_Methods_for_Measuring_Association">Einführungsseite</a>, um sich über den Unterschied der drei Statistiken zu informieren). Der Tabelle können Sie entnehmen:</p>
+
+  <dl>
+    <dd>
+      <ul>
+        <li>Der Finanzstatus von Frauen zeigt in Bezug auf das Alter eine stärkere Assoziation als im Fall von Männern. (0,444 vs. 0.155)</li>
+      </ul>
+
+      <dl>
+        <dd><a class="image"><img alt="Crosstab12.png" src="../images/Cross_Tabulation/Crosstab12.png" width="600"></a></dd>
+      </dl>
+    </dd>
+  </dl>

@@ -1,0 +1,89 @@
+﻿<h1 class="firstHeading">Categorical Values Ordering and Sharing</h1>
+
+  <p class='urlname' style='display: none'>Categorical-Values-Ordering</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Contents</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#Manipulate_Categorical_Values"><span class="tocnumber">3</span> <span class="toctext">Manipulate Categorical Values</span></a></li>
+
+      <li class="toclevel-1 tocsection-4"><a href="#Share_Categorical_Values"><span class="tocnumber">4</span> <span class="toctext">Share Categorical Values</span></a></li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+
+  <p>Categorical values are used to store categories information in a column. In Origin, you have the capacity to manually add, remove, order categories in a column and the categorical information stored in the column will be carried over to result sheet during analysis. You can easily save categories into a text file and share across columns or worksheets.</p>
+
+  <p class="version">Minimum Origin Version Required: Origin 2015 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+
+  <ul>
+    <li>How to manipulate categorical values</li>
+
+    <li>How to order categorical map</li>
+
+    <li>How to share categorical values</li>
+  </ul>
+
+  <h2><a name="Manipulate_Categorical_Values"></a><span class="mw-headline">Manipulate Categorical Values</span></h2>
+
+  <ol>
+    <li>To import the Origin sample data, select <b>Data: Import from File: Excel(XLS, XLSX, XLSM...)</b> from the Origin menu. Browse to <b>&lt;Origin Program Folder&gt;\Samples\Statistics</b> and select <i>HouseholdCareSamples.xls</i>. Click the <b>Add File(s)</b> button. Make sure that the <b>Show Options Dialog:</b> check box is selected. Click the <b>OK</b> button to open the <b>impMSExcel</b> dialog.</li>
+
+    <li>Specify the following settings in the <b>impMSExcel</b> dialog:
+
+      <ul>
+        <li>Under <b>File Info</b>, expand the <b>HouseholdCareSamples.xls</b> branch. Unselect <b>File Sheet(s)</b>, then check the check boxes next to <b>HQ Family Mart</b> and <b>TX Trust-Mart</b>.</li>
+
+        <li>In the <b>Header Lines</b> branch, select <b>1</b> in <b>Number of Subheader Lines</b> drop-down list and then <b>1</b> for <b>Long Names</b>. Check <b>Apply Header to All Sheets</b> box.</li>
+
+        <li>Click <b>OK</b> to import the data into Origin.</li>
+      </ul>
+    </li>
+
+    <li>On the <b>HQ Family Mart</b> worksheet, highlight column <i>Category</i> (long name) and right click to select <b>Set As Categorical</b>. Double click on the <b>Unsorted</b> on <b>Categories</b> label row to bring up <b>Categories</b> dialog.</li>
+
+    <li>Now we want to only keep <b>Household Clean</b>, <b>Kitchen Clean</b>, <b>Dishwashing Liquid</b>, <b>Laundry Powder</b> and <b>Fabric Conditioner</b> five categories and order them as listed. To do so, first check <b>Customize Categories (Add, Delete, Set Arbitrary Order)</b> box, hold Ctrl key to select unwanted categorical values and use <b>Remove</b> button <a class="image"><img alt="Category Tab Button Delete 92.png" src="../images/Categorical_Values_Ordering_and_Sharing/Category_Tab_Button_Delete_92.png" width="24"></a> to remove them.<br>
+    <a class="image"><img alt="Categorical Values Ordering Tutorial 02.png" src="../images/Categorical_Values_Ordering_and_Sharing/Categorical_Values_Ordering_Tutorial_02.png" width="396"></a><br></li>
+
+    <li>Drag the row headings or use the <a class="image"><img alt="Category Tab Button ToTop 92.png" src="../images/Categorical_Values_Ordering_and_Sharing/Category_Tab_Button_ToTop_92.png" width="24"></a>, <a class="image"><img alt="Category Tab Button Move Up 92.png" src="../images/Categorical_Values_Ordering_and_Sharing/Category_Tab_Button_Move_Up_92.png" width="24"></a>, <a class="image"><img alt="Category Tab Button Move Down 92.png" src="../images/Categorical_Values_Ordering_and_Sharing/Category_Tab_Button_Move_Down_92.png" width="24"></a> and <a class="image"><img alt="Category Tab Button ToBottom 92.png" src="../images/Categorical_Values_Ordering_and_Sharing/Category_Tab_Button_ToBottom_92.png" width="24"></a> buttons to reorder, as shown below:<br>
+    <a class="image"><img alt="Categorical Values Ordering Tutorial 03.png" src="../images/Categorical_Values_Ordering_and_Sharing/Categorical_Values_Ordering_Tutorial_03.png" width="417"></a><br></li>
+
+    <li>Then click <b>Save &gt;</b> button and select <b>Save As</b> to bring up <b>Categories Save as</b> dialog. Enter <i>HouseholdCare Category</i> as <b>Name</b> and click <b>OK</b> to save the categorical values in a text file under displayed <b>Save Path</b> for sharing later.<br>
+    <a class="image"><img alt="Categorical Values Ordering Tutorial 04.png" src="../images/Categorical_Values_Ordering_and_Sharing/Categorical_Values_Ordering_Tutorial_04.png" width="300"></a><br></li>
+
+    <li>Click <b>OK</b> to close <b>Categories</b> dialog box.</li>
+
+    <li>Next we want to know the total number of items in each of the five categories specified in step 4 and make a column plot of results. To do so, highlight column <i>Number</i> (long name) and go to <b>Statistics: Descriptive Statistics: Statistics on Columns: Open Dialog...</b> to bring up <b>Statistics on Columns</b> dialog, click right-sided triangle icon on <b>Group</b> row to select <b>E(Y):Category</b> as grouping column and click <b>OK</b> to close the dialog. In the prompt dialog, click <b>OK</b>.</li>
+
+    <li>Switch to <i>DescStatsQuantities1</i> flat sheet, select column <i>N total</i> (long name) and go to <b>Plot: 2D: Bar: Column</b> to create the column plot.</li>
+
+    <li>Double click on the X axis tick labels to bring up <b>Tick Labels</b> page on <b>Axis</b> dialog, go to <b>Format</b> tab and select <i>45</i> from <b>Rotate (deg.)</b> drop-down list and click <b>OK</b> to close the dialog.</li>
+
+    <li>Double click on the graph to bring up <b>Plot Details</b> dialog, expand <b>Layer1</b> node to go to its subnode. In the Pattern tab, expand the <b>Color</b> drop-down list in the <b>Fill</b> group, select <b>By Points</b> tab, and choose the color <b>Black</b> under <b>Increment from</b> list to set it as the starting color. Click <b>OK</b> to close dialog.<br>
+    <a class="image"><img alt="Categorical Values Ordering Tutorial 04a.png" src="../images/Categorical_Values_Ordering_and_Sharing/Categorical_Values_Ordering_Tutorial_04a.png" width="918"></a><br></li>
+
+    <li>Right click on the page and select <b>Fit Page To Layers...</b> and click <b>OK</b> in the appeared dialog to bring the X axis label into page. Delete the legend, use <b>Text</b> tool to add <i>HQ Family Mart</i> as graph title. Move X axis title and added graph title to proper positions, and the column plot looks like the following:<br>
+    <a class="image"><img alt="Categorical Values Ordering Tutorial 05.png" src="../images/Categorical_Values_Ordering_and_Sharing/Categorical_Values_Ordering_Tutorial_05.png" width="616"></a><br></li>
+  </ol>
+
+  <h2><a name="Share_Categorical_Values"></a><span class="mw-headline">Share Categorical Values</span></h2>
+
+  <ol>
+    <li>Continue from the section above, now we want to share the categories saved earlier with second worksheet <i>TX Trust-Mart</i>. To do so, activate <i>TX Trust-Mart</i> sheet and highlight column <i>Category</i> (long name) and right click to select <b>Set As Categorical</b>.</li>
+
+    <li>Double click on the <i>Unsorted</i> on <b>Categories</b> label row to bring up <b>Categories</b> dialog, check <b>Customize Categories (Add, Delete, Set Arbitrary Order)</b> box and click <b>Load &gt;</b> button on the right and select appeared <i>HouseholdCare Category</i> file.<br>
+    <a class="image"><img alt="Categorical Values Ordering Tutorial 06.png" src="../images/Categorical_Values_Ordering_and_Sharing/Categorical_Values_Ordering_Tutorial_06.png" width="587"></a><br></li>
+
+    <li>Follow steps 7-12 in above section and add text <i>TX Trust-Mart</i> instead of <i>HQ Family Mart</i> in step 12, we will obtain a column plot from <i>TX Trust Mart</i> source sheet as following:<br>
+    <a class="image"><img alt="Categorical Values Ordering Tutorial 07.png" src="../images/Categorical_Values_Ordering_and_Sharing/Categorical_Values_Ordering_Tutorial_07.png" width="616"></a><br></li>
+  </ol>

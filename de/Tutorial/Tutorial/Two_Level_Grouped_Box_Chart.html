@@ -1,0 +1,310 @@
+﻿<h1 class="firstHeading">Zweistufiges gruppiertes Boxdiagramm</h1>
+
+  <p class='urlname' style='display: none'>Two_Level_Grouped_Box_Chart</p>
+
+  <p>&#160;</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Data_Preparation"><span class="tocnumber">3</span> <span class="toctext">Datenvorbereitung</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Using_data_filter_to_select_worksheet_data"><span class="tocnumber">3.1</span> <span class="toctext">Datenfilter zum Auswählen von Arbeitsblattdaten verwenden</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Stacking_columns_to_convert_data_into_index_mode"><span class="tocnumber">3.2</span> <span class="toctext">Spalten zum Konvertieren von Daten in den Indexmodus stapeln</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#Controlling_the_categorical_values"><span class="tocnumber">3.3</span> <span class="toctext">Kategoriale Werte steuern</span></a></li>
+        </ul>
+      </li>
+
+      <li class="toclevel-1 tocsection-7"><a href="#Create_a_grouped_box_chart_from_indexed_data"><span class="tocnumber">4</span> <span class="toctext">En gruppiertes Boxdiagramm aus Indexdaten erstellen</span></a></li>
+
+      <li class="toclevel-1 tocsection-8"><a href="#Customize_box_chart_settings"><span class="tocnumber">5</span> <span class="toctext">Einstellungen eines Boxdiagramms benutzerdefiniert anpassen</span></a></li>
+
+      <li class="toclevel-1 tocsection-9"><a href="#Customize_the_axis_dialog_for_box_charts"><span class="tocnumber">6</span> <span class="toctext">Dialog Achsen für Boxdiagramme benutzerdefiniert anpassen</span></a></li>
+
+      <li class="toclevel-1 tocsection-10"><a href="#Add_a_graphical_symbol_of_the_box_into_box_chart"><span class="tocnumber">7</span> <span class="toctext">Ein grafisches Symbol der Box in ein Boxdiagramm einfügen</span></a></li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Origins Boxdiagramm wurde erweitert und ist benutzerdefiniert anpassbar. Dieses Tutorial zeigt, wie Sie ein zweistufiges gruppiertes Boxdiagramm aus Indexdaten in Origin erstellen.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="TwoLevelGroupedBoxChart0.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart0.png" width="644"></a></dd>
+  </dl>
+
+  <p>&#160;</p>
+
+  <p class="version">Origin-Version mind. erforderlich: 2015 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>den Datenfilter zum Auswählen von Arbeitsblattdaten verwenden.</li>
+
+    <li>Spalten für das Boxdiagramm stapeln.</li>
+
+    <li>kategoriale Werte steuern.</li>
+
+    <li>ein gruppiertes Boxdiagramm aus Indexdaten erstellen.</li>
+
+    <li>Einstellungen eines Boxdiagramms benutzerdefiniert anpassen.</li>
+
+    <li>den Dialog Achsen für Boxdiagramme benutzerdefiniert anpassen.</li>
+
+    <li>ein Diagramm zu einem Boxdiagramm hinzufügen.</li>
+  </ul>
+
+  <h2><a name="Data_Preparation"></a><span class="mw-headline">Datenvorbereitung</span></h2>
+
+  <p>Dieses Tutorial ist mit dem Projekt <i>&lt;Origin -Verzeichnis&gt;\Samples\Tutorial Data.opj</i> verbunden. Öffnen Sie daher das Projekt <b>Tutorial Data.opj</b> und navigieren Sie zuerst zum Ordner <i>Two-Level Grouped Box Chart</i>.</p>
+
+  <h3><a name="Using_data_filter_to_select_worksheet_data"></a><span class="mw-headline">Datenfilter zum Auswählen von Arbeitsblattdaten verwenden</span></h3>
+
+  <p>Mit Hilfe der folgenden Schritte können Sie die Daten auswählen, die Sie mit dem Datenfilter analysieren möchten:</p>
+
+  <ol>
+    <li>Aktivieren Sie das Arbeitsblatt <b>US Mean Temperature</b> und markieren Sie <b>Spalte B</b>.</li>
+
+    <li>Klicken Sie auf <b>Datenfilter hinzufügen/entfernen</b> <a class="image"><img alt="Button Add Or Remove Data Filter.png" src="../images/Two_Level_Grouped_Box_Chart/Button_Add_Or_Remove_Data_Filter.png" width="23"></a> auf der Symbolleiste <b>Worksheet-Daten</b>, um leere Datenfilter zu <b>Spalte B</b> hinzuzufügen.</li>
+
+    <li>Klicken Sie auf das Filtersymbol im Spaltenkopf von <b>Spalte B</b>, deaktivieren Sie die Kontrollkästchen vor <b>Alle auswählen</b> und aktivieren Sie erneut CA, FL und TX.</li>
+
+    <li>Klicken Sie auf <b>OK</b>, um den Filter anzuwenden.
+
+      <dl>
+        <dd><a class="image"><img alt="TwoLevelGroupedBoxChart1.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart1.png" width="250"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Stacking_columns_to_convert_data_into_index_mode"></a><span class="mw-headline">Spalten zum Konvertieren von Daten in den Indexmodus stapeln</span></h3>
+
+  <p>Mit den folgenden Schritten können Sie Daten aus dem Rohmodus in den Indexmodus konvertieren:</p>
+
+  <ol>
+    <li>Markieren Sie <b>Spalte E</b> bis <b>Spalte P</b> (von <b>Januar</b> bis <b>Dezember</b>) und wählen Sie dann <b>Worksheet: Spalten stapeln</b> im Hauptmenü, um den Dialog <b>Spalten stapeln</b> zu öffnen.</li>
+
+    <li>Aktivieren Sie das Kontrollkästchen vor <b>Andere Spalte(n) einbinden</b>, klicken Sie auf die Schaltfläche <b>Aus Arbeitsblatt auswählen</b> und wählen Sie die Spalten <b>A</b> und <b>B</b> im Arbeitsblatt.</li>
+
+    <li>Ändern Sie <b>Langnamen der Gruppenspalte</b> in “Monat” und <b>Langname der Datenspalte</b> in “Temperatur”.
+
+      <dl>
+        <dd><a class="image"><img alt="TwoLevelGroupedBoxChart2.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart2.png" width="772"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um das neue Arbeitsblatt <b>StackCols1</b> zu öffnen.</li>
+
+    <li>Klicken Sie auf das <b>Schloss</b>symbol im Spaltenkopf und wählen Sie <b>Modus Neu berechnen: Kein</b> im Kontextmenü.
+
+      <dl>
+        <dd><a class="image"><img alt="TwoLevelGroupedBoxChart3.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart3.png" width="300"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Controlling_the_categorical_values"></a><span class="mw-headline">Kategoriale Werte steuern</span></h3>
+
+  <p>Mit den folgenden Schritten können Sie die Reihenfolge der Werte, wie sie im Diagramm abgebildet wird, benutzerdefiniert anpassen. Es wird dabei keine Änderung an den Quelldaten vorgenommen:</p>
+
+  <ol>
+    <li>Markieren Sie <b>Spalte B</b> im Arbeitsblatt <b>StackCols1</b> und klicken Sie dann mit der rechten Maustaste, um die Option <b>Als Kategorisch setzen</b> im Kontextmenü auszuwählen.
+
+      <dl>
+        <dd><a class="image"><img alt="TwoLevelGroupedBoxChart4.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart4.png" width="500"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie doppelt auf die Zelle Kategorien von Spalte <b>B</b>,"Unsorted", um den Dialog <b>Kategorien</b> zu öffnen.</li>
+
+    <li>Deaktivieren Sie das Kontrollkästchen <b>&lt;auto&gt;</b> und legen Sie dann die Reihenfolge der Elemente fest: CA-TX-FL, indem Sie die Schaltflächen <b>An erste Stelle verschieben</b><a class="image"><img alt="Category Tab Button ToTop 92.png" src="../images/Two_Level_Grouped_Box_Chart/Category_Tab_Button_ToTop_92.png" width="24"></a>, <b>Nach oben verschieben</b><a class="image"><img alt="Category Tab Button Move Up 92.png" src="../images/Two_Level_Grouped_Box_Chart/Category_Tab_Button_Move_Up_92.png" width="24"></a>, <b>Nach unten verschieben</b><a class="image"><img alt="Category Tab Button Move Down 92.png" src="../images/Two_Level_Grouped_Box_Chart/Category_Tab_Button_Move_Down_92.png" width="24"></a> und <b>An letzte Stelle verschieben</b><a class="image"><img alt="Category Tab Button ToBottom 92.png" src="../images/Two_Level_Grouped_Box_Chart/Category_Tab_Button_ToBottom_92.png" width="24"></a> verwenden.
+
+      <dl>
+        <dd><a class="image"><img alt="TwoLevelGroupedBoxChart5.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart5.png" width="546"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wiederholen Sie Schritt 2 und Schritt 3 in <b>Spalte C</b>, um die Reihenfolge der Elemente festzulegen: Januar bis Dezember.</li>
+  </ol>
+
+  <h2><a name="Create_a_grouped_box_chart_from_indexed_data"></a><span class="mw-headline">Ein gruppiertes Boxdiagramm aus Indexdaten erstellen</span></h2>
+
+  <ol>
+    <li>Markieren Sie <b>Spalte D</b> im Arbeitsblatt <b>StackCols1</b> und wählen Sie dann <b>Zeichnen: Kategorial: Gruppierte Boxdiagramme, Index</b> im Hautmenü.</li>
+
+    <li>Klicken Sie im geöffneten Dialog <b>Plotting: gboxindexed</b> auf die dreieckige Schaltfläche oben rechts im Abschnitt <b>Gruppenspalte(n)</b> und wählen Sie dann <b>C(Y): Month</b> und <b>B(Y): State</b> in dieser Reihenfolge im Kontextmenü.
+
+      <dl>
+        <dd><a class="image"><img alt="TwoLevelGroupedBoxChart7.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart7.png" width="645"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um ein gruppiertes Boxdiagramm mit zwei Stufen zu erstellen.
+
+      <dl>
+        <dd><a class="image"><img alt="TwoLevelGroupedBoxChart8.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart8.png" width="428"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h2><a name="Customize_box_chart_settings"></a><span class="mw-headline">Einstellungen eines Boxdiagramms benutzerdefiniert anpassen</span></h2>
+
+  <ol>
+    <li>Wählen Sie den Diagrammlayer (ein Klick auf eine beliebige Stelle im unteren/mittleren Bereich des Layers scheint am besten zu funktionieren) und ziehen Sie dann an den Bedienelementen, um die Größe nach eigenen Wünschen zu verändern (positionieren Sie den Cursor auf einem Bedienelement und ziehen Sie an ihm, wenn der Cursor ein Doppelpfeil wird).<br>
+    <a class="image"><img alt="TwoLevelGroupedBoxChart45.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart45.png" width="460"></a></li>
+
+    <li>Wählen Sie <b>Grafik: Seite an Layer anpassen</b> im Hauptmenü, um den Dialog zu öffnen, und wählen Sie dann <b>Nur Höhe</b> in der Auswahlliste <b>Richtung einstellen</b>, um die Seitenbreite an das Begrenzungsfeld anzupassen.<br>
+    <a class="image"><img alt="TwoLevelGroupedBoxChart40.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart40.png" width="378"></a><br>
+    <br>
+    Das Diagramm sieht dann folgendermaßen aus:<br>
+    <a class="image"><img alt="TwoLevelGroupedBoxChart42.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart42.png" width="613"></a></li>
+
+    <li>Klicken Sie doppelt auf eine der Boxen, um den Dialog <b>Details Zeichnung</b> zu öffnen und zur Registerkarte <b>Gruppe</b> zu gehen. Setzen Sie sowohl für <b>Randfarbe</b> als auch für <b>Boxfarbe</b> das <b>Inkrement</b> auf <b>Nach Eins</b> und die <b>Untergruppe</b> auf <b>Mit Untergruppe</b>, so dass jede Untergruppe eine andere Farbe hat. Klicken Sie auf die Farbskala im Abschnitt <b>Details</b> und wählen Sie <b>Grau</b> in der Auswahlliste für <b>Randfarbe</b> und <b>Boxfarbe</b>.<br>
+    <a class="image"><img alt="TwoLevelGroupedBoxChart43.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart43.png" width="652"></a></li>
+
+    <li>Gehen Sie zur Registerkarte <b>Muster</b>, deaktivieren Sie das Kontrollkästchen <b>Linientransparenz folgen</b> und setzen Sie die Transparenz auf 30%.<br>
+    <a class="image"><img alt="TwoLevelGroupedBoxChart12.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart12.png" width="652"></a></li>
+
+    <li>Wechseln Sie zur Registerkarte <b>Abstände</b>, um den Wert für den Abstand zwischen und innerhalb der Untergruppen festzulegen.<br>
+    <a class="image"><img alt="TwoLevelGroupedBoxChart13.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart13.png" width="652"></a></li>
+
+    <li>Gehen Sie zur Registerkarte <b>Boxdiagramm</b>, um den Bereich von Box und Whisker festzulegen.<br>
+    <a class="image"><img alt="TwoLevelGroupedBoxChart14.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart14.png" width="652"></a></li>
+
+    <li>Gehen Sie zur Registerkarte <b>Prozentangaben</b>, deaktivieren Sie das Kontrollkästchen vor <b>99%</b>, <b>1%</b>, <b>Max.</b> und <b>Min.</b> und wählen Sie dann die Form und Größe der <b>Mittelwert</b>markierung.<br>
+    <a class="image"><img alt="TwoLevelGroupedBoxChart15.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart15.png" width="652"></a></li>
+
+    <li>Gehen Sie zur Registerkarte <b>Linien</b>, um die Whiskerenden benutzerdefiniert anzupassen und das Kontrollkästchen <b>Median</b> zu deaktivieren.<br>
+    <a class="image"><img alt="TwoLevelGroupedBoxChart16.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart16.png" width="652"></a></li>
+
+    <li>Klicken Sie auf <b>OK</b>, um die Einstellungen anzuwenden.</li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf die Legende und wählen Sie <b>Legende: Boxdiagrammkomponenten</b> im Kontextmenü. Wählen Sie im Dialog '<b>Erweiterte Boxlegende: legendbox</b> die Option <b>Zustand</b> in der Auswahlliste <b>Boxidentifizierer</b>.<br>
+    <a class="image"><img alt="TwoLevelGroupedBoxChart46.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart46.png" width="304"></a><br>
+    <br>
+    Das Diagramm sieht dann folgendermaßen aus:<br>
+    <a class="image"><img alt="TwoLevelGroupedBoxChart17.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart17.png" width="631"></a></li>
+  </ol>
+
+  <h2><a name="Customize_the_axis_dialog_for_box_charts"></a><span class="mw-headline">Dialog Achsen für Boxdiagramme benutzerdefiniert anpassen</span></h2>
+
+  <ol>
+    <li>Nehmen Sie für die <b>X-Achse</b> folgende Einstellungen vor:
+
+      <ul>
+        <li>Klicken Sie doppelt auf die <b>X-Achse</b>, um den <b>Dialog Achsen</b> zu öffnen, und wählen Sie dann <b>Unten 1</b> im linken Bedienfeld.</li>
+
+        <li>Gehen Sie zur Registerkarte <b>Beschriftung der Hilfsstriche</b>, setzen Sie die Schriftgröße von <b>Unten 1</b> auf der Registerkarte <b>Format</b> auf 14 und duplizieren Sie die Einstellungen der Registerkarte <b>Tabelle</b>, wie unten gezeigt.
+
+          <dl>
+            <dd><a class="image"><img alt="TwoLevelGroupedBoxChart18.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart18.png" width="500"></a></dd>
+          </dl>
+        </li>
+
+        <li>Wählen Sie <b>Unten 2</b> im linken Bedienfeld, deaktivieren Sie das Kontrollkästchen <b>&lt;Auto&gt;</b> und setzen Sie die Schriftgröße von <b>Unten 2</b> auf der Registerkarte <b>Format</b> auf 11. Duplizieren Sie die Einstellungen auf der Registerkarte <b>Tabelle</b>, wie unten zu sehen.
+
+          <dl>
+            <dd><a class="image"><img alt="TwoLevelGroupedBoxChart19.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart19.png" width="500"></a></dd>
+          </dl>
+        </li>
+      </ul>
+
+      <table class="noborder">
+        <tr>
+          <td style="vertical-align:top" width="60"><img src="../images/Two_Level_Grouped_Box_Chart/Tip_icon.png" width="57" border="0" alt=""></td>
+
+          <td>
+            <p>Die Elemente des Tabellenlayouts werden unten gezeigt:</p>
+
+            <p><a class="image"><img alt="TwoLevelGroupedBoxChart44.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart44.png" width="600"></a></p><br>
+            <br>
+          </td>
+        </tr>
+      </table>
+
+      <ul>
+        <li>Gehen Sie zur Registerkarte <b>Linie und Hilfsstriche</b> und ändern Sie den Stil der großen Hilfsstriche in <b>Innen</b>.
+
+          <dl>
+            <dd><a class="image"><img alt="TwoLevelGroupedBoxChart20.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart20.png" width="500"></a></dd>
+          </dl>
+        </li>
+      </ul>
+    </li>
+
+    <li>Ändern Sie für die <b>Y-Achse</b> Skalierung, Titel, Schriftgröße der Hilfsstrichsbeschriftung und Stil der Hilfsstriche, wie unten gezeigt:<br>
+    <a class="image"><img alt="TwoLevelGroupedBoxChart21.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart21.png" width="500"></a><br>
+    <a class="image"><img alt="TwoLevelGroupedBoxChart22.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart22.png" width="500"></a><br>
+    <a class="image"><img alt="TwoLevelGroupedBoxChart23.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart23.png" width="500"></a><br>
+    <a class="image"><img alt="TwoLevelGroupedBoxChart39.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart39.png" width="500"></a></li>
+
+    <li>Verbergen Sie die obere und rechte Achse der Zeichnung:<br>
+    Drücken Sie die Strg-Taste und wählen Sie im linken Bedienfeld <b>Oben</b> und <b>Rechts</b> und gehen Sie dann zur Registerkarte <b>Linie und Hilfsstriche</b>, um das Kontrollkästchen <b>Linien und Hilfsstriche zeigen</b>.<br>
+    <a class="image"><img alt="TwoLevelGroupedBoxChart24.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart24.png" width="500"></a></li>
+
+    <li>Klicken Sie auf <b>OK</b>, um diese Einstellungen anzuwenden.</li>
+
+    <li>Markieren Sie die <b>Legende</b> und klicken Sie auf <b>Löschen</b>, um sie zu entfernen. Das Diagramm sollte nun wie unten aussehen:<br>
+    <a class="image"><img alt="TwoLevelGroupedBoxChart26.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart26.png" width="636"></a></li>
+  </ol>
+
+  <h2><a name="Add_a_graphical_symbol_of_the_box_into_box_chart"></a><span class="mw-headline">Ein grafisches Symbol der Box in ein Boxdiagramm einfügen</span></h2>
+
+  <p>Wenn Sie ein grafisches Symbol hinzufügen möchten, um auf die Bedeutung von jeder Linie in der Box hinzuweisen, können Sie folgende Schritte befolgen:</p>
+
+  <ol>
+    <li>Aktivieren Sie die Arbeitsmappe <b>US Mean Temperature</b>, klicken Sie mit der rechten Maustaste auf die Beschriftung unten im Arbeitsblatt und wählen Sie <b>Hinzufügen</b>, um ein neues Arbeitsblatt in die Arbeitsmappe einzufügen.</li>
+
+    <li>Geben Sie 1 bis 5 in die Zeilen von <b>Spalte A</b> ein.<br>
+    <a class="image"><img alt="TwoLevelGroupedBoxChart27.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart27.png" width="218"></a></li>
+
+    <li>Markieren Sie <b>Spalte A</b> und wählen Sie dann <b>Zeichnen: Statistisch: Boxdiagramm</b>, um ein einfaches Boxdiagramm zu erstellen.<br>
+    <a class="image"><img alt="TwoLevelGroupedBoxChart28.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart28.png" width="600"></a></li>
+
+    <li>Klicken Sie zum Öffnen des Dialogs <b>Details Zeichnung</b> doppelt auf das Diagramm.</li>
+
+    <li>Legen Sie für das Objekt <b>Graph2</b> die Breite und Höhe der Seite auf der Registerkarte <b>Drucken/Druckbereich</b> fest.<br>
+    <a class="image"><img alt="TwoLevelGroupedBoxChart29.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart29.png" width="550"></a></li>
+
+    <li>Gehen Sie für das Objekt <b>Layer1</b> zur Registerkarte <b>Größe und Performance</b> und legen Sie die Größe von <b>Layer1</b> fest.<br>
+    <a class="image"><img alt="TwoLevelGroupedBoxChart30.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart30.png" width="550"></a></li>
+
+    <li>Gehen Sie für das Objekt Box zur Registerkarte <b>Muster</b> und legen Sie folgende Einstellungen fest.<br>
+    <a class="image"><img alt="TwoLevelGroupedBoxChart31.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart31.png" width="550"></a></li>
+
+    <li>Wechseln Sie zu den Registerkarten <b>Prozentangaben</b> und <b>Linie</b> und wählen Sie die gleiche Einstellung des gruppierten Boxdiagramms <b>Graph1</b>.<br>
+    <a class="image"><img alt="TwoLevelGroupedBoxChart32.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart32.png" width="550"></a><br>
+    <a class="image"><img alt="TwoLevelGroupedBoxChart33.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart33.png" width="550"></a></li>
+
+    <li>Gehen Sie zur Registerkarte <b>Boxdiagramm</b>, aktivieren Sie das Kontrollkästchen vor <b>Beschriftung der Boxen</b>, <b>Beschriftung der Whisker</b> und <b>Beschriftung des Mittelwerts</b> und zeigen Sie sie in <b>Perzentil</b>. Ändern Sie dann die Breite der Box in 20% und legen Sie den Bereich für Box und Whisker fest.<br>
+    <a class="image"><img alt="TwoLevelGroupedBoxChart34.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart34.png" width="550"></a></li>
+
+    <li>Klicken Sie auf <b>OK</b>, um diese Einstellungen anzuwenden.</li>
+
+    <li>Markieren und löschen Sie die X-Achse, die Y-Achse und den Y-Achsentitel <b>Range</b> sowie <b>Legend</b> von <b>Graph2</b>.<br>
+    <a class="image"><img alt="TwoLevelGroupedBoxChart35.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart35.png" width="167"></a></li>
+
+    <li>Drücken Sie Strg + C in <b>Graph2</b> und dann Strg + V in <b>Graph1</b>, um das grafische Symbol in das Boxdiagramm zu kopieren.</li>
+
+    <li>Wählen Sie das grafische Symbol in <b>Graph1</b> und verändern Sie seine Größe. Verschieben Sie es dann an eine geeignete Stelle.</li>
+  </ol>
+
+  <p>Am Ende erhalten Sie das endgültige Diagramm.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="TwoLevelGroupedBoxChart0.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart0.png" width="644"></a></dd>
+  </dl>

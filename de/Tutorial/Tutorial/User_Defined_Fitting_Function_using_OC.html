@@ -1,0 +1,238 @@
+﻿<h1 class="firstHeading">Benutzerdefinierte Anpassungsfunktion</h1>
+
+  <p class='urlname' style='display: none'>UserDef-FitFunc</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#How_to_Create_a_Fitting_Function_and_Use_it_to_Perform_Curve_Fitting"><span class="tocnumber">3</span> <span class="toctext">Eine Fitfunktion erstellen und zum Durchführen einer Kurvenanpassung verwenden</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Method_1:_Using_Simple_Fit_app"><span class="tocnumber">3.1</span> <span class="toctext">Methode 1: App Simple Fit verwenden</span></a></li>
+
+          <li class="toclevel-2 tocsection-5">
+            <a href="#Method_2:_Using_Fitting_Function_Organizer_and_NLFit_Tool"><span class="tocnumber">3.2</span> <span class="toctext">Methode 2: Dialog Fitfunktionen verwalten und Hilfsmittel NLFit verwenden</span></a>
+
+            <ul>
+              <li class="toclevel-3 tocsection-6"><a href="#Step_1:_Create_a_Fitting_Function_Using_Fitting_Function_Organizer"><span class="tocnumber">3.2.1</span> <span class="toctext">Schritt 1: Eine Fitfunktion mit Hilfe des Dialogs Fitfunktionen verwalten erstellen</span></a></li>
+
+              <li class="toclevel-3 tocsection-7"><a href="#Step_2:Carry_Out_Curve_Fitting_using_NLFit_Tool"><span class="tocnumber">3.2.2</span> <span class="toctext">Schritt 2: Kurvenanpassung mit dem Hilfsmittel NLFit durchführen</span></a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/User_Defined_Fitting_Function_using_OC/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/User_Defined_Fitting_Function_using_OC/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/jwplayer.html?v=ftp/mm_tutorials/mp4/Fit_by_User_Functions.mp4%7C767%7C600" target="_blank">Benutzerdefinierte Anpassungsfunktionen</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=3" target="_blank">Minitool Quick Fit</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=67" target="_blank">Hilfsmittel Nichtlinearer Kurvenfit</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%">
+        <a class="image"><img alt="Website blog icon circle.png" src="../images/User_Defined_Fitting_Function_using_OC/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/User_Defined_Fitting_Function_using_OC/Blog_Image_33x33px.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="http://blog.originlab.com/use-initial-formula-to-better-guess-fitting-parameter-values-from-data" target="_blank">Anfängliche Formel verwenden, um die Werte der Anpassungsparameter besser aus den Daten schätzen zu können</a></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Sie können zusätzlich zu den <a class="external text" href="../../UserGuide/Category/Appendix_3_-_Built-in_Functions.html">über 200 Standardanpassungsfunktionen</a> auch Ihre eigenen Anpassungsfunktionen in Origin erstellen. Eine Anzahl von Origin-Hilfsmitteln unterstützen die Anpassung mit Ihren eigenen Funktionen, einschließlich:</p>
+
+  <ul>
+    <li>
+      <a class="external text" href="http://originlab.com/fileExchange/details.aspx?fid=239" target="_blank">App <b>Simple Fit</b></a>
+
+      <dl>
+        <dd>
+          Die App <b>Simple Fit</b> bietet eine viel bequemere Methode, einfache Funktionen anzupassen. Sie lässt sich mit der Form y = f(x) ausdrücken. Sie müssen nur Ihre Formel eingeben oder eine existierende Funktion auswählen, die Initialisierungswerte festlegen und können dann sofort die Anpassungsberichte erzeugen. Wie diese App funktioniert, erfahren Sie in <a href="#Method_1:_Using_Simple_Fit_app">diesem Abschnitt</a>.
+
+          <dl>
+            <dd><b>Hinweis:</b> Die App Simple Fit ist in der Origin-Software vorinstalliert. Sie können sie über die <a class="external text" href="../../UserGuide/UserGuide/Apps.html#The_Apps_Gallery"><b>App-Galerie</b></a> bei aktiviertem Diagrammfenster aufrufen.</dd>
+          </dl>
+        </dd>
+      </dl>
+    </li>
+
+    <li>
+      <a href="../../Tutorial/Tutorial/Quick_Fit_Gadget.html" title="Tutorial:Quick Fit Gadget">Minitool Quick Fit</a>
+
+      <dl>
+        <dd>Das Minitool Quick Fit stelle eine weitere einfache Methode zur linearen und nichtlinearen Anpassung dar, ohne den jeweiligen Dialog zu öffnen. Es sieht vielleicht ein bisschen komplizierter aus, bietet aber viele erweiterte Bedienelemente. Starten Sie einen Anpassungsprozess mit diesem Minitool. Sie müssen zunächst Ihre eigene Funktion zu der Funktionsliste hinzufügen.</dd>
+      </dl>
+    </li>
+
+    <li>
+      <a class="external text" href="../../UserGuide/Category/The_NLFit_Dialog_Box.html">Hilfsmittel <b>NLFit</b></a>
+
+      <dl>
+        <dd>Das Hilfsmittel <b>NLFit</b> ist ein leistungsstarker Anpassungsassistent, mit dem Sie komplexere Anpassungsfunktionen definieren und den Anpassungsprozess umfassend steuern können. Zum Anpassen einer benutzerdefinierten Funktion im Hilfsmittel <b>NLFit</b> müssen Sie diese zuerst im Dialog <a class="external text" href="../../UserGuide/Category/The_Fitting_Function_Builder.html"><b>Fitfunktion erstellen</b></a> erstellen.</dd>
+      </dl>
+    </li>
+  </ul>
+
+  <p><br>
+  In diesem Tutorial wird hauptsächlich erläutert, wie eine benutzerdefinierte Anpassungsfunktion im Dialog <b>Fitfunktion erstellen</b> erstellt und der nichtlineare Kurvenfit mit ihr ausgeführt wird. Außerdem wird erklärt, wie ein Parameter für eine Kurvenanpassung mit dem Hilfsmittel <b>NLFit</b> festgelegt wird.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 2016 SR0</p>
+
+  <h2><a name="What_You_Will_Learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>Eine benutzerdefinierte Anpassungsfunktion erstellen</li>
+
+    <li>Eine nichtlineare Kurvenanpassung mit einer benutzerdefinierten Fitfunktion durchführen.</li>
+  </ul>
+
+  <h2><a name="How_to_Create_a_Fitting_Function_and_Use_it_to_Perform_Curve_Fitting"></a><span class="mw-headline">Eine Fitfunktion erstellen und zum Durchführen einer Kurvenanpassung verwenden</span></h2>
+
+  <p>Die Daten, die wir anpassen werden, befinden sich in der Datei <b>ConcentrationCurve.dat</b> unter <i>&lt;Origin-Verzeichnis&gt;\Samples\Curve Fitting\</i>.</p>
+
+  <p>Die zu erstellende Anpassungsfunktion wird unten gezeigt:</p>
+
+  <p><img src="../images/User_Defined_Fitting_Function_using_OC/math-13a2da4db13747594cc6f088f7811a65.png" title="y=A\exp(2,303kx-k_{m})\sqrt{2,303+\frac{C}{(x-C_{0})}}" alt="y=A\exp(2,303kx-k_{m})\sqrt{2,303+\frac{C}{(x-C_{0})}}" class="tex"></p>
+
+  <p>in der</p>
+
+  <p><img src="../images/User_Defined_Fitting_Function_using_OC/math-415290769594460e2e485922904f345d.png" title="y" alt="y" class="tex"> die abhängige Variable ist</p>
+
+  <p><img src="../images/User_Defined_Fitting_Function_using_OC/math-9dd4e461268c8034f5c8564e155c67a6.png" title="x" alt="x" class="tex"> die unabhängige Variable ist</p>
+
+  <p>und <img src="../images/User_Defined_Fitting_Function_using_OC/math-610f5342226d90a3c96f3f75ddfb3470.png" title="A, k_{m}, k, C, C_{0}" alt="A, k_{m}, k, C, C_{0}" class="tex"> alle Anpassungsparameter sind.</p>
+
+  <h3><a name="Method_1:_Using_Simple_Fit_app"></a><span class="mw-headline">Methode 1: App Simple Fit verwenden</span></h3>
+
+  <ol>
+    <li>Erstellen Sie eine neue Arbeitsmappe. Klicken Sie auf die Schaltfläche <a class="image"><img alt="Button Import Single ASCII.png" src="../images/User_Defined_Fitting_Function_using_OC/Button_Import_Single_ASCII.png" width="25"></a>, um die Datei <b>ConcentrationCurve.dat</b> im Verzeichnis <i>&lt;Origin-Verzeichnis&gt;\Samples\Curve Fitting\</i> zu importieren.</li>
+
+    <li>Markieren Sie Spalte B und klicken Sie auf die Schaltfläche <a class="image"><img alt="Button Scatter.png" src="../images/User_Defined_Fitting_Function_using_OC/Button_Scatter.png" width="22"></a>, um ein Punktdiagramm zu erzeugen.</li>
+
+    <li>Wählen Sie <b>Analyse: Anpassen: Simple Fit</b>, um die App Simple Fit zu öffnen. Wechseln Sie zur Registerkarte <b>Nonlinear</b> und geben Sie die Gleichung in das Feld <b>y(x)=</b> ein. Die Parametertabelle wird angezeigt. Geben Sie die Initialisierungswerte für die Parameter in sie ein.<br>
+    <a class="image"><img alt="Simple Fit User-defined Function 01.png" src="../images/User_Defined_Fitting_Function_using_OC/700px-Simple_Fit_User-defined_Function_01.png" width="700"></a></li>
+
+    <li>Wenn die Gleichung eingegeben wurde und die Parameter initialisiert und festgelegt wurden, klicken Sie auf die Schaltfläche <b>Fit</b>, um die Kurve mit der soeben definierten Funktion anzupassen. Natürlich können Sie den Trend der Anpassung überprüfen, indem Sie einmal auf die Schaltfläche <b>1 Iter.</b> klicken.</li>
+
+    <li>Sie können auf <b>Speichern unter...</b> klicken, um diese Funktion für die weitere Verwendung zu speichern. Klicken Sie auf <b>Schließen</b>, um die Anpassungsergebnisse zu überprüfen.<br>
+    <a class="image"><img alt="Simple Fit User-defined Function 02.png" src="../images/User_Defined_Fitting_Function_using_OC/650px-Simple_Fit_User-defined_Function_02.png" width="650"></a></li>
+  </ol>
+
+  <h3><a name="Method_2:_Using_Fitting_Function_Organizer_and_NLFit_Tool"></a><span class="mw-headline">Methode 2: Dialog Fitfunktionen verwalten und Hilfsmittel NLFit verwenden</span></h3>
+
+  <h4><a name="Step_1:_Create_a_Fitting_Function_Using_Fitting_Function_Organizer"></a><span class="mw-headline">Schritt 1: Eine Fitfunktion mit Hilfe des Dialogs Fitfunktionen verwalten erstellen</span></h4>
+
+  <p>In diesem Abschnitt wird gezeigt, wie eine benutzerdefinierte Anpassungsfunktion mit dem Hilfsmittel <b>Fitfunktionen erstellen</b> erstellt wird. Es gibt allerdings das alternative Hilfsmittel <b>Fitfunktionen verwalten</b>, das ebenfalls dazu verwendet werden kann, benutzerdefinierte Anpassungsfunktionen zu erstellen (öffnen Sie es durch Auswahl von <b>Hilfsmittel: Fitfunktionen verwalten</b> oder drücken Sie <b>F9</b>).</p>
+
+  <ol>
+    <li>Starten Sie Origin und wählen Sie <b>Hilfsmittel: Fitfunktionen erstellen</b> im Menü (oder drücken Sie <b>F8</b>), um den Dialog <b>Fitfunktionen erstellen</b> zu öffnen.</li>
+
+    <li>Wählen Sie auf der Seite <b>Ziel</b> die Option <b>Eine neue Funktion erstellen</b> und klicken Sie auf <b>Weiter</b>.</li>
+
+    <li>Ändern Sie auf der Seite <b>Name und Typ</b> die Einstellungen wie im folgenden Bild und klicken Sie dann auf <b>Weiter</b>:<br>
+    <a class="image"><img alt="Tutorial UserDefFitFunc 001.png" src="../images/User_Defined_Fitting_Function_using_OC/Tutorial_UserDefFitFunc_001.png" width="605"></a></li>
+
+    <li>Geben Sie auf der Seite <b>Variablen und Parameter</b> die Namen für Variable und Parameter ein, wie im Bild unten zu sehen, und klicken Sie dann auf <b>Weiter</b>:<br>
+    <a class="image"><img alt="Tutorial UserDefFitFunc 002.png" src="../images/User_Defined_Fitting_Function_using_OC/Tutorial_UserDefFitFunc_002.png" width="605"></a><br>
+    Verwenden Sie im Feld <b>Parameter</b> ein Komma (",") als Trennzeichen.</li>
+
+    <li>Geben Sie auf der Seite <b>Ausdrucksfunktion</b> die Gleichung unten im <b>Funktionskörper</b> ein:
+      <pre class="lt" style="font-family:monospace;">
+A<span style="color: #000080;">*</span>exp<span style="color: #000000;">(</span>R0<span style="color: #000080;">*</span>k<span style="color: #000080;">*</span>x<span style="color: #000080;">-</span>km<span style="color: #000000;">)</span><span style="color: #000080;">*</span>sqrt<span style="color: #000000;">(</span>R0<span style="color: #000080;">+</span>c<span style="color: #000080;">/</span><span style="color: #000000;">(</span>x<span style="color: #000080;">-</span>c0<span style="color: #000000;">)</span><span style="color: #000000;">)</span>
+</pre>
+    </li>
+
+    <li>Gehen Sie zur Registerkarte <b>Konstante</b> und setzen Sie den Wert von <b>R0</b> auf <b>2,303</b>.</li>
+
+    <li>Geben Sie den Parametern geschätzte Initialisierungswerte gemäß dieser speziellen Daten und Funktion.<br>
+    <a class="image"><img alt="Tutorial UserDefFitFunc 003.png" src="../images/User_Defined_Fitting_Function_using_OC/Tutorial_UserDefFitFunc_003.png" width="352"></a><br>
+    <b>Hinweis:</b> Sie können auch jedes Mal, wenn Sie die Anpassung durchführen, unterschiedliche Anfangswerte eingeben.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Auswerten</b> <a class="image"><img alt="Button Evaluate.png" src="../images/User_Defined_Fitting_Function_using_OC/Button_Evaluate.png" width="23"></a>, um schnell zu prüfen, ob die Funktion gültig ist (wenn sie gültig ist, wird ein tatsächlicher Wert für y wiedergegeben).<br>
+    <b>Hinweis:</b> Wenn Sie anfangs <b>Origin C</b> als <b>Funktionstyp</b> angegeben haben, können Sie die Funktion an dieser Stellen kompilieren, um zu prüfen, ob ein Fehler auftritt. Dies ist besonders nützlich, um die passenden Klammern zusammenzustellen.</li>
+
+    <li>Klicken Sie 3x auf die Schaltfläche <b>Weiter</b>, bis Sie zu der Seite <b>Abgeleitete Parameter</b> gelangen.</li>
+
+    <li>Auf dieser Seite wird der abgeleitete Parameter <b>A0</b> definiert. Geben Sie seine Gleichung in das Feld <b>Abgeleitete Parametergleichungen</b> ein:
+      <pre class="lt" style="font-family:monospace;">
+A0<span style="color: #000080;">=</span><span style="color: #000080;">-</span>A<span style="color: #000080;">*</span>exp<span style="color: #000000;">(</span>km<span style="color: #000000;">)</span><span style="color: #000080;">*</span>1E<span style="color: #000080;">-</span>4
+</pre>
+    </li>
+
+    <li>Klicken Sie auf <b>Fertigstellen</b>, um dieser benutzerdefinierte Anpassungsfunktion zu erstellen. Die .FDF-Datei wird in dem <b>Anwenderdateiordner</b> gespeichert.
+
+      <table class="noborder">
+        <tr>
+          <td style="vertical-align:top" width="60"><img src="../images/User_Defined_Fitting_Function_using_OC/Tip_icon.png" width="57" border="0" alt=""></td>
+
+          <td>
+            <p>Sie können die benutzerdefinierte Fitfunktion später immer ändern, entweder über den Dialog <b>Fitfunktionen erstellen</b> (wählen Sie dazu <b>Eine benutzerdefinierte Funktion bearbeiten</b> auf der Seite <b>Ziel</b>) oder den Dialog <b>Fitfunktionen verwalten</b>.</p>
+          </td>
+        </tr>
+      </table>
+    </li>
+  </ol>
+
+  <h4><a name="Step_2:Carry_Out_Curve_Fitting_using_NLFit_Tool"></a><span class="mw-headline">Schritt 2: Kurvenanpassung mit dem Hilfsmittel NLFit durchführen</span></h4>
+
+  <ol>
+    <li>Erstellen Sie eine neue Arbeitsmappe. Klicken Sie auf die Schaltfläche <a class="image"><img alt="Button Import Single ASCII.png" src="../images/User_Defined_Fitting_Function_using_OC/Button_Import_Single_ASCII.png" width="25"></a>, um die Datei <b>ConcentrationCurve.dat</b> im Verzeichnis <i>&lt;Origin-Verzeichnis&gt;\Samples\Curve Fitting\</i> zu importieren.</li>
+
+    <li>Markieren Sie Spalte B und klicken Sie auf die Schaltfläche <a class="image"><img alt="Button Scatter.png" src="../images/User_Defined_Fitting_Function_using_OC/Button_Scatter.png" width="22"></a>, um ein Punktdiagramm zu erzeugen.</li>
+
+    <li>Lassen Sie das Diagrammfenster aktiviert und wählen Sie <b>Analyse: Anpassen: Nichtlinearer Fit</b>, um den Dialog <b>NLFit</b> aufzurufen.</li>
+
+    <li>Setzen Sie auf der Seite <b>Funktionsauswahl</b> die <b>Kategorie</b> auf <b>Benutzerdefiniert</b> und die <b>Funktion</b> auf <b>MyFitFunc(User)</b>.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <a class="image"><img alt="Button Fit Untill Converged.png" src="../images/User_Defined_Fitting_Function_using_OC/Button_Fit_Untill_Converged.png" width="26"></a>, um die Datei anzupassen.</li>
+
+    <li>Eine Fehlermeldung wird auf der Registerkarte <b>Nachrichten</b> im unteren Bedienfeld gemeldet und weist darauf hin, dass der Fit aufgrund von Überparameterisierung nicht konvergiert.<br>
+    <a class="image"><img alt="Tutorial UserDefFitFunc 004.png" src="../images/User_Defined_Fitting_Function_using_OC/Tutorial_UserDefFitFunc_004.png" width="576"></a></li>
+
+    <li>Die Parameter <b>A</b> und <b>km</b> besitzen eine gegenseitige Abhängigkeit, so dass das Festlegen von einem der beiden das Problem löst. Dieses Mal wird <b>A</b> festgelegt.</li>
+
+    <li>Wechseln Sie zur Registerkarte <b>Parameter</b>, klicken Sie auf <a class="image"><img alt="Button Initialize Parameters.png" src="../images/User_Defined_Fitting_Function_using_OC/Button_Initialize_Parameters.png" width="26"></a>, um die Einstellung der Anfangswerte wiederherzustellen, und aktivieren Sie das Kontrollkästchen <b>Fest</b> des Parameters <b>A</b>:<br>
+    <a class="image"><img alt="Tutorial UserDefFitFunc 005.png" src="../images/User_Defined_Fitting_Function_using_OC/Tutorial_UserDefFitFunc_005.png" width="586"></a></li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Fit</b>, um die Anpassung durchzuführen.</li>
+
+    <li>Die angepasste Kurve wird zu der ursprünglichen Datenzeichnung hinzugefügt.<br>
+    <a class="image"><img alt="Tutorial UserDefFitFunc 006.png" src="../images/User_Defined_Fitting_Function_using_OC/Tutorial_UserDefFitFunc_006.png" width="598"></a></li>
+
+    <li>Außerdem wird ein Berichtsblatt erzeugt, in dem die angepassten Werte von allen Parametern (einschließlich des abgeleiteten Parameters A0) in der Parametertabelle aufgeführt werden:<br>
+      <a class="image"><img alt="Tutorial UserDefFitFunc 007.png" src="../images/User_Defined_Fitting_Function_using_OC/Tutorial_UserDefFitFunc_007.png" width="546"></a>
+
+      <table class="noborder">
+        <tr>
+          <td style="vertical-align:top" width="60"><img src="../images/User_Defined_Fitting_Function_using_OC/Tip_icon.png" width="57" border="0" alt=""></td>
+
+          <td>
+            <p>Im Fall der Überparameterisierung können Sie verschiedene Parameter festlegen, um mehrere Anpassungsergebnisse zu erhalten, und dann die Anpassungsmodelle statistisch über <b>Analyse: Anpassen: Modelle vergleichen</b> vergleichen.</p>
+          </td>
+        </tr>
+      </table>
+    </li>
+  </ol>

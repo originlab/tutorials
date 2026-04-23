@@ -1,0 +1,144 @@
+﻿<h1 class="firstHeading">Analysevorlagen erstellen und verwenden</h1>
+
+  <p class='urlname' style='display: none'>AnalysisTemplate-Create-Use</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Importing_Data"><span class="tocnumber">3.1</span> <span class="toctext">Daten importieren</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Performing_Analysis"><span class="tocnumber">3.2</span> <span class="toctext">Analyse durchführen</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#Saving_an_Analysis_Template"><span class="tocnumber">3.3</span> <span class="toctext">Analysevorlage speichern</span></a></li>
+
+          <li class="toclevel-2 tocsection-7"><a href="#Re-using_the_Analysis_Template"><span class="tocnumber">3.4</span> <span class="toctext">Analysevorlage erneut verwenden</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/Creating_and_Using_Analysis_Templates/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/Creating_and_Using_Analysis_Templates/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=203" target="_blank">Arbeitsmappe als OGWU vs. Analysevorlage speichern</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=137" target="_blank">Stapelberichte mit einer Origin-Analysevorlage und Microsoft Word erstellen</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%">
+        <a class="image"><img alt="Website blog icon circle.png" src="../images/Creating_and_Using_Analysis_Templates/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Creating_and_Using_Analysis_Templates/Blog_Image_33x33px.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="http://blog.originlab.com/how-to-trigger-a-worksheet-data-filter-during-batch-processing" target="_blank">Einen Datenfilter für ein Arbeitsblatt während der Stapelverarbeitung auslösen</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/use-the-distributed-batch-processing-app-for-faster-batch-processing-results" target="_blank">Die App Distributed Batch Processing für schnellere Ergebnisse der Stapelverarbeitung verwenden</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/creating-html-reports-and-documents-in-origin-2019b" target="_blank">Erstellen von HTML-Berichten und Dokumenten in Origin 2019b</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/batch-processing-when-dragging-and-dropping-data-into-origin" target="_blank">Stapelverarbeitung beim Drag&amp;Drop von Daten in Origin</a></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Routineaufgaben können durch Erstellen einer Analysevorlage vereinfacht werden. Solche Vorlagen können mehrere Analyseergebnisse und auch benutzerdefinierte Berichtstabellenblätter enthalten. Eine neue Instanz der Vorlage kann dann jederzeit geöffnet und Quelldaten können geändert werden, um alle Analyseergebnisse und benutzerdefinierten Berichte zu aktualisieren.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 2015 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <ul>
+    <li>Eine Analysevorlage (OGWU) erstellen</li>
+
+    <li>Analysevorlage mit neuen Daten erneut verwenden</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <h3><a name="Importing_Data"></a><span class="mw-headline">Daten importieren</span></h3>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe und aktivieren Sie das erste leere Arbeitsblatt. Wählen Sie <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b> im Menü, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner <i>Curve Fitting</i>. Dort befindet sich die Datei <i>Sensor01.dat</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das leere Arbeitsblatt, um sie zu importieren.</li>
+
+    <li>Klicken Sie doppelt auf den Reiter des Arbeitsblatts und benennen Sie dieses Blatt mit dem Namen <b>Daten</b>.</li>
+  </ol>
+
+  <h3><a name="Performing_Analysis"></a><span class="mw-headline">Analyse durchführen</span></h3>
+
+  <ol>
+    <li>Markieren Sie Spalte B und verwenden Sie <b>Analyse: Anpassen: Linearer Fit</b>, um den Dialog <b>Lineare Anpassung</b> zu öffnen.</li>
+
+    <li>Setzen Sie <b>Neu berechnen</b> auf <b>Auto</b>, übernehmen Sie die anderen Standardeinstellungen und klicken Sie auf <b>OK</b>, um eine lineare Anpassung durchzuführen. Ein hierarchisches Berichtsblatt wird zu der Mappe hinzugefügt, das Ergebnistabellen und eingebettete Diagramme enthält.</li>
+
+    <li>Antworten Sie mit Ja auf die Warnmeldung, um zum Berichtsblatt <b>FitLinear1</b> zu gehen.</li>
+
+    <li>Klicken Sie unter dem Baumknoten <b>Angepasstes Kurvendiagramm</b> auf das Diagramm der gezeichneten Daten plus Anpassungskurve, um das Diagramm in einem bearbeitbaren Popupfenster zu öffnen.</li>
+
+    <li>Klicken Sie im Menü auf <b>Ansicht: Zeigen: Rahmen</b>, um den Diagrammrahmen zu zeigen.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Neu skalieren</b>. <a class="image"><img alt="Rescale button.png" src="../images/Creating_and_Using_Analysis_Templates/Rescale_button.png" width="23"></a></li>
+
+    <li>Wählen Sie <b>Format: Achsen: X Achse</b> aus, um den Dialog <b>Achsen</b> zu öffnen. Stellen Sie auf der Registerkarte <b>Skalierung</b> sicher, dass <b>Typ</b> auf <b>Nach Inkrement</b> im Zweig <b>Große Hilfsstriche</b> und der <b>Wert</b> auf <b>2</b> gesetzt ist. Setzen Sie den Modus von <b>Neu skalieren</b> auf <b>Auto</b>.</li>
+
+    <li>Wählen Sie <b>Vertikal</b> im linken Bedienfeld. Setzen Sie die Neuskalierung auf <b>Auto</b>, die <b>Großen Hilfsstriche</b> auf <b>Typ</b> = <b>Nach Inkrement</b> und den <b>Wert</b> = <b>5</b>. Klicken Sie auf <b>OK</b>, um die Einstellung zu speichern, und schließen Sie den Dialog.</li>
+
+    <li>Verschieben Sie das Legendenobjekt und die Ergebnistabelle manuell auf der Grafik an die gewünschten Stellen. Zu diesem Zeitpunkt können Sie auch solche Dinge tun, wie das Punkt-Liniendiagramm benutzerdefiniert anpassen. Das sich ergebende Diagramm sollte in etwa dem Bild unten entsprechen.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Analysis Template 01.png" src="../images/Creating_and_Using_Analysis_Templates/Tutorial_Analysis_Template_01.png" width="486"></a></dd>
+      </dl>
+    </li>
+
+    <li>Fügen Sie dieses Diagramm wieder ins Ergebnisblatt ein, indem Sie auf die Schaltfläche Wiederherstellen <a class="image"><img alt="Button Restore Window.png" src="../images/Creating_and_Using_Analysis_Templates/Button_Restore_Window.png" width="22"></a> oben rechts in der Titelleiste klicken.</li>
+  </ol>
+
+  <h3><a name="Saving_an_Analysis_Template"></a><span class="mw-headline">Analysevorlage speichern</span></h3>
+
+  <ol>
+    <li>Aktivieren Sie die Arbeitsmappe und wählen Sie <b>Datei: Arbeitsmappe als Analysevorlage speichern</b>.</li>
+
+    <li>Navigieren Sie zum gewünschten Speicherort, geben Sie einen Dateinamen ein, zum Beispiel <b>MeineSensordaten</b>, und klicken Sie auf <b>Speichern</b>.</li>
+
+    <li>Jetzt ist die Datei <b>MeineSensordaten.OGWU</b> als Analysevorlage gespeichert. Diese Vorlage kann weiterhin verwendet werden, um ähnliche Analysen durchzuführen.</li>
+  </ol>
+
+  <h3><a name="Re-using_the_Analysis_Template"></a><span class="mw-headline">Analysevorlagen erneut verwenden</span></h3>
+
+  <ol>
+    <li>Öffnen Sie ein neues Projekt und wählen Sie dann im Menü <b>Datei: Zuletzt verwendete Mappen</b>. Wählen Sie im Ausklappmenü die Analysevorlage <b>MeineSensordaten.ogwu</b>, die Sie vorher gespeichert haben.</li>
+
+    <li>Wählen Sie bei aktivem Arbeitsblatt <b>Daten</b> im Menü <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b>, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner <i>Curve Fitting</i>. Dort befindet sich die Datei <i>Sensor02.dat</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das Arbeitsblatt "Daten", um sie zu importieren.</li>
+
+    <li>Da der Modus für <b>Neu berechnen</b> auf <b>Auto</b> gesetzt wurde, wird die lineare Analyse automatisch für die neuen Daten durchgeführt.</li>
+
+    <li>Gehen Sie zu dem Arbeitsblatt <b>FitLinear1</b> und klicken Sie doppelt unter dem Zweig <b>Angepasstes Kurvendiagramm</b>, um das Diagramm zu öffnen und die aktualisierten Ergebnisse anzuzeigen.</li>
+  </ol>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Creating_and_Using_Analysis_Templates/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Die Analysevorlage kann für die Stapelverarbeitung von ähnlichen Daten verwendet werden. Einzelheiten finden Sie in <a href="../../Tutorial/Tutorial/Analysis_Template_and_Batch_Processing.html" title="Tutorial:Analysis Template and Batch Processing">diesem Tutorial</a>.</p>
+      </td>
+    </tr>
+  </table>

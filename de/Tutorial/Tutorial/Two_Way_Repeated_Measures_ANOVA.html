@@ -1,0 +1,126 @@
+﻿<h1 class="firstHeading">Zweifache ANOVA bei wiederholten Messungen</h1>
+
+  <p class='urlname' style='display: none'>2WayRepeatedMeasuresANOVA</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Raw_data_mode"><span class="tocnumber">3.1</span> <span class="toctext">Modus Rohdaten</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Results_Interpretation"><span class="tocnumber">3.2</span> <span class="toctext">Interpretation der Ergebnisse</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Das "zweifach" bei einer zweifachen ANOVA mit wiederholten Messungen bedeutet, dass es zwei Faktoren in dem Experiment gibt, zum Beispiel verschiedene Behandlungen und verschiedenen Bedingungen. "Wiederholte Messungen" bedeutet, dass das gleiche Subjekt mehr als eine Behandlung und/oder mehr als eine Bedingung erfahren hat. Wie die zweifache ANOVA kann die zweifache ANOVA mit wiederholten Messungen eingesetzt werden, um auf signifikante Differenzen zwischen den Faktorstufenmittelwerten innerhalb eines Faktors und auf Wechselwirkungen zwischen den Faktoren zu testen. Die Verwendung einer standardmäßigen ANOVA eignet sich in diesem Fall nicht, da sie die Korrelation zwischen den wiederholten Messungen nicht in dem Modell darstellt und die Daten die Annahme der ANOVA von Unabhängigkeit nicht erfüllen. Entwürfe der zweifachen ANOVA bei wiederholten Messungen können zwei wiederholte Messungsfaktoren oder ein wiederholter Messungsfaktor und ein nicht wiederholter Faktor sein. Falls ein wiederholter Faktor vorhanden ist, sollte eine ANOVA mit wiederholten Messungen verwendet werden.</p>
+
+  <p>Im folgenden Beispiel sind die zwei Faktoren die wiederholten Messungsfaktoren.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: 8.6 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>Rohdaten in den Dialog der statistischen Analyse eingeben,</li>
+
+    <li>die zweifache ANOVA mit wiederholten Messungen durchführen,</li>
+
+    <li>die Ergebnisse einer zweifachen ANOVA bei wiederholten Messungen interpretieren.</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <p>Origin kann eine <b>zweifache ANOVA mit wiederholten Messungen</b> sowohl für indizierte als auch für Rohdaten durchführen. Wenn für die zweifache ANOVA mit wiederholten Messungen der Indexmodus verwendet wird, sollten die Daten in vier Spalten organisiert sein: Faktor A, Faktor B, Daten und Subjekt. Wenn der Rohdatenmodus verwendet wird, sollten sich die verschiedenen Faktoren und Stufen in verschiedenen Spalten befinden.</p>
+
+  <p>Von besonderem Interesse ist in diesem Beispiel, ob unterschiedliche Drogen und Dosen unterschiedliche Wirkungen auf das Subjekt haben. Sie führen eine <b>zweifache ANOVA mit wiederholten Messungen</b> durch, um zu bestimmen, ob der Drogentyp und die Dosierung eine signifikante Wirkung auf ein Subjekt haben. Wenn es eine signifikante Differenz gibt, führen wir einen <b>paarweisen Vergleich</b> durch, um zu bestimmen, von welchen Stufen die Wirkungen unterschiedlich sind.</p>
+
+  <h3><a name="Raw_data_mode"></a><span class="mw-headline">Datenmodus Roh</span></h3>
+
+  <ol>
+    <li>Öffnen Sie ein leeres Arbeitsblatt. Wählen Sie <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b> im Menü, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner <i>Statistics\ANOVA</i>. Dort befindet sich die Datei <i>Two-Way_RM_ANOVA_raw.dat</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das leere Arbeitsblatt, um sie zu importieren.</li>
+
+    <li>Wählen Sie <b>Statistik: ANOVA: Zweifache ANOVA mit wiederholten Messungen</b>, um den Dialog zu öffnen.</li>
+
+    <li>Wählen Sie die Registerkarte <b>Eingabe</b> und dann die Option <b>Roh</b> in der Auswahlliste <b>Eingabedaten</b>.</li>
+
+    <li>In diesem Beispiel gibt es zwei Faktoren. Geben Sie über die Auswahlliste 3 bzw. 2 als Anzahl der Stufen in <b>Faktor A</b> bzw. <b>Faktor B</b> ein, um die jeweiligen Faktorstufen festzulegen. Legen Sie den <b>Namen</b> mit <b>drug</b> bzw. <b>dose</b> fest.</li>
+  </ol>
+
+  <table class="note">
+    <tr>
+      <td><b>Hinweise:</b> <b>Faktor A</b> und <b>Faktor B</b> sind standardmäßig als wiederholte Messungsfaktoren festgelegt (Das Kontrollkästchen <b>Wiederholen</b> im jeweiligen Zweig des <b>Faktors</b> ist aktiviert). Handelt es sich bei einem Faktor um einen nicht wiederholten Messungsfaktor, deaktivieren Sie nur das Kontrollkästchen <b>Wiederholen</b>.</td>
+    </tr>
+  </table>
+
+  <ol start="5">
+    <li>Nun gibt es im Zweig <b>Daten</b> drei Untergruppen. Wählen Sie in der Untergruppe <b>drug Stufe1</b> die Spalte <b>d1d1</b> als den Eingabedatenbereich von <b>dose Stufe1</b>.</li>
+
+    <li>Wählen Sie entsprechend <b>d1d2</b>, <b>d2d1</b>, <b>d2d2</b>, <b>d3d1</b> und <b>d3d2</b> für die nächsten 5 Eingabedatenbereiche aus.</li>
+
+    <li>Aktivieren Sie das Kontrollkästchen <b>Wechselwirkungen</b>, um Wechselwirkungseffekte zu berechnen.<br>
+    <a class="image"><img alt="DOC-2411 RM01a.png" src="../images/Two_Way_Repeated_Measures_ANOVA/DOC-2411_RM01a.png" width="475"></a></li>
+
+    <li>Aktivieren Sie alle Kontrollkästchen auf der Registerkarte <b>Deskriptive Statistik</b>, um den Mittelwert, den Standardfehler und die 95%-Konfidenzintervalle für alle Stufen der Faktoren sowie die Wechselwirkungen zu berechnen.<br>
+    <a class="image"><img alt="DOC-2411 RM01b.png" src="../images/Two_Way_Repeated_Measures_ANOVA/DOC-2411_RM01b.png" width="339"></a></li>
+
+    <li>Aktivieren Sie auf der Registerkarte <b>Mittelwertevergleich</b> das Kontrollkästchen vor <b>Bonferroni</b>, um den Bonferroni-Test zu aktivieren.<br>
+    <a class="image"><img alt="DOC-2411 RM01c.png" src="../images/Two_Way_Repeated_Measures_ANOVA/DOC-2411_RM01c.png" width="340"></a></li>
+
+    <li>Klicken Sie auf <b>OK</b>, um die Analyse durchzuführen.<br></li>
+  </ol>
+
+  <h3><a name="Results_Interpretation"></a><span class="mw-headline">Interpretation der Ergebnisse</span></h3>
+
+  <p>Wechseln Sie zum Arbeitsblatt <b>ANOVATwoWayRM1</b>, in dem die Analyseergebnisse aufgeführt sind.</p>
+
+  <p>Sie können dieses Kapitel der <a class="external text" href="../../UserGuide/UserGuide/Interpreting_Results_of_Repeated_Measures_ANOVA.html">Hilfe</a> verwenden, um die Ergebnisse der ANOVA mit wiederholten Messungen zu interpretieren.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Multivariate Tests.png" src="../images/Two_Way_Repeated_Measures_ANOVA/Multivariate_Tests.png" width="474"></a></dd>
+  </dl>
+
+  <p>Origin verwendet eine multivariate Analyse zum Entdecken von Effekten von wiederholten Messungen. In diesem Beispiel erzeugen vier verschiedene Methoden (Pillai-Spur, Wilks' Lambda, Hotelling-Spur und die größte charakteristische Wurzel nach Roy) identische F-Statistiken und Wahrscheinlichkeiten. Für <b>drugs</b>, P-Wert = 0,1564, können wir also schlussfolgern, dass der Effekt von <b>drugs</b> nicht das konventionelle Niveau der statistischen Signifikanz erreicht hat. Entsprechend können wir auch schlussfolgern, dass <b>dose</b> und <b>drugs*dose</b> signifikant sind.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Test of Sphericity.png" src="../images/Two_Way_Repeated_Measures_ANOVA/Test_of_Sphericity.png" width="873"></a></dd>
+  </dl>
+
+  <p>Diese Tabelle zeigt die Ergebnisse des Mauchly-Test zur Sphärizität und die Auswertung von Epsilon. Aus der Spalte <b>Wahrsch. &gt; ChiQdr</b> können Sie herauslesen, dass das Signifikanzniveau von <b>drugs</b> größer ist als 0,05 (P-Wert = 0,11096) und der Wert von <b>drugs*dose</b> kleiner ist als 0,05. Für <b>drugs*dose</b> wurde die Annahme der Sphärizität nicht erfüllt. Beachten Sie, dass <b>Greenhouse-Geisser Epsilon</b> = 0,65362, also kleiner als 0,75, so dass Sie mit dem Test fortfahren, indem Sie die <b>Greenhouse-Geisser</b>-Korrektur verwenden.</p>
+
+  <p><a class="image"><img alt="Test of with-subjects effects.png" src="../images/Two_Way_Repeated_Measures_ANOVA/Test_of_with-subjects_effects.png" width="599"></a></p>
+
+  <p>Diese Tabelle stellt den F-Wert für den Faktor zusätzlich zu dem zugehörigen Signifikanzniveau und der Effektgröße bereit. Für <b>drug</b> beträgt der P-Wert 0,06461 in der Spalte <b>Wahrsch &gt; F</b>. Das heißt, <b>drugs</b> hat keinen signifikanten Effekt auf Subjekte, während <b>dose</b> einen signifikanten Effekt hat (P-Wert = 0,01504). Für die Wechselwirkung <b>drugs*dose</b> können Sie weiterhin mit dem Test fortfahren, indem Sie die <b>Greenhouse-Geisser</b>-Korrektur verwenden und schlussfolgern, dass die Wechselwirkung <b>drugs*dose</b> einen signifikanten Effekt hat (P-Wert = 0,02564).</p>
+
+  <dl>
+    <dd><a class="image"><img alt="RM02.png" src="../images/Two_Way_Repeated_Measures_ANOVA/RM02.png" width="871"></a></dd>
+  </dl>
+
+  <p>Im Allgemeinen werden Bonferroni-Tests empfohlen, um zu bestimmen, welche speziellen Mittelwerte sich unterscheiden und ob die Annahme der Sphärizität erfüllt wird oder nicht. Die Bonferroni-Korrektur basiert auf einer allgemeinen Ungleichheit der Wahrscheinlichkeit und ist daher nicht abhängig von einer speziellen ANOVA-Annahme. Diese Tabelle stellt die Ergebnisse des Bonferroni-Tests dar. Es lässt sich schlussfolgern, dass die Mittelwerte nicht signifikant verschieden sind (P &gt; 0,05 und Sig Flag = 0). Natürlich müssen wir keinen <b>paarweisen Vergleich</b> durchführen, da drugs keine signifikante Wirkung hat.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="TwoRM03.png" src="../images/Two_Way_Repeated_Measures_ANOVA/TwoRM03.png" width="877"></a></dd>
+  </dl>
+
+  <p>Aus dieser Tabelle lässt sich schlussfolgern, dass die Mittelwerte von verschiedenen Dosen sich nicht signifikant unterscheiden (P-Wert = 0,06714 und Sig Flag = 0).</p>
+
+  <dl>
+    <dd><a class="image"><img alt="TwoRM04.png" src="../images/Two_Way_Repeated_Measures_ANOVA/TwoRM04.png" width="871"></a></dd>
+  </dl>
+
+  <p>Diese Tabelle wiederum lässt den Schluss zu, dass Dose1 signifikant größer ist als Dose2 innerhalb von Drug1 und Drug1 signifikant größer ist als Drug2 und Drug3 innerhalb von Dose1.</p>

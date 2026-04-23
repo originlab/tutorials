@@ -1,0 +1,195 @@
+﻿<h1 class="firstHeading">Glättung</h1>
+
+  <p class='urlname' style='display: none'>Smoothing</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Smoothing_by_Several_Methods"><span class="tocnumber">3</span> <span class="toctext">Glättung durch verschiedene Methoden</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Adjacent-Averaging"><span class="tocnumber">3.1</span> <span class="toctext"><b>Gleitender Durchschnitt</b></span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Savitzky-Golay"><span class="tocnumber">3.2</span> <span class="toctext">Savitzky-Golay</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#Percentile_Filter"><span class="tocnumber">3.3</span> <span class="toctext"><b>Rangordnungsfilter</b></span></a></li>
+
+          <li class="toclevel-2 tocsection-7"><a href="#FFT_Filter"><span class="tocnumber">3.4</span> <span class="toctext"><b>FFT-Filter</b></span></a></li>
+        </ul>
+      </li>
+
+      <li class="toclevel-1 tocsection-8"><a href="#Smoothing_by_Wavelet"><span class="tocnumber">4</span> <span class="toctext">Glättung mit Wavelet</span></a></li>
+
+      <li class="toclevel-1 tocsection-9"><a href="#Smoothing_Matrix"><span class="tocnumber">5</span> <span class="toctext">Matrix glätten</span></a></li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Die Glättung ist eine gängige Technik zum Entfernen von Rauschen aus Signalen. Origin enthält mehrere Glättungsmethoden, einschließlich dem gleitenden Durchschnitt, Savitzky-Golay, dem Rangordnungsfilter und dem FFT-Filter. Zusätzlich steht ein Wavelet-basiertes Hilfsmittel zur Verfügung.</p>
+
+  <p>Im Fall von Matrixdaten wird Origins Glättung durch zwei verschiedene Methoden durchgeführt. Wenn die Anzahl der Spalten oder Zeilen weniger als 32 ist, wird die Matrix zuerst erweitert und dann auf ihre ursprüngliche Größe zurück geschrumpft. Wenn die Anzahl mehr als 31 beträgt, wird die Matrix zuerst geschrumpft und dann erweitert.</p>
+
+  <h2><a name="What_You_Will_Learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>Signale mit verschiedenen Methoden glätten.</li>
+
+    <li>Signale mit Wavelets glätten.</li>
+
+    <li>Eine 3D-Oberfläche glätten.</li>
+  </ul>
+
+  <h2><a name="Smoothing_by_Several_Methods"></a><span class="mw-headline">Glättung mit verschiedenen Methoden</span></h2>
+
+  <ol>
+    <li>Öffnen Sie eine leere Arbeitsmappe. Wählen Sie <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b> im Menü, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner <i>Signal Processing</i>. Dort befindet sich die Datei <i>Signal with High Frequency Noise.dat</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das leere Arbeitsblatt, um sie zu importieren.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Smoothing 1.png" src="../images/Smoothing/SP_Tutorial_Smoothing_1.png" width="319"></a></dd>
+      </dl>
+    </li>
+
+    <li>Markieren Sie Spalte B im Arbeitsblatt. Wählen Sie dann im Menü <b>Analyse: Signalverarbeitung: Glätten</b> (wenn das Hilfsmittel zuvor bereits genutzt wurde, müssen Sie auf <b>Dialog öffnen</b> klicken), um den Dialog <b>Glätten: smooth</b> aufzurufen.</li>
+  </ol>
+
+  <h3><a name="Adjacent-Averaging"></a><span class="mw-headline"><b>Gleitender Durchschnitt</b></span></h3>
+
+  <p>Die Methode des gleitenden Durchschnitts führt eine breite Glättung der Daten durch.</p>
+
+  <ol>
+    <li>Wählen Sie die Option <b>Gleitender Durchschnitt</b> für <b>Methode</b>. Setzen Sie die <b>Punkte des Fensters</b> auf <b>100</b> und <b>Grenzbedingung</b> auf <b>Periodisch</b>. Um das Ergebnis im rechten Bedienfeld anzuzeigen, aktivieren Sie das Kontrollkästchen <b>Automatische Vorschau</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Smoothing 2.png" src="../images/Smoothing/SP_Tutorial_Smoothing_2.png" width="884"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um das Ergebnis zu erzeugen.</li>
+  </ol>
+
+  <h3><a name="Savitzky-Golay"></a><span class="mw-headline">Savitzky-Golay</span></h3>
+
+  <p>Die Methode Savitzky-Golay eignet sich gut, um die Form der Peaks von Signalen zu bewahren.</p>
+
+  <ol>
+    <li>Markieren Sie erneut Spalte B. Klicken Sie im Menü <b>Analyse</b> auf <b>Signalverarbeitung: Glätten: Dialog öffnen....</b></li>
+
+    <li>Setzen Sie im Dialog <b>smooth</b> die <b>Methode</b> auf <b>Savitzky-Golay</b>. Setzen Sie die <b>Punkte des Fensters</b> auf <b>100</b>, die <b>Grenzbedingung</b> auf <b>Periodisch</b> und die <b>Polynomielle Ordnung</b> auf <b>3</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Smoothing 3.png" src="../images/Smoothing/SP_Tutorial_Smoothing_3.png" width="884"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>.</li>
+  </ol>
+
+  <h3><a name="Percentile_Filter"></a><span class="mw-headline"><b>Rangordnungsfilter</b></span></h3>
+
+  <ol>
+    <li>Markieren Sie erneut Spalte B. Klicken Sie im Menü <b>Analyse</b> auf <b>Signalverarbeitung: Glätten: Dialog öffnen....</b></li>
+
+    <li>Wählen Sie die <b>Methode</b> <b>Rangordnungsfilter</b>. Setzen Sie <b>Punkte der Fenster</b> auf <b>100</b>, <b>Grenzbedingung</b> auf <b>Periodisch</b> und übernehmen Sie den Standardwert <b>50</b> für das <b>Perzentil</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Smoothing 4.png" src="../images/Smoothing/SP_Tutorial_Smoothing_4.png" width="884"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>.</li>
+  </ol>
+
+  <h3><a name="FFT_Filter"></a><span class="mw-headline"><b>FFT-Filter</b></span></h3>
+
+  <ol>
+    <li>Markieren Sie erneut Spalte B. Klicken Sie im Menü <b>Analyse</b> auf <b>Signalverarbeitung: Glätten: Dialog öffnen....</b></li>
+
+    <li>Setzen Sie die <b>Methode</b> auf <b>FFT-Filter</b>. Setzen Sie die <b>Punkte des Fensters</b> auf <b>100</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Smoothing 5.png" src="../images/Smoothing/SP_Tutorial_Smoothing_5.png" width="884"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um den Dialog zu schließen.</li>
+
+    <li>Beachten Sie, dass sich in dem Arbeitsblatt nun vier hinzugefügte Spalten befinden, die die Ergebnisse Ihrer vier Glättungsoperationen enthalten. Markieren Sie diese vier Spalten (C, D, E, F) und wählen Sie dann im Menü <b>Zeichnen: 2D: Linie: Liniendiagramm</b>, um ein Liniendiagramm mit diesen vier Datensätzen zu erstellen.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Smoothing 6.png" src="../images/Smoothing/SP_Tutorial_Smoothing_6.png" width="520"></a></dd>
+      </dl>
+    </li>
+
+    <li>Beim Vergleich der Ergebnisse der vier Methoden können Sie sehen, dass die Savitzky-Golay-Methode die Peaks in den Daten am besten bewahrt hat, während der FFT-Filter sich dazu am wenigsten geeignet hat.</li>
+  </ol>
+
+  <h2><a name="Smoothing_by_Wavelet"></a><span class="mw-headline">Glättung mit Wavelet</span></h2>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe. Wählen Sie <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b> im Menü, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner <i>Signal Processing</i>. Dort befindet sich die Datei <i>Signal with High Frequency Noise.dat</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das leere Arbeitsblatt, um sie zu importieren.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Smoothing 1.png" src="../images/Smoothing/SP_Tutorial_Smoothing_1.png" width="319"></a></dd>
+      </dl>
+    </li>
+
+    <li>Markieren Sie Spalte B und wählen Sie im Menü <b>Analyse: Signalverarbeitung: Wavelet: Glätten</b>, um den Dialog <b>Smooth: wtsmooth</b> zu öffnen.</li>
+
+    <li>Setzen Sie im Dialog <b>Wavelet-Typ</b> auf <b>DB6</b> und <b>Abschneiden (%)</b> auf <b>98</b>. Aktivieren Sie die <b>Automatische Vorschau</b>, um das Ergebnis im rechten Bedienfeld in der Vorschau anzuzeigen.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Smoothing 7.png" src="../images/Smoothing/SP_Tutorial_Smoothing_7.png" width="791"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um den Dialog zu schließen und das Ergebnis zu erzeugen.</li>
+
+    <li>Um die Differenz zwischen dem ursprünglichen und dem geglätteten Signal zu sehen, markieren Sie alle Spalten in dem Arbeitsblatt. Wählen Sie dann im Menü <b>Zeichnen: 2D: Linie: Liniendiagramm</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Smoothing 8.png" src="../images/Smoothing/SP_Tutorial_Smoothing_8.png" width="517"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h2><a name="Smoothing_Matrix"></a><span class="mw-headline">Matrix glätten</span></h2>
+
+  <ol>
+    <li>Öffnen Sie eine neue Matrixmappe.</li>
+
+    <li>Wählen Sie im Menü <b>Daten: Aus Datei importieren: Bild in Matrix</b>, um das Bild <b>scale.jpg</b> im Ordner <i>&lt;Origin-Verzeichnis&gt;\Samples\Image Processing and Analysis\</i> zu importieren (wenn der Dialog impImage geöffnet wird, übernehmen Sie einfach die Standardeinstellungen und klicken Sie auf <b>OK</b>).</li>
+
+    <li>Origin kann keine Glättung für ein Bild durchführen, deswegen müssen Sie das Bild zuerst in Matrixdaten umwandeln. Wählen Sie im Menü <b>Bild: Konvertierung: In Daten konvertieren</b>. Akzeptieren Sie die Standardeinstellungen und klicken Sie auf die Schaltfläche <b>OK</b>.</li>
+
+    <li>Wählen Sie bei aktiver konvertierter Matrix im Menü <b>Ansicht: Bildmodus</b>, um diese Matrix als Bild anzuzeigen.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Smoothing 9.png" src="../images/Smoothing/SP_Tutorial_Smoothing_9.png" width="471"></a></dd>
+      </dl>
+    </li>
+
+    <li>Zum Durchführen der Glättung wählen Sie <b>Analyse: Signalverarbeitung: Glätten</b>. Der Dialog <b>Glätten: msmooth</b> wird geöffnet.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Smoothing 10.png" src="../images/Smoothing/SP_Tutorial_Smoothing_10.png" width="351"></a></dd>
+      </dl>
+    </li>
+
+    <li>Übernehmen Sie die Standardeinstellungen und klicken Sie auf <b>OK</b>. Um das Ergebnis anzuzeigen, wählen Sie <b>Ansicht: Bildmodus</b> im Menü.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Smoothing 11.png" src="../images/Smoothing/SP_Tutorial_Smoothing_11.png" width="469"></a></dd>
+      </dl>
+    </li>
+  </ol>

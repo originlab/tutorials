@@ -1,0 +1,106 @@
+﻿<h1 class="firstHeading">Anpassen mit zwei Integralen mit Hilfe der LabTalk-Funktion</h1><p class='urlname' style='display: none'>Fitting-2Integral-LabTalk</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Inhalt</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">Beispiele und Schritte</span></a><ul>
+<li class="toclevel-2 tocsection-4"><a href="#The_Fitting_Model"><span class="tocnumber">3.1</span> <span class="toctext">Das Anpassungsmodell</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Define_the_Function"><span class="tocnumber">3.2</span> <span class="toctext">Funktion definieren</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Fit_the_Curve"><span class="tocnumber">3.3</span> <span class="toctext">Kurve anpassen</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+<p>Unter bestimmten Umst&auml;nden m&ouml;chten Sie vielleicht eine Fitfuntkion mit mehreren Integralen erstellen:</p>
+<dl><dd><img src="../images/Fitting_with_Two_Integrals_using_LabTalk_Function/math-f019cfb8b4ac68af260cab146da752ae.png" title="\int_{LL1}^{UL1} f(t, arg1, arg2, ...)~dt + \int_{LL2}^{UL2} g(x, arg3, arg4, ...)~dx" alt="\int_{LL1}^{UL1} f(t, arg1, arg2, ...)~dt + \int_{LL2}^{UL2} g(x, arg3, arg4, ...)~dx" class="tex"/></dd></dl>
+<p>Bitte lesen Sie unter <a href="../../Tutorial/Tutorial/Fitting_with_Integral_using_LabTalk_Function.html" title="Tutorial:Fitting with Integral using LabTalk Function">Anpassen mit Integral mit Hilfe der LabTalk-Funktion</a> eine genauere Beschreibung der Parameter in dem Ausdruck nach.</p><p>In Version Origin 8.6 unterst&uuml;tzt die Funktion <span class="db">Fitfunktionen erstellen</span> jedoch nur ein Integral in der Fitfunktion. Durch Umgehen des komplexen Origin C-Codes k&ouml;nnen Sie die Funktion <span class="db">Fitfunktionen verwalten</span> verwenden, um das Ziel zu erreichen.</p><p>In diesem Tutorial sehen Sie, wie Sie mit der Funktion Fitfunktionen verwalten eine Fitfunktion erstellen, die aus zwei Integralen besteht. Nat&uuml;rlich ist es m&ouml;glich, je nach Bedarf mehr Integrale einzubinden.</p>
+<p class="version" >Origin-Version mind. erforderlich: Origin 8.6</p>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Fitting_with_Two_Integrals_using_LabTalk_Function/Tip_icon.png" width="57"  border="0" /></td><td><p>Seit Origin 2018b k&ouml;nnen Sie eine implizite Funktion mit Hilfe von Integralen definieren.</p></td></tr></table>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+<p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+<ul><li> eine Anpassungsfunktion mit Hilfe des Dialogs Fitfunktionen verwalten erstellen.</li>
+<li> eine Fitfunktion mit zwei Integralen mit Hilfe einer LabTalk-Funktion erstellen.</li></ul>
+<h2><a name="Example_and_Steps"></a><span class="mw-headline">Beispiel und Schritte</span></h2>
+<h3><a name="The_Fitting_Model"></a><span class="mw-headline">Das Anpassungsmodell</span></h3>
+<p>Das Anpassungsmodell wird wie folgt geschrieben</p>
+<dl><dd><img src="../images/Fitting_with_Two_Integrals_using_LabTalk_Function/math-1bfc884f2e1467c2514df415278b963e.png" title="y=y_0+\int_{-5}^{x} A~t~dt - \int_{-\infty}^{x}B~t~\exp(-t^2/{w}^2)~ dt" alt="y=y_0+\int_{-5}^{x} A~t~dt - \int_{-\infty}^{x}B~t~\exp(-t^2/{w}^2)~ dt" class="tex"/></dd></dl>
+<p>In der Anpassungsfunktion gibt es vier Parameter. Um eine Integration durchzuf&uuml;hren, m&uuml;ssen drei von ihnen an den Integrand weitergegeben und die unabh&auml;ngige Variable als obere Grenze verwendet werden.</p>
+<h3><a name="Define_the_Function"></a><span class="mw-headline">Die Funktion definieren</span></h3>
+<ol>
+<li> Dr&uuml;cken Sie <span class="key">F9</span>, um den Dialog <span class="db">Fitfunktionen verwalten</span> zu &ouml;ffnen. F&uuml;gen Sie eine neue Funktion hinzu, indem Sie auf <b>Neue Funktion</b> klicken, nachdem Sie eine Kategorie f&uuml;r Ihre neue Funktion ausgew&auml;hlt haben. Es ist ebenfalls m&ouml;glich, eine neue Kategorie hinzuf&uuml;gen, indem Sie auf die Schaltfl&auml;che <b>Neue Kategorie</b> klicken. <br /><br /><a  class="image"><img alt="Fit Two Integral 001.jpg" src="../images/Fitting_with_Two_Integrals_using_LabTalk_Function/Fit_Two_Integral_001.jpg" width="580"  /></a><br /><br /><li> Legen Sie den Funktionsnamen im Bearbeitungsfeld <b>Funktionsname</b> fest. Definieren Sie <b>Unabh&auml;ngige Variablen</b>, <b>Abh&auml;ngige Variablen</b> und <b>Parameternamen</b> in den entsprechenden Bearbeitungsfeldern.<li> W&auml;hlen Sie die <b>Funktionsform</b> in dem Auswahlfeld aus. Erkl&auml;rungen finden Sie auf der Registerkarte <b>Hinweise</b> unten im Dialog aufgef&uuml;hrt. <br /><br /><a  class="image"><img alt="Fit Two Integral 002.jpg" src="../images/Fitting_with_Two_Integrals_using_LabTalk_Function/Fit_Two_Integral_002.jpg" width="580"  /></a><br /><br /><li> Definieren Sie im Bearbeitungsfeld <b>Funktion</b> Ihre Fitfunktion. Die Integrale werden in Form der LabTalk-<b>Integral</b>funktion geschrieben.<pre class="lt" style="font-family:monospace;">y<span style="color: #000080;">=</span>integral<span style="color: #000000;">(</span>polyint, <span style="color: #000080;">-</span><span style="color: #0000dd;">5</span>, x, a<span style="color: #000000;">)</span><span style="color: #000080;">-</span>integral<span style="color: #000000;">(</span>gaussint, <span style="color: #000080;">-</span>inf, x, b, wc<span style="color: #000000;">)</span><span style="color: #000080;">+</span>y0</pre>
+<p>Wie unter <a href="../../Tutorial/Tutorial/Fitting_with_Integral_using_LabTalk_Function.html" title="Tutorial:Fitting with Integral using LabTalk Function">Anpassen mit Integral mit Hilfe der LabTalk-Funktion</a> beschrieben, sind <i>x</i>, <i>a</i>, <i>b</i> und <i>wc</i> Parameter, die an die Integrandfunktionen weitergegeben werden.</p>
+<li> Klicken Sie auf die Schaltfl&auml;che rechts oben im Feld <b>Parametereinstellungen</b>, um den Dialog <span class="db">Parametereinstellungen</span> zu aktivieren. Legen Sie die Initialisierungswerte sowie weitere Nebenbedingungen wie die unteren Grenzen und oberen Grenzen f&uuml;r jeden Parameter fest. <br /><br /><a  class="image"><img alt="Fit Two Integral 003.jpg" src="../images/Fitting_with_Two_Integrals_using_LabTalk_Function/Fit_Two_Integral_003.jpg" width="580"  /></a><br /><br /><li> Definieren Sie die zwei Integrale in dem Feld <b>LabTalk-Funktionsdefinitionen und -Initialisierungen</b>. In diesem Fall sollten die Funktionen folgenderma&szlig;en aussehen:<pre class="lt" style="font-family:monospace;">function double polyint<span style="color: #000000;">(</span>double t, double ia<span style="color: #000000;">)</span> <span style="color: #000000;">{</span> return ia<span style="color: #000080;">*</span>t; <span style="color: #000000;">}</span> function double gaussint<span style="color: #000000;">(</span>t, ib, iwc<span style="color: #000000;">)</span> <span style="color: #000000;">{</span> return ib <span style="color: #000080;">*</span>t<span style="color: #000080;">*</span> exp<span style="color: #000000;">(</span><span style="color: #000080;">-</span><span style="color: #000000;">(</span>t<span style="color: #000000;">)</span><span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000080;">/</span>iwc<span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span>; <span style="color: #000000;">}</span></pre>
+<li> Sie haben erfolgreich die Fitfunktion mit den zwei Integralen erstellt. Weitere Informationen k&ouml;nnen in dem entsprechenden Feld vermerkt werden. Vergessen Sie nicht, Ihre Fitfunktion zu <b>speichern</b>, nachdem Sie fertig sind.</ol>
+<h3><a name="Fit_the_Curve"></a><span class="mw-headline">Kurve anpassen</span></h3>
+<p>Kopieren Sie die folgenden Daten und f&uuml;gen Sie sie in ein Origin-Arbeitsblatt ein:</p>
+<dl><dd><table class="simple" style="width:120px">
+<tr>
+<th> X</th>
+<th> Y</th></tr>
+<tr>
+<td> -3</td>
+<td>2.47613</td></tr>
+<tr>
+<td> -2.6</td>
+<td>2.24016</td></tr>
+<tr>
+<td> -2.2</td>
+<td>2.01543</td></tr>
+<tr>
+<td> -1.8</td>
+<td>1.83094</td></tr>
+<tr>
+<td> -1.5</td>
+<td>1.85038</td></tr>
+<tr>
+<td> -1.1</td>
+<td>2.17725</td></tr>
+<tr>
+<td> -0.9</td>
+<td>2.44967</td></tr>
+<tr>
+<td> -0.7</td>
+<td>2.61423</td></tr>
+<tr>
+<td> -0.5</td>
+<td>3.02305</td></tr>
+<tr>
+<td> -0.3</td>
+<td>3.23057</td></tr>
+<tr>
+<td> -0.1</td>
+<td>3.37822</td></tr>
+<tr>
+<td>0. 1</td>
+<td>3.2827</td></tr>
+<tr>
+<td>0.3</td>
+<td>3.18775</td></tr>
+<tr>
+<td>0.5</td>
+<td>2.86194</td></tr>
+<tr>
+<td>0.7</td>
+<td>2.69104</td></tr>
+<tr>
+<td>0.9</td>
+<td>2.39315</td></tr>
+<tr>
+<td>1.4</td>
+<td>2.04046</td></tr>
+<tr>
+<td>1.8</td>
+<td>1.85287</td></tr>
+<tr>
+<td>2.2</td>
+<td>1.85325</td></tr>
+<tr>
+<td>2.6</td>
+<td>2.20569</td></tr></table></dd></dl>
+<p>Markieren Sie <i>Y</i>-Spalte und dr&uuml;cken Sie <span class="key">Strg + Y</span>, um den Dialog <span class="db">NLFit</span> aufzurufen. W&auml;hlen Sie die Funktion, die Sie gerade definiert haben, und klicken Sie auf die Schaltfl&auml;che Fit <a  class="image"><img alt="Button Fit.png" src="../images/Fitting_with_Two_Integrals_using_LabTalk_Function/Button_Fit.png" width="51"  /></a>, um die Anpassung durchzuf&uuml;hren. <br /><br /><a  class="image"><img alt="Fit Two Integral 004.png" src="../images/Fitting_with_Two_Integrals_using_LabTalk_Function/Fit_Two_Integral_004.png" width="316"  /></a><br /><br /></p>
+
+
+    

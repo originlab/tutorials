@@ -1,0 +1,205 @@
+﻿<h1 class="firstHeading">Polardiagramm mit benutzerdefinierten Radialachsen</h1>
+
+  <p class='urlname' style='display: none'>polar-custom-radial</p>
+
+  <p>&#160;</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Create_a_Polar_without_Angular_Axis"><span class="tocnumber">3.1</span> <span class="toctext">Polardiagramm ohne Winkelachsen erstellen</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Add_Radial_Axis_on_each_Major_Tick"><span class="tocnumber">3.2</span> <span class="toctext">Radialachsen auf jedem großen Hilfsstrich hinzufügen</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#Use_Configuration_Dialog_to_Customize_Radial_Axis"><span class="tocnumber">3.3</span> <span class="toctext">Dialog Konfiguration zum benutzerdefinierten Anpassen der Radialachsen verwenden</span></a></li>
+
+          <li class="toclevel-2 tocsection-7"><a href="#Further_Customization"><span class="tocnumber">3.4</span> <span class="toctext">Weitere benutzerdefinierte Anpassung</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Mit dem Dialog für die Polarachsen können Sie sowohl Winkel- als auch für Radialachsen flexibel benutzerdefiniert anpassen.</p>
+
+  <p><a class="image"><img alt="Tutorial Polar with Custom Radial Axes 01.png" src="../images/Polar_Graph_with_Custom_Radial_Axes/Tutorial_Polar_with_Custom_Radial_Axes_01.png" width="374"></a></p>
+
+  <p class="version">Origin-Version mind. erforderlich: 2015 SR0</p>
+
+  <h2><a name="What_You_Will_Learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>ein Polardiagramm erstellen.</li>
+
+    <li>Winkelachsen ausblenden.</li>
+
+    <li>Radialachse benutzerdefiniert anpassen.</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <p>Dieses Tutorial basiert auf dem Projekt: <i>&lt;Origin-Verzeichnis&gt;\Samples\Tutorial Data.opj</i>.</p>
+
+  <h3><a name="Create_a_Polar_without_Angular_Axis"></a><span class="mw-headline">Polardiagramm ohne Winkelachsen erstellen</span></h3>
+
+  <ol>
+    <li>Öffnen Sie die Datei Tutorial Data.opj, navigieren Sie zu dem Ordner <i>Custom Radial Axis</i> und aktivieren Sie die Arbeitsmappe <b>Book1E</b>.</li>
+
+    <li>Markieren Sie Spalte B und wählen Sie <b>Zeichnen: Spezialisiert: Polar Theta(X) r(Y)</b>, um ein Polardiagramm zu erzeugen.</li>
+
+    <li>Markieren Sie die Legende und löschen Sie sie.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Polar with Custom Radial Axes 17.png" src="../images/Polar_Graph_with_Custom_Radial_Axes/Tutorial_Polar_with_Custom_Radial_Axes_17.png" width="398"></a></dd>
+      </dl>
+    </li>
+
+    <li>Um die äußere Achse (den äußeren Kreis) des Polardiagramms auszublenden, klicken Sie doppelt auf eine Achse, um den Dialog <b>Achsen</b> zu öffnen. Gehen Sie zur Registerkarte <b>Zeigen</b>, wählen Sie <b>Winkel - Äußere</b> im linken Bedienfeld und deaktivieren Sie das Kontrollkästchen <b>Zeigen</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Polar with Custom Radial Axes 03.png" src="../images/Polar_Graph_with_Custom_Radial_Axes/Tutorial_Polar_with_Custom_Radial_Axes_03.png" width="561"></a></dd>
+      </dl>
+    </li>
+
+    <li>Um alle Gitternetzlinien der Winkel zu verbergen, gehen Sie zur Registerkarte <b>Gitternetze</b> und stellen Sie sicher, dass <b>Winkel</b> im linken Bedienfeld ausgewählt ist. Deaktivieren Sie die Kontrollkästchen <b>Zeigen</b> in den Abschnitten <b>Hauptgitternetzlinien</b> und <b>Nebengitternetzlinien</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Polar with Custom Radial Axes 14.png" src="../images/Polar_Graph_with_Custom_Radial_Axes/Tutorial_Polar_with_Custom_Radial_Axes_14.png" width="561"></a></dd>
+      </dl>
+    </li>
+
+    <li>Gehen Sie zur Registerkarte <b>Skalierung</b> und wählen Sie <b>Radial</b> im linken Bedienfeld. Legen Sie die Achsenskalierung, wie unten gezeigt, fest:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Polar with Custom Radial Axes 05.png" src="../images/Polar_Graph_with_Custom_Radial_Axes/Tutorial_Polar_with_Custom_Radial_Axes_05.png" width="561"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wechseln Sie dann zur Registerkarte <b>Gitternetze</b> und legen Sie folgende Optionen fest:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Polar with Custom Radial Axes 06.png" src="../images/Polar_Graph_with_Custom_Radial_Axes/Tutorial_Polar_with_Custom_Radial_Axes_06.png" width="561"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Add_Radial_Axis_on_each_Major_Tick"></a><span class="mw-headline">Radialachsen auf jedem großen Hilfsstrich hinzufügen</span></h3>
+
+  <ol>
+    <li>Um Radialachsen auf jeder Position eines großen Hilfsstrichs der Winkelachse anzuzeigen, wechseln Sie zum Zweig <b>Konfiguration der Radialachsen</b>. Aktivieren Sie im Dialog die Option <b>Große Hilfsstriche</b> im Abschnitt <b>Achsen innerhalb Polar</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Polar with Custom Radial Axes 04.png" src="../images/Polar_Graph_with_Custom_Radial_Axes/Tutorial_Polar_with_Custom_Radial_Axes_04.png" width="560"></a></dd>
+      </dl>
+    </li>
+
+    <li>Um die Achsentitel zu verbergen, gehen Sie zur Registerkarte <b>Titel</b> und wählen Sie <b>Radial - Hauptachsen</b> im linken Bedienfeld. Deaktivieren Sie das Kontrollkästchen <b>Zeigen</b>. Klicken Sie auf die Schaltfläche <b>Anwenden</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Polar with Custom Radial Axes 18.png" src="../images/Polar_Graph_with_Custom_Radial_Axes/Tutorial_Polar_with_Custom_Radial_Axes_18.png" width="560"></a></dd>
+      </dl>
+    </li>
+
+    <li>In der Mitte des Polardiagramms werden vier 0 gezeigt. Um sie auszublenden, gehen Sie zur Registerkarte <b>Spezielle Hilfsstriche</b>. Wählen Sie <b>Verstecken</b> in der Auswahlliste <b>Achsenanfang</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Polar with Custom Radial Axes 19.png" src="../images/Polar_Graph_with_Custom_Radial_Axes/Tutorial_Polar_with_Custom_Radial_Axes_19.png" width="560"></a></dd>
+      </dl>Klicken Sie auf <b>OK</b>, um den Dialog zu schließen.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Polar with Custom Radial Axes 15.png" src="../images/Polar_Graph_with_Custom_Radial_Axes/Tutorial_Polar_with_Custom_Radial_Axes_15.png" width="363"></a></dd>
+      </dl>Wenn Sie zur Registerkarte <b>Skalierung</b> der <b>Radial</b>achsen gehen und die großen Hilfsstriche ändern, wenn die Einstellung vorsieht, dass die Radialachsen auf jedem großen Hilfsstrich gezeigt werden, werden die Radialachsen auf den neuen Positionen der großen Hilfsstriche gezeigt.
+
+      <h3><a name="Use_Configuration_Dialog_to_Customize_Radial_Axis"></a><span class="mw-headline">Dialog Konfiguration zum benutzerdefinierten Anpassen der Radialachsen verwenden</span></h3>
+
+      <p>Origin unterstützt zwei Arten von Radialachsen. Eine Achse betrifft den Rahmen um das Polardiagramm herum. Bei der anderen Achse handelt es sich um die innere Achse von der Mitte des Polardiagramms nach außen gehend.</p>
+
+      <ol>
+        <li>Fahren Sie mit dem Diagramm aus dem vorherigen Abschnitt fort. Klicken Sie auf die Schaltfläche <b>Konfiguration der Radialachsen</b> oben im linken Bedienfeld. Legen Sie im Dialog <b>Konfiguration der Radialachsen</b> im Zweig <b>Achsen innerhalb Polar</b> die <b>Winkelliste</b>, wie unten gezeigt, fest und klicken Sie auf <b>OK</b>, um den Dialog zu schließen.
+
+          <dl>
+            <dd><a class="image"><img alt="Tutorial Polar with Custom Radial Axes 08.png" src="../images/Polar_Graph_with_Custom_Radial_Axes/Tutorial_Polar_with_Custom_Radial_Axes_08.png" width="588"></a></dd>
+          </dl>
+        </li>
+
+        <li>Klicken Sie auf die Schaltfläche <b>Anwenden</b>. Es werden vier innere Radialachsen im linken Bedienfeld gezeigt.</li>
+
+        <li>Gehen Sie zur Registerkarte <b>Titel</b> und wählen Sie <b>Radial - Innere Achse 1</b> im linken Bedienfeld. Aktivieren Sie dann das Kontrollkästchen <b>Gleiche Optionen für alle Radialachsen verwenden</b> und deaktivieren Sie das Kontrollkästchen <b>Zeigen</b>, um alle Titel zu verbergen. Diese Einstellung wird dann auf vier Radialachsen angewendet.
+
+          <dl>
+            <dd><a class="image"><img alt="Tutorial Polar with Custom Radial Axes 09.png" src="../images/Polar_Graph_with_Custom_Radial_Axes/Tutorial_Polar_with_Custom_Radial_Axes_09.png" width="588"></a></dd>
+          </dl>
+        </li>
+
+        <li>Gehen Sie zum Zweig <b>Beschriftungen für Hilfsstriche</b> und aktivieren Sie <b>Gleiche Optionen für alle Radialachsen verwenden</b>. Legen Sie auf der Unterregisterkarte <b>Format</b> die Option <b>Drehen (Grad)</b> mit <b>0</b> fest.
+
+          <dl>
+            <dd><a class="image"><img alt="Tutorial Polar with Custom Radial Axes 10.png" src="../images/Polar_Graph_with_Custom_Radial_Axes/Tutorial_Polar_with_Custom_Radial_Axes_10.png" width="588"></a></dd>
+          </dl>
+        </li>
+
+        <li>Gehen Sie zur Registerkarte <b>Spezielle Hilfsstriche</b> und aktivieren Sie das Kontrollkästchen <b>Gleiche Optionen für alle Radialachsen verwenden</b>. Setzen Sie <b>Achsenanfang</b> auf <b>Verstecken</b>.</li>
+
+        <li>Gehen Sie zur Registerkarte <b>Zeigen</b>, drücken Sie <b>Shift</b>, um zwei Achsen <b>Radial - Innere Achse 3</b> und <b>Radial - Innere Achse 4</b> auszuwählen, ändern Sie die <b>Fließrichtung</b> auf <b>Negativ</b> im Abschnitt <b>Achsenposition</b>.
+
+          <dl>
+            <dd><a class="image"><img alt="Tutorial Polar with Custom Radial Axes 12.png" src="../images/Polar_Graph_with_Custom_Radial_Axes/Tutorial_Polar_with_Custom_Radial_Axes_12.png" width="588"></a></dd>
+          </dl>
+        </li>
+
+        <li>Gehen Sie zur Seite <b>Beschriftung der Hilfsstriche</b> und geben Sie ein Minuszeichen (-) im Bearbeitungsfeld <b>Präfix</b> auf der Unterregisterkarte <b>Anzeige</b> ein.
+
+          <dl>
+            <dd><a class="image"><img alt="Tutorial Polar with Custom Radial Axes 13.png" src="../images/Polar_Graph_with_Custom_Radial_Axes/Tutorial_Polar_with_Custom_Radial_Axes_13.png" width="588"></a></dd>
+          </dl>
+        </li>
+
+        <li>Klicken Sie auf <b>OK</b>.
+
+          <dl>
+            <dd><a class="image"><img alt="Tutorial Polar with Custom Radial Axes 16.png" src="../images/Polar_Graph_with_Custom_Radial_Axes/Tutorial_Polar_with_Custom_Radial_Axes_16.png" width="334"></a></dd>
+          </dl>
+        </li>
+      </ol>
+
+      <h3><a name="Further_Customization"></a><span class="mw-headline">Weitere benutzerdefinierte Anpassung</span></h3>
+
+      <ol>
+        <li>Um die Farbe des Liniendiagramms rot und etwas dicker zu machen, markieren Sie das Liniendiagramm und wählen Sie auf der Symbolleiste <b>Stil</b> die <b>Linien-/Rahmenfarbe</b> rot und setzen Sie die <b>Linien-/Rahmenbreite</b> auf <b>1,5</b>.
+
+          <dl>
+            <dd><a class="image"><img alt="Radial axis plot.png" src="../images/Polar_Graph_with_Custom_Radial_Axes/Radial_axis_plot.png" width="295"></a></dd>
+          </dl>
+        </li>
+
+        <li>Um eine Gleichung zu diesem Diagramm als Diagrammtitel hinzuzufügen, klicken Sie mit der rechten Maustaste auf das Diagramm und wählen Sie <b>Layertitel hinzufügen/modifizieren</b>. Geben Sie dann <b>r=exp(q*cot(79,5p/180))</b> in das Bearbeitungsfeld ein.</li>
+
+        <li>Origin unterstützt RichText. Markieren Sie <b>q</b> im Text und klicken Sie auf die Schaltfläche <a class="image"><img alt="Radial axis greek.png" src="../images/Polar_Graph_with_Custom_Radial_Axes/Radial_axis_greek.png" width="25"></a> auf der Symbolleiste <b>Stil</b>, um es in <b><img src="../images/Polar_Graph_with_Custom_Radial_Axes/math-2554a2bb846cffd697389e5dc8912759.png" title="\theta" alt="\theta" class="tex"></b> zu ändern. Verändern Sie auch <b>p</b> in <b><img src="../images/Polar_Graph_with_Custom_Radial_Axes/math-4f08e3dba63dc6d40b22952c7a9dac6d.png" title="\pi" alt="\pi" class="tex"></b>. Der Text sieht dann folgendermaßen aus:
+
+          <dl>
+            <dd><a class="image"><img alt="Radial axis equation.png" src="../images/Polar_Graph_with_Custom_Radial_Axes/Radial_axis_equation.png" width="143"></a></dd>
+          </dl>
+        </li>
+
+        <li>Um dem Text einen Schatten hinzuzufügen und die Schrift zu vergrößern, klicken Sie mit der rechten Maustaste auf den Titel und klicken Sie auf <b>Einstellungen</b>, um den Dialog <b>Objekteigenschaften</b> zu öffnen. Setzen Sie auf der Registerkarte <b>Text</b> die Schriftgröße auf <b>26</b>, gehen Sie dann zur Registerkarte <b>Rahmen</b> und setzen Sie den <b>Rahmen</b> auf <b>Schatten</b>. Klicken Sie auf <b>OK</b>, um die Einstellung zu speichern.</li>
+
+        <li>Verschieben Sie die Gleichung in die gewünschte Position. Das Diagramm sollte wie das Diagramm unter <b>Zusammenfassung</b> aussehen:</li>
+      </ol>
+    </li>
+  </ol>
+
+  <ul class="noindent"></ul>

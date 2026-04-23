@@ -1,0 +1,266 @@
+﻿<h1 class="firstHeading">Gruppiertes gestapeltes Säulendiagramm</h1>
+
+  <p class='urlname' style='display: none'>GroupedStackedColumn</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_will_you_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Create_a_Grouped_Stacked_Column_Plot"><span class="tocnumber">3</span> <span class="toctext">Gruppiertes gestapeltes Säulendiagramm erstellen</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Method_1:_Using_the_Online_Template"><span class="tocnumber">3.1</span> <span class="toctext">Methode 1: Online-Vorlage verwenden</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Method_2:_Subgroup_the_Stacked_Columns"><span class="tocnumber">3.2</span> <span class="toctext">Methode 2: Teilgruppe der gestapelten Säulen erstellen</span></a></li>
+        </ul>
+      </li>
+
+      <li class="toclevel-1 tocsection-6"><a href="#Add_Lables_for_Columns"><span class="tocnumber">4</span> <span class="toctext">Beschriftungen für Säulen hinzufügen</span></a></li>
+
+      <li class="toclevel-1 tocsection-7"><a href="#Create_a_Tick_Label_Table_for_X_Axis"><span class="tocnumber">5</span> <span class="toctext">Tabelle für Hilfsstrichsbeschriftungen der X-Achse erstellen</span></a></li>
+
+      <li class="toclevel-1 tocsection-8"><a href="#Customize_Column_Colors"><span class="tocnumber">6</span> <span class="toctext">Spaltenfarbe benutzerdefiniert anpassen</span></a></li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/Grouped_Stacked_Column/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/Grouped_Stacked_Column/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=99" target="_blank">Fehlerbalken in 2D-Diagramm zeichnen</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=10" target="_blank">Fehlerbalken zu einem Diagramm hinzufügen</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=253" target="_blank">X- und Y-Fehlerbalken zeichnen</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=252" target="_blank">Daten mit unterschiedlichen Y-Plus- und Y-Minus-Fehlerbalken zeichnen</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%">
+        <a class="image"><img alt="Website blog icon circle.png" src="../images/Grouped_Stacked_Column/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Grouped_Stacked_Column/Blog_Image_33x33px.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="http://blog.originlab.com/plotting-barcolumn-graphs-with-indexed-patterns" target="_blank">Balken-/Säulendiagramme mit indizierten Mustern zeichnen</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/grouped-columns-with-gap-between-subgroups" target="_blank">Gruppierte Säulen mit Abstand zwischen Teilgruppen</a></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <p>&#160;</p>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>In Origin können mehrere Datensätze als ein gestapeltes Säulendiagramm gezeichnet werden. Normalerweise werden diese Datensätze zusammen gruppiert. Zusätzlich ist es möglich, Untergruppierungen für gestapelte Säulendiagramme zu erstellen, wie unten im Fall von zwei Untergruppen gezeigt:<br>
+  <a class="image"><img alt="Grouped Stacked Column 08.png" src="../images/Grouped_Stacked_Column/Grouped_Stacked_Column_08.png" width="561"></a></p>
+
+  <p class="version">Origin-Version mind. erforderlich: 2021 SR0</p>
+
+  <h2><a name="What_will_you_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>ein gruppiertes gestapeltes Säulendiagramm mit Online-Vorlage zeichnen,</li>
+
+    <li>eine Teilgruppe eines allgemeinen gestapelten Säulendiagramms erstellen, um ein gruppiertes gestapeltes Säulendiagramm zu erhalten,</li>
+
+    <li>Beschriftungen zu Säulen hinzufügen,</li>
+
+    <li>eine Tabelle der X-Achse für das Diagramm erstellen und benutzerdefiniert anpassen.</li>
+  </ul>
+
+  <h2><a name="Create_a_Grouped_Stacked_Column_Plot"></a><span class="mw-headline">Gruppiertes gestapeltes Säulendiagramm erstellen</span></h2>
+
+  <p>Dieses Tutorial ist mit dem Ordner <i>Grouped Stacked Column</i> im Projekt <i>(&lt;Origin-Verzeichnis&gt;\Samples\Tutorial Data.opj)</i> verbunden.</p>
+
+  <p><b>Hinweis:</b> Sie können auf dieses Beispieldiagramm auch durch einen Doppelklick auf das Miniaturbild unter dem Diagrammbeispiel <i>Grouped Stacked Column</i> unter den Säulen- und Balkendiagrammen im <b>Lernzentrum</b> zugreifen (<b>Hilfe: Lernzentrum</b> im Menü oder über die Taste <b>F11</b>) .</p>
+
+  <p><b>Es gibt zwei Methoden, um ein gruppiertes gestapeltes Säulendiagramm zu erstellen:</b></p>
+
+  <ul>
+    <li>Seit Origin 2021 bietet Origin viele Online-Vorlagen an. Sie können die Vorlage "Side-by-side Stacked Columns" aus dem <b>Vorlagencenter</b> herunterladen und sie verwenden, um ein gruppiertes gestapeltes Säulendiagramm direkt zu erstellen.</li>
+
+    <li>Natürlich können Sie ein gruppiertes gestapeltes Säulendiagramm auch immer noch über ein allgemeines gestapeltes Säulendiagramm erstellen.</li>
+  </ul>
+
+  <h3><a name="Method_1:_Using_the_Online_Template"></a><span class="mw-headline">Methode 1: Online-Vorlage verwenden</span></h3>
+
+  <ol>
+    <li>Markieren Sie die Spalten col(B) ~ col(G) und wählen Sie im Menü <b>Zeichnen: mit Template</b>, um die <b>Vorlagenbibliothek</b> zu öffnen. Klicken Sie auf die Schaltfläche <b>Vorlagencenter öffnen</b> in der oberen rechten Ecke.
+
+      <dl>
+        <dd><a class="image"><img alt="Grouped Stacked Column M1 01.png" src="../images/Grouped_Stacked_Column/750px-Grouped_Stacked_Column_M1_01.png" width="750"></a></dd>
+      </dl>
+    </li>
+
+    <li>Das <b>Vorlagencenter</b> wird geöffnet. Suchen Sie nach der Online-Vorlage "Side-by-side Stacked Columns" und laden Sie sie herunter.
+
+      <dl>
+        <dd><a class="image"><img alt="Grouped Stacked Column M1 02.png" src="../images/Grouped_Stacked_Column/750px-Grouped_Stacked_Column_M1_02.png" width="750"></a></dd>
+      </dl>
+    </li>
+
+    <li>Nachdem die Vorlage heruntergeladen ist, schließen Sie das <b>Vorlagencenter</b>. Diese Vorlage wird in der <b>Vorlagenbibliothek</b> aufgelistet. Wählen Sie sie aus und klicken Sie auf die Schaltfläche <b>Diagramm</b>, um ein Diagramm zu erzeugen.
+
+      <dl>
+        <dd><a class="image"><img alt="Grouped Stacked Column M1 03.png" src="../images/Grouped_Stacked_Column/750px-Grouped_Stacked_Column_M1_03.png" width="750"></a></dd>
+      </dl>
+    </li>
+
+    <li>Das erzeugte Diagramm sieht folgendermaßen aus:
+
+      <dl>
+        <dd><a class="image"><img alt="Grouped Stacked Column M1 04.png" src="../images/Grouped_Stacked_Column/Grouped_Stacked_Column_M1_04.png" width="533"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Method_2:_Subgroup_the_Stacked_Columns"></a><span class="mw-headline">Methode 2: Teilgruppe der gestapelten Säulen erstellen</span></h3>
+
+  <ol>
+    <li>Aktivieren Sie das Arbeitsblatt <b>Sheet1</b>, markieren Sie die Spalten col(B)~col(G) und wählen Sie <b>Zeichnen &gt; Balken, Kreis, Fläche: Gestapelte Säulen</b> im Menü, um ein gestapeltes Säulendiagramm zu zeichnen:
+
+      <dl>
+        <dd><a class="image"><img alt="Grouped Stacked Column 01.png" src="../images/Grouped_Stacked_Column/Grouped_Stacked_Column_01.png" width="371"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie zum Öffnen des Dialogs <b>Details Zeichnung</b> doppelt auf das Säulendiagramm. Wählen Sie auf der Registerkarte <b>Gruppe</b> die Option <b>Nach Größe</b> für <b>Untergruppierung</b> und setzen Sie die <b>Größe der Untergruppe</b> auf <b>3</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Grouped Stacked Column 02 2.png" src="../images/Grouped_Stacked_Column/Grouped_Stacked_Column_02_2.png" width="661"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie <b>Layer1</b> im linken Bedienfeld des Dialogs <b>Details Zeichnung</b> und klicken Sie auf die Registerkarte <b>Stapeln</b>. Aktivieren Sie das Kontrollkästchen <b>Versatz innerhalb Untergruppe (Registerkarte Gruppe) für Kumulativ/Inkrementell</b>. Klicken Sie auf die Schaltfläche <b>Anwenden</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Grouped Stacked Column 05.png" src="../images/Grouped_Stacked_Column/Grouped_Stacked_Column_05.png" width="548"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um den Dialog zu schließen. Wählen Sie <b>Grafik: Neu skalieren, um alle anzuzeigen</b> im Hauptmenü, um den Layer neu zu skalieren. Das erzeugte Diagramm sieht folgendermaßen aus:
+
+      <dl>
+        <dd><a class="image"><img alt="Grouped Stacked Column M2 01.png" src="../images/Grouped_Stacked_Column/Grouped_Stacked_Column_M2_01.png" width="426"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h2><a name="Add_Lables_for_Columns"></a><span class="mw-headline">Beschriftungen für Säulen hinzufügen</span></h2>
+
+  <ol>
+    <li>Klicken Sie auf die Säule und in der Minisymbolleiste auf die Option <b>Datenbeschriftungen zeigen</b> auf der Registerkarte <b>Gruppe</b>, um die Datenbeschriftungen auf den Säulen zu zeigen.
+
+      <dl>
+        <dd><a class="image"><img alt="Grouped Stacked Column 03 2.png" src="../images/Grouped_Stacked_Column/Grouped_Stacked_Column_03_2.png" width="490"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Beschriftung und dann in der Minisymbolleiste auf die Schaltfläche <b>Beschriftungsquelle</b>, um <b>Prozent</b> in der Auswahlliste auszuwählen.
+
+      <dl>
+        <dd><a class="image"><img alt="Grouped Stacked Column 03 3.png" src="../images/Grouped_Stacked_Column/Grouped_Stacked_Column_03_3.png" width="492"></a></dd>
+
+        <dd>Bitte beachten Sie, dass Sie, um die Beschriftungen aller Säulen zusammen mit der Minisymbolleiste zu ändern, die erste Zeichnung in der aktuellen Layergruppe auswählen müssen. In diesem gestapelten Säulendiagramm sollte die untere Zeichnung innerhalb der ersten Teilgruppe die erste Zeichnung sein.</dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie zum Öffnen des Dialogs <b>Details Zeichnung</b> doppelt auf den Diagrammlayer. Wählen Sie <b>Layer1</b> im linken Bedienfeld des Dialogs <b>Details Zeichnung</b> und klicken Sie auf die Registerkarte <b>Stapeln</b>. Aktivieren Sie <b>Beschriftung der Summe für gestapelte Säulen-/Balkendiagramme zeigen</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Grouped Stacked Column 09.png" src="../images/Grouped_Stacked_Column/650px-Grouped_Stacked_Column_09.png" width="650"></a></dd>
+      </dl>
+    </li>
+
+    <li>Sie erhalten das Diagramm mit Beschriftungen, wie unten zu sehen:
+
+      <dl>
+        <dd><a class="image"><img alt="Grouped Stacked Column 03 4.png" src="../images/Grouped_Stacked_Column/Grouped_Stacked_Column_03_4.png" width="676"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h2><a name="Create_a_Tick_Label_Table_for_X_Axis"></a><span class="mw-headline">Tabelle für Hilfsstrichsbeschriftungen der X-Achse erstellen</span></h2>
+
+  <ol>
+    <li>Um zwei Zeilen der Hilfsstrichsbeschriftung für die X-Achse zu erstellen, klicken Sie doppelt auf die Hilfsstrichsbeschriftung der X-Achse, um den Dialog <b>Achsen</b> zu öffnen.
+
+      <ul>
+        <li>Wählen Sie auf der Registerkarte <b>Beschriftung der Hilfsstriche</b> das Symbol <b>Unten</b>.</li>
+
+        <li>Setzen Sie auf der Registerkarte <b>Format</b> die <b>Schriftgröße</b> auf <b>16</b></li>
+
+        <li>Aktivieren Sie auf der Registerkarte <b>Tabelle</b> das Kontrollkästchen <b>Aktivieren</b> und setzen Sie die <b>Anzahl der Zeilen</b> auf <b>2</b>. Das Symbol <b>Unten</b> wird im linken Bedienfeld in <b>Unten 1</b> und <b>Unten 2</b> umbenannt.</li>
+
+        <li>Legen Sie das Tabellenlayout, wie unten zu sehen, fest:
+
+          <dl>
+            <dd><a class="image"><img alt="Grouped Stacked Column 06.png" src="../images/Grouped_Stacked_Column/Grouped_Stacked_Column_06.png" width="565"></a></dd>
+          </dl>
+        </li>
+
+        <li>Wählen Sie <b>Unten 2</b> und legen Sie den <b>Datensatzname</b> mit <i>[Book4]Sheet1!H</i> auf der Registerkarte <b>Anzeige</b> fest. Setzen Sie die <b>Schriftgröße</b> auf der Registerkarte <b>Format</b> auf 12. Die Zeile der Hilfsstrichsbeschriftung nimmt die Autonamen aus der Arbeitsblattspalte <b>label (Y)</b> an.</li>
+
+        <li>Legen Sie das Tabellenlayout, wie im Dialog unten zu sehen, fest.
+
+          <dl>
+            <dd><a class="image"><img alt="Grouped Stacked Column 07.png" src="../images/Grouped_Stacked_Column/Grouped_Stacked_Column_07.png" width="594"></a></dd>
+          </dl>
+        </li>
+      </ul>
+    </li>
+
+    <li>Klicken Sie auf OK, um den Dialog zu schließen. Verschieben Sie das Legendenfeld innerhalb des Layers. Klicken Sie auf das Legendenfeld und dann in der Minisymbolleiste auf die Schaltfläche <b>Übersetzungsmodus der Diagrammlegende</b>, um <i>Langname</i> in der Auswahlliste auszuwählen.
+
+      <ul>
+        <li>
+          <dl>
+            <dd><a class="image"><img alt="Grouped Stacked Column 07b.png" src="../images/Grouped_Stacked_Column/Grouped_Stacked_Column_07b.png" width="616"></a></dd>
+          </dl>
+        </li>
+      </ul>
+    </li>
+
+    <li>Das erzeugte Diagramm sieht folgendermaßen aus:
+
+      <dl>
+        <dd><a class="image"><img alt="Grouped Stacked Column 07a.png" src="../images/Grouped_Stacked_Column/Grouped_Stacked_Column_07a.png" width="571"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h2><a name="Customize_Column_Colors"></a><span class="mw-headline">Spaltenfarbe benutzerdefiniert anpassen</span></h2>
+
+  <ol>
+    <li>Klicken Sie zum Öffnen des Dialogs <b>Details Zeichnung</b> doppelt auf das Säulendiagramm. Klicken Sie auf der Registerkarte <b>Gruppe</b> auf die Schaltfläche <a class="image"><img alt="Button browser.png" src="../images/Grouped_Stacked_Column/Button_browser.png" width="15"></a> in der Spalte <b>Details</b> der Zeile <b>Füllfarbe</b>. Der Dialog <b>Farben erzeugen</b> wird geöffnet.</li>
+
+    <li>Wählen Sie die erste Farbe, setzen Sie die Werte für <b>Rot</b>, <b>Grün</b> und <b>Blau</b> auf <b>165, 196</b> und <b>0</b> und klicken Sie dann auf die Schaltfläche <b>Ersetzen</b>, um diese Farbe zu der Farbliste hinzuzufügen.</li>
+
+    <li>Erstellen Sie mit Hilfe dieser RGB-Werte fünf weitere benutzerdefinierte Farben: (<b>243, 62, 12</b>), (<b>243, 200, 30</b>), (<b>0, 64, 127</b>) (<b>119, 0, 31</b>) und (<b>124, 191, 243</b>).</li>
+
+    <li>Wählen Sie alle Farben unter Farbe(6) aus und klicken Sie auf die Schaltfläche <b>Löschen</b>, um diese Farben zu entfernen, so dass Sie nur die sechs der gerade erstellten benutzerdefinierten Farben haben. Klicken Sie auf <b>OK</b>, um den Dialog <b>Farben erzeugen</b> zu schließen.
+
+      <dl>
+        <dd><a class="image"><img alt="Grouped Stacked Column 02.png" src="../images/Grouped_Stacked_Column/Grouped_Stacked_Column_02.png" width="710"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf einen leeren Bereich des Diagrammfensters und wählen Sie <b>Layertitel hinzufügen/modifizieren</b> im Kontextmenü. Geben Sie <b>Sales</b> als Layertitel ein.</li>
+
+    <li>Verändern Sie die Größe nach Bedarf mit Hilfe der Auswahlelemente. Am Ende erhalten Sie das Diagramm, das die Zusammenfassung zeigt.</li>
+  </ol>

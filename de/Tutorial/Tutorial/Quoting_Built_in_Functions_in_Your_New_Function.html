@@ -1,0 +1,158 @@
+﻿<h1 class="firstHeading">Standardfunktionen in Ihrer neuen Funktion angeben</h1>
+
+  <table id="toc" class="toc" summary="Contents">
+    <tr>
+      <td>
+        <div id="toctitle">
+          <h2>Inhalt</h2>
+        </div>
+
+        <ul>
+          <li class="toclevel-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+          <li class="toclevel-1"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+          <li class="toclevel-1">
+            <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+            <ul>
+              <li class="toclevel-2"><a href="#Data"><span class="tocnumber">3.1</span> <span class="toctext">Daten</span></a></li>
+
+              <li class="toclevel-2"><a href="#Define_the_Function"><span class="tocnumber">3.2</span> <span class="toctext">Funktion definieren</span></a></li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <p>&#160;</p><a name="Summary"></a>
+
+  <h2><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie sich beim Erstellen einer benutzerdefinierten Anpassungsfunktion auf eine Standardfunktion beziehen.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: 8.0 SR6</p><a name="What_you_will_learn"></a>
+
+  <h2><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>eine stückweise Anpassungsfunktion definieren.</li>
+
+    <li>auf Standardfunktionen in Ihrer neuen Funktion zugreifen.</li>
+
+    <li>Parameter automatisch initialisieren.</li>
+  </ul><a name="Steps"></a>
+
+  <h2><span class="mw-headline">Schritte</span></h2><a name="Data"></a>
+
+  <h3><span class="mw-headline">Daten</span></h3>
+
+  <p>Fdangen Sie an, indem Sie die Datei \<i>Samples</i>\<i>Curve Fitting</i>\<i>Asymmetric Gaussian</i>.<i>dat</i> in eine neue Arbeitsmappe importieren.</p>
+
+  <p>Markieren Sie Spalte B und erstellen Sie ein Diagramm. Der Peak in den Daten ist leicht nach rechts geneigt. Wie wird so eine Kurve angepasst? Eine Idee besteht darin, die Kurve in zwei Teile zu unterteilen. Damit würde diese Kurve aus zwei Gaussian-Funktionen bestehen. Diese zwei Gauss-Kurven teilen die gleiche Basislinie und das gleiche Peakzentrum, besitzen aber unterschiedliche Peakbreiten und Amplituden.</p>
+
+  <dl>
+    <dd><img alt="image:Tutorial_Quoting_Built_in_Functions_001.png" src="../images/Quoting_Built_in_Functions_in_Your_New_Function/Tutorial_Quoting_Built_in_Functions_001.png" width="221" height="186" border="0"></dd>
+  </dl><a name="Define_the_Function"></a>
+
+  <h3><span class="mw-headline">Funktion definieren</span></h3>
+
+  <p>Drücken Sie <b>F9</b>, um den <b>Fit-Funktionsorganizer</b> zu öffnen und eine Funktion zu definieren, wie unten zu sehen:</p>
+
+  <table class="blank">
+    <tr>
+      <th width="150"></th>
+
+      <th></th>
+    </tr>
+
+    <tr>
+      <td><b>Funktionsname:</b></td>
+
+      <td>AsymmetricGauss</td>
+    </tr>
+
+    <tr>
+      <td><b>Funktionstyp:</b></td>
+
+      <td>Benutzerdefiniert</td>
+    </tr>
+
+    <tr>
+      <td><b>Unabhängige Variable:</b></td>
+
+      <td>x</td>
+    </tr>
+
+    <tr>
+      <td><b>Abhängige Variable:</b></td>
+
+      <td>y</td>
+    </tr>
+
+    <tr>
+      <td><b>Parameternamen:</b></td>
+
+      <td>y0, xc, w1, w2, A1, A2</td>
+    </tr>
+
+    <tr>
+      <td><b>Funktionsform:</b></td>
+
+      <td><font color="blue">Origin C</font></td>
+    </tr>
+
+    <tr>
+      <td><b>Funktion:</b></td>
+
+      <td>y = x&lt;xc? nlf_Gauss(x, y0, xc, w1, A1)&#160;: nlf_Gauss(x, y0, xc, w2, A2);</td>
+    </tr>
+  </table>
+
+  <table class="note">
+    <tr>
+      <td>
+        <b>Hinweis:</b>
+
+        <p>Für die Versionen vor <font color="red"><b>Origin 8.1</b></font> sollte der Funktionskörper folgendermaßen definiert werden:</p>
+        <pre class="oc">
+y <span style="color: #000080;">=</span> x<span style="color: #000080;">&lt;</span>xc? nlfxGauss<span style="color: #000000;">(</span>x, y0, xc, w1, A1<span style="color: #000000;">)</span> <span style="color: #000000;">:</span> nlfxGauss<span style="color: #000000;">(</span>x, y0, xc, w2, A2<span style="color: #000000;">)</span>;<br>
+x; y0; xc; w1; w2; A1; A2;
+</pre>
+
+        <p>Die Parameter werden am Ende aufgelistet, um zu vermeiden, dass der Fehler "parameter not used inside the function body" (Parameter werden in dem Funktionskörper nicht verwendet) auftritt, obwohl Sie diese Parameter bereits verwenden. Dies ist erfoderlich, um die Funktion erfolgreich zu kompilieren.</p>
+      </td>
+    </tr>
+  </table>
+
+  <p>Um Standardfunktionen erneut zu verwenden, wird beim Aufrufen von <b>nlf_<i>FuncName</i></b> folgende Syntax verwendet:</p>
+
+  <dl>
+    <dd>nlf_FuncName( independent variable, parameter list ... )</dd>
+  </dl>
+
+  <p>wobei <b><i>FuncName</i></b> der Name der Anpassungsfunktion ist. Die alte Schreibweise <i><b>nlfxFuncName</b></i> wird ebenfalls unterstützt.</p>
+
+  <p>Die <i>Parameterliste</i> folgt der Parameterreihenefolge in der Funktionsdefinitionsdatei für die Standardfunktionen (die FDF-Datei. Sie können die FDF-Datei mit Notepad öffnen. Die Dateien befinden sich im Verzeichnis \\Origin EXE Folder\FitFunc\). Beachten Sie, dass der Funktionsname, den wir verwenden, der DLL-Schnittstellenname ist. Der tatsächliche Name ist im Abschnitt [General Information] der FDF-Datei zu sehen. Sehen Sie sich das Element <i>Function Source</i> an. Der Wert ist <b>fgroup.<i>FuncName</i></b>. Dementsprechend verwenden wir <i>FuncName</i> verwenden. In den meisten Fällen ist dieser Funktionsname konsistent mit dem Funktionsnamen, der im Dialogfeld NLFit angezeigt wird. Für einige wenige Funktionen wie Voigt unterscheiden sich diese Namen.</p>
+
+  <p>Für die Parameterinitialisierung dieser schiefen Gaussian-Funktion können wir einfach den Initialisierungscode der standardmäßigen Gauss-Funktion kopieren und einige kleine Modifikationen vornehmen:</p>
+  <pre class="oc">
+xc <span style="color: #000080;">=</span> peak_pos<span style="color: #000000;">(</span>x_y_curve, <span style="color: #000040;">&amp;</span>w1, <span style="color: #000040;">&amp;</span>y0, <span style="color: #000040;">&amp;</span>A1<span style="color: #000000;">)</span>;
+w2 <span style="color: #000080;">=</span> w1;
+A2 <span style="color: #000080;">=</span> A1;
+</pre>
+
+  <p>Der endgültige Funktionskörper sollte wie unten aussehen:</p>
+
+  <dl>
+    <dd><img alt="Image:Tutorial_Quoting_Built_in_Functions_002.png" src="../images/Quoting_Built_in_Functions_in_Your_New_Function/Tutorial_Quoting_Built_in_Functions_002.png" width="394" height="733" border="0"></dd>
+  </dl>
+
+  <p>Sobald die Kompilierung erfolgreich war, speichern Sie die Funktion und passen Sie die Kurve an. Die Anpassungsergebnisse sollten folgendermaßen aussehen:</p>
+
+  <dl>
+    <dd><img alt="Image:Tutorial_Quoting_Built_in_Functions_003.png" src="../images/Quoting_Built_in_Functions_in_Your_New_Function/Tutorial_Quoting_Built_in_Functions_003.png" width="244" height="126" border="0"></dd>
+  </dl>

@@ -1,0 +1,162 @@
+﻿<h1 class=firstHeading>Sich schneidende Oberflächendiagramme aus Arbeitsblättern 
+ erstellen</h1>
+<p class=urlname style="display: none;">3D-Surface-Intersect-VM</p>
+<div id=toc class=toc>
+<div id=toctitle>
+<h2>Inhalt</h2>
+</div>
+<ol><li class="toclevel-1 tocsection-1"><a href="#Summary"><span class=tocnumber>1</span> 
+ <span class=toctext>Zusammenfassung</span></a></li>
+	<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+ class=tocnumber>2</span> <span class=toctext>Was Sie lernen werden</span></a></li>
+	<li class="toclevel-1 tocsection-3">
+	<a href="#Steps"><span class=tocnumber>3</span> <span class=toctext>Schritte</span></a> 
+ 
+	<ol><li class="toclevel-2 tocsection-4"><a href="#Create_Surface_Plots_from_Virtual_Matrix_Data"><span 
+ class=tocnumber>3,1</span> <span class=toctext>Oberflächendiagramme aus 
+ virtuellen Matrixdaten erstellen</span></a></li>
+		<li class="toclevel-2 tocsection-5"><a href="#Add_Another_Surface_Plot_to_Layer"><span 
+ class=tocnumber>3.2</span> <span class=toctext>Ein weiteres Oberflächendiagramm 
+ zu einem Layer hinzufügen</span></a></li>
+		<li class="toclevel-2 tocsection-6"><a href="#Set_Surface_Transparency"><span 
+ class=tocnumber>3,3</span> <span class=toctext>Oberflächentransparenz 
+ festlegen</span></a></li>
+	</ol>
+	</li>
+</ol>
+</div>
+<h2><a name=Summary></a><span class=mw-headline>Zusammenfassung</span></h2>
+<p>Viele Diagrammtypen wie 3D-Oberflächendiagramme, 3D-Balkendiagramme 
+ und Konturdiagramme können aus Daten erstellt werden, die sich in einem 
+ Matrixobjekt befinden, oder aus Daten, die in einem Block von Zellen in 
+ einem Arbeitsblatt angeordnet sind. Diese letzte Anordnung wird als <b>virtuelle 
+ Matrix</b> bezeichnet. Während ein herkömmliches Matrixobjekt nur die 
+ lineare Abbildung von X- und Y-Koordinaten unterstützt, unterstützt eine 
+ virtuelle Matrix auch die nichtlineare Abbildung. In diesem Kapitel wird 
+ erläutert, wie Sie sich schneidende Oberflächendiagramme mit Farbabbildung 
+ aus virtuellen Matrixdaten erstellen.</p>
+<p class=version>Origin-Version mind. erforderlich: Origin 2015 SR0</p>
+<h2><a name=What_you_will_learn></a><span class=mw-headline>Was Sie lernen 
+ werden</span></h2>
+<p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+<ul><li>ein Oberflächendiagramm mit Farbabbildung mit Hilfe von virtuellen 
+ Matrixdaten aus einem Arbeitsblatt erstellen,</li>
+	<li>ein Oberflächendiagramm zu einem anderen hinzuzufügen, um sich 
+ schneidende Oberflächendiagramme zu erstellen,</li>
+	<li>Transparenz festlegen.</li>
+</ul>
+<h2><a name=Steps></a><span class=mw-headline>Schritte</span></h2>
+<h3><a name=Create_Surface_Plots_from_Virtual_Matrix_Data></a><span class=mw-headline>Oberflächendiagramme 
+ aus virtuellen Matrixdaten erstellen</span></h3>
+<p>In diesem Abschnitt wird erläutert, wie Sie Oberflächendiagramme aus 
+ Daten in einem Arbeitsblatt erstellen.</p>
+<ol><li>Öffnen Sie ein neues Projekt.</li>
+	<li>Klicken Sie auf die Schaltfläche <b>Mehrfachimport ASCII</b> <a 
+ class=image><img alt="Button Import Multiple ASCII.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Button_Import_Multiple_ASCII.png" 
+ style="width: 23px; height: 23px; border-style: none;" width=23 height=23 
+ border=0></a> auf der Symbolleiste <b>Standard</b>.</li>
+	<li>Navigieren Sie in dem aufgerufenen Dialog zu dem Verzeichnis <i>\Samples\Graphing</i> 
+ und wählen Sie die beiden Dateien <i>VSurface 1.dat</i> und <i>VSurface 
+ 2.dat</i>, indem Sie die Strg-Taste gedrückt halten und auf <b>Hinzufügen</b> 
+ klicken.</li>
+	<li>Aktivieren Sie das Kontrollkästchen <b>Optionendialog zeigen</b>.<a 
+ class=image><br>
+	<img alt="Import 2 data.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Import_2_data.png" 
+ style="width: 592px; height: 623px; border-style: none;" width=592 height=623 
+ border=0></a></li>
+	<li>Klicken Sie auf <b>OK</b>.</li>
+	<li>Modifizieren Sie im Dialog <b>impASC</b> die Einstellungen gemäß 
+ dem folgenden Bild, so dass die zwei Datendateien als zwei Arbeitsblätter 
+ mit den Namen <b>VSurface1</b> und <b>VSurface2</b> in eine Arbeitsmappe 
+ importiert werden:<a class=image><br>
+	<img alt="Import 2 data 2.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Import_2_data_2.png" 
+ style="width: 477px; height: 552px; border-style: none;" width=477 height=552 
+ border=0></a></li>
+	<li>Klicken Sie auf <b>OK</b>, um diese zwei Datendateien zu importieren.<a 
+ class=image><br>
+	<img alt="Import 2 data 3.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Import_2_data_3.png" 
+ style="width: 479px; height: 344px; border-style: none;" width=479 height=344 
+ border=0></a><br>
+	Die Daten haben X-Koordinatenwerte in der oberen Zeile und Y-Koordinatenwerte 
+ in der ersten Spalte. Beachten Sie, dass die X-Koordinaten nichtlineare 
+ Abstände haben.</li>
+	<li>Fahren Sie bei aktivem Blatt &quot;VSurface 1&quot; mit dem Cursor 
+ über die Zelle oben links im Arbeitsblatt, bis ein schräger schwarzer 
+ Pfeil angezeigt wird, und klicken Sie, um das gesamte Blatt zu markieren. 
+ .</li>
+	<li>Wählen Sie dann im Menü <b>Zeichnen: 3D: 3D Farbabbildung</b>, 
+ um den Dialog <b>plotvm</b> zu öffnen.</li>
+	<li style="list-style: none;"><dl><dd><b style="font-weight: bold;">Hinweis:</b> 
+ Dieser Dialog wird jedes Mal geöffnet, wenn ein Menüelement der 3D- oder 
+ Konturdiagramme mit einer Gruppe von Arbeitsblattzellen aufgerufen wird. 
+ In diesem Dialog können Sie definieren, wo die X- und Y-Koordinatenwerte 
+ sich befinden.</dd>
+	</dl></li>
+	<li>Passen Sie in dem Dialog die Einstellungen so an, wie auf dem folgenden 
+ Bild zu sehen.<a class=image><br>
+	<img alt="Plot vm dialog box.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Plot_vm_dialog_box.png" 
+ style="width: 414px; height: 427px; border-style: none;" width=414 height=427 
+ border=0></a></li>
+	&nbsp;
+	<robohelp><br></robohelp><br>
+	<li>Klicken Sie auf <b>OK</b>, um ein Oberflächendiagramm mit Farbabbildung 
+ und eine virtuelle Matrix zu erzeugen.<a class=image><br>
+	<img alt="Colormap surface 1.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Colormap_surface_1.png" 
+ style="width: 495px; height: 405px; border-style: none;" width=495 height=405 
+ border=0></a></li><br><br>
+
+	<li>Wiederholen Sie den letzten Schritt, um ein weiteres Oberflächendiagramm 
+ mit Farbabbildung zu zeichnen, indem Sie die Daten aus dem Arbeitsblatt 
+ VSurface 2 verwenden. Dieses Mal wird <b>VSurface 2</b> automatisch als 
+ Z-Titel im Dialog <b>plotvm</b> verwendet.<a class=image><br>
+	<img alt="Colormap surface 2.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Colormap_surface_2.png" 
+ style="width: 501px; height: 409px; border-style: none;" width=501 height=409 
+ border=0></a></li>
+</ol>
+<h3><a name=Add_Another_Surface_Plot_to_Layer></a><span class=mw-headline>Ein 
+ weiteres Oberflächendiagramm zu einem Layer hinzufügen</span></h3>
+<p>In diesem Abschnitt wird erläutert, wie Sie ein Oberflächendiagramm 
+ zu einem Diagrammlayer hinzufügen, der bereits ein anderes Oberflächendiagramm 
+ enthält.</p>
+<ol><li>Aktivieren Sie Graph1, klicken Sie mit der rechten Maustaste auf 
+ das Symbol von Layer 1 <a class=image><img alt="Layer Icon 1st.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Layer_Icon_1st.png" 
+ style="width: 19px; height: 21px; border-style: none;" width=19 height=21 
+ border=0></a> in der oberen linken Ecke des Diagramms und wählen Sie <b>Inhalt 
+ Layer</b> im Kontextmenü.</li>
+	<li>Wählen Sie in dem aufgerufenen Dialog <b>Layerinhalt</b> im linken 
+ Bedienfeld unter Verfügbare Daten <b>VSurface2</b> aus und fügen Sie es 
+ in das Feld Layerinhalt auf der rechten Seite ein. Verwenden Sie dazu 
+ den nach rechts weisenden Pfeil in der Mitte des Dialogs (der Pfeil darunter 
+ kann verwendet werden, um ausgewählte Elemente von Layerinhalt in Verfügbare 
+ Daten zu schieben).<a class=image><br>
+	<img alt="Add vm2 to graph1 v.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Add_vm2_to_graph1_v.png" 
+ style="width: 671px; height: 218px; border-style: none;" width=671 height=218 
+ border=0></a></li><br><br>
+	<li>Klicken Sie auf <b>OK</b>, um die zweite Oberfläche hinzuzufügen. 
+ Das Diagramm sieht nun folgendermaßen aus:<a class=image><br>
+	<img alt="Colormap surface 3.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Colormap_surface_3.png" 
+ style="width: 495px; height: 405px; border-style: none;" width=495 height=405 
+ border=0></a><br>
+	Beachten Sie, dass zwei Oberflächen mit einem richtigen Schnitt angezeigt 
+ werden.</li>
+</ol>
+<p>&nbsp;</p>
+<h3><a name=Set_Surface_Transparency></a><span class=mw-headline>Oberflächentransparenz 
+ festlegen</span></h3>
+<p>Jetzt wird die Transparenz der zweiten Oberfläche festgelegt, so dass 
+ Teile der ersten Oberfläche in diesem Schnittdiagramm sichtbar sind.</p>
+<ol><li>Klicken Sie doppelt auf das zweite Oberflächendiagramm mit Farbabbildung, 
+ um den Dialog <b>Details Zeichnung</b> zu öffnen.</li>
+	<li>Wechseln Sie zur Registerkarte <b>Oberfläche</b> und bewegen Sie 
+ den Schieber der <b>Transparenz</b> auf 40%. Klicken Sie dann auf <b>Übernehmen</b> 
+ und <b>OK</b>.<a class=image><br>
+	<img alt="Set transparency.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Set_transparency.png" 
+ style="width: 599px; height: 338px; border-style: none;" width=599 height=338 
+ border=0></a><br>
+	<br>
+	Das fertiggestellte Diagramm sollte nun so angezeigt werden, wie unten 
+ zu sehen:<a class=image><br>
+	<img alt="Transparent graph.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Transparent_graph.png" 
+ style="width: 540px; height: 439px; border-style: none;" width=540 height=439 
+ border=0></a></li>
+</ol>

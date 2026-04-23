@@ -1,0 +1,252 @@
+﻿<h1 class="firstHeading">Mit der Faltung von zwei Funktionen anpassen</h1>
+
+  <p class='urlname' style='display: none'>Fitting-Convolution-2Funcs</p>
+
+  <p>&#160;</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">Beispiele und Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Import_Data"><span class="tocnumber">3.1</span> <span class="toctext">Daten importieren</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Define_Fitting_Function"><span class="tocnumber">3.2</span> <span class="toctext">Anpassungsfunktion definieren</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#Fit_the_Curve"><span class="tocnumber">3.3</span> <span class="toctext">Kurve anpassen</span></a></li>
+
+          <li class="toclevel-2 tocsection-7"><a href="#Fitting_Results"><span class="tocnumber">3.4</span> <span class="toctext">Anpassungsergebnisse</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>In diesem Tutorial wird Ihnen gezeigt, wie Sie eine Faltung von zwei Funktionen definieren und eine Anpassung der Daten mit nicht äquidistant verteilten X-Werten mit Hilfe dieser Fitfunktion durchführen.</p>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Fitting_with_Convolution_of_Two_Functions/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Wenn Ihre Daten eine Faltung von Gauss- und Exponential-Funktionen darstellt, können Sie einfach die Standardanpassungsfunktion <a class="external text" href="../../UserGuide/UserGuide/GaussMod.html">GaussMod</a> in der Kategorie <b>Peakfunktionen</b> verwenden, um Ihre Daten direkt anzupassen.</p>
+      </td>
+    </tr>
+  </table>
+
+  <p>&#160;</p>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 9.0 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>eine Funktion abtasten,</li>
+
+    <li>eine Faltung von zwei Funktionen berechnen,</li>
+
+    <li>Konstanten in der Anpassungsfunktion definieren,</li>
+
+    <li>Nullen vor der Faltung auffüllen,</li>
+
+    <li>das Faltungsergebnis für nicht äquidistant verteilte X-Werte interpolieren,</li>
+
+    <li>einen Parameter verwenden, um die Geschwindigkeit und Genauigkeit im Gleichgewicht zu halten,</li>
+
+    <li>den Y-Fehlerbalken als Gewichtung verwenden.</li>
+  </ul>
+
+  <h2><a name="Example_and_Steps"></a><span class="mw-headline">Beispiel und Schritte</span></h2>
+
+  <h3><a name="Import_Data"></a><span class="mw-headline">Daten importieren</span></h3>
+
+  <ol>
+    <li>Öffnen Sie eine leere Arbeitsmappe. Wählen Sie <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b> im Menü, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner <i>Curve Fitting</i> und suchen Sie die Datei <i>ConvData.dat</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das leere Arbeitsblatt, um sie zu importieren. Beachten Sie, dass Spalte A nicht äquidistant verteilt ist. Wir können die LabTalk-Funktion <b>diff</b> verwenden, um dies zu verifizieren.</li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf Spalte C und wählen Sie <b>Setzen als: Y-Fehlerbalken</b> im Kontextmenü. Markieren Sie Spalte B und C und wählen Sie <b>Zeichnen: Symbol: Punktdiagramm</b> im Origin-Menü. Das Diagramm sollte folgendermaßen aussehen:</li>
+  </ol>
+
+  <dl>
+    <dd>
+      <dl>
+        <dd><a class="image"><img alt="Conv Data G1.png" src="../images/Fitting_with_Convolution_of_Two_Functions/Conv_Data_G1.png" width="419"></a></dd>
+      </dl>
+    </dd>
+  </dl>
+
+  <h3><a name="Define_Fitting_Function"></a><span class="mw-headline">Anpassungsfunktion definieren</span></h3>
+
+  <p>Die Anpassungsfunktion ist eine Faltung von zwei Funktionen. Sie kann wie folgt berechnet werden:</p>
+
+  <dl>
+    <dd><img src="../images/Fitting_with_Convolution_of_Two_Functions/math-98d6d5f3cde600916e3a94b7fca36400.png" title="y=y_0+b_1x+\frac{b_2A_2}{w_2\sqrt{\pi/2}}e^{-\frac{2(x-x_{c2})^2}{w_2^2}}+(f\;*\;g)(x)" alt="y=y_0+b_1x+\frac{b_2A_2}{w_2\sqrt{\pi/2}}e^{-\frac{2(x-x_{c2})^2}{w_2^2}}+(f\;*\;g)(x)" class="tex"></dd>
+  </dl>
+
+  <p>wobei <img src="../images/Fitting_with_Convolution_of_Two_Functions/math-d9e27fecd554f9306cf331ea7b4b2eba.png" title="f(x)=\frac{s}{\pi}\cdot\frac{\tau_Lx_0^2(x_L^2-x_0^2)}{(x-x_{c1})\tau_L((x-x_{c1})^2-x_L^2)^2+((x-x_{c1})^2-x_0^2)^2}" alt="f(x)=\frac{s}{\pi}\cdot\frac{\tau_Lx_0^2(x_L^2-x_0^2)}{(x-x_{c1})\tau_L((x-x_{c1})^2-x_L^2)^2+((x-x_{c1})^2-x_0^2)^2}" class="tex">,</p>
+
+  <dl>
+    <dd>
+      <dl>
+        <dd><img src="../images/Fitting_with_Convolution_of_Two_Functions/math-c5190c7668075a56515591ca07e0a162.png" title="g(x)=\frac{1}{w_1\sqrt{\pi/2}}e^{-\frac{2x^2}{w_1^2}}" alt="g(x)=\frac{1}{w_1\sqrt{\pi/2}}e^{-\frac{2x^2}{w_1^2}}" class="tex">.</dd>
+      </dl>
+    </dd>
+  </dl>
+
+  <p><img src="../images/Fitting_with_Convolution_of_Two_Functions/math-3e0d691f3a530e6c7e079636f20c111b.png" title="x_0" alt="x_0" class="tex">, <img src="../images/Fitting_with_Convolution_of_Two_Functions/math-83df61fdb860dd488c952740138417c0.png" title="x_L" alt="x_L" class="tex">, <img src="../images/Fitting_with_Convolution_of_Two_Functions/math-aeec4494b7761b0e1c4889fada1109cb.png" title="\tau_L" alt="\tau_L" class="tex">, s, <img src="../images/Fitting_with_Convolution_of_Two_Functions/math-ffe0f1c55b374ed8643060926316c1e6.png" title="y_0" alt="y_0" class="tex">, <img src="../images/Fitting_with_Convolution_of_Two_Functions/math-bda0411e4b6129d514dcbfa5810fb14a.png" title="b_1" alt="b_1" class="tex"> und <img src="../images/Fitting_with_Convolution_of_Two_Functions/math-738f96a4cb37df3457c637024d23a488.png" title="b_2" alt="b_2" class="tex"> sind Anpassungsparameter. <img src="../images/Fitting_with_Convolution_of_Two_Functions/math-db007d6a923c2909d42c4292bffca5f0.png" title="w_1" alt="w_1" class="tex">, <img src="../images/Fitting_with_Convolution_of_Two_Functions/math-81bb7b1b1385f986310ebd6517970438.png" title="x_{c1}" alt="x_{c1}" class="tex">, <img src="../images/Fitting_with_Convolution_of_Two_Functions/math-c172e309535f6ff639b845bddf5e5319.png" title="w_2" alt="w_2" class="tex">, <img src="../images/Fitting_with_Convolution_of_Two_Functions/math-6770248b5227d3af653195e482664a5d.png" title="x_{c2}" alt="x_{c2}" class="tex"> und <img src="../images/Fitting_with_Convolution_of_Two_Functions/math-e7fb081e7d6a49314607f263a85eef3c.png" title="A_2" alt="A_2" class="tex"> sind Konstanten in der Anpassungsfunktion.</p>
+
+  <p>Die Anpassungsfunktion kann mit Hilfe des Hilfsmittels <b>Fitfunktionen erstellen</b> definiert werden.</p>
+
+  <ol>
+    <li>Wählen Sie <b>Hilfsmittel: Fitfunktionen erstellen</b> im Origin-Menü.</li>
+
+    <li>Klicken Sie im Dialog <b>Fitfunktionen erstellen</b> auf der Seite <b>Ziel</b> auf die Schaltfläche <b>Weiter</b>.</li>
+
+    <li>Wählen Sie auf der Seite <b>Name und Typ</b> die Option <b>User Defined</b> in der Auswahlliste <b>Eine Kategorie auswählen oder erstellen</b>, geben Sie <b>convfunc</b> im Feld <b>Funktionsname</b> ein und wählen Sie <b>Origin C</b> in der Gruppe <b>Funktionstyp</b>. Klicken Sie auf die Schaltfläche <b>Weiter</b>.</li>
+
+    <li>Geben Sie auf der Seite <b>Variablen und Parameter</b> die Parameter <b>x0,xL,tL,s,y0,b1,b2</b> in das Feld <b>Parameter</b> ein und <b>w1,xc1,w2,xc2,A2</b> in das Feld <b>Konstanten</b>. Klicken Sie auf <b>Weiter</b>.</li>
+
+    <li>Legen Sie auf der Seite <b>Origin C-Anpassungsfunktion</b> die Initialisierungsparameter folgendermaßen fest:
+      <pre class="oc" style="font-family:monospace;">
+x0 <span style="color: #000080;">=</span> <span style="color: #0000dd;">3,1</span> xL <span style="color: #000080;">=</span> <span style="color: #0000dd;">6,3</span> tL <span style="color: #000080;">=</span> <span style="color: #0000dd;">0,4</span> s <span style="color: #000080;">=</span> <span style="color: #0000dd;">0,14</span> y0 <span style="color: #000080;">=</span> 1,95e<span style="color: #000040;">-</span>3 b1 <span style="color: #000080;">=</span> 2,28e<span style="color: #000040;">-</span>5 b2 <span style="color: #000080;">=</span> <span style="color: #0000dd;">0,2</span>
+</pre>
+
+      <p>Klicken Sie auf die Registerkarte <b>Konstanten</b> und legen Sie die Konstanten, wie folgt, fest:</p>
+      <pre class="oc" style="font-family:monospace;">
+w1 <span style="color: #000080;">=</span> <span style="color: #0000dd;">1,98005</span> xc1 <span style="color: #000080;">=</span> <span style="color: #000040;">-</span><span style="color: #0000dd;">0,30372</span> w2 <span style="color: #000080;">=</span> <span style="color: #0000dd;">5,76967</span> xc2 <span style="color: #000080;">=</span> <span style="color: #0000dd;">3,57111</span> A2 <span style="color: #000080;">=</span> 9,47765e<span style="color: #000040;">-</span>2
+</pre>
+
+      <p>Klicken Sie auf die Schaltfläche <a class="image"><img alt="User-Defined Fitting Functions-2.png" src="../images/Fitting_with_Convolution_of_Two_Functions/User-Defined_Fitting_Functions-2.png" width="19"></a> rechts vom Bearbeitungsfeld des <b>Funktionskörpers</b> und definieren Sie die Anpassungsfunktion im <b>Code Builder</b> mit:</p>
+
+      <p>Headerdateien einschließen</p>
+      <pre class="oc" style="font-family:monospace;">
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>ONLSF.<span style="color: #000000;">H</span><span style="color: #000080;">&gt;</span> <span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>fft_utils.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+</pre>
+
+      <p>Funktionskörper definieren</p>
+      <pre class="oc" style="font-family:monospace;">
+  NLFitContext <span style="color: #000040;">*</span>pCtxt <span style="color: #000080;">=</span> Project.<span style="color: #000000;">GetNLFitContext</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>; <span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span> pCtxt <span style="color: #000000;">)</span> <span style="color: #000000;">{</span> <span style="color: #008000;">// Vector for the output in each iteration.</span> <span style="color: #0000ff;">static</span> vector vX, vY; <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">int</span> nSize; <span style="color: #0000ff;">BOOL</span> bIsNewParamValues <span style="color: #000080;">=</span> pCtxt<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>IsNewParamValues<span style="color: #000000;">(</span><span style="color: #000000;">)</span>; <span style="color: #008000;">// If parameters were updated, we will recalculate the convolution result.</span> <span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span> bIsNewParamValues <span style="color: #000000;">)</span> <span style="color: #000000;">{</span> <span style="color: #008000;">//Sampling Interval </span> <span style="color: #0000ff;">double</span> dx <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.05</span>; vX.<span style="color: #000000;">Data</span><span style="color: #000000;">(</span><span style="color: #000040;">-</span><span style="color: #0000dd;">16.0</span>, <span style="color: #0000dd;">16.0</span>, dx<span style="color: #000000;">)</span>; nSize <span style="color: #000080;">=</span> vX.<span style="color: #000000;">GetSize</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>; vector vF, vG, vTerm1, vTerm2, vDenominator, vBase, vAddBase; <span style="color: #0000ff;">double</span> Numerator <span style="color: #000080;">=</span> tL <span style="color: #000040;">*</span> x0<span style="color: #000040;">^</span><span style="color: #0000dd;">2</span> <span style="color: #000040;">*</span> <span style="color: #000000;">(</span>xL<span style="color: #000040;">^</span><span style="color: #0000dd;">2</span> <span style="color: #000040;">-</span> x0<span style="color: #000040;">^</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span>; vTerm1 <span style="color: #000080;">=</span> <span style="color: #000000;">(</span> <span style="color: #000000;">(</span>vX <span style="color: #000040;">-</span> xc1<span style="color: #000000;">)</span> <span style="color: #000040;">*</span> tL <span style="color: #000040;">*</span> <span style="color: #000000;">(</span> <span style="color: #000000;">(</span>vX <span style="color: #000040;">-</span> xc1<span style="color: #000000;">)</span><span style="color: #000040;">^</span><span style="color: #0000dd;">2</span> <span style="color: #000040;">-</span> xL<span style="color: #000040;">^</span><span style="color: #0000dd;">2</span> <span style="color: #000000;">)</span> <span style="color: #000000;">)</span><span style="color: #000040;">^</span><span style="color: #0000dd;">2</span>; vTerm2 <span style="color: #000080;">=</span> <span style="color: #000000;">(</span> <span style="color: #000000;">(</span>vX <span style="color: #000040;">-</span> xc1<span style="color: #000000;">)</span><span style="color: #000040;">^</span><span style="color: #0000dd;">2</span> <span style="color: #000040;">-</span> x0<span style="color: #000040;">^</span><span style="color: #0000dd;">2</span> <span style="color: #000000;">)</span><span style="color: #000040;">^</span><span style="color: #0000dd;">2</span>; vDenominator <span style="color: #000080;">=</span> vTerm1 <span style="color: #000040;">+</span> vTerm2; <span style="color: #008000;">//Function f(x)</span> vF <span style="color: #000080;">=</span> <span style="color: #000000;">(</span>s<span style="color: #000040;">/</span>pi<span style="color: #000000;">)</span> <span style="color: #000040;">*</span> Numerator <span style="color: #000040;">/</span> vDenominator; <span style="color: #008000;">//Function g(x)</span> vG <span style="color: #000080;">=</span>  <span style="color: #0000dd;">1</span><span style="color: #000040;">/</span><span style="color: #000000;">(</span>w1<span style="color: #000040;">*</span><span style="color: #000000;">sqrt</span><span style="color: #000000;">(</span>pi<span style="color: #000040;">/</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000040;">*</span><span style="color: #000000;">exp</span><span style="color: #000000;">(</span><span style="color: #000040;">-</span><span style="color: #0000dd;">2</span><span style="color: #000040;">*</span>vX<span style="color: #000040;">^</span><span style="color: #0000dd;">2</span><span style="color: #000040;">/</span>w1<span style="color: #000040;">^</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span>; <span style="color: #008000;">//Pad zeroes at the end of f and g before convolution</span> vector vA<span style="color: #000000;">(</span><span style="color: #0000dd;">2</span><span style="color: #000040;">*</span>nSize<span style="color: #000040;">-</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span>, vB<span style="color: #000000;">(</span><span style="color: #0000dd;">2</span><span style="color: #000040;">*</span>nSize<span style="color: #000040;">-</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span>; vA.<span style="color: #000000;">SetSubVector</span><span style="color: #000000;">(</span> vF <span style="color: #000000;">)</span>; vB.<span style="color: #000000;">SetSubVector</span><span style="color: #000000;">(</span> vG <span style="color: #000000;">)</span>; <span style="color: #008000;">//Perform circular convolution</span> <span style="color: #0000ff;">int</span> iRet <span style="color: #000080;">=</span> fft_fft_convolution<span style="color: #000000;">(</span><span style="color: #0000dd;">2</span><span style="color: #000040;">*</span>nSize<span style="color: #000040;">-</span><span style="color: #0000dd;">1</span>, vA, vB<span style="color: #000000;">)</span>; <span style="color: #008000;">//Truncate the beginning and the end</span> vY.<span style="color: #000000;">SetSize</span><span style="color: #000000;">(</span>nSize<span style="color: #000000;">)</span>; vA.<span style="color: #000000;">GetSubVector</span><span style="color: #000000;">(</span> vY, <span style="color: #000000;">floor</span><span style="color: #000000;">(</span>nSize<span style="color: #000040;">/</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span>, nSize <span style="color: #000040;">+</span> <span style="color: #000000;">floor</span><span style="color: #000000;">(</span>nSize<span style="color: #000040;">/</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span><span style="color: #000040;">-</span><span style="color: #0000dd;">1</span> <span style="color: #000000;">)</span>; <span style="color: #008000;">//Baseline</span> vBase <span style="color: #000080;">=</span> <span style="color: #000000;">(</span>b1<span style="color: #000040;">*</span>vX <span style="color: #000040;">+</span> y0<span style="color: #000000;">)</span>; vAddBase <span style="color: #000080;">=</span>  b2 <span style="color: #000040;">*</span> A2<span style="color: #000040;">/</span><span style="color: #000000;">(</span>w2<span style="color: #000040;">*</span><span style="color: #000000;">sqrt</span><span style="color: #000000;">(</span>pi<span style="color: #000040;">/</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000040;">*</span><span style="color: #000000;">exp</span><span style="color: #000000;">(</span> <span style="color: #000040;">-</span><span style="color: #0000dd;">2</span><span style="color: #000040;">*</span><span style="color: #000000;">(</span>vX<span style="color: #000040;">-</span>xc2<span style="color: #000000;">)</span><span style="color: #000040;">^</span><span style="color: #0000dd;">2</span><span style="color: #000040;">/</span>w2<span style="color: #000040;">^</span><span style="color: #0000dd;">2</span> <span style="color: #000000;">)</span>; <span style="color: #008000;">//Fitted Y</span> vY <span style="color: #000080;">=</span> dx<span style="color: #000040;">*</span>vY <span style="color: #000040;">+</span> vBase <span style="color: #000040;">+</span> vAddBase; <span style="color: #000000;">}</span> <span style="color: #008000;">//Interpolate y from x for the fitting data on the convolution result.</span> ocmath_interpolate<span style="color: #000000;">(</span> <span style="color: #000040;">&amp;</span>x, <span style="color: #000040;">&amp;</span>y, <span style="color: #0000dd;">1</span>, vX, vY, nSize <span style="color: #000000;">)</span>; <span style="color: #000000;">}</span>
+</pre>
+
+      <p>Klicken Sie auf die Schaltfläche <b>Kompilieren</b>, um den Funktionskörper zu kompilieren. Klicken Sie dann auf die Schaltfläche <b>Zurück zum NSLF</b>.</p>
+
+      <p>Klicken Sie auf die Schaltfläche <b>Auswerten</b>. Es wird y = 0,02165 bei x =1 angezeigt. Dies weist darauf hin, dass die definierte Fitfunktion korrekt ist. Klicken Sie auf <b>Weiter</b>.</p>
+    </li>
+
+    <li>Klicken Sie auf <b>Weiter</b>. Setzen Sie auf der Seite <b>Grenzen und allgemeine lineare Nebenbedingungen</b> die folgenden Grenzen:
+      <pre class="oc" style="font-family:monospace;">
+<span style="color: #0000dd;">0</span> <span style="color: #000080;">&lt;</span> x0 <span style="color: #000080;">&lt;</span> <span style="color: #0000dd;">7</span> <span style="color: #0000dd;">0</span> <span style="color: #000080;">&lt;</span> xL <span style="color: #000080;">&lt;</span> <span style="color: #0000dd;">10</span> <span style="color: #0000dd;">0</span> <span style="color: #000080;">&lt;</span> tL <span style="color: #000080;">&lt;</span> <span style="color: #0000dd;">1</span> <span style="color: #0000dd;">0</span> <span style="color: #000080;">&lt;=</span> s <span style="color: #000080;">&lt;=</span> <span style="color: #0000dd;">5</span> <span style="color: #0000dd;">0</span> <span style="color: #000080;">&lt;</span> b2 <span style="color: #000080;">&lt;=</span> <span style="color: #0000dd;">3</span>
+</pre>
+
+      <p>Klicken Sie auf <b>Fertigstellen</b>.</p>
+    </li>
+  </ol>
+
+  <p>&#160;</p>
+
+  <table class="note">
+    <tr>
+      <td><b>Hinweis:</b> Um die angepassten Parameter zu überwachen, wurde die Klasse <a class="external text" href="../../OriginC/Category/NLFitContext_(class).html">NLFitContext</a> zum Definieren von Anpassungsfunktionen eingeführt, um einige Schlüsselinformationen innerhalb des Fitters zu erreichen.</td>
+    </tr>
+  </table>
+
+  <h3><a name="Fit_the_Curve"></a><span class="mw-headline">Kurve anpassen</span></h3>
+
+  <ol>
+    <li>Wählen Sie <b>Analyse: Anpassen: Nichtlinearer Fit</b> im Origin-Menü. Wählen Sie im Dialog <b>NLFit</b> auf der Seite <b>Einstellungen: Funktionsauswahl</b> die Option <b>User Defined</b> in der Auswahlliste <b>Kategorie</b> und die Funktion <b>convfun</b> in der Liste <b>Funktion</b>. Beachten Sie, dass <b>Y-Fehlerbalken</b> im aktiven Diagramm gezeigt werden. Das heißt Spalte C wird als Y-Gewichtung verwendet, und <b>Instrumental</b> ist die standardmäßig ausgewählte Gewichtungsmethode.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Fit</b>, um die Kurve anzupassen.</li>
+  </ol>
+
+  <h3><a name="Fitting_Results"></a><span class="mw-headline">Anpassungsergebnisse</span></h3>
+
+  <p>Die angepasste Kurve sollte folgendermaßen aussehen:</p>
+
+  <dl>
+    <dd>
+      <dl>
+        <dd><a class="image"><img alt="Conv Data G2.png" src="../images/Fitting_with_Convolution_of_Two_Functions/Conv_Data_G2.png" width="438"></a></dd>
+      </dl>
+    </dd>
+  </dl>
+
+  <p>Die angepassten Parameter sind im Folgenden zu sehen:</p>
+
+  <table class="simple">
+    <tr>
+      <th><b>Parameter</b></th>
+
+      <th><b>Wert</b></th>
+
+      <th><b>Standardfehler</b></th>
+    </tr>
+
+    <tr>
+      <th><b>x0</b></th>
+
+      <td>3,1424</td>
+
+      <td>0,07318</td>
+    </tr>
+
+    <tr>
+      <th><b>xL</b></th>
+
+      <td>6,1297</td>
+
+      <td>0,1193</td>
+    </tr>
+
+    <tr>
+      <th><b>tL</b></th>
+
+      <td>0,42795</td>
+
+      <td>0,02972</td>
+    </tr>
+
+    <tr>
+      <th><b>s</b></th>
+
+      <td>0,14796</td>
+
+      <td>0,00423</td>
+    </tr>
+
+    <tr>
+      <th><b>y0</b></th>
+
+      <td>0,00216</td>
+
+      <td>1,76145E-4</td>
+    </tr>
+
+    <tr>
+      <th><b>b1</b></th>
+
+      <td>4,90363E-5</td>
+
+      <td>1,61195E-5</td>
+    </tr>
+
+    <tr>
+      <th><b>b2</b></th>
+
+      <td>0,07913</td>
+
+      <td>0,02855</td>
+    </tr>
+  </table>
+
+  <p>Beachten Sie, dass Sie einen kleineren Wert für <b>dx</b> im Fitfunktionskörper einsetzen können. Dadurch wird das Ergebnis vielleicht genauer, allerdings benötigt die Anpassung möglicherweise mehr Zeit.</p>

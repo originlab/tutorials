@@ -1,0 +1,245 @@
+﻿<h1 class="firstHeading">Gruppiertes Boxdiagramm</h1>
+
+  <p class='urlname' style='display: none'>grouped-box-plot</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Create_Grouped_Box_Plot_from_Indexed_Data"><span class="tocnumber">3.1</span> <span class="toctext">Gruppiertes Boxdiagramm aus Indexdaten erstellen</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Customization_by_Plot_Details_Dialog"><span class="tocnumber">3.2</span> <span class="toctext">Benutzerdefinierte Anpassung mit dem Dialog Details Zeichnung</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#Customization_by_Axis_Dialog"><span class="tocnumber">3.3</span> <span class="toctext">Benutzerdefinierte Anpassung mit dem Dialog Achsen</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/Grouped_Box_Plot/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/Grouped_Box_Plot/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=68" target="_blank">Boxdiagramm</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=173" target="_blank">Verbesserungen der Boxdiagramme in Origin 2017</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=201" target="_blank">Linienkurvenschar: Eine Variante des Boxdiagramms</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=83" target="_blank">Datenfilter</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%">
+        <a class="image"><img alt="Website blog icon circle.png" src="../images/Grouped_Box_Plot/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Grouped_Box_Plot/Blog_Image_33x33px.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="http://blog.originlab.com/how-to-plot-jitterchart-with-mean-and-error" target="_blank">Jitterdiagramm mit Mittelwert und Standadfehlerbalken in Origin</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/box-plot-with-histogram" target="_blank">Boxdiagramm mit Histogramm</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/creating-grouped-bar-plots-in-origin-2016" target="_blank">Einfachere Methode zum Bestimmen von Farben in gruppierten Balkendiagrammen in Origin 2016</a></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>In Origin kann ein gruppiertes Boxdiagramm entweder aus Index- oder aus Rohdaten erstellt werden. Die indizierten Daten werden in einer Datenspalte und einer oder mehrerer Gruppenspalten angeordnet, während Rohdaten in mehreren Datenspalten angeordnet sind und entsprechend der Spaltenbeschriftungszeile(n) gruppiert werden.</p>
+
+  <p>Wenn das gruppierte Boxdiagramm erstellt ist, gibt es viele verfügbaren Optionen, um die Boxdiagramme mitsamt ihrer Achsen benutzerdefiniert anzupassen. Die Optionen der benutzerdefinierten Anpassung sind für gruppierte Boxdiagramme sowohl aus Rohdaten als auch aus Indexdaten die gleichen.</p>
+
+  <p><a class="image"><img alt="Tutorial Grouped Box Plot 01.png" src="../images/Grouped_Box_Plot/Tutorial_Grouped_Box_Plot_01.png" width="462"></a></p>
+
+  <p class="version">Origin-Version mind. erforderlich: 2015 SR0</p>
+
+  <h2><a name="What_You_Will_Learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>ein gruppiertes Boxdiagramm aus Indexdaten erstellen.</li>
+
+    <li>ein gruppiertes Boxdiagramm aus Rohdaten erstellen,</li>
+
+    <li>das Boxdiagramm mit dem Dialog <b>Details Zeichnung</b> benutzerdefiniert anpassen.</li>
+
+    <li>die Beschriftungen der Achsenhilfsstriche im Tabellenstil benutzerdefiniert anpassen.</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <h3><a name="Create_Grouped_Box_Plot_from_Indexed_Data"></a><span class="mw-headline">Gruppiertes Boxdiagramm aus Indexdaten erstellen</span></h3>
+
+  <ol>
+    <li>Wählen Sie im Menü <b>Hilfe: Lernzentrum</b> oder drücken Sie die Taste <b>F11</b>, um das Lernzentrum zu öffnen. Wählen Sie die Registerkarte <b>Diagrammbeispiel</b> und dann <b>Boxdiagramme</b> in der Auswahlliste "Kategorie". Klicken Sie doppelt auf das Diagrammbeispiel unten, um das Beispiel "Box Charts - Grouped Box Chart with Color Indexed Data Points" zu öffnen.<br>
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Grouped Box Plot 00.png" src="../images/Grouped_Box_Plot/Tutorial_Grouped_Box_Plot_00.png" width="852"></a><br></dd>
+
+        <dd><b>Hinweis:</b> Dieses Tutorial ist mit dem Ordner <i>Grouped Box Plot and Axis Tick Table</i> des Projekts "Tutorial Data" verbunden: <i>&lt;Origin-Verzeichnis&gt;\Samples\Tutorial Data.opj</i>.</dd>
+      </dl>
+    </li>
+
+    <li>In der Arbeitsmappe <b>Book10</b> sind die Daten im Arbeitsblatt <b>CC.MI-Index</b> Indexdaten. Spalte E ist die Datenspalte, und die Spalten C und D können als Gruppierungsspalten verwendet werden. Markieren Sie Spalte E und wählen Sie <b>Zeichnen: Kategorial: Gruppierte Boxdiagramme, Index</b>, um den Dialog <b>plot_gboxindexed</b> zu öffnen.</li>
+
+    <li>Klicken Sie in diesem Dialog auf die dreieckige Schaltfläche oberhalb des Feldes <b>Gruppenspalte(n)</b> und wählen Sie Spalten C und D aus.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Grouped Box Plot 02.png" src="../images/Grouped_Box_Plot/Tutorial_Grouped_Box_Plot_02.png" width="488"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um ein gruppiertes Boxdiagramm zu erstellen. Das Diagramm sollte dem Bild unten entsprechen. Es wird auch ein neues Ausgabeblatt zur Arbeitsmappe hinzugefügt.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Grouped Box Plot 03.png" src="../images/Grouped_Box_Plot/Tutorial_Grouped_Box_Plot_03.png" width="460"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Grouped_Box_Plot/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Ein weiteres kurzes Tutorial zum Erstellen von gruppierten Boxdiagrammen aus Indexdaten finden Sie unter <a class="external text" href="../../UserGuide/UserGuide/Grouped_Box_Charts-Indexed_Data.html#Example_2"><b>Beispiel 2</b></a>.</p>
+      </td>
+    </tr>
+  </table>
+
+  <h3><a name="Customization_by_Plot_Details_Dialog"></a><span class="mw-headline">Benutzerdefinierte Anpassung mit dem Dialog Details Zeichnung</span></h3>
+
+  <ol>
+    <li>Aktivieren Sie das Diagrammfenster, das Sie aus den indizierten Daten erstellt haben. Markieren und löschen Sie das Legendenobjekt.</li>
+
+    <li>Wählen Sie <b>Format: Zeichnung</b>, um den Dialog <b>Details Zeichnung</b> zu öffnen. Um den Symbolstil benutzerdefiniert anzupassen, nehmen Sie auf der Registerkarte <b>Ausreißer</b> folgende Einstellungen vor:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Grouped Box Plot 05.png" src="../images/Grouped_Box_Plot/Tutorial_Grouped_Box_Plot_05.png" width="603"></a></dd>
+      </dl>
+    </li>
+
+    <li>Setzen Sie auf der Registerkarte <b>Abstände</b> die Option <b>Abstand zwischen Untergruppierungen (in&#160;%)</b> auf <b>5</b>. Ändern Sie auf der Registerkarte <b>Linien</b> die Einstellung der Linienfarbe folgendermaßen.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Grouped Box Plot 06.png" src="../images/Grouped_Box_Plot/Tutorial_Grouped_Box_Plot_06.png" width="603"></a></dd>
+      </dl>
+    </li>
+
+    <li>Um auf der Registerkarte <b>Prozentangaben</b> den Typ von <b>Max</b>/<b>99%</b>/<b>1%</b>/<b>Min</b> auf Kein zu setzen, wählen Sie die letzte Option in der Abbildung der Symbole. Die verbleibenden Einstellungen werden folgendermaßen festgelegt:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Grouped Box Plot 07.png" src="../images/Grouped_Box_Plot/Tutorial_Grouped_Box_Plot_07.png" width="603"></a></dd>
+      </dl>
+    </li>
+
+    <li>Setzen Sie auf der Registerkarte <b>Gruppe</b> für die Zeile <b>Randfarbe</b> das <b>Inkrement</b> auf <b>Durch Eins</b> und die <b>Untergruppe</b> auf <b>Innerhalb der Untergruppe</b>.</li>
+
+    <li>Klicken Sie als Nächstes auf die Schaltfläche <b>...</b> rechts von der Spalte <b>Details</b>, um den <b>Inkrementeditor</b> zu öffnen. Klicken Sie auf die erste Farbe, um die Farbauswahl zu erweitern. Klicken Sie auf die leere Farbe unter <b>Benutzerdefiniert</b>, um den Dialog <b>Farben</b> zu öffnen. Sie können im aufgerufenen Dialog <a class="external text" href="http://wikis/docwiki/index.php?title=UserGuide/Customizing_Data_Plot_Colors#Defining_a_Custom_Color" target="_blank">eine benutzerdefinierte Farbe definieren</a>, indem Sie die HSL-Werte eingeben (Farbton = 0, Sättigung = 240, Leuchtdichte = 180). Klicken Sie auf <b>OK</b>, um den Dialog zu schließen. Befolgen Sie die gleiche Vorgehensweise für die zweite Farbe im Dialog <b>Inkrementeditor</b> mit den Einstellungen Farbton = 160, Sättigung = 240, Leuchtdichte = 164. Klicken Sie auf <b>OK</b>, um den <b>Inkrementeditor</b> zu schließen:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Grouped Box Plot 08.png" src="../images/Grouped_Box_Plot/Tutorial_Grouped_Box_Plot_08.png" width="649"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie für die <b>Boxfarbe</b> die ersten zwei Farben der aktuellen Farbliste für diejenigen, die Sie im vorherigen Schritt definiert haben, und wählen Sie dann die Option <b>Durch Eins</b> für <b>Inkrement</b> und <b>Innerhalb der Untergruppe</b> für die <b>Untergruppe</b>:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Grouped Box Plot 09.png" src="../images/Grouped_Box_Plot/Tutorial_Grouped_Box_Plot_09.png" width="649"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um all diese Einstellungen anzuwenden und den Dialog <b>Details Zeichnung</b> zu schließen. Klicken Sie auf eine Box und in der zugehörigen Minisymbolleiste auf die Schaltfläche Kleinerer Abstand und das dreimal, um den Abstand zwischen den Teilgruppen zu verringern.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Grouped Box Plot 09a.png" src="../images/Grouped_Box_Plot/Tutorial_Grouped_Box_Plot_09a.png" width="593"></a></dd>
+
+        <dd>Am Ende sollte das Diagramm dem Bild unten entsprechen.</dd>
+
+        <dd><a class="image"><img alt="Tutorial Grouped Box Plot 10.png" src="../images/Grouped_Box_Plot/Tutorial_Grouped_Box_Plot_10.png" width="475"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Customization_by_Axis_Dialog"></a><span class="mw-headline">Benutzerdefinierte Anpassung mit dem Dialog Achsen</span></h3>
+
+  <p>Verwenden Sie weiterhin das Diagramm aus dem vorgehenden Abschnitt.</p>
+
+  <ol>
+    <li>Klicken Sie in der Minisymbolleiste auf die untere Tabellenzeile der X-Achse und dann auf die Schaltfläche <b>Auf die gegenüberliegende Seite verschieben</b>, um sie zur oberen Achse zu verschieben.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Grouped Box Plot 11a.png" src="../images/Grouped_Box_Plot/Tutorial_Grouped_Box_Plot_11a.png" width="529"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Hilfsstrichsbeschriftungen der unteren Tabellenzeile, um die Schriftgröße auf 22 zu setzen. Klicken Sie auf die Hilfsstrichsbeschriftungen der oberen Achse, um die Schriftgröße mittels der Minisymbolleiste in 24 zu ändern.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Grouped Box Plot 11.png" src="../images/Grouped_Box_Plot/Tutorial_Grouped_Box_Plot_11.png" width="533"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie doppelt auf die untere Achse, um den Dialog Achsen zu öffnen. Gehen Sie bei im linken Bedienfeld ausgewähltem Symbol <b>Unten 1</b> zur Unterregisterkarte <b>Tabelle</b> auf der Registerkarte <b>Hilfsstrichsbeschriftungen</b> und legen Sie das Tabellenformat, wie unten zu sehen, fest:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Grouped Box Plot 11b.png" src="../images/Grouped_Box_Plot/Tutorial_Grouped_Box_Plot_11b.png" width="472"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie im linken Bedienfeld <b>Oben 1</b> und gehen Sie zur Unterregisterkarte <b>Tabelle</b> auf der Registerkarte <b>Hilfsstrichsbeschriftungen</b>, um das Tabellenformat folgendermaßen festzulegen:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Grouped Box Plot 12b.png" src="../images/Grouped_Box_Plot/Tutorial_Grouped_Box_Plot_12b.png" width="466"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf das Symbol <b>Links</b> (für die Y-Achse) und ändern Sie das Anzeigeformat für die Hilfsstrichsbeschriftungen der Y-Achse:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Grouped Box Plot 12c.png" src="../images/Grouped_Box_Plot/Tutorial_Grouped_Box_Plot_12c.png" width="429"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche Anwenden. Um die Haupt- und Nebengitternetzlinien einzublenden, gehen Sie zur Registerkarte <b>Gitternetze</b> und nehmen Sie folgende Einstellungen jeweils für die Gitternetze von X (<b>Vertikal</b>) und Y (<b>Horizontal</b>) vor:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Grouped Box Plot 13.png" src="../images/Grouped_Box_Plot/Tutorial_Grouped_Box_Plot_13.png" width="414"></a></dd>
+
+        <dd><a class="image"><img alt="Tutorial Grouped Box Plot 13b.png" src="../images/Grouped_Box_Plot/Tutorial_Grouped_Box_Plot_13b.png" width="398"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um diese Einstellungen anzuwenden und den Dialog <b>Achsen</b> zu schließen. Das Diagramm sollte am Ende folgendermaßen aussehen:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Grouped Box Plot 01.png" src="../images/Grouped_Box_Plot/Tutorial_Grouped_Box_Plot_01.png" width="462"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Grouped_Box_Plot/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Sie können auf die Tabellenbeschriftungen klicken, um sie auszuwählen, und sie mit Hilfe der Pfeiltasten auf Ihrer Tastatur verschieben.</p>
+      </td>
+    </tr>
+  </table>

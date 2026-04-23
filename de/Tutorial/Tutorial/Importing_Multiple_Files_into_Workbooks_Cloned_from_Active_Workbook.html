@@ -1,0 +1,142 @@
+﻿<h1 class="firstHeading">Mehrere Dateien in Arbeitsmappen importieren, die auf Grundlage der aktiven Arbeitsmappe geklont wurden</h1>
+
+  <p class='urlname' style='display: none'>Import-Multi-Clone</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Import_Multiple_ASCII_Files_into_Cloned_Workbooks"><span class="tocnumber">3</span> <span class="toctext">Mehrere ASCII-Dateien in geklonte Arbeitsmappen importieren</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Create_a_Prototype_Workbook"><span class="tocnumber">3.1</span> <span class="toctext">Eine Prototyparbeitsmappe erstellen</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Import_Multiple_Files_and_Perform_Analysis_by_Cloning_the_Workbook"><span class="tocnumber">3.2</span> <span class="toctext">Mehrere Dateien importieren und eine Analyse durch Klonen der Arbeitsmappe durchführen</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/Importing_Multiple_Files_into_Workbooks_Cloned_from_Active_Workbook/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/Importing_Multiple_Files_into_Workbooks_Cloned_from_Active_Workbook/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=269" target="_blank">'Import klonen' verwenden, um mehrere Datendateien durch Stapelverarbeitung zu verarbeiten</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=138" target="_blank">Mehrere Datensätze für die Stapelverarbeitung in geklonte Arbeitsmappen/-blätter importieren</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=206" target="_blank">App Clone Folder Import</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%">
+        <a class="image"><img alt="Website blog icon circle.png" src="../images/Importing_Multiple_Files_into_Workbooks_Cloned_from_Active_Workbook/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Importing_Multiple_Files_into_Workbooks_Cloned_from_Active_Workbook/Blog_Image_33x33px.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="http://blog.originlab.com/batch-processing-when-dragging-and-dropping-data-into-origin" target="_blank">Stapelverarbeitung beim Drag&amp;Drop von Daten in Origin</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/batch-processing-on-matrices" target="_blank">Stapelverarbeitung für Matrizen</a></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <p>&#160;</p>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Origin bietet eine einfache Methode zum "Klonen" der Import- und Analyseoperationen in der aktiven Arbeitsmappe. Diese leistungsstarke Funktion ermöglicht Ihnen, eine Gruppe von Dateien schnell, mit nicht mehr als ein paar Klicks, zu verarbeiten.</p>
+
+  <p>Diese Funktion ist für die meisten von Origin unterstützten Importdateitypen implementiert, z. B. ASCII, CSV, Excel, und ist mit den älteren auf X-Funktionen basierenden Routinen kompatibel (<b>Daten: Aus Datei importieren</b>) oder die neueren <a class="external text" href="../../UserGuide/Category/Data_Connector.html">Datenkonnektoren</a> (<b>Daten: Mit Datei verbinden</b>). Dieses Tutorial setzt die neuere Konnektortechnologie ein, aber die Methoden sind grundsätzlich die gleichen wie für die älteren auf X-Funktionen beruhenden Importroutinen.</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>eine Prototyparbeitsmappe erstellen,</li>
+
+    <li>die Arbeitsmappe durch Importieren und Analysieren einer Gruppe von ähnlichen Datendateien klonen,</li>
+  </ul>
+
+  <h2><a name="Import_Multiple_ASCII_Files_into_Cloned_Workbooks"></a><span class="mw-headline">mehrere ASCII-Dateien in geklonte Arbeitsmappen importieren.</span></h2>
+
+  <h3><a name="Create_a_Prototype_Workbook"></a><span class="mw-headline">Eine Prototyparbeitsmappe erstellen</span></h3>
+
+  <p>In diesem Beispiel importieren wir eine Datei, erstellen ein Punktdiagramm, führen eine lineare Anpassung für die Daten durch und betten das Diagramm mit den den Anpassungsergebnissen in unsere Arbeitsmappe ein.</p>
+
+  <ol>
+    <li>Öffnen Sie ein neues Projekt. Wählen Sie im Menü <b>Daten: Mit Datei verbinden: Text/CSV</b>.</li>
+
+    <li>Navigieren Sie zum Ordner <i>&lt;Origin-Verzeichnis&gt;\Samples\Curve Fitting\</i> und wählen Sie die Datei <i>Sensor01.dat</i>.</li>
+
+    <li>Übernehmen Sie alle Standardeinstellungen im Dialog CSV-Importoptionen und klicken Sie auf <b>OK</b>. Die Datendatei wird mit dem Arbeitsblatt verbunden.</li>
+
+    <li>Klicken Sie im Arbeitsblatt auf den Kopf von Spalte B, um die Spalte auszuwählen, und dann auf die Schaltfläche <b>Punktdiagramm</b>.</li>
+
+    <li>Markieren Sie Spalte <b>B</b> (<i>Sensor Output</i>) und wählen Sie <b>Zeichnen: 2D: Symbol: Punktdiagramm</b>, um ein Punktdiagramm zu zeichnen.</li>
+
+    <li>Klicken Sie doppelt auf die X-Achse, um den Dialog <b>Achsen</b> zu öffnen. Klicken Sie auf die Registerkarte <b>Skalierung</b>, drücken Sie auf die Strg-Taste und wählen Sie sowohl <b>Horizontal</b> als auch <b>Vertikal</b> im linken Bedienfeld. Setzen Sie <b>Neu skalieren</b> auf <b>Auto</b> und klicken Sie auf <b>OK</b>.</li>
+
+    <li>Wählen Sie im Menü <b>Analyse: Anpassen: Linearer Fit</b>, um den Dialog <b>Lineare Anpassung</b> zu öffnen. Setzen Sie <b>Neu berechnen</b> auf <b>Auto</b> (<i>optional</i> -- siehe <i>Tipp</i> unten) und klicken Sie auf <b>OK</b>, um den Fit durchzuführen. Antworten Sie mit <b>Nein</b> auf die Erinnerung und klicken Sie auf <b>OK</b>.</li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf die graue Fläche rechts vom Arbeitsblatt <b>Sensor01</b> und wählen Sie <b>Diagramm hinzufügen: [Graph1]</b>. Das Punktdiagramm mit der linearen Anpassungskurve wird in <b>Sensor01</b> als frei bewegliches Diagramm gezeigt.</li>
+  </ol>
+
+  <dl>
+    <dd>
+      <dl>
+        <dd><a class="image"><img alt="Import Multiple Files Clone Active Workbook 02.png" src="../images/Importing_Multiple_Files_into_Workbooks_Cloned_from_Active_Workbook/Import_Multiple_Files_Clone_Active_Workbook_02.png" width="680"></a></dd>
+      </dl>
+    </dd>
+  </dl>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Importing_Multiple_Files_into_Workbooks_Cloned_from_Active_Workbook/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>In Schritt <b>7.</b> wurden Sie aufgefordert, den Modus <b>Neu berechnen</b> auf <b>Auto</b> zu setzen. Ab Origin 2018b ist dieser Schritt nicht mehr notwendig, da geklonte Importe automatisch eine Neuberechnung auslösen. Wenn Sie eine der älteren Versionen von Origin benutzt haben, die den Dialog des ASCII-Imports enthalten, könnten Sie das gleiche Verhalten hervorrufen, indem Sie die folgende Skriptzeile in das Feld <b>Skript nach jeder importierten Datei</b> (unter dem Zweig Skripte) des ASCII-Dialogs eingeben.</p>
+        <pre class="lt" style="font-family:monospace;">
+run <span style="color: #000080;">-</span>p au;
+</pre>
+
+        <dl>
+          <dd>
+            <dl>
+              <dd><a class="image"><img alt="ASCII clone run-p au2.png" src="../images/Importing_Multiple_Files_into_Workbooks_Cloned_from_Active_Workbook/ASCII_clone_run-p_au2.png" width="607"></a></dd>
+            </dl>
+          </dd>
+        </dl>
+      </td>
+    </tr>
+  </table>
+
+  <h3><a name="Import_Multiple_Files_and_Perform_Analysis_by_Cloning_the_Workbook"></a><span class="mw-headline">Mehrere Dateien importieren und eine Analyse durch Klonen der Arbeitsmappe durchführen</span></h3>
+
+  <p>In diesem Abschnitt des Tutorials "klonen" wir die mit Book1 verbundenen Operationen, einschließlich der grafischen Darstellung und Durchführung einer linearen Anpassung, durch das Importieren von weiteren Sensor-Datendateien.</p>
+
+  <ol>
+    <li>Klicken Sie bei aktiver Mappe Book1 auf die Schaltfläche <b>Import klonen</b> <a class="image"><img alt="Button Clone Import.png" src="../images/Importing_Multiple_Files_into_Workbooks_Cloned_from_Active_Workbook/Button_Clone_Import.png" width="25"></a> auf der Symbolleiste <b>Import</b>.</li>
+
+    <li>Navigieren Sie erneut zum Ordner Curve Fitting und verwenden Sie die Shift- oder Strg-Taste, um die Dateien Sensor02.dat ... Sensor07.dat auszuwählen. Klicken Sie auf <b>Datei(en) hinzufügen</b> und dann auf <b>OK</b>. Alle Dateien werden verarbeitet und die sich ergebende Grafik und Anpassungskurve werden als frei bewegliches Diagramm in jedem Arbeitsblatt eingebettet.</li>
+  </ol>
+
+  <dl>
+    <dd>
+      <dl>
+        <dd><a class="image"><img alt="Tutorial clone import and linear fit.png" src="../images/Importing_Multiple_Files_into_Workbooks_Cloned_from_Active_Workbook/Tutorial_clone_import_and_linear_fit.png" width="718"></a></dd>
+      </dl>
+    </dd>
+  </dl>

@@ -1,0 +1,27 @@
+﻿<h1 class="firstHeading">ROC-Kurve</h1><p class='urlname' style='display: none'>ROC-Curve</p>
+<h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+<p>Die Analyse mit der ROC-Kurve (Receiver Operating Characteristic) wird haupts&auml;chlich f&uuml;r diagnostische Studien in der klinischen Chemie, Pharmakologie und Physiologie verwendet. Sie wird weithin als die Standardmethode zum Beschreiben und Vergleichen der Genauigkeit von Diagnosetests eingesetzt.</p><p><br /></p><p>Bitte lesen Sie in der <a class="external text" href="../../UserGuide/Category/ROC_Curve_(OriginPro_only).html">Origin-Hilfe</a> weitere Einzelheiten zur Verwendung der ROC-Kurve.</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+<p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+<ul><li>eine Analyse mit der ROC-Kurve durchf&uuml;hren.</li>
+<li>die Ergebnisse der Analyse interpretieren.</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+<p>In diesem Beispiel wird eine Untersuchung durchgef&uuml;hrt, um herauszufinden, ob das Serumnatrium einen Beitrag zur Diagnose des Fiebers Rocky Mountain Spotted Fever (RMSF) leisten kann.</p><p>Die Daten stammen von Personen mit und ohne RMSF. Die Natriumkonzentration wird f&uuml;r jede Person mit Hilfe von 2 Screening-Techniken gemessen. Die Analyse mit der ROC-Kurve wird f&uuml;r die Daten mit beiden Methoden durchgef&uuml;hrt. Die Beziehung zwischen Serumnatrium und RMSF wird gepr&uuml;ft. Au&szlig;erdem ist es leichter zu beurteilen, welche Diagnostemethode besser geeignet ist.</p>
+<ol><li>&Ouml;ffnen Sie ein leeres Arbeitsblatt. W&auml;hlen Sie <b>Hilfe: Ordner &ouml;ffnen: Sample-Ordner ...</b> im Men&uuml;, um den Ordner &quot;Samples&quot; zu &ouml;ffnen. &Ouml;ffnen Sie in diesem Ordner den Unterordner <i>Statistics</i>. Dort befindet sich die Datei <i>sodium.dat</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das leere Arbeitsblatt, um sie zu importieren.</li>
+<li>W&auml;hlen Sie <b>Statistik: ROC-Kurve</b>, um den Dialog der ROC-Kurve zu &ouml;ffnen.</li>
+<li>W&auml;hlen Sie im Zweig <b>Eingabedaten</b> die Spalten <b>B(Method1)</b> und <b>C(Method2)</b> f&uuml;r <b>Daten</b> und die Spalte <b>A(Sickness)</b> f&uuml;r <b>Zustand</b>.</li>
+<li>W&auml;hlen Sie <b>RMSF</b> als <b>Positiven Zustandwert</b>aus und aktivieren Sie die Option <b>Positiv vs. Niedrig</b> f&uuml;r die Testrichtung  im Zweig Steuerung Berechnung. </li>
+<li> Aktivieren Sie <b>Optimaler Schnittpunkt</b> im Zweig <b>ROC-Kurve</b>.</li>
+<li>&Uuml;bernehmen Sie alle anderen Standardeinstellungen und klicken Sie auf die Schaltfl&auml;che <b>OK</b>, um die Analyse durchzuf&uuml;hren.<dl><dd> <a  class="image"><img alt="ROC1.png" src="../images/ROC_curve/ROC1.png" width="542"  /></a></dd></dl></li></ol>
+<p><b>Ergebnisinterpretation:</b> Wechseln Sie zum Arbeitsblatt ROC Curve1, in dem die Analysergebnisse festgehalten sind.</p>
+<dl><dd><a  class="image"><img alt="ROC2.png" src="../images/ROC_curve/ROC2.png" width="454"  /></a></dd></dl>
+<p>In dieser Tabelle k&ouml;nnen ersehen, dass die <b>Asymptotische Wahrscheinlichkeit</b> von beiden Methoden viel kleiner ist als 0,05. Daher k&ouml;nnen wir schlussfolgern, dass beide Methoden effektiv sind.</p><p>Je n&auml;her der Bereich ind er ROC-Analyse an 1,0 liegt, desto besser ist der Test. Im Gegensatz dazu gilt, je n&auml;her der Bereich an 0,5 liegt, desto schlechter ist der Test. In dieser Analyse sind die Bereiche von Methode 1 und Methode 2 0,88862 bzw. 0,79407. Beide Ergebnisse sind damit viel gr&ouml;&szlig;er als 0,5. Der Bereich von Methode 1 liegt jedoch n&auml;her an 1,0. Daher k&ouml;nnen wir schlussfolgern, dass Methode 1 besser geeignet ist als Methode 2.</p>
+<dl><dd><a  class="image"><img alt="ROC3.png" src="../images/ROC_curve/400px-ROC3.png" width="400"   /></a></dd></dl>
+<p>Zus&auml;tzlich k&ouml;nnen wir die Form der ROC-Kurve untersuchen, die ebenfalls in dem Berichtsblatt enthalten ist. Da Methode 1 scheinbar &uuml;ber eine gr&ouml;&szlig;ere Sensitivit&auml;t verf&uuml;gt als Methode 2, k&ouml;nnen wir schlussfolgern, dass Methode 1 wahrscheinlich etwas besser ist als Methode 2.</p>
+
+
+
+
+
+
+    

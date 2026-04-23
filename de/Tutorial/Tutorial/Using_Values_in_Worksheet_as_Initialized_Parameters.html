@@ -1,0 +1,182 @@
+﻿<h1 class="firstHeading">Parameterinitialisierung mit LabTalk in NLFit</h1>
+
+  <p class='urlname' style='display: none'>CellVal-IniPara-Fitting</p>
+
+  <p>&#160;</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Write_Parameter_Initialization_Script_for_a_User-Defined_Fitting_Function"><span class="tocnumber">3.1</span> <span class="toctext">Skript für die Parameterinitialisierung einer benutzerdefinierten Anpassungsfunktion schreiben</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Fit_Data_with_the_User_Defined_Fitting_Function"><span class="tocnumber">3.2</span> <span class="toctext">Daten mit der benutzerdefinierten Anpassungsfunktion anpassen</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#Create_an_Analysis_Template_and_Do_Batch_Processing"><span class="tocnumber">3.3</span> <span class="toctext">Analysevorlage erstellen und eine Stapelverarbeitung durchführen</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/Using_Values_in_Worksheet_as_Initialized_Parameters/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/Using_Values_in_Worksheet_as_Initialized_Parameters/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/jwplayer.html?v=ftp/mm_tutorials/mp4/Fit_by_User_Functions.mp4%7C767%7C600" target="_blank">Benutzerdefinierte Anpassungsfunktion</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/jwplayer.html?v=ftp/mm_tutorials/mp4/VT-2560_Batch_Process_MultiData_in_one_Workbook_in_Origin_2016.mp4%7C767%7C600" target="_blank">Stapelimport und Analyse von Dateigruppen</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/jwplayer.html?v=ftp/mm_tutorials/mp4/Use_Clone_Import_to_batch_process_more_data_files.mp4%7C767%7C600" target="_blank">'Import klonen' verwenden, um mehrere Datendateien durch Stapelverarbeitung zu verarbeiten</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%">
+        <a class="image"><img alt="Website blog icon circle.png" src="../images/Using_Values_in_Worksheet_as_Initialized_Parameters/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Using_Values_in_Worksheet_as_Initialized_Parameters/Blog_Image_33x33px.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="http://blog.originlab.com/use-initial-formula-to-better-guess-fitting-parameter-values-from-data" target="_blank">Anfängliche Formel verwenden, um die Werte der Anpassungsparameter besser aus den Daten schätzen zu können</a></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>In Vorgängerversionen von Origin können Anpassungsparameter nur mit Origin C-Code initialisiert werden. Seit Origin 9 SR1 wird diese Funktion auch von LabTalk-Skript unterstützt. Diese Implementierung ist insbesondere dann nützlich, wenn ein Anwender Arbeitsblattwerte für die Initialisierungsparameter einsetzen will.</p>
+
+  <p>In diesem Tutorial wurden drei Aufnahmekurven durch Adsorption bei drei verschiedenen Temperaturen gemessen. Die Ergebnisse werden in drei .txt-Dateien exportiert. Die Bedingungen des Experiments werden in der gleichen .txt-Datei als Kopfzeileninfo gespeichert. Wir werden die Daten an ein Modell der isothermen Sphäre anpassen, entsprechend der folgenden Gleichung:</p>
+
+  <p><img src="../images/Using_Values_in_Worksheet_as_Initialized_Parameters/math-c99952a18855fe1f14788fe2100640c2.png" title="y = 1 - \frac{6}{pi^2}*exp(-\frac{pi^2}{T}*x)" alt="y = 1 - \frac{6}{pi^2}*exp(-\frac{pi^2}{T}*x)" class="tex"></p>
+
+  <p>, wobei y die normierte Aufnahme der Masse (mg/g), x die Zeitspanne (s), T die Zeitkonstante (1/s) ist plus die Anpassungsparameter.</p>
+
+  <p>Es gibt eine empirische Gleichung, die das Verhältnis von Temperatur und Zeitkonstante beschriebt, die folgendermaßen lautet:</p>
+
+  <p><img src="../images/Using_Values_in_Worksheet_as_Initialized_Parameters/math-aee6cb23be6aabd5140fb4b7213cf3ca.png" title="T = 25000 - 58 * Temp" alt="T = 25000 - 58 * Temp" class="tex"></p>
+
+  <p>Für die Aufnahmekurve von jeder Temperatur wird T aus dieser Gleichung berechnet und als Initialisierungswert für die Kurvenanpassung verwendet.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 9.0 SR1</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>eine benutzerdefinierte Anpassungsfunktion erstellen und Labtalk-Skript verwenden, um die Parameterinitialisierung durchzuführen.</li>
+
+    <li>Werte in einem Arbeitsblatt als Initialisierungsparameter verwenden.</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <h3><a name="Write_Parameter_Initialization_Script_for_a_User-Defined_Fitting_Function"></a><span class="mw-headline">Schreiben des Skripts für die Parameterinitialisierung einer benutzerdefinierten Anpassungsfunktion</span></h3>
+
+  <ol>
+    <li>Wählen Sie <b>Hilfsmittel: Fitfunktionen erstellen</b> (oder drücken Sie <b>F8</b>), um das Hilfsmittel <b>Fitfunktionen erstellen</b> zu öffnen. Wählen Sie auf der Seite <b>Ziel</b> die Option <b>Eine neue Funktion erstellen</b> und klicken Sie auf <b>Weiter</b>.</li>
+
+    <li>Stellen Sie auf der Seite <b>Name und Typ</b> sicher, dass die Funktion in der Kategorie <b>User Defined</b> erstellt wird, nennen Sie die Funktion <b>AufnahmeKurvenfit</b>, belassen Sie das <b>Funktionsmodell</b> bei <b>Explizit</b> und wählen Sie <b>Origin C</b> als <b>Funktionstyp</b> aus. Klicken Sie auf die Schaltfläche <b>Weiter</b>.</li>
+
+    <li>Belassen Sie auf der Seite <b>Variablen und Parameter</b> die <b>Unabhängigen Variablen</b> und <b>Abhängigen Variablen</b> bei den standardmäßig festgestellten <b>x</b> und <b>y</b>. Setzen Sie die <b>Parameters</b> auf <b>T</b> und klicken Sie auf <b>Weiter</b>.</li>
+
+    <li>Geben Sie auf der Seite <b>Origin C-Anpassungsfunktion</b> die folgende Gleichung im Bearbeitungsfeld <b>Funktionskörper</b> ein und klicken Sie dann auf <b>Weiter</b>.</li>
+  </ol>
+  <pre class="oc" style="font-family:monospace;">
+y <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span> <span style="color: #000040;">-</span> <span style="color: #0000dd;">6</span><span style="color: #000040;">/</span><span style="color: #000000;">(</span>pi<span style="color: #000040;">^</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span><span style="color: #000040;">*</span><span style="color: #000000;">exp</span><span style="color: #000000;">(</span><span style="color: #000040;">-</span><span style="color: #000000;">(</span>pi<span style="color: #000040;">^</span><span style="color: #0000dd;">2</span><span style="color: #000040;">/</span>T<span style="color: #000000;">)</span><span style="color: #000040;">*</span>x<span style="color: #000000;">)</span>
+</pre>
+
+  <p><a class="image"><img alt="Tutorial LT Para Init 01.png" src="../images/Using_Values_in_Worksheet_as_Initialized_Parameters/Tutorial_LT_Para_Init_01.png" width="573"></a></p>
+
+  <ol start="5">
+    <li>Wählen Sie auf der Seite <b>Parameterinitialisierungscode</b> die Option <b>Benutzerdefinierten Code verwenden</b> und dann die Option <b>LabTalk verwenden</b>, um die Verwendung von Labtalk-Skript zu aktivieren. Geben Sie im Bearbeitungsfeld <b>Initialisierungscode</b> das folgende Skript ein:
+      <pre class="lt" style="font-family:monospace;">
+<span style="color: #008000;">//Code to be executed to initialize parameters</span> <span style="color: #008000;">//Get the current worksheet page.</span> range rpage<span style="color: #000080;">=</span>ry.<span style="color: #000080;">getpage</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span><span style="color: #000080;">$</span>; <span style="color: #008000;">//Get the data worksheet</span> range rlayer<span style="color: #000080;">=</span>ry.<span style="color: #000080;">getlayer</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span><span style="color: #000080;">$</span>; <span style="color: #008000;">//Get the data worksheet index</span> int inext<span style="color: #000080;">=</span>rlayer.<span style="color: #000080;">index</span>; <span style="color: #008000;">//Make sure the data workbook is active</span> win <span style="color: #000080;">-</span>a <span style="color: #000080;">%</span><span style="color: #000000;">(</span>ry.<span style="color: #000080;">getpage</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span><span style="color: #000080;">$</span><span style="color: #000000;">)</span>; <span style="color: #008000;">//Make sure the data worksheet is active</span> page.<span style="color: #000080;">active</span><span style="color: #000080;">=</span>inext; <span style="color: #008000;">//Active column 2 in the data worksheet</span> wks.<span style="color: #000080;">col</span><span style="color: #000080;">=</span><span style="color: #0000dd;">2</span>; <span style="color: #008000;">//Get the temperature as a string from column comment</span> string str1<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> wks.<span style="color: #000080;">col</span>.<span style="color: #000080;">comment</span><span style="color: #000080;">$</span>; <span style="color: #008000;">//Get the string of the temperature number</span> string str2<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> str1.<span style="color: #000080;">Left</span><span style="color: #000000;">(</span><span style="color: #0000dd;">3</span><span style="color: #000000;">)</span><span style="color: #000080;">$</span>; <span style="color: #008000;">//Substitute the string variable to a double number</span> double Temp <span style="color: #000080;">=</span> <span style="color: #000080;">%</span><span style="color: #000000;">(</span>str2<span style="color: #000080;">$</span><span style="color: #000000;">)</span>; <span style="color: #008000;">//Use the empirical equation to calculate the initial value of T</span> T<span style="color: #000080;">=</span><span style="color: #0000dd;">25000</span> <span style="color: #000080;">-</span> <span style="color: #0000dd;">58</span> <span style="color: #000080;">*</span> Temp; <span style="color: #008000;">//Check whether parameter initialization script runs successfully</span> type <span style="color: #000080;">-</span>b <span style="color: #ff00ff;">"Experimental temperature is $(Temp) K, so the initial value of T is $(T)."</span>
+</pre>
+
+      <table class="note">
+        <tr>
+          <td><b>Hinweise:</b> Das <i>ry</i> in dem obenstehenden Skript ist eine automatisch definierte Bereichsvariable für den Eingabebereich des Parameters <i>y</i>. Die Syntax für diese Bereichsvariable lautet <i>r</i>+<i>Parametername</i>. Wenn beispielsweise der Parametername <i>Temp</i> ist, dann sollte die Bereichsvariable <i>rTemp</i> heißen.</td>
+        </tr>
+      </table>
+    </li>
+
+    <li>Klicken Sie auf <b>Fertigstellen</b>, um die benutzerdefinierte Anpassungsfunktion <b>UptakeCurveFit</b> zu erstellen. Sie können ihre .fdf-Datei im <b>Anwenderdateiordner</b> finden.</li>
+  </ol>
+
+  <h3><a name="Fit_Data_with_the_User_Defined_Fitting_Function"></a><span class="mw-headline">Anpassen von daten mit der benutzerdefinierten Anpassungsfunktion</span></h3>
+
+  <ol>
+    <li>Öffnen Sie ein neues Origin-Projekt, indem Sie auf die Schaltfläche <a class="image"><img alt="Button New Project.png" src="../images/Using_Values_in_Worksheet_as_Initialized_Parameters/Button_New_Project.png" width="22"></a> auf der Symbolleiste <b>Standard</b> klicken. Klicken Sie auf die Schaltfläche <a class="image"><img alt="Button Import Wizard.png" src="../images/Using_Values_in_Worksheet_as_Initialized_Parameters/Button_Import_Wizard.png" width="25"></a> (oder <b>Daten: Aus Datei importieren: Importassistent</b> oder drücken Sie auf <b>Strg</b>+<b>3</b>), um den <b>Importassistenten</b> zu öffnen.</li>
+
+    <li>Wählen Sie in <b>Datenquelle</b> die <b>Datei</b> <b>UptakeCurve_343K.txt</b>, die sich im Verzeichnis <i>&lt;Origin-Verzeichnis&gt;\Samples\Curve Fitting\</i> befindet. Klicken Sie auf <b>Weiter</b>, um zur Seite <b>Headerzeilen</b> zu gelangen. Setzen Sie die <b>Langnamen</b>, <b>Einheiten</b> und <b>Kommentare</b> auf <b>3</b>, <b>4</b> bzw. <b>1 bis 1</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial LT Para Init 02.png" src="../images/Using_Values_in_Worksheet_as_Initialized_Parameters/Tutorial_LT_Para_Init_02.png" width="627"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>Fertigstellen</b>, um die Datei zu importieren. Beachten Sie, dass die Experimenttemperatur als Kommentar von Spalte 2 gespeichert ist, die von dem Labtalk-Skript für die Parameterinitialisierung in der Anpassungsfunktion <b>UptakeCurveFit</b> abgerufen wird.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial LT Para Init 03.png" src="../images/Using_Values_in_Worksheet_as_Initialized_Parameters/Tutorial_LT_Para_Init_03.png" width="349"></a></dd>
+      </dl>
+    </li>
+
+    <li>Markieren Sie Spalte B und wählen Sie <b>Analyse: Anpassen: Nichtlinearer Fit</b> (oder drücken Sie <b>Strg</b>+<b>Y</b>), um den Dialog <b>NLFit</b> zu öffnen. Wählen Sie <b>User Defined</b> als <b>Kategorie</b> und <b>UptakeCurveFit(User)</b> als <b>Funktion</b>.</li>
+
+    <li>Ein Warnhinweis wird angezeigt und zeigt sowohl die Experimenttemperatur als auch den berechneten Initialisierungswert der Zeitkonstanten an.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial LT Para Int 05.png" src="../images/Using_Values_in_Worksheet_as_Initialized_Parameters/Tutorial_LT_Para_Int_05.png" width="396"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wechseln Sie zur Registerkarte <b>Parameter</b>. Der Wert des Parameters T ist 5106, was darauf hindeutet, dass das Skript der Parameterinitialisierung erfolgreich aufgerufen wurde.</li>
+
+    <li>Wechseln Sie zur Registerkarte <b>Code</b> und wählen Sie den Abschnitt <b>Parameterinitialisierung</b>. Hier können Sie das Skript der Parameterinitialisierung erneut überprüfen, indem Sie auf die Schaltfläche <a class="image"><img alt="Button Initialize Parameters.png" src="../images/Using_Values_in_Worksheet_as_Initialized_Parameters/Button_Initialize_Parameters.png" width="26"></a> klicken.</li>
+
+    <li>Klicken Sie auf <b>OK</b>, um das Warnfeld zu schließen, und dann auf <b>Fit</b>, um die Anpassung durchzuführen.</li>
+  </ol>
+
+  <h3><a name="Create_an_Analysis_Template_and_Do_Batch_Processing"></a><span class="mw-headline">Erstellen einer Analysevorlage und Durchführen einer Stapelverarbeitung</span></h3>
+
+  <ol>
+    <li>Wechseln Sie zum Berichtsblatt <b>FitNL1</b>, das durch die vorhergehenden Schritte erzeugt wird, klicken Sie auf die dreieckige Schaltfläche rechts neben der Tabelle <b>Zusammenfassung</b> und wählen Sie <b>Kopie als neues Blatt erstellen</b>. Ein neues Blatt wird erstellt. Löschen Sie Spalte A in dem neuen Blatt und benennen Sie es um in <b>Ergebnis</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial LT Para Init 06.png" src="../images/Using_Values_in_Worksheet_as_Initialized_Parameters/Tutorial_LT_Para_Init_06.png" width="486"></a></dd>
+      </dl>
+    </li>
+
+    <li>Lassen Sie die Arbeitsmappe aktiviert und wählen Sie <b>Datei: Arbeitsmappe als Analysevorlage speichern</b>, um diese Arbeitsmappe als <b>MyUptakeFit.ogw</b> zu speichern.</li>
+
+    <li>Erstellen Sie ein neues Origin-Projekt und wählen Sie <b>Datei: Stapelverarbeitung</b>, um den Dialog <b>batchProcess</b> aufzurufen.</li>
+
+    <li>Laden Sie die Analysevorlage <b>MyUptakeFit.ogw</b>, wählen Sie die Dateien <b>UptakeCurve_343K.txt</b>, <b>UptakeCurve_373K.txt</b> und <b>UptakeCurve_403K.txt</b> im <i>&lt;Origin-Verzeichnis&gt;\Samples\Curve Fitting\</i>, wählen Sie <b>Dateiname</b> für <b>Datensatzidentifizierer</b> und stellen Sie sicher, dass die anderen Einstellungen mit dem untenstehenden Bild übereinstimmen:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial LT Para Init 07.png" src="../images/Using_Values_in_Worksheet_as_Initialized_Parameters/Tutorial_LT_Para_Init_07.png" width="615"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um die Stapelverarbeitung durchzuführen. Für jede ausgeführte Datei wird ein Warnhinweis aufgerufen, das auf den verwendeten Initialisierungswert hinweist. Klicken Sie jedes Mal auf <b>OK</b>, um das Hinweisfenster zu schließen und mit der Stapelverarbeitung fortzufahren. Schließlich wird der Zusammenfassungsbericht erstellt:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial LT Para Init 08.png" src="../images/Using_Values_in_Worksheet_as_Initialized_Parameters/Tutorial_LT_Para_Init_08.png" width="549"></a></dd>
+      </dl>
+    </li>
+  </ol>

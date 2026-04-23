@@ -1,0 +1,296 @@
+﻿<h1 class="firstHeading">Teilflächen zwischen Funktionskurven füllen</h1>
+
+  <p class='urlname' style='display: none'>fill-partial-area-between-curves</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Filling_Area_Between_Parts_of_Two_Curves"><span class="tocnumber">3.1</span> <span class="toctext">Fläche zwischen Teilen von zwei Kurven füllen</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Changing_the_Axis_Range"><span class="tocnumber">3.2</span> <span class="toctext">Achsenbereich ändern</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#Adding_Special_Points_with_Labels_to_Annotate_the_Intersections"><span class="tocnumber">3.3</span> <span class="toctext">Spezielle Punkte mit Beschriftungen hinzufügen, um Schnittpunkte mit Anmerkungen zu versehen</span></a></li>
+
+          <li class="toclevel-2 tocsection-7"><a href="#Adding_Function_Formulas_and_Axis_Arrows"><span class="tocnumber">3.4</span> <span class="toctext">Funktionsformeln und Achsenpfeile hinzufügen</span></a></li>
+
+          <li class="toclevel-2 tocsection-8"><a href="#Generating_Function_Data_using_Set_Values_tool"><span class="tocnumber">3.5</span> <span class="toctext">Funktionsdaten mit dem Hilfsmittel Werte setzen erzeugen</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/Fill_Partial_Area_between_Curves/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/Fill_Partial_Area_between_Curves/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=294" target="_blank">Flächen zwischen Kurven füllen</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=51" target="_blank">Spaltenwerte setzen</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=328" target="_blank">Anmerkung zu einem Punkt im Diagramm hinzufügen</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=255" target="_blank">Einzelnen Punkt benutzerdefiniert anpassen</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=285" target="_blank">Spezielle Hilfsstriche</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=154" target="_blank">Spezielle Hilfsstrichsbeschriftungen zu Diagrammachsen hinzufügen</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=51" target="_blank">Spaltenwerte setzen</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%">
+        <a class="image"><img alt="Website blog icon circle.png" src="../images/Fill_Partial_Area_between_Curves/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Fill_Partial_Area_between_Curves/Blog_Image_33x33px.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="http://blog.originlab.com/fill-area-under-intersection-of-two-curves" target="_blank">Fläche unter der Überschneidung von zwei Kurven füllen</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/fill-area-above-curve" target="_blank">Fläche ober- und unterhalb der Kurve füllen</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/shading-sections-of-a-graph-and-customizing-their-formatting" target="_blank">Abschnitte eines Diagramms schattieren und ihre Formatierung benutzerdefiniert anpassen</a></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <p>&#160;</p>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Dieses Tutorial zeigt, wie Sie zwei Funktionen zeichnen und das Diagramm benutzerdefiniert anpassen, indem Sie die Fläche zwischen beiden Funktionskurven teilweise füllen.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Fill Partial Area between Curves 01.png" src="../images/Fill_Partial_Area_between_Curves/300px-Fill_Partial_Area_between_Curves_01.png" width="300"></a></dd>
+  </dl>
+
+  <p class="version">Origin-Version mind. erforderlich: 2017 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <ul>
+    <li>Funktionsdaten mit Hilfsmittel Werte setzen erzeugen</li>
+
+    <li>Flächen zwischen zwei Linien mit unterschiedlichen Farben füllen</li>
+
+    <li>Objekte zu einem Diagramm hinzufügen und bearbeiten</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <p>Dieses Tutorial ist mit dem Ordner <i>Fill Partial Area between Function Plots</i> im Projekt <i>&lt;Origin-Verzeichnis&gt;\Samples\Tutorial Data.opj</i> verbunden.</p>
+
+  <h3><a name="Filling_Area_Between_Parts_of_Two_Curves"></a><span class="mw-headline">Fläche zwischen Teilen von zwei Kurven füllen</span></h3>
+
+  <p>Um unterschiedliche Füllfarben auf zwei oder mehr Teile einer Kurve anzuwenden, müssen Sie die Kurven in Segmenten zeichnen. In diesem Tutorial erfahren Sie, wie eine Fläche zwischen Kurven gefüllt wird, die durch <b>X &lt;= 1</b> definiert ist.</p>
+
+  <ol>
+    <li>Öffnen Sie das Projekt Tutorial Data.opj und navigieren Sie zu dem Ordner <i>Fill Partial Area between Function Plots</i>. <b>Book2L</b> enthält zwei Funktionskurven (<b>Hinweis:</b> Um zu sehen, wie ein Datensatz aus einer Funktion erzeugt wird, lesen Sie <a href="#Generating_Function_Data_using_Set_Values_tool">den letzten Abschnitt in diesem Tutorial</a>).</li>
+
+    <li>Markieren Sie die Zeilen 1~36 (-2,5 &lt;= X &lt;= 1) aller drei Spalten in <b>Sheet1</b> von <b>Book2L</b> und klicken Sie im Menü auf <b>Zeichnen: Einfache 2D: Liniendiagramm</b>, um zwei Liniendiagramme zu zeichnen. Die zwei Datensätze (Linien) werden automatisch gruppiert.</li>
+
+    <li>Kehren Sie jetzt zurück zum Arbeitsblatt, markieren Sie die Zeilen 36~51 (1 &lt;= X &lt;= 2,5) von allen drei Spalten und fahren Sie mit der Maus über die Kante des markierten Bereichs, bis der Cursor folgendermaßen aussieht: <a class="image"><img alt="Fill Partial Area between Curves 27.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_27.png" width="35"></a>. Bewegen Sie den ausgewählten Bereich per Drag&amp;Drop auf das soeben erstellte Diagramm. Wenn Sie dazu aufgefordert werden, die Achsen neu zu skalieren und alle Daten zu zeigen, wählen Sie <b>Ja</b>.</li>
+
+    <li>Markieren und löschen Sie die Legende und die Achsentitel.
+
+      <dl>
+        <dd><a class="image"><img alt="Fill Partial Area between Curves 28.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_28.png" width="404"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie zum Öffnen des Dialogs <b>Details Zeichnung</b> doppelt auf eines der Liniendiagramme. Wählen Sie die erste Zeichnung im Zweig <b>Layer1</b> im linken Bedienfeld.</li>
+
+    <li>Gehen Sie zur Registerkarte <b>Linie</b> und aktivieren Sie unter <b>Füllfläche unter Kurve</b> das Kontrollkästchen <b>Aktivieren</b>. Setzen Sie <b>Bis zur Datenzeichnung füllen - Obere und untere Farben</b>, <b>Datenzeichnung</b> = <b>Nächste Zeichnung</b>, <b>Füllen bis</b> = <b>Gemeinsamer X-Fläche</b> und klicken Sie dann auf <b>Anwenden</b>. Beachten Sie, dass diese Aktion die Registerkarten <b>Muster oben</b> und <b>Muster unten</b> zu dem Dialog hinzufügt.
+
+      <dl>
+        <dd><a class="image"><img alt="Fill Partial Area between Curves 03.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_03.png" width="799"></a></dd>
+      </dl>
+    </li>
+
+    <li>Gehen Sie zur Registerkarte <b>Gruppe</b> und klicken Sie auf die Linienfarbliste in der Spalte <b>Details</b>, um die Inkrementliste <b>Candy</b> auszuwählen:
+
+      <dl>
+        <dd><a class="image"><img alt="Fill Partial Area between Curves 03 2.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_03_2.png" width="652"></a></dd>
+      </dl>
+    </li>
+
+    <li>Gehen Sie zur Registerkarte <b>Muster oben</b> und setzen Sie die Füllfarbe der schwarzen Linie auf <b>Magenta hell</b> bei einer Transparenz von 50%.
+
+      <dl>
+        <dd><a class="image"><img alt="Fill Partial Area between Curves 04.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_04.png" width="618"></a></dd>
+      </dl>
+    </li>
+
+    <li>Gehen Sie zur Registerkarte <b>Muster unten</b> und setzen Sie die Füllfarbe unter der schwarzen Linie auf <b>Zyan hell</b>. Beachten Sie, dass die Transparenzelemente für <b>Muster_unterhalb</b> abgeblendet sind und auf <b>Auto</b> gesetzt sind, das heißt, dass die Füllung die gleichen Transparenzeinstellungen wie <b>Muster_oberhalb</b> verwendet.
+
+      <dl>
+        <dd><a class="image"><img alt="Pattern below.png" src="../images/Fill_Partial_Area_between_Curves/Pattern_below.png" width="622"></a></dd>
+      </dl>
+    </li>
+
+    <li>Markieren Sie die dritte Zeichnung im linken Bedienfeld, gehen Sie zur Registerkarte <b>Gruppe</b>, klicken Sie auf die Linienfarbliste in der Spalte <b>Details</b>, um die Inkrementliste <b>Candy</b> auszuwählen:
+
+      <dl>
+        <dd><a class="image"><img alt="Fill Partial Area between Curves 31.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_31.png" width="756"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um den Dialog zu schließen. Die Fläche zwischen den Kurven, für die X&lt;=1 gilt, ist jetzt gefüllt.
+
+      <dl>
+        <dd><a class="image"><img alt="Partial fill.png" src="../images/Fill_Partial_Area_between_Curves/Partial_fill.png" width="356"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Fill_Partial_Area_between_Curves/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Beachten Sie, dass Sie als eine Alternative zu den Bedienelementen der Registerkarte <b>Linie</b> im Dialog Details Zeichnung auch zwei beliebige Zeichnungen im Diagrammlayer mit Hilfe der Strg-Taste auswählen können und dann die Füllungen zwischen den ausgewählten Kurven mittels der Minisymbolleistenschaltflächen anwenden.</p>
+
+        <dl>
+          <dd><a class="image"><img alt="MT fill area between curves.png" src="../images/Fill_Partial_Area_between_Curves/MT_fill_area_between_curves.png" width="356"></a></dd>
+        </dl>
+      </td>
+    </tr>
+  </table>
+
+  <h3><a name="Changing_the_Axis_Range"></a><span class="mw-headline">Achsenbereich ändern</span></h3>
+
+  <ol>
+    <li>Wir möchten den Anzeigebereich der <b>X</b>- und <b>Y</b>-Achse ändern. Klicken Sie dazu auf die X-Achse und in der Minisymbolleiste auf die Schaltfläche <b>Achsenskalierung</b>, um den Dialog Achsenskalierung zu öffnen, wie unten zu sehen. Setzen Sie den Anzeigebereich auf die Werte von <b>-2,5</b> bis <b>2,5</b> mit der <b>Hilfsstrichsdicke</b> = <i>2</i>.
+
+      <dl>
+        <dd><a class="image"><img alt="Fill Partial Area between Curves 05.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_05.png" width="468"></a></dd>
+
+        <dd>Tun Sie dasselbe mit der Y-Achse, um den <b>Y</b>-Achsenanzeigebereich von <b>-10,5</b> bis <b>4</b> mit der <b>Hilfsstrichsdicke</b> = <i>4</i> festzulegen.</dd>
+      </dl>
+    </li>
+
+    <li>Um die X- und Y-Achsen zu konfigurieren, so dass sie sich bei <b>0,0</b> schneiden: Klicken Sie doppelt auf die X-Achse, um den Dialog <b>Achse</b> zu öffnen. Gehen Sie zur Registerkarte <b>Linie und Hilfsstriche</b> und wählen Sie sowohl <b>Unten</b> als auch <b>Links</b> im linken Bedienfeld des Dialogs Achsen. Setzen Sie die <b>Achsenposition</b> auf <b>Bei Position = 0</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Fill Partial Area between Curves 07.png" src="../images/Fill_Partial_Area_between_Curves/450px-Fill_Partial_Area_between_Curves_07.png" width="450"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um den Dialog zu schließen. Löschen Sie die Achsentitel und wählen Sie dann die zwei Liniengruppe getrennt, um die <b>Breite</b> mit Hilfe der Symbolleiste Stil auf <b>2</b> zu setzen. Das Diagramm sollte folgendermaßen aussehen:
+
+      <dl>
+        <dd><a class="image"><img alt="Fill Partial Area between Curves 08.png" src="../images/Fill_Partial_Area_between_Curves/400px-Fill_Partial_Area_between_Curves_08.png" width="400"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Adding_Special_Points_with_Labels_to_Annotate_the_Intersections"></a><span class="mw-headline">Spezielle Punkte mit Beschriftungen hinzufügen, um Überschneidungen mit Anmerkungen zu versehen</span></h3>
+
+  <p>Im obigen Diagramm gibt es drei Schnittpunkte der zwei Funktionskurven. Wir markieren zwei von ihnen, bei X = -2 bzw. X = 2.</p>
+
+  <ol>
+    <li>Klicken Sie bei gedrückter <b>Strg</b>-Taste erneut auf den Schnittpunkt bei X = -2, um diesen einzelnen Punkt auszuwählen, und klicken Sie dann mit der rechten Maustaste auf ihn und wählen Sie <b>Punkt bearbeiten</b>, um den Dialog <b>Details Zeichnung</b> zu öffnen. Erfahren Sie mehr darüber, <a class="external text" href="../../UserGuide/Category/Customizing_Plot_Elements.html#Customizing_Individual_Data_Points">wie ein einzelner Punkt im Diagramm gezeigt und benutzerdefiniert angepasst wird</a>.<br>
+    <a class="image"><img alt="Fill Partial Area between Curves 18.png" src="../images/Fill_Partial_Area_between_Curves/400px-Fill_Partial_Area_between_Curves_18.png" width="400"></a></li>
+
+    <li>Im aufgerufenen Dialog sehen Sie einen <i>speziellen</i> Punkt. Er zeigt, dass sein Zeilenindex hinzugefügt und in der zweiten Zeichnung ausgewählt wurde.
+
+      <ul>
+        <li>Gehen zur Registerkarte <b>Symbole</b> und passen Sie seinen Stil folgendermaßen benutzerdefiniert an:<br>
+        <a class="image"><img alt="Fill Partial Area between Curves 19.png" src="../images/Fill_Partial_Area_between_Curves/550px-Fill_Partial_Area_between_Curves_19.png" width="550"></a></li>
+
+        <li>Gehen Sie zur Registerkarte <b>Ankerlinie</b>, aktivieren Sie die vertikale Ankerlinie und legen Sie seinen Stil, wie unten zu sehen, fest:<br>
+        <a class="image"><img alt="Fill Partial Area between Curves 24.png" src="../images/Fill_Partial_Area_between_Curves/550px-Fill_Partial_Area_between_Curves_24.png" width="550"></a></li>
+
+        <li>Gehen Sie zur Registerkarte <b>Beschriftung</b>, aktivieren Sie das Kontrollkästchen Aktivieren, setzen Sie das <b>Beschriftungsformat</b> auf <i>(X,Y)</i> und die <b>Schriftgröße</b> auf <i>22</i>.<br>
+        <a class="image"><img alt="Fill Partial Area between Curves 34.png" src="../images/Fill_Partial_Area_between_Curves/550px-Fill_Partial_Area_between_Curves_34.png" width="550"></a></li>
+      </ul>
+    </li>
+
+    <li>Klicken Sie auf OK, um den Dialog zu schließen. Führen Sie entsprechende Schritte wie in Schritt 1 durch, um einen weiteren Schnittpunkt bei X = 2 (Zeilenindex = 46) hinzuzufügen.<br>
+    <a class="image"><img alt="Fill Partial Area between Curves 35.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_35.png" width="257"></a><br>
+    Legen Sie dann den gleichen Stil für ihn fest. Am Ende erhalten Sie ein Diagramm, wie unten zu sehen:<br>
+    <a class="image"><img alt="Fill Partial Area between Curves 29.png" src="../images/Fill_Partial_Area_between_Curves/400px-Fill_Partial_Area_between_Curves_29.png" width="400"></a></li>
+  </ol>
+
+  <h3><a name="Adding_Function_Formulas_and_Axis_Arrows"></a><span class="mw-headline">Funktionsformeln und Achsenpfeile hinzufügen</span></h3>
+
+  <ol>
+    <li>Um die Beschriftungen der Achsenhilfsstriche bei (0,0) auszublenden, öffnen Sie den Dialog <b>Achsen</b> erneut und gehen Sie zur Registerkarte <b>Spezielle Hilfsstriche</b>. Legen Sie die Einstellungen für das Symbol <b>Unten</b> dann, wie unten zu sehen, fest und tun Sie das Gleiche für das Symbol <b>Links</b>.<br>
+    <a class="image"><img alt="Fill Partial Area between Curves 21.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_21.png" width="483"></a></li>
+
+    <li>Um an den Enden der Achsen Pfeile hinzuzufügen: Gehen Sie zur Registerkarte <b>Linie und Hilfsstriche</b> im Dialog <b>Achsen</b>. Wählen Sie die Symbole <b>Unten</b> und <b>Links</b> im linken Bedienfeld des Dialogs <b>Achsen</b>. Erweitern Sie den Knoten <b>Pfeil</b>, aktivieren Sie das Kontrollkästchen <b>Pfeil am Ende</b> und setzen Sie die <b>Breite</b> auf <b>5</b>.<br>
+    <a class="image"><img alt="Fill Partial Area between Curves 23.png" src="../images/Fill_Partial_Area_between_Curves/500px-Fill_Partial_Area_between_Curves_23.png" width="500"></a></li>
+
+    <li>Klicken Sie doppelt auf die X-Achse, um den Dialog <b>Achsen</b> zu öffnen. Gehen Sie zur Registerkarte <b>Referenzlinien</b>, geben Sie <i>1</i> im Textfeld <b>Referenzlinien bei Wert</b> ein und klicken Sie dann auf eine beliebige Stelle in der Listentabelle, um eine Referenzlinie bei X = 1 hinzuzufügen. Nehmen Sie folgende Einstellungen vor:<br>
+      <a class="image"><img alt="Fill Partial Area between Curves 25.png" src="../images/Fill_Partial_Area_between_Curves/500px-Fill_Partial_Area_between_Curves_25.png" width="500"></a><br>
+      Klicken Sie auf die Schaltfläche <b>Details</b>, um den Linienstil festzulegen.<br>
+      <a class="image"><img alt="Fill Partial Area between Curves 36.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_36.png" width="480"></a><br>
+      Klicken Sie auf <b>OK</b>, um diesen Dialog zu schließen. Klicken Sie dann auf <b>OK</b>, um auch den Dialog <b>Achsen</b> zu schließen.
+
+      <table class="noborder">
+        <tr>
+          <td style="vertical-align:top" width="60"><img src="../images/Fill_Partial_Area_between_Curves/Tip_icon.png" width="57" border="0" alt=""></td>
+
+          <td>
+            <p>Sie können auch das Hilfsmittel <b>Gerade hinzufügen</b> verwenden (über das Menü <b>Einfügen: Gerade hinzufügen</b>), um eine vertikale Linie bei <b>X = 1</b> hinzuzufügen.</p>
+          </td>
+        </tr>
+      </table>
+    </li>
+
+    <li>Um die Formeln der zwei Kurven zu dem Diagramm hinzuzufügen, klicken Sie mit der rechten Maustaste auf einen leeren Bereich und wählen Sie <b>Text hinzufügen</b>. Geben Sie ein beliebiges Zeichen in das Objekt ein, um zuerst ein Textobjekt zu erstellen. Klicken Sie mit der rechten Maustaste auf das Objekt und wählen Sie <b>Einstellungen</b> im Kontextmenü, um den Dialog <b>Objekteigenschaften</b> zu öffnen. Geben Sie die erste Formel auf der Registerkarte <b>Text</b> ein.<br>
+      <pre class="lt" style="font-family:monospace;">
+y<span style="color: #000080;">=</span><span style="color: #000080;">-</span>x\<span style="color: #000080;">+</span><span style="color: #000000;">(</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span><span style="color: #000080;">+</span>3x y<span style="color: #000080;">=</span>2x\<span style="color: #000080;">+</span><span style="color: #000000;">(</span><span style="color: #0000dd;">3</span><span style="color: #000000;">)</span><span style="color: #000080;">-</span>x\<span style="color: #000080;">+</span><span style="color: #000000;">(</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span><span style="color: #000080;">-</span>5x
+</pre>
+    </li>
+
+    <li>Klicken Sie auf OK, um den Dialog zu schließen. Fügen Sie ein weiteres Textobjekt hinzu und öffnen Sie den Dialog <b>Texteigenschaften</b> erneut, um die zweite Formel oben auf der Registerkarte <b>Text</b> einzugeben. Klicken Sie wieder auf OK. Diese zwei Formeln wurden nun beide zum Diagrammfenster hinzugefügt. Positionieren Sie sie nach Belieben neu.</li>
+
+    <li>Wählen Sie das <b>Hilfsmittel Gekrümmter Pfeil</b> und fügen Sie zwei gekrümmte Pfeile hinzu, um die Formelbeschriftungen mit den Liniendiagrammen zu verbinden.<br>
+    <a class="image"><img alt="Fill Partial Area between Curves 26.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_26.png" width="187"></a></li>
+
+    <li>Das Endergebnis sollte folgendermaßen aussehen:<br>
+    <a class="image"><img alt="Fill Partial Area between Curves 01.png" src="../images/Fill_Partial_Area_between_Curves/400px-Fill_Partial_Area_between_Curves_01.png" width="400"></a></li>
+  </ol>
+
+  <h3><a name="Generating_Function_Data_using_Set_Values_tool"></a><span class="mw-headline">Funktionsdaten mit dem Hilfsmittel Werte setzen erzeugen</span></h3>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe. Wählen Sie <b>Neue Spalten anhängen</b>, um 3 Spalten zu dem Arbeitsblatt hinzuzufügen.</li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf Spalte Col(A) und wählen Sie <b>Spalte füllen mit: Eine Reihe von Zahlen.</b></li>
+
+    <li>Legen Sie im Dialog <b>patternN</b> die folgenden Parameter fest:<br>
+    <a class="image"><img alt="Fill Partial Area between Curves 12.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_12.png" width="349"></a></li>
+
+    <li>Klicken Sie doppelt auf die Beschriftungszeile <b>F(x)</b> von Col(B), um den Modus der direkten Bearbeitung einzuschalten. Geben Sie dann <i>-1*A^2+3*A</i> ein.<br>
+      <a class="image"><img alt="Fill Partial Area between Curves 33.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_33.png" width="249"></a>
+
+      <table class="note">
+        <tr>
+          <td>
+            <b>Hinweis:</b> Seit Origin 2017 wurde ein neues Bedienelement, die <a class="external text" href="../../UserGuide/UserGuide/Column_Short_Name_Restriction.html"><b>Vereinfachte Zellennotation (SCN)</b></a>, hinzugefügt und per Standard aktiviert. Origin unterstützt das Verwenden des Spaltenkurznamens als Notation in der Spaltenformel, wie z. B. A+1 anstatt col(A)+1.
+
+            <p>Bei früheren Versionen müssen Sie stattdessen <i>-1*col(A)^2+3*col(A)</i> eingeben.</p>
+          </td>
+        </tr>
+      </table>
+    </li>
+
+    <li>Markieren Sie col(C), klicken Sie mit der rechten Maustaste darauf und wählen Sie <b>Spaltenwerte errechnen</b> im Kontextmenü aus, um den Dialog Werte setzen zu öffnen. Geben Sie in diesem Dialog die Formel und die Bereichsdefinition, wie unten zu sehen, fest:<br>
+    <a class="image"><img alt="Fill Partial Area between Curves 30.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_30.png" width="441"></a></li>
+  </ol>

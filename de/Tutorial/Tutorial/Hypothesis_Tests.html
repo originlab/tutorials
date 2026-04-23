@@ -1,0 +1,338 @@
+﻿<h1 class="firstHeading">Hypothesentests</h1>
+
+  <p class='urlname' style='display: none'>Hypothesis-Tests</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Hypothesis_Tests_in_Origin"><span class="tocnumber">3.1</span> <span class="toctext">Hypothesentests in Origin</span></a></li>
+
+          <li class="toclevel-2 tocsection-5">
+            <a href="#One-Sample_t-Test"><span class="tocnumber">3.2</span> <span class="toctext">t-Test bei einer Stichprobe</span></a>
+
+            <ul>
+              <li class="toclevel-3 tocsection-6"><a href="#Perform_One-Sample_t-Test_using_Raw_data"><span class="tocnumber">3.2.1</span> <span class="toctext">t-Test bei einer Stichprobe unter Verwendung von Rohdaten durchführen</span></a></li>
+
+              <li class="toclevel-3 tocsection-7"><a href="#Perform_One-Sample_t-Test_using_Summarized_data"><span class="tocnumber">3.2.2</span> <span class="toctext">t-Test bei einer Stichprobe unter Verwendung von zusammengefassten Daten durchführen</span></a></li>
+            </ul>
+          </li>
+
+          <li class="toclevel-2 tocsection-8">
+            <a href="#Pair-sample_t-Test"><span class="tocnumber">3.3</span> <span class="toctext">t-Test bei verbundenen Stichproben</span></a>
+
+            <ul>
+              <li class="toclevel-3 tocsection-9"><a href="#Perform_Pair-sample_t-Test_using_Raw_data"><span class="tocnumber">3.3.1</span> <span class="toctext">t-Test bei verbundenen Stichproben unter Verwendung von Rohdaten durchführen</span></a></li>
+
+              <li class="toclevel-3 tocsection-10"><a href="#Perform_Pair-sample_t-Test_using_Summarized_data"><span class="tocnumber">3.3.2</span> <span class="toctext">t-Test bei verbundenen Stichproben unter Verwendung von zusammengefassten Daten durchführen</span></a></li>
+            </ul>
+          </li>
+
+          <li class="toclevel-2 tocsection-11">
+            <a href="#Two-Sample_independent_t-Test"><span class="tocnumber">3.4</span> <span class="toctext">Tests bei zwei unabhängigen Stichproben</span></a>
+
+            <ul>
+              <li class="toclevel-3 tocsection-12"><a href="#Perform_Two-Sample_t-Test_using_Raw_data"><span class="tocnumber">3.4.1</span> <span class="toctext">t-Test bei zwei Stichproben unter Verwendung von Rohdaten durchführen</span></a></li>
+
+              <li class="toclevel-3 tocsection-13"><a href="#Perform_Two-Sample_t-Test_using_Summarized_data"><span class="tocnumber">3.4.2</span> <span class="toctext">t-Test bei zwei Stichproben unter Verwendung von zusammengefassten Daten durchführen</span></a></li>
+            </ul>
+          </li>
+
+          <li class="toclevel-2 tocsection-14"><a href="#Two-Sample_Test_for_Variance"><span class="tocnumber">3.5</span> <span class="toctext">Test auf Varianzen bei zwei Stichproben</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/Hypothesis_Tests/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/Hypothesis_Tests/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=47" target="_blank">t-Test</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%"><a class="image"><img alt="Website blog icon circle.png" src="../images/Hypothesis_Tests/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Hypothesis_Tests/Blog_Image_33x33px.png" width="135"></a></td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Hypothesentests werden oft verwendet, um die Qualität von Stichprobenparametern abzuschätzen oder um zu testen, ob Schätzwerte eines gegebenen Parameters für zwei Stichproben gleich sind.</p>
+
+  <p>Mit parametrischen Methoden werden Annahmen über die zugrundeliegende Verteilung gemacht, von der aus die Grundgesamtheit der Stichprobe ausgewählt wird. Normalerweise ist es erforderlich, dass die Daten unabhängig voneinander aus einer Normalverteilung ausgewählt werden.</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen:</p>
+
+  <ul>
+    <li>Hypothesentests für praktische Daten mit Origin ausführen.</li>
+
+    <li>Die erzeugten Ergebnisse interpretieren</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <h3><a name="Hypothesis_Tests_in_Origin"></a><span class="mw-headline">Hypothesentests in Origin</span></h3>
+
+  <table class="simple">
+    <tr>
+      <th>Datentyp</th>
+
+      <th>Ziel</th>
+
+      <th>Methode</th>
+    </tr>
+
+    <tr>
+      <td>Eine Stichprobe</td>
+
+      <td>Mittelwert eines gegebenen Werts vergleichen</td>
+
+      <td>t-Test bei einer Stichprobe</td>
+    </tr>
+
+    <tr>
+      <td></td>
+
+      <td>Varianz mit einem gegebenen Wert vergleichen</td>
+
+      <td>Test auf Varianzen bei einer Stichprobe</td>
+    </tr>
+
+    <tr>
+      <td>Zwei Stichproben</td>
+
+      <td>Testen, ob die Mittelwerte gleich sind</td>
+
+      <td>t-Test bei zwei Stichproben</td>
+    </tr>
+
+    <tr>
+      <td></td>
+
+      <td>Testen, ob die Varianzen gleich sind</td>
+
+      <td>Test auf Varianzen bei zwei Stichproben</td>
+    </tr>
+
+    <tr>
+      <td>Verbundene Stichproben</td>
+
+      <td>Testen, ob die Mittelwerte gleich sind</td>
+
+      <td>t-Test bei verbundenen Stichproben</td>
+    </tr>
+  </table>
+
+  <h3><a name="One-Sample_t-Test"></a><span class="mw-headline">t-Test bei einer Stichprobe</span></h3>
+
+  <h5><a name="Perform_One-Sample_t-Test_using_Raw_data"></a><span class="mw-headline">t-Test bei einer Stichprobe unter Verwendung von Rohdaten durchführen</span></h5>
+
+  <p>Angenommen, ein Hersteller stellt Schraubenmuttern von hoher Qualität her, die einem Durchmesser von 21 Millimetern entsprechen müssen. Die Abteilung der Qualitätssicherung hat zufällig 120 Muttern aus den fertigen Produkten gezogen, jeweils die Durchmesser gemessen und die Ergebnisse in der Datei Diameters.dat gespeichert. Die Mitarbeiter möchten untersuchen, ob der mittlere Durchmesser der Schraubenmuttern 21 entspricht oder nicht. Die Verteilung der gemessenen Durchmesser ist erfahrungsgemäß bekannt dafür, nah an der Normalverteilung zu liegen, aber die Standardabweichung der Grundgesamtheit ist unbekannt. Daher macht es Sinn, den t-Test bei einer Stichprobe in Origin zu verwenden, und dafür die untenstehenden Schritte zu befolgen:</p>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe und importieren Sie die Datei <b>Samples\Statistics\diameter.dat</b>.</li>
+
+    <li>Öffnen Sie den Dialog für den <b>t-Test bei einer Stichprobe</b>, indem Sie im Menü <b>Statistik: Hypothesentest: t-Test bei einer Stichprobe</b> wählen.</li>
+
+    <li>Klicken Sie auf die Registerkarte <b>Eingabe</b> und setzen Sie die <b>Eingabedatenform</b> auf <b>Roh</b>.</li>
+
+    <li>Klicken Sie auf die Pfeilschaltfläche rechts von <b>Eingabe</b> und wählen Sie <i>A(X):diameter</i>.</li>
+
+    <li>Klicken Sie auf die Registerkarte <b>t-Test für Mittelwert</b> und setzen Sie den <b>Testmittelwert</b> auf <i>21</i>; stellen Sie sicher, dass die <b>Alternativhypothese</b> auf <i>Mittelwert &lt;&gt; 21</i> (zweiseitiger Test) festgelegt ist, aktivieren Sie <b>Konfidenzintervall(e)</b> und setzen Sie das/die <b>Konfidenzniveau(s) in %</b> auf <i>95</i>.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Hypothesis Test 001.png" src="../images/Hypothesis_Tests/Tutorial_Hypothesis_Test_001.png" width="410"></a></dd>
+
+        <dd><a class="image"><img alt="Tutorial Hypothesis Test 001A.png" src="../images/Hypothesis_Tests/Tutorial_Hypothesis_Test_001A.png" width="347"></a></dd>
+      </dl>
+    </li>
+
+    <li>Beachten Sie, dass dieser Test standardmäßig eine deskriptive Statistik der Variablen und die Ergebnisse des Hypothesentests ausgibt. Zusätzlich ist es möglich, ein Histogramm der Daten und ein Konfidenzintervall für den Mittelwert zu erzeugen.</li>
+
+    <li>Klicken Sie auf <b>OK</b>, um die Analyse zu beenden und die Ergebnisse zu erzeugen.</li>
+  </ol>
+
+  <p>Die Tabelle der deskriptiven Statistik zeigt den Stichprobenumfang, den Mittelwert, die Standardabweichung und den Standardfehler für die Variable. Der Mittelwert der Stichprobe ist mit 21,00459 vergleichsweise ein wenig größer als der Hypothesenmittelwert von 21. Der Standardfehler des Mittelwerts (SEM) liegt bei 0,00156.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Tutorial Hypothesis Test 002.png" src="../images/Hypothesis_Tests/Tutorial_Hypothesis_Test_002.png" width="288"></a></dd>
+  </dl>
+
+  <p>In der Tabelle des t-Tests ist zu sehen, dass die t-Statistik (2,9437) und der verbundene p-Wert (0,00404) belegen, dass der durchschnittliche Durchmesser der Schraubenmuttern gleich 21 auf dem Niveau <img src="../images/Hypothesis_Tests/math-1248bf01a5b077c6d0c5f6d906278bf9.png" title="\alpha=0.05\,\!" alt="\alpha=0.05\,\!" class="tex"> ist.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Tutorial Hypothesis Test 005.png" src="../images/Hypothesis_Tests/Tutorial_Hypothesis_Test_005.png" width="508"></a></dd>
+  </dl>
+
+  <p>Das Konfidenzintervall gibt an, dass eine Konfidenz von 95% besteht, dass der wirkliche Mittelwert von der Variablen innerhalb des Intervalls [21,0015, 21,00769] liegt.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Tutorial Hypothesis Test 006.png" src="../images/Hypothesis_Tests/Tutorial_Hypothesis_Test_006.png" width="370"></a></dd>
+  </dl>
+
+  <h5><a name="Perform_One-Sample_t-Test_using_Summarized_data"></a><span class="mw-headline">t-Test bei einer Stichprobe unter Verwendung von zusammengefassten Daten durchführen</span></h5>
+
+  <p>Um einen t-Test bei einer Stichprobe mit zusammengefassten Daten durchzuführen, müssen Sie die <b>Eingabedatenform</b> auf der Registerkarte <b>Eingabe</b> auf <b>Zusammengefasste Daten</b> setzen.</p>
+
+  <p>Angenommen, dieses Mal wurden 70 Muttern gemessen, so dass der Stichprobenumfang 70 beträgt. Nach weiteren Berechnungen haben Sie den Wert 20,95 für den Mittelwert und 0,218 für die Standardabweichung ermittelt. Der Mittelwert, die Standardabweichung und der Stichprobenumfang werden nun unten in das Feld <b>Eingabe</b> eingegeben: <a class="image"><img alt="One Sample.png" src="../images/Hypothesis_Tests/One_Sample.png" width="377"></a></p>
+
+  <p>Dann wird auf der Registerkarte <b>t-Test für Mittelwert</b> 21 als <b>Testmittelwert</b> gesetzt. Klicken Sie zum Ausführen auf <b>OK</b>.</p>
+
+  <p>Es ergibt sich die untenstehende Zusammenfassungstabelle. Die Ergebnisse weisen darauf hin, dass der Mittelwert der Grundgesamtheit sich NICHT signifikant von dem Testmittelwert in dieser Untersuchung unterscheidet.</p>
+
+  <p><a class="image"><img alt="One Sample2.png" src="../images/Hypothesis_Tests/One_Sample2.png" width="477"></a></p>
+
+  <h3><a name="Pair-sample_t-Test"></a><span class="mw-headline">t-Test bei verbundenen Stichproben</span></h3>
+
+  <h5><a name="Perform_Pair-sample_t-Test_using_Raw_data"></a><span class="mw-headline">t-Test bei verbundenen Stichproben unter Verwendung von Rohdaten durchführen</span></h5>
+
+  <p>Angenommen, Sie möchten die Abriebfestigkeit zwischen zwei Reifentypen vergleichen. Dazu nehmen Sie nach dem Zufallsprinzip Reifen der beiden Typen und gruppieren Sie in 8 Paare. Stellen Sie sicher, dass jedes Paar aus zwei verschiedenen Reifentypen besteht. Verteilen Sie die eingeteilten Reifen dann paarweise auf 8 Flächen, führen Sie den Abriebtest durch und messen Sie die Abriebdaten, um dann den t-Test für verbundene Stichproben durchzuführen.</p>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe und importieren Sie die Datei <b>\Samples\Statistics\abrasion_raw.dat</b>.</li>
+
+    <li>Öffnen Sie den Dialog für den <b>t-Test bei verbundenen Stichproben</b>, indem Sie im Menü <b>Statistik: Hypothesentest: t-Test bei verbundenen Stichproben</b> wählen.</li>
+
+    <li>Legen Sie auf der Registerkarte <b>Eingabe</b> Spalte <i>tireA</i> als <b>1. Datenbereich</b> und Spalte <i>tireB</i> als <b>2. Datenbereich</b> fest.</li>
+
+    <li>Klicken Sie auf die Registerkarte <b>t-Test für Mittelwert</b> und geben Sie <i>0</i> für den <b>Testmittelwert</b> ein.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Hypothesis Test 002A.png" src="../images/Hypothesis_Tests/Tutorial_Hypothesis_Test_002A.png" width="346"></a></dd>
+      </dl>
+    </li>
+
+    <li>Übernehmen Sie die anderen Einstellungen als Standardwerte und klicken Sie auf <b>OK</b>, um die Ergebnisse zu erzeugen.
+
+      <dl>
+        <dd><a class="image"><img alt="Pair t test result.PNG" src="../images/Hypothesis_Tests/Pair_t_test_result.PNG" width="552"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <p>In der Tabelle des t-Tests zeigen die t-Statistik (2,83119) und der verbundene p-Wert (0,02536), dass der Unterschied zwischen den zwei Mittelwerten signifikant ist, das heißt, dass die zwei Reifentypen eine unterschiedene Abriebfestigkeit haben.</p>
+
+  <h5><a name="Perform_Pair-sample_t-Test_using_Summarized_data"></a><span class="mw-headline">t-Test bei verbundenen Stichproben unter Verwendung von zusammengefassten Daten durchführen</span></h5>
+
+  <p>t-Test bei verbundenen Stichproben unter Verwendung von zusammengefassten Daten durchführen</p>
+
+  <p>Um einen t-Test bei verbundenen Stichproben mit zusammengefassten Daten durchzuführen, müssen Sie die Eingabedatenform auf der Registerkarte Eingabe auf Zusammengefasste Daten setzen.</p>
+
+  <p>Angenommen, dieses Mal wurden 16 Stichproben getestet, so dass der Stichprobenumfang 16 beträgt. Nach weiteren Berechnungen haben Sie den Wert 305 für die mittlere verbundene Differen und 310 für die Standardabweichung für die Differenz zwischen verbundenen Datenpunkten (bitte beachten Sie die Algorithmen: <a class="external text" href="../../UserGuide/UserGuide/Algorithm_(PairSampletTest).html">t-Test bei verbundenen Stichproben</a>). Die mittlere Differenz, die Standardabweichung und der Stichprobenumfang werden nun unten in das Feld Eingabe eingegeben:</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Pair Sample1.png" src="../images/Hypothesis_Tests/Pair_Sample1.png" width="392"></a></dd>
+  </dl>
+
+  <p>Da die Daten einen p-Wert von 0,0013 ergaben, der kleiner ist als das a-Niveau von 0,05, kann die Nullhypothese verworfen werden.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Pair Sample2.png" src="../images/Hypothesis_Tests/Pair_Sample2.png" width="551"></a></dd>
+  </dl>
+
+  <p>Diese Untersuchung deutet darauf hin, dass die Differenz zwischen den beiden Mittelwerten signifikant ist. Daraus folgt, dass die zwei Reifentypen eine unterschiedliche Abriebfestigkeit haben.</p>
+
+  <h3><a name="Two-Sample_independent_t-Test"></a><span class="mw-headline">t-Test bei zwei unabhängigen Stichproben</span></h3>
+
+  <h5><a name="Perform_Two-Sample_t-Test_using_Raw_data"></a><span class="mw-headline">t-Test bei zwei Stichproben unter Verwendung von Rohdaten durchführen</span></h5>
+
+  <p>Ein Physiker möchte die Wirkung von zwei Schlafmitteln auswerten. Um die Wirksamkeit dieser zwei Medikamente zu testen, werden zufällig 20 Schlafpatienten ausgewählt. Die Hälfte dieser Menge nahm Medikament A, die andere Medikament B. Die verlängerte Schlafzeit wurde erfasst, nachdem jeder Patient das Medikament eingenommen hat. Das Ergebnis ist in der Datei time_raw.dat gespeichert.<br>
+  Um zu bestimmen, ob die zwei Medikamente einen unterschiedlichen Effekt auf die Patienten haben, bietet sich ein t-Test mit zwei unabhängigen Stichproben an, den Sie wie folgt durchführen:</p>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe und importieren Sie die Datei <b>Samples\Statistics\time_raw.dat</b>.</li>
+
+    <li>Öffnen Sie den Dialog für den <b>t-Test bei zwei Stichproben</b>, indem Sie im Menü <b>Statistik: Hypothesentest: t-Test bei zwei Stichproben</b> wählen.</li>
+
+    <li>Wählen Sie auf der Registerkarte <b>Eingabe</b> die <b>Eingabedatenform</b> <b>Roh</b>; legen Sie <i>medicineA</i> als <b>1. Datenbereich</b> und <i>medicineB</i> als <b>2. Datenbereich</b> fest.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Hypothesis Test 003.png" src="../images/Hypothesis_Tests/Tutorial_Hypothesis_Test_003.png" width="428"></a></dd>
+      </dl>
+    </li>
+
+    <li>Übernehmen Sie die anderen Einstellungen als Standardwerte und klicken Sie auf <b>OK</b>, um die Ergebnisse zu erzeugen.</li>
+  </ol>
+
+  <p><br>
+  Der t-Test bietet automatisch zwei Tests für die mittlere Differenz. Ein Test basiert auf der Annahme, dass die Varianzen der zwei Stichproben gleich sind, der andere auf dem Gegenteil. In diesem Beispiel weisen beide Tests darauf hin, dass es keinen signifikanten Nachweis für eine Differenz der Heilwirkung zwischen Medikament A und Medikament B gibt. (p-Werte sind 0,0738 und 0,074, beide Werte größer als das Signifikanzniveau 0,05.)</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Tutorial Hypothesis Test 004.png" src="../images/Hypothesis_Tests/Tutorial_Hypothesis_Test_004.png" width="535"></a><br>
+    <br></dd>
+  </dl>
+
+  <h5><a name="Perform_Two-Sample_t-Test_using_Summarized_data"></a><span class="mw-headline">t-Test bei zwei Stichproben unter Verwendung von zusammengefassten Daten durchführen</span></h5>
+
+  <p>Um einen t-Test bei zwei Stichproben mit zusammengefassten Daten durchzuführen, müssen Sie die <b>Eingabedatenform</b> auf der Registerkarte <b>Eingabe</b> auf <b>Zusammengefasste Daten</b> setzen.</p>
+
+  <p>Angenommen, dieses Mal wurden 50 Patienten getestet, so dass der Stichprobenumfang 50 beträgt. Nach weiteren Berechnungen erhalten Sie den Wert 2,33 für den 1. Mittelwert, 1,858 für die 1. Standardabweichung, 1,28 für den 2. Mittelwert und 1,671 für die 2. Standardabweichung. Der Mittelwert, die Standardabweichung und der Stichprobenumfang werden nun unten in das Feld Eingabe eingegeben:</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Two Sample1.png" src="../images/Hypothesis_Tests/Two_Sample1.png" width="347"></a></dd>
+  </dl>
+
+  <p>Sie können auch die Konfidenzintervalle (Niveau auf 95%) auf der Registerkarte <b>t-Test für Mittelwert</b> aktivieren, um die Differenz zwischen den Testgruppen zu berechnen. Klicken Sie zum Ausführen auf <b>OK</b>.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Two Sample2.png" src="../images/Hypothesis_Tests/Two_Sample2.png" width="347"></a></dd>
+  </dl>
+
+  <p>Da die Daten einen p-Wert von 0,0037 ergaben, der kleiner ist als das a-Niveau von 0,05, kann die Nullhypothese verworfen werden. Diese Untersuchung deutet darauf hin, dass der Mittelwert des verlängerten Schlafs von zwei Patientengruppen nichts der gleiche ist. Sie können schlussfolgern, dass das 1. Schlafmittel einen stärkeren Effekt auf die Patienten hat.</p>
+
+  <p>Die Konfidenzintervalle zeigen, dass Sie 95% sicher sein können, dass die mittlere Zeitdifferenz zwischen den zwei Gruppen 0,3487~1,7513 ist.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Two Sample3.png" src="../images/Hypothesis_Tests/Two_Sample3.png" width="511"></a></dd>
+  </dl>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Hypothesis_Tests/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Beachten Sie, dass beide Annahmen, gleiche Varianzen und ungleiche Varianzen, unterstützt werden. Um zu bestimmen, ob die zwei Stichproben die gleichen Varianzen haben, wählen Sie im Hauptmenü <b>Statistik: Hypothesentests: Test auf Varianzen bei zwei Stichproben</b>.</p>
+      </td>
+    </tr>
+  </table>
+
+  <h3><a name="Two-Sample_Test_for_Variance"></a><span class="mw-headline">Test auf Varianzen bei zwei Stichproben</span></h3>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe und importieren Sie die Datei <b>Samples\Statistics\time_raw.dat</b>.</li>
+
+    <li>Öffnen Sie den Dialog für den <b>Test auf Varianzen bei zwei Stichproben</b>, indem Sie im Menü <b>Statistik: Hypothesentest: t-Test bei zwei Stichproben</b> wählen.</li>
+
+    <li>Wählen Sie "Roh" für die <b>Form der Eingabedaten</b>; legen Sie Spalte A und Spalte B als den ersten bzw. zweiten Datenbereich fest.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial two sample variance.png" src="../images/Hypothesis_Tests/Tutorial_two_sample_variance.png" width="446"></a></dd>
+      </dl>
+    </li>
+
+    <li>Übernehmen Sie die anderen Einstellungen als Standardwerte und klicken Sie auf <b>OK</b>, um die Ergebnisse zu erzeugen.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial two sample variance result.png" src="../images/Hypothesis_Tests/Tutorial_two_sample_variance_result.png" width="428"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <p>Dem Ergebnis nach beträgt der P-Wert = 0,77181 und damit größer als 0,05. Das heißt, die Nullhypothese wird nicht zurückgewiesen und die beiden Varianzen der Grundgesamtheiten sind nicht signifikant unterschiedlich.</p>

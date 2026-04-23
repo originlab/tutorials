@@ -1,0 +1,231 @@
+﻿<h1 class="firstHeading">Autocorrelation and Partial Autocorrelation (ACF &amp; PACF)</h1>
+
+  <p class='urlname' style='display: none'>ACF</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Contents</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+
+      <li class="toclevel-1 tocsection-2">
+        <a href="#Tutorial"><span class="tocnumber">2</span> <span class="toctext">Tutorial</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-3"><a href="#ACF_.26_PACF"><span class="tocnumber">2.1</span> <span class="toctext">ACF &amp; PACF</span></a></li>
+        </ul>
+      </li>
+
+      <li class="toclevel-1 tocsection-4">
+        <a href="#Algorithm"><span class="tocnumber">3</span> <span class="toctext">Algorithm</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-5"><a href="#Autocorrelation"><span class="tocnumber">3.1</span> <span class="toctext">Autocorrelation</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#Partial_Autocorrelation"><span class="tocnumber">3.2</span> <span class="toctext">Partial Autocorrelation</span></a></li>
+        </ul>
+      </li>
+
+      <li class="toclevel-1 tocsection-7"><a href="#Reference"><span class="tocnumber">4</span> <span class="toctext">Reference</span></a></li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+
+  <p>This ACF(Autocorrelation function) &amp; PACF( Partial Autocorrelation function) tool is supported in the <b>Time Series Analysis</b> App. It is used to compute and plot the autocorrelations and the partial autocorrelations of a series.</p>
+
+  <h2><a name="Tutorial"></a><span class="mw-headline">Tutorial</span></h2>
+
+  <p>This tutorial uses App’s built-in sample project. To open this sample OPJU file:</p>
+
+  <ol>
+    <li>Right click the <b>Time Series Analysis</b> App icon <a class="image"><img alt="Time Series Analysis icon.png" src="../images/ACF/Time_Series_Analysis_icon.png" width="50"></a> in the Apps Gallery and choose <b>Show Samples Folder</b>.</li>
+
+    <li>A folder will open. Drag-and-drop the project file <i>TSA Sample.opju</i> into Origin.</li>
+  </ol>
+
+  <h3><a name="ACF_.26_PACF"></a><span class="mw-headline">ACF &amp; PACF</span></h3>
+
+  <ol>
+    <li>Expand <b>Project Explorer</b> docked on the left. Select folder <i>Statistics and Test</i> . The <b>Book3</b> contains data about Australian total wine sales by wine makers in bottles.<br>
+    <br>
+    <a class="image"><img alt="ACF 01.png" src="../images/ACF/ACF_01.png" width="654"></a></li>
+
+    <li>Highlight Column A and B, and then click the <b>Time Series Analysis</b> App icon <a class="image"><img alt="Time Series Analysis icon.png" src="../images/ACF/Time_Series_Analysis_icon.png" width="50"></a> in the Apps Gallery.</li>
+
+    <li>In the dialog, select <b>Statistics and Test</b> and <b>ACF &amp; PACF</b> tool.<br>
+    <a class="image"><img alt="ACF 02.png" src="../images/ACF/700px-ACF_02.png" width="700"></a></li>
+
+    <li>Use the default dialog setting, click the <b>OK</b> button.<br>
+    <a class="image"><img alt="ACF 03.png" src="../images/ACF/500px-ACF_03.png" width="500"></a></li>
+
+    <li>Then you will get the report with <b>Series</b>, <b>ACF</b> and <b>PACF</b> three graphs.<br>
+    <a class="image"><img alt="ACF 04.png" src="../images/ACF/850px-ACF_04.png" width="850"></a></li>
+  </ol>
+
+  <h2><a name="Algorithm"></a><span class="mw-headline">Algorithm</span></h2>
+
+  <h3><a name="Autocorrelation"></a><span class="mw-headline">Autocorrelation</span></h3>
+
+  <p>Autocorrelation calculates the correlation between a time series and the time series with lags. It can be used to determine which terms to be included in ARIMA model.</p>
+
+  <p>This app calls <i>nag_tsa_auto_corr (g13abc)</i> function [<a href="#Ref1">1</a>] to calculate autocorrelation.</p>
+
+  <p>For a time series <img src="../images/ACF/math-1ba8aaab47179b3d3e24b0ccea9f4e30.png" title="x_i" alt="x_i" class="tex">, i=1, 2, ... n, the coefficient of lag <i>k</i> is:</p>
+
+  <div align="center">
+    <p><img src="../images/ACF/math-e996f92abc7680d97ed16b66ee27225a.png" title="r_k = \frac{ \displaystyle \sum_{i=1}^{n-k} (x_i - \bar{x}) (x_{i+k} - \bar{x})}{ \displaystyle \sum_{i=1}^n (x_i - \bar{x})^2 }" alt="r_k = \frac{ \displaystyle \sum_{i=1}^{n-k} (x_i - \bar{x}) (x_{i+k} - \bar{x})}{ \displaystyle \sum_{i=1}^n (x_i - \bar{x})^2 }" class="tex"></p>
+  </div>
+
+  <p>where <img src="../images/ACF/math-bb5973f08b3d25bb1c0a0713a9de8e61.png" title="\bar{x} = \frac { \sum_{i=1}^n x_i }{n}" alt="\bar{x} = \frac { \sum_{i=1}^n x_i }{n}" class="tex">.</p>
+
+  <ul>
+    <li>Default Maximum Number of Lags</li>
+  </ul>
+
+  <div align="center">
+    <p><img src="../images/ACF/math-d50b091a8453b584adf9867920992ae1.png" title="n_k = \begin{cases} n/4 \quad &amp;\text{if } n \le 240 \\ 45 + \sqrt{n} \quad &amp;\text{otherwise}\end{cases}" alt="n_k = \begin{cases} n/4 \quad &amp;\text{if } n \le 240 \\ 45 + \sqrt{n} \quad &amp;\text{otherwise}\end{cases}" class="tex"></p>
+  </div>
+
+  <ul>
+    <li>Chi-squared Test</li>
+  </ul>
+
+  <p>H<sub>0</sub>: The autocorrelation function is identically zero.</p>
+
+  <div align="center">
+    <p><img src="../images/ACF/math-cc3224abcef19575f6c8f64d35f8a071.png" title=" \chi^2 = n \displaystyle\sum_{k=1}^{n_k} r_k^2 " alt=" \chi^2 = n \displaystyle\sum_{k=1}^{n_k} r_k^2 " class="tex"></p>
+
+    <p><img src="../images/ACF/math-982f11df83b6a8a9ac244eacd62533da.png" title=" \text{df} = n_k" alt=" \text{df} = n_k" class="tex"></p>
+  </div>
+
+  <p><br>
+  If P-value&lt;0.05, the autocorrelation function is significantly different from zero.</p>
+
+  <ul>
+    <li>Standard Error of Autocorrelation</li>
+  </ul>
+
+  <p>1. Independent model</p>
+
+  <div align="center">
+    <p><img src="../images/ACF/math-3718c48af15c35304031c93ba8a679f6.png" title=" s_k^2 = \frac{n - k}{ n (n + 2)}, k=1, 2, ..., n_k " alt=" s_k^2 = \frac{n - k}{ n (n + 2)}, k=1, 2, ..., n_k " class="tex"></p>
+  </div>
+
+  <p>2. Bartlett model</p>
+
+  <div align="center">
+    <p><img src="../images/ACF/math-7cf526074fb0bf3635a2bf3cadce2a00.png" title=" s_k^2 = \frac{1 + 2 \displaystyle\sum _{i=1}^{k - 1} r_i^2}{n}, i=1, 2, ... n_k" alt=" s_k^2 = \frac{1 + 2 \displaystyle\sum _{i=1}^{k - 1} r_i^2}{n}, i=1, 2, ... n_k" class="tex"></p>
+  </div>
+
+  <ul>
+    <li>t-value and Confidence Limits</li>
+  </ul>
+
+  <div align="center">
+    <p><img src="../images/ACF/math-d43bef3ea587a6e41a22a9d51d2f903d.png" title=" t_k = \frac{r_k}{s_k} " alt=" t_k = \frac{r_k}{s_k} " class="tex"></p>
+  </div>
+
+  <p>Lower confidence limit at lag <i>k</i>:</p>
+
+  <div align="center">
+    <p><img src="../images/ACF/math-fc17d8010cb0170b4e36d81c3b671c18.png" title=" LCL_k = -2 s_k" alt=" LCL_k = -2 s_k" class="tex"></p>
+  </div>
+
+  <p>Upper confidence limit at lag <i>k</i>:</p>
+
+  <div align="center">
+    <p><img src="../images/ACF/math-a2dd4db3d844853ca461fc5a02fc2192.png" title=" UCL_k = 2 s_k" alt=" UCL_k = 2 s_k" class="tex"></p>
+  </div>
+
+  <ul>
+    <li>Ljung-Box Test</li>
+  </ul>
+
+  <p>H<sub>0</sub>: First k autocorrelations are identically zero.</p>
+
+  <div align="center">
+    <p><img src="../images/ACF/math-4dcd6637c69d3651babcd58164d9e94e.png" title=" Q_k = n (n+2) \displaystyle\sum_{i=1}^{k} \frac{r_i^2}{n-i} " alt=" Q_k = n (n+2) \displaystyle\sum_{i=1}^{k} \frac{r_i^2}{n-i} " class="tex"></p>
+
+    <p><img src="../images/ACF/math-dca26325ac4e8f3cd8c357dbb70601f6.png" title=" \text{df}_k = k" alt=" \text{df}_k = k" class="tex"></p>
+  </div>
+
+  <p>Use <img src="../images/ACF/math-9ca61f458c78bb5591d04aaaa14da0e7.png" title="\chi^2" alt="\chi^2" class="tex"> distribution to calculate the P-value.</p>
+
+  <p>If P-value&lt;0.05, first k autocorrelations are significantly different from zero.</p>
+
+  <h3><a name="Partial_Autocorrelation"></a><span class="mw-headline">Partial Autocorrelation</span></h3>
+
+  <p>Partial autocorrelation calculates the correlation between a time series and the time series with lags excluding the influence of intermediate lags. It can be used to determine terms to include in ARIMA model.</p>
+
+  <p>This app calls <i>nag_tsa_auto_corr_part (g13acc)</i> function [<a href="#Ref3">3</a>] to calculate partial autocorrelation.</p>
+
+  <p>For a time series <img src="../images/ACF/math-1ba8aaab47179b3d3e24b0ccea9f4e30.png" title="x_i" alt="x_i" class="tex">, i=1, 2, ... n, partial autocorrelation coefficients can be solved by a recursive method [<a href="#Ref4">4</a>]:</p>
+
+  <dl>
+    <dd><img src="../images/ACF/math-d9794b581e6b624f65afc87e195300dd.png" title="p_{l+1, l+1 } = ( r_{l+1} - p_{l, 1} r_l - p_{l, 2} r_{l-1} - ... - p_{1, l} r_1 )/ v_l " alt="p_{l+1, l+1 } = ( r_{l+1} - p_{l, 1} r_l - p_{l, 2} r_{l-1} - ... - p_{1, l} r_1 )/ v_l " class="tex"></dd>
+  </dl>
+
+  <dl>
+    <dd><img src="../images/ACF/math-b53d9e1263d8f0816556a39d8af52d83.png" title="p_{l+1, j} = p_{l, j} - p_{l+1, l+1} p_{l, l+1-j}, \; j=1, 2, ..., l" alt="p_{l+1, j} = p_{l, j} - p_{l+1, l+1} p_{l, l+1-j}, \; j=1, 2, ..., l" class="tex"></dd>
+  </dl>
+
+  <dl>
+    <dd><img src="../images/ACF/math-1e5b44db33b4ea8877723ce43afba1a5.png" title="v_{l+1} = v_l (1 - p_{l+1, l+1}) (1 + p_{l+1, l+1})" alt="v_{l+1} = v_l (1 - p_{l+1, l+1}) (1 + p_{l+1, l+1})" class="tex"></dd>
+  </dl>
+
+  <p>where <img src="../images/ACF/math-95585cc77240428115d29f5cea3b251a.png" title="l=1, 2,\, ...,\, n_k-1" alt="l=1, 2,\, ...,\, n_k-1" class="tex">,</p>
+
+  <dl>
+    <dd><img src="../images/ACF/math-c4360725c3771d5fbeab3e5fd412f5b2.png" title="r_i, \, i=1, 2,\, ...,\, n_k" alt="r_i, \, i=1, 2,\, ...,\, n_k" class="tex"> is autocorrelation,<br></dd>
+
+    <dd><img src="../images/ACF/math-f7661da2a20b9306d2cb2a861710b894.png" title="v_i, \, i=1, 2,\, ...,\, n_k" alt="v_i, \, i=1, 2,\, ...,\, n_k" class="tex"> is the <b>predictor error variance ratio</b>,<br></dd>
+
+    <dd><img src="../images/ACF/math-c3830505c02b42c9eb4a81d418a91c69.png" title="p_{i, i}, \, i=1, 2,\, ...\, n_k" alt="p_{i, i}, \, i=1, 2,\, ...\, n_k" class="tex"> is <b>partial autocorrelation</b> values, and <img src="../images/ACF/math-20c348dd1265210e4680b5bff3c029ad.png" title="p_{n_k, j}, \, j=1, 2,\, ...,\, n_k" alt="p_{n_k, j}, \, j=1, 2,\, ...,\, n_k" class="tex"> is the <b>autoregressive parameters of maximum order</b>.</dd>
+  </dl>
+
+  <p>It was initialized by setting <img src="../images/ACF/math-a0a7c1dbeb92c6a03364a78cd78fd87b.png" title="p_{1, 1} = r_1" alt="p_{1, 1} = r_1" class="tex"> and <img src="../images/ACF/math-5e17fa98931c27a5b6a3fca2f9de0471.png" title="v_1 = 1 - r_1^2" alt="v_1 = 1 - r_1^2" class="tex">.</p>
+
+  <ul>
+    <li>Standard Error of Partial Autocorrelation</li>
+  </ul>
+
+  <div align="center">
+    <img src="../images/ACF/math-c9f65ebdd6f5ab285246399b3d3cbada.png" title="s_k = \frac{1}{\sqrt{n}}" alt="s_k = \frac{1}{\sqrt{n}}" class="tex">
+  </div>
+
+  <ul>
+    <li>t-value and Confidence Limits</li>
+  </ul>
+
+  <div align="center">
+    <img src="../images/ACF/math-865ee21099fcbec8129749ce3fbd33f3.png" title="t_k = p_{k, k} \cdot \sqrt{n}" alt="t_k = p_{k, k} \cdot \sqrt{n}" class="tex">
+  </div>
+
+  <p>Lower confidence limit at lag <i>k</i>:</p>
+
+  <div align="center">
+    <img src="../images/ACF/math-d059e0417c0f7e24f8bd34a7a0e9bcf7.png" title="LCL_k = -2 s_k" alt="LCL_k = -2 s_k" class="tex">
+  </div>
+
+  <p>Upper confidence limit at lag <i>k</i>:</p>
+
+  <div align="center">
+    <img src="../images/ACF/math-5166b45dbf4cd76e274889a06d4bfdaf.png" title="UCL_k = 2 s_k" alt="UCL_k = 2 s_k" class="tex">
+  </div>
+
+  <h2><a name="Reference"></a><span class="mw-headline">Reference</span></h2>
+
+  <ol>
+    <li><span id="Ref1"><span><a class="external text" href="https://d2mvzyuse3lwjc.cloudfront.net/pdfs/NAG26/Manual/html/g13/g13abc.html" target="_blank">nag_tsa_auto_corr (g13abc)</a></span></span></li>
+
+    <li>George E. P. Box and Gwilym M. Jenkins (1976). <i>Time Series Analysis: Forecasting and Control</i>. (Revised Edition) Holden–Day</li>
+
+    <li><span id="Ref3"><span><a class="external text" href="https://d2mvzyuse3lwjc.cloudfront.net/pdfs/NAG26/Manual/html/g13/g13acc.html" target="_blank">nag_tsa_auto_corr_part (g13acc)</a></span></span></li>
+
+    <li><span id="Ref4"><span>J. Durbin (1960). <i>The fitting of time series models</i>. Rev. Inst. Internat. Stat. Vol.28, pp.233</span></span></li>
+  </ol>
+
+  <p>&#160;</p>

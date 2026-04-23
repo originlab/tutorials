@@ -1,0 +1,129 @@
+﻿<h1 class="firstHeading">Datenauswahl</h1>
+
+  <p class='urlname' style='display: none'>GSB-data-selection</p>
+
+  <p>In dieser Lektion lernen Sie flexible Methoden zum Auswählen von Daten für das Erstellen von Zeichnungen kennen.</p>
+
+  <h3><a name="Plotting_Data_from_Multiple_Worksheets"></a><span class="mw-headline">Daten aus mehreren Arbeitsblättern zeichnen</span></h3>
+
+  <ol>
+    <li>Beginnen Sie mit dem Projekt, das Sie in <a href="../../Tutorial/Tutorial/Graph_Templates_Themes_and_Batch_Plotting.html" title="Tutorial:Graph Templates Themes and Batch Plotting">Lektion 2: Diagrammvorlagen und Stapelzeichnen</a> gespeichert haben. Wählen Sie eine beliebige Arbeitsmappe und stellen Sie sicher, dass keine Datenspalten ausgewählt sind. Sie können auf die graue Fläche außerhalb der Spalten klicken, um eine eventuelle Auswahl zu entfernen.</li>
+
+    <li>Wählen Sie im Menü <b>Zeichnen: Einfache 2D: Liniendiagramm</b>. Der Dialog <b>Diagrammeinstellungen</b> wird geöffnet.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <a class="image"><img alt="Double Up Arrow Button.jpg" src="../images/Data_Selection/Double_Up_Arrow_Button.jpg" width="24"></a> rechts, um das obere Bedienfeld zu erweitern, wenn es nicht bereits angezeigt wird.</li>
+
+    <li>Wählen Sie in der Auswahlliste <b>Verfügbare Daten:</b> im linken Bedienfeld die Option <b>Arbeitsblätter im Ordner</b>.
+
+      <table class="mtip">
+        <tr>
+          <td style="vertical-align:top"><img src="../images/Data_Selection/Mini_bulb.png" alt=""></td>
+
+          <td>
+            <p>Um Arbeitsblätter irgendwo aus Ihrem Projekt auszuwählen, wählen Sie in der Auswahlliste <b>Arbeitsblätter im Projekt</b>.</p>
+          </td>
+        </tr>
+      </table>
+    </li>
+
+    <li>Halten Sie die Shift-Taste gedrückt und markieren Sie alle drei Datenblätter mit den Namen <b>Trial Run 1</b>, <b>Trial Run 2</b> und <b>Trial Run 3</b>.</li>
+
+    <li>Mit Hilfe der Kontrollkästchen im mittleren Bedienfeld weisen Sie <i>Time</i> als <b>X</b> und <i>Position</i> als <b>Y</b> zu. Klicken Sie auf die Schaltfläche <b>OK</b>, um das Diagramm zu erstellen.<br>
+
+      <table class="mtip">
+        <tr>
+          <td style="vertical-align:top"><img src="../images/Data_Selection/Mini_bulb.png" alt=""></td>
+
+          <td>
+            <p>Dieser hat ein drittes Bedienfeld, das dazu verwendet werden kann, Daten verschiedenen Layern in einem Diagramm mit mehreren Layern zuzuweisen. Wenn dieses Bedienfeld angezeigt wird, können Sie es einfach minimieren und dann auf <b>OK</b> klicken, um das Diagramm zu erstellen.</p>
+          </td>
+        </tr>
+      </table>
+
+      <p><a class="image"><img alt="GST Data Selection 001.png" src="../images/Data_Selection/450px-GST_Data_Selection_001.png" width="450"></a></p>
+    </li>
+
+    <li>Nun passen Sie die Legende für dieses Diagramm benutzerdefiniert an. Klicken Sie mit der rechten Maustaste auf die Legende und wählen Sie <b>Legende: Legende aktualisieren</b>.</li>
+
+    <li>Setzen Sie in dem aufgerufenen Dialog <b>Automatischer Übersetzungsmodus der Legende</b> auf <b>Benutzerdefiniert</b>. Leeren Sie das Bearbeitungsfeld <b>Benutzerdefiniertes Format der Legende (@D, @LU etc)</b> und klicken Sie dann auf die Schaltfläche <a class="image"><img alt="GST Right Arrow Button.png" src="../images/Data_Selection/GST_Right_Arrow_Button.png" width="20"></a> rechts vom Bearbeitungsfeld. Wählen Sie im Ausklappmenü <b>@WS: Sheet Display Name</b>.</li>
+
+    <li>Geben Sie im Bearbeitungsfeld einen Bindestrich <i>-</i> nach der Zeichenkette <i>@WS</i> ein und klicken Sie dann auf die Schaltfläche mit dem rechten Pfeil. Dieses Mal wählen Sie <b>@LD"Sample": Sample</b>, das der Spaltenheaderzeile <i>Sample</i> im Arbeitsblatt entspricht. Klicken Sie auf <b>OK</b>. Die Legende zeigt jetzt den Blatt- und den Samplenamen an.</li>
+
+    <li style="list-style: none">
+      <p><a class="image"><img alt="GST Data Selection 041.png" src="../images/Data_Selection/350px-GST_Data_Selection_041.png" width="350"></a></p>
+    </li>
+  </ol>
+
+  <h3><a name="Using_another_Column_to_Set_Color_of_a_Plot"></a><span class="mw-headline">Eine andere Spalte zum Festlegen der Farben einer Zeichnung verwenden</span></h3>
+
+  <ol>
+    <li>Gehen Sie zum <b>Projekt Explorer</b>. Klicken Sie im oberen Bedienfeld mit der rechten Maustaste auf die Hauptverzeichnisebene und wählen Sie <b>Neuer Ordner</b>.</li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf den neu erstellten Ordner, wählen Sie <b>Umbenennen</b> und weisen Sie den Namen <i><b>Datenauswahl</b></i> zu. Klicken Sie auf den leeren Ordner und öffnen Sie ihn.</li>
+
+    <li>Erstellen Sie ein neues Arbeitsblatt. Wählen Sie <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b> im Menü, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner <i>Graphing</i>. Dort befindet sich die Datei <i>US Mean Temperature.txt</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das leere Arbeitsblatt, um sie zu importieren.</li>
+
+    <li>Sie möchten die Positionen von US-amerikanischen Großstädten (Spalten <i>Longitude</i> und <i>Latitude</i>) als ein Punktdiagramm zeichnen und dann die Farbabbildung der Datenpunkte mit den jährlichen Durchschnittstemperaturen (Spalte<i>Annual</i>) hinzufügen. Klicken Sie auf den Header der Spalte mit dem Namen <b>January</b> und ziehen Sie den Cursor und erweitern Sie damit die Auswahl bis zu der Spalte <b>December</b>. Klicken Sie dann mit der rechten Maustaste, um <b>Spalten verbergen/zeigen: Verbergen</b> auszuwählen.</li>
+
+    <li>Markieren Sie die <i>Longitude</i>-Spalten, klicken Sie mit der rechten Maustaste und wählen Sie <b>Setzen als: Als X setzen</b>.</li>
+
+    <li>Markieren Sie die Spalte <i>Latitude</i> und klicken Sie auf die Schaltfläche <b>Punktdiagramm</b> <a class="image"><img alt="Button Scatter Plot.png" src="../images/Data_Selection/Button_Scatter_Plot.png" width="25"></a> auf der Symbolleiste unten links, um die Zeichnung der Längengrad vs. Breitengrad (longitude vs. latitude) zu erstellen.</li>
+
+    <li>Klicken Sie auf die Zeichnung und in der Minisymbolleiste auf die Schaltfläche <b>Symbolrandfarbe</b>, um die Farbauswahl zu erweitern. Wechseln Sie zur Registerkarte <b>Nach Punkten</b>. Klicken Sie auf dieser Registerkarte auf die Auswahlliste <b>Farbabbildung</b> und wählen Sie <b>Col(P): "Annual"</b> in der Liste. Die Symbolfarbe wird auf die Spalte <i>Annual</i> abgebildet.</li>
+
+    <li style="list-style: none">
+      <p><a class="image"><img alt="GST Data Selection 05.png" src="../images/Data_Selection/400px-GST_Data_Selection_05.png" width="400"></a></p>
+    </li>
+
+    <li>Jetzt sollen die Achsenlängen festgelegt werden, um den Bereich der X- und Y-Werte, die in dem Diagramm dargestellt werden, zu skalieren. Klicken Sie auf den weißen Bereich des Layers, um den Layer auszuwählen. Klicken Sie in der Minisymbolleiste auf die Schaltfläche <b>Layerdialoge</b>, um im Ausklappmenü <b>Eigenschaften</b> auszuwählen.<br>
+      <a class="image"><img alt="GST Data Selection MT 01.png" src="../images/Data_Selection/400px-GST_Data_Selection_MT_01.png" width="400"></a><br>
+      Der Dialog <b>Details Zeichnung</b> wird geöffnet. Im linken Bedienfeld ist der Knoten <i>Layer1</i> ausgewählt. Wechseln Sie dann zur Registerkarte <b>Größe</b> auf der rechten Seite. Aktivieren Sie das Kontrollkästchen <b>Achsenlänge mit Skalierung mit X:Y-Verhältnis verknüpfen</b> und behalten Sie das Verhältnis <i>1</i> bei. Klicken Sie auf <b>OK</b>, um den Dialog zu schließen und die Wirkung zu sehen.
+
+      <table class="mtip">
+        <tr>
+          <td style="vertical-align:top"><img src="../images/Data_Selection/Mini_bulb.png" alt=""></td>
+
+          <td>
+            <p>Sie können auch doppelt auf den weißen Bereich des Layers klicken, um den Dialog <b>Details Zeichnung</b> mit im linken Bedienfeld ausgewähltem Knoten <i>Layer1</i> zu öffnen.</p>
+          </td>
+        </tr>
+      </table>
+    </li>
+
+    <li>Jetzt wählen Sie eine weitere Farbpalette aus, um sie als Farbabbildung auf die Symbolfarbe anzuwenden. Klicken Sie auf einen Datenpunkt in dem Diagramm und klicken Sie dann auf die Schaltfläche <b>Palette</b> <a class="image"><img alt="Palette Button.png" src="../images/Data_Selection/Palette_Button.png" width="38"></a> auf der Symbolleiste <b>Stil</b>. Wählen Sie die Palette <i>Temperature</i>, um die Daten besser wiederzugeben. Klicken Sie auf eine Stelle im Diagramm, um die Auswahl der Zeichnung aufzuheben.
+
+      <table class="mtip">
+        <tr>
+          <td style="vertical-align:top"><img src="../images/Data_Selection/Mini_bulb.png" alt=""></td>
+
+          <td>
+            <p>Sie können mit Hilfe der App <a class="external text" href="http://originlab.com/fileExchange/details.aspx?fid=240" target="_blank">Maps Online</a> eine Landkarte zu einem Diagramm hinzufügen. <a class="external text" href="http://blog.originlab.com/graphing/placing-3d-bars-on-a-map" target="_blank">Dieser Blogeintrag</a> ist ein guter Startpunkt.</p>
+          </td>
+        </tr>
+      </table>
+
+      <p><a class="image"><img alt="GST Data Selection 06.png" src="../images/Data_Selection/300px-GST_Data_Selection_06.png" width="300"></a></p>
+    </li>
+
+    <li>Wählen Sie im Menü <b>Datei: Projekt speichern unter</b> und speichern Sie Ihr modifiziertes Projekt.</li>
+  </ol>
+
+  <h3><a name="Selecting_Multiple_Non-adjacent_Columns_for_Plotting"></a><span class="mw-headline">Mehrere nicht zusammenhängende Spalten zum Zeichnen auswählen</span></h3>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe, indem Sie auf die Schaltfläche <b>Neue Arbeitsmappe</b> <a class="image"><img alt="Button New Workbook.png" src="../images/Data_Selection/Button_New_Workbook.png" width="23"></a> auf der Symbolleiste <b>Standard</b> klicken.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Excel importieren</b> <a class="image"><img alt="Button Import Excel.png" src="../images/Data_Selection/Button_Import_Excel.png" width="25"></a> auf der Symbolleiste <b>Standard</b>. Navigieren Sie in dem aufgerufenen Dateidialog zu dem Ordner <i>&lt;Origin-Verzeichnis&gt;\Samples\Import and Export</i> und wählen Sie die Datei <i>United States Energy (1980-2013).xls</i>. Stellen Sie sicher, dass das Kontrollkästchen <b>Optionendialog zeigen</b> aktiviert ist und klicken Sie auf <b>OK</b>.</li>
+
+    <li>Setzen Sie in dem aufgerufenen Dialog mit den Optionen für den Excel-Import die <b>Hauptheaderzeilen</b> auf 2 und die Auswahlliste <b>Langnamen</b> auf 1. Setzen Sie dann die Auswahllisten für <b>Einheiten</b> auf 2.<br>
+    <a class="image"><img alt="GST Data Selection 07.png" src="../images/Data_Selection/GST_Data_Selection_07.png" width="319"></a></li>
+
+    <li>Klicken Sie auf <b>OK</b>, um die Datei zu importieren. Gehen Sie dann zu dem ersten Blatt mit dem Namen <i>Oil</i>. Halten Sie die <b>Strg</b>-Taste gedrückt, um die Spalten <i>Crude Oil Production</i>, <i>Oil Consumption</i> und <i>Total Oil Production</i> zu markieren.<br>
+    <a class="image"><img alt="GST Data Selection 08.png" src="../images/Data_Selection/GST_Data_Selection_08.png" width="805"></a></li>
+
+    <li>Wählen Sie im Menü <b>Zeichnen: Mehrere Felder/Achsen: Gestapelt</b> und übernehmen Sie die Standardeinstellungen im Dialog, um ein Stapeldiagramm zu erstellen.</li>
+
+    <li style="list-style: none">
+      <p>Speichern Sie Ihre Projektdatei.</p>
+    </li>
+  </ol>

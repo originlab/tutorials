@@ -1,0 +1,134 @@
+﻿<h1 class="firstHeading">Globaler vertikaler Cursor</h1>
+
+  <p class='urlname' style='display: none'>Global-Vertical-Cursor</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Using_Vertical_Cursor_on_a_Stacking_Graph"><span class="tocnumber">3.1</span> <span class="toctext">Vertikalen Cursor in Stapeldiagramm verwenden</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Using_Vertical_Cursor_on_a_multi-panel_graph_with_side-by-side_layers"><span class="tocnumber">3.2</span> <span class="toctext">Vertikalen Cursor in einer Grafik mit mehreren Feldern und seitlich nebeneinander angeordneten Layern verwenden</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Das Minitool Vertikaler Cursor kann verwendet werden, um die Werte für die X- und Y-Koordinaten für Datenpunkte in Stapeldiagrammen bzw. Diagrammen mit mehreren Feldern oder Datenpunkte, die sich in mehreren Diagrammen gleichzeitig befinden, zu lesen.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 2021</p>
+
+  <h2><a name="What_You_Will_Learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>das Minitool Vertikaler Cursor verwenden, um XY-Koordinaten für mehrere Diagramme zu lesen und die Ergebnisse auszugeben.</li>
+
+    <li>mit dem Minitool Vertikaler Cursor Diagramme verknüpfen bzw. die Verknüpfung lösen.</li>
+
+    <li>die Cursorlinie zwischen den verknüpften Diagrammfenstern verschieben oder neu positionieren.</li>
+
+    <li>Fügen Sie Cursor in verknüpften Layern des Diagramms mit mehreren Feldern hinzu, bei dem mehrere Felder seitlich nebeneinander liegen.</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <h3><a name="Using_Vertical_Cursor_on_a_Stacking_Graph"></a><span class="mw-headline">Vertikalen Cursor in Stapeldiagramm verwenden</span></h3>
+
+  <ol>
+    <li>Öffnen Sie ein neues Projekt mit einer leeren Arbeitsmappe. Wählen Sie <b>Daten &gt; Aus Datei importieren: Mehrere ASCII...</b>, um den ASCII-Dialog zu öffnen. Navigieren Sie zum <i>&lt;Origin-Programmordner&gt;/Samples/Curve Fitting</i> und fügen Sie die Dateien <b>Step01.dat</b>, <b>Step02.dat</b> und <b>Step03.dat</b> hinzu. Klicken Sie auf <b>OK</b>, um den Dialog <b>ASCII:impASC</b> zu öffnen.</li>
+
+    <li>Wählen Sie im Dialog <b>Neue Arbeitsblätter öffnen</b> unter <b>Importmodus</b>, <b>Spaltenzuordnungen</b> = <b>(XY)</b> und <b>Von</b> = <i>2</i> unter <b>Partielle Spalten</b>, wie unten zu sehen. Alle diese drei ausgewählten Dateien wurden in eine Arbeitsmappe importiert.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Vertical Cursor 00.png" src="../images/Global_Vertical_Cursor/Tutorial_Vertical_Cursor_00.png" width="664"></a></dd>
+      </dl>
+    </li>
+
+    <li>Aktivieren Sie die Arbeitsmappe mit dem Langnamen <b>Step01.dat</b> und markieren Sie das gesamte Arbeitsblatt. Wählen Sie <b>Zeichnen &gt; Mehrere Felder/Achsen: Gestapelt</b> im Menü, um den Dialog <b>Plotstack</b> zu öffnen. Geben Sie im Zweig <b>Diagrammzuordnung</b> eine <b>3</b> für <b>Anzahl der Diagramme in jedem Layer</b> ein, übernehmen Sie die Einstellungen als Standard und klicken Sie auf <b>OK</b>, um ein gestapeltes Diagramm zu erstellen.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Vertical Cursor 00a.png" src="../images/Global_Vertical_Cursor/Tutorial_Vertical_Cursor_00a.png" width="554"></a></dd>
+      </dl>
+    </li>
+
+    <li>Entsprechend erstellen Sie zwei weitere gestapelte Diagramme für die beiden anderen Arbeitsmappen. Jetzt haben wir Graph1, Graph2 und Graph3 für die Arbeitsmappen Step01, Step02 bzw. Step03.</li>
+
+    <li>Aktivieren Sie Graph1 und wählen Sie <b>Minitools: Vertikaler Cursor</b>, um den Dialog <b>Vertikaler Cursor</b> zu öffnen. Klicken Sie mit der rechten Maustaste auf den Spaltenheader, um Mappe zu aktivieren. Damit wird eine Spalte "Mappe" in der Datenpunkttabelle hinzugefügt.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Vertical Cursor 01.png" src="../images/Global_Vertical_Cursor/750px-Tutorial_Vertical_Cursor_01.png" width="750"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Diagramm verknüpfen/Diagrammverknüpfung aufheben</b> <a class="image"><img alt="Button Link Unlink Graphs.png" src="../images/Global_Vertical_Cursor/Button_Link_Unlink_Graphs.png" width="26"></a> und öffnen Sie den <b>Diagrammbrowser</b>. Sie können wählen, ob ein Diagramm mit dem aktuell aktiven Diagramm verknüpft oder die Verknüpfung aufgelöst werden soll.</li>
+
+    <li>Wählen Sie Graph2 und Graph3 im linken Bedienfeld und klicken Sie auf die Schaltfläche <a class="image"><img alt="Button Expand Panel Right.png" src="../images/Global_Vertical_Cursor/Button_Expand_Panel_Right.png" width="20"></a>, um die zwei Diagramme als verknüpfte Diagramme zu Graph1 hinzuzufügen. Klicken Sie auf <b>OK</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Vertical Cursor 02.png" src="../images/Global_Vertical_Cursor/Tutorial_Vertical_Cursor_02.png" width="586"></a></dd>
+
+        <dd><b>Hinweis:</b> Sie können in diesem Dialog auch Diagrammverknüpfungen aufheben, indem Sie auf die Schaltfläche <a class="image"><img alt="Button Expand Panel Left.png" src="../images/Global_Vertical_Cursor/Button_Expand_Panel_Left.png" width="20"></a> klicken, die ein Diagramm aus dem rechten Bedienfeld entfernt.<br>
+        In der oberen rechten Ecke jedes verknüpften Diagramms wird ein Symbol <a class="image"><img alt="Icon Linked Graphs.png" src="../images/Global_Vertical_Cursor/Icon_Linked_Graphs.png" width="19"></a> angezeigt, um darauf hinzuweisen, dass es zu einer Gruppe von verknüpften Diagrammen gehört.</dd>
+      </dl>
+    </li>
+
+    <li>Stellen Sie sicher, dass Graph1 aktiv und der Dialog <b>Vertikaler Cursor</b> geöffnet ist. Das Sternchen vor dem Diagrammnamen markiert die aktuell aktive Zeichnung, auf der sich der Cursor gerade befindet. Geben Sie <b>25</b> als den X-Wert ein, deaktivieren Sie das Kontrollkästchen vor <b>Cursor am nahesten X ausrichten</b> und klicken Sie auf die Schaltfläche <b>Cursor zu X verschieben</b> <a class="image"><img alt="Button Move Cursor to X.png" src="../images/Global_Vertical_Cursor/Button_Move_Cursor_to_X.png" width="26"></a>, um die Datenpunkte in jeder Zeichnung zu lesen, wenn X=25.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Vertical Cursor 03.png" src="../images/Global_Vertical_Cursor/Tutorial_Vertical_Cursor_03.png" width="649"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Markierung und Beschriftung hinzufügen</b> <a class="image"><img alt="Button Add Tag and Label.png" src="../images/Global_Vertical_Cursor/Button_Add_Tag_and_Label.png" width="26"></a>, um Markierungen bei X=25 für alle verknüpften Diagramme hinzuzufügen.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Ausgabebericht</b> <a class="image"><img alt="Button Output Report.png" src="../images/Global_Vertical_Cursor/Button_Output_Report.png" width="26"></a> und dann auf die Schaltfläche <b>Zum Berichtsblatt gehen</b> <a class="image"><img alt="Button Go to Report Sheet.png" src="../images/Global_Vertical_Cursor/Button_Go_to_Report_Sheet.png" width="26"></a>, um das Ergebnisblatt zu erzeugen und zu öffnen. Die XY-Koordinaten aller Zeichnungen in verknüpften Diagrammen werden in dem Berichtsblatt aufgeführt. Jedes Mal, wenn Sie auf die Schaltfläche <b>Ausgabebericht</b> <a class="image"><img alt="Button Output Report.png" src="../images/Global_Vertical_Cursor/Button_Output_Report.png" width="26"></a> klicken, wird eine neue Zeile von Daten im Ergebnisblatt ausgegeben.</li>
+
+    <li>Aktivieren Sie Graph2, klicken Sie auf das Symbol <a class="image"><img alt="Icon Linked Graphs.png" src="../images/Global_Vertical_Cursor/Icon_Linked_Graphs.png" width="19"></a> und wählen Sie <b>Cursorlinie hierher verschieben</b>. Die Cursorlinie wird zu Graph2 verschoben.</li>
+
+    <li>Klicken Sie im Dialog <b>Vertikaler Cursor</b> doppelt auf eine Zeile von <b>Graph3</b>, um das Fenster <b>Graph3</b> zu aktivieren. Klicken Sie auf die zuvor hinzugefügte Markierung und drücken Sie die Taste <b>Entf</b>, um sie zu löschen. Die Markierungen in allen verknüpften Diagrammfenstern werden gelöscht. Um zu Graph2 zurückzukehren, wo der Cursor sich momentan befindet, klicken Sie auf das Symbol <a class="image"><img alt="Icon Linked Graphs.png" src="../images/Global_Vertical_Cursor/Icon_Linked_Graphs.png" width="19"></a> und wählen Sie <b>Zum Cursorlinienfenster gehen</b>.</li>
+  </ol>
+
+  <h3><a name="Using_Vertical_Cursor_on_a_multi-panel_graph_with_side-by-side_layers"></a><span class="mw-headline">Vertikalen Cursor in einer Grafik mit mehreren Feldern und seitlich nebeneinander angeordneten Layern verwenden</span></h3>
+
+  <ol>
+    <li>Erstellen Sie eine neue Arbeitsmappe und wählen Sie <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b> im Menü, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner <i>Graphing</i>. Dort befindet sich die Datei <i>Waterfall.dat</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das leere Arbeitsblatt, um sie zu importieren.</li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf die erste Zeile, um die Option <b>Als Langname setzen</b> auszuwählen. Markieren Sie die Spalten col(B)~col(E), um <b>Zeichnen &gt; Mehrere Felder/Achsen: 4-fach</b> auszuwählen. Sie zeichnen das Diagramm mit 4 Feldern, 3 Zeilen und 2 Spalten.</li>
+
+    <li>Klicken Sie auf das erste Feld und wählen Sie <b>Minitools: Vertikaler Cursor</b>. Der Cursor wird zur ersten Spalte der Felder hinzugefügt. Es werden nur die Datenpunkte im ersten und dritten Feld in der Liste angezeigt.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Vertical Cursor Side-by-Side 01.png" src="../images/Global_Vertical_Cursor/Tutorial_Vertical_Cursor_Side-by-Side_01.png" width="649"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wir lesen den Punkt <i>X=1113,31</i> in allen Layern. Klicken Sie auf die Schaltfläche <b>Verlinkten Cursor für jeden Layer hinzufügen</b> <a class="image"><img alt="Button Add Linked Cursor.png" src="../images/Global_Vertical_Cursor/Button_Add_Linked_Cursor.png" width="30"></a>, um einen Cursor in alle Layer einzufügen, die miteinander verknüpft sind. (Wenn Sie auf diese Schaltfläche geklickt haben, verwandelt sie sich in die "Paar"-Schaltfläche <a class="image"><img alt="Button Remove Linked Cursor.png" src="../images/Global_Vertical_Cursor/Button_Remove_Linked_Cursor.png" width="30"></a>, die dazu verwendet werden kann, die Cursor in den verknüpften Layern zu entfernen und zurück zum Anfangsstatus zu gelangen). Geben Sie <i>1113,31</i> im Feld <b>X=</b> ein und klicken Sie auf die Schaltfläche <b>Cursor zu X</b> verschieben <a class="image"><img alt="Button Move Cursor to X.png" src="../images/Global_Vertical_Cursor/Button_Move_Cursor_to_X.png" width="26"></a>, um alle Cursor zu diesem X-Wert zu verschieben.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Vertical Cursor Side-by-Side 02.png" src="../images/Global_Vertical_Cursor/Tutorial_Vertical_Cursor_Side-by-Side_02.png" width="649"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Markierung und Beschriftung hinzufügen</b> <a class="image"><img alt="Button Add Tag and Label.png" src="../images/Global_Vertical_Cursor/Button_Add_Tag_and_Label.png" width="26"></a>, um diese Position in allen Layern zu kennzeichnen. Klicken Sie auf den Cursor in Layer1 und ziehen Sie ihn per Drag&amp;Drop zu den anderen Peaks, um die Datenpunkte in allen Layern zu lesen.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Vertical Cursor Side-by-Side 03.png" src="../images/Global_Vertical_Cursor/Tutorial_Vertical_Cursor_Side-by-Side_03.png" width="648"></a></dd>
+      </dl>
+    </li>
+
+    <li>Sie können jederzeit auf die Schaltfläche <b>Ausgabebericht</b> <a class="image"><img alt="Button Output Report.png" src="../images/Global_Vertical_Cursor/Button_Output_Report.png" width="26"></a> klicken, um die für Sie interessanten Datenpunkte Zeile für Zeile im Ergebnisblatt auszugeben.</li>
+  </ol>

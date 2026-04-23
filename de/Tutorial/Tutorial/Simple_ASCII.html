@@ -1,0 +1,122 @@
+﻿<h1 class="firstHeading">Einzelnes ASCII</h1>
+
+  <p class='urlname' style='display: none'>SingleASCII</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a></li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/Simple_ASCII/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/Simple_ASCII/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=240" target="_blank">Datenkonnektoren</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=358" target="_blank">Verbesserungen des Matlab-Konnektors in Origin 2020b</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%">
+        <a class="image"><img alt="Website blog icon circle.png" src="../images/Simple_ASCII/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Simple_ASCII/Blog_Image_33x33px.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="http://blog.originlab.com/data-connector-json" target="_blank">Origins Webdaten-Konnektor in 2019b</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/data-connector-improvements-in-origin-2020b" target="_blank">Verbesserungen des Datenkonnektors in Origin 2020b</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/using-origin-project-as-data-repository-with-the-origin-connector" target="_blank">Ein Origin-Projekt als Datenbehälter für den Origin-Konnektor verwenden</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/exclude-imported-data-when-saving-project" target="_blank">Importierte Daten beim Speichern eines Projekts ausschließen</a></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Durch Auswählen von <b>Daten: Mit Datei verbinden: Text/CSV</b> können Sie eine einzelne ASCII-Datei automatisch importieren, in der die Datenspalten ordentlich getrennt sind und die aus wenigen Headerzeilen besteht (möglicherweise eine kurze Beschreibung der Datei und dann Namen und Einheiten für die Spalten).</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie ASCII-Dateien mit dem Datenkonnektor importieren.</p>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <p>Wählen Sie im Origin-Menü <b>Hilfe: Ordner öffnen: Sample-Ordner</b>, um den Windows Explorer für den Sample-Ordner im Origin-Verzeichnis zu öffnen (standardmäßig im Programmverzeichnis installiert). Navigieren Sie zum Unterordner \<i>Import and Export</i>. Öffnen Sie die Datei <i>S15-125-03.dat</i> im Windows Notepad. Sie können sehen, dass diese Datei Headerzeilen und Datenzeilen enthält. Bei einzelnen ASCII-Dateien kann Origins Datenkonnektor Dateiheader/-subheader automatisch erkennen und diese Informationen in die Arbeitsblattheader extrahieren, wie z. B. <i>Langnamen</i>, <i>Einheiten</i> usw.</p>
+
+  <dl>
+    <dd><br>
+    <a class="image"><img alt="Tutorial Import 001.png" src="../images/Simple_ASCII/Tutorial_Import_001.png" width="430"></a><br>
+    <br></dd>
+  </dl>
+
+  <p><b>Hinweis:</b> Headerzeilen sind Textzeilen, die nicht Teil der Daten sind und nicht die gleiche Trennzeichenformatierung wie die Daten verwenden. Subheaderzeilen sind ebenfalls nicht Teil der Daten, verwenden aber die gleiche Trennzeichenformatierung und entsprechen daher der Struktur der Datenspalten.</p>
+
+  <p><br>
+  Um diese Datei zu importieren:</p>
+
+  <ol>
+    <li>Wählen Sie <b>Daten: Mit Datei verbinden: Text/CSV</b> im Hauptmenü. Navigieren Sie im geöffneten Dialog zum Ordner \<i>&lt;Origin-Verzeichnis&gt;\Samples\Import and Export</i> und markieren Sie die Datei <i>S15-125-03.dat</i>.<br>
+    <br></li>
+
+    <li>Klicken Sie doppelt auf diese Datei oder klicken Sie auf die Schaltfläche <b>Öffnen</b>, um den Dialog <b>Importoptionen</b>, in dem Sie die Einstellungen für den Dateiimport anzeigen und festlegen können.<br>
+    <br></li>
+
+    <li>Standardmäßig erkennt Origin den Hauptheader und Subheader automatisch und die Daten werden aus dem Subheader importiert. In diesem Beispiel richtet Origin automatisch die erste Zeile als Langname der Arbeitsblattspalte ein,<br>
+    <code>Time Delta Temperature Magnetic Field Position</code><br>
+    , und die zweite Zeile<br>
+    <code>(sec) (K) (Oe) (mm)</code><br>
+    als Einheiten.<br>
+    <br>
+    <a class="image"><img alt="Tutorial Import 003.png" src="../images/Simple_ASCII/Tutorial_Import_003.png" width="377"></a><br>
+    <br>
+    Ändern Sie <b>Dateiheader speichern in</b> in <b>Mappenorganizer</b>, um die Informationen des Hauptheaders im <i>Info</i>baum des Mappenorganizers zu speichern (dieser wird durch Rechtsklick auf die Titelleiste der Arbeitsmappe und Auswahl von <b>Zeige Organizer</b> geöffnet)</li>
+
+    <li>Klicken Sie auf <b>OK</b>, um diese Einstellungen zu akzeptieren und die Daten in das Worksheet zu importieren.<br>
+    <br>
+    <a class="image"><img alt="Tutorial Import 004.png" src="../images/Simple_ASCII/Tutorial_Import_004.png" width="447"></a><br>
+    <br></li>
+  </ol>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Simple_ASCII/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Bitte beachten Sie, dass die importierten Daten per Standard geschützt sind und Sie sie nicht ändern können. Eventuell können Sie den Hinweis unten sehen.</p>
+
+        <dl>
+          <dd><a class="image"><img alt="Connector hint.png" src="../images/Simple_ASCII/250px-Connector_hint.png" width="250"></a></dd>
+        </dl>
+
+        <p><span class='headerInParagraph'>Datenbearbeitung aktivieren</span></p>
+
+        <ul>
+          <li>Klicken Sie auf das grüne Symbol in der oberen linken Ecke des Arbeitsblatts und wählen Sie <b>Verbindung zum Blatt aufheben</b> oder <b>Datenkonnektor entfernen</b> im Kontextmenü.</li>
+        </ul>
+
+        <dl>
+          <dd><a class="image"><img alt="Remove data connector.png" src="../images/Simple_ASCII/250px-Remove_data_connector.png" width="250"></a></dd>
+        </dl>
+
+        <p><br>
+        Weitere Einzelheiten finden Sie auf der Seite: <a class="external text" href="../../QuickHelp/QuickHelp/How_to_allow_changing_data_when_data_connector_is_used.html">Wie lasse ich das Ändern von Daten zu, wenn ich einen Datenkonnektor verwende?</a></p>
+
+        <p>&#160;</p>
+      </td>
+    </tr>
+  </table>

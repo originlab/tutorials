@@ -1,0 +1,47 @@
+﻿<h1 class="firstHeading">Nachbearbeitung mit dem Importfilter</h1>
+
+  <p class='urlname' style='display: none'>PostProcess-ImpFilter</p>
+
+  <h2><a name="Summary"></a> <span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Mit dem Importassistenten können Sie einen benutzerdefinierten Filter definieren, um ASCII-Dateien und einfache binäre Dateien zu importieren. Der Filter kann dann mit ähnlichen Datendateien wieder verwendet werden, sobald er erstellt wurde. Der Filtermechanismus ermöglicht auch, LabTalk-Skriptzeilen mit einzuschließen, die am Ende des Imports ausgeführt werden. Dadurch können Anwender den Skriptcode für die Nachbearbeitung zum Filter hinzufügen.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 8.0 SR6</p>
+
+  <h2><a name="What_you_will_learn"></a> <span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <ul>
+    <li>Nachbearbeitungsskript zum vorhandenen Filter des Importassistenten hinzufügen</li>
+  </ul>
+
+  <h2><a name="Steps"></a> <span class="mw-headline">Schritte</span></h2>
+
+  <ol>
+    <li>Öffnen Sie eine <b>neue Arbeitsmappe</b>, indem Sie auf die Schaltfläche <a class="image"><img alt="New Workbook.png" src="../images/Post_Processing_with_Import_Filter/New_Workbook.png" width="25" height="25"></a> auf der Symbolleiste Standard klicken.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <a class="image"><img alt="Import Wizard.png" src="../images/Post_Processing_with_Import_Filter/Import_Wizard.png" width="23" height="23"></a> auf der Symbolleiste Standard, um den <b>Importassistenten</b> zu öffnen.</li>
+
+    <li>Klicken Sie in der Gruppe <b>Datenquelle</b> auf die Schaltfläche <a class="image"><img alt="Browse.png" src="../images/Post_Processing_with_Import_Filter/Browse.png" width="17" height="18"></a> rechts von <b>Datei</b> und fügen Sie die Datei <b>Samples\Import and Export\S15-125-03.dat</b> hinzu.</li>
+
+    <li>Es existiert bereits ein geeigneter Filter zum Importieren dieser Datei im Datenordner. Klicken Sie auf die Schaltfläche <b>Weiter</b>, um durch alle Seiten des Assistenten zu gehen, bis Sie zu der Seite <b>Filter speichern</b> gelangen.</li>
+
+    <li>Aktivieren Sie auf diese Seite das Kontrollkästchen <b>Filter speichern</b> und wählen Sie die Option <b>In den Anwenderdateiordner</b>. Geben Sie dann den Filternamen mit <b>fil_01</b> im Bereich <b>Filterdateiname(.OIF Erweiterung wird angehängt)</b> an.</li>
+
+    <li>Aktivieren Sie das Kontrollkästchen <b>Fortgeschrittene Filteroptionen setzen</b> und klicken Sie dann auf <b>Weiter</b>. So gelangen Sie auf die Seite <b>Erweiterte Optionen</b>.</li>
+  </ol>
+
+  <ol start="7">
+    <li>Kopieren und fügen Sie die folgenden Zeilen auf dieser Seite in das Bearbeitungsfeld <b>Skript nach jeder importierten Datei</b> ein:
+      <pre class="lt" style="font-family:monospace;">
+nlbegin iy<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">4</span><span style="color: #000000;">)</span> func<span style="color: #000000;">:</span><span style="color: #000080;">=</span>gauss; nlfit; nlend output<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">1</span> autoupdate<span style="color: #000000;">:</span><span style="color: #000080;">=</span>au_auto;
+</pre>
+    </li>
+
+    <li>Klicken Sie auf <b>Fertigstellen</b>. Der Filter wird zusammen mit diesen hinzugefügten Skriptzeilen gespeichert. Die Datei wird importiert und das Skript ausgeführt. Die Arbeitsmappe besitzt dann drei Blätter, einschließlich dem benutzerdefinierten Berichtsblatt und dem Blatt mit der angepassten Kurve, d.h. den Anpassungsergebnissen der Gauss-Funktion an Spalte 4 der importierten Daten.</li>
+
+    <li>Öffnen Sie ein neues Projekt und dann den Importassistenten erneut und fügen Sie alle drei Dateien <b>S15_125_03.dat, S21-235-07.dat, S32-014-04.dat</b> in das Dialogfeld Datei öffnen.</li>
+
+    <li>Aktivieren Sie unter <i>Importflter</i> das Kontrollkästchen <b>Passende Filter für Datentyp und Dateinamen anzeigen</b> und wählen Sie <b>Anwenderordner: fil_01</b> in der Auswahlliste <b>Importfilter für aktuellen Datentyp</b>.</li>
+
+    <li>Wählen Sie unter <i>Zielfenster</i> die Option <b>Neue Arbeitsmappe öffnen</b> in der Auswahlliste <b>Importmodus</b> und klicken Sie dann auf <b>Fertigstellen</b>. Ihr modifizierter Filter wird verwendet. Außerdem wird nach jedem Dateiimport die 4. Spalte an die Gauss-Funktion angepasst.</li>
+  </ol>

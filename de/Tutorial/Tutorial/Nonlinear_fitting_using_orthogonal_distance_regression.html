@@ -1,0 +1,54 @@
+﻿<h1 class="firstHeading">Nichtlineare Anpassung mit Hilfe der orthogonalen Distanzregression</h1>
+
+  <p class='urlname' style='display: none'>Nonlinear-fitting-using-orthogonal-regression</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">Beispiele und Schritte</span></a></li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Beim Durchführen einer nichtlinearen Kurvenanpassung auf die Versuchsdaten ergibt sich möglicherweise die Notwendigkeit, Fehler sowohl in den unabhängigen als auch in den abhängigen Variablen zu berücksichtigen. In Origin können Sie die orthogonale Distanzregression (ODR) verwenden, um Ihre Daten mit impliziten bzw. expliziten Funktionen anzupassen. Dieses Tutorial soll zeigen, wie eine nichtlineare Kurvenanpassung auf Daten, die X- und Y-Fehler enthalten, mit Hilfe der ODR und einer Standardfunktion durchgeführt wird.</p>
+
+  <p>&#160;</p>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 9.1</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie die orthogonale Distanzregression verwenden, um nichtlineare Daten mit sowohl X- als auch Y-Fehlern anzupassen.</p>
+
+  <h2><a name="Example_and_Steps"></a><span class="mw-headline">Beispiel und Schritte</span></h2>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe. Wählen Sie <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b> im Menü, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner <i>Curve Fitting</i>. Dort befindet sich die Datei <i>ODR fitting.dat</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das leere Arbeitsblatt, um sie zu importieren.</li>
+
+    <li>Markieren Sie die Spalte <i>XError</i> (Langname) und klicken Sie mit der rechten Maustaste, um im Kontextmenü <b>Setzen als: X-Fehlerbalken</b> auszuwählen und die Spalte damit als Spalte des X-Fehlers festzulegen.</li>
+
+    <li>Markieren Sie die Spalte <i>YError</i> (Langname) und klicken Sie mit der rechten Maustaste, um im Kontextmenü <b>Setzen als: Y-Fehlerbalken</b> auszuwählen und die Spalte damit als Spalte des Y-Fehlers festzulegen.</li>
+
+    <li>Markieren Sie alle vier Spalten und wählen Sie <b>Zeichnen: Einfache 2D: Punktdiagramm</b>, um ein Punktdiagramm mit X- und Y-Fehlerbalken zu erstellen.</li>
+
+    <li>Wählen Sie <b>Analyse: Anpassen: Nichtlinearer Fit: Dialog öffnen...</b>, um den Dialog <b>NLFit</b> zu öffnen.</li>
+
+    <li>Wählen Sie auf der Seite <b>Funktionsauswahl</b> in der Auswahlliste <b>Kategorie</b> die Option <b>Polynomial</b>, für <b>Funktion</b> die Option <b>Poly4</b> und den <b>Iterationsalgorithmus</b> <b>Orthogonale Distanzregression (Pro)</b>.<br>
+    <a class="image"><img alt="Tutorial Nonlinear fitting using ORD 01.png" src="../images/Nonlinear_fitting_using_orthogonal_distance_regression/Tutorial_Nonlinear_fitting_using_ORD_01.png" width="783"></a><br></li>
+
+    <li>Da die Spalten für X-Fehler und Y-Fehler in Schritt 3 und 4 festgelegt wurden, werden diese beiden Spalten automatisch jeweils als entsprechende Gewichtung für X- und Y-Daten zugewiesen, wenn die <b>Orthogonale Distanzregression</b> als Iterationsalgorithmus ausgewählt wird. Sie können zur Seite <b>Datenauswahl</b> gehen und die Knoten<b>X</b> und <b>Y</b> unter <b>Eingabedaten</b> erweitern, um dies zu sehen. <a class="image"><img alt="Tutorial Nonlinear fitting using ORD 02.png" src="../images/Nonlinear_fitting_using_orthogonal_distance_regression/Tutorial_Nonlinear_fitting_using_ORD_02.png" width="824"></a></li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Fit</b> und wählen Sie <b>Nein</b> im angezeigte Dialog <b>Erinnerung</b>. Die Anpassungsergebnisse werden unten gezeigt: <a class="image"><img alt="Tutorial Nonlinear fitting using ORD v03.png" src="../images/Nonlinear_fitting_using_orthogonal_distance_regression/Tutorial_Nonlinear_fitting_using_ORD_v03.png" width="688"></a></li>
+  </ol>
+
+  <p><br>
+  <br>
+  Sie können auf <a class="external text" href="../../UserGuide/UserGuide/Nonlinear_Implicit_Curve_Fitting_(OriginPro_Only).html#Iteration_Algorithm">dieser Seite</a> Einzelheiten zum Algorithmus der ODR sowie zum Algorithmus Levenberg-Marquardt (L-M) nachlesen. Ein weiteres Beispiel zur Verwendung der orthogonalen Distanzregression für implizite Funktionen finden Sie <a class="external text" href="../../UserGuide/UserGuide/Nonlinear_Implicit_Curve_Fitting_(OriginPro_Only).html#Fit_with_the_Implicit_Functions">hier</a>.</p>

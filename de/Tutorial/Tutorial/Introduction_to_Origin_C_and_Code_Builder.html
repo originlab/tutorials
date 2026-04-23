@@ -1,0 +1,324 @@
+﻿<h1 class=firstHeading>Einführung in Origin C und Code Builder</h1>
+<p class=urlname style="display: none;">OC-CodeBuilder</p>
+<table id=toc class=toc x-use-null-cells>
+
+<tr><td>
+<div id=toctitle>
+<h2>Inhalt</h2>
+</div>
+<ol><li class="toclevel-1 tocsection-1"><a href="#Summary"><span class=tocnumber>1</span> 
+ <span class=toctext>Zusammenfassung</span></a></li>
+	<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+ class=tocnumber>2</span> <span class=toctext>Was Sie lernen werden</span></a></li>
+	<li class="toclevel-1 tocsection-3">
+	<a href="#Steps"><span class=tocnumber>3</span> <span class=toctext>Schritte</span></a> 
+ 
+	<ol><li class="toclevel-2 tocsection-4"><a href="#Create_an_Origin_C_Function"><span 
+ class=tocnumber>3.1</span> <span class=toctext>Origin C-Funktion erstellen</span></a></li>
+		<li class="toclevel-2 tocsection-5"><a href="#Debug_and_Run_the_Function"><span 
+ class=tocnumber>3.2</span> <span class=toctext>Funktion debuggen und ausführen</span></a></li>
+		<li class="toclevel-2 tocsection-6"><a href="#Run_the_Function_Using_the_Custom_Routine_Button"><span 
+ class=tocnumber>3.3</span> <span class=toctext>Funktion mit der Schaltfläche 
+ Benutzerdefinierte Routine ausführen</span></a></li>
+	</ol>
+	</li>
+</ol></td></tr>
+</table>
+<h2><a name=Summary></a><span class=mw-headline>Zusammenfassung</span></h2>
+<p><a class="external text" href="../../OriginC/Category/Origin_C_Programming_Guide.html">Origin 
+ C</a> unterstützt eine nahezu vollständige ANSI C-Sprachsyntax sowie einen 
+ Teil der C++-Funktionen, einschließlich interne und mittels DLL erweiterte 
+ Klassen. Außerdem ist Origin C &quot;Origin-kompatibel&quot;. Das heißt, 
+ das Origin-Objekte wie z.B. Arbeitsblätter und Diagramme nach Klassen 
+ in Origin C angeordnet werden, wodurch eine direkte Bearbeitung dieser 
+ Objekte und ihrer Eigenschaften aus Origin C möglich wird.</p>
+<p>Die Integrierte Entwicklungsumgebung (IEU) von Origin C wird als Code 
+ Builder bezeichnet. Der Code Builder stellt Hilfsmittel zum Schreiben, 
+ Kompilieren und Debuggen Ihrer C-Funktionen bereit. Sobald eine Origin 
+ C-Funktion kompiliert und verknüpft ist, kann die Funktion auf unterschiedliche 
+ Weise über die Arbeitsbereiche von Origin oder dem Code Builder aufgerufen 
+ werden.</p>
+<p>Um den Code Builder zu öffnen, klicken Sie auf die Schaltfläche <a class=image><img 
+ alt="Button Code Builder.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Button_Code_Builder.png" 
+ style="width: 23px; height: 23px; border-style: none; border-style: none;" 
+ width=23 height=23 border=0></a> auf der Symbolleiste Standard oder drücken 
+ Sie Alt + 4 auf der Tastatur.</p>
+<p class=version>Origin-Version mind. erforderlich: 9.0 SR0</p>
+<h2><a name=What_you_will_learn></a><span class=mw-headline>Was Sie lernen 
+ werden</span></h2>
+<p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+<ul><li>eine Origin C-Funktion erstellen.</li>
+	<li>die Funktion debuggen und ausführen.</li>
+	<li>Funktion mit der Schaltfläche Benutzerdefinierte Routine ausführen</li>
+</ul>
+<h2><a name=Steps></a><span class=mw-headline>Schritte</span></h2>
+<h3><a name=Create_an_Origin_C_Function></a><span class=mw-headline>Origin 
+ C-Funktion erstellen</span></h3>
+<ol><li>Öffnen Sie im Code Builder einen neuen Arbeitsbereich (<b>Datei: 
+ Neuer Arbeitsbereich</b>). Klicken Sie auf der Symbolleiste <b>Standard</b> 
+ des Code Builders auf die Schaltfläche <b>Neu</b> <a class=image><img 
+ alt="Button New.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Button_New.png" 
+ style="width: 21px; height: 21px; border-style: none; border-style: none;" 
+ width=21 height=21 border=0></a>, um den Dialog <b>Neue Datei</b> aufzurufen.</li>
+	<li>
+	Wählen Sie <b>C-Datei</b>, um eine .c-Datei zu erstellen. Geben Sie 
+ im Textfeld <b>Dateiname</b> den Text <b>Tutorial</b> ein: Legen Sie im 
+ Textfeld <b>Speicherort</b> den Ordner <i>Anwenderdateiordner/OriginC</i> 
+ zum Speichern der Quelldatei fest. Stellen Sie sicher, dass das Kontrollkästchen 
+ <b>Zum Arbeitsbereich hinzufügen</b> aktiviert ist. Klicken Sie auf <b>OK</b>. 
+ Eine Datei mit dem Namen Tutorial.c wird im Arbeitsbereich des Code Builders 
+ erstellt und geöffnet. 
+	<dl><dd><implicit_p><a class=image><img alt="Introduction to Origin C and Code Builde 1.png" 
+ src="../images/Introduction_to_Origin_C_and_Code_Builder/Introduction_to_Origin_C_and_Code_Builde_1.png" 
+ style="width: 452px; height: 282px; border-style: none; border-style: none;" 
+ width=452 height=282 border=0></a></dd>
+	</dl>
+	</li>
+</ol>
+<ol start=4><li>
+	Kopieren und fügen Sie den folgenden Code unter der Zeile &quot;// 
+ start your functions here.&quot; ein: 
+	<pre class=oc style="font-family: monospace;">
+				void new_wks<span style="color: #000000;">(</span><span style="color: #000000;">)</span> <span style="color: #000000;">
+				{</span>
+				 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>Worksheet wks;
+				 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>wks.<span style="color: #000000;">Create</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;Origin&quot;</span><span style="color: #000000;">)</span>; <span style="color: #008000;">// create a Worksheet window with template - Origin</span>
+				 
+				 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>vector<span style="color: #000040;">&amp;</span> vecX <span style="color: #000080;">=</span> wks.<span style="color: #000000;">Columns</span><span style="color: #000000;">(</span><span style="color: #0000dd;">0</span><span style="color: #000000;">)</span>.<span style="color: #000000;">GetDataObject</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+				 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>vector<span style="color: #000040;">&amp;</span> vecY <span style="color: #000080;">=</span> wks.<span style="color: #000000;">Columns</span><span style="color: #000000;">(</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span>.<span style="color: #000000;">GetDataObject</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+				 
+				 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>vecX.<span style="color: #000000;">Data</span><span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>, <span style="color: #0000dd;">10</span>, <span style="color: #0000dd;">1</span><span style="color: #000000;">)</span>;
+				 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>vecY.<span style="color: #000000;">Data</span><span style="color: #000000;">(</span><span style="color: #0000dd;">0,1</span>, <span style="color: #0000dd;">1</span>, <span style="color: #0000dd;">0,1</span><span style="color: #000000;">)</span>;
+				 
+				 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>vector<span style="color: #000080;">&lt;</span>string<span style="color: #000080;">&gt;</span> vsLongName <span style="color: #000080;">=</span> 
+				 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #000000;">{</span>
+				 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #ff00ff;">&quot;Index&quot;</span>,
+				 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #ff00ff;">&quot;Data&quot;</span>
+				 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #000000;">}</span>;
+				 
+				 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>for <span style="color: #000000;">(</span>int nCol <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>; nCol <span style="color: #000080;">&lt;</span> wks.<span style="color: #000000;">GetNumCols</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>; <span style="color: #000040;">++</span>nCol<span style="color: #000000;">)</span>
+				 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #000000;">{</span>
+				 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>Column col <span style="color: #000000;">(</span>wks, nCol<span style="color: #000000;">)</span>;
+				 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>col.<span style="color: #000000;">SetLongName</span><span style="color: #000000;">(</span>vsLongName<span style="color: #000000;">[</span>nCol<span style="color: #000000;">]</span><span style="color: #000000;">)</span>;
+				 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #000000;">}</span><span style="color: #000000;">
+				}</span>
+				
+			
+		
+	</pre>
+	<p>Diese Funktion new_wks erstellt ein Arbeitsblatt mit Hilfe der <b>Origin</b>-Vorlage. 
+ Die erste Spalte wird mit Zahlen von 1 bis 10 mit einem Inkrement von 
+ 1 gefüllt. Die zweite Spalte wird mit Zahlen von 0,1 bis 1 mit einem Inkrement 
+ von 0,1 gefüllt. Zuletzt werden die Langnamen der ersten und zweiten Spalte 
+ als <b>Index</b> und <b>Daten</b> festgelegt.</p>
+	</li>
+	<li>Klicken Sie auf die Schaltfläche <b>Speichern</b> <a class=image><img 
+ alt="Button Save.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Button_Save.png" 
+ style="width: 22px; height: 22px; border-style: none; border-style: none;" 
+ width=22 height=22 border=0></a>.</li>
+</ol>
+<table class=noborder x-use-null-cells>
+
+<tr><td style="width: 60px; vertical-align: top;" width=60px><implicit_p><img 
+ src="../images/Introduction_to_Origin_C_and_Code_Builder/Tutorial_icon.png" 
+ style="width: 57px; height: 57px; border-style: none; border-style: none;" 
+ width=57 height=57 border=0></td>
+<td>
+<p><b style="font-weight: bold;">Mini-Tutorial:</b> Suchen Sie weiter Verwendungsbeispiele 
+ von <b>GetDataObject</b> und verwenden Sie ein Lesezeichen, um schnell 
+ zu einer markierten Zeile zu navigieren.</p>
+<ol><li>Klicken Sie auf Zeile 33 und klicken Sie auf die Schaltfläche <b>Lesezeichen 
+ umschalten</b> <a class=image><img alt="Button Toggle Bookmark.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Button_Toggle_Bookmark.png" 
+ style="width: 16px; height: 16px; border-style: none; border-style: none;" 
+ width=16 height=16 border=0></a>.</li>
+	<li>Markieren Sie <b>GetDataObject()</b> in der Zeile 37 und klicken 
+ Sie auf die Schaltfläche <b>In Dateien suchen</b> <a class=image><img 
+ alt="Button Find In Files.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Button_Find_In_Files.png" 
+ style="width: 23px; height: 20px; border-style: none; border-style: none;" 
+ width=23 height=20 border=0></a>.</li>
+	<li>Setzen Sie im Dialog <b>Suchen in Dateien</b> <b>In Dateitypen</b> 
+ als <b>*.c,*.cpp</b> und <b>In Ordner</b> als <b>&lt;Programmordner&gt;\OriginC</b>. 
+ Aktivieren Sie alle Kontrollkästchen in diesem Dialog und klicken Sie 
+ auf die Schaltfläche <b>Suchen</b>.</li>
+	<li>Klicken Sie in dem Fenster <b>Ergebnisse suchen</b> doppelt auf 
+ eine der Zeilen, die <b>GetDataObject()</b> enthalten. Die Datei, die 
+ diese Zeichenkette beinhaltet wird geöffnet, und springt zu dem entsprechenden 
+ Abschnitt.</li>
+	<li>Um zu der in Schritt 1 markierten Zeile zurückzukehren, aktivieren 
+ Sie das Fenster <b>Lesezeichen</b>. Klicken Sie doppelauf das Lesezeichen, 
+ das in Schritt 1 dieses Mini-Tutorials hinzugefügt wurde. Der Cursor springt 
+ zu Zeile 33 in der Datei Tutorial.c.</li>
+</ol></td></tr>
+</table>
+<table class=note x-use-null-cells>
+
+<tr><td><b style="font-weight: bold;">Origin 9 bietet einige nützliche 
+ Hilfsmittel:</b> 
+<ul><li>
+	<b style="font-weight: bold;">Dateien schnell öffnen</b> 
+	<dl><dd>Drücken Sie Shift + Alt + O oder wählen Sie <b>Hilfsmittel: 
+ Dateien schnell öffnen</b>, um den Dialog <b>Dateien schnell öffnen</b> 
+ aufzurufen.</dd>
+	</dl>
+	</li>
+	<li>
+	<b style="font-weight: bold;">Zwischen .h- und .c/.cpp-Datei wechseln</b> 
+ 
+	<dl><dd>Wenn Sie eine .h-Datei öffnen, drücken Sie Strg + Alt + O, 
+ um die entsprechende .c- oder .cpp-Datei zu öffnen und umgekehrt.</dd>
+	</dl>
+	</li>
+	<li>
+	<b style="font-weight: bold;">Symbole suchen</b> 
+	<dl><dd>Drücken Sie Shift + Alt + S oder wählen Sie <b>Hilfsmittel: 
+ Symbole suchen</b>, um den<b>Dialog Symbole suchen</b> zu öffnen.</dd>
+	</dl>
+	</li>
+</ul></td></tr>
+</table>
+<h3><a name=Debug_and_Run_the_Function></a><span class=mw-headline>Funktion 
+ debuggen und ausführen</span></h3>
+<ol><li>
+	Klicken Sie auf der Symbolleiste <b>Standard</b> im Code Builder auf 
+ die Schaltfläche <b>Erstellen</b> <a class=image><img alt="Button Build.png" 
+ src="../images/Introduction_to_Origin_C_and_Code_Builder/Button_Build.png" 
+ style="width: 23px; height: 22px; border-style: none; border-style: none;" 
+ width=23 height=22 border=0></a>. Auf diese Weise wird die Funktion new_wks 
+ kompiliert und die Verknüpfung durchgeführt (Bitte stellen Sie sicher, 
+ dass die Datei <b>Tutorial.c</b> aktiv ist). 
+	<dl><dd><implicit_p><a class=image><img alt="Debug Code Builder Output.png" 
+ src="../images/Introduction_to_Origin_C_and_Code_Builder/Debug_Code_Builder_Output.png" 
+ style="width: 307px; height: 231px; border-style: none; border-style: none;" 
+ width=307 height=231 border=0></a></dd>
+	</dl>
+	</li>
+	<li>Klicken Sie auf die Leerstellen links der Zeilen 34, 35, 37, 50. 
+ Ein rotes Ballsymbol wird am Anfang jeder Zeile platziert, das kennzeichnet, 
+ dass Sie Haltepunkte zu diesen Zeilen hinzugefügt haben. Diese Haltepunkte 
+ werden im Fenster <b>Haltepunkte</b> aufgeführt.</li>
+	<li>Deaktivieren Sie im Fenster <b>Haltepunkte</b> das Kontrollkästchen 
+ vor <b>tutorial.c, line 35</b>, um diesen Haltepunkt zu deaktivieren. 
+ Beachten Sie, dass das Symbol des Haltepunkts vor Zeile 35 sich in einen 
+ leeren Kreis verwandelt.</li>
+</ol>
+<table class=noborder x-use-null-cells>
+
+<tr><td style="width: 60px; vertical-align: top;" width=60px><implicit_p><img 
+ src="../images/Introduction_to_Origin_C_and_Code_Builder/Tip_icon.png" 
+ style="width: 57px; height: 57px; border-style: none; border-style: none;" 
+ width=57 height=57 border=0></td>
+<td>
+<p>Um einen Haltepunkt zu löschen, können Sie auf das Symbol des Haltepunkts 
+ vor der entsprechenden Zeile klicken oder mit der rechten Maustaste auf 
+ den Haltepunkt im Fenster <b>Haltepunkte</b> klicken und die Option <b>Haltepunkt 
+ löschen</b> auswählen.</td></tr>
+</table>
+<ol start=4><li>
+	Klicken Sie mit der rechten Maustaste auf den Haltepunkt in Zeile 37. 
+ Wählen Sie <b>Bei Treffer</b>, um einen Dialog zu öffnen. Aktivieren Sie 
+ das Kontrollkästchen vor <b>Eine Meldung drucken</b>. Fügen Sie in dem 
+ Textfeld unter <b>Eine Meldung drucken:</b> den Text <b>test code runs 
+ to here</b> ein. Klicken Sie zum Fertigstellen auf <b>OK</b>. Beachten 
+ Sie, dass dieses Haltepunktsymbol jetzt eine Diamantform hat. 
+	<dl><dd><implicit_p><a class=image><img alt="Code Builder When Hit.png" 
+ src="../images/Introduction_to_Origin_C_and_Code_Builder/Code_Builder_When_Hit.png" 
+ style="width: 480px; height: 351px; border-style: none; border-style: none;" 
+ width=480 height=351 border=0></a></dd>
+	</dl>
+	</li>
+	<li>
+	Klicken Sie mit der rechten Maustaste auf den Haltepunkt in Zeile 50. 
+ Wählen Sie <b>Bedingung</b>, um einen Dialog zu öffnen. Aktivieren Sie 
+ <b>Bedingung</b> und geben Sie <b>nCol==1</b> in das Textfeld ein. Klicken 
+ Sie auf <b>OK</b>. 
+	<dl><dd><implicit_p><a class=image><img alt="Code Builder Condition.png" 
+ src="../images/Introduction_to_Origin_C_and_Code_Builder/Code_Builder_Condition.png" 
+ style="width: 399px; height: 235px; border-style: none; border-style: none;" 
+ width=399 height=235 border=0></a></dd>
+	</dl>
+	</li>
+	<li>Um diesen Code auszuführen, geben Sie den Funktionsnamen <b>new_wks</b> 
+ in das obere Bedienfeld des Fensters <b>LabTalk-Konsole</b> ein.</li>
+	<li>Drücken Sie Enter. Ein gelber Pfeil wird bei dem ersten Haltepunktsymbol 
+ angezeigt, der kennzeichnet, in welche Codezeile ausgeführt wird.</li>
+	<li>Drücken Sie F8, um mit dem Debuggen des Codes fortzufahren. Sie 
+ können sehen, wie der gelbe Pfeil in Zeile 50 verschoben wird.</li>
+	<li>
+	Im Fenster <b>Befehl &amp; Ergebnisse</b> wird die Meldung, die beim 
+ Haltepunkt in Zeile 37 hinzugefügt wurde, in das untere Bedienfeld gedruckt. 
+ 
+	<dl><dd><implicit_p><a class=image><img alt="Code Builder Print Msg.png" 
+ src="../images/Introduction_to_Origin_C_and_Code_Builder/Code_Builder_Print_Msg.png" 
+ style="width: 269px; height: 189px; border-style: none; border-style: none;" 
+ width=269 height=189 border=0></a></dd>
+	</dl>
+	</li>
+	<li>
+	Aktivieren Sie das Fenster <b>Variablen</b>. Die Variablennamen werden 
+ in der ersten Spalte aufgelistet und ihre Werte in der zweiten Spalte. 
+ Überprüfen Sie den Wert von <b>nCol</b>. 
+	<dl><dd><implicit_p><a class=image><img alt="Code Builder nCol.png" 
+ src="../images/Introduction_to_Origin_C_and_Code_Builder/Code_Builder_nCol.png" 
+ style="width: 308px; height: 212px; border-style: none; border-style: none;" 
+ width=308 height=212 border=0></a></dd>
+	</dl>
+	</li>
+	<li>Drücken Sie F5, um alle Code auszuführen. Der gelbe Pfeil wird 
+ nicht mehr angezeigt.</li>
+	<li>
+	Kehren Sie zum Origin-Arbeitsbereich zurück. Sie können sehen, dass 
+ eine Arbeitsmappe wie im folgenden Bild erstellt wird. 
+	<dl><dd><implicit_p><a class=image><img alt="Code Builder New Wks.png" 
+ src="../images/Introduction_to_Origin_C_and_Code_Builder/Code_Builder_New_Wks.png" 
+ style="width: 396px; height: 322px; border-style: none; border-style: none;" 
+ width=396 height=322 border=0></a></dd>
+	</dl>
+	</li>
+</ol>
+<h3><a name=Run_the_Function_Using_the_Custom_Routine_Button></a><span 
+ class=mw-headline>Funktion mit der Schaltfläche Benutzerdefinierte Routine 
+ ausführen</span></h3>
+<ol><li>Halten Sie die Tasten Strg + Shift gedrückt und klicken Sie auf 
+ die Schaltfläche <b>Benutzerdefinierte Routine</b> <a class=image><img 
+ alt="Button Custom Routine.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Button_Custom_Routine.png" 
+ style="width: 23px; height: 23px; border-style: none; border-style: none;" 
+ width=23 height=23 border=0></a>. Die Datei Custom.ogs wird im Code Builder 
+ geöffnet.</li>
+	<li>Klicken Sie, wenn sich der Cursor in Zeile 11 befindet, auf die 
+ Schaltfläche <b>Kommentar</b> <a class=image><img alt="Button Comment.png" 
+ src="../images/Introduction_to_Origin_C_and_Code_Builder/Button_Comment.png" 
+ style="width: 22px; height: 21px; border-style: none; border-style: none;" 
+ width=22 height=21 border=0></a>, um Zeile 11 auszukommentieren.</li>
+</ol>
+<ol start=3><li>
+	Geben Sie den folgenden Code bei Zeile 12 und 13 ein. 
+	<pre class=oc style="font-family: monospace;">
+				 Run.<span style="color: #000000;">LoadOC</span><span style="color: #000000;">(</span><span style="color: #000040;">%</span>YOriginC\Tutorial.<span style="color: #000000;">c</span><span style="color: #000000;">)</span>; <span style="color: #008000;">//%Y is user file folder</span>
+				 new_wks<span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+				
+			
+		
+	</pre>
+	<p>Dieser Code lädt die Datei <b>Tutorial.c</b>, die Sie im vorhergehenden 
+ Abschnitt hinzugefügt haben, und führen Sie die Funktion <b>new_wks()</b> 
+ aus.</p>
+	</li>
+	<li>Klicken Sie auf die Schaltfläche <b>Speichern <a class=image><img 
+ alt="Button Save.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Button_Save.png" 
+ style="width: 22px; height: 22px; border-style: none; border-style: none;" 
+ width=22 height=22 border=0></a></b> .</li>
+	<li>
+	Kehren Sie zum Origin-Arbeitsbereich zurück. Klicken Sie auf die Schaltfläche 
+ <b>Benutzerdefinierte Routine</b> <a class=image><img alt="Button Custom Routine.png" 
+ src="../images/Introduction_to_Origin_C_and_Code_Builder/Button_Custom_Routine.png" 
+ style="width: 23px; height: 23px; border-style: none; border-style: none;" 
+ width=23 height=23 border=0></a>. Ein neues Arbeitsblatt wird erstellt 
+ und mit Daten gefüllt, wie im letzten Abschnitt auch. 
+	<dl><dd><implicit_p><a class=image><img alt="Code Builder Cus Routine Result.png" 
+ src="../images/Introduction_to_Origin_C_and_Code_Builder/Code_Builder_Cus_Routine_Result.png" 
+ style="width: 396px; height: 322px; border-style: none; border-style: none;" 
+ width=396 height=322 border=0></a></dd>
+	</dl>
+	</li>
+</ol>
+

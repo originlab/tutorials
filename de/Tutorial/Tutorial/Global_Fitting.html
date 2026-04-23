@@ -1,0 +1,36 @@
+﻿<h1 class="firstHeading">Globale Anpassung mit gemeinsamen Parametern</h1><p class='urlname' style='display: none'>Fitting-Global</p>
+<h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+<p>Der Term &quot;globale Anpassung&quot; bezieht sich im Allgemeinen auf gleichzeitige Operationen der Kurvenanpassung, die auf mehrere Datens&auml;tze angewendet werden. Da Datens&auml;tze eindeutig bleiben, k&ouml;nnen sie die Parameterwerte w&auml;hrend des Anpassungsprozesses gemeinsam nutzen oder auch nicht. Wenn ein Parameter gemeinsam nutzt wird, wird ein einzelner Parameterwert f&uuml;r alle Datens&auml;tze berechnet; wenn ein Parameter nicht gemeinsam genutzt wird, wird ein separater Parameterwert f&uuml;r jeden Datensatz berechnet.</p><p>Im Gegensatz dazu wird die &quot;zusammengefasste Anpassung&quot; durchgef&uuml;hrt, indem alle Datens&auml;tze in einem einzelnen Datensatz kombiniert werden. Da Operationen der Kurvenanpassung auf einen einzelnen Datensatz durchgef&uuml;hrt werden, wird nur ein einzelner Satz von Parameterwerten zur&uuml;ckgegeben.</p><p>Seit 2016 SR2 gibt es die neue App <a class="external text" href="http://www.originlab.com/FileExchange/details.aspx?fid=321" target="_blank"><b>Sequential Fit</b></a> zum Durchf&uuml;hren einer sequenziellen Anpassung von mehreren Datens&auml;tzen. Mit dieser App werden die Anpassungsparameterwerte, die dem aktuellen Datensatz entnommen sind, verwendet, um die Parameter des n&auml;chsten Datensatzes zu initialisieren. Dies l&auml;sst sich besonders gut auf Datens&auml;tze anwenden, deren gemeinsame Parameter sich abwechselnd &auml;ndern.</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+<p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+<ul><li>mehrere Datens&auml;tze zum Anpassen ausw&auml;hlen.</li>
+<li>verschiedene Anpassungsmodi ausw&auml;hlen.</li>
+<li>die globale Anpassung durch gemeinsame Nutzung von Parametern durchgef&uuml;hrt wird.</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+<ol>
+<li>&Ouml;ffnen Sie eine neue Arbeitsmappe, indem Sie auf die Schaltfl&auml;che <a  class="image"><img alt="Button New Workbook.png" src="../images/Global_Fitting/Button_New_Workbook.png" width="23"  /></a> klicken.</li>
+<li>Klicken Sie auf <a  class="image"><img alt="Button Import Single ASCII.png" src="../images/Global_Fitting/Button_Import_Single_ASCII.png" width="25"  /></a>, um die Datei <b>Enzyme.dat</b> aus dem <i>&lt;Origin-Verzeichnis&gt;\Samples\Curve Fitting\</i> zu importieren.</li>
+<li>Markieren Sie Spalte B und C und klicken Sie auf die Schaltfl&auml;che <a  class="image"><img alt="Button Scatter.png" src="../images/Global_Fitting/Button_Scatter.png" width="22"  /></a>, um ein Punktdiagramm zu erzeugen.</li>
+<li>Lassen Sie das Diagrammfenster aktiviert und w&auml;hlen Sie <b>Analyse: Anpassen: Nichtlinearer Fit</b>, um den Dialog <b>NLFit</b> aufzurufen.</li>
+<li>Setzen Sie den Modus von <b>Neu berechnen</b> auf <b>Auto</b>.</li>
+<li>W&auml;hlen Sie auf der Seite <b>Funktionsauswahl</b> die Funktion <b>Hill</b> aus der Kategorie <b>Growth/Sigmoidal</b>. </li>
+<li>Wechseln Sie zur Seite <b>Datenauswahl</b>, klicken Sie auf die dreieckige Schaltfl&auml;che neben <b>Eingabedaten</b> und w&auml;hlen Sie <b>Alle Zeichnungen in aktivem Layer hinzuf&uuml;gen</b>, um beide Zeichnungen als Eingabedaten hinzuzuf&uuml;gen.</li>
+<li>W&auml;hlen Sie <b>Allgemeiner Fit</b> (globaler Fit) in der Auswahlliste <b>Fitmodus f&uuml;r mehrere Datens&auml;tze</b>:<br /> <a  class="image"><img alt="Tutorial Global Fitting 002.png" src="../images/Global_Fitting/Tutorial_Global_Fitting_002.png" width="550"  /></a></li>
+<li>Wechseln Sie zur Registerkarte <b>Parameter</b>. Aktivieren Sie das Kontrollk&auml;stchen <b>Fest</b> f&uuml;r <i>n</i> und <i>n_2</i>, um ihre Werte auf 1 festzulegen.<br /> <a  class="image"><img alt="Tutorial Global Fitting 003.png" src="../images/Global_Fitting/Tutorial_Global_Fitting_003.png" width="321"  /></a></li>
+<li>Klicken Sie auf die Schaltfl&auml;che <b>Fit</b>, um die Kurven anzupassen. Sie k&ouml;nnen diese Ergebnisse in der Tabelle <b>Parameter</b> des Berichtsblatts erhalten: <br /> <a  class="image"><img alt="Tutorial Global Fitting 005.png" src="../images/Global_Fitting/Tutorial_Global_Fitting_005.png" width="507"  /></a></li>
+<li>Die angepassten Kurven werden zu der urspr&uuml;nglichen Datenzeichnung hinzugef&uuml;gt. <br /> <a  class="image"><img alt="Tutorial Global Fitting 004 2.png" src="../images/Global_Fitting/Tutorial_Global_Fitting_004_2.png" width="428"  /></a></li>
+<li>In diesem Fall ist die maximale Geschwindigkeit<i>Vmax</i> m&ouml;glicherweise die gleiche. Daher kann dieser Parameterwert zum Anpassen gemeinsam genutzt werden. </li>
+<li>Klicken Sie auf das Symbol des gr&uuml;nen Schlosses und w&auml;hlen Sie <b>Parameter &auml;ndern</b>, um den Dialog <b>NLFit</b> erneut aufzurufen.<br /> <a  class="image"><img alt="Tutorial Global Fitting 010.png" src="../images/Global_Fitting/Tutorial_Global_Fitting_010.png" width="491"  /></a></li>
+<li>Wechseln Sie zur Registerkarte <b>Parameter</b> und aktivieren Sie das Kontrollk&auml;stchen <b>Teilen</b> f&uuml;r <i>Vmax</i>.<br /> <a  class="image"><img alt="Tutorial Global Fitting 008.png" src="../images/Global_Fitting/Tutorial_Global_Fitting_008.png" width="321"  /></a></li>
+<li>Klicken Sie auf die Schaltfl&auml;che <b>Fit</b>, um die Ergebnisse zu aktualisieren. Sie k&ouml;nnen sehen, dass die Werte von <i>Vmax</i> f&uuml;r beide Kurven die gleichen sind. Das Sternchen im Parameternamen bedeutet, dass dieser Parameter gemeinsam verwendet wird:<br /> <a  class="image"><img alt="Tutorial Global Fitting 015.png" src="../images/Global_Fitting/Tutorial_Global_Fitting_015.png" width="512"  /></a></li>
+<li>Die angepasste Kurve wird automatisch aktualisiert.<br /> <a  class="image"><img alt="Tutorial Global Fitting 016 2.png" src="../images/Global_Fitting/Tutorial_Global_Fitting_016_2.png" width="419"  /></a></li>
+<p><br /></p>
+</ol>
+
+
+
+
+
+
+
+    

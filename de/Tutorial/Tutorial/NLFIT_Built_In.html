@@ -1,0 +1,235 @@
+﻿<h1 class="firstHeading">Nichtlineares Anpassen mit Systemfunktion</h1>
+
+  <p class='urlname' style='display: none'>Fitting-NLFit-Built-in</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Import_the_file"><span class="tocnumber">3.1</span> <span class="toctext">Datei importieren</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Plotting_the_Data"><span class="tocnumber">3.2</span> <span class="toctext">Daten zeichnen</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#Fitting_with_the_Michaelis-Menten_Function"><span class="tocnumber">3.3</span> <span class="toctext">Mit der Michaelis-Menten-Funktion anpassen</span></a></li>
+
+          <li class="toclevel-2 tocsection-7"><a href="#Fitting_Lineweaver-Burk_Plot"><span class="tocnumber">3.4</span> <span class="toctext">Lineweaver-Burk-Diagramm anpassen</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/NLFIT_Built_In/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/NLFIT_Built_In/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/jwplayer.html?v=ftp/mm_tutorials/mp4/VT-0001Nonlinear_Curve_Fit_Tool.mp4%7C767%7C600" target="_blank">Hilfsmittel Nichtlinearer Kurvenfit</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/jwplayer.html?v=ftp/mm_tutorials/mp4/Global_Fit.mp4%7C767%7C600" target="_blank">Globale Anpassung</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/jwplayer.html?v=ftp/mm_tutorials/mp4/Nonlinear_Curve_Fitting.mp4%7C767%7C600" target="_blank">Datenbereich im Hilfsmittel Nichtlinearer Kurvenfit festlegen</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%"><a class="image"><img alt="Website blog icon circle.png" src="../images/NLFIT_Built_In/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/NLFIT_Built_In/Blog_Image_33x33px.png" width="135"></a></td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Das NLFit-Dialogfeld ist ein interaktives Hilfsmittel, das es Ihnen erlaubt, das Anpassungsverfahren während des nichtlinearen Anpassungsprozesses zu überwachen. Dieses Tutorial passt sich an die Michaelis-Menten-Funktion an, ein Basismodell in der Enzymkinetik, und zeigt Ihnen einige grundlegende Funktionen des Dialogfelds NLFit. Während der Anpassung zeigen wir Ihnen, wie man einen globalen Fit durchführt, der Ihnen erlaubt, zwei Datensätze gleichzeitig anzupassen und einige Parameterwerte zu teilen.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 8.0 SR6</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>eine einzelne ASCII-Datei importieren,</li>
+
+    <li>eine globale Anpassung mit gemeinsamen Parametern durchführen,</li>
+
+    <li>einen Anpassungsbereich wählen und einen Teilbereich der Daten anpassen,</li>
+
+    <li>das Befehlsfenster verwenden, um eine einfache Berechnung durchzuführen.</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <h3><a name="Import_the_file"></a><span class="mw-headline">Die Datei importieren</span></h3>
+
+  <p>Öffnen Sie eine neue Arbeitsmappe. Wählen Sie <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b> im Menü, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner <i>Curve Fitting</i>. Dort befindet sich die Datei <i>Enzyme.dat</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das leere Arbeitsblatt, um sie zu importieren.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Tutorial NLFit 001.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_001.png" width="319"></a><br>
+    <br></dd>
+  </dl>
+
+  <h3><a name="Plotting_the_Data"></a><span class="mw-headline">Daten zeichnen</span></h3>
+
+  <p>Markieren Sie die Spalten B und C und zeichnen Sie sie als Punktdiagramm, indem Sie auf die Schaltfläche <a class="image"><img alt="Scatter.png" src="../images/NLFIT_Built_In/Scatter.png" width="22"></a> klicken.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Tutorial NLFit 002 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_002_SR6.png" width="464"></a><br></dd>
+  </dl>
+
+  <h3><a name="Fitting_with_the_Michaelis-Menten_Function"></a><span class="mw-headline">Mit der Michaelis-Menten-Funktion anpassen</span></h3>
+
+  <p>Die Michaelis-Menten-Funktion für einzelne Substrate ist ein Grundmodell, das in der Forschung zur Enzymkinetik verwendet wird.</p>
+
+  <dl>
+    <dd><img src="../images/NLFIT_Built_In/math-b8d0588cf34e1ab60b8c19de1f2a4336.png" title="v=\frac{V_{max}[S]}{K_m+[S]}" alt="v=\frac{V_{max}[S]}{K_m+[S]}" class="tex"></dd>
+  </dl>
+
+  <p>Der Parameter <img src="../images/NLFIT_Built_In/math-9e3669d19b675bd57058fd4664205d2a.png" title="v" alt="v" class="tex"> ist die Reaktionsgeschwindigkeit, <img src="../images/NLFIT_Built_In/math-38bd6c19740e43396bd14b1575d58f60.png" title="[S]" alt="[S]" class="tex"> ist die Substratkonzentration, <img src="../images/NLFIT_Built_In/math-aef61aad770bee032baeac63f516e127.png" title="V_{max}" alt="V_{max}" class="tex"> ist die maximale Geschwindigkeit und <img src="../images/NLFIT_Built_In/math-970fc38d3e1faed4fad256cf650ccde0.png" title="K_m" alt="K_m" class="tex"> stellt die Michaelis-Konstante dar. Die Parameter <img src="../images/NLFIT_Built_In/math-aef61aad770bee032baeac63f516e127.png" title="V_{max}" alt="V_{max}" class="tex"> und <img src="../images/NLFIT_Built_In/math-970fc38d3e1faed4fad256cf650ccde0.png" title="K_m" alt="K_m" class="tex"> sind wichtige Enzymeigenschaften und ihre Werte können durch Anpassen der M-M-Funktion an eine <img src="../images/NLFIT_Built_In/math-9e3669d19b675bd57058fd4664205d2a.png" title="v" alt="v" class="tex">- vs. <img src="../images/NLFIT_Built_In/math-38bd6c19740e43396bd14b1575d58f60.png" title="[S]" alt="[S]" class="tex">-kurve bestimmt werden. In Origin gibt es keine M-M-Anpassungsfunktion, allerdings können wir zum Durchführen der Anpassung ein allgemeineres Modell verwenden, die enthaltene <i>Hill</i>-Funktion:</p>
+
+  <dl>
+    <dd><img src="../images/NLFIT_Built_In/math-c8c3f0c0a606c9f2c460bbac249fa621.png" title="v=V_{max}\frac{x^n}{k^n+x^n}" alt="v=V_{max}\frac{x^n}{k^n+x^n}" class="tex"></dd>
+  </dl>
+
+  <p>wobei <img src="../images/NLFIT_Built_In/math-7b8b965ad4bca0e41ab51de7b31363a1.png" title="n" alt="n" class="tex"> die kooperativen Bindungsseiten ist. Bei einem Modell für ein einzelnes Substrat legen wir <img src="../images/NLFIT_Built_In/math-6d24e2bc97c5e4283dd8e34674afe7ea.png" title="n=1" alt="n=1" class="tex"> fest und vereinfachen auf diese Weise das Modell, so dass es sich wie die M-M-Funktion verhält.</p>
+
+  <p>Es gibt zwei Kurven, eine ist die Reaktion ohne einen Inhibitor und die andere ist die Reaktion mit einem Inhibitor. Wir verwenden das Hilfsmittel NLFit, um diese zwei Kurven gleichzeitig anzupassen. Da für die Hemmungsreaktion die maximale Geschwindigkeit die gleiche ist wie bei der nicht gehemmten Reaktion, können wir den <img src="../images/NLFIT_Built_In/math-aef61aad770bee032baeac63f516e127.png" title="V_{max}" alt="V_{max}" class="tex">-Wert während des Anpassungsverfahrens teilen und eine <i>globale Anpassung</i> durchführen.</p>
+
+  <p>&#160;</p>
+
+  <ol>
+    <li>Wählen Sie bei aktivem Diagramm den Menüpunkt <b>Analyse: Anpassen: Nichtlinearer Fit</b>, um das Dialogfeld NLFit aufzurufen. Wählen Sie die Funktion <i>Hill</i> aus der Kategorie <i>Growth/Sigmoidal</i> auf der Seite <b>Einstellungen: Funktionsauswahl</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial NLFit 003 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_003_SR6.png" width="774"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf der Seite <b>Einstellungen: Datenauswahl</b> auf die dreieckige Schaltfläche neben den <b>Eingabedaten</b> und wählen Sie <b>Alle Diagramme in aktive Seite einfügen</b>, um den Datenbereich festzulegen.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial NLFit 004 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_004_SR6.png" width="505"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie <i>Allgemeiner Fit</i> aus der Auswahlliste <b>Fitmodus für mehrere Datensätze</b> auf der Seite <b>Einstellungen: Datenauswahl</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial NLFit 005 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_005_SR6.png" width="498"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wechseln Sie zur Registerkarte <b>Parameter</b> und aktivieren Sie das Kontrollkästchen <b>Teilen</b> in Zeile Vmax. Dieses Kontrollkästchen<i>Teilen</i> ist nur im Modus <i>Allgemeiner Fit</i> vorhanden. Aktivieren Sie das Kontrollkästchen <b>Fest</b> für n und n_2 und stellen Sie sicher, dass Ihre Werte 1 sind.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial NLFit 006 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_006_SR6.png" width="498"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <i>Fit</i>, um den Analysebericht zu erzeugen. Eine Tabelle mit den Anpassungsparametern wird in das ursprüngliche Diagramm eingefügt (nur die Wertetabelle der Anpassungsparameter wird in der folgenden Abbildung zeigt.)
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial NLFit 007 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_007_SR6.png" width="464"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <p>Dem Anpassungsergebnis können wir entnehmen, dass die maximale Geschwindigkeit etwa 2162,8 <img src="../images/NLFIT_Built_In/math-647804bc34e270eeb60a78ea7e25409d.png" title="\mu M/min" alt="\mu M/min" class="tex"> beträgt. Der Wert von <img src="../images/NLFIT_Built_In/math-970fc38d3e1faed4fad256cf650ccde0.png" title="K_m" alt="K_m" class="tex"> für das Modell ohne Inhibitor beträgt 1,78 <img src="../images/NLFIT_Built_In/math-c358cc719bf4f10b00fa965e845dc8c2.png" title="\mu M" alt="\mu M" class="tex">. Der Wert <img src="../images/NLFIT_Built_In/math-970fc38d3e1faed4fad256cf650ccde0.png" title="K_m" alt="K_m" class="tex"> für das Modell mit Inhibitor beträgt 4,18 <img src="../images/NLFIT_Built_In/math-c358cc719bf4f10b00fa965e845dc8c2.png" title="\mu M" alt="\mu M" class="tex">.</p>
+
+  <h3><a name="Fitting_Lineweaver-Burk_Plot"></a><span class="mw-headline">Anpassung im Lineweaver-Burk-Diagramm</span></h3>
+
+  <p>Wie wir wissen, können die Modellparameter auch durch ein Lineweaver-Burk- oder ein Doppel-Reziprok-Diagramm geschätzt werden. Ein Lineweaver-Burk-Diagramm nimmt den reziproken Wert beider Seiten der M-M-Funktion und zeichnet mit <code>1/v</code> vs. <code>1/[S]</code>:</p>
+
+  <dl>
+    <dd><img src="../images/NLFIT_Built_In/math-7b926509a42cfcf4d7b1269ee5b66f95.png" title="\frac{1}{v}=\frac{1}{V_{max}}+\frac{K_m}{V_{max}[S]}" alt="\frac{1}{v}=\frac{1}{V_{max}}+\frac{K_m}{V_{max}[S]}" class="tex"></dd>
+  </dl>
+
+  <p>Dies ist eigentlich eine lineare Funktion:</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Tutorial NLFit L-B Plot.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_L-B_Plot.png" width="264"></a></dd>
+  </dl>
+
+  <p>Wir werden die Daten für No Inhibitor verwenden, um zu zeigen, wie man <img src="../images/NLFIT_Built_In/math-970fc38d3e1faed4fad256cf650ccde0.png" title="K_m" alt="K_m" class="tex"> und <img src="../images/NLFIT_Built_In/math-aef61aad770bee032baeac63f516e127.png" title="V_{max}" alt="V_{max}" class="tex"> mit dem L-B-Diagramm berechnet.</p>
+
+  <p>&#160;</p>
+
+  <ol>
+    <li>Gehen Sie zurück zum Arbeitsblatt mit den Rohdaten und fügen Sie noch zwei weitere Spalten hinzu, indem Sie die Schaltfläche <a class="image"><img alt="Add New Columns.png" src="../images/NLFIT_Built_In/Add_New_Columns.png" width="20"></a> drücken. Klicken Sie mit der rechten Maustaste auf Spalte D und wählen Sie <b>Setzen als: Als X setzen</b> aus dem Kontextmenü, um sie als X-Spalte festzulegen. Klicken Sie mit der rechten Maustaste nochmals auf Spalte D, wählen Sie <b>Spaltenwerte errechnen</b> um das Dialogfeld <b>Werte setzen</b> zu öffnen Geben Sie in dieses Dialogbearbeitungsfeld <code>1/Col(A)</code> ein und setzen den Modus <b>Neu berechnen</b> auf <i>Kein</i>, da wir die Reziprokwerte in diesem Beispiel nicht automatisch aktualisieren brauchen.
+
+      <dl>
+        <dd>Entsprechend setzen Sie die Werte aus Spalte E mit <code>1/Col(B)</code>. Geben Sie den Langnamen für die Spalten D und E als <img src="../images/NLFIT_Built_In/math-9ef7cbd115a40bb95a13f1f7dc418975.png" title="1/[S]" alt="1/[S]" class="tex"> bzw. <img src="../images/NLFIT_Built_In/math-91fe420319052e8835ef9135f6efefc1.png" title="1/V" alt="1/V" class="tex"> ein. Dann haben wir:</dd>
+
+        <dd><a class="image"><img alt="Tutorial NLFit 009 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_009_SR6.png" width="459"></a></dd>
+      </dl>
+    </li>
+
+    <li>Markieren Sie die Spalten D und E, und klicken Sie auf die Schaltfläche <a class="image"><img alt="Scatter.png" src="../images/NLFIT_Built_In/Scatter.png" width="22"></a>, um ein Punktdiagramm zu erstellen.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial NLFit 010 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_010_SR6.png" width="458"></a></dd>
+
+        <dd>Aus der oberen Gleichung wissen wir, dass es einen linearen Bezug zwischen <code>1/v</code> und <code>1/[S]</code> gibt, also können wir das NLFit-Hilfsmittel nehmen, um eine gerade Linie auf diesem Diagramm anzupassen. (Sie können auch das Hilfsmittel Linearer Fit aus <b>Analyse: Anpassen: Linearer Fit</b> verwenden.)</dd>
+      </dl>
+    </li>
+
+    <li>Rufen Sie nochmals den Dialog NLFit auf, wählen Sie die Funktion <i>Line</i> aus der Kategorie <i>Polynomial</i> und klicken Sie dann direkt auf die Schaltfläche <i>Fit</i> <a class="image"><img alt="Fit.png" src="../images/NLFIT_Built_In/Fit.png" width="51"></a>, um Ergebnisse zu erzeugen.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial NLFit 011 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_011_SR6.png" width="774"></a></dd>
+
+        <dd>Vom Diagramm her könnte man bezweifeln, dass dieses die beste Anpassungskurve ist, da es einen weit entfernten Punkt gibt. Tatsächlich ist die rechte Seite des L-B-Diagramms ein Bereich mit niedriger Substratkonzentration. Es kann hier ein erheblicher Messfehler vorliegen, so dass wir diesen Punkt während der Anpassung besser ausschließen.</dd>
+
+        <dd><a class="image"><img alt="Tutorial NLFit 012 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_012_SR6.png" width="455"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie das Symbol für Schließen in der oberen linken Ecke und wählen Sie <i>Parameter ändern</i> , um das Dialogfeld NLFit aufzurufen.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial NLFit 013 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_013_SR6.png" width="455"></a></dd>
+
+        <dd>Auf der Seite <b>Einstellungen: Datenauswahl</b> klicken Sie auf die Schaltfläche <a class="image"><img alt="Triangle Button.png" src="../images/NLFIT_Built_In/Triangle_Button.png" width="18"></a> im Knoten <b>Eingabedaten</b> und wählen dann im Ausklappmenü <i>Alle Daten des Diagramms erneut auswählen</i>.</dd>
+
+        <dd><a class="image"><img alt="Tutorial NLFit 014 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_014_SR6.png" width="502"></a></dd>
+
+        <dd>Der Dialog NLFit wird minimiert und Ihr Cursor nimmt die Form <a class="image"><img alt="Tutorial NLFit 015.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_015.png" width="35"></a> an, wenn Sie sich zur Diagrammseite bewegen. Klicken Sie und zeichnen Sie ein Rechteck, um die Datenpunkte auszuwählen, die Sie anpassen möchten. Der Eingabebereich wird durch vertikale Linien gekennzeichnet. Sie können auch auf diese Linien klicken und sie verschieben, um den Eingabebereich zu verändern.</dd>
+
+        <dd><a class="image"><img alt="Tutorial NLFit 015 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_015_SR6.png" width="455"></a></dd>
+
+        <dd>Klicken Sie auf die Schaltfläche <a class="image"><img alt="Tutorial NLFit 018.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_018.png" width="18"></a> im Fenster <b>Daten in Diagramm auswählen</b>, um zum Dialog NLFit zurückzukehren.</dd>
+
+        <dd><a class="image"><img alt="Tutorial NLFit 016 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_016_SR6.png" width="381"></a></dd>
+      </dl>
+    </li>
+
+    <li>Drücken Sie die Schalftfläche <i>Fit</i> im Dialogfeld NLFit an, um das Ergebnis neu zu berechnen. Sie können anhand der Grafik erkennen, dass der Ergebnisreport aktualisiert wurde.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial NLFit 017 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_017_SR6.png" width="455"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wenn der Schnittpunkt mit der Y-Achse der angepassten Kurve <img src="../images/NLFIT_Built_In/math-dfdcb5722c7b6821823cc629b97afb7d.png" title="1/V_{max}" alt="1/V_{max}" class="tex"> ist, ist er in diesem Beispiel gleich <code>4,76191E-4</code>. Um den Wert <img src="../images/NLFIT_Built_In/math-aef61aad770bee032baeac63f516e127.png" title="V_{max}" alt="V_{max}" class="tex"> zu bestimmen, wählen Sie zum Öffnen des Befehlsfensters <b>Fenster: Befehlsfenster</b> und geben ein:
+
+      <dl>
+        <dd><code>1/4,76191E-4 =</code></dd>
+
+        <dd>und drücken Sie ENTER:</dd>
+
+        <dd><a class="image"><img alt="Tutorial NLFit 018 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_018_SR6.png" width="481"></a></dd>
+
+        <dd>Origin gibt den Wert <code>2092</code> als Ergebnis aus, der dem Wert nahe kommt, den wir oben hatten, nämlich 2160. (Beim Anpassen der Hill-Funktion oben teilten wir <img src="../images/NLFIT_Built_In/math-aef61aad770bee032baeac63f516e127.png" title="V_{max}" alt="V_{max}" class="tex"> zum Anpassen von zwei Datensätzen. Wenn Sie nur die Daten für No Inhibitor anpassen, wird dieser Wert noch näher dran sein.)</dd>
+      </dl>
+    </li>
+  </ol>

@@ -1,0 +1,72 @@
+﻿<h1 class="firstHeading">Kursdiagramme OHLC-Volumen</h1>
+
+  <p class='urlname' style='display: none'>OHLCV-Stock-Chart</p>
+
+  <p>&#160;</p>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie ein Kursdiagramm erstellen, um Eröffnungs-, Höchst-, Tiefst- und Schlusskurse zusammen mit dem Handelsvolumen anzuzeigen.</p>
+
+  <p><a class="image"><img alt="OHLCV Graph Gallery Tutorial 4.png" src="../images/Open-High-Low-Close-Volume_Stock_Chart/OHLCV_Graph_Gallery_Tutorial_4.png" width="598"></a></p>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 2016 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <ul>
+    <li>Kursdiagramm mit Eröffnungs-, Höchst-, Tiefst- und Schlusskursen und Handelsvolumen erstellen</li>
+
+    <li>Achsenskalierungstyp festlegen, so dass handelsfreie Tage übersprungen werden</li>
+
+    <li>Format für Hilfsstrichsbeschriftungen festlegen (Mehrzeilige Beschriftung)</li>
+
+    <li>Volumenspalten gemäß ihres Wochentages mit verschiedenen Füllfarben kategorisieren</li>
+
+    <li>Legende erstellen, um die Spalten mit verschiedenen Füllfarben zu versehen</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <p>Sie können dieses Diagramm auch im Origin-Navigator finden. (Wählen Sie <b>Hilfe: Origin-Navigator</b> im Menü oder drücken Sie die Taste <b>F11</b>. Öffnen Sie dann <b>Diagrammbeispiel: Financial Plots</b>.)</p>
+
+  <ol>
+    <li>Markieren Sie die Spalten Col(C)~Col(G) im Arbeitsblatt und wählen Sie dann im Menü <b>Zeichnen: Spezialisiert: OHLC-Volumen</b>, um ein Diagramm zu erstellen.</li>
+
+    <li>Klicken Sie doppelt auf die untere X-Achse von Layer2, um den Dialog <b>X-Achse</b> zu öffnen. Gehen Sie zur Registerkarte <b>Skalierung</b>. Sie können sehen, dass der <b>Typ</b> standardmäßig auf <b>Diskret</b> gesetzt ist. Darum überspringt die X-Achse automatisch alle Wochenenden und Feiertage.</li>
+
+    <li style="list-style: none">
+      <p><a class="image"><img alt="OHLCV Graph Gallery Tutorial 5.png" src="../images/Open-High-Low-Close-Volume_Stock_Chart/OHLCV_Graph_Gallery_Tutorial_5.png" width="604"></a></p>
+    </li>
+
+    <li>Ändern Sie den Achsenbereich von 03.03.2001 bis 07.05.2001. Stellen Sie unter <b>Große Hilfsstriche</b> sicher, dass <b>Typ</b> auf <i>Nach Inkrement</i> gesetzt ist. Geben Sie <i>1week</i> für den <b>Wert</b> ein. Stellen Sie unter <b>Kleine Hilfsstriche</b> sicher, dass <b>Typ</b> auf <i>Nach Anzahlen</i> gesetzt ist. Geben Sie <i>5</i> für <b>Anzahl</b> ein. Klicken Sie auf die Schaltfläche <b>Anwenden</b>. Sie können erkennen, dass Wochenenden und Feiertage übersprungen werden. <a class="image"><img alt="OHLCV Graph Gallery Tutorial 7.png" src="../images/Open-High-Low-Close-Volume_Stock_Chart/OHLCV_Graph_Gallery_Tutorial_7.png" width="604"></a></li>
+
+    <li>Um die untere Achsenbeschriftung in mehreren Zeilen anzuzeigen, wechseln Sie zur Registerkarte <b>Beschriftung der Hilfsstriche</b>. Aktivieren Sie die Unterregisterkarte <b>Anzeige</b>. Wählen Sie <b>Benutzerdefinierte Anzeige</b> in der Auswahlliste <b>Anzeige</b>. Geben Sie den Text unten im Textfeld <b>Benutzerdefinierte Anzeige</b> ein.
+      <pre>
+hhtt MMMdd --------- yyyy
+</pre>
+
+      <p><a class="image"><img alt="OHLCV Graph Gallery Tutorial 8.png" src="../images/Open-High-Low-Close-Volume_Stock_Chart/OHLCV_Graph_Gallery_Tutorial_8.png" width="604"></a><br>
+      <br>
+      Gehen Sie zur Unterregisterkarte <b>Format</b>, setzen Sie die Schriftgröße 10 und aktivieren Sie das Kontrollkästchen <b>Textumbruch</b>.<br>
+      <br>
+      <a class="image"><img alt="OHLCV Graph Gallery Tutorial 6.png" src="../images/Open-High-Low-Close-Volume_Stock_Chart/OHLCV_Graph_Gallery_Tutorial_6.png" width="604"></a></p><br>
+      Klicken Sie auf die Schaltfläche <b>Anwenden</b>.
+    </li>
+
+    <li>Gehen Sie zurück zur Registerkarte <b>Skalierung</b>, wählen Sie das Symbol <b>Vertikal</b> im linken Bedienfeld und setzen Sie dann die Werte für <b>Von</b> und <b>Bis</b> auf <i>0</i> und <i>120M</i>. Klicken Sie auf die Schaltfläche <b>Anwenden</b>.</li>
+
+    <li>Wählen Sie <i>1</i> in der Auswahlliste <b>Layer</b>, die sich unten links im Dialog befindet, um zu <b>Layer 1</b> zu wechseln. Setzen Sie dann bei noch immer ausgewähltem Symbol <b>Vertikal</b> die Werte <b>Von</b> und <b>Bis</b> auf <i>12</i> und <i>22</i>. Klicken Sie auf OK, um den Dialog zu schließen.<br>
+    <a class="image"><img alt="OHLCV Graph Gallery Tutorial 3.png" src="../images/Open-High-Low-Close-Volume_Stock_Chart/OHLCV_Graph_Gallery_Tutorial_3.png" width="622"></a></li>
+
+    <li>Klicken Sie zum Öffnen des Dialogs <b>Details Zeichnung</b> doppelt auf das Säulendiagramm bei Layer 2. Erweitern Sie auf der Registerkarte Muster die Auswahlliste <b>Füllfarbe</b> und gehen Sie zur Unterregisterkarte <b>Nach Punkten</b> in der Liste <b>Index</b>. Wählen Sie <b>Col(B): "Week Day"</b> und dann <b>D01 Pumpkin Patch</b> in der <b>Farbliste</b>. Klicken Sie auf OK, um das Dialogfeld zu schließen.<br>
+    <a class="image"><img alt="OHLCV Graph Gallery Tutorial 2.png" src="../images/Open-High-Low-Close-Volume_Stock_Chart/OHLCV_Graph_Gallery_Tutorial_2.png" width="802"></a></li>
+
+    <li>Wählen Sie bei aktiviertem Layer 2 im Menü <b>Grafik: Legende: Kategoriale Werte</b>. Übernehmen Sie im geöffneten Dialog die Standardeinstellungen und klicken Sie auf <b>OK</b>. Es wird eine Legende zum Diagramm hinzugefügt. Markieren Sie die Legende, um den Legendenrahmen zu zeigen, drücken Sie die <b>Strg</b>-Taste und ziehen Sie an dem Rahmen, so dass die Legendenelemente in einer Zeile angeordnet werden können.</li>
+
+    <li>Passen Sie Größe und Position des Legendenfelds nach Bedarf an. Das Diagramm sollte am Ende folgendermaßen aussehen.</li>
+
+    <li style="list-style: none">
+      <p><a class="image"><img alt="OHLCV Graph Gallery Tutorial 4.png" src="../images/Open-High-Low-Close-Volume_Stock_Chart/OHLCV_Graph_Gallery_Tutorial_4.png" width="598"></a></p>
+    </li>
+  </ol>

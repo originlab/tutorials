@@ -1,0 +1,107 @@
+﻿<h1 class="firstHeading">Konturdiagramm in Projektionen einer Kugeloberfläche</h1>
+
+  <p class='urlname' style='display: none'>Sphere-Surface-Projections-NetCDF</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2">
+        <a href="#Steps"><span class="tocnumber">2</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-3"><a href="#Create_NetCDF_data-based_plot_on_a_Sphere_Surface_Projection"><span class="tocnumber">2.1</span> <span class="toctext">Eine auf NetCDF-Daten basierende Zeichnung auf einer kugelförmigen Oberflächenprojektion erstellen</span></a></li>
+
+          <li class="toclevel-2 tocsection-4"><a href="#Customize_Levels.2C_Lines_and_Color_Map"><span class="tocnumber">2.2</span> <span class="toctext">Ebenen, Linien und Farbpalette benutzerdefiniert anpassen</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Add_Map_Lines_and_Grid_line"><span class="tocnumber">2.3</span> <span class="toctext">Kartenlinien und Gitternetzlinien hinzufügen</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Wenn Sie globale NetCDF-Daten importieren, zum Beispiel globale Temperaturdaten, können Sie ein Konturdiagramm in einer kugelförmigen Oberflächenprojektion erstellen.</p>
+
+  <p><a class="image"><img alt="NetCDF on Sphere Surface Projections 01.png" src="../images/Sphere_Surface_Projections_from_NetCDF_data/NetCDF_on_Sphere_Surface_Projections_01.png" width="780"></a></p>
+
+  <p>&#160;</p>
+
+  <p class="version">Origin-Version mind. erforderlich: 2016 SR0</p>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <h3><a name="Create_NetCDF_data-based_plot_on_a_Sphere_Surface_Projection"></a><span class="mw-headline">Eine auf NetCDF-Daten basierende Zeichnung auf einer kugelförmigen Oberflächenprojektion erstellen</span></h3>
+
+  <ol>
+    <li>Öffnen Sie <a class="external text" href="http://blog.originlab.com/wp-content/uploads/2021/07/NetCDF_on_Sphere_Surface_Projections.zip" target="_blank">diese Projektdatei</a> mit einer NetCDF-Datenmatrix.</li>
+
+    <li>Aktivieren sie die Matrix und fügen Sie vier neue Matrixobjekte zum gleichen Matrixblatt hinzu.<br>
+    <a class="image"><img alt="NetCDF on Sphere Surface Projections 02.png" src="../images/Sphere_Surface_Projections_from_NetCDF_data/NetCDF_on_Sphere_Surface_Projections_02.png" width="764"></a></li>
+
+    <li>Klicken Sie doppelt auf die <b>Bildauswahl</b>, um dieses Matrixobjekt umzubenennen in: <i>Lon</i>, <i>Lat</i>, <i>x</i> und <i>y</i>.<br>
+    <a class="image"><img alt="NetCDF on Sphere Surface Projections 03.png" src="../images/Sphere_Surface_Projections_from_NetCDF_data/NetCDF_on_Sphere_Surface_Projections_03.png" width="544"></a></li>
+
+    <li>Aktivieren Sie jede Matrix, klicken Sie auf die Schaltfläche <b>Eigenschaften</b> auf der Minisymbolleiste und wählen Sie <b>Werte setzen</b>. Geben Sie im Dialog <b>Werte setzen</b> jeweils folgende Formeln ein:
+      <pre class="lt" style="font-family:monospace;">
+<span style="color: #008000;">//Lon object</span> x<span style="color: #000080;">*</span>pi<span style="color: #000080;">/</span><span style="color: #0000dd;">180</span> <span style="color: #008000;">//Lat object</span> y<span style="color: #000080;">*</span>pi<span style="color: #000080;">/</span><span style="color: #0000dd;">180</span> <span style="color: #008000;">//x object</span> <span style="color: #0000dd;">3</span><span style="color: #000080;">*</span>Mat<span style="color: #000000;">(</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span><span style="color: #000080;">/</span><span style="color: #0000dd;">2</span> <span style="color: #000080;">*</span> sqrt<span style="color: #000000;">(</span><span style="color: #0000dd;">1.0</span><span style="color: #000080;">/</span><span style="color: #0000dd;">3</span> <span style="color: #000080;">-</span> <span style="color: #000000;">(</span>Mat<span style="color: #000000;">(</span><span style="color: #0000dd;">3</span><span style="color: #000000;">)</span><span style="color: #000080;">/</span>pi<span style="color: #000000;">)</span><span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span> <span style="color: #008000;">//y object </span> Mat<span style="color: #000000;">(</span><span style="color: #0000dd;">3</span><span style="color: #000000;">)</span>
+</pre>
+
+      <p><a class="image"><img alt="NetCDF on Sphere Surface Projections 04.png" src="../images/Sphere_Surface_Projections_from_NetCDF_data/NetCDF_on_Sphere_Surface_Projections_04.png" width="758"></a></p>
+    </li>
+
+    <li>Wählen Sie die erste Matrix in <b>MBook1</b> und wählen Sie <b>Zeichnen &gt; Kontur: Kontur - Farbfüllung</b> im Hauptmenü.<br>
+    <a class="image"><img alt="NetCDF on Sphere Surface Projections 05.png" src="../images/Sphere_Surface_Projections_from_NetCDF_data/NetCDF_on_Sphere_Surface_Projections_05.png" width="800"></a></li>
+
+    <li>Klicken Sie zum Öffnen des Dialogs <b>Details Zeichnung</b> doppelt auf das Diagramm. Navigieren Sie zur Registerkarte <b>Kontur-Info</b>, wählen Sie <b>[MBook1]air!4"x"]</b> und <b>[MBook1]air!5"y"]</b> in der Auswahlliste <b>X-Koordinaten</b> und <b>Y-Koordinaten</b>.<br>
+    <a class="image"><img alt="NetCDF on Sphere Surface Projections 06.png" src="../images/Sphere_Surface_Projections_from_NetCDF_data/NetCDF_on_Sphere_Surface_Projections_06.png" width="611"></a></li>
+
+    <li>Wählen Sie <b>Layer1</b> im linken Bedienfeld und gehen Sie zur Registerkarte <b>Anzeige/Geschwindigkeit</b>. Deaktivieren Sie die Kontrollkästchen <b>X-Achsen</b> und <b>Y-Achsen</b> unter <b>Elemente zeigen</b>. Klicken Sie auf <b>OK</b>, um die Einstellungen zu speichern.<br>
+    <a class="image"><img alt="NetCDF on Sphere Surface Projections 07.png" src="../images/Sphere_Surface_Projections_from_NetCDF_data/NetCDF_on_Sphere_Surface_Projections_07.png" width="828"></a></li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Neu skalieren</b>.</li>
+
+    <li>Löschen Sie die Achsentitel und den Titel der Farbskala. Das Diagramm sollte am Ende folgendermaßen aussehen.<br>
+    <a class="image"><img alt="NetCDF on Sphere Surface Projections 08.png" src="../images/Sphere_Surface_Projections_from_NetCDF_data/NetCDF_on_Sphere_Surface_Projections_08.png" width="630"></a></li>
+  </ol>
+
+  <h3><a name="Customize_Levels.2C_Lines_and_Color_Map"></a><span class="mw-headline">Ebenen, Linien und Farbpalette benutzerdefiniert anpassen</span></h3>
+
+  <ol>
+    <li>Klicken Sie auf das Konturdiagramm und dann auf die Schaltfläche <b>Konturstil</b> auf der Minisymbolleiste. Wählen Sie <b>Farbskala ohne Konturlinie</b>.<br>
+    <a class="image"><img alt="NetCDF on Sphere Surface Projections 09.png" src="../images/Sphere_Surface_Projections_from_NetCDF_data/NetCDF_on_Sphere_Surface_Projections_09.png" width="630"></a><br></li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Ebenen festlegen</b> auf der Minisymbolleiste. Klicken Sie auf die Schaltfläche <b>Ebenen festlegen</b> und setzen Sie die <b>Hauptebenen</b> auf <b>16</b> und die <b>Nebenebenen</b> auf <b>16</b>. Klicken Sie auf <b>OK</b>.<br>
+    <a class="image"><img alt="NetCDF on Sphere Surface Projections 10.png" src="../images/Sphere_Surface_Projections_from_NetCDF_data/NetCDF_on_Sphere_Surface_Projections_10.png" width="800"></a><br></li>
+
+    <li>Klicken Sie auf das Konturdiagramm und dann auf die Schaltfläche <b>Paletten</b> auf der Minisymbolleiste. Wählen Sie dann die Palette <b>Surface</b> in der Auswahlliste.<br>
+    <a class="image"><img alt="NetCDF on Sphere Surface Projections 11.png" src="../images/Sphere_Surface_Projections_from_NetCDF_data/NetCDF_on_Sphere_Surface_Projections_11.png" width="664"></a><br>
+    Sie erhalten dann ein Konturdiagramm ähnlich dem folgenden:<br>
+    <a class="image"><img alt="NetCDF on Sphere Surface Projections 12.png" src="../images/Sphere_Surface_Projections_from_NetCDF_data/NetCDF_on_Sphere_Surface_Projections_12.png" width="671"></a></li>
+  </ol>
+
+  <p>&#160;</p>
+
+  <h3><a name="Add_Map_Lines_and_Grid_line"></a><span class="mw-headline">Kartenlinien und Gitternetzlinien hinzufügen</span></h3>
+
+  <p>In der Arbeitsmappe gibt es Breiten- und Längengraddaten sowie Gitternetzliniendaten. Zuerst konvertieren wir diese in eine kugelförmige Oberfläche.</p>
+
+  <ol>
+    <li>Fügen Sie zwei Spalten als Spalte C und D ein, geben Sie in die Spaltenbeschriftungszeile der Formel F(x) <i><b>3 * A * pi / 180 / 2 * sqrt(1/3 - (B / 180)^2)</b></i> für Col(C) ein und dann <i><b>B * pi / 180</b></i> für Col(D).</li>
+
+    <li>Fügen Sie zwei Spalten als Spalte G und H ein, geben Sie in die Spaltenbeschriftungszeile der Formel F(x) <i><b>3 * E * pi / 180 / 2 * sqrt(1/3 - (F / 180)^2)</b></i> für Col(G) ein und dann <i><b>F * pi / 180</b></i> für Col(H).</li>
+
+    <li>Setzen Sie Col(C) und Col(G) auf <b>X</b>.<br>
+    <a class="image"><img alt="NetCDF on Sphere Surface Projections 13.png" src="../images/Sphere_Surface_Projections_from_NetCDF_data/NetCDF_on_Sphere_Surface_Projections_13.png" width="850"></a></li>
+
+    <li>Markieren Sie Col(D) und Col(H) und ziehen Sie sie per Drag&amp;Drop in das Konturdiagramm. Klicken Sie doppelt auf das Diagramm, um den Dialog <b>Details Zeichnung</b> zu öffnen, und setzen Sie den <b>Stil</b> der <i>Gitternetzlinien</i> auf <b>Strich</b>.<br>
+    <a class="image"><img alt="NetCDF on Sphere Surface Projections 14.png" src="../images/Sphere_Surface_Projections_from_NetCDF_data/NetCDF_on_Sphere_Surface_Projections_14.png" width="802"></a></li>
+
+    <li>Entfernen Sie die Legende für die Linien. Sie erhalten dann ein Konturdiagramm ähnlich dem folgenden:<br>
+    <a class="image"><img alt="NetCDF on Sphere Surface Projections 01.png" src="../images/Sphere_Surface_Projections_from_NetCDF_data/NetCDF_on_Sphere_Surface_Projections_01.png" width="780"></a></li>
+  </ol>

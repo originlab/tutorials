@@ -1,0 +1,216 @@
+﻿<h1 class="firstHeading">Anpassung mit stückweisen Funktionen</h1>
+
+  <table id="toc" class="toc" summary="Contents">
+    <tr>
+      <td>
+        <div id="toctitle">
+          <h2>Inhalt</h2>
+        </div>
+
+        <ul>
+          <li class="toclevel-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+          <li class="toclevel-1"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+          <li class="toclevel-1">
+            <a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">Beispiele und Schritte</span></a>
+
+            <ul>
+              <li class="toclevel-2"><a href="#Define_the_Function"><span class="tocnumber">3.1</span> <span class="toctext">Definieren der Funktion</span></a></li>
+
+              <li class="toclevel-2"><a href="#Fit_the_Curve"><span class="tocnumber">3.2</span> <span class="toctext">Anpassen der Kurve</span></a></li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <p>&#160;</p><a name="Summary"></a>
+
+  <h2><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Wir zeigen Ihnen in diesem Tutorial, wie Sie stückweise Anpassungsfunktionen definieren.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: 8.0 SR6</p><a name="What_you_will_learn"></a>
+
+  <h2><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>Stückweise (bedingte) Anpassungsfunktionen definieren.</li>
+  </ul><a name="Example_and_Steps"></a>
+
+  <h2><span class="mw-headline">Beispiel und Schritte</span></h2>
+
+  <p>Starten Sie dieses Tutorial, indem Sie die Datei \<i>Samples</i>\<i>Curve Fitting</i>\<i>Exponential Decay</i>.<i>dat</i> importieren. Markieren Sie die Spalte D und zeichnen Sie ein Punktdiagramm. Diese Kurve kann mit vielen Standardfunktionen der Kategorie Growth/Sigmoidal angepasst werden. In diesem Tutorial teilen wir die Kurve jedoch in zwei Teile mit einer stückweisen Funktion.</p>
+
+  <dl>
+    <dd><img alt="image:Tutorial_Fitting_with_Piecewise_Functions_001.png" src="../images/Fitting_with_Piecewise_Functions/Tutorial_Fitting_with_Piecewise_Functions_001.png" width="279" height="196" border="0"></dd>
+  </dl>
+
+  <p>Die Gleichung ist daher:</p>
+
+  <dl>
+    <dd></dd>
+  </dl><a name="Define_the_Function"></a>
+
+  <h3><span class="mw-headline">Definieren der Funktion</span></h3>
+
+  <p>Drücken Sie <b>F9</b>, um den <b>Fit-Funktions-Manager</b> zu öffnen und eine Funktion zu definieren:</p>
+
+  <dl>
+    <dd>
+      <table class="blank">
+        <tr>
+          <th width="150"></th>
+
+          <th></th>
+        </tr>
+
+        <tr>
+          <td><b>Funktionsname:</b></td>
+
+          <td>piecewise</td>
+        </tr>
+
+        <tr>
+          <td><b>Funktionstyp:</b></td>
+
+          <td>Benutzerdefiniert</td>
+        </tr>
+
+        <tr>
+          <td><b>Unabhängige Variable:</b></td>
+
+          <td>x</td>
+        </tr>
+
+        <tr>
+          <td><b>Abhängige Variable:</b></td>
+
+          <td>y</td>
+        </tr>
+
+        <tr>
+          <td><b>Parameternamen:</b></td>
+
+          <td>xc, a, b, t1</td>
+        </tr>
+
+        <tr>
+          <td><b>Funktionsform:</b></td>
+
+          <td><font color="blue">Origin C</font></td>
+        </tr>
+
+        <tr>
+          <td><b>Funktion:</b></td>
+
+          <td></td>
+        </tr>
+      </table>
+    </dd>
+  </dl>
+
+  <p>Klicken Sie auf die Schaltfläche <img alt="Image:User-Defined Fitting Functions-2.png" src="../images/Fitting_with_Piecewise_Functions/User-Defined_Fitting_Functions-2.png" width="19" height="25" border="0"> rechts vom Bearbeitungsfeld der <b>Funktion</b> und definieren Sie die Anpassungsfunktion im Code Builder mit:</p>
+  <pre class="oc">
+<span class="hcp1">void</span> _nlsfpiecewise<span class="hcp2">(</span>
+<span class="hcp3">// Fit Parameter(s):</span>
+<span class="hcp1">double</span> xc, <span class="hcp1">double</span> a, <span class="hcp1">double</span> b, <span class="hcp1">double</span> t1,
+<span class="hcp3">// Independent Variable(s):</span>
+<span class="hcp1">double</span> x,
+<span class="hcp3">// Dependent Variable(s):</span>
+<span class="hcp1">double</span><span class="hcp4">&amp;</span> y<span class="hcp2">)</span>
+<span class="hcp2">{</span>
+        <span class="hcp3">// Beginning of editable part</span>
+        <span class="hcp3">// Divide the curve by if condition.</span>
+        <span class="hcp1">if</span><span class="hcp2">(</span>x<span class="hcp5">&lt;</span>xc<span class="hcp2">)</span> <span class="hcp2">{</span>
+                y <span class="hcp5">=</span> a<span class="hcp4">+</span>b<span class="hcp4">*</span>x<span class="hcp4">+</span><span class="hcp2">exp</span><span class="hcp2">(</span><span class="hcp4">-</span><span class="hcp2">(</span>x<span class="hcp4">-</span>xc<span class="hcp2">)</span><span class="hcp4">/</span>t1<span class="hcp2">)</span>;
+        <span class="hcp2">}</span> <span class="hcp1">else</span> <span class="hcp2">{</span>
+                y <span class="hcp5">=</span> a<span class="hcp4">+</span>b<span class="hcp4">*</span>x;
+        <span class="hcp2">}</span>
+        <span class="hcp3">// End of editable part</span>
+<span class="hcp2">}</span>
+</pre><a name="Fit_the_Curve"></a>
+
+  <h3><span class="mw-headline">Anpassen der Kurve</span></h3>
+
+  <p>Drücken Sie <b>Strg + Y</b>, um das Dialogfeld NLFit bei aktiver Grafikseite aufzurufen. Wählen Sie die Funktion <i>piecewise</i>, die wir definiert haben, und initialisieren Sie die Parameterwerte mit:</p>
+
+  <dl>
+    <dd>
+      <table class="blank">
+        <tr>
+          <th width="20"></th>
+
+          <th></th>
+        </tr>
+
+        <tr>
+          <td><b>xc:</b></td>
+
+          <td>1</td>
+        </tr>
+
+        <tr>
+          <td><b>a:</b></td>
+
+          <td>1</td>
+        </tr>
+
+        <tr>
+          <td><b>b:</b></td>
+
+          <td>-1</td>
+        </tr>
+
+        <tr>
+          <td><b>t1:</b></td>
+
+          <td>0,1</td>
+        </tr>
+      </table>
+    </dd>
+  </dl>
+
+  <p>Klicken Sie auf die Schaltfläche <b>Fit</b>, um die Ergebnisse zu erzeugen.</p>
+
+  <dl>
+    <dd>
+      <table class="blank">
+        <tr>
+          <th width="20"></th>
+
+          <th></th>
+        </tr>
+
+        <tr>
+          <td><b>xc:</b></td>
+
+          <td>0,24</td>
+        </tr>
+
+        <tr>
+          <td><b>a:</b></td>
+
+          <td>36,76585</td>
+        </tr>
+
+        <tr>
+          <td><b>b:</b></td>
+
+          <td>-24,62876</td>
+        </tr>
+
+        <tr>
+          <td><b>t1:</b></td>
+
+          <td>0,04961</td>
+        </tr>
+      </table>
+    </dd>
+  </dl>
+
+  <p>Beachten Sie, dass diese Funktion auf <i>xc</i> und <i>t1</i> reagiert, d.h., unterschiedliche Initialisierungswerte können unterschiedliche Ergebnisse erzeugen.</p>

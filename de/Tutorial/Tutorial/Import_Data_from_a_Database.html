@@ -1,0 +1,186 @@
+﻿<h1 class="firstHeading">Daten aus einer Datenbank importieren</h1>
+
+  <p class='urlname' style='display: none'>ImpData-from-DB</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Contents</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Import_data_using_SQL_Editor"><span class="tocnumber">3.1</span> <span class="toctext">Daten mit dem SQL-Editor importieren</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Reimport_from_Database"><span class="tocnumber">3.2</span> <span class="toctext">Aus Datenbank erneut importieren</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#LabTalk_Support_in_SQL_Editor"><span class="tocnumber">3.3</span> <span class="toctext">LabTalk-Unterstützung im SQL-Editor</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Import_Data_from_a_Database/Alert_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Die in diesem Tutorial verwendete Datenbank wurde auf Microsoft Azure eingerichtet.</p>
+      </td>
+    </tr>
+  </table>
+
+  <p>Dieses Tutorial zeigt, wie eine Verbindung zu einem SQL-Server hergestellt wird und die gewünschten Daten mit Origins SQL-Editor aus festgelegten Tabellen extrahiert werden, wie eine LabTalk-Variable in SQL-Skript zur einfachen Modifizierung definiert und die Verbindung bzw. die Verbindung plus Abfrage zur zukünftigen Verwendung gespeichert werden.</p>
+
+  <p>Das Vorgehen basiert auf Origin 2023b.</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>Daten aus einer Datenbank importieren.</li>
+
+    <li>Daten erneut importieren.</li>
+
+    <li>LabTalk-Unterstützung im SQL-Editor</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <h3><a name="Import_data_using_SQL_Editor"></a><span class="mw-headline">Daten mit dem SQL-Editor importieren</span></h3>
+
+  <ol>
+    <li>Öffnen Sie ein neues Arbeitsblatt. Wählen Sie im Menü <b>Daten: Mit Datenbank verbinden: Neu ...</b>. Wählen Sie im Dialog <b>Datenbankkonnektor</b> die Option <b>ODBC-Treiber</b> und klicken Sie auf <b>OK</b>.</li>
+
+    <li style="list-style: none">
+      <p><a class="image"><img alt="NewDB1.png" src="../images/Import_Data_from_a_Database/NewDB1.png" width="336"></a><br>
+      <br>
+      <a class="image"><img alt="NewDB2.png" src="../images/Import_Data_from_a_Database/NewDB2.png" width="332"></a></p>
+    </li>
+
+    <li>Erstellen Sie die Verbindung zu einer Beispieldatenbank. Legen Sie die Serverinformationen fest, einschließlich den Login-Benutzernamen und das Passwort mit den untenstehenden Einstellungen:
+      <pre class="sql" style="font-family:monospace;">
+Server Driver<span style="color: #66cc66;">=</span>ODBC Driver <span style="color: #cc66cc;">18</span> <span style="color: #993333; font-weight: bold;">FOR</span> <span style="color: #993333; font-weight: bold;">SQL</span> Server; Server<span style="color: #66cc66;">=</span>olab<span style="color: #66cc66;">.</span><span style="color: #993333; font-weight: bold;">DATABASE</span><span style="color: #66cc66;">.</span>windows<span style="color: #66cc66;">.</span>net; Port<span style="color: #66cc66;">=</span><span style="color: #cc66cc;">1433</span>; <span style="color: #993333; font-weight: bold;">USER</span> Name<span style="color: #66cc66;">=</span>Olabts; Password<span style="color: #66cc66;">=</span>Origin@2024;
+</pre>
+
+      <p><a class="image"><img alt="NewDB3.png" src="../images/Import_Data_from_a_Database/NewDB3.png" width="331"></a><br>
+      <br>
+      Klicken Sie auf <b>Verbindung testen</b>, um sicherzustellen, dass die Verbindung erfolgreich besteht.</p>
+
+      <table class="noborder">
+        <tr>
+          <td style="vertical-align:top" width="60"><img src="../images/Import_Data_from_a_Database/Alert_icon.png" width="57" border="0" alt=""></td>
+
+          <td>
+            <p>Sollte das Verbinden zur Datenbank fehlschlagen, gehen Sie zu <a class="external text" href="https://learn.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver16" target="_blank">dieser</a> Seite, um den neuesten ODBC-SQL-Treiber herunterzuladen und zu installieren.</p>
+          </td>
+        </tr>
+      </table>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <a class="image"><img alt="NewDB5.png" src="../images/Import_Data_from_a_Database/NewDB5.png" width="21"></a> rechts vom Datenbankeintrag und stellen Sie sicher, dass die Datenbank <b>Beispiel1</b> gezeigt wird.<br>
+    Klicken Sie auf die Schaltfläche <b>OK</b>, um den Dialog <b>SQL-Editor</b> zu öffnen.<br></li>
+
+    <li>Alle Tabellen in der Datenbank werden im linken Bedienfeld aufgelistet.<br>
+      <a class="image"><img alt="NewDB4.png" src="../images/Import_Data_from_a_Database/NewDB4.png" width="709"></a><br>
+      <br>
+      <i>Wählen Sie im Menü <b>Datei: Verbindungszeichenkette zeigen</b>. Die Verbindungszeichenkette wird im Nachrichtenfeld unten gezeigt. Alternativ können Sie diese Verbindungszeichenkette in Schritt 2 verwenden, um die Verbindung herzustellen.<br></i>
+      <pre class="sql" style="font-family:monospace;">
+Driver<span style="color: #66cc66;">=</span><span style="color: #66cc66;">{</span>ODBC Driver <span style="color: #cc66cc;">18</span> <span style="color: #993333; font-weight: bold;">FOR</span> <span style="color: #993333; font-weight: bold;">SQL</span> Server<span style="color: #66cc66;">}</span>;Server<span style="color: #66cc66;">=</span>olab<span style="color: #66cc66;">.</span><span style="color: #993333; font-weight: bold;">DATABASE</span><span style="color: #66cc66;">.</span>windows<span style="color: #66cc66;">.</span>net;Port<span style="color: #66cc66;">=</span><span style="color: #cc66cc;">1433</span>;<span style="color: #993333; font-weight: bold;">DATABASE</span><span style="color: #66cc66;">=</span>sample1;Uid<span style="color: #66cc66;">=</span>olabts;Pwd<span style="color: #66cc66;">=</span>Origin@2024;
+</pre>
+    </li>
+
+    <li>Wählen Sie <b>Datei: Verbindung speichern unter</b>, um die Datenquelldatei als <i>MyDataSource.ods</i> zu speichern.</li>
+
+    <li>Jetzt extrahieren Sie Daten aus der Tabelle <b>Product</b>, um die Produktliste zu erstellen. Sie können das SQL-Skript neu schreiben. Klicken Sie doppelt auf den Knoten im linken Bedienfeld. Sie erhalten Unterstützung beim Hinzufügen der Tabelle und des Feldnamens im Editor. Erstellen Sie die Abfrage, indem Sie dem Video unten folgen, oder kopieren Sie das folgende SQL-Skript im rechten Bedienfeld.<br>
+      <pre class="sql" style="font-family:monospace;">
+<span style="color: #993333; font-weight: bold;">SELECT</span> Name <span style="color: #66cc66;">,</span>ListPrice <span style="color: #66cc66;">,</span>SellStartDate <span style="color: #66cc66;">,</span>SellEndDate <span style="color: #66cc66;">,</span>ThumbNailPhoto <span style="color: #993333; font-weight: bold;">FROM</span> SalesLT<span style="color: #66cc66;">.</span>Product
+</pre>
+
+      <p><a class="image"><img alt="NewDB6.gif" src="../images/Import_Data_from_a_Database/NewDB6.gif" width="934"></a></p>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Ergebnisdaten in Vorschau zeigen</b> <a class="image"><img alt="SQL editor preview.png" src="../images/Import_Data_from_a_Database/SQL_editor_preview.png" width="25"></a>, um die Daten in der Vorschau zu sehen. Wählen Sie <b>Datei: Verbindung und Abfrage speichern unter</b> im Menü, um die Verbindung und die Abfrage als <i>MyQuery.odq</i> zu speichern. Zukünftig können Sie die Verbindungseinstellungen und das Abfrageskript im Menü <b>Daten: Mit Datenbank verbinden: MyQuery.odq</b> laden.</li>
+
+    <li style="list-style: none">.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>OK</b>, um die Datei zu importieren. Sobald sie importiert wurden, wird das Arbeitsblatt mit dem Datenblatt verbunden und ein gelbes Symbol wird oben links im Arbeitsblatt angezeigt.<br>
+    <a class="image"><img alt="NewDB7.png" src="../images/Import_Data_from_a_Database/NewDB7.png" width="741"></a></li>
+  </ol>
+
+  <h3><a name="Reimport_from_Database"></a><span class="mw-headline">Aus Datenbank erneut importieren</span></h3>
+
+  <p>Nachdem die Daten importiert sind, werden die Verbindung und die Abfrage automatisch im Datenkonnektor gespeichert. Sie können auf die Schaltfläche <b>Datenbankkonnektor</b> <a class="image"><img alt="DBConnector.png" src="../images/Import_Data_from_a_Database/DBConnector.png" width="20"></a> klicken und <b>Importieren</b> auswählen, um Daten aus der Datenbank erneut zu importieren. Versuchen Sie die folgenden Schritte.</p>
+
+  <ol>
+    <li>Klicken Sie auf <a class="image"><img alt="DBConnector.png" src="../images/Import_Data_from_a_Database/DBConnector.png" width="20"></a> und wählen Sie <b>Importierte Daten entsperren</b>.</li>
+
+    <li>Löschen Sie oder verändern Sie einige Daten im Arbeitsblatts.</li>
+
+    <li>Klicken Sie auf <a class="image"><img alt="DBConnector.png" src="../images/Import_Data_from_a_Database/DBConnector.png" width="20"></a> und wählen Sie <b>Importieren</b>. Die Daten sollten zurück sein.</li>
+
+    <li>Um die Abfrage bei aktivem Arbeitsblatt zu modifizieren, klicken Sie auf <a class="image"><img alt="DBConnector.png" src="../images/Import_Data_from_a_Database/DBConnector.png" width="20"></a> und wählen Sie <b>SQL-Editor</b>.</li>
+
+    <li>Um eine neue SQL-Abfrage für die gleiche Datenbank einzurichten, tun Sie eines der folgenden Dinge:
+
+      <ul>
+        <li>Duplizieren Sie die Arbeitsmappe (<b>Fenster: Duplizieren</b>). Klicken Sie in der neuen Mappe auf <a class="image"><img alt="DBConnector.png" src="../images/Import_Data_from_a_Database/DBConnector.png" width="20"></a> und wählen Sie den SQL-Editor, um die Abfrage zu bearbeiten.</li>
+
+        <li>Öffnen Sie eine neue Arbeitsmappe. Wählen Sie <b>Daten: Mit Datenbank verbinden</b>. Alle gespeicherten ODS- und ODQ-Dateien werden hier aufgelistet.</li>
+      </ul>
+    </li>
+
+    <li>Wählen Sie MyQuery.ODQ. Der Dialog Datenbankeditor wird mit der gespeicherten SQL-Abfrage geöffnet. Klicken Sie zum Importieren auf die Schaltfläche <b>OK</b>.</li>
+  </ol>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Import_Data_from_a_Database/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Per Standard werden die importierten Daten nicht mit dem Projekt (OPJU-Datei) gespeichert, da die große Datenbank die OPJU-Datei riesig machen kann. Wenn Sie die Daten mit dem Projekt speichern möchten, klicken Sie auf <a class="image"><img alt="DBConnector.png" src="../images/Import_Data_from_a_Database/DBConnector.png" width="20"></a> und deaktivieren Sie <b>Importierte Daten beim Speichern ausschließen</b>. Speichern Sie dann das Projekt.</p>
+      </td>
+    </tr>
+  </table>
+
+  <h3><a name="LabTalk_Support_in_SQL_Editor"></a><span class="mw-headline">LabTalk-Unterstützung im SQL-Editor</span></h3>
+
+  <p>Jetzt nehmen Sie Änderungen an der SQL-Abfrage vor, um nur die Produkte mit einem Teilepreise von weniger als $10 zu erhalten. In diesem Abschnitt erfahren Sie, wie eine numerische Labtalk-Variable des Preises mit der Bedingung definiert wird, so dass es in Zukunft einfacher ist, die Abfrage zu ändern.</p>
+
+  <ol>
+    <li>Klicken Sie auf <a class="image"><img alt="DBConnector.png" src="../images/Import_Data_from_a_Database/DBConnector.png" width="20"></a> und wählen Sie <b>SQL-Editor</b>.</li>
+
+    <li>Um einen numerische LabTalk-Variable hinzuzufügen, wählen Sie <b>Anfrage: LabTalk...</b>, um den Dialog <b>Einstellungen der Unterstützung von LabTalk</b> zu öffnen.<br>
+    <a class="image"><img alt="Db LT Script1.png" src="../images/Import_Data_from_a_Database/Db_LT_Script1.png" width="532"></a></li>
+
+    <li>Aktivieren Sie das Kontrollkästchen <b>Substitution durch LabTalk (%,$) aktivieren</b>.</li>
+
+    <li>Geben Sie das folgende Skript:
+      <pre class="lt" style="font-family:monospace;">
+double priceToCompare <span style="color: #000080;">=</span> <span style="color: #0000dd;">10</span>;
+</pre>in das Feld <b>Skript vor Anfrage</b> ein, um die numerische LabTalk-Variable <b>priceToCompare</b> zu definieren. Klicken Sie auf <b>OK</b>.<br>
+      <a class="image"><img alt="Db LT Script2.png" src="../images/Import_Data_from_a_Database/Db_LT_Script2.png" width="532"></a>
+    </li>
+
+    <li>Fügen Sie am Ende des SQL-Skripts im rechten Bedienfeld Folgendes hinzu:
+      <pre class="sql" style="font-family:monospace;">
+<span style="color: #993333; font-weight: bold;">WHERE</span> ListPrice <span style="color: #66cc66;">&lt;</span> $<span style="color: #66cc66;">(</span>priceToCompare<span style="color: #66cc66;">)</span>
+</pre>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <a class="image"><img alt="Db editor labtalk.png" src="../images/Import_Data_from_a_Database/Db_editor_labtalk.png" width="23"></a>, um eine Vorschau der SQL-Abfragezeichenkette mit substituierter LabTalk-Variable im Feld des SQL-Editors anzuzeigen.<br>
+    <a class="image"><img alt="Db LT import preview.png" src="../images/Import_Data_from_a_Database/Db_LT_import_preview.png" width="686"></a></li>
+
+    <li>Klicken Sie auf <b>OK</b>, um diese Daten zu importieren.</li>
+
+    <li>Von nun an müssen Sie nur den Wert von priceToCompare im Dialog <b>Einstellungen der Unterstützung von LabTalk</b> ändern. Die SQL-Abfrage muss nicht mehr geändert werden.</li>
+  </ol>

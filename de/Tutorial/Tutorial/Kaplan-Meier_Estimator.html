@@ -1,0 +1,162 @@
+﻿<h1 class="firstHeading">Kaplan-Meier-Schätzer</h1>
+
+  <p class='urlname' style='display: none'>Kaplan-Meier-Estimator</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Running_Kaplan-Meier_Estimator"><span class="tocnumber">3.1</span> <span class="toctext">Kaplan-Meier-Schätzer ausführen</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Interpreting_the_Results"><span class="tocnumber">3.2</span> <span class="toctext">Ergebnisse interpretieren</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/Kaplan-Meier_Estimator/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/Kaplan-Meier_Estimator/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=44" target="_blank">Lebensdaueranalyse</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%"><a class="image"><img alt="Website blog icon circle.png" src="../images/Kaplan-Meier_Estimator/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Kaplan-Meier_Estimator/Blog_Image_33x33px.png" width="135"></a></td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Die Lebensdaueranalyse ist die Untersuchung der Zeit bis zu einem bestimmten Ereignis, z.B. dem Eintritt des Todes oder dem Fehlschlagen einer Behandlung. Im Bereich der empirischen Sozialwissenschaften wird sie als Verweildaueranalyse oder auch Verlaufsdaten- oder Ereignisanalyse bezeichnet, im Bereich der Ingenieurwissenschaften als Zuverlässigkeitsanalyse.</p>
+
+  <p>Die Überlebensfunktion S(t) kann die Überlebensrate zum Zeitpunkt t beschreiben. Außerdem ist S(t) = 1-F(f), wobei F(t) die kumulative Verteilungsfunktion der Ausfallzeiten ist. Die Hazardfunktion h(t) (auch bekannt als Ausfallrate, Hazardrate oder Force of Mortality) ist das Verhältnis der Wahrscheinlichkeitsdichtefunktion P(t) von F(t) zur Überlebenszeitfunktion S(t).</p>
+
+  <p>Mit dem Kaplan–Meier- oder auch Produkt-Limit-Schätzer ist eine Schätzung von S(t) und h(t) aus einer Stichprobe von Ausfallzeiten möglich, die zunehmend rechtszensiert sein können.</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>Kaplan-Meier-Schätzung durchführen</li>
+
+    <li>Wie diese Ergebnisse zu interpretieren sind</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <h3><a name="Running_Kaplan-Meier_Estimator"></a><span class="mw-headline">Kaplan-Meier-Schätzer ausführen</span></h3>
+
+  <p>Wissenschaftler suchen nach einem besseren Medikament zur Unterstützung der Widerstandsfähigkeit gegen Krebs. Nachdem Ratten krebserregendem DMBA ausgesetzt wurden, wurden verschiedene Medikamente an unterschiedlichen Gruppen von Ratten getestet und ihr Überlebensstatus für die ersten 60 Stunden erfasst. In der ersten Gruppe, die mit Medikament 1 behandelt worden war, überlebten 15 Ratten, nachdem sie DMBA ausgesetzt waren. Beachten Sie, dass 1 Ratte in der 30. Stunde zwar starb, allerdings nicht an einem Karzinom. In der zweiten mit Medikament 2 behandelten Gruppe überlebten 15 Ratten. Beachten Sie, dass in der 14. Stunde, 15.Stunde und 25. Stunde jeweils 1 Ratte starb, allerdings nicht an einem Karzinom. Die Aufzeichnungen der zwei Gruppen von Ratten sind in der Datei <b>/Samples/Statistics/SurvivedRats.dat</b> sortiert. Beachten Sie folgende Bedeutungen von Status: 0 = tot, aber nicht aufgrund eines Karzinoms, 1 = tot aufgrund eines Karzinoms, 2 = am Leben.</p>
+
+  <ol>
+    <li>Öffnen Sie ein leeres Arbeitsblatt. Wählen Sie <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b> im Menü, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner <i>Statistics</i>. Dort befindet sich die Datei <i>SurvivedRats.dat</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das leere Arbeitsblatt, um sie zu importieren.</li>
+
+    <li>Analysieren Sie den Datensatz mit Hilfe des Kaplan-Meier-Schätzers. Klicken Sie im Menü auf <b>Statistik: Lebensdaueranalyse: Kaplan-Meier-Schätzer</b>, um das Dialogfeld zu öffnen.</li>
+
+    <li>Legen Sie die Spalten <b>A</b>, <b>B</b> und <b>C</b> als <b>Zeitbereich</b>, <b>Zensorbereich</b> bzw. <b>Gruppierungsbereich</b> auf der Registerkarte <b>Eingabe</b> fest.</li>
+
+    <li>Setzen Sie 0 und 2 als <b>Zensierungswerte</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="DOC-2411 KM01a Magenta.png" src="../images/Kaplan-Meier_Estimator/DOC-2411_KM01a_Magenta.png" width="462"></a></dd>
+      </dl>
+    </li>
+
+    <li>Aktivieren Sie in der Gruppe <b>Lebensdauertabellen</b> die Kontrollkästchen <b>Ereignis- und Zensorwertezusammenfassung</b>, <b>Überlebensschätzer</b>, <b>Quartilschätzer</b> und <b>Mittelwertschätzer</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="DOC-2411 KM01b Magenta.png" src="../images/Kaplan-Meier_Estimator/DOC-2411_KM01b_Magenta.png" width="440"></a></dd>
+      </dl>
+    </li>
+
+    <li>Aktivieren Sie die Kontrollkästchen <b>Überleben</b> ,<b>1 - Überlebensfunktion</b> und <b>Hazard</b> auf der Registerkarte <b>Überlebensdiagramme</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="DOC-2411 KM01c Magenta.png" src="../images/Kaplan-Meier_Estimator/DOC-2411_KM01c_Magenta.png" width="353"></a></dd>
+      </dl>
+    </li>
+
+    <li>Aktivieren Sie das Kontrollkästchen <b>Log-Rang</b>, <b>Breslow</b> und <b>Tarone-Ware</b> auf der Registerkarte <b>Gleichheitstest</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="DOC-2411 KM01d Magenta.png" src="../images/Kaplan-Meier_Estimator/DOC-2411_KM01d_Magenta.png" width="343"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>.</li>
+  </ol>
+
+  <h3><a name="Interpreting_the_Results"></a><span class="mw-headline">Ergebnisse interpretieren</span></h3>
+
+  <p>Gehen Sie zum Arbeitsblatt <b>KaplanMeier1</b> für den Analysebericht:</p>
+
+  <ol>
+    <li>In der Tabelle "Zusammenfassung der Ereignis- und zensierten Werten" können wir sehen, dass <b>Zensiert = 3</b> und <b>Prozent zensiert</b> = 0,2 für die Gruppe Medikament 1 und <b>Zensiert = 9</b> und <b>Prozent zensiert</b> = 0,6 für die Gruppe von Medikament 2 ist.
+
+      <dl>
+        <dd><a class="image"><img alt="KM02.png" src="../images/Kaplan-Meier_Estimator/KM02.png" width="346"></a></dd>
+      </dl>
+    </li>
+
+    <li>Die Tabelle "Kaplan-Meier-Überlebensschätzer" zeigt eine deskriptive Vorgehensweise zum Untersuchen der Verteilung von den Variablen Zeit-zu-Ereignis. Wir können auch die Verteilung der Stufen einer Faktorvariablen vergleichen. Die Tabellen für <b>Quartilschätzer</b> und <b>Mittelwertschätzer</b> bieten Schätzwerte und Konfidenzintervalle von Quartil und Mittelwert.
+
+      <dl>
+        <dd><a class="image"><img alt="KM03.png" src="../images/Kaplan-Meier_Estimator/KM03.png" width="618"></a></dd>
+      </dl>
+    </li>
+
+    <li>Die Überlebenskurve bietet eine visuelle Darstellung der Lebensdauertabellen. Eine Zeichnung der Kaplan-Meier-Schätzung der Überlebensfunktion ist eine Reihe von horizontalen Stufen mit abnehmendem Betrag. In dem Diagramm fällt die Überlebenskurve schneller ab und die Überlebensrate ist kleiner. Dieses Überlebensfunktionsdiagramm zeigt den Anteile der Einzelnen, die zu jeder Stunde in der Gruppe von Medikament 1 und in der Gruppe von Medikament 2 überleben. Außerdem fällt die Überlebenskurve von Medikament immer schneller ab. Daher können wir schlussfolgern, dass sich Medikament 2 besser für den Einsatz gegen Krebs eignet.
+
+      <dl>
+        <dd><a class="image"><img alt="KM5.png" src="../images/Kaplan-Meier_Estimator/KM5.png" width="600"></a></dd>
+      </dl>
+    </li>
+
+    <li>Dieselbe Schlussfolgerung können wir mit Hilfe der 1-Überlebensfunktion aus dem Überlebensfunktionsdiagramm ziehen.
+
+      <dl>
+        <dd><a class="image"><img alt="KM6.png" src="../images/Kaplan-Meier_Estimator/KM6.png" width="600"></a></dd>
+      </dl>
+    </li>
+
+    <li>Die Hazardrate ist die Wahrscheinlichkeit, dass ein gegebenes Ereignis zu einem bestimmten Zeitpunkt auftritt. Sie kann gegen die Zeit auf der X-Achse gezeichnet werden, so dass ein Diagramm der Hazardrate über die Zeit gezeichnet wird. Die Hazardfunktion ist die Gleichung, die diese gezeichnete Linie beschreibt. Aus dem Diagramm erhalten wir die Information, dass die Hazardrate der Gruppe von Medikament 1 größer ist als die von Gruppe Medikament 2. Daher können wir schlussfolgern, dass Medikament 2 die bessere Variante gegen Krebs ist.
+
+      <dl>
+        <dd><a class="image"><img alt="KM7.png" src="../images/Kaplan-Meier_Estimator/KM7.png" width="600"></a></dd>
+      </dl>
+    </li>
+
+    <li>Zum Durchführen von Gesamttests der Gleichheit von Überlebenszeiten über Gruppen enthält Origin drei Methoden:</li>
+  </ol>
+
+  <dl>
+    <dd>
+      <ul>
+        <li>Log-Rang: Testet die Gleichheit der Überlebensfunktionen indem alle Zeitpunkte auf die gleiche Weise gewichtet werden.</li>
+
+        <li>Breslow: Testet die Gleichheit der Überlebensfunktionen, indem alle Zeitpunkte nach der Anzahl der gefährdeten Fälle zu jedem Zeitpunkt gewichtet werden.</li>
+
+        <li>Tarone-Ware: Testet die Gleichheit der Überlebensfunktionen, indem alle Zeitpunkte nach der Quadratwurzel der Anzahl der gefährdeten Fälle zu jedem Zeitpunkt gewichtet werden.</li>
+      </ul>
+    </dd>
+
+    <dd><a class="image"><img alt="KM08.png" src="../images/Kaplan-Meier_Estimator/KM08.png" width="508"></a></dd>
+
+    <dd>Da die Signifikanzwerte alle kleiner sind als 0,05, gibt es eine statistisch signifikante Differenz zwischen zwei Behandlungen (Medikament 1 und Medikament 2) in der Überlebenszeit.</dd>
+  </dl>

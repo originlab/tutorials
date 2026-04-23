@@ -1,0 +1,142 @@
+﻿<h1 class="firstHeading">Stapelverarbeitung von mehreren Dateien mit Analysevorlage</h1>
+
+  <p class='urlname' style='display: none'>AnalysisTemplate-BatchProcess</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Preparing_an_Analysis_Template_containing_a_Result_Summary_Sheet"><span class="tocnumber">3.1</span> <span class="toctext">Analysevorlage vorbereiten, die ein Blatt mit der Ergebniszusammenfassung enthält</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Performing_Batch_Processing_with_Multiple_Data_Files"><span class="tocnumber">3.2</span> <span class="toctext">Stapelverarbeitung von mehreren Datendateien durchführen</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/Analysis_Template_and_Batch_Processing/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/Analysis_Template_and_Batch_Processing/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=130" target="_blank">Einführung in die Stapelverarbeitung ohne Programmierung</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=356" target="_blank">Verbesserungen der Stapelverarbeitung in 2020b</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=269" target="_blank">'Import klonen' verwenden, um mehrere Datendateien durch Stapelverarbeitung zu verarbeiten</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=198" target="_blank">Verbesserungen der Stapelverarbeitung in Origin 2018</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=145" target="_blank">Stapelimport und Analyse von Dateigruppen</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=138" target="_blank">Mehrere Datensätze für die Stapelverarbeitung in geklonte Arbeitsmappen/-blätter importieren</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%">
+        <a class="image"><img alt="Website blog icon circle.png" src="../images/Analysis_Template_and_Batch_Processing/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Analysis_Template_and_Batch_Processing/Blog_Image_33x33px.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="http://blog.originlab.com/use-the-distributed-batch-processing-app-for-faster-batch-processing-results" target="_blank">Verwenden der App Distributed Batch Processing zur schnelleren Verarbeitung von Ergebnissen durch Erstellen von HTML-Berichten und Dokumenten in Origin 2019b</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/creating-html-reports-and-documents-in-origin-2019b" target="_blank">Erstellen von HTML-Berichten und Dokumenten in Origin 2019b</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/batch-processing-when-dragging-and-dropping-data-into-origin" target="_blank">Stapelverarbeitung beim Drag&amp;Drop von Daten in Origin</a></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Origin kann eine <b>Stapelanalyse</b> durchführen, wobei eine zuvor erstellte <b>Analysevorlage</b> verwendet wird, indem entweder mehrere Dateien importiert oder existierende Datensätze geladen werden.<br>
+  Dieses Tutorial erläutert das Importieren von mehreren Textdateien mit einer gemeinsamen Dateistruktur und die anschließende Verarbeitung dieser Dateien mit Hilfe einer Analysevorlage, die zum Durchführen einer linearen Kurvenanpassung eingerichtet wurde.</p>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Analysis_Template_and_Batch_Processing/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Auch wenn die Methode nicht so viele Optionen wie die Stapelverarbeitung bietet, können Sie Import- und Analyseoperationen in der aktiven Arbeitsmappe "klonen". Dazu verwenden Sie die Vorgehensweise, die in <a href="../../Tutorial/Tutorial/Importing_Multiple_Files_into_Workbooks_Cloned_from_Active_Workbook.html" title="Tutorial:Importing Multiple Files into Workbooks Cloned from Active Workbook">diesem Tutorial</a> beschrieben wird.</p>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="What_You_Will_Learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>eine Analysevorlage erstellen, die ein Ergebniszusammenfassungsblatt enthält, um die Ausgabe der Stapelverarbeitung zu sammeln.</li>
+
+    <li>eine Stapelverarbeitung von mehreren Datendateien mit Hilfe einer Analysevorlage durchführen.</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <p>Dieses Tutorial ist in zwei Abschnitte unterteilt:</p>
+
+  <ol>
+    <li>Sie richten eine <b>Analysevorlage</b> ein. Die Vorlage ist ein leeres Framework, das ein Zusammenfassungsblatt beinhaltet, um die Analyseausgabe der Stapelverabeitungsoperationen zu sammeln.</li>
+
+    <li>Führen Sie die <b>Stapelverarbeitung</b> von mehreren Dateien mit Hilfe der zuvor gespeicherten Analysevorlage durch.</li>
+  </ol>
+
+  <h3><a name="Preparing_an_Analysis_Template_containing_a_Result_Summary_Sheet"></a><span class="mw-headline">Analysevorlage vorbereiten, die ein Blatt mit der Ergebniszusammenfassung enthält</span></h3>
+
+  <ol>
+    <li>Da Stapeloperationen mit ähnlich strukturierten Datendateien arbeiten, ist der erste Schritt das Importieren einer typischen Datendatei. Erstellen Sie eine neue Arbeitsmappe und wählen Sie <b>Daten: Mit Datei verbinden: Text/CSV</b>. Navigieren Sie zum Ordner &lt;Origin-Verzeichnis&gt;\ \Samples\Curve Fitting\ Sensor01.dat und wählen Sie die Datei. Übernehmen Sie die <b>CSV-Importoptionen</b> und klicken Sie auf <b>OK</b>, um Ihre Daten zu importieren.</li>
+
+    <li>Jetzt führen wir eine lineare Anpassung für die Daten durch. Markieren Sie Spalte B(Y) und wählen Sie <b>Analyse: Anpassen: Linearer Fit...</b> Setzen Sie <b>Neu berechnen</b> = <i>Auto</i> und klicken Sie dann auf <b>OK</b> (Beachten Sie, dass wir durch Wählen von <i>Auto</i> sichergestellt haben, dass eine neue Eingabe die automatische Neuberechnung der Ergebnisse auslöst). Antworten Sie mit <i>Ja</i> auf die Erinnerung, um das Berichtsblatt <i>FitLinear1</i> zu öffnen.</li>
+
+    <li>Wir fügen jetzt ein Blatt für die <i>Ergebnisse</i> zu unserer Arbeitsmappe hinzu, in der wir Schlüsselstatistiken aus unserer Stapelanalyse sammeln. Gehen Sie zu <i>FitLinear1</i> und dann zur <i>Zusammenfassung</i>stabelle, klicken Sie auf den nach unten weisenden Pfeil und wählen Sie <b>Kopie als neues Blatt erstellen</b>. Klicken Sie zuerst <b>ZWEIMAL</b> auf die Schaltfläche <a class="image"><img alt="Button Add New Columns.png" src="../images/Analysis_Template_and_Batch_Processing/Button_Add_New_Columns.png" width="22"></a>, um die zwei neuen Spalten zu Ihrem Zusammenfassungsblatt hinzuzufügen.</li>
+
+    <li>Wir möchten den Wert von Pearsons r zu unserer Zusammenfassung hinzufügen und kehren deswegen zurück zu <i>FitLinear1</i>. Wir suchen die Statistiktabelle, klicken dann auf den Text neben dem Wert und klicken Sie mit der rechten Maustaste, um <b>Kopieren</b> zu wählen. Gehen Sie zur <i>Zusammenfassung</i>, klicken Sie mit der rechten Maustaste in die Zelle <i>Parameter</i> der Spalte <i>G(Y)</i> und wählen Sie <b>Link einfügen</b>. Kopieren Sie den Wert von Pearsons r und fügen Sie ihn über <b>Link einfügen</b> in Zeile 1 von Spalte <i>G(Y)</i> ein.</li>
+
+    <li>Wir fügen nun eine Datenzeichnung mit Anpassungskurve zu unserem Zusammenfassungsblatt hinzu. Kehren Sie zu FitLinear1 zurück, scrollen Sie zum <i>Angepassten Kurvendiagramm</i> hinunter, klicken Sie mit der rechten Maustaste auf das Diagramm und wählen Sie <b>Kopieren</b>. Wechseln Sie zum Zusammenfassungsblatt, klicken Sie in Zeile 1 der Spalte <i>H(Y)</i> und wählen Sie <b>Link einfügen</b>. Fügen Sie die <i>Anpassungskurve</i> zur Zelle Langname in dieser Spalte hinzu.</li>
+
+    <li>Um die Arbeitsmappe als eine Analysevorlage zu speichern, wählen Sie <b>Datei: Arbeitsmappe als Analysevorlage speichern</b>, übernehmen Sie den Standardspeicherort \Anwenderdateien und geben Sie der Vorlage den Namen <i>Sensoranalyse</i>. Klicken Sie auf <b>Speichern</b>.</li>
+  </ol>
+
+  <h3><a name="Performing_Batch_Processing_with_Multiple_Data_Files"></a><span class="mw-headline">Stapelverarbeitung von mehreren Datendateien durchführen</span></h3>
+
+  <p>Wir verwenden jetzt unsere Analysevorlage, um eine Anzahl von Datendateien per Stapelverarbeitung zu analysieren und eine zusammengefasste Ausgabe zu erzeugen.</p>
+
+  <ol>
+    <li>Öffnen Sie ein neus Projekt und wählen Sie <b>Datei: Stapelverarbeitung ...</b> oder klicken Sie auf die Schaltfläche <a class="image"><img alt="Button Batch Processing.png" src="../images/Analysis_Template_and_Batch_Processing/Button_Batch_Processing.png" width="23"></a> in der Symbolleiste Standard.</li>
+
+    <li>Setzen Sie den <b>Modus der Stapelverarbeitung</b> = <b>Analysevorlage laden</b>, navigieren Sie dann zu Ihrem Anwenderdateiordner und wählen Sie <i>Sensor Analysis.ogwu</i>.</li>
+
+    <li>Setzen Sie <b>Datenquelle</b> = <b>Aus Dateien importieren</b> und verwenden Sie die Schaltfläche rechts von <b>Dateilliste</b>, um zu &lt;Origin-Verzeichnis&gt;\Samples\Curve Fitting zu navigieren und die Dateien <i>Sensor02.dat</i> bis <i>Sensor07.dat</i> hinzuzufügen.</li>
+
+    <li>Setzen Sie den <b>Datensatzidentifizierer</b> = <b>Dateiname</b>, um die Ausgabe in unserem Zusammenfassungsblatt mit dem Quelldateinamen kennzuzeichnen.</li>
+
+    <li>Setzen Sie <b>Datenblatt</b> = <i>Sensor01</i> und <b>Ergebnisblatt</b> auf <i>Zusammenfassung</i>.</li>
+
+    <li>Aktivieren Sie <b>Zwischenmappen löschen</b>. (Beachten Sie, dass Sie seit <b>Origin 2018</b> die Option haben, die Schaltfläche <b>Open Book(s)</b> im Zusammenfassungsblatt zu verwenden, um einzelne Zwischenmappen ggf. erneut zu erzeugen.)
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial BatchProcessing 007-2.PNG" src="../images/Analysis_Template_and_Batch_Processing/500px-Tutorial_BatchProcessing_007-2.PNG" width="500"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>. Alle Datendateien werden verarbeitet und eine Zusammenfassungsmappe wird erzeugt, um die Analyse von jeder Datei zusammenzufassen.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial BatchProcessing 007.png" src="../images/Analysis_Template_and_Batch_Processing/500px-Tutorial_BatchProcessing_007.png" width="500"></a></dd>
+      </dl>
+    </li>
+  </ol>

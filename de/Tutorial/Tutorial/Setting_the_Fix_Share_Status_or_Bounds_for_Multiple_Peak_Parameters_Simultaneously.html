@@ -1,0 +1,80 @@
+﻿<h1 class="firstHeading">Gleichzeitiges Einstellen des Status' Fest, Teilen oder Schranken für Parameter mehrerer Impulse</h1>
+
+  <p class='urlname' style='display: none'>Quick-Set-MultiPeakParameter</p>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Beim Durchführen einer Peakanalyse möchte man oft Parameterwerte festlegen oder Parameter für mehrere Peaks gleichzeitig nutzen oder Schranken festlegen. Sollten Ihre Daten nur ein paar Peaks haben, können Sie diese Einstellungen einfach für jeden Peak durchführen. Wenn Ihre Daten jedoch über viele Peaks verfügen, kann es sehr zeitaufwändig sein, sie einzeln festzulegen. Eine effizientere Methode bietet <b>Peaks analysieren</b> durch einige Kontextmenüs, mit denen Sie den Status Fest oder Teilen und die Schranken für mehrere Peakparameter gleichzeitig festlegen können. Weitere Einzelheiten zu diesen Einstellungen finden Sie in der Origin-Hilfe.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: OriginPro 8.0 SR6</p>
+
+  <h2><a name="What_You_Will_Learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <ul>
+    <li>Wie wird der Status Teilen für mehrere Peakparameter gleichzeitig festgelegt?</li>
+
+    <li>Wie werden die Werte für die oberen Schranken und unteren Schranken für mehrere Peakparameter gleichzeitig festgelegt?</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe und importieren Sie die Datei <i>&lt;Origin-Programmordner&gt; \Samples\Spectroscopy\Positive &amp; Negative Peaks.dat</i>.</li>
+
+    <li>Markieren Sie die zweite Spalte und wählen Sie <b>Analyse: Peaks und Basislinie: Peaks analysieren</b>, um den Dialog <b>Peaks analysieren</b> zu öffnen. Wählen Sie auf der ersten Seite (der <b>Start</b>seite) das Optionsfeld <b>Impulse anpassen</b> in der Gruppe <b>Ziel</b>. Klicken Sie auf die Schaltfläche <b>Weiter</b>, um zur nächsten Seite zu gelangen.</li>
+
+    <li>Wählen Sie auf der Seite <b>Modus Basislinie</b> die Option <b>Konstant</b> aus der Auswahlliste <b>Modus Basislinie</b> und wählen Sie <b>Mittelwert</b> in der Gruppe <b>Konstant</b>. Klicken Sie auf das Seitensymbol für <b>Impulse fitten</b> in der Assistentenstruktur oben, um zur Seite <b>Impulse fitten</b> zu gelangen.
+
+      <dl>
+        <dd><a class="image"><img alt="PA QuickSet BaselineMode.png" src="../images/Setting_the_Fix_Share_Status_or_Bounds_for_Multiple_Peak_Parameters_Simultaneously/PA_QuickSet_BaselineMode.png" width="336"></a></dd>
+      </dl>
+    </li>
+
+    <li>Auf der Seite <b>Peaks anpassen (Pro)</b>:
+
+      <ol>
+        <li>Klicken Sie auf die Schaltfläche <b>Fit-Steuerung</b>, um das Dialogfeld <b>Impuls-Fit Parameter</b> zu öffnen. Wählen Sie in der unteren linken Ecke des Dialogfelds die Anpassungsfunktion <b>Voigt</b>.</li>
+
+        <li>Stellen Sie sicher, dasss die Registerkarte <b>Parameter</b> aktiviert ist und wählen Sie dann <b>1</b> in der Spalte <b>Teilen</b> der Zeile <b>wG_1</b>. Klicken Sie dann mit der rechten Maustaste darauf und wählen Sie <b>Apply Same "Teilen" to All wG</b> (Gleiches "Teilen" auf alle wG anwenden). Sie können danach feststellen, dass alle Parameter mit dem Präfix <b>wG</b> in der gleichen Gruppe geteilt werden.
+
+          <dl>
+            <dd><a class="image"><img alt="Tutorial PA QuickSet 2.png" src="../images/Setting_the_Fix_Share_Status_or_Bounds_for_Multiple_Peak_Parameters_Simultaneously/Tutorial_PA_QuickSet_2.png" width="549"></a></dd>
+          </dl>
+        </li>
+
+        <li>Wählen Sie dann <b>2</b> in der Spalte <b>Teilen</b> der Zeile <b>wL_1</b>. Klicken Sie dann mit der rechten Maustaste darauf und wählen Sie <b>Apply Same "Teilen" to All wL</b> (Gleiches "Teilen" auf alle wL anwenden). Sie können danach feststellen, dass alle Parameter mit dem Präfix <b>wL</b> in der gleichen Gruppe geteilt werden. Danach sollte die Registerkarte <b>Parameter</b> folgendermaßen aussehen:
+
+          <dl>
+            <dd><a class="image"><img alt="PA QuickSet Parameters.png" src="../images/Setting_the_Fix_Share_Status_or_Bounds_for_Multiple_Peak_Parameters_Simultaneously/PA_QuickSet_Parameters.png" width="541"></a></dd>
+          </dl>
+        </li>
+
+        <li>Die Registerkarte <b>Schranken</b> Klicken Sie doppelt in die Zelle der ersten Zeile <b>Gaussian width</b> und auf die zweite Spalte <b>&lt; oder &lt;=</b>. Dadurch wird das Symbol <b>&lt;=</b> in dieser Zelle angezeigt (<b>&lt;</b> wird angezeigt, wenn Sie ein weiteres Mal doppelt in die Zelle klicken). Geben Sie dann <b>5</b> in die Spalte <b>Obere Grenzen</b> in der gleichen Zeile ein.</li>
+
+        <li>Klicken Sie dann mit der rechten Maustaste darauf und wählen Sie <b>Apply Same "Bounds" to All wG</b> (Gleiche "Schranken" auf alle wG anwenden).
+
+          <dl>
+            <dd><a class="image"><img alt="Tutorial PA QuickSet 4.png" src="../images/Setting_the_Fix_Share_Status_or_Bounds_for_Multiple_Peak_Parameters_Simultaneously/Tutorial_PA_QuickSet_4.png" width="540"></a></dd>
+
+            <dd>Danach sollte die Registerkarte <b>Schranken</b> folgendermaßen aussehen:</dd>
+
+            <dd><a class="image"><img alt="PA QuickSet Bounds.png" src="../images/Setting_the_Fix_Share_Status_or_Bounds_for_Multiple_Peak_Parameters_Simultaneously/PA_QuickSet_Bounds.png" width="546"></a></dd>
+          </dl>
+        </li>
+      </ol>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Fit bis konvergiert</b>. Wenn die Anpassung durchgeführt ist, klicken Sie auf <b>OK</b>, um den Dialog zu schließen.</li>
+
+    <li>Klicken Sie auf der Seite <b>Peaks anpassen (Pro)</b> auf die Schaltfläche <b>Fertig</b>, um die Analyse abzuschließen. Die Ergebnisse finden Sie in der Quellarbeitsmappe und dem Diagrammbericht.</li>
+  </ol>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Setting_the_Fix_Share_Status_or_Bounds_for_Multiple_Peak_Parameters_Simultaneously/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Siehe <a class="external text" href="../../QuickHelp/QuickHelp/Peak_Fit_to_Converged_Result_Differs_from_Multiple_1_Iteration.html">FAQ-1012 Warum erzeugt "Fit bis konvergiert" andere Ergebnisse als Mehrfache von "1 Iteration", wenn ich eine Peakanpassung durchführe?</a></p>
+      </td>
+    </tr>
+  </table>

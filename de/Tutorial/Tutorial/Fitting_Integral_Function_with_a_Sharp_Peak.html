@@ -1,0 +1,289 @@
+﻿<h1 class="firstHeading">Anpassen einer Integralfunktion mit einem scharfen Peak</h1>
+
+  <p class='urlname' style='display: none'>Fitting-Integral-SharpPeak</p>
+
+  <table id="toc" class="toc">
+    <tr>
+      <td>
+        <div id="toctitle">
+          <h2>Inhalt</h2>
+        </div>
+
+        <ul>
+          <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+          <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+          <li class="toclevel-1 tocsection-3">
+            <a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">Beispiele und Schritte</span></a>
+
+            <ul>
+              <li class="toclevel-2 tocsection-4"><a href="#Import_Data"><span class="tocnumber">3.1</span> <span class="toctext">Daten importieren</span></a></li>
+
+              <li class="toclevel-2 tocsection-5"><a href="#Define_Fitting_Function"><span class="tocnumber">3.2</span> <span class="toctext">Anpassungsfunktion definieren</span></a></li>
+
+              <li class="toclevel-2 tocsection-6"><a href="#Fit_the_Curve"><span class="tocnumber">3.3</span> <span class="toctext">Kurve anpassen</span></a></li>
+
+              <li class="toclevel-2 tocsection-7"><a href="#Fitting_Results"><span class="tocnumber">3.4</span> <span class="toctext">Anpassungsergebnisse</span></a></li>
+
+              <li class="toclevel-2 tocsection-8"><a href="#Sample_Data"><span class="tocnumber">3.5</span> <span class="toctext">Beispieldaten</span></a></li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <p>&#160;</p>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>In diesem Tutorial wird Ihnen gezeigt, wie Sie eine integrale Anpassungsfunktion mit einem scharfen Peak in der Integralfunktion definieren und eine Anpassung der Daten mit Hilfe dieser Anpassungsfunktion durchführen.</p>
+
+  <p>Da die Integralfunktion einen scharfen Peak enthält, sollte das Integral in drei Segmenten durchgeführt werden, so dass der Peak in ein schmales Intervall integriert werden kann.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 9.0 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>eine integrale Anpassungsfunktion definieren.</li>
+
+    <li>eine Funktion mit einem scharfen Peak integrieren.</li>
+
+    <li>das Integralintervall in mehrere Segmente unterteilen.</li>
+  </ul>
+
+  <h2><a name="Example_and_Steps"></a><span class="mw-headline">Beispiel und Schritte</span></h2>
+
+  <h3><a name="Import_Data"></a><span class="mw-headline">Daten importieren</span></h3>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe.</li>
+
+    <li>Kopieren Sie die Daten unter <a href="#Sample_Data">Beispieldaten</a> in die Arbeitsmappe.</li>
+
+    <li>Markieren Sie Spalte B und wählen Sie <b>Zeichnen: Symbol: Punktdiagramm</b> im Origin-Menü. Das Diagramm sollte folgendermaßen aussehen:</li>
+  </ol>
+
+  <dl>
+    <dd>
+      <dl>
+        <dd><a class="image"><img alt="Fit Integral Peak G1.png" src="../images/Fitting_Integral_Function_with_a_Sharp_Peak/Fit_Integral_Peak_G1.png" width="509" height="351"></a></dd>
+      </dl>
+    </dd>
+  </dl>
+
+  <h3><a name="Define_Fitting_Function"></a><span class="mw-headline">Anpassungsfunktion definieren</span></h3>
+
+  <p>Die integrale Anpassungsfunktion wird wie folgt beschrieben:</p>
+
+  <dl>
+    <dd><img src="../images/Fitting_Integral_Function_with_a_Sharp_Peak/math-ba2599fbd2266a09de6f0d189020ad62.png" title="y=\log (\int_{0}^{1} \frac{1}{\sqrt{2\pi}b}e^{-\frac{(t-a)^2}{2b^2}-xt}\, dt)" alt="y=\log (\int_{0}^{1} \frac{1}{\sqrt{2\pi}b}e^{-\frac{(t-a)^2}{2b^2}-xt}\, dt)" class="tex"></dd>
+  </dl>
+
+  <p>wobei a und b die Parameter in der Anpassungsfunktion sind.</p>
+
+  <p>Initialisierungsparameter sind: a=1e-4, b=1e-4. Beachten Sie, dass die Integralfunktion einen Peak enthält, dessen Zentrum ungefähr bei a liegt und dessen Breite 2b ist. Die Breite des Peaks (2e-4) ist sehr schmal im Vergleich zum Integralintervall [0,1]. Um sicherzustellen, dass es korrekt i die Nachbarschaft des Peakzentrums integriert wird, wird das Integralintervall [0,1] in drei Segmente unterteilt: [0,a-5*b], [a-5*b,a+5*b], [a+5*b,1]. Es wird in jedem Segment integriert, und danach werden die drei Integrale addiert.</p>
+
+  <p>Die Anpassungsfunktion kann mit Hilfe des Hilfsmittels <b>Fitfunktionen erstellen</b> definiert werden.</p>
+
+  <ol>
+    <li>Wählen Sie <b>Hilfsmittel: Fitfunktionen erstellen</b> im Origin-Menü.</li>
+
+    <li>Klicken Sie im Dialog <b>Fitfunktionen erstellen</b> auf der Seite <b>Ziel</b> auf die Schaltfläche <b>Weiter</b>.</li>
+
+    <li>Wählen Sie auf der Seite <b>Name und Typ</b> die Option <b>User Defined</b> in der Auswahlliste <b>Eine Kategorie auswählen oder erstellen</b>, geben Sie <b>fintpeak</b> in Feld des <b>Funktionsnamens</b> ein und wählen Sie <b>Ausdruck</b> in der Gruppe <b>Funktionstyp</b>. Aktivieren Sie das Kontrollkästchen <b>Integration während Anpassung einschließen</b>. Klicken Sie auf die Schaltfläche <b>Weiter</b>.</li>
+
+    <li>Geben Sie auf der Seite <b>Integrand</b> den Namen <b>myint</b> in das Feld <b>Integrandname</b>, <b>t</b> in das Feld <b>Integrationsvariable</b> und <b>a, b, x</b> in das Feld <b>Argumente</b> ein. Geben Sie folgendes Skript im Feld <b>Integrandfunktion</b> ein.
+      <pre class="lt" style="font-family:monospace;">
+return <span style="color: #0000dd;">1</span><span style="color: #000080;">/</span><span style="color: #000000;">(</span>sqrt<span style="color: #000000;">(</span><span style="color: #0000dd;">2</span><span style="color: #000080;">*</span>pi<span style="color: #000000;">)</span><span style="color: #000080;">*</span>b<span style="color: #000000;">)</span><span style="color: #000080;">*</span>exp<span style="color: #000000;">(</span><span style="color: #000080;">-</span><span style="color: #000000;">(</span>t<span style="color: #000080;">-</span>a<span style="color: #000000;">)</span><span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000080;">/</span><span style="color: #000000;">(</span><span style="color: #0000dd;">2</span><span style="color: #000080;">*</span>b<span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span><span style="color: #000080;">-</span>x<span style="color: #000080;">*</span>t<span style="color: #000000;">)</span>;
+</pre>
+
+      <p>Klicken Sie auf die Schaltfläche <b>Weiter</b>.</p>
+    </li>
+
+    <li>Geben Sie auf der Seite <b>Variablen und Parameter</b> die Parameter <b>a, b</b> in das Feld <b>Parameter</b> ein. Klicken Sie auf die Schaltfläche <b>Weiter</b>.</li>
+
+    <li>Klicken Sie auf der Seite <b>Ausdrucksfunktion</b> auf die Registerkarte <b>Parameter</b> und setzen Sie die <b>Anfangswerte</b> für die Parameter a und b auf 1e-4. Wechseln Sie zur Registerkarte <b>Integrand</b> und setzen Sie den <b>Wert</b> für die <b>Untere Grenze</b> und <b>Obere Grenze</b> auf 0 und 1 sowie den <b>Wert</b> für <b>a</b>, <b>b</b>, <b>x</b> jeweils auf a, b, x.</li>
+
+    <li>Klicken Sie auf der Seite <b>Ausdrucksfunktion</b> auf die Schaltfläche <b>Einfügen</b>. Geben Sie in der Gruppe <b>Schnellprüfung</b> eine 0 in das Feld <b>x=</b> ein und klicken Sie auf die Schaltfläche <b>Auswerten</b>. Es wird das Ergebnis y=9,3e-21 angezeigt. Dies ist ein Anzeichen dafür, dass der Peak nicht richtig integriert wurde, da y sich für x=0 1 annähern sollte. Teilen Sie das Integral in drei Segmente und geben Sie das folgende Skript in das Feld <b>Funktionskörper</b> ein.
+      <pre class="lt" style="font-family:monospace;">
+integral<span style="color: #000000;">(</span>myint, <span style="color: #0000dd;">0</span>, a<span style="color: #000080;">-</span><span style="color: #0000dd;">5</span><span style="color: #000080;">*</span>b, a ,b ,x<span style="color: #000000;">)</span><span style="color: #000080;">+</span>integral<span style="color: #000000;">(</span>myint, a<span style="color: #000080;">-</span><span style="color: #0000dd;">5</span><span style="color: #000080;">*</span>b, a<span style="color: #000080;">+</span><span style="color: #0000dd;">5</span><span style="color: #000080;">*</span>b, a ,b ,x<span style="color: #000000;">)</span><span style="color: #000080;">+</span> integral<span style="color: #000000;">(</span>myint, a<span style="color: #000080;">+</span><span style="color: #0000dd;">5</span><span style="color: #000080;">*</span>b, <span style="color: #0000dd;">1</span>, a ,b ,x<span style="color: #000000;">)</span>
+</pre>
+
+      <p>Klicken Sie erneut auf die Schaltfläche <b>Auswerten</b>. Nun wird y=0,84 angezeigt. Dadurch wird deutlich, dass der Peak dieses Mal korrekt integriert wurde.</p>
+    </li>
+
+    <li>Aktualisieren Sie auf der Seite <b>Ausdrucksfunktion</b> das Skript im Feld <b>Funktionskörper</b> folgendermaßen:
+      <pre class="lt" style="font-family:monospace;">
+log<span style="color: #000000;">(</span>integral<span style="color: #000000;">(</span>myint, <span style="color: #0000dd;">0</span>, a<span style="color: #000080;">-</span><span style="color: #0000dd;">5</span><span style="color: #000080;">*</span>b, a ,b ,x<span style="color: #000000;">)</span><span style="color: #000080;">+</span>integral<span style="color: #000000;">(</span>myint, a<span style="color: #000080;">-</span><span style="color: #0000dd;">5</span><span style="color: #000080;">*</span>b, a<span style="color: #000080;">+</span><span style="color: #0000dd;">5</span><span style="color: #000080;">*</span>b, a ,b ,x<span style="color: #000000;">)</span> <span style="color: #000080;">+</span>integral<span style="color: #000000;">(</span>myint, a<span style="color: #000080;">+</span><span style="color: #0000dd;">5</span><span style="color: #000080;">*</span>b, <span style="color: #0000dd;">1</span>, a ,b ,x<span style="color: #000000;">)</span><span style="color: #000000;">)</span>
+</pre>
+
+      <p>Klicken Sie auf die Schaltfläche <b>Fertigstellen</b>.</p>
+    </li>
+  </ol>
+
+  <h3><a name="Fit_the_Curve"></a><span class="mw-headline">Kurve anpassen</span></h3>
+
+  <ol>
+    <li>Wählen Sie <b>Analyse: Anpassen: Nichtlinearer Fit</b> im Origin-Menü. Wählen Sie im Dialogfeld <b>NLFit</b> auf der Seite <b>Einstellungen: Funktionsauswahl</b> die Option <b>User Defined</b> in der Auswahlliste <b>Kategorie</b> und die Funktion <b>fintpeak</b> in der Liste <b>Funktion</b>. <b>Beachten Sie</b>, dass die Initialisierungsparameter während des Definierens der Anpassungsfunktion festgelegt wurden.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Fit</b>, um die Kurve anzupassen.</li>
+  </ol>
+
+  <h3><a name="Fitting_Results"></a><span class="mw-headline">Anpassungsergebnisse</span></h3>
+
+  <p>Die angepasste Kurve sollte folgendermaßen aussehen:</p>
+
+  <dl>
+    <dd>
+      <dl>
+        <dd><a class="image"><img alt="Fit Integral Peak G2.png" src="../images/Fitting_Integral_Function_with_a_Sharp_Peak/Fit_Integral_Peak_G2.png" width="492" height="365"></a></dd>
+      </dl>
+    </dd>
+  </dl>
+
+  <p>Die angepassten Parameter sind im Folgenden zu sehen:</p>
+
+  <table class="simple">
+    <tr>
+      <th><b>Parameter</b></th>
+
+      <th><b>Value</b></th>
+
+      <th><b>Standardfehler</b></th>
+    </tr>
+
+    <tr>
+      <th><b>a</b></th>
+
+      <td>4,98302E-4</td>
+
+      <td>1,07593E-5</td>
+    </tr>
+
+    <tr>
+      <th><b>b</b></th>
+
+      <td>1,94275E-4</td>
+
+      <td>8,21815E-6</td>
+    </tr>
+  </table>
+
+  <p>Das <b>Kor. R-Quadrat</b> beträgt 0,99799. Das Anpassungsergebnis ist also sehr gut.</p>
+
+  <h3><a name="Sample_Data"></a><span class="mw-headline">Beispieldaten</span></h3>
+
+  <table class="simple">
+    <tr>
+      <th width="80px">x</th>
+
+      <th width="80px">y</th>
+    </tr>
+
+    <tr>
+      <td>0</td>
+
+      <td>-0,00267</td>
+    </tr>
+
+    <tr>
+      <td>60</td>
+
+      <td>-0,01561</td>
+    </tr>
+
+    <tr>
+      <td>240</td>
+
+      <td>-0,05268</td>
+    </tr>
+
+    <tr>
+      <td>500</td>
+
+      <td>-0,10462</td>
+    </tr>
+
+    <tr>
+      <td>1000</td>
+
+      <td>-0,22092</td>
+    </tr>
+
+    <tr>
+      <td>1500</td>
+
+      <td>-0,31004</td>
+    </tr>
+
+    <tr>
+      <td>2000</td>
+
+      <td>-0,40695</td>
+    </tr>
+
+    <tr>
+      <td>3000</td>
+
+      <td>-0,61328</td>
+    </tr>
+
+    <tr>
+      <td>4000</td>
+
+      <td>-0,75884</td>
+    </tr>
+
+    <tr>
+      <td>5000</td>
+
+      <td>-0,9127</td>
+    </tr>
+
+    <tr>
+      <td>6000</td>
+
+      <td>-0,98605</td>
+    </tr>
+
+    <tr>
+      <td>7000</td>
+
+      <td>-1,18957</td>
+    </tr>
+
+    <tr>
+      <td>9000</td>
+
+      <td>-1,43831</td>
+    </tr>
+
+    <tr>
+      <td>10000</td>
+
+      <td>-1,41393</td>
+    </tr>
+
+    <tr>
+      <td>12000</td>
+
+      <td>-1,61458</td>
+    </tr>
+
+    <tr>
+      <td>15000</td>
+
+      <td>-1,88098</td>
+    </tr>
+
+    <tr>
+      <td>20000</td>
+
+      <td>-2,07792</td>
+    </tr>
+  </table>

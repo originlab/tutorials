@@ -1,0 +1,131 @@
+﻿<h1 class="firstHeading">Liniendiagramm mit maskierten Daten</h1>
+
+  <p class='urlname' style='display: none'>LineGraph-MaskedData</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a></li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/Line_Graph_with_Masked_Data/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/Line_Graph_with_Masked_Data/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=261" target="_blank">Datenpunkte in Analyse ausschließen (Daten maskieren)</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%">
+        <a class="image"><img alt="Website blog icon circle.png" src="../images/Line_Graph_with_Masked_Data/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Line_Graph_with_Masked_Data/Blog_Image_33x33px.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="http://blog.originlab.com/extract-masked-points-to-a-new-workbook-automatically" target="_blank">Maskierte Punkte automatisch in eine neue Arbeitsmappe extrahieren</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/new-data-highlight-tool-in-origin-2019" target="_blank">Neues Hilfsmittel Datenmarkierung in Origin 2019</a></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Sie können grafisch Unterbereiche maskieren. In diesem Tutorial wird zuerst ein Liniendiagramm erstellt. Dann wird das Maskierungshilfsmittel verwendet, um die niedrigen Impulse des Diagramms zu maskieren.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Graph Gallery Line Graph With Masked Data 7.png" src="../images/Line_Graph_with_Masked_Data/Graph_Gallery_Line_Graph_With_Masked_Data_7.png" width="611"></a></dd>
+  </dl>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 2015 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <ul>
+    <li>Liniendiagramm zeichnen</li>
+
+    <li>Achsenskalierungen festlegen</li>
+
+    <li>Daten auf dem Liniendiagramm maskieren</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <ol>
+    <li>Öffnen Sie eine leere Arbeitsmappe. Wählen Sie <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b> im Menü, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner <i>Graphing</i>. Dort befindet sich die Datei <i>Line_Graph_with_Masked_Data.txt</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das leere Arbeitsblatt, um sie zu importieren.</li>
+
+    <li>Markieren Sie beide Spalten in dem Arbeitsblatt und wählen Sie <b>Zeichnen: Einfache 2D: Liniendiagramm</b> im Origin-Hauptmenü, um ein Liniendiagramm zu zeichnen.
+
+      <dl>
+        <dd><a class="image"><img alt="Graph Gallery Line Graph With Masked Data 2.png" src="../images/Line_Graph_with_Masked_Data/Graph_Gallery_Line_Graph_With_Masked_Data_2.png" width="566"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie doppelt auf die X-Achse, um den Dialog <b>Achsen</b> zu öffnen. Setzen Sie den Inkrementwert auf 0,25, wie auch im Bild unten gezeigt:
+
+      <dl>
+        <dd><a class="image"><img alt="Graph Gallery Line Graph With Masked Data 3.png" src="../images/Line_Graph_with_Masked_Data/Graph_Gallery_Line_Graph_With_Masked_Data_3.png" width="622"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf das Symbol <b>Vertikal</b> im linken Bedienfeld, um die Skalierung der Y-Achse wie im folgenden Bild festzulegen:
+
+      <dl>
+        <dd><a class="image"><img alt="Graph Gallery Line Graph With Masked Data 4.png" src="../images/Line_Graph_with_Masked_Data/Graph_Gallery_Line_Graph_With_Masked_Data_4.png" width="622"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um den Dialog Achsen zu schließen und die Diagrammlegende zu löschen. Ändern Sie die X-Beschriftung in <b>Time[s]</b> und die Y-Beschriftung in <b>Signal[A.U.]</b>. Machen Sie beide Textbeschriftungen fett und setzen Sie die Schriftgröße auf <b>28</b>. Erstellen Sie einen Titel, indem Sie ein Textobjekt mit dem Inhalt <b>Time Series</b> einfügen. Machen Sie den Titel fett und setzen Sie die Schriftgröße auf <b>36</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Graph Gallery Line Graph With Masked Data 5.png" src="../images/Line_Graph_with_Masked_Data/Graph_Gallery_Line_Graph_With_Masked_Data_5.png" width="566"></a></dd>
+      </dl>
+    </li>
+
+    <li>Aktivieren Sie dieses Diagramm und klicken Sie dann auf die Schaltfläche <b>Regionales Maskierungshilfsmittel</b> auf der Symbolleiste Hilfsmittel, bis ein Menü angezeigt wird. Wählen Sie die Option <b>Punkte auf aktiver Zeichnung maskieren</b>, um den Maskierungsmodus aufzurufen.
+
+      <dl>
+        <dd><a class="image"><img alt="Graph Gallery Line Graph With Masked Data 6.png" src="../images/Line_Graph_with_Masked_Data/Graph_Gallery_Line_Graph_With_Masked_Data_6.png" width="220"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf eine geeignete Stelle in dem Diagramm und ziehen Sie ein Rechteck auf, um die niedrigen Peaks auszuwählen und damit gleichzeitig zu maskieren. Ziehen Sie weitere Rechtecke auf, bis alle niedrigen Peaks maskiert sind. Klicken Sie dann auf die Schaltfläche <b>Zeiger</b> auf der Symbolleiste Hilfsmittel, um den Maskierungsmodus zu beenden.
+
+      <dl>
+        <dd><a class="image"><img alt="Graph Gallery Line Graph With Masked Data 7.png" src="../images/Line_Graph_with_Masked_Data/Graph_Gallery_Line_Graph_With_Masked_Data_7.png" width="611"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Line_Graph_with_Masked_Data/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Seit <b>Origin 2021</b> wurde etwas am Auswahlmodus der Datenpunkte von Maskierungshilfsmitteln geändert:</p>
+
+        <dl>
+          <dd>
+            <ul>
+              <li>Der Standard wurde von Maskieren nach <i>Zeilenindexnummer</i> in Maskieren nach <i>rechteckigen Bereich</i> geändert.</li>
+
+              <li>Ansonsten bleibt das Verhalten wie zuvor: Das Umschalten zwischen den <a class="external text" href="../../GettingStarted/OriginLab/Data_Analysis.html#Masking_with_the_Tools_Toolbar_.28graph.29">Maskierungsmodi</a> geschieht über das Drücken der Leertaste .</li>
+
+              <li>Sie können die <a class="external text" href="../../QuickHelp/QuickHelp/How_do_I_permanently_change_the_value_of_a_system_variable.html">Systemvariable <b>@MTI=1</b></a> verwenden (anhaltend), um standardmäßig nach Zeilenindex zu maskieren.</li>
+            </ul>
+          </dd>
+        </dl>
+      </td>
+    </tr>
+  </table>

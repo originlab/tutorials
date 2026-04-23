@@ -1,0 +1,241 @@
+﻿<h1 class="firstHeading">Anpassen mit der NAG-Spezialfunktion</h1><a name="Summary"></a>
+
+  <h2><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Mit Origin können Anwender eine Origin C-Anpassungsfunktion mit Hilfe von speziellen NAG-Funktionen definieren. Sie können die NAG-Routine aufrufen, um die Spezialfunktion zu bewerten.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: 8.0 SR6</p><a name="What_you_will_learn"></a>
+
+  <h2><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>die Anpassungsfunktion mit Hilfe des Fit-Funktions-Managers erstellen,</li>
+
+    <li>die Anpassungsfunktion mit Hilfe der speziellen NAG-Funktion erstellen.</li>
+  </ul><a name="Example_and_Steps"></a>
+
+  <h2><span class="mw-headline">Beispiel und Schritte</span></h2>
+
+  <p>Wir passen das folgende Modell an:</p>
+
+  <dl>
+    <dd><img class="tex" alt=" inorm= A* exp(-td/2,0/(t-t0)) * ( I0(td/2,0/(t-t0))+I1(td/2,0/(t-t0)) ) \," src="../images/math/7/5/9/759551ae794e4684401bb56f967f0c7b.png"></dd>
+  </dl>
+
+  <p>Hier sind <span class="texhtml"><i>A</i></span>, <span class="texhtml"><i>t</i><i>d</i></span> und <span class="texhtml"><i>t</i>0</span> die Modellparameter, die wir aus der Datenanpassung erhalten. <span class="texhtml"><i>I</i>0</span> und <span class="texhtml"><i>I</i>1</span> sind jeweils die erste Art der modifizierten Bessel-Funktion der Ordnung 0 bzw. Ordnung 1. Für das aktuelle Beispiel verwenden wir die Beispieldaten am Ende dieses Tutorials. Der Anpassungsprozess kann in den folgenden Schritten zusammengefasst werden:</p>
+
+  <p>Drücken Sie <b>F9</b>, um den <span class="db">Fit-Funktions-Manager</span> zu öffnen und dann eine neue Kategorie mit dem Namen <b><i>FittingWithNAGSpecialFunc</i></b> zu erstellen. Definieren Sie eine neue Anpassungsfunktion <b><i>FittingWithBessel</i></b> in der neuen Kategorie:</p>
+
+  <dl>
+    <dd>
+      <table class="blank">
+        <tr>
+          <th width="150"></th>
+
+          <th></th>
+        </tr>
+
+        <tr>
+          <td><b>Funktionsname:</b></td>
+
+          <td>FittingWithBessel</td>
+        </tr>
+
+        <tr>
+          <td><b>Funktionstyp:</b></td>
+
+          <td>Benutzerdefiniert</td>
+        </tr>
+
+        <tr>
+          <td><b>Unabhängige Variable:</b></td>
+
+          <td>t</td>
+        </tr>
+
+        <tr>
+          <td><b>Abhängige Variable:</b></td>
+
+          <td>inorm</td>
+        </tr>
+
+        <tr>
+          <td><b>Parameternamen:</b></td>
+
+          <td>A,t0,td</td>
+        </tr>
+
+        <tr>
+          <td><b>Funktionsform:</b></td>
+
+          <td><font color="blue">Origin C</font></td>
+        </tr>
+
+        <tr>
+          <td><b>Funktion:</b></td>
+
+          <td></td>
+        </tr>
+      </table>
+    </dd>
+  </dl>
+
+  <p>Klicken Sie auf die Schaltfläche (Symbol) neben dem Feld <b>Funktion</b>, um den Code Builder zu öffnen und die Anpassungsfunktion wie folgt zu definieren, zu kompilieren und zu speichern:</p>
+  <pre class="oc">
+<span class="hcp1">#include</span><span class="hcp2"> &lt;</span>origin.<span class="hcp3">h</span><span class="hcp2">&gt;</span>
+ 
+<span class="hcp4">// Add your special include files here.</span>
+<span class="hcp4">// For example, if you want to fit with functions from the NAG library, </span>
+<span class="hcp4">// add the header file for the NAG functions here.</span>
+<span class="hcp1">#include</span> <span class="hcp2">&lt;</span>OC_nag8.<span class="hcp3">h</span><span class="hcp2">&gt;</span>
+ 
+<span class="hcp4">// Add code here for other Origin C functions that you want to define in this file,</span>
+<span class="hcp4">// and access in your fitting function.</span>
+ 
+<span class="hcp4">// You can access C functions defined in other files, if those files are loaded and compiled </span>
+<span class="hcp4">// in your workspace, and the functions have been prototyped in a header file that you have</span>
+<span class="hcp4">// included above. </span>
+ 
+<span class="hcp4">// You can access NLSF object methods and properties directly in your function code.</span>
+ 
+<span class="hcp4">// You should follow C-language syntax in defining your function. </span>
+<span class="hcp4">// For instance, if your parameter name is P1, you cannot use p1 in your function code. </span>
+<span class="hcp4">// When using fractions, remember that integer division such as 1/2 is equal to 0, and not 0.5</span>
+<span class="hcp4">// Use 0.5 or 1/2.0 to get the correct value.</span>
+ 
+<span class="hcp4">// For more information and examples, please refer to the "User-Defined Fitting Function" </span>
+<span class="hcp4">// section of the Origin Help file.</span>
+ 
+ 
+<span class="hcp4">//----------------------------------------------------------</span>
+<span class="hcp4">// </span>
+<span class="hcp1">void</span> _nlsfFittingWithBessel<span class="hcp3">(</span>
+<span class="hcp4">// Fit Parameter(s):</span>
+<span class="hcp1">double</span> A, <span class="hcp1">double</span> t0, <span class="hcp1">double</span> td,
+<span class="hcp4">// Independent Variable(s):</span>
+<span class="hcp1">double</span> t,
+<span class="hcp4">// Dependent Variable(s):</span>
+<span class="hcp1">double</span><span class="hcp5">&amp;</span> inorm<span class="hcp3">)</span>
+<span class="hcp3">{</span>
+        <span class="hcp4">// Beginning of editable part</span>
+        <span class="hcp4">//inorm=  A* exp(-td/2,0/(t-t0)) *   ( s18aec(td/2,0/(t-t0),NAGERR_DEFAULT)+s18afc(td/2,0/(t-t0),NAGERR_DEFAULT)             );</span>
+ 
+        <span class="hcp1">static</span> NagError fail1; 
+        <span class="hcp1">static</span> NagError fail2;
+        <span class="hcp1">double</span> dtemp <span class="hcp2">=</span> td<span class="hcp5">/</span><span style="color: #0000dd;">2,0</span><span class="hcp5">/</span><span class="hcp3">(</span>t<span class="hcp5">-</span>t0<span class="hcp3">)</span>;
+        inorm<span class="hcp2">=</span>  A<span class="hcp5">*</span> <span class="hcp3">exp</span><span class="hcp3">(</span><span class="hcp5">-</span>dtemp<span class="hcp3">)</span> <span class="hcp5">*</span> <span class="hcp3">(</span> s18aec<span class="hcp3">(</span>dtemp,<span class="hcp5">&amp;</span>fail1<span class="hcp3">)</span><span class="hcp5">+</span>s18afc<span class="hcp3">(</span>dtemp,<span class="hcp5">&amp;</span>fail2<span class="hcp3">)</span> <span class="hcp3">)</span>;
+        <span class="hcp1">if</span><span class="hcp3">(</span>fail1.<span class="hcp3">code</span> <span class="hcp5">!</span><span class="hcp2">=</span>NE_NOERROR<span class="hcp3">)</span>
+                <span class="hcp3">printf</span><span class="hcp3">(</span><span class="hcp6">"%s<span class="hcp7">\n</span>"</span>,fail1.<span class="hcp3">message</span><span class="hcp3">)</span>;
+        <span class="hcp1">if</span><span class="hcp3">(</span>fail2.<span class="hcp3">code</span> <span class="hcp5">!</span><span class="hcp2">=</span>NE_NOERROR<span class="hcp3">)</span>
+                <span class="hcp3">printf</span><span class="hcp3">(</span><span class="hcp6">"%s<span class="hcp7">\n</span>"</span>,fail1.<span class="hcp3">message</span><span class="hcp3">)</span>;
+ 
+ 
+        <span class="hcp4">// End of editable part</span>
+<span class="hcp3">}</span>
+</pre>
+
+  <p> </p><a name="Simulate_the_Function"></a>
+
+  <h3><span class="mw-headline">Simulieren der Funktion</span></h3>
+
+  <p>Nachdem der Funktionskörper definiert ist, können Sie auf die Schaltfläche <b>Kompilieren</b> im <b>Code Builder</b> klicken, um Syntaxfehler zu überprüfen. Klicken Sie dann auf die Schaltfläche <b>Zum Dialog zurückkehren</b>, um zum Dialogfeld <span class="db">Fit-Funktions-Manager</span> zurückzukehren. Klicken Sie jetzt auf die Schaltfläche <b>Speichern</b>, um die .FDF-Datei (Funktionsdefinitionsdatei) zu erzeugen.</p>
+
+  <p>Sobald Sie eine .FDF-Datei haben, können Sie auf die Schaltfläche <b>Simulieren</b> klicken, um eine Kurve zu simulieren. Dies ist bei der Bewertung der Initialisierungswerte sehr hilfreich. Geben Sie im Dialogfeld <b>simcurve</b> einige entsprechende Parameterwerte und den X-Bereich ein und sehen Sie im <b>Vorschau</b>feld, wie die Kurve aussehen wird.</p><a name="Set_the_Initial_Values_for_the_Parameters"></a>
+
+  <h3><span class="mw-headline">Initialisierungswerte für die Parameter einstellen</span></h3>
+
+  <p>Da es sich um eine benutzerdefinierte Anpassungsfunktion handelt, müssen Sie die Intialisierungsschätzwerte für die Parameter zur Verfügung stellen, bevor Sie Ihre Anpassung für die Daten durchführen. Sie können dies tun, indem Sie sie manuell auf der Registerkarte <b>Parameter</b> im Dialogfeld <b>Nichtlinearer Fit</b> einstellen. Für die unten gezeigten Beispieldaten können Sie die Initialisierungswerte für die Parameter A = 1, td = 1, t0 = 1 setzen. Nachdem die Parameter initialisiert worden sind, können Sie die Anpassung durchführen, um das Anpassungsergebnis zu erhalten wie rechts neben den Beispieldaten gezeigt.</p><a name="Sample_Data"></a>
+
+  <h2><span class="mw-headline">Beispieldaten</span></h2>
+
+  <p>Kopieren Sie unten die Beispieldaten und verwenden Sie den <b>Importassistenten</b>, um die Daten aus der <b>Zwischenablage</b> zu importieren. Führen Sie dann die Anpassung mit Hilfe der gegebenen Initialisierungswerte für die Parameter durch: A = 1, td = 1, t0 = 1.</p>
+
+  <dl>
+    <dd>
+      <table style="width:480px">
+        <tr>
+          <th>Beispieldaten</th>
+
+          <th>Ergebnisse</th>
+        </tr>
+
+        <tr>
+          <td>
+            <table style="width:240px">
+              <tr>
+                <th>X</th>
+
+                <th>Y</th>
+              </tr>
+
+              <tr>
+                <td>2</td>
+
+                <td>0,7868954118</td>
+              </tr>
+
+              <tr>
+                <td>2,080808081</td>
+
+                <td>0,8133022141</td>
+              </tr>
+
+              <tr>
+                <td>2,161616162</td>
+
+                <td>0,8178216765</td>
+              </tr>
+
+              <tr>
+                <td>2,242424242</td>
+
+                <td>0,8427866729</td>
+              </tr>
+
+              <tr>
+                <td>2,323232323</td>
+
+                <td>0,8315815363</td>
+              </tr>
+
+              <tr>
+                <td>2,404040404</td>
+
+                <td>0,8484657180</td>
+              </tr>
+
+              <tr>
+                <td>2,565656566</td>
+
+                <td>0,8618233553</td>
+              </tr>
+
+              <tr>
+                <td>2,646464646</td>
+
+                <td>0,8745962570</td>
+              </tr>
+
+              <tr>
+                <td>2,727272727</td>
+
+                <td>0,8921620316</td>
+              </tr>
+
+              <tr>
+                <td>2,808080808</td>
+
+                <td>0,8687399759</td>
+              </tr>
+            </table>
+          </td>
+
+          <td>
+            <p><img alt="Image:FittingWithBessel.PNG" src="../images/Fitting_with_NAG_Special_Function/FittingWithBessel.PNG" width="224" height="160" border="0"></p>
+          </td>
+        </tr>
+      </table>
+    </dd>
+  </dl>

@@ -1,0 +1,234 @@
+﻿<h1 class="firstHeading">Hauptkomponentenanalyse</h1>
+
+  <p class='urlname' style='display: none'>Principal-Component-Analysis</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Contents</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#Selecting_Principal_Methods"><span class="tocnumber">2</span> <span class="toctext">Hauptmethoden auswählen</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#Request_Principal_Component_Plots"><span class="tocnumber">3</span> <span class="toctext">Hauptkomponentendiagramme anfordern</span></a></li>
+
+      <li class="toclevel-1 tocsection-4"><a href="#Interpreting_The_Results"><span class="tocnumber">4</span> <span class="toctext">Ergebnisse interpretieren</span></a></li>
+
+      <li class="toclevel-1 tocsection-5"><a href="#Create_3D_Components_Plot"><span class="tocnumber">5</span> <span class="toctext">3D-Komponentendiagramm erstellen</span></a></li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/Principal_Component_Analysis/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/Principal_Component_Analysis/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=41" target="_blank">Hauptkomponentenanalyse</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%">
+        <a class="image"><img alt="Website blog icon circle.png" src="../images/Principal_Component_Analysis/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Principal_Component_Analysis/Blog_Image_33x33px.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="http://blog.originlab.com/performing-principal-component-analysis-for-chemometric-spectra-using-origins-app" target="_blank">Hauptkomponentenanalyse fpr Origin App Chemometric Spectra durchführen</a></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Die Hauptkomponentenanalyse eignet sich zum Reduzieren und Interpretieren von großen multivariaten Datensätzen mit zugrundeliegenden linearen Strukturen und zum Entdecken von unerwarteten Beziehungen.</p>
+
+  <p>Es wird von einem Datensatz ausgegangen, der den Eiweißverbrauch in 25 europäischen Ländern für neun Lebensmittelgruppen enthält. Mit Hilfe der Hauptkomponentenanalyse wird das Verhältnis zwischen Eiweißquellen und diesen europäischen Ländern untersucht.</p>
+
+  <p>&#160;</p>
+
+  <h2><a name="Selecting_Principal_Methods"></a><span class="mw-headline">Hauptmethoden auswählen</span></h2>
+
+  <p>Um die Anzahl der zu verbleibenden Hauptkomponenten zu ermitteln, sollten Sie zuerst die Hauptkomponentenanalyse durchführen und dann auf Grundlage deren Ergebnisses fortfahren:</p>
+
+  <ol>
+    <li>Öffnen Sie ein neues Projekt oder eine neue Arbeitsmappe. Importieren Sie die Datendatei <b>\samples\Statistics\Protein Consumption in Europe.dat</b></li>
+
+    <li>Markieren Sie das gesamte Arbeitsblatt und wählen Sie dann <b>Statistik: Multivariate Analyse: Hauptkomponentenanalyse</b>.</li>
+
+    <li>Akzeptieren Sie die Standardeinstellungen in dem geöffneten Dialog und klicken Sie auf <b>OK</b></li>
+
+    <li>Wählen Sie das Blatt <b>PCA Report</b> aus.</li>
+
+    <li>In der Tabelle <b>Eigenwerte der Korrelationsmatrix</b> können Sie sehen, dass die ersten vier Hauptkomponenten 86% der Varianz erklären und die verbleibenden Komponenten jeweils 5% oder weniger beitragen. Wir behalten vier Hauptkomponenten.
+
+      <dl>
+        <dd><a class="image"><img alt="PCA.png" src="../images/Principal_Component_Analysis/PCA.png" width="347"></a></dd>
+      </dl>
+    </li>
+
+    <li>Ein Scree-Diagramm kann als visuelles Hilfsmittel beim Bestimmen der geeigneten Anzahl von Hauptkomponenten nützlich sein. Die Anzahl der Komponenten richtet sich nach dem Punkt, an dem die verbleibenden Eigenwerte relativ klein und ungefähr alle gleich groß sind. Dieser Punkt ist nicht sehr offensichtlich im Scree-Diagramm, trotzdem kann gesagt werden, dass der vierte Punkt dieser besondere Punkt ist.
+
+      <dl>
+        <dd><a class="image"><img alt="Pca scree plot.png" src="../images/Principal_Component_Analysis/Pca_scree_plot.png" width="564"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf das Schlosssymbol <a class="image"><img alt="Icon Recalculate Manual Green.png" src="../images/Principal_Component_Analysis/Icon_Recalculate_Manual_Green.png" width="14"></a> im Ergebnisbaum und wählen Sie <b>Parameter ändern</b> im Kontextmenü. Setzen Sie auf der Registerkarte <b>Einstellungen</b> die <b>Anzahl der zu extrahierenden Komponenten</b> auf <b>4</b>. Schließen Sie den Dialog nicht; in den nächsten Schritten erstellen Sie die Diagramme der Komponenten.
+
+      <dl>
+        <dd><a class="image"><img alt="DOC-2411 Pca ex1 dialog1a Magenta.png" src="../images/Principal_Component_Analysis/DOC-2411_Pca_ex1_dialog1a_Magenta.png" width="492"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h2><a name="Request_Principal_Component_Plots"></a><span class="mw-headline">Abrufen von Hauptkomponentendiagrammen</span></h2>
+
+  <p>Im Zweig <b>Zeichnungen</b> des Dialogs können Anwender wählen, ob sie ein Scree- oder ein Komponentendiagramm erstellen möchten.</p>
+
+  <ul>
+    <li>
+      <b>Scree-Diagramm</b>
+
+      <dl>
+        <dd>Das <b>Scree-Diagramm</b> ist eine nützliche visuelle Hilfe, um eine angemessene Anzahl von Hauptkomponenten zu bestimmen.</dd>
+      </dl>
+    </li>
+
+    <li>
+      <b>Komponentendiagramm</b>
+
+      <dl>
+        <dd>Komponentendiagramme zeigen den Score der Komponenten jeder Beobachtung oder die Komponentenladung jeder Variable für ein Paar von Hauptkomponenten. In der Gruppe <b>Hauptkomponenten zum Zeichnen auswählen</b> können Anwender festlegen, welches Komponentenpaar gezeichnet werden soll. Die Komponentendiagramme umfassen:</dd>
+      </dl>
+
+      <ul>
+        <li>
+          <b>Ladungsdiagramm</b>
+
+          <dl>
+            <dd>Das <b>Ladungsdiagramm</b> ist eine Zeichnung der Beziehung zwischen den ursprünglichen Variablen und den Unterraumdimensionen. Es wird verwendet, um die Beziehungen zwischen den Variablen zu interpretieren.</dd>
+          </dl>
+        </li>
+
+        <li>
+          <b>Score-Diagramm</b>
+
+          <dl>
+            <dd>Das <b>Score-Diagramm</b> ist eine Projektion von Daten auf den Unterraum. Es wird verwendet, um die Beziehungen zwischen den Beobachtungen zu interpretieren.</dd>
+          </dl>
+        </li>
+
+        <li>
+          <b>Biplot</b>
+
+          <dl>
+            <dd>Der <b>Biplot</b> zeigt beide Ladungen und die Scores für beide ausgewählte Komponenten parallel.</dd>
+          </dl>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <ol>
+    <li>In dem Dialog, das in den vorherigen Schritten aufgerufen wurde, erweitern Sie den Zweig <b>Zeichnungen</b>. Stellen Sie sicher, dass <b>Scree-Diagramm</b>, <b>Ladungsdiagramm</b> und <b>Biplot</b> aktiviert sind.</li>
+
+    <li>Die ersten beiden Komponenten sind normalerweise für den Großteil der Varianz verantwortlich. Deswegen zeichnen Sie das Komponentendiagramm im Raum der ersten beiden Hauptkomponenten. Setzen Sie in der Gruppe <b>Hauptkomponenten zum Zeichnen auswählen</b> die <b>Hauptkomponente für X-Achse</b> auf <b>1</b> und die <b>Hauptkomponente für Y-Achse</b> auf <b>2</b>. Klicken Sie auf <b>OK</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="DOC-2411 Pca ex1 dialog2a Magenta.png" src="../images/Principal_Component_Analysis/DOC-2411_Pca_ex1_dialog2a_Magenta.png" width="450"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h2><a name="Interpreting_The_Results"></a><span class="mw-headline">Ergebnisse interpretieren</span></h2>
+
+  <ol>
+    <li>In der <b>Korrelationsmatrix</b> können Sie sehen, dass die Variablen stark korreliert sind. Viele Werte sind größer als <b>0,3</b>. Mit der Hauptkomponentenanalyse können Sie die Kollinearität entfernen.
+
+      <dl>
+        <dd><a class="image"><img alt="Pca ex1 correlation matrix.png" src="../images/Principal_Component_Analysis/Pca_ex1_correlation_matrix.png" width="779"></a></dd>
+      </dl>
+    </li>
+
+    <li>Die Hauptkomponentenvariablen werden als lineare Kombinationen der ursprünglichen Variablen definiert. Die Tabelle <b>Extrahierte Eigenwerte</b> bietet Koeffizienten für Gleichungen.
+
+      <dl>
+        <dd><a class="image"><img alt="Pca ex1 extracted eigenvectors.png" src="../images/Principal_Component_Analysis/Pca_ex1_extracted_eigenvectors.png" width="616"></a></dd>
+
+        <dd><img src="../images/Principal_Component_Analysis/math-feba1e219cb45c132359767d4d2f958a.png" title="PC1=0.30261*RedMeat + 0.31056*WhiteMeat + 0.42668*Eggs + 0.37773*Milk + 0.13565*Fish - 0.43774*Cereals + 0.29725*Starch - 0.42033*Nuts - 0.11042*FruitsVegetables" alt="PC1=0.30261*RedMeat + 0.31056*WhiteMeat + 0.42668*Eggs + 0.37773*Milk + 0.13565*Fish - 0.43774*Cereals + 0.29725*Starch - 0.42033*Nuts - 0.11042*FruitsVegetables" class="tex"></dd>
+
+        <dd><img src="../images/Principal_Component_Analysis/math-d4ed031400c694c96c1320ee17aa69c4.png" title="PC2=-0,05625*RedMeat - 0,23685*WhiteMeat - 0,03534*Eggs - 0,18459Milk + 0,64682*Fish - 0,23349*Cereals + 0,35283*Starch + 0,14331*Nuts + 0,53619*FruitsVegetables" alt="PC2=-0,05625*RedMeat - 0,23685*WhiteMeat - 0,03534*Eggs - 0,18459Milk + 0,64682*Fish - 0,23349*Cereals + 0,35283*Starch + 0,14331*Nuts + 0,53619*FruitsVegetables" class="tex"></dd>
+
+        <dd><img src="../images/Principal_Component_Analysis/math-c39f7012f886c0976977d280d68674fd.png" title="PC1=-0,29758*RedMeat + 0,6239*WhiteMeat + 0,18153*Eggs + 0,38566*Milk + 0,32127*Fish - 0,09592*Cereals + 0,24298*Starch - 0,05439*Nuts - 0,40756*FruitsVegetables" alt="PC1=-0,29758*RedMeat + 0,6239*WhiteMeat + 0,18153*Eggs + 0,38566*Milk + 0,32127*Fish - 0,09592*Cereals + 0,24298*Starch - 0,05439*Nuts - 0,40756*FruitsVegetables" class="tex"></dd>
+
+        <dd><img src="../images/Principal_Component_Analysis/math-f78144df54d05a8bdf0c4323196094ac.png" title="PC4=0,64648*RedMeat - 0,03699*WhiteMeat + 0,31316Eggs - 0,00332*Milk - 0,21596*Fish - 0,0062*Cereals - 0,33668*Starch + 0,33029*Nuts + 0,46206*FruitsVegetables" alt="PC4=0,64648*RedMeat - 0,03699*WhiteMeat + 0,31316Eggs - 0,00332*Milk - 0,21596*Fish - 0,0062*Cereals - 0,33668*Starch + 0,33029*Nuts + 0,46206*FruitsVegetables" class="tex"></dd>
+      </dl>
+    </li>
+
+    <li>Das <b>Ladungsdiagramm</b> macht die Beziehungen zwischen den Variablen im Raum der ersten beiden Komponenten deutlich. Im Ladungsdiagramm ist zu sehen, dass rotes Fleisch, Eier, Milch und weißes Mehl ähnlich starke Ladungen für Hauptkomponente 1 haben. Fisch, Obst und Gemüse haben dagegen eine ähnliche Ladung für Hauptkomponente 2.
+
+      <dl>
+        <dd><a class="image"><img alt="Pca ex1 loading plot.png" src="../images/Principal_Component_Analysis/Pca_ex1_loading_plot.png" width="456"></a></dd>
+      </dl>
+    </li>
+
+    <li>Der <b>Biplot</b> zeigt beide Ladungen und die Scores für beide ausgewählte Komponenten parallel. Er kann die Projektion der Beobachtung auf den Unterraum mit den Scorepunkten aufzeigen Außerdem kann er das Verhältnis von Beobachtungen und Variablen im Unterraum der ersten beiden Komponenten darstellen. (Hinweis: Klicken Sie doppelt auf das Diagramm, um es zu öffnen und benutzerdefiniert anzupassen.)</li>
+
+    <li>Verwenden Sie das Hilfsmittel Datenkoordinaten <a class="image"><img alt="Button Data Reader.png" src="../images/Principal_Component_Analysis/Button_Data_Reader.png" width="22"></a>, um das Dateninfofenster zu öffnen und die Zeichnung in ihren Einzelheiten zu untersuchen. Klicken Sie auf einen Datenpunkt, um die Komponentenwerte für jedes Land abzulesen. Es ist zu erkennen, dass die Eiweißquellen von Spanien und Portugal sich von denen der anderen europäischen Länder unterscheiden. Spanien und Portugal greifen mehr auf Obst und Gemüse zurück, während osteuropäische Ländern wie Albanien, Bulgarien, Jugoslawien und Rumänien Getreideprodukte und Nüsse bevorzugen.
+
+      <dl>
+        <dd><a class="image"><img alt="Pca ex1 biplot.png" src="../images/Principal_Component_Analysis/Pca_ex1_biplot.png" width="577"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <table class="note">
+    <tr>
+      <td>
+        Um Länderinformationen im Fenster <b>Daten Info</b>, wie im Bild oben zu sehen, anzuzeigen,
+
+        <ol>
+          <li>klicken Sie mit der rechten Maustaste in das Fenster <b>Daten Info</b> und wählen <b>Einstellungen</b>.</li>
+
+          <li>Markieren Sie <i>Country</i> im linken Bedienfeld, klicken Sie dann auf die Schaltfläche Auswählen (der nach rechts weisende Pfeil), um das Land zur Anzeige der Dateninfos hinzuzufügen, und klicken Sie dann auf <b>OK</b>.
+
+            <dl>
+              <dd><a class="image"><img alt="Pca data info settings.png" src="../images/Principal_Component_Analysis/Pca_data_info_settings.png" width="716"></a></dd>
+            </dl>
+          </li>
+        </ol>
+
+        <p><b>Hinweis</b>: Seit Origin 2019 können Sie einfach mit dem Cursor über einen Datenpunkt fahren, um einen Tooltipp mit Informationen zu den Datenpunktkoordinaten anzuzeigen. Sowohl der Tooltipp als auch die Dateninfoanzeige sind benutzerdefiniert anpassbar. Siehe weitere Informationen zu <a class="external text" href="../../UserGuide/UserGuide/Data_info_Tool.html">Das Fenster Dateninfo und der Tooltipp der Datenpunkte</a>.</p>
+      </td>
+    </tr>
+  </table>
+
+  <p>&#160;</p>
+
+  <h2><a name="Create_3D_Components_Plot"></a><span class="mw-headline">3D-Komponentendiagramm erstellen</span></h2>
+
+  <ol>
+    <li>Klicken Sie auf das Schlosssymbol <a class="image"><img alt="Icon Recalculate Manual Green.png" src="../images/Principal_Component_Analysis/Icon_Recalculate_Manual_Green.png" width="14"></a> im Ergebnisbaum und wählen Sie <b>Parameter ändern</b> im Kontextmenü.</li>
+
+    <li>Setzen Sie auf der Registerkarte <b>Diagramme</b> den <b>Komponentendiagrammtyp</b> auf <b>3D</b>. Geben Sie <b>4</b> im Feld <b>Hauptkomponenten für Z-Achse</b> ein.
+
+      <dl>
+        <dd><a class="image"><img alt="PCA 3D plot 01.png" src="../images/Principal_Component_Analysis/PCA_3D_plot_01.png" width="450"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um den Dialog zu schließen. Die Zeichnungsdaten der Hauptkomponentenanalyse und das 3D-Ladungsdiagramm werden, wie folgt, erstellt.
+
+      <dl>
+        <dd><a class="image"><img alt="PCA 3D plot 02.png" src="../images/Principal_Component_Analysis/PCA_3D_plot_02.png" width="796"></a></dd>
+
+        <dd><a class="image"><img alt="PCA 3D plot 03.png" src="../images/Principal_Component_Analysis/PCA_3D_plot_03.png" width="583"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <p>&#160;</p>

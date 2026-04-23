@@ -1,0 +1,239 @@
+﻿<h1 class="firstHeading">Mit einer stückweisen linearen Funktion anpassen</h1>
+
+  <p class='urlname' style='display: none'>Fitting-Piecewise-Linear</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">Beispiele und Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Import_Data"><span class="tocnumber">3.1</span> <span class="toctext">Daten importieren</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Define_Fitting_Function"><span class="tocnumber">3.2</span> <span class="toctext">Anpassungsfunktion definieren</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#Define_Derived_Parameters_for_Slopes_and_Intercepts"><span class="tocnumber">3.3</span> <span class="toctext">Abgeleitete Parameter für Steigungen und Schnittpunkte mit der Y-Achse definieren</span></a></li>
+
+          <li class="toclevel-2 tocsection-7"><a href="#Fit_the_Curve"><span class="tocnumber">3.4</span> <span class="toctext">Kurve anpassen</span></a></li>
+
+          <li class="toclevel-2 tocsection-8"><a href="#Fitting_Results"><span class="tocnumber">3.5</span> <span class="toctext">Anpassungsergebnisse</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>In diesem Tutorial zeigen wir Ihnen, wie Sie eine stückweise Anpassungsfunktion, die aus zwei linearen Segmenten besteht, definieren, eine Anpassung der Daten mit Hilfe dieser Anpassungsfunktion durchführen und die Schnittstelle für zwei lineare Segmente aus dem Anpassungsergebnis berechnen.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 8.6 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>eine stückweise (konditionale) Anpassungsfunktion definieren,</li>
+
+    <li>Parameter automatisch initialisieren,</li>
+
+    <li>die Schnittstelle der stückweisen Anpassungslinien berechnen.</li>
+  </ul>
+
+  <h2><a name="Example_and_Steps"></a><span class="mw-headline">Beispiel und Schritte</span></h2>
+
+  <h3><a name="Import_Data"></a><span class="mw-headline">Daten importieren</span></h3>
+
+  <ol>
+    <li>Öffnen Sie eine leere Arbeitsmappe. Wählen Sie <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b> im Menü, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner <i>Curve Fitting</i>. Dort befindet sich die Datei <i>Step01.dat</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das leere Arbeitsblatt, um sie zu importieren.</li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf die Spalte <b>Sensor E x</b> (Spalte J) und wählen Sie <b>Setzen als: Als X</b> im Kontextmenü. Markieren Sie die Spalte <b>Sensor E y</b> und wählen Sie <b>Zeichnen: Symbol: Punktdiagramm</b> im Origin-Menü. Das Diagramm sollte folgendermaßen aussehen:
+
+      <dl>
+        <dd><a class="image"><img alt="Fit PWL G1.png" src="../images/Fitting_with_a_Piecewise_Linear_Function/Fit_PWL_G1.png" width="467"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Define_Fitting_Function"></a><span class="mw-headline">Anpassungsfunktion definieren</span></h3>
+
+  <p>In dem Diagramm oben besteht die Kurve aus zwei Liniensegmenten. Sie kann mit einer stückweisen linearen Funktion angepasst werden. Der Ausdruck der Funktion kann folgendermaßen aussehen:</p>
+
+  <dl>
+    <dd><img src="../images/Fitting_with_a_Piecewise_Linear_Function/math-118b6e761a829c9a3cc596f21246cd23.png" title="y = \begin{cases} \frac{y_1(x_3-x)+y_3(x-x_1)}{x_3-x_1}, &amp; \mbox{if } x&lt;x_3 \\ \frac{y_3(x_2-x)+y_2(x-x_3)}{x_2-x_3}, &amp; \mbox{if } x \ge x_3 \end{cases}" alt="y = \begin{cases} \frac{y_1(x_3-x)+y_3(x-x_1)}{x_3-x_1}, &amp; \mbox{if } x&lt;x_3 \\ \frac{y_3(x_2-x)+y_2(x-x_3)}{x_2-x_3}, &amp; \mbox{if } x \ge x_3 \end{cases}" class="tex"></dd>
+  </dl>
+
+  <p>wobei <b>x1</b> und <b>x2</b> die X-Werte der Kurvenendpunkte sind. Sie sind während der Anpassung festgelegt. <b>x3</b> ist der X-Wert bei der Schnittstelle der zwei Segmente, und <b>y1</b>, <b>y2</b> und <b>y3</b> sind jeweils die Y-Werte bei <img src="../images/Fitting_with_a_Piecewise_Linear_Function/math-bb72ab647a46b52c993ced389f95c09a.png" title="\ x_i, \ i=1, 2, 3" alt="\ x_i, \ i=1, 2, 3" class="tex">.</p>
+
+  <p>Die Anpassungsfunktion kann mit Hilfe des Hilfsmittels <b>Fitfunktionen erstellen</b> definiert werden.</p>
+
+  <ol>
+    <li>Wählen Sie <b>Hilfsmittel: Fitfunktionen erstellen</b> im Origin-Menü.</li>
+
+    <li>Klicken Sie im Dialog <b>Fitfunktionen erstellen</b> auf der Seite <b>Ziel</b> auf die Schaltfläche <b>Weiter</b>.</li>
+
+    <li>Wählen Sie auf der Seite <b>Name und Typ</b> die Option <b>User Defined</b> in der Auswahlliste <b>Eine Kategorie auswählen oder erstellen</b>, geben Sie <b>pwl2s</b> im Feld <b>Funktionsname</b> ein und wählen Sie <b>Origin C</b> in der Gruppe <b>Funktionstyp</b>. Klicken Sie auf die Schaltfläche <b>Weiter</b>.</li>
+
+    <li>Geben Sie auf der Seite <b>Variablen und Parameter</b> die Parameter <b>x1, y1, x2, y2, x3, y3</b> im Feld <b>Parameter</b> ein. Klicken Sie auf die Schaltfläche <b>Weiter</b>.</li>
+
+    <li>Klicken Sie auf der Seite <b>Origin C-Anpassungsfunktion</b> auf die Schaltfläche <a class="image"><img alt="User-Defined Fitting Functions-2.png" src="../images/Fitting_with_a_Piecewise_Linear_Function/User-Defined_Fitting_Functions-2.png" width="19"></a> rechts vom <b>Funktionskörper</b> und definieren Sie die Anpassungsfunktion im <b>Code Builder</b> folgendermaßen:
+      <pre class="oc" style="font-family:monospace;">
+   <span style="color: #0000ff;">if</span><span style="color: #000000;">(</span> x <span style="color: #000080;">&lt;</span> x3 <span style="color: #000000;">)</span> y <span style="color: #000080;">=</span> <span style="color: #000000;">(</span>y1<span style="color: #000040;">*</span><span style="color: #000000;">(</span>x3<span style="color: #000040;">-</span>x<span style="color: #000000;">)</span><span style="color: #000040;">+</span>y3<span style="color: #000040;">*</span><span style="color: #000000;">(</span>x<span style="color: #000040;">-</span>x1<span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000040;">/</span><span style="color: #000000;">(</span>x3<span style="color: #000040;">-</span>x1<span style="color: #000000;">)</span>; <span style="color: #0000ff;">else</span> y <span style="color: #000080;">=</span> <span style="color: #000000;">(</span>y3<span style="color: #000040;">*</span><span style="color: #000000;">(</span>x2<span style="color: #000040;">-</span>x<span style="color: #000000;">)</span><span style="color: #000040;">+</span>y2<span style="color: #000040;">*</span><span style="color: #000000;">(</span>x<span style="color: #000040;">-</span>x3<span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000040;">/</span><span style="color: #000000;">(</span>x2<span style="color: #000040;">-</span>x3<span style="color: #000000;">)</span>;
+</pre>
+
+      <p>Klicken Sie auf die Schaltfläche <b>Kompilieren</b>, um den Funktionskörper zu kompilieren. Klicken Sie dann auf die Schaltfläche <b>Zurück zum NSLF</b>. Klicken Sie auf die Schaltfläche <b>Weiter</b>.</p>
+    </li>
+
+    <li>Klicken Sie auf der Seite <b>Parameterinitialisierungscode</b> auf die Schaltfläche <a class="image"><img alt="User-Defined Fitting Functions-2.png" src="../images/Fitting_with_a_Piecewise_Linear_Function/User-Defined_Fitting_Functions-2.png" width="19"></a> rechts vom Feld <b>Initialisierungscode</b> und initialisieren Sie die Anpassungsparameter im <b>Code Builder</b> folgendermaßen:
+      <pre class="oc" style="font-family:monospace;">
+   <span style="color: #0000ff;">int</span> n1, n2, n3; x_data.<span style="color: #000000;">GetMinMax</span><span style="color: #000000;">(</span> x1, x2, <span style="color: #000040;">&amp;</span>n1, <span style="color: #000040;">&amp;</span>n2 <span style="color: #000000;">)</span>; x3 <span style="color: #000080;">=</span> x1 <span style="color: #000040;">+</span> <span style="color: #000000;">(</span>x2 <span style="color: #000040;">-</span> x1<span style="color: #000000;">)</span><span style="color: #000040;">/</span><span style="color: #0000dd;">2</span>; y1 <span style="color: #000080;">=</span> y_data<span style="color: #000000;">[</span>n1<span style="color: #000000;">]</span>; y2 <span style="color: #000080;">=</span> y_data<span style="color: #000000;">[</span>n2<span style="color: #000000;">]</span>; vector vd; vd <span style="color: #000080;">=</span> <span style="color: #000000;">abs</span><span style="color: #000000;">(</span> x_data <span style="color: #000040;">-</span> x3 <span style="color: #000000;">)</span>; <span style="color: #0000ff;">double</span> xta, xtb; vd.<span style="color: #000000;">GetMinMax</span><span style="color: #000000;">(</span> xta, xtb, <span style="color: #000040;">&amp;</span>n3 <span style="color: #000000;">)</span>; y3 <span style="color: #000080;">=</span> y_data<span style="color: #000000;">[</span>n3<span style="color: #000000;">]</span>;
+</pre>
+
+      <p>Klicken Sie auf die Schaltfläche <b>Kompilieren</b>. Klicken Sie dann auf die Schaltfläche <b>Zurück zum NSLF</b>. Klicken Sie auf die Schaltfläche <b>Fertigstellen</b>.</p>
+    </li>
+  </ol>
+
+  <h3><a name="Define_Derived_Parameters_for_Slopes_and_Intercepts"></a><span class="mw-headline">Abgeleitete Parameter für Steigungen und Schnittpunkte mit der Y-Achse definieren</span></h3>
+
+  <p>Während des Definitionsprozesses der Funktion können Sie auch einige zusätzliche abgeleitete Parameter wie Steigungen und Schnittpunkte mit Y-Achse definieren, die aus den Funktionsparameterwerten nach Ende des Anpassungsprozesses berechnet werden.</p>
+
+  <ol>
+    <li>Klicken Sie zweimal auf die Schaltfläche <b>&lt;&lt;Zurück</b>, um zur Seite <b>Variablen und Parameter</b> zu gelangen, und geben Sie <b>a1,b1,a2,b2</b> im Feld <b>Abgeleitete Parameter</b> ein.</li>
+
+    <li>Klicken Sie viermal auf die Schaltfläche <b>Weiter</b>, um zur Seite <b>Abgeleitete Parameter</b> zu gelangen, füllen Sie die Spalte <b>Bedeutung</b> aus und geben Sie die folgenden Gleichungen in dem Feld <b>Abgeleitete Parametergleichungen</b> ein. Klicken Sie dann auf die Schaltfläche <b>Fertigstellen</b>.<br>
+    <i>a1=(y1*x3-y3*x1)/(x3-x1)</i>;<br>
+    <i>b1=(-y1+y3)/(x3-x1)</i>;<br>
+    <i>a2=(y3*x2-y2*x3)/(x2-x3)</i>;<br>
+    <i>b2=(-y3+y2)/(x2-x3)</i>;<br></li>
+  </ol>
+
+  <div style="margin-left: 2em">
+    <a class="image"><img alt="Piecewise slope and intercept.png" src="../images/Fitting_with_a_Piecewise_Linear_Function/Piecewise_slope_and_intercept.png" width="534"></a>
+  </div>
+
+  <h3><a name="Fit_the_Curve"></a><span class="mw-headline">Kurve anpassen</span></h3>
+
+  <ol>
+    <li>Wählen Sie <b>Analyse: Anpassen: Nichtlinearer Fit</b> im Origin-Menü. Wählen Sie im Dialog <b>NLFit</b> auf der Seite <b>Einstellungen: Funktionsauswahl</b> die Option <b>User Defined</b> in der Auswahlliste <b>Kategorie</b> und die Funktion <b>pwl2s</b> in der Liste <b>Funktion</b>.</li>
+
+    <li>Wechseln Sie im Dialog <b>NLFit</b> zur Registerkarte <b>Parameter</b> und legen Sie die Parameter <b>x1</b>, <b>x2</b> fest.<br>
+    <a class="image"><img alt="Fit PWL FixP.png" src="../images/Fitting_with_a_Piecewise_Linear_Function/Fit_PWL_FixP.png" width="388"></a></li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Fit</b>, um die Kurve anzupassen.</li>
+  </ol>
+
+  <h3><a name="Fitting_Results"></a><span class="mw-headline">Anpassungsergebnisse</span></h3>
+
+  <p>Die angepasste Kurve sollte folgendermaßen aussehen:</p>
+
+  <dl>
+    <dd>
+      <dl>
+        <dd><a class="image"><img alt="Fit PWL FitCurve 2.png" src="../images/Fitting_with_a_Piecewise_Linear_Function/Fit_PWL_FitCurve_2.png" width="613"></a></dd>
+      </dl>
+    </dd>
+  </dl>
+
+  <p>Die angepassten Parameter werden wie folgt gezeigt:</p>
+
+  <table class="simple">
+    <tr>
+      <th><b>Parameter</b></th>
+
+      <th><b>Wert</b></th>
+
+      <th><b>Standardfehler</b></th>
+    </tr>
+
+    <tr>
+      <th><b>x1</b></th>
+
+      <td>0,8</td>
+
+      <td>0</td>
+    </tr>
+
+    <tr>
+      <th><b>y1</b></th>
+
+      <td>-0,0271</td>
+
+      <td>0,01063</td>
+    </tr>
+
+    <tr>
+      <th><b>x2</b></th>
+
+      <td>60</td>
+
+      <td>0</td>
+    </tr>
+
+    <tr>
+      <th><b>y2</b></th>
+
+      <td>0,95585</td>
+
+      <td>0,0083</td>
+    </tr>
+
+    <tr>
+      <th><b>x3</b></th>
+
+      <td>22,26316</td>
+
+      <td>0,58445</td>
+    </tr>
+
+    <tr>
+      <th><b>y3</b></th>
+
+      <td>0,66106</td>
+
+      <td>0,01197</td>
+    </tr>
+
+    <tr>
+      <th><b>a1</b></th>
+
+      <td>-0,05275</td>
+
+      <td>0,01123</td>
+    </tr>
+
+    <tr>
+      <th><b>b1</b></th>
+
+      <td>0,03206</td>
+
+      <td>8,153E-4</td>
+    </tr>
+
+    <tr>
+      <th><b>a2</b></th>
+
+      <td>0,48715</td>
+
+      <td>0,01664</td>
+    </tr>
+
+    <tr>
+      <th><b>b2</b></th>
+
+      <td>0,00781</td>
+
+      <td>3,6455E-4</td>
+    </tr>
+  </table>
+
+  <p>Daraus ersehen wir, dass die Schnittstelle der zwei Segmente bei (22,26316, 0,66106) liegt.</p>
+
+  <p><b>Beachten Sie</b>, dass die Anpassung mit einer stückweisen linearen Funktion für mehr als zwei Segmente auf ähnliche Weise durchgeführt werden kann.</p>

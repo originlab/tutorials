@@ -1,0 +1,109 @@
+﻿<h1 class="firstHeading">Importassistent</h1>
+
+  <p class='urlname' style='display: none'>ImportWizard</p>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Der <b>Importassistent</b> erlaubt es Ihnen, komplizierte ASCII-Dateien zu importieren, Variablen aus dem Importdateinamen und dem Header zu extrahieren (zur Wiederverwendung in Origin), benutzerdefinierte Trennzeichen und Datumsformate festzulegen oder die Nachbearbeitung Ihrer importierten Daten mit Hilfe von LabTalk-Skript durchzuführen. Außerdem können Sie die benutzerdefinierten Einstellungen in einem Filter (.oif) speichern, der wiederholt zum Importieren der gleichen oder ähnlich strukturierten Dateien verwendet werden kann.</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie den <b>Importassistenten</b> verwenden, um</p>
+
+  <ul>
+    <li>Variablen aus dem Dateinamen und -header zu extrahieren.</li>
+
+    <li>Importeinstellungen zu speichern und sie für neue Daten zu verwenden.</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe. Wählen Sie <b>Datei: Aus Datei importieren: Importassistent</b>, um den Dialog <b>Importassistent</b> zu öffnen. Klicken Sie auf die Schaltfläche Durchsuchen <a class="image"><img alt="Tutorial Import 005.png" src="../images/Import_Wizard/Tutorial_Import_005.png" width="19"></a> rechts neben dem Feld <b>Datei</b>. Navigieren Sie zu dem Ordner \<i>Samples</i>\<i>Import and Export</i> und öffnen Sie die Datei <i>S15-125-03.dat</i>.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Import 013.png" src="../images/Import_Wizard/Tutorial_Import_013.png" width="662"></a></dd>
+      </dl><br>
+      Beachten Sie, dass ein Importfilter von <i>VarsFromFileNameAndHeader.oif</i> automatisch für <b>Importfilter</b>&gt; <b>Importfilter für aktuellen Datentyp</b> ausgewählt wird. Wenn es keinen Importfilter im Datenordner gibt, wird der Filter automatisch zum Importieren der Daten verwendet. In diesem Beispiel zeigen wir Ihnen, wie Sie diese Daten Schritt für Schritt importieren und einen einen entsprechenden Filter erstellen. Wir wählen <b>&lt;Kein&gt;</b>.<br>
+      Klicken Sie auf <b>Weiter</b>.
+    </li>
+
+    <li>Auf der Seite <b>Headerzeilen</b> können Sie die Arbeitsblattheader einfach benutzerdefiniert anpassen. Das untere Bedienfeld ist insbesondere nützlich, wenn Sie eine Datei mit vielen Headerzeilen, wie in diesem Beispiel, importieren möchten. Deaktivieren Sie das Kontrollkästchen <b>Kopfzeilen automatisch bestimmen</b>. Um die Haupheaderzeilen festzulegen, positionieren Sie den Cursor auf Zeile 6 im Vorschaufeld und klicken Sie dann auf die Schaltfläche <a class="image"><img alt="Tutorial Import 012.png" src="../images/Import_Wizard/Tutorial_Import_012.png" width="26"></a> neben <b>Hauptheaderzeilen: Festgelegte Anzahl</b>. Entsprechend legen Sie die Zeilen <b>Langname</b> und <b>Einheit</b> fest.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Import 002.png" src="../images/Import_Wizard/Tutorial_Import_002.png" width="727"></a></dd>
+      </dl><br>
+      Klicken Sie auf <b>Weiter</b>.
+    </li>
+
+    <li>Die Seite <b>Variablenextraktion</b> ermöglicht Ihnen, Variablen aus Dateinamen und Dateiheadern zu extrahieren, die in der Seiteninfo gespeichert, in Spaltenheaderzeilen abgelegt oder in Anmerkungen eines Diagramms verwendet werden können. Aktivieren Sie <b>Bestimmen Sie den Speicherort von Variablennamen und Werten unter Verwendung von Trennzeichen</b>, <b>Variablen zur Seiteninformation hinzufügen</b> und <b>Anwenderparameterzeilen für jede Variable erstellen</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Import 014.png" src="../images/Import_Wizard/Tutorial_Import_014.png" width="561"></a></dd>
+      </dl><br>
+      Klicken Sie auf <b>Weiter</b>.
+    </li>
+
+    <li>Auf der Seite <b>Variablenextraktion mit Trennzeichen</b> können Sie die Variablennamen und -werte durch spezifische Trennzeichen extrahieren. In diesem Beispiel extrahieren wir Folgendes:
+
+      <ul>
+        <li><b>Variable</b> in <b>Linie</b> <i>FN04</i>, <b>Trennzeichen</b> = <i>Anderes</i>: <i>-</i>,</li>
+      </ul>
+
+      <dl>
+        <dd>
+          <ul>
+            <li><b>Wert</b> = <i>S15</i>, <b>Geben Sie den Variablennamen ein</b> = <i>SampleID</i>;</li>
+
+            <li><b>Wert</b> = <i>125</i>, <b>Geben Sie den Variablennamen ein</b> = <i>BatchNo</i>;</li>
+
+            <li><b>Wert</b> = <i>03</i>, <b>Geben Sie den Variablennamen ein</b> = <i>RunNo</i>;</li>
+          </ul>
+        </dd>
+      </dl>
+
+      <ul>
+        <li><b>Variable</b> in <b>Linie</b> <i>H002</i>, <b>Trennzeichen</b> = <i>Doppelpunkt</i>, <b>Wert</b> = <i>1000</i>, <b>Variablennamen aus Datei extrahieren &gt; Name</b> = <i>No. of points</i>;</li>
+
+        <li><b>Variable</b> in <b>Linie</b> <i>H004</i>, <b>Trennzeichen</b> = <i>Doppelpunkt</i>, <b>Wert</b> = <i>12/01/2004</i>, <b>Variablennamen aus Datei extrahieren &gt; Name</b> = <i>Measured on</i>;</li>
+
+        <li><b>Variable</b> in <b>Linie</b> <i>H005</i>, <b>Trennzeichen</b> = <i>Register</i>, <b>Wert</b> = <i>03:20:39 AM</i>, <b>Variablennamen aus Datei extrahieren &gt; Name</b> = <i>Time</i>;</li>
+
+        <li><b>Variable</b> in <b>Linie</b> <i>H006</i>, <b>Trennzeichen</b> = <i>Register</i>, <b>Wert</b> = <i>Trial Run 1</i>, <b>Variablennamen aus Datei extrahieren &gt; Name</b> = <i>Run Type</i>;</li>
+      </ul>
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Import 011.png" src="../images/Import_Wizard/Tutorial_Import_011.png" width="727"></a></dd>
+      </dl><br>
+      Klicken Sie auf <b>Weiter</b>.
+    </li>
+
+    <li>Aktivieren Sie auf der Seite <b>Dateinamenoptionen</b> das Kontrollkästchen <b>Arbeitsblatt mit Variable</b> und wählen Sie in der Auswahlliste <b>RunType</b>, um das Arbeitsblatt mit der Variable <i>RunType</i> umzubenennen. Aktivieren Sie auch <b>Langname nur für die Mappe umbenennen</b> und <b>Dateiname zu Spaltenkommentare</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Import 015.png" src="../images/Import_Wizard/Tutorial_Import_015.png" width="517"></a></dd>
+      </dl><br>
+      Klicken Sie auf <b>Weiter</b>.
+    </li>
+
+    <li>Wählen Sie auf der Seite <b>Spalten mit Daten</b> die Option <b>Register</b> unter <b>Dateistruktur &gt; Trennzeichen</b> und geben Sie <b>XY</b> für die <i>Zuordnung der Spalten</i> ein. Klicken Sie auf die Schaltfläche <b>Anwenden</b>, um die Datenspalten in der Vorschau unten zu prüfen.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Import 007.png" src="../images/Import_Wizard/Tutorial_Import_007.png" width="727"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie 2x auf <b>Weiter</b>, um zur Seite <b>Filter speichern</b> zu gelangen. Um diese Einstellungen erneut zu verwenden, können Sie diesen Importprozess als Filter speichern. Aktivieren Sie das Kontrollkästchen <b>Filter speichern</b> und vergeben Sie einen Filternamen im Feld <b>Dateiname Filter</b> (<i>MeinFilter</i> in diesem Beispiel).<br>
+      <a class="image"><img alt="Tutorial Import 009.png" src="../images/Import_Wizard/Tutorial_Import_009.png" width="727"></a><br>
+      <br>
+      Klicken Sie auf <b>Fertigstellen</b>, um die Datei zu importieren.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Import 008.png" src="../images/Import_Wizard/Tutorial_Import_008.png" width="465"></a></dd>
+      </dl>
+    </li>
+
+    <li>Öffnen Sie den Dialog <b>Importassistent</b> erneut. Wählen Sie dieses mal die Datei <i>&lt;Origin-Verzeichnis&gt;\Samples\Import and Export\S21-235-07.dat</i>. Sie können den Filter <i>MeinFilter</i> auswählen, den Sie soeben unter <b>Importfilter für aktuellen Datentyp</b> gespeichert haben.<br>
+    <a class="image"><img alt="Tutorial Import 010.png" src="../images/Import_Wizard/Tutorial_Import_010.png" width="716"></a><br>
+    Klicken Sie direkt auf die Schaltfläche <b>Fertigstellen</b>. Es werden die Einstellungen in <b>MeinFilter</b> zum Importieren der Datei verwendet.</li>
+  </ol>

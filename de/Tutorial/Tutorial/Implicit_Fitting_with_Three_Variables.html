@@ -1,0 +1,244 @@
+﻿<h1 class="firstHeading">Implizites Anpassen mit drei Variablen</h1>
+
+  <p class='urlname' style='display: none'>ImplicitFit-3Var</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Examples_and_Steps"><span class="tocnumber">3</span> <span class="toctext">Beispiele und Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Import_Data"><span class="tocnumber">3.1</span> <span class="toctext">Daten importieren</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Define_Fitting_Function"><span class="tocnumber">3.2</span> <span class="toctext">Anpassungsfunktion definieren</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#Fit_the_Curve"><span class="tocnumber">3.3</span> <span class="toctext">Kurve anpassen</span></a></li>
+
+          <li class="toclevel-2 tocsection-7"><a href="#Fitting_Results"><span class="tocnumber">3.4</span> <span class="toctext">Anpassungsergebnisse</span></a></li>
+
+          <li class="toclevel-2 tocsection-8"><a href="#Fitted_Surface"><span class="tocnumber">3.5</span> <span class="toctext">Angepasste Oberfläche</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/Implicit_Fitting_with_Three_Variables/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/Implicit_Fitting_with_Three_Variables/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=98" target="_blank">Implizite Funktionsanpassung</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%"><a class="image"><img alt="Website blog icon circle.png" src="../images/Implicit_Fitting_with_Three_Variables/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Implicit_Fitting_with_Three_Variables/Blog_Image_33x33px.png" width="135"></a></td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie eine implizite Anpassungsfunktion mit drei unabhängigen Variablen definieren und dann mit ihr eine implizite Anpassung auf Daten durchführen.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: OriginPro 9.0 SR1</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ol>
+    <li>eine implizite Anpassungsfunktion definieren.</li>
+
+    <li>eine implizite Anpassung mit drei unabhängigen Variablen durchführen.</li>
+
+    <li>die angepasste Oberfläche manuell zeichnen.</li>
+  </ol>
+
+  <h2><a name="Examples_and_Steps"></a><span class="mw-headline">Beispiele und Schritte</span></h2>
+
+  <h3><a name="Import_Data"></a><span class="mw-headline">Daten importieren</span></h3>
+
+  <ol>
+    <li>Öffnen Sie ein leeres Arbeitsblatt. Wählen Sie <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b> im Menü, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner <i>Curve Fitting</i>. Dort befindet sich die Datei <i>Ellipsoid.dat</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das leere Arbeitsblatt, um sie zu importieren.</li>
+
+    <li>Markieren Sie Spalte C, klicken Sie mit der rechten Maustaste auf die Auswahl und wählen Sie <b>Setzen als: Als Z setzen</b> im Kontextmenü. Wählen Sie <b>Zeichnen: 3D: 3D-Punktdiagramm</b> im Origin-Menü. Klicken Sie doppelt auf das Diagramm. Wählen Sie im Dialog <b>Details Zeichnung</b> die Ebene <b>Layer1</b> im linken Bedienfeld, klicken Sie auf die Registerkarte <b>Achse</b> und setzen Sie die <b>X-, Y- und Z-Länge</b> auf 100, 75 bzw. 50. Klicken Sie auf der Symbolleiste <b>3D-Drehung</b> auf die Schaltfläche <b>Rahmen an Layer anpassen</b> <a class="image"><img alt="Fit Frame To Layer.PNG" src="../images/Implicit_Fitting_with_Three_Variables/16px-Fit_Frame_To_Layer.PNG" width="16"></a>. Das Diagramm sollte folgendermaßen aussehen:<br>
+    <a class="image"><img alt="Implicit 3V G1.png" src="../images/Implicit_Fitting_with_Three_Variables/Implicit_3V_G1.png" width="520"></a></li>
+  </ol>
+
+  <h3><a name="Define_Fitting_Function"></a><span class="mw-headline">Anpassungsfunktion definieren</span></h3>
+
+  <p>Das Diagramm kann mit einem Ellipsoid angepasst werden. Der Ausdruck der Funktion kann folgendermaßen aussehen:</p>
+
+  <dl>
+    <dd><img src="../images/Implicit_Fitting_with_Three_Variables/math-b71f95ed35e1ed11ba596b7160b40af7.png" title="\frac{(x-x_0)^2}{a^2}+\frac{(y-y_0)^2}{b^2}+\frac{(z-z_0)^2}{c^2}=1" alt="\frac{(x-x_0)^2}{a^2}+\frac{(y-y_0)^2}{b^2}+\frac{(z-z_0)^2}{c^2}=1" class="tex"></dd>
+  </dl>
+
+  <p>wobei <img src="../images/Implicit_Fitting_with_Three_Variables/math-4e08dd6cdde437884ad3dbe20a20c05f.png" title="(x_0, y_0, z_0) \;" alt="(x_0, y_0, z_0) \;" class="tex"> das Zentrum des Ellipsoids ist, <b>a</b>, <b>b</b> und <b>c</b> die Längen der Halb- und Hauptachsen sind und <b>x</b>, <b>y</b> und <b>z</b> drei unabhängige Variablen für die Anpassungsdaten darstellen.</p>
+
+  <p>Die Anpassungsfunktion kann mit Hilfe des Hilfsmittels <b>Fitfunktionen erstellen</b> definiert werden.</p>
+
+  <ol>
+    <li>Wählen Sie <b>Hilfsmittel: Fitfunktionen erstellen</b> im Origin-Menü.</li>
+
+    <li>Klicken Sie im Dialog <b>Fitfunktionen erstellen</b> auf der Seite <b>Ziel</b> auf die Schaltfläche <b>Weiter</b>.</li>
+
+    <li>Wählen Sie auf der Seite <b>Name und Typ</b> die Option <b>Implicit</b> in der Auswahlliste <b>Eine Kategorie auswählen oder erstellen</b>, geben Sie <b>Ellipsoid</b> im Feld <b>Funktionsname</b> ein und wählen Sie <b>Implizit</b> in der Gruppe <b>Funktionsmodell</b>. Klicken Sie auf <b>Weiter</b>.<br>
+    <a class="image"><img alt="Implicit 3V G2.png" src="../images/Implicit_Fitting_with_Three_Variables/Implicit_3V_G2.png" width="573"></a><br>
+    <br>
+    <b>Beachten Sie</b>, dass implizite Funktionen in der Kategorie <b>Implizit</b> werden müssen.</li>
+
+    <li>Geben Sie auf der Seite <b>Variablen und Parameter</b> <b>x, y, z</b> in dem Feld <b>Variable</b> und <b>x0, y0, z0, a, b, c</b> in dem Feld <b>Parameter</b> ein. Klicken Sie auf <b>Weiter</b>.</li>
+
+    <li>Geben Sie auf der Seite <b>Ausdrucksfunktion</b> das folgende Skript im Feld <b>Funktionskörper</b> ein:
+      <pre class="lt" style="font-family:monospace;">
+<span style="color: #000000;">(</span>x<span style="color: #000080;">-</span>x0<span style="color: #000000;">)</span><span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000080;">/</span>a<span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000080;">+</span><span style="color: #000000;">(</span>y<span style="color: #000080;">-</span>y0<span style="color: #000000;">)</span><span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000080;">/</span>b<span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000080;">+</span><span style="color: #000000;">(</span>z<span style="color: #000080;">-</span>z0<span style="color: #000000;">)</span><span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000080;">/</span>c<span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000080;">-</span><span style="color: #0000dd;">1</span>
+</pre><b>Beachten Sie</b>, dass für eine implizite Funktion <img src="../images/Implicit_Fitting_with_Three_Variables/math-44b22fd696dfa3566db742efbaf49ac6.png" title="f_1(x_i,p_i)=f_2(x_i,p_i)\;" alt="f_1(x_i,p_i)=f_2(x_i,p_i)\;" class="tex">, bei der <img src="../images/Implicit_Fitting_with_Three_Variables/math-1ba8aaab47179b3d3e24b0ccea9f4e30.png" title="x_i" alt="x_i" class="tex"> (i=1,2..) unabhängige Variablen und <img src="../images/Implicit_Fitting_with_Three_Variables/math-eca91c83a74a2373ca5f796700e99fd3.png" title="p_i" alt="p_i" class="tex"> (i=1,2...) Parameter sind, es in Origin als <img src="../images/Implicit_Fitting_with_Three_Variables/math-0310b55a8aedb17e29866a5e31a05588.png" title="f=f_1(x_i,p_i)-f_2(x_i,p_i)\;" alt="f=f_1(x_i,p_i)-f_2(x_i,p_i)\;" class="tex"> definiert werden muss, wobei <b>f</b> die <b>Schätzung</b> darstellt.<br>
+      Setzen Sie die Initialisierungsparameter auf der Registerkarte <b>Parameter</b>, wie folgt.
+      <pre class="lt" style="font-family:monospace;">
+x0<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span> y0<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span> z0<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span> a<span style="color: #000080;">=</span><span style="color: #0000dd;">3</span> b<span style="color: #000080;">=</span><span style="color: #0000dd;">3</span> c<span style="color: #000080;">=</span><span style="color: #0000dd;">3</span>
+</pre>Klicken Sie in de Gruppe <b>Schnellprüfung</b> auf die Schaltfläche <b>Auswerten</b>. Es zeigt sich, dass f=-0,667 bei x=1, y=1, z=1.<br>
+      <a class="image"><img alt="Implicit 3V G3.png" src="../images/Implicit_Fitting_with_Three_Variables/Implicit_3V_G3.png" width="573"></a><br>
+      Klicken Sie auf die Schaltfläche <b>Weiter</b> und dann erneut auf die Schaltfläche <b>Weiter</b>.
+    </li>
+
+    <li>Legen Sie auf der Seite <b>Grenzen und allgemeine lineare Nebenbedingungen</b> die unteren Grenzen für <b>a</b>, <b>b</b> und <b>c</b>, wie folgt, fest. Klicken Sie dann auf die Schaltfläche <b>Fertig</b>, um den Dialog zu schließen.<br>
+
+      <dl>
+        <dd><a class="image"><img alt="Bounds general linear constraints.png" src="../images/Implicit_Fitting_with_Three_Variables/Bounds_general_linear_constraints.png" width="400"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <p><b>Beachten Sie</b>, dass eine Meldung im <b>Meldungsprotokoll</b> gezeigt wird, dass die implizite Funktion im <b>Anwenderdateiordner</b> gespeichert ist.</p>
+
+  <h3><a name="Fit_the_Curve"></a><span class="mw-headline">Kurve anpassen</span></h3>
+
+  <ol>
+    <li>Für implizite Anpassungen mit mehr als 2 unabhängigen Variablen unterstützt Origin nur Eingabedaten aus Arbeitsmappen, nicht aus Diagrammen. Daher müssen wir vor der Anpassung die Arbeitsmappe aktivieren. Wählen Sie <b>Analyse: Anpassen: Nichtlineare implizite Anpassung</b> im Origin-Menü. Wählen Sie im Dialog <b>NLFit</b> auf der Registerkarte <b>Einstellungen: Funktionsauswahl</b> und auf der Seite die Funktion <b>Ellipse</b> in der Auswahlliste <b>Funktion</b>.</li>
+
+    <li>Wählen Sie die Seite <b>Datenauswahl</b>, erweitern Sie <b>Eingabedaten: Bereich 1</b> und wählen Sie Spalte A als X, Spalte B als Y und Spalte C als Z. Eine Fehlermeldung wird unten im Feld <b>Nachrichten</b> gezeigt. Dem Vorschlag der Fehlermeldung folgend, gehen Sie zur Seite <b>Fit-Kurven</b> und ändern Sie den Datentyp von X in <b>Angepasster Punkt für Eingabedaten</b>. Der <b>Datentyp von y</b> und <b>z</b> sollte sich automatisch auch ändern.<br>
+    <a class="image"><img alt="Implicit 3V G4.png" src="../images/Implicit_Fitting_with_Three_Variables/Implicit_3V_G4.png" width="774"></a><br>
+    <b>Beachten Sie</b>, dass Origin weder die Vorschau der <b>Fit-Kurve</b> im Dialog <b>NLFit</b> noch die angepasste Oberfläche in dem Anpassungsbericht für implizite Anpassungen mit mehr als zwei unabhängigen Variablen unterstützt.</li>
+
+    <li>Da die Initialisierungsparameter im Dialog <b>Fitfunktionen erstellen</b> festgelegt wurden, können wir auf die Schaltfläche <b>Fit</b> klicken, um die Kurve anzupassen.</li>
+  </ol>
+
+  <h3><a name="Fitting_Results"></a><span class="mw-headline">Anpassungsergebnisse</span></h3>
+
+  <p>Wechseln Sie zum Anpassungsbericht. Die Tabellen <b>Parameter</b> und <b>Statistik</b> werden in dem Bericht gezeigt.</p>
+
+  <p>Die angepassten Parameter werden wie folgt gezeigt:</p>
+
+  <table class="simple">
+    <tr>
+      <th><b>Parameter</b></th>
+
+      <th><b>Wert</b></th>
+
+      <th><b>Standardfehler</b></th>
+    </tr>
+
+    <tr>
+      <th><b>x0</b></th>
+
+      <td>0,41073</td>
+
+      <td>0,01576</td>
+    </tr>
+
+    <tr>
+      <th><b>y0</b></th>
+
+      <td>0,32043</td>
+
+      <td>0,01352</td>
+    </tr>
+
+    <tr>
+      <th><b>z0</b></th>
+
+      <td>0,00147</td>
+
+      <td>0,00749</td>
+    </tr>
+
+    <tr>
+      <th><b>a</b></th>
+
+      <td>4,00325</td>
+
+      <td>0,02076</td>
+    </tr>
+
+    <tr>
+      <th><b>b</b></th>
+
+      <td>3,00097</td>
+
+      <td>0,01881</td>
+    </tr>
+
+    <tr>
+      <th><b>c</b></th>
+
+      <td>1,99972</td>
+
+      <td>0,00933</td>
+    </tr>
+  </table>
+
+  <p>Das <b>korrigierte R-Quadrat</b> ist 0,99823. Dieser Wert besagt, dass das angepasste Ergebnis sehr gut ist. <b>Beachten Sie</b>, dass dieses Ergebnis von Origin 9 mit 32Bit erstellt wurde, während das Ergebnis von Origin 9 mit 64Bit etwas unterschiedlich und etwas besser aussieht.</p>
+
+  <p>Im Arbeitsblatt <b>FitODRCurve1</b> werden in den ersten drei Spalten die XYZ-Koordinaten für die angepassten Punkte gezeigt.</p>
+
+  <p><b>Beachten Sie</b>, dass in der impliziten Anpassung x, y und z alle unabhängige Variablen sind. Sie werden alle während der Iterationen in der Anpassung korrigiert.</p>
+
+  <h3><a name="Fitted_Surface"></a><span class="mw-headline">Angepasste Oberfläche</span></h3>
+
+  <p>Obwohl Origin 9 SR1 die angepasste Oberfläche in dem Anpassungsbericht für implizite Anpassungen mit mehr als zwei unabhängigen Variablen nicht zeigt, können Sie in diesem Beispiel den angepassten Ellipsoid mit Hilfe des Hilfsmittels <b>Parametrisches 3D-Funktionsdiagramm</b> wie folgt in Origin zeichnen.</p>
+
+  <ol>
+    <li>Aktivieren Sie den Anpassungsbericht, führen Sie das folgende LabTalk-Skript im <b>Skriptfenster</b> aus, um die angepassten Parametervariablen zu ermitteln.
+      <pre class="lt" style="font-family:monospace;">
+getnlr tr<span style="color: #000000;">:</span><span style="color: #000080;">=</span>tt; x0<span style="color: #000080;">=</span>tt.<span style="color: #000080;">x0</span>; y0<span style="color: #000080;">=</span>tt.<span style="color: #000080;">y0</span>; z0<span style="color: #000080;">=</span>tt.<span style="color: #000080;">z0</span>; a<span style="color: #000080;">=</span>tt.<span style="color: #000080;">a</span>; b<span style="color: #000080;">=</span>tt.<span style="color: #000080;">b</span>; c<span style="color: #000080;">=</span>tt.<span style="color: #000080;">c</span>;
+</pre>
+
+      <p>Die Variablen <b>x0</b>, <b>y0</b>, <b>z0</b>, <b>a</b>, <b>b</b> und <b>c</b> können in den folgenden Schritten verwendet werden.</p>
+    </li>
+
+    <li>Aktivieren Sie <b>Graph1</b>. Wählen Sie <b>Datei: Neu: Funktionsdiagramm: Parametrisches 3D-Funktionsdiagramm</b> im Origin-Menü. Setzen Sie im Dialog <b>Parametrisches 3D-Funktionsdiagramm erstellen</b> <b>u</b> von 0 auf pi und <b>v</b> von 0 auf 2*pi. Definieren Sie <b>X</b> ,<b>Y</b> und <b>Z</b> folgendermaßen.
+      <pre class="lt" style="font-family:monospace;">
+X<span style="color: #000000;">(</span>u,v<span style="color: #000000;">)</span><span style="color: #000080;">=</span>x0<span style="color: #000080;">+</span>a<span style="color: #000080;">*</span>sin<span style="color: #000000;">(</span>u<span style="color: #000000;">)</span><span style="color: #000080;">*</span>cos<span style="color: #000000;">(</span>v<span style="color: #000000;">)</span> Y<span style="color: #000000;">(</span>u,v<span style="color: #000000;">)</span><span style="color: #000080;">=</span>y0<span style="color: #000080;">+</span>b<span style="color: #000080;">*</span>sin<span style="color: #000000;">(</span>u<span style="color: #000000;">)</span><span style="color: #000080;">*</span>sin<span style="color: #000000;">(</span>v<span style="color: #000000;">)</span> Z<span style="color: #000000;">(</span>u,v<span style="color: #000000;">)</span><span style="color: #000080;">=</span>z0<span style="color: #000080;">+</span>c<span style="color: #000080;">*</span>cos<span style="color: #000000;">(</span>u<span style="color: #000000;">)</span>
+</pre>
+
+      <p>Wählen Sie <b>Zu aktivem Diagramm hinzufügen</b> aus der Auswahlliste unten links im Dialog aus.</p>
+
+      <p><a class="image"><img alt="Implicit 3V G5.png" src="../images/Implicit_Fitting_with_Three_Variables/Implicit_3V_G5.png" width="389"></a></p>
+
+      <p>Klicken Sie auf <b>OK</b>, um den Dialog zu schließen. Ein dreidimensionales Ellipsoiddiagramm wird zu <b>Graph1</b> hinzugefügt.</p>
+    </li>
+
+    <li>Klicken Sie doppelt auf das Diagramm. Im Dialog <b>Details Zeichnung</b> können Sie das Diagramm, wie folgt, benutzerdefiniert anpassen.<br>
+      <b>Beachten Sie</b>, dass nur OpenGL 2.1 oder höher die 3D-Transparenz in Origin 9.0 unterstützt. Sie können <b>Einstellungen: 3D-OpenGL-Einstellungen</b> im Origin-Menü auswählen, um Ihre OpenGL-Version zu überprüfen. Sollte Ihre OpenGL-Version älter sein als 2.1, sollten Sie die Einstellung für 3D-Transparenz in Schritt 3.2 ignorieren.
+
+      <ol>
+        <li>Wählen Sie im linken Bedienfeld <b>Layer1</b>, klicken Sie auf die Registerkarte <b>Größe/Performance</b> und deaktivieren Sie das Kontrollkästchen <b>Worksheet-Daten, maximale Punktzahl pro Kurve</b> in der Gruppe <b>Entwurfsmodus, Punkte wenn nötig auslassen</b>. Klicken Sie auf die Registerkarte <b>Beleuchtung</b>, wählen Sie <b>Direktional</b> in der Gruppe <b>Modus</b> und wählen die Farbe Blau für die <b>Umgebung</b> in der Gruppe <b>Lichtfarbe</b>.</li>
+
+        <li>Wählen Sie die zweite Zeichnung im Zweig <b>Layer1</b>, klicken Sie auf die Registerkarte <b>Oberfläche</b> und legen Sie die <b>Transparenz</b> auf 50% fest. Wählen Sie die Registerkarte <b>Füllen</b> und setzen Sie die Farbe für <b>Stückweise füllen</b> in der Gruppe <b>Vordergrundoberfläche</b> auf Weiß. Klicken Sie auf <b>OK</b>, um den Dialog zu schließen.</li>
+      </ol>
+
+      <p>Das Diagramm für den angepassten Ellipsoid sieht folgendermaßen aus:</p>
+
+      <p><a class="image"><img alt="Implicit 3V G7.png" src="../images/Implicit_Fitting_with_Three_Variables/Implicit_3V_G7.png" width="575"></a></p>
+    </li>
+  </ol>

@@ -1,0 +1,128 @@
+﻿<h1 class="firstHeading">Anpassen eines Datensatzes als eine Funktion der anderen Datensätze</h1><a name="Summary"></a>
+
+  <h2><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Manchmal möchte man eine "Datensatzanpassung" durchführen, d.h., die Ausgabe kann sich aus einem oder mehreren Datensätzen zusammensetzen:</p>
+
+  <dl>
+    <dd><span class="texhtml"><i>A</i><i>u</i><i>s</i><i>g</i><i>a</i><i>be</i> = <i>A</i><sub>1</sub> * <i>D</i><i>a</i>t</span><i>en</i>s<i>a</i>t<i>z</i> t<sub>1</sub> + <i>A</i><sub>2</sub> * <i>D</i><i>a</i><i>t</i><i>ensatz</i> <i>t</i><sub>2</sub></dd>
+  </dl>
+
+  <p>Sie möchten zum Beispiel ein zusammengesetztes Spektrum analysieren, um die Anteile/Verhältnisse aus den einzelnen Komponentenspektren zu finden. Dies kann entweder durch Definieren mehrerer unabhängiger Variablen durchgeführt werden oder durch Berechnen der "Kombination" innerhalb der Anpassungsfunktion.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: 8.0 SR6</p><a name="What_you_will_learn"></a>
+
+  <h2><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>eine "Datensatzanpassung" durchführen.</li>
+
+    <li>mehrere unabhängige Anpassungsfunktionen für Variablen definieren.</li>
+  </ul><a name="Steps"></a>
+
+  <h2><span class="mw-headline">Schritte</span></h2>
+
+  <p>Importieren Sie die Datei <i>Composite Spectrum.dat</i> aus dem Ordner <i>\Samples\Curve Fitting\</i>. In diesen Beispieldaten ist zu sehen, dass Spalte A der Index ist und die Spalten B und C die Werte für das Spektrum der Komponenten A und B sind. Spalte D enthält Werte, die nach dem Lesen eines zusammengesetzten Spektrums der Komponenten A und B ermittelt wurden. Durch die Anpassung von Spalte D an eine Gleichung, die von den Komponentenspektren der reinen Formen von Spalte B und C bestimmt wird, können die Koeffizienten für die Anteile von B und C (als c1 bzw. c2 bezeichnet) ermittelt werden. (Hinweis: In diesem Fall wird davon ausgegangen, dass die unabhängigen und die abhängigen Variablen die gleiche Größe haben. Ist dies nicht der Fall ist eine Interpolation notwendig.)</p>
+
+  <p>Rufen Sie den <span class="db">Fit-Funktions-Manager</span> auf und definieren Sie eine neue Anpassungsfunktion:</p>
+
+  <dl>
+    <dd>
+      <table class="blank">
+        <tr>
+          <td width="170"><b>Funktionsname:</b></td>
+
+          <td>MultiIndep</td>
+        </tr>
+
+        <tr>
+          <td width="170"><b>Funktionstyp:</b></td>
+
+          <td>Benutzerdefiniert</td>
+        </tr>
+
+        <tr>
+          <td width="170"><b>Unabhängige Variable:</b></td>
+
+          <td>a, b</td>
+        </tr>
+
+        <tr>
+          <td width="170"><b>Abhängige Variable:</b></td>
+
+          <td>ab</td>
+        </tr>
+
+        <tr>
+          <td width="170"><b>Parameternamen:</b></td>
+
+          <td>C1, C2</td>
+        </tr>
+
+        <tr>
+          <td width="170"><b>Funktionsform:</b></td>
+
+          <td>Origin C</td>
+        </tr>
+
+        <tr>
+          <td width="170"><b>Funktion:</b></td>
+
+          <td>ab = C1*a + C2*b;</td>
+        </tr>
+      </table>
+    </dd>
+  </dl>
+
+  <p>Initialisieren Sie C1 und C2 auf 1 in dem Bearbeitungsfeld <b>Parameterinitialisierung</b> durch Eingabe von:<br>
+  C1=1;<br>
+  C2=1;<br>
+  Speichern Sie die Anpassungsfunktion und schließen Sie den <span class="db">Fit-Funktionsorganizer</span>. Markieren Sie <font color="olive"><b>NUR</b></font> Spalte D, rufen Sie das Dialogfeld <span class="db">NLFit</span> auf und legen Sie die Eingabedatensätze auf der Seite <b>Datenauswahl</b> wie folgt fest:</p>
+
+  <dl>
+    <dd><img alt="Image:Tutorials_Fitting_Datasets_MultiIndep.png" src="../images/Fitting_Datasets/Tutorials_Fitting_Datasets_MultiIndep.png" width="746" height="537" border="0"></dd>
+  </dl>
+
+  <p>Klicken Sie dann auf die Schaltfläche <b>Fit</b>, um die Ergebnisse zu erzeugen.</p><a name="Results"></a>
+
+  <h2><span class="mw-headline">Ergebnisse</span></h2>
+
+  <p>Sie sollten diese Ergebnisse erhalten:</p>
+
+  <dl>
+    <dd>
+      <table>
+        <tr>
+          <td width="20"></td>
+
+          <th width="80">Wert</th>
+
+          <th width="100">Standardfehler</th>
+        </tr>
+
+        <tr>
+          <th>C1</th>
+
+          <td align="right">0,37169</td>
+
+          <td align="right">0,00483</td>
+        </tr>
+
+        <tr>
+          <th>C2</th>
+
+          <td align="right">0,66469</td>
+
+          <td align="right">0,0047</td>
+        </tr>
+      </table>
+    </dd>
+  </dl>
+
+  <p>Um die angepassten Ergebnisse zu prüfen, können Sie eine neue Spalte hinzufügen und den angepassten Wert aus dem angepassten Y kopieren und in das Worksheet <i>FitNLCurve1</i> einfügen. Markieren Sie dann die <i>zusammengesetzten</i> und die angepassten Daten und zeichnen Sie ein Liniendiagramm, um die Güte des Fits zu prüfen:</p>
+
+  <dl>
+    <dd><img alt="Image:Tutorials_Fitting_Datasets_Results.png" src="../images/Fitting_Datasets/Tutorials_Fitting_Datasets_Results.png" width="509" height="443" border="0"></dd>
+  </dl>

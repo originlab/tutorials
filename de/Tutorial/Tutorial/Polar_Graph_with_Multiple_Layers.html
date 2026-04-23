@@ -1,0 +1,100 @@
+﻿<h1 class="firstHeading">Polardiagramm mit mehreren Layern</h1><p class='urlname' style='display: none'>polar-multi-layer</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Inhalt</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a><ul>
+<li class="toclevel-2 tocsection-4"><a href="#Create_a_Polar_Graph_for_the_Measured_Data"><span class="tocnumber">3.1</span> <span class="toctext">Polardiagramm f&uuml;r die gemessenen Daten erstellen</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Duplicate_a_Polar_Graph_with_the_Calculated_Data"><span class="tocnumber">3.2</span> <span class="toctext">Polardiagramm mit den berechneten Daten duplizieren</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Create_a_Polar_Graph_to_Show_Full_Range_Grids"><span class="tocnumber">3.3</span> <span class="toctext">Polardiagramm mit Gitternetzen f&uuml;r den gesamten Bereich erstellen</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Create_the_Multi-layered_Graph_with_One_Legend"><span class="tocnumber">3.4</span> <span class="toctext">Diagramm mit mehreren Layern und einer Legende erstellen</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br /></p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Polar_Graph_with_Multiple_Layers/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Polar_Graph_with_Multiple_Layers/Video_Text_Image.png" width="135"  /></a><ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=124" target="_blank">Dialog Polarachsen</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=166" target="_blank">Dialog Grafikfenster zusammenf&uuml;gen</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=254" target="_blank">Legenden aus verschiedenen Layern kombinieren</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Polar_Graph_with_Multiple_Layers/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Polar_Graph_with_Multiple_Layers/Blog_Image_33x33px.png" width="135"  /></a></td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+<p>Das Diagramm mit mehreren Layern erlaubt die Anordnung von verschiedenen Polardiagrammen mit verschiedenen Bereichen auf einer Diagrammseite. Dieses Diagramm wird erzeugt, indem zuerst 3 unabh&auml;ngige Polardiagramme erstellt werden, die dann mit der Funktion Grafiken zusammenf&uuml;gen zu einem Polardiagramm mit drei Layern kombiniert werden.</p>
+<dl><dd><a  class="image"><img alt="MultiLayerPolar.png" src="../images/Polar_Graph_with_Multiple_Layers/MultiLayerPolar.png" width="459"  /></a></dd></dl>
+<p class="version" >Origin-Version mind. erforderlich: 2015 SR0</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+<p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+<ul><li> Winkel- und Radialachsen benutzerdefiniert anpassen.</li>
+<li> ein Diagramm mit neuen Daten duplizieren.</li>
+<li> ein Polardiagramm mit mehreren Layern erstellen.</li>
+<li> eine Legende f&uuml;r die gesamte Seite erstellen.</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+<p>Dieses Tutorial basiert auf der Datei <b>Tutorial Data.opj</b> im Verzeichnis <i>&lt;Origin-Verzeichnis&gt;\Samples\</i>.</p>
+<h3><a name="Create_a_Polar_Graph_for_the_Measured_Data"></a><span class="mw-headline">Polardiagramm f&uuml;r die gemessenen Daten erstellen</span></h3>
+<ol>
+<li>&Ouml;ffnen Sie die Projektdatei Tutorial Data.opj und navigieren Sie zu dem Ordner <i>Polar Graph with Multiple Layers</i>. Klicken Sie doppelt auf die Arbeitsmappe <b>Book26</b>, um das Arbeitsmappenfenster zu &ouml;ffnen.<li> Markieren Sie die Spalte A und B und w&auml;hlen Sie <b>Zeichnen: Spezialisiert: Polar θ(X) r(Y)</b> im Men&uuml;, um das Polardiagramm zu erstellen. <br /><a  class="image"><img alt="NewPolarMeasuredData.png" src="../images/Polar_Graph_with_Multiple_Layers/NewPolarMeasuredData.png" width="456"  /></a></li>
+<li> Klicken Sie doppelt auf eine der Hilfsstrichsbeschriftungen der Winkelachse, um den Dialog aufzurufen. Gehen Sie f&uuml;r die Winkelachse zur Registerkarte <b>Skalierung</b>. Legen Sie die <b>Skalierung</b> der Winkelachsen mit den Werten <b>Von 60 Bis 150</b> fest. Setzen Sie den <b>Wert</b> f&uuml;r Inkremente unter <b>Gro&szlig;e Hilfsstriche</b> auf <b>30</b>. Klicken Sie auf die Schaltfl&auml;che <b>Anwenden</b>, um die &Auml;nderungen im Diagramm anzuzeigen.<dl><dd><a  class="image"><img alt="PolarGraphMultiLayer 01.png" src="../images/Polar_Graph_with_Multiple_Layers/PolarGraphMultiLayer_01.png" width="699"  /></a></dd></dl>
+</li>
+<li>Wechseln Sie zur Registerkarte <b>Beschriftung der Hilfsstriche</b> und stellen Sie sicher, dass <b>Winkel - &Auml;u&szlig;ere</b> im linken Bedienfeld ausgew&auml;hlt ist. Geben Sie auf der <b>Unterregisterkarte</b> Anzeige im Textfeld Suffix <b>\(176)</b> ein, um das Gradsymbol zu den Hilfsstrichsbeschriftungen der Winkelachse hinzuzuf&uuml;gen. Weitere Einzelheiten der unterst&uuml;tzten Textformatierungsbefehle finden Sie auf der Seite <a class="external text" href="../../UserGuide/UserGuide/Escape_Sequences.html#Available_text_formatting_commands">Escape-Sequenzen</a>.<dl><dd><a  class="image"><img alt="PolarGraphMultiLayer 02.png" src="../images/Polar_Graph_with_Multiple_Layers/PolarGraphMultiLayer_02.png" width="699"  /></a></dd></dl>
+</li>
+<li> Klicken Sie auf die Schaltfl&auml;che <b>Neue Konfiguration</b>, um den Dialog <b>Konfiguration der Radialachsen</b> zu &ouml;ffnen.<ul><li>Aktivieren Sie das Kontrollk&auml;stchen <b>Achsen innerhalb Polar</b> und konfigurieren Sie es, wie unten gezeigt:<ol><li>Setzen Sie die <b>Winkelliste</b> auf <b>Benutzerdefiniert</b>.</li>
+<li>Geben Sie in dem Textfeld <b>Wert</b> die Zahlen <b>60 150</b> ein, um eine Achse bei 60 Grad und eine bei 150 Grad zu positionieren. </li></ol></li>
+<li>Legen Sie die Optionen unter <b>Achsen au&szlig;erhalb Polar</b>, wie unten gezeigt, fest:<ol><li>W&auml;hlen Sie <b>Obere</b> in der Auswahlliste <b>Rechts</b>, um eine Achse oben rechts vom Layerrahmen zu platzieren.</li>
+<li>Setzen Sie <b>%s von Radius</b> auf <b>0</b>.</li></ol>
+<dl><dd><a  class="image"><img alt="PolarGraphMultiLayer 03.png" src="../images/Polar_Graph_with_Multiple_Layers/PolarGraphMultiLayer_03.png" width="436"  /></a></dd></dl></li></ul><br /> Klicken Sie auf <b>OK</b>, um diese Einstellungen anzuwenden.</li>
+<li> Gehen Sie zur Registerkarte <b>Skalierung</b> und w&auml;hlen Sie <b>Radial</b> im linken Bedienfeld. Legen Sie die Radialachse auf <b>Von</b> = <b>2</b> und <b>Bis</b> = <b>6</b> fest. &Auml;ndern Sie den <b>Wert</b> des Inkrements f&uuml;r die <b>Gro&szlig;en Hilfsstriche</b> auf <b>1</b>.<dl><dd><a  class="image"><img alt="PolarGraphMultiLayer 04.png" src="../images/Polar_Graph_with_Multiple_Layers/PolarGraphMultiLayer_04.png" width="699"  /></a></dd></dl>
+
+<li> Gehen Sie zur Registerkarte <b>Beschriftung der Hilfsstriche</b> und w&auml;hlen Sie <b>Radial - Innere 2</b> im linken Bedienfeld. Deaktivieren Sie das Kontrollk&auml;stchen <b>Zeigen</b>, um die Hilfsstrichsbeschriftungen f&uuml;r diese Achse zu verbergen.<dl><dd><a  class="image"><img alt="PolarGraphMultiLayer 05.png" src="../images/Polar_Graph_with_Multiple_Layers/PolarGraphMultiLayer_05.png" width="467"  /></a></dd></dl>
+
+<li> Gehen Sie zur Registerkarte <b>Titel</b> und w&auml;hlen Sie <b>Radial - &Auml;u&szlig;ere 1</b> im linken Bedienfeld. Deaktivieren Sie das Kontrollk&auml;stchen <b>Zeigen</b>, um den Titel der &auml;u&szlig;eren Polarachse zu verbergen. Klicken Sie auf <b>OK</b>.<dl><dd><a  class="image"><img alt="PolarGraphMultiLayer 06.png" src="../images/Polar_Graph_with_Multiple_Layers/PolarGraphMultiLayer_06.png" width="461"  /></a></dd></dl>
+
+<li> Klicken Sie zum &Ouml;ffnen des Dialogs <b>Details Zeichnung</b> doppelt auf das Diagramm. Klicken Sie im linken Bedienfeld des Dialogs <b>Details Zeichnung</b> auf die Seite <b>Graph<i>n</i></b>, um zur Seitenebene dieses Dialogs zu gelangen. Deaktivieren Sie auf der Registerkarte <b>Legenden/Titel</b> das Kontrollk&auml;stchen <b>Aktiven Datensatz kennzeichnen</b>, so dass das rote Feld um das Legendensymbol ausgeblendet wird.<li> Erweitern Sie den Zweig <b>Layer</b> im linken Bedienfeld und w&auml;hlen Sie die Zeichnung darunter. &Auml;ndern Sie auf der Registerkarte <b>Linie</b> im rechten Bedienfeld die <b>Breite</b> in <b>4</b> und die <b>Farbe</b> in <b>Blau</b>.<dl><dd><a  class="image"><img alt="ChangePlotLine.png" src="../images/Polar_Graph_with_Multiple_Layers/ChangePlotLine.png" width="804"  /></a></dd></dl>
+
+<li> Klicken Sie auf <b>OK</b>, um die benutzerdefinierten Anpassungen des ersten Polardiagramms fertigzustellen.<dl><dd><a  class="image"><img alt="FinalPolarMeasuredData.png" src="../images/Polar_Graph_with_Multiple_Layers/FinalPolarMeasuredData.png" width="456"  /></a></dd></dl>
+</ol>
+<p><br /></p>
+<h3><a name="Duplicate_a_Polar_Graph_with_the_Calculated_Data"></a><span class="mw-headline">Polardiagramm mit den berechneten Daten duplizieren</span></h3>
+<ol>
+<li> Klicken Sie mit der rechten Maustaste auf den Kopf des Polardiagramms, um das Kontextmen&uuml; aufzurufen. W&auml;hlen Sie <b>Stapelzeichnen...</b>, um den Dialog Stapelzeichnen zu &ouml;ffnen. W&auml;hlen Sie <b>Spalte</b> in der Auswahlliste <b>Stapelzeichnen mit</b>. Markieren Sie Spalte <b>C: Calculated</b> und klicken Sie auf <b>OK</b>, um ein Polardiagramm mit Daten aus Spalte C zu duplizieren.<br /> <a  class="image"><img alt="PolarGraphMultiLayer 07.png" src="../images/Polar_Graph_with_Multiple_Layers/750px-PolarGraphMultiLayer_07.png" width="750"   /></a></li>
+<li> Da der Datenbereich in Spalte C sich von Spalte B unterscheidet, wird eine <b>Erinnerungsmeldung</b> angezeigt, ob die Achsen des neuen Diagramms neu skaliert werden sollen, um alle Daten anzuzeigen. Belassen Sie die Option <b>Ja</b> ausgew&auml;hlt und klicken Sie auf <b>OK</b>.<li> Befolgen Sie Schritt 3 aus dem letzten Abschnitt, um die Skalierung der Winkelachsen festzulegen. Setzen Sie <b>Von</b> auf <b>240</b> und <b>Bis</b> auf <b>360</b> und das Inkrement der <b>Gro&szlig;en Hilfsstriche</b> auf <b>15</b>.<li> W&auml;hlen Sie auf der Registerkarte <b>Skalierung</b> <b>Radial</b> im linken Bedienfeld und legen Sie dann f&uuml;r <b>Von</b> den Wert <b>2</b>, f&uuml;r <b>Bis</b> den Wert <b>6</b> und f&uuml;r das Inkrement der <b>Gro&szlig;en Hilfsstriche</b> den Wert <b>1</b> fest.<li> Gehen Sie zur Registerkarte <b>Zeigen</b>.<ul><li>W&auml;hlen Sie <b>Radial - Inneres 1</b> im linken Bedienfeld. Setzen Sie im Abschnitt <b>Achsenposition</b> den <b>Wert (Grad)</b> auf <b>240</b>, um die erste innere Polarachse auf 240 Grad zu verschieben.</li>
+<li>W&auml;hlen Sie <b>Radial - Inneres 2</b> im linken Bedienfeld. Setzen Sie den <b>Wert (Grad)</b> auf <b>360</b>.</li>
+<li>W&auml;hlen Sie <b>Radial - &Auml;u&szlig;eres 3</b> im linken Bedienfeld. W&auml;hlen Sie <b>Links-Untere</b> in der Auswahlliste <b>Achse bei</b>, um die &auml;u&szlig;ere Achse in die untere linke Ecke des Layerrahmens zu verschieben.</li></ul>Klicken Sie auf die Schaltfl&auml;che <b>OK</b>, um die benutzerdefinierte Anpassung der Achsen fertigzustellen.<li> Klicken Sie zum &Ouml;ffnen des Dialogs <b>Details Zeichnung</b> doppelt auf das Diagramm. Setzen Sie die <b>Farbe</b> der Linie auf der Registerkarte <b>Linie</b> auf <b>Rot</b> und die <b>Breite</b> auf <b>4</b>. Klicken Sie auf <b>OK</b>.<dl><dd><a  class="image"><img alt="FinalPolarCalculatedData.png" src="../images/Polar_Graph_with_Multiple_Layers/FinalPolarCalculatedData.png" width="456"  /></a></dd></dl>
+
+</ol>
+<h3><a name="Create_a_Polar_Graph_to_Show_Full_Range_Grids"></a><span class="mw-headline">Polardiagramm mit Gitternetzen f&uuml;r den gesamten Bereich erstellen</span></h3>
+<ol>
+<li> &Ouml;ffnen Sie die Arbeitsmappe <b>Book26</b>.<li>Markieren Sie Spalte D und klicken Sie auf die Schaltfl&auml;che <b>Polar Theta(X) r(Y) </b><a  class="image"><img alt="Button Polar Theta R.png" src="../images/Polar_Graph_with_Multiple_Layers/Button_Polar_Theta_R.png" width="22"  /></a> auf der Symbolleiste <b>2D-Grafiken</b>, um ein leeres Polardiagramm zu erstellen.<li> Wiederholen Sie Schritt 3 aus dem Abschnitt <a href="../../Tutorial/Tutorial/Polar_Graph_with_Multiple_Layers.html#Create_a_Polar_Graph_for_the_Measured_Data" title="Tutorial:Polar Graph with Multiple Layers">Polardiagramm f&uuml;r die gemessenen Daten erstellen</a>, um die Skalierung der Winkelachsen mit <b>Von 0 Bis 360</b> festzulegen und das Inkrement mit dem <b>Wert</b> der <b>gro&szlig;en Hilfsstriche</b> auf <b>30</b> zu setzen.<li> Gehen Sie zur Registerkarte <b>Zeigen</b>, w&auml;hlen Sie <b>Winkel - &Auml;u&szlig;ere</b> im linken Bedienfeld und deaktivieren Sie das Kontrollk&auml;stchen <b>Zeigen</b>. W&auml;hlen Sie dann im linken Bedienfeld <b>Winkel - Inneres</b> und aktivieren Sie das Kontrollk&auml;stchen <b>Zeigen</b>.<li> Gehen Sie zur Registerkarte <b>Beschriftung der Hilfsstriche</b>, w&auml;hlen Sie <b>Winkel - Inneres</b> im linken Bedienfeld und deaktivieren Sie das Kontrollk&auml;stchen <b>Zeigen</b>, um die Hilfsstrichsbeschriftungen der inneren Winkelachse zu verbergen.<li> Wechseln Sie zur Registerkarte <b>Gitternetze</b> und stellen Sie sicher, dass <b>Winkel</b> im linken Bedienfeld ausgew&auml;hlt ist. Deaktivieren Sie <b>Zeigen</b> in den Abschnitten <b>Hauptgitternetzlinien</b> und <b>Nebengitternetzlinien</b>.<li> W&auml;hlen Sie auf der Registerkarte <b>Skalierung</b> <b>Radial</b> im linken Bedienfeld und &auml;ndern Sie die Werte der Skalierung in <b>Von 2 Bis 6</b> fest und setzen Sie den <b>Wert</b> des Inkrements der <b>Gro&szlig;en Hilfsstriche</b> auf 1.<li> Gehen Sie zur Registerkarte <b>Zeigen</b>, w&auml;hlen Sie <b>Radial - &Auml;u&szlig;ere 1</b> und aktivieren Sie <b>Gleiche Optionen f&uuml;r alle Radialachsen verwenden</b>. Dies wendet die Einstellungen auf dieser Seite auch auf <b>Radial - &Auml;u&szlig;ere 2</b> an. Deaktivieren Sie dann das Kontrollk&auml;stchen <b>Zeigen</b>. Klicken Sie auf <b>OK</b>.</ol>
+<h3><a name="Create_the_Multi-layered_Graph_with_One_Legend"></a><span class="mw-headline">Diagramm mit mehreren Layern und einer Legende erstellen</span></h3>
+<ol><li> W&auml;hlen Sie bei aktivem Diagrammfenster <b>Grafik: Grafikfenster zusammenf&uuml;gen</b> im Hauptmen&uuml;.</li>
+<li> Setzen Sie die Option <b>Zusammenf&uuml;gen</b> auf <b>Festgelegt</b> und stellen Sie sicher, dass nur <b>Graph1, Graph2</b> und <b>Graph3</b> (die drei gerade neu erstellten Diagramme) im Textfeld <b>Diagramme</b> ausgew&auml;hlt sind.</li>
+<li> Setzen Sie im Zweig <b>Einstellungen Anordnung</b> sowohl die <b>Anzahl der Zeilen</b> als auch die <b>Anzahl der Spalten</b> auf <b>1</b>, damit die drei Diagramme sich &uuml;berlagern.</li>
+<li> Aktivieren Sie das Kontrollk&auml;stchen neben <b>Quelldiagramme verkn&uuml;pfen</b>.</li>
+<li> Setzen Sie im Zweig <b>Seite einrichten</b> die <b>Breite</b> und <b>H&ouml;he</b> auf <b>15</b>.<dl><dd><a  class="image"><img alt="MergeGraphDialog.png" src="../images/Polar_Graph_with_Multiple_Layers/MergeGraphDialog.png" width="677"  /></a></dd></dl></li>
+<li> Die Vorschau des Diagramms wird im rechten Bedienfeld angezeigt.</li>
+<li> Behalten Sie die restlichen Standardeinstellungen bei und klicken Sie auf <b>OK</b>.</li>
+<li> Klicken Sie mit der rechten Maustaste auf die Legende und w&auml;hlen Sie im Kontextmen&uuml; <b>Legende: Legende aktualisieren</b>, um den Dialog zu &ouml;ffnen.</li>
+<li> Setzen Sie den <b>Aktualisierungsmodus</b> auf <b>Rekonstruieren</b>, um eine neue Legende zu erstellen.</li>
+<li> Setzen Sie die <b>Legende</b> auf <b>Eine Legende f&uuml;r gesamte Seite</b>, um nur eine Legende f&uuml;r dieses Diagramm mit mehreren Layern zu erstellen.</li>
+<li> Setzen Sie die <b>Ordnung</b> auf <b>Absteigend</b>, um die Legende von Layer 2 &uuml;ber der Legende von Layer 1 anzuordnen.</li>
+<li> Setzen Sie den <b>Automatischen &Uuml;bersetzungsmodus der Legende</b> auf <b>@LA: Langname</b>, um die Daten des Langnamens f&uuml;r die Legende zu verwenden. Klicken Sie auf <b>OK</b>.<dl><dd><a  class="image"><img alt="UpdateLegendDialog.png" src="../images/Polar_Graph_with_Multiple_Layers/UpdateLegendDialog.png" width="435"  /></a></dd></dl></li>
+<li> Klicken Sie mit der rechten Maustaste auf die neue Legende und w&auml;hlen Sie <b>Einstellungen</b>, um den Dialog zu &ouml;ffnen.</li>
+<li> L&ouml;schen Sie die erste Zeile im unteren Textfeld. </li>
+<li> Setzen Sie auf der Registerkarte <b>Rahmen</b> den Rahmen auf <b>Kein</b>. Klicken Sie auf <b>OK</b>.</li>
+<li> Ziehen Sie die Legende in die Mitte der inneren Winkelachse.</li>
+<li> Verwenden Sie das Textfeld <b>Schriftgr&ouml;&szlig;e </b><a  class="image"><img alt="Button Size.png" src="../images/Polar_Graph_with_Multiple_Layers/Button_Size.png" width="58"  /></a>, um die Gr&ouml;&szlig;e der Schrift auf diesem Diagramm zu &auml;ndern. Ziehen Sie die Hilfsstrichsbeschriftungen, um sie an eine geeignete Position zu verschieben.</li>
+<li> Klicken Sie mit der rechten Maustaste auf einen der Titel der inneren Radialachse (<b>Calculated</b> oder <b>Measured</b>) und w&auml;hlen Sie <b>Einstellungen</b> im Kontextmen&uuml;.</li>
+<li> W&auml;hlen Sie im aufgerufenen Dialog <b>Objekteigenschaften</b> auf der Registerkarte <b>Rahmen</b> die Option <b>Kein</b> in der Auswahlliste <b>Rahmen</b>. Dies l&ouml;scht die Gitternetzlinien und andere Hintergrundelemente, so dass der Achsentitel leichter zu lesen ist. Klicken Sie auf <b>OK</b>.</li>
+<li> Wiederholen Sie die gleiche Operation f&uuml;r den Titel der anderen inneren Radialachse.</li>
+<li> Das Diagramm sollte am Ende folgenderma&szlig;en aussehen:<dl><dd><a  class="image"><img alt="MultiLayerPolar.png" src="../images/Polar_Graph_with_Multiple_Layers/MultiLayerPolar.png" width="459"  /></a></dd></dl></li></ol>
+
+
+
+
+
+
+
+    

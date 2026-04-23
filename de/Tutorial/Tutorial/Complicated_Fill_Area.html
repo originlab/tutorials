@@ -1,0 +1,227 @@
+﻿<h1 class="firstHeading">Komplizierte Füllfläche</h1>
+
+  <p class='urlname' style='display: none'>complicated-fill-area</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#Creating_the_Basic_Plot"><span class="tocnumber">3</span> <span class="toctext">Hauptdiagramm erstellen</span></a></li>
+
+      <li class="toclevel-1 tocsection-4"><a href="#Steps_to_Eliminate_Overlapping_Fill_Areas"><span class="tocnumber">4</span> <span class="toctext">Schritte zum Entfernen von sich überschneidenden Füllflächen</span></a></li>
+
+      <li class="toclevel-1 tocsection-5"><a href="#Further_Customizations"><span class="tocnumber">5</span> <span class="toctext">Weitere benutzerdefinierte Anpassungen</span></a></li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/Complicated_Fill_Area/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/Complicated_Fill_Area/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=294" target="_blank">Flächen zwischen Kurven füllen</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=13" target="_blank">Layerinhalt</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=248" target="_blank">Referenzlinien zur Grafik hinzuzufügen</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%">
+        <a class="image"><img alt="Website blog icon circle.png" src="../images/Complicated_Fill_Area/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Complicated_Fill_Area/Blog_Image_33x33px.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="http://blog.originlab.com/fill-area-under-intersection-of-two-curves" target="_blank">Fläche unter der Überschneidung von zwei Kurven füllen</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/fill-area-above-curve" target="_blank">Fläche ober- und unterhalb der Kurve füllen</a></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p><a class="image"><img alt="Complicated Fill Area 18.png" src="../images/Complicated_Fill_Area/Complicated_Fill_Area_18.png" width="762"></a></p>
+
+  <p class="version">Origin-Version mind. erforderlich: 9.1 SR0</p>
+
+  <h2><a name="What_You_Will_Learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <ul>
+    <li>Fläche zwischen Kurven mit zwei verschiedenen Farben füllen</li>
+
+    <li>Geordnete Zeichnungsabfolge zum Implementieren von komplexen Diagrammfüllungen verwenden</li>
+  </ul>
+
+  <h2><a name="Creating_the_Basic_Plot"></a><span class="mw-headline">Hauptdiagramm erstellen</span></h2>
+
+  <p>Dieses Tutorial basiert auf dem Projekt: <i>&lt;Origin-Verzeichnis&gt;\Samples\Tutorial Data.opj</i>. Beachten Sie, dass dieses Tutorial zahlreiche Schritte zum Erzeugen eines komplexen Diagramms erfordert. Bitte beachten Sie, dass dies kein grundlegendes Origin-Tutorial zur grafischen Darstellung ist.</p>
+
+  <ol>
+    <li>Öffnen Sie das Projekt Tutorial Data.opj und navigieren Sie zu dem Ordner <i>Multiple Fill Area</i>.</li>
+
+    <li>Aktivieren Sie die Arbeitsmappe <b>Book2</b>, <b>Sheet1</b>. Markieren Sie die Spalten C bis F. Klicken Sie dann auf <b>Zeichnen: Einfache 2D: Liniendiagramm</b>. Es wird ein gruppiertes Liniendiagramm erzeugt.</li>
+
+    <li>Markieren und löschen Sie den Y-Achsentitel und das Legendenobjekt aus dem Diagramm.</li>
+
+    <li>Klicken Sie zum Öffnen des Dialogs <b>Details Zeichnung</b> doppelt auf eine Zeichnung. Gehen Sie zur Registerkarte <b>Linie</b> und setzen Sie die <b>Transparenz</b> auf 100 %.
+
+      <dl>
+        <dd><a class="image"><img alt="Complicated Fill Area 01.png" src="../images/Complicated_Fill_Area/Complicated_Fill_Area_01.png" width="501"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wechseln Sie zur Registerkarte <b>Gruppe</b> und setzen Sie den <b>Bearbeitungsmodus</b> auf <b>Unabhängig</b>, klicken Sie auf <b>Anwenden</b>. Dies ermöglicht uns, die benutzerdefinierten Modi zum Füllen der Flächen für jede Linie festzulegen.
+
+      <dl>
+        <dd><a class="image"><img alt="Complicated Fill Area 02.png" src="../images/Complicated_Fill_Area/Complicated_Fill_Area_02.png" width="409"></a></dd>
+      </dl>
+    </li>
+
+    <li>Markieren Sie die erste Zeichnung im linken Bedienfeld von Details Zeichnung. Gehen Sie zur Registerkarte <b>Linie</b>, aktivieren Sie <b>Fläche unter Kurve füllen</b> und wählen Sie <b>Bis zur nächsten Datenzeichnung füllen - Obige und untere Farben</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Complicated Fill Area 03.png" src="../images/Complicated_Fill_Area/Complicated_Fill_Area_03.png" width="796"></a></dd>
+      </dl>
+    </li>
+
+    <li>Gehen Sie zur Registerkarte <b>Muster_oberhalb</b> und wählen Sie die Einstellungen, wie unten gezeigt.
+
+      <dl>
+        <dd><a class="image"><img alt="Complicated Fill Area 04.png" src="../images/Complicated_Fill_Area/Complicated_Fill_Area_04.png" width="631"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wechseln Sie zur Registerkarte <b>Muster_unterhalb</b> und setzen Sie <b>Füllfarbe</b> auf <i>Rot</i>, klicken Sie dann auf <b>Anwenden</b>. Die erste gefüllte Teil unserer Zeichnung wird hinzugefügt.
+
+      <dl>
+        <dd><a class="image"><img alt="Complicated Fill Area 05.png" src="../images/Complicated_Fill_Area/Complicated_Fill_Area_05.png" width="382"></a></dd>
+      </dl>
+    </li>
+
+    <li>Markieren Sie die zweite Zeichnung im linken Bedienfeld von Details Zeichnung. Gehen Sie zur Registerkarte <b>Linie</b>, aktivieren Sie <b>Fläche unter Kurve füllen</b> und wählen Sie <b>Bis zur nächsten Datenzeichnung füllen - Eine Farbe</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Complicated Fill Area 06.png" src="../images/Complicated_Fill_Area/Complicated_Fill_Area_06.png" width="798"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie auf der Registerkarte <b>Muster</b> die Einstellungen, wie unten zu sehen.
+
+      <dl>
+        <dd><a class="image"><img alt="Complicated Fill Area 07.png" src="../images/Complicated_Fill_Area/Complicated_Fill_Area_07.png" width="580"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wiederholen Sie die Schritte 6~8 für die dritte Zeichnung im Diagramm mit Ausnahme der Registerkarte <b>Muster_oberhalb</b>. Setzen Sie die <b>Füllfarbe</b> auf <i>Kein</i> und <b>Transparenz</b> auf <i>0</i> (Sie müssen das Kontrollkästchen <b>Linientransparenz folgen</b> deaktivieren). Setzen Sie auf der Registerkarte <b>Muster_unterhalb</b> die <b>Füllfarbe</b> auf <i>Blau</i>.</li>
+
+    <li>Ihr gestapeltes Füllflächendiagramm sollte jetzt folgendermaßen aussehen:
+
+      <dl>
+        <dd><a class="image"><img alt="Complicated Fill Area 08.png" src="../images/Complicated_Fill_Area/Complicated_Fill_Area_08.png" width="368"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Complicated_Fill_Area/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Beachten Sie, dass Sie als eine Alternative zu den Bedienelementen der Registerkarte <b>Linie</b> im Dialog Details Zeichnung auch zwei beliebige Zeichnungen im Diagrammlayer mit Hilfe der Strg-Taste auswählen können und dann die Füllungen zwischen den ausgewählten Kurven mittels der Minisymbolleistenschaltflächen anwenden.</p>
+
+        <dl>
+          <dd><a class="image"><img alt="MT fill area between curves.png" src="../images/Complicated_Fill_Area/MT_fill_area_between_curves.png" width="356"></a></dd>
+        </dl>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Steps_to_Eliminate_Overlapping_Fill_Areas"></a><span class="mw-headline">Schritte zum Entfernen von sich überschneidenden Füllflächen</span></h2>
+
+  <p>In dem gerade erstellten Diagramm gibt es einige sich überschneidende Füllflächen, die nicht erwünscht sind. Wir verbergen sie, indem wir eine weiße Füllfläche hinzufügen, um sie abzudecken. Wir verwenden den Dialog <b>Layerinhalt</b>, um Datensätze zum Diagramm hinzuzufügen, einige von ihnen mehrmals.</p>
+
+  <ol>
+    <li>Wählen Sie im Menü <b>Grafik: Layerinhalt</b>. Verwenden Sie die Schaltfläche mit dem rechts weisenden Pfeil in der Mitte des Dialogs zum Hinzufügen dieser Zeichnungen zu den Datensätzen auf der rechten Seite des Dialogs.
+
+      <dl>
+        <dd><a class="image"><img alt="Complicated Fill Area 09A.png" src="../images/Complicated_Fill_Area/Complicated_Fill_Area_09A.png" width="793"></a></dd>
+      </dl>
+    </li>
+
+    <li>Verwenden Sie die Schaltfläche <b>Gruppe auflösen</b>, um die Gruppierung von Zeichnungen, die als Gruppen eingefügt werden, aufzuheben. Die Gruppierung wird durch <b>g<i>n</i></b> neben jedem Datensatz gekennzeichnet. Sie möchten <i>sicherstellen, dass keine Gruppen existieren</i> (Sie können die ersten vier Datensätze, die hinzugefügt wurden, ignorieren).</li>
+
+    <li>Ordnen Sie die hinzugefügten Zeichnungen genau in der gezeigten Reihenfolge an. Verwenden Sie die Schaltflächen mit den nach oben und unten weisenden Pfeilen oberhalb der Liste auf der rechten Seite, um die Liste nach Bedarf neu zu ordnen. Beachten Sie, dass nur ungruppierte Zeichnungen unabhängig angeordnet werden können. Wenn Ihre Liste wie im Bild oben aussieht, klicken Sie auf <b>OK</b>, um den Dialog <b>Layerinhalt</b> zu schließen.</li>
+
+    <li>Klicken Sie zum Öffnen des Dialogs Details Zeichnung doppelt auf die Datenzeichnung.</li>
+
+    <li>Markieren Sie im linken Bedienfeld von Details Zeichnung die fünfte Zeichnung unten (C(Y)). Aktivieren Sie auf der Registerkarte <b>Linie</b> das Kontrollkästchen <b>Fläche unter Kurve füllen</b> und wählen Sie in der Auswahlliste <b>Bis zur nächsten Datenzeichnung füllen - Obige und untere Farben</b>, <b>Farbe</b> = <i>Rot</i> und <b>Transparenz</b> = <i>0</i>. Setzen Sie auf der Registerkarte <b>Muster_oberhalb</b> die <b>Transparenz</b> = 0 und die <b>Füllfarbe</b> = <i>Weiß</i>. Setzen Sie auf der Registerkarte <b>Muster_unterhalb</b> die <b>Füllfarbe</b> auf <i>Rot</i>.</li>
+
+    <li>Markieren Sie die sechste Zeichnungen unten (D(Y)) und setzen Sie die <b>Farbe</b> = <i>Rot</i> und die <b>Transparenz</b> = <i>0</i>.</li>
+
+    <li>Markieren Sie die siebte Zeichnung unten (E(Y)). Aktivieren Sie auf der Registerkarte <b>Linie</b> das Kontrollkästchen <b>Fläche unter Kurve füllen</b> und wählen Sie in der Auswahlliste <b>Bis zur nächsten Datenzeichnung füllen - Obige und untere Farben</b>, <b>Farbe</b> = <i>Rot</i> und <b>Transparenz</b> = <i>0</i>. Setzen Sie auf der Registerkarte <b>Muster_oberhalb</b> die <b>Füllfarbe</b> auf <i>Weiß</i> und die <b>Transparenz</b> auf <i>0</i>. Setzen Sie auf der Registerkarte <b>Muster_unterhalb</b> die <b>Füllfarbe</b> auf <b>Blau</b>.</li>
+
+    <li>Klicken Sie für die achte Zeichnung unten (F(Y)) auf die Registerkarte <b>Linie</b> und setzen Sie die <b>Farbe</b> auf <i>Schwarz</i> und die <b>Transparenz</b> auf <i>0</i>.</li>
+
+    <li>Klicken Sie für die neunte Zeichnung unten (H(Y)) auf die Registerkarte <b>Linie</b> und setzen Sie die <b>Farbe</b> auf <i>Orange</i> und die <b>Transparenz</b> auf <i>0</i>.</li>
+
+    <li>Klicken Sie für die zehnte Zeichnung unten (I(Y)) auf die Registerkarte <b>Linie</b> und setzen Sie die <b>Farbe</b> auf <i>Blau</i> und die <b>Transparenz</b> auf <i>0</i>.</li>
+
+    <li>Klicken Sie die elfte und die zwölfte Zeichnung, (B(Y) bzw. G(Y)) auf die Registerkarte <b>Linie</b> und setzen Sie die <b>Farbe</b> der Linie auf <i>Grau</i> und die <b>Transparenz</b> auf <i>0</i>.</li>
+
+    <li>Klicken Sie für die dreizehnte Zeichnung unten (E(Y)) auf die Registerkarte <b>Linie</b> und wählen Sie in der Auswahlliste <b>Bis zur nächsten Datenzeichnung füllen - Obige und untere Farben</b>, <b>Transparenz</b> = <i>0</i>. Setzen Sie auf der Registerkarte <b>Muster_oberhalb</b> die <b>Füllfarbe</b> = <i>Keine</i> sowie die <b>Transparenz</b> = <i>0</i> und auf der Registerkarte <b>Muster_unterhalb</b> sowie die <b>Füllfarbe</b> = <i>Weiß</i>.</li>
+
+    <li>Klicken Sie für die vierzehnte Zeichnung unten (C(Y)) auf die Registerkarte <b>Linie</b> und setzen Sie die <b>Farbe</b> auf <i>Schwarz</i> und die <b>Transparenz</b> auf <i>0</i>.</li>
+
+    <li>Klicken Sie für die fünfzehnte (letzte) Zeichnung unten auf die Registerkarte <b>Linie</b> und setzen Sie die <b>Farbe</b> = <i>Rot</i> und die <b>Transparenz</b> = <i>0</i>.</li>
+
+    <li>Schließen Sie den Dialog <b>Details Zeichnung</b> und klicken Sie auf die Schaltfläche <b>Neu Skalieren</b> <a class="image"><img alt="Button Rescale.png" src="../images/Complicated_Fill_Area/Button_Rescale.png" width="22"></a> auf der Symbolleiste <b>Diagramm</b>. Ihr Diagramm sollte ungefähr folgendermaßen aussehen. Um Ihr Diagramm zu verschönern, fahren Sie mit dem letzten Abschnitt fort.</li>
+  </ol>
+
+  <dl>
+    <dd>
+      <dl>
+        <dd><a class="image"><img alt="Complicated Fill Area Rough Graph.png" src="../images/Complicated_Fill_Area/Complicated_Fill_Area_Rough_Graph.png" width="506"></a></dd>
+      </dl>
+    </dd>
+  </dl>
+
+  <h2><a name="Further_Customizations"></a><span class="mw-headline">Weitere benutzerdefinierte Anpassungen</span></h2>
+
+  <ol>
+    <li>Klicken Sie doppelt auf die Hilfsstrichsbeschriftungen der X-Achse (unten, horizontal). Der Dialog X-Achse wird geöffnet. Klicken Sie auf die Registerkarte <b>Skalierung</b> und ändern Sie den Datenbereich von <i>01.01.2013</i> bis <i>20.08.2013</i>. Setzen Sie die <b>Anzahl der kleinen Hilfsstriche</b> = <i>0</i>.</li>
+
+    <li>Legen Sie auf der Registerkarte <b>Beschriftung der Hilfsstriche</b> die <b>Anzeige</b> so fest, dass eine Abkürzung für Monat mit drei Buchstaben gezeigt wird (z. B. <i>Apr</i>).</li>
+
+    <li>Klicken Sie auf Anwenden.</li>
+
+    <li>Um einen Rahmen um den gesamten Diagrammlayer zu zeichnen, wählen Sie <b>Ansicht</b>: <b>Zeige</b>: <b>Rahmen</b>.</li>
+
+    <li>Zuletzt klicken Sie doppelt auf die Y-Achse (links, vertikal), um die gestrichelte Linie bei der Temperatur = <i>-10</i> und <i>+110</i> hinzuzufügen. Klicken Sie auf die Registerkarte <b>Referenzlinien</b> und geben Sie Folgendes ein:
+
+      <dl>
+        <dd><a class="image"><img alt="Complicated Fill Area Reference Lines.png" src="../images/Complicated_Fill_Area/Complicated_Fill_Area_Reference_Lines.png" width="485"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Details</b> und deaktivieren Sie im Dialog <b>Referenzlinien</b> das Kontrollkästchen <b>Autom. Format</b>, setzen Sie den <b>Stil</b> auf <b>Gestrichelt</b> und die <b>Dicke</b> auf <i>1</i>. Tun Sie dies für beide Linien, -10 und +110, und klicken Sie auf <b>OK</b>.</li>
+
+    <li>Klicken Sie im Dialog <b>Achsen</b> auf <b>OK</b>, um den Dialog zu schließen. Ihr Diagramm sollte nun folgendermaßen aussehen:</li>
+  </ol>
+
+  <dl>
+    <dd>
+      <dl>
+        <dd><a class="image"><img alt="Complicated Fill Area Final Graph.png" src="../images/Complicated_Fill_Area/Complicated_Fill_Area_Final_Graph.png" width="504"></a></dd>
+      </dl>
+    </dd>
+  </dl>

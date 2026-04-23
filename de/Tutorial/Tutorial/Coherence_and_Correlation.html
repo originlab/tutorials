@@ -1,0 +1,145 @@
+﻿<h1 class="firstHeading">Kohärenz und Korrelation</h1>
+
+  <p class='urlname' style='display: none'>Coherence-and-Correlation</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#Coherence"><span class="tocnumber">3</span> <span class="toctext">Kohärenz</span></a></li>
+
+      <li class="toclevel-1 tocsection-4"><a href="#1D_Correlation"><span class="tocnumber">4</span> <span class="toctext">1D-Korrelation</span></a></li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Die Kohärenz misst den Grad der linearen Abhängigkeit von zwei Signalen, indem getestet wird, ob sie ähnliche Frequenzkomponenten enthalten. Wenn zwei Signale bei einer gegebenen Frequenz einander perfekt entsprechen, ist der Betrag der Kohärenz 1. Wenn eine Kohärenz ohne jede Beziehung vorliegt, beträgt sie 0.</p>
+
+  <p>Die Korrelation ist eine weitere Maßzahl der Beziehung zwischen zwei Signalen. Ein Korrelationskoeffizient wird verwendet, um Ähnlichkeit zu bewerten. Wenn zwei Signale über ein hohes Maß an Ähnlichkeit verfügen, ist der Betrag des berechneten Korrelationskoeffizienten hoch. Wenn es wenig oder keine lineare Beziehung zwischen zwei Signalen gibt, ist der Betrag des Koeffizienten gering.</p>
+
+  <h2><a name="What_You_Will_Learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ol>
+    <li>die Kohärenz prüfen und die Frequenz herausfinden, bei der zwei Signale den höchsten Grad an linearer Abhängigkeit besitzen.</li>
+
+    <li>die Funktion der Korrelation verwenden und die zeitliche Verzögerung ermitteln, um den Datensatz zu übersetzen.</li>
+  </ol>
+
+  <h2><a name="Coherence"></a><span class="mw-headline">Kohärenz</span></h2>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe.</li>
+
+    <li>Öffnen Sie ein leeres Arbeitsblatt. Wählen Sie <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b> im Menü, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner <i>Signal Processing</i>. Dort befindet sich die Datei <i>Coherence.dat</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das leere Arbeitsblatt, um sie zu importieren.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Coherence 1.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Coherence_1.png" width="396"></a></dd>
+      </dl>
+    </li>
+
+    <li>Markieren Sie Spalte A, klicken Sie mit der rechten Maustaste und wählen Sie im Kontextmenü <b>Setzen als: Als Y setzen</b>. Die Diagrammzuordnung für Spalte A wird auf<i>Y</i> gesetzt.</li>
+
+    <li>Markieren Sie zwei Spalten und wählen Sie im Menü <b>Analyse: Signalverarbeitung: Kohärenz</b>. Der Dialog der <b>Kohärenz: cohere</b> wird geöffnet.</li>
+
+    <li>Setzen Sie den <b>Fenstertyp</b> auf <i>Welch</i> und klicken Sie auf <b>OK</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Coherence 2.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Coherence_2.png" width="411"></a></dd>
+      </dl>
+    </li>
+
+    <li>Zu dem Arbeitsblatt werden zwei Datenspalten hinzugefügt. Markieren Sie diese zwei neuen Spalten und wählen Sie im Menü <b>Zeichnen: Einfache 2D: Liniendiagramm</b>, um eine Zeichnung der Kohärenz gegen die Frequenz zu erstellen.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Coherence 3.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Coherence_3.png" width="445"></a></dd>
+      </dl>
+    </li>
+
+    <li>Aktivieren Sie <b>Datenkoordinaten</b> auf der Symbolleiste <b>Hilfsmittel</b>, um den stärksten Peak im Diagramm abzulesen. Das Bild oben zeigt, dass sich bei einer Frequenz von 0,25 ein spitzer Peak befindet, ein Kennzeichen dafür, dass bei dieser Frequenz eine starke Entsprechung zwischen den beiden Signalen vorliegt.</li>
+  </ol>
+
+  <h2><a name="1D_Correlation"></a><span class="mw-headline">1D-Korrelation</span></h2>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe.</li>
+
+    <li>Wählen Sie im Menü <b>Datei: Import: Einzelnes ASCII</b>, um die Daten <b>&lt;Origin-Verzeichnis&gt;\Samples\Signal Processing\Correlation.dat</b> zu importieren.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Correlation 1.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Correlation_1.png" width="396"></a></dd>
+      </dl>
+    </li>
+
+    <li>Markieren Sie Spalte A. Klicken Sie mit der rechten Maustaste, um das Kontextmenü zu öffnen, und wählen Sie dann <b>Setzen als: Als Y setzen</b>, um dieser Spalte <i>Y</i> zuzuweisen.</li>
+
+    <li>Markieren Sie zwei Spalten und wählen Sie im Menü <b>Analyse: Signalverarbeitung: Korrelation</b>. Der Dialog der <b>Korrelation: corr1</b> wird geöffnet. Übernehmen Sie die Standardeinstellungen.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Correlation 2.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Correlation_2.png" width="411"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um die Korrelation für die zwei Signale durchzuführen.</li>
+
+    <li>Die Spalten für das Korrelationsergebnis und die zeitliche Verzögerung werden in dem Arbeitsblatt ausgegeben. Markieren Sie Spalte D und wählen Sie im Menü <b>Zeichnen: Einfache 2D: Liniendiagramm</b>, um eine Zeichnung für das Ergebnis zu erstellen.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Correlation 3.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Correlation_3.png" width="422"></a></dd>
+      </dl>
+    </li>
+
+    <li>Die Datenkoordinaten in dem Bild oben zeigen, dass es bei einer Zeit von ungefähr 49 einen starken positiven Peak gibt. Dies bedeutet, dass der zweite Datensatz ca. 49 nach vorn verschoben (übersetzt) werden muss, um diese beiden Signale aufeinander auszurichten.</li>
+
+    <li>Kehren Sie zum Arbeitsblatt zurück, markieren Sie Spalte A und B und wählen Sie dann im Menü <b>Zeichnen: Mehrere Felder/Achsen: 2-fach Vertikal</b>, um die zwei Signale in zwei separate Diagrammlayer zu zeichnen.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Correlation 4.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Correlation_4.png" width="419"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie zum Öffnen des Dialogs <b>Details Zeichnung</b> doppelt auf die Datenzeichnung. Wählen Sie im linken Bedienfeld <b>Layer 2</b> (achten Sie darauf, dabei nicht das Kontrollkästchen zu deaktivieren). Wechseln Sie zur Registerkarte <b>Achsenskalierung verknüpfen</b> im rechten Bedienfeld und aktivieren Sie die Option <b>Gerade (1 zu 1)</b> in der Gruppe <b>X-Achsenverknüpfung</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Correlation 5.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Correlation_5.png" width="659"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>. Beide X-Achsen haben jetzt die gleiche Skalierung.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Correlation 6.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Correlation_6.png" width="419"></a></dd>
+      </dl>
+    </li>
+
+    <li>Um die Datensätze beweglich zu machen, löschen Sie das Schloss, indem Sie darauf klicken und <b>Modus Neu berechnen: Kein</b> auswählen. Klicken Sie auf <b>OK</b>, wenn die <b>Erinnerungsmeldung</b> angezeigt wird.</li>
+
+    <li>Markieren Sie die obere Zeichnung und wählen Sie im Menü <b>Analyse: Datenbearbeitung: Horizontale Translation</b>, um eine vertikale Linie zusammen mit einer dreieckigen Schaltfläche zu dem Layer hinzuzufügen. Klicken Sie auf die dreieckige Schaltfläche, um das Kontextmenü aufzurufen, und deaktivieren Sie <b>Hilfsmittel nach Übersetzung beibehalten</b>. Öffnen Sie das Menü erneut und wählen Sie <b>Duplikation übersetzen in: Neue Spalten</b>. Es werden zwei weitere Spalten hinzugefügt. Die Quelldaten der aktuellen Kurve werden in diese neuen Spalten kopiert.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Correlation 7a.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Correlation_7a.png" width="525"></a></dd>
+      </dl>
+    </li>
+
+    <li>Rufen Sie erneut das Kontextmenü auf und klicken Sie auf <b>Kurve verschieben</b>. Der Dialog <b>Kurve verschieben</b> wird geöffnet. Setzen Sie den <b>Wert</b> auf 49.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Correlation 7.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Correlation_7.png" width="732"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um die Zeichnung zu übersetzen. Dies sollte die beiden Signale ausrichten.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Correlation 8.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Correlation_8.png" width="422"></a></dd>
+      </dl>
+    </li>
+  </ol>

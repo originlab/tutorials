@@ -1,0 +1,468 @@
+﻿<h1 class="firstHeading">Übersicht Nicht-parametrische Statistik</h1>
+
+  <p class='urlname' style='display: none'>NonparametricStatisticsOverview</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#Introduction:_Nonparametric_Tests_in_Origin"><span class="tocnumber">3</span> <span class="toctext">Einführung: Nicht-parametrische Tests in Origin</span></a></li>
+
+      <li class="toclevel-1 tocsection-4">
+        <a href="#Examples"><span class="tocnumber">4</span> <span class="toctext">Beispiele</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-5"><a href="#One_Sample_Independent_Tests"><span class="tocnumber">4.1</span> <span class="toctext">Tests bei einer unabhängigen Stichprobe</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#Two_Sample_Independent_Tests"><span class="tocnumber">4.2</span> <span class="toctext">Tests bei zwei unabhängigen Stichproben</span></a></li>
+
+          <li class="toclevel-2 tocsection-7"><a href="#Non-parametric_Measures_of_Correlation"><span class="tocnumber">4.3</span> <span class="toctext">Nicht-parametrische Messungen der Korrelation</span></a></li>
+
+          <li class="toclevel-2 tocsection-8"><a href="#Paired_Sample_wilcoxon_Signed_Rank_Tests"><span class="tocnumber">4.4</span> <span class="toctext">Wilcoxon-Rangtest mit Vorzeichen bei verbundenen Stichproben</span></a></li>
+
+          <li class="toclevel-2 tocsection-9"><a href="#Multiple_Independent_Samples_Test"><span class="tocnumber">4.5</span> <span class="toctext">Test bei mehreren unabhängigen Stichproben</span></a></li>
+
+          <li class="toclevel-2 tocsection-10"><a href="#Multiple_Related_Samples_Test"><span class="tocnumber">4.6</span> <span class="toctext">Test bei mehreren verbundenen Stichproben</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/Non-parametric_Statistics_Overview/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/Non-parametric_Statistics_Overview/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=78" target="_blank">Nichtparametrische Statistik für zwei Stichproben</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=113" target="_blank">Nichtparametrische Statistik für mehrere Stichproben</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%"><a class="image"><img alt="Website blog icon circle.png" src="../images/Non-parametric_Statistics_Overview/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Non-parametric_Statistics_Overview/Blog_Image_33x33px.png" width="135"></a></td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Nicht-parametrische Tests werden verwendet, wenn Sie nicht wissen, ob Ihre Daten einer Normalverteilung folgen, oder Sie bestätigt haben, dass Ihre Daten keiner Normalverteilung folgen.</p>
+
+  <p>&#160;</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen:</p>
+
+  <ul>
+    <li>Eine Einführung in nicht-parametrische Tests in Origin</li>
+
+    <li>Das Ausführen von nicht-parametrischen Tests für unterschiedliche praktische Situationen</li>
+
+    <li>Das Berechnen des Korrelationskoeffizienten in nicht-parametrischen Statistiken</li>
+  </ul>
+
+  <h2><a name="Introduction:_Nonparametric_Tests_in_Origin"></a><span class="mw-headline">Einführung: Nicht-parametrische Tests in Origin</span></h2>
+
+  <p>Nicht-parametrische Tests erfordern keine Annahme einer Normalverteilung. Sie werden gemeinhin in den folgenden Situationen verwendet:</p>
+
+  <ul>
+    <li>Kleiner Stichprobenumfang</li>
+
+    <li>Kategoriale/Binäre/Ordinale Daten</li>
+
+    <li>Normalverteilung kann nicht angenommen werden.</li>
+  </ul>
+
+  <table class="simple">
+    <tr>
+      <th></th>
+
+      <th></th>
+
+      <th>Nichtparametrisch</th>
+
+      <th>Parametrisch</th>
+    </tr>
+
+    <tr>
+      <td rowspan="2"></td>
+
+      <td rowspan="2"></td>
+
+      <td><i><b>Daten aus einer beliebigen Verteilung</b></i></td>
+
+      <td><i><b>Daten aus einer Normalverteilung</b></i></td>
+    </tr>
+
+    <tr>
+      <td><i><b>Kleine Stichprobe</b></i></td>
+
+      <td><i><b>Große Stichprobe</b></i></td>
+    </tr>
+
+    <tr>
+      <td><b>Eine Stichprobe</b></td>
+
+      <td></td>
+
+      <td>Wilcoxon-Rangtest mit Vorzeichen</td>
+
+      <td>t-Test bei einer Stichprobe</td>
+    </tr>
+
+    <tr>
+      <td rowspan="2"><b>Zwei Stichproben</b></td>
+
+      <td>Unabhängige Stichproben</td>
+
+      <td>
+        <ul>
+          <li>Mann-Whitney-Test</li>
+
+          <li>Kolmogorov-Smirnov-Test</li>
+        </ul>
+      </td>
+
+      <td>t-Test bei zwei Stichproben</td>
+    </tr>
+
+    <tr>
+      <td>Verbundene Stichproben</td>
+
+      <td>
+        <ul>
+          <li>Wilcoxon-Rangtest mit Vorzeichen</li>
+
+          <li>Vorzeichentest</li>
+        </ul>
+      </td>
+
+      <td>t-Test bei verbundenen Stichproben</td>
+    </tr>
+
+    <tr>
+      <td rowspan="2"><b>Mehrere Stichproben</b></td>
+
+      <td>Unabhängige Stichproben</td>
+
+      <td>
+        <ul>
+          <li>Kruskal-Wallis-ANOVA</li>
+
+          <li>Mood-Median-Test</li>
+        </ul>
+      </td>
+
+      <td>Einfache ANOVA</td>
+    </tr>
+
+    <tr>
+      <td>Verwandte Stichproben</td>
+
+      <td>Friedman-ANOVA</td>
+
+      <td>Einfache ANOVA mit wiederholten Messungen</td>
+    </tr>
+  </table>
+
+  <h2><a name="Examples"></a><span class="mw-headline">Beispiele</span></h2>
+
+  <h3><a name="One_Sample_Independent_Tests"></a><span class="mw-headline">Tests bei einer unabhängigen Stichprobe</span></h3>
+
+  <p>Der Wilcoxon-Rangtest mit Vorzeichen bei einer Stichprobe wurde entwickelt, um den Median einer Grundgesamtheit im Verhältnis zu einem festgelegten Wert zu untersuchen. Sie können dazu einen ein- oder beidseitigen Test wählen. Die Hypothesen des Wilcoxon-Rangtests mit Vorzeichen sind H0: Median = hypothetischer Median vs. H1: Median ≠ hypothetischer Median.<br>
+  In diesem Beispiel interessiert sich ein Qualitätsingenieur in einem Betrieb dafür, ob der Median (oder Durchschnitt) des Produktgewichts gleich 166 ist. Zunächst werden zufällig 10 Produkte ausgewählt und ihr Gewicht gemessen. Die gemessenen Daten lauten:<br>
+  151,5 152,4 153,2 156,3 179,1 180,2 160,5 180,8 149,2 188,0<br>
+  Der Ingenieur führt einen <b>Test auf Normalverteilung</b> durch, um zu bestimmen, ob die Daten einer Normalverteilung folgen</p>
+
+  <ol>
+    <li>Öffnen Sie ein neues Arbeitsblatt und geben Sie die oben stehende Daten in Spalte A ein. Wählen Sie <b>Statistik: Deskriptive Statistik: Test auf Normalverteilung...</b> , um den Dialog <b>Test auf Normalverteilung</b> zu öffnen.</li>
+
+    <li>Wählen Sie die Spalte A(X) als <b>Datenbereich</b>.<br>
+
+      <dl>
+        <dd><a class="image"><img alt="Normality test.PNG" src="../images/Non-parametric_Statistics_Overview/Normality_test.PNG" width="422"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die <b>OK</b>, um die Ergebnisse zu erzeugen.
+
+      <dl>
+        <dd><a class="image"><img alt="Normailty test result.PNG" src="../images/Non-parametric_Statistics_Overview/Normailty_test_result.PNG" width="497"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <p><br>
+  Von dem Ergebnis ausgehend, das den p-Wert = 0,03814 ausgibt, ist die Verteilung der Daten nicht normalverteilt bei einem Niveau von 0,05. Um einen Wilcoxon-Rang-Test mit Vorzeichen bei einer Stichprobe durchzuführen:</p>
+
+  <ol>
+    <li>Wählen Sie <b>Statistik: Nicht-parametrische Tests: Wilcoxon-Rangtest mit Vorzeichen bei einer Stichprobe</b>.</li>
+
+    <li>Legen Sie Spalte A als <b>Datenbereich</b> fest.</li>
+
+    <li>Geben Sie <b>166</b> im Textfeld <b>Testmedian</b> ein.
+
+      <dl>
+        <dd><a class="image"><img alt="Nonprarmetric test w1.PNG" src="../images/Non-parametric_Statistics_Overview/Nonprarmetric_test_w1.PNG" width="430"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die <b>OK</b>, um die Ergebnisse zu erzeugen.
+
+      <dl>
+        <dd><a class="image"><img alt="Nonprarmetric test w1 result.PNG" src="../images/Non-parametric_Statistics_Overview/Nonprarmetric_test_w1_result.PNG" width="513"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <p>Gemäß dem Ergebnis wird die Nullhypothese bei einem Niveau von 0,05 zurückwiesen und geschlussfolgert, dass der Median gleich 166 ist.</p>
+
+  <h3><a name="Two_Sample_Independent_Tests"></a><span class="mw-headline">Tests bei zwei unabhängigen Stichproben</span></h3>
+
+  <p>Origin bietet zwei Tests für nicht-parametrische Statistiken von zwei unabhängigen Stichprobensystemen: den <b>Mann-Whitney-Test</b> und den <b>Kolmogorov-Smirnov-Test bei zwei Stichproben</b>.</p>
+
+  <p>Dieses folgende Beispiel zeigt die praktische Verwendung des <b>Mann-Whitney-Tests</b>. Die Abriebfestigkeit (in mg) wird für zwei Reifentypen (A und B) gemessen, wobei 8 Versuche für jeden Reifentypen durchgeführt werden. Die Daten sind indiziert und werden in der Datei abrasion_indexed.dat gespeichert.</p>
+
+  <ol>
+    <li>Importieren Sie die Datei abrasion_indexed.dat aus <b>\Samples\Statistics\.</b></li>
+
+    <li>Wählen Sie <b>Statistik: Nicht-parametrische Tests: Mann-Whitney-Test</b>, um das Dialogfeld zu öffnen.</li>
+
+    <li>Behalten Sie als <b>Form der Eingabedaten</b> die Option <b>Indiziert</b> bei.</li>
+
+    <li>Legen Sie Spalte A als <b>Gruppenbereich</b> fest und die Spalte B als <b>Datenbereich</b>.</li>
+
+    <li>Aktivieren Sie das Kontrollkästchen <b>Genauer p-Wert</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Mwtest dlg.png" src="../images/Non-parametric_Statistics_Overview/Mwtest_dlg.png" width="440"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>OK</b>, um Ergebnisse zu erzeugen, die sich im Blatt <b>MannWhitney1</b> befinden.
+
+      <dl>
+        <dd><a class="image"><img alt="Mwtest result.png" src="../images/Non-parametric_Statistics_Overview/Mwtest_result.png" width="394"></a></dd>
+      </dl>
+
+      <ul>
+        <li><b>U</b>: Die <b>U</b>-Statistik kann einfach aus dem Rang der zwei Gruppen berechnet werden. Es handelt sich hier um die Anzahl der Male, die ein Score in der 2. Gruppe größer ist als ein Score in der 1. Gruppe.</li>
+
+        <li><b>Z</b>: Die approximative Statistik des Tests auf Normalverteilung. Sie bietet eine hervorragende Approximation mit wachsender Stichprobengröße.</li>
+
+        <li><b>Genaue Wahrsch</b>: Der genaue P-Wert, der nur verfügbar ist, wenn <b>Genauer p-Wert</b> im Dialog aktiviert ist. Er kann jedoch sehr viel CPU-Zeit in Anspruch nehmen, wenn große Stichprobenumfänge bearbeitet werden.</li>
+
+        <li><b>Asymp. Wahrsch.</b>: Der asymptotische p-Wert wird aus der approximativen Statistik des Tests der Normalverteilung <b>Z</b> berechnet.</li>
+      </ul>
+    </li>
+  </ol>
+
+  <h3><a name="Non-parametric_Measures_of_Correlation"></a><span class="mw-headline">Nicht-parametrische Messungen der Korrelation</span></h3>
+
+  <p>Der Korrelationskoeffizient wird zur Messung der Beziehung zwischen zwei Variablen verwendet. Es ist möglich, den Korrelationskoeffizienten für eine nicht-parametrische Statistik zu verwenden.</p>
+
+  <p>Origin bietet zwei nicht-parametrische Methoden zum Messen der Korrelationen zwischen Variablen:</p>
+
+  <ul>
+    <li><b>Spearman</b>: Häufige verwendete Alternative zu Pearsons Korrelationskoeffizient. Spearmans Koeffizient kann verwendet werden, wenn sowohl die abhängige als auch die unabhängige Variable ordinal ist oder wenn eine Variable ordinal und die andere kontiniuerlich ist. Spearmans Koeffizient kann jedoch auch geeignet sein, wenn beide Variablen kontinuierlich sind.</li>
+
+    <li><b>Kendall</b>: Wird mit ordinalen Variablen zum Auswerten von Übereinstimmungen unter Prüfern verwendet.</li>
+  </ul>
+
+  <p>Das folgende Beispiel zeigt, wie der Korrelationskoeffizient für nicht-parametrische Situationen berechnet wird.</p>
+
+  <ol>
+    <li>Importieren Sie die Datei abrasion_raw.dat aus <b>\Samples\Statistics\.</b></li>
+
+    <li>Markieren Sie Spalte A und Spalte B. Wählen Sie <b>Statistik: Deskriptive Statistik: Korrelationskoeffizient</b>, um den Dialog corrcoef zu öffnen.</li>
+
+    <li>Aktivieren Sie <b>Spearman</b> und deaktivieren Sie <b>Pearson</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Corrcoef nonpara.png" src="../images/Non-parametric_Statistics_Overview/Corrcoef_nonpara.png" width="508"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>OK</b>, um die Ergebnisse in dem Blatt <b>CorrCoef1</b> zu erzeugen.</li>
+  </ol>
+
+  <p>Aus dem Wert von <b>Spearman Corr.</b> kann geschlussfolgert werden, dass der Abrieb zwischen Reifen A und Reifen B stark miteinander korreliert.<br>
+  <a class="image"><img alt="Corrcoef nonpara result.png" src="../images/Non-parametric_Statistics_Overview/Corrcoef_nonpara_result.png" width="291"></a></p>
+
+  <h3><a name="Paired_Sample_wilcoxon_Signed_Rank_Tests"></a><span class="mw-headline">Wilcoxon-Vorzeichen-Rang-Test bei verbundenen Stichproben</span></h3>
+
+  <p>Nun werden die zwei Mediane von <i>Reifen A</i> und <i>Reifen B</i> aus dem obenstehenden Beispiel verglichen.</p>
+
+  <ol>
+    <li>Arbeiten Sie weiterhin mit der Datei abrasion_raw.dat aus <b>\Samples\Statistics\.</b></li>
+
+    <li>Wählen Sie <b>Statistik: Nicht-parametrische Tests: Wilcoxon-Rangtest mit Vorzeichen bei verbundenen Stichproben</b>.</li>
+
+    <li>Legen Sie Spalte A als <b>Ersten Datenbereich</b> fest und Spalte B als <b>Zweiten Datenbereich</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Nonpara w2 test.PNG" src="../images/Non-parametric_Statistics_Overview/Nonpara_w2_test.PNG" width="416"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>OK</b>, um die Ergebnisse zu erzeugen.
+
+      <dl>
+        <dd><a class="image"><img alt="Nonpara w2 test result.PNG" src="../images/Non-parametric_Statistics_Overview/Nonpara_w2_test_result.PNG" width="373"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <p>Sie können schlussfolgern, dass die zwei Mediane signifikant unterschiedlich sind. Der Median von Gruppe A ist größer als der Median von Gruppe B.</p>
+
+  <h3><a name="Multiple_Independent_Samples_Test"></a><span class="mw-headline">Test bei mehreren unabhängigen Stichproben</span></h3>
+
+  <p>In diesem Beispiel wird der Kraftstoffverbrauch von vier Autoherstellern gemessen. Es werden mehrere Versuche für jeden Autohersteller durchgeführt. Die Ergebnisse werden in der Beispieldatentabelle aufgeführt.</p>
+
+  <table class="simple">
+    <tr>
+      <th>GMC/mpg</th>
+
+      <th>Infinity/mpg</th>
+
+      <th>Saab/mpg</th>
+
+      <th>Kia/mpg</th>
+    </tr>
+
+    <tr>
+      <td>26,1</td>
+
+      <td>32,2</td>
+
+      <td>24,5</td>
+
+      <td>28,4</td>
+    </tr>
+
+    <tr>
+      <td>28,4</td>
+
+      <td>34,3</td>
+
+      <td>23,5</td>
+
+      <td>34,2</td>
+    </tr>
+
+    <tr>
+      <td>24,3</td>
+
+      <td>29,5</td>
+
+      <td>26,4</td>
+
+      <td>29,5</td>
+    </tr>
+
+    <tr>
+      <td>26,2</td>
+
+      <td>35,6</td>
+
+      <td>27,1</td>
+
+      <td>32,2</td>
+    </tr>
+
+    <tr>
+      <td>27,8</td>
+
+      <td>32,5</td>
+
+      <td>29,9</td>
+
+      <td></td>
+    </tr>
+
+    <tr>
+      <td>30,6</td>
+
+      <td>30,2</td>
+
+      <td></td>
+
+      <td></td>
+    </tr>
+
+    <tr>
+      <td>28,1</td>
+
+      <td></td>
+
+      <td></td>
+
+      <td></td>
+    </tr>
+  </table>
+
+  <p>Um auszuwerten, ob der Kraftstoffverbrauch von vier Autoherstellern gleich ist und welche Marke die effektivste, wird die Kruskal-Wallis-ANOVA als nicht parametrische Testmethode ausgewählt.</p>
+
+  <ol>
+    <li>Erstellen Sie eine neue Arbeitsmappe in Origin, kopieren Sie die Beispieldaten und fügen Sie sie ein.</li>
+
+    <li>Wählen Sie <b>Statistik: Nicht-parametrische Tests: Kruskal-Wallis-ANOVA</b>, um das Dialogfeld kwanova zu öffnen.</li>
+
+    <li>Wählen Sie Roh als <b>Form der Eingabedaten</b>.</li>
+
+    <li>Klicken Sie auf die <b>dreieckige Schaltfläche</b> <a class="image"><img alt="Button Select Data Right Triangle.png" src="../images/Non-parametric_Statistics_Overview/Button_Select_Data_Right_Triangle.png" width="18"></a> neben <b>Eingabe</b> und klicken Sie dann auf <b>Alle Spalten</b> im Kontextmenü.<br>
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Nonparametric Test 001.png" src="../images/Non-parametric_Statistics_Overview/Tutorial_Nonparametric_Test_001.png" width="394"></a><br></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um Ergebnisse zu erzeugen. Die Ergebnisse werden in einem neuen Arbeitsblatt <b>KWANOVA1</b> gespeichert.</li>
+  </ol>
+
+  <p>Der P-Wert lässt uns schlussfolgern, dass der Kraftstoffverbrauch der vier Autohersteller sich signifikant voneinander unterscheidet.<br>
+  <a class="image"><img alt="Tutorial Nonparametric Test 002.png" src="../images/Non-parametric_Statistics_Overview/Tutorial_Nonparametric_Test_002.png" width="332"></a></p><br>
+
+  <h3><a name="Multiple_Related_Samples_Test"></a><span class="mw-headline">Test bei mehreren verwandten Stichproben</span></h3>
+
+  <p>Augenärzte untersuchen, ob eine Helium-Neon-Laser-Therapie bei Kindern angewendet werden kann. Sie haben Daten von 2 Gruppen, 6-10 Jahre und 11-16 Jahre. Jeder Datensatz enthält die Untersuchungsergebnisse von 5 Personen und den Differenzen in ihrer Sehkraft nach drei Therapiezyklen. Die Ergebnisse werden in der Datei eyesight.dat gespeichert.</p>
+
+  <p>Aufgrund des kleinen Stichprobenumfangs ist eine nicht-parametrische Statistik in der Analyse erforderlich. Befolgen Sie bitte die untenstehenden Schritte:</p>
+
+  <ol>
+    <li>Importieren Sie die Datei eyesight.dat aus <b>\Samples\Statistics\.</b></li>
+
+    <li>Wählen Sie <b>Statistik: Nicht parametrische Tests: Friedman-ANOVA</b>, um das Dialogfeld friedman zu öffnen.</li>
+
+    <li>Wählen Sie Spalte A als <b>Datenbereich</b>, Spalte C als <b>Faktorbereich</b> und Spalte D als <b>Subjektbereich</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Nonparametric Statistics 004.png" src="../images/Non-parametric_Statistics_Overview/Tutorial_Nonparametric_Statistics_004.png" width="394"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die <b>OK</b>, um die Ergebnisse zu erzeugen.</li>
+  </ol>
+
+  <p>Der p-Wert von <a class="image"><img alt="Origin Analysis Case 10.png" src="../images/Non-parametric_Statistics_Overview/Origin_Analysis_Case_10.png" width="38"></a> ist 0,0067379, also weniger als 0,05. Die Grundgesamtheiten sind signifikant unterschiedlich und weisen damit darauf hin, dass die Therapie für die Altersgruppe 6-10 wirksam ist.<br>
+  <a class="image"><img alt="Tutorial Nonparametric Statistics 005.png" src="../images/Non-parametric_Statistics_Overview/Tutorial_Nonparametric_Statistics_005.png" width="335"></a></p>
+
+  <p>Auf ähnliche Weise wählen Sie Spalte B als <b>Datenbereich</b>. Die verbleibenden Einstellungen der <b>Eingabe</b> entsprechen denen aus Schritt 3 oben.</p>
+
+  <p><a class="image"><img alt="Tutorial Nonparametric Statistics 006.png" src="../images/Non-parametric_Statistics_Overview/Tutorial_Nonparametric_Statistics_006.png" width="394"></a></p>
+
+  <p><br>
+  Überprüfen Sie das Ergebnis. Es ist zu sehen, dass der p-Wert von <a class="image"><img alt="Origin Analysis Case 16.png" src="../images/Non-parametric_Statistics_Overview/Origin_Analysis_Case_16.png" width="36"></a> 0,02599 beträgt, weniger als 0,05 oder 0,10. Daher können Sie schlussfolgern, dass die Sehkraft von 11-16-jährigen Personen nach drei Therapiezyklen besser ist.</p>
+
+  <p><a class="image"><img alt="Tutorial Nonparametric Statistics 007.png" src="../images/Non-parametric_Statistics_Overview/Tutorial_Nonparametric_Statistics_007.png" width="333"></a></p>
+
+  <p>Außerdem ist zu sehen, dass <a class="image"><img alt="Origin Analysis Case 10.png" src="../images/Non-parametric_Statistics_Overview/Origin_Analysis_Case_10.png" width="38"></a>&gt;<a class="image"><img alt="Origin Analysis Case 16.png" src="../images/Non-parametric_Statistics_Overview/Origin_Analysis_Case_16.png" width="36"></a>, d.h., die He-Ne-Laser-Therapie funktioniert besser bei Kindern im Alter von 6 bis 10. Je früher Kinder mit der Therapie beginnen, desto mehr kann sich ihre Sehkraft verbessern.</p><br>

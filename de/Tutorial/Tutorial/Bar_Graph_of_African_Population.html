@@ -1,0 +1,200 @@
+﻿<h1 class="firstHeading">Balkendiagramm der afrikanischen Bevölkerung</h1>
+
+  <p class='urlname' style='display: none'>BarGraph-African-Population</p>
+
+  <p>&#160;</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Prepare_Source_Bar_Plots_with_Batch_Plotting"><span class="tocnumber">3.1</span> <span class="toctext">Quellbalkendiagramme mit Hilfe der Funktion Stapelzeichnen vorbereiten</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Customize_Bar_Plots"><span class="tocnumber">3.2</span> <span class="toctext">Balkendiagramme benutzerdefiniert anpassen</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#Merge_Multiple_Graphs"><span class="tocnumber">3,3</span> <span class="toctext">Mehrere Diagramme zusammenfügen</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>In diesem Tutorial soll ein Diagramm erstellt werden, das die Verteilungen der afrikanischen Bevölkerung für 2010 vs. Prognosen für 2050 vergleicht.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Bar Graph of African Population 14.png" src="../images/Bar_Graph_of_African_Population/Bar_Graph_of_African_Population_14.png" width="506"></a></dd>
+  </dl>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 2015 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>ein Diagramm mit Daten in anderen Spalten duplizieren,</li>
+
+    <li>eine Achsenskalierung festlegen, um ein Balkendiagramm umzudrehen,</li>
+
+    <li>Diagramme zusammenfügen.</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <p>Um dieses Diagramm zu erstellen, müssen Sie vier getrennte Balkendiagramme erstellen, diese benutzerdefiniert anpassen und zu einem Diagramm zusammenfügen.</p>
+
+  <h3><a name="Prepare_Source_Bar_Plots_with_Batch_Plotting"></a><span class="mw-headline">Quellbalkendiagramme mit Hilfe der Funktion Stapelzeichnen vorbereiten</span></h3>
+
+  <ol>
+    <li>Öffnen Sie eine leere Origin-Arbeitsmappe und importieren Sie die Datendatei <b>African_Population.dat</b> unter <i>&lt;Origin-Verzeichnis&gt;\Samples\Graphing</i>. (Sollte sich die Datei nicht in Ihrer Origin-Installation befinden, laden Sie die gezippte Datendatei von dem <a class="external text" href="http://www.originlab.com/ftp/graph_gallery/African_population.zip" target="_blank">ftp-Server</a> herunter.)
+
+      <dl>
+        <dd><a class="image"><img alt="Bar Graph of African Population 02.png" src="../images/Bar_Graph_of_African_Population/Bar_Graph_of_African_Population_02.png" width="494"></a></dd>
+      </dl>
+    </li>
+
+    <li>Markieren Sie Spalte B und wählen Sie <b>Zeichnen: Einfache 2D: Balkendiagramm</b>, um ein Balkendiagramm zu erstellen. Verwenden Sie die Schaltfläche <b>Füllfarbe</b> <a class="image"><img alt="Button Fill Color.png" src="../images/Bar_Graph_of_African_Population/Button_Fill_Color.png" width="22"></a> auf der Symbolleiste <b>Stil</b>, um die Füllfarbe auf Rot zu setzen.</li>
+
+    <li>Der nächste Schritt besteht in der Duplikation ähnlicher Diagramme aus den anderen drei Spalten. Klicken Sie mit der rechten Maustaste auf die Titelleiste des Diagrammfensters und wählen Sie <b>Duplizieren (Stapelzeichnen)</b> im Kontextmenü:
+
+      <dl>
+        <dd><a class="image"><img alt="Bar Graph of African Population 03.png" src="../images/Bar_Graph_of_African_Population/Bar_Graph_of_African_Population_03.png" width="506"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie im aufgerufenen Dialog die Option <b>Spalte</b> in der Auswahlliste <b>Zeichnung stapeln mit</b>, halten Sie die Strg-Taste gedrückt und klicken Sie auf alle drei Spalten C, D, E, um sie auszuwählen. Klicken Sie auf <b>OK</b>:
+
+      <dl>
+        <dd><a class="image"><img alt="Bar Graph of African Population 04.png" src="../images/Bar_Graph_of_African_Population/Bar_Graph_of_African_Population_04.png" width="538"></a></dd>
+      </dl>
+    </li>
+
+    <li>Es werden drei entsprechende Diagramme erstellt (Wenn eine <b>Erinnerungsmeldung</b> angezeigt, die Sie fragt: <i>Möchten Sie die Achsen neu skalieren, damit alle Daten angezeigt werden?</i>, wählen Sie <b>Ja</b> und klicken auf <b>OK</b>).</li>
+
+    <li>Jetzt haben Sie vier Balkendiagramme der vier Gruppen: male-2010, female-2010, male-2050, female-2050.
+
+      <dl>
+        <dd><a class="image"><img alt="Bar Graph of African Population 05.png" src="../images/Bar_Graph_of_African_Population/Bar_Graph_of_African_Population_05.png" width="715"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Customize_Bar_Plots"></a><span class="mw-headline">Balkendiagramme benutzerdefiniert anpassen</span></h3>
+
+  <p>Im Folgenden passen Sie die vier Balkendiagramm einzeln benutzerdefiniert an.</p>
+
+  <ol>
+    <li>Als Erstes wird <b>Graph1</b> benutzerdefiniert angepasst (d.h. das Diagramm, dessen Legende mit <i>male-2010</i> beschriftet ist).</li>
+
+    <li>Klicken Sie zum Öffnen des Dialogs <b>Details Zeichnung</b> doppelt auf die Datenzeichnung. Erweitern Sie den Knoten <b>Layer1</b> im linken Bedienfeld und markieren Sie den Unterknoten. Ändern Sie im rechten Bedienfeld auf der Registerkarte <b>Muster</b> die <b>Farbe</b> der <b>Füllung</b> in <b>Blau</b>. Klicken Sie auf <b>OK</b>, um die Farbeinstellung anzuwenden, und schließen Sie den Dialog.</li>
+
+    <li>Klicken Sie doppelt auf die Y-Achse (die horizontale Achse im Balkendiagramm), um den Dialog <b>Achsen</b> zu öffnen. Legen Sie auf der Registerkarte <b>Skalierung</b> für die <b>Y-Achse</b> folgende Werte fest: <b>von</b> = <b>17</b>, <b>bis</b> = <b>0</b> sowie <b>Wert</b> der Inkremente der großen Hilfsstriche = <b>-5</b>:
+
+      <dl>
+        <dd><a class="image"><img alt="Bar Graph of African Population 06.png" src="../images/Bar_Graph_of_African_Population/Bar_Graph_of_African_Population_06.png" width="622"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf das Symbol <b>Vertikal</b> im linken Bedienfeld, gehen Sie zur Registerkarte <b>Gitternetze</b> der X-Achse und deaktivieren Sie das Kontrollkästchen <b>Zeigen</b> im Zweig <b>Nebengitternetzlinien</b>, um die Nebengitternetzlinien auszublenden. Klicken Sie auf <b>Anwenden</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Bar Graph of African Population 07.png" src="../images/Bar_Graph_of_African_Population/Bar_Graph_of_African_Population_07.png" width="622"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wechseln Sie zur Registerkarte <b>Linie und Hilfsstriche</b> und setzen Sie den <b>Stil</b> unter <b>Kleine Hilfsstriche</b> auf die Option <b>Kein</b>:
+
+      <dl>
+        <dd><a class="image"><img alt="Bar Graph of African Population 07b.png" src="../images/Bar_Graph_of_African_Population/Bar_Graph_of_African_Population_07b.png" width="622"></a></dd>
+      </dl>
+    </li>
+
+    <li>Jetzt blenden Sie die Nebengitternetzlinien und kleinen Hilfsstriche für alle anderen Diagramme aus. Klicken Sie auf die Schaltfläche <b>Anwenden auf...</b>, um den Dialog <b>Anwenden auf</b> aufzurufen, und aktivieren Sie die Kontrollkästchen neben <b>Hilfsstriche</b> und <b>Gitternetzlinien</b>. Wählen Sie in den jeweiligen Auswahlmenüs für beide die Option <b>Alle Fenster im Ordner</b> und klicken Sie auf <b>OK</b>, um die Einstellungen anzuwenden. Die Nebengitternetzlinien und kleinen Hilfsstriche in allen Diagrammfenstern im gleichen Ordner des <b>Projekt Explorers</b> werden nun ausgeblendet:
+
+      <dl>
+        <dd><a class="image"><img alt="Bar Graph of African Population 08.png" src="../images/Bar_Graph_of_African_Population/Bar_Graph_of_African_Population_08.png" width="318"></a></dd>
+      </dl>
+    </li>
+
+    <li>Als Nächstes werden die Skalierungen der Y-Achsen für <b>Graph2</b> (female-2010) und <b>Graph3</b> (male-2050) benutzerdefiniert angepasst. Öffnen Sie den Dialog <b>Achsen</b> für jedes Diagramm und legen Sie die Achsenskalierungen entsprechend der Screenshots unten fest:
+
+      <dl>
+        <dd><a class="image"><img alt="Bar Graph of African Population 09.png" src="../images/Bar_Graph_of_African_Population/Bar_Graph_of_African_Population_09.png" width="622"></a></dd>
+
+        <dd><a class="image"><img alt="Bar Graph of African Population 10.png" src="../images/Bar_Graph_of_African_Population/Bar_Graph_of_African_Population_10.png" width="622"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie doppelt auf die X-Achse von <b>Graph4</b>, um den Dialog <b>Achsen</b> zu öffnen. Legen Sie die Skalierung der X-Achse, wie im Screenshot zu sehen, fest:
+
+      <dl>
+        <dd><a class="image"><img alt="Bar Graph of African Population 11.png" src="../images/Bar_Graph_of_African_Population/Bar_Graph_of_African_Population_11.png" width="529"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie doppelt auf die Datenzeichnung von <b>Graph3</b> (male-2050) und öffnen Sie den Dialog <b>Details Zeichnung</b>. Erweitern Sie den Knoten <b>Layer1</b>, um den Unterknoten zu markieren, klicken Sie auf die Registerkarte <b>Muster</b> im rechten Bedienfeld und setzen Sie die <b>Farbe</b> für <b>Füllung</b> auf <b>Blau</b>.</li>
+
+    <li>Markieren Sie für <b>Graph2</b> (female-2010) und <b>Graph4</b> (female-2050) die Hilfsstrichsbeschriftung für die X-Achse (vertikale Achse) und drücken Sie die Taste <b>Entfernen</b>, um sie zu löschen. Entsprechend entfernen Sie auch die Achsentitel für sowohl X- als auch Y-Achsen. Die vier benutzerdefiniert angepassten Balkendiagramme sollten aussehen wie unten zu sehen:
+
+      <dl>
+        <dd><a class="image"><img alt="Bar Graph of African Population 12.png" src="../images/Bar_Graph_of_African_Population/Bar_Graph_of_African_Population_12.png" width="795"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Merge_Multiple_Graphs"></a><span class="mw-headline">Mehrere Diagramme zusammenfügen</span></h3>
+
+  <p>Nun haben Sie vier individuelle Balkendiagramme. Diese vier Diagramme werden nun zusammengefügt und noch ein wenig benutzerdefiniert angepasst, zum Beispiel werden noch Textanmerkungen hinzugefügt.</p>
+
+  <ol>
+    <li>Aktivieren Sie eines der vier Diagramme und wählen Sie im Hauptmenü <b>Grafik: Grafikfenster zusammenfügen</b>. Der Dialog <b>merge_graph</b> wird geöffnet. Ändern Sie die Einstellungen wie folgt, um diese vier Balkendiagramme in einem Diagrammfenster zusammenzufügen.
+
+      <dl>
+        <dd><a class="image"><img alt="Bar Graph of African Population 13.png" src="../images/Bar_Graph_of_African_Population/Bar_Graph_of_African_Population_13.png" width="850"></a></dd>
+      </dl>
+    </li>
+
+    <li>Ziehen Sie in dem zusammengefügten Diagramm an den beiden (horizontalen) Y-Achsentiteln "Population (million)", um Sie mittig auszurichten. Markieren Sie nacheinander die Legenden der vier Diagramme und entfernen Sie sie.</li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf eine freie Fläche im Diagrammlayer und wählen Sie "Text einfügen". Machen Sie die entsprechende Eingabe, um die vier Textbeschriftungen zu erstellen. Die verwendeten Textbeschriftungen sind:</li>
+  </ol>
+
+  <ul>
+    <li><i>Figure 1. African population by five – year age groups and sex, 2010 versus 2050</i></li>
+
+    <li><i>2010</i></li>
+
+    <li><i>Males<br>
+    N=515.267</i></li>
+
+    <li><i>Females<br>
+    N=517.776</i></li>
+
+    <li><i>2050</i></li>
+
+    <li><i>Males<br>
+    N=998.354</i></li>
+
+    <li><i>Females<br>
+    N=1.000.112</i></li>
+
+    <li><i>Quelle: Population Division of the Department of Economic and Social Affairs of the United Nations Secretariat,<br>
+    World Population Prospects: The 2008 Revision, <a class="external free" href="http://www.un.org/en/index.html" target="_blank">http://www.un.org/en/index.html</a>, Montag, 12. April 2010; 15:19 Uhr.</i></li>
+  </ul>
+
+  <p>Wenn Sie möchten, können Sie Position, Schriftart, Farbe und Ausrichtung der neu hinzugefügten Beschriftungen weiter benutzerdefiniert anpassen. Ihr endgültiges Diagramm sollte in etwa wie unten abgebildet aussehen.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Bar Graph of African Population 14.png" src="../images/Bar_Graph_of_African_Population/Bar_Graph_of_African_Population_14.png" width="506"></a></dd>
+  </dl>

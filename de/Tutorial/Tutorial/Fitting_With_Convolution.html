@@ -1,0 +1,219 @@
+﻿<h1 class=firstHeading>Anpassen mit Faltung</h1>
+<p class=urlname style="display: none;">Fitting-Convolution</p>
+<p><br />
+</p>
+<table id=toc class=toc x-use-null-cells>
+
+<tr><td>
+<div id=toctitle>
+<h2>Inhalt</h2>
+</div>
+<ol><li class="toclevel-1 tocsection-1"><a href="#Summary"><span class=tocnumber>1</span> 
+ <span class=toctext>Zusammenfassung</span></a></li>
+	<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+ class=tocnumber>2</span> <span class=toctext>Was Sie lernen werden</span></a></li>
+	<li class="toclevel-1 tocsection-3">
+	<a href="#Example_and_Steps"><span class=tocnumber>3</span> <span class=toctext>Beispiele 
+ und Schritte</span></a> 
+	<ol><li class="toclevel-2 tocsection-4"><a href="#Background"><span 
+ class=tocnumber>3.1</span> <span class=toctext>Hintergrund</span></a></li>
+		<li class="toclevel-2 tocsection-5"><a href="#Define_the_Function"><span 
+ class=tocnumber>3.2</span> <span class=toctext>Funktion definieren</span></a></li>
+		<li class="toclevel-2 tocsection-6"><a href="#Fit_the_Curve"><span 
+ class=tocnumber>3.3</span> <span class=toctext>Kurve anpassen</span></a></li>
+	</ol>
+	</li>
+</ol></td></tr>
+</table>
+<p><br />
+</p>
+<h2><a name=Summary></a><span class=mw-headline>Zusammenfassung</span></h2>
+<p>Beim Durchführen einer Kurvenanpassung für die Versuchsdaten ergibt 
+ sich möglicherweise die Notwendigkeit, die Antwort des Instruments in 
+ den Daten zu berücksichtigen. Eine Möglichkeit besteht darin, zuerst eine 
+ Entfaltung der Daten durchzuführen, um die Instrumentantwort zu entfernen, 
+ und dann die Kurvenanpassung in einem zweiten Schritt durchzuführen. Die 
+ Entfaltung ist jedoch nicht immer zuverlässig, da die Ergebnisse sehr 
+ anfällig sein können gegenüber jeglicher Art von Rauschen in den Daten. 
+ Eine zuverlässigere Möglichkeit ist das Durchführen einer Faltung der 
+ Anpassungsfunktion mit der Instrumentantwort, während die Anpassung durchgeführt 
+ wird. Dieses Tutorial erläutert, wie die Faltung während der Anpassung 
+ durchgeführt wird.</p>
+<table class=noborder x-use-null-cells>
+
+<tr><td style="width: 60px; vertical-align: top;" width=60px><implicit_p><img 
+ src="../images/Fitting_With_Convolution/Tip_icon.png" / style="width: 57px; height: 57px; border-style: none; border-style: none;" 
+ width=57 height=57 border=0></td>
+<td>
+<p>Wenn Ihre Daten eine Faltung von Gauss- und Exponential-Funktionen darstellt, 
+ können Sie einfach die Standardanpassungsfunktion <a class="external text" 
+ href="../../UserGuide/UserGuide/GaussMod.html">GaussMod</a> in der Kategorie 
+ <b>Peakfunktionen</b> verwenden, um Ihre Daten direkt anzupassen.</td></tr>
+</table>
+<p class=version>Origin-Version mind. erforderlich: Origin 2016 SR0</p>
+<h2><a name=What_you_will_learn></a><span class=mw-headline>Was Sie lernen 
+ werden</span></h2>
+<p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+<ul><li>während der Durchführung von Iterationen auf Anpassungsfunktonen 
+ zugreifen.</li>
+	<li>eine Faltung während des Anpassens durchführen.</li>
+</ul>
+<h2><a name=Example_and_Steps></a><span class=mw-headline>Beispiel und 
+ Schritte</span></h2>
+<h3><a name=Background></a><span class=mw-headline>Hintergrund</span></h3>
+<p>Beginnen Sie dieses Beispiel mit dem Import der Datei \<i>Samples</i>\<i>Curve 
+ Fitting</i>\<i>FitConv.dat</i>.</p>
+<dl><dd><implicit_p><a class=image><img alt="Tutorial Fitting With Convolution 001.png" 
+ src="../images/Fitting_With_Convolution/Tutorial_Fitting_With_Convolution_001.png" 
+ / style="width: 189px; height: 152px; border-style: none; border-style: none;" 
+ width=189 height=152 border=0></a></dd>
+</dl>
+<p>Die Quelldaten umfassen Abtastpunkte, Ausgabesignal und Peakantwort. 
+ Dieser Versuch geht davon aus, dass das Ausgabesignal die Faltung einer 
+ exponentiellen Zerfallsfunktion mit einer Gauss-Antwort ist:</p>
+<dl><dd><implicit_p><a class=image><img alt="Tutorial Fitting With Convolution 002.png" 
+ src="../images/Fitting_With_Convolution/Tutorial_Fitting_With_Convolution_002.png" 
+ / style="width: 485px; height: 194px; border-style: none; border-style: none;" 
+ width=485 height=194 border=0></a></dd>
+</dl>
+<p>Jetzt, da wir bereits das Ausgabesignal und die Antwortdaten haben, 
+ können wir die exponentielle Zerfallsfunktion ermitteln, indem wir das 
+ Signal an das unten stehende Modell anpassen:</p>
+<dl><dd><implicit_p><img src="../images/Fitting_With_Convolution/math-8e34ad167a7c75e17660203787f4ef33.png" 
+ title="y = y_0 + \int_{-\infty}^{+\infty} Ae^{-tx} \otimes Response, dx" 
+ alt="y = y_0 + \int_{-\infty}^{+\infty} Ae^{-tx} \otimes Response, dx" 
+ class=tex / style="width: 270px; height: 41px; border-style: none; border-style: none;" 
+ width=270 height=41 border=0></dd>
+</dl>
+<h3><a name=Define_the_Function></a><span class=mw-headline>Die Funktion 
+ definieren</span></h3>
+<p>Offensichtlich entsprechen Spalte 1 und Spalte 2 x bzw. y in der Funktion. 
+ Was ist mit Spalte 3, der Peakantwort? Wir greifen auf diese Spalte innerhalb 
+ der Anpassungsfunktion zu und berechnen die theoretische exponentielle 
+ Kurve aus den Abtastpunkten. Dann können wir die schnelle Fourier-Transformation 
+ verwenden, um die Faltung durchzuführen.</p>
+<p>Drücken Sie <b>F9</b>, um den Dialog <b>Fitfunktionen verwalten</b> 
+ zu öffnen und eine Funktion zu definieren:</p>
+<table class=blank x-use-null-cells>
+
+<tr><th style="width: 150px;" width=150px>
+<p>&nbsp;</th>
+<th>
+<p>&nbsp;</th></tr>
+<tr><td><b style="font-weight: bold;">Funktionsname:</b></td>
+<td>FitConv</td></tr>
+<tr><td><b style="font-weight: bold;">Funktionstyp:</b></td>
+<td>Benutzerdefiniert</td></tr>
+<tr><td><b style="font-weight: bold;">Unabhängige Variable:</b></td>
+<td>x</td></tr>
+<tr><td><b style="font-weight: bold;">Abhängige Variable:</b></td>
+<td>y</td></tr>
+<tr><td><b style="font-weight: bold;">Parameternamen:</b></td>
+<td>y0, A, t</td></tr>
+<tr><td><b style="font-weight: bold;">Funktionsform:</b></td>
+<td><font style="color: #0000ff;" color=#0000FF>Origin C</font> </td></tr>
+<tr><td><b style="font-weight: bold;">Funktion:</b></td>
+<td>
+<p>&nbsp;</td></tr>
+</table>
+<p>Klicken Sie auf die Schaltfläche (Symbol) neben dem Feld <b>Funktion</b> 
+ und schreiben Sie den Funktionskörper in den <b>Code Builder</b>:</p>
+<pre class=oc style="font-family: monospace;">
+<span style="color: #0000ff;">#pragma</span> warning<span style="color: #000000;">(</span>error <span style="color: #000000;">:</span> <span style="color: #0000dd;">15618</span><span style="color: #000000;">)</span><span style="color: #0000ff;">
+#include</span> <span style="color: #000080;">&lt;</span>origin.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span><span style="color: #008000;">
+// Header files need to be included</span><span style="color: #0000ff;">
+#include</span> <span style="color: #000080;">&lt;</span>ONLSF.<span style="color: #000000;">H</span><span style="color: #000080;">&gt;</span><span style="color: #0000ff;">
+#include</span> <span style="color: #000080;">&lt;</span>fft_utils.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span><span style="color: #008000;">
+//</span><span style="color: #008000;">
+// </span><span style="color: #0000ff;">
+void</span> _nlsfTestConv<span style="color: #000000;">(</span><span style="color: #008000;">
+// Fit Parameter(s):</span><span style="color: #0000ff;">
+double</span> y0, <span style="color: #0000ff;">double</span> A, <span style="color: #0000ff;">double</span> t,<span style="color: #008000;">
+// Independent Variable(s):</span><span style="color: #0000ff;">
+double</span> x,<span style="color: #008000;">
+// Dependent Variable(s):</span><span style="color: #0000ff;">
+double</span><span style="color: #000040;">&amp;</span> y<span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+	<span style="color: #008000;">// Beginning of editable part	</span>
+	NLFitContext <span style="color: #000040;">*</span>pCtxt <span style="color: #000080;">=</span> Project.<span style="color: #000000;">GetNLFitContext</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>Worksheet wks;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>DataRange dr;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">int</span> c1,c2;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>dr <span style="color: #000080;">=</span> pCtxt<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>GetSourceDataRange<span style="color: #000000;">(</span><span style="color: #000000;">)</span>; <span style="color: #008000;">//Get the source data range</span>
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>dr.<span style="color: #000000;">GetRange</span><span style="color: #000000;">(</span>wks, c1, c2<span style="color: #000000;">)</span>; <spaces>&nbsp;</spaces><span style="color: #008000;">//Get the source data worksheet</span>
+	<span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span> pCtxt <span style="color: #000000;">)</span>
+	<span style="color: #000000;">{</span>	
+		<span style="color: #008000;">// Vector for the output signal in each iteration.</span>
+		<span style="color: #0000ff;">static</span> vector vSignal;
+		<span style="color: #008000;">// If parameters were updated, we will recalculate the convolution result.</span>
+		<span style="color: #0000ff;">BOOL</span> bIsNewParamValues <span style="color: #000080;">=</span> pCtxt<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>IsNewParamValues<span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+		<span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span> bIsNewParamValues <span style="color: #000000;">)</span>
+		<span style="color: #000000;">{</span>
+			<span style="color: #008000;">// Read sampling and response data from worksheet.</span>
+			Dataset dsSampling<span style="color: #000000;">(</span>wks, <span style="color: #0000dd;">0</span><span style="color: #000000;">)</span>;
+			Dataset dsResponse<span style="color: #000000;">(</span>wks, <span style="color: #0000dd;">2</span><span style="color: #000000;">)</span>;
+			<span style="color: #0000ff;">int</span> iSize <span style="color: #000080;">=</span> dsSampling.<span style="color: #000000;">GetSize</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+&nbsp;
+			vector vResponse, vSample;
+&nbsp;
+			vResponse <span style="color: #000080;">=</span> dsResponse;
+			vSample <span style="color: #000080;">=</span> dsSampling;
+&nbsp;
+			vSignal.<span style="color: #000000;">SetSize</span><span style="color: #000000;">(</span>iSize<span style="color: #000000;">)</span>;
+			vResponse.<span style="color: #000000;">SetSize</span><span style="color: #000000;">(</span>iSize<span style="color: #000000;">)</span>;
+			vSample.<span style="color: #000000;">SetSize</span><span style="color: #000000;">(</span>iSize<span style="color: #000000;">)</span>;
+&nbsp;
+			<span style="color: #008000;">// Compute the exponential decay curve</span>
+			vSignal <span style="color: #000080;">=</span> A <span style="color: #000040;">*</span> <span style="color: #000000;">exp</span><span style="color: #000000;">(</span> <span style="color: #000040;">-</span>t<span style="color: #000040;">*</span>vSample <span style="color: #000000;">)</span>;
+			<span style="color: #008000;">// Perform convolution</span>
+			<span style="color: #0000ff;">int</span> iRet <span style="color: #000080;">=</span> fft_fft_convolution<span style="color: #000000;">(</span>iSize, vSignal, vResponse<span style="color: #000000;">)</span>;
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #008000;">//Correct the convolution by multiplying the sampling interval</span>
+ <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>vSignal <span style="color: #000080;">=</span> <span style="color: #000000;">(</span>vSample<span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span><span style="color: #000040;">-</span>vSample<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span><span style="color: #000040;">*</span>vSignal;
+&nbsp;
+&nbsp;
+		<span style="color: #000000;">}</span>
+&nbsp;
+		NLSFCURRINFO <spaces>&nbsp;&nbsp;&nbsp;</spaces>stCurrInfo;
+		pCtxt<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>GetFitCurrInfo<span style="color: #000000;">(</span><span style="color: #000040;">&amp;</span>stCurrInfo<span style="color: #000000;">)</span>;
+		<span style="color: #008000;">// Get the data index for the iteration</span>
+		<span style="color: #0000ff;">int</span> nCurrentIndex <span style="color: #000080;">=</span> stCurrInfo.<span style="color: #000000;">nCurrDataIndex</span>;
+		<span style="color: #008000;">// Get the evaluated y value</span>
+		y <span style="color: #000080;">=</span> vSignal<span style="color: #000000;">[</span>nCurrentIndex<span style="color: #000000;">]</span> <span style="color: #000040;">+</span> y0;
+		<span style="color: #008000;">// For compile the function, since we haven't use x here.</span>
+		x;
+	<span style="color: #000000;">}</span>
+	<span style="color: #008000;">// End of editable part</span><span style="color: #000000;">
+}</span>
+</pre>
+<p>Üblicherweise gibt die Funktion für ein bestimmtes X den entsprechenden 
+ Y-Wert aus. Wenn die Faltung jedoch mit eingebunden wird, muss der Vorgang 
+ für die gesamte Kurve durchgeführt werden, nicht nur für einen bestimmten 
+ Datenpunkt. Ab Origin 8 SR2 wurde die Klasse NLFitContext eingeführt, 
+ mit der einige Schlüsselinformationen innerhalb des Fitters ermittelt 
+ werden. In jeder Iteration wird NLFitContext verwendet, um die angepassten 
+ Parameter zu beobachten; sobald sie aktualisiert sind, wird die Faltung 
+ mit Hilfe der schnellen Fourier-Transformation nach der Methode <a class="external text" 
+ href="../../OriginC/OriginC/Fft_fft_convolution_(global_function).html">fft_fft_convolution</a> 
+ berechnet. Die Ergebnisse werden im Vektor vSignal vector gespeichert. 
+ Dann erhalten wir für jedes X das ausgewertete Y aus vSignal mit dem aktuellen 
+ Datenindex in NLSFCURRINFO.</p>
+<h3><a name=Fit_the_Curve></a><span class=mw-headline>Kurve anpassen</span></h3>
+<p>Im Anpassungsfunktionskörper werden die Antwortdaten direkt aus dem 
+ aktiven Arbeitsblatt gelesen. Daher sollte die Anpassung aus dem Arbeitsblatt 
+ erfolgen.</p>
+<ol><li>Markieren Sie die Spalte B und drücken Sie <b>Strg + Y</b>, um 
+ das Dialogfeld der <b>Nichtlinearen Anpassung</b> aufzurufen.</li>
+	<li>Wählen Sie für <i>X-Datentyp</i> auf der Seite <i>Angepasste Kurven</i> 
+ die Option <i><b>Das Gleiche wie die Eingabedaten</b></i>.</li>
+	<li>Gehen Sie zurück zur Seite Funktionsauswahl, um die Funktion <i>FitConv</i> 
+ auszuwählen, die Sie gerade definiert haben.</li>
+	<li>Wechseln Sie zur Registerkarte Parameter, um die Parameter al y0=0, 
+ A=10, t=1 zu initialisieren.</li>
+	<li>Klicken Sie auf die Schaltfläche <b>Fit</b>, um die Ergebnisse 
+ zu erzeugen.</li>
+</ol>
+<p>Wenn Sie eine Anpassungsfunktion verwenden, die der Funktion in diesem 
+ Tutorial ähnlich ist, beachten Sie bitte, wenn Sie die <b>Nichtlineare 
+ Anpassung</b> in Origin im Dialog <b>NLFit</b> ausführen, dass Sie für 
+ den <b>X-Datentyp</b> auf der Seite <b>Angepasste Kurven</b> die Option 
+ <b>Das Gleiche wie die Eingabedaten</b> wählen.</p>

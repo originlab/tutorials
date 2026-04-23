@@ -1,0 +1,94 @@
+﻿<h1 class="firstHeading">Q-Q-Diagramm</h1>
+
+  <p class='urlname' style='display: none'>Q-Q-Plot</p>
+
+  <p>&#160;</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#Create_a_Q-Q_Plot"><span class="tocnumber">3</span> <span class="toctext">Q-Q-Diagramm erstellen</span></a></li>
+
+      <li class="toclevel-1 tocsection-4"><a href="#Mask_a_Suspected_Outlier"><span class="tocnumber">4</span> <span class="toctext">Vermutlichen Ausreißer maskieren</span></a></li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Das Q-Q-Diagramm ist eine weitere grafische Methode, um zu testen, ob ein Datensatz einer gegebenen Verteilung folgt. Das Q-Q-Diagramm hat unabhängige Werte auf der X-Achse und unabhängige Werte auf der Y-Achse. Wenn alle gezeichneten Punkte nah an der Referenzlinie liegen, kann davon gesprochen werden, dass der Datensatz der gegebenen Verteilung folgt.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Q-Q Plot 07.png" src="../images/Q-Q_Plot/Q-Q_Plot_07.png" width="522"></a></dd>
+  </dl>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 2016 SR0</p>
+
+  <h2><a name="What_You_Will_Learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <ul>
+    <li>ein Q-Q-Diagramm für normalverteilte Daten erstellen.</li>
+
+    <li>einen vermutlichen Ausreißer in den Quelldaten maskieren und das Q-Q-Diagramm neu berechnen.</li>
+  </ul>
+
+  <h2><a name="Create_a_Q-Q_Plot"></a><span class="mw-headline">Q-Q-Diagramm erstellen</span></h2>
+
+  <p>Sie können dieses Diagramm auch im Lernzentrum finden. (Wählen Sie <b>Hilfe: Lernzentrum</b> im Menü oder drücken Sie die Taste <b>F11</b>. Öffnen Sie dann <b>Diagrammbeispiel: Statistikdiagramme</b>.)</p>
+
+  <ol>
+    <li>Klicken Sie auf die Schaltfläche <a class="image"><img alt="Button Import Single ASCII.png" src="../images/Q-Q_Plot/Button_Import_Single_ASCII.png" width="25"></a>, um die Datei <b>Q-Q plot.dat</b> im Verzeichnis <i>&lt;Origin&gt;\Samples\Graphing\</i> zu importieren.</li>
+
+    <li>Aktivieren Sie das Arbeitsblatt <b>Q-Q plot</b> in der Arbeitsmappe <b>QQplot</b>, markieren Sie Spalte B, klicken Sie mit der rechten Maustaste und wählen Sie im Kontextmenü <b>Zeichnen: Statistisch: Q-Q-Diagramm</b>. Stellen Sie sicher, dass im Dialog <b>Plotting:plot_prob</b> die Auswahlliste <b>Score-Methode</b> auf <b>Benard</b> gesetzt ist. Klicken Sie auf <b>OK</b>.<br>
+    <a class="image"><img alt="Q-Q Plot 01.png" src="../images/Q-Q_Plot/Q-Q_Plot_01.png" width="419"></a></li>
+
+    <li>Klicken Sie zum Öffnen des Dialogs <b>Details Zeichnung</b> doppelt auf die untere Perzentillinie. Gehen Sie zur Registerkarte <b>Linie</b>, setzen Sie die <b>Farbe</b> auf <b>Rot</b> und die <b>Transparenz</b> auf <b>80%</b>. Aktivieren Sie dann das Kontrollkästchen <b>Fläche unter Kurve füllen</b> und wählen Sie <b>Bis zur nächsten Datenzeichnung füllen - Eine Farbe</b> in der Auswahlliste unten.<br>
+    <a class="image"><img alt="Q-Q Plot 03.png" src="../images/Q-Q_Plot/Q-Q_Plot_03.png" width="800"></a><br>
+    <br></li>
+
+    <li>Gehen Sie zur Registerkarte <b>Muster</b> und setzen Sie die <b>Füllfarbe</b> auf <b>Rot</b>. Stellen Sie sicher, dass das Kontrollkästchen <b>Linientransparenz folgen</b> aktiviert ist.<br>
+    <a class="image"><img alt="Q-Q Plot 04.png" src="../images/Q-Q_Plot/Q-Q_Plot_04.png" width="839"></a><br>
+    <br></li>
+
+    <li>Gehen Sie zur Registerkarte <b>Linie</b> der oberen Perzentillinie und setzen Sie die <b>Farbe</b> auf <b>Rot</b> und die <b>Transparenz</b> auf <b>80%</b>. Klicken Sie auf <b>OK</b>, um die Einstellung anzuwenden, und schließen Sie den Dialog.<br>
+    <a class="image"><img alt="Q-Q Plot 05.png" src="../images/Q-Q_Plot/Q-Q_Plot_05.png" width="758"></a><br>
+    <br>
+    Das Diagramm sollte folgendermaßen aussehen:<br>
+    <br>
+    <a class="image"><img alt="Q-Q Plot 02.png" src="../images/Q-Q_Plot/Q-Q_Plot_02.png" width="493"></a></li>
+  </ol>
+
+  <h2><a name="Mask_a_Suspected_Outlier"></a><span class="mw-headline">Vermutlichen Ausreißer maskieren</span></h2>
+
+  <ol>
+    <li>Klicken Sie auf das grüne Schloss, um sicherzustellen, dass <b>Modus Neuberechnung</b> auf <b>Auto</b> gesetzt ist.<br>
+    <a class="image"><img alt="Q-Q Plot 08.png" src="../images/Q-Q_Plot/Q-Q_Plot_08.png" width="526"></a></li>
+
+    <li>Klicken Sie auf das Hilfsmittel <b>Datenleser</b> und dann auf die verdächtigen Datenpunkte im <b>Q-Q-Diagramm</b>.<br>
+    <a class="image"><img alt="Q-Q Plot 09.png" src="../images/Q-Q_Plot/Q-Q_Plot_09.png" width="139"></a><br>
+    <br>
+    <a class="image"><img alt="Q-Q Plot 10.png" src="../images/Q-Q_Plot/Q-Q_Plot_10.png" width="623"></a><br>
+    <br>
+    Das Fenster <b>Dateninfo</b> zeigt den Wert des Ausreißerpunkts.</li>
+
+    <li>Aktivieren Sie das Arbeitsblatt <b>Q-Q plot</b> und markieren Sie Spalte B.<br>
+    <br>
+    <a class="image"><img alt="Q-Q Plot 06.png" src="../images/Q-Q_Plot/Q-Q_Plot_06.png" width="333"></a></li>
+
+    <li>Klicken Sie im Menü auf <b>Fenster: Befehlsfenster</b> und geben Sie in der Eingabeaufforderung das unten gezeigte Skript ein.
+      <pre class="lt" style="font-family:monospace;">
+colmask cond<span style="color: #000000;">:</span><span style="color: #000080;">=</span>eq val<span style="color: #000000;">:</span><span style="color: #000080;">=</span>x;
+</pre>
+
+      <p>Der Ausreißerpunkt wird in rot im Arbeitsblatt <b>Q-Q plot</b> gezeigt. Er wird nicht in dem Diagramm berücksichtigt.<br>
+      <a class="image"><img alt="Q-Q Plot 11.png" src="../images/Q-Q_Plot/Q-Q_Plot_11.png" width="333"></a><br>
+      <br>
+      <a class="image"><img alt="Q-Q Plot 07.png" src="../images/Q-Q_Plot/Q-Q_Plot_07.png" width="522"></a></p>
+    </li>
+  </ol>

@@ -1,0 +1,289 @@
+﻿<h1 class=firstHeading>Mit Integral anpassen unter Verwendung der NAG-Bibliothek</h1>
+<p class=urlname style="display: none;">Fitting-Integral-NAG</p>
+<table id=toc class=toc x-use-null-cells>
+
+<tr><td>
+<div id=toctitle>
+<h2>Inhalt</h2>
+</div>
+<ol><li class="toclevel-1 tocsection-1"><a href="#Summary"><span class=tocnumber>1</span> 
+ <span class=toctext>Zusammenfassung</span></a></li>
+	<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+ class=tocnumber>2</span> <span class=toctext>Was Sie lernen werden</span></a></li>
+	<li class="toclevel-1 tocsection-3">
+	<a href="#Example_and_Steps"><span class=tocnumber>3</span> <span class=toctext>Beispiele 
+ und Schritte</span></a> 
+	<ol><li class="toclevel-2 tocsection-4"><a href="#Define_the_Function"><span 
+ class=tocnumber>3.1</span> <span class=toctext>Funktion definieren</span></a></li>
+		<li class="toclevel-2 tocsection-5"><a href="#Set_the_Initial_Values_for_the_Parameters_or_Setup_the_Initial_Code"><span 
+ class=tocnumber>3.2</span> <span class=toctext>Initialisierungswerte für 
+ die Parameter festlegen oder Initialisierungscode einrichten</span></a></li>
+		<li class="toclevel-2 tocsection-6"><a href="#Simulate_the_Function"><span 
+ class=tocnumber>3.3</span> <span class=toctext>Funktion simulieren</span></a></li>
+		<li class="toclevel-2 tocsection-7"><a href="#Fit_the_Curve"><span 
+ class=tocnumber>3.4</span> <span class=toctext>Kurve anpassen</span></a></li>
+	</ol>
+	</li>
+</ol></td></tr>
+</table>
+<p><br />
+</p>
+<h2><a name=Summary></a><span class=mw-headline>Zusammenfassung</span></h2>
+<p>Mit Origin können Anwender eine Origin C-Anpassungsfunktion definieren, 
+ die ein Integral beinhaltet. Sie können NAG-Funktionen aufrufen, um die 
+ Integration durchzuführen, während die Anpassungsfunktion definiert wird. 
+ Es gibt standardmäßige Funktionen in Origin C, die Integration durchführen. 
+ Für das aktuelle Beispiel wird die NAG-Lösung empfohlen. Sie verfügt über 
+ eine bessere Durchführung im Vergleich zum standardmäßigen Integrationsalgorithmus. 
+ Beachten Sie, das hier ein <b>unendlicher NAG-Integrator</b> verwendet 
+ wird.</p>
+<p class=version>Origin-Version mind. erforderlich: Origin 8.0 SR6</p>
+<h2><a name=What_you_will_learn></a><span class=mw-headline>Was Sie lernen 
+ werden</span></h2>
+<p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+<ul><li>eine Anpassungsfunktion mit Hilfe des Dialogs Fitfunktionen verwalten 
+ erstellen.</li>
+	<li>eine Anpassungsfunktion mit endlichem Integral mit Hilfe der NAG-Integrationsroutine 
+ erstellen.</li>
+	<li>den Initialisierungscode für die Anpassungsfunktion einrichten.</li>
+</ul>
+<h2><a name=Example_and_Steps></a><span class=mw-headline>Beispiel und 
+ Schritte</span></h2>
+<p>Wir passen das folgende Modell an:</p>
+<dl><dd><implicit_p><img src="../images/Fitting_with_Integral_using_NAG_Library/math-35f4b7f96305928a8121504d9c139c23.png" 
+ title="y=y_0+\int_{-\infty}^{x} \frac{A}{w\sqrt{\frac{\pi}{2}}} e^{-2\frac{(t-x_c)^2}{w^2}} dt" 
+ alt="y=y_0+\int_{-\infty}^{x} \frac{A}{w\sqrt{\frac{\pi}{2}}} e^{-2\frac{(t-x_c)^2}{w^2}} dt" 
+ class=tex / style="width: 235px; height: 43px; border-style: none; border-style: none;" 
+ width=235 height=43 border=0></dd>
+</dl>
+<p>Hier sind <img src="../images/Fitting_with_Integral_using_NAG_Library/math-ffe0f1c55b374ed8643060926316c1e6.png" 
+ title=y_0 alt=y_0 class=tex / style="width: 14px; height: 10px; border-style: none; border-style: none;" 
+ width=14 height=10 border=0> <img src="../images/Fitting_with_Integral_using_NAG_Library/math-7fc56270e7a70fa81a5935b72eacbe29.png" 
+ title=A alt=A class=tex / style="width: 12px; height: 11px; border-style: none; border-style: none;" 
+ width=12 height=11 border=0>, <img src="../images/Fitting_with_Integral_using_NAG_Library/math-831c4baa8a44083a6434b892d573846b.png" 
+ title=xc alt=xc class=tex / style="width: 17px; height: 7px; border-style: none; border-style: none;" 
+ width=17 height=7 border=0> und <img src="../images/Fitting_with_Integral_using_NAG_Library/math-f1290186a5d0b1ceab27f4e77c0c5d68.png" 
+ title=w alt=w class=tex / style="width: 12px; height: 7px; border-style: none; border-style: none;" 
+ width=12 height=7 border=0> die Modellparameter, die wir aus der Datenanpassung 
+ erhalten möchten. Der Anpassungsprozess kann in den folgenden Schritten 
+ zusammengefasst werden:</p>
+<h3><a name=Define_the_Function></a><span class=mw-headline>Funktion definieren</span></h3>
+<p>Drücken Sie <b>F9</b>, um den Dialog <span class=db>Fitfunktionen verwalten</span> 
+ zu öffnen und eine neue Kategorie mit dem Namen <b><i>FittingWithIntegral</i></b> 
+ zu erstellen. Definieren Sie folgendermaßen eine neue Anpassungsfunktion 
+ <b><i>nag_integration_fitting</i></b> in der neuen Kategorie:</p>
+<dl><dd><table class=simple x-use-null-cells>
+	
+	<tr><td style="width: 150px;" width=150px><b style="font-weight: bold;">Funktionsname:</b></td>
+	<td>nag_integration_fitting</td></tr>
+	<tr><td><b style="font-weight: bold;">Funktionstyp:</b></td>
+	<td>Benutzerdefiniert</td></tr>
+	<tr><td><b style="font-weight: bold;">Unabhängige Variable:</b></td>
+	<td>x</td></tr>
+	<tr><td><b style="font-weight: bold;">Abhängige Variable:</b></td>
+	<td>y</td></tr>
+	<tr><td><b style="font-weight: bold;">Parameternamen:</b></td>
+	<td>y0, A, xc, w</td></tr>
+	<tr><td><b style="font-weight: bold;">Funktionsform:</b></td>
+	<td><font style="color: #0000ff;" color=#0000FF>Origin C</font> </td></tr>
+	<tr><td><b style="font-weight: bold;">Funktion:</b></td>
+	<td>
+	<p>&nbsp;</td></tr>
+	</table></dd>
+</dl>
+<p>Klicken Sie auf die Schaltfläche <a class=image><img alt="Open Code Builder Dialog in FFO.png" 
+ src="../images/Fitting_with_Integral_using_NAG_Library/Open_Code_Builder_Dialog_in_FFO.png" 
+ / style="width: 25px; height: 31px; border-style: none; border-style: none;" 
+ width=25 height=31 border=0></a> neben dem Feld <b>Funktion</b>, um den 
+ Code Builder zu öffnen. Folgen Sie dann den Schritten unten:</p>
+<ol><li>
+	Scrollen Sie nach oben bis zu der Zeile 
+	<pre class=oc style="font-family: monospace;">
+		<span style="color: #008000;">//add the header file for the NAG functions here.</span>	
+		
+	</pre>
+	und fügen Sie den folgenden Code unter dieser Zeile ein. 
+	<pre class=oc style="font-family: monospace;">
+		<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>oc_nag8.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>		
+		
+	</pre>
+	</li>
+	<li>
+	Gehen Sie zur Zeile 
+	<pre class=oc style="font-family: monospace;">
+		<span style="color: #008000;">// and access in your fitting function.</span>		
+		
+	</pre>
+	und fügen Sie den folgenden Code darunter ein. 
+	<pre class=oc style="font-family: monospace;">
+				<span style="color: #0000ff;">struct</span> user <spaces>&nbsp;&nbsp;</spaces><span style="color: #008000;">// parameters in the integrand</span><span style="color: #000000;">
+				{</span>
+					<span style="color: #0000ff;">double</span> amp, center, width;<span style="color: #000000;">
+				}</span>;<span style="color: #008000;">
+				// Function supplied by user, return the value of the integrand at a given x.</span><span style="color: #0000ff;">
+				static</span> <span style="color: #0000ff;">double</span> NAG_CALL f_callback<span style="color: #000000;">(</span><span style="color: #0000ff;">double</span> x, Nag_User <span style="color: #000040;">*</span>comm<span style="color: #000000;">)</span> <span style="color: #000000;">
+				{</span>
+				 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">struct</span> user <span style="color: #000040;">*</span>sp <span style="color: #000080;">=</span> <span style="color: #000000;">(</span><span style="color: #0000ff;">struct</span> user <span style="color: #000040;">*</span><span style="color: #000000;">)</span><span style="color: #000000;">(</span>comm<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>p<span style="color: #000000;">)</span>;
+				 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">double</span> amp, center, width; <spaces>&nbsp;&nbsp;&nbsp;</spaces><span style="color: #008000;">// temp variable to accept the parameters in the Nag_User communication struct</span>
+				 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>amp <span style="color: #000080;">=</span> sp<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>amp;
+				 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>center <span style="color: #000080;">=</span> sp<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>center;
+				 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>width <span style="color: #000080;">=</span> sp<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>width;
+				&nbsp;
+					<span style="color: #0000ff;">return</span> amp <span style="color: #000040;">*</span> <span style="color: #000000;">exp</span><span style="color: #000000;">(</span> <span style="color: #000040;">-</span><span style="color: #0000dd;">2</span><span style="color: #000040;">*</span><span style="color: #000000;">(</span>x <span style="color: #000040;">-</span> center<span style="color: #000000;">)</span><span style="color: #000040;">*</span><span style="color: #000000;">(</span>x <span style="color: #000040;">-</span> center<span style="color: #000000;">)</span><span style="color: #000040;">/</span>width<span style="color: #000040;">/</span>width <span style="color: #000000;">)</span> <span style="color: #000040;">/</span> <span style="color: #000000;">(</span>width<span style="color: #000040;">*</span><span style="color: #000000;">sqrt</span><span style="color: #000000;">(</span>PI<span style="color: #000040;">/</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>;<span style="color: #000000;">
+				}</span>
+				
+			
+		
+	</pre>
+	</li>
+	<li>
+	Gehen Sie zur Zeile 
+	<pre class=oc style="font-family: monospace;">
+					<span style="color: #008000;">// Beginning of editable part.</span>
+			
+		
+	</pre>
+	und fügen Sie den folgenden Code darunter ein. 
+	<pre class=oc style="font-family: monospace;">
+			<span style="color: #008000;">// Through the absolute accuracy epsabs, relative accuracy epsrel and max_num_subint you can <spaces>&nbsp;</span></spaces>
+				<span style="color: #008000;">// control the precision of the integration you need </span>
+				<span style="color: #008000;">// if epsrel is set negative, the absolute accuracy will be used. </span>
+				<span style="color: #008000;">// Similarly, you can control only relative accuracy by set the epsabs negative</span>
+				<span style="color: #0000ff;">double</span> epsabs <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.0</span>, epsrel <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.0001</span>;
+				<span style="color: #008000;">// The max number of sub-intervals needed to evaluate the function in the integral</span>
+				<span style="color: #008000;">// The more difficult the integrand the larger max_num_subint should be</span>
+				<span style="color: #008000;">// For most problems 200 to 500 is adequate and recommended</span>
+				Integer max_num_subint <span style="color: #000080;">=</span> <span style="color: #0000dd;">200</span>;
+			&nbsp;
+				<span style="color: #008000;">// Result keeps the approximate integral value returned by the algorithm</span>
+				<span style="color: #008000;">// abserr is an estimate of the error which should be an upper bound for the |I - result| </span>
+				<span style="color: #008000;">// where I is the integral value</span>
+				<span style="color: #0000ff;">double</span> result, abserr;
+			&nbsp;
+				<span style="color: #008000;">// The structure of type Nag_QuadProgress, </span>
+				<span style="color: #008000;">// it contains pointers allocated memory internally with max_num_subint elements</span>
+				Nag_QuadProgress qp;
+			&nbsp;
+				<span style="color: #008000;">// The NAG error parameter (structure)</span>
+				<span style="color: #0000ff;">static</span> NagError fail;
+			&nbsp;
+				<span style="color: #008000;">// Parameters passed to integrand by Nag_User communication struct</span>
+				 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>Nag_User comm;	
+				<span style="color: #0000ff;">struct</span> user s;
+				 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>s.<span style="color: #000000;">amp</span> <span style="color: #000080;">=</span> A;
+				 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>s.<span style="color: #000000;">center</span> <span style="color: #000080;">=</span> xc;
+				 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>s.<span style="color: #000000;">width</span> <span style="color: #000080;">=</span> w;
+				 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces>comm.<span style="color: #000000;">p</span> <span style="color: #000080;">=</span> <span style="color: #000000;">(</span>Pointer<span style="color: #000000;">)</span><span style="color: #000040;">&amp;</span>s;
+			&nbsp;
+				<span style="color: #008000;">// Perform integration</span>
+				<span style="color: #008000;">// There are 3 kinds of infinite boundary types you can use in Nag infinite integrator</span>
+				<span style="color: #008000;">// Nag_LowerSemiInfinite, Nag_UpperSemiInfinite, Nag_Infinite</span>
+				d01smc<span style="color: #000000;">(</span>f_callback, Nag_LowerSemiInfinite, x, epsabs, epsrel, max_num_subint, <span style="color: #000040;">&amp;</span>result, <span style="color: #000040;">&amp;</span>abserr, <span style="color: #000040;">&amp;</span>qp, <span style="color: #000040;">&amp;</span>comm, <span style="color: #000040;">&amp;</span>fail<span style="color: #000000;">)</span>;
+			&nbsp;
+				 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #008000;">// you may want to exam the error by printing out error message, just uncomment the following lines</span>
+				<span style="color: #008000;">// if (fail.code&nbsp;!= NE_NOERROR)</span>
+				 <spaces>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</spaces><span style="color: #008000;">// printf(&quot;%s\n&quot;, fail.message);</span>
+			&nbsp;
+				<span style="color: #008000;">// For the error other than the following three errors which are due to bad input parameters </span>
+				<span style="color: #008000;">// or allocation failure <spaces>&nbsp;</spaces>NE_INT_ARG_LT <spaces>&nbsp;</spaces>NE_BAD_PARAM <spaces>&nbsp;&nbsp;</spaces>NE_ALLOC_FAIL</span>
+				<span style="color: #008000;">// You will need to free the memory allocation before calling the integration routine again to avoid memory leakage</span>
+				<span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span>fail.<span style="color: #000000;">code</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span> NE_INT_ARG_LT <span style="color: #000040;">&amp;&amp;</span> fail.<span style="color: #000000;">code</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span> NE_BAD_PARAM <span style="color: #000040;">&amp;&amp;</span> fail.<span style="color: #000000;">code</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span> NE_ALLOC_FAIL<span style="color: #000000;">)</span>
+				<span style="color: #000000;">{</span>
+					NAG_FREE<span style="color: #000000;">(</span>qp.<span style="color: #000000;">sub_int_beg_pts</span><span style="color: #000000;">)</span>;
+					NAG_FREE<span style="color: #000000;">(</span>qp.<span style="color: #000000;">sub_int_end_pts</span><span style="color: #000000;">)</span>;
+					NAG_FREE<span style="color: #000000;">(</span>qp.<span style="color: #000000;">sub_int_result</span><span style="color: #000000;">)</span>;
+					NAG_FREE<span style="color: #000000;">(</span>qp.<span style="color: #000000;">sub_int_error</span><span style="color: #000000;">)</span>;
+				<span style="color: #000000;">}</span>
+			&nbsp;
+				<span style="color: #008000;">// Calculate the fitted value</span>
+				y <span style="color: #000080;">=</span> y0 <span style="color: #000040;">+</span> result;
+			
+		
+	</pre>
+	</li>
+	<li>Klicken Sie auf <b>Kompilieren</b>, um die Datei zu kompilieren.</li>
+</ol>
+<p>In dem obenstehenden Code definieren Sie zuerst den Integrand als eine 
+ Rückfragefunktion <b><i>f_callback</i></b> außerhalb des Anpassungsfunktionskörpers 
+ <b><i>_nlsfnag_integration_fitting</i></b>. Beachten Sie, dass wir die 
+ Integrandfunktion mit den Variablen <b><i>amp</i></b>, <b><i>center</i></b> 
+ und <b><i>width</i></b> parametrisieren und sie in die Rückfragefunktion 
+ durch <i>Nag_User</i> weitergeben. Innerhalb der Anpassungsfunktion führen 
+ wir die Integration mit Hilfe des NAG-Integrators <b><i>d01smc</i></b> 
+ durch.</p>
+<p>Das Aufrufen von NAG-Funktionen sollte effizienter sein als das Schreiben 
+ Ihrer eigenen Routinen. Mit Hilfe einer analogen Methode können Sie endliche, 
+ unendliche, eindimensionale und mehrdimensionale Qadraturen in Ihrer Anpassungsfunktion 
+ durchführen. Lesen Sie bitte die Seite <a class="external text" href="http://www.originlab.com/pdfs/nagcl25/manual/pdf/d01/d01intro.pdf">NAG 
+ Quadrature</a> und wählen Sie eine geeignete Routine aus.</p>
+<p><br />
+</p>
+<h3><a name=Set_the_Initial_Values_for_the_Parameters_or_Setup_the_Initial_Code></a><span 
+ class=mw-headline>Initialisierungswerte für die Parameter festlegen oder 
+ Initialisierungscode einrichten</span></h3>
+<p>Da es sich um eine benutzerdefinierte Anpassungsfunktion handelt, müssen 
+ Sie die Initialisierungsschätzwerte für die Parameter zur Verfügung stellen. 
+ Sie können dies später tun, indem Sie sie manuell auf der Registerkarte 
+ <b>Parameter</b> im Dialog <b>NLFit</b> festlegen.</p>
+<h3><a name=Simulate_the_Function></a><span class=mw-headline>Simulieren 
+ der Funktion</span></h3>
+<p>Nach Eingabe der Funktionskörpercodes können Sie auf die Schaltfläche 
+ <b>Kompilieren</b> im <b>Code Builder</b> klicken, um Syntaxfehler zu 
+ prüfen. Klicken Sie dann auf die Schaltfläche <b>Zum Dialog zurückkehren</b>, 
+ um zum Dialog <span class=db>Fitfunktionen verwalten</span> zurückzukehren. 
+ Klicken Sie jetzt auf die Schaltfläche <b>Speichern</b>, um die .FDF-Datei 
+ (Funktionsdefinitionsdatei) zu erzeugen.</p>
+<p>Sobald Sie eine .FDF-Datei haben, können Sie auf die Schaltfläche <b>Simulieren</b> 
+ klicken, um eine Kurve zu simulieren. Dies ist bei der Bewertung der Initialisierungswerte 
+ sehr hilfreich. Geben Sie im Dialog <b>simcurve</b> einige entsprechende 
+ Parameterwerte und den X-Bereich ein und sehen Sie im <b>Vorschau</b>feld, 
+ wie die Kurve aussehen wird.</p>
+<h3><a name=Fit_the_Curve></a><span class=mw-headline>Kurve anpassen</span></h3>
+<p>Bevor Sie mit der Anpassung der Kurve starten, ist es sehr hilfreich, 
+ die Funktion zuerst zu simulieren. Die Durchführung der Integration kann 
+ einige Zeit dauern, aber falls ein Fehler auftritt, können Sie sehen, 
+ wie Origin &quot;einfriert&quot;, nachdem Sie auf die Schaltfläche <b>Fit</b> 
+ klicken. Wählen Sie in dem Dialog <span class=db>Fitfunktionen verwalten</span> 
+ die Funktion, die Sie definiert haben, und klicken Sie auf die Schaltfläche 
+ <b>Simulieren</b>. Dies öffnet die X-Funktion <b>simcurve</b>. Geben Sie 
+ einige &quot;Schätz&quot;werte ein und klicken Sie auf die Schaltfläche 
+ <b>Anwenden</b>. Wenn die simulierte Kurve aussieht wie Ihre Quelldaten, 
+ können Sie mit der Anpassung fortfahren.</p>
+<p>Um die Anpassungsfunktion festzulegen:</p>
+<ol><li>Importieren Sie <i>\Samples\Curve Fitting\Replicate Response Data.dat</i> 
+ in Origin.</li>
+	<li>Als Nächstes verwenden Sie die Log-Skalierung der Daten in Spalte 
+ Col(A). Dazu geben Sie in der Beschriftungszeile <b>F(x) =</b> von Spalte 
+ A die Formel <i>Col(A) = log(Col(A))</i> ein und drücken Sie <b>Enter</b> 
+ einmal, um die Daten zu ändern.</li>
+	<li>Markieren Sie Spalte A und B und erstellen Sie ein Punktdiagramm. 
+ Die Form entspricht einer eine sigmoidalen Kurve.</li>
+	<li>Rufen Sie den Dialog <span class=db>NLFit</span> im Menü <b>Analyse: 
+ Anpassen: Nichtlinearer Fit</b> auf.</li>
+	<li>Wählen Sie die Anpassungsfunktion aus, die Sie gerade definiert 
+ haben, und gehen Sie zur Registerkarte <b>Parameter</b>. Initialisieren 
+ Sie alle Parameter mit 1 und führen Sie die Anpassung durch (klicken Sie 
+ auf die Schaltfläche <b>Fit</b>).</li>
+	<li>Sie sollten diese Ergebnisse sehen:</li>
+</ol>
+<dl><dd><table class=dialogcontroltable x-use-null-cells style="width: 180pt;" 
+ width=240>
+	
+	<tr><th style="width: 20px;" width=20px>
+	<p>&nbsp;</th>
+	<th style="width: 60px;" width=60px>Wert</th>
+	<th style="width: 100px;" width=100px>Standardfehler</th></tr>
+	<tr><th>y0</th>
+	<td>-0,00806</td>
+	<td>0,18319</td></tr>
+	<tr><th>A</th>
+	<td>3,16479</td>
+	<td>0,39624</td></tr>
+	<tr><th>xc</th>
+	<td>-0,19393</td>
+	<td>0,10108</td></tr>
+	<tr><th>w</th>
+	<td>1,77252</td>
+	<td>0,33878</td></tr>
+	</table></dd>
+</dl>

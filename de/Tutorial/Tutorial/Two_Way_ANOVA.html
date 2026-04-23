@@ -1,0 +1,186 @@
+﻿<h1 class="firstHeading">Zweifache ANOVA</h1>
+
+  <p class='urlname' style='display: none'>TwoWayANOVA</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4">
+            <a href="#Indexed_data_mode"><span class="tocnumber">3.1</span> <span class="toctext">Modus Indizierte Daten</span></a>
+
+            <ul>
+              <li class="toclevel-3 tocsection-5"><a href="#Perform_Two_Way_ANOVA"><span class="tocnumber">3.1.1</span> <span class="toctext">Zweifache ANOVA durchführen</span></a></li>
+
+              <li class="toclevel-3 tocsection-6"><a href="#Interpreting_Results"><span class="tocnumber">3.1.2</span> <span class="toctext">Ergebnisse interpretieren</span></a></li>
+
+              <li class="toclevel-3 tocsection-7"><a href="#The_Interaction_Plot"><span class="tocnumber">3.1.3</span> <span class="toctext">Wechselwirkungsdiagramm</span></a></li>
+
+              <li class="toclevel-3 tocsection-8"><a href="#Recalculate"><span class="tocnumber">3.1.3</span> <span class="toctext">Neu berechnen</span></a></li>
+            </ul>
+          </li>
+
+          <li class="toclevel-2 tocsection-9"><a href="#Raw_Data_Mode"><span class="tocnumber">3.2</span> <span class="toctext">Modus Rohdaten</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/Two_Way_ANOVA/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/Two_Way_ANOVA/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=5" target="_blank">Varianzanalyse</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%"><a class="image"><img alt="Website blog icon circle.png" src="../images/Two_Way_ANOVA/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Two_Way_ANOVA/Blog_Image_33x33px.png" width="135"></a></td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>In einigen Fällen möchten Sie die Beziehung zwischen zwei Faktoren (kategoriale Variablen) und einer kontinuierlichen Ausgabevariablen untersuchen. Die Wirkung auf das Ergebnis bei Änderung eines der Faktoren kann von der Stufe des anderen Faktors abhängen. Aus diesem Grund müssen Sie die Wechselwirkungen zwischen zwei Faktoren näher betrachten. Die zweifache ANOVA ist eine geeignete Methode, um die Haupteffekte von und die Wechselwirkungen zwischen zwei Faktoren zu analysieren.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 2016 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>Zweifache ANOVA durchführen</li>
+
+    <li>Ergebnisse einer zweifachen ANOVA interpretieren.</li>
+
+    <li>das Wechselwirkungsdiagramm erstellen.</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <p>Forscher sind an der Wirkung interessiert, die unterschiedliche Geschlechter- und Ernährungsgruppen auf den systolischen Blutdruck (SBP) haben. Der Faktor "Ernährungsgruppe" (dietary group) umfasst drei verschiedene Gruppen: strenge Vegetarier (SV), die keine tierischen Produkte jedweder Art essen, Laktovegetarier (LV), die Milchprodukte, aber keine anderen tierischen Produkte zu sich nehmen, und normale Esser (NOR), deren Ernährung einem amerikanischen Standard entspricht. Geschlechter- und Ernährungsgruppen können voneinander unabhängig sein oder miteinander in Wechselwirkung stehen. Ein Ansatz, dieses Problem zu lösen, besteht darin, ein Modell der zweifachen ANOVA zu erstellen, das die mittlere Stufe des systolischen Blutdrucks (SBP) vorhersagt.</p>
+
+  <h3><a name="Indexed_data_mode"></a><span class="mw-headline">Datenmodus Indiziert</span></h3>
+
+  <h4><a name="Perform_Two_Way_ANOVA"></a><span class="mw-headline">Zweifache ANOVA durchführen</span></h4>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe und importieren Sie die Datei <i>\Samples\</i>Statistics\<i>SBP_Index.dat.</i></li>
+
+    <li>Öffnen Sie den Dialog <b>Zweifache ANOVA</b>, indem Sie im Menü <b>Statistik: ANOVA: Zweifache ANOVA</b> wählen und dann auf der Registerkarte <b>Eingabe</b> den Modus der <b>Eingabedaten</b> auf <b>Indiziert</b> setzen.</li>
+
+    <li>Wählen Sie auf der Registerkarte <b>Eingabe</b> die Spalte A, B und C als <b>Faktor A</b>, <b>Faktor B</b> bzw. <b>Daten</b>. Aktivieren Sie das Kontrollkästchen <b>Wechselwirkungen</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="DOC-2411 TwoANOVA06a Magenta.png" src="../images/Two_Way_ANOVA/DOC-2411_TwoANOVA06a_Magenta.png" width="745"></a></dd>
+      </dl>
+    </li>
+
+    <li>Aktivieren Sie auf der Registerkarte <b>Deskriptive Statistik</b> alle Kontrollkästchen.</li>
+
+    <li>Setzen Sie auf der Registerkarte <b>Mittelwertevergleich</b> das <b>Signifikanzniveau</b> auf 0,05 und aktivieren Sie das Kontrollkästchen neben <b>Tukey</b>, um diesen Test als Methode zum Mittelwertevergleich auszuwählen.
+
+      <dl>
+        <dd><a class="image"><img alt="DOC-2411 TwoANOVA06b Magenta.png" src="../images/Two_Way_ANOVA/DOC-2411_TwoANOVA06b_Magenta.png" width="888"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um die zweifache ANOVA durchzuführen.</li>
+  </ol>
+
+  <h4><a name="Interpreting_Results"></a><span class="mw-headline">Ergebnisse interpretieren</span></h4>
+
+  <dl>
+    <dd><a class="image"><img alt="TwoANOVA13.png" src="../images/Two_Way_ANOVA/TwoANOVA13.png" width="492"></a><br></dd>
+  </dl>
+
+  <p>In der Tabelle "ANOVA gesamt" im Ergebnisblatt der zweifachen ANOVA können Sie erkennen, dass <b>Dietary</b> (Ernährung) und <b>Sex</b> (Geschlecht) beides signifikante Faktoren sind, die Wechselwirkung zwischen ihnen jedoch nicht signifikant ist. Dies bedeutet, dass die Haupteffekte sowohl der <b>Ernährungs</b>gruppen als auch des <b>Geschlechts</b> signifikant sind, der Effekt auf das Ergebnis der Änderung in der <b>Ernährung</b> jedoch nicht von der Stufe <b>Geschlecht</b> abhängt.</p>
+
+  <h4><a name="The_Interaction_Plot"></a><span class="mw-headline">Wechselwirkungsdiagramm erstellen</span></h4>
+
+  <p>Um die Wechselwirkung weiter zu untersuchen, können Sie ein "Wechselwirkungsdiagramm" erstellen, indem Sie die folgenden Schritte befolgen.</p>
+
+  <ol>
+    <li>Klicken Sie auf das grüne Schloss im Ergebnisblatt <b>ANOVA2Way1</b> und wählen Sie <b>Parameter ändern</b>, um den Dialog erneut zu öffnen.
+
+      <dl>
+        <dd><a class="image"><img alt="TwoANOVA12.png" src="../images/Two_Way_ANOVA/TwoANOVA12.png" width="244"></a><br></dd>
+      </dl>
+    </li>
+
+    <li>Gehen Sie zum <b>Mittelwertdiagramm</b> und aktivieren Sie alle Kontrollkästchen.
+
+      <dl>
+        <dd><a class="image"><img alt="TwoANOVA MeanPlotTab.png" src="../images/Two_Way_ANOVA/TwoANOVA_MeanPlotTab.png" width="493"></a><br></dd>
+      </dl>
+    </li>
+
+    <li>Wir erhalten das Wechselwirkungsdiagramm.
+
+      <dl>
+        <dd><a class="image"><img alt="TwoANOVA InteractionPlot.png" src="../images/Two_Way_ANOVA/TwoANOVA_InteractionPlot.png" width="755"></a><br></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <p>&#160;</p>
+
+  <h4><a name="Recalculate"></a><span class="mw-headline">Neu berechnen</span></h4>
+
+  <ol>
+    <li>Klicken Sie auf das grüne Schloss im Ergebnisblatt <b>ANOVA2Way1</b> und wählen Sie <b>Parameter ändern</b>, um den Dialog erneut zu öffnen.
+
+      <dl>
+        <dd><a class="image"><img alt="TwoANOVA12.png" src="../images/Two_Way_ANOVA/TwoANOVA12.png" width="244"></a><br></dd>
+      </dl>
+    </li>
+
+    <li>Deaktivieren Sie in dem aufgerufenen Dialog auf der Registerkarte <b>Eingabe</b> das Kontrollkästchen <b>Wechselwirkungen</b> und klicken Sie auf die Schaltfläche <b>OK</b>.</li>
+  </ol>
+
+  <dl>
+    <dd><a class="image"><img alt="DOC-2411 TwoANOVA17a Magenta.png" src="../images/Two_Way_ANOVA/DOC-2411_TwoANOVA17a_Magenta.png" width="440"></a><br></dd>
+  </dl>
+
+  <p>Es lässt sich feststellen, dass <b>Dietary</b> (Ernährung) und <b>Sex</b> (Geschlecht) signifikante Faktoren in der Tabelle "ANOVA gesamt" sind. Der Mittelwert von <i>Nor</i> ist signifikant größer als der von <i>LV</i> und <i>SV</i> für den Faktor <b>Dietary</b>. Der Mittelwert von Male ist signifikant größer als der von Female in der Tabelle "Dietary".</p>
+
+  <dl>
+    <dd><a class="image"><img alt="TwoANOVA14.png" src="../images/Two_Way_ANOVA/TwoANOVA14.png" width="508"></a><br></dd>
+
+    <dd><a class="image"><img alt="TwoANOVA15.png" src="../images/Two_Way_ANOVA/TwoANOVA15.png" width="586"></a><br></dd>
+  </dl>
+
+  <h3><a name="Raw_Data_Mode"></a><span class="mw-headline">Modus Rohdaten</span></h3>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe und importieren Sie die Datei <i>\Samples\</i>Statistics\<i>SBP_Raw.dat.</i></li>
+
+    <li>Markieren Sie alle Spalten und wählen Sie im Menü <b>Statistik: ANOVA: Zweifache ANOVA</b>, um den Dialog <b>ANOVATwoWay</b> zu öffnen. Wählen Sie auf der Registerkarte <b>Eingabe</b> die Option <b>Roh</b> als Modus der <b>Eingabedaten</b>.</li>
+
+    <li>Setzen Sie auf der Registerkarte <b>Eingabe</b> die <b>Anzahl der Stufen</b> von <b>Faktor A</b> auf 2 und geben Sie <b>Sex</b>, <b>Male</b> und <b>Female</b> für <b>Name</b>, <b>Stufe1Name</b> bzw. <b>Stufe2 Name</b> im Zweig <b>Faktor A</b> ein.</li>
+
+    <li>Setzen Sie außerdem auf der Registerkarte <b>Eingabe</b> die <b>Anzahl der Stufen</b> von <b>Faktor B</b> auf 3 und geben Sie <b>Dietary Group</b>, <b>SV</b>, <b>LV</b> und <b>Nor</b> für <b>Name</b>, <b>Stufe1 Name</b>, <b>Stufe2 Name</b> bzw. <b>Stufe3 Name</b> im Zweig <b>Faktor A</b> ein.
+
+      <dl>
+        <dd><a class="image"><img alt="DOC-2411 TwoANOVA05a Magenta.png" src="../images/Two_Way_ANOVA/DOC-2411_TwoANOVA05a_Magenta.png" width="1032"></a><br></dd>
+      </dl>
+    </li>
+
+    <li>Setzen Sie auf der Registerkarte <b>Mittelwertevergleich</b> das <b>Signifikanzniveau</b> auf 0,05 und aktivieren Sie das Kontrollkästchen neben <b>Tukey</b>, um diesen Test als Methode zum Mittelwertevergleich zu verwenden.</li>
+
+    <li>Klicken Sie auf <b>OK</b>, um die zweifache ANOVA durchzuführen.</li>
+  </ol>

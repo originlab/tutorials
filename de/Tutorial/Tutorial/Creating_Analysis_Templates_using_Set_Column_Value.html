@@ -1,0 +1,104 @@
+﻿<h1 class="firstHeading">Erstellen von Analysevorlagen mit dem Dialogfeld Werte setzen</h1><a name="Summary" id="Summary"></a>
+
+  <h2><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Dieses Tutorial erläutert, wie Sie eine Spalte hinzufügen, <b>Skript vor Anwenden der Formel</b> festlegen und das Skript ausführen, wenn sich Daten in anderen Spalten ändern. Diese Technik kann verwendet werden, um eine <b>Analysevorlage</b> für die wiederholte Analyse von ähnlichen Daten zu erstellen.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: 8.0 SR6</p><a name="What_you_will_learn" id="What_you_will_learn"></a>
+
+  <h2><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <ul>
+    <li>Verwenden des Dialogfelds Werte setzen zum Erstellen einer Analysevorlage</li>
+
+    <li>Auswählen von Zeilen mit der Funktion <i>Gehe zu</i></li>
+  </ul><a name="Steps" id="Steps"></a>
+
+  <h2><span class="mw-headline">Schritte</span></h2>
+
+  <ol>
+    <li>Importieren Sie die Daten <i>\Samples\Statistics\automobile.dat</i> in eine neu erstellte Arbeitsmappe, wie unten zu sehen. In diesem Beispiel werden Daten entsprechend der Spalte <i>Make</i> in verschiedene Arbeitsblätter extrahiert.
+
+      <dl>
+        <dd><img alt="Image:Analysis_Template_thru_Set_Column_Value_001.png" src="../images/Creating_Analysis_Templates_using_Set_Column_Value/Analysis_Template_thru_Set_Column_Value_001.png" border="0"></dd>
+      </dl>
+    </li>
+
+    <li>Fügen Sie eine leere Spalte zu dem Arbeitsblatt hinzu und rufen Sie das Dialogfeld <b>Werte setzen</b> der Spalte auf. Geben Sie im Feld <b>Skript vor Anwenden der Formel</b> das unten stehende Skript ein.
+      <pre class="lt">
+<span class="hcp1">// Data range to perform discrete frequency count</span>
+range makeCol <span class="hcp2">=</span> <span class="hcp2">!</span>col<span class="hcp3">(</span>make<span class="hcp3">)</span>;
+<span class="hcp1">// Worksheet to be extract</span>
+range sourceWks <span class="hcp2">=</span> <span class="hcp2">!</span>;
+ 
+<span class="hcp1">// Clear worksheets</span>
+int sheetNum <span class="hcp2">=</span> page.<span class="hcp2">nlayers</span>;
+int colNum <span class="hcp2">=</span> wks.<span class="hcp2">ncols</span> <span class="hcp2">-</span> <span class="hcp4">1</span>;
+if <span class="hcp3">(</span>sheetNum<span class="hcp2">&gt;</span><span class="hcp4">1</span><span class="hcp3">)</span>
+<span class="hcp3">{</span>
+        for <span class="hcp3">(</span>jj<span class="hcp2">=</span><span class="hcp4">2</span>; jj<span class="hcp2">&lt;=</span>sheetNum; jj<span class="hcp2">++</span><span class="hcp3">)</span>
+        <span class="hcp3">{</span>
+                layer <span class="hcp2">-</span>d <span class="hcp4">2</span>;
+        <span class="hcp3">}</span>
+<span class="hcp3">}</span>
+ 
+<span class="hcp1">// Tree variable to hold discfreqs outputs</span>
+tree tr;
+<span class="hcp1">// Perform discrete frequency count</span>
+discfreqs irng<span class="hcp3">:</span><span class="hcp2">=</span>makeCol rd<span class="hcp3">:</span><span class="hcp2">=</span>tr;
+<span class="hcp1">// String array to get result from tree</span>
+StringArray sa;
+sa.<span class="hcp2">Append</span><span class="hcp3">(</span>tr.<span class="hcp2">FreqCount1</span>.<span class="hcp2">Data1</span><span class="hcp3">)</span>;
+ 
+if<span class="hcp3">(</span>sa.<span class="hcp2">GetSize</span><span class="hcp3">(</span><span class="hcp3">)</span> <span class="hcp2">!</span><span class="hcp2">=</span> NANUM <span class="hcp3">)</span>
+<span class="hcp3">{</span>
+        <span class="hcp1">// Loop to extract data</span>
+        for <span class="hcp3">(</span>ii<span class="hcp2">=</span><span class="hcp4">1</span>; ii<span class="hcp2">&lt;=</span>sa.<span class="hcp2">GetSize</span><span class="hcp3">(</span><span class="hcp3">)</span>; ii<span class="hcp2">++</span><span class="hcp3">)</span>
+        <span class="hcp3">{</span>
+                string sn<span class="hcp2">$</span> <span class="hcp2">=</span> sa.<span class="hcp2">GetAt</span><span class="hcp3">(</span>ii<span class="hcp3">)</span><span class="hcp2">$</span>;
+                <span class="hcp1">// Extract condition string</span>
+                string cond<span class="hcp2">$</span> <span class="hcp2">=</span> <span style="color: #ff00ff;">"makeCol$ = "</span> <span class="hcp2">+</span> sn<span class="hcp2">$</span>;
+                <span class="hcp1">// Create worksheet with different Make name</span>
+                newsheet name<span class="hcp3">:</span><span class="hcp2">=</span>sn<span class="hcp2">$</span> cols<span class="hcp3">:</span><span class="hcp2">=</span>colNum outname<span class="hcp3">:</span><span class="hcp2">=</span>on<span class="hcp2">$</span> active<span class="hcp3">:</span><span class="hcp2">=</span><span class="hcp4">0</span>;
+                <span class="hcp1">// Extract data</span>
+                wxt test<span class="hcp3">:</span><span class="hcp2">=</span>cond<span class="hcp2">$</span> iw<span class="hcp3">:</span><span class="hcp2">=</span>sourceWks c2<span class="hcp3">:</span><span class="hcp2">=</span>colNum ow<span class="hcp3">:</span><span class="hcp2">=</span>on<span class="hcp2">$</span>;
+        <span class="hcp3">}</span>
+<span class="hcp3">}</span>
+</pre>
+
+      <p>Dieses Skript führt zuerst die diskrete Häufigkeitszählung für die Spalte <i>Make</i> durch, um eindeutige Werte für <i>Make</i> zu erhalten. Erstellen Sie dann ein neues Arbeitsblatt für jede Marke und extrahieren Sie die Daten in den Blättern.</p>
+
+      <dl>
+        <dd><img alt="Image:Analysis_Template_thru_Set_Column_Value_006.png" src="../images/Creating_Analysis_Templates_using_Set_Column_Value/Analysis_Template_thru_Set_Column_Value_006.png" border="0"></dd>
+      </dl>
+    </li>
+
+    <li>Stellen Sie sicher, dass der Modus für die Neuberechnung auf <b>Auto</b> gesetzt ist und klicken Sie auf <b>OK</b>. Die Daten werden auf verschiedene Arbeitsblätter aufgeteilt. Die leere Spalte (H) mit dem grünen Schloss weist darauf hin, dass diese Vorgehensweise automatisch aktualisiert werden kann.
+
+      <dl>
+        <dd><img alt="Image:Analysis_Template_thru_Set_Column_Value_002.png" src="../images/Creating_Analysis_Templates_using_Set_Column_Value/Analysis_Template_thru_Set_Column_Value_002.png" border="0"></dd>
+      </dl>
+    </li>
+
+    <li>Es gibt 18 Hersteller in den Quelldaten, d.h., es werden 18 neue Arbeitsblätter erstellt. Jetzt kann überprüft werden, ob die automatische Aktualisierung funktioniert.<br>
+      Markieren Sie die Spalte <i>Make</i> und klicken Sie mit der rechten Maustaste. Sortieren Sie das Arbeitsblatt in aufsteigender Reihenfolge nach dieser Spalte (die automatische Aktualisierung wird bereits nach dem Sortieren ausgelöst). Sie können dann sehen, dass es 19 Zeilen für Acura gibt. Das Arbeitsblatt Acura befindet sich gleich neben dem Blatt der Rohdaten.
+
+      <dl>
+        <dd><img alt="Image:Analysis_Template_thru_Set_Column_Value_003.png" src="../images/Creating_Analysis_Templates_using_Set_Column_Value/Analysis_Template_thru_Set_Column_Value_003.png" border="0"></dd>
+      </dl>
+    </li>
+
+    <li>Markieren Sie die gesamte Zeile 1 und wählen Sie <b>Bearbeiten: Gehe zu</b>. Geben Sie 19 im Bearbeitungsfeld <b>Gehe zu Zeile</b> ein und aktvieren Sie das Kontrollkästchen <b>Auswahl erweitern</b>.
+
+      <dl>
+        <dd><img alt="Image:Analysis_Template_thru_Set_Column_Value_004.png" src="../images/Creating_Analysis_Templates_using_Set_Column_Value/Analysis_Template_thru_Set_Column_Value_004.png" border="0"></dd>
+      </dl>Klicken Sie auf <b>OK</b>. Jetzt sind alle Zeilen für Acura markiert.
+    </li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf die Auswahl und wählen Sie <b>Löschen</b>. Danach wird die automatische Aktualisierung durchgeführt und es gibt keine Ausgabe für Acura mehr.
+
+      <dl>
+        <dd><img alt="Image:Analysis_Template_thru_Set_Column_Value_005.png" src="../images/Creating_Analysis_Templates_using_Set_Column_Value/Analysis_Template_thru_Set_Column_Value_005.png" border="0"></dd>
+      </dl>
+    </li>
+  </ol>

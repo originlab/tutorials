@@ -1,0 +1,183 @@
+﻿<h1 class="firstHeading">Ein benutzerdefiniertes Berichtsblatt erstellen</h1>
+
+  <p class='urlname' style='display: none'>Create-Custom-Report</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Importing_Data"><span class="tocnumber">3.1</span> <span class="toctext">Daten importieren</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Creating_a_Custom_Report_Sheet"><span class="tocnumber">3.2</span> <span class="toctext">Benutzerdefiniertes Berichtsblatt erstellen</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#Saving_the_Analysis_Template"><span class="tocnumber">3.3</span> <span class="toctext">Analysevorlage speichern</span></a></li>
+
+          <li class="toclevel-2 tocsection-7"><a href="#Re-using_the_Analysis_Template"><span class="tocnumber">3.4</span> <span class="toctext">Analysevorlage erneut verwenden</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/Creating_a_Custom_Report_Sheet/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/Creating_a_Custom_Report_Sheet/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=137" target="_blank">Stapelberichte mit einer Origin-Analysevorlage und Microsoft Word erstellen</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%">
+        <a class="image"><img alt="Website blog icon circle.png" src="../images/Creating_a_Custom_Report_Sheet/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Creating_a_Custom_Report_Sheet/Blog_Image_33x33px.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="http://blog.originlab.com/creating-html-reports-and-documents-in-origin-2019b" target="_blank">Erstellen von HTML-Berichten und Dokumenten in Origin 2019b</a></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Arbeitsblätter in Origin können benutzerdefiniert angepasst werden, indem Zellen verbunden und verschiedene Objekte wie Diagramme, externe Bilder, Links zu Variablen und Tabellen/Zellen in anderen Blättern platziert werden, um benutzerdefinierte Berichte zu erstellen.</p>
+
+  <p>Dieses Tutorial erläutert, wie Sie einen benutzerdefinierten Bericht zu einer vorhandenen Analysevorlage hinzufügen. Sie können die neuen Daten dann importieren, Ergebnisse neu berechnen und exportieren oder den benutzerdefinierten Bericht drucken.</p>
+
+  <table class="note">
+    <tr>
+      <td><b>Hinweis:</b> Dieses Tutorial schlägt vor, dass Sie Datendateien per Drag&amp;Drop in Origin ziehen. Wenn Sie das tun, <a class="external text" href="../../QuickHelp/QuickHelp/Why_does_not_drag_and_drop_work.html">führen Sie Origin bitte nicht als Administrator aus</a>.</td>
+    </tr>
+  </table>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 9.0 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <ul>
+    <li>Ein benutzerdefiniertes Berichtsblatt erstellen</li>
+
+    <li>Einen benutzerdefinierten Bericht als Teil der Analysevorlage (OGW) speichern und mit neuen Daten erneut verwenden</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <p><b>Hinweis:</b> Beenden Sie zuerst das vorherige Tutorial "<a href="../../Tutorial/Tutorial/Creating_and_Using_Analysis_Templates.html" title="Tutorial:Creating and Using Analysis Templates">Analysevorlagen erstellen und verwenden</a>", in dem eine Analysevorlage mit dem Namen <b>MeineSensordaten.OGWU</b> erstellt wird.</p>
+
+  <h3><a name="Importing_Data"></a><span class="mw-headline">Daten importieren</span></h3>
+
+  <ol>
+    <li>Legen Sie über das Menü <b>Datei: Öffnen</b> den <b>Dateityp</b> auf <b>Arbeitsmappen (*.ogwu)</b> fest. Navigieren Sie dann zu der Analysevorlage <b>MeineSensordaten.OGWU</b> und öffnen Sie sie. Diese Analysevorlage wurde mit einer linearen Anpassung für die Spalte B des ersten Arbeitsblatts und einem benutzerdefinierten eingebetteten Diagramm mit den Daten und der linearen Anpassungslinie gespeichert (beachten Sie, dass Vorlagen keine Daten enthalten, d.h., zu diesem Zeitpunkt sehen Sie weder Daten noch Ergebnisse).</li>
+
+    <li>Aktivieren Sie das Arbeitsblatt <b>Daten</b>. Wählen Sie <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b> im Menü, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner <i>Curve Fitting</i>. Dort befindet sich die Datei <i>Sensor01.dat</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das Arbeitsblatt <b>Daten</b>, um sie zu importieren.<br></li>
+  </ol>
+
+  <h3><a name="Creating_a_Custom_Report_Sheet"></a><span class="mw-headline">Ein benutzerdefiniertes Berichtsblatt erstellen</span></h3>
+
+  <ol>
+    <li>Klicken Sie mit der rechten Maustaste auf das Arbeitsblatt <b>Daten</b> und wählen Sie <b>Hinzufügen</b>, um ein neues Arbeitsblatt hinzuzufügen. Benennen Sie dieses Arbeitsblatt in <b>Benutzerdefinierten Bericht</b> um.</li>
+
+    <li>Aktivieren Sie das Blatt <b>Benutzerdefinierter Bericht</b> und wählen Sie <b>Format: Worksheet</b> (oder drücken Sie <b>F4</b>), um den Dialog <b>Arbeitsblatteigenschaften</b> zu öffnen. Gehen Sie zur Registerkarte <b>Größe</b> und legen Sie im Knoten <b>Größe</b> die <b>Zeilenanzahl</b> mit <b>20</b> und die <b>Spaltenanzahl</b> mit <b>9</b> fest. Wechseln Sie zur Registerkarte <b>Verschiedenes</b> und aktivieren Sie das Kontrollkästchen <b>Automatisches Hinzufügen von Zellen</b>. Klicken Sie auf <b>OK</b>, um diese Einstellungen anzuwenden und den Dialog zu schließen.</li>
+
+    <li>Klicken Sie in dem Arbeitsblatt auf die Kopfzeilen <b>Langname</b>, <b>Einheit</b>, <b>Kommentare</b> sowie <b>F(x)=</b> und fahren Sie mit gedrückter Maustaste über sie, um diese vier Zeilen zu markieren. Klicken Sie dann mit der rechten Maustaste und wählen Sie <b>Verbergen</b> im Kontextmenü aus. Dies verbirgt die vier Zeilen im Arbeitsblatt.</li>
+
+    <li>Markieren Sie den Bereich der Zellen in den ersten drei Zeilen für alle Spalten und klicken Sie auf die Schaltfläche <b>Zellen zusammenfügen</b> <a class="image"><img alt="Button Merge Cells.png" src="../images/Creating_a_Custom_Report_Sheet/Button_Merge_Cells.png" width="23"></a>, die sich auf der Symbolleiste <b>Stil</b> befindet, um die Zellen zusammenzufügen. Geben Sie den Text <b>Analysebericht der Sensordaten</b> in dieser zusammengefügten Zelle ein.</li>
+
+    <li>Fügen Sie in der 5. Zeile die Zellen in den Spalten G und H zusammen. Wiederholen Sie dies bei der 6. Zeile. Geben Sie in Zeile 5, Spalte F, den Text <b>Dateiname:</b> und in Zeile 6, Spalte F den Text <b>Dateidatum:</b> ein.</li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf die zusammengefügten (Spalte G und H) Zellen in Zeile 5 und wählen Sie <b>Variable einfügen</b> im Kontextmenü. Stellen Sie sicher, dass die Dialogeinstellungen aussehen wie in dem Bild unten und fügen Sie die Variable <b>FILENAME</b> in diese Zelle ein.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Create Custom Report 002.png" src="../images/Creating_a_Custom_Report_Sheet/Tutorial_Create_Custom_Report_002.png" width="539"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf die zusammengefügten (Spalte G und H) Zellen in Zeile 6 und wählen Sie <b>Variablen einfügen</b> im Kontextmenü. Fügen Sie die Variable <b>FILEDATE</b> ein und nehmen Sie dabei die Einstellungen aus dem Bild unten vor:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Create Custom Report 003.png" src="../images/Creating_a_Custom_Report_Sheet/Tutorial_Create_Custom_Report_003.png" width="539"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf die Zelle, die Dateninformationen enthält, und wählen Sie <b>Zellen formatieren</b> im Kontextmenü. Legen Sie in der Auswahlliste <b>Format</b> die Option <b>Datum</b> fest und klicken Sie auf <b>OK</b>.</li>
+
+    <li>Gehen Sie zu dem Arbeitsblatt <b>FitLinear1</b> und darin zur Tabelle <b>Parameter</b>. Klicken Sie auf die dreieckige Schaltfläche neben der Tabelle und wählen Sie im Ausklappmenü <b>Tabelle kopieren</b>.</li>
+
+    <li>Wechseln Sie zum Blatt <b>Benutzerdefinierten Bericht</b> und markieren Sie die 9. Zeile in Spalte E. Klicken Sie mit der rechten Maustaste und wählen Sie <b>Link einfügen</b>. Löschen Sie den eingefügten Text <b>Sensorausgabe</b> in Spalte E, indem Sie auf die Taste <b>Entfernen</b> drücken.</li>
+
+    <li>Fügen Sie in der 13. Zeile die Zellen in den Spalten G und H zusammen. Tun Sie dasselbe in der 14. Zeile.</li>
+
+    <li>Kehren Sie zu Blatt <b>FitLinear1</b> und der Tabelle <b>Statistik</b> zurück und wählen Sie zwei Datenzellen für <b>Pearsons r</b> und das <b>Korr. R-Quadrat</b>. Klicken Sie mit der rechten Maustaste und wählen Sie <b>Kopieren</b>, um diese zwei Zellen zu kopieren.</li>
+
+    <li>Gehen Sie zu dem Blatt <b>Benutzerdefinierter Bericht</b> und markieren Sie die zusammengefügte Zelle in der 13. Zeile. Klicken Sie mit der rechten Maustaste darauf und wählen Sie <b>Link einfügen</b>. Die zwei zusammengefügten Zellen werden mit den entsprechenden Werten gefüllt. Geben Sie den Text <b>Pearsons r</b> und <b>Korr. R-Quadrat</b> in die Zellen links von diesen eingefügten Werten ein.</li>
+
+    <li>Fügen Sie in der 8. Zeile die drei Zellen in den Spalten F, G und H zusammen. Tun Sie dasselbe in Zeile 12 und 20. Geben Sie den Text <b>Anpassungsparameter</b>, <b>Fitstatistik</b> und <b>Berichtsdatum: $(@D, D1)</b> in den Zeilen 8, 12 bzw. 20 ein.</li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf die zusammengefügten Zellen in Zeile 20 und wählen Sie <b>Stil der Daten festlegen: Rich Text</b> im Kontextmenü. Durch die Aktivierung von Rich Text wird die Zeichenkette <b>$(@D,D1)</b> als das tatsächliche Systemdatum angezeigt.</li>
+
+    <li>Halten Sie die Strg-Taste gedrückt und markieren Sie alle Zellen mit numerischen Werten. Klicken Sie dann mit der rechten Maustaste und wählen Sie <b>Zellen formatieren</b> im Kontextmenü. Wählen Sie <b>Setze Dezimalstellen=</b> in der Auswahlliste <b>Stellen</b> und geben Sie <b>3</b> als <b>Dezimalzahl</b> an. Klicken Sie auf OK.</li>
+
+    <li>Ändern Sie mit Hilfe der Schaltflächen auf den Symbolleisten <b>Stil</b> und <b>Format</b> die Zellenränder, die Schriftgrößen, die Stile und Farben, um den Bericht so wie im Bild unten benutzerdefiniert anzupassen. Möglicherweise müssen Sie auch manuell die Breite der Spalten anpassen, um sicher zu stellen, dass der ganze Text angezeigt wird.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Create Custom Report 001.png" src="../images/Creating_a_Custom_Report_Sheet/Tutorial_Create_Custom_Report_001.png" width="549"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wechseln Sie zum Blatt <b>FitLinear1</b> und klicken Sie doppelt auf das Diagramm unter <b>Angepasstes Kurvendiagramm</b>, um das eingebettete Diagramm zu öffnen. Klicken Sie mit der rechten Maustaste auf die Titelleiste des Diagramms und wählen Sie <b>Duplizieren</b> im Kontextmenü, um das Diagrammfenster (Graph1) zu duplizieren. Klicken Sie doppelt auf die Achse des duplizierten Diagramms, um den Dialog <b>Achsen</b> zu öffnen. Gehen Sie unter <b>X-Achse</b> und <b>Y-Achse</b> zur Registerkarte <b>Skalierung</b> und wählen Sie <b>Auto</b> in der Auswahlliste <b>Neu skalieren</b>. Schließen Sie das ursprüngliche eingebettete Diagrammfenster.</li>
+
+    <li>Kehren Sie zurück zum Arbeitsblatt <b>Benutzerdefinierter Bericht</b>, klicken Sie mit der rechten Maustaste auf den grauen Bereich dieses Arbeitsblatts und wählen Sie <b>Diagramm hinzufügen</b> im Kontextmenü. Wählen Sie im <b>Diagrammbrowser</b> das Diagramm <b>Graph1</b>, das durch Duplizieren des eingebetteten Diagramms erstellt wurde. Klicken Sie auf <b>OK</b>, um dieses Diagramm zu diesem Arbeitsblatt als frei bewegliches Diagramm hinzuzufügen.</li>
+
+    <li>Sie können dieses frei bewegliche Diagramm manuell in der Größe verändern und es verschieben. Dazu nutzen Sie seine Ankerpunkte und positionieren Sie es an einer beliebigen Stelle im Arbeitsblatt.</li>
+
+    <li>Wählen Sie <b>Format: Worksheet</b> oder drücken Sie <b>F4</b>, um den Dialog <b>Arbeitsblatteigenschaften</b> zu öffnen. Deaktivieren Sie auf der Registerkarte <b>Ansicht</b> unter <b>Gitternetzlinien zeigen</b> die Kontrollkästchen <b>Spaltengitter</b> und <b>Zeilengitter</b>. Stellen Sie auf der Registerkarte <b>Format</b> sicher, dass <b>Anwenden auf</b> auf <b>Daten</b> gesetzt ist, und aktivieren Sie das Kontrollkästchen <b>Fehlende als Leer anzeigen</b>, um die fehlenden Werte inhaltslos statt mit <b>"--"</b> anzuzeigen. Klicken Sie auf <b>OK</b>, um den Dialog zu schließen.</li>
+
+    <li>Wählen Sie <b>Datei: Seitenansicht</b>, um eine Vorschau des benutzerdefinierten Berichts zu sehen. Er sollte ungefähr so aussehen wie im folgenden Bild:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial Create Custom Report 004.png" src="../images/Creating_a_Custom_Report_Sheet/Tutorial_Create_Custom_Report_004.png" width="550"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Creating_a_Custom_Report_Sheet/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Seit Origin 2018b können alle zusammengefügten Zellen innerhalb eines <i>ausgewählten</i> Bereichs, einschließlich nicht zusammenhängender Blöcke zusammengefügter Zellen, wieder getrennt werden, indem Sie auf die Schaltfläche <b>Zellen zusammenfügen</b> <a class="image"><img alt="Button Merge Cells.png" src="../images/Creating_a_Custom_Report_Sheet/Button_Merge_Cells.png" width="23"></a> auf der Symbolleiste <b>Stil</b> klicken.</p>
+      </td>
+    </tr>
+  </table>
+
+  <h3><a name="Saving_the_Analysis_Template"></a><span class="mw-headline">Analysevorlage speichern</span></h3>
+
+  <ol>
+    <li>Aktivieren Sie die Arbeitsmappe und wählen Sie <b>Datei: Arbeitsmappe als Analysevorlage speichern</b>.</li>
+
+    <li>Navigieren Sie zu dem gewünschten Pfad, geben Sie den Dateinamen <b>Sensordatenbericht</b> ein und klicken Sie auf <b>Speichern</b>.</li>
+
+    <li>Sie können diese Datei <b>Sensordatenbericht.OGWU</b> als eine Analysevorlage für weitere Analysen von ähnlichen Daten verwenden. Der benutzerdefinierte Bericht wird auch in die Arbeitsmappe aufgenommen.</li>
+  </ol>
+
+  <h3><a name="Re-using_the_Analysis_Template"></a><span class="mw-headline">Analysevorlagen erneut verwenden</span></h3>
+
+  <ol>
+    <li>Öffnen Sie ein neues Projekt, wählen Sie im Menü <b>Datei: Zuletzt verwendete Mappen</b> und wählen Sie im Ausklappmenü die zuvor gespeicherte Analysevorlage <b>Sensordatenbericht.ogw</b> aus.</li>
+
+    <li>Wählen Sie bei aktivem Arbeitsblatt <b>Daten</b> im Menü <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b>, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner <i>Curve Fitting</i>. Dort befindet sich die Datei <i>Sensor02.dat</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das Arbeitsblatt "Daten", um sie zu importieren.<br></li>
+
+    <li>Die Ergebnisse der linearen Anpassung und der benutzerdefinierte Bericht werden automatisch mit den neu importierten Daten erzeugt.</li>
+  </ol>

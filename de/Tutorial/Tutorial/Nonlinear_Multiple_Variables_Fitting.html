@@ -1,0 +1,78 @@
+﻿<h1 class=firstHeading>Nichtlineare Anpassung mit mehreren Variablen</h1>
+<a name=Summary></a>
+<h2><span class=mw-headline>Zusammenfassung</span></h2>
+<p>Origin unterstützt Anpassungsfunktionem mit mehreren abhängigen und 
+ unabhängigen Variablen. Bei nichtlinearen Anpassungsfunktionen können 
+ Sie mehrere Variablen definieren und sie mit Semikolons voneinander trennen. 
+ Da eine globale Anpassung nur das Anpassen einer Funktion zur gleichen 
+ Zeit zulässt, ist dies eine gute Möglichkeit, diese Einschränkung zu umgehen.</p>
+<p>Origin wird mit drei Standardfunktionen mit abhängigen und unabhängigen 
+ Variablen ausgeliefert. Diese Funktionen, die in der Kategorie Multiple 
+ Variables zur Verfügung stehen, sind Zusammensetzungen, die aus zwei gewöhnlichen 
+ Funktionen bestehen. Die Funktion GaussianLorentz ist beispielsweise eine 
+ Kombination der Funktionen Gaussian und Lorentz, und teilen sich <i>y0</i> 
+ und <i>xc</i>:</p>
+<dl><dd><implicit_p><span style="font-weight: bold;"><img src="../images/Nonlinear_Multiple_Variables_Fitting/math-63afdaef55d57ecfe4414c8b77ffd474.png" 
+ x-maintain-ratio=TRUE style="border: none; width: 211px; height: 47px; float: none;" 
+ width=211 height=47 border=0></span></dd>
+</dl>
+<dl><dd><implicit_p><img src="../images/Nonlinear_Multiple_Variables_Fitting/math-45c823f9ecd6d8591bbca1aa8d43d147.png" 
+ x-maintain-ratio=TRUE style="border: none; width: 226px; height: 42px; float: none;" 
+ width=226 height=42 border=0></dd>
+</dl>
+&nbsp;
+<p>Dieses Tutorial zeigt, wie Sie Funktionen mit mehreren Funktionen anpassen.</p>
+<a name=What_you_will_learn></a>
+<h2><span class=mw-headline>Was Sie lernen werden</span></h2>
+<ul><li>Verwenden von nichtlinearer Anpassung mit mehreren Variablen, um 
+ eine Kurve mit zwei verschiedenen Funktionen anzupassen,</li>
+	<li>Zuweisen von Daten an Anpassungsvariablen.</li>
+</ul>
+<a name=Steps></a>
+<h2><span class=mw-headline>Schritte</span></h2>
+<ol><li>Öffnen Sie ein neues Projekt oder erstellen Sie eine neue Arbeitsmappe 
+ und importieren Sie die Datendatei <b>\samples\curve fitting\Gaussian.dat</b>.<br>
+	<br>
+	<img alt="Image:Nonlinear_Multiple_Variables_Fitting_001.png" src="../images/Nonlinear_Multiple_Variables_Fitting/Nonlinear_Multiple_Variables_Fitting_001.png" 
+ style="width: 396px; height: 322px; border-style: none;" width=396 height=322 
+ border=0><br>
+	</li>
+	<li>Markieren Sie Spalte(A) und Spalte(B). Klicken Sie im Hauptmenü 
+ auf <b>Analyse</b>, gehen Sie dann zu <b>Anpassen</b> und klicken Sie 
+ dann auf <b>Nichtlinearer Fit</b>.</li>
+	<li>Wählen Sie im Dialogfeld NLFit im linken Bedienfeld <b>Funktionsauswahl</b>. 
+ Wählen Sie im rechten Bedienfeld <b>Multiple Variables</b> in der Auswahlliste 
+ Kategorie. Wählen Sie in der Auswahlliste Funktion die Funktion <b>GaussianLorentz</b>.<br>
+	<br>
+	<img alt="Image:Nonlinear_Multiple_Variables_Fitting_002.png" src="../images/Nonlinear_Multiple_Variables_Fitting/Nonlinear_Multiple_Variables_Fitting_002.png" 
+ style="width: 774px; height: 351px; border-style: none;" width=774 height=351 
+ border=0><br>
+	<br>
+	Wie Sie auf der Registerkarte Beispielkurve sehen können, teilen die 
+ Gleichungen in dieser Anpassungsfunktion die gleichen Parameter, <i>y0</i> 
+ und <i>xc</i>.<br>
+	<br>
+	<img alt="Image:Nonlinear_Multiple_Variables_Fitting_004.png" src="../images/Nonlinear_Multiple_Variables_Fitting/Nonlinear_Multiple_Variables_Fitting_004.png" 
+ style="width: 567px; height: 248px; border-style: none;" width=567 height=248 
+ border=0><br>
+	</li>
+	<li>Wählen Sie im Dialogfeld NLFit im linken Bedienfeld <b>Datenauswahl</b>. 
+ Erweitern Sie im rechten Bedienfeld den Knoten <b>Bereich</b> und weisen 
+ Sie den Anpassungsvariablen Daten zu. In diesem Beispiel wurde Spalte 
+ B beiden Parametern <i>y1</i> und <i>y2</i> zugewiesen. Das bedeutet, 
+ dass beide Ausdrücke den gleichen Datensatz anpassen.<br>
+	<br>
+	<img alt="Image:Nonlinear_Multiple_Variables_Fitting_003.png" src="../images/Nonlinear_Multiple_Variables_Fitting/Nonlinear_Multiple_Variables_Fitting_003.png" 
+ style="width: 574px; height: 650px; border-style: none;" width=574 height=650 
+ border=0><br>
+	</li>
+	<li>Klicken Sie zum Anpassen auf <b>Fit bis konvergiert</b> und dann 
+ auf <b>OK</b>. Vergleichen Sie im Ergebnisblatt die Parameter A und w, 
+ wobei die Funktionen Gaussian und Lorentz den gleichen Versatz und das 
+ gleiche Impulszentrum teilen.<br>
+	<br>
+	<img alt="Image:Nonlinear_Multiple_Variables_Fitting_005.png" src="../images/Nonlinear_Multiple_Variables_Fitting/Nonlinear_Multiple_Variables_Fitting_005.png" 
+ style="width: 470px; height: 353px; border-style: none;" width=470 height=353 
+ border=0></li>
+</ol>
+<p>&nbsp;</p>

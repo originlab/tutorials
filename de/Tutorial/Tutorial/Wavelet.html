@@ -1,0 +1,304 @@
+﻿<h1 class="firstHeading">Wavelet</h1>
+
+  <p class='urlname' style='display: none'>Wavelet</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#1D_Wavelet_Transform"><span class="tocnumber">3</span> <span class="toctext">1D-Wavelet-Transformation</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Decomposition"><span class="tocnumber">3.1</span> <span class="toctext"><b>Zerlegung</b></span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Reconstruction"><span class="tocnumber">3.2</span> <span class="toctext"><b>Rekonstruktion</b></span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#Multi-Scale_Wavelet_Decomposition"><span class="tocnumber">3.3</span> <span class="toctext"><b>Mehrstufige Wavelet-Zerlegung</b></span></a></li>
+
+          <li class="toclevel-2 tocsection-7"><a href="#Continuous_Wavelet_Transform"><span class="tocnumber">3.4</span> <span class="toctext"><b>Kontinuierliche Wavelet-Transformation</b></span></a></li>
+
+          <li class="toclevel-2 tocsection-8"><a href="#Noise_Removal_by_Wavelet_Transform"><span class="tocnumber">3.5</span> <span class="toctext"><b>Rauschentfernung durch Wavelet-Transformation</b></span></a></li>
+        </ul>
+      </li>
+
+      <li class="toclevel-1 tocsection-9">
+        <a href="#2D_Wavelet_Transform"><span class="tocnumber">4</span> <span class="toctext">2D-Wavelet-Transformation</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-10"><a href="#2D_Wavelet_Decomposition"><span class="tocnumber">4.1</span> <span class="toctext"><b>2D-Wavelet-Zerlegung</b></span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Wavelet-Transformationen sind nützlich, um Signale zu analysieren, in denen plötzliche Änderungen der Phase und Frequenz, lokalen Maxima und Minima oder zugehörigen Parametern auftreten. Wavelet-Transformationen sind ein beliebtes Hilfsmittel bei der Zeit-Frequenz-Analyse, insbesondere für die Analyse der nicht-stationären Signale. OriginPro bietet Hilfsmittel der Wavelet-Transformationen sowohl für kontinuierliche als auch für diskrete Transformationen.</p>
+
+  <h2><a name="What_You_Will_Learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ol>
+    <li>eine einstufige diskrete Wavelet-Zerlegung durchführen und das Signal aus Approximationskoeffizienten und Detailkoeffizienten rekonstruieren.</li>
+
+    <li>die mehrstufige diskrete Wavelet-Zerlegung anwenden.</li>
+
+    <li>eine kontinuierliche Wavelet-Transformation durchführen.</li>
+
+    <li>mit Hilfe der Wavelet-Transformation Rauschen aus Signalen entfernen.</li>
+
+    <li>eine 2D-Wavelet-Zerlegung und Rekonstruktion der Matrixdaten durchführen.</li>
+
+    <li>ein Bild in Matrixdaten konvertieren.</li>
+
+    <li>mehrere Diagrammfenster zu einem zusammenfügen.</li>
+  </ol>
+
+  <h2><a name="1D_Wavelet_Transform"></a><span class="mw-headline">1D-Wavelet-Transformation</span></h2>
+
+  <h3><a name="Decomposition"></a><span class="mw-headline"><b>Zerlegung</b></span></h3>
+
+  <ol>
+    <li>Öffnen Sie eine leere Arbeitsmappe. Wählen Sie <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b> im Menü, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner <i>Signal Processing</i>. Dort befindet sich die Datei <i>Chirp Signal.dat</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das leere Arbeitsblatt, um sie zu importieren.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Wavelet 1.png" src="../images/Wavelet/SP_Tutorial_Wavelet_1.png" width="288"></a></dd>
+      </dl>
+    </li>
+
+    <li>Markieren Sie Spalte B und wählen Sie im Menü <b>Analyse: Signalverarbeitung: Wavelet: Zerlegen</b>, um den Dialog <b>Decompose: dwt</b> zu öffnen.</li>
+
+    <li>Wählen Sie im Dialog <b>DB6</b> für <b>Wavelet-Typ &amp; Ordnung</b> und <b>Mit Nullen auffüllen</b> für den <b>Erweiterungsmodus</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Wavelet 2.png" src="../images/Wavelet/SP_Tutorial_Wavelet_2.png" width="425"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um den Dialog zu schließen und die Approximations- und Detailkoeffizienten auszugeben.</li>
+
+    <li>Markieren Sie Spalte B, C und D (die Spalten C und D sollten Ihre Approximationskoeffizienten bzw. Ihre Detailkoeffizienten enthalten). Wählen Sie im Menü <b>Zeichnen: Mehrere Felder: Gestapelt</b>, um den Dialog <b>Stack: plotstack</b> zu öffnen.</li>
+
+    <li>Deaktivieren Sie in diesem Dialog das Kontrollkästchen <b>Layer verknüpfen</b> im Zweig <b>Optionen</b>. Aktivieren Sie unten das Kontrollkästchen <b>Automatische Vorschau</b>, um das Vorschaudiagramm im rechten Bedienfeld anzuzeigen.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Wavelet 3.png" src="../images/Wavelet/SP_Tutorial_Wavelet_3.png" width="650"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um den Dialog zu schließen und das Stapeldiagramm zu erstellen.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Wavelet 4.png" src="../images/Wavelet/SP_Tutorial_Wavelet_4.png" width="370"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <p><b>Hinweis:</b> Um Stufe 2 (3, 4 etc.) der diskreten Wavelet-Zerlegung durchzuführen, wiederholen Sie Schritt 2 bis 4 für Approximationskoeffizienten (hier Spalte C in unserem Beispiel). Die mehrstufige Wavelet-Zerlegung (verfügbar in OriginPro) wird unten erläutert.</p>
+
+  <h3><a name="Reconstruction"></a><span class="mw-headline"><b>Rekonstruktion</b></span></h3>
+
+  <p>Eine Rekonstruktion stellt die inverse Operation der Zerlegung dar. In diesem Beispiel wird das Signal aus dem Ergebnis des obigen Abschnitts wiederhergestellt.</p>
+
+  <ol>
+    <li>Markieren Sie Spalte C und D (Ihre Approximationskoeffizienten und Detailkoeffizienten von oben).</li>
+
+    <li>Wählen Sie im Menü <b>Analyse: Signalverarbeitung: Wavelet: Rekonstruktion</b>, um den Dialog <b>Reconstruction: idwt</b> aufzurufen.</li>
+
+    <li>Um das Signal zu rekonstruieren, brauchen Sie den gleichen <b>Wavelet-Typ</b> und <b>Rand</b>. Setzen Sie daher die Optionen auf <b>DB6</b> bzw. <b>Mit Nullen aufgefüllt</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Wavelet 5.png" src="../images/Wavelet/SP_Tutorial_Wavelet_5.png" width="453"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, und das wiederhergestellte Signal wird in der Spalte E des Arbeitsblatts erzeugt.</li>
+
+    <li>Drücken Sie die Strg-Taste und markieren Sie Spalte B und E. Wählen Sie dann im Menü <b>Zeichnen: Linie: Liniendiagramm</b>, um mit diesen beiden Datenspalten ein Diagramm zu erstellen.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Wavelet 6.png" src="../images/Wavelet/SP_Tutorial_Wavelet_6.png" width="420"></a></dd>
+      </dl>
+    </li>
+
+    <li>Sie können aus dem sich ergebenden Diagramm ersehen, dass das ursprüngliche Signal und das wiederhergestellte Signal sich überlagern.</li>
+  </ol>
+
+  <h3><a name="Multi-Scale_Wavelet_Decomposition"></a><span class="mw-headline"><b>Mehrstufige Wavelet-Zerlegung</b></span></h3>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe und importieren Sie dann die gleichen Daten wie im Abschnitt <b>Zerlegung</b> oben.</li>
+
+    <li>Markieren Sie Spalte B und wählen Sie im Menü <b>Analyse: Signalverarbeitung: Wavelet: Mehrfach-Skala DWT</b>, um den Dialog <b>Multi-Scale DWT: mdwt</b> zu öffnen.</li>
+
+    <li>Legen Sie in dem Dialog den <b>Erweiterungsmodus</b> auf <b>Mit Nullen aufgefüllt</b> und die <b>Zerlegungsstufen</b> mit <b>3</b> fest. Klicken Sie auf die dreieckige Schaltfläche rechts von <b>Multiple Koeffizientendaten</b> und wählen Sie <b>[&lt;Eingabe&gt;]&lt;Eingabe&gt;</b> im Menü.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Wavelet 7.png" src="../images/Wavelet/SP_Tutorial_Wavelet_7.png" width="421"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um die Ergebnisse der diskreten Wavelet-Zerlegung der dritten Stufe zu erhalten. Die Koeffizienten werden in dem gleichen Arbeitsblatt wie das Eingabesignal gespeichert.</li>
+
+    <li>Markieren Sie alle Spalten in dem Arbeitsblatt und wählen Sie dann im Menü <b>Zeichnen: Mehrere Felder: Gestapelt</b>, um den Dialog <b>Stack: plotstack</b> zu öffnen. Klicken Sie auf die Pfeilschaltfläche rechts von <b>Dialogdesign</b> und wählen Sie <b>Systemstandard</b>. Aktivieren Sie das Kontrollkästchen <b>Automatische Vorschau</b> unten im Dialog, um eine Vorschau des Diagramms anzuzeigen.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Wavelet 8.png" src="../images/Wavelet/SP_Tutorial_Wavelet_8.png" width="650"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>. Das sich ergebende Diagramm wird unten gezeigt.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Wavelet 9.png" src="../images/Wavelet/SP_Tutorial_Wavelet_9.png" width="388"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Continuous_Wavelet_Transform"></a><span class="mw-headline"><b>Kontinuierliche Wavelet-Transformation</b></span></h3>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe mit zwei leeren Spalten (Spalte A und B) in einem einzelnen Arbeitsblatt.</li>
+
+    <li>Markieren Sie Spalte A und wählen Sie <b>Spaltenwerte errechnen</b> im Kontextmenü. Der Dialog <b>Werte setzen</b> wird geöffnet. Geben Sie im Textfeld <i>data(0, 1, 1/1023)</i> ein und klicken Sie auf <b>Anwenden</b>. Spalte A wird mit Daten gefüllt.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Wavelet 10.png" src="../images/Wavelet/SP_Tutorial_Wavelet_10.png" width="401"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>&gt;&gt;</b>, um Spalte B auszuwählen. Geben Sie <i>sin(1,5/(0,25-col(A)))+cos(0,2/(0,2-col(A)))</i> ein und klicken Sie auf <b>OK</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Wavelet 11.png" src="../images/Wavelet/SP_Tutorial_Wavelet_11.png" width="401"></a></dd>
+      </dl>
+    </li>
+
+    <li>Erstellen Sie eine Zeichnung, um zu sehen, wie die Daten aussehen. Wählen Sie bei markierter Spalte B im Menü <b>Zeichnen: Einfache 2D: Liniendiagramm</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Wavelet 13.png" src="../images/Wavelet/SP_Tutorial_Wavelet_13.png" width="415"></a></dd>
+      </dl>
+    </li>
+
+    <li>Fügen Sie bei aktivem Arbeitsblatt eine neue Spalte zu dem Arbeitsblatt hinzu, indem Sie im Menü <b>Spalte: Spalten hinzufügen</b> wählen. Übernehmen Sie in dem geöffneten Dialog den Standardwert <i>1</i> bei und klicken Sie auf <b>OK</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Wavelet 12.png" src="../images/Wavelet/SP_Tutorial_Wavelet_12.png" width="344"></a></dd>
+      </dl>
+    </li>
+
+    <li>Spalte C wird zu dem Arbeitsblatt hinzugefügt. Alternativ können Sie mit der rechten Maustaste auf die Arbeitsblattspalte klicken und im Kontextmenü <b>Spaltenwerte errechnen</b> wählen. Geben Sie in dem Textfeld <i>data(1, 512)</i> ein und klicken Sie auf <b>OK</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Wavelet 14.png" src="../images/Wavelet/SP_Tutorial_Wavelet_14.png" width="401"></a></dd>
+      </dl>
+    </li>
+
+    <li>Markieren Sie Spalte B und C und wählen Sie dann im Menü <b>Analyse: Signalverarbeitung: Wavelet: Kontinuierliches Wavelet</b>, um den Dialog <b>Continuous Wavelet: cwt</b> zu öffnen.</li>
+
+    <li>Setzen Sie in dem Dialog den <b>Wavelet-Typ</b> auf <b>MexHat</b> und aktivieren Sie <b>Koeffizientenmatrix</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Wavelet 15.png" src="../images/Wavelet/SP_Tutorial_Wavelet_15.png" width="434"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um den Dialog zu verlassen.</li>
+
+    <li>Die Koeffizienten werden in einem neuen Arbeitsblatt und einer Matrix ausgegeben, zusammen mit einem Konturdiagramm. Klicken Sie zum Öffnen des Dialogs <b>Details Zeichnung</b> doppelt auf die Zeichnung. Wählen Sie die Registerkarte <b>Farbplatte</b> und klicken Sie auf die Überschrift <b>Füllung</b>. Der Dialog <b>Füllung</b> mit den Farbkontrollelemente wird geöffnet. Klicken Sie auf <b>Palette laden</b> und wählen Sie <b>Pumpkin Patch</b> im Menü <b>Palette auswählen</b>. Bestätigen Sie mit <b>OK</b>, um den Dialog <b>Details Zeichnung</b> zu schließen.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Wavelet 16.png" src="../images/Wavelet/SP_Tutorial_Wavelet_16.png" width="500"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um die Farbe des Konturdiagramms zu ändern. Das Diagramm sollte nun folgendermaßen aussehen.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Wavelet 17.png" src="../images/Wavelet/SP_Tutorial_Wavelet_17.png" width="540"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Noise_Removal_by_Wavelet_Transform"></a><span class="mw-headline"><b>Entfernen von Rauschen mit Wavelet-Transformation</b></span></h3>
+
+  <ol>
+    <li>Öffnen Sie ein leeres Arbeitsblatt. Wählen Sie <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b> im Menü, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner <i>Signal Processing</i>. Dort befindet sich die Datei <i>Signal with Shot Noise.dat</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das leere Arbeitsblatt, um sie zu importieren.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Wavelet 18.png" src="../images/Wavelet/SP_Tutorial_Wavelet_18.png" width="365"></a></dd>
+      </dl>
+    </li>
+
+    <li>Aus den Sparklines oben im Bild lässt sich ersehen, dass in dem Signal einiges an Schrotrauschen vorhanden ist. Markieren Sie Spalte B und wählen Sie im Menü <b>Analyse: Signalverarbeitung: Wavelet: Entrauschen</b>, um den Dialog <b>Entrauschen: wtdenoise</b> aufzurufen.</li>
+
+    <li>Aktivieren Sie das Kontrollkästchen <b>Automatische Vorschau</b>, um Ihr Ergebnis in der Vorschau zu sehen. Setzen Sie <b>Wavelet-Typ</b> auf <b>DB9</b>, <b>Erweiterungsmodus</b> auf <b>Mit Nullen aufgefüllt</b>, <b>Schwellenwert-Typ</b> auf <b>sqtwolog</b> und <b>Stufe mit Schwellenwert</b> auf <b>7</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Wavelet 19.png" src="../images/Wavelet/SP_Tutorial_Wavelet_19.png" width="650"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um das Schrotrauschen aus dem Signal zu entfernen. Die Ergebnisse werden in den Arbeitsblattspalten C und D ausgegeben.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Wavelet 20.png" src="../images/Wavelet/SP_Tutorial_Wavelet_20.png" width="416"></a></dd>
+      </dl>
+    </li>
+
+    <li>Markieren Sie alle Spalten in dem Arbeitsblatt und wählen Sie dann im Menü <b>Zeichnen: Linie: Liniendiagramm</b>, um ein Diagramm mit dem ursprünglichen und dem "gesäuberten" Signal zu erstellen. Sie können feststellen, dass das Schrotrauschen entfernt wurde.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Wavelet 21.png" src="../images/Wavelet/SP_Tutorial_Wavelet_21.png" width="487"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h2><a name="2D_Wavelet_Transform"></a><span class="mw-headline">2D-Wavelet-Transformation</span></h2>
+
+  <h3><a name="2D_Wavelet_Decomposition"></a><span class="mw-headline"><b>2D-Wavelet-Zerlegung</b></span></h3>
+
+  <ol>
+    <li>Öffnen Sie eine neue Matrixmappe. Wählen Sie im Menü <b>Daten: Aus Datei importieren: Bild in Matrix...</b> und importieren Sie das Bild <b>&lt;Origin-Verzeichnis&gt;\Samples\Image Processing and Analysis\Car.bmp</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Wavelet 22.png" src="../images/Wavelet/SP_Tutorial_Wavelet_22.png" width="337"></a></dd>
+      </dl>
+    </li>
+
+    <li>Zu Beginn müssen Sie das Bild in Daten umwandeln. Um auf dieses Hilfsmittel zuzugreifen, wählen Sie <b>Bild: Konvertierung: In Daten konvertieren</b>. Der Dialog <b>Convert to Data: img2m</b> wird geöffnet. Legen Sie den <b>Typ</b> auf <b>Byte(1)</b> fest.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Wavelet 23.png" src="../images/Wavelet/SP_Tutorial_Wavelet_23.png" width="379"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um die konvertierten Matrixdaten zu erhalten.</li>
+
+    <li>Wählen Sie bei aktiver konvertierter Matrix im Menü <b>Analyse: Signalverarbeitung: Wavelet: 2D-Zerlegung</b>, um den Dialog <b>2D Decompose: dwt2</b> zu öffnen.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Wavelet 24.png" src="../images/Wavelet/SP_Tutorial_Wavelet_24.png" width="508"></a></dd>
+      </dl>
+    </li>
+
+    <li>Übernehmen Sie die Standardeinstellungen und klicken Sie auf <b>OK</b>. Die 2D-Wavelet-Zerlegung wird auf die Matrixdaten durchgeführt. Eine Matrixmappe mit vier Matrixblättern (CA, CH, CV und CD) wird erzeugt. CA, CH, CV und CD entsprechen den Approximationskoeffizienten, horizontalen Detailkoeffizienten, vertikalen Detailkoeffizienten bzw. diagonalen Detailkoeffizienten. Sie können den Ansichtsmodus über das Menü <b>Ansicht: Bildmodus</b> auf den Bildmodus festlegen.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial Wavelet 25.png" src="../images/Wavelet/SP_Tutorial_Wavelet_25.png" width="364"></a></dd>
+      </dl>
+    </li>
+
+    <li>Erstellen Sie bei aktivem CA-Matrixblatt ein Bilddiagramm über das Menü <b>Zeichnen: Bilddiagramm</b>. Wiederholen Sie dies für die Matrixblätter CH, CV und CD.</li>
+
+    <li>Klicken Sie doppelt auf das Diagramm, um den Dialog <b>Details Zeichnung</b> zu öffnen, aktivieren Sie im linken Bedienfeld <b>Layer1</b> und gehen Sie im rechten Bedienfeld zur Registerkarte <b>Größe/Performance</b>, um das Kontrollkästchen <b>Matrix Daten: maximale Punktzahl pro Dimension</b> zu deaktivieren. Klicken Sie auf <b>OK</b>. Markieren Sie die mit den Achsen verbundenen Objekte (einschließlich Achse, Beschriftung) im Diagramm und drücken Sie die Taste Entfernen, um sie zu entfernen.</li>
+  </ol>

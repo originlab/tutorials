@@ -1,0 +1,104 @@
+﻿<h1 class="firstHeading">Minitool Flankenanalyse</h1>
+
+  <p class='urlname' style='display: none'>RiseTime-Gadget</p>
+
+  <p>&#160;</p>
+
+  <p>&#160;</p>
+
+  <table id="toc" class="toc">
+    <tr>
+      <td>
+        <div id="toctitle">
+          <h2>Inhalt</h2>
+        </div>
+
+        <ul>
+          <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+          <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+          <li class="toclevel-1 tocsection-3"><a href="#Analyze_Rise_Time"><span class="tocnumber">3</span> <span class="toctext">Anstiegszeit analysieren</span></a></li>
+
+          <li class="toclevel-1 tocsection-4"><a href="#Analyze_Fall_Time"><span class="tocnumber">4</span> <span class="toctext">Abfallszeit analysieren</span></a></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Das Minitool der Flankenanalyse kann zum Analysieren der ansteigenden und abfallenden Flanke eines stufenartigen Signals verwendet werden. Mit diesem Minitool können Sie intuitiv mit einem Rechteck einen Bereich im Diagramm auswählen und dann die ansteigende bzw. abfallende Flanke innerhalb des Bereichs berechnen.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: OriginPro 2015.0 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <ul>
+    <li>Einen bestimmten Bereich des Signals durch Verschieben und Größenveränderung der ROI auswählen</li>
+
+    <li><b>Anstiegszeit</b> (<b>Abfallszeit</b>) und <b>Anstiegsbereich</b> (<b>Abfallsbereich</b> ) im Diagramm markieren</li>
+
+    <li>Hilfsmittel zwischen <b>Anstiegszeit</b> und <b>Abfallszeit</b> wechseln</li>
+
+    <li>Analyseergebnisse der <b>Anstiegszeit</b> (<b>Abfallzeit</b>) ausgeben</li>
+  </ul>
+
+  <h2><a name="Analyze_Rise_Time"></a><span class="mw-headline">Anstiegszeit analysieren</span></h2>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe und klicken Sie auf die Schaltfläche <a class="image"><img alt="Button Import Single ASCII.png" src="../images/Rise_Time_Gadget/Button_Import_Single_ASCII.png" width="23" height="23"></a>, um die Datei <b>Step Signal with Random Noise.dat</b> im Verzeichnis <i>&lt;Origin&gt;\Samples\Signal Processing</i> zu importieren.</li>
+
+    <li>Markieren Sie Spalte B und wählen Sie <b>Zeichnen: Linie: Liniendiagramm</b> im Origin-Menü zum Zeichnen eines Diagramms.<br>
+    <br>
+    <a class="image"><img alt="Rise Time Gadget 01.png" src="../images/Rise_Time_Gadget/Rise_Time_Gadget_01.png" width="413" height="347"></a><br>
+    <br></li>
+
+    <li>Klicken Sie doppelt auf die X-Achse, um den Dialog <b>Achsen</b> zu öffnen. Gehen Sie zur Registerkarte <b>Skalierung</b> und legen Sie den Achsenbereich und die großen Hilfsstriche, wie im Bild unten zu sehen, fest.<br>
+    <br>
+    <a class="image"><img alt="Rise Time Gadget 02.png" src="../images/Rise_Time_Gadget/Rise_Time_Gadget_02.png" width="622" height="620"></a><br>
+    <br></li>
+
+    <li>Klicken Sie auf <b>OK</b>, und das Diagramm wird folgendermaßen aktualisiert: <a class="image"><img alt="Rise Time Gadget 08.png" src="../images/Rise_Time_Gadget/Rise_Time_Gadget_08.png" width="413" height="347"></a><br>
+    <br></li>
+
+    <li>Wählen Sie <b>Minitools: Flankenanalyse</b> im Origin-Menü, um den Dialog <b>Data Exploration: addtool_rise_time</b> zu öffnen. Wechseln Sie zur Registerkarte <b>Auf Diagramm anzeigen</b> und aktivieren Sie die Kontrollkästchen <b>Anstiegszeit</b> und <b>Anstiegsbereich</b>.<br>
+    <br>
+    <a class="image"><img alt="Rise Time Gadget 03.png" src="../images/Rise_Time_Gadget/Rise_Time_Gadget_03.png" width="448" height="369"></a><br>
+    <br></li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>OK</b>, und ein gelbes Rechteck wird zu dem Diagramm hinzugefügt. Verschieben Sie das Rechteck horizontal auf der ansteigenden Signalstufe.<br>
+    <br>
+    <a class="image"><img alt="Rise Time Gadget 04.png" src="../images/Rise_Time_Gadget/Rise_Time_Gadget_04.png" width="520" height="430"></a><br>
+    <br>
+    Im Diagramm werden die Werte der <b>Anstiegszeit</b> und <b>Anstiegsbereich</b> oberhalb des Rechtecks angezeigt.<br>
+    Die zwei blauen vertikalen Linien gehen durch die beiden Indikatoren , die die <b>Anstiegszeit</b> markieren.<br>
+    Die zwei blauen horizontalen Linien, die die <b>niedrige Referenzstufe</b> und die <b>hohe Referenzstufe</b> anzeigen, gehen durch die beiden Indikatoren, die den <b>Anstiegsbereich</b> markieren.<br>
+    Die zwei roten horizontalen Linien zeigen die <b>niedrige Zustandsstufe</b> und die <b>hohe Zustandsstufe</b> an.</li>
+
+    <li>Klicken Sie auf die dreieckige Schaltfläche <a class="image"><img alt="Triangle button.png" src="../images/Rise_Time_Gadget/Triangle_button.png" width="15" height="14"></a> in der oberen rechten Ecke des Rechtecks. Wählen Sie dann <b>Neue Ausgabe</b>. Die Ergebnisse werden im <b>Skriptfenster</b> ausgegeben.<br>
+    <br>
+    <a class="image"><img alt="Rise Time Gadget 05.png" src="../images/Rise_Time_Gadget/Rise_Time_Gadget_05.png" width="425" height="253"></a><br>
+    <br></li>
+  </ol>
+
+  <h2><a name="Analyze_Fall_Time"></a><span class="mw-headline">Abfallszeit analysieren</span></h2>
+
+  <ol>
+    <li>Mit diesem Minitool können Sie die Abfallszeit und den Abfallsbereich in einem Diagramm ermitteln. Verschieben Sie das Rechteck horizontal auf der abfallenden Signalstufe.<br>
+    <br>
+    <a class="image"><img alt="Rise Time Gadget 09.png" src="../images/Rise_Time_Gadget/Rise_Time_Gadget_09.png" width="410" height="347"></a><br>
+    <br></li>
+
+    <li>Klicken Sie auf die dreieckige Schaltfläche <a class="image"><img alt="Triangle button.png" src="../images/Rise_Time_Gadget/Triangle_button.png" width="15" height="14"></a> und wählen Sie <b>Einstellungen</b> im Ausklappmenü, um den Dialog <b>Anstiegszeit Einstellungen</b> zu öffnen. Wechseln Sie zur Registerkarte <b>Grafische Datenauswahl</b> und wählen Sie <b>Abfallszeit</b> in der Auswahlliste <b>Hilfsmittel</b>.<br>
+    <br>
+    <a class="image"><img alt="Rise Time Gadget 06.png" src="../images/Rise_Time_Gadget/Rise_Time_Gadget_06.png" width="415" height="352"></a><br>
+    <br></li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>OK</b>. Die Werte für <b>Abfallszeit</b> und <b>Abfallsbereich</b> werden oberhalb des Rechtecks angegeben.<br>
+    <br>
+    <a class="image"><img alt="Rise Time Gadget 07.png" src="../images/Rise_Time_Gadget/Rise_Time_Gadget_07.png" width="411" height="347"></a><br>
+    <br></li>
+
+    <li>Klicken Sie auf die dreieckige Schaltfläche <a class="image"><img alt="Triangle button.png" src="../images/Rise_Time_Gadget/Triangle_button.png" width="15" height="14"></a> und wählen Sie <b>Neue Ausgabe</b>. Die Ergebnisse werden im <b>Skriptfenster</b> ausgegeben.</li>
+  </ol>

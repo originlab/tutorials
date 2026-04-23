@@ -1,0 +1,282 @@
+﻿<h1 class=firstHeading>Parameterinitialisierung für rationale Funktionen</h1>
+<p class=urlname style="display: none;">RationalFunc-InitialParameter</p>
+<table id=toc class=toc x-use-null-cells>
+
+<tr><td>
+<div id=toctitle>
+<h2>Inhalt</h2>
+</div>
+<ol><li class="toclevel-1 tocsection-1"><a href="#Summary"><span class=tocnumber>1</span> 
+ <span class=toctext>Zusammenfassung</span></a></li>
+	<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+ class=tocnumber>2</span> <span class=toctext>Was Sie lernen werden</span></a></li>
+	<li class="toclevel-1 tocsection-3">
+	<a href="#Example_and_Steps"><span class=tocnumber>3</span> <span class=toctext>Beispiele 
+ und Schritte</span></a> 
+	<ol><li class="toclevel-2 tocsection-4"><a href="#Algorithm"><span 
+ class=tocnumber>3.1</span> <span class=toctext>Algorithmus</span></a></li>
+		<li class="toclevel-2 tocsection-5"><a href="#Import_Data"><span 
+ class=tocnumber>3.2</span> <span class=toctext>Daten importieren</span></a></li>
+		<li class="toclevel-2 tocsection-6"><a href="#Define_Fitting_Function_and_Initialize_Parameters"><span 
+ class=tocnumber>3.3</span> <span class=toctext>Fitfunktionen definieren 
+ und Parameter initialisieren</span></a></li>
+		<li class="toclevel-2 tocsection-7"><a href="#Fit_the_Curve"><span 
+ class=tocnumber>3.4</span> <span class=toctext>Kurve anpassen</span></a></li>
+		<li class="toclevel-2 tocsection-8"><a href="#Fitting_Results"><span 
+ class=tocnumber>3.5</span> <span class=toctext>Anpassungsergebnisse</span></a></li>
+		<li class="toclevel-2 tocsection-9"><a href="#Sample_Data"><span 
+ class=tocnumber>3.6</span> <span class=toctext>Beispieldaten</span></a></li>
+	</ol>
+	</li>
+</ol></td></tr>
+</table>
+<p><br />
+</p>
+<h2><a name=Summary></a><span class=mw-headline>Zusammenfassung</span></h2>
+<p>In diesem Tutorial sehen Sie, wie Initialisierungsparameter für rationale 
+ Fitfunktionen mit Hilfe der multiplen linearen Regression berechnet werden 
+ und ein Fit der Daten mit diesen berechneten Parametern durchgeführt wird.</p>
+<p class=version>Origin-Version mind. erforderlich: Origin 9.0 SR0</p>
+<h2><a name=What_you_will_learn></a><span class=mw-headline>Was Sie lernen 
+ werden</span></h2>
+<p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+<ul><li>Initialisierungsparameter für rationale Fitfunktionen berechnen.</li>
+	<li>eine multiple lineare Regression mit Hilfe von Origin C-Code durchführen.</li>
+</ul>
+<h2><a name=Example_and_Steps></a><span class=mw-headline>Beispiel und 
+ Schritte</span></h2>
+<h3><a name=Algorithm></a><span class=mw-headline>Algorithmus</span></h3>
+<p>In diesem Tutorial wird die folgende rationale Funktion als Beispiel 
+ verwendet:</p>
+<dl><dd><implicit_p><img src="../images/Parameter_Initialization_for_Rational_Functions/math-7b22b261a734d77ec481710d31438e8b.png" 
+ title="y=\frac{a+bx+cx^2}{1+dx+ex^2}" alt="y=\frac{a+bx+cx^2}{1+dx+ex^2}" 
+ class=tex / style="width: 125px; height: 38px; border-style: none;" width=125 
+ height=38 border=0></dd>
+</dl>
+<p>wobei <b>x</b> die unabhängige Variable und <b>y</b> die abhängige Variable 
+ ist sowie <b>a</b>, <b>b</b>, <b>c</b>, <b>d</b>, <b>e</b> die Fitparameter 
+ sind.</p>
+<p>Das Multiplizieren beider Seiten mit dem Nenner der rechten Seite ergibt:</p>
+<dl><dd><implicit_p><img src="../images/Parameter_Initialization_for_Rational_Functions/math-49984b4bd157baa38e5969f39a0fa57a.png" 
+ title="y+dxy+ex^2y\;=\;a+bx+cx^2" alt="y+dxy+ex^2y\;=\;a+bx+cx^2" class=tex 
+ / style="width: 229px; height: 18px; border-style: none;" width=229 height=18 
+ border=0></dd>
+</dl>
+<p>, und die Gleichung kann ausgedrückt werden mit:</p>
+<dl><dd><implicit_p><img src="../images/Parameter_Initialization_for_Rational_Functions/math-4c28a5eb57421ca39fddb4a5931fb8b6.png" 
+ title="y\;=\;a+bx+cx^2-dxy-ex^2y" alt="y\;=\;a+bx+cx^2-dxy-ex^2y" class=tex 
+ / style="width: 231px; height: 18px; border-style: none;" width=231 height=18 
+ border=0></dd>
+</dl>
+<p>Das Substituieren der Anpassungsdaten <img src="../images/Parameter_Initialization_for_Rational_Functions/math-5ea4666bfd7816bb9cee6f5bd2d85bef.png" 
+ title="(x_i, y_i) \;\; i=1 \ldots N" alt="(x_i, y_i) \;\; i=1 \ldots N" 
+ class=tex / style="width: 133px; height: 18px; border-style: none;" width=133 
+ height=18 border=0> in der Gleichung ergibt:</p>
+<dl><dd><implicit_p><img src="../images/Parameter_Initialization_for_Rational_Functions/math-f7c9b3743c7733a99d22122a25cb0b63.png" 
+ title="\begin{cases} a+bx_1+cx_1^2-dx_1y_1-ex_1^2y_1=y_1 \\ a+bx_2+cx_2^2-dx_2y_2-ex_2^2y_2=y_2 \\ \vdots \\ a+bx_N+cx_N^2-dx_Ny_N-ex_N^2y_N=y_N \\ \end{cases}" 
+ alt="\begin{cases} a+bx_1+cx_1^2-dx_1y_1-ex_1^2y_1=y_1 \\ a+bx_2+cx_2^2-dx_2y_2-ex_2^2y_2=y_2 \\ \vdots \\ a+bx_N+cx_N^2-dx_Ny_N-ex_N^2y_N=y_N \\ \end{cases}" 
+ class=tex / style="width: 305px; height: 99px; border-style: none;" width=305 
+ height=99 border=0></dd>
+</dl>
+<p>Daher wird das Schätzen der Initialisierungsparameter für eine rationale 
+ polynomielle Fitfunktion ein Problem für die multiple lineare Regression 
+ mit den linearen Koeffizienten <b>a</b>, <b>b</b>, <b>c</b>, <b>d</b>, 
+ <b>e</b>.</p>
+<dl><dd><implicit_p><img src="../images/Parameter_Initialization_for_Rational_Functions/math-4d9d5f2c4d5d2f042e52603a4ef53034.png" 
+ title="\begin{bmatrix} 1 &amp; x_1 &amp; x_1^2 &amp; -x_1y_1 &amp; -x_1^2y_1 \\ 1 &amp; x_2 &amp; x_2^2 &amp; -x_2y_2 &amp; -x_2^2y_2 \\ \vdots \\ 1 &amp; x_N &amp; x_N^2 &amp; -x_Ny_N &amp; -x_N^2y_N \\ \end{bmatrix} \begin{bmatrix} a \\ b \\ c \\ d \\ e \\ \end{bmatrix}= \begin{bmatrix} y_1 \\ y_2 \\ \vdots \\ y_N \\ \end{bmatrix}" 
+ alt="\begin{bmatrix} 1 &amp; x_1 &amp; x_1^2 &amp; -x_1y_1 &amp; -x_1^2y_1 \\ 1 &amp; x_2 &amp; x_2^2 &amp; -x_2y_2 &amp; -x_2^2y_2 \\ \vdots \\ 1 &amp; x_N &amp; x_N^2 &amp; -x_Ny_N &amp; -x_N^2y_N \\ \end{bmatrix} \begin{bmatrix} a \\ b \\ c \\ d \\ e \\ \end{bmatrix}= \begin{bmatrix} y_1 \\ y_2 \\ \vdots \\ y_N \\ \end{bmatrix}" 
+ class=tex / style="width: 341px; height: 101px; border-style: none;" width=341 
+ height=101 border=0></dd>
+</dl>
+<p>Für die multiple lineare Regression enthält Origin eine Funktion <a 
+ class="external text" href="../../OriginC/OriginC/Ocmath_multiple_linear_regression_(global_function).html">ocmath_multiple_linear_regression</a> 
+ in Origin C, die über den Initialisierungscode aufgerufen werden kann.</p>
+<h3><a name=Import_Data></a><span class=mw-headline>Daten importieren</span></h3>
+<ol><li>Öffnen Sie eine neue Arbeitsmappe.</li>
+	<li>Kopieren Sie die Daten unter <a href="#Sample_Data">Beispieldaten</a> 
+ in die Arbeitsmappe.</li>
+	<li>Markieren Sie Spalte B und wählen Sie <b>Zeichnen: Symbol: Punktdiagramm</b> 
+ im Origin-Menü. Das Diagramm sollte folgendermaßen aussehen:</li>
+</ol>
+<dl><dt>&nbsp;</dt>
+	<dl><dd><implicit_p><a class=image><img alt="Rational PI G1.png" src="../images/Parameter_Initialization_for_Rational_Functions/Rational_PI_G1.png" 
+ / style="width: 509px; height: 351px; border-style: none;" width=509 height=351 
+ border=0></a></dd>
+	</dl>
+</dl>
+<h3><a name=Define_Fitting_Function_and_Initialize_Parameters></a><span 
+ class=mw-headline>Fitfunktionen definieren und Parameter initialisieren</span></h3>
+<p>Die Anpassungsfunktion kann mit Hilfe des Hilfsmittels <b>Fitfunktionen 
+ erstellen</b> definiert werden.</p>
+<ol><li>Wählen Sie <b>Hilfsmittel: Fitfunktionen erstellen</b> im Origin-Menü.</li>
+	<li>Klicken Sie im Dialog <b>Fitfunktionen erstellen</b> auf der Seite 
+ <b>Ziel</b> auf die Schaltfläche <b>Weiter</b>.</li>
+	<li>Wählen Sie auf der Seite <b>Name und Typ</b> die Option <b>User 
+ Defined</b> in der Auswahlliste <b>Eine Kategorie auswählen oder erstellen</b>, 
+ geben Sie <b>rationalfunc</b> im Feld <b>Funktionsname</b> ein und wählen 
+ Sie <b>Ausdruck</b> in der Gruppe <b>Funktionstyp</b>. Klicken Sie auf 
+ die Schaltfläche <b>Weiter</b>.</li>
+	<li>Geben Sie auf der Seite <b>Variablen und Parameter</b> die Parameter 
+ <b>a, b, c, d, e</b> in das Feld <b>Parameter</b> ein. Klicken Sie auf 
+ die Schaltfläche <b>Weiter</b>.</li>
+	<li>
+	Geben Sie auf der Seite <b>Ausdrucksfunktion</b> das folgende Skript 
+ im Feld <b>Funktionskörper</b> ein: 
+	<pre class=oc style="font-family: monospace;">
+		<span style="color: #000000;">(</span>a<span style="color: #000040;">+</span>b<span style="color: #000040;">*</span>x<span style="color: #000040;">+</span>c<span style="color: #000040;">*</span>x<span style="color: #000040;">^</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span><span style="color: #000040;">/</span><span style="color: #000000;">(</span><span style="color: #0000dd;">1</span><span style="color: #000040;">+</span>d<span style="color: #000040;">*</span>x<span style="color: #000040;">+</span>e<span style="color: #000040;">*</span>x<span style="color: #000040;">^</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span>
+		
+	</pre>
+	<p>Klicken Sie auf die Schaltfläche <b>Auswerten</b>. Es wird y=1 bei 
+ x=1 gezeigt, das heißt, der Ausdruck ist korrekt. Klicken Sie auf die 
+ Schaltfläche <b>Weiter</b>.</p>
+	</li>
+	<li>
+	Klicken Sie auf der Seite <b>Parameterinitialisierungscode</b> auf 
+ die Schaltfläche <b>Code Builder öffnen</b> <a class=image><img alt="User-Defined Fitting Functions-2.png" 
+ src="../images/Parameter_Initialization_for_Rational_Functions/User-Defined_Fitting_Functions-2.png" 
+ / style="width: 19px; height: 25px; border-style: none;" width=19 height=25 
+ border=0></a> rechts neben dem Feld <b>Initialisierungscode</b> und initialisieren 
+ Sie die Fitparameter, wie folgt, entsprechend dem <a href="#Algorithm">Algorithmus</a>. 
+ 
+	<pre class=oc style="font-family: monospace;">
+	UINT nOSizeN <span style="color: #000080;">=</span> x_data.<span style="color: #000000;">GetSize</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>; <span style="color: #008000;">//Number of points</span>
+	 <spaces>&nbsp;</spaces>UINT nVSizeM <span style="color: #000080;">=</span> <span style="color: #0000dd;">5</span>; <span style="color: #008000;">//Number of parameters</span>
+	&nbsp;
+	 <spaces>&nbsp;</spaces>matrix mX<span style="color: #000000;">(</span>nOSizeN, <span style="color: #0000dd;">5</span><span style="color: #000000;">)</span>;
+	&nbsp;
+	 <spaces>&nbsp;</spaces><span style="color: #008000;">//Construct matrix for data points of independent variables </span>
+	 <spaces>&nbsp;</spaces>vector vCa<span style="color: #000000;">(</span>nOSizeN<span style="color: #000000;">)</span>, vCb, vCc, vCd, vCe;
+	 <spaces>&nbsp;</spaces>vCa <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>;
+	 <spaces>&nbsp;</spaces>mX.<span style="color: #000000;">SetColumn</span><span style="color: #000000;">(</span> vCa, <span style="color: #0000dd;">0</span> <span style="color: #000000;">)</span>;
+	 <spaces>&nbsp;</spaces>vCb <span style="color: #000080;">=</span> x_data;
+	 <spaces>&nbsp;</spaces>mX.<span style="color: #000000;">SetColumn</span><span style="color: #000000;">(</span> vCb, <span style="color: #0000dd;">1</span> <span style="color: #000000;">)</span>;
+	 <spaces>&nbsp;</spaces>vCc <span style="color: #000080;">=</span> x_data<span style="color: #000040;">^</span><span style="color: #0000dd;">2</span>;
+	 <spaces>&nbsp;</spaces>mX.<span style="color: #000000;">SetColumn</span><span style="color: #000000;">(</span> vCc, <span style="color: #0000dd;">2</span> <span style="color: #000000;">)</span>;
+	 <spaces>&nbsp;</spaces>vCd <span style="color: #000080;">=</span> <span style="color: #000040;">-</span>x_data<span style="color: #000040;">*</span>y_data;
+	 <spaces>&nbsp;</spaces>mX.<span style="color: #000000;">SetColumn</span><span style="color: #000000;">(</span> vCd, <span style="color: #0000dd;">3</span> <span style="color: #000000;">)</span>;
+	 <spaces>&nbsp;</spaces>vCe <span style="color: #000080;">=</span> <span style="color: #000040;">-</span>x_data<span style="color: #000040;">^</span><span style="color: #0000dd;">2</span><span style="color: #000040;">*</span>y_data;
+	 <spaces>&nbsp;</spaces>mX.<span style="color: #000000;">SetColumn</span><span style="color: #000000;">(</span> vCe, <span style="color: #0000dd;">4</span> <span style="color: #000000;">)</span>;
+	&nbsp;
+	 <spaces>&nbsp;</spaces><span style="color: #008000;">//Options for multiple linear regression</span>
+	 <spaces>&nbsp;</spaces>LROptions stLROptions;
+	 <spaces>&nbsp;</spaces>stLROptions.<span style="color: #000000;">UseReducedChiSq</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>;
+	 <spaces>&nbsp;</spaces>stLROptions.<span style="color: #000000;">FixIntercept</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>; <span style="color: #008000;">//Fix the intercept at 0.</span>
+	&nbsp;
+	 <spaces>&nbsp;</spaces>FitParameter stFitParameters<span style="color: #000000;">[</span> <span style="color: #0000dd;">6</span> <span style="color: #000000;">]</span>; <span style="color: #008000;">// should be nVSizeM+1</span>
+	 <spaces>&nbsp;</spaces>UINT nFitSize <span style="color: #000080;">=</span> nVSizeM <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span>;
+	&nbsp;
+	 <spaces>&nbsp;</spaces><span style="color: #0000ff;">int</span> nRet <span style="color: #000080;">=</span> ocmath_multiple_linear_regression<span style="color: #000000;">(</span>mX, nOSizeN, nVSizeM, y_data, 
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">NULL</span>, <span style="color: #0000dd;">0</span>, <span style="color: #000040;">&amp;</span>stLROptions, stFitParameters, nFitSize <span style="color: #000000;">)</span>;
+	&nbsp;
+	 <spaces>&nbsp;</spaces><span style="color: #0000ff;">if</span><span style="color: #000000;">(</span> nRet <span style="color: #000080;">==</span> STATS_NO_ERROR <span style="color: #000000;">)</span>
+	 <spaces>&nbsp;</spaces><span style="color: #000000;">{</span>
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces>a <span style="color: #000080;">=</span> stFitParameters<span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span>.<span style="color: #000000;">Value</span>;
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces>b <span style="color: #000080;">=</span> stFitParameters<span style="color: #000000;">[</span><span style="color: #0000dd;">2</span><span style="color: #000000;">]</span>.<span style="color: #000000;">Value</span>;
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces>c <span style="color: #000080;">=</span> stFitParameters<span style="color: #000000;">[</span><span style="color: #0000dd;">3</span><span style="color: #000000;">]</span>.<span style="color: #000000;">Value</span>;
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces>d <span style="color: #000080;">=</span> stFitParameters<span style="color: #000000;">[</span><span style="color: #0000dd;">4</span><span style="color: #000000;">]</span>.<span style="color: #000000;">Value</span>;
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces>e <span style="color: #000080;">=</span> stFitParameters<span style="color: #000000;">[</span><span style="color: #0000dd;">5</span><span style="color: #000000;">]</span>.<span style="color: #000000;">Value</span>;
+	 <spaces>&nbsp;</spaces><span style="color: #000000;">}</span>
+	</pre>
+	<p>Klicken Sie auf die Schaltfläche <b>Kompilieren</b>, um die Datei 
+ zu kompilieren. Klicken Sie dann auf die Schaltfläche <b>Zurück zum NSLF</b>. 
+ Klicken Sie auf die Schaltfläche <b>Fertigstellen</b>, um den Dialog <b>Fitfunktionen 
+ erstellen</b> zu schließen.</p>
+	</li>
+</ol>
+<h3><a name=Fit_the_Curve></a><span class=mw-headline>Kurve anpassen</span></h3>
+<ol><li>Wählen Sie <b>Analyse: Anpassen: Nichtlinearer Fit</b> im Origin-Menü. 
+ Wählen Sie im Dialog <b>NLFit</b> auf der Seite <b>Einstellungen: Funktionsauswahl</b> 
+ die Option <b>User Defined</b> in der Auswahlliste <b>Kategorie</b> und 
+ die Funktion <b>rationalfunc</b> in der Liste <b>Funktion</b>.</li>
+	<li>Aktivieren Sie die Registerkarte <b>Parameter</b>. Die aus dem 
+ Initialisierungscode berechneten Initialisierungsparameter werden im Dialog 
+ aufgelistet, und die Fitfunktionskurve für die Parameter wird folgendermaßen 
+ gezeigt. Es scheint, dass die Initialisierungsparameter aus dem Initialisierungscode 
+ sehr gut sind. <br />
+	<a class=image><img alt="Rational PI G2.png" src="../images/Parameter_Initialization_for_Rational_Functions/Rational_PI_G2.png" 
+ / style="width: 509px; height: 351px; border-style: none;" width=509 height=351 
+ border=0></a></li>
+	<li>Klicken Sie auf die Schaltfläche <b>Fit</b>, um die Kurve anzupassen.</li>
+</ol>
+<h3><a name=Fitting_Results></a><span class=mw-headline>Anpassungsergebnisse</span></h3>
+<p>Die angepasste Kurve sollte folgendermaßen aussehen:</p>
+<dl><dt>&nbsp;</dt>
+	<dl><dd><implicit_p><a class=image><img alt="Rational PI G3.png" src="../images/Parameter_Initialization_for_Rational_Functions/Rational_PI_G3.png" 
+ / style="width: 501px; height: 357px; border-style: none;" width=501 height=357 
+ border=0></a></dd>
+	</dl>
+</dl>
+<p>Die angepassten Parameter sind im Folgenden zu sehen:</p>
+<table class=simple x-use-null-cells>
+
+<tr><th><b style="font-weight: bold;">Parameter</b></th>
+<th><b style="font-weight: bold;">Wert</b></th>
+<th><b style="font-weight: bold;">Standardfehler</b></th></tr>
+<tr><th><b style="font-weight: bold;">a</b></th>
+<td>3,17139</td>
+<td>0,30284</td></tr>
+<tr><th><b style="font-weight: bold;">b</b></th>
+<td>-1,65602</td>
+<td>1,76748</td></tr>
+<tr><th><b style="font-weight: bold;">c</b></th>
+<td>0,26407</td>
+<td>1,81764</td></tr>
+<tr><th><b style="font-weight: bold;">d</b></th>
+<td>3,6884</td>
+<td>0,26362</td></tr>
+<tr><th><b style="font-weight: bold;">e</b></th>
+<td>5,31812</td>
+<td>0,55265</td></tr>
+</table>
+<h3><a name=Sample_Data></a><span class=mw-headline>Beispieldaten</span></h3>
+<table class=simple x-use-null-cells>
+
+<tr><th style="width: 80px;" width=80px>x</th>
+<th style="width: 80px;" width=80px>y</th></tr>
+<tr><td>-1,5</td>
+<td>1,13173</td></tr>
+<tr><td>-1,39474</td>
+<td>0,8262</td></tr>
+<tr><td>-1,28947</td>
+<td>1,06999</td></tr>
+<tr><td>-1,18421</td>
+<td>1,37155</td></tr>
+<tr><td>-1,07895</td>
+<td>0,79569</td></tr>
+<tr><td>-0,97368</td>
+<td>2,11346</td></tr>
+<tr><td>-0,86842</td>
+<td>2,32006</td></tr>
+<tr><td>-0,76316</td>
+<td>3,9205</td></tr>
+<tr><td>-0,65789</td>
+<td>5,81904</td></tr>
+<tr><td>-0,55263</td>
+<td>7,38037</td></tr>
+<tr><td>-0,44737</td>
+<td>8,31272</td></tr>
+<tr><td>-0,34211</td>
+<td>11,39718</td></tr>
+<tr><td>-0,23684</td>
+<td>8,39808</td></tr>
+<tr><td>-0,13158</td>
+<td>4,7305</td></tr>
+<tr><td>-0,02632</td>
+<td>4,11105</td></tr>
+<tr><td>0,07895</td>
+<td>2,39105</td></tr>
+<tr><td>0,18421</td>
+<td>1,65394</td></tr>
+<tr><td>0,28947</td>
+<td>0,42953</td></tr>
+<tr><td>0,39474</td>
+<td>0,83337</td></tr>
+<tr><td>0,5</td>
+<td>1,18758</td></tr>
+</table>
+<table class=note x-use-null-cells>
+
+<tr><td><b style="font-weight: bold;">Hinweis</b>: Sie können diese Methode 
+ auch verwenden, um Parameter für andere rationale polynomielle Fitfunktionen 
+ zu initialisieren.</td></tr>
+</table>

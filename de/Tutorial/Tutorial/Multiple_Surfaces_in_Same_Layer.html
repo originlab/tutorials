@@ -1,0 +1,92 @@
+﻿<h1 class="firstHeading">Mehrere Oberfl&auml;chen in demselben Layer</h1><p class='urlname' style='display: none'>Multi-3DSurf-in-Layer</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Inhalt</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a><ul>
+<li class="toclevel-2 tocsection-4"><a href="#Create_a_Graph_with_Multiple_Surfaces"><span class="tocnumber">3.1</span> <span class="toctext">Diagramm mit mehreren Oberfl&auml;chen erstellen</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Customize_the_flattened_color_filled_contour_plot"><span class="tocnumber">3.2</span> <span class="toctext">Flaches Konturdiagramm mit Farbf&uuml;llung benutzerdefiniert anpassen</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Customize_the_color_filled_surface"><span class="tocnumber">3.3</span> <span class="toctext">Oberfl&auml;chendiagramm mit Farbf&uuml;llung benutzerdefiniert anpassen</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Customize_a_flattened_contour_line_plot"><span class="tocnumber">3.4</span> <span class="toctext">Flaches Konturliniendiagramm benutzerdefiniert anpassen</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Customize_a_wireframe_surface"><span class="tocnumber">3.5</span> <span class="toctext">Oberfl&auml;chendiagramm mit Drahtgitter benutzerdefiniert anpassen</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+<p>Die vier gestapelten Oberfl&auml;chen (unten gezeigt) wurden auf Grundlage derselben Matrix erstellt. Der erste Layer von oben ist ein Drahtgitter, der zweite Layer ist ein flaches Konturliniendiagramm, der dritte Layer ist ein Oberfl&auml;chendiagramm mit Farbf&uuml;llung und Beleuchtungseffekt und das untere Layer ist ein flaches Konturdiagramm mit Farbf&uuml;llung.</p><p><a  class="image"><img alt="Multiple Surfaces in Same Layer 01.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_01.png" width="471"  /></a></p>
+<p class="version" >Origin-Version mind. erforderlich: Origin 2015 SR0</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+<p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+<ul><li> mehrere Oberfl&auml;chendiagramme zu einem Diagrammlayer hinzuf&uuml;gen.</li>
+<li> Oberfl&auml;chendiagramme benutzerdefiniert anpassen k&ouml;nnen.</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+<h3><a name="Create_a_Graph_with_Multiple_Surfaces"></a><span class="mw-headline">Diagramm mit mehreren Oberfl&auml;chen erstellen</span></h3>
+<p>Dieses Tutorial basiert auf dem Projekt: <i>&lt;Origin-Verzeichnis&gt;\Samples\Tutorial Data.opj</i>. <br /> Sie k&ouml;nnen dieses Diagramm auch im Lernzentrum finden. (W&auml;hlen Sie <b>Hilfe: Lernzentrum</b> im Men&uuml; oder dr&uuml;cken Sie die Taste <b>F11</b>. &Ouml;ffnen Sie dann <b>Diagrammbeispiel: 3D Surface</b>.)</p>
+<ol>
+<li>&Ouml;ffnen Sie <b>Tutorial Data.opj</b> und navigieren Sie zum Ordner <b>Multiple Surfaces in Same Layer</b> im <b>Projekt Explorer</b> (PE).<li>W&auml;hlen Sie das Arbeitsblatt <b>MBook8</b> und markieren Sie alle Daten. W&auml;hlen Sie im Men&uuml; <b>Zeichnen: 3D: 3D Farbabbildung</b>. Das Diagramm sollte folgenderma&szlig;en aussehen.<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 02.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_02.png" width="479"  /></a></dd></dl>
+
+<li>W&auml;hen Sie bei aktivem Diagrammfenster <b>Grafik: Layerinhalt</b>. W&auml;hlen Sie im Dialog <b>Layerinhalt - Layer 1</b> die Matrix <b>MBook8</b> im linken Bedienfeld und klicken Sie dreimal auf die Schaltfl&auml;che Zeichnung hinzuf&uuml;gen (der nach rechts weisende Pfeil in der Mitte des Dialogs). Klicken Sie auf <b>OK</b>. Die gleichen MBook8-Daten werden viermal zu dem Diagrammlayer hinzugef&uuml;gt. Beachten Sie, dass zu diesem Zeitpunkt nur eine einzelne Zeichnung besteht. Die folgenden Schriitte werden das &auml;ndern.<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 03.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_03.png" width="682"  /></a></dd></dl>
+
+<li>Klicken Sie zum &Ouml;ffnen des Dialogs <b>Details Zeichnung - Diagrammeigenschaften</b> doppelt auf die Zeichnung. Markieren Sie die erste Zeichnung im linken Bedienfeld und aktivieren Sie auf der Registerkarte <b>Oberfl&auml;che</b> das Kontrollk&auml;stchen <b>Flach</b>, aktivieren Sie <b>Versatz in Z nach Prozent des Skalierungsbereichs, 0 = unten, 10 = oben</b> und geben Sie <b>0</b> in dem entsprechenden Textfeld ein. Markieren Sie die zweite Zeichnung, lassen Sie das Kontrollk&auml;stchen <b>Flach</b> deaktiviert, aktivieren Sie das Kontrollk&auml;stchen <b>Versatz in Z...</b> und geben Sie <b>23</b> ein. Markieren Sie die dritte Zeichnung, aktivieren Sie das Kontrollk&auml;stchen <b>Flach</b>, aktivieren Sie <b>Versatz in Z...</b> und geben Sie <b>65</b> ein. Markieren Sie die vierte Zeichnung, lassen Sie das Kontrollk&auml;stchen <b>Flach</b> deaktiviert, aktivieren Sie das Kontrollk&auml;stchen <b>Versatz in Z...</b> und geben Sie <b>82</b> ein. Klicken Sie auf <b>OK</b>.<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 04.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_04.png" width="791"  /></a> </dd></dl>
+
+<li>Klicken Sie doppelt auf die Z-Achse und gehen Sie im <b>Dialog Achsen</b> zur Registerkarte <b>Skalierung</b>, stellen Sie sicher, dass das Achsensymbol <b>Z</b> ausgew&auml;hlt ist und setzen Sie <b>Von</b> auf <b>0</b> und <b>Bis</b> auf <b>900</b>.<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 05.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_05.png" width="406"  /></a></dd></dl>
+
+<li>Gehen Sie zur Registerkarte <b>Beschriftung der Hilfsstriche</b> und halten Sie die <b>Strg</b>-Taste gedr&uuml;ckt, um die Symbole <b>X</b>, <b>Y</b> und Z gleichzeitig auszuw&auml;hlen. Geben Sie auf der Registerkarte <b>Anzeige</b> f&uuml;r den <b>Teilungsfaktor</b> die Zahl <b>100000</b> ein.<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 06.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_06.png" width="452"  /></a></dd></dl>
+
+<li>Gehen Sie zur Registerkarte <b>Titel</b>, w&auml;hlen Sie das Symbol <b>X</b> aus und geben Sie <b>X Coordinate/ 10\+(5) meter</b> als Text f&uuml;r den X-Titel ein. W&auml;hlen Sie das Symbol <b>Y</b> und geben Sie <b>Y Coordinate/ 10\+(5) meter</b> als Titeltext ein.<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 20.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_20.png" width="544"  /></a></dd></dl>
+
+<li>Gehen Sie zur Registerkarte <b>Gitternetze</b> und halten Sie die <b>Strg</b>-Taste gedr&uuml;ckt, um die Symbole <b>X</b>, <b>Y</b> und Z gleichzeitig auszuw&auml;hlen. Deaktivieren Sie unter <b>Hauptgitternetzlinien</b> das Kontrollk&auml;stchen <b>Zeigen</b>, um die Gitternetzlinien f&uuml;r alle Achsen zu verbergen.<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 21.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_21.png" width="426"  /></a></dd></dl>
+
+<li> Klicken Sie auf <b>OK</b>. Das Diagramm sollte jetzt vier separate Oberfl&auml;chen anzeigen, wie auch unten zu sehen:<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 22.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_22.png" width="547"  /></a></dd></dl>
+</ol>
+<h3><a name="Customize_the_flattened_color_filled_contour_plot"></a><span class="mw-headline">Flaches Konturdiagramm mit Farbf&uuml;llung benutzerdefiniert anpassen</span></h3>
+<ol>
+<li>Klicken Sie zum &Ouml;ffnen des Dialogs Details Zeichnung doppelt auf &quot;Surface 1&quot;. Wechseln Sie zur Registerkarte <b>Farbplatte/Kontur</b> und klicken Sie auf die &Uuml;berschrift <b>F&uuml;llung</b>, um den Dialog <b>F&uuml;llung</b> zu &ouml;ffnen. W&auml;hlen Sie im Dialog <b>F&uuml;llung </b>die Option <b>Palette laden</b> und klicken Sie dann auf die Schaltfl&auml;che <b>Palette ausw&auml;hlen</b>, um die Palette <b>Reef</b> auszuw&auml;hlen. Klicken Sie auf <b>OK</b>, um den Dialog <b>F&uuml;llung</b> zu schlie&szlig;en.<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 16.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_16.png" width="712"  /></a></dd></dl>
+
+<li>Wechseln Sie zur Registerkarte <b>Farbpalette/Kontour</b> und deaktivieren Sie das Kontrollk&auml;stchen <b>Konturen aktivieren</b>.<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 17.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_17.png" width="457"  /></a></dd></dl>
+
+<li>Wechseln Sie zur Registerkarte <b>Drahtgitter</b> und deaktivieren Sie das Kontrollk&auml;stchen <b>Aktivieren</b>.<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 15.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_15.png" width="538"  /></a></dd></dl>
+
+<li>Klicken Sie auf <b>&Uuml;bernehmen</b>, um Ihr Diagramm zu aktualisieren.</ol>
+<h3><a name="Customize_the_color_filled_surface"></a><span class="mw-headline">Oberfl&auml;chendiagramm mit Farbf&uuml;llung benutzerdefiniert anpassen</span></h3>
+<ol>
+<li>W&auml;hlen Sie den zweiten Datensatz (achten Sie darauf, nicht das daneben stehende Kontrollk&auml;stchen zu deaktivieren), klicken Sie auf die Registerkarte <b>F&uuml;llung</b>, aktivieren Sie die Option <b>St&uuml;ckweise f&uuml;llen</b> und w&auml;hlen Sie in der Auswahlliste <b>Dunkelgelb</b>.<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 13.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_13.png" width="710"  /></a></dd></dl>
+
+<li>Wechseln Sie zur Registerkarte <b>Farbpalette/Kontour</b> und deaktivieren Sie das Kontrollk&auml;stchen <b>Konturen aktivieren</b>.<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 14.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_14.png" width="467"  /></a></dd></dl>
+
+<li>Wechseln Sie zur Registerkarte <b>Drahtgitter</b> und deaktivieren Sie das Kontrollk&auml;stchen <b>Aktivieren</b>.<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 15.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_15.png" width="538"  /></a></dd></dl>
+
+<li>Klicken Sie auf <b>&Uuml;bernehmen</b>, um Ihr Diagramm zu aktualisieren.</ol>
+<h3><a name="Customize_a_flattened_contour_line_plot"></a><span class="mw-headline">Flaches Konturliniendiagramm benutzerdefiniert anpassen</span></h3>
+<ol>
+<li>W&auml;hlen Sie den dritten Datensatz, klicken Sie auf die Registerkarte <b>F&uuml;llung</b> und deaktivieren Sie das Kontrollk&auml;stchen <b>Aktivieren</b>.<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 10.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_10.png" width="650"  /></a></dd></dl>
+
+<li>Wechseln Sie zur Registerkarte <b>Farbplatte/Kontur</b> und klicken Sie auf die &Uuml;berschrift <b>Linie</b>, um den Dialog <b>Konturlinien</b> zu &ouml;ffnen. Aktivieren Sie in diesem Dialog das Kontrollk&auml;stchen <b>Linie mit Farbe der Farbabbildung verkn&uuml;pfen</b>. Klicken Sie auf <b>OK</b>, um den Dialog <b>Konturlinien</b> zu schlie&szlig;en.<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 11.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_11.png" width="492"  /></a></dd></dl>
+
+<li>W&auml;hlen Sie die Registerkarte <b>Drahtgitter</b> und setzen Sie die <b>Linienbreite</b> auf <b>1</b>. Legen Sie im Abschnitt <b>Haupt- und Nebenlinien</b> die Einstellungen, wie unten gezeigt, fest und aktivieren Sie im Abschnitt <b>Linienfarbe</b> das Kontrollk&auml;stchen <b>Farbabbildung verwenden</b>.<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 12.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_12.png" width="538"  /></a></dd></dl>
+<li>Klicken Sie auf <b>&Uuml;bernehmen</b>, um Ihr Diagramm zu aktualisieren.</ol>
+<h3><a name="Customize_a_wireframe_surface"></a><span class="mw-headline">Oberfl&auml;chendiagramm mit Drahtgitter benutzerdefiniert anpassen</span></h3>
+<ol>
+<li>W&auml;hlen Sie den vierten Datensatz, klicken Sie auf die Registerkarte <b>F&uuml;llung</b> und deaktivieren Sie das Kontrollk&auml;stchen <b>Aktivieren</b>.<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 07.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_07.png" width="650"  /></a></dd></dl>
+
+<li>Wechseln Sie zur Registerkarte <b>Farbpalette/Kontour</b> und deaktivieren Sie das Kontrollk&auml;stchen <b>Konturen aktivieren</b>.<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 08.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_08.png" width="467"  /></a></dd></dl>
+
+<li>W&auml;hlen Sie die Registerkarte <b>Drahtgitter</b> und setzen Sie die <b>Linienbreite</b> auf <b>1</b>. Legen Sie im Abschnitt <b>Haupt- und Nebenlinien</b> die Einstellungen, wie unten gezeigt, fest und setzen Sie im Abschnitt <b>Linienfarbe</b> die <b>Farbe der Hauptlinie</b> auf <b>Schwarz</b>.<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 09.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_09.png" width="538"  /></a></dd></dl>
+
+
+<li>W&auml;hlen Sie im linken Bereich <b>Layer1</b>. W&auml;hlen Sie auf der Registerkarte <b>Beleuchtung</b> die Option <b>Direktional</b> f&uuml;r <b>Modus</b> und setzen Sie die Gruppenelemente von <b>Richtung</b>, wie unten gezeigt:<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 18.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_18.png" width="776"  /></a></dd></dl>
+
+<li>Klicken Sie auf die Registerkarte <b>Ebenen</b>. Legen Sie die Farben der <b>YZ</b>- und <b>ZX</b>-Ebenen, wie unten gezeigt, fest (eine benutzerdefinierte Farbe, die ungef&auml;hr &quot;Eierschale&quot; entspricht, f&uuml;r <b>YZ</b> und Hellgrau f&uuml;r <b>ZX</b>).<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 19.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_19.png" width="532"  /></a></dd></dl>
+
+<li>Klicken Sie auf <b>OK</b>, um Ihr Diagramm zu aktualisieren.<li>Drehen Sie das 3D-Diagramm ggf. nach Wunsch. Das Diagramm sollte dem Bild unten entsprechen:<dl><dd> <a  class="image"><img alt="Multiple Surfaces in Same Layer 01.png" src="../images/Multiple_Surfaces_in_Same_Layer/Multiple_Surfaces_in_Same_Layer_01.png" width="471"  /></a></dd></dl>
+</ol>
+
+
+
+
+
+
+
+    

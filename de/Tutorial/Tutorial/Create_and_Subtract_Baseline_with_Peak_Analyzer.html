@@ -1,0 +1,121 @@
+﻿<h1 class="firstHeading">Mit dem Hilfsmittel Peaks analysieren eine Basislinie erzeugen und subtrahieren</h1>
+
+  <p class='urlname' style='display: none'>Create-Subtract-Baseline</p>
+
+  <table id="toc" class="toc">
+    <tr>
+      <td>
+        <div id="toctitle">
+          <h2>Inhalt</h2>
+        </div>
+
+        <ul>
+          <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+          <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+          <li class="toclevel-1 tocsection-3">
+            <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+            <ul>
+              <li class="toclevel-2 tocsection-4"><a href="#Create_baseline_with_2nd_Derivative_method"><span class="tocnumber">3.1</span> <span class="toctext">Basislinie mit der Methode der 2. Ableitung erstellen</span></a></li>
+
+              <li class="toclevel-2 tocsection-5"><a href="#Create_baseline_with_ALS_Method_.28Pro.29"><span class="tocnumber">3.2</span> <span class="toctext">Basislinie mit der asymmetrischen Glättung der kleinsten Quadrate (AsLS) erstellen (Pro)</span></a></li>
+
+              <li class="toclevel-2 tocsection-6"><a href="#Subtract_Baseline_from_a_Spectrum"><span class="tocnumber">3.3</span> <span class="toctext">Basislinie aus einem Spektrum subtrahieren</span></a></li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>In OriginPro kann der Assistent <b>Peaks analysieren</b> Basislinien erstellen und subtrahieren. Es gibt verschiedene Möglichkeiten, Basislinien zu erstellen. Sie können Ankerpunkte von Basislinien automatisch oder manuell erzeugen und sie dann mittels Interpolation verbinden oder sie mit einer Funktion anpassen.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: 2016 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <ul>
+    <li>Basislinie mit der Methode der 2. Ableitung erstellen</li>
+
+    <li>Basislinie mit der asymmetrischen Glättung der kleinsten Quadrate (AsLS) erstellen (Pro)</li>
+
+    <li>Basislinie aus dem Spektrum subtrahieren</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <h3><a name="Create_baseline_with_2nd_Derivative_method"></a><span class="mw-headline">Basislinie mit der Methode der 2. Ableitung erstellen</span></h3>
+
+  <ol>
+    <li>Öffnen Sie eine <b>neue Arbeitsmappe</b> und importieren Sie <i>&lt;Origin-Verzeichnis&gt;\Samples\Spectroscopy\Baseline.dat</i>. Markieren Sie die zweite Spalte. Wählen Sie im Hauptmenü <b>Analyse: Peaks und Basislinie: Peaks analysieren</b>, um den Dialog <b>Peaks analysieren</b> zu öffnen.</li>
+
+    <li>Wählen Sie auf der ersten Seite (<b>Ziel</b>) des Assistenten <b>Peaks analysieren</b> die Option <b>Basislinie erzeugen</b> als <b>Ziel</b>. Klicken Sie auf <b>Nächstes</b>, um zur Seite <b>Modus Basislinie</b> zu gelangen.
+
+      <dl>
+        <dd><a class="image"><img alt="Goal.png" src="../images/Create_and_Subtract_Baseline_with_Peak_Analyzer/Goal.png" width="399" height="603"></a></dd>
+      </dl>
+    </li>
+
+    <li>Als Nächstes erstellen Sie eine benutzerdefinierte Basislinie für dieses Spektrum, indem Sie Ankerpunkte definieren. Wählen Sie auf der Seite <b>Modus Basislinie</b> in der Auswahlliste <b>Modus Basislinie</b> die Option <b>Benutzerdefiniert</b>. Aktivieren Sie das Kontrollkästchen <b>Am Spektrum ausrichten</b>, um sicherzustellen, dass ein Basislinienankerpunkt beim Hinzufügen oder Verschieben zurück auf das Spektrum gezogen wird.</li>
+
+    <li>Die ersten beiden Methoden unter <b>Ankerpunkte suchen</b> sind die am häufigsten verwendeten. Sie können Ankerpunkte automatisch basierend auf der Ableitung des Spektrums suchen. Wenn die Basislinie annähernd konstant ist, ist die Methode <b>1. Ableitung und 2. Ableitung</b> leistungsstärker. Ansonsten sollten Sie <b>2. Ableitung</b> verwenden. In diesem Beispiel ist die Basislinie kurviger. Aus diesem Grund wird die Methode <b>2. Ableitung</b> für die Suche nach den Ankerpunkten verwendet.
+
+      <dl>
+        <dd>Weitere Methoden zum <b>Suchen von Ankerpunkten</b> und zugehörige Glättungsparameter finden Sie unter: <a class="external text" href="../../UserGuide/UserGuide/Peak_Analyzer,_Baseline_Mode_Page.html">Seite Modus Basislinie</a>.</dd>
+
+        <dd><a class="image"><img alt="Baseline mode-v1.png" src="../images/Create_and_Subtract_Baseline_with_Peak_Analyzer/Baseline_mode-v1.png" width="471" height="400"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie jetzt auf die Schaltfläche <b>Suchen</b> in der Gruppe <b>Ankerpunkte der Basislinie</b>. Die Ankerpunkte werden Ihnen in einem Vorschaufenster angezeigt.
+
+      <dl>
+        <dd><a class="image"><img alt="Anchor preview v1.png" src="../images/Create_and_Subtract_Baseline_with_Peak_Analyzer/Anchor_preview_v1.png" width="559" height="358"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>Nächstes</b>, um zur Seite <b>Basislinie erzeugen</b> zu gelangen, und wählen Sie <b>Interpolation</b> in der Auswahlliste <b>Verbinden mit</b>. Wählen Sie in der Gruppe <b>Interpolationsmethode</b> die Option <b>Spline</b>. Im Vorschaufenster wird Ihnen eine Vorschau des Spektrums angezeigt. Klicken Sie auf <b>Fertig</b>, um die Basisliniendaten zu erhalten.
+
+      <dl>
+        <dd><a class="image"><img alt="Baseline previews v1.png" src="../images/Create_and_Subtract_Baseline_with_Peak_Analyzer/Baseline_previews_v1.png" width="466" height="185"></a></dd>
+
+        <dd><a class="image"><img alt="Baseline previews v2.png" src="../images/Create_and_Subtract_Baseline_with_Peak_Analyzer/Baseline_previews_v2.png" width="574" height="386"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Create_baseline_with_ALS_Method_.28Pro.29"></a><span class="mw-headline">Basislinie mit der asymmetrischen Glättung der kleinsten Quadrate (AsLS) erstellen (Pro)</span></h3>
+
+  <ol>
+    <li>Beginnen Sie auf der Seite <b>Modus Basislinie</b> und wählen Sie <b>Basislinie der asymmetrischen Glättung der kleinsten Quadrate</b> (AsLS) als Basislinienmethode. Die Basislinie der asymmetrischen Glättung der kleinsten Quadrate kann sehr einfach fein auf einige Parameter eingestellt werden, ohne vorher Ankerpunkte auswählen zu müssen.
+
+      <dl>
+        <dd><a class="image"><img alt="ALSmethod.png" src="../images/Create_and_Subtract_Baseline_with_Peak_Analyzer/ALSmethod.png" width="539" height="379"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>Nächstes</b>, um zu Seite <b>Basislinie der asymmetrischen Glättung der kleinsten Quadrate</b> zu gelangen, passen Sie die Parameter an, um die optimale Basislinie zu erhalten, und klicken Sie dann auf die Schaltfläche <b>Fertig</b>, um Ergebnistabelle und -diagramm auszugeben.</li>
+  </ol>
+
+  <p><a class="image"><img alt="ALSmethod2.png" src="../images/Create_and_Subtract_Baseline_with_Peak_Analyzer/ALSmethod2.png" width="824" height="598"></a></p>
+
+  <h3><a name="Subtract_Baseline_from_a_Spectrum"></a><span class="mw-headline">Basislinie aus einem Spektrum subtrahieren</span></h3>
+
+  <ol>
+    <li>Wenn Sie die Basislinie subtrahieren möchten, wählen Sie als <b>Ziel</b> aus der Startseite die Option <b>Basislinie subtrahieren</b>.</li>
+
+    <li>Nachdem Sie eine Basislinie erstellt haben, klicken Sie auf die Schaltfläche <b>Nächstes</b>, um zur Seite <b>Basislinie subtrahieren</b> zu gelangen.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Subtrahieren</b>, um eine Vorschau der subtrahierten Daten anzuzeigen. Die Basisliniendaten und das subtrahierte Spektrum werden ausgegeben, nachdem Sie auf die Schaltfläche <b>Fertig</b> geklickt haben. Die Abbildungen unten zeigen die Seite <b>Basislinie subtrahieren</b> und die Vorschau des subtrahierten Spektrums.
+
+      <dl>
+        <dd><a class="image"><img alt="Subtract baseline.png" src="../images/Create_and_Subtract_Baseline_with_Peak_Analyzer/Subtract_baseline.png" width="403" height="293"></a></dd>
+
+        <dd><a class="image"><img alt="Subtracted data.png" src="../images/Create_and_Subtract_Baseline_with_Peak_Analyzer/Subtracted_data.png" width="555" height="422"></a></dd>
+      </dl>
+    </li>
+  </ol>

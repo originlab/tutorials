@@ -1,0 +1,127 @@
+﻿<h1 class="firstHeading">Statistik</h1>
+
+  <p class='urlname' style='display: none'>GSB-statistics</p>
+
+  <p><br>
+  Origin verfügt über viele Hilfsmittel für die statistische Analyse. OriginPro bietet erweiterte statistische Hilfsmittel. In dieser Lektion arbeiten Sie mit Hilfsmitteln, die in der Standardversion von Origin verfügbar sind.</p>
+
+  <h3><a name="Descriptive_Statistics"></a><span class="mw-headline">Deskriptive Statistik</span></h3>
+
+  <ol>
+    <li>Beginnen Sie mit dem Projekt, das Sie in der vorherigen Lektion gespeichert haben. Erstellen Sie einen neuen Ordner im Projekt Explorer und geben Sie ihm den Namen <i><b>Statistik</b></i>. Öffnen Sie den leeren Ordner.</li>
+
+    <li>Öffnen Sie eine neue Arbeitsmappe und importieren Sie die Datei <i>&lt;Origin-Verzeichnis&gt;\Samples\Statistics\body.dat</i>.</li>
+
+    <li>Markieren Sie durch Ziehen der Maus die ersten <b>5</b> Zeilen der Spalte <b>D(Height)</b>. Grundlegende Statistikkennwerte (Mittelwert, Summe, Anzahl) für Ihre ausgewählten Daten werden in der Statusleiste unten rechts von der Bedienoberfläche angezeigt.
+
+      <table class="mtip">
+        <tr>
+          <td style="vertical-align:top"><img src="../images/Statistics/Mini_bulb.png" alt=""></td>
+
+          <td>
+            <p>Sie können mit der rechten Maustaste auf die Statistiken klicken, die in der Statusleiste aufgelistet sind, um zu bestimmen, welche Eigenschaften hier angezeigt werden sollen.</p>
+          </td>
+        </tr>
+      </table>
+
+      <p><a class="image"><img alt="GST Statistics 01.png" src="../images/Statistics/400px-GST_Statistics_01.png" width="400"></a></p>
+    </li>
+
+    <li>Wählen Sie im Menü <b>Statistik: Deskriptive Statistik: Spaltenstatistik</b>. Wählen Sie im Dialog die Registerkarte <b>Eingabe</b> und erweitern Sie <b>Bereich 1</b>. Klicken Sie auf die interaktive Schaltfläche <a class="image"><img alt="Button Select Data Interactive.png" src="../images/Statistics/Button_Select_Data_Interactive.png" width="18"></a> rechts neben <b>Datenbereich</b>. Kehren Sie zu dem Arbeitsblatt zurück und markieren Sie dann mit der Maus die Spalten <b>D</b> und <b>E</b>. Klicken Sie erneut auf die interaktive Schaltfläche, um den Dialog wiederherzustellen.</li>
+
+    <li>Klicken Sie unter <b>Gruppe</b> auf die dreieckige Schaltfläche <a class="image"><img alt="Context menu button.jpg" src="../images/Statistics/Context_menu_button.jpg" width="22"></a> und wählen Sie <b>B(Y): age</b>. Klicken Sie erneut auf die Schaltfläche und wählen Sie <b>C(Y): gender</b>. Wählen Sie in der Liste <b>..."gender"</b> im Feld <b>Gruppe</b> und verwenden Sie die Schaltfläche <b>Nach oben</b> <a class="image"><img alt="Move up button.png" src="../images/Statistics/Move_up_button.png" width="20"></a>, um den Eintrag nach oben zu verschieben.</li>
+
+    <li>Klicken Sie auf <b>OK</b>, um den Bericht zu erzeugen.<br>
+    <a class="image"><img alt="GST Statistics 02.png" src="../images/Statistics/300px-GST_Statistics_02.png" width="300"></a></li>
+
+    <li>Klicken Sie auf die Schaltfläche mit dem nach unten weisenden Dreieck <a class="image"><img alt="Downward triangle button.png" src="../images/Statistics/Downward_triangle_button.png" width="14"></a> rechts vom Zweig <b>Deskriptive Statistik</b> im Berichtsblatt und wählen Sie <b>Stellen</b> im Kontextmenü.</li>
+
+    <li>Setzen Sie in dem aufgerufenen Dialog die <b>Stellen</b> auf <b>Setze Dezimalstellen=</b> und die <b>Dezimalzahl</b> auf <b>1</b>. Klicken Sie auf <b>OK</b>, um das Anzeigeformat in allen Tabellen des Berichts zu aktualisieren.</li>
+
+    <li style="list-style: none">
+      <table class="mtip">
+        <tr>
+          <td style="vertical-align:top"><img src="../images/Statistics/Mini_bulb.png" alt=""></td>
+
+          <td>
+            <p>Die numerische Anzeige in allen Berichtsblättern kann global über das Bedienelement <b>Stellen im Bericht</b> auf der Registerkarte <b>Zahlenformat</b> des Dialogs <b>Optionen</b> festgelegt werden, den Sie über das Hauptmenü <b>Einstellungen: Optionen</b> öffnen.</p>
+          </td>
+        </tr>
+      </table>
+    </li>
+  </ol>
+
+  <h3><a name="Normality_Test"></a><span class="mw-headline">Test auf Normalverteilung</span></h3>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe, indem Sie auf die Schaltfläche <b>Neue Arbeitsmappe</b> <a class="image"><img alt="Button New Workbook.png" src="../images/Statistics/Button_New_Workbook.png" width="23"></a> klicken.</li>
+
+    <li>Klicken Sie doppelt auf die Beschriftungszeile <b>F(x)</b> von Spalte A. Auf diese Weise gelangen Sie in den Bearbeitungsmodus für diese Zelle. Geben Sie die Formel ein:
+      <pre class="lt" style="font-family:monospace;">
+nint<span style="color: #000000;">(</span><span style="color: #0000dd;">100</span><span style="color: #000080;">+</span><span style="color: #0000dd;">20</span><span style="color: #000080;">*</span>normal<span style="color: #000000;">(</span><span style="color: #0000dd;">100</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>
+</pre>Die Spalte wird mit ganzen Zufallszahlen gefüllt, die 100 zentriert sind.
+    </li>
+
+    <li>Markieren Sie Spalte A und klicken Sie auf <b>Statistik: Deskriptive Statistik: Test auf Normalverteilung</b>, um den Dialog zu öffnen. Die ausgewählte Spalte wird automatisch als <b>Eingabedaten</b> verwendet. Übernehmen Sie die Standardeinstellungen und klicken Sie auf <b>OK</b>. Das Berichtsblatt für den <b>Test auf Normalverteilung</b> wird erzeugt. Die Fußnote unter der Tabelle <b>Shapiro-Wilk</b> zeigt an, dass diese Daten, wie erwartet, normal verteilt sind.<br>
+    <a class="image"><img alt="GST Statistics 03.png" src="../images/Statistics/300px-GST_Statistics_03.png" width="300"></a></li>
+  </ol>
+
+  <h3><a name="Frequency_Counts"></a><span class="mw-headline">Häufigkeitszählung</span></h3>
+
+  <ol>
+    <li>Aktivieren Sie <b>Sheet1</b> der Arbeitsmappe aus dem vorhergehenden Abschnitt. Lassen Sie Spalte A markiert und klicken Sie dann auf <b>Statistik: Deskriptive Statistik: Häufigkeiten zählen</b>.</li>
+
+    <li>Übernehmen Sie die Standardeinstellungen im Dialog und klicken Sie auf <b>OK</b>.</li>
+
+    <li>Markieren Sie im Ergebnisblatt die Spalte <b>C(Y)</b>. Klicken Sie in der Symbolleiste <b>2D Grafiken</b> auf die dreieckige Schaltfläche neben der Schaltfläche <b>Säulendiagramm</b> <a class="image"><img alt="Button Column.png" src="../images/Statistics/Button_Column.png" width="22"></a> und wählen Sie dann <b>Säule + Beschriftung</b> <a class="image"><img alt="Button Column Label.png" src="../images/Statistics/Button_Column_Label.png" width="21"></a>, um ein Säulendiagramm mit Beschriftungen zu erstellen. Es wird ein Histogramm mit Anzahlen als Beschriftungen erstellt.<br>
+    <a class="image"><img alt="GST Statistics 04.png" src="../images/Statistics/200px-GST_Statistics_04.png" width="200"></a></li>
+
+    <li style="list-style: none">
+      <table class="mtip">
+        <tr>
+          <td style="vertical-align:top"><img src="../images/Statistics/Mini_bulb.png" alt=""></td>
+
+          <td>
+            <p>Das Menü <b>Zeichnen: Statistikdiagramme</b> bietet mehrere Optionen für Histogramme, wenn ein Arbeitsblatt aktiv ist. Das Hilfsmittel <b>Häufigkeiten zählen</b> bietet eine alternative Möglichkeit, um zuerst Zählungen durchzuführen und dann aus den Ergebnissen ein Histogramm zu zeichnen. Diese Methode lässt eine höhere Flexibilität und weiterführende benutzerdefinierte Anpassung wie das Hinzufügen von Beschriftungen zu den Säulen zu.</p>
+          </td>
+        </tr>
+      </table>
+    </li>
+  </ol>
+
+  <h3><a name="One_Way_ANOVA"></a><span class="mw-headline">Einfache ANOVA</span></h3>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe. Wählen Sie <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b> im Menü, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner <i>Statistics</i>. Dort befindet sich die Datei <i>nitrogen.txt</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das leere Arbeitsblatt, um sie zu importieren.</li>
+
+    <li>Wählen Sie im Menü <b>Statistik: ANOVA: Einfache ANOVA</b>, um den Dialog <b>ANOVAOneWay</b> zu öffnen. Klicken Sie auf die Registerkarte <b>Eingabe</b> und setzen Sie die <b>Eingabedaten</b> auf <b>Indiziert</b>. Klicken Sie auf die dreieckige Schaltfläche rechts von <b>Faktor</b> und wählen Sie <b>A(X): plant</b>. Klicken Sie auf die dreieckige Schaltfläche rechts von <b>Daten</b> und wählen Sie <b>B(X): nitrogen</b>.</li>
+
+    <li style="list-style: none">
+      <table class="mtip">
+        <tr>
+          <td style="vertical-align:top"><img src="../images/Statistics/Mini_bulb.png" alt=""></td>
+
+          <td>
+            <p>Der Dialog der <b>ANOVA</b> enthält zwei Optionen für den Eingabemodus: <b>Indiziert</b> oder <b>Roh</b>. Lesen Sie Einzelheiten unter: <a href="../../QuickHelp/QuickHelp/What_is_indexed_versus_raw_data_and_how_to_I_transform_from_one_to_another.html" title="QuickHelp:What is indexed versus raw data and how to I transform from one to another">FAQ-333 Was sind Index- versus Rohdaten, und wie transformiere ich einen Datentyp in den anderen?</a>, um mehr darüber zu erfahren, wie Daten für den jeweiligen Modus angeordnet werden können.</p>
+          </td>
+        </tr>
+      </table>
+    </li>
+
+    <li>Aktivieren Sie auf der Registerkarte <b>Mittelwertevergleich</b> des Dialogs das Kontrollkästchen vor <b>Tukey</b>. Wechseln Sie dann zu der Registerkarte <b>Diagramme</b> und aktivieren Sie <b>Mittelwertvergleichsdiagramm</b>. Klicken Sie auf <b>OK</b>, um den Dialog zu schließen und den Bericht zu erzeugen.</li>
+
+    <li>Gehen Sie zum Berichtsblatt <b>ANOVA1Way1</b>. Aus dem Ergebnis können folgenden Schlussfolgerungen gezogen werden:
+
+      <ul>
+        <li>Die ANOVA-Tabelle (<b>ANOVA gesamt</b>) zeigt einen p-Wert an, der kleiner ist als 0,05. Daher haben mindestens zwei der vier Gruppen signifikant unterschiedliche Mittelwerte.<br>
+        <a class="image"><img alt="GST Statistics 06.png" src="../images/Statistics/300px-GST_Statistics_06.png" width="300"></a></li>
+
+        <li>Klicken Sie doppelt auf das <b>Mittelwertvergleichsdiagramm</b>, um es zu öffnen. Die roten Zeichnungen weisen auf signifikant unterschiedliche Mittelwerte hin. <b>PLANT4</b> hat den kleinsten Mittelwert und unterscheidet sich signifikant von den anderen drei Gruppen.<br>
+        <a class="image"><img alt="GST Statistics 07.png" src="../images/Statistics/250px-GST_Statistics_07.png" width="250"></a></li>
+
+        <li style="list-style: none">
+          <p>Speichern Sie Ihre Projektdatei.</p>
+        </li>
+      </ul>
+    </li>
+  </ol>

@@ -1,0 +1,124 @@
+﻿<h1 class="firstHeading">3D Surface with Point Label</h1>
+
+  <p class='urlname' style='display: none'>3D-Surface-PointLabel</p>
+
+  <p>&#160;</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Contents</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">What you will learn</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Steps</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Create_the_3D_Surface_with_side_walls:"><span class="tocnumber">3.1</span> <span class="toctext">Create the 3D Surface with side walls:</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Add_the_3D_scatter_in_the_3D_Surface_with_labels:"><span class="tocnumber">3.2</span> <span class="toctext">Add the 3D scatter in the 3D Surface with labels:</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+
+  <p>This tutorial will demonstrate how to add a 3D Scatter to a 3D Surface and include labels as shown below:</p>
+
+  <dl>
+    <dd>
+      <dl>
+        <dd><a class="image"><img alt="3D Surface with Point Label 01.png" src="../images/3D_Surface_with_Point_Label/3D_Surface_with_Point_Label_01.png" width="461"></a></dd>
+      </dl>
+    </dd>
+  </dl>
+
+  <p class="version">Minimum Origin Version Required: Origin 2015 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">What you will learn</span></h2>
+
+  <p>This tutorial will teach you how to:</p>
+
+  <ul>
+    <li>Create the 3D Surface with side walls</li>
+
+    <li>Add a 3D scatter to the 3D Surface and include labels</li>
+
+    <li>Change the label position in 3D graphs</li>
+
+    <li>Add a line to connect the symbol and the label</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Steps</span></h2>
+
+  <h3><a name="Create_the_3D_Surface_with_side_walls:"></a><span class="mw-headline">Create the 3D Surface with side walls:</span></h3>
+
+  <p>This tutorial is associated with <i>&lt;Origin EXE Folder&gt;\Samples\Tutorial Data.opj</i>.<br>
+  Also, you can refer to this graph in Learning Center. (Select <b>Help: Learning Center</b> menu or press <b>F11</b> key , and then open <b>Graph Sample: 3D Surface</b>)</p>
+
+  <ol>
+    <li>Open <b>Tutorial Data.opj</b> and browse to the <b>3D Surface with Point Label</b> folder in <b>Project Explorer</b> (PE).</li>
+
+    <li>Activate <b>MBook4</b>, and highlight everything. Select <b>Plot &gt; 3D&#160;: 3D Colormap Surface</b> from the main menu. A 3D Colormap graph will be generated as shown below:<br>
+    <br>
+    <a class="image"><img alt="3D Surface with Point Label 02.png" src="../images/3D_Surface_with_Point_Label/3D_Surface_with_Point_Label_02.png" width="464"></a></li>
+
+    <li>Select <b>Format: Axes: Z Axis...</b> in the menu to open the <b>Axes</b> dialog. (Or double-click one of the axes on the graph). Set Z axis scale <b>From: -500</b> and <b>To: 8000</b>. Click <b>OK</b>.<br>
+    <br>
+    <a class="image"><img alt="3D Surface with Point Label 03.png" src="../images/3D_Surface_with_Point_Label/3D_Surface_with_Point_Label_03.png" width="522"></a></li>
+
+    <li>Select <b>Format: Plot</b> in the menu to open the <b>Plot Details</b> dialog. (Or double click anywhere on the graph). If the left panel is not expanded use the <a class="image"><img alt="Plot Details Expansion.png" src="../images/3D_Surface_with_Point_Label/Plot_Details_Expansion.png" width="33"></a> button on the bottom left of the dialog to expand it and select the first option under <b>Layer1</b>. In order to create and customize side walls, in the <b>Side Walls</b> tab, check the <b>Enable</b> box. Change the color of <b>X</b> and <b>Y</b> side walls to <b>Gray</b> and <b>LT Gray</b>.<br>
+    <br>
+    <a class="image"><img alt="3D Surface with Point Label 04.png" src="../images/3D_Surface_with_Point_Label/3D_Surface_with_Point_Label_04.png" width="522"></a></li>
+
+    <li>To adjust the color scale, in the <b>Colormap/Contour</b> tab, click on the <b>Fill</b> column header to open the dialog. Select the <b>Limited Mixing</b> option, and set <b>From</b>: <b>Blue</b> and <b>To</b>: <b>Green</b> as shown below. Click the <b>OK</b> button to close the <b>Fill</b> dialog.<br>
+    <br>
+    <a class="image"><img alt="3D Surface with Point Label 05.png" src="../images/3D_Surface_with_Point_Label/3D_Surface_with_Point_Label_05.png" width="525"></a></li>
+
+    <li>In the <b>Mesh</b> tab, select color of <b>Major Minor Lines</b> as <b>Black</b> and select apply <b>Apply</b>.<br>
+    <br>
+    <a class="image"><img alt="3D Surface with Point Label 06.png" src="../images/3D_Surface_with_Point_Label/3D_Surface_with_Point_Label_06.png" width="571"></a></li>
+
+    <li>The next step is to add and customize the lighting effect. In the same <b>Plot Details</b> dialog, expand the left panel and select <b>Layer 1</b>. In the <b>Lighting</b> tab, choose the <b>Directional</b> Mode, enter <b>279</b> and <b>-3</b> in the <b>Horizontal</b> and <b>Vertical</b> boxes respectively. Set the <b>Ambient</b> color to <b>LT Yellow</b>.<br>
+    <br>
+    <a class="image"><img alt="3D Surface with Point Label 07.png" src="../images/3D_Surface_with_Point_Label/3D_Surface_with_Point_Label_07.png" width="693"></a></li>
+
+    <li>To adjust the planes, in the <b>Planes</b> tab deselect the <b>YZ</b> and <b>ZX</b> boxes to hide the two planes in the graph. Click the <b>OK</b> button.<br>
+    <br>
+    <a class="image"><img alt="3D Surface with Point Label 08.png" src="../images/3D_Surface_with_Point_Label/3D_Surface_with_Point_Label_08.png" width="574"></a></li>
+  </ol>
+
+  <p>&#160;</p>
+
+  <h3><a name="Add_the_3D_scatter_in_the_3D_Surface_with_labels:"></a><span class="mw-headline">Add the 3D scatter in the 3D Surface with labels:</span></h3>
+
+  <ol>
+    <li>In order to add symbols in the desired position on the 3D graph, select <b>Graph: Layer Contents</b> from the main menu to open the <b>Layer Contents</b> dialog (Or double click on the layer icon <b>1</b> on the top left of the graph). In the dialog that appears, select <b>Worksheet in Folder</b> from the drop-down on the top left.</li>
+
+    <li>Click on the <b>Plot Type</b> button shown below to specify <b>3D Scatter/ Trajectory/ Vector</b> as the plot type:<br>
+    <br>
+    <a class="image"><img alt="3D Surface with Point Label 09.png" src="../images/3D_Surface_with_Point_Label/3D_Surface_with_Point_Label_09.png" width="693"></a></li>
+
+    <li>To shift components from the left panel to the right panel, holding down the Ctrl key, select two <b>Height</b> columns in the left panel and click on the <b>Add plot</b> button <a class="image"><img alt="Button Add plot.png" src="../images/3D_Surface_with_Point_Label/Button_Add_plot.png" width="24"></a>. This will add the two columns to Layer1. Click the <b>OK</b> button.<br>
+    <br>
+    <a class="image"><img alt="3D Surface with Point Label 10.png" src="../images/3D_Surface_with_Point_Label/3D_Surface_with_Point_Label_10.png" width="693"></a><br>
+    <br>
+    Use the <a class="image"><img alt="GUI Elements rotate button.png" src="../images/3D_Surface_with_Point_Label/GUI_Elements_rotate_button.png" width="24"></a> <b>Rotate Tool</b> button on the <b>Tools</b> toolbar or hold down the <b>R</b> key and use the mouse to rotate the graph. You can find two red symbols are added to the 3D surface and the graph will appear as shown below:<br>
+    <br>
+    <a class="image"><img alt="3D Surface with Point Label 11.png" src="../images/3D_Surface_with_Point_Label/3D_Surface_with_Point_Label_11.png" width="457"></a></li>
+
+    <li>To add labels and leader lines to the two symbols, double click on either one to open the <b>Plot Details</b> dialog. Make sure the left panel of the <b>Plot Details</b> dialog box is expanded and displaying <b>Original</b> under the <i>Position1</i> plot-level. In the <b>Label</b> tab check the <b>Enable</b> box. In the <b>Label From</b> drop-down list, select <b>col("Label")</b> as the label source. Specify the <b>Offset</b>, <b>Position</b> and <b>Leader Line</b> for the label as shown in the image below:<br>
+    <br>
+    <a class="image"><img alt="3D Surface with Point Label 12.png" src="../images/3D_Surface_with_Point_Label/850px-3D_Surface_with_Point_Label_12.png" width="850"></a></li>
+
+    <li>In the left panel, click on <b>Original</b> under the <i>Position2</i> plot-level. In the <b>Label</b> tab repeat the above step making the selections given below.<br>
+    <br>
+    <a class="image"><img alt="3D Surface with Point Label 13.png" src="../images/3D_Surface_with_Point_Label/850px-3D_Surface_with_Point_Label_13.png" width="850"></a><br>
+    Click on the <b>OK</b> Button. Labels and Lead Lines should now appear on the graph.<br>
+    <a class="image"><img alt="3D Surface with Point Label 01.png" src="../images/3D_Surface_with_Point_Label/3D_Surface_with_Point_Label_01.png" width="461"></a></li>
+  </ol>

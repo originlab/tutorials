@@ -1,0 +1,73 @@
+﻿<h1 class="firstHeading">Bivariate Spectral Density with Daniell Method</h1>
+
+  <p class='urlname' style='display: none'>Bivariate-Daniell</p>
+
+  <h2><a name="Tutorial"></a><span class="mw-headline">Tutorial</span></h2>
+
+  <ol>
+    <li>Open the sample project file in Origin, go to Folder <b>Spectral Analysis</b> using the Project Explorer. Activate the workbook <b>Bivariate spectral data</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Bi dan pe data.png" src="../images/Bivariate_Daniell/700px-Bi_dan_pe_data.png" width="700"></a></dd>
+      </dl>
+    </li>
+
+    <li>Highlight column A and B in worksheet. Click the Time Series Analysis App icon <a class="image"><img alt="Time Series Analysis icon.png" src="../images/Bivariate_Daniell/Time_Series_Analysis_icon.png" width="50"></a> in the Apps Gallery window.</li>
+
+    <li>Choose <b>Spectral Analysis</b> tab. Click <b>Bivariate Spectral Density with Daniell Method</b> icon to open the dialog.
+
+      <dl>
+        <dd><a class="image"><img alt="Bi dan toolbar.png" src="../images/Bivariate_Daniell/700px-Bi_dan_toolbar.png" width="700"></a></dd>
+      </dl>
+    </li>
+
+    <li>In the <b>Setting</b> branch, choose <b>Mean correction</b>. Enter 0.2,20, 0 and 0.5 in <b>Tapering Proportion</b>, <b>Smoothing Window Width</b>, <b>Aligment Shift between Two Time Series</b>, and <b>Shape Ratio of Trapezium Window</b> respectively.
+
+      <dl>
+        <dd><a class="image"><img alt="Bi dan dialog.png" src="../images/Bivariate_Daniell/700px-Bi_dan_dialog.png" width="700"></a></dd>
+      </dl>
+    </li>
+
+    <li>Click Preview button to display smoothed spectrum.</li>
+
+    <li>Click OK button to output the report.
+
+      <dl>
+        <dd><a class="image"><img alt="Bi dan report.png" src="../images/Bivariate_Daniell/700px-Bi_dan_report.png" width="700"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h2><a name="Algorithm"></a><span class="mw-headline">Algorithm</span></h2>
+
+  <ul>
+    <li>Smoothed sample cross-spectrum</li>
+  </ul>
+
+  <dl>
+    <dd>The unsmoothed sample cross-spectrum</dd>
+
+    <dd><img src="../images/Bivariate_Daniell/math-639e03449553c23bd79c15a5aa200c1a.png" title="f^*_{xy}(\omega) = \frac{1}{2\pi n}(\sum_{t=1}^{n}y_texp(i\omega t))\times (\sum_{t=1}^{n}x_texp(-i\omega t))" alt="f^*_{xy}(\omega) = \frac{1}{2\pi n}(\sum_{t=1}^{n}y_texp(i\omega t))\times (\sum_{t=1}^{n}x_texp(-i\omega t))" class="tex"></dd>
+
+    <dd>for frequency values <img src="../images/Bivariate_Daniell/math-aaae8919c0bc72be3b59e4bb746f2015.png" title="\omega_j = \frac{2\pi j}{K},0\le \omega_j \le \pi" alt="\omega_j = \frac{2\pi j}{K},0\le \omega_j \le \pi" class="tex">.</dd>
+
+    <dd>The smoothed spectrum is returned at a subset of these frequencies</dd>
+
+    <dd><img src="../images/Bivariate_Daniell/math-b54548126af17eaf3f31355cfd51bcf9.png" title="v_l=\frac{2\pi l}{L},l=0,1,...,[L/2]" alt="v_l=\frac{2\pi l}{L},l=0,1,...,[L/2]" class="tex"></dd>
+
+    <dd>where [ ] denotes the integer part.</dd>
+
+    <dd>Its real part or co-spectrum <img src="../images/Bivariate_Daniell/math-e598a122a2357905c8e4a9165e741bcc.png" title="cf(v_l)" alt="cf(v_l)" class="tex">, and imaginary part or quadrature spectrum <img src="../images/Bivariate_Daniell/math-5762fc6c2b2e7005e6213537d3858e4d.png" title="qf(v_l)" alt="qf(v_l)" class="tex"> are defined by</dd>
+
+    <dd><img src="../images/Bivariate_Daniell/math-4fe29fb315c6273a07f4f0c60d183eda.png" title="f_{xy}(v_l)=cf(v_l)+iqf(v_l)=\sum_{|\omega_k|&lt;\pi/M}^{}\hat{\omega}_kf^*_{xy}(v_l+\omega_k)" alt="f_{xy}(v_l)=cf(v_l)+iqf(v_l)=\sum_{|\omega_k|&lt;\pi/M}^{}\hat{\omega}_kf^*_{xy}(v_l+\omega_k)" class="tex"></dd>
+
+    <dd>where <img src="../images/Bivariate_Daniell/math-7a3a5e77f6dc30908597db0b3efeb383.png" title="\hat{\omega}_k=\omega_kexp(-2\pi iSk/L)" alt="\hat{\omega}_k=\omega_kexp(-2\pi iSk/L)" class="tex">, and <img src="../images/Bivariate_Daniell/math-5dbc98dcc983a70728bd082d1a47546e.png" title="S" alt="S" class="tex"> is alignment shift.</dd>
+  </dl>
+
+  <h2><a name="Reference"></a><span class="mw-headline">Reference</span></h2>
+
+  <ol>
+    <li><span id="Ref1"><span><a class="external text" href="https://d2mvzyuse3lwjc.cloudfront.net/pdfs/NAG26/Manual/html/g13/g13cdc.html" target="_blank">nag_tsa_spectrum_bivar (g13cdc)</a></span></span></li>
+  </ol>
+
+  <p>&#160;</p>

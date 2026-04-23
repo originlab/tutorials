@@ -1,0 +1,57 @@
+﻿<h1 class="firstHeading">Filter für Analyse blockieren</h1>
+
+  <p class='urlname' style='display: none'>Lock-Filter</p>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Wenn Sie eine grafische Darstellung oder Analyse von Daten durchgeführt wird, die einen Filter besitzen, lösen Änderungen an den Filterbedingungen des Quellarbeitsblatts im Allgemeinen eine Neuberechnung für die Analyseergebnisse bzw. das Diagramm aus.</p>
+
+  <p>Es gibt jedoch für die Funktionen <a class="external text" href="../../UserGuide/UserGuide/Copy_Columns_to_New_Destination.html">Spalten kopieren</a> und <a class="external text" href="../../UserGuide/UserGuide/Pivot_Table.html">Pivot-Tabelle</a> im Kontextmenü des Neuberechnungsschlosses <a class="external text" href="../../UserGuide/UserGuide/Data_Filter.html#Save_Data_Filter_into_Operation">drei Arbeitsblattfilteroptionen</a>. Diese werden verwendet,um zu festzulegen, ob die Ergebnisse durch weitere Filteränderungen beeinflusst werden.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 9.1 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <ul>
+    <li>Spalten in ein neues Blatt oder eine neue Arbeitsmappe kopieren</li>
+
+    <li>Datenfilterbedingungen für kopierte Spalten blockieren</li>
+
+    <li>Rückgabe der Datenfilterbedingung an das Quellarbeitsblatt</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <ol>
+    <li>Importieren Sie die Origin-Beispieldaten der Datei <i>automobile.dat</i>, die sich im <b>&lt;Origin-Programmverzeichnis&gt;\Samples\Statistics</b> befindet.</li>
+
+    <li>Markieren Sie die Spalte <b>Make</b>, klicken Sie dann mit der rechten Maustaste und wählen Sie <b>Filter: Filter hinzufügen oder entfernen</b> im Kontextmenü oder klicken Sie auf die Schaltfläche <b>Filter</b> auf der Symbolleiste <b>Worksheet</b>.<br>
+    <a class="image"><img alt="Lock Filter with Analysis 01.png" src="../images/Lock_Filter_with_Analysis/Lock_Filter_with_Analysis_01.png" width="521" height="220"></a></li>
+
+    <li>Um nur die Daten für <b>Honda</b> zu zeigen, klicken sie auf das Filtersymbol <a class="image"><img alt="Button Add Or Remove Data Filter.png" src="../images/Lock_Filter_with_Analysis/Button_Add_Or_Remove_Data_Filter.png" width="23" height="23"></a>, das oben links von der ersten Zelle der Spalten angezeigt wird. Wählen Sie <b>Alle auswählen</b>, um alle Optionen zu deaktivieren. Aktivieren Sie <b>Honda</b>. Klicken Sie auf <b>OK</b>.<br>
+    <a class="image"><img alt="Lock Filter with Analysis 02.png" src="../images/Lock_Filter_with_Analysis/Lock_Filter_with_Analysis_02.png" width="429" height="487"></a></li>
+
+    <li>Um Spalten in ein anderes Blatt zu kopieren, halten Sie die Strg-Taste gedrückt und wählen Sie die Spalten <b>Make</b>, <b>Power</b> und <b>Engine Displacement</b> aus. Klicken Sie mit der rechten Maustaste und wählen Sie im Kontextmenü <b>Spalte kopieren in</b>.</li>
+
+    <li>Wählen Sie im Dialog <b>colcopy</b> die Option <b>Auto</b> in der Auswahlliste <b>Neu berechnen</b>. Stellen Sie sicher, dass die <b>Zielspalten</b> auf ein neues Arbeitsblatt in der gleichen Arbeitsmappe festgelegt sind. Es wird ein neues Blatt mit den kopierten Spalten erstellt.<br>
+    <a class="image"><img alt="Lock Filter with Analysis 03.png" src="../images/Lock_Filter_with_Analysis/Lock_Filter_with_Analysis_03.png" width="426" height="360"></a></li>
+
+    <li>Klicken Sie auf und ziehen Sie den Reiter des kopierten Arbeitsblatts in den leeren Origin-Arbeitsbereich. Eine neue Arbeitsmappe wird erstellt, in der sich die kopierten Daten befinden, so dass die kopierten Daten und die ursprünglichen Daten jetzt nebeneinander verglichen werden können.</li>
+
+    <li>Klicken Sie auf das grüne Schlosssymbol für die Neuberechnung oben links von den ersten Zellen der Spalten in diesem kopierten Blatt. Wählen Sie im Kontextmenü <b>Arbeitsblattfilter: Blockieren</b>. Die Filterbedingungen werden in der Operation gespeichert.<br>
+    <a class="image"><img alt="Lock Filter with Analysis 04.png" src="../images/Lock_Filter_with_Analysis/Lock_Filter_with_Analysis_04.png" width="483" height="494"></a></li>
+
+    <li>Fügen Sie im Quellarbeitsblatt der Spalte <b>Power</b> den Datenfilter hinzu und klicken Sie auf das Filtersymbol, um <b>Größer als...</b> auszuwählen. Setzen Sie im Dialog <b>Einfacher Zahlenfilter</b> den <b>Wert</b> auf 100 und klicken Sie auf <b>OK</b>. Der Filter zeigt nur die Daten für <b>Power</b> über 100 in der ursprünglichen Arbeitsmappe, aber da der Filter in der kopierten Arbeitsmappe der Daten blockiert wurde, werden sie nicht mehr aktualisiert.</li>
+
+    <li>Die Filterbedingungen für die ursprüngliche Arbeitsmappe wurden geändert und um sie in den Zustand zurückzusetzen, in dem sie in der kopierten Arbeitsmappe sind, verwenden Sie die Option <b>Auf Quellarbeitsblatt anwenden</b>. Klicken Sie in dem kopierten Blatt auf das grüne Schloss in Spalte A und wählen Sie <b>Arbeitsfilter: Auf Quellarbeitsblatt anwenden</b> im Kontextmenü. Dadurch wird die Datenfilterbedingung in der ursprünglichen Arbeitsmappe zurückgesetzt, so dass die Filterbedingung, die für <b>Power</b> festgelegt wurde, nicht länger angewendet wird.</li>
+  </ol>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Lock_Filter_with_Analysis/Tip_icon.png" width="57" height="57" border="0" alt=""></td>
+
+      <td>
+        <p>Die Optionen zum Blockieren von Filtern sind nur in dem neuen Ergebnisblatt verfügbar. Wenn Spalten in das gleiche Arbeitsblatt kopiert werden, werden die Optionen nicht im Kontextmenü des Schlosssymbols für die Neuberechnung gezeigt.</p>
+      </td>
+    </tr>
+  </table>

@@ -1,0 +1,222 @@
+﻿<h1 class="firstHeading">Diagrammen mit mehreren Layern benutzerdefiniert anpassen</h1>
+
+  <p class='urlname' style='display: none'>MultiLayer-LinkAxes</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Scale_Elements"><span class="tocnumber">3.1</span> <span class="toctext">Elemente skalieren</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Merging_Graph_Windows"><span class="tocnumber">3.2</span> <span class="toctext">Diagrammfenster zusammenfügen</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#Common_Display_Controls_for_Simultaneous_Edits_to_Multiple_Layers"><span class="tocnumber">3.3</span> <span class="toctext">Allgemeine Anzeigebedienelemente für die gleichzeitige Bearbeitung mehrerer Layer</span></a></li>
+
+          <li class="toclevel-2 tocsection-7"><a href="#Fix_Scale_Factors"><span class="tocnumber">3.4</span> <span class="toctext">Skalierungsfaktoren festlegen</span></a></li>
+
+          <li class="toclevel-2 tocsection-8"><a href="#Fit_Layers_to_Page"><span class="tocnumber">3.5</span> <span class="toctext">Layer an Seite anpassen</span></a></li>
+
+          <li class="toclevel-2 tocsection-9"><a href="#Graph_Legend_Adjustments_for_Panel_Graphs"><span class="tocnumber">3.6</span> <span class="toctext">Legende für Diagramme mit Feldern anpassen</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Der <b>Diagrammlayer</b> ist die grundlegende Einheit aller Origin-Diagramme. Ein Diagrammlayer besteht aus einem Satz Koordinatenachsen und (normalerweise) einer oder mehreren Datenzeichnungen plus angehängten Achsentiteln, Diagrammlegenden, Textbeschriftungen, gezeichneten Objekten, Schaltflächen etc. Der Diagrammlayer kann innerhalb des Diagrammfensters an jede Stelle verschoben oder seine Dimensionen verändert werden. Ein Origin-Diagrammfenster enthält zwischen 1 und 1.024 Diagrammlayer.</p>
+
+  <p>Beim Arbeiten mit Diagrammen, die mehrere Layer enthalten, ist es gut, über mehrere Hilfsmittel und eine Strategie zum Anwenden von Anpassungen an mehreren Layern gleichzeitig im Gegensatz zum Ändern jeder Zeichnung oder Achsenskalierung einzeln zu verfügen. Seit Origin 2018b können Sie mehrere Diagrammlayer gleichzeitig mit Hilfe der Bedienelemente <b>Allgemeine Anzeige</b> auf der Registerkarte <b>Layer</b> im Dialog Details Zeichnung bearbeiten.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 2019b</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <ul>
+    <li>Wie Sie die Skalierung der Elemente (Achsentitel, Beschriftung der Hilfsstriche und Diagrammlegenden) steuern, wenn Diagramme zusammengefügt werden.</li>
+
+    <li>Wie Sie ein Diagrammfenster mit einem Layer mit einem Diagramm mit mehreren Feldern zusammenfügen.</li>
+
+    <li>Wie Sie das zusammengefügte Diagramm konfigurieren, so dass die Anpassungen von Zeichnung und Achse, die in einem Layer vorgenommen wurden, auf alle Layer anwenden.</li>
+
+    <li>Wie Sie Skalierungsprobleme mit Schriften in zusammengefügten Diagrammen festlegen.</li>
+
+    <li>Wie Sie weiße Fläche aus dem zusammengefügten Diagramm mit mehreren Feldern entfernen.</li>
+
+    <li>Wie Sie unerwünschte Legendenobjekte entfernen und ein Objekt benutzerdefiniert anpassen, so dass es als Legende für ein Diagramm mit mehreren Feldern dient.</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <ol>
+    <li>Öffnen Sie ein neues Projekt. Drücken Sie <b>F11</b>, um das <b>Lernzentrum</b> zu öffnen, klicken Sie auf die Registerkarte <b>Diagrammbeispiel</b>, wählen Sie in der Auswahlliste der Diagramme die Option <b>Diagramme mit mehreren Feldern</b> und klicken Sie doppelt auf <b>Multiple Panel Graph from Index Data</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="OC GraphSamp MultiPan.png" src="../images/Multi_Layer_Graph_Customization/OC_GraphSamp_MultiPan.png" width="450"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie im aufgerufenen Arbeitsblatt auf die Registerkarte <b>Ausgabedaten</b> und verändern Sie die Größe des Fensters, so dass Sie alle 12 Datenspalten sehen können. Beachten Sie, dass die Spaltenüberschriften (1) ein grünes Schloss zeigen, das sie als berechnete Werte ausweist, und (2) die <a class="external text" href="../../UserGuide/UserGuide/Set_Column_Designation.html">Spaltenzuordnungen</a> sich im Muster <i>X1, Y1, Y1, X2, Y2, Y2,</i> etc. wiederholen.</li>
+
+    <li>Markieren Sie die Spalten <i>B(Y1)</i> und <i>C(Y1)</i> und klicken Sie dann auf die Schaltfläche <b>Punkt-Liniendiagramm</b> <a class="image"><img alt="Button Line And Symbol.png" src="../images/Multi_Layer_Graph_Customization/Button_Line_And_Symbol.png" width="22"></a> auf der Symbolleiste <b>2D-Grafiken</b>. Wiederholen Sie den Prozess für die Spalten <i>E(Y2)</i>+<i>F(Y2)</i>, <i>H(Y3)</i>+<i>I(Y3)</i>, <i>K(Y4)</i>+<i>L(Y4)</i>. Sie sollten jetzt 4 ähnliche Diagrammfenster haben, jedes enthält einen einzelnen Diagrammlayer mit zwei Zeichnungen. (Beachten Sie, dass Sie nicht die X-Spalte auswählen müssen, wenn Sie diese Diagramme erstellen, da Origins Standardverhalten darin besteht, die Y-Werte gegen die X-Spalte zu zeichnen, die sich am nächsten links von den ausgewählten Y-Spalten befindet).
+
+      <dl>
+        <dd><a class="image"><img alt="Mult lay graph cust 01.png" src="../images/Multi_Layer_Graph_Customization/Mult_lay_graph_cust_01.png" width="750"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Scale_Elements"></a><span class="mw-headline">Elemente skalieren</span></h3>
+
+  <p>Wir werden die obigen Diagrammfenster zu einem einzelnen Diagrammfenster mit 4 Feldern zusammenfügen, aber bevor wir das tun, erläutern wir kurz die Skalierung von Elementen (Achsentitel, Diagrammlegenden etc.), so dass wir verstehen, wie dies in einem zusammengefügten Diagramm gesteuert wird.</p>
+
+  <ol>
+    <li>Klicken Sie auf eines der vier Diagrammfenster -- es ist egal welches -- und klicken Sie auf <b>Format: Layer</b>.</li>
+
+    <li>Klicken Sie im Dialog Details Zeichnung auf die Registerkarte <b>Anzeige</b> und beachten Sie die Einstellungen für <b>Elemente skalieren</b>. Standardmäßig ist <b>Layer mit Rahmen skalieren</b> aktiviert. Dies besagt, dass, wenn die Layergröße sich ändert, die Größe der angehängten Elemente, wie die Achsentitel, die Diagrammlegende etc., entsprechend skaliert werden.</li>
+
+    <li>Klicken Sie auf <b>OK</b>, um den Dialog Details Zeichnung, klicken Sie mit der rechten Maustaste auf die Titelleiste des Diagrammfensters und wählen Sie <b>Duplizieren</b>. Jetzt haben Sie vier identische Fenster.</li>
+
+    <li>Klicken Sie auf das duplizierte Fenster und klicken Sie erneut auf <b>Format: Layer</b>. Klicken Sie erneut auf die Registerkarte <b>Anzeige</b>, aber legen Sie dieses Mal für <b>Elemente skalieren</b> den <b>Festen Faktor: 1</b> fest. Klicken Sie auf <b>OK</b>, um den Dialog Details Zeichnung zu schließen. Wir haben jetzt zwei identische Diagramme, eines mit der Einstellung <b>Elemente skalieren</b> = <b>Layer mit Rahmen skalieren</b> und eines mit <b>Elemente skalieren</b> = <b>Fester Faktor: 1</b>.</li>
+
+    <li>Positionieren Sie Ihre identischen Diagramm neu und verändern Sie ihre Größe, so dass Sie einen Vergleich der nebeneinander befindlichen Diagramme machen können.
+
+      <dl>
+        <dd><a class="image"><img alt="Mult lay graph cust 02.png" src="../images/Multi_Layer_Graph_Customization/Mult_lay_graph_cust_02.png" width="750"></a></dd>
+
+        <dd>Wie erwähnt, beabsichtigen wir, 4 separate Diagramme zu einem einzigen Diagramm mit 4 Feldern zusammenzufügen. dazu müssen wir die Größe unserer Diagramme verringern, damit sie auf eine Seite passen. Was passiert z. B. mit den Textelementen, wenn wir die Diagramme verkleinern? Wir haben einen Vergleich von zwei identischen Diagrammen vorgenommen, eines mit Elementen, die mit dem Layer skaliert werden, und eines mit Elementen, die auf eine feste Größe festgelegt sind.</dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie einmal im Diagrammfenster, das auf <b>Layer mi Rahmen skalieren</b> gesetzt ist, auf einen leeren Teil der Diagrammseite und halten Sie, wenn die grünen Auswahlelemente angezeigt werden, die Strg-Taste gedrückt und ziehen Sie an einem Eckelement, bis das Diagramm ca. 25 % der Seite bedeckt.</li>
+
+    <li>Wiederholen Sie den letzten Schritt mit dem Diagrammfenster, das auf <b>Fester Faktor: 1</b> gesetzt ist.</li>
+
+    <li>Vergleichen Sie jetzt die sich ergebenden kleineren Diagramme und beachten Sie insbesondere den Unterschied der Art und Weise, wie die verschiedenen Elemente -- Zeichnungssymbole, Text und Legendenobjekte -- sich verhielten, als das Diagramm verkleinert wurde.
+
+      <dl>
+        <dd><a class="image"><img alt="Mult lay graph cust 03.png" src="../images/Multi_Layer_Graph_Customization/Mult_lay_graph_cust_03.png" width="668"></a></dd>
+
+        <dd>Wir können erkennen, dass die Einstellung der Elemente auf <b>Fester Faktor: 1</b> wahrscheinlich Probleme verursachen wird, wenn vier Diagramme auf einer Seite zusammengefügt werden. Daher belassen wir die Standardeinstellung für jedes der zusammengefügten Diagramme bei <b>Layer mit Rahmen skalieren</b>.</dd>
+      </dl>
+    </li>
+
+    <li>Damit es nicht mit den anderen Diagrammen durcheinander gerät, löschen Sie das Diagramm mit dem "Festen Faktor".</li>
+  </ol>
+
+  <h3><a name="Merging_Graph_Windows"></a><span class="mw-headline">Diagrammfenster zusammenfügen.</span></h3>
+
+  <ol>
+    <li>Wählen Sie, wenn alle vier (und <i>nur</i> die vier) Ihrer ursprünglichen Diagrammfenster im Arbeitsbereich gezeigt werden, im Menü <b>Grafik: Grafikfenster zusammenfügen</b> und öffnen Sie den Dialog <b>Grafikfenster zusammenfügen</b>.</li>
+
+    <li>Stellen Sie sicher, dass alle vier Diagramme im Feld <b>Diagramme</b> aufgeführt sind. Erweitern Sie dann den Zweig <b>Elemente skalieren</b> und stellen Sie sicher, dass der <b>Skalierungsmodus</b> auf <i>Auto</i> gesetzt ist. Beachten Sie das Vorschaufeld rechts im Dialog, das eine Annäherung Ihres finalen zusammengefügten Diagramms zeigt. <b>Tipps:</b> Wenn Sie Ihre ursprünglichen Diagramme behalten möchten, stellen Sie sicher, dass das Kontrollkästchen <b>Quelldiagramme beibehalten</b> aktiviert ist. Ansonsten werden die Diagramme zerstört.</li>
+
+    <li>Klicken Sie auf <b>OK</b> und ein Diagramm mit vier Feldern wird erstellt. Beachten Sie die vier Layersymbole in der oberen linken Ecke des zusammengefügten Diagramms -- ein Symbol für jeden Diagrammlayer.
+
+      <dl>
+        <dd><a class="image"><img alt="Mult lay graph cust 04.png" src="../images/Multi_Layer_Graph_Customization/Mult_lay_graph_cust_04.png" width="582"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Common_Display_Controls_for_Simultaneous_Edits_to_Multiple_Layers"></a><span class="mw-headline">Allgemeine Anzeigebedienelemente für die gleichzeitige Bearbeitung mehrerer Layer</span></h3>
+
+  <p>Angenommen, wir möchten einige Elemente oder Eigenschaften der Layer, Zeichnungen und Achsen in einem Diagramm mit mehreren Feldern benutzerdefiniert anpassen? Wir könnten jeden Layer nacheinander bearbeiten, aber das wäre mühsam. Seit Origin 2018b können Sie im Dialog <a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Layers_Tab.html">Details Zeichnung auf der Registerkarte <b>Layer</b> die Bedienelemente <b>Allgemeine Anzeige</b></a> verwenden, um Bearbeitungen, die Sie an einem Layer vorgenommen haben, auf alle Layer anzuwenden.</p>
+
+  <ol>
+    <li>Wählen Sie bei aktiven (zusammengefügten) Diagramm mit vier Feldern im Menü <b>Format: Seite</b>. Der Dialog Details Zeichnung wird geöffnet.</li>
+
+    <li>Klicken Sie auf die Registerkarte <b>Layer</b>.</li>
+
+    <li>Aktivieren Sie unter <b>Allgemeine Anzeige</b> das Kontrollkästchen <b>Diagrammeigenschaften</b>. Der "blaue Hinweis" besagt, dass wir die entsprechenden Kontrollkästchen hier <i>zuerst</i> aktivieren und erst <i>dann</i> Anpassungen auf Ebene von Layer/Zeichnung vornehmen. Wir können der Bedienelemente <b>Anwenden auf</b> verwenden, um die Änderungen unter <b>Allgemeine Anzeige</b> selektiv anzuwenden (siehe Dokumentation der Bedienelemente <a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Layers_Tab.html"><b>Anwenden auf</b></a>).</li>
+
+    <li>Klicken Sie im linken Bedienfeld von Details Zeichnung auf den Pfeil links vom Symbol <i>Layer1</i>, um zu zeigen, dass sich zwei Datenzeichnungen im Layer befinden.
+
+      <dl>
+        <dd><a class="image"><img alt="Mult lay graph cust 05.png" src="../images/Multi_Layer_Graph_Customization/Mult_lay_graph_cust_05.png" width="723"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die erste Zeichnung im Layer, dann auf die Registerkarte <b>Symbol</b> auf der rechten Seite von Details Zeichnung, und schließlich auf die Auswahl der Symbole (nach unten weisender Pfeil) und ändern Sie die Form des Diagrammsymbols in Kreis. Ändern Sie dann die <b>Größe</b> in <i>15</i>. Belassen Sie <b>Symbolfarbe</b> auf <i>Auto</i>, da die Symbolfarbe dadurch der Linienfarbe entsprechen wird. Klicken Sie auf <b>OK</b>, um Details Zeichnung zu schließen, und beachten Sie, dass die Symbolgröße in allen Diagrammen unseres Diagramms mit 4 Feldern zunimmt.</li>
+
+    <li>Wir fahren mit dem Anpassen unseres Diagramms mit 4 Feldern fort und verwenden dazu die Schaltflächen der Symbolleisten <b>Format</b> und <b>Stil</b>. Klicken Sie auf eine der grauen Diagramme und beachten Sie, dass beide Diagramme im Layer jetzt markiert sind. Pausieren Sie kurz und klicken Sie ein zweites Mal auf das graue Diagramm. Dieses Mal wird nur <i>dieses</i> Diagramm ausgewählt.</li>
+
+    <li>Klicken Sie auf die Schaltfläche Linien-/Rahmenfarbe auf der Symbolleiste Stil und wählen Sie <i>Marine</i>. Beachten Sie, dass die grauen Diagramme in jedem der vier Felder jetzt marineblau sind. Das Diagramm sollte nun in etwa folgendermaßen aussehen:
+
+      <dl>
+        <dd><a class="image"><img alt="Mult lay graph cust 06.png" src="../images/Multi_Layer_Graph_Customization/Mult_lay_graph_cust_06.png" width="582"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Fix_Scale_Factors"></a><span class="mw-headline">Skalierungsfaktoren festlegen</span></h3>
+
+  <p>Zu diesem Zeitpunkt haben wir ein zufriedenstellendes Diagramm und könnten unsere Arbeit als beendet betrachten. Wir sollten uns jedoch einer Sache bewusst sein: Wenn die vier Diagramme zusammengefügt werden, führt das Herunterskalieren der Schriftgröße zu einem kleinen Problem.</p>
+
+  <ol>
+    <li>Markieren Sie eines der Legendenobjekte und fahren Sie mit der Maus darüber. Ein Tooltipp wird angezeigt, der ungefähr folgendermaßen aussieht:
+
+      <dl>
+        <dd><a class="image"><img alt="Mult lay graph cust 07.png" src="../images/Multi_Layer_Graph_Customization/Mult_lay_graph_cust_07.png" width="283"></a></dd>
+
+        <dd>Der Tooltipp informiert, dass die Schriftgröße = <i>22</i>, aber dass die tatsächliche Größe 10,1 ist. Dies passiert, weil die Schrift, wie erwartet, beim Zusammenfügen der Diagramme herunterskaliert wurde. Das Problem jetzt ist, dass wir eine Schriftgröße haben, die <i>aussieht</i> wie <i>10,1</i>, Origin aber noch immer davon ausgeht, dass die Größe = <i>22</i> ist. (In der Liste <b>Schriftgröße</b> auf der Symbolleiste Format können Sie sehen, dass die ursprüngliche Größe mit <i>22</i> angegeben wird). Wir können diese Diskrepanz mit einem einfachen Menübefehl korrigieren.</dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie bei aktivem Diagrammfenster <b>Grafik: Skalierungsfaktoren festlegen</b> und akzeptieren Sie den Standardwert <i>1</i>, indem Sie auf <b>OK</b> klicken. Wählen Sie jetzt eines der vier Legendenobjekte und fahren Sie mit der Maus darüber. Der Tooltipp gibt jetzt die Größe und tatsächliche Größe mit <i>10,1</i> an (die Dezimalstelle ist nicht bedeutsam, da Origin auf die nächsten 0,5 rundet). Beachten Sie auch, dass die Symbolleiste Format jetzt die <b>Schriftgröße</b> mit <i>10</i> angibt.</li>
+  </ol>
+
+  <p>Während wir dieses Detail auch hätten überspringen können, ist es nicht ungewöhnlich, dass diese unterschiedlichen Informationen zu skalierten Schriftgrößen zu Verwirrung bei den Anwendern führt. Dieses Menüelement ist der beste Weg, die Schriftgröße zurückzusetzen, so dass Sie wissen, womit sie arbeiten.</p>
+
+  <h3><a name="Fit_Layers_to_Page"></a><span class="mw-headline">Layer an Seite anpassen</span></h3>
+
+  <p>Zu diesem Zeitpunkt sieht unser Diagramm zufriedenstellend aus, aber wir könnten noch einige Verbesserungen vornehmen. Eine wäre, die überflüssige weiße Fläche aus dem Diagramm zu entfernen. Wir haben einige Optionen, aber eine schnelle Möglichkeit ist die Auswahl des Menübefehls Layer an Seite anpassen.</p>
+
+  <ol>
+    <li>Aktivieren Sie das Diagrammfenster und wählen Sie dann <b>Grafik: Layer an Seite anpassen</b>. Der Dialog <b>Layer an Seite anpassen: gfitp</b> wird geöffnet.</li>
+
+    <li>Setzen Sie einen <b>Rand</b> von <i>5</i> und deaktivieren Sie das Kontrollkästchen <b>Layerseitenverhältnis beibehalten</b>. Klicken Sie dann auf OK. Unsere Diagrammlayer werden leicht neu proportioniert und die weiße Fläche drumherum wird verringert.</li>
+  </ol>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Multi_Layer_Graph_Customization/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Wenn Sie Ihr Diagramm in eine externe Anendung exportieren oder kopieren, kann auch <a class="external text" href="../../UserGuide/UserGuide/Export_Margin_Offsets.html">der Dialog <b>Randverschiebung für Export</b></a> verwendet werden, um die weiße Fläche um das Diagramm herum zu entfernen.</p>
+      </td>
+    </tr>
+  </table>
+
+  <h3><a name="Graph_Legend_Adjustments_for_Panel_Graphs"></a><span class="mw-headline">Legende für Diagramme mit Feldern anpassen</span></h3>
+
+  <p>Wir brauchen die vier Diagrammlegenden, da jedes Feld die gleichen zwei Variablen zeichnet. Deswegen entfernen wir drei Objekte und konfigurieren das vierte etwas neu, um als ein Legendenobjekt für die vier Felder zu dienen.</p>
+
+  <ol>
+    <li>Drücken Sie Strg und wählen Sie drei der Legendenobjekte aus. Wenn die grünen Auswahlelemente um die drei angezeigt werden, drücken Sie Entfernen.</li>
+
+    <li>Ziehen Sie die verbleibende Legende oben in die Mitte der Diagrammseite.</li>
+
+    <li>Drücken Sie noch immer markiertem Legendenobjekt (grüne Elemente sind zu sehen) erneut Strg und ziehen Sie eines der grünen Elemente zur <i>Seite</i> des Legendenobjekts und ziehen Sie es dann horizontal, bis es folgendermaßen aussieht:</li>
+  </ol>
+
+  <p><a class="image"><img alt="Mult lay graph cust 08.png" src="../images/Multi_Layer_Graph_Customization/Mult_lay_graph_cust_08.png" width="538"></a></p>
+
+  <ol>
+    <li>Zentrieren Sie die Diagrammlegende oben auf der Seite. Das Diagramm sollte nun folgendermaßen aussehen:
+
+      <dl>
+        <dd><a class="image"><img alt="Mult lay graph cust 09.png" src="../images/Multi_Layer_Graph_Customization/Mult_lay_graph_cust_09.png" width="583"></a></dd>
+      </dl>
+    </li>
+  </ol>

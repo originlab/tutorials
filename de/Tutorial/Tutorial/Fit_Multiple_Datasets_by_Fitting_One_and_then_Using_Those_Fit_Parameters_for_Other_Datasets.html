@@ -1,0 +1,135 @@
+﻿<h1 class="firstHeading">Anpassen mehrerer Datensätze durch Anpassung erst eines Datensatzes und die anschließende Verwendung der Fit-Parameter für die anderen Datensätze</h1>
+
+  <p class="urlname" style='display: none'>Fitting-MultiDataset</p>
+
+  <table id="toc" class="toc">
+    <tr>
+      <td>
+        <div id="toctitle">
+          <h2>Inhalt</h2>
+        </div>
+
+        <ul>
+          <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+          <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+          <li class="toclevel-1 tocsection-3">
+            <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+            <ul>
+              <li class="toclevel-2 tocsection-4"><a href="#Create_a_User-Defined_Function_in_Fitting_Function_Builder"><span class="tocnumber">3.1</span> <span class="toctext">Eine benutzerdefinierte Funktion mit Hilfe des Hilfsmittels Fitfunktionen erstellen erstellen</span></a></li>
+
+              <li class="toclevel-2 tocsection-5"><a href="#Fit_Multiple_Dataset_with_User-Defined_Fitting_Function"><span class="tocnumber">3.2</span> <span class="toctext">Mehrere Datensätze mit der benutzerdefinierten Fitfunktion anpassen</span></a></li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>In einigen Fällen haben Sie vielleicht mehrere Datensätze und möchten diese mit Hilfe der benutzerdefinierten Funktion ohne Parameterinitialisierungscode anpassen. Eine größere Effizienz wird erreicht, wenn Sie einen Datensatz anpassen und dann die Parameter des Fits auf die anderen Datensätze anwenden.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: 8.6.0 SR6</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>Eine benutzerdefinierte Fitfunktion mit Hilfe des Hilfsmittels Fitfunktionen erstellen erstellen</li>
+
+    <li>Eine unabhängige Anpassung durchführen</li>
+
+    <li>Einen von mehreren Datensätzen durch 1-Iteration oder vollständige Iteration anpassen</li>
+
+    <li>Parameterwerte eines Datensatzes auf andere Datensätze anwenden</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <h3><a name="Create_a_User-Defined_Function_in_Fitting_Function_Builder"></a><span class="mw-headline">Eine benutzerdefinierte Fitfunktion mit Hilfe des Hilfsmittels Fitfunktionen erstellen erstellen</span></h3>
+
+  <p>Das Hilfsmittel <a class="external text" href="../../UserGuide/Category/The_Fitting_Function_Builder.html"><b>Fitfunktion erstellen</b></a> kann verwendet werden, um eine benutzerdefinierte Funktion zu erstellen oder zu bearbeiten. In dem folgenden Abschnitt definieren Sie mit diesem Hilfsmittel eine Fitfunktion mit dem Namen <i>MyExp</i>.</p>
+
+  <ol>
+    <li>Wählen Sie <b>Hilfsmittel: Fitfunktionen erstellen</b> im Menü (oder drücken Sie <b>F8</b>), um den Dialog <b>Fitfunktionen erstellen</b> zu öffnen. Wählen Sie das Ziel <b>Eine neue Funktion erstellen</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial User Defined Function 07.png" src="../images/Fit_Multiple_Datasets_by_Fitting_One_and_then_Using_Those_Fit_Parameters_for_Other_Datasets/Tutorial_User_Defined_Function_07.png" width="575" height="469"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Weiter</b>, um zur Seite <b>Name und Typ</b> zu gelangen. Geben Sie <i>MyExp</i> in das Feld <b>Funktionsname</b> ein und wählen Sie die Option <b>Origin C</b> für den <b>Funktionstyp</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial User Defined Function 08.png" src="../images/Fit_Multiple_Datasets_by_Fitting_One_and_then_Using_Those_Fit_Parameters_for_Other_Datasets/Tutorial_User_Defined_Function_08.png" width="573" height="469"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Weiter</b>, um zur Seite <b>Variablen und Parameter</b> zu gelangen. Geben Sie die Variablen und Parameter, wie im folgenden Screenshot gezeigt, ein:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial User Defined Function 09.png" src="../images/Fit_Multiple_Datasets_by_Fitting_One_and_then_Using_Those_Fit_Parameters_for_Other_Datasets/Tutorial_User_Defined_Function_09.png" width="574" height="469"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Weiter</b>, um zur Seite <b>Origin C-Ausdrucksfunktion</b> zu gelangen. Geben Sie den Funktionskörper <i>y=y0+a*exp(b*x)</i> in das Feld <b>Funktionskörper</b> ein. Um die Richtigkeit der Funktion zu überprüfen, klicken Sie auf die Schaltfläche neben dem Feld Funktion, um den Code Builder von Origin zu öffnen:
+
+      <dl>
+        <dd><a class="image"><img alt="Tutorial User Defined Function 10.png" src="../images/Fit_Multiple_Datasets_by_Fitting_One_and_then_Using_Those_Fit_Parameters_for_Other_Datasets/Tutorial_User_Defined_Function_10.png" width="574" height="470"></a></dd>
+
+        <dd>Klicken Sie im <b>Code Builder</b> auf die Schaltfläche <b>Kompilieren</b>, um die Funktion zu kompilieren. Falls dies geschieht, wird die Meldung <i>Kompilierung fertig</i> gezeigt und Sie können auf die Schaltfläche <b>Zurück zum NSLF</b> klicken, um zum Dialog <b>Fitfunktion erstellen</b> zurückzukehren.</dd>
+
+        <dd><a class="image"><img alt="Tutorial User Defined Function 11.png" src="../images/Fit_Multiple_Datasets_by_Fitting_One_and_then_Using_Those_Fit_Parameters_for_Other_Datasets/Tutorial_User_Defined_Function_11.png" width="520" height="597"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Fertigstellen</b>, um diese Fitfunktion <i>MyExp</i> zu erstellen.</li>
+  </ol>
+
+  <h3><a name="Fit_Multiple_Dataset_with_User-Defined_Fitting_Function"></a><span class="mw-headline">Mehrere Datensätze mit der benutzerdefinierten Fitfunktion anpassen</span></h3>
+
+  <ol>
+    <li>Importieren Sie <i>\Samples\Curve Fitting\Exponential Decay.dat</i> in das Origin-Arbeitsblatt.</li>
+
+    <li>Markieren Sie alle Spalten und wählen Sie im Menü <b>Analyse: Anpassen: Nichtlinearer Fit</b>, um das Dialogfeld <b>NLFit</b> zu öffnen.</li>
+
+    <li>Wählen Sie die Funktion aus, die gerade auf der Registerkarte <b>Einstellungen</b>, Seite <b>Funktionsauswahl,</b> definiert wurde:
+
+      <dl>
+        <dd><a class="image"><img alt="Fit Multiple Datasets by Fitting One Firstly.png" src="../images/Fit_Multiple_Datasets_by_Fitting_One_and_then_Using_Those_Fit_Parameters_for_Other_Datasets/Fit_Multiple_Datasets_by_Fitting_One_Firstly.png" width="774" height="351"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wechseln Sie auf die Registerkarte <b>Parameter</b> und geben Sie <i>80</i>, <i>100</i>, <i>-5</i> in der Spalte <b>Wert</b> als Anfangswerte für <i>y0</i>, <i>a</i>, <i>b</i> des ersten Datensatzes ein. Wählen Sie dann <i>1</i> aus der Auswahlliste des unabhängigen Fits aus und iterieren Sie den ersten Datensatz, bis er konvergiert.
+
+      <dl>
+        <dd><a class="image"><img alt="Fit Multiple Datasets by Fitting One Firstly 01.png" src="../images/Fit_Multiple_Datasets_by_Fitting_One_and_then_Using_Those_Fit_Parameters_for_Other_Datasets/Fit_Multiple_Datasets_by_Fitting_One_Firstly_01.png" width="766" height="352"></a></dd>
+      </dl>
+    </li>
+
+    <li>Die Parameterwerte werden berechnet. Ein Hinweis auf das Anpassungsergebnis befindet sich in der unteren linken Ecke dieses Dialogs.
+
+      <dl>
+        <dd><a class="image"><img alt="Fit Multiple Datasets by Fitting One Firstly 02.png" src="../images/Fit_Multiple_Datasets_by_Fitting_One_and_then_Using_Those_Fit_Parameters_for_Other_Datasets/Fit_Multiple_Datasets_by_Fitting_One_Firstly_02.png" width="766" height="352"></a></dd>
+      </dl>
+    </li>
+
+    <li>Zum Initialisieren der Parameter von anderen Datensätzen wenden Sie die Parameterwerte des ersten Datensatzes auf andere Datensätze an, indem Sie mit der rechten Maustaste auf die Werte klicken und dann <b>Gesamten Datensatz von "Wert" auf alle Datensätze anwenden</b> im Ausklappmenü auswählen.
+
+      <dl>
+        <dd><a class="image"><img alt="Fit Multiple Datasets by Fitting One Firstly 03.png" src="../images/Fit_Multiple_Datasets_by_Fitting_One_and_then_Using_Those_Fit_Parameters_for_Other_Datasets/Fit_Multiple_Datasets_by_Fitting_One_Firstly_03.png" width="553" height="377"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Fit</b>, um die Anpassung für alle Datensätze fertigzustellen.
+
+      <dl>
+        <dd><a class="image"><img alt="Fit Multiple Datasets by Fitting One Firstly 04.png" src="../images/Fit_Multiple_Datasets_by_Fitting_One_and_then_Using_Those_Fit_Parameters_for_Other_Datasets/Fit_Multiple_Datasets_by_Fitting_One_Firstly_04.png" width="473" height="355"></a></dd>
+      </dl>
+    </li>
+  </ol>
+  

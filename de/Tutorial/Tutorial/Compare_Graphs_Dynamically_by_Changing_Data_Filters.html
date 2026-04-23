@@ -1,0 +1,230 @@
+﻿<h1 class="firstHeading">Diagramme dynamisch durch Ändern der Datenfilter vergleichen</h1>
+
+  <p class='urlname' style='display: none'>Dynamic-Graphs-Changing-Filters</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Set_Up_the_Worksheets"><span class="tocnumber">3.1</span> <span class="toctext">Arbeitsblätter einrichten</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Set_Filters"><span class="tocnumber">3.2</span> <span class="toctext">Filter festlegen</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#Creating_the_Graph_and_Adding_a_Linear_Fit"><span class="tocnumber">3.3</span> <span class="toctext">Diagramm erstellen und lineare Anpassung hinzufügen</span></a></li>
+
+          <li class="toclevel-2 tocsection-7"><a href="#Add_Dynamically_Changing_Labels"><span class="tocnumber">3.4</span> <span class="toctext">Sich dynamisch ändernde Beschriftungen hinzufügen</span></a></li>
+
+          <li class="toclevel-2 tocsection-8"><a href="#Add_Floating_Graph_to_the_Worksheet"><span class="tocnumber">3.5</span> <span class="toctext">Frei bewegliches Diagramm zu Arbeitsblatt hinzufügen</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Mit der Funktion <b>Spalten kopieren in...</b> können Sie Spalten aus einem Arbeitsblatt in ein neues Arbeitsblatt kopieren, während die beiden Blätter miteinander verknüpft bleiben. Mit Hilfe dieser Funktion können Sie mehrere Filterbedingungen für eine Spalte festlegen, indem Sie eine entsprechende Anzahl von Arbeitsblättern erstellen. Um zum Beispiel zwei Filterbedingungen für die Spalte <b>Gas Type</b> einzurichten, wurden zwei Blätter mit den Namen <i>Type1</i> und <i>Type2</i> erstellt, die mit dem Arbeitsblatt <i>Raw</i> verknüpft sind.<br>
+  Außerdem wurden einige Funktionen verwendet, mit denen ein dynamisches Diagramm erstellt wurde, das Änderungen an den Filterbedingungen in Echtzeit widerspiegelt. In folgendem Video-Tutorial werden diese Konzepte ausführlicher erklärt: <a class="external free" href="https://www.youtube.com/watch?v=N0Pud-91qCM" target="_blank">https://www.youtube.com/watch?v=N0Pud-91qCM</a></p>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 2015 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>Daten dynamisch mit unterschiedlichen Filterbedingungen vergleichen,</li>
+
+    <li>mehrere Filterbedingungen für die gleichen Spalten unter Verwendung verschiedener Arbeitsblätter hinzufügen,</li>
+
+    <li>eine dynamische Filterbeschriftung in ein Diagramm einfügen, das sich entsprechend den Änderungen an den Filterbedingungen aktualisiert.</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <p>Dieses Tutorial basiert auf der Datei Tutorial Data.opj im Verzeichnis <i>&lt;Origin-Verzeichnis&gt;\Samples\</i>.</p>
+
+  <h3><a name="Set_Up_the_Worksheets"></a><span class="mw-headline">Arbeitsblätter einrichten</span></h3>
+
+  <p>Öffnen Sie die Datei Tutorial Data.opj, navigieren Sie zu dem Ordner <b>Compare Graphs with Filters Data</b> und aktivieren Sie die Arbeitsmappe <b>Book1</b>. Das Arbeitsblatt <b>Raw</b> enthält Daten für die Emission der verschiedenen Treibhausgase in verschiedenen Ländern über einen Zeitraum von Jahren.</p>
+
+  <ol>
+    <li>Markieren Sie die letzten drei Spalten�: <i>Year, Gas Type, Value</i>.</li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf eine der Spalten und wählen Sie im Kontextmenü <b>Spalten kopieren in...</b>.<br>
+    <br>
+    <a class="image"><img alt="Data Filter1 ii.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter1_ii.png" width="551"></a><br>
+    <br></li>
+
+    <li>Setzen Sie in dem aufgerufenen Dialog <b>Spalten kopieren in: colcopy</b> den Modus für <b>Neu berechnen</b> auf <b>Auto</b>, so dass das Ergebnis später bei Änderung der Eingabedaten automatisch aktualisiert wird. Stellen Sie außerdem sicher, dass die <b>Zielspalte(n)</b> auf <i>&lt;neu!&lt;neu&gt;</i> gesetzt ist, d. h., ein neues Arbeitsblatt wird hinzugefügt, und klicken Sie auf <b>OK</b></li>
+
+    <li style="list-style: none">
+      <p><br>
+      <br>
+      <a class="image"><img alt="Data Filter2.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter2.png" width="416"></a></p><br>
+    </li>
+
+    <li>Nennen Sie das neue Arbeitsblatt <i>Type1</i>.</li>
+
+    <li>Wiederholen Sie die obenstehenden Schritte und nennen Sie das zweite Arbeitsblatt <i>Type2</i>.</li>
+
+    <li style="list-style: none">
+      <p><br>
+      <a class="image"><img alt="Data Filter3i.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter3i.png" width="342"></a></p>
+    </li>
+  </ol>
+
+  <h3><a name="Set_Filters"></a><span class="mw-headline">Filter festlegen</span></h3>
+
+  <ol>
+    <li>Markieren Sie in Blatt <i>Raw</i> die Spalte <b>Country</b> und klicken Sie auf die Filterschaltfläche.</li>
+
+    <li style="list-style: none">
+      <p><br>
+      <a class="image"><img alt="Data Filter4.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter4.png" width="583"></a></p>
+    </li>
+
+    <li>Ein Trichtersymbol wird oben links von der Spalte <b>Country</b> erstellt. Klicken Sie auf das Symbol, deaktivieren Sie in dem aufgerufenen Menü das Kontrollkästchen <b>Alle auswählen</b> und aktivieren Sie das Kontrollkästchen <b>France</b>. Klicken Sie auf <b>OK</b>.</li>
+
+    <li style="list-style: none">
+      <p><br>
+      <a class="image"><img alt="Data Filter5.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter5.png" width="325"></a></p>
+    </li>
+
+    <li>Das Arbeitsblatt zeigt nur noch die Informationen für das Land Frankreich (France).</li>
+
+    <li>Richten Sie in Blatt <i>Type1</i> einen Filter für die Spalte <b>Gas Type</b> und das Gas <b>HFC</b> ein. Da Blatt <i>Raw</i> und Blatt <i>Type1</i> miteinander verknüpft sind, zeigt dieses Arbeitsblatt nun nur die HFC-Emissionswerte für das Land Frankreich.</li>
+
+    <li style="list-style: none">
+      <p><br>
+      <a class="image"><img alt="Data Filter6.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter6.png" width="454"></a></p>
+    </li>
+
+    <li>Richten Sie in Blatt <i>Type2</i> einen Filter für den <b>Gas Type</b> PFC ein. Dieses Arbeitsblatt zeigt nur noch die PFC-Emissionswerte für das Land Frankreich.</li>
+  </ol>
+
+  <h3><a name="Creating_the_Graph_and_Adding_a_Linear_Fit"></a><span class="mw-headline">Diagramm erstellen und lineare Anpassung hinzufügen</span></h3>
+
+  <ol>
+    <li>Wählen Sie bei vollkommen unmarkierten Arbeitsblättern im Menü <b>Zeichnen &gt; Mehrere Felder/Achsen: Gestapelt...</b>.</li>
+
+    <li>Klicken Sie in dem aufgerufenen Dialog auf die Pfeilschaltfläche neben dem Feld <b>Eingabe</b> und wählen Sie <b>Spalten wählen...</b></li>
+
+    <li style="list-style: none">
+      <p><br>
+      <a class="image"><img alt="Data Filter7.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter7.png" width="600"></a></p>
+    </li>
+
+    <li>Stellen Sie im Dialog <b>Datenbrowser</b> sicher, dass unter <b>Liste Datensätze</b> die Option <b>in aktueller Mappe</b> festgelegt ist. und markieren Sie beide <b>Werte</b>spalten in den Blättern <i>Type1</i> und <i>Type2</i>. Klicken Sie auf <b>Hinzufügen</b> und dann auf OK.</li>
+
+    <li style="list-style: none">
+      <p><br>
+      <a class="image"><img alt="Data Filter8.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter8.png" width="498"></a></p>
+    </li>
+
+    <li>Setzen Sie im Dialog <b>Stapeln: plotstack</b> den <b>Diagrammtyp</b> auf <b>Punkt</b> und klicken Sie auf OK. Das folgende Diagramm wird erstellt:</li>
+
+    <li style="list-style: none">
+      <p><br>
+      <a class="image"><img alt="Data Filter9.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter9.png" width="387"></a></p>
+    </li>
+
+    <li>Klicken Sie in dem neu erstellten Diagramm doppelt auf eine der Achsen und setzen Sie auf der Registerkarte <b>Skalierung</b> den Modus für <b>Neu skalieren</b> auf <b>Auto</b>. Tun Sie dies für jede Achse auf beiden Zeichnungen dieses Diagramm. Folglich werden die Achsen automatisch neu skaliert, wenn der Arbeitsblattfilter geändert wird und die Diagrammdaten sich ändern.</li>
+
+    <li style="list-style: none">
+      <p><br>
+      <a class="image"><img alt="Data Filter10.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter10.png" width="381"></a><br>
+      <b>Hinweis:</b> Durch Halten der <b>Strg</b>-Taste und Auswählen der Symbole <b>Horizontal</b> und <b>Vertikal</b> können Sie die <b>Neuskalierung</b> für X- und Y-Achsen im gleichen Layer gleichzeitig ändern. Verwenden Sie die Auswahlliste Layer unten im Dialog, um die Änderungen auf beide Diagrammlayer (d. h. Layer 1 und Layer 2) anzuwenden.</p>
+    </li>
+
+    <li>Setzen Sie die Auswahlliste Layer auf Layer 1 und klicken Sie dann auf die Registerkarte <b>Beschriftung der Hilfsstriche</b>. Ändern Sie bei ausgewähltem Symbol <b>Unten</b> die <b>Anzeige</b>, um nur das Jahr zu zeigen.<br>
+
+      <dl>
+        <dd><a class="image"><img alt="Data Filter10b.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter10b.png" width="414"></a><br></dd>
+      </dl>
+    </li>
+
+    <li>Wechseln Sie zur Registerkarte <b>Linie und Hilfsstriche</b>. Setzen Sie bei ausgewähltem Symbol <b>Rechts</b> die <b>großen</b> und <b>kleinen Hilfsstriche</b> auf <b>Keine</b> und wenden Sie die Einstellung an.
+
+      <dl>
+        <dd><a class="image"><img alt="Data Filter10c.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter10c.png" width="459"></a><br></dd>
+      </dl>
+    </li>
+
+    <li>Setzen Sie die Auswahlliste <b>Layer</b> auf <b>Layer 2</b> und wiederholen Sie dies für die obere X-Achse und die rechte Y-Achse in Layer 2. Klicken Sie auf <b>OK</b>.</li>
+
+    <li>Löschen Sie die zwei Titelobjekte der Y-Achse im linken Bereich des Diagramms, fügen Sie eine neue Textbeschriftung <b>Wert</b> hinzu und drehen Sie sie um 90 Grad (klicken Sie mit der rechten Maustaste und wählen Sie <b>Einstellungen</b>, um den Drehwinkel zu ändern) und verwenden Sie sie als neuen Y-Achsentitel.</li>
+
+    <li>Als Nächstes soll eine lineare Anpassung hinzugefügt werden, um die Emissionstrends offensichtlicher zu machen.</li>
+
+    <li>Aktivieren Sie das Diagramm und wählen Sie <b>Analyse: Anpassen: Linearer Fit...</b>.</li>
+
+    <li>Setzen Sie <b>Neu Berechnen</b> auf <b>Auto</b>.</li>
+
+    <li>Verwenden Sie die Pfeilschaltfläche neben dem Feld <b>Eingabe</b> und wählen Sie <b>Alle Zeichnungen in aktiver Seite hinzufügen</b>. Klicken Sie auf OK, um den Dialog zu schließen und die lineare Regression für die zwei Zeichnungen durchzuführen.</li>
+
+    <li style="list-style: none">
+      <p><br>
+      <a class="image"><img alt="Data Filter11.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter11.png" width="623"></a></p>
+    </li>
+
+    <li>Klicken Sie doppelt auf die linearen Anpassungskurven. Gehen Sie im aufgerufenen Dialog <b>Details Zeichnung</b> zur Registerkarte <b>Linie</b> und setzen Sie die Farbe für jede Kurve auf <b>Rot</b>. Löschen Sie die zwei Legendenobjekte und verschieben Sie die Berichtstabelle. Das Diagramm sollte am Ende folgendermaßen aussehen:</li>
+
+    <li style="list-style: none">
+      <p><br>
+      <a class="image"><img alt="Data Filter12.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter12.png" width="396"></a></p>
+    </li>
+  </ol>
+
+  <h3><a name="Add_Dynamically_Changing_Labels"></a><span class="mw-headline">Sich dynamisch ändernde Beschriftungen hinzufügen</span></h3>
+
+  <ol>
+    <li>Klicken Sie auf das Blatt <i>Type1</i> und markieren Sie die Beschriftungszeilenzelle Filter in Spalte B.</li>
+
+    <li>Wählen Sie <b>Bearbeiten: Kopieren: Kopieren</b>.<br>
+    <a class="image"><img alt="Data Filter13.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter13.png" width="503"></a><br></li>
+
+    <li>Wählen Sie das Hilfsmittel Text <a class="image"><img alt="Data Filter14.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter14.png" width="32"></a> und klicken Sie auf das obere Bedienfeld des Diagramms. Wenn das blaue Textfeld angezeigt wird, halten Sie <b>Strg + Alt + V</b> gedrückt. Die Datenfilterbeschriftung wird als Link in das Textfeld eingefügt.</li>
+
+    <li>Klicken Sie auf die neue Textbeschriftung, klicken Sie dann auf die rechte Maustaste und wählen Sie dann <b>Eigenschaften</b>.</li>
+
+    <li style="list-style: none">
+      <p><br>
+      <a class="image"><img alt="Data Filter15.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter15.png" width="404"></a></p>
+    </li>
+
+    <li>Aktivieren Sie im Dialog die Registerkarte <b>Programmierung</b> und das Kontrollkästchen <b>Echtzeit</b>, so dass sich die Beschriftung bei jeder Änderung des Datenfilters ebenfalls ändert.</li>
+
+    <li>Tun Sie dies mit den Filterbeschriftungen in Blatt <i>Type2</i> und Blatt <i>Raw</i>. Fügen Sie die Wörter "Gas Type" vor den Beschriftungen "PFC" und "HFC" sowie "Country" vor der Beschriftung des Länderdatenfilter ein. Fügen Sie auch einen Layertitel hinzu:</li>
+
+    <li style="list-style: none">
+      <p><br>
+      <a class="image"><img alt="Data Filter17.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter17.png" width="384"></a></p>
+    </li>
+  </ol>
+
+  <h3><a name="Add_Floating_Graph_to_the_Worksheet"></a><span class="mw-headline">Frei bewegliches Diagramm zu Arbeitsblatt hinzufügen</span></h3>
+
+  <ol>
+    <li>Um das Diagramm in das Arbeitsblatt einzufügen, aktivieren Sie das Arbeitsblatt <i>Raw</i>.</li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf den grauen Bereich des Arbeitsblatts und wählen Sie im Kontextmenü <b>Diagramm hinzufügen</b>.</li>
+
+    <li style="list-style: none">
+      <p><br>
+      <a class="image"><img alt="Data Filter18.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter18.png" width="556"></a></p>
+    </li>
+
+    <li>Wählen Sie in dem aufgerufenen <b>Diagrammbrowser</b> das Diagramm, das Sie soeben erstellt haben, und klicken Sie auf <b>OK</b></li>
+
+    <li>Vergrößern Sie das Diagramm, indem Sie es markieren und an den Rändern ziehen. Wenn Sie die Filtertypen jetzt in dem Arbeitsblatt ändern, wird das Diagramm entsprechend aktualisiert.</li>
+  </ol>

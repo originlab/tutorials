@@ -1,0 +1,61 @@
+﻿<h1 class="firstHeading">Globale Anpassung für unterschiedliche Funktionen mit gemeinsamen Parametern</h1>
+
+  <p class='urlname' style='display: none'>Multi-Functions-Global-Fitting</p>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Dieses Tutorial soll das folgende Problem lösen: Eine globale Kurvenanpassung soll auf zwei oder mehr Kurven mit verschidenen Funktionen für jede Kurve durchgeführt werden, wobei aber einige gemeinsame Parameter verwendet werden. Der gemeinsame Parameter gilt für alle Datensätze. Dieses Problem entsteht in vielen wissenschaftlichen Arbeitsfeldern wie z.B. beim Anpassen von anisotropen Spektren.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 2015 SR1</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>mehrere Datensätze für eine globale Anpassung auswählen.</li>
+
+    <li>einen Parameter festlegen, der alle Funktionen verbindet.</li>
+
+    <li>eine globale Anpassung mit gemeinsamen Parametern für mehrere Anpassungsfunktionen durchführen.</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe, indem Sie auf die Schaltfläche <a class="image"><img alt="Button New Workbook.png" src="../images/Multi_Functions_Global_Fitting/Button_New_Workbook.png" width="23" height="23"></a> klicken.</li>
+
+    <li>Klicken Sie auf <a class="image"><img alt="Button Import Single ASCII.png" src="../images/Multi_Functions_Global_Fitting/Button_Import_Single_ASCII.png" width="23" height="23"></a>, um die Datei <b>MultiFunctionsFit.dat</b> aus dem Ordner <i>&lt;Origin-Verzeichnis&gt;\Samples\Curve Fitting\</i> zu importieren.</li>
+
+    <li>Markieren Sie Spalte A, B und C und verwenden Sie <b>Analyse: Anpassen: Nichtlinearer Fit...</b> , um den Dialog <b>NLFit</b> zu öffnen.<br>
+    Die benutzerdefinierte Anpassungsfunktion wird in den 3 folgenden Schritten erzeugt. Die Funktionen werden basierend auf dem untenstehenden quantitativen Modell erstellt:<br>
+    <img src="../images/Multi_Functions_Global_Fitting/math-84f1517acc4ea0900aff2093c34ff64f.png" title="Col(B):\;L_1=\frac{A_1e^{-t/t_0}+B_1}{A_2e^{-t/t_0}+B_2}" alt="Col(B):\;L_1=\frac{A_1e^{-t/t_0}+B_1}{A_2e^{-t/t_0}+B_2}" class="tex"><br>
+    <img src="../images/Multi_Functions_Global_Fitting/math-63034923ad23c06d8239d1bb9e4f1417.png" title="Col(C):\;L_2=A_2e^{-t/t_0}+B_2" alt="Col(C):\;L_2=A_2e^{-t/t_0}+B_2" class="tex"><br></li>
+
+    <li>Wählen Sie auf der Seite <b>Funktionsauswahl</b> die Funktion <b>&lt;neu...&gt;</b> in der Kategorie <b>User Defined</b>.</li>
+
+    <li>Geben Sie "GlobalFit" als Funktionname ein und legen Sie fest, dass das Funktionsmodell und der Funktionstyp dem Diagramm unten folgen:<br>
+    <a class="image"><img alt="MultiFunctionsFit1.png" src="../images/Multi_Functions_Global_Fitting/MultiFunctionsFit1.png" width="573" height="466"></a><br>
+    Klicken Sie dann auf <b>Weiter</b>, um zur Seite der Variablen und Parameter zu gelangen.</li>
+
+    <li>Legen Sie die Variablen und Parameter wie im Diagramm unten fest:<br>
+    <a class="image"><img alt="MultiFunctionsFit2.png" src="../images/Multi_Functions_Global_Fitting/MultiFunctionsFit2.png" width="572" height="461"></a><br>
+    Klicken Sie dann auf <b>Weiter</b>, um zur Seite Ausdrucksfunktion zu gelangen.</li>
+
+    <li>Geben Sie den Ausdruck, der die Formel von <img src="../images/Multi_Functions_Global_Fitting/math-2c6f3b6c16df97a1b00e04ff17e4906e.png" title="L_1" alt="L_1" class="tex"> und <img src="../images/Multi_Functions_Global_Fitting/math-07cbd6c155424e110559a84df364be5a.png" title="L_2" alt="L_2" class="tex"> enthält, in das Feld des Funktionskörpers ein:<br>
+    <code>s*(A1*exp(-t/t0)+B1)/(A2*exp(-t/t0)+B2)-(s-1)*(A2*exp(-t/t0)+B2)</code><br>
+    Der Parameter <code>s</code> ist eine Option für die globale Anpassung. Wenn <code>s=1</code>, wird <img src="../images/Multi_Functions_Global_Fitting/math-2c6f3b6c16df97a1b00e04ff17e4906e.png" title="L_1" alt="L_1" class="tex"> für die Anpassung verwendet. Wenn <code>s=0</code>, wird <img src="../images/Multi_Functions_Global_Fitting/math-07cbd6c155424e110559a84df364be5a.png" title="L_2" alt="L_2" class="tex"> für die Anpassung verwendet. Der Wert von <code>s</code> wird in der folgenden Anpassungsprozedur gesteuert. Legen Sie den Initialisierungswert von A1 und B1 auf 0. Klicken Sie dann auf die Schaltfläche <b>Fertigstellen</b>.<br>
+    <a class="image"><img alt="MultiFunctionsFit2-1.png" src="../images/Multi_Functions_Global_Fitting/MultiFunctionsFit2-1.png" width="570" height="462"></a><br></li>
+
+    <li>Gehen Sie zurück zum Dialog <b>NLFit</b> und wählen Sie die Funktion GlobalFit in der Kategorie User Defined. Gehen Sie zur Seite Datenauswahl und wählen Sie Allgemeiner Fit (globaler Fit) in der Auswahlliste Fit-Modus für mehrere Datensätze:<br>
+    <a class="image"><img alt="MultiFunctionsFit3.png" src="../images/Multi_Functions_Global_Fitting/MultiFunctionsFit3.png" width="574" height="291"></a><br></li>
+
+    <li>Wechseln Sie zur Registerkarte <b>Parameter</b>. Aktivieren Sie das Kontrollkästchen <b>Teilen</b> für A2, B2 und t0. Aktivieren Sie dann das Kontrollkästchen <b>Fest</b> für s und s_2, um ihre Werte mit 1 bzw. 0 festzulegen. Die Einstellung von s steuert die Anpassung von Col(B) mit Hilfe von <img src="../images/Multi_Functions_Global_Fitting/math-2c6f3b6c16df97a1b00e04ff17e4906e.png" title="L_1" alt="L_1" class="tex">, während für die Anpassung Col(C) <img src="../images/Multi_Functions_Global_Fitting/math-07cbd6c155424e110559a84df364be5a.png" title="L_2" alt="L_2" class="tex"> verwendet wird.<br>
+    <a class="image"><img alt="MultiFunctionsFit4.png" src="../images/Multi_Functions_Global_Fitting/MultiFunctionsFit4.png" width="306" height="237"></a><br></li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Fit</b>, um die Kurven anzupassen. Sie können diese Ergebnisse in der Tabelle <b>Parameter</b> des Berichtsblatts erhalten:<br>
+    <a class="image"><img alt="MultiFunctionsFit5.png" src="../images/Multi_Functions_Global_Fitting/MultiFunctionsFit5.png" width="291" height="235"></a><br></li>
+
+    <li>Die angepassten Kurven werden zu der ursprünglichen Datenzeichnung hinzugefügt. Sie können die angepasste Kurve für Col(B)/<img src="../images/Multi_Functions_Global_Fitting/math-2c6f3b6c16df97a1b00e04ff17e4906e.png" title="L_1" alt="L_1" class="tex"> und Col(C)/<img src="../images/Multi_Functions_Global_Fitting/math-07cbd6c155424e110559a84df364be5a.png" title="L_2" alt="L_2" class="tex"> im Blatt <b>GlobalFit (User) Fit of Multiple Dataset</b> überprüfen, indem Sie doppelt auf die Diagramme klicken.<br>
+    <a class="image"><img alt="MultiFunctionsFit6.png" src="../images/Multi_Functions_Global_Fitting/MultiFunctionsFit6.png" width="397" height="610"></a><br></li>
+  </ol>

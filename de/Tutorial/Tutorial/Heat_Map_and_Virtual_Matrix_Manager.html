@@ -1,0 +1,315 @@
+﻿<h1 class="firstHeading">Heatmap mit virtueller Matrix und Balkendiagramm mit Farbabbildung erstellen</h1>
+
+  <p class='urlname' style='display: none'>Heat-Map-Virtual</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Create_Heatmap_Plot_from_Virtual_Matrix"><span class="tocnumber">3.1</span> <span class="toctext">Heatmap aus virtueller Matrix erstellen</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Create_the_Bar_Plot_with_Colormap"><span class="tocnumber">3.2</span> <span class="toctext">Balkendiagramm mit Farbabbildung erstellen</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#Merge_the_Heatmap_Plot_with_Bar_Plot_and_More_Customization_Steps"><span class="tocnumber">3.3</span> <span class="toctext">Heatmap und Balkendiagramm zusammenfügen und benutzerdefiniert anpassen</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=32" target="_blank">Virtuelle Matrix</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=279" target="_blank">3D- und Konturdiagramme aus einer virtuellen Matrix zeichnen</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=215" target="_blank">Farbskala zu Diagramm hinzufügen</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=58" target="_blank">Diagrammdesign</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=329" target="_blank">Was ist ein Diagrammdesign und wie macht es die benutzerdefinierte Anpassung von Diagrammen einfacher?</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%">
+        <a class="image"><img alt="Website blog icon circle.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Blog_Image_33x33px.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="http://blog.originlab.com/heatmap-improvements-in-2019b" target="_blank">Verbesserungen der Heatmap in Origin 2019b</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/easy-correlation-plots-in-origin-2020b" target="_blank">Einfache Korrelationsdiagramme in Origin 2020b</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/conditional-foramtting-in-origin-2019" target="_blank">Bedingte Formatierung in Origin 2019</a></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <p>&#160;</p>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Dieses Tutorial erstellt zwei Arten von Diagramm, eine Heatmap, basierend auf einer virtuellen Matrix, und ein Balkendiagramm mit Farbabbildung, die dann zusammengefügt werden.<br>
+  <a class="image"><img alt="Heatmap-21.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-21.png" width="677"></a></p>
+
+  <p class="version">Origin-Version mind. erforderlich: 2015 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>eine Heatmap, basierend auf einer virtuellen Matrix, erstellen,</li>
+
+    <li>ein Balkendiagramm mit Farbabbildung erstellen,</li>
+
+    <li>die Heatmap und das Balkendiagramm zusammenfügen.</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <h3><a name="Create_Heatmap_Plot_from_Virtual_Matrix"></a><span class="mw-headline">Heatmap aus virtueller Matrix erstellen</span></h3>
+
+  <p>Dieses Tutorial basiert auf dem Projekt: <i>&lt;Origin-Verzeichnis&gt;\Samples\Tutorial Data.opj</i>.</p>
+
+  <ol>
+    <li>Öffnen Sie das Projekt <b>Tutorial Data.opj</b> und navigieren Sie zum Ordner <b>Heatmap and Virtual Matrix Manager</b>. Öffnen Sie die Arbeitsmappe <i>Electricity Usage</i> und aktivieren Sie das erste Blatt.</li>
+
+    <li>Die XYZ-Abbildung der Arbeitsmappe wird in der Grafik unten gezeigt. Dies wird Ihnen dabei helfen zu verstehen, wie die Heatmap in den nächsten Schritten erstellt wird:<br>
+    <a class="image"><img alt="Heatmap-01.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-01.png" width="684"></a></li>
+
+    <li>Markieren Sie alle Zellen im Z-Bereich, indem Sie die Zelle in Spalte (B) - Zeile 1 auswählen. Drücken Sie dann STRG+SHIFT+ENDE. Klicken Sie auf <b>Zeichnen: Kontur: Heatmap</b> im Hauptmenü, um den Dialog plotvm für die Heatmap zu öffnen.</li>
+
+    <li>Die festgelegten XY-Bereiche werden in der Grafik unten gezeigt.<br>
+    <a class="image"><img alt="Heatmap-02.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-02.png" width="426"></a></li>
+
+    <li>Aktivieren Sie in diesem Dialog die Kontrollkästchen <b>X-Daten formatieren</b> und <b>Y-Daten formatieren</b>. Klicken Sie jeweils auf die Schaltfläche <a class="image"><img alt="Schaltfläche ....png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Button_....png" width="17"></a>, um die X- und Y-Daten entsprechend dem untenstehenden Bild zu formatieren. Klicken Sie auf OK, um den Dialog zu schließen:<br>
+    <a class="image"><img alt="Heatmap-03.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-03.png" width="747"></a></li>
+
+    <li>Die Beschriftungen der Hilfsstriche auf der Y-Achse sind zu dicht, um sie richtig sehen zu können. Dies soll im Folgenden geändert werden. Klicken Sie doppelt auf die Achse im Diagramm, um den Dialog <b>Achsen</b> zu öffnen.
+
+      <ul>
+        <li>Wählen Sie das Symbol <b>Links</b> auf der Registerkarte <b>Beschriftung der Hilfsstriche</b>, gehen Sie zur Registerkarte <b>Anzeige</b>, wählen Sie <i>Datum</i> als <b>Typ</b> und setzen Sie die Auswahlliste <b>Anzeige</b> auf <i>Dez</i> (aktueller Monat). Klicken Sie auf <b>Anwenden</b>, um die Einstellung zu speichern.</li>
+      </ul>
+
+      <dl>
+        <dd><a class="image"><img alt="Heatmap-04.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-04.png" width="529"></a></dd>
+      </dl>
+
+      <ul>
+        <li>Gehen Sie zur Registerkarte <b>Tabelle</b>, aktivieren Sie das Kontrollkästchen <b>Aktivieren</b> und klicken Sie zum Speichern auf <b>Anwenden</b>. Sie werden sehen, dass die Namen der Monate als Hilfsstrichsbeschriftungen für die Y-Achse in der Form einer Tabelle gezeigt werden.</li>
+      </ul>
+
+      <dl>
+        <dd><a class="image"><img alt="Heatmap-05.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-05.png" width="511"></a></dd>
+      </dl>
+    </li>
+
+    <li>Als Nächstes legen Sie die Skalierung und die Beschriftung der Hilfsstriche für die X-Achse fest:
+
+      <ul>
+        <li>Wählen Sie das Symbol <b>Unten</b> auf der Registerkarte <b>Beschriftung der Hilfsstriche</b> und stellen Sie sicher, dass die Option <b>Zeit</b> als Typ auf der Registerkarte <b>Anzeige</b> festgelegt ist. Ändern Sie die <b>Anzeige</b> in <i>hh pm</i> und klicken Sie auf <b>Anwenden</b>, um die Einstellung zu speichern.</li>
+      </ul>
+
+      <dl>
+        <dd><a class="image"><img alt="Heatmap-06.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-06.png" width="509"></a></dd>
+      </dl>
+
+      <ul>
+        <li>Wählen Sie das Symbol <b>Horizontal</b> auf der Registerkarte <b>Skalierung</b>, stellen Sie sicher, dass die Einstellungen denjenigen auf der Bild unten entsprechen, und klicken Sie auf <b>Anwenden</b>, um die Einstellung zu speichern. Klicken Sie auf <b>OK</b>, um den Dialog zu schließen. Entfernen Sie den Titel der X-Achse.</li>
+      </ul>
+
+      <dl>
+        <dd><a class="image"><img alt="Heatmap-07.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-07.png" width="529"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Hilfsstrichsbeschriftungen für beide Achsen, X und Y, im Diagramm und ändern Sie die Schriftgröße auf 10 mit Hilfe der Symbolleiste <b>Format</b>.</li>
+
+    <li>Wählen Sie im Hauptmenü <b>Format: Zeichnung</b> bei aktiver Heatmap.
+
+      <ul>
+        <li>Legen Sie die Ebenen für die Heatmap entsprechend des folgenden Diagramms fest:</li>
+      </ul>
+
+      <dl>
+        <dd><a class="image"><img alt="Heatmap-19.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-19.png" width="552"></a></dd>
+
+        <dd>Bestätigen Sie mit <b>OK</b>, um den Dialog Ebenen festlegen zu schließen.</dd>
+      </dl>
+
+      <ul>
+        <li>Klicken Sie auf die Füllfarbe für die Farbabbildung in der Kopfzelle (blaue Fläche, um die Füllungen gemäß dem folgenden Bild festzulegen:</li>
+      </ul>
+
+      <dl>
+        <dd><a class="image"><img alt="Heatmap-20.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-20.png" width="553"></a></dd>
+      </dl>
+
+      <ul>
+        <li>Scrollen Sie ans Ende der Farbabbildung und setzen Sie die Füllfarbe auf die gleiche Weise auf Rot.</li>
+
+        <li>Klicken Sie auf <b>Speichern</b> auf der Registerkarte <b>Farbpalette/Kontur</b>, um das Muster als heatmap.oth zu speichern. Diese Datei wird im zweiten Teil des Diagramms verwendet.</li>
+      </ul>
+
+      <dl>
+        <dd><a class="image"><img alt="Heatmap-08.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-08.png" width="602"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie im Dialog <b>Details Zeichnung</b> auf den ersten Baumknoten im linken Bedienfeld (standardmäßig <b>Graph1</b>), ändern Sie die Seitengröße in 11*11 Zoll (inch) auf der Registerkarte <b>Drucken/Druckbereich</b> und klicken Sie auf <b>Anwenden</b>. Wählen Sie dann im linken Bedienfeld den Unterknoten für <b>Layer1</b>, gehen Sie zur Registerkarte <b>Größe und Performance</b>, ändern Sie den Layerbereich gemäß dem Bild unten und klicken Sie auf <b>OK</b>, um die Einstellungen anzuwenden und den Dialog zu verlassen:
+
+      <dl>
+        <dd><a class="image"><img alt="Heatmap-13.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-13.png" width="567"></a></dd>
+      </dl>
+    </li>
+
+    <li>Sie schalten den Entwurfsmodus aus, indem Sie auf <a class="image"><img alt="Button SpeedMode.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Button_SpeedMode.png" width="25"></a> klicken, um das Diagramm mit einer höheren Auflösung anzuzeigen. Das fertige Diagramm für Heatmap sollte dem Bild unten entsprechen:
+
+      <dl>
+        <dd><a class="image"><img alt="Heatmap-13-1.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-13-1.png" width="438"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Heat_Map_and_Virtual_Matrix_Manager/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Sobald die virtuellen Matrizen erstellt wurden, können sie intern gespeichert werden. Sie können im Virtuellen Matrixmanager nach ihnen suchen, Die gespeicherte virtuelle Matrix kann direkt für Kontur/Heatmap/3D-Oberfläche verwendet werden. Sie können die virtuelle Matrix über das Eingabefeld des Diagrammdialogs auswählen, wie unten gezeigt:</p>
+
+        <dl>
+          <dd><a class="image"><img alt="Heatmap-22.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-22.png" width="559"></a></dd>
+        </dl>
+      </td>
+    </tr>
+  </table>
+
+  <h3><a name="Create_the_Bar_Plot_with_Colormap"></a><span class="mw-headline">Balkendiagramm mit Farbabbildung erstellen</span></h3>
+
+  <ol>
+    <li>Gehen Sie zum Blatt Temp in der Arbeitsmappe Electricity Usage, markieren Sie das Arbeitsblatt und wählen Sie <b>Zeichnen: Einfache 2D: Balkendiagramm</b> im Hauptmenü, um ein Balkendiagramm zu erstellen.</li>
+
+    <li>Den Stil der Achsen definieren Sie folgendermaßen:
+
+      <ul>
+        <li>Klicken Sie doppelt auf die Achse, um den Dialog <b>Achsen</b> zu öffnen, ändern Sie die <b>Skalierung</b> der Achse (X) bei ausgewähltem Symbol Vertikal auf der Registerkarte <b>Skalierung</b>, wie im Folgenden zu sehen.</li>
+      </ul>
+
+      <dl>
+        <dd><a class="image"><img alt="Heatmap-12-1.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-12-1.png" width="513"></a></dd>
+      </dl>
+
+      <ul>
+        <li>Ändern Sie dann die Skalierung für die Achse (Y) bei ausgewähltem Symbol Horizontal in die Werte von <i>-55</i> bis <i>55</i> bei einem Wert für die <i>Großen Hilfsstriche</i> von <i>25</i> und <i>Kleinen Hilfsstrichen</i> von <i>1</i>. Klicken Sie dann auf <b>Anwenden</b>.</li>
+      </ul>
+
+      <dl>
+        <dd><a class="image"><img alt="Heatmap-12.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-12.png" width="512"></a></dd>
+      </dl>
+
+      <ul>
+        <li>Die Linie und Hilfsstriche für die X-Achse blenden Sie auf der Registerkarte <b>Linie und Hilfsstriche</b> aus, indem Sie das Kontrollkästchen <b>Linie und Hilfsstriche zeigen</b> deaktivieren. Entsprechend können die Gitternetze auf der Registerkarte <b>Gitternetz</b> ausgeblendet werden.</li>
+
+        <li>Klicken Sie auf <b>OK</b>, um den Dialog zu schließen.</li>
+
+        <li>Ändern Sie den Titel der Y-Achse in <i>CDD/HDD</i>, indem Sie doppelt auf das Objekt des Y-Titels klicken und den direkten Bearbeitungsmodus aktivieren. Löschen Sie die Hilfsstrichsbeschriftungen und den Titel der X-Achse, indem Sie sie markieren und die Taste <b>Entfernen</b> drücken.</li>
+      </ul>
+    </li>
+
+    <li>Als Nächstes soll die Farbabbildung für das Diagramm erstellt werden. Das Design der Farbabbildung sollten identisch zu der zuvor erstellten Heatmap sein. Wählen Sie <b>Format: Zeichnung</b> im Hauptmenü, um den Dialog <b>Details Zeichnung</b> zu öffnen.
+
+      <ul>
+        <li>Setzen Sie die Farbe für Rand und Füllung auf <b>Map:Col(B)</b>.</li>
+      </ul>
+
+      <dl>
+        <dd><a class="image"><img alt="Heatmap-09.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-09.png" width="453"></a></dd>
+      </dl>
+
+      <ul>
+        <li>Gehen Sie zur Registerkarte <b>Farbpalette</b> und laden Sie das Design heatmap.oth.</li>
+      </ul>
+
+      <dl>
+        <dd><a class="image"><img alt="Heatmap-10.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-10.png" width="552"></a></dd>
+      </dl>
+
+      <ul>
+        <li>Klicken Sie auf die Ebene der Farbabbildung, um die Ebenen folgendermaßen festzulegen:</li>
+      </ul>
+
+      <dl>
+        <dd><a class="image"><img alt="Heatmap-11-2.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-11-2.png" width="430"></a></dd>
+
+        <dd>Klicken Sie auf <b>OK</b>, um den Dialog <b>Ebenen festlegen</b> zu schließen, und klicken Sie auf <b>Anwenden</b> im Dialog Diagrammeigenschaften, um die Einstellungen zu speichern.</dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie im linken Bedienfeld den ersten Baumknoten (standardmäßig <b>Graph2</b>), ändern Sie die Seitengröße in 11*11 Zoll (inch) auf der Registerkarte <b>Drucken/Druckbereich</b>, klicken Sie auf <b>Anwenden</b>, wechseln Sie dann zu dem Baumknoten <b>Layer1</b> und gehen Sie zur Registerkarte <b>Größe und Performance</b>, ändern Sie den Layerbereich gemäß dem Bild unten und klicken Sie auf OK, um den Dialog zu schließen:
+
+      <dl>
+        <dd><a class="image"><img alt="Heatmap-14.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-14.png" width="430"></a></dd>
+
+        <dd>Das fertige Balkendiagramm sieht in etwa folgendermaßen aus:</dd>
+
+        <dd><a class="image"><img alt="Heatmap-14-1.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-14-1.png" width="227"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Merge_the_Heatmap_Plot_with_Bar_Plot_and_More_Customization_Steps"></a><span class="mw-headline">Heatmap und Balkendiagramm zusammenfügen und benutzerdefiniert anpassen</span></h3>
+
+  <ol>
+    <li>Wählen Sie <b>Grafik: Grafikfenster zusammenfügen</b> im Hauptmenü bei aktiver Heatmap. Fügen Sie Graph1 und Graph2 zusammen. Das Kontrollkästchen <b>Layout neu ordnen</b> sollte deaktiviert sein. Klicken Sie auf <b>OK</b>, um die Einstellung anzuwenden.<br>
+    <a class="image"><img alt="Heatmap-15.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-15.png" width="567"></a> Passen Sie die Größe des zusammengefügten Diagramms (Graph3) an. Klicken Sie auf <b>Format: Seite</b>, gehen Sie zur Registerkarte <b>Drucken/Druckbereich</b> und ändern Sie die Seitengröße in 11*11 Zoll (inch). Klicken Sie auf <b>OK</b>. Drücken Sie <b>Strg+W</b>, um die Diagrammansicht anzupassen.</li>
+
+    <li>Legen Sie den Stil der Farbskala fest:
+
+      <ul>
+        <li>Klicken Sie doppelt auf die Farbskala, um den Dialog Eigenschaften Farbskala zu öffnen, und nehmen Sie folgende Einstellungen auf der Seite Ebenen vor:</li>
+      </ul>
+
+      <dl>
+        <dd><a class="image"><img alt="Heatmap-16.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-16.png" width="596"></a></dd>
+      </dl>
+
+      <ul>
+        <li>Legen Sie auf der Seite Beschriftungen folgende Optionen fest:</li>
+      </ul>
+
+      <dl>
+        <dd><a class="image"><img alt="Heatmap-17.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-17.png" width="595"></a></dd>
+      </dl>
+
+      <ul>
+        <li>Legen Sie auf der Seite Layout folgende Optionen fest:</li>
+      </ul>
+
+      <dl>
+        <dd><a class="image"><img alt="Heatmap-18.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-18.png" width="597"></a></dd>
+
+        <dd>Klicken Sie auf <b>OK</b>, um die Einstellungen anzuwenden, und ziehen Sie an der Außenlinie der Farbskala im Diagramm, um eine geeignete Größe und Position zu erreichen.</dd>
+      </dl>
+    </li>
+
+    <li>Markieren Sie unerwünschte Achsentitel oder Legenden und löschen Sie sie. Fügen Sie ein Textobjekt mit Diagramminformationen mit Hilfe des Texthilfsmittels hinzu.<br>
+    Das fertige Diagramm sieht in etwa folgendermaßen aus:<br>
+    <a class="image"><img alt="Heatmap-21.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-21.png" width="677"></a></li>
+  </ol>

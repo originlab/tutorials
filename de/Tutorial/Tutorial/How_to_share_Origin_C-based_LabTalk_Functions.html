@@ -1,0 +1,116 @@
+﻿<h1 class=firstHeading>Origin C-basierte LabTalk-Funktionen gemeinsam nutzen</h1>
+<p class=urlname style="display: none;">Share-OCBased-LT-Func</p>
+<h2><a name=Introduction></a><span class=mw-headline>Einführung</span></h2>
+<p>Dieses Tutorial erläutert, wie Code mit anderen Anwendern durch Verteilen 
+ der OPX-Dateien gemeinsam genutzt werden kann. In diesem Beispiel werden 
+ nur einige Origin C-Dateien verteilt. Bitte beachten Sie jedoch, dass 
+ die OPX-Verteilung jeden Dateityp enthalten kann, einschließlich (aber 
+ nicht ausschließlich) Projektdateien, Vorlagen und Symbolleisten.</p>
+<p><br />
+</p>
+<h2><a name=Tutorial></a><span class=mw-headline> Tutorial </span></h2>
+<p>Die folgende Vorgehensweise zeigt Ihnen, wie Sie Ihren Origin C-Code 
+ an andere Origin-Anwender verteilen können. In diesem Beispiel wird eine 
+ Origin C-Funktion in eine Datei (<i>MyCode.c</i>) in einen Ordner (<i>MyFunctions</i>) 
+ unter den <b>Anwenderdateiordner</b> (<b>UFF</b>) gepackt.</p>
+<ol><li>Erstellen von Dateispeicherorten</li>
+	<p>Der <b>Quellpfad</b> für Ihre Dateien sollte für den Computer, für 
+ den Ihre OPX-Datei bestimmt ist, zur Verfügung stehen. Der einfachste 
+ Weg dafür ist das Erstellen eines Unterordners im <b>Anwenderdateiordner</b> 
+ von Origin. Die Dateien oder Ordner des <b>Anwenderdateiordners</b> können 
+ dann zu Ihrer OPX-Datei zur Verteilung hinzugefügt werden. Erstellen Sie 
+ also einen Unterordner mit dem Namen <i>MyFunctions</i> im <b>Anwenderdateiordner</b>.</p>
+	<li>Dateien in den Quellpfad kopieren</li>
+	<p>Kopieren Sie alle zu packenden Dateien in den Unterordner, der im 
+ letzten Schritt erstellt wurde. In diesem Fall gibt es nur eine C-Datei 
+ (<i>MyCode.c</i>). Die Funktion in dieser Datei wird unten gezeigt.</p>
+	<pre class=oc style="font-family: monospace;">
+	<span style="color: #0000ff;">void</span> get_data_from_wks<span style="color: #000000;">(</span><span style="color: #000000;">)</span><span style="color: #000000;">
+	{</span>
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces>Worksheet wks <span style="color: #000080;">=</span> Project.<span style="color: #000000;">ActiveLayer</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">if</span><span style="color: #000000;">(</span> <span style="color: #000040;">!</span>wks <span style="color: #000000;">)</span>
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces><span style="color: #000000;">{</span>
+		out_str<span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;Please keep a worksheet active with data&quot;</span><span style="color: #000000;">)</span>;
+		<span style="color: #0000ff;">return</span>;
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces><span style="color: #000000;">}</span>	
+	&nbsp;
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces><span style="color: #008000;">// The following settings to set range as whole worksheet, </span>
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces><span style="color: #008000;">// index offset is 0, -1 means last row/column.</span>
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces><span style="color: #008000;">// Change r1, c1, r2, c2 to specify worksheet sub range, </span>
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces><span style="color: #008000;">// for example, r1 = 0, c1 = 1, r2 = -1, c2 = 2 to </span>
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces><span style="color: #008000;">// select all rows from column 2 to column 3.</span>
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">int</span> r1 <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>; <span style="color: #008000;">// first row</span>
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">int</span> c1 <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>; <span style="color: #008000;">// first column</span>
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">int</span> r2 <span style="color: #000080;">=</span> <span style="color: #000040;">-</span><span style="color: #0000dd;">1</span>; <span style="color: #008000;">// last row</span>
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">int</span> c2 <span style="color: #000080;">=</span> <span style="color: #000040;">-</span><span style="color: #0000dd;">1</span>; <span style="color: #008000;">// last column</span>
+	&nbsp;
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces><span style="color: #008000;">//construct a data range object from worksheet all data</span>
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces>DataRange dr;
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces>dr.<span style="color: #000000;">Add</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;X&quot;</span>, wks, r1, c1, r2, c2<span style="color: #000000;">)</span>; 
+	&nbsp;
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces><span style="color: #008000;">// get data from worksheet to vector by column one by one <spaces>&nbsp;&nbsp;&nbsp;</span></spaces>
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces>matrix mData; 
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces>dr.<span style="color: #000000;">GetData</span><span style="color: #000000;">(</span>mData<span style="color: #000000;">)</span>; <span style="color: #008000;">// get all data to matrix</span>
+	&nbsp;
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces><span style="color: #0000ff;">for</span><span style="color: #000000;">(</span><span style="color: #0000ff;">int</span> nColIndex <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>; nColIndex <span style="color: #000080;">&lt;</span> mData.<span style="color: #000000;">GetNumCols</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>; nColIndex<span style="color: #000040;">++</span><span style="color: #000000;">)</span>
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces><span style="color: #000000;">{</span>
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces>	vector vOneCol;
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces>	mData.<span style="color: #000000;">GetColumn</span><span style="color: #000000;">(</span>vOneCol, nColIndex<span style="color: #000000;">)</span>;
+	&nbsp;
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces>	<span style="color: #0000ff;">double</span> min, max;
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces>	vOneCol.<span style="color: #000000;">GetMinMax</span><span style="color: #000000;">(</span>min, max<span style="color: #000000;">)</span>;
+	&nbsp;
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces>	<span style="color: #000000;">printf</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;Maximum value of&nbsp;%d column =&nbsp;%f<span style="color: #666666; font-weight: bold;">\n</span>&quot;</span>, nColIndex<span style="color: #000040;">+</span><span style="color: #0000dd;">1</span>, max<span style="color: #000000;">)</span>;
+	 <spaces>&nbsp;&nbsp;&nbsp;</spaces><span style="color: #000000;">}</span>	<span style="color: #000000;">
+	}</span>
+	</pre>
+	<li>Ein neues Paket erstellen</li>
+	<p>Öffnen Sie den Dialog <b>Packdateien verwalten</b> durch Auswahl 
+ von <b>Hilfsmittel: Packdateien verwalten</b>. Legen Sie im Dialog die 
+ Optionen, wie im folgenden Bild zu sehen, fest.</p>
+	<p><a class=image><img alt="Shared OC LT tutorial package-vNext.png" 
+ src="../images/How_to_share_Origin_C-based_LabTalk_Functions/Shared_OC_LT_tutorial_package.png" 
+ / style="width: 494px; height: 513px; border-style: none;" width=494 height=513 
+ border=0></a></p>
+	<ul><li>Der <b>Modulname</b> wird als der Name des Pakets angezeigt 
+ und zum Deinstallieren verwendet.</li>
+	</ul>
+	<ul><li><b style="font-weight: bold;">Origin Version benötigt</b> meint 
+ die Version von Origin, die mindestens erforderlich ist, um dieses Paket 
+ zu erstellen. Sie möchten die Versionsnummer im Format 8.0988 und nicht 
+ im Format 8.0SR6 eingeben.</li>
+	</ul>
+	<ul><li>Verwenden Sie die Methode <i>run.addoc()</i> im Zweig <b>Nach 
+ der Installation</b> des <b>LabTalk Skripts</b>, um den Origin C-Quelldatei 
+ in den Arbeitsbereich des Systemordners zu bringen. In diesem Beispiel 
+ sieht das folgendermaßen aus:</li>
+	</ul>
+	<pre class=lt style="font-family: monospace;">
+		run.<span style="color: #000080;">addoc</span><span style="color: #000000;">(</span><span style="color: #000080;">%</span>YMyFunctions\MyCode.<span style="color: #000080;">c</span><span style="color: #000000;">)</span>;
+	</pre>
+	<ul><li>Klicken Sie auf die Schaltfläche <b>Dateien hinzufügen</b> 
+ oder <b>Ordner hinzufügen</b>, navigieren Sie zu den erforderlichen Dateien 
+ und fügen Sie sie hinzu. Navigieren Sie in diesem Beispiel zu dem Unterordner 
+ (<i>MyFunctions</i>) des <b>Anwenderdateiordners</b> und fügen Sie die 
+ C-Datei (<i>MyCode.c</i>) hinzu. Der Pfad des <b>Anwenderdateiordners</b> 
+ wird als Quellpfad angezeigt, und die Dateien werden im unteren Bedienfeld 
+ aufgelistet.</li>
+	</ul>
+	<li>Paket speichern</li>
+	<p>Wählen Sie im Menü <b>Datei: Speichern</b> des Dialogs <b>Packdateien 
+ verwalten</b>. Geben Sie im Popupdialog <b>Speichern unter</b> einen Namen 
+ (in diesem Beispiel kann das <i>MyCode</i> sein) für dieses Paket ein 
+ und speichern Sie es als eine OPX-Datei.</p>
+	<li>Paket verteilen</li>
+	<p>Senden Sie die gespeicherte OPX-Datei an andere Anwender. Die Anwender, 
+ die dieses Paket erhalten, können die OPX-Datei per Drop&amp;Drag in Origin 
+ ziehen, um sie installieren. Die Funktionen sind dann in der C-Datei verfügbar.</p>
+	<ul><li>Ziehen Sie die Datei <i>MyCode.opx</i> per Drag&amp;Drop in 
+ Origin, um sie zu installieren. Nach der Installation kann die in <i>MyCode.c</i> 
+ definierte Funktion <i>get_data_from_wks</i> als LabTalk-Befehl verwendet 
+ werden.</li>
+	</ul>
+	<pre class=lt style="font-family: monospace;">
+		get_data_from_wks;	
+	</pre>
+</ol>

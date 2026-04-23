@@ -1,0 +1,203 @@
+﻿<h1 class="firstHeading">Mehrere Achsenunterbrechungen</h1>
+
+  <p class='urlname' style='display: none'>Multiple-Axis-Breaks</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3"><a href="#Steps_to_Customize_Label_Display_and_Add_Axis_Breaks"><span class="tocnumber">3</span> <span class="toctext">Beschriftungsanzeige benutzerdefiniert anpassen und Achsenunterbrechungen hinzufügen</span></a></li>
+
+      <li class="toclevel-1 tocsection-4"><a href="#Steps_to_Add_Recession_Bars"><span class="tocnumber">4</span> <span class="toctext">Rezessionsbalken hinzufügen</span></a></li>
+
+      <li class="toclevel-1 tocsection-5"><a href="#More_Customization_Steps"><span class="tocnumber">5</span> <span class="toctext">Weitere Schritte der benutzerdefinierten Anpassung</span></a></li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/Multiple_Axis_Breaks/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/Multiple_Axis_Breaks/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=363" target="_blank">Mehrere Achsenunterbrechungen hinzufügen, um Details in einem Bereich zu zeigen</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=362" target="_blank">Achsenskalierung nach Unterbrechung</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=170" target="_blank">Mehrere Achsenreferenzlinien und Rezessionsbalken</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%"><a class="image"><img alt="Website blog icon circle.png" src="../images/Multiple_Axis_Breaks/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Multiple_Axis_Breaks/Blog_Image_33x33px.png" width="135"></a></td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Origin unterstützt mehrere Unterbrechungen auf einer Achse, wie unten zu sehen. Die Anzahl der Unterbrechungen und deren Positionen können im Dialog <b>Achsen</b> festgelegt werden. Außerdem können Sie Rezessionsbalken hinzufügen (die "vertikalen Balken", die unten gezeigt werden), indem mehrere Referenzlinien auf der X-Achse hinzugefügt und die Abstände zwischen ihnen gefüllt werden.</p>
+
+  <p><a class="image"><img alt="Multiple Axis Breaks 01.png" src="../images/Multiple_Axis_Breaks/Multiple_Axis_Breaks_01.png" width="640"></a></p>
+
+  <p class="version">Origin-Version mind. erforderlich: 2017 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>mehrere Unterbrechungen sowohl zur X- als auch zur Y-Achse hinzufügen,</li>
+
+    <li>das Beschriftungsformat der Achsenhilfsstriche benutzerdefiniert anpassen,</li>
+
+    <li>die Spannbreiten, die unterbrochen sind, durch fehlende Werte vertikal füllen,</li>
+  </ul>
+
+  <h2><a name="Steps_to_Customize_Label_Display_and_Add_Axis_Breaks"></a><span class="mw-headline">Die Beschriftungsanzeige benutzerdefiniert anpassen und Achsenunterbrechungen hinzufügen</span></h2>
+
+  <p>Dieses Tutorial ist mit dem Ordner <i>Multiple Axis Breaks</i> im Projekt <i>(&lt;Origin-Verzeichnis&gt;\Samples\Tutorial Data.opj)</i> verbunden.<br>
+  Sie können dieses Diagramm auch im <b>Lernzentrum</b> sehen (wählen Sie im Menü <i>Hilfe: Lernzentrum</i> oder drücken Sie die <b>F11</b>-Taste). Es wird in der Tabelle der Beispieldiagramme unter <b>Linien- und Symboldiagramme</b> aufgelistet. Klicken Sie doppelt auf das Miniaturbild, um den Zielordner zu öffnen.</p>
+
+  <ol>
+    <li>Aktivieren Sie die Arbeitsmappe. Markieren Sie die Spalten col(A) und col(B) und wählen Sie <b>Zeichnen: Einfache 2D: Liniendiagramm</b> im Origin-Hauptmenü, um ein Liniendiagramm zu zeichnen. Markieren und löschen Sie die Legende.</li>
+
+    <li>Um die Diagrammachsen benutzerdefiniert anzupassen, klicken Sie auf die untere Achse und wählen dann in der Auswahlliste der letzten Schaltfläche in der Minisymbolleiste <b>Achsendialog</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Multiple Axis Breaks 01 1.png" src="../images/Multiple_Axis_Breaks/Multiple_Axis_Breaks_01_1.png" width="382"></a></dd>
+      </dl>
+    </li>
+
+    <li>Legen Sie auf der Registerkarte <b>Skalierung</b> für die <b>Horizontale</b> Achse im Dialog die Skalierung der X-Achse folgendermaßen fest:
+
+      <dl>
+        <dd><a class="image"><img alt="Multiple Axis Breaks 04.png" src="../images/Multiple_Axis_Breaks/Multiple_Axis_Breaks_04.png" width="602"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie das Symbol <b>Unten</b> auf der Registerkarte <b>Beschriftung der Hilfsstriche</b>, ändern Sie das Anzeigeformat der Hilfsstrichsbeschriftungen auf <b>20</b> (steht für Jahr <i>JJ</i>) und fügen Sie ein Präfix <b>'</b> hinzu.
+
+      <dl>
+        <dd><a class="image"><img alt="Multiple Axis Breaks 05.png" src="../images/Multiple_Axis_Breaks/Multiple_Axis_Breaks_05.png" width="676"></a></dd>
+      </dl>
+    </li>
+
+    <li>Um mehrere Unterbrechungen zu der X-Achse hinzuzufügen, wählen Sie das Symbol <b>Horizontal</b> auf der Registerkarte <b>Unterbrechungen</b>. Aktivieren Sie das Kontrollkästchen <b>Aktivieren</b> und legen Sie <b>3</b> Achsenunterbrechungen fest.
+
+      <dl>
+        <dd><a class="image"><img alt="Multiple Axis Breaks 07a.png" src="../images/Multiple_Axis_Breaks/Multiple_Axis_Breaks_07a.png" width="602"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Details</b>, um den Dialog <b>Details der Unterbrechungen</b> zu öffnen, und setzen Sie die <b>Unterbrechung1</b> auf <b>01.12.1961</b> bis <b>01.09.1972</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Multiple Axis Breaks 07c.png" src="../images/Multiple_Axis_Breaks/Multiple_Axis_Breaks_07c.png" width="557"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie <b>Unterbrechung 2</b> im linken Bedienfeld und ändern Sie die Eingabe auf <b>31.03.1977</b> und <b>29.08.1980</b>. Wechseln Sie zum Zweig <b>Unterbrechung 3</b> und ändern Sie die Unterbrechung in <b>27.07.84</b> bis <b>01.03.07</b> fest. Klicken Sie auf <b>OK</b>, um die Einstellungen anzuwenden, und verlassen Sie den Dialog <b>Details der Unterbrechungen</b>. Klicken Sie im Dialog <b>Achsen</b> auf <b>Anwenden</b>, um die Änderungen anzuzeigen.</li>
+
+    <li>Um die Y-Achse benutzerdefiniert anzupassen, wählen Sie das Symbol <b>Links</b> auf der Registerkarte <b>Beschriftung der Hilfsstriche</b> und verwenden das Format <b>Technisch:1K</b> für die Anzeige der Hilfsstrichsbeschriftung. Setzen Sie das Präfix auf "$". Klicken Sie auf <b>Anwenden</b>, um die Änderungen im Diagramm anzuzeigen.
+
+      <dl>
+        <dd><a class="image"><img alt="Multiple Axis Breaks 08.png" src="../images/Multiple_Axis_Breaks/Multiple_Axis_Breaks_08.png" width="602"></a></dd>
+      </dl>
+    </li>
+
+    <li>Gehen Sie bei aktiviertem Symbol <b>Vertical</b> erneut zur Registerkarte <b>Unterbrechungen</b> und aktivieren Sie 2 Achsenunterbrechungen bei den Skalierungswerten <b>3,1T</b> bis <b>4,5T</b> sowie <b>6,7T</b> bis <b>12,5T</b>, wie Sie das auch für die X-Achse in Schritt 4 und 6 getan haben.</li>
+
+    <li>Klicken Sie auf <b>OK</b>, um diese Einstellungen anzuwenden. Sie erhalten in etwa folgendes Diagramm:
+
+      <dl>
+        <dd><a class="image"><img alt="Multiple Axis Breaks 01 2.png" src="../images/Multiple_Axis_Breaks/Multiple_Axis_Breaks_01_2.png" width="567"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <table class="noborder">
+    <tr>
+      <td style="vertical-align:top" width="60"><img src="../images/Multiple_Axis_Breaks/Tip_icon.png" width="57" border="0" alt=""></td>
+
+      <td>
+        <p>Wenn Achsenunterbrechungen zur Diagrammachse hinzugefügt wurden, können Sie ihr Aussehen anpassen, in dem Sie auf die Achsenunterbrechung klicken und die Schaltflächen der Minisymbolleiste verwenden, um die Länge des Unterbrechungssymbols, den Symbolabstand, die Symbolform etc. zu ändern.</p>
+
+        <dl>
+          <dd>
+            <dl>
+              <dd><a class="image"><img alt="Tutorials Multiple Axis Breaks.png" src="../images/Multiple_Axis_Breaks/Tutorials_Multiple_Axis_Breaks.png" width="309"></a></dd>
+            </dl>
+          </dd>
+        </dl>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Steps_to_Add_Recession_Bars"></a><span class="mw-headline">Rezessionsbalken hinzufügen</span></h2>
+
+  <ol>
+    <li>Klicken Sie doppelt auf die X-Achse, um den Dialog Achsen zu öffnen. Gehen Sie zur Registerkarte <b>Referenzlinien</b> und klicken Sie auf die interaktive Schaltfläche <a class="image"><img alt="Button Select Data Interactive.png" src="../images/Multiple_Axis_Breaks/Button_Select_Data_Interactive.png" width="18"></a> neben dem Textfeld <b>Referenzlinien bei Wert</b>, um die Spalte col(C) im Arbeitsblatt auszuwählen. Die X-Koordinaten aller Rezessionszeiträume werden in der Anzeigetabelle als Referenzlinien aufgeführt. Aktivieren Sie dann das Kontrollkästchen <b>Abwechselnd füllen</b>, um jeden Zeitraum zu füllen.
+
+      <dl>
+        <dd><a class="image"><img alt="Multiple Axis Breaks 02.png" src="../images/Multiple_Axis_Breaks/Multiple_Axis_Breaks_02.png" width="758"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um diese Einstellungen anzuwenden.
+
+      <dl>
+        <dd><a class="image"><img alt="Multiple Axis Breaks 01 3.png" src="../images/Multiple_Axis_Breaks/Multiple_Axis_Breaks_01_3.png" width="580"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <p>&#160;</p>
+
+  <h2><a name="More_Customization_Steps"></a><span class="mw-headline">Weitere Schritte der benutzerdefinierten Anpassung</span></h2>
+
+  <p>Die folgenden Schritte können das Diagramm weiterführend benutzerdefiniert anpassen, um genau so auszusehen, wie das Bild unter Zusammenfassung.</p>
+
+  <ol>
+    <li>Klicken Sie doppelt auf den Titel der X-Achse <b>Date</b> im Diagramm und benennen Sie ihn in <b>Year</b> um.</li>
+
+    <li>Um den Bereich der Y-Achse zu ändern, klicken Sie auf die linke Achse und wählen dann in der Auswahlliste der letzten Schaltfläche in der Minisymbolleiste <b>Achsendialog</b>. Legen Sie auf der Registerkarte <b>Skalierung</b> für die <b>Vertikale</b> Achse im Dialog die Werte für Von, Bis, Große und Kleine Hilfsstriche folgendermaßen fest.
+
+      <dl>
+        <dd><a class="image"><img alt="Multiple Axis Breaks 09.png" src="../images/Multiple_Axis_Breaks/Multiple_Axis_Breaks_09.png" width="506"></a></dd>
+      </dl>
+    </li>
+
+    <li>Kehren Sie zurück zur Registerkarte <b>Unterbrechungen</b>, wählen Sie die erste Achsenunterbrechung und klicken Sie auf <b>Details</b>, um den Dialog <b>Details der Unterbrechungen</b> bei ausgewählter <b>Unterbrechung 1</b> zu öffnen. Deaktivieren Sie das Kontrollkästchen <b>Auto</b> neben der Unterbrechungsposition und geben Sie einen Wert von <b>38</b>% ein. Deaktivieren Sie das Kontrollkästchen <b>Automatisch skalieren</b> und ändern Sie die Einstellungen der Hilfsstriche folgendermaßen:
+
+      <dl>
+        <dd><a class="image"><img alt="Multiple Axis Breaks 10b.png" src="../images/Multiple_Axis_Breaks/Multiple_Axis_Breaks_10b.png" width="468"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie <b>Unterbrechung 2</b> aus und legen Sie die Unterbrechungsposition, die großen und die kleinen Hilfsstriche, wie unten zu sehen, fest.
+
+      <dl>
+        <dd><a class="image"><img alt="Multiple Axis Breaks 10c.png" src="../images/Multiple_Axis_Breaks/Multiple_Axis_Breaks_10c.png" width="557"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um diese Einstellungen anzuwenden und den Dialog <b>Details der Unterbrechungen</b> zu schließen. Klicken Sie auf <b>Anwenden</b> im Dialog <b>Achsen</b>, um die Einstellungen anzuwenden.</li>
+
+    <li>Wählen Sie die Registerkarte <b>Gitternetzlinien</b>. Wählen Sie die Symbole für <b>Vertikal</b> und <b>Horizontal</b> im linken Bedienfeld und aktivieren Sie <b>Gegenüber</b>, um einen Rahmen um die obere und rechte Achse zu zeigen.</li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf einen leeren Bereich in dem Diagrammlayer 1 und wählen Sie <b>Layertitel hinzufügen/Modifizieren</b> im Kontextmenü. Geben Sie <i>US Recessions and Recoveries</i> als Layertitel ein.</li>
+
+    <li>Wählen Sie den Knoten Graph im linken Bedienfeld des Dialogs <b>Details Zeichnung</b> und passen Sie die Seitendimension an.
+
+      <dl>
+        <dd><a class="image"><img alt="Multiple Axis Breaks 12.png" src="../images/Multiple_Axis_Breaks/Multiple_Axis_Breaks_12.png" width="380"></a></dd>
+      </dl>
+    </li>
+  </ol>

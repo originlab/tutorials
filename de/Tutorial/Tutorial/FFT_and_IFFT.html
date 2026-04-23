@@ -1,0 +1,149 @@
+﻿<h1 class="firstHeading">FFT und IFFT</h1>
+
+  <p class="urlname" style='display: none'>FFT-and-IFFT</p>
+
+  <table id="toc" class="toc">
+    <tr>
+      <td>
+        <div id="toctitle">
+          <h2>Inhalt</h2>
+        </div>
+
+        <ul>
+          <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+          <li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+          <li class="toclevel-1 tocsection-3"><a href="#FFT_Gadget"><span class="tocnumber">3</span> <span class="toctext"><b>Minitool FFT</b></span></a></li>
+
+          <li class="toclevel-1 tocsection-4"><a href="#FFT"><span class="tocnumber">4</span> <span class="toctext"><b>FFT</b></span></a></li>
+
+          <li class="toclevel-1 tocsection-5"><a href="#IFFT"><span class="tocnumber">5</span> <span class="toctext"><b>IFFT</b></span></a></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a> <span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Die FFT (Fast-Fourier-Transformation) kann ein Signal aus aus der Zeitdomäne in die Frequenzdomäne konvertieren. Die IFFT (Inverse FFT) konvertiert ein Signal dagegen aus der Frequenzdomäne in die Zeitdomäne. Die FFT von einem nicht periodischen Signal verursacht einen sogenannten Leck-Effekt (Leakage-Effekt) im Ergebnisfrequenzspektrum. Origin bietet mehrere Fenster, mit denen eine FFT durchgeführt werden kann, die diesen Leck-Effekt unterdrückt.</p>
+
+  <h2><a name="What_You_Will_Learn"></a> <span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>In diesem Tutorial lernen Sie, wie Sie:</p>
+
+  <ol>
+    <li>eine FFT für ein Signal mit verschiedenen Fenstern durchführen.</li>
+
+    <li>das ursprüngliche Signal mit dem Spektrum wiederherstellen.</li>
+
+    <li>eine FFT für ein Diagramm mit dem Minitool FFT durchführen.</li>
+  </ol>
+
+  <h2><a name="FFT_Gadget"></a> <span class="mw-headline"><b>Minitool FFT</b></span></h2>
+
+  <p>Origins Minitool FFT platziert ein rechteckiges Objekt in der Zeichnung eines Signals, in dem Sie eine FFT auf die Daten, die sich in dem Rechteck befinden, durchführen können. Dies ist praktisch, wenn Sie schnell sehen wollen, welchen Effekt die FFT auf die Daten hat.</p>
+
+  <p>Das folgende Tutorial zeigt, wie Sie das Minitool FFT auf die Zeichnung des Signals anwenden.</p>
+
+  <ol>
+    <li>Öffnen Sie eine neue Arbeitsmappe und importieren Sie die Daten aus dem <b>&lt;Origin-Verzeichnis&gt;\Samples\Signal Processing\Chirp Signal.dat</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial FFT 1.png" src="../images/FFT_and_IFFT/SP_Tutorial_FFT_1.png" width="309" height="292"></a></dd>
+      </dl>
+    </li>
+
+    <li>Markieren Sie Spalte B und erstellen Sie ein Liniendiagramm, indem Sie im Menü <b>Zeichnen: Linie: Liniendiagramm</b> wählen.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial FFT 2.png" src="../images/FFT_and_IFFT/SP_Tutorial_FFT_2.png" width="415" height="347"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie bei aktiver Zeichnung im Menü <b>Minitools: FFT</b>, um das Minitool FFT zu öffnen.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial FFT 3.png" src="../images/FFT_and_IFFT/SP_Tutorial_FFT_3.png" width="318" height="317"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie bei unveränderten Standardeinstellungen auf die Schaltfläche <b>OK</b>, um das Rechteck der grafischen Datenauswahl (ROI) in dem Diagramm zu platzieren.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial FFT 4.png" src="../images/FFT_and_IFFT/SP_Tutorial_FFT_4.png" width="415" height="347"></a></dd>
+      </dl>
+    </li>
+
+    <li>Beachten Sie, dass das Diagramm <b>FFTPREVIEW</b> erstellt wird, das die FFT-Ergebnisse für die ausgewählten Daten zeigt.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial FFT 5.png" src="../images/FFT_and_IFFT/SP_Tutorial_FFT_5.png" width="655" height="330"></a></dd>
+      </dl>
+    </li>
+
+    <li>Sie können das Rechteck nach links und rechts verschieben, um verschiedene Teile der Daten abzudecken. Sie können auch die Breite des Rechtecks ändern, um eine unterschiedlich große Anzahl von Datenpunkten einzuschließen. Die Neupositionierung oder Größenveränderung der grafischen Datenauswahl (ROI) verändert das Diagramm <b>FFTPREVIEW</b>.</li>
+  </ol>
+
+  <h2><a name="FFT"></a> <span class="mw-headline"><b>FFT</b></span></h2>
+
+  <p>In diesem Beispiel wird das Fenster gewechselt, um den Leck-Effekt des Spektrums zu unterdrücken.</p>
+
+  <ol>
+    <li>Verwenden Sie die gleichen Daten wie im Abschnitt zum <b>Minitool FFT</b> oben.</li>
+
+    <li>Markieren Sie Spalte B und wählen Sie dann im Menü <b>Analyse: Signalverarbeitung: FFT: FFT...</b>. Der Dialog <b>Signal Processing\FFT: fft1</b> wird geöffnet.</li>
+
+    <li>Aktivieren Sie unten im Dialog das Kontrollkästchen <b>Automatische Vorschau</b>, um das Ergebnis im rechten Bedienfeld anzuzeigen. Wechseln Sie das <b>Fenster</b> in <b>Blackman</b> und behalten Sie die anderen Standardeinstellungen bei. Im rechten Bedienfeld ist ein schmales, spitzes Peakspektrum für die Amplitude zu erkennen. Das <b>Blackman</b>-Fenster unterdrückt den Leck-Effekt im Spektrum sehr gut.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial FFT 6.png" src="../images/FFT_and_IFFT/SP_Tutorial_FFT_6.png" width="1189" height="572"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um die Ergebnisdaten und -diagramme zu erzeugen.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial FFT 7.png" src="../images/FFT_and_IFFT/SP_Tutorial_FFT_7.png" width="720" height="432"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h2><a name="IFFT"></a> <span class="mw-headline"><b>IFFT</b></span></h2>
+
+  <p>Dieses Beispiel zeigt, wie das Signal aus dem Ergebnis der FFT wiederhergestellt wird. Um das ursprüngliche Ergebnis wiederherzustellen, müssen die Einstellungen für FFT und IFFT gleich sein, d.h., der <b>Spektrumstyp</b> muss <b>zweiseitig</b> und das <b>Fenster</b> muss ein <b>Rechteck</b> sein.</p>
+
+  <ol>
+    <li>Beginnen Sie mit den Ergebnissen der <b>FFT</b> oben und klicken Sie auf die grünen Schlösser. Wählen Sie <b>Parameter ändern</b> im Menü, um den Dialog wieder zu öffnen.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial FFT 8.png" src="../images/FFT_and_IFFT/SP_Tutorial_FFT_8.png" width="230" height="246"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wie oben bereits erwähnt, muss für das <b>Fenster</b> ein <b>Rechteck</b> festgelegt und der <b>Spektrumstyp</b> sollte <b>zweiseitig</b> sein. Ändern Sie also diese beiden Einstellungen.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial FFT 9.png" src="../images/FFT_and_IFFT/SP_Tutorial_FFT_9.png" width="1189" height="572"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, und die Ergebnisse werden modifiziert.</li>
+
+    <li>Gehen Sie zum Arbeitsblatt <b>FFTResultData1</b>. Eine Spalte ist Komplex, eine Spalte ist Real und eine ist Imaginär. In diesem Fall können sie die Spalte Komplex verwenden (die Spalten Real und Imaginär können auch verwendet werden). Markieren Sie sie und wählen Sie im Menü <b>Analyse: Signalverarbeitung: FFT: IFFT</b>, um den Dialog <b>Signal Processing\FFT: ifft1</b> zu öffnen. (Beachten Sie, dass, wenn die Spalten Real und Imaginär verwendet werden, die erste Zeile für <b>Eingabe</b> die Spalte Real sein sollte und das Feld Imaginär zu Spalte <b>Imaginär</b> <b>weisen sollte</b>.) Aktivieren Sie unten das Kontrollkästchen Automatische Vorschau, um das Ergebnis im rechten Bedienfeld in der Vorschau zu sehen.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial FFT 10.png" src="../images/FFT_and_IFFT/SP_Tutorial_FFT_10.png" width="1066" height="476"></a></dd>
+      </dl>
+    </li>
+
+    <li>Übernehmen Sie die anderen Standardeinstellungen und klicken Sie auf die Schaltfläche <b>OK</b>.</li>
+
+    <li>Jetzt ist es möglich, einen Vergleich zu ziehen zwischen dem IFFT-Ergebnis (im Arbeitsblatt <b>IFFTResultData1</b>) und den ursprünglichen Signaldaten. Wie im Bild unten zu sehen, sind sie fast gleich.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial FFT 11.png" src="../images/FFT_and_IFFT/SP_Tutorial_FFT_11.png" width="961" height="429"></a></dd>
+      </dl>
+    </li>
+  </ol>
+  

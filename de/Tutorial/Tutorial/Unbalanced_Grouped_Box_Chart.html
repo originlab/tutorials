@@ -1,0 +1,217 @@
+﻿<h1 class="firstHeading">Unbalanciertes gruppiertes Boxdiagramm</h1>
+
+  <p class='urlname' style='display: none'>UnbalanecedGroupedBoxChart</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Creating_the_Box_Plot_from_Raw_Data"><span class="tocnumber">3.2</span> <span class="toctext">Boxdiagramm aus Rohdaten erstellen</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Customizing_the_axis_table_to_display_unbalanced_groupings"><span class="tocnumber">3.2</span> <span class="toctext">Achsentabelle benutzerdefiniert anpassen, um unbalancierte Gruppierungen anzuzeigen</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#Add_a_top_axis_table_row"><span class="tocnumber">3.3</span> <span class="toctext">Eine obere Achsentabellenzeile hinzufügen</span></a></li>
+
+          <li class="toclevel-2 tocsection-7"><a href="#Further_customization"><span class="tocnumber">3.4</span> <span class="toctext">Weitere benutzerdefinierte Anpassungen</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Origin kann verwendet werden, um unbalancierte gruppierte Boxdiagramme aus Rohdaten mit benutzerdefinierten Tabellenachsen zu erstellen.</p>
+
+  <dl>
+    <dd><a class="image"><img alt="Unbalanced Box Chart 01.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_01.png" width="543"></a></dd>
+  </dl>
+
+  <p class="version">Origin-Version mind. erforderlich: 2015 SR0</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>ein unbalanciertes gruppiertes Boxdiagramm aus Rohdaten erstellen,</li>
+
+    <li>eine obere Achsentabellenzeile mit zusätzlichen Gruppierungsinformationen hinzufügen,</li>
+
+    <li>die Achsen der Tabelle benutzerdefiniert anpassen.</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <h3><a name="Creating_the_Box_Plot_from_Raw_Data"></a><span class="mw-headline">Boxdiagramm aus Rohdaten erstellen</span></h3>
+
+  <p>Dieses Tutorial basiert auf dem Projekt: <i>&lt;Origin-Verzeichnis&gt;\Samples\Tutorial Data.opj</i>.</p>
+
+  <ol>
+    <li>Öffnen Sie das Projekt <b>Tutorial Data.opj</b> und navigieren Sie zu dem Ordner <i>Unbalanced Grouped Box Chart</i>.</li>
+
+    <li>Aktivieren Sie die Arbeitsmappe <b>Book 3</b>.</li>
+
+    <li>Markieren Sie alle Spalten außer col(A). Wählen Sie im Menü <b>Zeichnen: Kategorial: Gruppierte Boxdiagramme, Roh</b>, um den Dialog <b>Plotting: plotgboxraw</b> zu öffnen. Setzen Sie im Dialog die <b>Gruppenanzahl</b> auf <b>2</b>, die <b>1. Gruppenzeile</b> auf <b>Continents</b> und die <b>2. Gruppenzeile</b> auf <b>Country</b>. Ein Boxdiagramm wird erstellt, dessen Spaltendaten in drei Gruppen angeordnet sind und deren Zeilennamen der X-Achse aus den zwei ausgewählten Beschriftungszeilen des Arbeitsblatts stammen:
+
+      <dl>
+        <dd><a class="image"><img alt="Unbalanced Box Chart 03.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_03.png" width="675"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>. Markieren Sie die Legende und löschen Sie sie, und das gruppierte Boxdiagramm wird aus Rohdaten mit zwei Gruppierungsebenen erstellt, wie unten gezeigt:
+
+      <dl>
+        <dd><a class="image"><img alt="Unbalanced Box Chart 06.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_06.png" width="488"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Customizing_the_axis_table_to_display_unbalanced_groupings"></a><span class="mw-headline">Achsentabelle benutzerdefiniert anpassen, um unbalancierte Gruppierungen anzuzeigen</span></h3>
+
+  <ol>
+    <li>Die Farbe und der Abstand der Untergruppe müssen etwas bearbeitet werden. Beginnen Sie, indem Sie alle Felder auf Grau setzen. Wählen Sie im Menü <b>Format: Zeichnung</b>. Klicken Sie im Dialog <b>Details Zeichnung</b> auf die Registerkarte Gruppe. Setzen Sie das <b>Inkrement</b> für <b>Randfarbe</b> auf <b>Kein</b> und <b>Untergruppe</b> auf <b>Kein</b>, so dass die Randfarbe der Box nicht nach Datensatz inkrementiert.
+
+      <dl>
+        <dd><a class="image"><img alt="Unbalanced Box Chart 07.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_07.png" width="541"></a></dd>
+      </dl>
+    </li>
+
+    <li>Gehen Sie zur Registerkarte <b>Muster</b> und duplizieren Sie die Einstellungen, wie unten gezeigt.
+
+      <dl>
+        <dd><a class="image"><img alt="Unbalanced Box Chart 08.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_08.png" width="452"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wechseln Sie zur Registerkarte <b>Abstände</b> und setzen Sie <b>Abstand zwischen Untergruppen (in%)</b> auf <b>0</b>, um den Abstand zwischen den Untergruppierungen zu entfernen.
+
+      <dl>
+        <dd><a class="image"><img alt="Unbalanced Box Chart 09.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_09.png" width="291"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um diese Einstellungen anzuwenden. Jetzt wird das unbalancierte gruppierte Boxdiagramm korrekt gezeichnet (die Beschriftungen werden später angepasst).
+
+      <dl>
+        <dd><a class="image"><img alt="Unbalanced Box Chart 10.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_10.png" width="570"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Add_a_top_axis_table_row"></a><span class="mw-headline">Eine obere Achsentabellenzeile hinzufügen</span></h3>
+
+  <p>Sie fügen jetzt eine Achsentabelle oberhalb des Diagramms hinzu, um zusätzliche Gruppierungsinformationen anzuzeigen.</p>
+
+  <ol>
+    <li>Öffnen Sie den <b>Dialog Achsen</b> erneut (<b>Format: Achsen: X-Achse</b>). Gehen Sie zur Registerkarte <b>Beschriftung der Hilfsstriche</b> und klicken Sie nur im linken Bedienfeld auf das Symbol <b>Unten 1</b>.</li>
+
+    <li>Wechseln Sie zur Registerkarte <b>Tabelle</b> auf der Seite <b>Beschriftung der Hilfsstriche</b> und setzen Sie <b>Anzahl der Zeilen</b> auf <b>3</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Unbalanced Box Chart 11.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_11.png" width="622"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie, um das neu hinzugefügte Symbol <b>Unten 3</b> im linken Bedienfeld auszuwählen, und gehen Sie zur Registerkarte <b>Anzeige</b>, um die Liste <b>Anzeige</b> auf <b>Rang</b> zu setzen (beachten Sie, dass dies eine weitere Beschriftungszeile des Arbeitsblatts ist).
+
+      <dl>
+        <dd><a class="image"><img alt="Unbalanced Box Chart 12.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_12.png" width="622"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>Anwenden</b>, um die Änderungen zu sehen. Es wird eine neue Tabellenzeile zu der unteren X-Achse hinzugefügt. Als Nächstes verschieben Sie sie über das Diagramm.
+
+      <dl>
+        <dd><a class="image"><img alt="Unbalanced Box Chart 13.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_13.png" width="407"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf das Symbol <b>Unten 3</b> im linken Bedienfeld und wählen Sie <b>Auf die gegenüberliegende Seite verschieben</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Unbalanced Box Chart 14.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_14.png" width="622"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um die Änderung anzuwenden.
+
+      <dl>
+        <dd><a class="image"><img alt="Unbalanced Box Chart 15.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_15.png" width="568"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Further_customization"></a><span class="mw-headline">Weitere benutzerdefinierte Anpassung</span></h3>
+
+  <p>Im Weiteren sollen einige Anpassungen vorgenommen werden, so dass unser Diagramm aussieht wie das Bild in der Einführung dieses Tutorials.</p>
+
+  <ol>
+    <li>Klicken Sie doppelt auf die Gruppierungstabelle unten im Diagramm, um den <b>Dialog Achsen</b> aufzurufen, gehen Sie zur Registerkarte <b>Beschriftung der Hilfsstriche</b> und klicken Sie, um nur das Symbol <b>Unten 1</b> erneut zu markieren.</li>
+
+    <li>Wechseln Sie zur Registerkarte <b>Tabelle</b> und deaktivieren Sie das Kontrollkästchen <b>Ferne parallele Grenze</b> für <b>Unten 1</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Unbalanced Box Chart 17.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_17.png" width="622"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie, um das Symbol <b>Unten 2</b> im linken Bedienfeld zu markieren, deaktivieren Sie das Kontrollkästchen <b>Auto</b> und deaktivieren Sie die Kontrollkästchen <b>Rahmen Innen</b> und <b>Rahmen Außen</b>.</li>
+
+    <li>Klicken Sie, um das Symbol <b>Oben 1</b> im linken Bedienfeld zu markieren, und deaktivieren Sie die Kontrollkästchen <b>Ferne parallele Grenze</b>, <b>Rahmen Innen</b> und <b>Rahmen Außen</b>. Aktivieren Sie die Kontrollkästchen <b>Hilfsstrich am Anfang einer Zelle</b> und <b>Hilfsstrich am Ende einer Zelle</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Unbalanced Box Chart 18.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_18.png" width="622"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>Anwenden</b> und gehen Sie dann zur Registerkarte <b>Linie und Hilfsstriche</b>. Setzen Sie den <b>Stil</b> unter <b>Große Hilfsstriche</b> auf <b>Innen &amp; Außen</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Unbalanced Box Chart 19.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_19.png" width="622"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wechseln Sie zur Registerkarte <b>Gitternetze</b> und passen Sie Haupt- und Nebenlinieneinstellungen der Gitternetze mit <b>Farbe</b> = <b>Schwarz</b>, <b>Stil</b> = <b>Punkt</b> und <b>Dicke</b> = <b>0,5</b> an.
+
+      <dl>
+        <dd><a class="image"><img alt="Unbalanced Box Chart 20.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_20.png" width="622"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>Anwenden</b> und gehen Sie zur Registerkarte <b>Skalierung</b>, klicken Sie auf das Symbol <b>Vertikal</b> im linken Bedienfeld und ändern Sie den <b>Typ</b> der Skalierung in <b>Log10</b>. Passen Sie die anderen Einstellungen, wie unten gezeigt, an.
+
+      <dl>
+        <dd><a class="image"><img alt="Unbalanced Box Chart 21.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_21.png" width="622"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wechseln Sie zur Registerkarte <b>Beschriftung der Hilfsstriche</b> und geben Sie ein <b>Suffix</b> von <b>%</b> ein, um diesen Buchstaben auf jede der Beschriftungen der Y-Achse anzuwenden.
+
+      <dl>
+        <dd><a class="image"><img alt="Unbalanced Box Chart 22.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_22.png" width="622"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um die obenstehenden Änderungen anzuwenden.
+
+      <dl>
+        <dd><a class="image"><img alt="Unbalanced Box Chart 23.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_23.png" width="556"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>Format: Seite</b> und setzen Sie <b>Breite</b> = <b>14,0</b> (Sie können die Einstellung der <b>Höhe</b> so lassen, wie sie ist).</li>
+
+    <li>Klicken Sie doppelt auf die <b>Country</b>-Beschriftungen im Diagramm und legen Sie die Schrift mit <b>Größe</b> = <b>14</b> fest.</li>
+
+    <li>Um einen Diagrammtitel hinzuzufügen, klicken Sie auf das Hilfsmittel <b>Text</b>, klicken Sie auf eine Stelle in der Überschrift des Diagramms und geben Sie <i>Female Tertiary Education (ISCED 5 and 6) Enrollment</i> ein. Ändern Sie den Titel der Y-Achse in <i>Enrollment Rate</i>.</li>
+  </ol>

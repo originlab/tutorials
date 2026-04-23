@@ -1,0 +1,319 @@
+﻿<h1 class="firstHeading">Ein Diagramm zu einem existierenden Diagramm hinzufügen</h1>
+
+  <p class='urlname' style='display: none'>Adding-Plot</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Inputting_data_and_plotting"><span class="tocnumber">3.1</span> <span class="toctext">Daten eingeben und zeichnen</span></a></li>
+
+          <li class="toclevel-2 tocsection-5">
+            <a href="#Adding_plot_by"><span class="tocnumber">3.2</span> <span class="toctext">Zeichnung hinzufügen</span></a>
+
+            <ul>
+              <li class="toclevel-3 tocsection-6"><a href="#Using_Drag-and-Drop"><span class="tocnumber">3.2.1</span> <span class="toctext">Mittels Drag&amp;Drop</span></a></li>
+
+              <li class="toclevel-3 tocsection-7"><a href="#Using_Plot_Setup"><span class="tocnumber">3.2.2</span> <span class="toctext">Mittels Diagrammeinstellungen</span></a></li>
+
+              <li class="toclevel-3 tocsection-8"><a href="#Using_Layer_Contents"><span class="tocnumber">3.2.3</span> <span class="toctext">Mittels Layerinhalt</span></a></li>
+
+              <li class="toclevel-3 tocsection-9"><a href="#Using_mini_toolbar"><span class="tocnumber">3.2.4</span> <span class="toctext">Mittels Minisymbolleiste</span></a></li>
+            </ul>
+          </li>
+
+          <li class="toclevel-2 tocsection-10"><a href="#Grouping_plots_in_Object_Manager"><span class="tocnumber">3.3</span> <span class="toctext">Zeichnungen in der Objektverwaltung gruppieren</span></a></li>
+
+          <li class="toclevel-2 tocsection-11"><a href="#Updating_the_Graph_Legend"><span class="tocnumber">3.4</span> <span class="toctext">Diagrammlegende aktualisieren</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/Adding_Plot/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/Adding_Plot/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=256" target="_blank">Zeichnungen zu einer Grafik per Drag&amp;Drop hinzufügen</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=13" target="_blank">Zeichnungen mit Layerinhalt hinzufügen, gruppieren und neu ordnen</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=369" target="_blank">Daten aus Arbeitsblatt oder Matrix in Grafik kopieren</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=274" target="_blank">Zeichnungen in der Objektverwaltung gruppieren bzw. Gruppierung aufheben</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=251" target="_blank">Objektverwaltung zum Neuordnen der Zeichnungen verwenden</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=258" target="_blank">Legende benutzerdefiniert anpassen</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=91" target="_blank">Metadaten in Legende kombinieren</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%">
+        <a class="image"><img alt="Website blog icon circle.png" src="../images/Adding_Plot/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Adding_Plot/Blog_Image_33x33px.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="http://blog.originlab.com/plotting-column-with-mean-values" target="_blank">Gruppierte Spalte mit Mittelwerten zeichnen</a></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Es kann vorkommen, dass Sie, wenn Sie einen Datensatz in einen Diagrammlayer gezeichnet haben, einen weiteren Datensatz in den gleichen Diagrammlayer zeichnen möchten.</p>
+
+  <p>Für diesen Fall stehen Ihnen vier Methoden zur Verfügung:</p>
+
+  <ul>
+    <li>
+      <a href="../../GettingStarted/OriginLab/2D_Graphs.html#Adding_Data_by_Drag_and_Drop" title="OriginLab:2D Graphs">Datensatz per Drag&amp;Drop in den Diagrammlayer ziehen</a>
+
+      <dl>
+        <dd>Sie können Daten per Drag&amp;Drop zu einer Grafik hinzufügen. Wenn Sie diese Methode verwenden, legt Origin bei Erstellung des Diagramms die <a class="external text" href="http://wikis/docwiki/index.php?title=UserGuide/Set_Column_Designation" target="_blank">Diagrammzuordnung der Arbeitsblattspalten</a> zugrunde.</dd>
+      </dl>
+    </li>
+
+    <li>Sie können den Dialog <b>Diagrammeinstellungen</b> verwenden, um die Zeichnung hinzuzufügen.
+
+      <dl>
+        <dd>Der Dialog Diagrammeinstellungen kann verwendet werden, um Diagramme in einem existierenden Diagramm hinzuzufügen/neu zu ordnen/anzuordnen. Dieser Dialog bietet Flexibilität beim Auswählen des Quelldatenblatts und dem Festlegen, welche Daten gezeichnet werden sollen.</dd>
+      </dl>
+    </li>
+
+    <li>Sie können den Dialog <b>Layerinhalt</b> verwenden, um die Zeichnung hinzuzufügen.
+
+      <dl>
+        <dd>Der Dialog Layerinhalt wird verwendet, um Datenzeichnungen zu bzw. aus einem Diagrammlayer oder einer Gruppe hinzuzufügen bzw. zu entfernen und die Datenzeichnungen neuzuordnen (Reihenfolge zum Zeichnen der Datensätze ändern).</dd>
+      </dl>
+    </li>
+
+    <li>Verwenden Sie die Schaltfläche <b>Zeichnung kopieren</b> in der Minisymbolleiste, um eine existierende Zeichnung in den Diagrammlayer einzufügen.
+
+      <dl>
+        <dd>Seit Origin 2020 können Sie <a class="external text" href="../../UserGuide/UserGuide/Popup_Button.html">die Schaltfläche Zeichnung kopieren auf der Minisymbolleiste</a> verwenden, um eine Zeichnung aus einer Grafik zu kopieren und diese Zeichnung in einem anderen Diagrammlayer einzufügen. Auf diese Weise können Sie eine existierende Zeichnung zu einem anderen existierenden Diagrammlayer hinzufügen.</dd>
+      </dl>
+    </li>
+  </ul>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>Per Drag&amp;Drop Daten zu einem Diagrammlayer hinzufügen</li>
+
+    <li>Den Dialog <b>Diagrammeinstellungen</b> verwenden, um Daten zu einem Diagrammlayer hinzuzufügen</li>
+
+    <li>Den Dialog <b>Layerinhalt</b> verwenden, um Daten zu einem Diagrammlayer hinzuzufügen</li>
+
+    <li>Eine Minisymbolleiste verwenden, um eine Zeichnung zu kopieren und in einen Diagrammlayer einzufügen</li>
+
+    <li>Zeichnungen in der Objektverwaltung gruppieren</li>
+
+    <li>Den Dialog <b>Legende aktualisieren</b> verwenden, um die Diagrammlegende zu modifizieren</li>
+  </ul>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <h3><a name="Inputting_data_and_plotting"></a><span class="mw-headline">Daten eingeben und zeichnen</span></h3>
+
+  <ol>
+    <li>Klicken Sie auf die Schaltfläche <b>Neues Diagramm</b> in der Symbolleiste Standard, um ein neues Diagrammfenster zu öffnen.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Importassistent</b> in der Symbolleiste Standard. Der Importassistent wird geöffnet. (Beachten Sie, dass es, sollten Sie den Importassistenten zum ersten Mal gestartet haben, zu einer kleinen Verzögerung kommt, da Origin die erforderlichen Dateien kompiliert.)</li>
+
+    <li>Überprüfen Sie, dass die Option <b>ASCII</b> in der Gruppe <b>Datentyp</b> ausgewählt ist.</li>
+
+    <li>Klicken Sie auf die Schaltfläche Durchsuchen rechts neben dem Textfeld Datei. Gehen Sie zum Origin-Ordner, navigieren Sie zum Ordner <b>Samples</b> und suchen Sie den Ordner <b>Import and Export</b>.</li>
+
+    <li>Drücken Sie die Strg-Taste und wählen Sie die Dateien <i>S15-125-03.dat</i>, <i>S21-235-07.dat</i> und <i>S32-014-04.dat</i>. Klicken Sie dann auf <b>Dateien hinzufügen</b>.</li>
+
+    <li>Klicken Sie auf <b>OK</b>.</li>
+
+    <li>Belassen Sie <b>Importfilter für aktuellen Datentyp</b> auf <b>Datenordner: VarsFromFileNameAndHeader</b>. (Dieser Filter verfügt über Einstellungen, die beim Importieren von Dateien verwendet werden.)</li>
+
+    <li>Stellen Sie den <b>Importmodus</b> auf <b>Neues Blatt öffnen</b>.</li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>Fertigstellen</b>. Die drei Datendateien werden in die Arbeitsmappe importiert, jede als ein neues Blatt. Sie haben eine Mappe mit drei Blättern: <b>Trial Run 1</b>, <b>Trial Run 2</b> und <b>Trial Run 3</b>.</li>
+
+    <li>Markieren Sie das Blatt <b>Trial Run 1</b> und markieren Sie die Spalte D(Y). Klicken Sie auf die Schaltfläche <b>Liniendiagramm</b> auf der Symbolleiste <b>2D Grafiken</b>. Ein neues Diagramm wird erstellt. Es erhält den Namen Graph1.</li>
+  </ol>
+
+  <h3><a name="Adding_plot_by"></a><span class="mw-headline">Diagramm hinzufügen</span></h3>
+
+  <h4><a name="Using_Drag-and-Drop"></a><span class="mw-headline">Mittels Drag&amp;Drop</span></h4>
+
+  <ol>
+    <li>Klicken Sie mit der rechten Maustaste auf die Titelleiste von Graph1 und wählen Sie <b>Duplizieren</b> im Kontextmenü, um das Diagrammfenster (Graph1) zu duplizieren.</li>
+
+    <li>Aktivieren Sie dieses neue Diagrammfenster und verschieben Sie es zur grauen Fläche im Origin-Arbeitsbereich (es sollte nicht von der Quellarbeitsmappe bedeckt sein).</li>
+
+    <li>Klicken Sie, um das zweite Blatt "Trial Run 2" der Quellarbeitsmappe auszuwählen, und klicken Sie dann auf den Spaltenheader von col(D), um diese Spalte zu markieren. Verschieben Sie den Cursor an die rechte Kante von Spalte col(D), bis das Symbol für Drag&amp;Drop <a class="image"><img alt="Button Drag Column to Graph.png" src="../images/Adding_Plot/Button_Drag_Column_to_Graph.png" width="34"></a> angezeigt wird.</li>
+
+    <li>Sie können die Spalte dann per Drag&amp;Drop in das Diagrammfenster ziehen.
+
+      <dl>
+        <dd><a class="image"><img alt="Adding Plot 01.png" src="../images/Adding_Plot/600px-Adding_Plot_01.png" width="600"></a></dd>
+      </dl>
+    </li>
+
+    <li>Eine neue Kurve wird in die Grafik eingefügt.</li>
+
+    <li>Klicken Sie, um das dritte Blatt "Trial Run 3" der Quellarbeitsmappe auszuwählen, markieren Sie die Spalte col(D) und ziehen Sie sie per Drag&amp;Drop in das Diagrammfenster, um eine weitere Kurve in den Diagrammlayer einzufügen.</li>
+
+    <li>Jetzt haben Sie eine Grafik mit drei Kurven im Layer.</li>
+  </ol>
+
+  <table class="note">
+    <tr>
+      <td>
+        <b>Alternativ:</b>
+
+        <p>Sie können die Schaltfläche <b>Zum Zeichnen kopieren</b> auf der Minisymbolleiste verwenden, um die Zeichnung in Schritt 3 und 4 hinzuzufügen. Dazu:</p>
+
+        <ol>
+          <li value="3">Klicken Sie, um das zweite Blatt "Trial Run 2" der Quellarbeitsmappe auszuwählen, und klicken Sie dann auf den Spaltenheader von col(D), um diese Spalte zu markieren. Klicken Sie auf die Schaltfläche <b>Zum Zeichnen kopieren</b> <a class="image"><img alt="Copy for plotting button.png" src="../images/Adding_Plot/Copy_for_plotting_button.png" width="25"></a> auf der <a class="external text" href="../../UserGuide/UserGuide/Popup_Button.html#Single_Column">Minisymbolleiste</a>, die angezeigt wird.</li>
+
+          <li>Aktivieren Sie das Diagrammfenster. Klicken Sie mit der rechten Maustaste auf den weißen Bereich im Layer und wählen Sie <b>Einfügen: Einfügen</b> im Kontextmenü.</li>
+        </ol>
+      </td>
+    </tr>
+  </table>
+
+  <h4><a name="Using_Plot_Setup"></a><span class="mw-headline">Mittels Diagrammeinstellungen</span></h4>
+
+  <ol>
+    <li>Klicken Sie mit der rechten Maustaste auf die Titelleiste von Graph1 und wählen Sie <b>Duplizieren</b> im Kontextmenü, um das Diagrammfenster (Graph1) zu duplizieren.</li>
+
+    <li>Aktivieren Sie das neue Diagrammfenster, klicken Sie mit der rechten Maustaste auf das Symbol von Layer 1 in der oberen linken Ecke des Diagramms und wählen Sie <b>Setup Diagramm</b>.</li>
+
+    <li style="list-style: none">
+      <table class="noborder">
+        <tr>
+          <td style="vertical-align:top" width="60"><img src="../images/Adding_Plot/Tip_icon.png" width="57" border="0" alt=""></td>
+
+          <td>
+            <p>Es gibt drei Bedienfelder im Dialog <b>Diagrammeinstellungen</b>. Erweitern Sie das Bedienfeld <b>Diagrammtyp</b>, indem Sie auf <a class="image"><img alt="Button Expand Preview Up.png" src="../images/Adding_Plot/Button_Expand_Preview_Up.png" width="24"></a> klicken. Erweitern Sie dann das Bedienfeld <b>Verfügbare Daten</b>, indem Sie auf die zweite Schaltfläche <a class="image"><img alt="Button Expand Preview Up.png" src="../images/Adding_Plot/Button_Expand_Preview_Up.png" width="24"></a> klicken.</p>
+
+            <p>Bitte lesen Sie unter <a class="external text" href="../../UserGuide/Category/Plot_Setup.html">Mit Hilfe des Dialogs Diagrammeinstellungen zeichnen</a> weitere Informationen zu diesem Thema.</p><br>
+            <br>
+          </td>
+        </tr>
+      </table>
+    </li>
+
+    <li>Wählen Sie <b>Layer 1</b> in der Diagrammliste im unteren Bedienfeld. Drücken Sie die <b>Strg</b>-Taste, um <b>Trial Run 2</b> und <b>Trial Run 3</b> gleichzeitig aus der Liste Verfügbare Daten auszuwählen (das oberste der drei Bedienfelder). Wählen Sie im mittleren Bedienfeld <b>Time</b> als X und <b>Position</b> als Y aus. Klicken Sie auf die Schaltfläche <b>Hinzufügen</b>, um diese zwei Datensätze zum Diagrammlayer hinzuzufügen.<br>
+    <a class="image"><img alt="Adding Plot 02.png" src="../images/Adding_Plot/600px-Adding_Plot_02.png" width="600"></a></li>
+  </ol>
+
+  <h4><a name="Using_Layer_Contents"></a><span class="mw-headline">Mittels Layerinhalt</span></h4>
+
+  <ol>
+    <li>Klicken Sie mit der rechten Maustaste auf die Titelleiste von Graph1 und wählen Sie <b>Duplizieren</b> im Kontextmenü, um das Diagrammfenster (Graph1) zu duplizieren.</li>
+
+    <li>Klicken Sie doppelt auf das Symbol für Layer1, um den Dialog <b>Layerinhalt</b> zu öffnen.
+
+      <table class="note">
+        <tr>
+          <td>
+            <b>Alternativ:</b>
+
+            <p>Sie können im Menü <b>Einfügen: Zeichnung in Layer</b> auswählen, um den Dialog <b>Layerinhalt</b> zu öffnen.</p>
+          </td>
+        </tr>
+      </table>
+    </li>
+
+    <li>Wählen Sie im Dialog die Spalte Col(D) von <b>Trail Run 2</b> und <b>Trail Run 3</b> im linken Bedienfeld und klicken Sie dann auf die Schaltfläche <a class="image"><img alt="Button Add plot.png" src="../images/Adding_Plot/Button_Add_plot.png" width="24"></a>, um diese zwei Spalten in den Diagrammlayer Layer1 einzufügen.
+
+      <dl>
+        <dd><a class="image"><img alt="Adding Plot 03.png" src="../images/Adding_Plot/550px-Adding_Plot_03.png" width="550"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie, wenn Sie diese zwei neuen Zeichnungen im rechten Bedienfeld ausgewählt haben, auf die Schaltfläche <b>Gruppe auflösen</b>, um zuerst ihre Gruppierung auzuheben. Wir gruppieren diese drei Kurven später.
+
+      <dl>
+        <dd><a class="image"><img alt="Adding Plot 05.png" src="../images/Adding_Plot/550px-Adding_Plot_05.png" width="550"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf OK, um den Dialog zu schließen.</li>
+  </ol>
+
+  <h4><a name="Using_mini_toolbar"></a><span class="mw-headline">Mittels Minisymbolleiste</span></h4>
+
+  <ol>
+    <li>Markieren Sie die Spalte col(D) von Blatt "Trail Run 2" und wählen Sie im Menü <b>Zeichnen &gt; Einfache 2D: Liniendiagramm</b>, um ein neues Diagramm mit einer Kurve zu zeichnen.</li>
+
+    <li>Markieren Sie die Spalte col(D) von Blatt "Trail Run 3" und wählen Sie im Menü <b>Zeichnen &gt; Einfache 2D: Liniendiagramm</b>, um ein weiteres Diagramm mit einer Kurve zu zeichnen.</li>
+
+    <li>Klicken Sie bei diesen beiden Diagrammen jeweils auf die Kurve und in der angezeigten Minisymbolleiste auf die Schaltfläche <b>Zeichnung kopieren</b>, um die aktuelle Zeichnung zu kopieren. Aktivieren Sie Graph1, das Sie anfangs erstellt haben, klicken Sie mit der rechten Maustaste auf den weißen Bereich des Layers und wählen Sie im Kontextmenü Einfügen: Einfügen, um die Kurve im Diagrammlayer einzufügen.
+
+      <dl>
+        <dd><a class="image"><img alt="Adding Plot 04.png" src="../images/Adding_Plot/650px-Adding_Plot_04.png" width="650"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wenn Sie diese zwei neuen Zeichnungen in Graph1 kopiert und eingefügt haben, erhalten Sie eine Grafik mit drei Kurven.</li>
+  </ol>
+
+  <h3><a name="Grouping_plots_in_Object_Manager"></a><span class="mw-headline">Zeichnungen in der Objektverwaltung gruppieren</span></h3>
+
+  <p>Wenn Sie mehrere Kurven in den existierenden Diagrammlayer eingefügt haben, könnte es sein, dass diese Kurven nicht gruppiert sind. Dadurch könnten Sie womöglich keine inkrementierenden Linienformate (wie Linienfarbe und Linienstile) anwenden.</p>
+
+  <p>Lassen Sie daher uns diese Zeichnungen gruppieren.</p>
+
+  <ol>
+    <li>Aktivieren Sie die Grafik mit den drei Kurven. In der oberen rechten Ecke des Arbeitsbereich gibt es ein Bedienfeld mit dem Namen <a class="external text" href="../../UserGuide/UserGuide/Object_Manager.html">"Objektverwaltung"</a>, das alle Zeichnungen der aktuellen Grafik auflistet.</li>
+
+    <li>Klicken Sie mit der rechten Maustaste auf die letzte Zeichnung und wählen Sie im Kontextmenü <b>Als Gruppenende festlegen</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Adding Plot 06.png" src="../images/Adding_Plot/500px-Adding_Plot_06.png" width="500"></a></dd>
+      </dl>
+    </li>
+
+    <li>Sie können sehen, wie diese drei Kurven gruppiert und mit inkrementierender Linienfarbe versehen werden.
+
+      <dl>
+        <dd><a class="image"><img alt="Adding Plot 07.png" src="../images/Adding_Plot/Adding_Plot_07.png" width="399"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="Updating_the_Graph_Legend"></a><span class="mw-headline">Diagrammlegende aktualisieren</span></h3>
+
+  <p>Die existierende Diagrammlegende verwendet die Namen der importierten Datenzeichnungen. Wir werden die Legende modifizieren, um den Blattnamen zu zeigen.</p>
+
+  <ol>
+    <li>Klicken Sie mit der rechten Maustaste auf das Legendenobjekt und wählen Sie <b>Legende: Legende aktualisieren</b>.</li>
+
+    <li>Wählen Sie unter <b>Übersetzungsmodus der Autom. Legende</b> die Option <b>Benutzerdefiniert</b>.</li>
+
+    <li>Klicken Sie unter <b>Benutzerdefiniertes Format der Legende (@D, @LU etc.)</b> auf den Pfeil rechts und wählen Sie <b>@WS: Sheet Display Name</b>. Klicken Sie auf <b>OK</b>. Die Diagrammlegende zeigt nun <b>Trial Run 1</b> etc. an.</li>
+  </ol>
+
+  <p>Weitere Informationen über die Anpassung der Standardlegende finden Sie unter folgenden Themen:</p>
+
+  <ul>
+    <li><a class="external text" href="../../UserGuide/Category/Graph_Legends_and_Color_Scales.html">Diagrammlegenden</a></li>
+
+    <li><a class="external text" href="../../LabTalk/LabTalk/Legend_Substitution_Notation.html#Legend_Text_Customization">Benutzerdefinierte Anpassung des Legendentexts</a></li>
+  </ul>

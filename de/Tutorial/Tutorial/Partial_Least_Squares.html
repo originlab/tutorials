@@ -1,0 +1,224 @@
+﻿<h1 class="firstHeading">Partielle kleinste Quadrate (PLS)</h1>
+
+  <p class='urlname' style='display: none'>Partial-Least-Squares</p>
+
+  <table id="toc" class="toc">
+    <tr>
+      <td>
+        <div id="toctitle">
+          <h2>Inhalt</h2>
+        </div>
+
+        <ul>
+          <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+          <li class="toclevel-1 tocsection-2"><a href="#Partial_Least_Squares_Regression"><span class="tocnumber">2</span> <span class="toctext">Regression mit den partiellen kleinsten Quadraten</span></a></li>
+
+          <li class="toclevel-1 tocsection-3"><a href="#Developing_the_Model"><span class="tocnumber">3</span> <span class="toctext">Modell entwickeln</span></a></li>
+
+          <li class="toclevel-1 tocsection-4"><a href="#Interpreting_the_Results"><span class="tocnumber">4</span> <span class="toctext">Ergebnisse interpretieren</span></a></li>
+
+          <li class="toclevel-1 tocsection-5"><a href="#Using_the_Model_to_Predict"><span class="tocnumber">5</span> <span class="toctext">Modell für die Prognose verwenden</span></a></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Die Partiellen Kleinsten Quadrate (PLS) stellen eine Methode zum Erzeugen von prädiktiven Modellen dar, wenn es viele stark kollineare Faktoren gibt.</p>
+
+  <p><br>
+  Dieses Tutorial beginnt mit den Spektrumsdaten von einigen Stichproben, um die Menge von drei vorhandenen Bindungen zu bestimmen. Die Daten umfassen:</p>
+
+  <ul>
+    <li>Daten der Spektrumsemissionsintensitäten bei verschiedenen Wellenlängen (v1 - v43)</li>
+
+    <li>Menge der drei Bindungen in der Stichprobe (comp1, comp2, comp3)</li>
+  </ul>
+
+  <p><br>
+  Dieses Tutorial erzeugt ein Modell, mit dem Sie die Menge der drei Bindungen von v1 - v43 bestimmen können.</p>
+
+  <p class="version">Origin-Version mind. erforderlich: Origin 2016 SR0</p>
+
+  <h2><a name="Partial_Least_Squares_Regression"></a><span class="mw-headline">Regression mit den partiellen kleinsten Quadraten</span></h2>
+
+  <ol>
+    <li>Öffnen Sie ein neues Projekt oder eine neue Arbeitsmappe. Importieren Sie die Datendatei <b>\Samples\Statistics\MixtureSpectra.dat</b></li>
+
+    <li>Markieren Sie die Spalten B bis C42.</li>
+
+    <li>Wählen Sie <b>Statistik: Multivariate Analyse: Partielle kleinste Quadrate</b>. Der Dialog pls wird auf der Registerkarte <b>Eingabedaten</b> geöffnet.</li>
+
+    <li>Die markierten Spalten werden automatisch als unabhängige Variablen hinzugefügt. Klicken Sie auf die <b>dreieckige Schaltfläche</b> <a class="image"><img alt="Button Select Data Right Triangle.png" src="../images/Partial_Least_Squares/Button_Select_Data_Right_Triangle.png" width="18" height="20"></a> neben <b>Unabhängige Variablen</b> und dann auf <b>Spalten wählen</b> im Kontextmenü.</li>
+
+    <li>Stellen Sie sicher, dass das untere Bedienfeld angezeigt wird, indem Sie auf die Schaltfläche mit den zwei Pfeilen unten rechts im Dialog <b>Spaltenbrowser</b> klicken.</li>
+
+    <li>Klicken Sie im unteren Bedienfeld auf die Schaltfläche <b>...</b>. Der Dialog <b>Bereich</b> wird geöffnet. Deaktivieren Sie das Kontrollkästchen <b>Gesamte Spalte(n)</b> und legen Sie den Datenbereich von <b>1</b> bis <b>20</b> fest. Klicken Sie auf <b>OK</b> und klicken Sie dann auf <b>OK</b>, um den Spaltenbrowser zu schließen.
+
+      <dl>
+        <dd><a class="image"><img alt="Pls ex2 col browser.png" src="../images/Partial_Least_Squares/Pls_ex2_col_browser.png" width="496" height="392"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die interaktive Schaltfläche <a class="image"><img alt="Button Select Data Interactive.png" src="../images/Partial_Least_Squares/Button_Select_Data_Interactive.png" width="18" height="20"></a> rechts neben <b>Abhängige Variablen</b>. Wechseln Sie zurück zum Arbeitsblatt, markieren Sie Spalte C43 und ziehen Sie Ihre Maus bis Spalte C45. Klicken Sie erneut auf die interaktive Schaltfläche, um den Dialog wiederherzustellen.
+
+      <dl>
+        <dd><a class="image"><img alt="Pls dialog settings 1-vNext.png" src="../images/Partial_Least_Squares/Pls_dialog_settings_1.png" width="446" height="348"></a></dd>
+      </dl>
+    </li>
+
+    <li>Da v1 bis v43 Absorption sind, besteht keine Notwendigkeit, sie zu standardisieren. Klicken Sie auf die Registerkarte <b>Einstellungen</b>, setzen Sie <b>Methode</b> auf <i>SVD</i> und deaktivieren Sie das Kontrollkästchen <b>Skalierungsvariablen</b>.</li>
+
+    <li>Aktivieren Sie das Kontrollkästchen <b>Kreuzvalidierung</b>. Dies hilft dabei, die optimale Anzahl von Faktoren in dem Modell zu finden.
+
+      <dl>
+        <dd><a class="image"><img alt="Pls dialog settings 1A-vNext.png" src="../images/Partial_Least_Squares/Pls_dialog_settings_1A.png" width="397" height="329"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Registerkarte <b>Zeichnungen</b> und erweitern Sie den Zweig <b>Komponentenzeichnung</b>. Aktivieren Sie die folgenden Kontrollkästchen und klicken Sie auf <b>OK</b>.
+
+      <ul>
+        <li><b>Wichtigskeitsdiagramm für Variablen</b></li>
+
+        <li><b>X-Ladungsdiagramm</b></li>
+
+        <li><b>Y-Ladungsdiagramm</b></li>
+
+        <li><b>X-Scorediagramm</b></li>
+
+        <li><b>Y-Scorediagramm</b></li>
+
+        <li><b>Diagnostikzeichnungen</b></li>
+      </ul>
+    </li>
+  </ol>
+
+  <dl>
+    <dd>
+      <dl>
+        <dd><a class="image"><img alt="Pls dialog settings 1B-vNext.png" src="../images/Partial_Least_Squares/Pls_dialog_settings_1B.png" width="316" height="579"></a></dd>
+      </dl>
+    </dd>
+  </dl>
+
+  <h2><a name="Developing_the_Model"></a><span class="mw-headline">Modell entwickeln</span></h2>
+
+  <p>Gehen Sie in der Arbeitsmappe auf den Reiter des Blatts <b>PLS1</b>:</p>
+
+  <ol>
+    <li>Die Tabelle <b>Kreuzvalidierung</b> zeigt die optimale Anzahl von zu extrahierenden Faktoren. PRESS ist die prognostizierte Summe der Fehlerquadrate des Modells. Das Modell mit dem minimalen quadratischen Mittel PRESS besitzt die optimale Anzahl von Faktoren:
+
+      <dl>
+        <dd><a class="image"><img alt="Pls cross validation.png" src="../images/Partial_Least_Squares/450px-Pls_cross_validation.png" width="450" height="368"></a></dd>
+      </dl>
+    </li>
+
+    <li>Die Diagnostikzeichnungen sind Residuendiagrammen von Y und X, die dazu verwendet werden können, die Qualität eines Modell zu bewerten. Im Allgemeinen kann festgehalten werden, dass das angepasste Modell gut ist, weil:
+
+      <ul>
+        <li>Layer 1 - Das Diagramm der <b>prognostizierten Werte-tatsächlichen Werte</b> weist darauf hin, dass das Modell für die erste Komponente gut angepasst wird.</li>
+
+        <li>Layer 2 - In dem Diagramm <b>prognostizierte Werte-Residuum</b> sind die Residuen zufällig um Null verteilt. Dies weist darauf hin, dass es keinen Drift in dem Prozess gibt.</li>
+
+        <li>Layer 4 - Das P-P-Diagramm der Residuen kann verwendet werden, um zu prüfen, ob die Varianz normalverteilt ist. Das Ergebnis fällt fast auf eine Linie, was bedeutet, dass die Varianz normalverteilt ist.</li>
+      </ul>
+
+      <dl>
+        <dd><a class="image"><img alt="Pls dianostics plots.png" src="../images/Partial_Least_Squares/450px-Pls_dianostics_plots.png" width="450" height="366"></a></dd>
+      </dl>
+    </li>
+
+    <li>Eine Zusammenfassung der Wichtigkeit von v1~v43 wird von dem VIP-Diagramm zur Verfügung gestellt. Wenn die Variable kleine Regressionskoeffizienten hat und geringe VIP-Werte, können Sie in Betracht ziehen, diese aus dem Modell auszuschließen. Zum Beispiel:
+
+      <ul>
+        <li>VIP-Werte von v41 ~ v43 in der Zeichnung unten sind gering:
+
+          <dl>
+            <dd><a class="image"><img alt="Pls vip plot.png" src="../images/Partial_Least_Squares/Pls_vip_plot.png" width="442" height="366"></a></dd>
+          </dl>
+        </li>
+
+        <li>Koeffizienten von v41 ~ v43 sind auch klein in den drei Koeffizienten unten:
+
+          <dl>
+            <dd><a class="image"><img alt="Pls coefficient plot.png" src="../images/Partial_Least_Squares/Pls_coefficient_plot.png" width="470" height="141"></a></dd>
+          </dl>
+        </li>
+      </ul>
+
+      <dl>
+        <dd>Wenn es jedoch, wie in Schritt 2, so aussieht, als würde das Modell gut angepasst, dann ist es akzeptabel, diese weniger wichtigen Variablen zu behalten.</dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h2><a name="Interpreting_the_Results"></a><span class="mw-headline">Ergebnisse interpretieren</span></h2>
+
+  <ol>
+    <li>Die Tabelle <b>Varianz erläutert</b> führt die Erklärung für jeden Faktor des Anteils der Varianz auf. In dem Beispiel erklärt Faktor 1 71,36% der Varianz für den X-Effekt und 75,6% der Varianz für den Y-Effekt. Faktor 2 erklärt 23,99% der Varianz für den X-Effekt und 22,14% der Varianz für den Y-Effekt. Das <b>Diagramm zur Erklärung der Varianz</b> weist darauf hin, dass Sie den ersten beiden Faktoren eine größere Aufmerksamkeit schenken sollten, da diese beiden mehr als 95% der Varianz für X- und Y-Effekte erklärten.
+
+      <dl>
+        <dd><a class="image"><img alt="Pls variance explained.png" src="../images/Partial_Least_Squares/Pls_variance_explained.png" width="700" height="265"></a></dd>
+      </dl>
+    </li>
+
+    <li>Das Ladungsdiagramm macht die Beziehungen zwischen den X- und Y-Variablen im Raum der ersten beiden Faktoren deutlich.
+
+      <ul>
+        <li>Aus dem Y-Ladungsdiagramm können Sie ersehen, dass drei Bindungen eine unterschiedliche Ladung für Faktor 1 und Faktor 2 haben.
+
+          <dl>
+            <dd><a class="image"><img alt="Pls y loading plot.png" src="../images/Partial_Least_Squares/Pls_y_loading_plot.png" width="427" height="357"></a></dd>
+          </dl>
+        </li>
+
+        <li>Aus dem X-Ladungsdiagramm ist ersichtlich, dass v26 ~ v38 ähnlich schwere Ladungen für Faktor 2 haben und v17, v18, v19, v23 und v24 alle ähnlich leichte Ladungen für Faktor 1 und Faktor 2 besitzen.
+
+          <dl>
+            <dd><a class="image"><img alt="Pls x loading plot.png" src="../images/Partial_Least_Squares/Pls_x_loading_plot.png" width="409" height="343"></a></dd>
+          </dl>
+        </li>
+      </ul>
+    </li>
+  </ol>
+
+  <table class="note">
+    <tr>
+      <td><b>Hinweise:</b> Um die Zeichnung im Einzelnen zu untersuchen, können Sie doppelt darauf klicken. Das Diagrammfenster mit dem Ladungsdiagramm wird geöffnet und lässt sich mit dem Hilfsmittel <b>Achsenskalierung vergrößern</b> <a class="external text" href="../../UserGuide/UserGuide/Zooming_In_or_Out_on_the_Graph_Page.html#Scale_In.2FOut_toolbar">zoomen</a>. <a class="image"><img alt="Button Zoom Out Tool.png" src="../images/Partial_Least_Squares/Button_Zoom_Out_Tool.png" width="21" height="21"></a></td>
+    </tr>
+  </table>
+
+  <p>&#160;</p>
+
+  <h2><a name="Using_the_Model_to_Predict"></a><span class="mw-headline">Modell für die Prognose verwenden</span></h2>
+
+  <p>Nachdem das Modell erzeugt ist, können Sie die Mengen der drei Verbindungen in den neuen Stichproben aus ihren Spektrumsemissionsintensitäten bei verschiedenen Wellenlängen vorhersagen:</p>
+
+  <ol>
+    <li>Klicken Sie auf das grüne Schloss auf dem Blatt PLS1 und wählen Sie im Kontextmenü <b>Parameter ändern</b>.</li>
+
+    <li>Klicken Sie in dem sich öffnenden Dialog auf die Registerkarte <b>Eingabe</b> und aktivieren Sie das Kontrollkästchen <b>Antworten prognostizieren</b>.</li>
+
+    <li>Klicken Sie auf die interaktive Schaltfläche <a class="image"><img alt="Button Select Data Interactive.png" src="../images/Partial_Least_Squares/Button_Select_Data_Interactive.png" width="18" height="20"></a> rechts von <b>Unabhängige Variablen für die Prognose</b>. Kehren Sie zu der Arbeitsmappe zurück und wählen Sie das Blatt <b>MixtureSpectra</b>. Markieren Sie Spalte B bis C42. Klicken Sie erneut auf die interaktive Schaltfläche, um den Dialog wiederherzustellen.</li>
+
+    <li>Klicken Sie auf die dreieckige Schaltfläche <a class="image"><img alt="Button Select Data Right Triangle.png" src="../images/Partial_Least_Squares/Button_Select_Data_Right_Triangle.png" width="18" height="20"></a> neben <b>Unabhängige Variablen für die Prognose</b> und klicken Sie dann auf <b>Spalten wählen</b> im Kontextmenü.</li>
+
+    <li>Klicken Sie im unteren Bedienfeld des Dialogs Spaltenbrowser auf die Schaltfläche .... Deaktivieren Sie das Kontrollkästchen <b>Gesamte Spalte(n)</b> und legen Sie den Datenbereich von <b>21</b> bis <b>25</b> fest. Klicken Sie auf <b>OK</b>, um den Dialog <b>Bereich</b> und den <b>Spaltenbrowser</b> zu schließen.
+
+      <dl>
+        <dd><a class="image"><img alt="Pls predict response.png" src="../images/Partial_Least_Squares/500px-Pls_predict_response.png" width="500" height="363"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>, um die Einstellungen anzuwenden und den Dialog zu schließen.</li>
+
+    <li>Das Blatt <b>PLSResults1</b> enthält jetzt die prognostizierten Mengen der drei Bindungen in den fünf neuen Stichproben:
+
+      <dl>
+        <dd><a class="image"><img alt="Pls predicted results.png" src="../images/Partial_Least_Squares/Pls_predicted_results.png" width="384" height="321"></a></dd>
+      </dl>
+    </li>
+  </ol>

@@ -1,0 +1,132 @@
+﻿<h1 class="firstHeading">2D-Diagramme</h1>
+
+  <p class='urlname' style='display: none'>2DPlotting</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#Simple_row_statistics"><span class="tocnumber">3.1</span> <span class="toctext">Einfache Zeilenstatistik</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#Create_a_graph_and_save_as_a_template"><span class="tocnumber">3.2</span> <span class="toctext">Ein Diagramm erstellen und als Vorlage speichern</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#Plot_into_graph_template_with_the_Plot_Setup_dialog"><span class="tocnumber">3.3</span> <span class="toctext">Mit Hilfe des Dialogs Diagrammeinstellungen in die Diagrammvorlage zeichnen</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <p>&#160;</p>
+
+  <table class="simple" style="width: 80%">
+    <tr style="vertical-align: top;">
+      <td style="width: 40%">
+        <a class="image"><img alt="Video Image.png" src="../images/2D_Plotting/Video_Image.png" width="33"></a> <a class="image"><img alt="Video Text Image.png" src="../images/2D_Plotting/Video_Text_Image.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=1" target="_blank">Diagramm erstellen</a></li>
+
+          <li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=49" target="_blank">Diagrammvorlagen</a></li>
+        </ul>
+      </td>
+
+      <td style="width: 40%">
+        <a class="image"><img alt="Website blog icon circle.png" src="../images/2D_Plotting/Website_blog_icon_circle.png" width="31"></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/2D_Plotting/Blog_Image_33x33px.png" width="135"></a>
+
+        <ul>
+          <li><a class="external text" href="http://blog.originlab.com/statistics-on-rows" target="_blank">Zeilenstatistik</a></li>
+
+          <li><a class="external text" href="http://blog.originlab.com/quick-graphs-with-graph-maker-app" target="_blank">Schnelle Diagramme mit der App Graph Maker</a></li>
+        </ul>
+      </td>
+    </tr>
+  </table>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Origins 2D-Diagramme können umfassend benutzerdefiniert angepasst werden. Sie können alle Eigenschaften der Zeichnung einfach an Ihre eigenen Bedürfnisse anpassen, Layer anordnen und für jeden Layer verschiedene Datensätze wählen. Dieses Tutorial zeigt Ihnen die grundlegenden Werkzeuge zum Zeichnen.</p>
+
+  <h2><a name="What_you_will_learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ul>
+    <li>einfache Zeilenstatistiken durchführen.</li>
+
+    <li>Ein Diagramm erstellen und als Vorlage speichern</li>
+
+    <li>Daten in Ihre Vorlage zeichnen</li>
+
+    <li>den Dialog Diagrammeinstellungen verwenden.</li>
+  </ul>
+
+  <p>&#160;</p>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <h3><a name="Simple_row_statistics"></a><span class="mw-headline">Einfache Zeilenstatistik</span></h3>
+
+  <ol>
+    <li>Öffnen Sie ein leeres Arbeitsblatt. Wählen Sie <b>Hilfe: Ordner öffnen: Sample-Ordner ...</b> im Menü, um den Ordner "Samples" zu öffnen. Öffnen Sie in diesem Ordner den Unterordner <i>Curve Fitting</i>. Dort befindet sich die Datei <i>Dose Response - No Inhibitor.dat</i>. Ziehen Sie diese Datei per Drag&amp;Drop in das leere Arbeitsblatt, um sie zu importieren.<br></li>
+
+    <li>Markieren Sie die Spalten 2 bis 4 und wählen Sie <b>Statistik: Deskriptive Statistik: Zeilenstatistik</b>. Stellen Sie sicher, dass Sie die Kontrollkästchen <b>Mittelwert</b> und <b>Standardabweichung</b> im Zweig <i>Eigenschaften</i> Momente aktiviert haben, um diese Ergebnisse zu erzeugen.<br>
+    <br>
+    <a class="image"><img alt="Tutorial 2D Plot 001New.png" src="../images/2D_Plotting/Tutorial_2D_Plot_001New.png" width="285"></a><br>
+    <br></li>
+
+    <li>Nachdem Sie auf die Schaltfläche <b>OK</b> geklickt haben, werden zwei neue Spalten, <b>Mean(Y)</b> und <b>SD(yErr)</b>, zum Quellarbeitsblatt hinzugefügt. Hier bedeutet <b>yErr</b>, dass es sich um eine Fehlerspalte handelt und die Daten in dieser Spalte verwendet werden können, um Fehlerbalken zu zeichnen.<br>
+    <br>
+    <b>Hinweis:</b> Zum Vereinfachen des Zeichnens besitzt jede Spalte in einem Origin-Arbeitsblatt eine Zeichnungszuordnung. Um die Zeichenzuordnung einer Spalte zu ändern, wählen Sie die Spalte aus und klicken Sie auf das Menü <b>Spalte</b>. Alternativ können Sie mit der rechten Maustaste auf die Spalte klicken und im Kontextmenü <b>Setzen als</b> wählen.<br>
+    <br></li>
+  </ol>
+
+  <h3><a name="Create_a_graph_and_save_as_a_template"></a><span class="mw-headline">Ein Diagramm erstellen und als Vorlage speichern</span></h3>
+
+  <ol>
+    <li>Markieren Sie die Spalten Mean(Y) und SD(yEr-) und wählen Sie <b>Zeichnen &gt; Einfache 2D: Punkt-Liniendiagramm</b>, um die Zeichnung zu erstellen:<br>
+    <a class="image"><img alt="Tutorial 2D Plot 002.png" src="../images/2D_Plotting/Tutorial_2D_Plot_002.png" width="408"></a><br>
+    <br></li>
+
+    <li>Klicken Sie auf die X-Achse und in der Minisymbolleiste auf die Schaltfläche <b>Achsenskalierung</b>. Aktivieren Sie im Dialog <b>Achsenskalierung</b> dann das Kontrollkästchen <b>Log</b> und klicken Sie auf <b>OK</b>.<br>
+    <a class="image"><img alt="Tutorial 2D Plot 003.png" src="../images/2D_Plotting/Tutorial_2D_Plot_003.png" width="749"></a><br>
+    <br></li>
+
+    <li>Wählen Sie <b>Grafik: Neu skalieren</b> im Menü, um die X- und Y-Achse des Diagramm neu zu skalieren.<br>
+    <a class="image"><img alt="Tutorial 2D Plot 004.png" src="../images/2D_Plotting/Tutorial_2D_Plot_004.png" width="408"></a><br>
+    <br></li>
+
+    <li>Um die Kurve zu bearbeiten, klicken Sie doppelt auf eines der Zeichnungssymbole, um den Dialog <b>Details Zeichnung</b> aufzurufen. Alternativ können Sie mit der rechten Maustaste in das Diagramm klicken und <b>Eigenschaften Zeichnung</b> im Kontextmenü auswählen. Wählen Sie auf der Registerkarte <b>Linie</b> des rechten Bedienfelds die Option <b>B-Spline</b> als Verbindung, um eine glattere Kurve zu erhalten.<br>
+    <a class="image"><img alt="Tutorial 2D Plot 005.png" src="../images/2D_Plotting/Tutorial_2D_Plot_005.png" width="344"></a><br>
+    <br>
+    Klicken Sie auf <b>OK</b>, um das Dialogfeld zu schließen.<br>
+    <br></li>
+
+    <li>Wenn alle Veränderungen vorgenommen worden sind und das Diagramm so aussieht, wie Sie es möchten, können Sie dieses Diagramm verwenden, um eine Vorlage zu erstellen, die in Zukunft für ähnliche Daten verwendet werden kann. Wählen Sie <b>Datei: Template speichern unter</b>, um den Dialog <i>Utilities\File: template save as</i> zu öffnen. Wählen Sie in der Auswahlliste <b>Kategorie</b> die Option <i>UserDefined</i> und vergeben Sie unter <b>Vorlagenname</b>einen passenden Namen. In diesem Beispiel verwenden wir <i>MeineVorlage</i>. Klicken Sie auf <b>OK</b>, um die Vorlage zu speichern.<br>
+    <a class="image"><img alt="Tutorial 2D Plot 006.png" src="../images/2D_Plotting/Tutorial_2D_Plot_006.png" width="584"></a></li>
+  </ol>
+
+  <h3><a name="Plot_into_graph_template_with_the_Plot_Setup_dialog"></a><span class="mw-headline">Mit Hilfe des Dialogs Diagrammeinstellungen in Diagrammvorlage zeichnen</span></h3>
+
+  <ol>
+    <li>Klicken Sie auf die Schaltfläche <b>Neue Arbeitsmappe</b> <a class="image"><img alt="Tutorial 2D Plot 007.png" src="../images/2D_Plotting/Tutorial_2D_Plot_007.png" width="23"></a> und importieren Sie die Datei \<i>Samples</i>\<i>Curve Fitting</i><i>\Dose Response - Inhibitor.dat</i> wie oben beschrieben. Führen Sie die <b>Zeilenstatistik</b> aus, um den Mittelwert und die Standardabweichung dieses Arbeitsblatts mit den gleichen Schritten, wie oben beschrieben, zu berechnen.<br>
+    <br></li>
+
+    <li>Markieren Sie die Spalte <b>Mean(Y) and SD(yErr)</b> in diesem Blatt. Wählen Sie <b>Zeichnen &gt; Meine Vorlagen: MeineVorlage</b>, um mit der benutzerdefinierte Vorlage eine neue Zeichnung zu erstellen.<br>
+    <br>
+    <a class="image"><img alt="Tutorial 2D Plot 009.png" src="../images/2D_Plotting/Tutorial_2D_Plot_009.png" width="412"></a><br>
+    <br>
+    Sie erhalten:<br>
+    <br>
+    <a class="image"><img alt="Tutorial 2D Plot 020.png" src="../images/2D_Plotting/Tutorial_2D_Plot_020.png" width="517"></a><br>
+    <br></li>
+  </ol>

@@ -1,0 +1,149 @@
+﻿<h1 class="firstHeading">2D-FFT und Filter</h1>
+
+  <p class='urlname' style='display: none'>2D-FFT-and-Filter</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Inhalt</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Zusammenfassung</span></a></li>
+
+      <li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">Was Sie lernen werden</span></a></li>
+
+      <li class="toclevel-1 tocsection-3">
+        <a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">Schritte</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-4"><a href="#2D_FFT"><span class="tocnumber">3.1</span> <span class="toctext">2D-FFT</span></a></li>
+
+          <li class="toclevel-2 tocsection-5"><a href="#2D_IFFT"><span class="tocnumber">3.2</span> <span class="toctext">2D-IFFT</span></a></li>
+
+          <li class="toclevel-2 tocsection-6"><a href="#2D_FFT_Filter"><span class="tocnumber">3.3</span> <span class="toctext">2D-FFT-Filter</span></a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Zusammenfassung</span></h2>
+
+  <p>Die 2D-FFT (zweidimensionale Fast-Fourier-Transformation) kann verwendet werden, um das Frequenzspektrum der 2D-Signaldaten (Matrix) zu analysieren. Umgekehrt kann die 2D-IFFT (zweidimensionale Inverse Fast-Fourier-Transformation) das 2D-Signal aus einem 2D-Frequenzspektrum rekonstruieren. OriginPro enthält beide Methoden für die Umwandlung von Zeit- und Frequenzdomänen in 2 Dimensionen, zusammen mit dem 2D-FFT-Filter, um 2D-Signale zu filtern.</p>
+
+  <h2><a name="What_You_Will_Learn"></a><span class="mw-headline">Was Sie lernen werden</span></h2>
+
+  <p>Dieses Tutorial zeigt Ihnen, wie Sie:</p>
+
+  <ol>
+    <li>Bilder in Daten umwandeln</li>
+
+    <li>eine 2D-FFT auf Matrixdaten mit einer DÜ-Verschiebung in die Mitte durchführen</li>
+
+    <li>eine 2D-IFFT auf das 2D-FFT-Ergebnis durchführen, um die ursprünglichen Matrixdaten wiederherzustellen.</li>
+
+    <li>einen 2D-FFT-Filter auf Matrixdaten durchführen.</li>
+  </ol>
+
+  <h2><a name="Steps"></a><span class="mw-headline">Schritte</span></h2>
+
+  <h3><a name="2D_FFT"></a><span class="mw-headline">2D-FFT</span></h3>
+
+  <ol>
+    <li>Öffnen Sie eine neue Matrixmappe und wählen Sie im Menü <b>Daten: Aus Datei importieren: Bild in Matrix...</b>, um das Bild <b>&lt;Origin-Installationsverzeichnis&gt;\Samples\Image Processing and Analysis\cell.jpg</b> zu importieren.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial 2DFFT 1.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_1.png" width="320"></a></dd>
+      </dl>
+    </li>
+
+    <li>Da Origin nicht direkt mit Bilddaten arbeiten kann, muss das Bild zunächst in Matrixdaten umgewandelt werden. Wählen Sie <b>Bild: Konvertierung: In Daten konvertieren</b>, um den Dialog <b>Convert to Data: img2m</b> aufzurufen. Legen Sie den <b>Typ</b> auf <b>Byte(1)</b> fest.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial 2DFFT 2.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_2.png" width="379"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie zum Fertigstellen der Konvertierung auf die Schaltfläche <b>OK</b>. Die Ergebnisse werden unten gezeigt. Sie können im Menü <b>Ansicht: Datenmodus</b> und <b>Ansicht: Bildmodus</b> wählen, um zwischen den beiden Modi hin- und herzuschalten und das Bild entsprechend anzuzeigen.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial 2DFFT 3.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_3.png" width="716"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie bei aktiver umgewandelter Ergebnismatrix im Menü <b>Analyse: Signalverarbeitung: FFT: 2D-FFT</b>, um den Dialog <b>2D FFT: fft2</b> zu öffnen. Aktivieren Sie das Kontrollkästchen <b>DÜ in die Mitte verschieben</b>, um den Gleichstrom in die Mitte zu verschieben. Aktivieren Sie im Zweig <b>Ausgabe</b> nur <b>Komplexe Matrix</b> und <b>Log-Amplituden-Matrix</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial 2DFFT 4.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_4.png" width="460"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>OK</b>, um die FFT-Ergebnisse zu erzeugen. Sowohl die komplexe Matrix als auch die Log-Amplituden-Matrix befinden sich in der gleichen Matrixmappe. Ändern Sie den Bildmodus (<b>Ansicht: Bildmodus</b>) für die Log-Amplituden-Matrix. Die Ergebnisse sollten folgendermaßen aussehen:
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial 2DFFT 5.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_5.png" width="823"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="2D_IFFT"></a><span class="mw-headline">2D-IFFT</span></h3>
+
+  <ol>
+    <li>Beginnen Sie mit der komplexen Matrix (FFT2_Complex1), die Sie im obigen Abschnitt <b>2D-FFT</b> erzeugt haben. Aktivieren Sie das Fenster.</li>
+
+    <li>Wählen Sie im Menü <b>Analyse: Signalverarbeitung: FFT: 2D-IFFT</b>, um den Dialog <b>2DIFFT: ifft2</b> aufzurufen.</li>
+
+    <li>Im Dialog ist die imaginäre Matrix nicht erforderlich, da die <b>Eingabematrix</b> eine komplexe Matrix ist. Aktivieren Sie <b>Verschieben rückgängig machen</b>, da die Gleichstromkomponente DC verschoben wurde. In der <b>Ausgabe</b> sollten die Kontrollkästchen <b>Reale Matrix</b> und <b>Imaginäre Matrix</b> aktiviert sein.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial 2DFFT 6.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_6.png" width="439"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf <b>OK</b>. Das Ergebnis wird in der gleichen Matrixmappe ausgegeben, in der sich auch die komplexe Eingabematrix befindet.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial 2DFFT 7.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_7.png" width="412"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wie in dem Vergleich unten zu sehen ist, hat die IFFT das ursprüngliche Signal wiederhergestellt.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial 2DFFT 8.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_8.png" width="1070"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <h3><a name="2D_FFT_Filter"></a><span class="mw-headline">2D-FFT-Filter</span></h3>
+
+  <ol>
+    <li>Öffnen Sie eine neue Matrixmappe und wählen Sie im Menü <b>Daten: Aus Datei importieren: Bild in Matrix...</b>, um das Bild <b>&lt;Origin-Installationsverzeichnis&gt;\Samples\Image Processing and Analysis\myocyte1.tif</b> zu importieren.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial 2DFFT 9.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_9.png" width="320"></a></dd>
+      </dl>
+    </li>
+
+    <li>Wählen Sie bei aktivem importierten Bild im Menü <b>Bild: Konvertierung: In Daten konvertieren</b>. Damit wird der Dialog <b>Convert to Data: img2m</b> geöffnet. Legen Sie den <b>Typ</b> mit <b>Byte(1)</b> fest und klicken Sie auf <b>OK</b>, um die Konvertierung fertigzustellen.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial 2DFFT 10.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_10.png" width="379"></a></dd>
+      </dl>
+    </li>
+
+    <li>Aktivieren Sie die konvertierte Matrix und wählen Sie im Menü <b>Analyse: Signalverarbeitung: 2D-FFT-Filter</b>. Der Dialog der <b>2D FFT Filters: fft_filter2</b> wird geöffnet.</li>
+
+    <li>Aktivieren Sie unten im Dialog das Kontrollkästchen <b>Automatische Vorschau</b>, um das Ergebnis im rechten Bedienfeld anzuzeigen. Legen Sie den <b>Filtertyp</b> auf <b>Bandpass</b> fest und setzen Sie dann den <b>Unteren Grenzwert</b> und den <b>Oberen Grenzwert</b> auf <b>0,05</b> bzw. auf <b>0,25</b>. Die anderen Einstellungen behalten ihre Standardwerte.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial 2DFFT 11.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_11.png" width="789"></a></dd>
+      </dl>
+    </li>
+
+    <li>Klicken Sie auf die Schaltfläche <b>OK</b>, um das gefilterte Ergebnis zu erhalten. Wie im Bild unten zu sehen, wird das Hintergrundrauschen (das Licht) entfernt.
+
+      <dl>
+        <dd><a class="image"><img alt="SP Tutorial 2DFFT 12.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_12.png" width="617"></a></dd>
+      </dl>
+    </li>
+  </ol>
