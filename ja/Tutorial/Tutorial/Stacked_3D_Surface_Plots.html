@@ -1,0 +1,161 @@
+﻿<h1 class="firstheading">積み上げ3D曲面図</h1>
+<p class="urlname" style="display: none;">3D-Stack-Surface</p>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> 
+		 <span class="toctext">サマリー</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> 
+		 <span class="toctext">ステップ</span></a> 
+		<ol>
+			<li class="toclevel-2 tocsection-4"><a href="#Create_Multiple_Colormap_Surfaces"><span 
+			 class="tocnumber">3.1</span> <span class="toctext">複数カラーマップ曲面図の作成</span></a></li>
+			<li class="toclevel-2 tocsection-5"><a href="#Customize_Axes_Display"><span 
+			 class="tocnumber">3.2</span> <span class="toctext">軸表示の編集</span></a></li>
+			<li class="toclevel-2 tocsection-6"><a href="#Customize_Layer_Properties"><span 
+			 class="tocnumber">3.3</span> <span class="toctext">レイヤのプロパティ編集</span></a></li>
+			<li class="toclevel-2 tocsection-7"><a href="#Resize_and_rotate_the_plot"><span 
+			 class="tocnumber">3.4</span> <span class="toctext">グラフのサイズ変更と回転</span></a></li>
+		</ol></li>
+	</ol>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>このチュートリアルは異なる行列オブジェクトから積み上げ3Dカラーマップ曲面を作成する方法を示します。表面は火山が噴火する前と後のトポロジーの変化を示しています。 
+ </p>
+<dl>
+	<dd><a class="image"><img alt="Stacked 3D Surface.png" src="../images/Stacked_3D_Surface_Plots/Stacked_3D_Surface.png" 
+								 width="500" border="0" /></a></dd>
+</dl>
+<p class="version">必要なOriginのバージョン: Origin 2015 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。 </p>
+<ul>
+	<li>積み上げ3Dカラーマップ曲面を作成する</li>
+	<li>軸表示とレイヤプロパティを編集する</li>
+	<li>3Dプロットをサイズ変更して回転する</li>
+</ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Create_Multiple_Colormap_Surfaces"></a><span class="mw-headline">複数カラーマップ曲面図の作成</span></h3>
+<ol>
+	<li>(<b>ヘルプ: ラーニングセンター</b> メニューを選択、または キーボードの<b>F11</b> キーを押して、ラーニングセンターを開きます。<b>グラフサンプル</b>を選択し、カテゴリーのドロップダウンリストから<b>3D曲面図</b>を選択します。グラフサンプルをダブルクリックして、「3D 
+	 Surface Plots - Stacked 3D Surface Plots」を開きます。<br />
+	<a class="image"><img alt="Stacked 3D Surface Dialog0.png" src="../images/Stacked_3D_Surface_Plots/Stacked_3D_Surface_Dialog0.png" 
+							 width="852" height="484" border="0" /></a><br />
+	このチュートリアルは、チュートリアルデータプロジェクト<i>&lt;Origin EXE フォルダ&gt;\Samples\TutorialData.opj</i>の<i>Stacked 
+	 3D Surface Plots</i> フォルダと関連しています。 </li>
+	<li>2つの行列オブジェクトがある<b>Mbook1</b>行列ブックをアクティブにし、<b>作図：3D：複合カラーマップ曲面</b>と操作して、3D曲面図を作成します。以下のような図になります。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Stacked 3D Surface Plots 01.png" 
+									 src="../images/Stacked_3D_Surface_Plots/Stacked_3D_Surface_Plots_01.png" 
+									 width="463" height="347" border="0" /></a></dd>
+	</dl></li>
+	<li>グラフをダブルクリックして、<b>作図の詳細</b>ダイアログを開きます。左側パネルが開いていない場合、左下の矢印ボタンをクリックして開きます。左パネルで、<b>Layer1</b>ノードの下に2つの曲面プロットを確認できます。噴火後（”After” 
+	 eruption）曲面をZ軸でシフトするには、左側パネルで<b>Layer1</b>の下にある2つ目のプロットを選択し、<b>面</b>タブを開きます。<b>Z方向に移動-スケール範囲(パーセント)は0から100まで</b>にチェックをつけ、テキストボックスに<b>70</b>を入力します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Stacked 3D Surface Dialog1.png" 
+									 src="../images/Stacked_3D_Surface_Plots/Stacked_3D_Surface_Dialog1.png" 
+									 width="516" height="176" border="0" /></a></dd>
+	</dl></li>
+	<li><b>塗りつぶし</b>タブを開き、表面セクションでは、<b>自身</b>のチェックを外して、他の曲面の等高線と同じ行列オブジェクト（Mat(1)：&quot;Before&quot;）で塗りつぶします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Stacked 3D Surface Dialog2.png" 
+									 src="../images/Stacked_3D_Surface_Plots/Stacked_3D_Surface_Dialog2.png" 
+									 width="460" height="209" border="0" /></a></dd>
+	</dl></li>
+	<li><b>カラーマップ/等高線</b>タブを選択します。<b>レベル</b>ヘッダをクリックして、<b>レベルの設定</b>ダイアログを開きます。次の図のようにパラメータを設定し、<b>OK</b>をクリックします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Stacked 3D Surface Dialog3.png" 
+									 src="../images/Stacked_3D_Surface_Plots/Stacked_3D_Surface_Dialog3.png" 
+									 width="484" height="375" border="0" /></a></dd>
+		<dd><b>等高線図を有効にする</b>のチェックを外して、等高線を非表示にします。<b>OK</b>をクリックします。</dd>
+		<dd><a class="image"><img alt="Stacked 3D Surface Dialog4.png" 
+									 src="../images/Stacked_3D_Surface_Plots/Stacked_3D_Surface_Dialog4.png" 
+									 width="626" height="460" border="0" /></a></dd>
+	</dl></li>
+	<li><b>メッシュ</b>タブを開き、<b>有効にする</b>チェックを外し、メッシュ線を消します。 </li>
+	<li><b>Layer1</b>ノードの下にある1番目のプロットでもステップ5と6を繰り返します。 </li>
+	<li>このプロジェクトでは2つの曲面は同じ行列で塗りつぶしを行っているので、同じ色スケールを共有できます。色スケールを編集するには、色スケールをダブルクリックし、<b>色スケール制御</b>ダイアログを開きます。レイアウトグループで<b>列の反転</b>のチェックをし、<b>色スケールの幅</b>を<b>100</b>にします。<b>OK</b>をクリックします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Stacked 3D Surface Dialog6.png" 
+									 src="../images/Stacked_3D_Surface_Plots/Stacked_3D_Surface_Dialog6.png" 
+									 width="640" height="428" border="0" /></a></dd>
+	</dl></li>
+</ol>
+<h3><a name="Customize_Axes_Display"></a><span class="mw-headline">軸表示の編集</span></h3>
+<p>次の操作は軸のスケールと目盛ラベル形式を<b>軸</b>ダイアログで設定します。このダイアログを開くには <b>フォーマット：軸スケール：X軸</b>と選択します。 
+ </p>
+<ol>
+	<li><b>スケール</b>タブで設定を編集します。 
+	<ul>
+		<li>X 軸(<b>X</b>アイコン)で、<b>開始</b>と<b>終了</b>をそれぞれ<b>558000</b>と<b>566500</b>に設定します。Y 
+		 軸(<b>Y</b>アイコンをクリック)では開始を<b>5108200</b>、終了を<b>5121800</b>に、Z軸(<b>Z</b>アイコンをクリック)では開始に<b>0</b>、終了に<b>10000</b>を入力します。 
+		 </li>
+		<li>X軸（<b>X</b>アイコンをクリック)では<b>主目盛</b>の<b>タイプ</b>を<b>カウント</b>にし、カウントを<b>5</b>にします。Y軸とZ軸では<b>主目盛</b>の<b>タイプ</b>を<b>増分</b>にし、<b>値</b>を<b>2000</b>にします。全ての副目盛を非表示にするには、全ての軸で<b>副目盛</b>の<b>カウント</b>を<b>0</b>にします。 
+		 </li>
+	</ul></li>
+	<li><b>軸目盛ラベル</b>を編集します。 
+	<ul>
+		<li>まず、<b>軸</b>ダイアログの上にある、<b>各方向で1つの軸のみを使用</b>にチェックが付いている事を確認してください。 
+		 </li>
+		<li><b>目盛ラベル</b>タブで<b>Ctrl</b>キーを押しながら<b>X</b>、<b>Y</b>、<b>Z</b>のアイコンをクリックし、一度に編集します。<b>表示</b>グループで<b>カスタム</b>を選択し、<b>カスタムフォーマット</b>では<b>P*3</b>をドロップダウンリストから選択します。これは、軸ラベルが10のべき乗で表示され、有効桁数は3桁まで表示する事を示します。<b>OK</b>をクリックします。なお、このドロップダウンリストのオプションに関しては<a 
+		 class="external text" href="../../UserGuide/UserGuide/Numbers_in_Origin.html#Custom_Display_Format">カスタム表示型式</a>を参照してください。</li>
+	</ul>
+	<dl>
+		<dd><a class="image"><img alt="Stacked 3D Surface Dialog8.png" 
+									 src="../images/Stacked_3D_Surface_Plots/Stacked_3D_Surface_Dialog8.png" 
+									 width="512" height="279" border="0" /></a></dd>
+	</dl></li>
+</ol>
+<h3><a name="Customize_Layer_Properties"></a><span class="mw-headline"><b>レイヤのプロパティの編集</b>のカスタマイズ</span></h3>
+<ol>
+	<li>プロットの外側である白い部分をダブルクリックするか、メニューから<b>フォーマット：作図の詳細（レイヤ属性）</b>を選択して<b>作図の詳細（レイヤ属性）</b>ダイアログを開きます。</li>
+	<li>右側パネルにある、<b>その他の3Dオプション</b>タブをアクティブにします。<b>クリッピング</b>セクションの設定の通りに画像を軸外に付けたいので、<b>クリッピング</b>セクションにある<b>有効にする</b>にチェックをつけます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Stacked 3D Surface Dialog10.png" 
+									 src="../images/Stacked_3D_Surface_Plots/Stacked_3D_Surface_Dialog10.png" 
+									 width="545" height="200" border="0" /></a></dd>
+	</dl></li>
+	<li><b>平面</b>タブではすべての面の<b>色</b>を<b>明るい灰色</b>に設定します。<b>立方体</b>セクションでは立方体の境界を表示するために、ドロップダウンリストから<b>正面角</b>を選択します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Stacked 3D Surface Dialog11.png" 
+									 src="../images/Stacked_3D_Surface_Plots/Stacked_3D_Surface_Dialog11.png" 
+									 width="584" height="318" border="0" /></a></dd>
+	</dl></li>
+	<li><b>ライティング</b>タブを開きます。<b>モード</b>セクションでは、<b>平行光源</b>を選択してライティングモードを有効にします。<b>光の色</b>を次の画像のように設定します。<b>OK</b>をクリックします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Stacked 3D Surface Dialog12.png" 
+									 src="../images/Stacked_3D_Surface_Plots/Stacked_3D_Surface_Dialog12.png" 
+									 width="560" height="302" border="0" /></a></dd>
+	</dl></li>
+</ol>
+<h3><a name="Resize_and_rotate_the_plot"></a><span class="mw-headline">プロットのサイズ変更と回転</span></h3>
+<ol>
+	<li>3Dツールバーをアクティブにするため、立方体をクリックします（プロットではありません）。リサイズボタン <a class="image"><img 
+	 alt="Button 3D Toolbar Resize 90.png" src="../images/Stacked_3D_Surface_Plots/Button_3D_Toolbar_Resize_90.png" 
+	 width="32" border="0" /></a> をクリックすると、3Dデカルト座標が表示されます。カーソルをY軸に乗せると選択されるので、それをドラッグ＆ドロップでY軸の方向に引き延ばしたり縮めたりできます。同じようにX方向とZ方向も操作します。</li>
+	<li>回転ボタン<a class="image"><img alt="Button 3D Toolbar Rotate 90.png" 
+									 src="../images/Stacked_3D_Surface_Plots/Button_3D_Toolbar_Rotate_90.png" 
+									 width="32" border="0" /></a>をクリックして、回転モードをアクティブにします。プロットの中心に球が表示されます。グラフを回転させましょう。 
+	 </li>
+</ol>
+<dl>
+	<dd>3Dツールバーは自由にプロットのサイズを変更したり、回転させることができます。しかし、Graph1と同じ表示にするには、<b>レイヤプロパティ</b>で<b>軸</b>を次の図のように設定すると行えます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Stacked 3D Surface Dialog13.png" 
+									 src="../images/Stacked_3D_Surface_Plots/Stacked_3D_Surface_Dialog13.png" 
+									 width="600" height="454" border="0" /></a></dd>
+	</dl></dd>
+</dl>

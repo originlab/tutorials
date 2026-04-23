@@ -1,0 +1,62 @@
+﻿<h1 class="firstheading">データフィルタ</h1><p class='urlname' style='display: none'>Data-Filter</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span><span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a></li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Data_Filter/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Data_Filter/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=6" target="_blank">データ削減</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=17" target="_blank">ワークシートデータの抽出</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=83" target="_blank">データフィルタ</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Data_Filter/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Data_Filter/Blog_Image_33x33px.png" width="135"  /></a>
+<ul><li> <a class="external text" href="http://blog.originlab.com/delete-every-nth-row-or-column-from-worksheet-2" target="_blank">ワークシートから行または列を削減する</a></li>
+<li> <a class="external text" href="http://blog.originlab.com/speed-mode-how-does-it-affect-my-graph-and-its-exported-image" target="_blank">スピードモード - グラフとエクスポートされた画像にどのような影響があるのか</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p><b>データフィルタ</b>はベースのツールで、ワークシートデータの行を削減し、それに対応して分析やグラフのデータで必要ではないものは非表示にします。数値、テキスト、日付/時間の3種類のデータ形式がサポートされています。
+</p>
+<p class="version" >必要なOriginのバージョン: Origin 2015 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。
+</p>
+<ul><li>データフィルタを使用してワークシートのデータを削減する</li>
+<li>列フィルタを適用した時に、グラフや解析を自動更新する</li>
+<li>ワークシートにフローティンググラフを追加する</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<ol><li>新規ワークブックを開きます。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Statistics</i>サブフォルダにある<i>automobile.dat</i> ファイルを探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。</li>
+<li>列C(Power)を選択し、右クリックで表示するコンテキストメニューから、<b>列XY属性の設定：X列</b> と操作してX属性に設定します。</li>
+<li>列CとGを選択（<b>Ctrl</b>キーを押しながらクリック）して、 <b>2D グラフギャラリー</b>ツールバーで<a  class="image"><img alt="Button Scatter.png" src="../images/Data_Filter/Button_Scatter.png" width="22"  /></a>ボタンをクリックし、散布図を作成します。</li>
+<li>作成したグラフをアクティブにし、<b>解析：フィット：線形フィット</b>メニューを選択し、<b><b>線形フィット</b></b> ダイアログを開きます。このダイアログで、<b>再計算</b>モードを<b>自動</b>に設定し、解析結果を自動更新するようにします。それ以外の設定はデフォルトのままで<b>OK</b>をクリックして解析を実行します。
+<dl><dd><a  class="image"><img alt="Tutorial Data Filter 01.png" src="../images/Data_Filter/Tutorial_Data_Filter_01.png" width="527"  /></a></dd></dl></li>
+<li>フィット曲線と結果表がグラフに追加されます。グラフをアクティブにし、X軸をダブルクリックして<b><b><b><b>軸</b></b></b></b>ダイアログを開きます。<b>スケール</b>タブで<b>水平</b>アイコンアイコンを選び、<b>再スケール</b>を<b>自動</b>にします。同じ操作をY軸 （<b>垂直</b>アイコン）に対して行い、再スケールモードを<b>自動</b>にします。<b>OK</b>をクリックしてこの設定を適用して、ダイアログを閉じます。
+<dl><dd><a  class="image"><img alt="Tutorial Data Filter 02.png" src="../images/Data_Filter/Tutorial_Data_Filter_02.png" width="560"  /></a></dd></dl></li>
+<li>元のワークシートの<b>automobile</b>に戻り、<b>列：新規列の追加</b>をクリックしてワークシートに7列を追加します。</li>
+<li>ワークシートの列の右側にある灰色の領域を右クリックして、コンテキストメニューの<b>グラフを追加...</b>を選択して<b>グラフブラウザ</b>を開きます。このダイアログで、左側のパネルで以前に作成したグラフを選択し、<b>OK</b>をクリックしてこのグラフをフローティンググラフとしてワークシートに追加します。作成したばかりの空のワークシート列にフローティングチャートをドラッグし、選択ハンドルを使用してサイズを変更します。
+<dl><dd><a  class="image"><img alt="Tutorial Data Filter 03.png" src="../images/Data_Filter/650px-Tutorial_Data_Filter_03.png" width="986"   /></a></dd></dl></li>
+<li><b><b>ワークシートデータ</b></b>ツールバーから<b><b>データフィルタの追加/削除</b></b>ボタン <a  class="image"><img alt="Button Add Remove Data Filter.png" src="../images/Data_Filter/Button_Add_Remove_Data_Filter.png" width="21"  /></a>をクリックして、空のデータフィルタを列Bに追加します。</li>
+<li>B列の列ヘッダの<b>フィルタ</b>アイコン<a  class="image"><img alt="Filter icon.png" src="../images/Data_Filter/Filter_icon.png" width="15"  /></a>をクリックし、<i>Buick</i>、<i>Chrysler</i>、<i>GMC</i>、<i>Kia</i>、<i>Lincoln</i>、<i>Mercedes</i>、<i>Saab</i>、<i>Volvo</i>のチェックを外してこれらのエントリを含むすべての行を非表示にします。これにより日本のメーカーのみが残ります。<b>OK</b>をクリックして、フィルタを適用します。ワークシートのデータ、グラフ、分析結果はそれに応じてすべて自動更新されます。
+<dl><dd><a  class="image"><img alt="Tutorial Data Filter 04.png" src="../images/Data_Filter/Tutorial_Data_Filter_04.png" width="260"  /></a></dd></dl></li>
+<li>A列の列ヘッダの<b>フィルタ</b>アイコン<a  class="image"><img alt="Filter icon.png" src="../images/Data_Filter/Filter_icon.png" width="15"  /></a>をクリックして<b>範囲</b>を選択します。インポート時の列Aのデータタイプはデフォルトで数値であることに注意してください。<b>範囲</b>ダイアログのデフォルト設定のままで<b>OK</b>をクリックします。この列にデータフィルタが適用されます。</li>
+<li>列Aにある<b>フィルタ</b>アイコン<a  class="image"><img alt="Filter icon.png" src="../images/Data_Filter/Filter_icon.png" width="15"  /></a>を再度クリックし、今度はコンテキストメニューの<b>カスタムフィルタ</b> を選択してフィルタをカスタマイズします。<b>条件</b>を<b>x.between(1996,2000)</b>に設定して<b>開始</b>と<b>終了</b>値を対応させます。<b>テスト</b>ボタンをクリックしてこのテスト条件に合致するものの元データがハイライトされるので、データ削減のプレビューとして使えます。 </li></ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Data_Filter/Tip_icon.png" width="57"  border="0" /></td><td><p>この時点でワークシート全体を表示するには、<b>カスタムフィルタ</b>ダイアログを最小化してワークシートをスクロールします。再びダイアログで「最小化」ボタンをクリックすればダイアログは開き、追加設定を行えます。
+<p><a  class="image"><img alt="Custom Filter Dialog Restore.png" src="../images/Data_Filter/Custom_Filter_Dialog_Restore.png" width="465"  /></a>
+</p>
+</p></td></tr></table>
+<ol start="12">
+<li><b>OK</b>ボタンをクリックしてフィルタの条件を適用すると、データ、グラフ、解析結果が更新されてデータ数が減ったことが確認できます。
+<dl><dd><a  class="image"><img alt="Tutorial Data Filter 05.png" src="../images/Data_Filter/650px-Tutorial_Data_Filter_05.png" width="982"   /></a></dd></dl>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Data_Filter/Tip_icon.png" width="57"  border="0" /></td><td><p>Origin 2019からは、ある列からデータフィルタをコピーして他の列のデータに貼り付けることができます。列の<b>フィルタ</b>セルを右クリックして<b>コピー</b>を選択します。またはフィルタセルをクリックしてCtrl+Cキーでフィルタをコピーします。次に、対象列を選択し、Ctrl+Vキーでフィルタを貼り付け、それらの列のデータに適用します。
+</p></td></tr></table></li>
+</ol>
+
+
+    

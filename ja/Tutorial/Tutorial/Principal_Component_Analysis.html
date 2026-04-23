@@ -1,0 +1,92 @@
+﻿<h1 class="firstheading">主成分分析</h1><p class='urlname' style='display: none'>Principal-Component-Analysis</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Selecting_Principal_Methods"><span class="tocnumber">2</span> <span class="toctext">メソッドを選ぶ</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Request_Principal_Component_Plots"><span class="tocnumber">3</span> <span class="toctext">主成分プロットを作成する</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Interpreting_The_Results"><span class="tocnumber">4</span> <span class="toctext">結果の解釈</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Create_3D_Components_Plot"><span class="tocnumber">5</span> <span class="toctext">3D主成分プロットを作成する</span></a></li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Principal_Component_Analysis/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Principal_Component_Analysis/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=41" target="_blank">主成分分析</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Principal_Component_Analysis/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Principal_Component_Analysis/Blog_Image_33x33px.png" width="135"  /></a>
+<ul><li> <a class="external text" href="http://blog.originlab.com/performing-principal-component-analysis-for-chemometric-spectra-using-origins-app" target="_blank">Originのアプリを使用して化学測定スペクトルの主成分分析を実行する</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>主成分分析は、基礎となる線形構造を持つ大規模な多変量データセットを削減したり解釈したりするほか、それまで思いもよらなかった関係性を発見するのに役立ちます。  
+</p><p>ここでは、21のヨーロッパ諸国における9つの食品群についてタンパク質消費を測定したデータを使用します。  主成分分析を使用して、タンパク源とヨーロッパ諸国との関係を調べます。
+</p><p><br />
+</p>
+<h2><a name="Selecting_Principal_Methods"></a><span class="mw-headline">メソッドを選ぶ</span></h2>
+<p>残す主成分の数を決定するには、最初に主成分分析を実行し、その結果に基づいて処理を進めます。 
+</p>
+<ol><li> 新しいプロジェクトまたは新しいワークブックを開きます。  Originのプログラムフォルダにある、<b>\samples\Statistics\Protein Consumption in Europe.dat</b>ファイルをインポートします。</li>
+<li> ワークシート全体を選択して、<b>統計: 多変量解析: 主成分分析</b>を選択します。</li>
+<li> 開いたダイアログの設定はデフォルトのままにして、 <b>OK</b>をクリックします。</li>
+<li> <b><b>PCAレポート</b></b>シートを選択します。 </li>
+<li> <b>相関行列の固有値</b>表から、初めの4つの主成分が分散の86%を説明しており、残りの主成分はそれぞれ5%かそれ以下の貢献度であることが分かります。  上位4つの主成分を残すことにします。
+<dl><dd><a  class="image"><img alt="PCA.png" src="../images/Principal_Component_Analysis/PCA.png" width="222"  /></a></dd></dl></li>
+<li> スクリープロットは視覚的に主成分の的確な数を判断するのに便利です。  主成分の数はポイントで表わされ、「曲がり角」より下の固有値は全体への割合が小さく、全て同じぐらいの大きさになります。  このスクリープロットではあまり明白ではありませんが、4番目の点が「曲がり角」の点であると言えます。
+<dl><dd><a  class="image"><img alt="Pca scree plot.png" src="../images/Principal_Component_Analysis/Pca_scree_plot.png" width="662"  /></a></dd></dl></li>
+<li>結果シートの錠前のアイコン<a  class="image"><img alt="Icon Recalculate Manual Green.png" src="../images/Principal_Component_Analysis/Icon_Recalculate_Manual_Green.png" width="14"  /></a>をクリックし、<b><b>パラメータを変更</b></b>をコンテキストメニューから選びます。  <b>設定</b>タブで、<b>抽出する成分の数</b>を<b>4</b>に設定します。  次のステップで主成分プロットの設定をするので、ダイアログを閉じないでください。
+<dl><dd><a  class="image"><img alt="DOC-2411 Pca ex1 dialog1a Magenta.png" src="../images/Principal_Component_Analysis/DOC-2411_Pca_ex1_dialog1a_Magenta.png" width="330"  /></a></dd></dl></li></ol>
+<h2><a name="Request_Principal_Component_Plots"></a><span class="mw-headline">主成分プロットを作成する</span></h2>
+<p>ダイアログの<b>プロット</b>タブでは、ユーザがスクリープロットと主成分プロットを作成するか、選ぶことができます。
+</p>
+<ul><li> <b>スクリープロット</b>
+<dl><dd><b>スクリープロット</b>は視覚的に主成分の的確な数を判断するのに便利です。</dd></dl></li>
+<li><b>成分プロット</b>
+<dl><dd>成分プロットは各観測点の成分スコアまたは、主成分ペアの各変数の成分ローディングを示します。  どの成分のペアをプロットするか、<b>主成分を選択してプロット</b>のグループ内で指定できます。  成分プロットは以下を含みます。</dd></dl>
+<ul><li><b>ローディングプロット</b>
+<dl><dd><b>ローディングプロット</b>は元の値とサブスペースの次元の関係性を示しています。  変数間の関係を読み取るのに使用されます。</dd></dl></li>
+<li><b>スコアプロット</b>
+<dl><dd><b>スコアプロット</b>はデータをサブスペースに投影するものです。  観測値間の関係を読み取るのに使用されます。</dd></dl></li>
+<li><b>バイプロット</b>
+<dl><dd><b><b>バイプロット</b></b>はあらかじめ選択されたローディングとスコアの成分を平行にして表示するものです。</dd></dl></li></ul></li></ul>
+<ol><li>先程のステップで開いたダイアログの中で、<b>プロット</b>タブを開きます。  <b>スクリープロット</b>、<b>ローディングプロット</b>、<b>バイプロット</b>が選択されていることを確認してください。</li>
+<li>最初の2つの成分は一般的に、分散のほとんどの割合を占めます。  よって、初めの2つの主成分の空間に成分プロットを作図することにします。  <b>主成分を選択してプロット</b>グループ内では、<b>X軸の主成分</b>に<b>1</b>を、<b>Y軸の主成分</b>には<b>２</b>を選びます。  <b>OK</b>をクリックします。
+<dl><dd><a  class="image"><img alt="DOC-2411 Pca ex1 dialog2a Magenta.png" src="../images/Principal_Component_Analysis/DOC-2411_Pca_ex1_dialog2a_Magenta.png" width="330"  /></a></dd></dl></li></ol>
+<h2><a name="Interpreting_The_Results"></a><span class="mw-headline">結果の解釈</span></h2>
+<ol><li><b>相関行列</b>より、それぞれの数値は大きく相関していることが分かります。  多くの値は<b>0.3</b>よりも大きくなっています。  主成分分析は共線性を取り除くのに適している分析であるといえます。
+<dl><dd><a  class="image"><img alt="Pca ex1 correlation matrix.png" src="../images/Principal_Component_Analysis/Pca_ex1_correlation_matrix.png" width="753"  /></a></dd></dl></li>
+<li>主成分の値は、元の値の線形（1次的な）組み合わせによって定義されています。   <b>抽出固有ベクトル表</b>が数式の係数を示しています。
+<dl><dd><a  class="image"><img alt="Pca ex1 extracted eigenvectors.png" src="../images/Principal_Component_Analysis/Pca_ex1_extracted_eigenvectors.png" width="511"  /></a></dd>
+<dd><img src="../images/Principal_Component_Analysis/math-feba1e219cb45c132359767d4d2f958a.png" title="PC1=0.30261*RedMeat + 0.31056*WhiteMeat + 0.42668*Eggs + 0.37773*Milk + 0.13565*Fish  - 0.43774*Cereals + 0.29725*Starch - 0.42033*Nuts - 0.11042*FruitsVegetables" alt="PC1=0.30261*RedMeat + 0.31056*WhiteMeat + 0.42668*Eggs + 0.37773*Milk + 0.13565*Fish  - 0.43774*Cereals + 0.29725*Starch - 0.42033*Nuts - 0.11042*FruitsVegetables" class="tex"/></dd>
+<dd><img src="../images/Principal_Component_Analysis/math-d4ed031400c694c96c1320ee17aa69c4.png" title="PC2=-0.05625*RedMeat - 0.23685*WhiteMeat - 0.03534*Eggs - 0.18459Milk + 0.64682*Fish - 0.23349*Cereals + 0.35283*Starch + 0.14331*Nuts + 0.53619*FruitsVegetables" alt="PC2=-0.05625*RedMeat - 0.23685*WhiteMeat - 0.03534*Eggs - 0.18459Milk + 0.64682*Fish - 0.23349*Cereals + 0.35283*Starch + 0.14331*Nuts + 0.53619*FruitsVegetables" class="tex"/></dd>
+<dd><img src="../images/Principal_Component_Analysis/math-c39f7012f886c0976977d280d68674fd.png" title="PC3=-0.29758*RedMeat + 0.6239*WhiteMeat + 0.18153*Eggs - 0.38566*Milk - 0.32127*Fish + 0.09592*Cereals + 0.24298*Starch - 0.05439*Nuts + 0.40756*FruitsVegetables" alt="PC3=-0.29758*RedMeat + 0.6239*WhiteMeat + 0.18153*Eggs - 0.38566*Milk - 0.32127*Fish + 0.09592*Cereals + 0.24298*Starch - 0.05439*Nuts + 0.40756*FruitsVegetables" class="tex"/></dd>
+<dd><img src="../images/Principal_Component_Analysis/math-f78144df54d05a8bdf0c4323196094ac.png" title="PC4=0.64648*RedMeat - 0.03699*WhiteMeat + 0.31316Eggs - 0.00332*Milk - 0.21596*Fish - 0.0062*Cereals - 0.33668*Starch + 0.33029*Nuts + 0.46206*FruitsVegetables" alt="PC4=0.64648*RedMeat - 0.03699*WhiteMeat + 0.31316Eggs - 0.00332*Milk - 0.21596*Fish - 0.0062*Cereals - 0.33668*Starch + 0.33029*Nuts + 0.46206*FruitsVegetables" class="tex"/></dd></dl></li>
+<li><b>ローディングプロット</b>は、最初の2つの成分の空間での変数間の関係を明らかにします。  このローディングプロットではRed Meat （赤肉）、Eggs（卵）、Milk（牛乳）、そしてWhite Meat（白肉）は主成分1に対して同じように重い負荷を持っていることが分かります。  一方、Fish（魚）、Fruit（果物）とVegetables（野菜）は主成分２に対して重い負荷があることが分かります。
+<dl><dd><a  class="image"><img alt="Pca ex1 loading plot.png" src="../images/Principal_Component_Analysis/Pca_ex1_loading_plot.png" width="611"  /></a></dd></dl></li>
+<li><b><b>バイプロット</b></b>はあらかじめ選択されたローディングとスコアの成分を平行にして表示するものです。  これはサブスペース上の1つの観測値の投影をスコア点と表しています。  初めの2つの主成分のサブスペースにおける観測値と変数の比率を見つけることができます。  (Note: グラフをダブルクリックして開き、編集が可能です)</li>
+<li>データリーダツール<a  class="image"><img alt="Button Data Reader.png" src="../images/Principal_Component_Analysis/Button_Data_Reader.png" width="22"  /></a>を使用してデータ情報ウィンドウを開き、プロットをより詳しく確認します。データポイントをクリックして、各国の成分スコアを読み取ります。スペインとポルトガルのタンパク源は他のヨーロッパの国々とは異なっていることが分かります。  スペインとポルトガルは果物と野菜からタンパク質を得ているのに対し、東ヨーロッパの国々、例えばアルバニア、ブルガリア、ユーゴスラビア、ルーマニアでは穀類とナッツ類からタンパク質を得ています。
+<dl><dd><a  class="image"><img alt="Pca ex1 biplot.png" src="../images/Principal_Component_Analysis/Pca_ex1_biplot.png" width="609"  /></a></dd></dl></li></ol>
+<table class="note">
+<tr>
+<td>上記の<b>データ情報</b>ウィンドウのように国名を表示するには、次のように操作してください。
+<ol><li><b>データ情報</b>ウィンドウ内で右クリックし、<b>ユーザ設定</b>を選択します。</li>
+<li><i>Country</i>を左側のパネルから選択し、選択ボタン（右向き矢印）をクリックしてデータ情報ウィンドウに追加し、<b>OK</b>をクリックします。
+<dl><dd><a  class="image"><img alt="Pca data info settings.png" src="../images/Principal_Component_Analysis/Pca_data_info_settings.png" width="914"  /></a></dd></dl></li></ol>
+<p><b>Note</b>: Origin 2019から、データポイント上にカーソルを合わせると、データポイントの座標情報のツールチップが表示されます。ツールチップとデータ情報ウィンドウは両方ともカスタマイズ可能です。詳細情報は、<a class="external text" href="../../UserGuide/UserGuide/Data_info_Tool.html">データ情報ウィンドウとデータポイントツールチップ</a>を参照してください。
+</p>
+</td></tr></table>
+<p><br />
+</p>
+<h2><a name="Create_3D_Components_Plot"></a><span class="mw-headline">3D主成分プロットを作成する</span></h2>
+<ol><li>結果シートの錠前のアイコン<a  class="image"><img alt="Icon Recalculate Manual Green.png" src="../images/Principal_Component_Analysis/Icon_Recalculate_Manual_Green.png" width="14"  /></a>をクリックし、<b><b>パラメータを変更</b></b>をコンテキストメニューから選びます。  </li>
+<li><b>プロット</b>タブにて、<b>主成分プロットのタイプ</b>を<b>3D</b>に設定します。そして、<b>Z軸の主成分</b>に<b>4</b>と入力します。
+<dl><dd><a  class="image"><img alt="PCA 3D plot 01.png" src="../images/Principal_Component_Analysis/PCA_3D_plot_01.png" width="335"  /></a></dd></dl></li>
+<li> <b>OK</b>をクリックして、ダイアログを閉じます。すると、PCAプロットデータと3Dローディングプロットが次のように作成されます。 
+<dl><dd><a  class="image"><img alt="PCA 3D plot 02.png" src="../images/Principal_Component_Analysis/PCA_3D_plot_02.png" width="761"  /></a></dd>
+<dd><a  class="image"><img alt="PCA 3D plot 03.png" src="../images/Principal_Component_Analysis/PCA_3D_plot_03.png" width="583"  /></a></dd></dl></li></ol>
+<p><br />
+</p>
+
+
+
+    

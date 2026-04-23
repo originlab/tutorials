@@ -1,0 +1,65 @@
+﻿<h1 class="firstheading">統計</h1><p class='urlname' style='display: none'>GSB-statistics</p>
+<p><br />
+Originには、多数の統計分析ツールがあります。OriginProでは、いくつかの追加の統計機能が利用可能です。このレッスンでは、Origin通常版で利用できるツールで学習していきます。
+</p>
+<h3><a name="Descriptive_Statistics"></a><span class="mw-headline">記述統計</span></h3>
+<ol>
+<li> 前回のレッスンで保存したプロジェクトを開き、<b><i>統計</i></b>という名前のフォルダを新規に作成します。空のフォルダを開きます。
+<li>新しいワークブックを開き、<i>&lt;Origin EXE Path&gt;\Samples\Statistics\body.dat</i>ファイルをインポートします。</li>
+<li><b>D(Height)</b> にある最初の <b>5</b> 行をドラッグしながら選択します。  選択したデータの基本的な統計（平均、合計、度数）が画面右下のステータスバーに表示されます。
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Statistics/Mini_bulb.png" /></td><td><p>ステータスバーの統計値が表示されている上で右クリックすると、ここにどの内容を表示するかを設定できます。
+</p></td></tr></table>
+<p><a  class="image"><img alt="GST Statistics 01.png" src="../images/Statistics/400px-GST_Statistics_01.png" width="748"   /></a>
+</p>
+</li>
+<li>メインメニューの<b>統計：記述統計：列の統計</b>を選択します。ダイアログが開きますので、 <b>入力</b> タブを選択し、<b>範囲 1</b>の項目を開きます。<b>データ範囲</b>の右にある「ワークシートから選択する」ボタン <a  class="image"><img alt="Button Select Data Interactive.png" src="../images/Statistics/Button_Select_Data_Interactive.png" width="18"  /></a>をクリックします。   ワークシートに戻って列<b>D</b>・<b>E</b>をドラッグで選択します。小さくなったダイアログにあるボタンをクリックし、ダイアログを元に戻します。 
+<li><b>Group</b> では、三角形のボタン <a  class="image"><img alt="Context menu button.jpg" src="../images/Statistics/Context_menu_button.jpg" width="22"  /></a> をクリックして、 <b>B(Y): age</b> 列を選択します。再度ボタンをクリックし、 <b>C(Y): gender</b> を選択します。リストで、 <b>Group</b> ボックスの中の <b>...&quot;gender&quot;</b> を選択し、<b>上に移動</b> ボタン <a  class="image"><img alt="Move up button.png" src="../images/Statistics/Move_up_button.png" width="20"  /></a> を使うと、一番上に移動します。</li> 
+<li><b>OK </b>をクリックして、レポートを作成します。 <br />
+<a  class="image"><img alt="GST Statistics 02.png" src="../images/Statistics/300px-GST_Statistics_02.png" width="300"   /></a></li> 
+<li>レポートシートの <b>Descriptive Statistics</b> ノードの右にある下向き三角形ボタン<a  class="image"><img alt="Downward triangle button.png" src="../images/Statistics/Downward_triangle_button.png" width="14"  /></a>をクリックし、メニューから<b>桁数指定法</b> を選択します。</li>
+<li>開いたダイアログで、<b>桁数指定法</b> を <b>小数桁数=</b> に設定し、 <b>桁数</b> を <b>1</b> に指定します。<b>OK</b> をクリックし、レポートの全てのテーブルの表示形式を更新します。</li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Statistics/Mini_bulb.png" /></td><td><p>全てのレポートシートの数値表示は、メインメニューの <b>環境設定：オプション</b> から、 <b>オプション</b> ダイアログを開き、<b>数値の表現形式</b> タブにある、<b>レポートでの桁</b> を使って、全体的に設定することが出来ます。 
+</p></td></tr></table>
+</ol>
+<h3><a name="Normality_Test"></a><span class="mw-headline">正規性の検定</span></h3>
+<ol>
+<li><b>新規ワークブック</b>ボタン<a  class="image"><img alt="Button New Workbook.png" src="../images/Statistics/Button_New_Workbook.png" width="23"  /></a>をクリックして、新しいワークブックを作成します。 </li>
+<li> A列の <b>F(x)</b> ラベルの行でダブルクリックすると、セルの編集モードに移行します。次のように関数式を入力します。 
+<pre class="lt" style="font-family:monospace;">nint<span style="color: #000000;">(</span><span style="color: #0000dd;">100</span><span style="color: #000080;">+</span><span style="color: #0000dd;">20</span><span style="color: #000080;">*</span>normal<span style="color: #000000;">(</span><span style="color: #0000dd;">100</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span></pre>
+100を中心としたランダムの整数が列に入力されます。</li>
+<li>A列を選択し、<b>統計：記述統計：正規性検定</b> をクリックしてダイアログを開きます。選択した列が自動的に <b>入力データ</b> に設定されます。デフォルト設定のまま、<b><b>OK</b></b>ボタンをクリックします。<b>正規性検定</b> のレポートシートが作成されます。<b>Shapiro-Wilk</b> テーブルの下にある脚注は、このデータが予測通りに正規分布されていることを示しています。<br />
+<a  class="image"><img alt="GST Statistics 03.png" src="../images/Statistics/300px-GST_Statistics_03.png" width="453"   /></a></li> 
+</ol>
+<h3><a name="Frequency_Counts"></a><span class="mw-headline">度数表</span></h3>
+<ol>
+<li>前のセクションで作成したワークブックの <b>Sheet1</b> をアクティブにします。A列を選択した状態で、 <b>統計：記述統計：度数表</b> をクリックします。</li>
+<li>開いたダイアログの設定はデフォルトのままにして、 <b>OK</b>をクリックします。</li>
+<li>結果シートで、列<b>C(Y)</b>を選択します。<b>2Dグラフ</b> ツールバーで、<b>縦棒</b> ボタン<a  class="image"><img alt="Button Column.png" src="../images/Statistics/Button_Column.png" width="22"  /></a>の隣の三角ボタンをクリックします。<b>縦棒+ ラベル</b><a  class="image"><img alt="Button Column Label.png" src="../images/Statistics/Button_Column_Label.png" width="21"  /></a>を選択して、ラベル付の縦棒グラフを作成します。ラベルでカウントしたヒストグラムが作成されます。<br />
+<a  class="image"><img alt="GST Statistics 04.png" src="../images/Statistics/200px-GST_Statistics_04.png" width="200"   /></a></li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Statistics/Mini_bulb.png" /></td><td><p><b>作図：統計グラフ</b> メニューでは、ワークシートがアクティブな時に、複数のヒストグラム作図オプションを選択出来ます。<b>度数表</b> ツールは、最初に度数カウントを実行するための別の方法です。そして、結果からヒストグラムを作図します。列にラベルを付け加えたりするような自由なカスタマイズ設定をここで設定することが出来ます。
+</p></td></tr></table>
+</ol>
+<h3><a name="One_Way_ANOVA"></a><span class="mw-headline">一元配置ANOVA</span></h3>
+<ol>
+<li>新しいワークブックを作成します。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Statistics</i>サブフォルダにある<i>nitrogen.txt</i> ファイルを探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。
+<li>メインメニューの <b>統計：ANOVA：一元配置</b> を選択して、<b>ANOVAOneWay</b> ダイアログを開きます。   <b><b>入力</b></b>タブで、<b><b>入力データ</b></b>を<b>インデックス</b>と設定します。<b>因子</b> の右にある三角形ボタンを押して、 <b>A(X): plant</b> を選択します。<b>データ</b> の右にある三角形ボタンを押して、 <b>B(Y): nitrogen</b> を選択します。 </li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Statistics/Mini_bulb.png" /></td><td><p><b>ANOVA</b> ダイアログボックスでは、2つの入力モード、 <b>インデックス</b> または <b>素データ値</b> があります。この2つのモードでデータがどのように扱われるかを、 <a href="../../QuickHelp/QuickHelp/What_is_indexed_versus_raw_data_and_how_to_I_transform_from_one_to_another.html" title="クイックヘルプ：インデックスデータおよび素データの変換方法">FAQ-333 インデックスデータおよび素データの変換方法</a> のページで参照することが出来ます。 
+</p></td></tr></table>
+<li>ダイアログの<b><b>平均比較</b></b>のタブにて、<b>Tukey</b> のチェックボックスにチェックを入れます。<b>プロット</b> タブに切り替え、<b>平均比較プロット</b> を選択します。<b>OK</b> をクリックしてダイアログを閉じ、レポートを作成します。</li>
+<li><b>ANOVA1Way1</b> レポートシートに移動します。結果から、次の結論が得られます。
+<ul>
+<li>ANOVAテーブル (<b>全般ANOVA</b>) で、p値が0.05よりも小さいので、4つのグループの内少なくとも2つが異なる平均値を持つことを有意に示しています。<br />
+<a  class="image"><img alt="GST Statistics 06.png" src="../images/Statistics/300px-GST_Statistics_06.png" width="300"   /></a></li>
+<li><b>平均比較プロット</b>の上でダブルクリックしてグラフを開きます。赤色のプロットが有意に異なる平均値を示しています。<b>PLANT4</b> は最も小さい平均値をもち、他の3つのグループとは有意に異なっています。<br />
+<a  class="image"><img alt="GST Statistics 07.png" src="../images/Statistics/250px-GST_Statistics_07.png" width="250"   /></a></li>
+<p>プロジェクトファイルを保存します。
+</p>
+</ul>
+</ol>
+
+
+    

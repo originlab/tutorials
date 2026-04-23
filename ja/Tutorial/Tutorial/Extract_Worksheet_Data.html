@@ -1,0 +1,99 @@
+﻿<h1 class="firstheading">ワークシートクエリ</h1><p class='urlname' style='display: none'>Extract-Wks-Data</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span><span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Dialog_Overview"><span class="tocnumber">3</span> <span class="toctext">ダイアログの概要</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Define_the_Condition"><span class="tocnumber">4</span> <span class="toctext">条件を定義する</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Extract_Numerical_Data"><span class="tocnumber">4.1</span> <span class="toctext">時間データの抽出</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Extract_Strings"><span class="tocnumber">4.2</span> <span class="toctext">文字列の抽出</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Extract_Time_Data"><span class="tocnumber">4.3</span> <span class="toctext">時間データの抽出</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Extract_Worksheet_Data/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Extract_Worksheet_Data/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=17" target="_blank">ワークシートデータの抽出</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Extract_Worksheet_Data/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Extract_Worksheet_Data/Blog_Image_33x33px.png" width="135"  /></a>
+<ul><li> <a class="external text" href="http://blog.originlab.com/extract-masked-points-to-a-new-workbook-automatically" target="_blank">マスクされたポイントを新しいブックに自動的に抽出する</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>このチュートリアルでは、<span class="db">ワークシートクエリ</span>ダイアログの使用方法について説明しています。
+</p>
+<p class="version" >必要なOriginのバージョン:Origin 2019b</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。
+</p>
+<ul><li>数値および時間データを抽出する</li>
+<li>抽出条件で別名を使う</li>
+<li>抽出条件でLabTalk関数を使う</li></ul>
+<h2><a name="Dialog_Overview"></a><span class="mw-headline">ダイアログの概要</span></h2>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Extract_Worksheet_Data/Tip_icon.png" width="57"  border="0" /></td><td><p>(A) アクティブなワークブックの<b>スプレッドシートセル表記 (SCN)</b>がOFFの時(ワークブックの左上にこのアイコン<a  class="image"><img alt="Button SCN OFF.png" src="../images/Extract_Worksheet_Data/Button_SCN_OFF.png" width="22"  /></a>が表示されます。)または、(b) SCNがONになっていても、ワークシートクエリの右上で<b>Use Alias</b>ボックスがチェックされているとき、<b>ワークシートクエリ</b>ダイアグラムボックスは次の画像の状態とは若干異なるものとなります。<b>ワークシートクエリ</b>ダイアログボックスはバージョン<b>2019b</b>で列の命名を柔軟に行うため修正されました。このチュートリアルでは、列エイリアスの定義を紹介します。<a class="external text" href="../../UserGuide/UserGuide/Extract_Worksheet_Data.html#Select_Column_Variables_for_If_Test"><b>If条件の列変数を選択</b></a>もご参照ください。
+</p></td></tr></table>
+<dl><dd><a  class="image"><img alt="Tutorial Extract Worksheet Data 005.png" src="../images/Extract_Worksheet_Data/Tutorial_Extract_Worksheet_Data_005.png" width="581"  /></a><br /><br /></dd></dl>
+<p><span class="db">ワークシートクエリ</span>ダイアグラムには主要なパネルが2つあります。 
+</p>
+<ul><li> 左のパネルはアクティブなワークシートにある列を一覧します。左のパネルを右クリックして、どの列のプロパティを表示するかを選びます。(例 <i>フォーマット</i>、<i>最初の値</i>など)<b>抽出</b>列がチェックされている列のみが、ダイアログボックス<b>OK</b>をクリックしたときに出力されます。</li></ul>
+<ul><li> 右側のパネルでは、抽出条件を設定したり、テストすることができます。SCNがオフになっている、または<b>Use Alias</b>ボックスにチェックを入れている場合、パネルに条件を抽出したい列を選択し、<a  class="image"><img alt="Button Select To Right.png" src="../images/Extract_Worksheet_Data/Button_Select_To_Right.png" width="20"  /></a>ボタンをクリックして<b>IF条件の列変数を選択</b>ボックスに移動させます。移動できましたら、<b>条件</b>を定義します。エイリアスではなく、列の名前やインデックスを使用する場合は、<b>条件</b>を直接定義します。</li></ul>
+<h2><a name="Define_the_Condition"></a><span class="mw-headline">条件を定義する</span></h2>
+<h3><a name="Extract_Numerical_Data"></a><span class="mw-headline">数値データの抽出</span></h3>
+<ol>
+<li>新しいワークブックを開き、\<i>Samples</i>\<i>Statistics</i>\<i>automobile.dat</i> ファイルを開きます。</li>
+<li><b>ワークシート: ワークシートクエリ</b>を選択して、ワークシートクエリダイアログボックスを開きます。
+<br />
+<a class="external text" href="../../UserGuide/Category/Worksheet_Query.html#What_Can_I_Enter_in_Condition_Text_Box.3F">有効なシンタックス</a>がわかれば、直接<b>条件</b>ボックスに入力します。<b>条件</b>ボックス右側のボタンが、条件を入力する補助のために用意されています。さらに、<b>関数</b>メニューから関数と変数を挿入できます。</li>
+<li>身長が160cm以上の個人を取り出すには、条件ボックスに次のように入力します。
+<pre class="lt" style="font-family:monospace;">col<span style="color: #000000;">(</span>height<span style="color: #000000;">)</span><span style="color: #000080;">&gt;=</span><span style="color: #0000dd;">160</span></pre>
+</li>
+<li>複数の条件がある場合、論理演算子、<b>AND, OR, NOT</b>ボタンを使って、これらの条件を組み合わせることができます。体重が50kgより小さいという条件を追加しましょう。<b>AND</b>ボタンをクリックして、<b>AND</b>の後に次を入力します。
+<pre class="lt" style="font-family:monospace;">col<span style="color: #000000;">(</span>weight<span style="color: #000000;">)</span><span style="color: #000080;">&lt;=</span><span style="color: #0000dd;">50</span></pre>
+<p>クエリは次のようになります。
+</p>
+<dl><dd><dl><dd><a  class="image"><img alt="Tutorial extract worksheet data.png" src="../images/Extract_Worksheet_Data/Tutorial_extract_worksheet_data.png" width="668"  /></a></dd></dl></dd></dl>
+</li>
+<li>クエリを確認するには、<b>すべての行</b>ボタンをクリックして全ての行を選択し(<i>開始</i>が<i>1</i> <b>終了</b>が<i>0</i>はシートの最後の行を示しています。)、<b>テスト -- 条件に合えば選択</b>をクリックしてクエリを確認します。クエリを確認すると、Originは5つのレコードを返します。 
+<dl><dd><dl><dd><a  class="image"><img alt="Tutorial test extract.png" src="../images/Extract_Worksheet_Data/Tutorial_test_extract.png" width="531"  /></a></dd></dl></dd></dl>
+</li>
+<li>他の設定はデフォルトのままにして、<b>OK</b> ボタンをクリックします。5つのレコードの入ったワークブックが新しく作成されます。</li>
+</ol>
+<h3><a name="Extract_Strings"></a><span class="mw-headline">文字列の抽出</span></h3>
+<p>文字列を抽出する場合、文字列をダブルクォーテーションマーク &quot;で囲む必要があります(例&quot;California」)。 
+</p>
+<ol>
+<li>女性(<b><b>F</b></b>)だけを抽出するには、<b><b>条件</b></b>ボックスに次のように入力します。
+<pre class="lt" style="font-family:monospace;">col<span style="color: #000000;">(</span>gender<span style="color: #000000;">)</span> <span style="color: #000080;">==</span> <span style="color: #ff00ff;">&quot;F&quot;</span></pre>
+</li>
+<li><b>全ての行</b>ボタンをクリックして、<b>テスト -- 条件に合えば選択</b>をクリックします。18レコードが見つかったとメッセージが表示されます。</li>
+<li>他の設定をデフォルトのまま<b><b>OK</b></b>ボタンをクリックしてダイアログを閉じ、新しいワークブックに女性のデータを抽出します。</li>
+</ol>
+<h3><a name="Extract_Time_Data"></a><span class="mw-headline">時間データの抽出</span></h3>
+<p><a class="external text" href="../../UserGuide/UserGuide/Dates_and_Times_in_the_Worksheet.html">日付と時刻</a>のデータは、Originの内部では数値で保存されています。日付は数値の整数部分で、時刻は小数部分です。Originでは、<a class="external text" href="../../LabTalk/LabTalk/Int_(function).html">int()</a>および<a class="external text" href="../../LabTalk/LabTalk/Int_(function).html">frac()</a>関数を使って、数値の整数部と小数部を返すことができます。そして、 <a class="external text" href="../../LabTalk/LabTalk/Date_(function).html">Date(MM/DD/YY)</a>と<a class="external text" href="../../LabTalk/LabTalk/Time_(function).html">Time(HH:mm:ss)</a>関数を使って、時刻データを<a class="external text" href="../../UserGuide/UserGuide/Dates_and_Times_in_Origin.html">ユリウス通日</a>に変換することができます。 
+</p>
+<ol>
+<li>新規ワークブックを開きます。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Import and Export</i>サブフォルダにある<i>Custom Date and Time.dat</i>を探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。A列の日付-時間データは正しい日付-時間データ(数値データ)ではなく、文字列データとして扱われているため、左揃えで表示されています。</li>
+<li>A列を選択し、右クリックし<b>プロパティ</b>を選びます。<b>フォーマット</b> = <b>日付</b>、<b>表示</b> = <b>カスタム表示</b>、<b>カスタム表示</b>に次のように入力します。
+<pre class="lt" style="font-family:monospace;">dd<span style="color: #ff00ff;">&apos;.&apos;</span>MM<span style="color: #ff00ff;">&apos;.&apos;</span>yyyy HH<span style="color: #ff00ff;">&apos;:&apos;</span>mm<span style="color: #ff00ff;">&apos;:&apos;</span>ss<span style="color: #ff00ff;">&apos;.&apos;</span>##</pre>
+<p>これで、A列の日付-時間文字列を数値データにフォーマットします。 
+</p>
+</li>
+<li>次に、10:00:00から11:00:00までの間のデータをワークシートから抽出します。<b>ワークシート: ワークシートクエリ</b> をクリックして、<b>条件</b>ボックスに次のように入力します。
+<pre class="lt" style="font-family:monospace;">frac<span style="color: #000000;">(</span>A<span style="color: #000000;">)</span> <span style="color: #000080;">&gt;</span> Time<span style="color: #000000;">(</span><span style="color: #0000dd;">10</span><span style="color: #000000;">:</span>00<span style="color: #000000;">:</span>00<span style="color: #000000;">)</span> AND frac<span style="color: #000000;">(</span>A<span style="color: #000000;">)</span> <span style="color: #000080;">&lt;</span> Time<span style="color: #000000;">(</span><span style="color: #0000dd;">11</span><span style="color: #000000;">:</span>00<span style="color: #000000;">:</span>00<span style="color: #000000;">)</span></pre>
+</li>
+<li><b>全ての行</b>ボタンをクリックして、<b>テスト -- 条件に合えば選択</b>をクリックします。  120レコードが見つかったとメッセージが表示されます。
+<li>他の設定をデフォルトのまま<b><b>OK</b></b>ボタンをクリックしてダイアログを閉じ、新しいワークブックに10:00:00から11:00:00までの間のデータを抽出します。</li>
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Extract_Worksheet_Data/Tip_icon.png" width="57"  border="0" /></td><td><p><a class="external text" href="../../UserGuide/Category/Data_Connector.html"><b>データコネクタ</b></a>を使用して、ステップ1でデータをインポートすることもできます。データファイル<i>Custom Date and Time.dat</i>をドラッグアンドドロップするだけで、日付と時間のデータが2つの列に分割され、それぞれが日付と時間として適切にフォーマットされます。これにより、ステップ2で文字列を使用してデータを手動でフォーマットする手間が省けます。 
+</p></td></tr></table>
+
+
+    

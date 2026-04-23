@@ -1,0 +1,79 @@
+﻿<h1 class="firstheading">事前設定されたピークパラメータを使ってピークフィットを行う</h1><p class='urlname' style='display: none'>PeakFit-Preset-PeakParameter</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span><span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Save_a_theme_with_peak_positions_and_peak_parameters"><span class="tocnumber">3.1</span> <span class="toctext">Sピーク位置とピークパラメータを含むテーマを保存する</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Reuse_the_theme"><span class="tocnumber">3.2</span> <span class="toctext">テーマを再利用する</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Peak_Fitting_with_Preset_Peak_Parameters/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Peak_Fitting_with_Preset_Peak_Parameters/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=16" target="_blank">Peak Fitting wtih Preset Peak Parameters</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=73" target="_blank">Fitting Multiple Spectra with Peak Analyzer</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Peak_Fitting_with_Preset_Peak_Parameters/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Peak_Fitting_with_Preset_Peak_Parameters/Blog_Image_33x33px.png" width="135"  /></a>
+<ul><li> <a class="external text" href="http://blog.originlab.com/how-do-i-perform-peak-deconvolution" target="_blank">How do I Perform Peak Deconvolution?</a></li>
+<li> <a class="external text" href="http://blog.originlab.com/sequentially-initialize-fitting-parameters-in-batch-peak-analysis" target="_blank">Sequentially Initialize Fitting Parameters in Batch Peak Analysis</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>場合によっては、事前設定されたピークパラメータでピークフィットを実行したい場合があります。たとえば、ピークの数が固定されたデータセットが多数あり、これらのピークの中心がデータセットごとに変化しない場合などです。このような場合は、主に他のパラメータ、例えば高さなどを解析します。ピークアナライザのテーマ機能を使用すると、ピークパラメータを固定して簡単にピークフィッティングを実行できます。
+</p>
+<p class="version" >必要なOriginのバージョン: OriginPro 2016 SR0以降</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ol><li>ピークアナライザーの設定をテーマとして保存し、再利用する方法</li>
+<li>ピークパラメータの固定方法</li></ol>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Save_a_theme_with_peak_positions_and_peak_parameters"></a><span class="mw-headline">ピーク位置とピークパラメータを含むテーマを保存する</span></h3>
+<ol>
+<li>新しいワークシートを開き、&lt;Originのインストールフォルダ&gt;\Samples\Spectroscopy\HiddenPeaks.datファイルをインポートします。
+<li>2列目を選択し、メニューから<b>解析：ピークと基線：ピークアナライザ</b>を選び、<b>ピークアナライザ</b>を開きます。
+<br /><a  class="image"><img alt="Peak Fitting with Preset Peak Parameters 01.png" src="../images/Peak_Fitting_with_Preset_Peak_Parameters/Peak_Fitting_with_Preset_Peak_Parameters_01.png" width="396"  /></a>
+<li>最初のページで、<b>ゴール</b>グループの<b>ピークのフィット</b>を選びます。<b>進む</b>をクリックし、<b>基線モード</b>ページに移動します。
+<br /><a  class="image"><img alt="Peak Fitting with Preset Peak Parameters 02.png" src="../images/Peak_Fitting_with_Preset_Peak_Parameters/Peak_Fitting_with_Preset_Peak_Parameters_02.png" width="483"  /></a>
+<li>「<b>基線モード</b>」ページで、<b>基線モード</b>ドロップダウンリストから<b>なし</b>を選びます。<b>進む</b>をクリックし、<b>ピーク検索</b>ページに移動します。
+<br /><a  class="image"><img alt="Peak analysis 01.png" src="../images/Peak_Fitting_with_Preset_Peak_Parameters/Peak_Fitting_01.png" width="483"  /></a>
+<li>「<b>ピーク検索</b>」ページで
+<ol style="list-style-type:lower-alpha">
+<li><b>自動検索</b>のチェックを外します。これで手動でピークを検索できます。<b>ピーク情報</b>ボタンをクリックして、<b>ピーク情報</b>ダイアログを開きます。
+<br /><a  class="image"><img alt="事前セットされたピークパラメータを使ってピークフィットを行う" src="../images/Peak_Fitting_with_Preset_Peak_Parameters/Peak_Fitting_with_Preset_Peak_Parameters_04.png" width="483"  /></a>
+<li><b>ピーク情報</b>ダイアログで、<b>追加</b>ボタンを7回クリックして、7つのピークを追加します。ピーク中心と高さを下図のように入力します。
+<br /><a  class="image"><img alt="Peak Fitting with Preset Peak Parameters 05.png" src="../images/Peak_Fitting_with_Preset_Peak_Parameters/Peak_Fitting_with_Preset_Peak_Parameters_05.png" width="500"  /></a>
+<br /><b>OK</b>をクリックしてピークアナライザーに戻ります。 
+<li><b>進む</b>をクリックし、<b>ピークのフィット</b>ページに移動します。
+</ol>
+<li><b>ピークフィット</b>ページで以下のように設定します。
+<ol style="list-style-type:lower-alpha">
+<li><b>フィット制御</b>ボタンをクリックして、<b>ピークフィットのパラメータ</b>ダイアログを開きます。
+<li><b>ピークフィットのパラメータ</b>ダイアログの<b>全ピーク中心の固定/解除</b>ボタンをクリックして固定します。そして<b>収束までフィット</b>ボタンをクリックします。フィットが完了したら、<b>OK</b>をクリックして<b>ピークアナライザー</b>ダイアログに戻ります（<b>収束までフィット</b>についての<a class="external text" href="../../UserGuide/UserGuide/Peak_Fit_Parameters_Dialog.html#Controls_between_the_Two_Panels">重要な情報</a>を確認してください）。
+<br /><a  class="image"><img alt="Peak Fitting with Preset Peak Parameters 06.png" src="../images/Peak_Fitting_with_Preset_Peak_Parameters/Peak_Fitting_with_Preset_Peak_Parameters_06.png" width="706"  /></a>
+<li>上側パネルで<b>ダイアログテーマ</b>のコントロールの右にある右向き三角のボタンをクリックします。メニューから<b>名前を付けて保存</b>を選択します。<b>名前を付けてテーマを保存</b> ダイアログが開きます。
+<li><b>名前を付けてテーマを保存</b>ダイアログで、テーマ名を<b>MyFitting</b>として入力します。以下の画像のように、各設定のチェックボックスのチェックを設定します。
+<br /><a  class="image"><img alt="Peak analysis theme 1.png" src="../images/Peak_Fitting_with_Preset_Peak_Parameters/Peak_analysis_theme_1.png" width="576"  /></a>
+<br /><b>OK</b>をクリックしてテーマを保存します。すると、<b>ピークアナライザ</b>ダイアログに戻ります。
+<li><b>ピークアナライザ</b>にある「<b>完了</b>」ボタンをクリックして、分析を終了します。
+</ol>
+</ol>
+<h3><a name="Reuse_the_theme"></a><span class="mw-headline">テーマを再利用する</span></h3>
+<ol>
+<li>別の新しいワークブックを開き、&lt;Originのインストールフォルダ&gt;\Samples\Spectroscopy\HiddenPeaks.datファイルをインポートします。
+<li>2列目を選択します。
+<li>メニューから「<b>解析：ピークと基線：ピークアナライザ</b>」を選び、<b>ピークアナライザ</b>を開きます。
+<li><b>ピークアナライザ</b>の最初のページで、<b>ダイアログテーマ</b>の右にある右向き三角のボタンをクリックします。ショートカットメニューから<b>MyFitting</b>を選びます。
+<br /><a  class="image"><img alt="Peak Fitting with Preset Peak Parameters 08.png" src="../images/Peak_Fitting_with_Preset_Peak_Parameters/Peak_Fitting_with_Preset_Peak_Parameters_08.png" width="655"  /></a>
+<li><b>進む</b>をクリックして、各ステップの設定が正しいかどうかをチェックします。<b>ピーク検索</b>ページで、ピーク中心と高さの設定が前回と同じであることを確認できます。
+<li>最後のページで<b>フィット制御</b>ボタンをクリックして、<b>ピークフィットのパラメータ</b>ダイアログを開きます。全ピーク中心が固定に設定され、値が前回と同じか確認します。<b>OK</b> をクリックして、<b>ピークアナライザ</b>に戻ります。
+<li><b>完了</b>ボタンをクリックして分析を完了します。得られた結果が、前回の結果と同じかどうかチェックします。
+</ol>
+
+
+
+
+    

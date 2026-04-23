@@ -1,0 +1,97 @@
+﻿<h1 class="firstheading">Origin CによるOriginの内部オブジェクトへのアクセス</h1>
+<a name="Summary" id="Summary"></a>
+<h2><span class="mw-headline">サマリー</span></h2>
+<p>Originの内部オブジェクト (プロジェクトエクスプローラフォルダ、Originウィンドウ、レイヤ、プロット、図形オブジェクト、データセットなど) は、Origin Cのクラスを使ってアクセスすることができます。Originの内部オブジェクトにアクセスしたり、プログラムで制御するには、Origin Cオブジェクトに接続する必要があります。</p>
+<p>Originの内部オブジェクトに接続するには、最初にプロパティ、メソッド、コンテナクラスのコレクションを使って、内部オブジェクトを探す必要があります。一般的なコンテナクラスには、Project, Folder, Page, GraphPage, Layer, GraphLayer, Worksheet, MatrixLayer, Collectionのクラスがあります。見つかったら、Originの内部オブジェクトと適切な型のOrigin Cオブジェクトを簡単に接続することができます。</p>
+<p>そして、接続したOrigin Cオブジェクトのクラスのメソッドとプロパティを操作することで、プログラムでOriginの内部オブジェクトを制御することができます。このチュートリアルでは、特定のOriginの内部オブジェクトを見つけ、そのオブジェクトに接続し、接続したOrigin Cオブジェクトのメソッドとプロパティを操作することでオブジェクトにアクセスする方法のについて学習します。</p>
+<p class="version">必要なOriginのバージョン:Origin 8.1 SR1</p>
+<a name="What_you_will_learn" id="What_you_will_learn"></a>
+<h2><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。</p>
+<ul>
+<li>ワークシート関連のオブジェクトにアクセスする</li>
+<li>グラフ関連オブジェクトにアクセスする</li>
+</ul>
+<a name="Accessing_Worksheet_Related_Objects" id="Accessing_Worksheet_Related_Objects"></a>
+<h2><span class="mw-headline">ワークシート関連のオブジェクトにアクセスする</span></h2>
+<p>特定のOriginの内部オブジェクトを理解しようとするとき、Origin C Projectクラス(Project.h), Collection クラス(Collection.h), Folderクラス(Folder.h)を熟知することが大切です。<b>Origin Cヘルプ</b>の<b>Origin C Reference: Classes</b> を見たり、..\Origin\OriginC\system サブフォルダにあるヘッダファイルを見ることが役に立ちます。</p>
+<p>このチュートリアルを始めるには</p>
+<ol>
+<li><b style="font-weight: bold;">標準</b>ツールバーで、<b>新規プロジェクト</b>ボタン<a><img alt="Image:Button_New.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_New.png" width="21" height="21" border="0" /></a>をクリックします。</li>
+<li><b style="font-weight: bold;">標準</b>ツールバーで、<b>コードビルダ</b>ボタン<a><img alt="Image:Button_Code_Builder.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Code_Builder.png" width="23" height="23" border="0" /></a>をクリックします。</li>
+<li><b style="font-weight: bold;">コードビルダ</b>のメニューで、<b>ファイル：新規ワークスペース</b>を選択します。</li>
+<li><b style="font-weight: bold;">コードビルダ</b>のメニューで、<b>開く</b>ボタン<a><img alt="Image:Button_Open.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Open.png" width="23" height="22" border="0" /></a>をクリックします。</li>
+<li>Originフォルダの \Samples\Origin C Examples\Programming Guide\Introduction to Accessing Origin Objectsフォルダに移動し、AccessWorksheetObjectsTutorial.cを選択して、<b>ワークスペースに追加</b>チェックボックスを選択し、<b>開く</b>をクリックします。</li>
+<li><b style="font-weight: bold;">コードビルダ</b>ツールバーで、<b>すべてリビルド</b>ボタン<a><img alt="Image:Button_Rebuild_All.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Rebuild_All.png" width="21" height="21" border="0" /></a>をクリックします。これはファイルをコンパイルとリンクします。</li>
+<li>コードビルダの<b>表示</b>メニューで、<b>LabTalkコンソール</b> (コマンドと結果)および<b>局所変数</b>ウィンドウが表示されている(メニューにチェックが付いている)ことを確認します。</li>
+<li><b style="font-weight: bold;">コードビルダ</b>のメニューから<b>ツール：カスタマイズ</b>を選択します。ツールバータブを選択し、<b>デバッグ</b>ツールバーチェックボックスが選択されていることを確認します。</li>
+<li>コードビルダで、AccessWorksheetObjectsTutorial.cをアクティブにします。</li>
+<li>ファイルの上部に位置づけ、行をクリックします。</li>
+</ol>
+<pre>
+PageBase pb;
+</pre>
+<p>行のどこにでもカーソルを配置できます。</p>
+<ol start="11">
+<li>コードビルダのメニューから<b>デバッグ：ブレークポイントの挿入/削除</b>を選びます。他の方法として、<b>F9</b>を押すか、<b>デバッグ</b>ツールバーの<b>ブレークポイントの挿入/削除</b>ボタン<a><img alt="Image:Button_Toggle_Breakpoint.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Toggle_Breakpoint.png" width="23" height="24" border="0" /></a>をクリックします。</li>
+</ol>
+<p>デバッグ用のブレークポイントがその行に設定されていることを示す茶色い円が左側の灰色の余白部分に表示されます。</p>
+<ol start="12">
+<li>コードビルダワークスペースで、LabTalkコンソール(コマンド&amp;結果)をアクティブにして、以下のように入力します。</li>
+</ol>
+<pre>
+AccessWorksheetObjectsTutorial
+</pre>
+<ol start="13">
+<li><b style="font-weight: bold;">ENTER</b> キーを押して関数を実行します。</li>
+</ol>
+<dl>
+<dd><a style="color: #0000ff; text-decoration: underline;"><img alt="Image:AccessWorksheetObjectsTutorial_1.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/AccessWorksheetObjectsTutorial_1.png" width="305" height="116" border="0" /></a></dd>
+</dl>
+<ol start="14">
+<li><b style="font-weight: bold;">デバッグ</b>ツールバーで、<b>ステップイン</b>ボタンを押します。 <a><img alt="Image:Button_Step_Into.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Step_Into.png" width="22" height="24" border="0" /></a></li>
+</ol>
+<ol start="15">
+<li><b style="font-weight: bold;">ステップイン</b>ボタン<a><img alt="Image:Button_Step_Into.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Step_Into.png" width="22" height="24" border="0" /></a>を繰り返し押し、停止したら各ステートメントのコメントを読みます。停止、サイズ変更、位置変更を行い、ローカル変数ウィンドウに現在の各変数のランタイム値を表示します。</li>
+</ol>
+<dl>
+<dd><a style="color: #0000ff; text-decoration: underline;"><img alt="Image:AccessWorksheetObjectsTutorial_2.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/AccessWorksheetObjectsTutorial_2.png" width="981" height="676" border="0" /></a></dd>
+</dl>
+<a name="Accessing_Graph_Related_Objects" id="Accessing_Graph_Related_Objects"></a>
+<h2><span class="mw-headline">グラフ関連オブジェクトにアクセスする</span></h2>
+<ol>
+<li>Origin のワークスペースに戻り、<b>標準</b>ツールバーで、<b>開く</b>ボタン<a><img alt="Image:Button_Open.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Open.png" width="23" height="22" border="0" /></a>をクリックします。</li>
+<li>Originフォルダの \Samples\Origin C Examples\Programming Guide\Introduction to Accessing Origin Objectsフォルダに移動し、AccessGraphObjectsTutorial.OPJを選択して、<b>開く</b>をクリックします。名前無しのプロジェクトへの変更を保存するかポップアップで尋ねられます。<b>いいえ</b>をクリックすると、ワークシートとグラフが開きます。</li>
+<li>コードビルダのメニューで、<b>ファイル：新規ワークスペース</b>を選択します。ワークスペースの変更を保存するかどうか尋ねられたら、<b>いいえ</b>をクリックします。</li>
+<li>コードビルダで、<b>開く</b>ボタン<a><img alt="Image:Button_Open.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Open.png" width="23" height="22" border="0" /></a>をクリックします</li>
+<li>Originフォルダの \Samples\Origin C Examples\Programming Guide\Introduction to Accessing Origin Objectsフォルダに移動し、AccessGraphObjectsTutorial.cを選択して、<b>ワークスペースに追加</b>チェックボックスを選択し、<b>開く</b>をクリックします。</li>
+<li><b style="font-weight: bold;">すべてリビルド</b>ボタン<a><img alt="Image:Button_Rebuild_All.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Rebuild_All.png" width="21" height="21" border="0" /></a> をクリックしてファイルのコンパイルリンクを行います。</li>
+<li>コードビルダの<b>表示</b>メニューで、<b>LabTalkコンソール</b> (コマンドと結果)および<b>局所変数</b>ウィンドウが表示されている(メニューにチェックが付いている)ことを確認します。</li>
+<li>コードビルダのメニューから<b>ツール：カスタマイズ</b>を選択します。ツールバータブを選択し、<b>デバッグ</b>ツールバーチェックボックスが選択されていることを確認します。</li>
+<li>コードビルダワークスペースで、AccessGraphObjectsTutorial.cをアクティブにします。</li>
+<li>ファイルの上部に次の行を見つけ、クリックします。</li>
+</ol>
+<pre>
+GraphPage gp;
+</pre>
+<p>行のどこにでもカーソルを配置できます。</p>
+<ol start="11">
+<li>コードビルダのメニューから<b>デバッグ：ブレークポイントの挿入/削除</b>を選びます。他の方法として、<b>F9</b>を押すか、<b>デバッグ</b>ツールバーの<b>ブレークポイントの挿入/削除</b>ボタン<a><img alt="Image:Button_Toggle_Breakpoint.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Toggle_Breakpoint.png" width="23" height="24" border="0" /></a>をクリックします。</li>
+</ol>
+<p>デバッグ用のブレークポイントがその行に設定されていることを示す茶色い円が左側の灰色の余白部分に表示されます。</p>
+<ol start="12">
+<li>コードビルダのLabTalkコンソール(コマンド&amp;結果ウィンドウ)をアクティブにして、次のように入力します。</li>
+</ol>
+<pre>
+AccessGraphObjectsTutorial
+</pre>
+<ol start="13">
+<li><b style="font-weight: bold;">ENTER</b> キーを押して関数を実行します。</li>
+</ol>
+<ol start="14">
+<li><b style="font-weight: bold;">デバッグ</b>ツールバーで、<b>ステップイン</b>ボタンを押します。 <a><img alt="Image:Button_Step_Into.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Step_Into.png" width="22" height="24" border="0" /></a></li>
+</ol>
+<ol start="15">
+<li><b style="font-weight: bold;">ステップイン</b>ボタン<a><img alt="Image:Button_Step_Into.png" src="../images/Accessing_Internal_Origin_Objects_by_Origin_C/Button_Step_Into.png" width="22" height="24" border="0" /></a>を繰り返し押し、停止したら各ステートメントのコメントを読みます。停止、サイズ変更、位置変更を行い、ローカル変数ウィンドウに現在の各変数のランタイム値を表示します。</li>
+</ol>
+<p>これで<b>Originの内部オブジェクト</b>チュートリアルを終了します。</p>

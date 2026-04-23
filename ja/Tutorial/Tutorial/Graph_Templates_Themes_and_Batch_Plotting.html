@@ -1,0 +1,84 @@
+﻿<h1 class="firstHeading">グラフテンプレートとバッチ作図</h1><p class='urlname' style='display: none'>GSB-template-theme-batchplotting</p>
+<p><br />
+このチュートリアルでは、グラフテンプレートとバッチ作図について学習します。 
+</p>
+<h2><a name="Graph_Templates"></a><span class="mw-headline">グラフテンプレート</span></h2>
+<p><a href="../../Tutorial/Tutorial/Create_Your_First_Graph.html" title="チュートリアル：初めてのグラフ作成">レッスン1：初めてのグラフ作成</a> で保存したプロジェクトを使用します。グラフウィンドウをクリックして選択します。
+</p>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Graph_Templates_Themes_and_Batch_Plotting/Mini_bulb.png" /></td><td><p><b>ファイル：最近使ったプロジェクト</b> リストから、最近保存したプロジェクトをすぐに開くことが出来ます。
+</p></td></tr></table>
+<ol>
+<li> X軸上でクリックして、ミニツールバーを表示させます。<b>反対側の軸を表示</b>ボタンをクリックし、上X軸を表示します。Y軸に対しても同じ操作を行い、右側のY軸を表示します。<br />
+<a  class="image"><img alt="Graph Templates Themes and Batch Plotting TM 01.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/Graph_Templates_Themes_and_Batch_Plotting_TM_01.png" width="406"  /></a>
+</li>
+<li> グラフをテンプレートとして保存します。ウィンドウのタイトルバーを右クリックして、メニューから<b>テンプレートの新規保存…</b>を選択します。 </li>
+<li>ダイアログが開いたら <b>テンプレート名</b> に <b>My Line</b> と入力し、<b>OK</b> をクリックしてテンプレートを保存します。</li>
+<li> 新しいデータ列を作成します。ワークシートをアクティブにして、<b>標準</b>ツールバーの<b>列の追加</b>ボタン <a  class="image"><img alt="Button Add New Columns.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/Button_Add_New_Columns.png" width="22"  /></a>をクリックして、新しい列を追加します。 </li>
+<li>この新しい列の<b>F(x)</b>セルの内側をクリックし、次のように入力します。
+<pre class="lt" style="font-family:monospace;"><span style="color: #000080;">=</span>Mmovavg<span style="color: #000000;">(</span>B,<span style="color: #0000dd;">2</span><span style="color: #000000;">)</span></pre>
+<p><br />「=」と入力してから式を入力すると、使用可能な式が一覧表示され、式の自動補完を選択できるようになります。メッセージボックスがポップアップ表示され、式の簡単な説明が表示されます。 
+</p>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Graph_Templates_Themes_and_Batch_Plotting/Mini_bulb.png" /></td><td><p>この列の<b>F(x)</b>セルを右クリックしてコンテキストメニューから<b>ダイアログを開く…</b>を選択します。
+<p><a  class="image"><img alt="Template theme 02.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/400px-Template_theme_02.png" width="528"   /></a><br />
+<br />このダイアログでは、<b>計算式：サンプルのロード</b>メニューを使用することで、列値の設定に関するさまざまな例を表示します。また、<b>関数</b>メニューには、さまざまな関数が用意されています。関数の検索と挿入ボタン<a  class="image"><img alt="SCV Search button.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/SCV_Search_button.png" width="26"  /></a>を使用して適切な関数を検索することもできます。
+</p>
+</p></td></tr></table>
+</li>
+<li>OKをクリックしてダイアログを閉じ、B列データの修正移動平均のデータセットを2行目以降に出力します。この列の<b>ロングネーム</b>セルに<b>MMovAvg</b>と入力します。</li>
+<li>列Cのヘッダをクリックして列全体を選択します。メニューから<b>作図：ユーザーテンプレート</b>を選択し、前に作成した<b>My Line</b>テンプレートを選択します。C列のデータで、新しいグラフが作成されます。  <br />
+<a  class="image"><img alt="Template theme 03.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/350px-Template_theme_03.png" width="350"   /></a>
+</li>
+</ol>
+<h2><a name="Batch_Plotting"></a><span class="mw-headline">バッチ作図</span></h2>
+<p>このセクションでは、最初に一つのグラフを作成した後、バッチ作図を行い、さらに他のデータでグラフを複製します。
+</p>
+<ol>
+<li><b>プロジェクトエクスプローラ</b>を開きます。上部のパネルで、ルートレベルを右クリックし、<b>新規フォルダ</b>を選択します。</li>
+<li>新しく作成されたフォルダを右クリックし、 名前の変更を選択して名前を<b>バッチ作図</b>に変更します。フォルダをクリックして開きます。</li>
+<li><b>ヘルプ: フォルダを開く: プログラムフォルダ</b>を選択して、Originのプログラムフォルダを開き、<b>\Samples\Import and Export\</b> サブフォルダを開きます。<b>Shift</b> キーを押しながら、次の3つのファイルを選択します。
+<table class="tbl">
+<tr>
+<td>
+<ul><li> S15-125-03.dat</li></ul>
+</td>
+<td>
+<ul><li> S21-235-07.dat</li></ul>
+</td>
+<td>
+<ul><li> S32-014-04.dat</li></ul>
+</td></tr></table>
+</li>
+<li> Originワークシートにドラッグアンドドロップします。3つのファイルがそれぞれ別の新規ワークブックにインポートされます。<br />
+<a  class="image"><img alt="Template theme 05.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/400px-Template_theme_05.png" width="400"   /></a>
+<table class="note">
+<tr>
+<td><b>注:</b> ドラッグアンドドロップでデータファイルをインポートするために、 <a class="external text" href="../../QuickHelp/QuickHelp/Why_does_not_drag_and_drop_work.html">Originを管理者として実行しないでください</a>。
+</td></tr></table>
+</li>
+<li> 1つのワークブックを選択し、B列のヘッダ部分でクリックしたら、D列までドラッグし、3つの列を全て選択します。次に、<b>作図：複数区分/軸：3Y軸Y-YY</b>メニューを選択します。 
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Graph_Templates_Themes_and_Batch_Plotting/Mini_bulb.png" /></td><td><p>Originは、選択範囲の左側を見てX列を見つけ、その列に対して選択したデータをプロットします。 
+</p></td></tr></table></li>
+<li>1つのプロットをクリックし、ミニツールバーで、<b>プロットを変更</b><a  class="image"><img alt="Button Change Plot to.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/Button_Change_Plot_to.png" width="24"  /></a>を選択してドロップダウンリストから、プロットタイプを<b>折れ線</b>に変更します。<br />
+<a  class="image"><img alt="Graph Templates Themes and Batch Plotting TM 02.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/400px-Graph_Templates_Themes_and_Batch_Plotting_TM_02.png" width="400"   /></a><br />
+再度プロットをクリックし、ミニツールバーで、<b>線の太さ</b><a  class="image"><img alt="Button Border Width.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/Button_Border_Width.png" width="40"  /></a>を選択してドロップダウンリストから太さを<b>3</b>に変更します。<br />
+<a  class="image"><img alt="Graph Templates Themes and Batch Plotting TM 03.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/400px-Graph_Templates_Themes_and_Batch_Plotting_TM_03.png" width="400"   /></a><br />
+他の2つのプロットについても同じことを行い、次のような折れ線グラフを作成します。<br />
+<a  class="image"><img alt="Graph Templates Themes and Batch Plotting TM 04.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/400px-Graph_Templates_Themes_and_Batch_Plotting_TM_04.png" width="400"   /></a>
+</li>
+<li>では、このグラフをほかのワークブックのデータで複製します。グラフのタイトルバーを右クリックして、<b>バッチ作図…</b>を選択し、<b>ワークブックを選択</b>ダイアログを開きます。</li>
+<li>ダイアログで、下図のように設定します。ブックを選択していることを確認します。
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Graph_Templates_Themes_and_Batch_Plotting/Mini_bulb.png" /></td><td><p><b>プロット列の一致条件</b>ドロップダウンを適切に設定することにより、現在のグラフのデータ構成に一致するプロジェクト内のワークシートを検索できます。 
+</p></td></tr></table></li>
+<p><a  class="image"><img alt="BatchPlotting book.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/400px-BatchPlotting_book.png" width="524"   /></a><br />
+</p>
+<li> <b><b>OK</b></b>をクリックします。再スケールに関して確認メッセージが表示されたら、<i><b>はい</b></i>を選択します。他の2つのブックのデータから、同様の2つのグラフが作成されます。<br />
+<a  class="image"><img alt="Template theme 04.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/400px-Template_theme_04.png" width="400"   /></a></li>
+<li>メニューから<b>標準</b>ツールバーの<b>プロジェクトを保存</b>ボタン<a  class="image"><img alt="Button Save Porject.png" src="../images/Graph_Templates_Themes_and_Batch_Plotting/Button_Save_Porject.png" width="22"  /></a>をクリックして、変更したプロジェクトを保存します。</li>
+</ol>
+
+
+    

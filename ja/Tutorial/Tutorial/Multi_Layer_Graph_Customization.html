@@ -1,0 +1,171 @@
+﻿<h1 class="firstheading">複数レイヤグラフの作成</h1>
+<p class="urlname" style="display: none;">MultiLayer-LinkAxes</p>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> 
+		 <span class="toctext">サマリー</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> 
+		 <span class="toctext">ステップ</span></a> 
+		<ol>
+			<li class="toclevel-2 tocsection-4"><a href="#Scale_Elements"><span 
+			 class="tocnumber">3.1</span> <span class="toctext">スケール要素</span></a></li>
+			<li class="toclevel-2 tocsection-5"><a href="#Merging_Graph_Windows"><span 
+			 class="tocnumber">3.2</span> <span class="toctext">グラフウィンドウの統合</span></a></li>
+			<li class="toclevel-2 tocsection-6"><a href="#Common_Display_Controls_for_Simultaneous_Edits_to_Multiple_Layers"><span 
+			 class="tocnumber">3.3</span> <span class="toctext">複数レイヤを同時に編集する際の共通な表示の制御</span></a></li>
+			<li class="toclevel-2 tocsection-7"><a href="#Fix_Scale_Factors"><span 
+			 class="tocnumber">3.4</span><span class="toctext">倍率の変更</span></a></li>
+			<li class="toclevel-2 tocsection-8"><a href="#Fit_Layers_to_Page"><span 
+			 class="tocnumber">3.5</span> <span class="toctext">レイヤをページに合わせる</span></a></li>
+			<li class="toclevel-2 tocsection-9"><a href="#Graph_Legend_Adjustments_for_Panel_Graphs"><span 
+			 class="tocnumber">3.6</span> <span class="toctext">パネルグラフの凡例の調整</span></a></li>
+		</ol></li>
+	</ol>
+</div>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p><b>グラフレイヤ</b>はOriginのグラフの基本となる部分です。グラフレイヤは複数の座標軸と1つ以上のデータポイントに加え、軸タイトル、凡例、テキストラベル、描画オブジェクト、ボタンオブジェクト等で構成されています。グラフレイヤはグラフウィンドウ内では移動したり、サイズを変更することができます。グラフウィンドウは1から1024のグラフレイヤを開くことができます。</p>
+<p>複数のレイヤを含むグラフを操作するときは、各プロットまたは各軸のスケールを個別に変更するのではなく、一度に複数のレイヤにカスタマイズを適用するためのツールを用意すると便利です。Origin 
+ 2018bからは、作図の詳細の<b>レイヤ</b>タブにある<b>共通の表示</b>コントロールを使って、複数のグラフレイヤを同時に編集することができます。</p>
+<p class="version">必要なOriginのバージョン:Origin 2018b</p>
+<h2><a name="What_you_will_learn" id="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul>
+	<li>グラフが統合されたときに要素（軸タイトル、目盛ラベル、グラフの凡例）の拡大縮小を制御する方法</li>
+	<li>単一レイヤを含むグラフウィンドウを複数パネルグラフに統合する方法</li>
+	<li>1つのレイヤで行われたプロットまたは軸のカスタマイズがすべてのレイヤに適用されるように統合されたグラフを構成する方法</li>
+	<li>統合グラフのフォントに関するスケーリングの問題を修正する方法</li>
+	<li>統合された複数パネルグラフから空白を削除する方法</li>
+	<li>不要な凡例オブジェクトを削除し、それが複数パネルグラフの凡例として機能するように1つのオブジェクトをカスタマイズする方法</li>
+</ul>
+<h2><a name="Steps" id="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<ol>
+	<li>新しいプロジェクトを開始します。<b>F11</b>キーを押して<b>ラーニングセンター</b>を開き、<b>グラフサンプル</b>ドロップダウンリストから<b>クラスタープロット</b>を選択します。<b>Line 
+	 and Symbol</b>をダブルクリックして開きます。 
+	<dl>
+		<dd><a class="image"><img alt="OC GraphSamp MultiPan.png" src="../images/Multi_Layer_Graph_Customization/OC_GraphSamp_MultiPan.png" 
+									 width="572" height="374" border="0" /></a></dd>
+	</dl></li>
+	<li>ワークシートが開いた状態で<b>Output Data</b>タブをクリックし、データの全12列が表示されるようにウィンドウのサイズを調整します。列ヘッダには（1）緑色のロックが付いており、これらは計算値であること、および（2）<a 
+	 class="external text" href="../../UserGuide/UserGuide/Set_Column_Designation.html">列の属性</a>はパターン<i>X1, 
+	 Y1, Y1, X2, Y2, Y2,</i>などで繰り返されていることに注意してください。</li>
+	<li>列<i>B(Y1)</i>と<i>C(Y1)</i> を選択し、<b>2Dグラフギャラリー</b>ツールバーの<b>線＋シンボル</b>ボタン 
+	 をクリックします。次の列に対してもこれを繰り返します：<i>E(Y2)</i>+<i>F(Y2)</i>, <i>H(Y3)</i>+<i>I(Y3)</i>, 
+	 <i>K(Y4)</i>+<i>L(Y4)</i>.これで、それぞれが2つのプロットを持つ1つのグラフレイヤを含む4つの同様のグラフウィンドウが作成されます（Originのデフォルトの動作は、選択したY列のすぐ左にあるX列に対してY値をプロットするため、これらのグラフを作成するときにX列を選択する必要はありません）。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Mult lay graph cust 01.png" src="../images/Multi_Layer_Graph_Customization/Mult_lay_graph_cust_01.png" 
+									 width="750" height="161" border="0" /></a></dd>
+	</dl></li>
+</ol>
+<h3><a name="Scale_Elements" id="Scale_Elements"></a><span class="mw-headline">スケール要素</span></h3>
+<p>上記のグラフウィンドウを1つの4パネルグラフウィンドウに統合します。その前に、統合されたグラフでこれを制御する方法を理解できるように、要素（軸のタイトル、グラフの凡例など）の拡大/縮小について簡単に説明します。</p>
+<ol>
+	<li>4つのグラフのうちいずれかをクリックして、メニューから<b>フォーマット：作図の詳細（レイヤ属性）</b>を選択します。</li>
+	<li>作図の詳細ダイアログボックスで<b>レイヤの大きさ</b>タブをクリックし、<b>スケーリング</b>設定を確認します。デフォルトでは、<b>レイヤ枠でスケール</b>が選択されています。これは、レイヤのサイズが変更されると、軸のタイトル、グラフの凡例などの添付要素のサイズもそれに応じて拡大縮小されることを示しています。</li>
+	<li><b>OK</b>をクリックして作図の詳細ダイアログを閉じ、グラフウィンドウのタイトルバー上で右クリックして<b>ウィンドウの複製作成</b>を選択します。これで2つの同じウィンドウができました。</li>
+	<li>複製されたウィンドウを選択して再度<b>フォーマット：作図の詳細（レイヤ属性）</b>を開きます。再度<b>レイヤの大きさ</b>タブを開き、今回は<b>スケーリング</b>を<b>固定倍率：1</b>とし、<b>OK</b>を押して作図の詳細を閉じます。2つの同じグラフは、一方は<b>スケーリング</b> 
+	 = <b>レイヤ枠でスケール</b>、もう一方は<b>スケーリング</b> = <b>固定倍率：1</b>です。</li>
+	<li>並べて比較できるように、2つのグラフの位置とサイズを変更してください。 
+	<dl>
+		<dd><a class="image"><img alt="Mult lay graph cust 02.png" src="../images/Multi_Layer_Graph_Customization/Mult_lay_graph_cust_02.png" 
+									 width="750" height="304" border="0" /></a></dd>
+		<dd>前述のように、最終的には4つの別々のグラフを1つの4パネルグラフに統合することを計画しています。その際には、グラフのサイズを4つのページに収まるように縮小する必要があります。たとえば、テキスト要素を縮小した場合の効果は何でしょうか。 
+		 比較するため異なるグラフを2つ作成します、一方はレイヤによってスケールされているもの、もう一方は固定サイズのものです。</dd>
+	</dl></li>
+	<li>グラフウィンドウが<b>レイヤ枠でスケール</b>に設定されている場合、グラフページの空白部分をクリックします。緑色の選択ハンドルが表示されますので、CTRLキーを押しながら角のハンドルを、ページのおよそ25%までドラッグします。</li>
+	<li><b>固定倍率: 1</b>に設定されているグラフで同じように操作します。</li>
+	<li>縮小された2つのグラフを比べてみましょう。プロットシンボル、テキストと凡例オブジェクトなど様々な違いが縮小したグラフに見られます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Mult lay graph cust 03.png" src="../images/Multi_Layer_Graph_Customization/Mult_lay_graph_cust_03.png" 
+									 width="689" height="308" border="0" /></a></dd>
+		<dd><b>固定倍率: 1</b>に設定されているグラフでは、4つのグラフが1つのページに統合されているため、問題が生じることが想定されます。<b>レイヤ枠でスケール</b>に設定されているグラフではデフォルト設定のままとなっています。</dd>
+	</dl></li>
+	<li>このため、他のグラフと混同することはありません。固定倍率のグラフを削除しましょう。</li>
+</ol>
+<h3><a name="Merging_Graph_Windows" id="Merging_Graph_Windows"></a><span 
+	 class="mw-headline">グラフウィンドウの統合</span></h3>
+<ol>
+	<li>ワークスペースにある4つのグラフウィンドウで、<b>グラフ操作：グラフウィンドウの統合</b>を選択し、<b>グラフウィンドウの統合</b>ダイアログボックスを開きます。</li>
+	<li><b>グラフ</b>ボックスに4つ全てのグラフがリストされていることを確認してください。<b>倍率</b>ブランチを開き、<b>スケールモード</b>が<b>自動</b>に設定されていることを確認してください。ダイアログボックスの右側ペインにあるプレビューでは、グラフを統合した結果が表示されています。<b>Tip:</b> 
+	 統合前のグラフを残したい場合は、<b>元のグラフを保持</b>ボックスをチェックします。チェックされていなければ、統合時に元グラフが削除されてしまいます。</li>
+	<li>OKをクリックすると、4つのパネルが統合されたグラフが作成されます。統合グラフの左上のアイコンは、それぞれ4つのグラフに対応しています。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Mult lay graph cust 04.png" src="../images/Multi_Layer_Graph_Customization/Mult_lay_graph_cust_04.png" 
+									 width="582" height="406" border="0" /></a></dd>
+	</dl></li>
+</ol>
+<h3><a name="Common_Display_Controls_for_Simultaneous_Edits_to_Multiple_Layers" 
+		 id="Common_Display_Controls_for_Simultaneous_Edits_to_Multiple_Layers"></a><span 
+	 class="mw-headline">複数レイヤを同時に編集する際の共通な表示の制御</span></h3>
+<p>複数パネルグラフのレイヤ要素・設定、プロットや軸をカスタマイズするにはどうすればよいでしょうか？レイヤを1つずつ編集することもできますが、それでは煩雑になります。Origin 
+ 2018bからは、<a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Layers_Tab.html">作図の詳細：<b>レイヤ</b>タブ：<b>共通の表示</b>コントロール</a>で一つのレイヤの編集内容を他のレイヤに適用できます。</p>
+<ol>
+	<li>グラフをアクティブにして、<b>フォーマット：ページ</b> を選択します。「作図の詳細」ダイアログボックスが開きます。</li>
+	<li><b>レイヤ</b>タブをクリックします。</li>
+	<li><b>共通の表示</b>の、<b>プロットプロパティ</b>にチェックを入れます。青い色のヒントが表示されているように、<i>最初に</i>適切なボックスをチェックして、<i>それから</i>レイヤ/プロットレベルのカスタマイズを行います。<b>適用先</b>コントロールで<b>共通の表示</b>の変更内容を適用するレイヤを選択できます。(<a 
+	 class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Layers_Tab.html"><b>適用先</b></a>コントロールの詳細はご覧ください。)</li>
+	<li>作図の詳細の左のパネルで、<i>Layer1</i>アイコンの左の矢印をクリックして開き、2つのデータプロットを表示します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Mult lay graph cust 05.png" src="../images/Multi_Layer_Graph_Customization/Mult_lay_graph_cust_05.png" 
+									 width="788" height="221" border="0" /></a></dd>
+	</dl></li>
+	<li>レイヤの1番目のプロットをクリックして、作図の詳細の右パネルにある<b>シンボル</b>タブで、シンボルギャラリー(下矢印)をクリック、シンボルをサークルに、<b>サイズ</b>を<i>15</i>に設定します。<b>シンボルの色</b>を<i>自動</i>のままにすることで、線の色に従うようになります。OKをクリックして作図の詳細を閉じます。4つのパネルすべてでシンボルのサイズが拡大されていることがわかります。</li>
+	<li><b>フォーマット</b>と<b>スタイル</b>ツールバーボタンを利用して、4パネルプロットのカスタマイズを続けます。灰色のプロットをクリックすると、両方のプロットが選択されることを確認してください。灰色のプロットを二度クリックすると、<i>その</i>プロットのみが選択されます。</li>
+	<li>スタイルツールバーの線/縁の色ボタンをクリックして<i>紺色</i>を選択します。4つ全てのパネルにおいて、灰色のプロット部分が紺色になっていることを確認してください。最終的なグラフはこのようになります。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Mult lay graph cust 06.png" src="../images/Multi_Layer_Graph_Customization/Mult_lay_graph_cust_06.png" 
+									 width="582" height="405" border="0" /></a></dd>
+	</dl></li>
+</ol>
+<h3><a name="Fix_Scale_Factors" id="Fix_Scale_Factors"></a><span class="mw-headline">固定倍率</span></h3>
+<p>ここで、グラフのカスタマイズが完了したように思われます。しかし、4つのグラフが統合された場合、フォントサイズの縮小が問題となります。</p>
+<ol>
+	<li>凡例オブジェクトを1つ選択し、マウスカーソルでオブジェクトつかむと下のようにツールチップが表示されます。 
+	<dl>
+		<dd><a class="image"><img alt="Mult lay graph cust 07.png" src="../images/Multi_Layer_Graph_Customization/Mult_lay_graph_cust_07.png" 
+									 width="283" height="84" border="0" /></a></dd>
+		<dd>表示されたツールチップではフォントサイズが<i>22</i>ですが、実際のサイズは10.1であることがわかります。このように変更されている理由は、グラフ統合によってフォントがスケールダウンされているためです。 
+		 ここでの問題はフォントサイズが、<i>外見上</i>は<i>10.1</i>であるにも関わらず、Originはサイズが<i>22</i>であると認識していることです。(フォーマットツールバーの<b>フォントサイズ</b>リストでは元サイズが<i>22</i>であることがわかります)この矛盾は簡単なメニュー操作で修正できます。</dd>
+	</dl></li>
+	<li>グラフウィンドウを選択して、<b>グラフ操作：縮尺</b>を修正を選択し、デフォルトの値<i>1</i>のまま<b>OK</b>をクリックします。4つの凡例オブジェクトの内1つを選択し、カーソルでつかむとツールチップが表示され、表示サイズと実サイズのどちらも<i>10.1</i>であることがわかります。(小数点以下の数値は0.5で四捨五入されますのであまり重要ではありません)フォーマットツールバーでも、<b>フォントサイズ</b>は<i>10</i>になっていることをご確認ください。</li>
+</ol>
+<p>しかしこの詳細情報はスキップしても構いません。スケール変更されたフォントサイズはユーザの混乱を招く元であり、上記のメニュー項目でフォントサイズをリセット出来ます。</p>
+<h3><a name="Fit_Layers_to_Page" id="Fit_Layers_to_Page"></a><span class="mw-headline">レイヤをページに合わせる</span></h3>
+<p>これでグラフは完成しているようですが、さらに改良する点がいくつかあります。1つはグラフの余白を削除することです。これにはいくつかの方法がありますが、「レイヤをページに合わせる」メニューを利用すると簡単に行えます。</p>
+<ol>
+	<li>グラフウィンドウをアクティブにして、<b>ページにレイヤを合わせる</b>を選択します。<b>レイヤをページに合わせる: gfitp</b>ダイアログが開きます。</li>
+	<li><b>境界幅</b>を<i>5</i>に設定し、<b>レイヤアスペクト比を維持</b>にチェックを入れ、OKをクリックします。これで、グラフが若干変形され、周囲の白い領域が小さくなります。</li>
+</ol>
+<table class="noborder">
+	<tr>
+		<td style="vertical-align: top;" width="60"><img src="../images/Multi_Layer_Graph_Customization/Tip_icon.png" 
+														 alt="" width="57" 
+														 border="0" /></td>
+		<td><p>グラフを外部のアプリケーションにエクスポートする場合、<a class="external text" href="../../UserGuide/UserGuide/Export_Margin_Offsets.html"><b>エクスポートの余白</b>ダイアログボックス</a>を利用してグラフの外側の余白を削除することができます。</p></td>
+	</tr>
+</table>
+<h3><a name="Graph_Legend_Adjustments_for_Panel_Graphs" id="Graph_Legend_Adjustments_for_Panel_Graphs"></a><span 
+	 class="mw-headline">パネルグラフの凡例の調整</span></h3>
+<p>4つのパネルは共通の2つ変数を利用しているので、それぞれの凡例は必要ありません。ですので、3つのオブジェクトを削除して4番目の凡例オブジェクトを若干変更し、4つ全てのパネルの凡例とします。</p>
+<ol>
+	<li>CTRLキーを押して3つの凡例オブジェクトを選択し、緑の選択ハンドルが表示されますので、削除を選択します。</li>
+	<li>残った凡例をグラフページの上部中央に配置します。</li>
+	<li>凡例を選択したまま(緑色のハンドルが表示された状態)、もう一度CTRLキーを押してハンドルを凡例の横にドラッグし、以下の画像の通り水平になるようにします。</li>
+
+<p><a class="image"><img alt="Mult lay graph cust 08.png" src="../images/Multi_Layer_Graph_Customization/Mult_lay_graph_cust_08.png" 
+						 width="538" height="72" border="0" /></a></p>
+
+	<li>ページの上で凡例を中央に配置します。グラフは次のようになります。 
+	<dl>
+		<dd><a class="image"><img alt="Mult lay graph cust 09.png" src="../images/Multi_Layer_Graph_Customization/Mult_lay_graph_cust_09.png" 
+									 width="583" height="408" border="0" /></a></dd>
+	</dl></li>
+</ol>

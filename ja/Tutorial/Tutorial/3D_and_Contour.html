@@ -1,0 +1,65 @@
+﻿<h1 class="firstheading">3Dおよび等高線グラフ</h1><p class='urlname' style='display: none'>GSB-3d-contour</p>
+<p><br />
+このレッスンでは3Dグラフ、等高線グラフ、プロファイルグラフの作成方法を学びます。それらのグラフのデータは、ワークシートのXYZ列、または行列ウィンドウのセルの配列として構成されている必要があります。 
+</p>
+<h3><a name="3D_Surface"></a><span class="mw-headline">3D曲面</span></h3>
+<ol>
+<li>前回のレッスンで保存したプロジェクトを開き、<b>3Dおよび等高線グラフ</b>という名前のフォルダを追加します。クリックして空のフォルダを開きます。</li>
+<li>「標準」ツールバーの「<b>新規ワークシート</b>」ボタン<a  class="image"><img alt="Button New Workbook.png" src="../images/3D_and_Contour/Button_New_Workbook.png" width="23"  /></a>  をクリックします。</li>
+<li>Originのプログラムフォルダにある、<i><b>Samples\Matrix Conversion and Gridding\XYZ Random Gaussian.dat</b></i>をインポートします。</li></i>
+<li>列Cのヘッダを右クリックし、コンテキストメニューから<b>列XY属性の設定：Z列</b> を選びます。</li>
+<li>列Cを選択したままにします。メニューから<b><b>作図：3D：3Dカラーマップ曲面</b></b>と選択して、曲面図を作成します。</li>
+<li>グラフページの左上にある<b>1</b>と表示されているレイヤアイコンをダブルクリックして、<b>レイヤの内容</b>ダイアログボックスを開きます。</li>
+<li>左のパネルで、<b>C(Z)</b>を選択します。中段のセクションで、<b>A</b> ボタンの隣にあるドロップ＆ダウン矢印をクリックします。  ドロップダウンリストから<b>3D 散布図/トラジェクトリ/ベクトル</b>を選択します。<b><b>プロットの追加</b></b>ボタン<a  class="image"><img alt="Button Add plot.png" src="../images/3D_and_Contour/Button_Add_plot.png" width="24"  /></a>をクリックして、右側のパネルにグラフを追加します。<br />
+<a  class="image"><img alt="GST surface contour 02.png" src="../images/3D_and_Contour/500px-GST_surface_contour_02.png" width="771"   /></a></li>
+<li><b><b>OK</b></b>をクリックしてダイアログを閉じます。曲面上にそれぞれのデータポイントがあるグラフが表示されます。</li>
+<li>キーボードの<b><b>R</b></b>キーを押したまま、マウスを使用すれば曲面図を自由に回転させることができます。</li>
+</li>
+</ol>
+<h3><a name="Image_Profile"></a><span class="mw-headline">イメージプロファイル</span></h3>
+<ol>
+<li><b>標準</b>ツールバーにある<b>新しい行列ウィンドウ</b>ボタン<a  class="image"><img alt="Button New Matrix.png" src="../images/3D_and_Contour/Button_New_Matrix.png" width="23"  /></a>をクリックして新しい行列を作成します。</li>
+<li>メニューから<b>データ：インポート：イメージファイルを行列へインポート</b>を選択し、Originのプログラムフォルダにある<i>Samples\Image Processing and Analysis</i>フォルダ内の<i>cell.jpg</i>を選択して、イメージを行列にインポートします。</li>
+<li>行列をアクティブにし、メニューから<b>作図: 等高線図: イメージプロファイル</b>を選択します。イメージプロファイルグラフが作成され、<b>イメージ/等高線プロファイル</b>ダイアログが表示されます。</li>
+<li>このダイアログで<b>HLine</b>タブを選択し、<b>幅</b>ブランチを開いて<b>ピクセル</b>を<b>50</b>に変更して水平線を太くします。</li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/3D_and_Contour/Mini_bulb.png" /></td><td><p>ダイアログのボタンを使用して、複数の水平線、垂直線、任意の線を追加することができます。グラフレイヤは適切なレイヤでプロファイルの曲線を表示します。プロファイルグラフは行列かワークシートのデータから作成することもできます。
+</p></td></tr></table>
+</ol>
+<h3><a name="Contour_and_Surface_Plots_from_Virtual_Matrix"></a><span class="mw-headline">仮想行列から等高線図と曲面図を作成する</span></h3>
+<ol>
+<li><b>新規ワークブック</b>ボタン<a  class="image"><img alt="Button New Workbook.png" src="../images/3D_and_Contour/Button_New_Workbook.png" width="23"  /></a>をクリックし、新しいワークブックを作成します。 </li>
+<li><b>インポートウィザード</b>ボタン<a  class="image"><img alt="Button Import Wizard.png" src="../images/3D_and_Contour/Button_Import_Wizard.png" width="25"  /></a>をクリックします。開いたダイアログで、<b>ファイル</b>の右側にある<b>...</b>ボタン<a  class="image"><img alt="Button dot dot dot.png" src="../images/3D_and_Contour/Button_dot_dot_dot.png" width="19"  /></a>をクリックし、Originのプログラムフォルダにある<i>Samples\Graphing</i>フォルダ内の<i>waterfall.dat</i>を選択します。完了ボタンをクリックして、ファイルをインポートします。<b>完了</b>ボタンをクリックして、データをインポートします。<br />
+<a  class="image"><img alt="GST surface contour 05.png" src="../images/3D_and_Contour/400px-GST_surface_contour_05.png" width="726"   /></a></li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/3D_and_Contour/Mini_bulb.png" /></td><td><p><b>インポートウィザード</b>はヘッダ行から変数を抽出するためにASCIIファイルを分解することもできます。すでに選択したファイルは完了ボタンをクリックしたときに適用されている事前定義フィルタを持っています。
+</p></td></tr></table>
+<li>マウスでカーソルをワークブック左上角に移動し、カーソルの形状が下画像のようになったら、クリックしてワークブックのすべての列を選択します。 <br />
+<a  class="image"><img alt="GST surface contour 06.png" src="../images/3D_and_Contour/250px-GST_surface_contour_06.png" width="372"   /></a></li>
+<li>メインメニューの<b>作図&gt; 等高線図: 等高線図 - 色付き</b> を選択します。表示された<b>plotvm</b>ダイアログで、行列ブックの代わりにワークシートにあるデータで、<b>仮想行列</b>用にデータ構成を指定する必要があります。</li>
+<li> <b>Y値</b>を<b>列ラベル</b>に変更し、<b>列ラベル</b>を<b>Excitation Wavelength(nm)</b>に設定します。
+</li>
+<li><b><b>OK</b></b>ボタンをクリックして設定を適用し、等高線図を作成します。</li>
+<li>右側にあるツールバーで<b>スピードモードを有効化/無効化</b>ボタン<a  class="image"><img alt="Button Speedmode.png" src="../images/3D_and_Contour/Button_Speedmode.png" width="24"  /></a>を一度クリックして、グラフのスピードモードの設定を無効化します。</li>
+<li>Waterfall データのワークブックに戻ります。ワークシートのすべての列を選択したままの状態で、メニューから<b>作図: 3D: 投影図付きの3Dカラーマップ曲面</b>を選択します。</li>
+<li><b>plotvm</b>ダイアログが開きます。ダイアログの上部の<b>ダイアログ・テーマ</b>に<b>&lt;シート&gt;</b>とセットされていることに注意してください。これは最後に使用された設定がワークシートに保存されたことを示しています。<b>OK</b> をクリックして同じ設定を保存します。投影図付きの3Dカラーマップ曲面が作成されます。</li>
+<li>等高線図をダブルクリックして、<b>作図の詳細</b>ダイアログを開きます。<b>面</b>タブで<b>平面</b>チェックボックスにチェックが入っていて、Z方向に移動(オフセット)が100%になっていることに注意してください。この設定は立方体の上面に平面の等高線図としてデータプロットを表示します。OKをクリックして作図の詳細ダイアログを閉じます。<br />
+<a  class="image"><img alt="GST surface contour 08.png" src="../images/3D_and_Contour/400px-GST_surface_contour_08.png" width="844"   /></a></li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/3D_and_Contour/Mini_bulb.png" /></td><td><p>異なる行列や仮想行列からのデータでも、それぞれに適切なオフセットの値を設定して平面図を離すことで、同じ3Dグラフのレイヤに一緒に作図することができます。これによって同じグラフで、関連するデータを一緒に分析することができます。
+</p></td></tr></table>
+<li><b>Z</b>軸をダブルクリックして、<b><b>軸</b></b>ダイアログを開きます。<b>スケール</b>タブを開き<b>終了</b>の値を4000にして、OKをクリックします。これにより、3D曲面の表示が改善します。等高線図は立方体の上面に留まります。</li>
+</ol>
+<h3><a name="3D_Function_Plot"></a><span class="mw-headline">3D関数グラフ</span></h3>
+<ol>
+<li><b>ファイル：新規作成：関数グラフ：3D関数グラフ</b>メニューを選択します。</li>
+<li>ダイアログボックス上部の<b>テーマ</b> の横にある 三角記号のボタン<a  class="image"><img alt="Triangle Button.png" src="../images/3D_and_Contour/Triangle_button.png" width="15"  /></a>をクリックします。コンテキストメニューから<b>Mexican Hat(System)</b>を選択してサンプルの設定を読み込みます。</li>
+<li> <b>OK </b>をクリックして、グラフを作成します。</li>
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/3D_and_Contour/Mini_bulb.png" /></td><td><p>パラメトリック関数は既存のグラフに追加することができ、実データのグラフのように統合することができます。<a class="external text" href="http://www.originlab.com/3dfunctions" target="_blank">3D Function Gallery</a>ページでサンプルをダウンロードすることができます。
+</p></td></tr></table>
+</ol>
+<p>プロジェクトファイルを保存します。
+</p>
+
+    

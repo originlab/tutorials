@@ -1,0 +1,101 @@
+﻿<h1 class="firstheading">複数データシートの分析テンプレートを使用したデータセットグループのバッチプロセス</h1><p class='urlname' style='display: none'>バッチプロセス－グループデータ</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span><span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#How_the_Analysis_Template_Works"><span class="tocnumber">3</span> <span class="toctext">分析テンプレートの働き</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Steps"><span class="tocnumber">4</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Create_Multi-Data_Sheets_Analysis_Template"><span class="tocnumber">4.1</span> <span class="toctext">複数データシートの分析テンプレートを作成</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="#Import_CSV_Files_into_Sequential_Data_Sheets"><span class="tocnumber">4.1.1</span> <span class="toctext">連続ワークシートにCSVファイルをインポート</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#Perform_Nonlinear_Fit_to_Obtain_Peak_Area"><span class="tocnumber">4.1.2</span> <span class="toctext">ピーク範囲を取得するために非線形曲線フィットを実行</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#Prepare_Data_for_Linear_Fit"><span class="tocnumber">4.1.3</span> <span class="toctext">線形フィットの為のデータを準備</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="#Perform_Linear_Fit_and_Create_Result_Sheet"><span class="tocnumber">4.1.4</span> <span class="toctext">線形フィットを実行し、結果シートを作成</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-10"><a href="#Batch_Analyze_Files_in_Groups"><span class="tocnumber">4.2</span> <span class="toctext">グループでのバッチ解析ファイル</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>Originは、グループ化されたデータセットで、複数のデータシートでの分析テンプレートを使用した、バッチ解析を行うことが出来ます。
+</p>
+<p class="version" >必要なOriginのバージョン: 2016 SR0以降</p>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Batch_Processing_Grouped_Datasets_Using_Multi_Data_Sheets_Analysis_Template/Tip_icon.png" width="57"  border="0" /></td><td><p>バッチ処理ほどの柔軟さや強力さはありませんが、<a href="../../Tutorial/Tutorial/Importing_Multiple_Files_into_Workbooks_Cloned_from_Active_Workbook.html" title="アクティブなワークブックからクローン複製されたワークブックに複数のファイルをインポート">このチュートリアル</a>で概説されている手順を使用して、アクティブなブックでインポートおよび分析操作を「複製」できます。
+</p></td></tr></table>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。
+</p>
+<ul><li>複数データシートの分析テンプレートを作成</li>
+<li>分析テンプレートを使用した、グループ化されたデータセットのバッチ解析を実行</li></ul>
+<h2><a name="How_the_Analysis_Template_Works"></a><span class="mw-headline">分析テンプレートの働き</span></h2>
+<p><i>&lt;Origin EXE Folder&gt;\Samples\Batch Processing</i> フォルダに、作成しようとしている複数データシートの分析テンプレート<b>Multi-Data Sheets Analysis.ogw</b> があります。5つのグループになっている<i>&lt;Origin EXE Folder&gt;\Samples\Batch Processing</i>フォルダにある10個のCSVファイルを、この分析テンプレートは処理します。分析テンプレートの中の連続したデータシートに、データファイルは5個ずつインポートされ、非線形曲線フィットでピーク面積を取得し、その各曲線の標準偏差を導き出します。最終的には、ファイル名と出力結果から抽出された温度データ対ピーク面積に線形フィットを実行します。
+</p>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Create_Multi-Data_Sheets_Analysis_Template"></a><span class="mw-headline">複数データシートの分析テンプレートを作成</span></h3>
+<h5><a name="Import_CSV_Files_into_Sequential_Data_Sheets"></a><span class="mw-headline">連続ワークシートにCSVファイルをインポート</span></h5>
+<ol>
+<li>新しいワークブックを作成します。メニューから<b>データ：複数ファイルに接続</b>をクリックして<b>files2dc</b>ダイアログを開きます。 </li>
+<li><b>データコネクタ</b>　のドロップダウンから<i>CSV</i>を選択し、さらにブラウズして<i>&lt;Origin EXE Folder&gt;\Samples\Batch Processing</i>フォルダへ移動し、最初の5つのファイルを選びます。</li>
+<li><b>同一ブック</b>にチェックを入れて<b>OK</b>をクリックします。</li>
+</ol>
+<h5><a name="Perform_Nonlinear_Fit_to_Obtain_Peak_Area"></a><span class="mw-headline">ピーク面積を取得するために非線形曲線フィットを実行</span></h5>
+<ol start="4">
+<li>シート<i>T275k</i>の2列目を選択し、Ctrl + Y またはメニューの <b>解析：フィット：非線形曲線フィット</b>から<b>NLFit</b> ダイアログを開きます。 
+<li><b>再計算</b> を <i>自動</i>にセットします。
+<li><b>Origin Basic Functions</b> カテゴリから、<b>関数</b>に<b>Gauss</b>を選択します。
+<li><b>フィット</b>ボタンをクリックし、フィットを実行します。<b><b>OK</b></b>をクリックして、ダイアログを閉じます。
+<li>他のデータ <i>T285k</i>, <i>T295K</i>, <i>T305K</i>, <i>T315K</i> にも上記の4-7のステップを繰り返し、5つ全てのピークに対してピーク面積を取得します。
+</ol>
+<h5><a name="Prepare_Data_for_Linear_Fit"></a><span class="mw-headline">線形フィットの為のデータを準備</span></h5>
+<ol start="8">
+<li>シートのタブ<i>FitNLCurve5</i> で右クリックして<b>追加</b>を選択し、ワークシートを追加します。名前の上でダブルクリックし、<i>TempData</i> と名前を入力します。
+<li>Ctrlキーを押しながらDキーを押し、<b><b>列の追加</b></b>ダイアログを開きます。編集ボックスに<i>2</i>を入力して、2つの列を追加します。<b>OK</b>ボタンをクリックして、ダイアログを閉じます。
+<li>4つの列の<b>ロングネーム</b>に <i>Data File</i>, <i>Temperature</i>, <i>Area Value</i>, <i>Area Error</i> をそれぞれ入力します。
+<li><i>Data File</i>列の最初のデータセルの上で右クリックし、<b><b>変数の挿入</b></b>をクリックしてダイアログを開きます。右パネルで、<i>Book</i>ノードを右クリックし、<b>シートレベルを表示</b>にチェックを入れ、ブック内にシートが表示されるようにします。<i>右側のパネルのT275K</i> シートをクリックし、左側のパネルで<b><b>ラベル</b></b>のタブをクリックします。プロパティで<b><b>名前</b></b>の行を選択し、<b><b>挿入</b></b>ボタンをクリックして、前に選択したセルにシート名を挿入します。
+<li>他のワークシートにもこのステップを繰り返し、<i>Data File </i>の列にシート名を追加します。
+<li>次に、最初の列のシート名から温度値を抽出します。<i>Temperature</i> の列を選択し、右クリックして<b><b>列値の設定</b></b>をクリックします。次の式を編集ボックスに入力して、ファイル名から中央の3つの数字を抽出します。<b><b>OK</b></b>をクリックしてダイアログを閉じます。
+<pre class="lt" style="font-family:monospace;">Value<span style="color: #000000;">(</span>mid<span style="color: #000000;">(</span>col<span style="color: #000000;">(</span>A<span style="color: #000000;">)</span>,<span style="color: #0000dd;">2</span>,<span style="color: #0000dd;">3</span><span style="color: #000000;">)</span><span style="color: #000080;">$</span><span style="color: #000000;">)</span></pre>
+</li>
+<li><i>FitNL1</i> のシートに移動し、<i>概要</i>の欄にある<b><i><b><i>Ａ</i></b></i></b>のセクションの下にある、2つのセルを1つずつ選択します。右クリックして<b>コピー</b>を選択し、データをコピーします。<i>TempData</i> シートに移動し、<i>Area Value</i> と <i>Area Error</i> 列の最初の行にリンクを貼り付けます。（1つずつ行います）他の4つのデータファイルにも、このステップを繰り返します。
+<li><i>Temperature</i> の列属性を <b>X</b>, <i>Area Error</i> の列属性を <b><b>Y Error</b> </b>に設定します。
+</ol>
+<h5><a name="Perform_Linear_Fit_and_Create_Result_Sheet"></a><span class="mw-headline">線形フィットを実行し、結果シートを作成</span></h5>
+<ol start="16">
+<li><i>Area Value</i>と <i>Area Error</i>の列を選択し、メニューの <b>解析：フィット：線形フィット</b>と進みダイアログを開きます。 <b>再計算</b>モードを <b>自動</b>にし、 <b>OK</b> を押してダイアログを閉じます。<b>OK</b>をクリックして、ダイアログを閉じます。
+<li><i>FitLinearCurve1</i> シートのタブで右クリックし、<b>追加</b>を選択して新しいシートを追加し、<i>Results</i> と名前を付けます。
+<li>Ctrlキーを押しながらDキーを押し、<b><b>列の追加</b></b>ダイアログを開きます。編集ボックスに<i><i>3</i></i>を入力して、3つの列を追加します。
+<li>5つの列の<b>ロングネーム</b>に <i>Intercept Value</i>, <i>Intercept Error</i>, <i>Slope Value</i>, <i>Slope Error</i> 及び<i>Adj.R-Square</i>,とそれぞれ指定します。
+<li><i>FitLinear1</i> シートに移動して、<b>概要</b>の下にある5つのセル値をコピーし、<i>Results</i> シートに戻り、最初のデータ行の最初のセルをクリックして、リンクとして貼り付けます。
+<li>メニューから<b>ファイル：ワークブックを分析テンプレートとして保存</b> を選択し、分析テンプレートとして保存して、<i>Multi-Data Sheets Analysis</i> と名前を付けます。
+</ol>
+<h3><a name="Batch_Analyze_Files_in_Groups"></a><span class="mw-headline">グループでのバッチ解析ファイル</span></h3>
+<p><i>&lt;Origin EXE Folder&gt;\Samples\Batch Processing</i> フォルダに、10個のCSVデータファイルがあります。これらを2つのグループに分け、次のように並べ替えます。group 1 は<i>T365K</i>, <i>T345K</i>, <i>T325K</i>, <i>T305K</i>, <i>T285K、</i>グループ２は<i>T355K</i>, <i>T335K</i>, <i>T315K</i>, <i>T295K</i>, <i>T275K</i>です。上記のプロセスで作成した分析テンプレートを使って、これら2つのグループ化されたファイルを処理します。
+</p>
+<ol>
+<li>メニューから<b>ファイル：バッチ処理</b>のダイアログを開き、<b><b>分析テンプレート</b></b>の編集ボックスの隣にある、...のボタンをクリックし、<b>Multi-Data Sheets Analysis.ogwu</b> 分析テンプレートを検索します。
+<li><b><b>ファイルリスト</b></b>の隣にある...のボタンをクリックして、<b><b>開く</b></b>ダイアログを開きます。まず、次のようにそれらのデータを一つずつドラッグアンドドロップで順番を並べ替え、<b>ファイルの追加</b> ボタンをクリックして、リストにファイルを追加します。<b>OK</b>ボタンをクリックして、ダイアログを閉じます。 
+<br /><a  class="image"><img alt="Tutorial Batch Processing Multi Data Sheets 01.png" src="../images/Batch_Processing_Grouped_Datasets_Using_Multi_Data_Sheets_Analysis_Template/550px-Tutorial_Batch_Processing_Multi_Data_Sheets_01.png" width="674"   /></a>
+</li>
+<li><b>データセット識別子</b>で<b>ファイル名</b>を選択し、<b>結果シート</b>として<b>Results</b>を設定、<b>中途生成されたワークブックの削除</b>のチェックを外します。
+<br /><a  class="image"><img alt="Tutorial Batch Processing Multi Data Sheets 02.png" src="../images/Batch_Processing_Grouped_Datasets_Using_Multi_Data_Sheets_Analysis_Template/550px-Tutorial_Batch_Processing_Multi_Data_Sheets_02.png" width="593"   /></a>
+</li>
+<li><b>OK</b>ボタンをクリックして、処理を開始します。OKボタンを押してバッチ処理ダイアログの設定を分析テンプレートに保存します（これはOrigin 2018bより可能です）。次のように、解析結果は<b>Summary</b>のワークブックに出力されます。
+<br /><a  class="image"><img alt="Tutorial Batch Processing Multi Data Sheets 03.png" src="../images/Batch_Processing_Grouped_Datasets_Using_Multi_Data_Sheets_Analysis_Template/Tutorial_Batch_Processing_Multi_Data_Sheets_03.png" width="755"  /></a>
+</li>
+</ol>
+<p><br />
+</p>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Batch_Processing_Grouped_Datasets_Using_Multi_Data_Sheets_Analysis_Template/Tip_icon.png" width="57"  border="0" /></td><td><p><b>出力シート</b>（<i>Summary</i>ブック、<i>Result</i>シート)の上部に3つのボタンが追加されます。
+</p>
+<ul><li> <b>Open Book(s)</b>:<b>中途生成されたワークブックの削除</b>をオンにしており（上のステップ3をご覧ください）、あとからこれらのシートが必要だと判断した場合には<i>Result</i>シートで対応する行を選択し、このボタンをクリックすることで削除されたブックを再生成することができます。</li>
+<li> <b>Reprocess</b>:外部のデータファイルに変更があった場合にこのボタンをクリックして再インポートと結果の更新を行うことができます。</li>
+<li> <b>Update</b>:分析の入力側で変更があった際に（例：データのマスクをした）、このボタンをクリックして結果を更新できます。 </li></ul>
+</td></tr></table>
+
+
+    

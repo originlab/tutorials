@@ -1,0 +1,50 @@
+﻿<h1 class="firstheading">ピークの検出とマーキング</h1>
+<a name="Summary" id="Summary"></a>
+<h2><span class="mw-headline">サマリー</span></h2>
+<p>ピークアナライザには、自動ピーク検出の方法がいくつかあります。また、ユーザは手動でピークを追加、削除、修正することができます。</p>
+<p>ピークが検出されると、ピークの中心位置を示すため、ラベルがピークの中心に付加されます。</p>
+<p class="version">必要なOriginのバージョン:8.0 SR6</p>
+<a name="What_you_will_learn" id="What_you_will_learn"></a>
+<h2><span class="mw-headline">学習する項目</span></h2>
+<ul>
+<li>ピークアナライザの自動ピーク検出の使用およびカスタマイズ方法</li>
+<li>ピークの中心のラベルをカスタマイズする方法</li>
+</ul>
+<a name="Steps" id="Steps"></a>
+<h2><span class="mw-headline">ステップ</span></h2>
+<ol>
+<li>新しいワークブックを開き、Samples\Spectroscopy\HiddenPeaks.datファイルをインポートします。</li>
+<li>2列目を選択します。</li>
+<li>「<b>作図：線図：折れ線</b>」を選択して、折れ線グラフを作成します。</li>
+<li>グラフをアクティブにして、<b>解析：ピークと基線：ピークアナライザー</b>を選択してピークアナライザのダイアログを開きます。</li>
+<li>最初のページ(<b>スタート</b>ページ)で、<b>ゴール</b>グループの<b>ピーク検出</b>ラジオボタンを選択します。そして、「<b>進む</b>」ボタンをクリックして、次のページに移動します。
+<dl>
+<dd><a style="color: #0000ff; text-decoration: underline;"><img alt="Image:Select_find_peaks_as_goal.png" src="../images/Picking_and_Marking_Peaks/Select_find_peaks_as_goal.png" width="329" height="114" border="0" /></a></dd>
+</dl>
+</li>
+<li>「<b>基線モード</b>」ページで、「<b>基線モード</b>」ドロップダウンリストから「<b>なし</b>」を選びます。
+<dl>
+<dd><a style="color: #0000ff; text-decoration: underline;"><img alt="Image:Select_none_for_baseline.png" src="../images/Picking_and_Marking_Peaks/Select_none_for_baseline.png" width="283" height="161" border="0" /></a></dd>
+<dd>「<b>進む</b>」をクリックし、「<b>ピーク検索</b>」ページに移動します。</dd>
+</dl>
+</li>
+<li>「<b>ピーク検索</b>」ページで
+<ol>
+<li>「<b>ピーク検索設定</b>」を開きます。「<b>手法</b>」で「<b>局所最大</b>」が選択されていることを確認します。そして、「<b>検索</b>」ボタンをクリックします。5つのピークが検査されます。
+<dl>
+<dd><a style="color: #0000ff; text-decoration: underline;"><img alt="Image:Find_peaks_with_local_max.png" src="../images/Picking_and_Marking_Peaks/Find_peaks_with_local_max.png" width="731" height="685" border="0" /></a></dd>
+</dl>
+</li>
+<li>「<b>手法</b>」を「<b>二次微分(隠れたピークの検索)</b>」に変更します。再度、「<b>検索</b>」ボタンをクリックします。今度は、7つのピークが検出されます。
+<dl>
+<dd><a style="color: #0000ff; text-decoration: underline;"><img alt="Image:Find_peaks_with_2nd_derivative.png" src="../images/Picking_and_Marking_Peaks/Find_peaks_with_2nd_derivative.png" width="730" height="661" border="0" /></a></dd>
+</dl>
+</li>
+<li>「<b>完了</b>」ボタンをクリックして分析を完了します。最終的に次のようなグラフになります。
+<dl>
+<dd><a style="color: #0000ff; text-decoration: underline;"><img alt="Image:Find_peaks_result.png" src="../images/Picking_and_Marking_Peaks/Find_peaks_result.png" width="499" height="377" border="0" /></a></dd>
+</dl>
+</li>
+</ol>
+</li>
+</ol>

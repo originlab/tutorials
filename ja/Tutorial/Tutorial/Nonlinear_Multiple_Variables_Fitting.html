@@ -1,0 +1,41 @@
+﻿<h1 class="firstheading">複数変数による非線形フィット</h1>
+<a name="Summary" id="Summary"></a>
+<h2><span class="mw-headline">サマリー</span></h2>
+<p>Originは複数の独立変数および従属変数を持つフィット関数のサポートをしています。非線形フィット関数の場合、複数の変数をセミコロンで分けて定義することができます。グローバルフィットは1度に１つの関数でしかフィットを行えないので、これはその制限を突破する良い手立てとなります。</p>
+<p>Originは複数の独立・従属変数を持った3つのビルトイン関数とともにお手元に届けられます。これらの関数は複数変数カテゴリーから選ぶことができ、これは2種類の関数を合わせた複合関数になります。GaussianLorentz関数はGaussianとLorentz関数の組み合わせで、y0とxcの値を共有しています。</p>
+<dl>
+<dd><img class="tex" alt="y_1 =y_0+\frac {A_1}{w_1\sqrt{\pi /2}}e^{-2\frac{(x-x_c)^2}{w_1^2}}" src="../images/Nonlinear_Multiple_Variables_Fitting/math-63afdaef55d57ecfe4414c8b77ffd474.png" width="211" height="47" border="0" /></dd>
+<dd><img class="tex" alt="y_2=y_0+\frac{2A_2}\pi \frac {w_2} {4\left( x-x_c\right) ^2+w_2^2}" src="../images/Nonlinear_Multiple_Variables_Fitting/math-45c823f9ecd6d8591bbca1aa8d43d147.png" width="226" height="42" border="0" /></dd>
+</dl>
+<p>このチュートリアルでは、このような複数変数関数でフィットを実行する方法を示します。</p>
+<a name="What_you_will_learn" id="What_you_will_learn"></a>
+<h2><span class="mw-headline">学習する項目</span></h2>
+<ul>
+<li>非線形複数変数フィットを使い、2つの関数で曲線をフィットする</li>
+<li>フィット変数にデータを割り当てる</li>
+</ul>
+<a name="Steps" id="Steps"></a>
+<h2><span class="mw-headline">ステップ</span></h2>
+<ol>
+<li>新しいプロジェクトを開くか、新しいワークブックを作成し、<b>\samples\curve fitting\Gaussian.dat</b>を開きます。<br />
+<br />
+<a><img alt="Image:Nonlinear_Multiple_Variables_Fitting_001.png" src="../images/Nonlinear_Multiple_Variables_Fitting/Nonlinear_Multiple_Variables_Fitting_001.png" width="393" height="318" border="0" /></a><br />
+<br /></li>
+<li>列Aと列Bを選択します。メインメニュー内で<b>解析</b>をクリックし、<b>フィット</b>を指した後に<b>非線形曲線フィット</b>をクリックします。</li>
+<li>NLFitダイアログの左側パネルで<b>関数選択</b>を選びます。右側パネルで<b>Multiple Variables</b>をカテゴリのドロップダウンメニューから選びます。関数のドロップダウンメニューで<b>GaussianLorentz</b>を選びます。<br />
+<br />
+<a><img alt="Image:Nonlinear_Multiple_Variables_Fitting_002.png" src="../images/Nonlinear_Multiple_Variables_Fitting/Nonlinear_Multiple_Variables_Fitting_002.png" width="842" height="348" border="0" /></a><br />
+<br />
+下段パネルにある曲線サンプルタブからわかるようにこの関数式は同じパラメータy0とxcを共有しています。<br />
+<br />
+<a><img alt="Image:Nonlinear_Multiple_Variables_Fitting_004.png" src="../images/Nonlinear_Multiple_Variables_Fitting/Nonlinear_Multiple_Variables_Fitting_004.png" width="733" height="262" border="0" /></a><br />
+<br /></li>
+<li>NLFitダイアログの左側パネルで<b>データ選択</b>を選びます。右側パネルで<b>範囲</b>ノードを展開し、フィット変数にデータを割り当てます。この例では列Bをy1とy2の両方として割り当ることでどちらの関数式も同じデータセットを使用するように設定しています。<br />
+<br />
+<a><img alt="Image:Nonlinear_Multiple_Variables_Fitting_003.png" src="../images/Nonlinear_Multiple_Variables_Fitting/Nonlinear_Multiple_Variables_Fitting_003.png" width="848" height="662" border="0" /></a><br />
+<br /></li>
+<li><b style="font-weight: bold;">収束までフィット</b>をクリックしてから、<b>OK</b>をクリックします。結果シートで、GaussianとLorentz関数をオフセットとピークの中心を共有している状態で、パラメータAとwの比較を行いましょう。<br />
+<br />
+<a><img alt="Image:Nonlinear_Multiple_Variables_Fitting_005.png" src="../images/Nonlinear_Multiple_Variables_Fitting/Nonlinear_Multiple_Variables_Fitting_005.png" width="482" height="358" border="0" /></a></li>
+</ol>
+<p><br /></p>

@@ -1,0 +1,126 @@
+﻿<h1 class="firstHeading">レイヤの追加と配置</h1>
+<p class="urlname" style="display: none;">Customize-Add-Arrange-Layer</p>
+<table id="toc" class="toc">
+	<tr>
+		<td><div id="toctitle">
+			<h2>内容</h2>
+		</div>
+		<ul>
+			<li class="toclevel-1 tocsection-1"><a href="#Summary"><span 
+			 class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+			<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+			 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+			<li class="toclevel-1 tocsection-3"><a href="#Steps"><span 
+			 class="tocnumber">3</span> <span class="toctext">ステップ</span></a> 
+			 
+			<ul>
+				<li class="toclevel-2 tocsection-4"><a href="#Importing_data"><span 
+				 class="tocnumber">3.1</span> <span class="toctext">データをインポートする</span></a></li>
+				<li class="toclevel-2 tocsection-5"><a href="#Plotting_the_data"><span 
+				 class="tocnumber">3.2</span> <span class="toctext">データのプロット</span></a></li>
+				<li class="toclevel-2 tocsection-6"><a href="#How_to_tell_what_data_is_plotted_in_a_layer.3F"><span 
+				 class="tocnumber">3.3</span> <span class="toctext">データがどのレイヤにあるかを表示する</span></a></li>
+			</ul></li>
+		</ul></td>
+	</tr>
+</table>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>通常のグラフページには、一組のX, Y (およびZ)座標軸、 1つ以上のデータプロット、テキストや描画オブジェクトの3つの要素が含まれます。Originでは、これら3つの要素を移動可能で、サイズ変更可能なレイヤと呼ばれる単位を組合せています。1つのページには最大121個のレイヤを含めることができ、1つのレイヤだけを一時点でアクティブにすることができます。 
+ </p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul>
+	<li>グラフに含まれているレイヤの数を知る </li>
+	<li>データがどのレイヤにあるかを表示する </li>
+	<li>レイヤを入れ替える </li>
+</ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Importing_data"></a><span class="mw-headline">データをインポートする</span></h3>
+<ol>
+	<li>標準ツールバーの<b>インポートASCII</b>ボタン<a class="image"><img alt="Button Import Single ASCII.png" 
+															 src="../images/Adding_and_Arranging_Layers/Button_Import_Single_ASCII.png" 
+															 width="23" 
+															 height="23" 
+															 border="0" /></a> 
+	 をクリックします。「ASCIIのインポート」ダイアログボックスが開きます。 </li>
+	<li>Originフォルダに移動し、Samples フォルダ内にあるGraphingフォルダに移動します。ファイルのリストから <u>Wind.dat</u> 
+	 を選択します。 </li>
+	<li><b style="font-weight: bold;">開く</b>をクリックします。データファイルがワークシートにインポートされます。 
+	 </li>
+</ol>
+<h3><a name="Plotting_the_data"></a><span class="mw-headline">データをプロットする</span></h3>
+<ol>
+	<li>SpeedとPower列を選択します。 </li>
+	<li><b style="font-weight: bold;">2Dグラフギャラリー</b>の<b>折れ線</b>ボタン <a class="image"><img 
+	 alt="Button Line.png" src="../images/Adding_and_Arranging_Layers/Button_Line.png" 
+	 width="22" height="23" border="0" /></a>をクリックします。折れ線グラフが作成されます。このデータは、制御可能な2つのY軸を持つ2Y軸グラフにプロットした方が良いでしょう。 
+	 </li>
+	<li>右上のXボタンをクリックして、このウィンドウを<b>閉じます。</b>ウィンドウを隠すか削除するよう、催促されます。<b>非表示化</b>ボタンをクリックします。（削除をすると、元に戻すことができず、グラフを再作成する必要があります。非表示化は画面からグラフを閉じますが、プロジェクトエクスプローラを使って、後で表示する事ができます。 
+	 </li>
+	<li>SpeedとPower列を選択したままにしておきます。２Dグラフギャラリーの「2重Y軸」ボタン<a class="image"><img 
+	 alt="Button Double Y Axis.png" src="../images/Adding_and_Arranging_Layers/Button_Double_Y_Axis.png" 
+	 width="22" height="23" border="0" /></a>をクリックします。この新しいグラフには、2つのレイヤがあります。 
+	 </li>
+</ol>
+<h3><a name="How_to_tell_what_data_is_plotted_in_a_layer.3F"></a><span 
+	 class="mw-headline">データがどのレイヤにあるかを表示する</span></h3>
+<p>まず、1つ目の方法は、凡例に表示する方法です。 </p>
+<ol>
+	<li>プロジェクトエクスプローラウィンドウのGraph1をダブルクリックします。Graph1が開き、アクティブな子ウィンドウになります。 
+	 </li>
+	<li>「<b>フォーマット：作図の詳細(ページ)</b>」を選択し、「<b>凡例/タイトル</b>」タブをクリックします。 </li>
+	<li><b style="font-weight: bold;">%1, %2の解釈モード</b>を「データレンジ」にします。 </li>
+	<li><b style="font-weight: bold;">OK</b>をクリックします。 </li>
+</ol>
+<p>2つ目の方法は、ステータスバーに表示する方法です。 </p>
+<ol>
+	<li>プロジェクトエクスプローラウィンドウのGraph2をダブルクリックします。Graph2が前面に表示され、アクティブな子ウィンドウになります。 
+	 </li>
+	<li>レイヤ1アイコン<a class="image"><img alt="Button Layer Icon.png" src="../images/Adding_and_Arranging_Layers/Button_Layer_Icon.png" 
+										 width="22" height="22" border="0" /></a> 
+	 をクリックして、レイヤ1をアクティブにします。 </li>
+	<li>Originステータスバーの右下に [WIND]WIND!Col(Speed)[1:12]のように表示されます。 </li>
+	<li>レイヤ2に対して同様に操作すると、 [WIND]WIND!Col(Power)[1:12]のように表示されます。 </li>
+</ol>
+<p>3つ目の方法はメニューに表示する方法です。 </p>
+<ol>
+	<li>Graph2をアクティブにします。 </li>
+	<li>レイヤ1アイコンを右クリックします。コンテキストメニューの一番下に、データプロットのリストが表示されます。チェックが付いているデータプロットがアクティブなデータプロットです。 
+	 </li>
+	<li>レイヤ2を右クリックして、レイヤ2にプロットされているデータのリストを表示します。 </li>
+	<li><b style="font-weight: bold;">データ</b>メニューから表示することも可能です。 </li>
+</ol>
+<ol>
+	4つ目の方法は、<b>作図のセットアップ</b>を使う方法です。 
+	<li>Graph2をアクティブにしたまま、レイヤ1アイコンを右クリックしてコンテキストメニューから<b>作図のセットアップ</b>を選択します。 
+	 </li>
+	<li>開いた<b>作図のセットアップ</b>ダイアログで、プロットリストを拡張し、レイヤ2にあるデータを見ることができます。この方法のメリットは、すべてのレイヤのデータを1度に見ることができることです。 
+	 
+	<table class="noborder">
+		<tr>
+			<td style="vertical-align: top;" width="60"><img src="../images/Adding_and_Arranging_Layers/Tip_icon.png" 
+															 alt="" width="57" 
+															 height="57" 
+															 border="0" /></td>
+			<td><p><b style="font-weight: bold;">作図のセットアップ</b>ダイアログで3つのパネルを全ての表示するために<a 
+			 class="image"><img alt="Button Expand Preview Up.png" src="../images/Adding_and_Arranging_Layers/Button_Expand_Preview_Up.png" 
+								 width="24" height="23" border="0" /></a>ボタンをクリックして<b>グラフタイプパネル</b>を開き、再度<a 
+			 class="image"><img alt="Button Expand Preview Up.png" src="../images/Adding_and_Arranging_Layers/Button_Expand_Preview_Up.png" 
+								 width="24" height="23" border="0" /></a>をクリックして<b>利用可能なデータ</b>パネルを開きます。<br />
+			</p>
+			<p>詳細な情報は<a class="external text" href="../../Tutorial/Tutorial/Plotting_using_Plot_Setup.html">作図のセットアップで作図</a>を参照してください。 
+			 </p></td>
+		</tr>
+	</table></li>
+	<li><b style="font-weight: bold;">Speed</b>データプロットの「表示」チェックボックスのチェックを外します。 
+	 </li>
+	<li><b style="font-weight: bold;">OK</b>をクリックします。このデータプロットは、非表示になるだけで、凡例にはレイヤ内に、そのデータプロットがまだ存在していることが示されています。 
+	 </li>
+</ol>
+<p>最後の方法は、「<b>作図の詳細</b>」ダイアログを使う方法です。 </p>
+<ol>
+	<li>Graph2の線＋シンボルグラフのいずれかをダブルクリックします。 </li>
+	<li>左側のツリーを拡張して、<b>レイヤ1</b>と<b>レイヤ2</b>に含まれる内容を表示します。 </li>
+	<li><b style="font-weight: bold;">Speed</b>と <b>Power </b>のデータプロットのチェックを外します。 
+	 </li>
+	<li><b style="font-weight: bold;">OK</b>をクリックします。 </li>
+</ol>

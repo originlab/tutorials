@@ -1,0 +1,74 @@
+﻿<h1 class="firstheading">ラベル付き3D棒グラフ</h1><p class='urlname' style='display: none'>3D-Bar-with-Labels</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Creating_a_Flat_Color_Fill_Surface_from_a_Matrix"><span class="tocnumber">3.1</span> <span class="toctext">行列から平面化された塗りつぶし曲面を作成する</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Adding_and_Customizing_3D_bars_and_labels"><span class="tocnumber">3.2</span> <span class="toctext">3D棒グラフを追加し、編集する</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>このチュートリアルは、以下のようなグラフを作成する方法を示しています。
+</p>
+<dl><dd><br /><a class="image"><img alt="ラベル付き3D棒グラフ" src="../images/3D_Bar_with_Labels/3D_Bar_With_Labels_first_final.png" width="713"  /></a></dd></dl>
+<p class="version" >必要なOriginのバージョン: Origin 2015 SR0以降</p>
+<h2><a name="What_You_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。
+</p>
+<ul><li> 平面化した塗りつぶし曲面図の作成と編集</li>
+<li> 作図のセットアップを使用して3D棒グラフを追加する </li>
+<li> 3D棒グラフ上にラベルの追加と編集</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>このチュートリアルは、チュートリアルデータプロジェクト（<i>&lt;Origin EXE フォルダ&gt;\Samples\TutorialData.opj</i>）と関連しています。
+</p>
+<h3><a name="Creating_a_Flat_Color_Fill_Surface_from_a_Matrix"></a><span class="mw-headline">行列から平面化された塗りつぶし曲面を作成する</span></h3>
+<p>Tutorial Data.opj を開き、folder <i>3D Bar with Labels</i>を開きます。
+</p>
+<ol><li> 行列<i>MBook1B</i> アクティブ化します。</li>
+<li> メニューから<b>作図：3D：3Dカラーマップ曲面</b>を選択し、<b>スピードモード</b>がオンになっている3Dグラフを作成します。
+<dl><dd><a class="image"><img alt="ラベル付き3D棒グラフ" src="../images/3D_Bar_with_Labels/3D_Bar_With_Labels_graph1.png" width="449"  /></a></dd></dl></li>
+<li> Originメニューから、<b>フォーマット：レイヤ</b>を選択します。</li>
+<li> <b>レイヤの大きさ/描画スピード</b>タブを開き、<b>行列データ、次元あたりの最大ポイント数</b>のチェックを外します。これにより<b>スピードモード</b>がオフになり、データセットの全てが表示されます。<b>適用</b>ボタンをクリックします。
+<dl><dd><a class="image"><img alt="ラベル付き3D棒グラフ" src="../images/3D_Bar_with_Labels/3D_Bar_With_Labels_Plot_Details1.png" width="792"  /></a></dd></dl></li>
+<li> <b>Layer1</b>の項目を開き、データを選択します。 </li>
+<li> USのグラフを平面化するには、<b>面</b>タブの<b>平面</b>のチェックボックスにチェックをつけます。 
+<dl><dd><a class="image"><img alt="ラベル付き3D棒グラフ" src="../images/3D_Bar_with_Labels/3D_Bar_With_Labels_Plot_Details2.png" width="678"  /></a></dd></dl></li>
+<li> <b>塗りつぶし</b>タブで、<b>行列から等高線を塗りつぶす</b>を選択し、行列の情報を参照して色をセットします。<b>裏面を塗りつぶす</b>のチェックは外します。 </li>
+<li> <b>カラーマップ/等高線</b>のタブを開き、行列の色を設定するために<b>レベル</b>をクリックします。</li>
+<li> <b>レベルの設定</b>ダイアログで、<b>主レベル数</b>を2にセットします。また、ダイアログでは<b>総レベル数</b>を<b>2</b>にして<b>OK</b>をクリックします。
+<dl><dd><a class="image"><img alt="3D Bar With Labels Set Levels dialog.png" src="../images/3D_Bar_with_Labels/3D_Bar_With_Labels_Set_Levels_dialog.png" width="452"  /></a></dd></dl></li>
+<li> <b>色塗り</b>のそれぞれのカラーレベルでクリックし、<b>塗り方</b>ダイアログを開きます。3つの色、黒、灰色、カスタムカラー（RGB：<b>0, 64, 128</b>）を設定します。
+<dl><dd><a class="image"><img alt="ラベル付き3D棒グラフ" src="../images/3D_Bar_with_Labels/3D_Bar_With_Labels_Fill_Color.png" width="219"  /></a></dd></dl></li>
+<li> <b>メッシュ</b>タブの有効にするのチェックを外し、<b>OK</b>ボタンをクリックします。</li>
+<li>グラフは下図のようになります。
+<dl><dd><a class="image"><img alt="ラベル付き3D棒グラフ" src="../images/3D_Bar_with_Labels/3D_Bar_With_Labels_graph2.png" width="409"  /></a></dd></dl></li></ol>
+<h3><a name="Adding_and_Customizing_3D_bars_and_labels"></a><span class="mw-headline">3D棒グラフを追加し、編集する</span></h3>
+<ol>
+<li> グラフをアクティブにして、Originメニューから<b>グラフ操作：作図のセットアップ</b>を選びます。<b>作図のセットアップ</b>ダイアログが開きます。
+<li> 左上にある<b>利用可能なデータ</b>を<b>フォルダ内のワークシート</b>にします。これにより、<i>Book2B</i> のデータが使用可能になり、同じグラフに追加できます。
+<li> <i>Book2B</i> を選択し、<b>グラフタイプ</b>を<b>3D - 棒グラフ</b>に設定します。中央のパネルで、X、Y、Zをそれぞれ A1、G1、Dとします。<b>追加</b>ボタンをクリックして3D棒グラフを現在のレイヤに追加します。<br /><a class="image"><img alt="ラベル付き3D棒グラフ" src="../images/3D_Bar_with_Labels/3D_Bar_With_Labels_Plot_setup.png" width="783"  /></a><br /><b>OK</b>をクリックしてダイアログボックスを閉じます。
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/3D_Bar_with_Labels/Tip_icon.png" width="57"  border="0" /></td><td><p><b><b>作図のセットアップ</b></b>ダイアログで3つのパネルを全ての表示するために<a class="image"><img alt="Button Expand Preview Up.png" src="../images/3D_Bar_with_Labels/Button_Expand_Preview_Up.png" width="24"  /></a>ボタンをクリックして<b><b>グラフタイプ</b></b>パネルを開き、再度<a class="image"><img alt="Button Expand Preview Up.png" src="../images/3D_Bar_with_Labels/Button_Expand_Preview_Up.png" width="24"  /></a>をクリックして<b><b>利用可能なデータ</b></b>パネルを開きます。<br />
+<p>詳細な情報は<a class="external text" href="../../Tutorial/Tutorial/Plotting_using_Plot_Setup.html">作図のセットアップで作図</a>を参照してください。
+</p>
+</p></td></tr></table>
+<li> 3D棒グラフを編集するには、ダブルクリックして<b>作図の詳細</b>ダイアログを開きます。<b>パターン</b>タブで、縁の色を<b>ワイン</b>にし、塗りつぶしの色を<b>赤</b>にします。<b>アウトライン</b>タブをクリックし<b>、幅(%)</b>を10にします。<b>適用</b>ボタンをクリックします。
+<li> <b>ラベル</b>タブに行き、<b>有効にする</b>にチェックを付けます。
+<li> <b>ラベル形式</b>を<b>Col(B):&quot;City&quot; </b>にし、ワークシートの列Bに入力されている市の名前が表示されます。
+<li> <b>Z</b>の<b>位置</b>を<b>上外側</b>にし、<b>オフセット</b>を<b>10</b>にします。<b>向き</b>を<b>YZ</b>面に設定します。他の設定を以下のように設定し、<b>OK</b>をクリックします。
+<br /><a class="image"><img alt="ラベル付き3D棒グラフ" src="../images/3D_Bar_with_Labels/3D_Bar_With_Labels_Label_Settings.png" width="774"  /></a>
+<li> この時点では、軸スケールが小さすぎるのでラベルが表示されません。垂直の軸（Z 軸）上でダブルクリックし、<b>スケール</b>タブを開きます。<b>開始</b>と<b>終了</b>の値を0と8000000に設定します。<b>OK</b>をクリックして適用します。
+<br /><a class="image"><img alt="ラベル付き3D棒グラフ" src="../images/3D_Bar_with_Labels/Tutorial_3D_Bar_with_Labels_09.png" width="458"  /></a>
+<li> グラフ上でダブルクリックして、<b>作図の詳細</b>ダイアログを開き、左パネルで<b>Graph1</b>を選択します。<b>表示属性</b>の<b>色</b>を<b>明るい灰色</b>にします。<b>OK </b>をクリックして、ダイアログを閉じます。
+<li> Z 軸タイトルをダブルクリックして<b>Population (Million)</b>に変更します。
+<li> 最終的に、下図のようなグラフになります。
+<br /><a class="image"><img alt="ラベル付き3D棒グラフ" src="../images/3D_Bar_with_Labels/3D_Bar_With_Labels_first_final.png" width="713"  /></a>
+<li>このグラフは3DOpen GLグラフのため、<a class="image"><img alt="GUI Elements rotate button.png" src="../images/3D_Bar_with_Labels/GUI_Elements_rotate_button.png" width="24"  /></a><b>ツールバー</b>の<b>回転ツール</b>ボタンを使用するか、<b>R</b>キーを押したままマウスを使用すると回転できます。  また、グラフをクリックして<a class="image"><img alt="GUI Elements rotate button.png" src="../images/3D_Bar_with_Labels/GUI_Elements_rotate_button2.png" width="32"  /></a>ボタンを選択すると下図のように回転モードに入ります。また、<b>3D回転操作</b>ツールバーを使用することもできます。
+<br /><a class="image"><img alt="3D Bar With Labels rotate mode.png" src="../images/3D_Bar_with_Labels/3D_Bar_With_Labels_rotate_mode.png" width="773"  /></a>
+    </ol>
+
+    

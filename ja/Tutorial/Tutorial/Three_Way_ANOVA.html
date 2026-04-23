@@ -1,0 +1,136 @@
+﻿<h1 class="firstheading">三元配置分散分析</h1><p class='urlname' style='display: none'>ThreeWay-ANOVA</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#User_Story"><span class="tocnumber">3</span> <span class="toctext">ユーザストーリー</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Performing_Three-Way_ANOVA"><span class="tocnumber">4</span><span class="toctext">三元配置分散分析の実行</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Examining_Significant_Interactions"><span class="tocnumber">5</span> <span class="toctext">相互作用の調査</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Interpreting_Results"><span class="tocnumber">6</span> <span class="toctext">結果の解釈</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#Overall_ANOVA"><span class="tocnumber">6.1</span> <span class="toctext">全般ANOVA</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Means_Comparison_and_Means_Plot_of_the_Three_Main_Effects"><span class="tocnumber">6.2</span> <span class="toctext">比較平均と3つの主要因のプロット平均</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="#Comparison_between_Developing_and_Developed_Country"><span class="tocnumber">6.2.1</span><span class="toctext">発展途上国と先進国との比較</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#Comparison_between_Years"><span class="tocnumber">6.2.2</span> <span class="toctext">年毎の比較</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="#Comparison_between_Regions"><span class="tocnumber">6.2.3</span> <span class="toctext">地域ごとの比較</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-12"><a href="#Comparing_Same_Level_Between_Different_Groups"><span class="tocnumber">6.3</span> <span class="toctext">違うグループ間での同じレベルによる比較</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Three_Way_ANOVA/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Three_Way_ANOVA/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=5" target="_blank">分散分析</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Three_Way_ANOVA/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Three_Way_ANOVA/Blog_Image_33x33px.png" width="135"  /></a>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>三元配置分散分析では、従属変数に対する主効果と、3 つの因子のすべての組み合わせ間の交互作用効果を検定します。
+</p>
+<p class="version" >必要なOriginのバージョン: OriginPro 2016 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ol><li> 実際のデータで三元配置の分散分析を実行する方法</li>
+<li> 算出された結果の読み取り方</li></ol>
+<h2><a name="User_Story"></a><span class="mw-headline">ユーザストーリー</span></h2>
+<p>世界銀行よりいくつかのデータを取得します。これには、地域(Asia/Europe/Africa, etc.), 発展途上国索引 （発展途上国/先進国）と年(2000/2005/2010)の3つの要素が含まれます。これらの3つの要素がインターネットユーザの人数にどのような影響を及ぼすのか、またはこれらのグループ間になにか大きな違いはあるのか調べようと思います。
+</p>
+<h2><a name="Performing_Three-Way_ANOVA"></a><span class="mw-headline">三元配置分散分析の実行</span></h2>
+<ol><li> メニューから<b>ヘルプ：ラーニングセンター</b>を選択して、ラーニングセンターダイアログを開きます。左側のリストから<b>解析サンプル</b>を選択し、右側の<b>サンプル</b>ドロップダウンリストから<b>統計 - ANOVA</b>を選択します。</li>
+<li> 表示されたリストの3つ目の項目をダブルクリックして、<i>三元配置の分散分析(Pro)</i>フォルダを開きます。</li>
+<li> ソースデータを含んでいる<b>Sheet1</b> ワークシートをクリックします。 </li>
+<li> <b>統計：ANOVA：三元配置分散分析</b>を選択します。</li>
+<li> 開いたダイアログの<b>入力</b>タブで、<b>入力データ</b>を <b>インデックス</b>に設定します。<b>入力データ</b>のブランチを開いて、<b>因子Ａ</b>に列C、<b>因子Ｂ</b>に列D、<b>因子Ｃ</b>に列B、<b>データ</b>に列Eをそれぞれ選択します。
+<dl><dd><a  class="image"><img alt="Three way anova 1.png" src="../images/Three_Way_ANOVA/Three_way_anova_1.png" width="506"  /></a></dd></dl></li>
+<li> <b>モデル</b>のタブで、全てのボックスが選択されていることを確認します。ここでは、全ての要素モデルが、三元配置の分散分析に利用されるように決定します。
+<dl><dd><a  class="image"><img alt="Three way anova 4.png" src="../images/Three_Way_ANOVA/Three_way_anova_4.png" width="426"  /></a></dd></dl></li>
+<li> <b>OK</b>をクリックして、ダイアログを閉じます。</li>
+<li> <b>ANOVA<b>3way１</b></b>に移動します。<b>全般ANOVA</b>テーブルに主要な影響と相互作用のためのANOVA検定の結果が表示されます。もし、<b>P値</b>が0.05よりも小さかった場合、対応する要因にあるレベルは、明らかに異なることを意味します。表の下にあるフットノートの結果に注目します。
+<dl><dd><a  class="image"><img alt="Three way anova 3.png" src="../images/Three_Way_ANOVA/Three_way_anova_3.png" width="719"  /></a></dd>
+<dd><b>全般ANOVA</b> テーブル上から、二元相互ファクター<b>発展途上国索引*年</b>は明らかに有効ではない (p-value = 0.23954)と分かります。三元相互ファクター<b>地域*発展途上国*年</b>も有効でありません。(p-value = 0.88834).</dd></dl></li></ol>
+<h2><a name="Examining_Significant_Interactions"></a><span class="mw-headline">相互作用の調査</span></h2>
+<p>次に、有効な相互作用を表す要因について調べます。 
+</p>
+<ol><li> <b>ANOVA3Way1</b>シートにある錠前マークをクリックし、<b><b>パラメータを変更</b></b>をコンテキストメニューから選びます。
+<dl><dd><a  class="image"><img alt="Three way anova 5.png" src="../images/Three_Way_ANOVA/Three_way_anova_5.png" width="261"  /></a></dd></dl></li>
+<li> <b>モデル</b>タブで、<b>効果A*B</b>と<b>効果A*B*C</b>のチェックを外し、これらの要因間の相互作用を検出しないこととします。 
+<dl><dd><a  class="image"><img alt="Three way anova 6.png" src="../images/Three_Way_ANOVA/Three_way_anova_6.png" width="426"  /></a></dd></dl></li>
+<li> <b><b>平均比較</b></b>のタブを開いて、<b>Bonferroni</b> のチェックボックスにチェックを入れます。BonferroniはPost-hoc検定(事後検定)に最もよく使われる手法です。タイプ I エラー全体を制御します。</li>
+<li> <b><b>平均値プロット</b></b>のタブを開いて、チェックできる全てのチェックボックスにチェックします。(<b>効果A*B</b>と<b>効果A*B*C</b>はモデルに含んでいないためチェックできません)
+<dl><dd><a  class="image"><img alt="Three way anova 7.png" src="../images/Three_Way_ANOVA/Three_way_anova_7.png" width="426"  /></a></dd></dl></li>
+<li> <b>OK</b>をクリックして、ダイアログを閉じます。</li></ol>
+<h2><a name="Interpreting_Results"></a><span class="mw-headline">結果の解釈</span></h2>
+<p>ワークシート<b>ANOVA3Way1</b>の結果が新しい計算パラメータを使いアップデートされています。 
+</p>
+<h3><a name="Overall_ANOVA"></a><span class="mw-headline">全般ANOVA</span></h3>
+<p><a  class="image"><img alt="Three way anova 8.png" src="../images/Three_Way_ANOVA/Three_way_anova_8.png" width="525"  /></a>
+</p><p>表より、残っている全ての効果は大きく異なっていることが分かりますそれぞれのグループ間の相違を検出するために、<b><b>平均比</b></b><b>較</b>結果と<b><b>プロット平均</b></b>を使うことが出来ます。
+</p>
+<h3><a name="Means_Comparison_and_Means_Plot_of_the_Three_Main_Effects"></a><span class="mw-headline">比較平均と3つの主要因のプロット平均</span></h3>
+<p><b>ANOVA：平均比較：Bonferroni Test</b>と選択すると、個々の影響のための平均比較テーブルを確認出来ます。これは、グループのメンバー間のペアワイズ比較のための結果シート下側にある<b>プロット平均</b>と併せて使える便利な機能です。
+</p>
+<h4><a name="Comparison_between_Developing_and_Developed_Country"></a><span class="mw-headline">発展途上国と先進国との比較</span></h4>
+<p><a  class="image"><img alt="Three way anova 9.png" src="../images/Three_Way_ANOVA/Three_way_anova_9.png" width="664"  /></a>
+</p><p>上記の結果より、発展途上国のインターネットユーザ数は先進国のユーザ数よりとても少ないことが分かります。
+</p>
+<h4><a name="Comparison_between_Years"></a><span class="mw-headline">年毎の比較</span></h4>
+<p><a  class="image"><img alt="Three way anova 10.png" src="../images/Three_Way_ANOVA/Three_way_anova_10.png" width="608"  /></a>
+</p><p>上記の結果より、2000年から2010年にかけてインターネットユーザ数が特に増えているのが分かります。
+</p>
+<h4><a name="Comparison_between_Regions"></a><span class="mw-headline">地域ごとの比較</span></h4>
+<p><a  class="image"><img alt="Three way anova 11.png" src="../images/Three_Way_ANOVA/Three_way_anova_11.png" width="683"  /></a>
+</p><p>上記の結果より以下がいえます。
+</p>
+<ul><li> アフリカのインターネットユーザ数は他の国々よりも明らかに少ない。</li>
+<li> 中東のインターネットユーザ数はヨーロッパやアメリカと比較すると明らかに少ない。</li>
+<li> その他の国々についてはさほど大きな差はない。</li></ul>
+<h3><a name="Comparing_Same_Level_Between_Different_Groups"></a><span class="mw-headline">違うグループ間での同じレベルによる比較</span></h3>
+<p>相互関係の<b><b>平均比較</b></b>結果から、異なるグループ間のサンプルレベルを比較することが出来ます。表示させたい結果を早く見るためのデータフィルターの使い方を紹介します。
+</p>
+<ol>
+<li><b>ANOVA3Way1</b>のワークシートで、<b>ANOV<b>A：</b>平均比較：Bonferroni検定</b>と開きます。 
+<li><b><b>相互作用</b></b>の隣にある三角形のボタンをクリックして、コンテキストメニューから<b><b>新しいシートとして<b>コピーを作成する</b></b></b>を選択します。
+<br /><a  class="image"><img alt="Three way anova 12.png" src="../images/Three_Way_ANOVA/Three_way_anova_12.png" width="449"  /></a>
+</li>
+<li> 作成された<b><b>相互作用</b></b>のシートに移ります。結果にデータフィルターを適用することで、様々な地域の発展途上国と先進国を比較することができます。
+<ol>
+<li>C列を選択し、メニューバーから<b>データフィルタの追加/削除</b>ボタン<a  class="image"><img alt="Button Add Or Remove Data Filter.png" src="../images/Three_Way_ANOVA/Button_Add_Or_Remove_Data_Filter.png" width="23"  /></a>をクリックして、データフィルタを列に追加します。
+<li>列ヘッダの<b><b>フィルタ</b></b>アイコン <a  class="image"><img alt="Filter icon.png" src="../images/Three_Way_ANOVA/Filter_icon.png" width="15"  /></a> をクリックし、<b><b>カスタムフィルタ</b></b>を選択します。
+<li>開いたダイアログの右下にある、<b><b>詳細</b></b>のチェックボックスを選択します。<b><b>条件</b></b>ボックスに次のスクリプトを記入します。
+<pre class="lt" style="font-family:monospace;">col<span style="color: #000000;">(</span>c<span style="color: #000000;">)</span><span style="color: #000080;">$</span><span style="color: #000080;">==</span>col<span style="color: #000000;">(</span>f<span style="color: #000000;">)</span><span style="color: #000080;">$</span></pre>
+<p><br /><a  class="image"><img alt="Three way anova 13.png" src="../images/Three_Way_ANOVA/450px-Three_way_anova_13.png" width="552"   /></a>
+</p>
+</li>
+</ol>
+</li>
+<li>以下から次のことがわかります。
+<ul>
+<li>アフリカと中東では、先進国と発展途上国のインターネットユーザ数に大きな違いはありません。
+<li>以下の4大陸では、先進国のインターネットユーザ数が発展途上国での数より大幅に多くなっています。
+<table class="tbl">
+<tr>
+<td>1.Asia
+</td>
+<td>2.Europe
+</td>
+<td>3.The Americas
+</td>
+<td>4.Oceania
+</td></tr></table>
+<p><br /><a  class="image"><img alt="Three way anova 14.png" src="../images/Three_Way_ANOVA/750px-Three_way_anova_14.png" width="1142"   /></a>
+<br /><a  class="image"><img alt="Three way anova 15.png" src="../images/Three_Way_ANOVA/300px-Three_way_anova_15.png" width="300"   /></a>
+</p>
+</li>
+</ul>
+</li>
+</ol>
+
+
+
+
+    

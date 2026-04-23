@@ -1,0 +1,202 @@
+﻿<h1 class="firstheading">LabTalk関数を使って2つの積分を含む関数でフィット</h1>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> 
+		 <span class="toctext">サマリー</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Example_and_Steps"><span 
+		 class="tocnumber">3</span> <span class="toctext">サンプルとステップ</span></a> 
+		 
+		<ol>
+			<li class="toclevel-2 tocsection-4"><a href="#The_Fitting_Model"><span 
+			 class="tocnumber">3.1</span> <span class="toctext">フィッティングモデル</span></a></li>
+			<li class="toclevel-2 tocsection-5"><a href="#Define_the_Function"><span 
+			 class="tocnumber">3.2</span> <span class="toctext">関数を定義する</span></a></li>
+			<li class="toclevel-2 tocsection-6"><a href="#Fit_the_Curve"><span 
+			 class="tocnumber">3.3</span> <span class="toctext">曲線をフィットする</span></a></li>
+		</ol></li>
+	</ol>
+</div>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>例えば、複数の積分を利用してフィット関数を作成するとき、</p>
+<dl>
+	<dd><img src="../images/Fitting_with_Two_Integrals_using_LabTalk_Function/math-f019cfb8b4ac68af260cab146da752ae.png" 
+			 title="\int_{LL1}^{UL1} f(t, arg1, arg2, ...)~dt + \int_{LL2}^{UL2} g(x, arg3, arg4, ...)~dx" 
+			 alt="\int_{LL1}^{UL1} f(t, arg1, arg2, ...)~dt + \int_{LL2}^{UL2} g(x, arg3, arg4, ...)~dx" 
+			 class="tex" border="0" /></dd>
+</dl>
+<p>それぞれのパラメータの詳細については、<a href="../../Tutorial/Tutorial/Fitting_with_Integral_using_LabTalk_Function.html" 
+						 title="チュートリアル: LabTalk関数を使った積分フィット">LabTalkを利用した積分フィット</a>をご覧ください。</p>
+<p>Origin バージョン8.6では<span class="db">フィット関数ビルダ</span>は1つの積分関数ののみをサポートしていました。このような複雑なコードを使わなくても、<span 
+	 class="db">フィット関数オーガナイザ</span>を使うことで、フィットをすることが来ます。</p>
+<p>このチュートリアルでは、2つの積分からなる関数をフィット関数オーガナイザを使ってフィットさせます。2つ以上の積分を利用することも可能です。</p>
+<p class="version">必要なOriginのバージョン: Origin 8.6 以降</p>
+<table class="noborder">
+	<tr>
+		<td style="vertical-align: top;" width="60"><img src="../images/Fitting_with_Two_Integrals_using_LabTalk_Function/Tip_icon.png" 
+														 alt="" width="57" 
+														 border="0" /></td>
+		<td><p>Origin 2018bから、積分を使って陰函数を定義することができます</p></td>
+	</tr>
+</table>
+<h2><a name="What_you_will_learn" id="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します</p>
+<ul>
+	<li>フィット関数ビルダーでフィット関数を作成する</li>
+	<li>Labtalk関数を使って積分定義を組み込んだフィット関数を定義する</li>
+</ul>
+<h2><a name="Example_and_Steps" id="Example_and_Steps"></a><span class="mw-headline">サンプルとステップ</span></h2>
+<h3><a name="The_Fitting_Model" id="The_Fitting_Model"></a><span class="mw-headline">フィッティングモデル</span></h3>
+<p>フィッティングモデルは次の式で表されます。</p>
+<dl>
+	<dd><img src="../images/Fitting_with_Two_Integrals_using_LabTalk_Function/math-1bfc884f2e1467c2514df415278b963e.png" 
+			 title="y=y_0+\int_{-5}^{x} A~t~dt - \int_{-\infty}^{x}B~t~\exp(-t^2/{w}^2)~ dt" 
+			 alt="y=y_0+\int_{-5}^{x} A~t~dt - \int_{-\infty}^{x}B~t~\exp(-t^2/{w}^2)~ dt" 
+			 class="tex" border="0" /></dd>
+</dl>
+<p>フィット関数には4つのパラメータがあり、そのうち3つを被積分関数に受け渡し、独立変数を上限として積分を行います。</p>
+<h3><a name="Define_the_Function" id="Define_the_Function"></a><span class="mw-headline">関数を定義します。</span></h3>
+<ol>
+	<li><span class="key">F9</span>を押して<span class="key">フィット関数ビルダ</span>ダイアログを開きます。<b>関数作成</b>を押して新しい関数を追加します。<b>カテゴリ作成</b>ボタンで新しいカテゴリを作成できます。<br />
+	<br />
+	<a class="image"><img alt="Fit Two Integral 001.jpg" src="../images/Fitting_with_Two_Integrals_using_LabTalk_Function/Fit_Two_Integral_001.jpg" 
+							 width="665" height="532" border="0" /></a><br />
+	<br />
+	</li>
+	<li><b style="font-weight: bold;">名前</b>編集ボックスで関数の名前を指定します。<b>独立変数</b>、<b>従属変数</b>そして<b>パラメータ名</b>をそれぞれの編集ボックスで定義します。</li>
+	<li>ドロップボックスから<b>実現方法</b>を選択します。ダイアログの下の<b>ヒント</b>タブで説明を確認できます。<br />
+	<br />
+	<a class="image"><img alt="Fit Two Integral 002.jpg" src="../images/Fitting_with_Two_Integrals_using_LabTalk_Function/Fit_Two_Integral_002.jpg" 
+							 width="696" height="565" border="0" /></a><br />
+	<br />
+	</li>
+	<li><b style="font-weight: bold;">関数</b>編集ボックスでフィット関数を定義します。積分関数はLabTalkの<b>integral</b>で作成します。 
+	 
+	<pre class="lt" style="font-family: monospace;">
+y<span style="color: #000080;">=</span>integral<span style="color: #000000;">(</span>polyint, <span style="color: #000080;">-</span><span style="color: #0000dd;">5</span>, x, a<span style="color: #000000;">)</span><span style="color: #000080;">-</span>integral<span style="color: #000000;">(</span>gaussint, <span style="color: #000080;">-</span>inf, x, b, wc<span style="color: #000000;">)</span><span style="color: #000080;">+</span>y0
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</pre>
+	<p><a href="../../Tutorial/Tutorial/Fitting_with_Integral_using_LabTalk_Function.html" 
+			 title="チュートリアル: LabTalk関数を使った積分フィット">LabTalk関数を使った積分フィット</a>にもあるように、<i>x</i>、<i>a</i>、<i>b</i>そして<i>wc</i>被積分関数のパラメータになります。</p></li>
+	<li><b style="font-weight: bold;">パラメータの設定</b>ボックスの右隣のボタンを押して、<span 
+	 class="db">パラメータ設定</span>ダイアログを開きます。それぞれのパラーメタの開始値と、下限、上限値を設定します。<br />
+	<br />
+	<a class="image"><img alt="Fit Two Integral 003.jpg" src="../images/Fitting_with_Two_Integrals_using_LabTalk_Function/Fit_Two_Integral_003.jpg" 
+							 width="696" height="546" border="0" /></a><br />
+	<br />
+	</li>
+	<li><b style="font-weight: bold;">LabTalk関数の定義と初期化</b>ボックスで2つの積分を定義します。今回は、以下のように設定します。 
+	 
+	<pre class="lt" style="font-family: monospace;">
+function double polyint<span style="color: #000000;">(</span>double t, double ia<span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return ia<span style="color: #000080;">*</span>t ;<span style="color: #000000;">
+}</span>
+function double gaussint<span style="color: #000000;">(</span>t, ib, iwc<span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return ib <span style="color: #000080;">*</span>t<span style="color: #000080;">*</span> exp<span style="color: #000000;">(</span><span style="color: #000080;">-</span><span style="color: #000000;">(</span>t<span style="color: #000000;">)</span><span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000080;">/</span>iwc<span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span> ;<span style="color: #000000;">
+}</span></pre></li>
+	<li>これで、2つの積分フィットが定義されました。その他の設定を行います。終了する前に、フィット関数を<b>保存</b>しましょう。</li>
+</ol>
+<h3><a name="Fit_the_Curve" id="Fit_the_Curve"></a><span class="mw-headline">曲線をフィットする</span></h3>
+<p>次のデータ をOriginの新しいワークシートにコピー&amp;ペーストします。</p>
+<dl>
+	<dd><table class="simple" width="120">
+		<tr>
+			<th>X</th>
+			<th>Y</th>
+		</tr>
+		<tr>
+			<td>-3</td>
+			<td>2.47613</td>
+		</tr>
+		<tr>
+			<td>-2.6</td>
+			<td>2.24016</td>
+		</tr>
+		<tr>
+			<td>-2.2</td>
+			<td>2.01543</td>
+		</tr>
+		<tr>
+			<td>-1.8</td>
+			<td>1.83094</td>
+		</tr>
+		<tr>
+			<td>-1.5</td>
+			<td>1.85038</td>
+		</tr>
+		<tr>
+			<td>-1.1</td>
+			<td>2.17725</td>
+		</tr>
+		<tr>
+			<td>-0.9</td>
+			<td>2.44967</td>
+		</tr>
+		<tr>
+			<td>-0.7</td>
+			<td>2.61423</td>
+		</tr>
+		<tr>
+			<td>-0.5</td>
+			<td>3.02305</td>
+		</tr>
+		<tr>
+			<td>-0.3</td>
+			<td>3.23057</td>
+		</tr>
+		<tr>
+			<td>-0.1</td>
+			<td>3.37822</td>
+		</tr>
+		<tr>
+			<td>0.1</td>
+			<td>3.2827</td>
+		</tr>
+		<tr>
+			<td>0.3</td>
+			<td>3.18775</td>
+		</tr>
+		<tr>
+			<td>0.5</td>
+			<td>2.86194</td>
+		</tr>
+		<tr>
+			<td>0.7</td>
+			<td>2.69104</td>
+		</tr>
+		<tr>
+			<td>0.9</td>
+			<td>2.39315</td>
+		</tr>
+		<tr>
+			<td>1.4</td>
+			<td>2.04046</td>
+		</tr>
+		<tr>
+			<td>1.8</td>
+			<td>1.85287</td>
+		</tr>
+		<tr>
+			<td>2.2</td>
+			<td>1.85325</td>
+		</tr>
+		<tr>
+			<td>2.6</td>
+			<td>2.20569</td>
+		</tr>
+	</table></dd>
+</dl>
+<p><i style="font-style: italic;">Y</i>列を選択し、<span class="key">Ctrl + Y</span>キーで<span 
+	 class="db">NLFit</span>ダイアログを開きます。定義した関数を選び、フィットボタン<a class="image"><img 
+	 alt="Button Fit.png" src="../images/Fitting_with_Two_Integrals_using_LabTalk_Function/Button_Fit.png" 
+	 width="51" height="23" border="0" /></a> をクリックしてフィットを行います。<br />
+<br />
+<a class="image"><img alt="Fit Two Integral 004.png" src="../images/Fitting_with_Two_Integrals_using_LabTalk_Function/Fit_Two_Integral_004.png" 
+						 width="329" height="149" border="0" /></a><br />
+<br />
+</p>

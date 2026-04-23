@@ -1,0 +1,53 @@
+﻿<h1 class="firstheading">データカーソルを使用してデータ間の違いを表示</h1><p class='urlname' style='display: none'>Compare-Data-by-DataCursor</p>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>Originでは、カーソルツールを使用して2点間のX距離とY距離を測定することができます。同じ曲線や異なる曲線にカーソルを配置し、<b>データ情報</b>ウィンドウを使用してカーソル間の相対位置を表示することができます。 
+</p>
+<p class="version" >必要なOriginのバージョン: Origin 2019 以降</p>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Use_Data_Cursor_to_Show_the_Difference_between_the_Data/Tip_icon.png" width="57"  border="0" /></td><td><p>グラフ上の2点間に両方向の矢印を追加してラベル付けする、<a class="external text" href="../../UserGuide/Category/Creating_Drawing_Objects.html#Adding_a_Distance_Annotation"><b>距離計測ツール</b></a>も用意されています。
+</p></td></tr></table>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。
+</p>
+<ul><li> データ情報ウィンドウをカスタムする</li>
+<li> 2つのデータポイントの相対位置を読み取る</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<ol><li> 新しいワークシートを用意します。</li>
+<li> メニューの<b>データ：ファイルからインポート：複数ASCII</b> を選びます。ダイアログで、\<i>Samples</i>\<i>Spectroscopy</i>\<i>Chromatography</i> フォルダを開き、<i>GPC Single Channel Chromatogram 1.dat</i> 、<i>GPC Single Channel Chromatogram 3.dat</i> を選択します。<b>ファイルの追加</b>をクリックし、<b><b>オプションダイアログを表示する</b></b>のチェックボックスにチェックが入っていることを確認して<b>OK</b>を押します。これにより、<b>impASC</b>ダイアログボックスが開きます。このダイアログで、<b>複数ファイル（第一以外）のインポートモード</b>を<b>列を追加して読み込む</b>とします。また、<b>シートとブックの名前の変更</b>ブランチのチェックボックスの<b>ファイル名を列コメントに含める</b>にチェックを入れ、<b>ファイルの追加の際にパスを含める</b>のチェックを外します。<b>OK</b>をクリックして2つのファイルをワークシートにインポートします。
+<dl><dd><a  class="image"><img alt="Use Data Cursor to Show the Difference between the Data 01.png" src="../images/Use_Data_Cursor_to_Show_the_Difference_between_the_Data/Use_Data_Cursor_to_Show_the_Difference_between_the_Data_01.png" width="665"  /></a></dd></dl></li>
+<li>全ての列を選択し、右クリックして、ショートカットメニューから<b><b>列XY属性の設定：XY XY</b></b>を選びます。全ての列が選択された状態で、メニューの<b>作図：基本の2Dグラフ：折れ線</b>と選択します。
+<dl><dd><a  class="image"><img alt="Use Data Cursor to Show the Difference between the Data 02.png" src="../images/Use_Data_Cursor_to_Show_the_Difference_between_the_Data/Use_Data_Cursor_to_Show_the_Difference_between_the_Data_02.png" width="420"  /></a></dd></dl></li>
+<li><b><b>データリーダ</b></b>ボタンを長くクリックし、表示されたリストから<b><b>データカーソル</b></b>を選択します。
+<dl><dd><a  class="image"><img alt="Use Data Cursor to Show the Difference between the Data 03.png" src="../images/Use_Data_Cursor_to_Show_the_Difference_between_the_Data/Use_Data_Cursor_to_Show_the_Difference_between_the_Data_03.png" width="157"  /></a></dd></dl></li>
+<li> <b>データ情報</b>ウィンドウが開きます。 
+<dl><dd><a  class="image"><img alt="Use Data Cursor to Show the Difference between the Data 04.png" src="../images/Use_Data_Cursor_to_Show_the_Difference_between_the_Data/Use_Data_Cursor_to_Show_the_Difference_between_the_Data_04.png" width="300"  /></a></dd></dl></li>
+<li> データ情報ウィンドウ上で右クリックし、ショートカットメニューから<b>ユーザ設定</b>を選びます。すると、<b><b>データ情報レポート設定</b></b>ダイアログが開きます。</li>
+<li> <b>列の追加</b>ボタンを3回押して、計3列を<b>プレビュー</b>テーブルに追加します。
+<dl><dd><a  class="image"><img alt="Use Data Cursor to Show the Difference between the Data 05.png" src="../images/Use_Data_Cursor_to_Show_the_Difference_between_the_Data/Use_Data_Cursor_to_Show_the_Difference_between_the_Data_05.png" width="832"  /></a></dd></dl></li>
+<li> 初めに追加した列の鉛筆アイコン<a  class="image"><img alt="Button edit pencil.png" src="../images/Use_Data_Cursor_to_Show_the_Difference_between_the_Data/Button_edit_pencil.png" width="22"  /></a> をクリックして<b>ソース</b>を<b>データ（カーソル1）</b>、<b>列幅</b> = <b>30</b>と設定します。<b>OK</b>をクリックします。</li>
+<li> 2番目に追加した列の鉛筆アイコン<a  class="image"><img alt="Button edit pencil.png" src="../images/Use_Data_Cursor_to_Show_the_Difference_between_the_Data/Button_edit_pencil.png" width="22"  /></a>をクリックして<b>ソース</b> を<b>データ（カーソル2）</b>、<b>列幅</b> = <b>30</b>と設定します。<b>OK</b>をクリックします。</li>
+<li> 3番目に追加した列の鉛筆アイコン<a  class="image"><img alt="Button edit pencil.png" src="../images/Use_Data_Cursor_to_Show_the_Difference_between_the_Data/Button_edit_pencil.png" width="22"  /></a>をクリックして<b>ソース</b> を<b>相関（カーソル2 - カーソル1)</b>、<b>列幅</b> = <b>40</b>と設定します。<b>OK</b>をクリックします。
+<dl><dd><a  class="image"><img alt="Use Data Cursor to Show the Difference between the Data 06.png" src="../images/Use_Data_Cursor_to_Show_the_Difference_between_the_Data/Use_Data_Cursor_to_Show_the_Difference_between_the_Data_06.png" width="850"  /></a></dd></dl></li>
+<li> <b>OK</b>ボタンをクリックして、ダイアログボックスを閉じます。データ情報ウィンドウには新しい3列が表示されます。
+<dl><dd><a  class="image"><img alt="Use Data Cursor to Show the Difference between the Data 08.png" src="../images/Use_Data_Cursor_to_Show_the_Difference_between_the_Data/Use_Data_Cursor_to_Show_the_Difference_between_the_Data_08.png" width="702"  /></a></dd></dl></li></ol>
+<ol start="11">
+<li> グラフのデータポイント上でダブルクリックして最初のカーソルを追加します。次に、再度<b><b>データカーソル</b></b>ボタンをクリックし、グラフ内でダブルクリックしてもう1つのカーソルを配置します。
+<dl><dd><a  class="image"><img alt="Use Data Cursor to Show the Difference between the Data 09.png" src="../images/Use_Data_Cursor_to_Show_the_Difference_between_the_Data/Use_Data_Cursor_to_Show_the_Difference_between_the_Data_09.png" width="420"  /></a></dd></dl>
+<table class="note">
+<tr>
+<td><b>Note</b>：<b><b>データ情報レポート設定</b></b>ダイアログですべての列を追加したら、<b>テーマの保存</b>ボタン<a  class="image"><img alt="Data Cursor Button Save Theme.png" src="../images/Use_Data_Cursor_to_Show_the_Difference_between_the_Data/Data_Cursor_Button_Save_Theme.png" width="28"  /></a>をクリックしてメニューからオプションを選択することで、設定をテーマとして保存できます。設定をグラフ（最も移植性が高い）または名前付きテーマファイル（グラフウィンドウに適用可能）に保存できます。
+</td></tr></table>
+</li>
+<li> 2つのデータポイントの値と相対値によって、<b>データ情報</b>ウィンドウの表示が更新されます。
+<dl><dd><a  class="image"><img alt="Use Data Cursor to Show the Difference between the Data 10.png" src="../images/Use_Data_Cursor_to_Show_the_Difference_between_the_Data/Use_Data_Cursor_to_Show_the_Difference_between_the_Data_10.png" width="702"  /></a></dd></dl>
+</li>
+<li> <b>データ情報</b>ウィンドウ上で右クリックして<b>すべてコピー</b>を選択すると、表の情報を空のワークシートに貼り付けることができます。
+<dl><dd><a  class="image"><img alt="Use Data Cursor to Show the Difference between the Data 11.png" src="../images/Use_Data_Cursor_to_Show_the_Difference_between_the_Data/Use_Data_Cursor_to_Show_the_Difference_between_the_Data_11.png" width="704"  /></a></dd></dl>
+</li>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Use_Data_Cursor_to_Show_the_Difference_between_the_Data/Tip_icon.png" width="57"  border="0" /></td><td><p>任意のワークシートの行を列ラベルの行（ヘッダ）エリアに移動させるには、その行を右クリックし、<b>…に設定</b>や<b>…に追加</b>オプションのいずれかを選択します。
+</p></td></tr></table>
+</ol>
+
+
+    

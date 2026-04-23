@@ -1,0 +1,85 @@
+﻿<h1 class="firstheading">OriginCベースのLabTalk関数共有方法</h1>
+<p class="urlname" style="display: none;">Share-OCBased-LT-Func</p>
+<h2><a name="Introduction" id="Introduction"></a><span class="mw-headline">イントロダクション</span></h2>
+<p>このチュートリアルでは、OPXファイルとして他のユーザに配布されたコードを共有する方法を紹介しています。このサンプルでは、Origin 
+ Cファイルのみが配布されています。しかし、OPXによる配布は、プロジェクトファイル、テンプレート、ツールバーを含む任意のファイルタイプを含めることができます。<br />
+</p>
+<h2><a name="Tutorial" id="Tutorial"></a> <span class="mw-headline">チュートリアル</span></h2>
+<p>以下でOriginCコードを他のユーザに配布する方法を示します。このサンプルでは、<b>ユーザファイルフォルダ（UFF）</b>にある、フォルダ(<i>MyFunctions</i>)内のファイル(<i>MyCode.c</i>) 
+ のOrigin-C関数をパッケージします。</p>
+<ol>
+	<li>ファイルの場所を作成 
+	<p>ファイルの<b>ソースパス</b>は、OPXが対象とする任意のコンピュータにおいて、利用可能である必要があります。一番簡単な方法は、Originの<b>UFF</b>内のサブフォルダを使用することです。すると、<b>UFF</b>の任意のファイルやフォルダを配布用のOPXファイルに追加できます。それでは、UFF内に<i>MyFunctions</i>というサブフォルダを作成します。</p></li>
+	<li>ファイルをソースパスにコピーする 
+	<p>前の操作で作成したサブフォルダに、パックする全てのファイルをコピーします。ここでは、1つのCファイル (<i>MyCode.c</i>)を置きます。このファイルの関数は、以下の通りです。</p>
+	<pre class="oc" style="font-family: monospace;">
+void get_data_from_wks<span style="color: #000000;">(</span><span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+&#160;&#160;&#160;&#160;Worksheet wks <span style="color: #000080;">=</span> Project.<span style="color: #000000;">ActiveLayer</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+&#160;&#160;&#160;&#160;if<span style="color: #0000ff;">(</span> <span style="color: #000040;">!</span>wks <span style="color: #000000;">)</span>
+&#160;&#160;&#160;&#160;<span style="color: #000000;">{</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;out_str<span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;Please keep a worksheet active with data&quot;</span><span style="color: #000000;">)</span>;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;return;
+&#160;&#160;&#160;&#160;<span style="color: #000000;">}</span> &#160;
+&#160;
+&#160;&#160;&#160;&#160;<span style="color: #008000;">// 以下の設定でrangeをすべてのワークシートとしてセットします。</span>
+&#160;&#160;&#160;&#160;<span style="color: #008000;">// インデックスオフセットは0、-1は行/列の最後を意味します。</span>
+&#160;&#160;&#160;&#160;<span style="color: #008000;">// ワークシートのサブレンジを指定するために、r1, c1, r2, c2 を変更します。</span>
+&#160;&#160;&#160;&#160;<span style="color: #008000;">// 例えば、 r1 = 0, c1 = 1, r2 = -1, c2 = 2 とし、 </span>
+&#160;&#160;&#160;&#160;<span style="color: #008000;">// 列2から3び全ての行を選択します。</span>
+&#160;&#160;&#160;&#160;int r1 <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>; <span style="color: #008000;">// 第1行</span>
+&#160;&#160;&#160;&#160;int c1 <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>; <span style="color: #008000;">// 第1列</span>
+&#160;&#160;&#160;&#160;int r2 <span style="color: #000080;">=</span> <span style="color: #000040;">-</span><span style="color: #0000dd;">1</span>; <span style="color: #008000;">// 最後の行</span>
+&#160;&#160;&#160;&#160;int c2 <span style="color: #000080;">=</span> <span style="color: #000040;">-</span><span style="color: #0000dd;">1</span>; <span style="color: #008000;">// 最後の列</span>
+&#160;
+&#160;&#160;&#160;&#160;<span style="color: #008000;">// ワークシートすべてのデータからデータ範囲のオブジェクトを構築</span>
+&#160;&#160;&#160;&#160;DataRange dr;
+&#160;&#160;&#160;&#160;dr.<span style="color: #000000;">Add</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;X&quot;</span>, wks, r1, c1, r2, c2<span style="color: #000000;">)</span>; 
+&#160;
+&#160;&#160;&#160;&#160;<span style="color: #008000;">// 1列ずつワークシートからベクトルにデータを取得 &#160;</span>
+&#160;&#160;&#160;&#160;matrix mData; 
+&#160;&#160;&#160;&#160;dr.<span style="color: #000000;">GetData</span><span style="color: #000000;">(</span>mData<span style="color: #000000;">)</span>; <span style="color: #008000;">// 全てのデータを行列に取得</span>
+&#160;
+&#160;&#160;&#160;&#160;for<span style="color: #0000ff;">(</span>int nColIndex <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>; nColIndex <span style="color: #000080;">&lt;</span> mData.<span style="color: #000000;">GetNumCols</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>; nColIndex<span style="color: #000040;">++</span><span style="color: #000000;">)</span>
+&#160;&#160;&#160;&#160;<span style="color: #000000;">{</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;vector vOneCol;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;mData.<span style="color: #000000;">GetColumn</span><span style="color: #000000;">(</span>vOneCol, nColIndex<span style="color: #000000;">)</span>;
+&#160;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;double min, max;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;vOneCol.<span style="color: #000000;">GetMinMax</span><span style="color: #000000;">(</span>min, max<span style="color: #000000;">)</span>;
+&#160;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;printf<span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;Maximum value of %d column = %f<span style="color: #666666; font-weight: bold;">\n</span>&quot;</span>, nColIndex<span style="color: #000040;">+</span><span style="color: #0000dd;">1</span>, max<span style="color: #000000;">)</span>;
+&#160;&#160;&#160;&#160;<span style="color: #000000;">}</span> &#160;<span style="color: #000000;">
+}</span></pre></li>
+	<li>パッケージを作成 
+	<p><b style="font-weight: bold;">ツール：</b><b>パッケージマネージャ</b>を選択して<b>パッケージマネージャ</b>を開きます。そして、次の図のように、ダイアログの設定を行います。</p>
+	<p><a class="image"><img alt="Shared OC LT tutorial package-vNext.png" 
+							 src="../images/How_to_share_Origin_C-based_LabTalk_Functions/Shared_OC_LT_tutorial_package.png" 
+							 width="566" height="494" border="0" /></a></p>
+	<ul>
+		<li><b style="font-weight: bold;">モジュール名</b>は、アンインストールの際パッケージの名前として表示されます。</li>
+	</ul>
+	<ul>
+		<li><b style="font-weight: bold;">バージョン</b>は、パッケージファイルが要求するOriginの最小バージョンを入力します。8.0SR6などではなく、8.0988といったバージョン番号を入力します。</li>
+	</ul>
+	<ul>
+		<li>Origin Cソースファイルをシステムフォルダワークスペースにするために、<b>LabTalkスクリプト</b>の<b>インストール後</b>内で 
+		 <i>run.addoc()</i> メソッドを使用します。このサンプルでは、以下を入力します。</li>
+	</ul>
+	<pre class="lt" style="font-family: monospace;">
+run.<span style="color: #000080;">addoc</span><span style="color: #000000;">(</span><span style="color: #000080;">%</span>YMyFunctions\MyCode.<span style="color: #000080;">c</span><span style="color: #000000;">)</span>;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</pre>
+	<ul>
+		<li>ファイルの追加またはフォルダの追加をクリックして必要に応じてファイルをブラウズし、追加します。ここでは、<b>UFF</b>のサブフォルダ 
+		 (<i>MyFunctions</i>) にブラウズし、Cファイル (<i>MyCode.c</i>)を追加します。すると、<b>UFF</b>のパスがソースパスとして表示され、下部パネルにファイルがリストされます。</li>
+	</ul></li>
+	<li>パッケージの保存 
+	<p>パッケージマネージャダイアログのメニュー<b>ファイル：</b><b>保存</b>を選択します。名前を付けて保存ダイアログが開くので、パッケじファイルの名前を入力し（ここでは、<i>MyCode</i>としています）、OPXファイルとして保存します。</p></li>
+	<li>パッケージを配布 
+	<p>保存したOPXファイルを他のユーザに送ります。パッケージファイルを取得したユーザは、OPXファイルをOriginのワークスペースにドラッグアンドドロップすれば、インストールでき、Cファイル内の関数を使用可能になります。</p>
+	<ul>
+		<li><i style="font-style: italic;">MyCode.opx</i> をOriginにドラッグアンドドロップでインストールします。インストール後、<i>MyCode</i>で定義した関数<i>get_data_from_wks</i>は、以下のようなLabTalkコマンドで利用可能です。</li>
+	</ul>
+	<pre class="lt" style="font-family: monospace;">
+get_data_from_wks;</pre></li>
+</ol>

@@ -1,0 +1,167 @@
+﻿<h1 class="firstHeading">データベースからデータをインポートする</h1>
+<p class="urlname" style="display: none;">ImpData-from-DB</p>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> 
+		 <span class="toctext">概要</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> 
+		 <span class="toctext">手順</span></a> 
+		<ol>
+			<li class="toclevel-2 tocsection-4"><a href="#Import_data_using_SQL_Editor"><span 
+			 class="tocnumber">3.1</span> <span class="toctext">SQLエディタを使ってデータをインポート</span></a></li>
+			<li class="toclevel-2 tocsection-5"><a href="#Reimport_from_Database"><span 
+			 class="tocnumber">3.2</span> <span class="toctext">データベースからの再インポート</span></a></li>
+			<li class="toclevel-2 tocsection-6"><a href="#LabTalk_Support_in_SQL_Editor"><span 
+			 class="tocnumber">3.3</span> <span class="toctext">SQLエディタ内でのLabTalkサポート</span></a></li>
+		</ol></li>
+	</ol>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<table class="noborder">
+	<tr>
+		<td style="vertical-align: top;" width="60"><img src="../images/Import_Data_from_a_Database/Alert_icon.png" 
+														 alt="" width="57" 
+														 border="0" /></td>
+		<td><p>このチュートリアルで使用するデータベースはMicrosoft Azure上に設定されています。 </p></td>
+	</tr>
+</table>
+<p>このチュートリアルでは、OriginのSQLエディタを使用してSQLサーバへの接続を構築し、指定したテーブルから必要なデータを抽出する方法、SQLスクリプトでLabTalk変数を定義し簡単に変更できるようにする方法、および今後の使用のために接続または接続とクエリを保存する方法について説明します。 
+ </p>
+<p>手順はOrigin 2023bに基づいています。 </p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。 </p>
+<ul>
+	<li>データベースからデータをインポート</li>
+	<li>データの再インポート</li>
+	<li>SQLエディタでのLabTalkサポート</li>
+</ul>
+<h2><a name="Steps"></a><span class="mw-headline">手順</span></h2>
+<h3><a name="Import_data_using_SQL_Editor"></a><span class="mw-headline">SQLエディタを使ってデータをインポート</span></h3>
+<ol>
+	<li>新しいワークシートを用意します。メニューから<b>データ：データベースに接続：新規作成...</b>を選択します。<b>データベースコネクタ</b>ダイアログボックスで、<b>ODBCドライバ</b>を選択して<b>OK</b>をクリックします。</li>
+	<p><a class="image"><img alt="NewDB1.png" src="../images/Import_Data_from_a_Database/NewDB1.png" 
+							 width="413" border="0" /></a><br />
+	<br />
+	<a class="image"><img alt="NewDB2.png" src="../images/Import_Data_from_a_Database/NewDB2.png" 
+							 width="321" border="0" /></a><br />
+	</p>
+	<li>サンプルデータベースへの接続を作成します。ログインユーザー名とパスワードを含むサーバー情報を、次の設定で指定します。 
+	<pre class="sql" style="font-family: monospace;">
+Server Driver<span style="color: #66cc66;">=</span>ODBC Driver <span style="color: #cc66cc;">18</span> <span style="color: #993333; font-weight: bold;">FOR</span> <span style="color: #993333; font-weight: bold;">SQL</span> Server;
+Server<span style="color: #66cc66;">=</span>olab<span style="color: #66cc66;">.</span><span style="color: #993333; font-weight: bold;">DATABASE</span><span style="color: #66cc66;">.</span>windows<span style="color: #66cc66;">.</span>net;
+Port<span style="color: #66cc66;">=</span><span style="color: #cc66cc;">1433</span>;<span style="color: #993333; font-weight: bold;">
+USER</span> Name<span style="color: #66cc66;">=</span>Olabts;
+Password<span style="color: #66cc66;">=</span>Origin@2024;
+	</pre>
+	<p><a class="image"><img alt="NewDB3.png" src="../images/Import_Data_from_a_Database/NewDB3.png" 
+							 width="337" border="0" /></a><br />
+	<br />
+	<b>テスト</b>ボタンをクリックして、接続が成功したことを確認します。 </p>
+	<table class="noborder">
+		<tr>
+			<td style="vertical-align: top;" width="60"><img src="../images/Import_Data_from_a_Database/Alert_icon.png" 
+															 alt="" width="57" 
+															 border="0" /></td>
+			<td><p>データベースへの接続に失敗した場合は、<a class="external text" href="https://learn.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server?view=sql-server-ver16" 
+										 target="_blank">この</a>ページに移動して最新のODBC 
+			 SQLドライバをダウンロードしてインストールします。 </p></td>
+		</tr>
+	</table></li>
+	<li>データベース欄の右側にある<a class="image"><img alt="NewDB5.png" src="../images/Import_Data_from_a_Database/NewDB5.png" 
+											 width="21" border="0" /></a>ボタンをクリックし、データベース<b>sample1</b>が表示されていることを確認します。<br />
+	<b>OK</b>ボタンをクリックして、<b>SQLエディタ</b>ダイアログを開きます。 <br />
+	</li>
+	<li>データベース内のすべてのテーブルが左側のパネルに一覧表示されます。<br />
+	<a class="image"><img alt="NewDB4.png" src="../images/Import_Data_from_a_Database/NewDB4.png" 
+							 width="765" border="0" /></a><br />
+	<br />
+	<i>メニューから<b>ファイル：接続文字列を表示</b>を選択すると、接続文字列が下のメッセージパネルに表示されます。または、手順2でこの接続文字列を使用して接続を作成することもできます。<br />
+	</i> 
+	<pre class="sql" style="font-family: monospace;">
+Driver<span style="color: #66cc66;">=</span><span style="color: #66cc66;">{</span>ODBC Driver <span style="color: #cc66cc;">18</span> <span style="color: #993333; font-weight: bold;">FOR</span> <span style="color: #993333; font-weight: bold;">SQL</span> Server<span style="color: #66cc66;">}</span>;Server<span style="color: #66cc66;">=</span>olab<span style="color: #66cc66;">.</span><span style="color: #993333; font-weight: bold;">DATABASE</span><span style="color: #66cc66;">.</span>windows<span style="color: #66cc66;">.</span>net;Port<span style="color: #66cc66;">=</span><span style="color: #cc66cc;">1433</span>;<span style="color: #993333; font-weight: bold;">DATABASE</span><span style="color: #66cc66;">=</span>sample1;Uid<span style="color: #66cc66;">=</span>olabts;Pwd<span style="color: #66cc66;">=</span>Origin@2024;
+	</pre></li>
+	<li><b>ファイル：接続を新規に保存</b>を選択して、データソースファイルを<i>MyDataSource.ods</i>として保存します。</li>
+	<li>ここで<b>Product</b>テーブルからデータを抽出し、productリストを構築します。SQLスクリプトを最初から書くことができます。左パネルのノードをダブルクリックすると、エディタにテーブルとフィールド名を追加できます。下記のビデオに従ってクエリを作成するか、右パネルに次のSQLスクリプトをコピーします。<br />
+	
+	<pre class="sql" style="font-family: monospace;">
+<span style="color: #993333; font-weight: bold;">SELECT</span> Name <span style="color: #66cc66;">,</span>ListPrice <span style="color: #66cc66;">,</span>SellStartDate <span style="color: #66cc66;">,</span>SellEndDate <span style="color: #66cc66;">,</span>ThumbNailPhoto &#160;<span style="color: #993333; font-weight: bold;">FROM</span> SalesLT<span style="color: #66cc66;">.</span>Product
+	</pre>
+	<p><a class="image"><img alt="NewDB6.gif" src="../images/Import_Data_from_a_Database/NewDB6.gif" 
+							 width="766" border="0" /></a><br />
+	</p></li>
+	<li><b><b>結果データをプレビュー</b></b>ボタン<a class="image"><img alt="SQL editor preview.png" 
+															 src="../images/Import_Data_from_a_Database/SQL_editor_preview.png" 
+															 width="25" 
+															 border="0" /></a>をクリックしてデータをプレビューします。メニューから<b>ファイル：接続とクエリ―を新規に保存...</b>を選択して接続とクエリを<i>MyQuery.odq</i>として保存します。将来的に、メニューの<b>データ：データベースに接続：MyQuery.odq</b>から接続設定とクエリスクリプトを読み込むことができるようになります。</li>
+	. 
+	<li><b><b>OK</b></b>ボタンをクリックするとデータがインポートされます。インポートされると、ワークシートはデータベースに接続され、ワークシートの左上に黄色のアイコンが表示されます。<br />
+	<a class="image"><img alt="NewDB7.png" src="../images/Import_Data_from_a_Database/NewDB7.png" 
+							 width="714" border="0" /></a></li>
+</ol>
+<h3><a name="Reimport_from_Database"></a><span class="mw-headline">データベースからの再インポート</span></h3>
+<p>データがインポートされると、接続とクエリはデータコネクタに自動的に保存されます。<b>データベースコネクタ</b><a class="image"><img 
+	 alt="DBConnector.png" src="../images/Import_Data_from_a_Database/DBConnector.png" 
+	 width="20" border="0" /></a>をクリックし、<b>インポート</b>を選択して、データベースからデータを再度インポートできます。以下の手順をお試しください。 
+ </p>
+<ol>
+	<li><a class="image"><img alt="DBConnector.png" src="../images/Import_Data_from_a_Database/DBConnector.png" 
+								 width="20" border="0" /></a>をクリックし、<b>インポートしたデータのロック解除</b>を選択します。</li>
+	<li>ワークシート内の一部のデータを削除または変更します。</li>
+	<li><a class="image"><img alt="DBConnector.png" src="../images/Import_Data_from_a_Database/DBConnector.png" 
+								 width="20" border="0" /></a>をクリックし、<b>インポート</b>を選択します。データが元通りになります。</li>
+	<li>クエリを変更するには、ワークシートがアクティブな状態で<a class="image"><img alt="DBConnector.png" 
+														 src="../images/Import_Data_from_a_Database/DBConnector.png" 
+														 width="20" border="0" /></a>をクリックして<b>SQLエディタ</b>を選択します。</li>
+	<li>同じデータベースに対して新しいデータベースクエリを設定するには、次のいずれかの操作を行います。 
+	<ul>
+		<li>ワークブックを複製します（メニューの<b>ウィンドウ：複製作成</b>）。新しいワークブックで、<a class="image"><img 
+		 alt="DBConnector.png" src="../images/Import_Data_from_a_Database/DBConnector.png" 
+		 width="20" border="0" /></a>をクリックしてSQLエディタを選択し、クエリを編集します。</li>
+		<li>新しいワークブックを用意します。メニューから<b>データ：データベースに接続</b>を選択します。 保存されているすべてのファイル、ODSファイル、ODQファイルがここに表示されます。</li>
+	</ul></li>
+	<li>MyQuery.ODQを選択します。データベースエディタダイアログが開き、保存されたSQLクエリが表示されます。<b>OK</b>ボタンをクリックするとインポートが実行されます。</li>
+</ol>
+<table class="noborder">
+	<tr>
+		<td style="vertical-align: top;" width="60"><img src="../images/Import_Data_from_a_Database/Tip_icon.png" 
+														 alt="" width="57" 
+														 border="0" /></td>
+		<td><p>デフォルトでは、インポートされたデータはプロジェクト（OPJUファイル）に保存されません。大きなデータベースによってOPJUファイルのサイズが大きくなるのを防ぐためです。プロジェクト内にデータを保存する場合は、<a 
+		 class="image"><img alt="DBConnector.png" src="../images/Import_Data_from_a_Database/DBConnector.png" 
+							 width="20" border="0" /></a>をクリックして、<b>保存時にインポートデータを除外</b>のチェックを外します。 
+		 その後プロジェクトを保存します。 </p></td>
+	</tr>
+</table>
+<h3><a name="LabTalk_Support_in_SQL_Editor"></a><span class="mw-headline">SQLエディタ内でのLabTalkサポート</span></h3>
+<p>SQLクエリを変更して、単価が10ドル未満の製品のみを取得してみましょう。このセクションでは、条件に価格のLabTalk数値変数を定義して、将来クエリを変更しやすくする方法を示します。 
+ </p>
+<ol>
+	<li><a class="image"><img alt="DBConnector.png" src="../images/Import_Data_from_a_Database/DBConnector.png" 
+								 width="20" border="0" /></a>をクリックして<b>SQLエディタ</b>を選択します。</li>
+	<li>LabTalk数値変数を追加するには、<b>クエリー：LabTalk...</b>を選択して<b>LabTalkサポート設定</b>ダイアログを開きます。<br />
+	<a class="image"><img alt="Db LT Script1.png" src="../images/Import_Data_from_a_Database/Db_LT_Script1.png" 
+							 width="530" border="0" /></a> </li>
+	<li><b>LabTalk置換 (%,$) をする</b>チェックボックスをオンにします。</li>
+	<li>LabTalk数値変数<b>priceToCompare</b>を定義するための以下のスクリプトを入力します。 
+	<pre class="lt" style="font-family: monospace;">
+double priceToCompare <span style="color: #000080;">=</span> <span style="color: #0000dd;">10</span>;
+	</pre>
+	これを<b>クエリー前のスクリプト</b> に入力します。<b>OK</b>をクリックします。<br />
+	<a class="image"><img alt="Db LT Script2.png" src="../images/Import_Data_from_a_Database/Db_LT_Script2.png" 
+							 width="530" border="0" /></a></li>
+	<li>右側のパネルのSQLスクリプトの最後に、下記を追加します。 
+	<pre class="sql" style="font-family: monospace;">
+<span style="color: #993333; font-weight: bold;">WHERE</span> ListPrice <span style="color: #66cc66;">&lt;</span> $<span style="color: #66cc66;">(</span>priceToCompare<span style="color: #66cc66;">)</span>
+	</pre></li>
+	<li><a class="image"><img alt="Db editor labtalk.png" src="../images/Import_Data_from_a_Database/Db_editor_labtalk.png" 
+								 width="23" border="0" /></a>ボタンをクリックして、SQLエディタボックスでLabTalk変数が置換されたSQLクエリ文字列をプレビューします。<br />
+	<a class="image"><img alt="Db LT import preview.png" src="../images/Import_Data_from_a_Database/Db_LT_import_preview.png" 
+							 width="765" border="0" /></a></li>
+	<li><b>OK</b>をクリックするとこれらのデータがインポートされます。 </li>
+	<li>今後は、<b>LabTalkサポート設定</b>ダイアログでpriceToCompareの値を変更するだけでよくなります。SQLクエリを変更する必要はありません。</li>
+</ol>

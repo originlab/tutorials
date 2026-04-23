@@ -1,0 +1,142 @@
+﻿<h1 class="firstheading">ポイントラベルを追加した3D曲面図</h1>
+<p class="urlname" style="display: none;">3D-Surface-PointLabel</p>
+<p><br />
+</p>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> 
+		 <span class="toctext">サマリー</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> 
+		 <span class="toctext">ステップ</span></a> 
+		<ol>
+			<li class="toclevel-2 tocsection-4"><a href="#Create_the_3D_Surface_with_side_walls:"><span 
+			 class="tocnumber">3.1</span> <span class="toctext">側壁付き3D曲面図を作成する 
+			 </span></a></li>
+			<li class="toclevel-2 tocsection-5"><a href="#Add_the_3D_scatter_in_the_3D_Surface_with_labels:"><span 
+			 class="tocnumber">3.2</span> <span class="toctext">3D散布図を曲面図に追加し、ラベルを表示する 
+			 </span></a></li>
+		</ol></li>
+	</ol>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>このチュートリアルでは3D散布図を曲面図に追加し、以下のようなラベルを表示する方法を紹介します。 </p>
+<dl>
+	<dd><dl>
+		<dd><a class="image"><img alt="3D Surface with Point Label 01.png" 
+									 src="../images/3D_Surface_with_Point_Label/3D_Surface_with_Point_Label_01.png" 
+									 width="461" border="0" /></a></dd>
+	</dl></dd>
+</dl>
+<p class="version">必要なOriginのバージョン: Origin 2015 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。 </p>
+<ul>
+	<li>側壁付き3D曲面図を作成する</li>
+	<li>3D散布図を曲面図に追加し、ラベルを表示する</li>
+	<li>ラベルの位置を変更する</li>
+	<li>シンボルとラベルをつなぐ線を追加する</li>
+</ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Create_the_3D_Surface_with_side_walls:"></a><span class="mw-headline">側壁付き3D曲面図を作成する</span></h3>
+<p>このチュートリアルは、チュートリアルデータプロジェクト（<i><i>&lt;Origin EXE フォルダ&gt;\Samples\TutorialData.opj</i></i>）と関連しています。 
+ <br />
+また、「ラーニングセンター」からこのグラフを呼び出すことができます。(<b>ヘルプ: ラーニングセンター</b> メニューを選択、または キーボードの<b>F11</b> 
+ キーを押して、<b>グラフサンプル：3D曲面図</b>を選択します) </p>
+<ol>
+	<li><b>Tutorial Data.opj</b>を開き、<b><b>プロジェクト・エクスプローラ</b></b> (PE)で<b>3D 
+	 Surface with Point Label</b> フォルダを開きます。 </li>
+	<li><b>MBook4</b>をアクティブにし、データを全て選択します。メインメニューから<b>作図：3D:3Dカラーマップ曲面</b>を選択します。以下のように、3Dカラーマップ曲面図が作成されます。 
+	 <br />
+	<br />
+	<a class="image"><img alt="3D Surface with Point Label 02.png" src="../images/3D_Surface_with_Point_Label/3D_Surface_with_Point_Label_02.png" 
+							 width="464" height="367" border="0" /></a> 
+	 </li>
+	<li>メニューから<b><b>フォーマット：軸スケール：Z軸</b>を選びます。</b> <b><b>軸</b></b>ダイアログボックスを開きます。（または、グラフ上の軸をダブルクリックして開きます。）Z軸のスケールの値を<b>開始</b>：<b>―500</b>、<b>終了</b>：<b>8000</b>とします。<b>OK</b>をクリックします。 
+	 <br />
+	<br />
+	<a class="image"><img alt="3D Surface with Point Label 03.png" src="../images/3D_Surface_with_Point_Label/3D_Surface_with_Point_Label_03.png" 
+							 width="699" height="693" border="0" /></a> 
+	 </li>
+	<li>メニューから<b>フォーマット：プロット</b>を選択し、<b><b>作図の詳細</b></b>ダイアログボックスを開きます。（あるいは、グラフ内のどこかでダブルクリックします。）もし、左パネルが表示されていない場合、<a 
+	 class="image"><img alt="Plot Details Expansion.png" src="../images/3D_Surface_with_Point_Label/Plot_Details_Expansion.png" 
+						 width="33" border="0" /></a> ボタンをクリックしてダイアログを拡張し、<b>Layer1</b>のすぐ下の項目を選択します。側壁を作成して編集するには、<b>側壁</b>タブを開いて<b>有効にする</b>のチェックを付けます。<b>X</b>と<b>Y</b>の側壁の色を、それぞれ<b>灰色</b>と<b>明るい灰色</b>に変更します。 
+	 <br />
+	<br />
+	<a class="image"><img alt="3D Surface with Point Label 04.png" src="../images/3D_Surface_with_Point_Label/3D_Surface_with_Point_Label_04.png" 
+							 width="785" height="336" border="0" /></a> 
+	 </li>
+	<li>色スケールを調整するには、<b>カラーマップ/等高線</b>タブで、<b>色塗り</b>ヘッダをクリックして、ダイアログを開きます。以下のように<b>制限付き混合</b>を選択し、<b>最小値</b>：<b>青</b>、<b>最大値</b>：<b>緑</b>とセットします。<b>OK</b>ボタンを押し、<b><b>塗り方</b></b>ダイアログを閉じます。 
+	 <br />
+	<br />
+	<a class="image"><img alt="3D Surface with Point Label 05.png" src="../images/3D_Surface_with_Point_Label/3D_Surface_with_Point_Label_05.png" 
+							 width="555" height="553" border="0" /></a> 
+	 </li>
+	<li><b>メッシュ</b>タブを開き、<b>主線の色</b>を<b>黒</b>に設定し、<b>適用</b>をクリックします。 <br />
+	<br />
+	<a class="image"><img alt="3D Surface with Point Label 06.png" src="../images/3D_Surface_with_Point_Label/3D_Surface_with_Point_Label_06.png" 
+							 width="648" height="382" border="0" /></a> 
+	 </li>
+	<li>次に、ライティング効果を追加して編集します。同じ<b>作図の詳細</b>ダイアログで、左側パネルを開いて、<b>Layer 1</b>を選択します。<b>ライティング</b>タブを開いてからモードで<b>平行光源</b>を選択します。位置グループの<b>水平位置</b>には<b>279</b>、<b>垂直位置</b>には<b>-3</b>を入力します。<b>環境光</b>を<b>薄い黄色</b>に設定します。 
+	 <br />
+	<br />
+	<a class="image"><img alt="3D Surface with Point Label 07.png" src="../images/3D_Surface_with_Point_Label/3D_Surface_with_Point_Label_07.png" 
+							 width="866" height="377" border="0" /></a> 
+	 </li>
+	<li>平面を編集するには<b>平面</b>タブを開き、<b>YZ</b>と<b>ZX</b>ボックスのチェックを外してこれら2つの面が表示されないようにします。<b>OK</b>ボタンをクリックします。 
+	 <br />
+	<br />
+	<a class="image"><img alt="3D Surface with Point Label 08.png" src="../images/3D_Surface_with_Point_Label/3D_Surface_with_Point_Label_08.png" 
+							 width="703" height="394" border="0" /></a> 
+	 </li>
+</ol>
+<p><br />
+</p>
+<h3><a name="Add_the_3D_scatter_in_the_3D_Surface_with_labels:"></a><span 
+	 class="mw-headline">3D散布図を曲面図に追加し、ラベルを表示する</span></h3>
+<ol>
+	<li>３Dグラフの目的の場所にシンボルを追加するには、メインメニューで<b>グラフ操作：レイヤ内容</b>と操作し、<b>レイヤ内容</b>ダイアログを開きます（あるいは、レイヤの左上にある<b>1</b>アイコンをダブルクリックします）。 
+	 表示されるダイアログの左上にあるドロップダウンリストから<b>フォルダ中のワークシート</b>を選択します。 </li>
+	<li>以下にある<b>グラフタイプ</b>のボタンをクリックし、<b>３D散布図/ターナリ/ベクトル</b>をグラフタイプとして指定します。 
+	 <br />
+	<br />
+	<a class="image"><img alt="3D Surface with Point Label 09.png" src="../images/3D_Surface_with_Point_Label/3D_Surface_with_Point_Label_09.png" 
+							 width="899" height="293" border="0" /></a> 
+	 </li>
+	<li>左側パネルから右側パネルに内容を移動するには、Ctrlキーを押しながらロングネームに<b>Height</b>とある行を選択して<b>プロットの追加</b><a 
+	 class="image"><img alt="Button Add plot.png" src="../images/3D_Surface_with_Point_Label/Button_Add_plot.png" 
+						 width="24" border="0" /></a>ボタンをクリックします。この操作でレイヤ１に２つの行を追加します。<b>OK</b>ボタンをクリックします。 
+	 <br />
+	<br />
+	<a class="image"><img alt="3D Surface with Point Label 10.png" src="../images/3D_Surface_with_Point_Label/3D_Surface_with_Point_Label_10.png" 
+							 width="899" height="293" border="0" /></a><br />
+	<br />
+	このグラフは3DOpen GLグラフのため、<b>ツール</b>バーの<a class="image"><img alt="GUI Elements rotate button.png" 
+															 src="../images/3D_Surface_with_Point_Label/GUI_Elements_rotate_button.png" 
+															 width="24" 
+															 border="0" /></a><b>回転</b>ボタンを使用するか、<b>R</b>キーを押したままマウスを使用すると回転できます。3D曲面に2つの赤いシンボルが追加されて、グラフは下図のようになります。 
+	 <br />
+	<br />
+	<a class="image"><img alt="3D Surface with Point Label 11.png" src="../images/3D_Surface_with_Point_Label/3D_Surface_with_Point_Label_11.png" 
+							 width="457" border="0" /></a> </li>
+	<li>２つのシンボルにラベルを追加するには、どちらかをダブルクリックして<b><b>作図の詳細</b></b>ダイアログを開きます。<b>作図の詳細</b>ダイアログの左側パネルで、<i>Position1</i> 
+	 プロットレベルの下にある<b>オリジナル</b>レベルが選択されていることを確認します。<b>ラベル</b>タブで<b>有効にする</b>にチェックを付けます。<b>ラベル形式</b>のドロップダウンリストで<b>col(&quot;Label&quot;)</b>をラベルのソースとして選択します。下図のようにラベルの<b><b>オフセット</b>、位置、引出し線</b>を設定します。 
+	 <br />
+	<br />
+	<a class="image"><img alt="3D Surface with Point Label 12.png" src="../images/3D_Surface_with_Point_Label/850px-3D_Surface_with_Point_Label_12.png" 
+							 width="1064" height="553" border="0" /></a> 
+	 </li>
+	<li>左側パネルで<i>Position2</i>プロットレベルの下にある<b>オリジナル</b>をクリックします。<b>ラベル</b>タブを開き、上記ステップを繰り返して下図のような設定にします。 
+	 <br />
+	<br />
+	<a class="image"><img alt="3D Surface with Point Label 13.png" src="../images/3D_Surface_with_Point_Label/850px-3D_Surface_with_Point_Label_13.png" 
+							 width="1064" height="553" border="0" /></a> 
+	 <br />
+	<b>OK</b>ボタンをクリックします。ラベルおよび引出し線がグラフ上に表示されます。 <br />
+	<a class="image"><img alt="3D Surface with Point Label 01.png" src="../images/3D_Surface_with_Point_Label/3D_Surface_with_Point_Label_01.png" 
+							 width="461" border="0" /></a> </li>
+</ol>

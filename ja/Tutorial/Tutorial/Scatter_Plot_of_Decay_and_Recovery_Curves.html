@@ -1,0 +1,56 @@
+﻿<h1 class="firstheading">減衰および復調曲線の散布図</h1><p class='urlname' style='display: none'>Customize-Grouped-Scatter</p>
+<p><br />
+</p>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>以下の散布図は、色素ドープポリマーの可逆性光崩壊の2つの光子の蛍光測定を行った3つの減衰および復調曲線を表しています。グラフについての詳細は、<a class="external text" href="http://www.originlab.com/index.aspx?s=9&amp;lm=68&amp;pid=1025" target="_blank">事例</a>をご覧ください。
+</p>
+<dl><dd><a class="image"><img alt="Scatter decay final.png" src="../images/Scatter_Plot_of_Decay_and_Recovery_Curves/Scatter_decay_final.png" width="566"  /></a></dd></dl>
+<p class="version" >必要なOriginのバージョン:Origin 2016 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul><li> レイヤ内のプロットを再配置する<span class="db">作図のセットアップ</span>ダイアログを使う方法</li>
+<li> グラフ内でシンボルをカスタマイズする方法</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<ol>
+    <li> <a class="external text" href="http://www.originlab.com/ftp/graph_gallery/data/decay_and_recovery_curves2.zip" target="_blank">こちら</a>からzipファイルをダウンロードし、テキストファイルを抽出します。
+    <li> Originを開き、<b>標準</b>ツールバーの<b>複数ASCIIインポート</b>ボタン<a class="image"><img alt="Import Multiple ASCII.png" src="../images/Scatter_Plot_of_Decay_and_Recovery_Curves/Import_Multiple_ASCII.png" width="24"  /></a>をクリックし、<b>ASCII</b>ダイアログを開き、テキストファイルをインポートします。<br />
+    <a class="image"><img alt="Scatter Plot Import data.png" src="../images/Scatter_Plot_of_Decay_and_Recovery_Curves/Scatter_Plot_Import_data.png" width="697"  /></a>
+    <li><b><b>impASC</b></b>ダイアログで、<b><b>インポートモード</b></b>を<b><b><b>シートを新たに作って読み込む</b></b></b>に設定します。<b>OK</b>をクリックして、インポートを完了します。<br />
+    <a class="image"><img alt="Scatter Plot Import data 2.png" src="../images/Scatter_Plot_of_Decay_and_Recovery_Curves/Scatter_Plot_Import_data_2.png" width="680"  /></a>
+    <li>8個のプロットを組み合わせるのに作図のセットアップダイアログを使います。ワークブックをアクティブにし、データセットが選択されていないことを確認します。<b>2Dグラフギャラリー</b>ツールバーの<a class="image"><img alt="Line.png" src="../images/Scatter_Plot_of_Decay_and_Recovery_Curves/Line.png" width="23"  /></a>ボタンをクリックし、<b>作図のセットアップ</b>ダイアログを開きます。
+    <br />すべてのパネルが表示されていない場合、 <a class="image"><img alt="Show Less.png" src="../images/Scatter_Plot_of_Decay_and_Recovery_Curves/Show_Less.png" width="21"  /></a> および <a class="image"><img alt="Show More.png" src="../images/Scatter_Plot_of_Decay_and_Recovery_Curves/Show_More.png" width="21"  /></a> ボタンをクリックして、<b>作図のセットアップ</b>ダイアログの3つのパネルのすべてを表示します。
+    <br />はじめに、作図の詳細ダイアログを使って4個の折れ線グラフを一つのグラフにまとめます。上側パネルで全てのデータセットを選択し、中央パネルで列<b>Timemin</b>をX、 列<b>Theory</b>をYに設定します。そして、それらを下側パネルに追加します。
+    <br />それから、4つの散布図を同じグラフに追加します。同じように上側パネルで全てのデータセットを選択し、グラフタイプを<b><b>散布図</b></b>に、中央のパネルで列<b><b>Timemin</b></b>をX、列<b><b>NormData</b></b>をYに設定します。そして、それらを下側パネルに追加します。<br />
+    <a class="image"><img alt="Scatter Plot Plot Setup dialog1.png" src="../images/Scatter_Plot_of_Decay_and_Recovery_Curves/Scatter_Plot_Plot_Setup_dialog1.png" width="718"  /></a>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Scatter_Plot_of_Decay_and_Recovery_Curves/Tip_icon.png" width="57"  border="0" /></td><td><p><b><b>作図のセットアップ</b></b>ダイアログで3つのパネルを全ての表示するために<a class="image"><img alt="Button Expand Preview Up.png" src="../images/Scatter_Plot_of_Decay_and_Recovery_Curves/Button_Expand_Preview_Up.png" width="24"  /></a>ボタンをクリックして<b><b>グラフタイプ</b></b>パネルを開き、再度<a class="image"><img alt="Button Expand Preview Up.png" src="../images/Scatter_Plot_of_Decay_and_Recovery_Curves/Button_Expand_Preview_Up.png" width="24"  /></a>をクリックして<b><b>利用可能なデータ</b></b>パネルを開きます。<br />
+<p>詳細な情報は<a class="external text" href="../../Tutorial/Tutorial/Plotting_using_Plot_Setup.html">作図のセットアップで作図</a>を参照してください。
+</p>
+</p></td></tr></table>
+<p><br />下側パネルで、<b>レイヤ1</b>の下に<b>グループ</b>ブランチがある場合、それを右クリックして、ショートカットメニューから<b>非グループ化</b>を選択し、これらのプロットのグループ化を解除します。
+<br /><a class="image"><img alt="Scatter Plot Plot Setup dialog2.png" src="../images/Scatter_Plot_of_Decay_and_Recovery_Curves/Scatter_Plot_Plot_Setup_dialog2.png" width="422"  /></a>
+<br /><b>OK</b>をクリックして下図のようなグラフを作成します。
+<br /><a class="image"><img alt="Scatter decay first.png" src="../images/Scatter_Plot_of_Decay_and_Recovery_Curves/Scatter_decay_first.png" width="463"  /></a>
+</p>
+<li>グラフウィンドウの左上角にあるレイヤアイコンをダブルクリックして、<b>レイヤ内容</b>ダイアログを開きます。<b><b>Theory</b></b>グラフと<b><b>NormData</b></b>グラフをそれぞれグループ1とグループ2としてグループ化します。4つのTheoryとNormDataをそれぞれ<b><b>Shift</b></b>キーとマウスを使いながら選択し、<b><b>グループ化</b></b>ボタンをクリックします。<br />
+    <a class="image"><img alt="Scatter decay layercontent v.png" src="../images/Scatter_Plot_of_Decay_and_Recovery_Curves/Scatter_decay_layercontent_v.png" width="831"  /></a>
+    <li>そして、作図の詳細ダイアログを使って、8個のグラフを編集します。メニューから、<b>フォーマット：作図の詳細（プロット属性）</b>を選択し、<b>作図の詳細</b>ダイアログボックスを開きます。左側パネルでは、全部で8つのプロットがある事が分かります。最初の4つは折れ線グラフ、後の4つは散布図です。
+    <li>まず、4個の折れ線グラフを編集します。グラフをダブルクリックして<b>作図の詳細</b>ダイアログを開きます。左側パネルで4つの折れ線グラフは4つの散布図よりも上にあります。最初の折れ線グラフを編集するには<i>Layer 1</i> のすぐ下にあるプロットを選択し、<b>グラフの線</b>タブを開きます。<b><b>接続線</b></b>のドロップダウンで<b><b>B-スプライン</b></b>を選択し、<b><b>太さ</b></b>を<b><b>3</b></b>にします。<b>適用</b>ボタンをクリックします。<b>グループ化</b>タブで、<b>線の色</b>の行にある<b>増分</b>セルに「なし」を設定します。w.OK をクリックして、これらの設定を適用します。<br />
+    <a class="image"><img alt="Scatter decay linepd.png" src="../images/Scatter_Plot_of_Decay_and_Recovery_Curves/Scatter_decay_linepd.png" width="648"  /></a>
+    <li>次に、4個の散布図を編集します。<b><b>作図の詳細</b></b>ダイアログで左側の5番目のプロット、つまり散布図の最初のプロットを選択します。<b>シンボル</b>タブを開き、<b><b>サイズ</b></b>を<i>8</i>に、<b>境界の太さ</b>を<i>0</i>に変更します。
+    <br /><b><b>グラフグループ</b></b>タブの中央付近のリストボックスで、シンボルを編集します。<b>シンボル内部</b>行の<b>推移フィールド</b>で<b>1つずつ</b>を選択します。参照ボタン<a class="image"><img alt="Scatter decay bttn.png" src="../images/Scatter_Plot_of_Decay_and_Recovery_Curves/Scatter_decay_bttn.png" width="19"  /></a>をクリックして<b>推移リストエディタ</b>ダイアログを開き、そこで最初の4行に<b>三角形</b>、<b>円</b>、<b>六角形</b>、<b>正方形</b>を順に選択します。
+    <br /><b>シンボルの縁色</b>行の<b>推移フィールド</b>で<b>1つずつ</b>を選択します。<b>詳細</b>の列で、カラーリストをクリックしてドロップダウンメニューから<i>Q11: Candy</i>を選択します。
+    <br /><b>シンボル内部</b>行の<b>推移フィールド</b>で<b>1つずつ</b>を選択します。参照ボタン<a class="image"><img alt="Scatter decay bttn.png" src="../images/Scatter_Plot_of_Decay_and_Recovery_Curves/Scatter_decay_bttn.png" width="19"  /></a>をクリックして<b>推移リストエディタ</b>ダイアログを開き、そこで最初の4行に<b>実線</b>、<b>実線</b>、<b>左半分</b>、<b>実線</b>を順に選択します。
+    OKボタンをクリックして作図の詳細ダイアログを閉じると、次のようなグラフになります。<br />
+    <a class="image"><img alt="Scatter decay customized.png" src="../images/Scatter_Plot_of_Decay_and_Recovery_Curves/Scatter_decay_customized.png" width="516"  /></a>
+    <li> 次に、グラフの軸を編集します。X軸をダブルクリックして、<b>軸</b>ダイアログを開きます。
+    <br />まず、軸のスケールを編集しましょう。<b>スケール</b>タブの<b>水平</b>アイコンをクリックします。<b>開始</b>を-5、<b>終了</b>を690に設定し、主目盛のタイプを<b>増分</b>に設定して<b>値</b>を100に設定します。同じように、Y軸範囲(左パネルの<b>垂直</b>アイコンをクリック)も編集します。<b>開始</b>は0.61、<b>終了</b>は1.01、<b>値</b>は0.05に設定します。<br />
+    <a class="image"><img alt="Scat plot-1.png" src="../images/Scatter_Plot_of_Decay_and_Recovery_Curves/Scat_plot-1.png" width="587"  /></a>
+    <br />軸目盛を編集するには、<b>軸と軸目盛</b>のタブを開いてから<b>上</b>のアイコンを選択し、<b>軸と軸目盛を表示</b>にチェックを付けます。そして主目盛と副目盛のドロップダウンリストから<b>内側</b>を入れます。<b>右</b>アイコンを選択して、右軸も同様に設定します。<br />
+    <a class="image"><img alt="Scat plot-2.png" src="../images/Scatter_Plot_of_Decay_and_Recovery_Curves/Scat_plot-2.png" width="587"  /></a>
+    <li>タイトルと凡例を編集します。下図のようにタイトルを編集します。凡例上で右クリックして、<b><b>凡例：凡例を更新</b></b>と選択して <b>legendupdate</b>ダイアログを開きます。このダイアログで、同様に操作します。<br /> <a class="image"><img alt="Scat plot-3.png" src="../images/Scatter_Plot_of_Decay_and_Recovery_Curves/Scat_plot-3.png" width="465"  /></a><br /> OKをクリックして、このダイアログを閉じると、凡例が更新されます。この上でダブルクリックして直接編集モードに変更し、最初の4行を削除します。
+<br />最終的なグラフは次のようになります。<br />
+<a class="image"><img alt="Scatter decay final.png" src="../images/Scatter_Plot_of_Decay_and_Recovery_Curves/Scatter_decay_final.png" width="566"  /></a>
+</li>
+</ol>
+
+    

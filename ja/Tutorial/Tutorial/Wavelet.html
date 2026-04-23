@@ -1,0 +1,118 @@
+﻿<h1 class="firstheading">ウェーブレット</h1><p class='urlname' style='display: none'>ウェーブレット</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#1D_Wavelet_Transform"><span class="tocnumber">3</span> <span class="toctext">1D ウェーブレット変換</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Decomposition"><span class="tocnumber">3.1</span> <span class="toctext"><b>分解</b></span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Reconstruction"><span class="tocnumber">3.2</span> <span class="toctext"><b>再構成</b></span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Multi-Scale_Wavelet_Decomposition"><span class="tocnumber">3.3</span> <span class="toctext"><b>Multi-Scaleウェーブレット分解</b></span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Continuous_Wavelet_Transform"><span class="tocnumber">3.4</span> <span class="toctext"><b>連続ウェーブレット変換</b></span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Noise_Removal_by_Wavelet_Transform"><span class="tocnumber">3.5</span> <span class="toctext"><b>ウェーブレット変換によるノイズ除去</b></span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="#2D_Wavelet_Transform"><span class="tocnumber">4</span> <span class="toctext">2D ウェーブレット変換</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="#2D_Wavelet_Decomposition"><span class="tocnumber">4.1</span> <span class="toctext"><b>2D ウェーブレット分解</b></span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>ウェーブレット変換は、位相や振幅の急激な変化の信号、極大値や極小値、また関連するパラメータを分析するのに有効です。ウェーブレット変換は、時間周波数分析、特に非定常信号の分析ツールとして一般的なものになろうとしています。Originのウェーブレット変換ツールは、連続 および 離散 変換をサポートしています。
+</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。
+</p>
+<ol><li> 一次元離散ウェーブレット分解を実行し、近似係数と詳細係数から信号を再構成する</li>
+<li> マルチレベル離散ウェーブレット分解を適用する</li>
+<li> 連続ウェーブレット変換を実行する</li>
+<li> ウェーブレット変換により信号からノイズを除去する</li>
+<li> 行列データに2D離散ウェーブレットを実行し、再構成する</li>
+<li> 画像を行列データに変換する</li>
+<li> 複数のグラフウィンドウを1つのグラフに統合する</li></ol>
+<h2><a name="1D_Wavelet_Transform"></a><span class="mw-headline">1D ウェーブレット変換</span></h2>
+<h3><a name="Decomposition"></a><span class="mw-headline"><b>分解</b></span></h3>
+<ol><li> 空のワークブックを開きます。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Signal Processing</i>サブフォルダにある<i>Chirp Signal.dat</i> ファイルを探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。
+<dl><dd><a  class="image"><img alt="SP Tutorial Wavelet 1.png" src="../images/Wavelet/SP_Tutorial_Wavelet_1.png" width="292"  /></a></dd></dl></li>
+<li> B列を選択して、<b><b>解析：信号処理：ウェーブレット：分解</b></b><b> </b>を選択し、<b>分解：dwt</b>ダイアログを開きます。</li>
+<li> ダイアログでは、<b><b>ウェーブレットの種類と次数</b></b>に<b><b>DB6</b></b>を選択し、<b><b>拡張モード</b></b>に<b><b>ゼロパディング</b></b>を指定します。
+<dl><dd><a  class="image"><img alt="SP Tutorial Wavelet 2.png" src="../images/Wavelet/SP_Tutorial_Wavelet_2.png" width="491"  /></a></dd></dl></li>
+<li> <b>OK</b>をクリックしてダイアログを閉じ、近似係数と詳細係数を出力します。</li>
+<li> B、C、D列（C列とD列は近似係数と詳細係数をそれぞれ含んでいる必要があります）を選択します。メニューから<b>作図：基本の2Dグラフ：積み上げ...</b>を選択して<b>積み上げ： plotstack</b>ダイアログボックスを開きます。</li>
+<li> 開いたダイアログで、<b><b>オプション</b></b>の項目の<b><b>リンク</b></b>のチェックを外します。ダイアログの<b><b>自動プレビュー</b></b>チェックボックスにチェックを付け、右パネルでプレビューできるようにします。
+<dl><dd><a  class="image"><img alt="SP Tutorial Wavelet 3.png" src="../images/Wavelet/SP_Tutorial_Wavelet_3.png" width="882"  /></a></dd></dl></li>
+<li> <b>OK</b> をクリックしてダイアログボックスを閉じ、積み上げグラフを作成します。
+<dl><dd><a  class="image"><img alt="SP Tutorial Wavelet 4.png" src="../images/Wavelet/SP_Tutorial_Wavelet_4.png" width="370"  /></a></dd></dl></li></ol>
+<p><b>Note:</b>2（3、4...）次元の離散ウェーブレット分解を行うには、ステップ2から4の操作を、近似係数（ここではC列）に対して繰り返します。また、OriginProでのみ利用可能なマルチスケールウェーブレット分解は以下のセクションでご紹介します。
+</p>
+<h3><a name="Reconstruction"></a><span class="mw-headline"><b>再構成</b></span></h3>
+<p>再構成は、分解の逆演算で、このサンプルでは、上記のセクションで生成された結果から再構成を行います。
+</p>
+<ol><li> 上のセクションで得られた結果のC、D列（近似係数と詳細係数）を選択します。</li>
+<li> メニューから<b><b>解析：信号処理：ウェーブレット：再構成</b></b>を選択して<b>再構成：idwt</b>ダイアログを開きます。</li>
+<li> 信号の再構成を実行するには、<b><b>ウェーブレットの種類</b></b>や<b><b>境界</b></b>を同じものに設定する必要があるので、<b>DB6</b>と<b><b>ゼロパディング</b></b>を選択します。
+<dl><dd><a  class="image"><img alt="SP Tutorial Wavelet 5.png" src="../images/Wavelet/SP_Tutorial_Wavelet_5.png" width="455"  /></a></dd></dl></li>
+<li> <b><b>OK</b></b>ボタンをクリックすると、再構成された信号データが列Eに出力されます。</li>
+<li> CTRLキーを押しながら列Bと列Eを選択します。メニューから<b>作図：基本の2Dグラフ：折れ線</b>を選択してこれら2列のグラフを作成します。
+<dl><dd><a  class="image"><img alt="SP Tutorial Wavelet 6.png" src="../images/Wavelet/SP_Tutorial_Wavelet_6.png" width="420"  /></a></dd></dl></li>
+<li> 作図されたグラフから、元の信号と再構成された信号データが重なり合っていることがわかります。</li></ol>
+<h3><a name="Multi-Scale_Wavelet_Decomposition"></a><span class="mw-headline"><b>Multi-Scaleウェーブレット分解</b></span></h3>
+<ol><li> 新しいワークブックを作成し、上述の<b><b>分解</b></b>セクションで使用したデータと同じものをインポートします。 </li>
+<li> B列を選択して、<b><b>解析：信号処理：ウェーブレット：マルチスケールDWT</b></b><b> </b>を選択し、<b>マルチスケールDWT：mdwt</b>ダイアログを開きます。</li>
+<li> <b><b>拡張モード</b></b>を<b><b>ゼロパディング</b></b>にし、<b><b>分解レベル</b></b>を<b><b>3</b></b>に変更します。<b><b>複数係数</b></b>データのコンテキストメニューから、<b><b>[&lt;入力&gt;]&lt;入力&gt;</b></b>を選択します。
+<dl><dd><a  class="image"><img alt="SP Tutorial Wavelet 7.png" src="../images/Wavelet/SP_Tutorial_Wavelet_7.png" width="455"  /></a></dd></dl></li>
+<li> <b><b>OK</b></b>をクリックして、レベル3の離散ウェーブレットを実行すると、係数が元データと同じワークシートに格納されます。</li>
+<li> ワークシート内の全ての列を選択し、メニューから<b>作図：基本の2Dグラフ：積み上げ...</b>を選択して<b>積み上げ： plotstack</b>ダイアログボックスを開きます。<b><b>ダイアログテーマ</b></b>の右にある矢印ボタンをクリックし、<b>システムデフォルト</b>を選択します。グラフをプレビューするために、ダイアログの下側にある、<b>自動プレビュー</b>にチェックを付けます。
+<dl><dd><a  class="image"><img alt="SP Tutorial Wavelet 8.png" src="../images/Wavelet/SP_Tutorial_Wavelet_8.png" width="882"  /></a></dd></dl></li>
+<li> <b>OK</b>をクリックします。作図された結果グラフは以下のようになります。 
+<dl><dd><a  class="image"><img alt="SP Tutorial Wavelet 9.png" src="../images/Wavelet/SP_Tutorial_Wavelet_9.png" width="388"  /></a></dd></dl></li></ol>
+<h3><a name="Continuous_Wavelet_Transform"></a><span class="mw-headline"><b>連続ウェーブレット変換</b></span></h3>
+<ol><li> 空のA列とB列を持つ新しいワークシートを作成します。</li>
+<li> 列Aを選択して右クリックし、ショートカットメニューから、<b><b>列値の設定</b></b>を選択します。<b>値の設定</b>ダイアログボックスを開きます。テキストボックスに&quot;<i>data(0, 1, 1/1023)</i>&quot; と入力し、<b><b>適用</b></b>をクリックします。A列に値が入力されます。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Wavelet 10.png" src="../images/Wavelet/SP_Tutorial_Wavelet_10.png" width="509"  /></a></dd></dl></li>
+<li> <b>&gt;&gt;</b>ボタンをクリックして、B列の値の設定を行います。テキストボックスに、&quot;<i>sin(1.5/(0.25-col(A)))+cos(0.2/(0.2-col(A)))</i>&quot; と入力して<b><b>OK</b></b>ボタンをクリックします。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Wavelet 11.png" src="../images/Wavelet/SP_Tutorial_Wavelet_11.png" width="509"  /></a></dd></dl></li>
+<li> 生成したデータを確認するためにグラフを作図すると下図のようになります。列Bが選択された状態で、 メニューから<b>作図：基本の2Dグラフ：折れ線</b>を選択します。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Wavelet 13.png" src="../images/Wavelet/SP_Tutorial_Wavelet_13.png" width="415"  /></a></dd></dl></li>
+<li> ワークシートをアクティブにして、メニューの<b>列：新規列の追加...</b>を選択してワークシートに新しい列を追加します。開いたダイアログで、デフォルトの<i>1</i>のまま、<b><b>OK</b></b>ボタンをクリックします。 
+<dl><dd> <a  class="image"><img alt="SP Tutorial Wavelet 12.png" src="../images/Wavelet/SP_Tutorial_Wavelet_12.png" width="286"  /></a></dd></dl></li>
+<li> 新たな列（C列）がワークシートに追加されました。このC列を選択し、ショートカットメニューから、<b><b>列値の設定</b></b>を選択します。  テキストボックスに、スクリプト &quot;<i>data(1, 512)</i>&quot; を入力して<b>OK</b>ボタンをクリックします。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Wavelet 14.png" src="../images/Wavelet/SP_Tutorial_Wavelet_14.png" width="509"  /></a></dd></dl></li>
+<li> 列Bと列Cを選択し、メニューから <b><b>解析：信号処理：ウェーブレット：</b>連続ウェーブレット</b>を選択して<b>連続ウェーブレット：cwt</b>ダイアログボックスを開きます。</li>
+<li> ダイアログで、<b><b>ウェーブレットの種類</b></b>を<b>MexHat</b>にし、<b><b>係数行列</b></b>にチェックをつけます。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Wavelet 15.png" src="../images/Wavelet/SP_Tutorial_Wavelet_15.png" width="476"  /></a></dd></dl></li>
+<li> <b>OK</b>ボタンをクリックして、ダイアログを閉じます。</li>
+<li> 新しいワークシートと行列に係数が出力され、さらに等高線図も作図されます。グラフをダブルクリックして、<b>作図の詳細</b>ダイアログを開きます。右パネルの<b><b>カラーマップ</b></b>タブで、<b>色塗り</b>ヘッダをクリックして<b>塗り方</b>ダイアログを開きます。<b><b>パレットをロード</b></b>を選択して、<b><b>パレットを選択</b></b>ボタンを押し、<b><b>Pumpkin Patch</b></b><b> </b>を選択します。<b>OK</b>をクリックし、<b>作図の詳細</b>ダイアログを開きます。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Wavelet 16.png" src="../images/Wavelet/SP_Tutorial_Wavelet_16.png" width="1475"  /></a></dd></dl></li>
+<li> <b>OK</b>をクリックするとグラフの配色が変更され、グラフは下図のようになります。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Wavelet 17.png" src="../images/Wavelet/SP_Tutorial_Wavelet_17.png" width="540"  /></a></dd></dl></li></ol>
+<h3><a name="Noise_Removal_by_Wavelet_Transform"></a><span class="mw-headline"><b>ウェーブレット変換によるノイズ除去</b></span></h3>
+<ol><li> 新しいワークブックを用意します。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Signal Processing</i>サブフォルダにある<i>Signal with Shot Noise.dat</i> ファイルを探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Wavelet 18.png" src="../images/Wavelet/SP_Tutorial_Wavelet_18.png" width="396"  /></a></dd></dl></li>
+<li> 上図のようにスパークラインが表示され、この信号データにはノイズが含まれていることが分かります。B列を選択して、<b><b>解析：信号処理：ウェーブレット：雑音除去</b></b><b> </b>を選択し、<b>雑音除去：wtdenoise</b>ダイアログを開きます。</li>
+<li> ダイアログの<b><b>自動プレビュー</b></b>チェックボックスにチェックを付け、右パネルでプレビューできるようにします。<b><b>ウェーブレット</b>の種類</b>を<b><b>DB9</b></b>にし、<b><b>拡張モード</b></b>を<b><b>ゼロパディング</b></b>に、<b><b>しきい値</b></b>の種類を<b><b>sqtwolog</b></b><b>,</b>にして、<b><b>しきい値のレベル</b></b>を<b><b>7</b></b>に設定します。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Wavelet 19.png" src="../images/Wavelet/SP_Tutorial_Wavelet_19.png" width="879"  /></a></dd></dl></li>
+<li> <b>OK</b>ボタンをクリックして、信号からノイズを除去し、ワークシートのC、D列に結果が出力されます。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Wavelet 20.png" src="../images/Wavelet/SP_Tutorial_Wavelet_20.png" width="444"  /></a></dd></dl></li>
+<li> ワークシートのすべての列を選択して、メニューから<b>作図：基本の2Dグラフ：折れ線</b>と選択して元データと結果データのグラフを作図します。グラフは以下のようになり、ノイズが除去されたことがわかります。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Wavelet 21.png" src="../images/Wavelet/SP_Tutorial_Wavelet_21.png" width="487"  /></a></dd></dl></li></ol>
+<h2><a name="2D_Wavelet_Transform"></a><span class="mw-headline">2D ウェーブレット変換</span></h2>
+<h3><a name="2D_Wavelet_Decomposition"></a><span class="mw-headline"><b>2D ウェーブレット分解</b></span></h3>
+<ol><li> 新しい行列ブックを開きます。新しい行列ブックを用意し、メインメニューから<b><b>データ：ファイルからインポート：イメージファイルを行列へインポート</b></b>を選択し、<b>&lt;Originのインストールフォルダ&gt;\Samples\Image Processing and Analysis\<b>myocyte1.tif</b></b> を選択し、インポートします。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Wavelet 22.png" src="../images/Wavelet/SP_Tutorial_Wavelet_22.png" width="337"  /></a></dd></dl></li>
+<li> 最初に、イメージをデータに変換する必要があります。そのためには、メニューの<b>イメージ：変換：データに変換</b>を選択します。<b>データに変換: img2m</b>ダイアログを開きます。<b><b>種類</b></b>を<b>byte(1)</b>に設定します。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Wavelet 23.png" src="../images/Wavelet/SP_Tutorial_Wavelet_23.png" width="389"  /></a></dd></dl></li>
+<li> <b>OK</b>をクリックして、行列データの変換を実行します。 </li>
+<li> 変換された行列データをアクティブにし、メニューから<b><b>解析：信号処理：ウェーブレット：2D 分解</b></b>を選択して<b>2D分解：dwt2</b> ダイアログを開きます。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Wavelet 24.png" src="../images/Wavelet/SP_Tutorial_Wavelet_24.png" width="464"  /></a></dd></dl></li>
+<li> 初期設定のまま、<b>OK</b>ボタンをクリックします。行列データに対して2Dウェーブレット分解を実行します。4つの行列シート(CA, CH, CV, and CD)をもつ行列ブックが生成されます。CA, CH, CV, CDは 近似係数、詳細係数 (水平)、詳細係数 (垂直)、詳細係数 (対角)に対応しています。メニューの<b><b>表示：イメージモード</b></b>を選択して表示モードをイメージに変更できます。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Wavelet 25.png" src="../images/Wavelet/SP_Tutorial_Wavelet_25.png" width="364"  /></a></dd></dl></li>
+<li> Caシートをアクティブにして、メニューから作図：等高線図：イメージプロットを選択してイメージプロットを作成します。<b>作図：等高線図：イメージプロット</b>を選択してイメージプロットを作成します。同様に、CH,CV,CDシートについてもグラフを作成します。</li>
+<li> グラフをダブルクリックして開く<b>作図の詳細</b>で、左パネルで<b>Layer1</b>をアクティブにし、右パネルのレイヤの<b>大きさ・描画スピード</b>タブを開き、<b>行列データ、次元あたりの最大ポイント数</b>のチェックを外します。<b>OK</b> ボタンをクリックします。そして、グラフの軸関連オブジェクト（軸ラベルを含む）を選択し、Deleteキーをおして削除します。全てのグラフでこの操作を行います。</li></ol>
+
+
+
+
+    

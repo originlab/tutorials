@@ -1,0 +1,187 @@
+﻿<h1 class="firstheading">仮説検定</h1><p class='urlname' style='display: none'>Hypothesis-Tests</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Hypothesis_Tests_in_Origin"><span class="tocnumber">3.1</span> <span class="toctext">Originで仮説検定を行う</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#One-Sample_t-Test"><span class="tocnumber">3.2</span> <span class="toctext">1群のt検定</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="#Perform_One-Sample_t-Test_using_Raw_data"><span class="tocnumber">3.2.1</span> <span class="toctext">素データによる1群のt検定の実行</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#Perform_One-Sample_t-Test_using_Summarized_data"><span class="tocnumber">3.2.2</span> <span class="toctext">要約データによる1群のt検定の実行</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-8"><a href="#Pair-sample_t-Test"><span class="tocnumber">3.3</span> <span class="toctext">対応のある群のt検定</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="#Perform_Pair-sample_t-Test_using_Raw_data"><span class="tocnumber">3.3.1</span> <span class="toctext">素データによる対応のある群のt検定の実行</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#Perform_Pair-sample_t-Test_using_Summarized_data"><span class="tocnumber">3.3.2</span> <span class="toctext">要約データによる対応のある群のt検定の実行</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-11"><a href="#Two-Sample_independent_t-Test"><span class="tocnumber">3.4</span> <span class="toctext">独立した2群のt検定</span></a>
+<ul>
+<li class="toclevel-3 tocsection-12"><a href="#Perform_Two-Sample_t-Test_using_Raw_data"><span class="tocnumber">3.4.1</span> <span class="toctext">素データによる2群のt検定の実行</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="#Perform_Two-Sample_t-Test_using_Summarized_data"><span class="tocnumber">3.4.2</span> <span class="toctext">要約データによる2群のt検定の実行</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-14"><a href="#Two-Sample_Test_for_Variance"><span class="tocnumber">3.5</span> <span class="toctext">2群の分散検定</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Hypothesis_Tests/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Hypothesis_Tests/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=47" target="_blank">t 検定</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Hypothesis_Tests/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Hypothesis_Tests/Blog_Image_33x33px.png" width="135"  /></a>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>仮説検定は、標本のパラメータの品質を調べたり、特定のパラメーターの2つの標本の推定値が等しいかどうかをテストしたりするためによく使用されます。
+</p><p>パラメトリック法では、標本群が選ばれた母集団の分布について仮定され、それを元に検定が行われます。通常、データは正規分布から独立してサンプリングされる必要があります。
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。
+</p>
+<ul><li>Originで実用的なデータの仮説検定を実行する方法</li>
+<li>算出された結果の読み取り方</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Hypothesis_Tests_in_Origin"></a><span class="mw-headline">Originで仮説検定を行う</span></h3>
+<table class="simple">
+<tr>
+<th>データ型
+</th>
+<th> 目的
+</th>
+<th> 手法
+</th></tr>
+<tr>
+<td>1群
+</td>
+<td>与えられた値と平均の比較
+</td>
+<td>1群のt検定
+</td></tr>
+<tr>
+<td>
+</td>
+<td>与えられた値と分散の比較
+</td>
+<td>1群の分散検定
+</td></tr>
+<tr>
+<td>2群
+</td>
+<td>平均が等しいか検定する
+</td>
+<td>2群のt検定
+</td></tr>
+<tr>
+<td>
+</td>
+<td>分散が等しいか検定する
+</td>
+<td>2群の分散検定
+</td></tr>
+<tr>
+<td>対応のある群
+</td>
+<td>平均が等しいか検定する
+</td>
+<td>対応のあるt検定
+</td></tr></table>
+<h3><a name="One-Sample_t-Test"></a><span class="mw-headline">1群のt検定</span></h3>
+<h5><a name="Perform_One-Sample_t-Test_using_Raw_data"></a><span class="mw-headline">素データによる1群のt検定の実行</span></h5>
+<p>製造業者が直径21mmの高品質なナットを製造するものとします。品質保持部門の担当者が完成品からランダムに120個のナットを回収します。それらの直径を計測し、その結果がDiameters.datファイルです。担当者はこの平均の直径が21㎜になるか検証したいとしましょう。   ナットの直径は過去の記録から正規分布に近い形で分布している事が分かっています。しかし、母集団の標準偏差は分かっていません。よって、1群のt検定を次の手順に沿って行います。
+</p>
+<ol><li>新しいワークブックを開き、<b>\Samples\Statistics\diameter.dat</b>ファイルをインポートします。</li>
+<li>メニューから<b><b>統計：仮説検定：t検定（1群）</b></b>と選択して<b><b>OneSampletTest</b></b>ダイアログを表示します。 </li>
+<li><b><b>入力</b></b>タブをクリックし、<b><b>入力データ形式</b></b>を<b>素データ</b>にセットします。</li>
+<li><b><b>入力</b></b>の右にある矢印ボタンをクリックし、<i>A(X):diameter</i>を選択します。</li>
+<li><b><b>平均のt検定</b></b>タブをクリックし、<b><b>検定する平均</b></b>を21にします。<b><b>対立仮説</b></b>が<i>平均&lt;&gt; 21</i> （両側検定）に設定されていることを確認し、<b><b>信頼区間</b></b>にチェックを入れ、<b>%単位での信頼水準</b>を<i>95</i>にします。
+<dl><dd><a  class="image"><img alt="Tutorial Hypothesis Test 001.png" src="../images/Hypothesis_Tests/Tutorial_Hypothesis_Test_001.png" width="420"  /></a></dd>
+<dd><a  class="image"><img alt="Tutorial Hypothesis Test 001A.png" src="../images/Hypothesis_Tests/Tutorial_Hypothesis_Test_001A.png" width="332"  /></a></dd></dl></li>
+<li>デフォルトでは、検定手順は変数の記述統計と仮説検定の結果を表示します。さらに、データに関するヒストグラムの作成と平均の信頼区間も設定できます。</li>
+<li><b>OK</b>ボタンをクリックして結果を算出します。</li></ol>
+<p>記述統計の表には、変数の標本数、平均、標準偏差、標準誤差が表示されます。標本平均である21.00459は仮説平均の21よりも少し大きく、平均値の標準誤差（SEM）は0.00156です。
+</p>
+<dl><dd><a  class="image"><img alt="Tutorial Hypothesis Test 002.png" src="../images/Hypothesis_Tests/Tutorial_Hypothesis_Test_002.png" width="280"  /></a></dd></dl>
+<p>検定の表から、t統計量 (2.9437) および関連するp値 (0.00404) は、ナットの直径の平均が <img src="../images/Hypothesis_Tests/math-1248bf01a5b077c6d0c5f6d906278bf9.png" title="\alpha=0.05\,\!" alt="\alpha=0.05\,\!" class="tex"/>のレベルで21と有意に異なることを表しています。
+</p>
+<dl><dd><a  class="image"><img alt="Tutorial Hypothesis Test 005.png" src="../images/Hypothesis_Tests/Tutorial_Hypothesis_Test_005.png" width="432"  /></a></dd></dl>
+<p>信頼区間は、95%の信頼性で変数の真の平均が区間[21.0015, 21.00769]内に含まれることを示しています。
+</p>
+<dl><dd><a  class="image"><img alt="Tutorial Hypothesis Test 006.png" src="../images/Hypothesis_Tests/Tutorial_Hypothesis_Test_006.png" width="276"  /></a></dd></dl>
+<h5><a name="Perform_One-Sample_t-Test_using_Summarized_data"></a><span class="mw-headline">要約データによる1群のt検定の実行</span></h5>
+<p>要約データによる1群のt検定を実行するには、<b><b>入力</b></b>タブの<b><b>入力データの形式</b></b>を<b><b>要約データ</b></b>に変更します。
+</p><p>今回、70個のナットを検定すると仮定しますので、サンプルサイズは70を入力します。計算を進めていくと、平均値20.95と標準偏差0.218を得られます。<b><b>入力</b></b>のボックスに、平均、標準偏差、サンプルサイズを入力します。&lt;/br&gt;
+<a  class="image"><img alt="One Sample.png" src="../images/Hypothesis_Tests/One_Sample.png" width="382"  /></a>
+</p><p>次に、<b>平均のt検定</b>タブの<b>検定する平均</b>として21を入力します。<b>OK</b>をクリックして実行します。
+</p><p>次のサマリー表が得られ、ここで調査した検定による平均は、母集団の平均と有意差があるとはいえないという結果になります。
+</p><p><a  class="image"><img alt="One Sample2.png" src="../images/Hypothesis_Tests/One_Sample2.png" width="385"  /></a>
+</p>
+<h3><a name="Pair-sample_t-Test"></a><span class="mw-headline">対応のある群のt検定</span></h3>
+<h5><a name="Perform_Pair-sample_t-Test_using_Raw_data"></a><span class="mw-headline">素データによる対応のある群のt検定の実行</span></h5>
+<p>2種類のタイヤの耐摩耗性を比較します。それぞれの種類のタイヤから、それぞれ8つずつタイヤをランダムに抜き取り、8つのペアにします。各ペアは、2種類のタイヤから抜き出されたものです。そして、摩耗テストを実施するために8つの平面にタイヤを用意し、対応のあるt 検定を行うために摩耗データを計測します。 
+</p>
+<ol><li>新しいワークブックを開き、<b>\Samples\Statistics\abrasion_raw.dat</b>ファイルをインポートします。</li>
+<li>メニューから<b><b>統計：仮説検定：t検定（対応あり）</b></b>と選択して<b>Pair-sample t-Test</b>ダイアログを開きます。</li>
+<li> <b>入力</b>タブで、<b>第1データ範囲</b>を<i>tireA</i> の列、<b>第2データ範囲</b>を<i>tireB</i>の列に設定します。</li>
+<li> <b><b>平均のt検定</b></b>タブをクリックし、<b><b>検定する平均</b></b>に<i>0</i>を入力します。
+<dl><dd><a  class="image"><img alt="Tutorial Hypothesis Test 002A.png" src="../images/Hypothesis_Tests/Tutorial_Hypothesis_Test_002A.png" width="332"  /></a></dd></dl></li>
+<li>他の設定はデフォルトのままで、<b>OK</b>ボタンを押して結果を生成します。
+<dl><dd><a  class="image"><img alt="Pair t test result.PNG" src="../images/Hypothesis_Tests/Pair_t_test_result.PNG" width="376"  /></a></dd></dl></li></ol>
+<p>t検定の表から、t統計量 (2.83119) およびそのp値 (0.02536) は、2つの平均間の差は有意である、つまり2種類のタイヤは異なる耐摩耗性を持つと示しています。
+</p>
+<h5><a name="Perform_Pair-sample_t-Test_using_Summarized_data"></a><span class="mw-headline">要約データによる対応のある群のt検定の実行</span></h5>
+<p>要約データによる対応のある群のt検定の実行
+</p><p>要約データによる対応のある群のt検定を実行するには、<b>入力</b>タブの<b>入力データの形式</b>を<b>要約データ</b>に変更します。
+</p><p>今回、16のサンプルを検定すると仮定しますので、サンプルサイズは16を入力します。計算を進めていくと、対の平均の差305と、対のデータポイント間の標準偏差310を得られます（アルゴリズム：<a class="external text" href="../../UserGuide/UserGuide/Algorithm_(PairSampletTest).html">対応のあるｔ検定</a>を参照してください）。<b>入力</b>のボックスに、平均、標準偏差、サンプルサイズを次のように入力します。 
+</p>
+<dl><dd><a  class="image"><img alt="Pair Sample1.png" src="../images/Hypothesis_Tests/Pair_Sample1.png" width="382"  /></a></dd></dl>
+<p>このデータは、有意水準0.05を下回る0.0013のp値を出力しているので、帰無仮説を棄却することが出来ます。 
+</p>
+<dl><dd><a  class="image"><img alt="Pair Sample2.png" src="../images/Hypothesis_Tests/Pair_Sample2.png" width="376"  /></a></dd></dl>
+<p>この検定で、2つの平均値は有意に異なっており、2種類のタイヤは異なる耐摩耗性を有していると分かります。
+</p>
+<h3><a name="Two-Sample_independent_t-Test"></a><span class="mw-headline">独立した2群のt検定</span></h3>
+<h5><a name="Perform_Two-Sample_t-Test_using_Raw_data"></a><span class="mw-headline">素データによる2群のt検定の実行</span></h5>
+<p>ある医師が2種類の睡眠薬の効果について調べています。薬の効果を調べるために20人の不眠症の患者がランダムに選ばれました。半分はA薬を、もう半分はB薬を処方され、薬を飲んだ後の睡眠時間を記録しました。その結果が time_raw.dat ファイルです。<br />2つの薬が患者に影響があるのか確認するため、独立した2群のt検定を次の手順で行います。
+</p>
+<ol><li>新しいワークブックを開き、<b>\Samples\Statistics\time_raw.dat</b>ファイルをインポートします。</li>
+<li>メニューから<b><b>統計：仮説検定：t検定（2群）</b></b>と選択して<b>Two-Sample t-Test</b>ダイアログを表示します。</li>
+<li><b>入力</b>タブを開いて<b>入力データ形式</b>を<b>素データ</b>とします。<b>第1データ範囲</b>に<i>medicineA</i>を、<b>第2データ範囲</b>に<i>medicineB</i>を設定します。
+<dl><dd><a  class="image"><img alt="Tutorial Hypothesis Test 003.png" src="../images/Hypothesis_Tests/Tutorial_Hypothesis_Test_003.png" width="435"  /></a></dd></dl></li>
+<li>他の設定はデフォルトのままで、<b>OK</b>ボタンを押して結果を生成します。</li></ol>
+<p><br />
+t検定の手順は自動的に2つの平均の違いを表します。片方は2つの標本の分散は等しいという仮定の元行われ、もう一方は等しくないという仮定で検定されます。この例では、両方の検定は、A薬とB薬の間に治療効果の差があるという十分な根拠はないということを示しています。（p値は0.0738と0.074なので、どちらも有意レベルである0.05よりも大きくなっているためです。）
+</p>
+<dl><dd><a  class="image"><img alt="Tutorial Hypothesis Test 004.png" src="../images/Hypothesis_Tests/Tutorial_Hypothesis_Test_004.png" width="448"  /></a><br /><br /></dd></dl>
+<h5><a name="Perform_Two-Sample_t-Test_using_Summarized_data"></a><span class="mw-headline">要約データによる2群のt検定の実行</span></h5>
+<p>要約データによる2群のt検定を実行するには、<b><b>入力</b></b>タブの<b><b>入力データの形式</b></b>を<b><b>要約データ</b></b>に変更します。
+</p><p>今回、50人の患者を検定すると仮定しますので、サンプルサイズは50を入力します。計算を進めていくと、1番目の群の平均は2.33、標準偏差は1.858、2番目の群の平均は1.28、標準偏差は1.671と得られます。<b>入力</b>のボックスに、平均、標準偏差、サンプルサイズを次のように入力します。
+</p>
+<dl><dd><a  class="image"><img alt="Two Sample1.png" src="../images/Hypothesis_Tests/Two_Sample1.png" width="382"  /></a></dd></dl>
+<p><b>平均のt検定</b>タブで、信頼区間のレベルを95％にしてチェックを入れると、検定するグループ間の違いが計算されます。<b>OK</b>ボタンをクリックして実行します。
+</p>
+<dl><dd><a  class="image"><img alt="Two Sample2.png" src="../images/Hypothesis_Tests/Two_Sample2.png" width="332"  /></a></dd></dl>
+<p>このデータは、有意水準0.05を下回る0.0037のp値を出力しているので、帰無仮説を棄却することが出来ます。2つの患者グループの平均睡眠延長時間は同じではないことが分かります。実際に、1番目の睡眠薬のほうが患者に強い影響を与えると結論付けています。
+</p><p>信頼区間は、2つのグループ間の平均時間差が0.3487〜1.7513であることを95％信頼できると示しています。
+</p>
+<dl><dd><a  class="image"><img alt="Two Sample3.png" src="../images/Hypothesis_Tests/Two_Sample3.png" width="436"  /></a></dd></dl>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Hypothesis_Tests/Tip_icon.png" width="57"  border="0" /></td><td><p>均等な分散と不均等な分散の両方の仮定をサポートしています。この2群が等しい分散なのか確認するには、メニューから<b><b>統計：仮説検定：2群の分散検定</b></b>を選択して2群の分散検定を実行します。
+</p></td></tr></table>
+<h3><a name="Two-Sample_Test_for_Variance"></a><span class="mw-headline">2群の分散検定</span></h3>
+<ol><li>続けて新しいワークブックを開き、<b>\Samples\Statistics\time_raw.dat</b>ファイルをインポートします。</li>
+<li>メニューから<b><b>統計：仮説検定：2群の分散検定</b></b>と選択して<b>Two-Sample Test for Variance</b> ダイアログを開きます。</li>
+<li><b>入力データ形式</b>は「素データ」を選択して、列Aと列Bを第1、第2データ範囲としてそれぞれ選択します。
+<dl><dd><a  class="image"><img alt="Tutorial two sample variance.png" src="../images/Hypothesis_Tests/Tutorial_two_sample_variance.png" width="429"  /></a></dd></dl></li>
+<li>他の設定はデフォルトのままで、<b>OK</b>ボタンを押して結果を生成します。
+<dl><dd><a  class="image"><img alt="Tutorial two sample variance result.png" src="../images/Hypothesis_Tests/Tutorial_two_sample_variance_result.png" width="328"  /></a></dd></dl></li></ol>
+<p>結果より、P値=0.77181 &gt;0.05なので、帰無仮説を棄却できません。 この2群の分散は有意に異ならないといえます。
+</p>
+
+    

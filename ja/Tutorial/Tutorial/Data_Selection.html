@@ -1,0 +1,67 @@
+﻿<h1 class="firstheading">データ選択</h1><p class='urlname' style='display: none'>GSB-data-selection</p>
+<p>このレッスンではグラフのデータ選択の様々な方法について学びます。
+</p>
+<h3><a name="Plotting_Data_from_Multiple_Worksheets"></a><span class="mw-headline">複数ワークシートからグラフを作成</span></h3>
+<ol>
+<li><a href="../../Tutorial/Tutorial/Graph_Templates_Themes_and_Batch_Plotting.html" title="チュートリアル：グラフテンプレートテーマとバッチ作図">レッスン2: グラフテンプレートとバッチ作図</a>で保存したプロジェクトを開いて始めましょう。いずれかのワークブックを選択し、データ列が選択されていないことを確認してください。もし選択されている場合は、列の外の灰色の領域をクリックすることで選択を解除することができます。 
+<li>メニューの<b>作図&gt; 基本の2Dグラフ: 折れ線</b>を選択します。<b>作図のセットアップ</b>ダイアログが開きます。</li>
+<li> 右側にある<a  class="image"><img alt="Double Up Arrow Button.jpg" src="../images/Data_Selection/Double_Up_Arrow_Button.jpg" width="24"  /></a>ボタンをクリックして上部パネルを開きます。既に開いている場合はボタンをクリックする必要はありません。</li>
+<li> パネル左にある<b>利用可能なデータ:</b>ドロップダウンリストで<b>フォルダ中のワークシート</b>を選択します。 
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Data_Selection/Mini_bulb.png" /></td><td><p>プロジェクト内のいずれかからワークシートを選択する場合は、ドロップダウンリストで<b>プロジェクト中のワークシート</b>を選択してください。
+</p></td></tr></table></li>
+<li> Shiftキーを押したままシート名が<b>Trial Run 1</b>、<b>Trial Run 2</b>と<b>Trial Run 3</b>の3つすべてのデータを選択します。 
+<li> 中央パネルのチェックボックスを使用して、<i>Time</i>を<b>X</b>にし、<i>Position</i>を<b>Y</b>に設定します。<b>OK</b> ボタンをクリックして、グラフを作成します。<br />
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Data_Selection/Mini_bulb.png" /></td><td><p>このダイアログでは、3つ目の下パネルを使用して複数レイヤのグラフでデータを異なるレイヤに適用することも可能です。もしそのパネルが開いている場合は、今回は閉じてしまってから<b>OK</b>ボタンをクリックしてグラフを作成してください。
+</p></td></tr></table>
+<p><a  class="image"><img alt="GST Data Selection 001.png" src="../images/Data_Selection/450px-GST_Data_Selection_001.png" width="704"   /></a>
+</p>
+<li> このグラフの凡例を編集しましょう。凡例上で右クリックして<b><b>凡例：凡例の更新</b></b>を選択 
+<li> 開いたダイアログで<b>凡例の自動更新モード</b>を<b>カスタム</b>に設定します。<b>任意のカスタムフォーマット(@D, @LU etc)</b>編集ボックスの内容をクリアして、<a  class="image"><img alt="GST Right Arrow Button.png" src="../images/Data_Selection/GST_Right_Arrow_Button.png" width="20"  /></a>ボタンをクリックし、メニューから<b>@WS: シート表示名</b>を選択します。
+<li> 編集ボックスで文字列<i>@WS</i>の後ろにハイフン<i>-</i>を入力し、再び右側のボタンをクリックします。今度はワークシートで列ヘッダ行<i>Sample</i>の内容を表示するための<b>@LD&quot;Sample&quot;: Sample</b>を選択します。<b><b>OK</b></b>ボタンをクリックします。凡例にシート名とSample名が表示されます。</li>
+<p><a  class="image"><img alt="GST Data Selection 041.png" src="../images/Data_Selection/350px-GST_Data_Selection_041.png" width="454"   /></a>
+</p>
+</ol>
+<h3><a name="Using_another_Column_to_Set_Color_of_a_Plot"></a><span class="mw-headline">他の列を使用してグラフの色を設定する</span></h3>
+<ol>
+<li><b>プロジェクトエクスプローラ</b>に移動します。上のパネルにあるルートレベルのフォルダ上で右クリックし、<b>新規フォルダ</b> を作成します。</li>
+<li>新しく作成されたフォルダを右クリックし、 <b>名前の変更</b>を選択して名前を<i><b>データ選択</b></i>に変更します。空のフォルダをクリックして開きます。</li>
+<li> 空のワークシートを作成します。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Graphing</i>サブフォルダにある<i>US Mean Temperature.dat</i> ファイルを探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。
+<li> 米国の主要都市の位置(列<i>Longitude</i>と<i>Latitude</i>)の散布図と、1年の平均気温(<i>Annual</i>)のカラーマップデータポイントを作図しようと思います。名前が<b>January</b>の列のヘッダをクリックし、 そのままドラッグして名前が<b>December</b>の列までをすべて選択します。それから右クリックして<b>列を隠す/隠さない: 隠す</b>を選択します。
+<li> <i>Longitude</i>列を選択してから右クリックして<b>列XY属性の設定: X列</b>を選択します。</li>
+<li> 列<i>Latitude</i>を選択し、左下部のツールバーで<b>散布図</b>ボタン<a  class="image"><img alt="Button Scatter Plot.png" src="../images/Data_Selection/Button_Scatter_Plot.png" width="25"  /></a>をクリックしてX軸longitude、Y軸latitudeのグラフを作成します。 </li>
+<li> グラフ上でクリックして、ミニツールバーが表示されたら<b>シンボルの境界色</b>ボタンをクリックし、<b>ポイント毎</b>タブを開きます。このタブで、<b>カラーマップ</b>をクリックし、リストから<b>Col(P): &quot;Annual&quot;</b>を選択します。シンボルの色が<i>Annual</i>列の値によって推移します。</li>
+<p><a  class="image"><img alt="GST Data Selection 05.png" src="../images/Data_Selection/400px-GST_Data_Selection_05.png" width="474"   /></a>
+</p>
+<li> グラフで軸の長さを、XとYの値の範囲に応じたスケールに設定しましょう。レイヤの白い領域をクリックして、ミニツールバーの<b>レイヤダイアログ</b>ボタンをクリックし、<b>プロパティ</b>を選択します。  <br />
+<a  class="image"><img alt="GST Data Selection MT 01.png" src="../images/Data_Selection/400px-GST_Data_Selection_MT_01.png" width="649"   /></a><br />
+左パネルで <i>Layer1</i> が選択された状態の<b>作図の詳細</b>ダイアログが開きます。右側の<b>レイヤの大きさ</b>タブに移動します。<b>軸の長さをリンクするX:Yの比率</b> チェックボックスにチェックを入れ、比率は<i>1</i>のままにします。<b>OK</b> をクリックしてダイアログを閉じ、編集を確認します。
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Data_Selection/Mini_bulb.png" /></td><td><p>レイヤの白い領域でダブルクリックして、左パネルで <i>Layer1</i> が選択された状態の<b>作図の詳細</b>ダイアログを開くこともできます。
+</p></td></tr></table>
+</li>
+<li> 次に、別のカラーパレットを選択して、カラーマップとしてシンボルカラーに適用します。グラフのいずれかのデータポイントをクリックし、<b>スタイル</b>ツールバーの<b>パレット</b>ツールバーボタン<a  class="image"><img alt="Palette Button.png" src="../images/Data_Selection/Palette_Button.png" width="38"  /></a>をクリックします。今回のデータに適している<i>Temperature</i>パレットを選択します。グラフのいずれかの場所をクリックしてプロットの選択を解除します。
+<table class="mtip"><tr>
+	<td style="vertical-align:top"><img src="../images/Data_Selection/Mini_bulb.png" /></td><td><p><a class="external text" href="http://originlab.com/fileExchange/details.aspx?fid=240" target="_blank">Maps Online</a>アプリを使用することでグラフに地図を追加することができます。<a class="external text" href="http://blog.originlab.com/graphing/placing-3d-bars-on-a-map" target="_blank">このブログ記事</a>がアプリの使用に役立ちます。 
+</p></td></tr></table>
+<p><a  class="image"><img alt="GST Data Selection 06.png" src="../images/Data_Selection/300px-GST_Data_Selection_06.png" width="300"   /></a>
+</p>
+</li>
+<li>メニューから<b>ファイル:プロジェクトの保存</b>を選択して変更したプロジェクトを保存します。</li>
+</ol>
+<h3><a name="Selecting_Multiple_Non-adjacent_Columns_for_Plotting"></a><span class="mw-headline">グラフ用に複数の隣接していない列を選択する</span></h3>
+<ol>
+<li><b><b>標準</b></b>ツールバーの<b>新規ワークブック</b>ボタン<a  class="image"><img alt="Button New Workbook.png" src="../images/Data_Selection/Button_New_Workbook.png" width="23"  /></a>をクリックして、新しいワークブックウィンドウを開きます。
+<li><b>標準</b>ツールバーの<b>Excelインポート</b>ボタン <a  class="image"><img alt="Button Import Excel.png" src="../images/Data_Selection/Button_Import_Excel.png" width="25"  /></a>をクリックします。開いたファイルダイアログで、Originのプログラムフォルダにある<i>Samples\Import and Export</i>フォルダ内の<i>United States Energy (1980-2013).xls</i>ファイルを選択します。<b>ダイアログを表示</b>チェックボックスにチェックが付いている事を確認して<b>OK</b>をクリックします。 
+<li>開いたExcelインポートオプションダイアログで、<b>メインヘッダ行</b>を2、<b>ロングネーム</b>をドロップダウンから1に設定します。そして、<b>単位</b>をドロップダウンから2に設定します。<br />
+<a  class="image"><img alt="GST Data Selection 07.png" src="../images/Data_Selection/GST_Data_Selection_07.png" width="354"  /></a>
+<li> <b><b>OK</b></b>ボタンをクリックし、ファイルをインポートします。名前が<i>Oil</i>の最初のシートに移動します。<b>Ctrl</b>キーを押しながら<i>Crude Oil Production</i>、<i>Oil Consumption</i>と<i>Total Oil Production</i>列を選択します。<br />
+<a  class="image"><img alt="GST Data Selection 08.png" src="../images/Data_Selection/GST_Data_Selection_08.png" width="887"  /></a></li>
+<li>メニューの<b>作図 &gt; 複数区分/軸: 積み上げ</b>を選択し、開いたダイアログでデフォルトの設定のままOKをクリックして積み上げグラフを作成します。</li>
+<p>プロジェクトファイルを保存します。
+</p>
+</ol>
+
+
+    

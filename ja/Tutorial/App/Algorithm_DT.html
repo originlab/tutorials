@@ -1,0 +1,143 @@
+﻿<h1 class="firstHeading">データ変換のアルゴリズム</h1><p class='urlname' style='display: none'>Algorithm-DT</p>
+<p>Origin では、データが正規分布に従うように変換する手法として、 Box-Cox変換、Johnson変換、Yeo-Johnson変換の3種類を提供しています。
+</p><p>Box-Cox変換とYeo-Johnson変換はともにべき変換です。違いは、Box-Cox変換は全て正のデータにしか適用ない一方、Yeo-Johnson変換はどんなデータにも制限なく適用できる点にあります。Johnson変換はJohnson分布システムを使用するが、元のデータの正規性をチェックしてデータを変換することができます。
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Box-Cox_Transformation"><span class="tocnumber">1</span> <span class="toctext">Box-Cox変換</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Optimal"><span class="tocnumber">1.1</span> <span class="toctext">最適な λ</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-3"><a href="#Johnson_Transformation"><span class="tocnumber">2</span> <span class="toctext">Johnson 変換</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Yeo-Johnson_Transformation"><span class="tocnumber">3</span> <span class="toctext">Yeo-Johnson変換</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#Optimal_2"><span class="tocnumber">3.1</span> <span class="toctext">最適な λ</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Box-Cox_Transformation"></a><span class="mw-headline">Box-Cox変換</span></h2>
+<p>Box-Cox変換はべき変換の一種で、正のデータに対してのみ適用できます。Box-Cox変換の結果は次のように定式化されます。
+</p><p><img src="../images/Algorithm_DT/math-fcc3c0413cb0b2b80231a6db5e541258.png" title="
+Y&apos;=\left\{
+    \begin{array}{ll}
+    Y^\lambda&amp;\lambda \neq 0\cr
+    \ln(Y)&amp;\lambda = 0
+    \end{array}
+\right.
+" alt="
+Y&apos;=\left\{
+    \begin{array}{ll}
+    Y^\lambda&amp;\lambda \neq 0\cr
+    \ln(Y)&amp;\lambda = 0
+    \end{array}
+\right.
+" class="tex"/>
+</p><p>ここで、<img src="../images/Algorithm_DT/math-c6a6eb61fd9c6c913da73b3642ca147d.png" title="\lambda" alt="\lambda" class="tex"/>は<img src="../images/Algorithm_DT/math-b747b9797a8dfa8f5328f1fe223da7a5.png" title="[-5, 5]" alt="[-5, 5]" class="tex"/>の範囲にあります。
+</p>
+<h3><a name="Optimal"></a><span class="mw-headline">最適な<img src="../images/Algorithm_DT/math-c6a6eb61fd9c6c913da73b3642ca147d.png" title="\lambda" alt="\lambda" class="tex"/></span></h3>
+<p>Originは<img src="../images/Algorithm_DT/math-b747b9797a8dfa8f5328f1fe223da7a5.png" title="[-5, 5]" alt="[-5, 5]" class="tex"/>の範囲で最適<img src="../images/Algorithm_DT/math-c6a6eb61fd9c6c913da73b3642ca147d.png" title="\lambda" alt="\lambda" class="tex"/>を推定し、変換されたデータの最小標準偏差が最小となる推最適<img src="../images/Algorithm_DT/math-c6a6eb61fd9c6c913da73b3642ca147d.png" title="\lambda" alt="\lambda" class="tex"/>を選択します。異なる<img src="../images/Algorithm_DT/math-c6a6eb61fd9c6c913da73b3642ca147d.png" title="\lambda" alt="\lambda" class="tex"/>間で標準偏差を比較できるように、標準偏差を計算する前に、変換されたデータの標準化が必要です。データの標準化には以下の式を用います。
+</p><p><img src="../images/Algorithm_DT/math-840d39a3c7ed4b44e3eab9932312c51c.png" title="
+Z_i=\left\{
+    \begin{array}{ll}
+\frac{Y_i^\lambda -1}{\lambda G^{\lambda-1}}&amp;\lambda \neq 0\cr
+G \ln(Y_i)&amp;\lambda = 0
+    \end{array}
+\right.
+" alt="
+Z_i=\left\{
+    \begin{array}{ll}
+\frac{Y_i^\lambda -1}{\lambda G^{\lambda-1}}&amp;\lambda \neq 0\cr
+G \ln(Y_i)&amp;\lambda = 0
+    \end{array}
+\right.
+" class="tex"/>
+</p><p>ここで、<img src="../images/Algorithm_DT/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>はデータ<img src="../images/Algorithm_DT/math-dfcf28d0734569a6a693bc8194de62bf.png" title="G" alt="G" class="tex"/>の場合、<img src="../images/Algorithm_DT/math-811ed2017ce127575a960555aa6179d7.png" title="ith" alt="ith" class="tex"/>は元データの幾何平均です。<img src="../images/Algorithm_DT/math-21c2e59531c8710156d34a3c30ac81d5.png" title="Z" alt="Z" class="tex"/>は標準偏差の計算に使用します。
+</p><p>最適化の詳細なステップ（黄金分割探索（Golden Section Search Algorithm））は次のとおりです。
+</p>
+<ol><li> 最適化の範囲を初期化します。ここでは-5から5、および反復の停止条件を決定します。</li>
+<li> 黄金比で範囲を縮小します。 
+<dl><dd> <img src="../images/Algorithm_DT/math-0aaf3b6542b8c585e49199762d65c92a.png" title="GoldenRatio=(\sqrt{5}+1)/2" alt="GoldenRatio=(\sqrt{5}+1)/2" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_DT/math-85423bcb89ca6bc25e6de3d89b13a2d7.png" title="LenghOfOldRange=OldLargeEndPoint-OldSmallEndPoint" alt="LenghOfOldRange=OldLargeEndPoint-OldSmallEndPoint" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_DT/math-3f1fa87ab6608af074c2ad3316b4a9f1.png" title="NewSmallEndPoint=OldSmallEndPoint+LenghOfOldRange/GoldenRatio" alt="NewSmallEndPoint=OldSmallEndPoint+LenghOfOldRange/GoldenRatio" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_DT/math-2be3dbd580085d1d5a7b4875a1183b5f.png" title="NewLargeEndPoint=OldLargeEndPoint-LenghOfOldRange/GoldenRatio" alt="NewLargeEndPoint=OldLargeEndPoint-LenghOfOldRange/GoldenRatio" class="tex"/></dd>
+<dd> より小さい新しい範囲を取得します。</dd></dl></li>
+<li> 2つの<img src="../images/Algorithm_DT/math-c6a6eb61fd9c6c913da73b3642ca147d.png" title="\lambda" alt="\lambda" class="tex"/>に対して <img src="../images/Algorithm_DT/math-21c2e59531c8710156d34a3c30ac81d5.png" title="Z" alt="Z" class="tex"/> 値と標準偏差を計算</li>
+<li> 2つの標準偏差を比較します。
+<dl><dd> 新しい範囲の小さい方の端点の標準偏差が新しい範囲の大きい方の端点の標準偏差よりも大きい場合は、範囲を古い範囲の小さい方の端点から新しい範囲の小さい方の端点まで更新します。</dd>
+<dd> それ以外の場合は、新しい範囲の大きい終点から古い範囲の大きい終点までの範囲を更新します。</dd></dl></li>
+<li> 4 の更新された範囲を古い範囲として取得し、古い範囲の長さが指定された許容値よりも小さくなるまで 2 から 4 を繰り返し、この古い範囲を最終範囲として取得します。</li>
+<li> 最適な<img src="../images/Algorithm_DT/math-c6a6eb61fd9c6c913da73b3642ca147d.png" title="\lambda" alt="\lambda" class="tex"/> は最終的な範囲の中点です。</li></ol>
+<p><b>標準偏差を計算する方法</b>
+</p>
+<ol><li> サブグループデータ、すなわちサブグループサイズが1より大きい場合、不偏標準偏差を使用して推定されます。</li>
+<li> サブグループサイズが 1（個別データ） の場合、移動範囲の平均は移動範囲2によって推定されます。</li></ol>
+<p>Originはまた、最適<img src="../images/Algorithm_DT/math-c6a6eb61fd9c6c913da73b3642ca147d.png" title="\lambda" alt="\lambda" class="tex"/>を0.5単位に丸めるか、つまり最適<img src="../images/Algorithm_DT/math-c6a6eb61fd9c6c913da73b3642ca147d.png" title="\lambda" alt="\lambda" class="tex"/>値を得た後、最も近い値（0.5の倍数）に丸めるかどうかのオプションも提供しています。
+</p>
+<h2><a name="Johnson_Transformation"></a><span class="mw-headline">Johnson変換</span></h2>
+<p>Johnson分布の3つの分布族には、SB、SL、SUNがあり、それぞれ有界(SB)、対数正規(SL)、無制限(SU)変数のJohnson分布族です。これら3つの族の変換関数の式は次のとおりです。
+</p><p><img src="../images/Algorithm_DT/math-3acdc53d7b1ddd697b78a44986a76361.png" title="
+Y&apos;=\left\{
+\begin{array}{ll}
+SB = \gamma + \eta \ln\frac{Y-\epsilon}{\lambda+\epsilon-Y} &amp;\eta, \lambda &gt; 0, -\infty &lt; \gamma &lt; \infty, -\infty &lt; \epsilon &lt; \infty, \epsilon &lt; Y &lt; \epsilon + \lambda\cr
+SL = \gamma + \eta \ln(Y-\epsilon) &amp; \eta &gt; 0, -\infty &lt; \gamma &lt; \infty, -\infty &lt; \epsilon &lt; \infty, \epsilon &lt; Y\cr
+SU = \gamma + \eta \sinh^{-1}\frac{Y-\epsilon}{\lambda} &amp;\eta, \lambda &gt; 0, -\infty &lt; \gamma &lt; \infty, -\infty &lt; \epsilon &lt; \infty, -\infty &lt; Y &lt; \infty, \sinh^{-1}(x) = \ln(x+\sqrt{1+x^2})
+\end{array}
+\right.
+" alt="
+Y&apos;=\left\{
+\begin{array}{ll}
+SB = \gamma + \eta \ln\frac{Y-\epsilon}{\lambda+\epsilon-Y} &amp;\eta, \lambda &gt; 0, -\infty &lt; \gamma &lt; \infty, -\infty &lt; \epsilon &lt; \infty, \epsilon &lt; Y &lt; \epsilon + \lambda\cr
+SL = \gamma + \eta \ln(Y-\epsilon) &amp; \eta &gt; 0, -\infty &lt; \gamma &lt; \infty, -\infty &lt; \epsilon &lt; \infty, \epsilon &lt; Y\cr
+SU = \gamma + \eta \sinh^{-1}\frac{Y-\epsilon}{\lambda} &amp;\eta, \lambda &gt; 0, -\infty &lt; \gamma &lt; \infty, -\infty &lt; \epsilon &lt; \infty, -\infty &lt; Y &lt; \infty, \sinh^{-1}(x) = \ln(x+\sqrt{1+x^2})
+\end{array}
+\right.
+" class="tex"/>
+</p><p>このアルゴリズムの目的は、3つのJohnson族から最適な変換関数を選択することです。「最良」とは、
+</p>
+<ol><li> 変換後、変換されたデータに対してAnderson-Darling検定を行い、対応するp値が最大であること。</li>
+<li> 最大のp値が指定されたp値基準よりも大きい(デフォルトは0.1)。</li></ol>
+<p>最適な変換関数を選択するための一般的な流れは次のとおりです。
+</p>
+<ol><li> 上記の3つのJohnson族から得られるほとんど全ての潜在的な変換関数が候補と考えられます。</li>
+<li> 各候補について：
+<ol><li> Estimate the parameters by using the method described in Youn-Min Chou, Alan M. Polansky &amp; Robert L. Mason (1998) Transforming Non-Normal Data to Normality in Statistical Process Control, Journal of Quality Technology, 30:2, 133-141, DOI: 10.1080/00224065.1998.11979832</li>
+<li> 推定されたパラメータを用いて候補関数で元のデータを変換します。</li>
+<li> 変換されたデータに対してAnderson-Darling検定 (注:上記の論文では、Shapiro-Wilk正規性検定) を行い、p値を取得します。</li></ol></li>
+<li> 上記の「最適な」の基準に従って、「最適な」変換関数を選びます。「最適な」基準に一致する候補がない場合、データに対して選択される変換は適切ではありません。</li></ol>
+<h2><a name="Yeo-Johnson_Transformation"></a><span class="mw-headline">Yeo-Johnson変換</span></h2>
+<p>Yeo-Johnson変換は、別の種類のべき変換です。 Box-Cox変換とは異なり、Yeo-Johnson変換は正、負、ゼロの任意のデータに対して適用できます。Yeo-Johnson変換の結果は次のように定式化されます。
+</p><p><img src="../images/Algorithm_DT/math-aa4b97258997bdffb6fea4cc88e8cbd5.png" title="
+Y&apos;=\left\{
+    \begin{array}{ll}
+    \frac{(Y+1)^\lambda - 1}{\lambda} &amp;\lambda \neq 0,Y\ge0\cr
+    \ln(Y+1) &amp;\lambda = 0,Y\ge0\cr
+   -\frac{(-Y+1)^{2-\lambda}-1}{2-\lambda} &amp;\lambda \neq 2,Y &lt; 0\cr
+   -\ln(-Y+1) &amp; \lambda = 2,Y &lt; 0
+    \end{array}
+\right.
+" alt="
+Y&apos;=\left\{
+    \begin{array}{ll}
+    \frac{(Y+1)^\lambda - 1}{\lambda} &amp;\lambda \neq 0,Y\ge0\cr
+    \ln(Y+1) &amp;\lambda = 0,Y\ge0\cr
+   -\frac{(-Y+1)^{2-\lambda}-1}{2-\lambda} &amp;\lambda \neq 2,Y &lt; 0\cr
+   -\ln(-Y+1) &amp; \lambda = 2,Y &lt; 0
+    \end{array}
+\right.
+" class="tex"/>
+</p><p>ここで、<img src="../images/Algorithm_DT/math-c6a6eb61fd9c6c913da73b3642ca147d.png" title="\lambda" alt="\lambda" class="tex"/>も<img src="../images/Algorithm_DT/math-b747b9797a8dfa8f5328f1fe223da7a5.png" title="[-5, 5]" alt="[-5, 5]" class="tex"/>の範囲に制限されます。
+</p>
+<h3><a name="Optimal_2"></a><span class="mw-headline">最適な<img src="../images/Algorithm_DT/math-c6a6eb61fd9c6c913da73b3642ca147d.png" title="\lambda" alt="\lambda" class="tex"/></span></h3>
+<p>OriginはBox-Cox変換と同じアルゴリズムを用いて最適な<img src="../images/Algorithm_DT/math-c6a6eb61fd9c6c913da73b3642ca147d.png" title="\lambda" alt="\lambda" class="tex"/>を推定します。しかし、このアルゴリズムは元のデータの幾何平均を計算する必要があり、元のデータに負のデータまたはゼロが含まれている場合にうまくいきません。そのため、この最適化を正でないデータに対して適用できるように、このアルゴリズムでは元のデータに正の値を足すことで、全て正の値を持つ新しいデータを取得します。
+</p><p>最適化の詳細は、<a href="../../Tutorial/App/Algorithm_DT.html#Box-Cox_Transformation" title="App:Algorithm DT">Box-Cox変換</a>の<a href="../../Tutorial/App/Algorithm_DT.html#Optimal" title="App:Algorithm DT">最適な<img src="../images/Algorithm_DT/math-c6a6eb61fd9c6c913da73b3642ca147d.png" title="\lambda" alt="\lambda" class="tex"/></a>項を参照してください。
+</p>
+
+
+
+
+
+
+    

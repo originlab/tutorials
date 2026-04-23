@@ -1,0 +1,46 @@
+﻿<h1 class="firstheading">時系列データのインポート</h1><p class='urlname' style='display: none'>Import-Time-Data</p>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>最近のバージョンのOriginでは、日時データのインポートが改良されました。<b>Origin 2020b</b>では、<a class="external text" href="../../UserGuide/UserGuide/Connecting_to_File.html#Text.2FCSV_Connector"><b>Text/CSVコネクタ</b></a>の日時インポートが改善され、<b>Origin 2021</b>では、<a class="external text" href="../../QuickHelp/QuickHelp/How_to_paste_date_time_from_Excel.html">MSExcelからコピー/貼り付け</a>する際の日時の処理が改善されました。
+</p><p>それでも、カスタムの日時形式が自動的に処理されない場合もあります。その場合、Originのインポートウィザードを使用して、日時データの解析とフォーマットを行うことができます。このチュートリアルでは、インポートウィザードを使用してカスタム日時形式データをインポートする方法を示します。
+</p><p><br />
+</p>
+<p class="version" >必要なOriginのバージョン:Origin 8.0 SR3以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは以下の操作をします。
+</p>
+<ul><li>複数の区切り文字を使用してデータをインポートする方法</li>
+<li>カスタムの日付/時刻フォーマットを定義する方法 </li>
+<li>カスタムの日付/時刻形式の表示設定を変更する方法</li>
+<li>インポート設定をフィルタに保存して再利用する方法</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<ol>
+<li>このチュートリアルでは、<i>\Samples\Import and Export\Custom Date and Time.dat</i> をインポートします。ファイルをインポートする前に、データの構造を確認します。<br /><br />
+<dl><dd><a  class="image"><img alt="Tutorial Import Time Data 005.png" src="../images/Import_Time_Data/Tutorial_Import_Time_Data_005.png" width="362"  /></a><br /><br /></dd></dl>
+<i>Date</i> と <i>Time</i> の間にスペースがあり、<i>Time</i> と残りのデータはTabで区切られています。このデータをインポートするには、複数の区切り文字を使用する必要があります。
+<li><span class="db">インポートウィザード</span>でファイルを開きます。<b>データ列</b>ページが開くまでデフォルトの設定のまま進みます。デフォルトでは、OriginはTabを区切り文字として2つの列を分離します。<i>Date</i> と <i>Time</i> を分けるには、<b>列区切り</b>グループの<b>タブ/スペース</b>チェックボックスにチェックを付けます。<br /><br />
+<dl><dd><a  class="image"><img alt="Tutorial Import Time Data 010.png" src="../images/Import_Time_Data/Tutorial_Import_Time_Data_010.png" width="727"  /></a><br /><br /></dd></dl>
+プレビューボックスで、列のタイトルが<b>A(Y)(T&amp;N)</b>となっていますが、<b>(T&amp;N)</b>は、データ形式が<i>文字と数値</i> であることを意味します。年月日を「.」で区切っているため、この1列目が<i>文字</i>と認識されています。2列目の<i>Time</i> は、Originでは数値が表示されます。データを正しくインポートするために、列のプロパティを変更する必要があります。
+<li><b>カスタム日時フォーマット</b>編集ボックスに以下を入力します。<br /><br />
+<dl><dd><code>dd&apos;.&apos;MM&apos;.&apos;yyyy</code><br /><br /></dd></dl>
+<i>dd</i>、<i>MM</i>、<i>yyyy</i> はそれぞれ日、月、年を指します。区切文字として「.」が使用されているので、これをシングルクオーテーションで囲んでいます。カスタムフォーマットを入力したら、編集ボックスの隣にある<b>適用</b>ボタンをクリックします。プレビューの最初の列のヘッダを右クリックし、<i>フォーマットの設定：日付</i>を選択します。<br /><br />
+<dl><dd><a  class="image"><img alt="Tutorial Import Time Data 015.png" src="../images/Import_Time_Data/Tutorial_Import_Time_Data_015.png" width="727"  /></a><br /><br /></dd></dl>
+列タイトルが<b>A(Y)(D)</b>になり、<i>日付</i>データとして認識されます。
+<li>同様にして、2列目のヘッダを右クリックして、<i>フォーマットの設定：時刻</i> を選択して時刻列に設定します。<br /><br />
+<dl><dd><a  class="image"><img alt="Tutorial Import Time Data 020.png" src="../images/Import_Time_Data/Tutorial_Import_Time_Data_020.png" width="727"  /></a><br /><br /></dd></dl>
+長い時間データフォーマットが使用されています。これはインポート後に設定変更可能です。
+<li>「<b>進む</b>」を2回クリックし、「<b>フィルタの保存</b>」ページに移動します。<b>フィルタを保存する</b>のチェックボックスにチェックを付け、<b>ユーザファイルのフォルダに保存</b>のままインポートの設定をフィルタに保存します。<b>ファイル名（拡張子.OIFが自動付加）</b>に<b>Custom Date and Time</b>を入力します。
+<li><b>完了</b>ボタンをクリックして、データをインポートします。2番目の列ヘッダをダブルクリックして<span class="db">列プロパティ</span>ダイアログを開き、表示を以下に変更します。<br /><br />
+<dl><dd><code>HH:mm:ss.##</code><br /><br /></dd></dl>
+インポート後のワークシートデータは以下のようになっているはずです。<br /><br />
+<dl><dd><a  class="image"><img alt="Tutorial Import Time Data 025.png" src="../images/Import_Time_Data/Tutorial_Import_Time_Data_025.png" width="396"  /></a></dd></dl>
+<li>Windowsエクスプローラで<i>\Samples\Import and Export\</i> フォルダを開きます。<i>Custom Date and Time.dat</i> を探し、Originのワークスペースにドラッグ&amp;ドロップします。<b>フィルタの選択</b>ダイアログが開くのでフィルタを選択します。 
+<dl><dd><a  class="image"><img alt="Tutorial Import Time Data 026.png" src="../images/Import_Time_Data/Tutorial_Import_Time_Data_026.png" width="285"  /></a><br /></dd></dl>
+保存した、<b>Custom Date and Time</b>を選択します。ファイルをインポートするのにこのフィルタが使われます。
+</ol>
+<p><b>Note:</b> このデータファイルの場合、最初の列のすべての行で日付が同じです。そのため、インポートウィザードのプレビューで列ヘッダを右クリックして<i>XY属性の設定：無し</i> を選択し、この最初の列の属性をなしにすることをお勧めします。次に、2番目の列をXデータとして設定すれば、3番目の列のデータを2番目の列の時間データに対してプロットできます。
+</p><p><br />
+</p>
+
+
+
+    

@@ -1,0 +1,280 @@
+﻿<h1 class="firstheading">仮想行列を使用してヒートマップとカラーマップ横棒グラフを作成する</h1>
+<p class="urlname" style="display: none;">Heat-Map-Virtual</p>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span><span 
+		 class="toctext">概要</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> 
+		 <span class="toctext">ステップ</span></a> 
+		<ol>
+			<li class="toclevel-2 tocsection-4"><a href="#Create_Heatmap_Plot_from_Virtual_Matrix"><span 
+			 class="tocnumber">3.1</span> <span class="toctext">仮想行列からヒートマップを作成する</span></a></li>
+			<li class="toclevel-2 tocsection-5"><a href="#Create_the_Bar_Plot_with_Colormap"><span 
+			 class="tocnumber">3.2</span> <span class="toctext">カラーマップ横棒グラフを作成する</span></a></li>
+			<li class="toclevel-2 tocsection-6"><a href="#Merge_the_Heatmap_Plot_with_Bar_Plot_and_More_Customization_Steps"><span 
+			 class="tocnumber">3.3</span> <span class="toctext">ヒートマップを横棒グラフと統合し、更に編集を加える</span></a></li>
+		</ol></li>
+	</ol>
+</div>
+<p><br />
+</p>
+<table class="simple" width="80%">
+	<tr style="vertical-align: top;">
+		<td style="width: 40%;"><a class="image"><img alt="Video Image.png" 
+														 src="../images/Heat_Map_and_Virtual_Matrix_Manager/Video_Image.png" 
+														 width="33" border="0" /></a> 
+		 <a class="image"><img alt="Video Text Image.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Video_Text_Image.png" 
+								 width="135" border="0" /></a> 
+		<ul>
+			<li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=32" 
+					 target="_blank">仮想行列</a></li>
+			<li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=279" 
+					 target="_blank">Plot 3D or Contour Graph from Virtual 
+			 Matrix</a></li>
+			<li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=215" 
+					 target="_blank">Add Color Scale in Graph</a></li>
+			<li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=58" 
+					 target="_blank">グラフテーマ</a></li>
+			<li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=329" 
+					 target="_blank">What is Graph Theme and How Does it 
+			 Make Graph Customization Easier?</a></li>
+		</ul></td>
+		<td style="width: 40%;"><a class="image"><img alt="Website blog icon circle.png" 
+														 src="../images/Heat_Map_and_Virtual_Matrix_Manager/Website_blog_icon_circle.png" 
+														 width="31" border="0" /></a> 
+		 <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Blog_Image_33x33px.png" 
+								 width="135" border="0" /></a> 
+		<ul>
+			<li><a class="external text" href="http://blog.originlab.com/heatmap-improvements-in-2019b" 
+					 target="_blank">Heatmap Improvements in Origin 2019b</a> 
+			 </li>
+			<li><a class="external text" href="http://blog.originlab.com/easy-correlation-plots-in-origin-2020b" 
+					 target="_blank">Easy Correlation Plots in Origin 2020b</a> 
+			 </li>
+			<li><a class="external text" href="http://blog.originlab.com/conditional-foramtting-in-origin-2019" 
+					 target="_blank">Conditional Formatting in Origin 2019</a></li>
+		</ul></td>
+	</tr>
+</table>
+<p><br />
+</p>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>このチュートリアルでは、2種類のグラフ、仮想行列を元にしたヒートマップとカラーマップつきの横棒グラフで、これらを統合します。 <br />
+<a class="image"><img alt="2D Binning -13-21.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-21.png" 
+						 width="677" border="0" /></a> </p>
+<p class="version">必要なOriginのバージョン: Origin 2015 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。 </p>
+<ul>
+	<li>仮想行列を元にヒートマップを作成します</li>
+	<li>カラーマップ横棒グラフを作成します </li>
+	<li>ヒートマップと横棒グラフを統合します</li>
+</ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Create_Heatmap_Plot_from_Virtual_Matrix"></a><span class="mw-headline">仮想行列からヒートマップを作成する</span></h3>
+<p>このチュートリアルは、チュートリアルデータプロジェクト（<i>&lt;Origin EXE フォルダ&gt;\Samples\TutorialData.opj</i>）と関連しています。 
+ </p>
+<ol>
+	<li><b>Tutorial Data.opj</b>を開き、<b>Heatmap and Virtual Matrix Manager</b> 
+	 フォルダを開きます。1番目のシートがアクティブな状態でワークブック<i>Electricity Usage</i> が開きます。 </li>
+	<li>ワークシートのXYZマッピングは以下の図の通りになっています。この図は、ヒートマップ図がどのように作成されちるのか、確認する際に使用します。 
+	 <br />
+	<a class="image"><img alt="2D Binning -13-01.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-01.png" 
+							 width="669" border="0" /></a> </li>
+	<li>列Bの1行目のセルを選択した後、CTRL+SHIFT+ENDを押して、Z範囲の全セルを選択します。メインメニューの<b>作図 
+	 &gt; 等高線図: ヒートマップ</b>を選択して、ダイアログを開きます。 </li>
+	<li>XとYの範囲を以下の図のように設定します。 <br />
+	<a class="image"><img alt="2D Binning -13-02.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-02.png" 
+							 width="473" border="0" /></a> </li>
+	<li>ダイアログで、<b>Xのフォーマット</b>と<b>Yのフォーマット</b>にチェックを付け、それぞれの<a class="image"><img 
+	 alt="Button Go 90.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Button_....png" 
+	 width="17" border="0" /></a>ボタンをクリックして、下図のようにXとYのデータフォーマットを設定し、OKをクリックしてダイアログを閉じます。 
+	 <br />
+	<a class="image"><img alt="2D Binning -13-03.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-03.png" 
+							 width="805" border="0" /></a> </li>
+	<li>Y 軸の目盛ラベルは込み入っているため、見ることが出来ません。ですので、以下のように設定を変更します。グラフの軸をダブルクリックして、<b>軸</b>ダイアログボックスを開きます。 
+	 
+	<ul>
+		<li><b>目盛ラベル</b>を開き、<b>左</b>アイコンをクリックします。<b>表示</b>タブ内の<b>タイプ</b>でデータセットからの<b>日付</b>を選択し、表示ドロップダウンリストから<i>Dec</i>(現在の月)を設定し、<b>適用</b>をクリックして設定を反映します。</li>
+	</ul>
+	<dl>
+		<dd><a class="image"><img alt="2D Binning -13-04.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-04.png" 
+									 width="477" border="0" /></a> </dd>
+	</dl>
+	<ul>
+		<li><b>表</b>タブを開き、<b>有効にする</b>チェックボックスにチェックをつけ、<b>適用</b>をクリックします。適用すると、月の名前がY軸の目盛ラベルとして表形式で表示されます。</li>
+	</ul>
+	<dl>
+		<dd><a class="image"><img alt="2D Binning -13-05.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-05.png" 
+									 width="653" border="0" /></a> </dd>
+	</dl></li>
+	<li>次に、X 軸についてのスケールと目盛ラベルを設定します。 
+	<ul>
+		<li><b>目盛ラベル</b>タブのまま、<b>下</b>アイコンをクリックします。<b>表示</b>タブ内のタイプに<b>時間</b>が設定されていることを確認し、<b>表示</b>では 
+		 <i>hh pm</i>を選択して<b>適用</b>をクリックします。</li>
+	</ul>
+	<dl>
+		<dd><a class="image"><img alt="2D Binning -13-06.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-06.png" 
+									 width="653" border="0" /></a> </dd>
+	</dl>
+	<ul>
+		<li><b>スケール</b>タブの<b>水平</b>アイコンを開きます。以下のように設定が行われていることを確認し、<b>適用</b>をクリックして設定を保存します。<b>OK</b>をクリックして、ダイアログを閉じます。X 
+		 軸のタイトルを削除します。</li>
+	</ul>
+	<dl>
+		<dd><a class="image"><img alt="2D Binning -13-07.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-07.png" 
+									 width="653" border="0" /></a> </dd>
+	</dl></li>
+	<li>目盛りラベルのXとY軸の目盛をそれぞれクリックし、<b>書式</b>ツールバーを利用してフォントサイズを10にします。 </li>
+	<li>メインメニューの<b>フォーマット：プロット</b>を選択します。 
+	<ul>
+		<li>カラーマップのレベルを、以下の図のように設定します。</li>
+	</ul>
+	<dl>
+		<dd><a class="image"><img alt="2D Binning -13-19.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-19.png" 
+									 width="672" border="0" /></a></dd>
+		<dd><b>OK</b> をクリックして、レベルの設定ダイアログを閉じます。 </dd>
+	</dl>
+	<ul>
+		<li>カラーマップのセル(一番上の白い部分)をクリックして塗り方を次の図のように設定します。</li>
+	</ul>
+	<dl>
+		<dd><a class="image"><img alt="2D Binning -13-20.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-20.png" 
+									 width="672" border="0" /></a></dd>
+	</dl>
+	<ul>
+		<li>このセルを最後までスクロールし、一番最後のセルを同じように赤に設定します。</li>
+		<li><b>カラーマップ/等高線</b>タブのカラーマップテーマで設定した情報をheatmap.oth として<b>保存</b>します。これは、このグラフの2つ目の操作で使用します。</li>
+	</ul>
+	<dl>
+		<dd><a class="image"><img alt="2D Binning -13-08.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-08.png" 
+									 width="672" border="0" /></a></dd>
+	</dl></li>
+	<li><b>作図の詳細</b>ダイアログで、左側パネルで一番上のノードをクリックします(デフォルトでは<b>Graph1</b>となっているはずです)。<b>印刷・ページサイズ</b>タブでサイズを11×11インチに設定して<b>適用</b>をクリックします。左側パネルに戻り、<b>Layer1</b>のサブツリーをクリックして<b>レイヤの大きさ・描画スピード</b>タブを開きます。設定を以下の図のように編集し、OKをクリックしてダイアログを閉じます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="2D Binning -13-13.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-13.png" 
+									 width="491" border="0" /></a></dd>
+	</dl></li>
+	<li>グラフの操作ツールバーの<a class="image"><img alt="Button Speedmode.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Button_SpeedMode.png" 
+											 width="25" border="0" /></a> 
+	 ボタンをクリックして、スピードモードを解除します。完成したヒートマップは、以下の通りです。 
+	<dl>
+		<dd><a class="image"><img alt="2D Binning -13-1.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-13-1.png" 
+									 width="438" border="0" /></a></dd>
+	</dl></li>
+</ol>
+<table class="noborder">
+	<tr>
+		<td style="vertical-align: top;" width="60"><img src="../images/Heat_Map_and_Virtual_Matrix_Manager/Tip_icon.png" 
+														 alt="" width="57" 
+														 border="0" /></td>
+		<td><p>仮想行列が作成されると、その情報は内部に保存します。内容は仮想行列マネージャで確認できます。保存された仮想行列は等高線/ヒートマップ/3D曲面図の作図に直接使用することが出来ます。また、以下に示すように、仮想行列を使用して作図のダイアログで直接読み込むことが出来ます。 
+		 </p>
+		<dl>
+			<dd><a class="image"><img alt="2D Binning -13-22.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-22.png" 
+										 width="649" border="0" /></a></dd>
+		</dl></td>
+	</tr>
+</table>
+<h3><a name="Create_the_Bar_Plot_with_Colormap"></a><span class="mw-headline">カラーマップ横棒グラフを作成する</span></h3>
+<ol>
+	<li>Electricity UsageワークブックのTempシートを開きます。ワークシートを選択し、<b>作図：棒グラフ</b>とメインメニューで操作します。 
+	 </li>
+	<li>では、軸のスタイルを設定していきます。 
+	<ul>
+		<li>軸をダブルクリックして<b>軸</b>ダイアログを開きます。<b>スケール</b>タブを開き、X軸の設定を以下の図のように変更します。 
+		 </li>
+	</ul>
+	<dl>
+		<dd><a class="image"><img alt="2D Binning -12-1.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-12-1.png" 
+									 width="650" border="0" /></a></dd>
+	</dl>
+	<ul>
+		<li>スケールタブのまま、左側パネルで水平を選択し、開始<i>-55</i>、終了<i>55</i>、主目盛りの値は<i>25</i>、そして副目盛りには<i>1</i>を設定して<b>適用</b>をクリックします。</li>
+	</ul>
+	<dl>
+		<dd><a class="image"><img alt="2D Binning -13-12.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-12.png" 
+									 width="650" border="0" /></a></dd>
+	</dl>
+	<ul>
+		<li><b>軸と軸目盛</b>タブでX軸（下）の軸と軸目盛りを非表示にするため、<b>軸と軸目盛の表示</b>のチェックを外します。さらに、<b>グリッド線</b>を非表示にするには、グリッド線で同じように操作してください。</li>
+		<li><b>OK</b>をクリックして、ダイアログを閉じます。</li>
+		<li>Y 軸のタイトルオブジェクトをダブルクリックしてインプレース編集モードにして「<i>CDD/HDD</i>」と入力してタイトルを編集します。目盛ラベルとX軸のタイトルを削除するために、選択して<b>Delete</b>キーを押します。</li>
+	</ul></li>
+	<li>では、グラフ用のカラーマップを作成します。カラーマップのテーマは先ほど作成したヒートマップと同一になります。メインメニューから<b>フォーマット：プロット</b>を選択し、<b>作図の詳細</b>ダイアログボックスを開きます。 
+	 
+	<ul>
+		<li>パターンタブの縁と塗りつぶし、どちらでも色を<b>Map:Col(B)</b>に設定します。 </li>
+	</ul>
+	<dl>
+		<dd><a class="image"><img alt="2D Binning -13-09.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-09.png" 
+									 width="516" border="0" /></a></dd>
+	</dl>
+	<ul>
+		<li><b>カラーマップ</b>タブを開き、カラーマップのテーマとしてheatmap.othをロードします。</li>
+	</ul>
+	<dl>
+		<dd><a class="image"><img alt="2D Binning -13-10.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-10.png" 
+									 width="672" border="0" /></a></dd>
+	</dl>
+	<ul>
+		<li>カラーマップのレベルヘッダをクリックして、レベルを次のように設定します。</li>
+	</ul>
+	<dl>
+		<dd><a class="image"><img alt="2D Binning -11-2.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-11-2.png" 
+									 width="672" border="0" /></a></dd>
+		<dd><b>レベルの設定</b>ダイアログは<b>OK</b>をクリックして閉じ、作図の詳細ダイアログでは<b>適用</b>をクリックします。</dd>
+	</dl></li>
+	<li>左側パネルで最初のツリーノード(デフォルトでは<b>Graph2</b>)で<b>印刷・ページサイズ</b>タブを開き、サイズを11×11インチに設定して<b>適用</b>をクリックします。次に<b>Layer1</b>のノードを開き、<b>レイヤの大きさ・描画スピード</b>タブを開きレイヤ領域を以下の図のように設定してOKをクリックし、ダイアログを閉じます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="2D Binning -13-14.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-14.png" 
+									 width="485" border="0" /></a></dd>
+		<dd>完成した横棒グラフは次の画像のようになります。</dd>
+		<dd><a class="image"><img alt="2D Binning -14-1.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-14-1.png" 
+									 width="227" border="0" /></a></dd>
+	</dl></li>
+</ol>
+<h3><a name="Merge_the_Heatmap_Plot_with_Bar_Plot_and_More_Customization_Steps"></a><span 
+	 class="mw-headline">ヒートマップを横棒グラフと統合し、更に編集を加える</span></h3>
+<ol>
+	<li>ヒートマップのグラフがアクティブな状態でメインメニューで<b>グラフ操作：グラフウィンドウの統合</b>と操作してGraph1 
+	 と Graph2 を統合します。<b>レイアウトの再配置</b>のチェックを外し、OKをクリックして設定を適用します。 <br />
+	<a class="image"><img alt="2D Binning -13-15.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-15.png" 
+							 width="519" border="0" /></a> 統合したグラフ(Graph3)のサイズを変更します。<b>フォーマット：作図の詳細(ページ属性)</b>を選択して、<b>印刷・ページサイズ</b>タブを開きます。サイズを11×11インチに再び設定し、<b>OK</b>をクリックします。<b>Ctrl+W</b>をクリックしてグラフの表示を調整します。 
+	 </li>
+	<li>色スケールオブジェクトのスタイルを指定します。 
+	<ul>
+		<li>色スケールをダブルクリックし、色スケールダイアログを開き、次の図が示すようにレベルページを設定します。</li>
+	</ul>
+	<dl>
+		<dd><a class="image"><img alt="2D Binning -13-16.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-16.png" 
+									 width="640" border="0" /></a></dd>
+	</dl>
+	<ul>
+		<li>ラベルページは次の図のように設定します。</li>
+	</ul>
+	<dl>
+		<dd><a class="image"><img alt="2D Binning -13-17.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-17.png" 
+									 width="640" border="0" /></a></dd>
+	</dl>
+	<ul>
+		<li>レイアウトページは次の図のように設定します。</li>
+	</ul>
+	<dl>
+		<dd><a class="image"><img alt="2D Binning -13-18.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-18.png" 
+									 width="640" border="0" /></a></dd>
+		<dd><b>OK</b>をクリックして設定を適用し、色スケールの外側の線をドラッグし、見やすい場所と大きさにします。</dd>
+	</dl></li>
+	<li>不必要な軸タイトルや凡例は、選択して削除し、テキストツールを使用してテキストオブジェクトを追加し、グラフの情報を記入します。 
+	 <br />
+	完成したグラフは次の画像のようになります。 <br />
+	<a class="image"><img alt="2D Binning -13-21.png" src="../images/Heat_Map_and_Virtual_Matrix_Manager/Heatmap-21.png" 
+							 width="677" border="0" /></a> </li>
+</ol>

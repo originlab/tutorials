@@ -1,0 +1,59 @@
+﻿<h1 class="firstheading">グローバル垂直カーソル</h1><p class='urlname' style='display: none'>Global-Vertical-Cursor</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Using_Vertical_Cursor_on_a_Stacking_Graph"><span class="tocnumber">3.1</span><span class="toctext">積み上げグラフでの垂直カーソルの使用</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Using_Vertical_Cursor_on_a_multi-panel_graph_with_side-by-side_layers"><span class="tocnumber">3.2</span><span class="toctext">隣り合うレイヤの複数パネルグラフでの垂直カーソルの使用</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>垂直カーソルガジェットは積み上げもしくは複数パネルグラフや複数グラフ間でXとYの座標値を一度に読み取ることができます。
+</p>
+<p class="version" >必要なOriginのバージョン: Origin 2021 以降</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。
+</p>
+<ul><li>垂直カーソルガジェットを使ってXY座標の値を複数グラフで読み取り、結果を出力する</li>
+<li>垂直カーソルガジェットを使ってグラフリンク/リンク解除を使う</li>
+<li>カーソルラインをリンクグラフ間で移動する</li>
+<li>隣り合う複数パネルを持つ複数パネルグラフのリンクしたレイヤにカーソルを追加する</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Using_Vertical_Cursor_on_a_Stacking_Graph"></a><span class="mw-headline">積み上げグラフでの垂直カーソルの使用</span></h3>
+<ol><li>空のワークブックがある新しいプロジェクトを作成してください。　<b>データ　＞　ファイルからインポート　＞　複数ASCII...</b>を選択し、ASCIIダイアログを開き、<i>&lt;Origin Folder&gt;/Samples/Curve Fitting</i>を参照し、<b>Step01.dat</b>、<b>Step02.dat</b>、<b>Step03.dat</b>ファイルを追加します。OKボタンをクリックして、<b>ASCII:impASC</b>ダイアログを開きます。</li>
+<li> ダイアログで、<b>インポートモード</b>を<b>ブックを新たに作って読み込む</b>にし、<b>列のXY属性</b>を<b>（XY)</b>に、下の<b>列の一部</b>の<b>開始</b>を<i>2</i>に設定します。これら3つすべてのファイルは1つのワークブックにインポートされます。
+<dl><dd><a  class="image"><img alt="Tutorial Vertical Cursor 00.png" src="../images/Global_Vertical_Cursor/Tutorial_Vertical_Cursor_00.png" width="621"  /></a></dd></dl></li>
+<li> ロングネーム<b>Step01.dat</b>のワークブックをアクティブにし、ワークシート全体を選択します。<b><b>作図：複数区分/軸：積上げグラフ</b></b>をメニューアイテムから選択し、<b>plotstack</b>ダイアログを開きます。<b>プロット割り当て</b>ブランチを開き、<b>各レイヤ中のプロットの数</b>に<b>3</b>を入力します。その他の設定はデフォルトのままで<b>OK</b>をクリックして積上げグラフを作図します。
+<dl><dd><a  class="image"><img alt="Tutorial Vertical Cursor 00a.png" src="../images/Global_Vertical_Cursor/Tutorial_Vertical_Cursor_00a.png" width="553"  /></a></dd></dl></li>
+<li>他のワークブックも同様に積上げグラフを作図します。これでGraph1、Graph2、Graph3がワークブックStep01、Step02、Step03に対応して作成されました。</li>
+<li>Graph1をアクティブにし、<b>ガジェット:垂直カーソル</b>と選択して<b>垂直カーソル</b>ダイアログを開きます。列のヘッダーで右クリックし、ブックにチェックをいれるとデータポイントの表に 「ブック」の列が追加されます。
+<dl><dd><a  class="image"><img alt="Tutorial Vertical Cursor 01.png" src="../images/Global_Vertical_Cursor/750px-Tutorial_Vertical_Cursor_01.png" width="804"   /></a></dd></dl></li>
+<li>コントロールパネルにある<b>グラフをリンク/解除</b>ボタン<a  class="image"><img alt="Button Link Unlink Graphs.png" src="../images/Global_Vertical_Cursor/Button_Link_Unlink_Graphs.png" width="26"  /></a>をクリックすると、<b>グラフブラウザ</b>が開きます。ここで、現在のアクティブグラフとリンクまたはリンク解除するグラフを選ぶことができます。 </li>
+<li>左側パネルでGraph2とGraph3を選択し、<a  class="image"><img alt="Button Expand Panel Right.png" src="../images/Global_Vertical_Cursor/Button_Expand_Panel_Right.png" width="20"  /></a>ボタンをクリックしてこの2つのグラフをGraph1とリンクさせます。<b>OK</b>をクリックします。
+<dl><dd><a  class="image"><img alt="Tutorial Vertical Cursor 02.png" src="../images/Global_Vertical_Cursor/Tutorial_Vertical_Cursor_02.png" width="604"  /></a></dd>
+<dd><b>Note:</b>このダイアログでグラフのリンクを解除する場合、右側パネルから<a  class="image"><img alt="Button Expand Panel Left.png" src="../images/Global_Vertical_Cursor/Button_Expand_Panel_Left.png" width="20"  /></a>ボタンを使用します。<br />リンクされたグラフウィンドウの右上角には、それぞれ <a  class="image"><img alt="Icon Linked Graphs.png" src="../images/Global_Vertical_Cursor/Icon_Linked_Graphs.png" width="19"  /></a>アイコンが表示され、リンクされている事を示します。</dd></dl></li>
+<li>Graph1がアクティブかつ、<b>垂直カーソル</b>ダイアログが開いていることを確認します。グラフ名の前のアスタリスクは、カーソルが置かれている現在アクティブなプロットを示します。X値として<b>25</b>を入力し、<b>カーソルを最近傍のXにスナップする</b>のチェックを外します。それから<b>カーソルをXに移動</b>ボタン<a  class="image"><img alt="Button Move Cursor to X.png" src="../images/Global_Vertical_Cursor/Button_Move_Cursor_to_X.png" width="26"  /></a>をクリックすると各プロットでX=25の時の値を表示します。
+<dl><dd><a  class="image"><img alt="Tutorial Vertical Cursor 03.png" src="../images/Global_Vertical_Cursor/Tutorial_Vertical_Cursor_03.png" width="596"  /></a></dd></dl></li>
+<li><b>タグとラベルを追加</b>ボタン<a  class="image"><img alt="Button Add Tag and Label.png" src="../images/Global_Vertical_Cursor/Button_Add_Tag_and_Label.png" width="26"  /></a>をクリックして、全てのリンクしたグラフでX=25の値にタグを付けます。</li>
+<li><b>結果出力</b>ボタン<a  class="image"><img alt="Button Output Report.png" src="../images/Global_Vertical_Cursor/Button_Output_Report.png" width="26"  /></a>をクリックしてから、<b>レポートシートに行く</b>ボタン<a  class="image"><img alt="Button Go to Report Sheet.png" src="../images/Global_Vertical_Cursor/Button_Go_to_Report_Sheet.png" width="26"  /></a>をクリックすると新しい結果シートを生成します。全てのリンクされているグラフのXY座標が、レポートシートに表示されます。<b>結果出力</b>ボタン<a  class="image"><img alt="Button Output Report.png" src="../images/Global_Vertical_Cursor/Button_Output_Report.png" width="26"  /></a>をクリックするたびに、新しいデータ行が結果シートに出力されます。</li>
+<li>Graph2をアクティブにして<a  class="image"><img alt="Icon Linked Graphs.png" src="../images/Global_Vertical_Cursor/Icon_Linked_Graphs.png" width="19"  /></a>アイコンをクリックします。そして<b>ここへカーソルラインを移動</b>を選択してカーソルをGraph2に移動します。</li>
+<li><b>垂直カーソル</b>ダイアログ内で <b>Graph3</b>に属するどれかの行をダブルクリックして<b>Graph3</b>ウィンドウをアクティブにします。先程追加されたタグを選択し、キーボードの<b>Delete</b> キーを押すと削除出来ます。すべてのリンクされたグラフウィンドウにあるタグが削除されます。<a  class="image"><img alt="Icon Linked Graphs.png" src="../images/Global_Vertical_Cursor/Icon_Linked_Graphs.png" width="19"  /></a>アイコンをクリックして<b>ウィンドウのカーソルラインへ移動</b>を選択すると、現在カーソルがあるGraph2を表示します。</li></ol>
+<h3><a name="Using_Vertical_Cursor_on_a_multi-panel_graph_with_side-by-side_layers"></a><span class="mw-headline">隣り合うレイヤの複数パネルグラフでの垂直カーソルの使用</span></h3>
+<ol><li>新しいワークブックを開き、<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Graphing</i>サブフォルダにある<i>Waterfall.DAT</i> ファイルを探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。</li>
+<li>1行目を右クリックし、<b><b>ロングネームに設定</b></b>を選びます。B列からE列を選択して<b>作図＞複数区分/軸：4区分</b>を選択すると、4パネル3行2列のグラフがプロットされます。 </li>
+<li> 1つ目のパネルをクリックして<b>ガジェット：垂直カーソル</b>を選択します。カーソルが1列目のパネルに加えられ、1つ目のパネルと3つ目のパネルのデータ点のみがリストに現れます。
+<dl><dd><a  class="image"><img alt="Tutorial Vertical Cursor Side-by-Side 01.png" src="../images/Global_Vertical_Cursor/Tutorial_Vertical_Cursor_Side-by-Side_01.png" width="596"  /></a></dd></dl></li>
+<li>すべてのレイヤで<i>X=1113.31</i>の点を読みます。<b>各レイヤにリンクしたカーソルを追加</b>ボタン<a  class="image"><img alt="Button Add Linked Cursor.png" src="../images/Global_Vertical_Cursor/Button_Add_Linked_Cursor.png" width="30"  /></a>をクリックしてリンクしたすべてのレイヤにカーソルを追加します。（一度このボタンをクリックすると、ボタンがリンクしたレイヤのカーソルを削除するボタン<a  class="image"><img alt="Button Remove Linked Cursor.png" src="../images/Global_Vertical_Cursor/Button_Remove_Linked_Cursor.png" width="30"  /></a>に変化し、押すともとの状態に戻ります。）さらに<b>X=</b>のテキストボックスに<i>1113.31</i>を入力して、<b>カーソルをXに移動</b>ボタン<a  class="image"><img alt="Button Move Cursor to X.png" src="../images/Global_Vertical_Cursor/Button_Move_Cursor_to_X.png" width="26"  /></a>をクリックしてすべてのカーソルをこのX値に移動します。
+<dl><dd><a  class="image"><img alt="Tutorial Vertical Cursor Side-by-Side 02.png" src="../images/Global_Vertical_Cursor/Tutorial_Vertical_Cursor_Side-by-Side_02.png" width="596"  /></a></dd></dl></li>
+<li><b>タグとラベルを追加</b>ボタン<a  class="image"><img alt="Button Add Tag and Label.png" src="../images/Global_Vertical_Cursor/Button_Add_Tag_and_Label.png" width="26"  /></a>をクリックして、すべてのレイヤのこの座標にタグを追加します。レイヤ1のカーソルをクリックして、ほかのピークにドラッグアンドドロップし、すべてのレイヤのデータポイントを読みます。
+<dl><dd><a  class="image"><img alt="Tutorial Vertical Cursor Side-by-Side 03.png" src="../images/Global_Vertical_Cursor/Tutorial_Vertical_Cursor_Side-by-Side_03.png" width="596"  /></a></dd></dl></li>
+<li><b>結果出力</b>ボタン<a  class="image"><img alt="Button Output Report.png" src="../images/Global_Vertical_Cursor/Button_Output_Report.png" width="26"  /></a>をクリックすればいつでも興味のあるデータポイントを結果シートに出力できます。</li></ol>
+
+
+
+
+    

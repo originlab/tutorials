@@ -1,0 +1,127 @@
+﻿<h1 class="firstheading">リンクアドレスのコピーによりWebデータに接続</h1>
+<p class='urlname' style='display: none'>Web-Connect-Copy-Link</p>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>目次</h2>
+</div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span><span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Connect_to_Web_Data_File_by_Copy_Link_Address"><span class="tocnumber">3</span> <span class="toctext">リンクアドレスのコピーによりWebデータに接続</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Plotting_Connector-imported_Data_with_Plot_Setup"><span class="tocnumber">4</span> <span class="toctext">コネクタでインポートしたデータを作図のセットアップでプロット</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#How_to_Manage_Caching_of_Web_Data"><span class="tocnumber">5</span> <span class="toctext">Webデータのキャッシュを管理する方法</span></a></li>
+</ul>
+</div>
+<p><br /></p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a class="image"><img alt="Video Image.png" src="../images/Web_Connect_by_Copy_Link_Address/Video_Image.png" width="33" /></a> <a class="image"><img alt="Video Text Image.png" src="../images/Web_Connect_by_Copy_Link_Address/Video_Text_Image.png" width="135" /></a>
+<ul>
+<li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=240" target="_blank">Data Connectors</a></li>
+<li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=174" target="_blank">An Introduction to the Maps Online App</a></li>
+<li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=175" target="_blank">Google Map App</a></li>
+<li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=158" target="_blank">Creating a 3D Bar on XY Plane using Maps Online App</a></li>
+</ul>
+</td>
+<td style="width: 40%"><a class="image"><img alt="Website blog icon circle.png" src="../images/Web_Connect_by_Copy_Link_Address/Website_blog_icon_circle.png" width="31" /></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Web_Connect_by_Copy_Link_Address/Blog_Image_33x33px.png" width="135" /></a>
+<ul>
+<li><a class="external text" href="http://blog.originlab.com/data-connector-json" target="_blank">Origin Web Data Connector in 2019b</a></li>
+<li><a class="external text" href="http://blog.originlab.com/importing-json-data-from-a-web-service-in-origin-2019" target="_blank">Importing JSON Data From a Web Service in Origin 2019</a></li>
+<li><a class="external text" href="http://blog.originlab.com/covid-19-test-positivity-rates-in-different-us-states" target="_blank">COVID-19 Test Positivity Rates in Different US States</a></li>
+<li><a class="external text" href="http://blog.originlab.com/covid-19-real-time-report-from-china" target="_blank">COVID-19 Real Time Report from China</a></li>
+<li><a class="external text" href="http://blog.originlab.com/covid-19-world-situation-report-of-confirmed-case" target="_blank">COVID-19 Daily Update of World Situation Report of Confirmed Cases</a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><br /></p>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">概要</span></h2>
+<p><a class="external text" href="../../UserGuide/Category/Data_Connector.html"><b>データコネクタ</b></a>は、定期更新されるデータファイルへの「ライブリンク」を作成するための理想的な方法です。従来のファイルインポート機能の場合、ソースデータが変更されるたびにユーザがデータを再インポートする必要があります。しかし、ブックにコネクタを追加した場合は、プロジェクトを開くたびにデータソースに対して自動的にクエリを実行できるため、データ管理タスクが簡素化されます。</p>
+<dl>
+<dd>
+<dl>
+<dd><a class="image"><img alt="Tutorial Data Connect To Web.png" src="../images/Web_Connect_by_Copy_Link_Address/Tutorial_Data_Connect_To_Web.png" width="800" /></a></dd>
+</dl>
+</dd>
+</dl>
+<p>このチュートリアルでは、アメリカ地質調査所（USGS）のWebサイトで「リアルタイム」の地震データに接続する方法、接続されたプロジェクトを開いた時にデータを自動的にインポートするように構成する方法、および、データキャッシュを管理する方法を示します。これにより、プロジェクトを開くたびに最新のデータを確実に取得できます。</p>
+<p class="version">必要なOriginのバージョン: Origin 2021 以降</p>
+<h2><a name="What_you_will_learn" id="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul>
+<li>URLをコピーしてWebに保存されたCSVファイルに接続する方法</li>
+<li>Originの無料のMaps Onlineアプリを使用して、地理データの背景画像を作成する方法</li>
+<li>データコネクタでインポートされたデータの構成を変更せずに作図のセットアップダイアログで作図する方法</li>
+<li>Webコネクタ（CSV）を使用するプロジェクトを保存して再度開く方法</li>
+<li>プロジェクトを開いたときに常にデータが更新されるように、Originのキャッシュメカニズムを操作する方法</li>
+</ul>
+<h2><a name="Connect_to_Web_Data_File_by_Copy_Link_Address" id="Connect_to_Web_Data_File_by_Copy_Link_Address"></a><span class="mw-headline">リンクアドレスのコピーによりWebデータに接続</span></h2>
+<ol>
+<li>新しいプロジェクトを開始します。ワークスペースに新しいブックが1つ表示されます。</li>
+<li>USGSのWebサイト: <a class="external free" href="https://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php" target="_blank">https://earthquake.usgs.gov/earthquakes/feed/v1.0/csv.php</a> をブラウザで開きます。</li>
+<li>ページ右側の「Feeds」の項目に、毎分更新されるCSVデータファイルのリンクが表示されます。</li>
+<li>ページをスクロールして「Past 30 Days」の「All Earthquakes」の項目上で右クリックして<b>リンクのアドレスをコピー</b>を選択します。</li>
+<li>Originに戻り、ワークブックがアクティブな状態で、メニューから<b>データ：Webに接続</b>を選択します。</li>
+<li>ダイアログの「URL」ボックスにコピーしたリンクアドレスをCTRL + Vで貼り付け、<b>OK</b>ボタンをクリックします。</li>
+<li>次に開く<b>CSVインポートオプション</b>ダイアログの設定はデフォルトのままにして、 <b>OK</b>をクリックします。ワークブックにUSGSサイトからデータがインポートされます。コネクタアイコンが緑色 <a class="image"><img alt="Dadta connector icon connect.png" src="../images/Web_Connect_by_Copy_Link_Address/Dadta_connector_icon_connect.png" width="16" /></a> なので、データコネクタが有効であることを示しています。</li>
+</ol>
+<h2><a name="Plotting_Connector-imported_Data_with_Plot_Setup" id="Plotting_Connector-imported_Data_with_Plot_Setup"></a><span class="mw-headline">コネクタでインポートしたデータを作図のセットアップでプロット</span></h2>
+<p>ここでは、<a class="external text" href="https://www.originlab.com/fileExchange/details.aspx?fid=240" target="_blank">OriginLabの無料の<b>Maps Online</b>アプリ</a>を使用して、緯度、経度、マグニチュード、深度データの散布図のベースマップを作成します。</p>
+<p>データコネクタでインポートされたデータは<a class="external text" href="../../UserGuide/Category/Data_Connector.html">ロック</a>されているため、列を再配置することはできません。Originのデフォルトでは、Yデータ列の左側にXデータ列がある必要があります。しかし、ロックされたワークシートでは、Xデータ（<i>経度</i>）はYデータ（<i>緯度</i>）の右側にあります。このような場合、データ列を移動することなく列を指定できる<b>作図のセットアップ</b>ダイアログボックスを使うと、データへの「ライブ」接続を失うことなく作図できます。</p>
+<ol>
+<li>F10を押してアプリセンターを開きます。<b>検索</b>タブをクリックして<b>カテゴリー</b>を<i>全て</i>にし、検索ボックスで「maps」と入力して検索します。<b>Maps Online</b> アプリに緑色のチェックマークがついていれば、すでにインストールされています。<b>Download and Install</b>アイコン<a class="image"><img alt="AppCenter download button.png" src="../images/Web_Connect_by_Copy_Link_Address/AppCenter_download_button.png" width="20" /></a>が表示されている場合は、このアイコンをクリックして、Originにこのアプリをインストールします。</li>
+<li>アプリギャラリー（デフォルトではワークスペースの右側）で、<b>Maps Online</b>アプリのアイコンをクリックして起動します。ダイアログボックスで、<b>マップ</b>ドロップダウンから<i>Nasa Earth Observations (NEO) WMS</i> を選択し、<b>レイヤ</b>を<i>BlueMarbleNG</i> にして、<b>OK</b>をクリックします。これで、地震データをプロットするためのベースマップができました。</li>
+<li>メニューから、<b>グラフ操作：作図のセットアップ</b>を選択します。上中下3つのパネルが表示されていない場合は、ダイアログボックスの<a class="external text" href="../../UserGuide/Category/Plot_Setup.html">上部パネルと下部パネルを展開</a>します。<b>利用可能なデータ</b>を<i>フォルダ中のワークシート</i>にし、上部パネルで<i>all-month</i> シートがあることを確認します。上部のパネルでこのシートを選択します。</li>
+<li>中間のパネルで、<b>グラフタイプ</b>を<b>散布図</b>にし、<i>longitude</i>を<b>X</b>、<i>latitude</i> を<b>Y</b>に設定します。中間パネルの右下にある<b>追加</b>ボタンをクリックします。<b>OK</b>をクリックして、緯度経度データの散布図をマップに重ねます。
+<dl>
+<dd><a class="image"><img alt="Tutorial Data Connect To Web 2.png" src="../images/Web_Connect_by_Copy_Link_Address/Tutorial_Data_Connect_To_Web_2.png" width="755" /></a></dd>
+</dl>
+</li>
+<li>プロットをダブルクリックして作成の詳細を開き、<a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Symbol_Tab.html"><b>シンボル</b>タブ</a>で下図のように、シンボルの形を丸にし、<b>サイズ</b>を<i>Col(E): "mag"</i>、<b>縮尺倍率</b>を<i>3</i>、<b>サイズの式</b>を<i>(s-s1)/(s2-s1)</i>、<b>シンボルの色</b>を<b>ポイント毎</b>：<i>カラーマップ:Col(D):"depth"</i> に設定します。グラフを要約すると、<i>緯度</i> と<i>経度</i> の値を使用して、マップ上の散布点の位置を指定し、<i>mag</i>（マグニチュード）データを使用してシンボルのサイズを制御し、<i>depth</i> を使用して<a class="external text" href="../../UserGuide/UserGuide/Using_a_Dataset_to_Control_Plot_Color.html#Color_Mapping">シンボルの色を制御</a>しています。
+<dl>
+<dd><a class="image"><img alt="Tutorial Data Connect To Web 3.png" src="../images/Web_Connect_by_Copy_Link_Address/Tutorial_Data_Connect_To_Web_3.png" width="957" /></a></dd>
+</dl>
+</li>
+<li>右側の<b>プロット操作・オブジェクト作成</b>ツールバーの<b>色スケールの追加</b>をクリックし、色スケールをダブルクリックして色スケール制御ダイアログを開きます。レベルタブで、<b>開始レベルを非表示にする</b>、<b>終了レベルを非表示にする</b>にチェックを付けます。<b>レイアウト</b>タブの<b>逆順</b>のチェックをはずします。タイトルタブの表示にチェックを付けます。<b>OK</b>をクリックして、ダイアログを閉じます。マップにバブルスケールを追加して、シンボルの相対的なサイズを表示することもできます（サイズは地震のマグニチュードでマッピングされているため）。</li>
+<li>作図の詳細の<a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Print_Dimensions_Tab.html"><b>印刷/ページサイズ</b>の設定</a>を使用すれば、ページサイズを変更してマップイメージのアスペクト比にさらに近づけるなど、グラフにいくつかの外観上の調整を加えることができます。また、<a class="external text" href="../../GettingStarted/OriginLab/Customizing_Graphs.html#Mini_Toolbars">ミニツールバー</a>ボタンを使用して、<a class="external text" href="../../UserGuide/UserGuide/Title_2.html">軸のタイトルを追加</a>したり、フォントやフォントサイズを調整できます。
+<dl>
+<dd><a class="image"><img alt="Tutorial Data Connect To Web final.png" src="../images/Web_Connect_by_Copy_Link_Address/Tutorial_Data_Connect_To_Web_final.png" width="799" /></a></dd>
+</dl>
+</li>
+</ol>
+<table class="noborder">
+<tr>
+<td style="vertical-align:top" width="60"><img src="../images/Web_Connect_by_Copy_Link_Address/Tip_icon.png" width="57" border="0" alt="" /></td>
+<td>
+<p>グラフのプロットされたポイントにカーソルを合わせると、<a class="external text" href="../../UserGuide/UserGuide/Data_info_Tool.html#Data_Point_Tooltip">カスタマイズ可能なデータポイントのツールチップ</a>が表示されます。ツールチップを右クリックし、<b>設定</b>を選択すると、ツールチップでの表示項目を変更できます。例えば、プロット上にマウスカーソルを置くと、すべてのプロット変数（<i>latitude</i>、<i>longitude</i>、<i>magnitude</i>、<i>depth</i>）を任意の順序および数値形式で表示できます。</p>
+<p><a class="image"><img alt="Tutorial Data Connect To Web Tip.png" src="../images/Web_Connect_by_Copy_Link_Address/Tutorial_Data_Connect_To_Web_Tip.png" width="800" /></a></p>
+<p></p>
+</td>
+</tr>
+</table>
+<h2><a name="How_to_Manage_Caching_of_Web_Data" id="How_to_Manage_Caching_of_Web_Data"></a><span class="mw-headline">Webデータのキャッシュを管理する方法</span></h2>
+<p>データコネクタは、サイズが大きいデータファイルのインポートを容易にするために考案された機能です。コネクタは、サイズが大きいファイル（<a class="external text" href="../../UserGuide/Category/Data_Connector.html#Excluding_or_Saving_Imported_Data">デフォルトでは500kB</a>より大きいファイル）をインポートしてもOrigin内部に保存しないため、ディスク領域を節約できます。プロジェクトファイルにデータコネクタを使ったワークブックが多数ある場合は、必要に応じて選択的にファイルに再接続できるため、その時点ですぐにアクセスする必要のあるデータのみをインポートできます。</p>
+<p>接続の更新に時間がかかり、結果的に作業が遅くなる可能性があるため、更新回数を管理するためのシステム変数<a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#C"><b>@CFDT</b></a>を使用できます。これは、ソースデータのコネクタクエリ間の時間の長さを制御します。<b>Webに接続</b>機能によってインポートされたデータは、ファイルサイズ100kBあたりの<b>@CFDT</b> 秒の値に等しい期間キャッシュされます（たとえば、10MBのファイルに接続したデータは900 * 100 = 90,000秒、つまり、約24時間キャッシュされます）。</p>
+<p>また、必要な時にキャッシュを削除するためのLabTalkコマンド、<code>delete -web</code>も利用できます。ここで作成している地震データのプロジェクトでは、常に最新のデータを取得したいので、これを利用します。</p>
+<p><i><b>このチュートリアルでは、次のようにプロジェクトを構成したいとおもいます。</b></i></p>
+<dl>
+<dd>
+<ul>
+<li>プロジェクトを開くと、データが自動的にインポートされます。</li>
+<li>プロジェクトが開くとキャッシュが削除され、常に最新の情報を取得できます。</li>
+</ul>
+</dd>
+</dl>
+<ol>
+<li><b>ファイル：プロジェクトの新規保存</b>を選択し、ファイルに<i>USGS_Earthquake_All_30d.opju</i> などの名前を付けて、<b>保存</b>をクリックします。</li>
+<li>ワークシートのコネクタアイコンをクリックして、<b>自動インポート</b>：<b>プロジェクトオープン時</b>を選択します。</li>
+<li>Originメニューから<b>表示：コードビルダ</b>を選択します。<a class="external text" href="CodeBuilderUsersGuide.chm::/Category/Code_Builder_Interface(CodeBuilder).html"><b>コードビルダ</b></a>は、LabTalk、Origin C、およびPythonコードを作成するためのOriginの統合開発環境（IDE）です。ダイアログの左側にある<b>ワークスペース</b>パネルで、<b>Project</b>の項目を展開し、<i>ProjectEvents.OGS</i> ファイルをダブルクリックします。コードビルダのワークスペースにファイルをロードします。<a class="external text" href="../../LabTalk/Script/ProjectEvents_Script.html"><i>ProjectEvents.OGS</i></a> は、各Originプロジェクトとともに保存される特別なファイルで、プロジェクトを開いた時などのさまざまなイベントトリガーでLabTalkスクリプトを保存および実行するために使用されます。前述のように、キャッシュされたWebデータを消するために使用できるLabTalkコマンドがあるので、<i>ProjectEvents.OGS</i> をカスタマイズしてプロジェクトを開いたときにWebデータが常に更新されるようにします。<i>[AfterOpenDoc]</i> というセクションを探し、以下の2行のスクリプトを追加し、コードビルダツールバーの<b>保存</b>ボタンをクリックします。
+<pre class="lt" style="font-family:monospace;">
+delete <span style="color: #000080;">-</span>web;
+type <span style="color: #000080;">-</span>b <span style="color: #ff00ff;">"Webのキャッシュはクリアされました。プロジェクトデータが更新されました。"</span>
+</pre>
+<p>ProjectEventsは下図のようになります。</p>
+<p><a class="image"><img alt="Tutorial Data Connect To Web 4.png" src="../images/Web_Connect_by_Copy_Link_Address/Tutorial_Data_Connect_To_Web_4.png" width="768" /></a></p>
+</li>
+<li>Originのメニューから<b>ファイル：保存</b>を選択してProjectEvents.OGSの内容をプロジェクトに保存します。</li>
+<li>一度プロジェクトを閉じ、<b>ファイル：最近使ったプロジェクト</b>を選択して、保存したプロジェクトを再度開きます。すると、次のメッセージが開くはずです："Webのキャッシュはクリアされました。プロジェクトデータが更新されました。"その後、ワークシートにデータが入力され、世界地図上の地震のプロットが再生成されるはずです。</li>
+</ol>

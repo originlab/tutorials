@@ -1,0 +1,166 @@
+﻿<h1 class="firstheading">2レベルグループ化ボックスチャート</h1><p class='urlname' style='display: none'>2レベルグループ化ボックスチャート</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Data_Preparation"><span class="tocnumber">3</span> <span class="toctext">データの準備</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Using_data_filter_to_select_worksheet_data"><span class="tocnumber">3.1</span> <span class="toctext">データフィルタを使用してワークシートのデータを選択</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Stacking_columns_to_convert_data_into_index_mode"><span class="tocnumber">3.2</span> <span class="toctext">列スタッキングでインデックスモードにデータ変換</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Controlling_the_categorical_values"><span class="tocnumber">3.3</span> <span class="toctext">カテゴリー値のコントロール</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#Create_a_grouped_box_chart_from_indexed_data"><span class="tocnumber">4</span> <span class="toctext">インデックスデータからグループ化ボックスチャートを作成</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Customize_box_chart_settings"><span class="tocnumber">5</span> <span class="toctext">ボックスチャートの編集</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Customize_the_axis_dialog_for_box_charts"><span class="tocnumber">6</span> <span class="toctext">ボックスチャートの軸の編集</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#Add_a_graphical_symbol_of_the_box_into_box_chart"><span class="tocnumber">7</span> <span class="toctext">ボックスチャートにボックスの図形シンボルを追加</span></a></li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>Originのボックスチャートは、応用して利用することが可能です。このチュートリアルでは、Originのインデックスデータから2レベルのグループ化ボックスチャートを作成する方法を示します。
+</p>
+<dl><dd><a class="image"><img alt="TwoLevelGroupedBoxChart0.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart0.png" width="644"  /></a></dd></dl>
+<p><br />
+</p>
+<p class="version" >必要なOriginのバージョン: Origin 2015 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。
+</p>
+<ul><li> データフィルタを使用してワークシートのデータを選択します。</li>
+<li> ボックスチャートの棒の積み上げ</li>
+<li> カテゴリー値のコントロール。</li>
+<li> インデックスデータからグループ化ボックスチャートを作成。</li>
+<li> ボックスチャートの編集</li>
+<li> ボックスチャートの軸の編集</li>
+<li> ボックスチャートにグラフを追加</li></ul>
+<h2><a name="Data_Preparation"></a><span class="mw-headline">データの準備</span></h2>
+<p>このチュートリアルでは、<i>&lt;Origin EXE Folder&gt;\Samples\Tutorial Data.opj</i>を使います。<b>Tutorial Data.opj</b>から、<i>Two-Level Grouped Box Chart</i> のフォルダを最初に開きます。
+<br />
+</p>
+<h3><a name="Using_data_filter_to_select_worksheet_data"></a><span class="mw-headline">データフィルタを使用してワークシートデータを選択</span></h3>
+<p>次のステップでは、データフィルタを使用して分析したいデータを選択します。
+</p>
+<ol><li> ワークブック<b>US Mean Temperature</b>をアクティブにして<b>列B</b>を選択します。</li>
+<li> <b>ワークシートデータ</b>ツールバーから<b><b>データフィルタの追加/削除</b></b>ボタン <a class="image"><img alt="Button Add Or Remove Data Filter.png" src="../images/Two_Level_Grouped_Box_Chart/Button_Add_Or_Remove_Data_Filter.png" width="23"  /></a>をクリックして、空のデータフィルタを<b>列B</b>に追加します。</li>
+<li> <b>列B</b>の列ヘッダにあるフィルタアイコンをクリックして、<b>Check All</b>のチェックボックスのチェックを外して、「CA, FL, TX」にチェックを入れます。 </li>
+<li> <b>OK</b>をクリックして、フィルタを適用します。
+<dl><dd><a class="image"><img alt="TwoLevelGroupedBoxChart1.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart1.png" width="262"  /></a></dd></dl></li></ol>
+<h3><a name="Stacking_columns_to_convert_data_into_index_mode"></a><span class="mw-headline">列をスタックして、データをインデックスモードに変換する</span></h3>
+<p>以下のステップで、データを行モードからインデックスモードに変換できます。
+</p>
+<ol><li> <b>列E</b>から<b>列P</b> （<b>January</b>から<b>December</b>まで）を選択して、メインメニューから<b>ワークシート: 列スタッキング</b>を選択し、<b>列スタッキング</b>ダイアログを開きます。</li>
+<li> <b>別の列を含める</b>のチェックボックスにチェックを入れてから、<b>ワークシートから選択する</b>ボタンを押し、ワークシートの<b>列A</b>と<b>列B</b>を選択します。</li>
+<li> <b>グループ列のロングネーム</b>を「Month」に、<b>データ列のロングネーム</b>を「Temperature」に変更します。
+<dl><dd><a class="image"><img alt="TwoLevelGroupedBoxChart2.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart2.png" width="890"  /></a></dd></dl></li>
+<li> <b>OK</b>をクリックして、新規ワークシート<b>StackCols1</b>を開きます。</li>
+<li> 列ヘッダの<b>ロック</b>アイコンをクリックして、コンテキストメニューから<b>再計算モード: しない</b>を選択します。
+<dl><dd><a class="image"><img alt="TwoLevelGroupedBoxChart3.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart3.png" width="399"  /></a></dd></dl></li></ol>
+<h3><a name="Controlling_the_categorical_values"></a><span class="mw-headline">カテゴリー値のコントロール</span></h3>
+<p>以下のステップで、元データを変えずに、グラフに表示されている値の順番を変更します。 
+</p>
+<ol><li> ワークシート<b>StackCols1</b>の<b>列B</b>を選択して右クリックし、<b>カテゴリーとして設定</b>を選択します。
+<dl><dd><a class="image"><img alt="TwoLevelGroupedBoxChart4.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart4.png" width="465"  /></a></dd></dl></li>
+<li> <b><b><b>列<b>B</b></b></b></b>のカテゴリーセル「ソートなし」をダブルクリックして、<b><b>カテゴリー</b></b>ダイアログを開きます。</li>
+<li> <b>&lt;自動&gt;</b>のチェックボックスのチェックを外し、<b>一番上へ移動ボタン</b><a class="image"><img alt="Category Tab Button ToTop 92.png" src="../images/Two_Level_Grouped_Box_Chart/Category_Tab_Button_ToTop_92.png" width="24"  /></a>, <b>上へ移動ボタン</b><a class="image"><img alt="Category Tab Button Move Up 92.png" src="../images/Two_Level_Grouped_Box_Chart/Category_Tab_Button_Move_Up_92.png" width="24"  /></a>, <b>下へ移動ボタン</b><a class="image"><img alt="Category Tab Button Move Down 92.png" src="../images/Two_Level_Grouped_Box_Chart/Category_Tab_Button_Move_Down_92.png" width="24"  /></a>, <b>一番下へ移動ボタン</b><a class="image"><img alt="Category Tab Button ToBottom 92.png" src="../images/Two_Level_Grouped_Box_Chart/Category_Tab_Button_ToBottom_92.png" width="24"  /></a>を使って、「CA-TX- F」の項目の順番を指定します。
+<dl><dd><a class="image"><img alt="TwoLevelGroupedBoxChart5.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart5.png" width="529"  /></a></dd></dl></li>
+<li> <b>列C</b>でステップ2とステップ3を繰り返して、 「January 」から「December」の項目の順番を指定します。</li></ol>
+<h2><a name="Create_a_grouped_box_chart_from_indexed_data"></a><span class="mw-headline">インデックスデータからグループ化ボックスチャートを作成</span></h2>
+<ol><li> ワークシート<b>StackCols1</b>の<b>列D</b>を選択して、メインメニューから<b>作図：カテゴリカル：グループ化したボックスチャート &ndash; インデックスデータ...</b>を選択します。</li>
+<li> <b>Plotting: gboxindexed</b>ダイアログで、<b>グループリスト</b>セクションの右上にある三角形のボタンをクリックして、コンテキストメニューから順番に<b>C(Y): Month</b>と<b>B(Y): State</b>を選択します。
+<dl><dd> <a class="image"><img alt="TwoLevelGroupedBoxChart7.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart7.png" width="673"  /></a></dd></dl></li>
+<li> <b>OK</b>をクリックすると2レベルのグループ化ボックスチャートが作成されます。
+<dl><dd> <a class="image"><img alt="TwoLevelGroupedBoxChart8.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart8.png" width="422"  /></a></dd></dl></li></ol>
+<h2><a name="Customize_box_chart_settings"></a><span class="mw-headline">ボックスチャートの編集</span></h2>
+<ol>
+<li> グラフレイヤを選択して（レイヤの中央より下の部分をクリックして）、コントロールハンドルをドラッグしてから好きなサイズに変更します。（コントロールハンドルにカーソルを置き、カーソルが上下2つの矢印になった時にドラッグします。）
+<br /><a class="image"><img alt="TwoLevelGroupedBoxChart45.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart45.png" width="460"  /></a></li>
+<li> <b>フォーマット：ページをレイヤに合わせる…</b>を選択してダイアログを開いてから、<b>方向の調整</b>ドロップダウンリストで<b>幅のみ</b> を選択して、内容領域のページ幅を調整します。
+<br />
+<a class="image"><img alt="TwoLevelGroupedBoxChart40.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart40.png" width="360"  /></a>
+<br /><br />
+グラフは以下のようになります。<br />
+<a class="image"><img alt="TwoLevelGroupedBoxChart42.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart42.png" width="613"  /></a>
+</li>
+<li> ボックス上でダブルクリックして<b><b>作図の詳細</b></b>ダイアログを開き、<b>グループ</b>タブを開きます。<b>境界色</b>と<b>ボックスの色</b>について、<b>推移</b>を<b>1つずつ</b>、 <b>サブグループ</b>を<b>サブグループ内</b>に設定すると、それぞれのサブグループが異なる色で表示されます。<b>詳細</b>セクションで色スケールをクリックして、 <b>境界色</b>と<b>ボックスの色</b>の両方に、ドロップダウンリストにある<b>S01 Gray Scale</b>を指定します。
+<br /><a class="image"><img alt="TwoLevelGroupedBoxChart43.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart43.png" width="592"  /></a></li>
+<li> <b>パターン</b>タブで<b>線の透過率に準じる</b>のチェックボックスのチェックを外して、透過率を30%に設定します。
+<br /><a class="image"><img alt="TwoLevelGroupedBoxChart12.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart12.png" width="894"  /></a></li>
+<li> <b>間隔</b>タブで、「サブグループ間の間隔」と「サブグループ内の間隔」を設定します。
+<br /><a class="image"><img alt="TwoLevelGroupedBoxChart13.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart13.png" width="894"  /></a>
+<li> <b>ボックスチャート</b>タブで、ボックスの範囲とヒゲを設定します。
+<br /><a class="image"><img alt="TwoLevelGroupedBoxChart14.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart14.png" width="771"  /></a>
+<li> <b>パーセンタイル</b>タブに移動し、<b>99%</b>、<b>1%</b>、<b>Max</b>、<b>Min</b>の前にあるチェックボックスからチェックを外し、 <b>平均</b>マーカーの形状とサイズを選択します。
+<br /><a class="image"><img alt="TwoLevelGroupedBoxChart15.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart15.png" width="894"  /></a>
+<li> <b>線</b>タブでヒゲのキャップとカスタマイズして、<b>中央値線</b>のチェックボックスのチェックを外します。
+<br /><a class="image"><img alt="TwoLevelGroupedBoxChart16.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart16.png" width="894"  /></a>
+<li> <b>OK</b> をクリックして設定を保存します。
+<li> グラフ凡例を右クリックして、コンテキストメニューから<b><b>凡例：ボックスチャートの要素…</b></b>を選択します。<b>複式ボックス凡例：legendbox</b>ダイアログにて、<b>ボックスID</b>のドロップダウンリストから<b>状態</b>を選択します。
+<br />
+<a class="image"><img alt="TwoLevelGroupedBoxChart46.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart46.png" width="329"  /></a>
+<br /><br />
+グラフは以下のようになります。
+<br />
+<a class="image"><img alt="TwoLevelGroupedBoxChart17.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart17.png" width="631"  /></a>
+</ol>
+<h2><a name="Customize_the_axis_dialog_for_box_charts"></a><span class="mw-headline">ボックスチャートの軸の編集</span></h2>
+<ol>
+<li> <b>X軸</b>で、以下のステップを踏み変更を行います。
+<ul><li> <b>Ｘ軸</b>をダブルクリックして<b>軸ダイアログ</b>を開きます。左パネルでは<b>下１</b>が選択されています。</li>
+<li> <b>目盛ラベル</b>タブに移動し、<b>フォーマット</b>タブで<b>下1</b> のフォントサイズを14にします。下の<b>表</b>タブに示している設定を繰り返します。
+<dl><dd><a class="image"><img alt="TwoLevelGroupedBoxChart18.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart18.png" width="618"  /></a></dd></dl></li>
+<li> 左パネルで<b>下2</b>を選択し、<b>フォーマット</b>タブで<b>&lt;自動&gt;</b>のチェックボックスからチェックを外して、<b>下2</b>のフォントサイズを11に変更します。また、<b>表</b>タブで以下に示している設定を繰り返します。
+<dl><dd><a class="image"><img alt="TwoLevelGroupedBoxChart19.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart19.png" width="618"  /></a></dd></dl></li></ul>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Two_Level_Grouped_Box_Chart/Tip_icon.png" width="57"  border="0" /></td><td><p>表のレイアウトの内容は次の通りです。<br />
+<p><a class="image"><img alt="TwoLevelGroupedBoxChart44.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart44.png" width="687"  /></a>
+</p>
+</p></td></tr></table>
+<ul><li> <b>軸と軸目盛</b>タブに移動し、主目盛のスタイルを<b>内側</b>にします。
+<dl><dd><a class="image"><img alt="TwoLevelGroupedBoxChart20.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart20.png" width="618"  /></a></dd></dl></li></ul>
+<li> <b>Y軸</b>に対して、次のタイトル、目盛ラベルのフォントサイズ、目盛りのスタイル を変更します。
+<br /><a class="image"><img alt="TwoLevelGroupedBoxChart21.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart21.png" width="618"  /></a>
+<br /><a class="image"><img alt="TwoLevelGroupedBoxChart22.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart22.png" width="618"  /></a>
+<br /><a class="image"><img alt="TwoLevelGroupedBoxChart23.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart23.png" width="618"  /></a>
+<br /><a class="image"><img alt="TwoLevelGroupedBoxChart39.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart39.png" width="618"  /></a>
+</li>
+<li> プロットの上と右の軸を隠します：<br /> キーボードのCTRLキーを押しながら、ダイアログの左のパネルで<b>上</b>と<b>右</b>の両方を選択し、<b>軸と軸目盛</b>タブで、<b>軸と軸目盛を表示</b>のチェックを外します。
+<br /><a class="image"><img alt="TwoLevelGroupedBoxChart24.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart24.png" width="618"  /></a>
+</li>
+<li> <b>OK </b>をクリックして、これらの設定を適用します。
+<li> <b>凡例</b>を選択して、<b>Delete</b>を押すと削除されます。グラフは次のようになります。
+<br /><a class="image"><img alt="TwoLevelGroupedBoxChart26.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart26.png" width="636"  /></a>
+</ol>
+<h2><a name="Add_a_graphical_symbol_of_the_box_into_box_chart"></a><span class="mw-headline">ボックスチャートにボックスの図形シンボルを追加</span></h2>
+<p>ボックスにあるそれぞれの線の意味をグラフィカルなシンボルで追加するには、つぎのステップを実行します： 
+</p>
+<ol>
+<li> ワークブック<b>US Mean Temperature</b>をアクティブにし、下のワークシートのタグラベルで右クリックし、<b>追加</b>を選択して、ワークブックに新規のワークシートを追加します。
+<li> <b>列A</b>のそれぞれの行に、1から5を入力します。
+<br /><a class="image"><img alt="TwoLevelGroupedBoxChart27.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart27.png" width="218"  /></a>
+<li> <b><b>列Ａ</b></b>を選択して、メニューから<b><b>作図：Statistical：ボックス</b></b>を選択して、簡単にボックスチャートを作図します。
+<br /><a class="image"><img alt="TwoLevelGroupedBoxChart28.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart28.png" width="600"  /></a>
+<li> プロット上でダブルクリックして、<b>作図の詳細</b>ダイアログを開きます。
+<li> <b>Graph2</b>を選択し、<b>印刷・ページサイズ</b>タブで、幅と高さを設定します。
+<br /><a class="image"><img alt="TwoLevelGroupedBoxChart29.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart29.png" width="779"  /></a>
+<li> <b>Layer1</b>の大きさを調整するには、<b>レイヤの大きさ・描画スピード</b>タブで、<b>Layer1</b>のサイズを設定します。
+<br /><a class="image"><img alt="TwoLevelGroupedBoxChart30.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart30.png" width="785"  /></a>
+<li> ボックスに対しては、<b>パターン</b>タブで、次のように設定します。
+<br /><a class="image"><img alt="TwoLevelGroupedBoxChart31.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart31.png" width="887"  /></a>
+<li> <b>パーセンタイル</b>と<b>線</b>タブに移動し、グループボックスチャート<b>Graph1</b>と同じ設定を選択します。
+<br /><a class="image"><img alt="TwoLevelGroupedBoxChart32.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart32.png" width="776"  /></a>
+<br /><a class="image"><img alt="TwoLevelGroupedBoxChart33.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart33.png" width="963"  /></a>
+<li> <b>ボックスチャート</b>タブに移動し、<b>ボックスラベル</b>、<b>ヒゲラベル</b>及び <b>平均値ラベル</b>、<b>パーセンタイル</b>に表示されているもの前にあるボックスにチェックを入れます。さらにボックスの幅を20％に変更して、ボックスとヒゲの範囲を設定します。
+<br /><a class="image"><img alt="TwoLevelGroupedBoxChart34.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart34.png" width="777"  /></a>
+<li> <b>OK </b>をクリックして、これらの設定を適用します。
+<li> <b>Graph2</b>の、X軸、Y軸、Y軸タイトル、<b>範囲</b>、<b>凡例</b>を選択して削除します。 
+<br /><a class="image"><img alt="TwoLevelGroupedBoxChart35.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart35.png" width="167"  /></a>
+<li> <b>Graph2</b>でキーボードのCtrlキー+Cを押し、その後、Ctrl+Vを<b>Graph1</b>で押し、ボックスチャートにグラフィカルなシンボルをコピーします。
+<li> <b>Graph1</b>のグラフィカルシンボルを選択し、サイズと位置を整えます。
+</ol>
+<p>最終的なグラフが作成されます。 
+</p>
+<dl><dd> <a class="image"><img alt="TwoLevelGroupedBoxChart0.png" src="../images/Two_Level_Grouped_Box_Chart/TwoLevelGroupedBoxChart0.png" width="644"  /></a></dd></dl>
+
+    

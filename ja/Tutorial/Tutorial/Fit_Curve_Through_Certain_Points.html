@@ -1,0 +1,108 @@
+﻿<h1 class="firstheading">特定の点を通るフィット曲線</h1>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>内容</h2>
+</div>
+<ol>
+<li class="toclevel-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1"><a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">サンプルとステップ</span></a>
+<ol>
+<li class="toclevel-2"><a href="#Fixing_Function_Parameters"><span class="tocnumber">3.1</span> <span class="toctext">関数のパラメータを固定する</span></a></li>
+<li class="toclevel-2"><a href="#Use_Linear_Constraint"><span class="tocnumber">3.2</span> <span class="toctext">線形制約を使用する</span></a></li>
+<li class="toclevel-2"><a href="#Use_weighting"><span class="tocnumber">3.3</span> <span class="toctext">重み付けを使用する</span></a></li>
+</ol>
+</li>
+</ol>
+</td>
+</tr>
+</table>
+
+<p><br /></p>
+<a name="Summary" id="Summary"></a>
+<h2><span class="mw-headline">サマリー</span></h2>
+<p>このチュートリアルはある特定の点を通過させてフィットする方法を3つ紹介します。どの方法が最適かは、関数式とフィット曲線を通過させたいデータポイントによります。</p>
+<a name="What_you_will_learn" id="What_you_will_learn"></a>
+<h2><span class="mw-headline">学習する項目</span></h2>
+<ul>
+<li>フィット曲線が特定の点を通るようにするいくつかの方法を学習する</li>
+<li>非線形フィットでフィットパラメータを固定する</li>
+<li>非線形フットで一般線形制約を利用する</li>
+<li>重み付けをしてフィットする</li>
+</ul>
+<a name="Example_and_Steps" id="Example_and_Steps"></a>
+<h2><span class="mw-headline">サンプルとステップ</span></h2>
+<a name="Fixing_Function_Parameters" id="Fixing_Function_Parameters"></a>
+<h3><span class="mw-headline">関数のパラメータを固定する</span></h3>
+<p>この方法はフィット曲線を通したポイントが関数のパラメータに関連している時のみ利用できます。典型的な例として、直線<span class="texhtml"><i>y</i> = <i>a</i> + <i>b</i> * <i>x</i></span>をフィットする時に原点（0,0）を通過するようにフィット線を作成する場合を紹介します。この場合、<span class="texhtml"><i>a</i> = 0</span>とすればフィット線は（0,0）を通過する事が分かります。</p>
+<ol>
+<li>Originのワークシートに<i>\Samples\Curve Fitting\Linear Fit.dat</i>をインポートします。</li>
+<li>Y属性の列、例えば列Dを選択し、<b>解析：フィット：非線形曲線フィット</b>とメニューから操作して<b>NLFit</b>ダイアログを開きます。</li>
+<li><b style="font-weight: bold;">Polynomial</b>のカテゴリを選択後、<b>Line</b>関数を選択します。</li>
+<li><b style="font-weight: bold;">設定</b>タブの<b>フィット曲線</b>をクリックします。<b>Xデータ型</b>のブランチ内で<b>範囲</b>オプションが<b>X範囲±％</b>になっていることを確認し、<b>範囲マージン（％）</b>の編集ボックスに<b>10</b>を入力します。このオプションを選択するとフィット曲線を延長できます。</li>
+<li><b style="font-weight: bold;">収束までフィット</b>ボタン<a><img alt="Image:Button_Fit_Untill_Converged.png" src="../images/Fit_Curve_Through_Certain_Points/Button_Fit_Untill_Converged.png" width="26" height="23" border="0" /></a>をクリックします。<b>フィット曲線</b>タブからも曲線が原点を通過していない事が分かります。<br />
+<br />
+<a><img alt="Image:Fit_Line_Not_Through_Origin.png" src="../images/Fit_Curve_Through_Certain_Points/Fit_Line_Not_Through_Origin.png" width="840" height="610" border="0" /></a></li>
+<li><b style="font-weight: bold;">パラメータ</b>タブに行き、パラメータ<b>A</b>の<b>固定</b>チェックボックスにチェックを付け、値を<b>0</b>にします。<b>収束までフィット</b>ボタンを再びクリックします。これで曲線が0を通過する事を確認できます。<br />
+<br />
+<a><img alt="Image:Fit_Line_Through_Zero.png" src="../images/Fit_Curve_Through_Certain_Points/Fit_Line_Through_Zero.png" width="840" height="610" border="0" /></a></li>
+</ol>
+<table class="note">
+<tr>
+<td>
+<p><b style="font-weight: bold;">Note</b>:<b>線形フィット</b>ダイアログ内の<b>切片固定</b>オプションを使用すると、強制的に原点を通過するように制御できます。</p>
+</td>
+</tr>
+</table>
+<a name="Use_Linear_Constraint" id="Use_Linear_Constraint"></a>
+<h3><span class="mw-headline">線形制約を使用する</span></h3>
+<p>この方法はフィット関数が<b>直線</b>、<b>2次曲線</b>、<b>3次曲線</b>などのような線形モデルである事が条件です。</p>
+<p>線形制約を利用して、フィット曲線を特定の点を通過させる方法を紹介します。</p>
+<ol>
+<li>Originのワークシートに "<i>\Samples\Curve Fitting\Polynomial Fit.dat</i>"のデータをインポートします。</li>
+<li>列Bを選択し、<b>Ctrl + Y</b>を押し、<b>NLFit</b>ダイアログを開きます。</li>
+<li><b style="font-weight: bold;">Polynomial</b>カテゴリで<b>Parabola</b>（<span class="texhtml"><i>y</i> = <i>A</i> + <i>B</i> * <i>x</i> + <i>C</i> * <i>x</i><sup>2</sup></span>）を選択します。<b>フィット曲線</b>タブでは初期値がデータに良くフィットしていることが分かります。</li>
+<li>例えば、曲線を<span class="texhtml">(10,100)</span>の座標を通過するようにします。<span class="texhtml">(10,100)</span>をフィット関数（<span class="texhtml"><i>y</i> = <i>A</i> + <i>B</i> * <i>x</i> + <i>C</i> * <i>x</i><sup>2</sup></span>）を代入すると、<span class="texhtml">100 = <i>A</i> + 10 * <i>B</i> + 100 * <i>C</i></span>となります。この数式を一般線形制約の条件として使用します。 <b>コード</b>タブで<b>制約</b>を選択します。<b>線形制約を行う</b>にチェックをつけ、次の式を入力します。
+<pre class="lt">
+A <span style="color: #000080;">+</span> <span style="color: #0000dd;">10</span><span style="color: #000080;">*</span>B <span style="color: #000080;">+</span> <span style="color: #0000dd;">100</span><span style="color: #000080;">*</span>C <span style="color: #000080;">=</span> <span style="color: #0000dd;">100</span>
+        
+</pre></li>
+<li><b style="font-weight: bold;">収束までフィット</b>ボタン<a><img alt="Image:Button_Fit_Untill_Converged.png" src="../images/Fit_Curve_Through_Certain_Points/Button_Fit_Untill_Converged.png" width="26" height="23" border="0" /></a>をクリックします。フィット曲線はデータポイントとは違う事が分かりますが、特定の座標を通過していることが分かります。<br />
+<br />
+<a><img alt="Image:Through_Point_by_Constraints.png" src="../images/Fit_Curve_Through_Certain_Points/Through_Point_by_Constraints.png" width="840" height="610" border="0" /></a></li>
+</ol>
+<a name="Use_weighting" id="Use_weighting"></a>
+<h3><span class="mw-headline">重み付けを使用する</span></h3>
+<p>パラメータが何かの固有値、例えば上部または下部の漸近線である時に、生データに通過させたい点が含まれている場合、より大きな重みを付ける事で特定の点を通過させることができます。この方法は決して分析的な結果ではありませんが、誤差を減らすために使用する事ができます。</p>
+<ol>
+<li>データを準備するために、次のスクリプトを実行してください。
+<pre class="lt">
+newbook;
+string fname<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> system.<span style="color: #000080;">path</span>.<span style="color: #000080;">program</span><span style="color: #000080;">$</span>;
+fname<span style="color: #000080;">$</span> <span style="color: #000080;">+</span><span style="color: #000080;">=</span> <span style="color: #ff00ff;">"Samples\Curve Fitting\Replicate Response Data.dat"</span>;
+impasc fname<span style="color: #000080;">$</span> options.<span style="color: #000080;">PartImp</span>.<span style="color: #000080;">Partial</span><span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">1</span> options.<span style="color: #000080;">PartImp</span>.<span style="color: #000080;">LastCol</span><span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">2</span>;
+wks.<span style="color: #000080;">addcol</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+col<span style="color: #000000;">(</span>a<span style="color: #000000;">)</span> <span style="color: #000080;">=</span> log<span style="color: #000000;">(</span>col<span style="color: #000000;">(</span>a<span style="color: #000000;">)</span><span style="color: #000000;">)</span> <span style="color: #000080;">+</span> <span style="color: #0000dd;">5</span>;
+col<span style="color: #000000;">(</span>c<span style="color: #000000;">)</span><span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">100</span>;
+for<span style="color: #000000;">(</span>int ii <span style="color: #000080;">=</span> <span style="color: #0000dd;">2</span>; ii <span style="color: #000080;">&lt;</span> wks.<span style="color: #000080;">maxrows</span>; ii<span style="color: #000080;">++</span><span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+    col<span style="color: #000000;">(</span>c<span style="color: #000000;">)</span><span style="color: #000000;">[</span>ii<span style="color: #000000;">]</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>;<span style="color: #000000;">
+}</span>
+col<span style="color: #000000;">(</span>c<span style="color: #000000;">)</span><span style="color: #000000;">[</span>wks.<span style="color: #000080;">maxrows</span><span style="color: #000000;">]</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">100</span>;
+        
+</pre></li>
+<li>まずは重み付けがない場合でどのようにフィットするか確認しましょう。列Bを選択し、<b>解析：フィット：非線形曲線フィット</b>から NLFit ダイアログを開きます。<b>Growth/Sigmoidal</b>カテゴリから<b>Logistic</b>関数を選びます。そして<b>収束までフィット</b>ボタン<a><img alt="Image:Button_Fit_Untill_Converged.png" src="../images/Fit_Curve_Through_Certain_Points/Button_Fit_Untill_Converged.png" width="26" height="23" border="0" /></a>をクリックします。<b>フィット曲線</b>タブから、この曲線は上の方にある点をどこも通過しないことが分かります。<br />
+<br />
+<a><img alt="Image:Fit_Not_Through_Asymptote.png" src="../images/Fit_Curve_Through_Certain_Points/Fit_Not_Through_Asymptote.png" width="840" height="610" border="0" /></a></li>
+<li>生データのワークシートでは列Cを作成し、最初と最後の値を大きくしています。この列を重み付けの指標とすれば、この2点はフィット曲線により大きな影響を与え、強制的にこれら2点を通過するようにできます。<br />
+<br />
+<a><img alt="Image:Large_Weight_for_Asymptote.png" src="../images/Fit_Curve_Through_Certain_Points/Large_Weight_for_Asymptote.png" width="357" height="261" border="0" /></a><br />
+<br />
+<b>設定</b>タブにある、<b>データ選択</b>のページをアクティブにしましょう。以下のように<b>入力データ</b>ブランチを開き、重み付けオプションを表示します。<b>直接重み付け</b>をドロップダウンリストから選択し、データでは<b>C</b>を重み付けするデータセットとして選択します。そして<b>収束までフィット</b>ボタン<a><img alt="Image:Button_Fit_Untill_Converged.png" src="../images/Fit_Curve_Through_Certain_Points/Button_Fit_Untill_Converged.png" width="26" height="23" border="0" /></a>をクリックします。<br />
+<br />
+<a><img alt="Image:Fit_Through_Asymptote.png" src="../images/Fit_Curve_Through_Certain_Points/Fit_Through_Asymptote.png" width="840" height="610" border="0" /></a><br />
+<br />
+プレビューの結果から、フィット曲線が最初と最後のデータポイントを通過する事が分かります。</li>
+</ol>

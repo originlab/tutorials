@@ -1,0 +1,44 @@
+﻿<h1 class="firstheading">平面化された積み上げ曲面グラフをZ軸上に配置する</h1>
+<p class='urlname' style='display: none'>平面積み上げ- Zオフセット</p>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>このチュートリアルではZオフセットを平面化した複数のオブジェクトを積み上げる方法をご紹介しています。<br />
+<a class="image"><img alt="Flattened Colormap Surfaces with Increasing Z Offset 01.png" src="../images/Flattened_Colormap_Surfaces_with_Increasing_Z_Offset/Flattened_Colormap_Surfaces_with_Increasing_Z_Offset_01.png" width="798" /></a></p>
+<h2><a name="What_will_you_learn" id="What_will_you_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul>
+<li>複数の画像を行列オブジェクトとしてOriginにインポートする方法。</li>
+<li>画像オブジェクトをグラフレイヤー上に3D積み上げ曲面としてプロットする方法。</li>
+<li>平面化された画像をZ軸に配置する方法。</li>
+</ul>
+<h2><a name="Steps" id="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<ol>
+<li>新しい行列ウィンドウを作成し、<b>データ：ファイルからインポート：イメージファイルを行列へインポート</b>で、<i>\Sample\Image Processing and Analysis</i>フォルダにある<b>myocyte1~myocyte8</b>をインポートします。<b>イメージファイルを行列へインポート</b>ダイアログで、<b>複数ファイル(第一以外)のインポートモード</b>を<b>新しいオブジェクトの開始</b>に設定します。
+<dl>
+<dd><a class="image"><img alt="Flattened Colormap Surfaces with Increasing Z Offset 02.png" src="../images/Flattened_Colormap_Surfaces_with_Increasing_Z_Offset/Flattened_Colormap_Surfaces_with_Increasing_Z_Offset_02.png" width="598" /></a></dd>
+</dl>
+</li>
+<li>「OK」ボタンをクリックして、ファイルを行列オブジェクトとして行列にインポートします。
+<dl>
+<dd><a class="image"><img alt="Flattened Colormap Surfaces with Increasing Z Offset 03.png" src="../images/Flattened_Colormap_Surfaces_with_Increasing_Z_Offset/Flattened_Colormap_Surfaces_with_Increasing_Z_Offset_03.png" width="511" /></a></dd>
+</dl>
+</li>
+<li>最初のオブジェクト(myocyte1.tif)を右クリックして「<b>プロパティ</b>」を選択し、 「行列プロパティ」ダイアログを開きます。<b>コメント</b>ボックスに5と入力して<b>進む&gt;&gt;</b>をクリックします。同様にそれぞれの行列オブジェクトに14,29,41,57,72,85,97と入力します。「OK」ボタンをクリックして、ダイアログを閉じます。
+<dl>
+<dd><a class="image"><img alt="Flattened Colormap Surfaces with Increasing Z Offset 03a.png" src="../images/Flattened_Colormap_Surfaces_with_Increasing_Z_Offset/Flattened_Colormap_Surfaces_with_Increasing_Z_Offset_03a.png" width="404" /></a></dd>
+</dl>
+</li>
+<li>メインメニューから<b>作図&gt; 3D：3D積み上げ曲面</b>を選択して グラフを作成します。
+<dl>
+<dd><a class="image"><img alt="Flattened Colormap Surfaces with Increasing Z Offset 04.png" src="../images/Flattened_Colormap_Surfaces_with_Increasing_Z_Offset/500px-Flattened_Colormap_Surfaces_with_Increasing_Z_Offset_04.png" width="500" /></a></dd>
+</dl>
+</li>
+<li>プロットをダブルクリックして<b>作図の詳細</b>ダイアログを開き、<b>カラーマップ/等高線</b>タブに移動し 、<b>色塗り</b>ヘッダーをクリックし て<b>塗り方</b> ダイアログを開き、 <b>グレースケール</b> パレットを選択します 。
+<dl>
+<dd><a class="image"><img alt="Flattened Colormap Surfaces with Increasing Z Offset 05.png" src="../images/Flattened_Colormap_Surfaces_with_Increasing_Z_Offset/Flattened_Colormap_Surfaces_with_Increasing_Z_Offset_05.png" width="770" /></a></dd>
+</dl>
+</li>
+<li><b>OK</b>ボタンをクリックして、ダイアログを閉じます。ボタン<a class="image"><img alt="Button Speedmode.png" src="../images/Flattened_Colormap_Surfaces_with_Increasing_Z_Offset/Button_Speedmode.png" width="24" /></a>をクリックしてスピードモードを無効にします。下図のようなグラフが完成します。
+<dl>
+<dd><a class="image"><img alt="Flattened Colormap Surfaces with Increasing Z Offset 01.png" src="../images/Flattened_Colormap_Surfaces_with_Increasing_Z_Offset/500px-Flattened_Colormap_Surfaces_with_Increasing_Z_Offset_01.png" width="500" /></a></dd>
+</dl>
+</li>
+</ol>

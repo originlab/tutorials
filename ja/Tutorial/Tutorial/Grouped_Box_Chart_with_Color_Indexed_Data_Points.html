@@ -1,0 +1,194 @@
+﻿<h1 class="firstheading">カラーインデックスデータのグループ化ボックスチャート</h1>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>目次</h2>
+</div>
+<ol>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ol>
+<li class="toclevel-2 tocsection-4"><a href="#Creating_the_Box_Plot_from_Raw_Data"><span class="tocnumber">3.1</span> <span class="toctext">素データによるボックスチャートの作図</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Customizing_the_Boxes_and_Statistical_Markers"><span class="tocnumber">3.2</span> <span class="toctext">ボックスチャートと統計マーカーの編集</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Customizing_Data_Symbols_and_Distribution_Curves"><span class="tocnumber">3.3</span> <span class="toctext">データシンボルと分布曲線の編集</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Customizing_the_Axes"><span class="tocnumber">3.4</span> <span class="toctext">軸の編集</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Updating_the_Legend_and_Adding_Text_Objects"><span class="tocnumber">3.5</span> <span class="toctext">凡例の更新とテキストオブジェクトの追加</span></a></li>
+</ol>
+</li>
+</ol>
+</div>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>Originは、素データからデータポイントと分布曲線付きのグループ化ボックスチャートの作図が可能です。</p>
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Box Chart Raw Data Indexed Data Plot Box chart with indexed data plot.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Box_Chart_Raw_Data_Indexed_Data_Plot_Box_chart_with_indexed_data_plot.png" width="551" border="0" /></a></dd>
+</dl>
+<p><br /></p>
+<p class="version">必要なOriginのバージョン: Origin 2015 SR0以降</p>
+<h2><a name="What_you_will_learn" id="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。</p>
+<ul>
+<li>素データによりグループ化されたボックスチャートを作成</li>
+<li>シンボルカラーをインデックスしたデータプロットを追加</li>
+<li>分布曲線の追加と編集</li>
+<li>軸表を編集</li>
+</ul>
+<h2><a name="Steps" id="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Creating_the_Box_Plot_from_Raw_Data" id="Creating_the_Box_Plot_from_Raw_Data"></a><span class="mw-headline">素データによるボックスチャートの作図</span></h3>
+<p>このチュートリアルは、チュートリアルデータプロジェクト（<i>&lt;Origin EXE フォルダ&gt;\Samples\TutorialData.opj</i>）と関連しています。<br /></p>
+<ol>
+<li>Tutorial Data.opj を開き、<i>Grouped Box with Index Color DataPoint</i>を開きます。</li>
+<li><b style="font-weight: bold;">Book5</b>ワークブックをアクティブにします。</li>
+<li>列Eから列Jを選択します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Box Chart Raw Data Indexed Data Plot Highlight columns.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Box_Chart_Raw_Data_Indexed_Data_Plot_Highlight_columns.png" width="694" height="387" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">2Dグラフギャラリー</b>ツールバーの左から6番目のボタンの下にある三角形のボタンをクリックして、フライアウトメニューを表示します。下図のように、<b>グループ化したボックスチャート - 素データ</b>を選択します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Box Chart Raw Data Indexed Data Plot box chart button.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Box_Chart_Raw_Data_Indexed_Data_Plot_box_chart_button.png" width="450" height="400" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">Plotting: plotgboxraw</b> ダイアログで、<b>グループ番号</b>を<b>2</b>にし、<b>第1グループの行</b>を<b>コメント</b>とし、<b>第2グループの行</b>を<b>ロングネーム</b>としてセットします。これにより、ワークシート上のコメントとロングネームにによるX軸の行名を持つ、2つのグループと3つのグループに配置された列データでボックスチャートを作成します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Box Chart Raw Data Indexed Data Plot plotgboxraw.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Box_Chart_Raw_Data_Indexed_Data_Plot_plotgboxraw.png" width="549" height="339" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">OK</b>ボタンをクリックします。素データからのグループ化ボックスチャートは、以下のように2つのグループレベルで作成されます。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Box Chart Raw Data Indexed Data Plot box chart1.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Box_Chart_Raw_Data_Indexed_Data_Plot_box_chart1.png" width="434" height="309" border="0" /></a></dd>
+</dl>
+</li>
+<li>グラフ内にデータポイントを追加するために、プロットをダブルクリックし、<b>作図の詳細</b>ダイアログを開きます。左パネルで<b>Layer1</b>レベルを拡張し、最初のプロットデータを選択します。</li>
+<li><b style="font-weight: bold;">ボックスチャート</b>タブを選択し、<b>種類</b>を<b>点列[左]+ボックス[右]</b>にします。<b>適用</b>ボタンをクリックします。これにより作図の詳細ダイアログに2つのタブ、<b>データ</b>と<b>シンボル</b>が追加されます。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Box Chart Raw Data Indexed Data Plot box tab type.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Box_Chart_Raw_Data_Indexed_Data_Plot_box_tab_type.png" width="289" height="67" border="0" /></a></dd>
+</dl>
+</li>
+<li>分布曲線を追加するために、<b>データ</b>タブを開き、分布曲線の<b>種類</b>を<b>正均分布</b>に設定します。また、<b>ビンの位置揃え</b>を<b>右</b>にし、曲線の配置を変更します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Box Chart Raw Data Indexed Data Plot data tab curve.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Box_Chart_Raw_Data_Indexed_Data_Plot_data_tab_curve.png" width="215" height="403" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">OK</b>ボタンをクリックします。データポイントと分布曲線が下図のように表示されます。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Box Chart Raw Data Indexed Data Plot box basic.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Box_Chart_Raw_Data_Indexed_Data_Plot_box_basic.png" width="464" height="309" border="0" /></a></dd>
+</dl>
+</li>
+</ol>
+<h3><a name="Customizing_the_Boxes_and_Statistical_Markers" id="Customizing_the_Boxes_and_Statistical_Markers"></a><span class="mw-headline">ボックスチャートと統計マーカーの編集</span></h3>
+<ol>
+<li>ボックスのどれかをダブルクリックして、<b>作図の詳細</b>ダイアログを開きます。</li>
+<li><b style="font-weight: bold;">グラフグループ</b>タブを開き、<b>境界色</b>と<b>ボックスの色</b>の推移を<b>1つずつ</b>にします。</li>
+<li><b style="font-weight: bold;">境界色の詳細</b>の項目の<a class="image"><img alt="GUI Elements the browse button.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/GUI_Elements_the_browse_button.png" width="16" border="0" /></a>ボタンをクリックします。<b>推移リストエディタ</b>ダイアログが開くので、最初の色をクリックし、<b>赤</b>を選択します。2番目の色は、<b>灰色</b>に設定します。OKをクリックします。</li>
+<li><b style="font-weight: bold;">ボックスの色</b>の<b>詳細</b>の項目にある<img alt="GUI Elements the browse button.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/GUI_Elements_the_browse_button.png" width="16" border="0" />ボタンをクリックして、<b>推移リストエディタ</b>ダイアログを開きます。最初の色をクリックして、<b>カスタムカラーの定義</b>を選択します。<br />
+：<a class="image"><img alt="Box Chart Raw Data Indexed Data Plot custom colour.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Box_Chart_Raw_Data_Indexed_Data_Plot_custom_colour.png" width="450" height="323" border="0" /></a></li>
+<li><b style="font-weight: bold;">RGB</b>値を設定します。右下にある赤, 緑, 青 の入力ボックスに<b>255</b>, <b>51</b>, <b>51</b>と入力し、<b>OK</b>をクリックしてダイアログを閉じます。</li>
+<li>2つ目も同様にします。<b>RGB</b>の値は順番に<b>143</b>, <b>143</b>, <b>143</b>を入力し、<b>OK</b>をクリックしてダイアログを閉じます。<b>OK</b>をクリックして<b>推移リストエディタ</b>を閉じ、設定を適用します。</li>
+<li>次のステップで<b>99%</b>、<b>1%</b>、<b>最大</b>、<b>最小</b>の位置で表示されている記述統計マーカーを表示するかどうか設定します。<br />
+<b>パーセンタイル</b>タブを開き、<b>縁の色</b>を<b>白</b>にし、<b>適用</b>ボタンをクリックします。グラフの背景も白なので、<b>最大</b>、<b>最小</b>、<b>99%</b>、<b>1%</b>は非表示になったように見えます。
+<table class="noborder">
+<tr>
+<td style="vertical-align: top;" width="60"><img src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Tip_icon.png" alt="" width="57" border="0" /></td>
+<td>
+<p><b style="font-weight: bold;">パーセンタイル</b>タブでは、<b>形式</b>のドロップダウンリストの最後の選択項目を選択することでマーカーを非表示に設定することも可能です。</p>
+</td>
+</tr>
+</table>
+</li>
+<li><b style="font-weight: bold;">線</b>タブを開き、<b>ヒゲ</b>の色と<b>キャップ</b>の色を<b>灰色</b>にし、<b>中央値線</b>を<b>白</b>に設定します。<br />
+<b>OK</b>をクリックします。下図のようなグラフになります。<br />
+<a class="image"><img alt="Box Chart Raw Data Indexed Data Plot box chart2.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Box_Chart_Raw_Data_Indexed_Data_Plot_box_chart2.png" width="438" height="284" border="0" /></a><br /></li>
+</ol>
+<h3><a name="Customizing_Data_Symbols_and_Distribution_Curves" id="Customizing_Data_Symbols_and_Distribution_Curves"></a><span class="mw-headline">データシンボルと分布曲線の編集</span></h3>
+<ol>
+<li>グラフをダブルクリックして、<b>作図の詳細</b>ダイアログを開きます。</li>
+<li><b style="font-weight: bold;">シンボル</b>タブを選びます。<b>サイズ</b>を<b>5</b>にし、<b>形状</b>を<b>2 円</b>を選択して<b>内部</b>を<b>空白</b>に設定します。</li>
+<li><b style="font-weight: bold;">境界色</b>をクリックしてドロップダウンリストから、<b>インデックス: Col(B):Machines</b>を選択します。シンボルの境界色は列Bによりインデックスされます。Machineの値が<b>A386</b>と<b>C334</b>で異なる色が使用されます。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Box Chart Raw Data Indexed Data Plot Symbol Color.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Box_Chart_Raw_Data_Indexed_Data_Plot_Symbol_Color.png" width="779" height="392" border="0" /></a></dd>
+</dl>
+</li>
+<li>シンボルの色がインデックスの場合、ダイアログに<b>カラーリスト</b>タブが表示されます。ユーザ定義の推移リストを設定するには、<b>カラーリスト</b>タブを開きます。<b>カスタム推移リストを使用</b>のチェックを付け、はじめのふたつの色を<b>青</b>、<b>暗い空色</b>にセットします。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Box Chart Raw Data Indexed Data Plot Color List.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Box_Chart_Raw_Data_Indexed_Data_Plot_Color_List.png" width="251" height="214" border="0" /></a></dd>
+</dl>
+</li>
+<li>分布曲線の色を編集するために、<b>線</b>タブを開き、分布曲線の<b>色</b>を<b>灰色</b>にします。</li>
+<li><b style="font-weight: bold;">OK</b>をクリックしてダイアログを閉じます。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Box Chart Raw Data Indexed Data Plot box basic2.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Box_Chart_Raw_Data_Indexed_Data_Plot_box_basic2.png" width="464" height="300" border="0" /></a></dd>
+</dl>
+</li>
+</ol>
+<h3><a name="Customizing_the_Axes" id="Customizing_the_Axes"></a><span class="mw-headline">軸の編集</span></h3>
+<p>グループ化グラフは、複数行軸ラベル表をサポートしています。<b>軸ダイアログ</b>にある<b>軸と軸目盛</b> タブの対象の軸は、最後の行から始まります。例えば、<b>下1</b>、 <b>下2</b>・・・・<b>下N</b>など下から一番目の行は <b>下1</b> に対応しています。</p>
+<ol>
+<li><b style="font-weight: bold;">SEG 1</b>、<b>SEG 2</b>、<b>SEG 3</b>の軸ラベル行を上X軸ラベルに移動するために、このラベル上でダブルクリックします。</li>
+<li><b style="font-weight: bold;">下1</b>アイコンの<b>軸</b>ダイアログが開きます。<b>下1</b>上で右クリックし、<b>反対へ移動</b>を選択します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Tutorial Grouped Box Axis 01.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Tutorial_Grouped_Box_Axis_01.png" width="402" height="313" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">適用</b>ボタンをクリックします。SEG 1、SEG 2、SEG 3の軸ラベルが上X軸上に表示されました。また、ダイアログの左パネルには<b>上1</b>アイコンが表示されました。</li>
+<li><b style="font-weight: bold;">下2</b>は<b>下1</b>に変更されました。<b>下1</b>アイコンを選択します。<b>表</b>タブに行きます。<b>行数</b>を<b>3</b>にセットします。<b>適用</b>ボタンをクリックします。グラフ上に3つの同じような目盛ラベルが表示され、それはら<b>下 1</b>, <b>下 2</b>, <b>下 3</b>となります。</li>
+<li>一番下の目盛ラベル行を明るい灰色で着色するには、左パネルで<b>下3</b>アイコンをクリックし、<b>表</b>タブを開いていることを確認してから<b>自動</b>のチェックを外して自動のチェックを外してそれぞれ個別で編集できるようにします。<b>塗り色</b>を<b>明るい灰色</b>に設定し、表のレイアウトノードの下にある<b>境界線(内側)</b>のチェックを外します。</li>
+<li>2番目の行は、2つ目のワークシート<b>A386_CC.MI</b>にある列Cのデータを使用してラベル付けします。<b>下2</b>アイコンを選択して、<b>表示</b>タブを開きます。<b>タイプ</b>を<b>データセットからのテキスト</b>に変更し、<b>データセット名</b>のドロップダウンリストから<b>[Book5]"A386_CC.MI"!C"N"</b>を選択します。</li>
+<li><b style="font-weight: bold;">フォーマット</b>タブを開き、<b>自動</b>チェックを外してから<b>色</b>を<b>白</b>に設定します。<b>表</b>タブを開き、以下のように設定します：
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Tutorial Grouped Box Axis 02.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Tutorial_Grouped_Box_Axis_02.png" width="539" height="438" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">下1</b>アイコンをクリックし、<b>表示</b>タブを開きます。<b>タイプ</b>で<b>データセットからのテキスト</b>を選択し、<b>データセット名</b>で<b>[Book5]"C334_CC.MI"!C"N"</b>を設定します。これは<b>C334_CC.MI</b>ワークシートの列Cを使うように伝えます。</li>
+<li><b style="font-weight: bold;">表</b>タブを開き、表のレイアウトを以下のように変更します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Tutorial Grouped Box Axis 03.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Tutorial_Grouped_Box_Axis_03.png" width="532" height="449" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">上1</b>をアイコンを選択し、<b>表</b>タブを開いてから上軸の表のレイアウトを以下の図のように設定します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Tutorial Grouped Box Axis 04.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Tutorial_Grouped_Box_Axis_04.png" width="536" height="443" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">フォーマット</b>タブを開き、<b>フォントサイズ</b>を<i>22</i>に変更して目盛ラベルは<b>太字</b>にします。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Tutorial Grouped Box Axis 04b.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Tutorial_Grouped_Box_Axis_04b.png" width="367" border="0" /></a></dd>
+</dl>
+</li>
+<li>Y 軸に対して以下のように変更します。
+<ul>
+<li><b style="font-weight: bold;">スケール</b>タブ(<b>垂直</b>アイコン)：<b>増分</b>を<b>5000</b>に設定</li>
+<li><b style="font-weight: bold;">目盛ラベル</b>タブ　&gt;&gt;　<b>表示</b>タブ(<b>左</b>アイコン) ：<b>表示</b>を<b>科学的10^3</b>に設定</li>
+</ul>
+</li>
+<li><b style="font-weight: bold;">OK</b> をクリックしてダイアログを閉じます。</li>
+<li>Y 軸のタイトル<b>Range</b>を選択し、<b>Delete</b>キーを押してこれを削除します。</li>
+</ol>
+<h3><a name="Updating_the_Legend_and_Adding_Text_Objects" id="Updating_the_Legend_and_Adding_Text_Objects"></a><span class="mw-headline">凡例の更新とテキストオブジェクトの追加</span></h3>
+<ol>
+<li>ボックスチャートの凡例上で右クリックし、<b>凡例：ボックスチャートの要素</b>を選択し、<b>Enhanced Box Legend: legendbox</b> ダイアログを開きます。<b>データ</b>以外の全ての要素のチェックボックスのチェックを外します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Group Box Chart Legend 01.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Group_Box_Chart_Legend_01.png" width="360" height="450" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">OK</b>ボタンをクリックします。凡例にはデータのシンボルのみ表示されます。凡例テキスト上でダブルクリックして、編集モードにします。凡例の1行目を削除します。凡例オブジェクトをドラッグして適当な場所に移動します。</li>
+<li>凡例を囲う黒線を削除するには、凡例上で右クリックして、<b>オブジェクトの表示属性</b>を選択します。<b>オブジェクトプロパティ</b> ダイアログで、<b>枠</b> タブに移動し、<b>枠</b> を <b>なし</b>に設定します。</li>
+<li>Originはまだラベル表のタイトルはサポートしていません。しかし、手動でテキストオブジェクトを追加可能です。2番目の軸ラベル行の左側の空白部分で右クリックし、コンテキストメニューから<b>テキストの追加</b>を選択します。<b>NA386=</b> と入力します。そして、編集モードの状態のまま、A386を選択し、<b>書式</b>ツールバーの<a class="image"><img alt="GUI Elements lower case letters button.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/GUI_Elements_lower_case_letters_button.png" width="23" border="0" /></a>ボタンをクリックして下付き文字に変更します。選択してドラッグし、位置を整えます。</li>
+<li>3番目のラベル行には、NC334=というテキストオブジェクトを追加し、C334を下付き文字に変更します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Box Chart Raw Data Indexed Data Plot text object.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Box_Chart_Raw_Data_Indexed_Data_Plot_text_object.png" width="317" height="372" border="0" /></a></dd>
+</dl>
+</li>
+</ol>
+<p><br />
+最終的に、下図のようなグラフになります。<br /></p>
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Box Chart Raw Data Indexed Data Plot Box chart with indexed data plot.png" src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Box_Chart_Raw_Data_Indexed_Data_Plot_Box_chart_with_indexed_data_plot.png" width="551" border="0" /></a></dd>
+</dl>
+<table class="noborder">
+<tr>
+<td style="vertical-align: top;" width="60"><img src="../images/Grouped_Box_Chart_with_Color_Indexed_Data_Points/Tip_icon.png" alt="" width="57" border="0" /></td>
+<td>
+<p>クリックして表ラベルを選択し、キーボードの矢印キーを使用してそれらを微調整することができます。</p>
+</td>
+</tr>
+</table>

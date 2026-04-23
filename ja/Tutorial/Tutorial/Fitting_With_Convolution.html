@@ -1,0 +1,165 @@
+﻿<h1 class="firstheading">コンボリューションしながらフィットする</h1><p class='urlname' style='display: none'>Fitting-Convolution</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">サンプルとステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Background"><span class="tocnumber">3.1</span> <span class="toctext">背景</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Define_the_Function"><span class="tocnumber">3.2</span> <span class="toctext">関数を定義する</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Fit_the_Curve"><span class="tocnumber">3.3</span> <span class="toctext">曲線をフィットする</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>指数データに曲線フィットを実行するとき、データに含まれる機器の応答を考慮する必要があるかもしれません。これを行う1つの方法は、データにデコンボリューションを実行し、機器の応答データを除去し、2番目のステップとして曲線フィットを実行します。しかし、結果がデータ内に存在するノイズの影響を受けやすいので、デコンボリューションは常に信頼できるとは限りません。より信頼性の高い方法は、フィット実行中に機器の応答データを持つデータに対して、フィット関数のコンボリューションを実行することです。このチュートリアルでは、フィット中にコンボリューションを実行する方法を示します。
+</p>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Fitting_With_Convolution/Tip_icon.png" width="57"  border="0" /></td><td><p>もし、使うデータがGaussと指数関数のコンボリューションの場合、組み込み関数である<b>Peak Functions</b>カテゴリ内にある<a class="external text" href="../../UserGuide/UserGuide/GaussMod.html">GaussMod</a>を使って直接データをフィットできます。
+</p></td></tr></table>
+<p class="version" >必要なOriginのバージョン:Origin 2016 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します:
+</p>
+<ul><li> 反復実行中にフィット情報にアクセスする</li>
+<li> フィット中にコンボリューションを実行する</li></ul>
+<h2><a name="Example_and_Steps"></a><span class="mw-headline">サンプルとステップ</span></h2>
+<h3><a name="Background"></a><span class="mw-headline">背景</span></h3>
+<p>\<i>Samples</i>\<i>Curve Fitting</i>\<i>FitConv.dat</i>をインポートしてこのサンプルを開始しましょう。
+</p>
+<dl><dd><a class="image"><img alt="Tutorial Fitting With Convolution 001.png" src="../images/Fitting_With_Convolution/Tutorial_Fitting_With_Convolution_001.png" width="189"  /></a></dd></dl>
+<p>ソースデータには、サンプルポイント、出力信号、インパルス応答が含まれています。この実験は、出力信号がガウス応答を持つ指数減少関数のコンボリューションであると見なしています。
+</p>
+<dl><dd><a class="image"><img alt="Tutorial Fitting With Convolution 002.png" src="../images/Fitting_With_Convolution/Tutorial_Fitting_With_Convolution_002.png" width="485"  /></a></dd></dl>
+<p>これで、出力信号と応答データを得たので、信号を次のモデルでフィットして、指数減少関数を得ることができます。
+</p>
+<dl><dd><img src="../images/Fitting_With_Convolution/math-8e34ad167a7c75e17660203787f4ef33.png" title="y = y_0 + \int_{-\infty}^{+\infty} Ae^{-tx} \otimes Response, dx" alt="y = y_0 + \int_{-\infty}^{+\infty} Ae^{-tx} \otimes Response, dx" class="tex"/></dd></dl>
+<h3><a name="Define_the_Function"></a><span class="mw-headline">関数を定義する</span></h3>
+<p>明らかに、列1と列2は、それぞれ関数のxとyです。列3はインパルス応答でしょうか? フィット関数でこの列にアクセスし、サンプリングポイントから理論指数曲線を計算します。そして、FFTを使ってコンボリューションを実行します。
+</p><p><b>F9</b>を押し、<b>フィット関数オーガナイザ</b>を開き、以下のように関数を定義します。
+</p>
+<table class="blank">
+<tr>
+<th width="150">
+</th>
+<th>
+</th></tr>
+<tr>
+<td> <b>関数名：</b>
+</td>
+<td> FitConv
+</td></tr>
+<tr>
+<td> <b>関数形式：</b>
+</td>
+<td> ユーザ定義
+</td></tr>
+<tr>
+<td> <b>独立変数：</b>
+</td>
+<td> x
+</td></tr>
+<tr>
+<td> <b>従属変数：</b>
+</td>
+<td> y
+</td></tr>
+<tr>
+<td> <b>パラメータの名前：</b>
+</td>
+<td> y0, A, t
+</td></tr>
+<tr>
+<td> <b>定義形式：</b>
+</td>
+<td> <font color="blue">Origin C</font>
+</td></tr>
+<tr>
+<td> <b><b>関数</b>:</b>
+</td>
+<td>
+</td></tr></table>
+<p><b>関数</b>ボックスの隣にあるボタン(アイコン)をクリックし、<b>コードビルダ</b>に関数を記述します。
+</p>
+<pre class="oc" style="font-family:monospace;"><span style="color: #0000ff;">#pragma</span> warning<span style="color: #000000;">(</span>error <span style="color: #000000;">:</span> <span style="color: #0000dd;">15618</span><span style="color: #000000;">)</span>
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>origin.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+<span style="color: #008000;">// ヘッダーファイルは必須です。</span>
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>ONLSF.<span style="color: #000000;">H</span><span style="color: #000080;">&gt;</span>
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>fft_utils.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+<span style="color: #008000;">//</span>
+<span style="color: #008000;">// </span>
+<span style="color: #0000ff;">void</span> _nlsfTestConv<span style="color: #000000;">(</span>
+<span style="color: #008000;">// フィットパラメータ：</span>
+<span style="color: #0000ff;">double</span> y0, <span style="color: #0000ff;">double</span> A, <span style="color: #0000ff;">double</span> t,
+<span style="color: #008000;">// 独立変数：</span>
+<span style="color: #0000ff;">double</span> x,
+<span style="color: #008000;">// 従属変数：</span>
+<span style="color: #0000ff;">double</span><span style="color: #000040;">&amp;</span> y<span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+	<span style="color: #008000;">// 編集部分の始まり</span>
+	NLFitContext <span style="color: #000040;">*</span>pCtxt <span style="color: #000080;">=</span> Project.<span style="color: #000000;">GetNLFitContext</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+        Worksheet wks;
+        DataRange dr;
+        <span style="color: #0000ff;">int</span> c1,c2;
+        dr <span style="color: #000080;">=</span> pCtxt<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>GetSourceDataRange<span style="color: #000000;">(</span><span style="color: #000000;">)</span>; <span style="color: #008000;">//元データ範囲を取得</span>
+        dr.<span style="color: #000000;">GetRange</span><span style="color: #000000;">(</span>wks, c1, c2<span style="color: #000000;">)</span>;  <span style="color: #008000;">//元データワークシートを取得</span>
+	<span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span> pCtxt <span style="color: #000000;">)</span>
+	<span style="color: #000000;">{</span>	
+		<span style="color: #008000;">// 個々の反復での出力信号のベクトル</span>
+		<span style="color: #0000ff;">static</span> vector vSignal;
+		<span style="color: #008000;">// パラメータが更新されると、コンボリューションの結果も再計算される</span>
+		<span style="color: #0000ff;">BOOL</span> bIsNewParamValues <span style="color: #000080;">=</span> pCtxt<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>IsNewParamValues<span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+		<span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span> bIsNewParamValues <span style="color: #000000;">)</span>
+		<span style="color: #000000;">{</span>
+			<span style="color: #008000;">// ワークシートからサンプリングと応答データを読み取る</span>
+			Dataset dsSampling<span style="color: #000000;">(</span>wks, <span style="color: #0000dd;">0</span><span style="color: #000000;">)</span>;
+			Dataset dsResponse<span style="color: #000000;">(</span>wks, <span style="color: #0000dd;">2</span><span style="color: #000000;">)</span>;
+			<span style="color: #0000ff;">int</span> iSize <span style="color: #000080;">=</span> dsSampling.<span style="color: #000000;">GetSize</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+&nbsp;
+			vector vResponse, vSample;
+&nbsp;
+			vResponse <span style="color: #000080;">=</span> dsResponse;
+			vSample <span style="color: #000080;">=</span> dsSampling;
+&nbsp;
+			vSignal.<span style="color: #000000;">SetSize</span><span style="color: #000000;">(</span>iSize<span style="color: #000000;">)</span>;
+			vResponse.<span style="color: #000000;">SetSize</span><span style="color: #000000;">(</span>iSize<span style="color: #000000;">)</span>;
+			vSample.<span style="color: #000000;">SetSize</span><span style="color: #000000;">(</span>iSize<span style="color: #000000;">)</span>;
+&nbsp;
+			<span style="color: #008000;">// 指数減少曲線を算出</span>
+			vSignal <span style="color: #000080;">=</span> A <span style="color: #000040;">*</span> <span style="color: #000000;">exp</span><span style="color: #000000;">(</span> <span style="color: #000040;">-</span>t<span style="color: #000040;">*</span>vSample <span style="color: #000000;">)</span>;
+			<span style="color: #008000;">// コンボリューションの実行</span>
+			<span style="color: #0000ff;">int</span> iRet <span style="color: #000080;">=</span> fft_fft_convolution<span style="color: #000000;">(</span>iSize, vSignal, vResponse<span style="color: #000000;">)</span>;
+                        <span style="color: #008000;">//サンプリング間隔を掛けることでコンボリューションを修正</span>
+                        vSignal <span style="color: #000080;">=</span> <span style="color: #000000;">(</span>vSample<span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span><span style="color: #000040;">-</span>vSample<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span><span style="color: #000040;">*</span>vSignal;
+&nbsp;
+&nbsp;
+		<span style="color: #000000;">}</span>
+&nbsp;
+		NLSFCURRINFO    stCurrInfo;
+		pCtxt<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>GetFitCurrInfo<span style="color: #000000;">(</span><span style="color: #000040;">&amp;</span>stCurrInfo<span style="color: #000000;">)</span>;
+		<span style="color: #008000;">// 反復のためにデータインデックスを入手</span>
+		<span style="color: #0000ff;">int</span> nCurrentIndex <span style="color: #000080;">=</span> stCurrInfo.<span style="color: #000000;">nCurrDataIndex</span>;
+		<span style="color: #008000;">// 評価したy値を入手</span>
+		y <span style="color: #000080;">=</span> vSignal<span style="color: #000000;">[</span>nCurrentIndex<span style="color: #000000;">]</span> <span style="color: #000040;">+</span> y0;
+		<span style="color: #008000;">// ここではxを利用していないため、関数をコンパイルするために使用</span>
+		x;
+	<span style="color: #000000;">}</span>
+	<span style="color: #008000;">// 編集可能エリア終了</span>
+<span style="color: #000000;">}</span></pre>
+<p>特定のxに対して、関数は対応するy値を返します。しかし、コンボリューションが実行されると、特定のデータポイントだけでなく、曲線全体に対して操作を実行する必要があります。Origin 8 SR2から、フィット内での主要情報を取得するために、<a class="external text" href="../../OriginC/Category/NLFitContext_(class).html">NLFitContextクラス</a>を導入しました。各反復計算で、NLFitContextを使って、フィットパラメータを監視しています。それらが更新されると、<a class="external text" href="../../OriginC/OriginC/Fft_fft_convolution_(global_function).html">fft_fft_convolution</a>メソッドにより、FFTを使ってコンボリューションを計算します。結果はベクターデータvSignalに保存されます。各xに対して、NLSFCURRINFO内の現在のデータインデックスを使って、vSignalから評価したyを取得できます。
+</p>
+<h3><a name="Fit_the_Curve"></a><span class="mw-headline">曲線をフィットする</span></h3>
+<p>フィット関数の本体で、アクティブワークシートから直接応答データを読み込みます。よって、ワークシートからフィットを実行します。 
+</p>
+<ol><li> 列Bを選択し、<b>Ctrl + Y</b>を押し、<b>非線形フィット</b>ダイアログを開きます。 </li>
+<li> <i>フィット曲線</i>ページの<i>Xデータ型</i> では<i><b>入力Xに同じ</b></i>を選択します。</li>
+<li> 関数選択ページに戻り、定義した<i>FitConv</i>関数を選びます。</li>
+<li> パラメータをy0=0, A=10, t=1のように初期化します。</li>
+<li> <b>フィット</b>ボタンをクリックし、結果を生成します。</li></ol>
+<p>このチュートリアルで説明した関数と同じようなフィット関数を使用する場合、<b>NLFit</b>を実行する際は、<b>NLFit</b>ダイアログの設定タブで、<b>フィット曲線</b>の<b>Xデータ型</b>に<b>入力データと同じ</b>を設定するようにしてください。
+</p>
+
+    

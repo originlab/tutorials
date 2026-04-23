@@ -1,0 +1,222 @@
+﻿<h1 class="firstheading">GNU Scientific Libraryを使ったユーザ定義フィット関数</h1>
+<p><br />
+GSL関数をフィット関数として使用する方法を説明したものです。</p>
+<p class="version">必要なOriginのバージョン:8.0 SR6</p>
+<p>1.次の関数で、下にあるサンプルデータをフィットします。</p>
+<dl>
+<dd><img class="tex" alt="y=y_0+a\int_{0}^{x} e^{\beta \cdot t}\, dt" src="../images/User_Defined_Fitting_Funciton_using_GNU_Scientific_Library/math-5f9ffaf63cd7012c3ab0cccc7766b173.png" width="149" height="38" border="0" /></dd>
+</dl>
+<pre>
+0.1     0.10517
+0.2     0.2214
+0.3     0.34986
+0.4     0.49182
+0.5     0.64872
+0.6     0.82212
+0.7     1.01375
+0.8     1.22554
+0.9     1.4596
+1       1.71828
+1.1     2.00417
+1.2     2.32012
+1.3     2.6693
+1.4     3.0552
+1.5     3.48169
+1.6     3.95303
+1.7     4.47395
+1.8     5.04965
+1.9     5.68589
+2       6.38906
+2.1     7.16617
+2.2     8.02501
+2.3     8.97418
+2.4     10.02318
+2.5     11.18249
+2.6     12.46374
+2.7     13.87973
+2.8     15.44465
+2.9     17.17415
+3       19.08554
+3.1     21.19795
+3.2     23.53253
+</pre>
+<p><br />
+2.次のステップに進む前に、Originをインストールしたフォルダの<b>ユーザファイルフォルダ</b>にocgsl.h ファイルを追加します。同じ場所に、<a class="external text" href="../../OriginC/OCGuide/Calling_GNU_Scientific_Library.html" style="font-family: Verdana, sans-serif; font-size: 10.6667px; font-style: normal; font-variant: normal; font-weight: normal; letter-spacing: normal; line-height: normal; orphans: auto; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 1; word-spacing: 0px; -webkit-text-stroke-width: 0px;">Calling GNU Scientific Library</a>からgsl_dllファイルをコピーしてください。</p>
+<p><br />
+<b>ocgsl.h</b></p>
+<pre class="oc">
+<span style="color: #0000ff;">#pragma</span> dll<span style="color: #000000;">(</span>libgsl, header<span style="color: #000000;">)</span> <span style="color: #008000;">
+// これはOCの特別なプラグマ で、 </span><span style="color: #008000;">
+// ヘッダキーワードはlibgsl.dllがこのファイルと同じ場所にあることを示しています。</span>
+ <span style="color: #0000ff;">
+#define</span> GSL_EXPORT       <span style="color: #008000;">// OCでは、これは不要ですので、削除します。</span>
+ <span style="color: #008000;">
+//gsl関数のプロトタイプをここで直接探すことができます。</span>
+ <span style="color: #0000ff;">
+typedef</span> <span style="color: #0000ff;">double</span> <span style="color: #000000;">(</span><span style="color: #000040;">*</span> FUNC<span style="color: #000000;">)</span><span style="color: #000000;">(</span><span style="color: #0000ff;">double</span> x, <span style="color: #0000ff;">void</span> <span style="color: #000040;">*</span> params<span style="color: #000000;">)</span>;
+ <span style="color: #0000ff;">
+struct</span> gsl_function_struct <span style="color: #000000;">
+{</span>
+        FUNC function;
+        <span style="color: #0000ff;">void</span> <span style="color: #000040;">*</span> params;<span style="color: #000000;">
+}</span>;
+ <span style="color: #0000ff;">
+typedef</span> <span style="color: #0000ff;">struct</span> gsl_function_struct gsl_function ;
+ <span style="color: #0000ff;">
+typedef</span> <span style="color: #0000ff;">struct</span><span style="color: #000000;">
+{</span>
+    <span style="color: #0000ff;">size_t</span> limit;
+    <span style="color: #0000ff;">size_t</span> size;
+    <span style="color: #0000ff;">size_t</span> nrmax;
+    <span style="color: #0000ff;">size_t</span> i;
+    <span style="color: #0000ff;">size_t</span> maximum_level;
+    <span style="color: #0000ff;">double</span> <span style="color: #000040;">*</span>alist;
+    <span style="color: #0000ff;">double</span> <span style="color: #000040;">*</span>blist;
+    <span style="color: #0000ff;">double</span> <span style="color: #000040;">*</span>rlist;
+    <span style="color: #0000ff;">double</span> <span style="color: #000040;">*</span>elist;
+    <span style="color: #0000ff;">size_t</span> <span style="color: #000040;">*</span>order;
+    <span style="color: #0000ff;">size_t</span> <span style="color: #000040;">*</span>level;<span style="color: #000000;">
+}</span>
+gsl_integration_workspace;
+ 
+GSL_EXPORT gsl_integration_workspace <span style="color: #000040;">*</span>gsl_integration_workspace_alloc <span style="color: #000000;">(</span><span style="color: #0000ff;">const</span> <span style="color: #0000ff;">size_t</span> n<span style="color: #000000;">)</span>;
+ 
+GSL_EXPORT <span style="color: #0000ff;">void</span> gsl_integration_workspace_free <span style="color: #000000;">(</span>gsl_integration_workspace <span style="color: #000040;">*</span> w<span style="color: #000000;">)</span>;
+ 
+GSL_EXPORT <span style="color: #0000ff;">int</span> gsl_integration_qag <span style="color: #000000;">(</span><span style="color: #0000ff;">const</span> gsl_function <span style="color: #000040;">*</span> f,
+                                    <span style="color: #0000ff;">double</span> a, <span style="color: #0000ff;">double</span> b,
+                                    <span style="color: #0000ff;">double</span> epsabs, <span style="color: #0000ff;">double</span> epsrel, <span style="color: #0000ff;">size_t</span> limit,
+                                    <span style="color: #0000ff;">int</span> key,
+                                    gsl_integration_workspace <span style="color: #000040;">*</span> workspace,
+                                    <span style="color: #0000ff;">double</span> <span style="color: #000040;">*</span>result, <span style="color: #0000ff;">double</span> <span style="color: #000040;">*</span>abserr<span style="color: #000000;">)</span>;
+</pre>
+<p><br />
+3.F9を押し、<b>フィット関数オーガナイザ</b>を開き、以下のように新しい関数を定義します。</p>
+<p><a><img alt="Image:Use_GSL_as_fit_function.png" src="../images/User_Defined_Fitting_Funciton_using_GNU_Scientific_Library/Use_GSL_as_fit_function.png" width="712" height="446" border="0" /></a></p>
+<p>4.<b>関数</b>フィールドの右側にあるボタンをクリックし、コードビルダを開き、以下のコードを追加して、 <b>_nlfgsl_integration_qag.fit</b>をコンパイルします。</p>
+<pre class="oc">
+<span style="color: #0000ff;">#include</span> <span style="color: #ff00ff;">"..<span style="color: #666666; font-weight: bold;">\o</span>cgsl.h"</span>
+ <span style="color: #0000ff;">
+static</span> <span style="color: #0000ff;">double</span> f_callback<span style="color: #000000;">(</span><span style="color: #0000ff;">double</span> x, <span style="color: #0000ff;">void</span> <span style="color: #000040;">*</span> params<span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+        <span style="color: #0000ff;">double</span> alpha <span style="color: #000080;">=</span> <span style="color: #000040;">*</span><span style="color: #000000;">(</span><span style="color: #0000ff;">double</span> <span style="color: #000040;">*</span><span style="color: #000000;">)</span>params;
+        <span style="color: #0000ff;">return</span> <span style="color: #000000;">exp</span><span style="color: #000000;">(</span>alpha<span style="color: #000040;">*</span>x<span style="color: #000000;">)</span>;<span style="color: #000000;">
+}</span>
+ <span style="color: #0000ff;">
+void</span> _nlsfgsl_integration_qag<span style="color: #000000;">(</span><span style="color: #008000;">
+// フィットパラメータ</span><span style="color: #0000ff;">
+double</span> y0, <span style="color: #0000ff;">double</span> a, <span style="color: #0000ff;">double</span> beta,<span style="color: #008000;">
+// 独立変数:</span><span style="color: #0000ff;">
+double</span> x,<span style="color: #008000;">
+// 従属変数:</span><span style="color: #0000ff;">
+double</span><span style="color: #000040;">&amp;</span> y<span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+        <span style="color: #008000;">// 編集可能部分開始</span>
+        <span style="color: #0000ff;">double</span> result, err, expected <span style="color: #000080;">=</span> <span style="color: #0000dd;">-4.0</span>;
+ 
+        <span style="color: #008000;">// 1000個の倍精度の間隔を持つことができるワークスペースを確保します。</span>
+        <span style="color: #008000;">// それらの積分結果とエラーを推定します。</span>
+        gsl_integration_workspace <span style="color: #000040;">*</span>ww <span style="color: #000080;">=</span> gsl_integration_workspace_alloc<span style="color: #000000;">(</span><span style="color: #0000dd;">1000</span><span style="color: #000000;">)</span>;
+ 
+        gsl_function F;
+        F.<span style="color: #000000;">function</span> <span style="color: #000080;">=</span> f_callback;
+        F.<span style="color: #000000;">params</span> <span style="color: #000080;">=</span> <span style="color: #000040;">&amp;</span>beta ;
+ 
+        <span style="color: #008000;">// 積分範囲 (0, x), は求められている絶対エラー０</span>
+        <span style="color: #008000;">//から、相対エラー1e-7間にあります</span>
+        gsl_integration_qag<span style="color: #000000;">(</span><span style="color: #000040;">&amp;</span>F, <span style="color: #0000dd;">0</span>, x, <span style="color: #0000dd;">0</span>, 1e<span style="color: #0000dd;">-7</span>, <span style="color: #0000dd;">1000</span>, <span style="color: #0000dd;">0</span>, ww, <span style="color: #000040;">&amp;</span>result, <span style="color: #000040;">&amp;</span>err<span style="color: #000000;">)</span>;
+ 
+        <span style="color: #008000;">// ワークスペースwに関係したメモリが解放されます</span>
+        gsl_integration_workspace_free <span style="color: #000000;">(</span>ww<span style="color: #000000;">)</span>;
+ 
+        y <span style="color: #000080;">=</span> y0 <span style="color: #000040;">+</span> a<span style="color: #000040;">*</span>result;
+ 
+        <span style="color: #008000;">// 編集可能部分終了</span><span style="color: #000000;">
+}</span>
+</pre>
+<p><br />
+さらに、以下のコードを追加すればフィット関数は完璧です。</p>
+<pre class="oc">
+<span style="color: #008000;">//----------------------------------------------------------</span><span style="color: #008000;">
+//</span><span style="color: #0000ff;">
+#include</span> <span style="color: #000080;">&lt;</span>ONLSF.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span><span style="color: #0000ff;">
+#include</span> <span style="color: #ff00ff;">"..<span style="color: #666666; font-weight: bold;">\o</span>cgsl.h"</span>  
+ <span style="color: #0000ff;">
+static</span> <span style="color: #0000ff;">double</span> f_callback<span style="color: #000000;">(</span><span style="color: #0000ff;">double</span> x, <span style="color: #0000ff;">void</span> <span style="color: #000040;">*</span> params<span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+        <span style="color: #0000ff;">double</span> alpha <span style="color: #000080;">=</span> <span style="color: #000040;">*</span><span style="color: #000000;">(</span><span style="color: #0000ff;">double</span> <span style="color: #000040;">*</span><span style="color: #000000;">)</span>params;
+        <span style="color: #0000ff;">return</span> <span style="color: #000000;">exp</span><span style="color: #000000;">(</span>alpha<span style="color: #000040;">*</span>x<span style="color: #000000;">)</span>;<span style="color: #000000;">
+}</span>
+ <span style="color: #0000ff;">
+void</span> _nlsfgsl_integration_qag<span style="color: #000000;">(</span><span style="color: #008000;">
+// フィットパラメータ</span><span style="color: #0000ff;">
+double</span> y0, <span style="color: #0000ff;">double</span> a, <span style="color: #0000ff;">double</span> beta,<span style="color: #008000;">
+// 独立変数:</span><span style="color: #0000ff;">
+double</span> x,<span style="color: #008000;">
+// 従属変数:</span><span style="color: #0000ff;">
+double</span><span style="color: #000040;">&amp;</span> y<span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+        <span style="color: #008000;">// 編集可能部分開始</span>
+ 
+        NLFitContext <span style="color: #000040;">*</span>pCtxt <span style="color: #000080;">=</span> Project.<span style="color: #000000;">GetNLFitContext</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+        <span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span> pCtxt <span style="color: #000000;">)</span>
+        <span style="color: #000000;">{</span>
+               <span style="color: #0000ff;">static</span> vector vInteg;
+               NLSFCURRINFO    stCurrInfo;
+               pCtxt<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>GetFitCurrInfo<span style="color: #000000;">(</span><span style="color: #000040;">&amp;</span>stCurrInfo<span style="color: #000000;">)</span>;
+               <span style="color: #0000ff;">int</span> nCurrentIndex <span style="color: #000080;">=</span> stCurrInfo.<span style="color: #000000;">nCurrDataIndex</span>;
+ 
+               <span style="color: #0000ff;">BOOL</span> bIsNewParamValues <span style="color: #000080;">=</span> pCtxt<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>IsNewParamValues<span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+               <span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span> bIsNewParamValues <span style="color: #000000;">)</span>
+               <span style="color: #000000;">{</span>
+                          vector vx;
+                        pCtxt<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>GetIndepData<span style="color: #000000;">(</span><span style="color: #000040;">&amp;</span>vx<span style="color: #000000;">)</span>;
+                        <span style="color: #0000ff;">int</span> nSize <span style="color: #000080;">=</span> vx.<span style="color: #000000;">GetSize</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+                        vInteg.<span style="color: #000000;">SetSize</span><span style="color: #000000;">(</span>nSize<span style="color: #000000;">)</span>;
+ 
+                        <span style="color: #008000;">// 1000個の倍精度の間隔を持つことができるワークスペースを確保します。</span>
+                        <span style="color: #008000;">// それらの積分結果とエラーを推定します。</span>
+                        gsl_integration_workspace <span style="color: #000040;">*</span>ww <span style="color: #000080;">=</span> gsl_integration_workspace_alloc<span style="color: #000000;">(</span><span style="color: #0000dd;">1000</span><span style="color: #000000;">)</span>;
+ 
+                        gsl_function F;
+                        F.<span style="color: #000000;">function</span> <span style="color: #000080;">=</span> f_callback;
+                        F.<span style="color: #000000;">params</span> <span style="color: #000080;">=</span> <span style="color: #000040;">&amp;</span>beta ;
+ 
+                        <span style="color: #0000ff;">double</span> result, err, expected <span style="color: #000080;">=</span> <span style="color: #0000dd;">-4.0</span>;
+                        <span style="color: #0000ff;">for</span><span style="color: #000000;">(</span><span style="color: #0000ff;">int</span> ii<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span>; ii<span style="color: #000080;">&lt;</span>nSize; <span style="color: #000040;">++</span>ii<span style="color: #000000;">)</span>
+                        <span style="color: #000000;">{</span>
+                                <span style="color: #008000;">// 積分範囲(0, vx[ii]), は求められている絶対エラー０</span>
+                                <span style="color: #008000;">// から、相対エラー1e-7間にあります</span>
+                                gsl_integration_qag<span style="color: #000000;">(</span><span style="color: #000040;">&amp;</span>F, <span style="color: #0000dd;">0</span>, vx<span style="color: #000000;">[</span>ii<span style="color: #000000;">]</span>, <span style="color: #0000dd;">0</span>, 1e<span style="color: #0000dd;">-7</span>, <span style="color: #0000dd;">1000</span>, <span style="color: #0000dd;">0</span>, ww, <span style="color: #000040;">&amp;</span>result, <span style="color: #000040;">&amp;</span>err<span style="color: #000000;">)</span>;
+                                vInteg<span style="color: #000000;">[</span>ii<span style="color: #000000;">]</span> <span style="color: #000080;">=</span> result;
+                        <span style="color: #000000;">}</span>
+ 
+                        <span style="color: #008000;">// ワークスペースwに関係したメモリが解放されます</span>
+                        gsl_integration_workspace_free <span style="color: #000000;">(</span>ww<span style="color: #000000;">)</span>;
+ 
+               <span style="color: #000000;">}</span>
+ 
+               y <span style="color: #000080;">=</span> y0 <span style="color: #000040;">+</span> a<span style="color: #000040;">*</span>vInteg<span style="color: #000000;">[</span>nCurrentIndex<span style="color: #000000;">]</span>;
+               x;
+        <span style="color: #000000;">}</span>
+ 
+        <span style="color: #008000;">// 編集可能部分終了</span><span style="color: #000000;">
+}</span>
+</pre>
+<p><br />
+5.次の初期化コードを追加します。</p>
+<p><b style="font-weight: bold;">パラメータ初期化</b></p>
+<pre class="oc">
+<span style="color: #008000;">//パラメータを初期化するコード</span>
+sort<span style="color: #000000;">(</span> x_y_curve <span style="color: #000000;">)</span>;<span style="color: #0000ff;">
+double</span> coeff<span style="color: #000000;">[</span><span style="color: #0000dd;">2</span><span style="color: #000000;">]</span>;
+fitpoly<span style="color: #000000;">(</span> x_y_curve, <span style="color: #0000dd;">1</span>, coeff<span style="color: #000000;">)</span>;  
+a <span style="color: #000080;">=</span> coeff<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span>;
+y0 <span style="color: #000080;">=</span> coeff<span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span>;
+beta<span style="color: #000080;">=</span><span style="color: #0000dd;">1.0</span>
+</pre>
+<p>6.ユーザ定義関数 <b>gsl_integration_qag</b>を使ってフィットすると、以下の結果が得られます。</p>
+<p><br />
+y0 = -1.06363E-6</p>
+<p>a = 1</p>
+<p>beta =1</p>

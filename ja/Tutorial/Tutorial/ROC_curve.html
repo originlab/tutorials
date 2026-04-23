@@ -1,0 +1,35 @@
+﻿<h1 class="firstheading">ROC曲線</h1><p class='urlname' style='display: none'>ROC-Curve</p>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>受信者動作特性(ROC)分析曲線は、主に臨床化学、薬理学、生理学の分野で診断検査の時に使用されます。診断検査の正確性や情報を比較する際に良く使用され、基準手法としても広く認知されています。 
+</p><p><br />
+</p><p>ROC曲線を使う方法についての詳細は、こちらの<a class="external text" href="../../UserGuide/Category/ROC_Curve_(OriginPro_only).html">ヘルプファイル</a> を参照してください。
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。
+</p>
+<ul><li>ROC曲線解析を行う</li>
+<li>解析結果の読み取りを行う</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>この例では、血清ナトリウムがRMSF(ロッキー山発疹熱)の診断の助けとなるかどうか判断するの研究を行います。 
+</p><p>このデータはRMSFに感染した患者としていない人から血清ナトリウムを計測したものです。その際、2種類の選別方法で計測されました。ROC曲線解析は両方の手法のデータに対して行われ、血清ナトリウム値とRMSFの関係を調べて診断方法をよりよくできるか模索します。
+</p>
+<ol><li>新しいワークブックを用意します。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Statistics</i>サブフォルダにある<i>sodium.dat</i> ファイルを探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。</li>
+<li><b>統計:ROC曲線</b>と選択してROCCurveダイアログを開きます。</li>
+<li><b>入力データ</b>ブランチで列<b>B(Method1)</b>と列<b>C(Method2)</b>を<b>データ</b>として、列<b>A(Sickness)</b>を<b>状態</b>としてそれぞれ選択します。</li>
+<li>計算制御ブランチでは、<b>正の状態値</b>ボックスで<b>RMSF</b>を設定し、検定方向では<b>正 v.s.  ロー</b>を選択します。 </li>
+<li> <b>ROC曲線</b>の項目にある<b>最適カットポイント</b>にチェックを付けます。</li>
+<li>他の設定はデフォルトのままで<b>OK</b>ボタンを押して分析を行います。
+<dl><dd> <a  class="image"><img alt="ROC1.png" src="../images/ROC_curve/ROC1.png" width="498"  /></a></dd></dl></li></ol>
+<p><b>結果の読み取り</b>：ROC Curve1ワークシートを開き、分析結果の表を開きます。
+</p>
+<dl><dd><a  class="image"><img alt="ROC2.png" src="../images/ROC_curve/ROC2.png" width="383"  /></a></dd></dl>
+<p>表から、両方の手法において<b>漸近確率</b>は0.05よりも小さいため、どちらの手法でも効果があると結論付ける事ができます。
+</p><p>ROC解析では、面積が1.0に近いほど良いテストであり、面積が0.5に近いほど悪いテストとなります。この解析では、method 1の曲線以下の面積は0.88862 で、method 2の曲線以下の面積は0.79407となります。どちらの結果も0.5よりも大きくなっています。しかし、method 1の面積の方が1.0に近いので、method 1の方がmethod 2よりも良い方法であると言えます。
+</p>
+<dl><dd><a  class="image"><img alt="ROC3.png" src="../images/ROC_curve/400px-ROC3.png" width="400"   /></a></dd></dl>
+<p>更に、レポート内に出力されているROC曲線の形を分析する事もできます。method 1の方がmethod 2よりも精密に検査ができるようなので、method 1の方がmethod 2よりも良い手法であると結論付ける事ができます。
+</p>
+
+
+
+    

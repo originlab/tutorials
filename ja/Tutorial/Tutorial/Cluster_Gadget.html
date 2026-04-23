@@ -1,0 +1,106 @@
+﻿<h1 class="firstheading">クラスターガジェット</h1><p class='urlname' style='display: none'>クラスターガジェット</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Perform_basic_statistics"><span class="tocnumber">3</span> <span class="toctext">基本統計を実施する</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Exclude_the_data_points_in_a_cluster"><span class="tocnumber">4</span> <span class="toctext">クラスター内にあるポイントを除外する</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Get_statistics_results_for_points_outside_of_the_ROI"><span class="toctext">5</span> <span class="tocnumber">ROI範囲外の統計結果を入手する</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Color_data_points_in_different_regions"><span class="tocnumber">6</span> <span class="toctext">異なる範囲のポイントに色を付ける</span></a></li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>Originはグラフ内の「関心のある範囲」（Region of interest, ROI）で簡単な統計を行う、クラスターガジェットをサポートしています。このガジェットではデータポイントの編集、消去、マスクができます。ROIオブジェクトを移動したり大きさを変えると、統計結果が更新されます。
+</p>
+<p class="version" >必要なOriginのバージョン: Origin 2016 SR0以降（Pro版のみ）</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul><li>「関心のある範囲」（Region of interest, ROI）で簡単な統計を行う方法</li>
+<li>データポイントの編集、例えば消去のやり方や、グラフ内の点をメニューやボタンを使ってマスクする方法</li>
+<li>ROI範囲の中または外のポイントを使って統計的な出力をする方法</li>
+<li>分類されたデータにより、データを分類しカラーマップする方法</li></ul>
+<h2><a name="Perform_basic_statistics"></a><span class="mw-headline">基本統計を実施する</span></h2>
+<ol>
+<li>新規ワークブックを開始して、<i>&lt;Originプログラムフォルダ&gt;\Samples\Graphing</i>にあるOriginのサンプルデータ、<i>Categorical Data.dat</i>をインポートします。 
+<br />列Dを選択して右クリックし、ショートカットメニューから<b><b>ソート（ワークシート）：昇順</b></b><b>を選択します。</b> 
+ワークシートが<i>Drug</i>のカテゴリーでソートされたことが分かります。</li>
+<li><b>Ctrl</b>キーを押しながら列Bの3か所を別々に選択します。  
+<dl><dd><a  class="image"><img alt="Cluster Gadget 01.png" src="../images/Cluster_Gadget/Cluster_Gadget_01.png" width="479"  /></a></li></dd></dl>
+<li>メニューから<b>作図：基本の2Dグラフ：散布図</b>を選択して、グラフを作成します。それぞれの薬による回復率を示した3つのプロットが表示されます。
+<dl><dd><a  class="image"><img alt="Cluster Gadget 02.png" src="../images/Cluster_Gadget/Cluster_Gadget_02.png" width="421"  /></a></li></dd></dl>
+<li>グラフの凡例を右クリックして<b>プロパティ</b>を選んで<b><b>オブジェクトプロパティ</b></b>ダイアログを開きます。次の図のように凡例を編集します。<b>OK</b> ボタンをクリックします。
+<dl><dd><a  class="image"><img alt="Cluster Gadget 10.png" src="../images/Cluster_Gadget/Cluster_Gadget_10.png" width="776"  /></a></li></dd></dl>
+<li><b>ガジェット：</b><b><b>クラ</b>スター操作</b>を選び、<b>クラスター操作: addtool_cluster</b>ダイアログを開きます。<b>ROIボックス</b>タブにある、<b>形状</b>のドロップダウンリストから<b>円形</b>を選びます。
+<dl><dd><a  class="image"><img alt="Cluster Gadget 03.png" src="../images/Cluster_Gadget/Cluster_Gadget_03.png" width="431"  /></a></li></dd></dl>
+<li><b>OK</b> ボタンをクリックします。<b>OK</b>をクリックすると、グラフ上に<b>ROI</b>として黄色の円が追加され、<b>クラスターガジェット</b>ダイアログが開きます。
+<dl><dd><a  class="image"><img alt="Cluster Gadget 04.png" src="../images/Cluster_Gadget/Cluster_Gadget_04.png" width="848"  /></a></li></dd></dl>
+<li>統計情報が欲しい範囲に黄色い円を移動すると、<b><b>内部ポイント</b></b>タブに情報が表示されます。 
+<dl><dd><a  class="image"><img alt="Cluster Gadget 05.png" src="../images/Cluster_Gadget/Cluster_Gadget_05.png" width="822"  /></a></li></dd></dl>
+<li><b><b>統計レポートを出力</b></b>ボタン<a  class="image"><img alt="Button Output Statistics Report.png" src="../images/Cluster_Gadget/Button_Output_Statistics_Report.png" width="24"  /></a>をクリックします。
+ボタンを押すと、結果ログ、スクリプトウィンドウ、クラスターワークブックを出力します。 </li>
+<li><b>レポートシートに行く</b>ボタン<a  class="image"><img alt="Button Go To Report Worksheet.png" src="../images/Cluster_Gadget/Button_Go_To_Report_Worksheet.png" width="24"  /></a>クリックすると、<b>クラスター</b>ワークブックを表示します。 
+<dl><dd><a  class="image"><img alt="Cluster Gadget 11.png" src="../images/Cluster_Gadget/Cluster_Gadget_11.png" width="534"  /></a></li></dd></dl>
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Cluster_Gadget/Tip_icon.png" width="57"  border="0" /></td><td><p>Origin2021b以降を使用している場合、ROIの形についてより多くの設定があります。クラスター操作ダイアログで<b>形状</b>を<b>任意図形</b>に設定します。<b>OK</b>をクリックすると小さな<b>ROIを作成</b>ダイアログが開きますので形状のボタンをクリックしてROIを作成ダイアログを閉じずに<a class="external text" href="../../UserGuide/Category/Creating_Drawing_Objects.html">ドラッグしてグラフ上に形を描きます</a>。ROIを描き終わるまでダイアログを開いたままにし、描き終わったら<b>完了</b>ボタンをクリックします。すると<b>クラスターガジェット</b>が開きます。
+</p><p>また、新しいクラスターガジェットツールバーには<b>ROIの変更</b>と<b>新しいROIの追加</b>（グラフに複数のROIを追加するための）ボタンがあります。
+</p>
+<dl><dd><a  class="image"><img alt="OH cluster gadget tip figure.png" src="../images/Cluster_Gadget/OH_cluster_gadget_tip_figure.png" width="536"  /></a></dd></dl>
+</td></tr></table>
+<h2><a name="Exclude_the_data_points_in_a_cluster"></a><span class="mw-headline">クラスター内にあるポイントを除外する</span></h2>
+<p>このセクションでは、テーマを使って、グラフをカスタマイズする方法を説明します。 
+上記例を元に<i>Recovery of Placebo</i>のデータを除外した<i>Recovery of DrugA</i>と<i>Recovery of DrugB</i>の簡単な統計を算出します。
+</p>
+<ol>
+<li><b><b>クラスターガジェット</b></b>ダイアログの<b>データ</b>メニューをクリックし、<b><b>Plot(1)</b></b>と<b><b>Plot(2)</b></b>のチェックを外します。下のパネルで1行目と2行目はグレーになり、ダイアログ内のボタンで操作できなくなります。
+<li><b>データポイントのマスク</b> ボタン<a  class="image"><img alt="Button Mask Data Points.png" src="../images/Cluster_Gadget/Button_Mask_Data_Points.png" width="24"  /></a>をクリックします。
+<i>Recovery of Placebo</i>のデータポイントがマスクされ、データポイントの色が赤くなります。同時に、<i>Recovery of Placebo</i>統計の数値が欠損値になります。 
+<br /><br /><a  class="image"><img alt="Cluster Gadget 07.png" src="../images/Cluster_Gadget/Cluster_Gadget_07.png" width="711"  /></a><br /><br />
+<li><b><b>統計レポートを出力</b></b>ボタン<a  class="image"><img alt="Button Output Statistics Report.png" src="../images/Cluster_Gadget/Button_Output_Statistics_Report.png" width="24"  /></a>をクリックします。
+ボタンを押すと、結果ログ、スクリプトウィンドウ、クラスターワークブックを出力します。  
+</ol>
+<h2><a name="Get_statistics_results_for_points_outside_of_the_ROI"></a><span class="mw-headline">ROI範囲外の統計結果を入手する</span></h2>
+<ol>
+<li><b>クラスターガジェット</b>ダイアログのメニューで<b>設定：設定</b>と選択し、<b>クラスター操作設定</b>ダイアログを開きます。</li>
+<li><b>計算</b>タブを開きます。<b>外部ポイントを計算</b>にチェックを付けます。 
+<dl><dd><a  class="image"><img alt="Cluster Gadget 08.png" src="../images/Cluster_Gadget/Cluster_Gadget_08.png" width="330"  /></a></li></dd></dl>
+<li><b><b>OK</b></b>ボタンを押すとROIボックスの外側の統計結果を<b><b>外部ポイント</b></b>タブ内に表示します。 
+<dl><dd><a  class="image"><img alt="Cluster Gadget 09.png" src="../images/Cluster_Gadget/Cluster_Gadget_09.png" width="566"  /></a></li></dd></dl>
+<li><b><b>統計レポートを出力</b></b>ボタン<a  class="image"><img alt="Button Output Statistics Report.png" src="../images/Cluster_Gadget/Button_Output_Statistics_Report.png" width="24"  /></a>をクリックします。
+内部と外部ポイントの結果は、結果ログ、スクリプトウィンドウ、クラスターワークブックに表示されます。 
+</ol>
+<h2><a name="Color_data_points_in_different_regions"></a><span class="mw-headline">異なる範囲のポイントに色を付ける</span></h2>
+<p>グラフから直接データを分類し、元のワークシートのCategorical group columnに出力することが出来ます。また、Categorical group columnにシンボルキャラクターのマップも出力することができます。
+</p><p>新規ワークブックを作成し、<i>&lt;Origin Program Folder&gt;\Samples\Graphing\Categorical Data.dat</i>.を再インポートします。列Bを選択し、散布図をプロットします。 
+</p>
+<dl><dd><a  class="image"><img alt="Cluster Gadget 12.png" src="../images/Cluster_Gadget/Cluster_Gadget_12.png" width="402"  /></a></dd></dl>
+<p>4つのグループにポイントはクラスター化されています。<b>クラスターガジェット</b>の、<b>カテゴリを作成</b>を使って、この列のクラスターグループやシンボルカラーのマップから、<b>カテゴリ列</b>を作成します。 
+</p>
+<ol>
+<li><b><b>ガジェット：<b>ク</b>ラスター操作</b></b>を選択し、<b>クラスター操作: addtool_cluster</b>ダイアログを開きます。<b>ROIボックス</b>タブにある、<b>形状</b>のドロップダウンリストから<b>円形</b>を選びます。
+<br /><b>OK</b>をクリックすると、グラフ上に<b>ROI</b>として黄色の円を追加され、<b>クラスターガジェット</b>ダイアログが開きます。 
+</li>
+<li>左下にある最初のデータ群だけが入るよう、ROIボックスの円を動かして大きさを調整します。 
+<dl><dd><a  class="image"><img alt="Cluster Gadget 13.png" src="../images/Cluster_Gadget/Cluster_Gadget_13.png" width="402"  /></a><br /></dd></dl>
+<b><b>クラスターガジェット</b></b>の<b><b>カテゴリを作成</b></b>ボタン <a  class="image"><img alt="Button Create Categories.png" src="../images/Cluster_Gadget/Button_Create_Categories.png" width="24"  /></a> をクリックして、<b>Create Categorical Value</b> ダイアログを開きます。<b><b>カテゴリグループ名</b></b>に<i>Group</i>、<b>カテゴリ</b>に<i>1</i>と入力します。<b>カテゴリーでデータを色付け</b>チェックボックスを選択します。
+<dl><dd><a  class="image"><img alt="Cluster Gadget 14.png" src="../images/Cluster_Gadget/Cluster_Gadget_14.png" width="362"  /></a><br /></dd></dl>
+<b><b>OK</b></b>ボタンをクリックします。Groupと名付けられた新しいカテゴリ列が元のデータシートに追加され、ROI内のデータポイントはこの<b>(Group)列</b>の中の&quot;1&quot;にタグ付けされます。散布図ではこのカテゴリ列をカラーインデックスとして使用します。
+<dl><dd><a  class="image"><img alt="Cluster Gadget 15.png" src="../images/Cluster_Gadget/Cluster_Gadget_15.png" width="472"  /></a><br /></dd></dl>
+</li>
+<li>残りの3群にも同じステップを繰り返し、順に2,3,4とタグ付けします。 
+<dl><dd><a  class="image"><img alt="Cluster Gadget 16.png" src="../images/Cluster_Gadget/Cluster_Gadget_16.png" width="782"  /></a><br /></dd></dl>
+元のワークシートは次のようになります。
+<dl><dd><a  class="image"><img alt="Cluster Gadget 17.png" src="../images/Cluster_Gadget/Cluster_Gadget_17.png" width="472"  /></a><br /></dd></dl>
+<b>クラスターガジェット</b>を閉じます。
+</li>
+<li>グラフは下図のようになります。
+<dl><dd><a  class="image"><img alt="Cluster Gadget 19.png" src="../images/Cluster_Gadget/Cluster_Gadget_19.png" width="537"  /></a></dd></dl>
+</li>
+<li>凡例を削除します。<b>グラフ操作：凡例：</b><b><b>カテ</b>ゴリ値</b>と選択し、<b>legendcat</b> ダイアログを開きます。<b>全てのカテゴリーを表示</b>チェックボックスのチェックを外します。<b><b>OK</b></b>をクリックします。新しい凡例付の散布図が次のようになります。
+<dl><dd><a  class="image"><img alt="Cluster Gadget 20.png" src="../images/Cluster_Gadget/Cluster_Gadget_20.png" width="537"  /></a></dd></dl>
+</li>
+</ol>
+
+
+    

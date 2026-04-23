@@ -1,0 +1,88 @@
+﻿<h1 class="firstheading">クロス集計とカイ二乗</h1><p class='urlname' style='display: none'>クロス集計</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#User_Story"><span class="tocnumber">3</span> <span class="toctext">ユーザストーリー</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Preparing_Data_for_Analysis"><span class="tocnumber">4</span> <span class="toctext">データ分析の準備をする</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Performing_Cross_Tabulation_and_Chi-square"><span class="tocnumber">5</span><span class="toctext">クロス集計とカイ二乗</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Interpreting_The_Results"><span class="tocnumber">6</span> <span class="toctext">結果の解釈</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#Frequency_Distribution"><span class="tocnumber">6.1</span> <span class="toctext">度数分布</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Detecting_Relationships_Between_Age_and_Financial_Status"><span class="tocnumber">6.2</span> <span class="toctext">年齢と経済状況の関係の検出</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Assessing_the_Strength_of_the_Relationship"><span class="tocnumber">6.3</span> <span class="toctext">関係強度の評価</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>カテゴリデータの分析にはクロス集計が多く使われています。これらの分析では、分割表を使った変数の度数分布を示します。表をベースにした分析は有意な関連性があるかどうかを決定し、関連性の強さと方向を作成して、一致対データの一致を計測して検定します。
+</p>
+<p class="version" >必要なOriginのバージョン:Origin 2016 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。
+</p>
+<ol><li> クロス集計の実行の方法</li>
+<li> 結果の解釈方法</li></ol>
+<h2><a name="User_Story"></a><span class="mw-headline">ユーザストーリー</span></h2>
+<p>これは、1992年5月に実行された、418人のうち209人から得られた人口に関連する世論調査データ<b>Montana Economic Outlook Poll</b>です。<b>年齢</b>（35才より下,35-54才,55才以上）、<b>性別</b>（男性、女性）、<b>経済状況</b>（昨年より：悪い、同じ、良い）等。データから得たい情報は下記です。
+</p>
+<ol><li> 3つの異なる年齢グループでの経済状況の度数分布と、分布の中で男性と女性がどのように異なるか。</li>
+<li> 男性と女性のグループに対して、経済状況と年齢の明らかな関係性があるか。</li>
+<li> これらの相関性の強さ。</li></ol>
+<h2><a name="Preparing_Data_for_Analysis"></a><span class="mw-headline">データ分析の準備</span></h2>
+<ol><li> 新しいプロジェクトまたは新しいワークブックを開きます。  ファイル<b>\Samples\Statistics\MontanacOutlookPoll.dat</b>をインポートします。 </li>
+<li> 分類値をソートします。
+<ul><li> <b>MontanacOutlookPoll</b> ワークシートで、<b>B</b>列を選択して右クリックし、<b><b>カテゴリーとして設定</b></b>を選択します。カテゴリー行にある<b><b>ソートなし</b></b>をダブルクリックして、<b><b>カテゴリー</b></b>ダイアログを開きます。<b>カテゴリーの編集（追加、削除、任意の順)</b> box.最上部に移動のボタン <a  class="image"><img alt="Category Tab Button ToTop 92.png" src="../images/Cross_Tabulation/Category_Tab_Button_ToTop_92.png" width="24"  /></a>、上に移動のボタン<a  class="image"><img alt="Category Tab Button Move Up 92.png" src="../images/Cross_Tabulation/Category_Tab_Button_Move_Up_92.png" width="24"  /></a>、下に移動のボタン<a  class="image"><img alt="Category Tab Button Move Down 92.png" src="../images/Cross_Tabulation/Category_Tab_Button_Move_Down_92.png" width="24"  /></a>最下部に移動のボタン<a  class="image"><img alt="Category Tab Button ToBottom 92.png" src="../images/Cross_Tabulation/Category_Tab_Button_ToBottom_92.png" width="24"  /></a> を使って、&quot;35才より下、&quot;35-54才&quot; と&quot;55才以上&quot;の順に並べ替えます。</li></ul>
+<dl><dd><a  class="image"><img alt="Crosstab0.png" src="../images/Cross_Tabulation/Crosstab0.png" width="468"  /></a></dd></dl>
+<ul><li> カテゴリーマッピングが<b>&lt;Female, Male&gt;</b>になるように、列<b>C</b>に繰り返します。</li>
+<li> カテゴリーマッピングが<b>&lt;Better, Same, Worse&gt;</b>になるように、列<b>G</b>に繰り返します。</li></ul></li></ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Cross_Tabulation/Tip_icon.png" width="57"  border="0" /></td><td><p>解析から欠損値を取り除くため、<a href="../../Tutorial/Tutorial/Categorical_Values_Ordering_and_Sharing.html" title="チュートリアル：カテゴリー値の順序と共有">カテゴリとして列を設定</a>します。または、欠損値を数値とします。 
+</p></td></tr></table>
+<h2><a name="Performing_Cross_Tabulation_and_Chi-square"></a><span class="mw-headline">クロス集計とカイ二乗</span></h2>
+<ol><li>メニューから<b>統計：記述統計：クロス集計とカイ二乗</b>を選択して、クロス集計とカイ二乗のダイアログを開きます。 </li>
+<li><b><b>入力</b></b>タブをクリックします。データは行データモードにあるので、<b>B</b>列、<b>G</b>列、<b>C</b>列をそれぞれ、<b>行</b>、<b>列</b>、<b>レイヤ</b>に選択します。 
+<dl><dd><a  class="image"><img alt="Crosstab1.png" src="../images/Cross_Tabulation/Crosstab1.png" width="360"  /></a></dd></dl></li>
+<li> <b><b>統計</b></b>のタブをクリックし、<b><b>予測カウント</b></b>、<b><b>残差</b></b>、<b><b>標準残差</b></b>、<b><b>調整済み残差</b></b>のチェックを外し、他はデフォルトのままにします。 
+<dl><dd><a  class="image"><img alt="Crosstab2.png" src="../images/Cross_Tabulation/Crosstab2.png" width="328"  /></a></dd></dl></li>
+<li> <b><b>検定</b></b>のタブで、<b><b>カイ二乗検定</b></b>のチェックボックスを選択します。<b>関係性の尺度</b>ブランチを開き、<b>分割表の係数</b>、<b>Phi</b>、<b>クラメールのV</b>ボックスを選択します。  
+<dl><dd><a  class="image"><img alt="Crosstab3.png" src="../images/Cross_Tabulation/Crosstab3.png" width="328"  /></a>                          </dd></dl></li>
+<li> <b>出力</b>タブを開き、<b>モザイクプロット</b>チェックを付けます。初期設定のまま、<b>OK</b>ボタンをクリックします。
+<dl><dd><a  class="image"><img alt="Crosstab44.png" src="../images/Cross_Tabulation/Crosstab44.png" width="418"  /></a></dd></dl></li></ol>
+<h2><a name="Interpreting_The_Results"></a><span class="mw-headline">結果の解釈</span></h2>
+<p><b>Crosstab1</b> シートを見てください。
+</p>
+<h3><a name="Frequency_Distribution"></a><span class="mw-headline">度数分布</span></h3>
+<p><b><b>モザイクプロット</b></b>と<b><b>分割表</b></b>から度数分布の情報を得ることが出来ます。<b><b>モザイクプロット</b></b>の中の個々の長方形範囲は、男性、女性、及び全体に対する&rdquo;年齢&rdquo;と&quot;経済環境&quot;を視覚的に比較できるように、Ｘ変数のそれぞれのレベルの中にあるＹ変数の割合に比例します。<b><b>分割表</b></b>から、より特化した情報を取得することが出来ます。<b>分割表</b>と<b>モザイクプロット</b>を併せると、次のことが分かります。
+</p>
+<ol><li>若い女性と高齢の女性の考え方は大きな隔たりがあります。 
+<ul><li> 35才未満の女性の大多数である59.5%は、より良い経済状況であると感じています。55才以上の女性の大多数である58.3%は、経済状況は変わらないと考えています。 </li>
+<li> 35才未満の女性の少数派11.9%は、経済状況は変わらないと考えているが、55才以上の女性の少数派11.1%は経済状況は良くなっていくと考えている。</li></ul>
+<dl><dd><a  class="image"><img alt="Crosstab5.png" src="../images/Cross_Tabulation/350px-Crosstab5.png" width="350"   /></a> <a  class="image"><img alt="Crosstab6.png" src="../images/Cross_Tabulation/400px-Crosstab6.png" width="438"   /></a></dd></dl></li>
+<li>経済状況について男女の考えを比較してみると、以下のような興味深い結果が得られました。
+<ul><li> 男性は年齢層によって、経済状況に大きな違いは見られません。</li>
+<li> 35-54才の男性は、自らの経済状況に対して、やや自信がある傾向があります。</li></ul>
+<dl><dd><a  class="image"><img alt="Crosstab7.png" src="../images/Cross_Tabulation/350px-Crosstab7.png" width="350"   /></a> <a  class="image"><img alt="Crosstab8.png" src="../images/Cross_Tabulation/350px-Crosstab8.png" width="434"   /></a></dd></dl></li>
+<li> 回答者の性別に関係なく、年齢による傾向があります。
+<ul><li> 55才未満の人は自らの経済状況に、自信がある傾向があります。</li>
+<li> 55才を超える人は、自分の経済状況が変わっていないと感じる傾向があります。 </li></ul>
+<dl><dd><a  class="image"><img alt="Crosstab9.png" src="../images/Cross_Tabulation/350px-Crosstab9.png" width="350"   /></a> <a  class="image"><img alt="Crosstab10.png" src="../images/Cross_Tabulation/400px-Crosstab10.png" width="434"   /></a></dd></dl></li></ol>
+<h3><a name="Detecting_Relationships_Between_Age_and_Financial_Status"></a><span class="mw-headline">年齢と経済状況の関係の検出</span></h3>
+<p><b>カイ二乗検定</b>表は、行と列の値に結果を示します。 
+もし、<b>Prob&gt;カイ二乗</b>が0.05より小さい場合、これは、行や列の変数、ここでは年齢と経済状況は明らかに相関しています。表の下にあるフットノートの結果に注目します。次のような結論になります。
+</p>
+<dl><dd><ul><li> 年齢の異なる女性は、異なる経済状況にあります。</li>
+<li> 反対に、男性の年齢と経済状況を関係付ける明確な根拠は見当たりません。 </li>
+<li> 性別にかかわらず、年齢によって異なる経済状況にあります。</li></ul>
+<dl><dd><a  class="image"><img alt="Crosstab11.png" src="../images/Cross_Tabulation/Crosstab11.png" width="542"  /></a></dd></dl></dd></dl>
+<h3><a name="Assessing_the_Strength_of_the_Relationship"></a><span class="mw-headline">関係強度の評価</span></h3>
+<p><b>関係性の測定</b>表は、「経済状況」と「年齢」の関係の強さを示します。これは、3ｘ3 のテーブル（3つの年齢層と3つの経済状況レベル）なので、レイヤ間を比較するために、 <b>Contingency 係数</b> を選択します。(3つの統計の違いについては<a class="external text" href="../../UserGuide/Category/Cross_Tabulation.html#Selecting_Methods_for_Measuring_Association">こちらの機能紹介ページ</a>を参照してください)表から次のことがわかります。
+</p>
+<dl><dd><ul><li> 女性の経済状況は男性よりも年齢に強く関係しています。(0.444 v.s.0.155)</li></ul>
+<dl><dd><a  class="image"><img alt="Crosstab12.png" src="../images/Cross_Tabulation/Crosstab12.png" width="540"  /></a></dd></dl></dd></dl>
+
+
+    

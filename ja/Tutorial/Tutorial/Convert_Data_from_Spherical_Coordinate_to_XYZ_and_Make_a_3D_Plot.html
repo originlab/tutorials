@@ -1,0 +1,373 @@
+﻿<h1 class="firstheading">球面座標データをXYZに変換し3Dグラフを作成</h1>
+<p class="urlname" style="display: none;">Convert-Spherical-to-XYZ</p>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> 
+		 <span class="toctext">サマリー</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_will_you_learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> 
+		 <span class="toctext">ステップ</span></a> 
+		<ol>
+			<li class="toclevel-2 tocsection-4"><a href="#3D_Surface_plot_with_colormap_for_data_in_virtual_matrix"><span 
+			 class="tocnumber">3.1</span> <span class="toctext">仮想行列のデータで3Dカラーマップ曲面図を作図</span></a></li>
+			<li class="toclevel-2 tocsection-5"><a href="#Convert_data_in_a_matrix_object_and_make_a_3D_surface_plot"><span 
+			 class="tocnumber">3.2</span> <span class="toctext">行列オブジェクトのデータを変換して3D曲面図を作図</span></a></li>
+			<li class="toclevel-2 tocsection-6"><a href="#Convert_data_in_three_matrix_objects_and_make_a_3D_surface_plot"><span 
+			 class="tocnumber">3.3</span> <span class="toctext">3つの行列オブジェクトのデータを変換して3D曲面図を作図</span></a></li>
+			<li class="toclevel-2 tocsection-7"><a href="#Convert_data_in_three_columns_and_make_a_3D_space_curve"><span 
+			 class="tocnumber">3.4</span> <span class="toctext">3列のデータを変換して3D空間に曲線を作図</span></a></li>
+		</ol></li>
+	</ol>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>このチュートリアルでは、球面座標データの3Dグラフの作成に関わる操作と、Xファンクション<i>sph2cart</i> を使用して球面座標から直交座標のワークブックや行列に変換する方法を紹介します。 
+ </p>
+<p><a class="external text" href="../../XFunction/X-Function/Sph2cart.html#Algorithm">sph2cartの変換アルゴリズム</a>を確認すると、Originは変換式の中で、<b><b>仰角</b></b>として<img 
+	 src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-1ed346930917426bc46d41e22cc525ec.png" 
+	 title="\phi" alt="\phi" class="tex" border="0" />を使用し、<b><b>方位角</b></b>として<img 
+	 src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-2554a2bb846cffd697389e5dc8912759.png" 
+	 title="\theta" alt="\theta" class="tex" border="0" />を使用することがわかります。 
+ </p>
+<p><img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-abc5d9ae973e3024c12523f50b7e98c7.png" 
+		 title="
+x = r \ast cos\left ( \phi  \right ) \ast cos \left ( \theta  \right );
+" 
+		 alt="
+x = r \ast cos\left ( \phi  \right ) \ast cos \left ( \theta  \right );
+" 
+		 class="tex" border="0" /> </p>
+<p><img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-bf19b127f9953cf4a3bece5bddb88e21.png" 
+		 title="
+y = r \ast cos\left ( \phi  \right ) \ast sin \left ( \theta  \right );
+" 
+		 alt="
+y = r \ast cos\left ( \phi  \right ) \ast sin \left ( \theta  \right );
+" 
+		 class="tex" border="0" /> </p>
+<p><img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-9070732189a1aba531a430b618b28009.png" 
+		 title="
+z = r \ast sin\left ( \phi  \right );
+" alt="
+z = r \ast sin\left ( \phi  \right );
+" 
+		 class="tex" border="0" /> </p>
+<h2><a name="What_will_you_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul>
+	<li>球面座標のワークシート(仮想行列)データを直交座標に変換して3D曲面図を作成</li>
+	<li>球面座標の行列オブジェクトを直交座標に変換して3D曲面図を作成</li>
+	<li>球面座標の3つの行列オブジェクトを直交座標に変換して個別の3D曲面図を作成</li>
+	<li>球面座標のワークシート(XYZ)データを直交座標(XYZ)に変換して3D空間に曲線を作成</li>
+</ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="3D_Surface_plot_with_colormap_for_data_in_virtual_matrix"></a><span 
+	 class="mw-headline">仮想行列のデータで3Dカラーマップ曲面図を作図</span></h3>
+<p>Originは、仮想行列(特別な座標形式)内のデータで曲面グラフを作図でき、カラーマップを追加できます。以下の操作で、カラーマップ曲面の楕円体を作図します。 
+ </p>
+<p>このチュートリアルは、チュートリアルデータプロジェクト（<i>&lt;<i><i>Origin EXE フォルダ&gt;\Samples\TutorialData.opj</i></i></i>）と関連しています。 
+ </p>
+<ol>
+	<li><b><b>Tutorial Data.opj</b></b>を選択し、フォルダ<i><i>Spherical Coordinates</i></i>を開きます。</li>
+	<li>チュートリアルデータ内の仮想行列データ<i>spheriPlot</i> を開くと、下図のような構造になっていることが確認できます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="MatrixStruc.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/MatrixStruc.png" 
+									 width="494" height="377" border="0" /></a></dd>
+		<dd>このサンプルでは、方位角<img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-2554a2bb846cffd697389e5dc8912759.png" 
+							 title="\theta" alt="\theta" class="tex" border="0" />の範囲は0から360で、仰角<img 
+		 src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-7f20aa0b3691b496aec21cf356f63e04.png" 
+		 title="\phi " alt="\phi " class="tex" border="0" />の範囲は-90から90です。 
+		 角度の単位には度を使用します。 </dd>
+	</dl></li>
+	<li>スクリプトウィンドウを開き、以下のコードを入力して実行します。 
+	<dl>
+		<dd><code>sph2cart -d;</code></dd>
+		<dd><b>sph2cart</b>ダイアログで下図のように設定して、<b><b>OK</b></b>をクリックします。XYZに対応する、3つの新しい行列オブジェクトが作成されます。 
+		 </dd>
+		<dd><a class="image"><img alt="Virtualplot1.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Virtualplot1.png" 
+									 width="439" border="0" /></a></dd>
+	</dl></li>
+	<li>行列レイヤ内の行列Zの後に、カラーマップデータ用の行列オブジェクト「4」を追加します。 
+	<dl>
+		<dd><a class="image"><img alt="Virtualplot2.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Virtualplot2.png" 
+									 width="515" border="0" /></a></dd>
+	</dl></li>
+	<li>Spherical Coordinatesフォルダの<i>colormap</i> 行列のデータをコピーし、新しく追加した行列オブジェクトに貼り付けます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Virtualplot3.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Virtualplot3.png" 
+									 width="682" border="0" /></a></dd>
+	</dl></li>
+	<li>行列データから3D曲面図を作成します。行列オブジェクトZをアクティブにして、次のようにメニューを選択します。<b><b><b>作図：</b>3D：3Dカラーマップ曲面</b></b>をクリックします。 
+	 
+	<dl>
+		<dd>プロット上でダブルクリックして、<b>作図の詳細</b>ダイアログを開きます。面タブの<b>パラメトリック曲面</b>を下図のように設定して、<b><b>OK</b></b>ボタンをクリックします。</dd>
+		<dd><a class="image"><img alt="Virtualplot4.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Virtualplot4.png" 
+									 width="670" border="0" /></a></dd>
+	</dl></li>
+	<li>CTRL+R を押して軸を再スケールし、軸上でダブルクリックしてダイアログを開きます。XYZ軸のスケールをすべて<i><i>-1.2</i></i><i> 
+	 </i>から<i><i>1.2</i></i>に設定して<b><b>OK</b></b>ボタンをクリックします。 
+	<dl>
+		<dd><a class="image"><img alt="Virtualplot4-1.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Virtualplot4-1.png" 
+									 width="589" border="0" /></a></dd>
+		<dd>グラフは下図のようになります。</dd>
+		<dd><a class="image"><img alt="Virtualplot3.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Virtualplot4-2.png" 
+									 width="571" border="0" /></a></dd>
+	</dl></li>
+	<li>楕円体にカラーマップを適用します。曲面上でダブルクリックして<b><b>作図の詳細</b></b>ダイアログを開き、<b><b>塗りつぶし</b></b>タブを開いて行列から<b><b>等高線を塗りつぶす</b></b>をMat(4)に変更します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Virtualplot4-3.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Virtualplot4-3.png" 
+									 width="670" border="0" /></a></dd>
+	</dl></li>
+	<li><b>カラーマップ/等高線</b>タブでは、ヘッダをクリックして、<b>レベルの設定</b>、<b>塗り方</b>、<b>等高線</b>ダイアログを開くことができます。<b><b>最小/最大の検索</b></b>ボタンをクリックして<b>レベル</b>を設定し、<b><b>OK</b></b>ボタンをクリックして適用します。塗り方の「パレットをロード」で「Maple」を選択します。等高線ダイアログでは「全て隠す」を選択して<b><b>OK</b></b>をクリックし、<b><b>適用</b></b>をクリックして設定を適用します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Virtualplot4-4.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Virtualplot4-4.png" 
+									 width="825" border="0" /></a></dd>
+		<dd><b><b>メッシュ</b></b>タブを開き、<b><b>有効にする</b></b>のチェックを外してメッシュ線を無効にし、<b><b>OK</b></b>をクリックしてダイアログを閉じます。</dd>
+	</dl></li>
+	<li>最終的なグラフは下図のようになります。 
+	<dl>
+		<dd><a class="image"><img alt="Virtualplot5.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Virtualplot5.png" 
+									 width="551" border="0" /></a></dd>
+	</dl></li>
+</ol>
+<table class="noborder">
+	<tr>
+		<td style="vertical-align: top;" width="60"><img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Tip_icon.png" 
+														 alt="" width="57" 
+														 border="0" /></td>
+		<td><p>方位角と仰角は、<img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-5e21e00f421f39105b1aa7107062ff35.png" 
+							 title="(r,\theta,\varphi )" alt="(r,\theta,\varphi )" 
+							 class="tex" border="0" />空間に偏在できます。 </p></td>
+	</tr>
+</table>
+<h3><a name="Convert_data_in_a_matrix_object_and_make_a_3D_surface_plot"></a><span 
+	 class="mw-headline">行列オブジェクトのデータを変換して3D曲面図を作図</span></h3>
+<ol>
+	<li>Originは球面座標の<img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-7ba2d1e5d4eec9ce94bcca8d9445a5ae.png" 
+						 title="R(\theta ,\varphi )" alt="R(\theta ,\varphi )" 
+						 class="tex" border="0" />曲面関数を構成することができます。方位角、仰角、半径は同じ行列に配置されます。球面座標の方程式から行列値を設定する前に、<a 
+	 class="external text" href="../../XFunction/X-Function/Sph2cart.html#Algorithm">sph2cart</a>で変換関係とシステム内での方位角、仰角の定義を確認できます。</li>
+	<li>新しい行列を作成します。メインメニューから<b><b>行列：次数/ラベルの設定</b></b>を選択します。次数を<img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-1010487f977eb234f3e40bd658b7bcfc.png" 
+	 title="100\times 100" alt="100\times 100" class="tex" border="0" />にし、Xのマッピングを<img 
+	 src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-04fc0ac419398d76abeb793461632c8c.png" 
+	 title="(0,2\pi )" alt="(0,2\pi )" class="tex" border="0" />、Yのマッピングを<img 
+	 src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-16c12c957f48080928bd1f383f01ac2f.png" 
+	 title="(-\frac{\pi}{2},\frac{\pi}{2})" alt="(-\frac{\pi}{2},\frac{\pi}{2})" 
+	 class="tex" border="0" />に設定します。XとYは角度データで、Xは列を横断する方位角、Yは仰角です。 
+	<dl>
+		<dd>このサンプルでは、方位角<img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-2554a2bb846cffd697389e5dc8912759.png" 
+							 title="\theta" alt="\theta" class="tex" border="0" />の範囲は0から<img 
+		 src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-c3198a6dbef629ca31403b4ccdff3fc7.png" 
+		 title="2\pi" alt="2\pi" class="tex" border="0" />で、仰角<img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-7f20aa0b3691b496aec21cf356f63e04.png" 
+		 title="\phi " alt="\phi " class="tex" border="0" />の範囲は<img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-d961710160a3dc5377dd4d624e58aa8d.png" 
+		 title="-\frac{\pi }{2}" alt="-\frac{\pi }{2}" class="tex" border="0" />から<img 
+		 src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-e26d35e05970ddca7d236176d1db4d6d.png" 
+		 title="-\frac{\pi }{2}" alt="-\frac{\pi }{2}" class="tex" border="0" />です。 
+		 角度の単位にはラジアンを使用します。 </dd>
+		<dd><a class="image"><img alt="Set Dimension and Labels.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Set_Dimension_and_Labels.png" 
+									 width="480" border="0" /></a></dd>
+	</dl></li>
+	<li>メニューから「<b>行列：セル値の設定</b>」を選びます。値の設定ダイアログに以下の式を入力します。 
+	<dl>
+		<dd><code>abs(sqrt(0.5)*0.25*(15/pi)^0.5*sin(pi/2-y)*sin(pi/2-y)*(sin(2*x)-cos(2*x)))</code></dd>
+		<dd>球面調和関数を使用して行列値を設定し(<img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-ffd2d8d4c32d291707b652e663976b56.png" 
+									 title="Y_l^{m}" alt="Y_l^{m}" class="tex" 
+									 border="0" /> は、球面調和関数の特定のセット)、<img 
+		 src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-ffd2d8d4c32d291707b652e663976b56.png" 
+		 title="Y_l^{m}" alt="Y_l^{m}" class="tex" border="0" />の線形結合は、水素原子のd軌道 
+		 (例 <img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-4ca41e68f3ddbfc3cb1a171e3bbbb444.png" 
+				 title="d_{xy}" alt="d_{xy}" class="tex" border="0" />)に相当します。</dd>
+		<dd><img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-f465f29d3f93a1b99ff5c99239ab853b.png" 
+				 title="\left | d_{xy} \right |=\left | \sqrt{1/2}(Y_2^{-2}-Y_2^{2}) \right |\; \; (1)" 
+				 alt="\left | d_{xy} \right |=\left | \sqrt{1/2}(Y_2^{-2}-Y_2^{2}) \right |\; \; (1)" 
+				 class="tex" border="0" /></dd>
+		<dd>関数(1)の<img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-6929503e86a8770480b4fa7a579f0854.png" 
+						 title="Y_2^{2}" alt="Y_2^{2}" class="tex" border="0" />と<img 
+		 src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-446c859c2a2d68d90c90736c83d005ce.png" 
+		 title="Y_2^{-2}" alt="Y_2^{-2}" class="tex" border="0" />は</dd>
+		<dd><img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-522b5eea69edb228d5c53d71d9f9153b.png" 
+				 title="Y_2^{2}=\frac{1}{4}\sqrt{\frac{15}{\pi}}sin^2(\frac{\pi}{2}-\varphi )cos(2\theta )" 
+				 alt="Y_2^{2}=\frac{1}{4}\sqrt{\frac{15}{\pi}}sin^2(\frac{\pi}{2}-\varphi )cos(2\theta )" 
+				 class="tex" border="0" /></dd>
+		<dd><img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-3662c1785fa5add4600d817168e35474.png" 
+				 title="Y_2^{-2}=\frac{1}{4}\sqrt{\frac{15}{\pi}}sin^2(\frac{\pi}{2}-\varphi )sin(2\theta )" 
+				 alt="Y_2^{-2}=\frac{1}{4}\sqrt{\frac{15}{\pi}}sin^2(\frac{\pi}{2}-\varphi )sin(2\theta )" 
+				 class="tex" border="0" /></dd>
+		<dd><a class="image"><img alt="Set values.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Set_values.png" 
+									 width="509" border="0" /></a></dd>
+	</dl></li>
+	<li>球面座標の行列は、Xファンクション<i>sph2cart</i>を使用して直交座標に変換できます。<b><b>ウィンドウ：<b>スクリプトウィンドウ</b></b></b>を選択して以下のスクリプトを入力し、<b><b>Enter</b></b>キーを押して実行します。 
+	 
+	<dl>
+		<dd><code>sph2cart -d</code></dd>
+		<dd>sp2cart ダイアログで下図のように設定し、単一行列オブジェクトを入力データとします。</dd>
+		<dd><a class="image"><img alt="Sph2cart.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Sph2cart.png" 
+									 width="439" border="0" /></a></dd>
+		<dd><b><b>OK</b></b>をクリックすると、新しい行列シート(MSheet2)に結果が出力します。</dd>
+	</dl></li>
+	<li>行列データから3D曲面図を作図します。<b>MSheet2</b> の行列オブジェクト<b><b>Z</b></b>をアクティブにします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="MatrixObj.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/MatrixObj.png" 
+									 width="143" border="0" /></a></dd>
+		<dd>メインメニューから<b>作図：3D：3Dカラーマップ曲面</b>を選択します。</dd>
+	</dl></li>
+	<li>曲面上でダブルクリックして、<b><b>作図の詳細</b></b>ダイアログを開き、下図のように<b><b>パラメトリック曲面</b></b>を設定し、<b>OK</b>ボタンをクリックします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Virtualplot4.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Virtualplot4.png" 
+									 width="670" border="0" /></a></dd>
+	</dl></li>
+	<li>CTRL+R を押して軸を再スケールし、軸上でダブルクリックして<b>軸</b>ダイアログを開きます。XYZ軸のスケールをすべて-0.5から0.5に設定し、<b><b>主目盛</b></b>を0.2にして<b><b>OK</b></b>ボタンをクリックします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Axis.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Axis.png" 
+									 width="589" border="0" /></a></dd>
+	</dl></li>
+	<li>グラフは下図のようになります。 
+	<dl>
+		<dd><a class="image"><img alt="Plotm-1.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Plotm-1.png" 
+									 width="584" border="0" /></a></dd>
+	</dl></li>
+	<li>曲面図をダブルクリックして、<b><b>作図の詳細</b></b>ダイアログを開きます。<b>カラーマップ/等高線</b>タブを開き、レベル/色塗り/線のヘッダをクリックして、それぞれのダイアログで下図のように設定を行います。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Colormap1.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Colormap1.png" 
+									 width="794" border="0" /></a></dd>
+		<dd><b><b>メッシュ</b></b>タブを開き、<b><b>透明度</b></b>の<b><b>自動</b></b>のチェックを外して値を70%に変更します。</dd>
+		<dd><a class="image"><img alt="Transparent.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Transparent.png" 
+									 width="491" border="0" /></a></dd>
+		<dd>カラーマップの設定については、<a class="external text" href="../../Tutorial/Tutorial/Parametric_Surface_with_Colormap_from_Data.html">パラメトリック曲面</a>のチュートリアルを確認してください。下図が最終的なグラフです。</dd>
+		<dd><a class="image"><img alt="Funplot2.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Funplot2.png" 
+									 width="571" border="0" /></a></dd>
+	</dl></li>
+</ol>
+<h3><a name="Convert_data_in_three_matrix_objects_and_make_a_3D_surface_plot"></a><span 
+	 class="mw-headline">3つの行列オブジェクトのデータを変換して3D曲面図を作図</span></h3>
+<p>Originは球面座標の<img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-7ba2d1e5d4eec9ce94bcca8d9445a5ae.png" 
+					 title="R(\theta ,\varphi )" alt="R(\theta ,\varphi )" 
+					 class="tex" border="0" />曲面関数を構成することができます。方位角、仰角、半径は異なる行列に配置されます。以下のステップでは、3つの行列を使用して複数曲面図を作成する方法と、<b>sph2cart</b>を使用してXYZに変換する方法を紹介します。 
+ </p>
+<ol>
+	<li>新しい行列を作成します。<b><b>行列次数/ラベルの設定</b></b>ダイアログで、行列の次数を<img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-99bd846161815cf43fb8d3bf95edd898.png" 
+	 title="98\times 33" alt="98\times 33" class="tex" border="0" />に設定し、<b><b>OK</b></b>をクリックします。 
+	 </li>
+	<li>行列ウィンドウの右上にあるDボタンをクリックし、メニューから<b><b>追加</b></b>を選択して行列ブックに2つのオブジェクトを追加します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Addmatrix.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Addmatrix.png" 
+									 width="143" border="0" /></a> </dd>
+	</dl></li>
+	<li>最初の行列オブジェクトに方位角を入力します。1番目の行列オブジェクトをアクティブにし(Dボタンをクリックして1/2/3を選択し切り替え)、メニューから<b><b><b>行列：</b>セル値の設定</b></b>をクリックします。方位角の行列値は以下のように設定します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Datarange.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Datarange.png" 
+									 width="200" border="0" /></a></dd>
+	</dl></li>
+	<li>値の設定ダイアログで、下の式を入力します。 
+	<dl>
+		<dd><code>(j==33||j==66)?1/0:(pi/32*j*(j&lt;33)+pi/32*(j-33)*(j&gt;33&amp;&amp;j&lt;66)+pi/32*(j-66)*(j&gt;66))</code></dd>
+		<dd><a class="image"><img alt="Set Values2.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Set_Values2.png" 
+									 width="509" border="0" /></a></dd>
+		<dd>0から<img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-c3198a6dbef629ca31403b4ccdff3fc7.png" 
+					 title="2\pi" alt="2\pi" class="tex" border="0" />まで3回ループし、Column 
+		 (33)とColumn (66)は欠損値になります。 </dd>
+	</dl></li>
+	<li>仰角は2番目の行列オブジェクトにに入力します(操作2の方法で行列オブジェクト2を選択します)。次の式を使用して仰角の値を設定します。 
+	 
+	<dl>
+		<dd><code>pi/32*(i-17)</code> </dd>
+	</dl></li>
+	<li>3番目の行列オブジェクトに、次式により半径を入力します。 
+	<dl>
+		<dd><img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-7abab8c0325b08ec55387a3771b2aee6.png" 
+				 title="Col(i,j)=\begin{cases}
+1 &amp; \text{ if } i\in [1,32] \\ 
+0.7 &amp; \text{ if } i\in [33,65] \\ 
+0.4&amp; \text{ if } i\in [66,98] \\
+\end{cases}" 
+				 alt="Col(i,j)=\begin{cases}
+1 &amp; \text{ if } i\in [1,32] \\ 
+0.7 &amp; \text{ if } i\in [33,65] \\ 
+0.4&amp; \text{ if } i\in [66,98] \\
+\end{cases}" 
+				 class="tex" border="0" /></dd>
+		<dd>半径値の設定は区分的なので、操作3、4、5を参照し、次のコードを使用します。</dd>
+		<dd><code>1*(j&lt;33)+0.7*(j&gt;33&amp;&amp;j&lt;66)+0.4*(j&gt;66)</code></dd>
+	</dl></li>
+	<li>3つの行列で値を設定後、<b>sph2cart</b>を使用してデータをXYZに変換できます。スクリプトウィンドウを開き、以下のコードを入力して実行します。 
+	 
+	<dl>
+		<dd><code>sph2cart -d;</code></dd>
+		<dd>sph2cartダイアログで下図のように設定して、<b><b>OK</b></b>をクリックします。3つの行列に対するXYZデータが出力されます。 
+		 </dd>
+		<dd><a class="image"><img alt="Sph2cart2.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Sph2cart2.png" 
+									 width="439" border="0" /></a></dd>
+	</dl></li>
+	<li>新しい行列レイヤに作成されたXYZ行列オブジェクトを使用して3D曲面図を作成します。その際の操作は、<a class="external text" 
+															 href="../../Tutorial/Tutorial/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot.html#Convert_data_in_a_matrix_object_and_make_a_3D_surface_plot">上述のセクション</a>の<b><b>行列オブジェクトのデータを変換して3D曲面図を作図</b></b>と同様です。 
+	 
+	<dl>
+		<dd>最終的なグラフは下図のようになります。</dd>
+		<dd><a class="image"><img alt="Funplot4.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Funplot4.png" 
+									 width="507" border="0" /></a></dd>
+	</dl></li>
+</ol>
+<h3><a name="Convert_data_in_three_columns_and_make_a_3D_space_curve"></a><span 
+	 class="mw-headline">3列のデータを変換して3D空間に曲線を作図</span></h3>
+<p>Originでは、不等間隔なXYZ列データ(球面座標)で3Dの曲線を作成できます。以下の操作で、球の形状のらせんを作図します。 </p>
+<ol>
+	<li>3つの列X、Y、Zを持つ新しいワークブックを作成します。Xの値として<img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-b7f64f3bae93a445408aff4019f470a6.png" 
+												 title="-\frac{\pi }{100}" 
+												 alt="-\frac{\pi }{100}" 
+												 class="tex" border="0" />から<img 
+	 src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-fd9ed13e7e0791314d1e74ebd3ce1210.png" 
+	 title="20\pi" alt="20\pi" class="tex" border="0" />までの値をセットするために、列を右クリックして、メニューから<b><b>列値の一律設定：数値のセット</b></b>を選択します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="SetXvalue.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/SetXvalue.png" 
+									 width="450" border="0" /></a></dd>
+		<dd><b><b>列値の設定</b></b>でY列の値を以下のように設定します。</dd>
+		<dd><a class="image"><img alt="SetYvalue.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/SetYvalue.png" 
+									 width="509" border="0" /></a></dd>
+		<dd><b><b>列値の設定</b></b>でZ列の値を定数4に設定します。</dd>
+		<dd>このサンプルでは、Xが方位角、Yが仰角、Zが半径に相当します。</dd>
+	</dl></li>
+	<li>スクリプトウィンドウを開き、以下のコードを入力して実行します。 
+	<dl>
+		<dd><code>sph2cart -d;</code></dd>
+		<dd>sph2cartダイアログで下図のように設定して、<b><b>OK</b></b>をクリックします。XYZに対し新しい3列のデータが出力されます。</dd>
+		<dd><a class="image"><img alt="Sphline.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Sphline.png" 
+									 width="449" border="0" /></a></dd>
+	</dl></li>
+	<li>出力されたXYZデータを選択して、メニューから<b><b><b>作図：</b>3D：3D散布図</b></b>を選択して作図します。シンボルサイズを0に設定し、シンボルを線で接続し、<b><b>OK</b></b>をクリックします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Symline.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Symline.png" 
+									 width="395" border="0" /></a></dd>
+	</dl></li>
+	<li>スケールや遠近法等を調節すると、最終的なグラフは以下のようになります。 
+	<dl>
+		<dd><a class="image"><img alt="Sphline2.png" src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Sphline2.png" 
+									 width="494" border="0" /></a></dd>
+	</dl></li>
+</ol>
+<p><br />
+新しく作成されたXYZデータのXYZ列を選択し、<b>作図：3D：3Dカラーマップ曲面</b>から3D曲面図を作図することもできます。 </p>
+<table class="noborder">
+	<tr>
+		<td style="vertical-align: top;" width="60"><img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/Tip_icon.png" 
+														 alt="" width="57" 
+														 border="0" /></td>
+		<td><p>XとYの方位角、仰角は、<img src="../images/Convert_Data_from_Spherical_Coordinate_to_XYZ_and_Make_a_3D_Plot/math-5e21e00f421f39105b1aa7107062ff35.png" 
+								 title="(r,\theta,\varphi )" alt="(r,\theta,\varphi )" 
+								 class="tex" border="0" />空間に等間隔あるいは不等間隔に存在できます。 
+		 </p></td>
+	</tr>
+</table>

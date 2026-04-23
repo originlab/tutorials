@@ -1,0 +1,79 @@
+﻿<h1 class="firstheading">ユーザー定義グラフテンプレートからの作図</h1><p class='urlname' style='display: none'>Plot-User-Template</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Standard_Template"><span class="tocnumber">2</span> <span class="toctext">標準テンプレート</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Create_and_Save_a_Standard_Graph_Template"><span class="tocnumber">2.1</span> <span class="toctext">標準グラフテンプレートとして作成、保存</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Plot_New_Data_into_Standard_Template"><span class="tocnumber">2.2</span> <span class="toctext">標準テンプレートに新しいデータをプロット</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Cloneable_Template"><span class="tocnumber">3</span> <span class="toctext">クローンテンプレート</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="#Save_Graph_as_a_Cloneable_Template"><span class="tocnumber">3.1</span> <span class="toctext">クローンテンプレートとしてグラフを保存</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Clone_a_Graph_Using_Cloneable_Template"><span class="tocnumber">3.2</span> <span class="toctext">クローンテンプレートを使ってグラフを作成</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Plot_from_User_Defined_Graph_Template/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Plot_from_User_Defined_Graph_Template/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=49" target="_blank">Graph Templates</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=133" target="_blank">Smart Plotting with Cloneable Graph Templates</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Plot_from_User_Defined_Graph_Template/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Plot_from_User_Defined_Graph_Template/Blog_Image_33x33px.png" width="135"  /></a>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>このチュートリアルでは、グラフをユーザ定義テンプレートとして保存し、保存したカスタムテンプレートを使って新しいデータをプロットする方法を紹介します。Originには、標準テンプレートとクローンテンプレートの2種類のグラフテンプレートがあります。クローンテンプレートは、グラフのデータ構成が複雑である場合も、新規のワークブック/ワークシートからグラフを簡単にクローン複製できますが、新規のデータは元のデータと同じ構成であることが前提となります。これと比較すると、標準テンプレートはデータソースに対し自由度がありますが、複雑なレイヤ階層やデータ構造を持つグラフを複製することができません。
+</p><p>このチュートリアルでは、以下の項目について解説します。
+</p>
+<ul><li> 標準テンプレートとしてグラフを作成し、保存</li>
+<li> 標準テンプレートに新しいデータをプロット</li>
+<li> クローンテンプレートとしてグラフを保存</li>
+<li> 同じデータ構造のデータをクローンテンプレートにプロット</li></ul>
+<h2><a name="Standard_Template"></a><span class="mw-headline">標準テンプレート</span></h2>
+<h3><a name="Create_and_Save_a_Standard_Graph_Template"></a><span class="mw-headline">標準グラフテンプレートとして作成、保存</span></h3>
+<p>このチュートリアルは、チュートリアルデータプロジェクト（<i>&lt;Origin EXE フォルダ&gt;\Samples\TutorialData.opj</i>）と関連しています。
+</p>
+<ol><li> Tutorial Data.opjを開き、<b>Custom Axis Scale to Show Different Scale Range</b> フォルダを開きます。</li>
+<li> 列<b>B</b>の<i>Exothermic Energy</i>と<b>C</b>の<i>Energy-SD</i>を選択して、2Dグラフギャラリーツールバーの散布図ボタン<a  class="image"><img alt="Button Scatter.png" src="../images/Plot_from_User_Defined_Graph_Template/Button_Scatter.png" width="22"  /></a>をクリックし、エラーバー付きの散布図を作図します。</li>
+<li> 次に、グラフ上のポイントのいづれかをダブルクリックし、<b>作図の詳細（プロット属性）</b>のダイアログを開き、シンボルを丸い青色に変更します。</li>
+<li> 左側パネルで<b>Layer1</b>の下にある、最初のプロットが選択されていることを確認します。<b>シンボル</b>タブを開きます。<b>プレビュー</b>の下にある下向きに三角形ボタンから、塗りつぶし円を選択し、<b>シンボルの色</b>を<a class="external text" href="../../UserGuide/UserGuide/Customizing_Data_Plot_Colors.html"><b>カラーチューザー</b></a>の単一色タブから<b>青</b>を選択します。OKをクリックします。
+<dl><dd><dl><dd><a  class="image"><img alt="Plot From User Defined Template 01.png" src="../images/Plot_from_User_Defined_Graph_Template/Plot_From_User_Defined_Template_01.png" width="418"  /></a></dd></dl></dd></dl></li>
+<li> これを標準テンプレートとして保存します。<i>Graph1</i>のウィンドウタイトルバー上で右クリックし、<b>テンプレートの新規保存</b>を選択してダイアログを開きます。</li>
+<li> テンプレート名に<i>BlueCircleと</i> と入力して、<b>テンプレート説明</b>に<i>青い塗りつぶし円</i>のように入力します。</li>
+<li> 新規で作成したグラフにプロットのロングネームと同じグラフロングネームを付ける場合は、<b>グラフロングネームの事前設定</b>の隣にある、オプションボタンをクリックし、<b>@<b>LL:</b>ロングネーム</b>を選択します。<b>グラフロングネームの事前設定</b>として、<i>%(1,@LL)</i>が入力されます。 </li>
+<li> <b>クローンテンプレートのマーク</b>のチェックが外れた状態で、<b>OK</b>をクリックして標準テンプレートとして保存します。</li></ol>
+<h3><a name="Plot_New_Data_into_Standard_Template"></a><span class="mw-headline">標準テンプレートに新しいデータをプロット</span></h3>
+<ol><li> ワークブックに戻り、<i>Temperature</i> と <i>Temperature-SD</i> を選択します。メニューの<b>作図：マイテンプレート：BlueCircle(UserDefined)</b>を選択してグラフを作成します。グラフウィンドウのロングネームは<b>Temperature</b> となります。</li></ol>
+<dl><dd><dl><dd><a  class="image"><img alt="Plot From User Defined Template 02.png" src="../images/Plot_from_User_Defined_Graph_Template/Plot_From_User_Defined_Template_02.png" width="418"  /></a></dd></dl></dd></dl>
+<h2><a name="Cloneable_Template"></a><span class="mw-headline">クローンテンプレート</span></h2>
+<h3><a name="Save_Graph_as_a_Cloneable_Template"></a><span class="mw-headline">クローンテンプレートとしてグラフを保存</span></h3>
+<ol><li> <b>F11</b> キー、または <b>ヘルプ：ラーニングセンター</b> を選択して、<b>ラーニングセンター</b> ダイアログを開きます。左側のパネルから<b>グラフサンプル</b>を選択し、<b>Raman</b>を探します。 </li>
+<li> グラフをダブルクリックして<b>Raman Spectrum</b>サブフォルダを開きます。</li>
+<li> <b>Raman Spectrum</b>グラフは、ワークブックPeak1のさまざまなシートのデータからプロットされ、データのラベル付けもされています。このような複雑な構成のグラフを標準テンプレートを使ってワンクリックで作図することはできません。そのため、このグラフはクローンテンプレートとして保存して、ワークブック<i>Peak2</i>のデータを使って作図します。
+<dl><dd><dl><dd><a  class="image"><img alt="Plot From User Defined Template 03.png" src="../images/Plot_from_User_Defined_Graph_Template/Plot_From_User_Defined_Template_03.png" width="432"  /></a></dd></dl></dd></dl></li>
+<li> このためには、<b>Raman Spectrum</b>ウィンドウのタイトルバーで右クリックし、<b>テンプレートの新規保存</b>を選択して、<b>Utilities\File: template_saveas</b>ダイアログを開きます。</li>
+<li> <b>テンプレート名</b>として<i>MyPeakTemplate</i> と入力します。グラフロングネームとして、<b>Raman Spectrum</b> + <i>ワークブックロングネーム</i>のとなるように設定します。このためには、<b>グラフロングネームの事前設定</b> の編集ボタンの隣にあるオプションボタンから、<b>@WL:ブックロングネーム</b>を選択します。追加された<i>%(1, @WL)</i>の前に<i>Raman Spectrum </i>と入力します。</li>
+<li> <b><b>クローンテンプレートとしてマーク</b></b> のボックスにチェックを入れてこの項目を広げ、<b>プロット列の一致条件</b> および <b>シートの一致条件</b> を<b>インデックス</b>に設定して列とワークシートを一致させます。</li>
+<li> <b>OK</b>ボタンをクリックしてダイアログを閉じ、テンプレートを保存します。</li></ol>
+<dl><dd><dl><dd><a  class="image"><img alt="Plot From User Defined Template 04.png" src="../images/Plot_from_User_Defined_Graph_Template/Plot_From_User_Defined_Template_04.png" width="572"  /></a></dd></dl></dd></dl>
+<h3><a name="Clone_a_Graph_Using_Cloneable_Template"></a><span class="mw-headline">クローンテンプレートを使ってグラフを作成</span></h3>
+<ol><li> タイトルが<b>Peak2</b>のワークブックを開き、<b>作図：ユーザテンプレートに作図</b>を選択してテンプレートライブラリを開きます。
+<dl><dd><a  class="image"><img alt="Plot From User Defined Template 05.png" src="../images/Plot_from_User_Defined_Graph_Template/Plot_From_User_Defined_Template_05.png" width="812"  /></a></dd></dl></li>
+<li> 羊のアイコンが表示されているクローンテンプレート<b>MyPeakTemplate</b>をクリックして選択し、<b>作図</b>ボタンをクリックしてグラフをクローン複製します。
+<dl><dd><a  class="image"><img alt="Plot From User Defined Template 06.png" src="../images/Plot_from_User_Defined_Graph_Template/Plot_From_User_Defined_Template_06.png" width="432"  /></a></dd></dl></li>
+<li> もしくはワークブック <b>Peak2</b> をアクティブにし、<b>作図：マイテンプレート：MyPeakTemplate (UserDefined)</b> を選択して、グラフを直接複製します。</li></ol>
+
+
+
+
+
+
+
+    

@@ -1,0 +1,58 @@
+﻿<h1 class="firstheading">OHLC - 出来高株価チャート</h1>
+<p class="urlname" style="display: none;">OHLC - 出来高株価チャート</p>
+<p><br />
+</p>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>このチュートリアルは始値、高値、安値、終値と共にその時の出来高を表す株価チャートの作成方法を示します。 </p>
+<p><a class="image"><img alt="OHLCV Graph Gallery Tutorial 4.png" src="../images/Open-High-Low-Close-Volume_Stock_Chart/OHLCV_Graph_Gallery_Tutorial_4.png" 
+						 width="598" height="482" border="0" /></a> </p>
+<p class="version">必要なOriginのバージョン:Origin 2016 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul>
+	<li>OHLC-出来高を表す株価チャートを作成する</li>
+	<li>軸のスケールタイプを株式市場の休日に設定する </li>
+	<li>目盛ラベル（複数行のラベル）の書式を設定する</li>
+	<li>曜日ごとに異なる色で塗りつぶして棒を分類する</li>
+	<li>色で分類された棒の凡例を作成する</li>
+</ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>ラーニングセンターにある「このグラフ」を参照してください。(<b>ヘルプ: ラーニングセンター</b> メニューを選択、または キーボードの<b>F11</b> 
+ キーを押して、<b>グラフサンプル：金融プロット</b>を選択します) </p>
+<ol>
+	<li>ワークシートの列C～Gを選択して、<b>作図：特殊グラフ：株価チャート：OHLC</b>を選択してグラフを作図します。</li>
+	<li>左下のレイヤのX軸をダブルクリックして、<b>X軸</b>ダイアログを開きます。<b>スケール</b>タブに行きます。<b>タイプ</b>は初期設定が<b>離散</b>になっています。これは、X軸が週末や休日を自動的にスキップしているからです。</li>
+	<p><a class="image"><img alt="OHLCV Graph Gallery Tutorial 5.png" src="../images/Open-High-Low-Close-Volume_Stock_Chart/OHLCV_Graph_Gallery_Tutorial_5.png" 
+							 width="565" height="471" border="0" /></a> 
+	 </p>
+	<li>軸範囲を2001/3/3から2001/5/7に変更します。<b>主目盛</b>の項目で、<b>タイプ</b>が増分になっていることを確認します。<b>値</b>に1weekを入力します。<b>副目盛</b>の項目で、<b>タイプ</b>がカウントになっていることを確認します。<b>カウント</b>に5を入力します。<b>適用</b>ボタンをクリックします。週末や休日がきれいにスキップされています。<br />
+	 <a class="image"><img alt="OHLCV Graph Gallery Tutorial 7.png" src="../images/Open-High-Low-Close-Volume_Stock_Chart/OHLCV_Graph_Gallery_Tutorial_7.png" 
+							 width="565" height="471" border="0" /></a></li>
+	<li>下軸のラベルを複数行で表示するには、<b>目盛ラベル</b>タブを開きます。<b>表示</b>タブを開きます。<b>表示</b>ドロップダウンリストから<b>カスタム表示</b>を選択します。<b>カスタム表示</b>テキストボックスに以下のテキストを入力します。 
+	 
+	<pre>
+hhtt &#160;&#160;&#160;&#160;MMMdd &#160;&#160;&#160;&#160;--------- &#160;&#160;&#160;yyyy</pre>
+	<p><a class="image"><img alt="OHLCV Graph Gallery Tutorial 8.png" src="../images/Open-High-Low-Close-Volume_Stock_Chart/OHLCV_Graph_Gallery_Tutorial_8.png" 
+							 width="565" height="471" border="0" /></a><br />
+	<br />
+	<b>フォーマット</b>タブを開き、フォントサイズを10にして<b>テキストの折り返し</b>を「レイヤ長による」に設定します。<br />
+	<br />
+	<a class="image"><img alt="OHLCV Graph Gallery Tutorial 6.png" src="../images/Open-High-Low-Close-Volume_Stock_Chart/OHLCV_Graph_Gallery_Tutorial_6.png" 
+							 width="565" height="471" border="0" /></a><br />
+	<br />
+	</p>
+	<b>適用</b>ボタンをクリックします。</li>
+	<li><b>スケール</b>タブを開き、左パネルで垂直方向を選択して、<b>開始</b>と<b>終了</b>を<i>0</i>、<i>120M</i> 
+	 に設定します。<b>適用</b>ボタンをクリックします。 </li>
+	<li>ダイアログ左下にある<b>レイヤ</b>ドロップダウンで、<i>1</i> を選択して<b>レイヤ1</b>の軸ダイアログに切り替えます。<b>垂直方向</b>が選択された状態のまま、<b>開始</b>と<b>終了</b>を<i>12</i> 
+	 と<i>22</i> にします。OKボタンをクリックして、ダイアログを閉じます。 <br />
+	<a class="image"><img alt="OHLCV Graph Gallery Tutorial 3.png" src="../images/Open-High-Low-Close-Volume_Stock_Chart/OHLCV_Graph_Gallery_Tutorial_3.png" 
+							 width="565" height="471" border="0" /></a></li>
+	<li>レイヤ2の縦棒グラフをダブルクリックして、<b>作図の詳細（プロット属性）</b>ダイアログを開きます。パターンタブで、<b>塗りつぶし色</b>ドロップダウンリストを開き、<b>ポイント毎：インデックス：Col(B)：&quot;Week 
+	 Day&quot;</b>を選択します。また、カラーリストとして <b>D01 Pumpkin Patch</b> を選択します。<b>OK</b>ボタンをクリックして、ダイアログを閉じます。<br />
+	<a class="image"><img alt="OHLCV Graph Gallery Tutorial 2.png" src="../images/Open-High-Low-Close-Volume_Stock_Chart/OHLCV_Graph_Gallery_Tutorial_2.png" 
+							 width="881" height="624" border="0" /></a></li>
+	<li>レイヤ2をアクティブにして、メニューから<b>グラフ操作：凡例：カテゴリー値</b>を選択します。開いたダイアログで、デフォルトの設定のまま<b>OK</b>をクリックします。グラフに凡例が追加されます。凡例の境界を表示するためにクリックし、Ctrlキーを押しながら境界をドラッグして凡例の内容を1行表示にします。</li>
+	<li>サイズと位置を適宜変更します。最終的に、下図のようなグラフになります。 </li>
+	<p><a class="image"><img alt="OHLCV Graph Gallery Tutorial 4.png" src="../images/Open-High-Low-Close-Volume_Stock_Chart/OHLCV_Graph_Gallery_Tutorial_4.png" 
+							 width="598" border="0" /></a> </p>
+</ol>

@@ -1,0 +1,61 @@
+﻿<h1 class="firstHeading">工程の概要のアルゴリズム</h1><p class='urlname' style='display: none'>Algorithm-PO</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Normal_Process_Overview"><span class="tocnumber">1</span> <span class="toctext">正規工程の概要</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Standard_Deviation_Estimation"><span class="tocnumber">1.1</span> <span class="toctext">標準偏差の推定</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Within_Capability"><span class="tocnumber">1.2</span> <span class="toctext">工程能力（内）</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Overall_Capability"><span class="tocnumber">1.3</span> <span class="toctext">工程能力（全体）</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Between.2FWithin_Process_Overview"><span class="tocnumber">2</span> <span class="toctext">工程の概要（間/内）</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="#Standard_Deviation_Estimation_2"><span class="tocnumber">2.1</span> <span class="toctext">標準偏差の推定</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Between.2FWithin_Capability"><span class="tocnumber">2.2</span> <span class="toctext">サブグループ間/内の工程能力</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Overall_Capability_2"><span class="tocnumber">2.3</span> <span class="toctext">工程能力（全体）</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="#Non-normal_Process_Overview"><span class="tocnumber">3</span> <span class="toctext">非正規工程の概要</span></a>
+<ul>
+<li class="toclevel-2 tocsection-10"><a href="#Overall_Capability_3"><span class="tocnumber">3.1</span> <span class="toctext">工程能力（全体）</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Probability_Plot"><span class="tocnumber">3.2</span> <span class="toctext">確率プロット</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Normal_Process_Overview"></a><span class="mw-headline">正規工程の概要</span></h2>
+<h3><a name="Standard_Deviation_Estimation"></a><span class="mw-headline">標準偏差の推定</span></h3>
+<dl><dd> プールされた標準偏差、サブグループ範囲の平均、サブグループ標準偏差の平均、移動範囲の平均、移動範囲の中央値、二乗平均継続差の平方根、全体標準偏差について詳細は<a href="../../Tutorial/App/Algorithm_CA.html#Standard_Deviation_Estimation" title="App:Algorithm CA">標準偏差の推定</a> を参照してください。</dd></dl>
+<h3><a name="Within_Capability"></a><span class="mw-headline">工程能力（内）</span></h3>
+<dl><dd><ul><li> CP、CPU、CPL、およびCpkの計算については、<a href="../../Tutorial/App/Algorithm_CA.html#Potential_Capability" title="App:Algorithm CA">潜在工程能力</a>を参照してください。</li>
+<li> PPM&lt;LSL、PPM&gt; USL、PPM合計の計算の詳細については、<a href="../../Tutorial/App/Algorithm_CA.html#Expected_Within_Performance" title="App:Algorithm CA">期待されるサブグループ内性能</a>参照してください。</li>
+<li> Z.LSL、Z.USL、Z.Benchの計算の詳細については、<a href="../../Tutorial/App/Algorithm_CA.html#Benchmark_Zs_for_Potential_Capability" title="App:Algorithm CA">潜在工程能力のベンチマークZ</a>を参照してください。</li></ul></dd></dl>
+<h3><a name="Overall_Capability"></a><span class="mw-headline">工程能力（全体）</span></h3>
+<dl><dd><ul><li> PP、PPU、PPL、Ppk、およびCPMの計算の同様の詳細については、<a href="../../Tutorial/App/Algorithm_CA.html#Overall_Capability" title="App:Algorithm CA">工程能力（全体）</a>を参照してください。</li>
+<li> PPM&lt;LSL、PPM&gt; USL、PPM合計の計算の詳細については、<a href="../../Tutorial/App/Algorithm_CA.html#Expected_Within_Performance" title="App:Algorithm CA">期待されるサブグループ内性能</a>参照してください。</li>
+<li> Z.LSL、Z.USL、Z.Bench（<img src="../images/Algorithm_PO/math-27c100893b15eda3e1b5ac152b7ae9d3.png" title="\sigma_{overall}" alt="\sigma_{overall}" class="tex"/>を使用）の計算の詳細については、<a href="../../Tutorial/App/Algorithm_CA.html#Benchmark_Zs_for_Potential_Capability" title="App:Algorithm CA">潜在工程能力のベンチマークZ</a>を参照してください。</li></ul></dd></dl>
+<h2><a name="Between.2FWithin_Process_Overview"></a><span class="mw-headline">サブグループ間/内の概要</span></h2>
+<h3><a name="Standard_Deviation_Estimation_2"></a><span class="mw-headline">標準偏差の推定</span></h3>
+<dl><dd> サブグループ内標準偏差、サブグループ間標準偏差、サブグループ間/内標準偏差、全体標準偏差について詳細は<a href="../../Tutorial/App/Algorithm_CA.html#Standard_Deviation_Estimation" title="App:Algorithm CA">標準偏差の推定</a> を参照してください。</dd></dl>
+<h3><a name="Between.2FWithin_Capability"></a><span class="mw-headline">サブグループ間/内の工程能力</span></h3>
+<dl><dd><ul><li> Cp、CPL、CPU、Cpk、CCpkの計算については<a href="../../Tutorial/App/Algorithm_CA.html#Potential_Capability" title="App:Algorithm CA">潜在工程能力</a>を参照してください。違いは<img src="../images/Algorithm_PO/math-c5744ecbeb89b1ac3650c0b5d769e0b8.png" title="\sigma_{within}" alt="\sigma_{within}" class="tex"/>を<img src="../images/Algorithm_PO/math-d2c7a9cce4e07807d8ac063758cba334.png" title="\sigma_{b/w}" alt="\sigma_{b/w}" class="tex"/>に置き換わることです。</li>
+<li> PPM&lt;LSL、PPM&gt; USL、PPM合計の計算の詳細については、<a href="../../Tutorial/App/Algorithm_CA.html#Expected_Within_Performance" title="App:Algorithm CA">期待されるサブグループ内性能</a>参照してください。</li>
+<li> Z.LSL、Z.USL、Z.Bench（<img src="../images/Algorithm_PO/math-d2c7a9cce4e07807d8ac063758cba334.png" title="\sigma_{b/w}" alt="\sigma_{b/w}" class="tex"/>を使用）の計算の詳細については、<a href="../../Tutorial/App/Algorithm_CA.html#Benchmark_Zs_for_Potential_Capability" title="App:Algorithm CA">潜在工程能力のベンチマークZ</a>を参照してください。</li></ul></dd></dl>
+<h3><a name="Overall_Capability_2"></a><span class="mw-headline">工程能力（全体）</span></h3>
+<dl><dd><ul><li> PP、PPU、PPL、Ppk、およびCPMの計算の同様の詳細については、<a href="../../Tutorial/App/Algorithm_CA.html#Overall_Capability" title="App:Algorithm CA">工程能力（全体）</a>を参照してください。</li>
+<li> PPM&lt;LSL、PPM&gt; USL、PPM合計の計算の詳細については、<a href="../../Tutorial/App/Algorithm_CA.html#Expected_Within_Performance" title="App:Algorithm CA">期待されるサブグループ内性能</a>参照してください。</li>
+<li> Z.LSL、Z.USL、Z.Bench（<img src="../images/Algorithm_PO/math-27c100893b15eda3e1b5ac152b7ae9d3.png" title="\sigma_{overall}" alt="\sigma_{overall}" class="tex"/>を使用）の計算の詳細については、<a href="../../Tutorial/App/Algorithm_CA.html#Benchmark_Zs_for_Potential_Capability" title="App:Algorithm CA">潜在工程能力のベンチマークZ</a>を参照してください。</li></ul></dd></dl>
+<h2><a name="Non-normal_Process_Overview"></a><span class="mw-headline">非正規工程の概要</span></h2>
+<h3><a name="Overall_Capability_3"></a><span class="mw-headline">工程能力（全体）</span></h3>
+<dl><dd> PP、PPU、PPL、Ppk、PPM&lt;LSL、PPM&gt;USL、PPM合計、Z.LSL、Z.USL、Z.Benchを含む計算の詳細については、<a href="../../Tutorial/App/Algorithm_CA.html#Non-normal_Capability_Analysis" title="App:Algorithm CA">非正規工程能力分析</a>を参照してください。</dd></dl>
+<h3><a name="Probability_Plot"></a><span class="mw-headline">確率プロット</span></h3>
+<dl><dd> 詳細は、<a href="../../Tutorial/App/Algorithm_IDD.html#Probability_Plot" title="App:Algorithm IDD">確率プロット</a>を参照してください。</dd></dl>
+
+
+
+
+
+
+
+    

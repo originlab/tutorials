@@ -1,0 +1,76 @@
+﻿<h1 class="firstheading">Xファンクションの紹介</h1>
+<a name="Summary" id="Summary"></a>
+<h2><span class="mw-headline">サマリー</span></h2>
+<p>Xファンクションは、Originツールを構築するフレームワークを用意し、構造化プログラミング環境を提供します。単純なGetNダイアログボックスとは異なり、Xファンクションを使って作成するツールは、実際のデータ処理コードにフォーカスしており、ユーザインターフェースのコードで悩む必要はありません。</p>
+<p>Origin8のほとんどのダイアログや関数はXファンクションでできており、その多くはメニューとコマンドラインの両方から実行することができます。Xファンクションを実行する柔軟性により、魅力のあるアプローチでOriginのカスタマイズを行うことができます。</p>
+<p class="version">必要なOriginのバージョン:Origin 8.0 SR0</p>
+<a name="What_you_will_learn" id="What_you_will_learn"></a>
+<h2><span class="mw-headline">学習する項目</span></h2>
+<ul>
+<li>Xファンクションを作成する</li>
+<li>Xファンクションをスクリプトからアクセス可能にする</li>
+<li>Xファンクションをダイアログモードで使用する</li>
+</ul>
+<a name="Create_an_X-Function" id="Create_an_X-Function"></a>
+<h2><span class="mw-headline">X-Functionを作成する</span></h2>
+<ol>
+<li><b style="font-weight: bold;">ツール：Xファンクション・ビルダ</b>を選択、または<b>F10</b>を押して、<b>Xファンクション・ビルダ</b>ダイアログを開きます。</li>
+<li>最初の変数の<b>名前</b>、<b>ラベル</b>、<b>データ</b>を<b>ix</b>, <b>Source</b>, <b>&lt;active&gt;</b>にセットします。</li>
+<li>リストパネルを右クリックし、コンテキストメニューから<b>変数の追加</b>を選択します。</li>
+<li>2番目の変数の<b>名前</b>、<b>ラベル</b>、<b>入力/出力</b>、データを<b>ox</b>, <b>Destination</b>, <b>Output</b>, <b>&lt;new&gt;</b>にセットします。</li>
+<li><b style="font-weight: bold;">ファイル：保存</b>を選択し、"vcopy"として保存します。
+<dl>
+<dd><span><a style="color: #0000ff; text-decoration: underline;"><img alt="Image:Vcopy.png" src="../images/Introduction_to_X-Functions/Vcopy.png" width="514" height="275" border="0" /></a></span></dd>
+</dl>
+</li>
+<li><a><img alt="Image:Button_Code_Builder.png" src="../images/Introduction_to_X-Functions/Button_Code_Builder.png" width="23" height="23" border="0" /></a>をクリックしてコードビルダを開きます。</li>
+<li>コードビルダでvcopy関数に次のコードを追加します。</li>
+</ol>
+<pre class="oc">
+<span style="color: #0000ff;">void</span> vcopy<span style="color: #000000;">(</span><span style="color: #0000ff;">const</span> vector<span style="color: #000040;">&amp;</span> ix, vector<span style="color: #000040;">&amp;</span> ox<span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+ 
+        <span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span><span style="color: #000040;">!</span>ix <span style="color: #000040;">||</span> <span style="color: #000040;">!</span>ox<span style="color: #000000;">)</span>
+            XF_THROW<span style="color: #000000;">(</span>CER_NO_DATA<span style="color: #000000;">)</span>;
+ 
+        ox <span style="color: #000080;">=</span> ix;   
+ <span style="color: #000000;">
+}</span>
+</pre>
+<a name="Making_the_X-Function_Script_Accessible" id="Making_the_X-Function_Script_Accessible"></a>
+<h2><span class="mw-headline">Xファンクションをスクリプトからアクセス可能にする</span></h2>
+<ol>
+<li><b style="font-weight: bold;">コードビルダ</b>の<b>ダイアログに戻る</b>ボタンをクリックします。</li>
+<li><b style="font-weight: bold;">Xファンクション・ビルダ</b>で、変更を保存します。 <a><img alt="Image:Button_Save_Project.png" src="../images/Introduction_to_X-Functions/Button_Save_Project.png" width="23" height="23" border="0" /></a></li>
+<li>クリックしてXファンクションの<b>ツリービュー</b>を開きます。 <a><img alt="Image:TreeView.png" src="../images/Introduction_to_X-Functions/TreeView.png" width="23" height="23" border="0" /></a></li>
+<li><b style="font-weight: bold;">使用のコンテクスト</b>ブランチを開きます。<b>Labtalk</b> チェックボックスが選択されていることを確認します。
+<dl>
+<dd><span><a style="color: #0000ff; text-decoration: underline;"><img alt="Image:Vcopy lt.png" src="../images/Introduction_to_X-Functions/Vcopy_lt.png" width="622" height="376" border="0" /></a></span></dd>
+</dl>
+</li>
+<li>Xファンクションを保存し、<b>Xファンクション・ビルダ</b>ダイアログを閉じます。</li>
+<li>アクティブワークシートの列Aに行番号を入力します。（列Aを選択してから右クリックを行い、<b>列値の一律設定：行番号</b>を選択します。）</li>
+<li>コマンドウィンドウで次のスクリプトを入力すると、列Aを列Bにコピーします。
+<dl>
+<dd><code style="font-family: monospace;">vcopy col(a) col(b)</code></dd>
+</dl>
+</li>
+</ol>
+<a name="Using_the_X-Function_in_Dialog_Mode" id="Using_the_X-Function_in_Dialog_Mode"></a>
+<h2><span class="mw-headline">Xファンクションのダイアログモード</span></h2>
+<ol>
+<li><b style="font-weight: bold;">Xファンクション・ビルダ</b>ダイアログを開き、<b>ツリービュー</b>でVCOPY.OXFを開きます。</li>
+<li><b style="font-weight: bold;">使用のコンテクスト</b>ブランチを開きます。</li>
+<li><b style="font-weight: bold;">メニュー</b>ブランチを開き、<b>自動GetNダイアログ</b>の<b>単純なGetNBox</b>を選択します。
+<dl>
+<dd><span><a style="color: #0000ff; text-decoration: underline;"><img alt="Image:Vcopy smpdlg.png" src="../images/Introduction_to_X-Functions/Vcopy_smpdlg.png" width="622" height="460" border="0" /></a></span></dd>
+</dl>
+</li>
+<li>Xファンクションを保存し、<b>Xファンクション・ビルダ</b>ダイアログを閉じます。</li>
+<li>コマンドウィンドウに次のスクリプトを入力し、VCOPY.OXFのダイアログを開きます。
+<dl>
+<dd><code style="font-family: monospace;">vcopy -d</code></dd>
+<dd><span><a style="color: #0000ff; text-decoration: underline;"><img alt="Image:Vcopy dlg.png" src="../images/Introduction_to_X-Functions/Vcopy_dlg.png" width="350" height="238" border="0" /></a></span></dd>
+</dl>
+</li>
+</ol>

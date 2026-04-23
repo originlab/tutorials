@@ -1,0 +1,161 @@
+﻿<h1 class="firstheading">NAG関数をOriginCから呼び出す</h1>
+<p class="urlname" style="display: none;">OC-Call-NAG</p>
+<table id="toc" class="toc">
+<tr>
+<td>
+<div id="toctitle">
+<h2>内容</h2>
+</div>
+<ol>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Understand_NAG_Functions"><span class="tocnumber">3</span> <span class="toctext">NAG関数を理解する</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Get_Ready_to_Debug_Sample_Code"><span class="tocnumber">4</span> <span class="toctext">サンプルコードのデバッグの準備をする</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Include_the_NAG_header"><span class="tocnumber">5</span> <span class="toctext">NAGヘッダを追加する</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#How_to_See_the_Declaration_of_NAG_Function"><span class="tocnumber">6</span> <span class="toctext">NAG関数の宣言を見るには</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#How_to_Get_NAG_Error_Code"><span class="tocnumber">7</span> <span class="toctext">NAGのエラーコードを取得するには</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#How_to_Use_Function_Pointer"><span class="tocnumber">8</span> <span class="toctext">関数ポインターを使うには</span></a></li>
+</ol>
+</td>
+</tr>
+</table>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>NAG関数をOriginCから呼び出すのは別のOriginC関数を呼び出すのとよく似ています。まずはNAG関数についてある程度理解しないとどの値を引数として設定するか、また、算出されるパラメータの意味が分からなくなってしまいます。関数についてある程度理解できたら関数の必要に応じたコードを書かなければなりません。</p>
+<p>NAGヘッダファイルには関数に必要なプロトタイプがあり、正確に宣言する必要があるパラメータ、大きさ、そして初期値が含まれています。関数はヘッダファイルに示されているように、このプロトタイプに従って定義されなければなりません。このチュートリアルの目的はNAG関数をOriginCで呼び出す方法を示しています。</p>
+<p class="version">必要なOriginのバージョン:Origin 8.1 SR1</p>
+<h2><a name="What_you_will_learn" id="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。</p>
+<ul>
+<li>NAG関数を理解する</li>
+<li>サンプルコードのデバッグの準備をする</li>
+<li>NAGヘッダを追加する</li>
+<li>NAG関数の宣言を見るには</li>
+<li>NAGのエラーコードを取得するには</li>
+<li>関数ポインターを使うには</li>
+</ul>
+<h2><a name="Understand_NAG_Functions" id="Understand_NAG_Functions"></a><span class="mw-headline">NAG関数を理解する</span></h2>
+<p>NAG関数を理解するのに一番適しているものは<a class="external text" href="../../OriginC/OriginC/Accessing_NAG_Functions_Category_and_Help.html">NAG ライブラリ</a>です。このライブラリはOriginCのレファレンスでも見つけることができます。例えば d01ajc NAG関数について知りたい場合は次のように操作します。</p>
+<ol>
+<li>Originメニューから「ヘルプ：プログラミング：OriginC」を選びます。OriginC Referenceブックを開き、Global Functionsを開きます。それからNAG Function ブックを開き、Accessing NAG Functions Category and Help を開きます。</li>
+<li>Quadrature (d01) カテゴリを選び、それから nag_1d_quad_gen (d01ajc) を選びます。</li>
+<li>開かれたページはPDFファイルです。nag_1d_quad_gen関数を理解するために、関数自体、プロトタイプ、そしてすべての引数についての説明を必要に応じてご覧ください。また、サンプルデータと関数を呼び出している例がしばしば含まれています。</li>
+</ol>
+<p>次に参考にしていただきたいのはOriginCのNAG関数のExamplesです。Originのメニューから「ヘルプ：プログラミング：OriginC」と選び、Exampleを開きます。そしてAnalysisを開いた後、Accessing NAG Functionsを選びます。ここではNAG関数をOriginCで呼び出す例がいくつか示されています。</p>
+<h2><a name="Get_Ready_to_Debug_Sample_Code" id="Get_Ready_to_Debug_Sample_Code"></a> <span class="mw-headline">サンプルコードのデバッグの準備をする</span></h2>
+<p>OriginCを使ったNAG関数の呼び出し方を理解するにはデバッグモードで例題をやってみることです。以下の手順に従ってOriginとコードビルダを立ち上げ、サンプルをOriginC関数でデバックモードにします。</p>
+<ol>
+<li><b style="font-weight: bold;">コードビルダ</b>のメニューで<b>ファイル：新規</b>を選びます。 これで<b>新規ファイル</b>ダイアログが開かれます。</li>
+<li>ファイル名のテキストボックスに<b>TestNAG</b>と入力し、<b>ワークスペースに追加</b>のチェックがついていることを確認します。<b>OK</b>をクリックします。すると、TestNAG.cがワークスペースに追加されます。</li>
+<li>以下の関数をTestNAG.cにコピー&amp;ペーストします。// 関数のヘッダファイルをここに追加します　のすぐ下のテキストを忘れないでください。</li>
+</ol>
+<pre class="oc" style="font-family: monospace;">
+<span style="color: #008000;">// 関数のヘッダファイルをここに追加します。</span><span style="color: #0000ff;">
+#include</span> <span style="color: #000080;">&lt;</span>OC_nag8.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+ <span style="color: #008000;">
+///////////////////////////////////////////////////////////////</span><span style="color: #008000;">
+//ここから関数を開始します。</span>
+ <span style="color: #008000;">
+//NAG_CALL は正しい規約を呼び出すためのコードです。関数ポインタ</span><span style="color: #008000;">
+//のように扱って、積分関数を定義する事ができます。</span><span style="color: #0000ff;">
+double</span> NAG_CALL f<span style="color: #000000;">(</span><span style="color: #0000ff;">double</span> x<span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+  <span style="color: #0000ff;">return</span> <span style="color: #000000;">(</span>x<span style="color: #000040;">*</span><span style="color: #000000;">sin</span><span style="color: #000000;">(</span>x<span style="color: #000040;">*</span><span style="color: #0000dd;">30.0</span><span style="color: #000000;">)</span><span style="color: #000040;">/</span><span style="color: #000000;">sqrt</span><span style="color: #000000;">(</span><span style="color: #0000dd;">1.0</span><span style="color: #000040;">-</span>x<span style="color: #000040;">*</span>x<span style="color: #000040;">/</span><span style="color: #000000;">(</span>PI<span style="color: #000040;">*</span>PI<span style="color: #000040;">*</span><span style="color: #0000dd;">4.0</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>;<span style="color: #000000;">
+}</span>
+ <span style="color: #0000ff;">
+void</span> nag_d01ajc_ex<span style="color: #000000;">(</span><span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+        <span style="color: #0000ff;">double</span> a <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.0</span>;
+        <span style="color: #0000ff;">double</span> b <span style="color: #000080;">=</span> PI <span style="color: #000040;">*</span> <span style="color: #0000dd;">2.0</span>;  <span style="color: #008000;">//積分範囲</span>
+ 
+        <span style="color: #0000ff;">double</span> epsabs, abserr, epsrel, result;
+        <span style="color: #008000;">//  epsabs と epsrel をそれぞれ次のように設定して</span>
+        <span style="color: #008000;">// 必要な精度に達していない時に精度を上げる事ができます。</span>
+        epsabs <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.0</span>;
+        epsrel <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.0001</span>;
+        <span style="color: #008000;">// 積分内の関数を評価するのに必要な最大サブ範囲</span>
+        <span style="color: #008000;">// を示します。より複雑な被積分関数になると、</span>
+        <span style="color: #008000;">// max_num_subintも大きくなります。</span>
+        <span style="color: #008000;">// ほとんどの場合、 200から500 が妥当で、おすすめされます。</span>
+        <span style="color: #0000ff;">int</span> max_num_subint <span style="color: #000080;">=</span> <span style="color: #0000dd;">200</span>;
+ 
+        Nag_QuadProgress qp;
+        <span style="color: #0000ff;">static</span> NagError fail;
+        d01ajc<span style="color: #000000;">(</span>f, a, b, epsabs, epsrel, max_num_subint, 
+                        <span style="color: #000040;">&amp;</span>result, <span style="color: #000040;">&amp;</span>abserr, <span style="color: #000040;">&amp;</span>qp, <span style="color: #000040;">&amp;</span>fail<span style="color: #000000;">)</span>;
+ 
+        <span style="color: #008000;">// 次の3種類のエラー以外のエラーは、</span>
+        <span style="color: #008000;">// 入力したパラメータが悪いか、アロケーションが失敗しています。</span>
+        <span style="color: #008000;">// NE_INT_ARG_LT NE_BAD_PARAM   NE_ALLOC_FAIL.</span>
+        <span style="color: #008000;">// メモリーリークを避けるため、積分ルーチンを呼ぶ前に</span>
+        <span style="color: #008000;">// メモリのアロケーションを解放する必要があります。</span>
+        <span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span>fail.<span style="color: #000000;">code</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span> NE_INT_ARG_LT <span style="color: #000040;">&amp;&amp;</span> 
+                fail.<span style="color: #000000;">code</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span> NE_BAD_PARAM <span style="color: #000040;">&amp;&amp;</span> 
+                fail.<span style="color: #000000;">code</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span>  NE_ALLOC_FAIL<span style="color: #000000;">)</span>
+        <span style="color: #000000;">{</span>
+                NAG_FREE<span style="color: #000000;">(</span>qp.<span style="color: #000000;">sub_int_beg_pts</span><span style="color: #000000;">)</span>;
+                NAG_FREE<span style="color: #000000;">(</span>qp.<span style="color: #000000;">sub_int_end_pts</span><span style="color: #000000;">)</span>;
+                NAG_FREE<span style="color: #000000;">(</span>qp.<span style="color: #000000;">sub_int_result</span><span style="color: #000000;">)</span>;
+                NAG_FREE<span style="color: #000000;">(</span>qp.<span style="color: #000000;">sub_int_error</span><span style="color: #000000;">)</span>;
+        <span style="color: #000000;">}</span>
+ 
+        <span style="color: #000000;">printf</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">"%10.6f"</span>, result<span style="color: #000000;">)</span>; <span style="color: #000000;">
+}</span>
+</pre>
+<h2><a name="Include_the_NAG_header" id="Include_the_NAG_header"></a> <span class="mw-headline">NAGヘッダを追加する</span></h2>
+<pre class="oc" style="font-family: monospace;">
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>OC_nag8.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+</pre>
+<p>このヘッダファイルはNAG関数のすべてのヘッダファイルを含んでいます。そしてすべての定義されるタイプとエラーコードも含まれています。ですのでこの関数一つを含むだけで十分になります。</p>
+<h2><a name="How_to_See_the_Declaration_of_NAG_Function" id="How_to_See_the_Declaration_of_NAG_Function"></a><span class="mw-headline">NAG関数の宣言を見るには</span></h2>
+<p>ヘッダファイルからNAG関数の宣言を見てみましょう。</p>
+<ol>
+<li>上のセクションで作成したTestNAG.cファイルをアクティブにします。スクロールして#include &lt;OC_nag8.h&gt;という列を見つけます。</li>
+<li>その列の中ならどこでもいいので右クリックし、<b>"OC_nag8.h"を開く</b>を選びます。これですべてのNAGヘッダが含まれているヘッダフォルダを開きます。</li>
+<li>検索コンボボックスに<a class="image"><img alt="Code Builder Search.PNG" src="../images/Calling_NAG_Functions_From_Origin_C/Code_Builder_Search.PNG" width="184" height="26" border="0" /></a> <b>NAG\nagd01.h</b>と打ち込み、<b>ENTER</b>キーを押してこの列について検索します。関数<b>d01ajc</b>はd01カテゴリに入っているのでヘッダファイルの名前はnagd01.hとなるはずです。</li>
+<li>この列内のどこでも右クリックを行い<b>"NAG\nagd01.h"を開く</b>を選びます。これで関数のプロトタイプを含むヘッダファイルが開きます。</li>
+<li>検索コンボボックスに<b>d01ajc</b>と打ち込み、<b>ENTER</b>キーを押してこの関数の宣言に行きます。</li>
+</ol>
+<p>NAG関数の宣言をPGFファイルで見るには：</p>
+<ul>
+<li><a class="external text" href="../../OriginC/OriginC/Accessing_NAG_Functions_Category_and_Help.html#Accessing_NAG_Functions_Category%7CAccessing">オンラインNAG PDF</a></li>
+<li><a class="external text" href="../../OriginC/OriginC/Accessing_NAG_Functions_Category_and_Help.html#Getting_Help%7CDownload">NAG PDFファイル</a></li>
+</ul>
+<h2><a name="How_to_Get_NAG_Error_Code" id="How_to_Get_NAG_Error_Code"></a><span class="mw-headline">NAGのエラーコードを取得するには</span></h2>
+<ol>
+<li>コードビルダ内でTestNAG.cウィンドウを再びアクティブにします。このファイルでは<b>NagError</b>変数の<b>fail</b>が定義され、それを最新の引数として<b>d01ajc</b>関数に反映させます。</li>
+<li>NAG関数はNagError変数コードアイテム内にエラーコードを返してきます。この例ではNAGエラーコードには<b>fail.code</b>でアクセスできます。</li>
+</ol>
+<p>どのエラーコードが出てくるのか知るには：</p>
+<ol start="3">
+<li>OriginCのヘルプをメニューから<b>ヘルプ：プログラミング：OriginC</b>から開きます。Origin C Referenceブックを開き、その中のGlobal FunctionsからNAG Functionsを選び、Accessing NAG Functions Category and Helpを選びます。</li>
+</ol>
+<ol start="4">
+<li><b style="font-weight: bold;">Chapters of NAG C Library</b>表のなかで<b>d01</b>を選んでQuadratureを入力します。それからd01ajcを表から選ぶころでPDFヘルプを開きます。</li>
+</ol>
+<ol start="5">
+<li>スクロールをして下のページの<b>6 Error Indicators and Warnings</b> の部分にいくと、この関数に関するすべてのエラーコードとそれに関する解説を見ることができます。正しいヘッダファイルに含まれているならばこのコードを直接OriginCで使用することができます（全てのNAGヘッダを含むこのファイル&lt;OC_nag8.h&gt;を含むか、直接 &lt;NAG8\nag_errlist.h&gt;を使って含みます）。例えば「NE_INT_ARG_LT, NE_BAD_PARAM, NE_ALLOC_FAIL」はこのTestNAG.cの中で使用されています。</li>
+</ol>
+<h2><a name="How_to_Use_Function_Pointer" id="How_to_Use_Function_Pointer"></a><span class="mw-headline">関数ポインターを使うには</span></h2>
+<ol>
+<li>Originのプログラムパス（\OriginC\system\NAG フォルダ）からnagd01.hファイルを開きます。</li>
+<li>このファイルの中で<b>d01ajc</b>の宣言を探します。この関数の初めの引数の形は<b>NAG_D01AJC_FUN</b>となっています。</li>
+<li><b style="font-weight: bold;">NAG_D01AJC_FUN</b>をダブルクリックして選択します。メニューから<b>編集：ファイル内を探す</b>を選び、<b>ファイル内を探す（Find in Files)</b>ダイアログを開きます。下の図と同じように設定をし、見つける（Find）ボタンをクリックします。<br />
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Code Builder Find in Files.PNG" src="../images/Calling_NAG_Functions_From_Origin_C/Code_Builder_Find_in_Files.PNG" width="472" height="179" border="0" /></a></dd>
+</dl>
+</li>
+<li>出力ウィンドウで結果を見つけます。nag_types.hをダブルクリックしてこのファイルに行きます：「<b>typedef NAG_D01_FUN NAG_D01AJC_FUN</b>」すると、 NAG_D01_FUN の定義を近くて見つけることができます。</li>
+<li>NAG_D01_FUNの定義は次のようになっています。
+<pre class="oc" style="font-family: monospace;">
+<span style="color: #0000ff;">typedef</span> <span style="color: #0000ff;">double</span> <span style="color: #000000;">(</span>NAG_CALL <span style="color: #000040;">*</span> NAG_D01_FUN<span style="color: #000000;">)</span><span style="color: #000000;">(</span><span style="color: #0000ff;">double</span><span style="color: #000000;">)</span>;
+        
+</pre>
+ユーザ設定の関数はこの定義と同じような引数とリターンのタイプになっていないといけません。<b>NAG_CALL</b> は正しい呼び出し方を記しているのでユーザ定義の関数内で使用してください。</li>
+<li>TestNAG.c のファイルをアクティブにします。ここに<b>ｆ</b>という関数があり、これは<b>d01ajc</b>の初めの引数として使用されています。</li>
+</ol>
+<pre class="oc" style="font-family: monospace;">
+<span style="color: #0000ff;">double</span> NAG_CALL f<span style="color: #000000;">(</span><span style="color: #0000ff;">double</span> x<span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+  <span style="color: #0000ff;">return</span> <span style="color: #000000;">(</span>x<span style="color: #000040;">*</span><span style="color: #000000;">sin</span><span style="color: #000000;">(</span>x<span style="color: #000040;">*</span><span style="color: #0000dd;">30.0</span><span style="color: #000000;">)</span><span style="color: #000040;">/</span><span style="color: #000000;">sqrt</span><span style="color: #000000;">(</span><span style="color: #0000dd;">1.0</span><span style="color: #000040;">-</span>x<span style="color: #000040;">*</span>x<span style="color: #000040;">/</span><span style="color: #000000;">(</span>PI<span style="color: #000040;">*</span>PI<span style="color: #000040;">*</span><span style="color: #0000dd;">4.0</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>;<span style="color: #000000;">
+}</span>
+</pre>

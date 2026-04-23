@@ -1,0 +1,70 @@
+﻿<h1 class="firstheading">分析テンプレートの作成と利用</h1><p class='urlname' style='display: none'>AnalysisTemplate-Create-Use</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span><span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Importing_Data"><span class="tocnumber">3.1</span> <span class="toctext">データをインポートする</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Performing_Analysis"><span class="tocnumber">3.2</span> <span class="toctext">分析を実行する</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Saving_an_Analysis_Template"><span class="tocnumber">3.3</span> <span class="toctext">分析テンプレートとして保存する</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Re-using_the_Analysis_Template"><span class="tocnumber">3.4</span> <span class="toctext">分析テンプレートの再利用</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Creating_and_Using_Analysis_Templates/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Creating_and_Using_Analysis_Templates/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=203" target="_blank">ワークブックの保存　OGWU vs 分析テンプレート</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=137" target="_blank">Origin分析レポートとMicrosoft Wordを使用してバッチレポートを作成する</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Creating_and_Using_Analysis_Templates/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Creating_and_Using_Analysis_Templates/Blog_Image_33x33px.png" width="135"  /></a>
+<ul><li> <a class="external text" href="http://blog.originlab.com/how-to-trigger-a-worksheet-data-filter-during-batch-processing" target="_blank">バッチ処理中にワークシートデータフィルタを適用する方法</a></li>
+<li> <a class="external text" href="http://blog.originlab.com/use-the-distributed-batch-processing-app-for-faster-batch-processing-results" target="_blank">より高速なバッチ処理結果のためにDistributed Batch Processingアプリを使用する</a></li>
+<li> <a class="external text" href="http://blog.originlab.com/creating-html-reports-and-documents-in-origin-2019b" target="_blank">Creating HTML Reports and Documents in Origin 2019b</a></li>
+<li> <a class="external text" href="http://blog.originlab.com/batch-processing-when-dragging-and-dropping-data-into-origin" target="_blank">Batch Processing when Dragging and Dropping Data into Origin</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>繰り返しの作業は、分析テンプレートを作成することで単純化することができます。このようなテンプレートには、複数の分析結果やカスタムレポートシート含めることができます。テンプレートの新しいインスタンスをいつでも開くことができ、元データを変更すると、すべての分析結果とカスタムレポートが更新されます。
+</p>
+<p class="version" >必要なOriginのバージョン: Origin 2015 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul><li> 分析テンプレート (OGWU)の作成方法</li>
+<li> 新しいデータで分析テンプレートを再利用する方法</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Importing_Data"></a><span class="mw-headline">データのインポート</span></h3>
+<ol><li>新しいワークブックを開き、一つめの空のワークシートをアクティブにします。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Curve Fitting</i>サブフォルダにある<i>Sensor01.dat</i> ファイルを探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。</li>
+<li>ワークシートタブをダブルクリックしてシート名<b><b><b>Data</b></b></b>に変更します。</li></ol>
+<h3><a name="Performing_Analysis"></a><span class="mw-headline">分析を実行する</span></h3>
+<ol><li>列Bを選択し、<b>解析：フィット：線形フィット</b>メニューを選択し、<b><b>線形フィット</b></b>ダイアログを開きます。</li>
+<li><b><b>再計算</b></b>を<b><b>自動</b></b>に変更し、他の設定はデフォルトのまま<b><b>OK</b></b>ボタンをクリックしてフィットを実行します。ブックに、結果表やグラフの埋め込まれたレポートシートが追加されます。 </li>
+<li>表示されたポップアップに「はい」とクリックし、<b>FitLinear1</b>レポートシートを開きます。 </li>
+<li> <b>フィット曲線のプロット</b>の項目にあるグラフ上で、ダブルクリックしてグラフウィンドウを開きます。 </li>
+<li>メニューから、<b><b>表示：表示様式：レイヤ枠</b></b>を選択してグラフに枠を表示します。</li>
+<li><b><b>再スケール</b></b>ボタンをクリックします。 <a  class="image"><img alt="Rescale button.png" src="../images/Creating_and_Using_Analysis_Templates/Rescale_button.png" width="23"  /></a></li>
+<li>メニューから<b><b>フォーマット：軸スケール：X軸</b></b>を選択して<b><b>軸</b></b>ダイアログを開きます。<b>スケール</b>タブで、<b>主目盛</b>の<b>タイプ</b>が<b>増分</b>になっていることと、<b>値</b>が<b>2</b>になっていることを確認します。<b><b>再スケール</b></b>モードはドロップダウンから<b><b>自動</b></b>を選択します。 </li>
+<li> 左側のパネルで、<b>垂直</b>アイコンをクリックします。再スケールモードを<b>自動</b>に設定します。また、<b>主目盛</b>の<b>タイプ</b>を<b>増分</b>、<b>値</b>を<b>5</b>にします。<b>OK</b> をクリックして設定を適用し、ダイアログボックスを閉じます。</li>
+<li>凡例オブジェクトを手動で動かし、結果のテーブルをグラフ上の適切な位置に配置します。この時点で、散布図のシンボルを編集するなどの操作を行うこともできます。最終的なグラフは下図のようになります。
+<dl><dd><a  class="image"><img alt="Tutorial Analysis Template 01.png" src="../images/Creating_and_Using_Analysis_Templates/Tutorial_Analysis_Template_01.png" width="486"  /></a></dd></dl></li>
+<li>グラフのタイトルバー右上にある、閉じるボタン<a  class="image"><img alt="Button Restore Window.png" src="../images/Creating_and_Using_Analysis_Templates/Button_Restore_Window.png" width="22"  /></a> をクリックして、グラフを結果シートに戻します。</li></ol>
+<h3><a name="Saving_an_Analysis_Template"></a><span class="mw-headline">分析テンプレートとして保存する</span></h3>
+<ol><li>ワークブックをアクティブにして、<b><b>ファイル:ワークブックを分析テンプレートとして保存</b></b>をクリックします。</li>
+<li>目的の場所までブラウズし、ファイル名として<b><b>MySensorData</b></b>を付け、<b><b>OK</b></b>ボタンをクリックします。</li>
+<li>これで分析テンプレート<b>MySensorData.OGWU</b>が保存されます。このテンプレートは、今後同じような分析を行う際に再利用できます。</li></ol>
+<h3><a name="Re-using_the_Analysis_Template"></a><span class="mw-headline">分析テンプレートの再利用</span></h3>
+<ol><li>新しいプロジェクトを開き、メニューから、<b>ファイル: 最近使ったブック</b>を選択します。開いたメニューオプションで、先ほど保存した分析テンプレート<b>MySensorData.ogwu</b>を選択します。</li>
+<li>ワークシート<b>Data</b>をアクティブにし、<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Curve Fitting</i>サブフォルダにある<i>Sensor02.dat</i> ファイルを探します。ワークシート「Data」にファイルをドラッグアンドドロップしてインポートします。</li>
+<li><b>再計算</b>モードを<b>自動</b>に設定したため、新しいデータに対し、線形フィットの処理が自動的に実行されます。</li>
+<li>ワークシート<b><b>FitLinear1</b> </b>開き、<b><b>フィット曲線のプロット</b></b>にあるグラフをダブルクリックしてグラフウィンドウを開き、更新された結果を表示します。 </li></ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Creating_and_Using_Analysis_Templates/Tip_icon.png" width="57"  border="0" /></td><td><p>この分析テンプレートは、似通ったデータに対するバッチ処理を実行する際にも使用可能です。詳細は<a href="../../Tutorial/Tutorial/Analysis_Template_and_Batch_Processing.html" title="Tutorial: 分析テンプレートを使用した複数データセットのバッチ処理">こちらのチュートリアル</a>を確認して下さい。
+</p></td></tr></table>
+
+
+
+    

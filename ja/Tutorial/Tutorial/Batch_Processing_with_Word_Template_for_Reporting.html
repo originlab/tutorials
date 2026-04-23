@@ -1,0 +1,91 @@
+﻿<h1 class="firstheading">レポート用Wordテンプレートでのバッチ処理</h1><p class='urlname' style='display: none'>BatchProcess-WordTemplate</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Add_Bookmarks_to_Analysis_Template"><span class="tocnumber">3.1</span> <span class="toctext">分析テンプレートにブックマークを追加</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Link_Analysis_Results_to_Word_Template"><span class="tocnumber">3.2</span> <span class="toctext">Wordテンプレートに分析結果をリンク</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Sending_One_Time_Results_to_Word_Template_to_Create_Word_Report"><span class="tocnumber">3.3</span> <span class="toctext">一度計算した結果をワードテンプレートに送り、ワードのレポートを作成</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Batch_Process_and_Export_Results_to_Word.2FPDF_Files"><span class="tocnumber">3.4</span> <span class="toctext">バッチ処理及びWordとPDFファイルに結果を出力</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>Originは複数ファイルのバッチ分析を実行することが出来、外部のレポート用Wordテンプレートにセルをリンクさせて分析結果を出力することが出来ます。
+</p>
+<p class="version" >必要なOriginのバージョン:Origin 2016 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します:
+</p>
+<ul><li> Wordテンプレートからのブックマークを分析テンプレートに追加する</li>
+<li> Wordテンプレートのブックマークされたセルに分析結果をリンクさせ、出力するグラフのサイズを調整する</li>
+<li> 一度計算した結果をレポートのため、ワードテンプレートに送る</li>
+<li> 複数ファイルのバッチ分析を行い、WordまたはPDFファイルに結果を出力する</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>このチュートリアルでは、<i>&lt;Origin EXE folder&gt;\Samples\Batch Processing\</i> フォルダにある、作成済の<i>Sensor Analysis Report.dotx</i> を使います。Wordテンプレートでブックマークラベルを確認するには、ファイルを開いた後、メニューの<b><b>ファイル：オプション</b></b> から<b>Wordのオプション</b> ダイアログを開きます。左側パネルにある<b>詳細設定</b>を選択し、右側パネルで<b><b>構成内容の表示</b></b>のセクションまでスクロールして、<b>ブックマークを表示する</b>にチェックを入れます。
+</p>
+<dl><dd><a class="image"><img alt="Batch Processing with Word Template for Reporting 01a.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Batch_Processing_with_Word_Template_for_Reporting_01a.png" width="668"  /></a></dd></dl>
+<h3><a name="Add_Bookmarks_to_Analysis_Template"></a><span class="mw-headline">分析テンプレートにWordブックマークを追加</span></h3>
+<ol><li> Originを起動します。<b>ファイル：開く</b>を選択し、<i>&lt;Origin EXE&gt;\Samples\Batch Processing\</i> フォルダを検索し、<b>Sensor Analysis.ogw</b> を選択します。</li>
+<li> ワークシート<i> <i>Data</i></i>をアクティブにし、 <a class="image"><img alt="Button Import ASCII.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Button_Import_ASCII.png" width="20"  /></a> のボタンをクリックします。<i>&lt;Origin EXE folder&gt;\Samples\Curve Fitting\</i> フォルダを検索し、<b>Sensor01.dat</b> を選択して、分析用のデータをインポートします。</li>
+<li> メニューから<b>ファイル：<b>分析テンプレートにWordブックマークを追加する</b>...</b>を選択し、ダイアログを開きます。<b>Wordテンプレート</b>ボックスの右側にある、<a class="image"><img alt="Tutorial Import 005.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Tutorial_Import_005.png" width="19"  /></a> ボタンをクリックし、<i>&lt;Origin EXE folder&gt;\Samples\Batch Processing\</i> フォルダを参照し、<b>Sensor Analysis Report.dotx</b>を選択します。</li>
+<li> <b>ブックマークの選択</b> 下の<b>ブックマーク</b> リストにある全てのブックマークエントリーを選択し、<b><b>OK</b></b>をクリックします。アクティブな分析テンプレートにそれらの<i>Bookmarks</i>シートが追加されます。 
+<dl><dd><a class="image"><img alt="Batch Processing with Word Template for Reporting 01.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Batch_Processing_with_Word_Template_for_Reporting_01.png" width="504"  /></a></dd></dl></li></ol>
+<h3><a name="Link_Analysis_Results_to_Word_Template"></a><span class="mw-headline">Wordテンプレートに分析結果をリンク</span></h3>
+<ol>
+<li><b><i>Bookmarks</i></b>タブをクリックします。</li>
+<li><i>Links</i>の列の<i>Filename</i> ブックマークの右側のセルで右クリックし、 <b>変数の挿入</b>を選択します。
+<li>表示されたダイアログで、<b>情報</b>タブをクリックし、SYSTEM.IMPORTのツリーノードにある、FILENAMEを選択します。<b>挿入</b>ボタンをクリックし、ファイル名をワークシートセルに挿入します。
+<li><i>FileDate</i>横のセルを右クリックし、<b>変数の挿入</b>を再選択します。SYSTEM.IMPORTのツリーノードを展開してFILEDATEを強調表示し、<b>挿入</b>ボタンをクリックして、ワークシートのセルにファイルの日付を挿入します。挿入される値は<a class="external text" href="../../UserGuide/UserGuide/Dates_and_Times_in_Origin.html">ユリウス日</a>値となり、Originが日時データを保存するために使用する数値です。表示を通常の日付にするには、セル上で右クリックし、<b><b>セルのフォーマット</b></b>を選択します。
+<li><b>フォーマット</b>のドロップダウンリストから<i>日付</i>を選択し、<b>OK</b>ボタンをクリックしてダイアログを閉じます。
+<li><i>FittedGraph</i>セルの横のセルを右クリックし、<b>グラフを挿入</b>を選択します。表示されたダイアログで、<b>グラフ</b>ボックスの右にあるブラウザボタン <a class="image"><img alt="Tutorial Import 005.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Tutorial_Import_005.png" width="19"  /></a> をクリックし、<b>グラフブラウザ</b>のダイアログを開きます。左側パネルの左下にある<b>埋め込みグラフを表示する</b>にチェックを入れ、埋め込みグラフを表示します。<i>FitLine</i>グラフを選択して矢印ボタンをクリックし、右側のパネルに追加します。<b>OK</b>ボタンを2回クリックし、<b>ブックマーク</b>ワークシートにグラフを挿入します。右側の<i>GraphWidth</i>列に<i>250</i>（単位=ポイントサイズ）を入力して、Wordレポートに出力されるグラフのサイズを指定します。</li>
+<p><a class="image"><img alt="Batch Processing with Word Template for Reporting 02.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Batch_Processing_with_Word_Template_for_Reporting_02.png" width="836"  /></a>
+</p>
+<li><i>ResidualPlot</i>行についても同様の手順を行います。
+<li>パラメーター値に関係しているブックマークには、<i>FitLinear1</i>レポートシートから値をリンクとしてコピー＆ペーストすることが出来ます。これを行うには、まず、<b><i>FitLinear1</i></b>レポートシートをクリックして<b><b>パラメーター</b>表</b>を選択します。<i>切片</i>の<i>値</i>に対応するデータセルをクリックして、右クリックして<b>コピー</b>を選択します。<b>ブックマーク</b> のシートに戻り、<i>InterceptValue</i> のセルの上で右クリックし、<b><b>リンクを貼り付け</b></b>を選択し、レポートシートの値とWordテンプレートの間にリンクを構築します。
+<li>残る他の<i>Links</i>列のセルにも、コピー＆ペーストを繰り返します。（<i>RSquare</i>は、<i><i>統計</i>表の補正R二乗</i>の値を使います。）操作が完了したら、<b>ワークシートを分析テンプレートとして保存する</b> を選択し、<b>Sensor Analysis Template.ogw</b>または<b>.ogwu</b>を分析テンプレートとして保存します。 
+<br /><a class="image"><img alt="Batch Processing with Word Template for Reporting 04.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Batch_Processing_with_Word_Template_for_Reporting_04.png" width="772"  /></a>
+</li>
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Batch_Processing_with_Word_Template_for_Reporting/Tip_icon.png" width="57"  border="0" /></td><td><p>以前のチュートリアル &quot;<a href="../../Tutorial/Tutorial/Creating_a_Custom_Report_Sheet.html" title="チュートリアル：カスタムレポートシートの作成">カスタムレポートの作成</a>&quot; のステップに従って、対象のセルに、結果をコピー＆ペーストする方法を確認することが出来ます。
+</p></td></tr></table>
+<h3><a name="Sending_One_Time_Results_to_Word_Template_to_Create_Word_Report"></a><span class="mw-headline">一度計算した結果をワードテンプレートに送り、ワードのレポートを作成</span></h3>
+<p>データファイルを解析して、即座にWordのレポートを作成したい場合があります。上記の例から引き続いて、<i>Bookmarks</i>ワークシートのように、全ての結果をWordブックマークにリンクさせて、アクティブなシートから一時的なWordレポートを作成することが出来ます。これは、ワークシートの左上にある、Wordに出力ボタン <a class="image"><img alt="Button Create Word Report.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Button_Create_Word_Report.png" width="30"  /></a> をクリックするだけで作成できます。
+</p><p>さらに、<b>エクスポートパス</b> ダイアログでWordレポートをどこに出力するかを設定できます。
+</p>
+<h3><a name="Batch_Process_and_Export_Results_to_Word.2FPDF_Files"></a><span class="mw-headline">バッチ処理及びWordとPDFファイルに結果を出力</span></h3>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Batch_Processing_with_Word_Template_for_Reporting/Tip_icon.png" width="57"  border="0" /></td><td><p><b>Origin 2020</b>から、<b>PDF</b>及び<b>MS Word</b>レポートを単一のマルチページファイルをして出力することができます。これを行うには、バッチ処理の前に<b>マルチページファイルとしてエクスポート</b>のボックスにチェックをします。
+</p></td></tr></table> 
+<ol>
+<li>新規プロジェクトを開始します。
+<li><b><b>バッチ処理</b></b>ボタン<a class="image"><img alt="Button Batch Processing.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Button_Batch_Processing.png" width="23"  /></a> をクリックします。
+<li><b><b>バッチ処理モード</b></b>で、<b><b>分析テンプレートをロード</b></b>が選択されていることを確認してください。<b><b>分析テンプレート</b></b>のドロップダウンリストから、前に作成した<b>Sensor Analysis Template.ogw(u)</b>を選択します。（リストの右側にあるボタンをクリックして、作成したフォルダを検索する必要があるかも知れません）
+<li><b><b>出力先</b></b>のドロップダウンリストから<b><b><b>PDF</b></b></b>を選択し、PDFとして出力する設定にします。
+<li><b>Wordテンプレート</b>ボックスの右側にある、<a class="image"><img alt="Tutorial Import 005.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Tutorial_Import_005.png" width="19"  /></a> ボタンをクリックし、<i>&lt;Origin EXE folder&gt;\Samples\Batch Processing\</i> フォルダを参照し、<b>Sensor Analysis Report.dotx</b>を選択します。
+<li><b><b>エクスポートパス</b></b>の右側にあるブラウザボタン <a class="image"><img alt="Tutorial Import 005.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Tutorial_Import_005.png" width="19"  /></a> をクリックして、違うパスに出力することもできます。
+<li><b>ファイルリスト</b>の右側にあるブラウザボタン<a class="image"><img alt="Tutorial Import 005.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Tutorial_Import_005.png" width="19"  /></a>をクリックして、<i>&lt;Origin EXE Folder&gt;\Samples\Curve Fitting</i>フォルダから、すべての<b>Sensor0<i>#</i>.dat</b>を選択します。
+<li><b>ファイルの追加</b>をクリックし、<b>OK</b>をクリックします。
+<li><b>データセット識別子</b>として<b><b>ファイル名</b></b>を選択します。
+<li><b><b>データシート</b></b>ドロップダウンリストで、<b><b>Data</b></b>が選択されていることを確認します。
+<li><b><b><b>結果シート</b></b></b>ドロップダウンリストで、<b>Result</b>を選択します。
+<li><b><b>中途生成されたワークブックの削除</b></b>のチェックを外します。
+<li><b>OK</b> をクリックして、ダイアログボックスを閉じ、インポートします。</li>
+<p><br />
+<a class="image"><img alt="Batch Processing with Word Template for Reporting 05-vNext.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Batch_Processing_with_Word_Template_for_Reporting_05.png" width="715"  /></a>
+<br />
+</p>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Batch_Processing_with_Word_Template_for_Reporting/Tip_icon.png" width="57"  border="0" /></td><td><p>エクスポートされたPDFファイルの保存場所は、<b>メッセージログ</b>に表示されます。
+</p></td></tr></table>
+<p>出力されたPDFのバージョンレポートのサンプルは次の通りです。
+<br /><a class="image"><img alt="Batch Processing with Word Template for Reporting 07.png" src="../images/Batch_Processing_with_Word_Template_for_Reporting/Batch_Processing_with_Word_Template_for_Reporting_07.png" width="508"  /></a>
+</p>
+</li>
+</ol>
+
+    

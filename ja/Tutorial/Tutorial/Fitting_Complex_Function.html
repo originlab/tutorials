@@ -1,0 +1,145 @@
+﻿<h1 class="firstheading">複素関数でのフィッティング</h1>
+<a name="Summary" id="Summary"></a>
+<h2><span class="mw-headline">サマリー</span></h2>
+<p>複素関数でフィットするとき、複素関数を2つの関数に簡単に分けることができます。1つは実数部に対応し、もう1つは虚数部に対応するように分けます。これら2つの関数を使って、<b>フィット関数オーガナイザ</b>で2つの従属変数を持つ複素関数を定義することができ、それを<b>NLFit</b>ダイアログで使うことができます。以下に、複素関数でフィットする方法を示します。複数の従属変数または独立変数を持つフィットについての詳細は、 <a href="../../Tutorial/Tutorial/Fitting_with_Multiple_Independent_Variables.html" title="チュートリアル: 複数の独立変数でフィットする">複数の独立変数でフィットする</a>をご覧下さい。</p>
+<p class="version">必要なOriginのバージョン:8.0 SR6</p>
+<a name="What_you_will_learn" id="What_you_will_learn"></a>
+<h2><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。</p>
+<ul>
+<li>2つの従属変数と1つの独立変数を持つユーザ定義の複素関数を作成する</li>
+<li>NLFitでその関数でフィットする</li>
+</ul>
+<a name="Steps" id="Steps"></a>
+<h2><span class="mw-headline">ステップ</span></h2>
+<ol start="1">
+<li>下記のフォーム全体(ヘッダ行を含む)を選択し、右クリックして<b>コピー</b>を選択し、クリップボードにデータをコピーします。
+<table width="240">
+<tr>
+<th>Omega</th>
+<th>Y1</th>
+<th>Y2</th>
+</tr>
+<tr>
+<td>0</td>
+<td>3</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0.01</td>
+<td>2.88462</td>
+<td>-0.28846</td>
+</tr>
+<tr>
+<td>0.02</td>
+<td>2.58621</td>
+<td>-0.51724</td>
+</tr>
+<tr>
+<td>0.03</td>
+<td>2.20588</td>
+<td>-0.66176</td>
+</tr>
+<tr>
+<td>0.04</td>
+<td>1.82927</td>
+<td>-0.73171</td>
+</tr>
+<tr>
+<td>0.05</td>
+<td>1.5</td>
+<td>-0.75</td>
+</tr>
+<tr>
+<td>0.06</td>
+<td>1.22951</td>
+<td>-0.7377</td>
+</tr>
+<tr>
+<td>0.07</td>
+<td>1.01351</td>
+<td>-0.70946</td>
+</tr>
+<tr>
+<td>0.08</td>
+<td>0.8427</td>
+<td>-0.67416</td>
+</tr>
+<tr>
+<td>0.09</td>
+<td>0.70755</td>
+<td>-0.63679</td>
+</tr>
+<tr>
+<td>0.1</td>
+<td>0.6</td>
+<td>-0.6</td>
+</tr>
+<tr>
+<td>0.11</td>
+<td>0.5137</td>
+<td>-0.56507</td>
+</tr>
+</table>
+</li>
+<li>メニューから<b>インポート：インポートウィザード</b>を選択し、「インポートウィザード 」ダイアログを開きます。そして、<b>データソース</b>グループから<b>クリップボード</b>を選び、<b>完了</b>ボタンをクリックして、データをインポートします。<br />
+<a><img alt="Image:ComplexfittingClipboard2.png" src="../images/Fitting_Complex_Function/ComplexfittingClipboard2.png" width="315" height="154" border="0" /></a><br /></li>
+<li>Select <b>Tools:フィット関数オーガナイザ</b>」を選択(または<b>F9</b>を押す)し、<span class="db">フィット関数オーガナイザ</span>を開き、<b>NewCategory</b> カテゴリー(カテゴリーが無ければ作成)に<b>ComplexFitting</b>という名前の新しい関数を次のように定義します。
+<table class="blank">
+<tr>
+<td width="170"><b style="font-weight: bold;">関数名：</b></td>
+<td>
+<p>ComplexFitting</p>
+</td>
+</tr>
+<tr>
+<td width="170"><b style="font-weight: bold;">実現方式：</b></td>
+<td>
+<p>ユーザ定義</p>
+</td>
+</tr>
+<tr>
+<td width="170"><b style="font-weight: bold;">独立変数：</b></td>
+<td>
+<p>omega</p>
+</td>
+</tr>
+<tr>
+<td width="170"><b style="font-weight: bold;">従属変数：</b></td>
+<td>
+<p>y1,y2</p>
+</td>
+</tr>
+<tr>
+<td width="170"><b style="font-weight: bold;">パラメータの名前：</b></td>
+<td>
+<p>A,tau</p>
+</td>
+</tr>
+<tr>
+<td width="170"><b style="font-weight: bold;">定義形式：</b></td>
+<td>
+<p>Origin C</p>
+</td>
+</tr>
+<tr>
+<td width="170"><b style="font-weight: bold;">関数：</b></td>
+<td>
+<p>complex cc = A/(1+1i*omega*tau);<br />
+y1 = cc.m_re;<br />
+y2 = cc.m_im;</p>
+</td>
+</tr>
+</table>
+<p>Note:複素数を作成するために虚数の単位"i"を使うには、上記の<b>関数</b>の行のように、Origin Cで "1i"と記述する必要があります。そして、<b>complex</b> は、複素数のデータタイプを取り扱うクラスです。これには、実数部と虚数部の両方が含まれます。</p>
+<p>ユーザ定義関数についての詳細は、 <a href="../../Tutorial/Tutorial/User_Defined_Fitting_Function_using_OC.html" title="チュートリアル:OCを使ったユーザ定義関数">Origin Cを使ったユーザ定義関数</a>をご覧下さい。</p>
+</li>
+<li>ワークシートのすべての列を選択し、<b>解析：</b> <b>フィット：</b> <b>非線形曲線フィット</b>と操作してNLFitダイアログを開きます。<b>設定：関数選択</b>ページで、 <b>＜新規…＞</b> カテゴリにある<b>ComplexFitting</b>関数を選択します。次のように、<b>データ選択</b>ページで入力データセットをセットします。<br />
+<a><img alt="Image:ComplexFitSelectData.png" src="../images/Fitting_Complex_Function/ComplexFitSelectData.png" width="840" height="365" border="0" /></a></li>
+<li><b style="font-weight: bold;">パラメータ</b>タブを選択し、初期値を次のようにセットします。<br />
+<a><img alt="Image:ComplexFitParameter.png" src="../images/Fitting_Complex_Function/ComplexFitParameter.png" width="215" height="123" border="0" /></a></li>
+<li><b style="font-weight: bold;">フィット</b>ボタンをクリックし、フィットレポートを生成します。レポートワークシートから次のように結果を見ることができます。<br />
+<a><img alt="Image:ComplexfittingPara.png" src="../images/Fitting_Complex_Function/ComplexfittingPara.png" width="217" height="66" border="0" /></a><br />
+<a><img alt="Image:ComplexFitResultsStas.png" src="../images/Fitting_Complex_Function/ComplexFitResultsStas.png" width="215" height="127" border="0" /></a><br />
+統計の表より、良いフィットができたことが分かります。</li>
+</ol>

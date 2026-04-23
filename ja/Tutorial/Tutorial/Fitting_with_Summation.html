@@ -1,0 +1,168 @@
+﻿<h1 class="firstheading">フィットしながら総和を求める</h1>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>内容</h2>
+</div>
+<ol>
+<li class="toclevel-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1"><a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">サンプルとステップ</span></a>
+<ol>
+<li class="toclevel-2"><a href="#Define_the_Function"><span class="tocnumber">3.1</span> <span class="toctext">関数を定義する</span></a></li>
+<li class="toclevel-2"><a href="#Fit_the_Curve"><span class="tocnumber">3.2</span> <span class="toctext">曲線をフィットする</span></a></li>
+</ol>
+</li>
+</ol>
+</td>
+</tr>
+</table>
+
+<p>&#160;</p>
+<a name="Summary" id="Summary"></a>
+<h2><span class="mw-headline">サマリー</span></h2>
+<p><a href="../../OriginC/OriginC/Accessing_NAG_Functions_Category_and_Help.html" title="http://ocwiki.originlab.com/index.php?title=OriginC:Accessing_NAG_Functions_Category_and_Help" rel="nofollow">NAGライブラリ</a>を使って、<a href="../../Tutorial/Tutorial/Fitting_with_Integral_using_NAG_Library.html" title="チュートリアル:NAGライブラリを使った積分フィット">積分込みのフィット</a>を実行する方法を学習しましたが、今回はNAG関数を使わずに行う方法を学習します。このチュートリアルでは、作成するフィット関数に総和を求める手順を含め、台形法則に基づいて積分を行う方法を学習します。</p>
+<p class="version">必要なOriginのバージョン:8.0 SR6</p>
+<a name="What_you_will_learn" id="What_you_will_learn"></a>
+<h2><span class="mw-headline">学習する項目</span></h2>
+<ul>
+<li>フィット関数に総和を含める</li>
+<li>台形法則に基づく積分</li>
+</ul>
+<a name="Example_and_Steps" id="Example_and_Steps"></a>
+<h2><span class="mw-headline">サンプルとステップ</span></h2>
+<p><a href="../../Tutorial/Tutorial/Fitting_with_Integral_using_NAG_Library.html" title="チュートリアル:NAGライブラリを使った積分フィット">NAGライブラリを使った積分フィット</a>と同じモデルを使ってフィットします。</p>
+<dl>
+<dd><img class="tex" alt="y=y_0+\int_{-\infin}^{x} \frac{A}{w\sqrt{\frac{\pi}{2}}} e^{-2\frac{(x-x_c)^2}{w^2}}, dx" src="../images/Fitting_with_Summation/math-b69c0ea663b8e1eb74e688458b65a79e.png" width="247" height="43" border="0" /></dd>
+</dl>
+<p>違いは、フィット関数の中で積分を実行することです。台形法則を使うため、最初に曲線を小さい区間に分け、複数の台形から積分を近似します。結果の精度は使用する台形の数に依存します。これは片側無限の積分なので、増分(ステップ)をセットし、上側積分限界をx、下側積分限界を負の無限大にして台形を作成し、これらの台形の面積の累計を計算します。面積の増分が十分に小さくなったら、総和の計算を中止します。総和を行う前に、関数が<b>収束</b>していることを保証するか、収束チェックをコードに含める必要があります。</p>
+<dl>
+<dd><a style="color: #0000ff; text-decoration: underline;"><img alt="Image:Tutorial_Fitting_with_Summation_001.png" src="../images/Fitting_with_Summation/Tutorial_Fitting_with_Summation_001.png" width="316" height="175" border="0" /></a></dd>
+</dl>
+<a name="Define_the_Function" id="Define_the_Function"></a>
+<h3><span class="mw-headline">関数を定義する</span></h3>
+<p><b style="font-weight: bold;">ツ</b>ール：フィット関数オーガナイザと選択するか<b>F9</b>キーを押して <span class="db">フィット関数オーガナイザ</span>を開き、関数を次のように定義します。</p>
+<dl>
+<dd>
+<table class="blank">
+<tr>
+<th width="150">&#160;</th>
+<th>&#160;</th>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">関数名：</b></td>
+<td>summation</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">実現方式：</b></td>
+<td>User­Defined</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">独立変数：</b></td>
+<td>x</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">従属変数：</b></td>
+<td>y</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">パラメータの名前：</b></td>
+<td>y0, A, xc, w</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">定義形式：</b></td>
+<td><font color="#0000FF">Origin C</font></td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">関数：</b></td>
+<td>&#160;</td>
+</tr>
+</table>
+</dd>
+</dl>
+<p><b style="font-weight: bold;">関数</b>ボックスの横にあるボタン（アイコン）をクリックして、コードビルダを開きます。フィット関数の定義、コンパイル、保存を次のように行います。</p>
+<pre class="oc">
+<span style="color: #0000ff;">#pragma</span> warning<span style="color: #000000;">(</span>error <span style="color: #000000;">:</span><span style="color: #0000dd;">15618</span><span style="color: #000000;">)</span><span style="color: #0000ff;">
+#include</span> <span style="color: #000080;">&lt;</span>origin.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+ <span style="color: #008000;">
+// 被積分関数の為のサブルーチン</span><span style="color: #0000ff;">
+double</span> f<span style="color: #000000;">(</span><span style="color: #0000ff;">double</span> x, <span style="color: #0000ff;">double</span> A, <span style="color: #0000ff;">double</span> xc, <span style="color: #0000ff;">double</span> w<span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+        <span style="color: #0000ff;">return</span> A <span style="color: #000040;">*</span> <span style="color: #000000;">exp</span><span style="color: #000000;">(</span><span style="color: #0000dd;">-2</span><span style="color: #000040;">*</span><span style="color: #000000;">(</span>x<span style="color: #000040;">-</span>xc<span style="color: #000000;">)</span><span style="color: #000040;">*</span><span style="color: #000000;">(</span>x<span style="color: #000040;">-</span>xc<span style="color: #000000;">)</span><span style="color: #000040;">/</span>w<span style="color: #000040;">/</span>w<span style="color: #000000;">)</span> <span style="color: #000040;">/</span> w <span style="color: #000040;">/</span> <span style="color: #000000;">sqrt</span><span style="color: #000000;">(</span>PI<span style="color: #000040;">/</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span>;<span style="color: #000000;">
+}</span>
+ <span style="color: #008000;">
+//----------------------------------------------------------</span><span style="color: #008000;">
+// </span><span style="color: #0000ff;">
+void</span> _nlsfsummation<span style="color: #000000;">(</span><span style="color: #008000;">
+// フィットパラメータ:</span><span style="color: #0000ff;">
+double</span> y0, <span style="color: #0000ff;">double</span> A, <span style="color: #0000ff;">double</span> xc, <span style="color: #0000ff;">double</span> w,<span style="color: #008000;">
+// 独立変数:</span><span style="color: #0000ff;">
+double</span> x,<span style="color: #008000;">
+// 従属変数:</span><span style="color: #0000ff;">
+double</span><span style="color: #000040;">&amp;</span> y<span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+        <span style="color: #008000;">// 編集可能部分の開始</span>
+        <span style="color: #008000;">// 積分中止の許容値をセット</span>
+        <span style="color: #0000ff;">double</span> dPrecision <span style="color: #000080;">=</span> 1e<span style="color: #0000dd;">-12</span>;
+        <span style="color: #008000;">// 初期化</span>
+        <span style="color: #0000ff;">double</span> dIntegral <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.0</span>;
+        <span style="color: #0000ff;">double</span> dTrapezia <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.0</span>;                  
+        <span style="color: #008000;">// ステップまたは精度</span>
+        <span style="color: #0000ff;">double</span> dStep <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.01</span>;
+        <span style="color: #008000;">//台形法則による積分実行</span>
+        <span style="color: #008000;">// 関数が収束したことを保証</span>
+        <span style="color: #0000ff;">do</span>
+        <span style="color: #000000;">{</span>
+                <span style="color: #008000;">// 台形の面積</span>
+                dTrapezia <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.5</span> <span style="color: #000040;">*</span> <span style="color: #000000;">(</span> f<span style="color: #000000;">(</span>x, A, xc, w<span style="color: #000000;">)</span> <span style="color: #000040;">+</span> f<span style="color: #000000;">(</span><span style="color: #000000;">(</span>x<span style="color: #000040;">-</span>dStep<span style="color: #000000;">)</span>, A, xc, w<span style="color: #000000;">)</span> <span style="color: #000000;">)</span> <span style="color: #000040;">*</span> dStep;
+                <span style="color: #008000;">// 面積の累計</span>
+                dIntegral <span style="color: #000040;">+</span><span style="color: #000080;">=</span> dTrapezia;
+                x <span style="color: #000040;">-</span><span style="color: #000080;">=</span> dStep;
+        <span style="color: #000000;">}</span><span style="color: #0000ff;">while</span><span style="color: #000000;">(</span> <span style="color: #000000;">(</span>dTrapezia<span style="color: #000040;">/</span>dIntegral<span style="color: #000000;">)</span> <span style="color: #000080;">&gt;</span> dPrecision <span style="color: #000000;">)</span>;
+        <span style="color: #008000;">// y値のセット</span>
+        y <span style="color: #000080;">=</span> y0 <span style="color: #000040;">+</span> dIntegral;           
+        <span style="color: #008000;">// 編集部分の終了</span><span style="color: #000000;">
+}</span>
+</pre>
+<a name="Fit_the_Curve" id="Fit_the_Curve"></a>
+<h3><span class="mw-headline">曲線をフィットする</span></h3>
+<p>結果を比較するために同じデータを使うこともできます。</p>
+<ol>
+<li><i style="font-style: italic;">Samples\Curve Fitting\Replicate Response Data.dat</i> をインポートします。</li>
+<li>最初の列を選択し、コンテキストメニューから列値の設定を選択します。</li>
+<li><span class="db">列値の設定</span>ダイアログに <img class="tex" alt="y=y_0+\int_{-\infin}^{x} \frac{A}{w\sqrt{\frac{\pi}{2}}} e^{-2\frac{(x-x_c)^2}{w^2}}, dx" src="../images/Fitting_with_Summation/math-db9254796e0305e4ad8206deabc1e71f.png" width="158" height="18" border="0" />とセットします。これはシグモイド曲線を作成します。</li>
+<li>列AとBを選択し、散布図を作成します。</li>
+<li>そして、<b>Ctrl + Y</b>を押し、<span class="db">NLFit</span>ダイアログを開きます。先ほど定義したフィット関数を選択し、<b>パラメータ</b>タブに移動して、すべてのパラメータを1で初期化し、フィットします。以下のような結果になります。</li>
+</ol>
+<dl>
+<dd>
+<table width="240">
+<tr>
+<th width="20">&#160;</th>
+<th width="60">値</th>
+<th width="100">標準誤差</th>
+</tr>
+<tr>
+<th>y0</th>
+<td>-0.00806</td>
+<td>0.18319</td>
+</tr>
+<tr>
+<th>A</th>
+<td>3.16479</td>
+<td>0.39624</td>
+</tr>
+<tr>
+<th>xc</th>
+<td>-0.19393</td>
+<td>0.10108</td>
+</tr>
+<tr>
+<th>w</th>
+<td>1.7725</td>
+<td>0.33878</td>
+</tr>
+</table>
+</dd>
+</dl>

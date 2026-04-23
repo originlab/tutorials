@@ -1,0 +1,94 @@
+﻿<h1 class="firstHeading">Differences Tool</h1>
+
+  <p class='urlname' style='display: none'>TSA-TD-Diff-Tutorial</p>
+
+  <div id="toc" class="toc">
+    <div id="toctitle">
+      <h2>Contents</h2>
+    </div>
+
+    <ul>
+      <li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+
+      <li class="toclevel-1 tocsection-2">
+        <a href="#Tutorial"><span class="tocnumber">2</span> <span class="toctext">Tutorial</span></a>
+
+        <ul>
+          <li class="toclevel-2 tocsection-3"><a href="#Differences"><span class="tocnumber">2.1</span> <span class="toctext">Differences</span></a></li>
+        </ul>
+      </li>
+
+      <li class="toclevel-1 tocsection-4"><a href="#Algorithm"><span class="tocnumber">3</span> <span class="toctext">Algorithm</span></a></li>
+
+      <li class="toclevel-1 tocsection-5"><a href="#Reference"><span class="tocnumber">4</span> <span class="toctext">Reference</span></a></li>
+    </ul>
+  </div>
+
+  <h2><a name="Summary"></a><span class="mw-headline">Summary</span></h2>
+
+  <p>The Differences tool is supported in the <b>Time Series Analysis</b> App. It is used to transform a non-stationary time series into a stationary one.<br>
+  A stationary time series has constant mean, variance, and autocorrelation over time, which makes it easier to model and forecast.</p>
+
+  <h2><a name="Tutorial"></a><span class="mw-headline">Tutorial</span></h2>
+
+  <p>This tutorial uses App's built-in sample project. To open this sample OPJU file:</p>
+
+  <ol>
+    <li>Right click the <b>Time Series Analysis</b> App icon <a class="image"><img alt="Time Series Analysis icon.png" src="../images/Differences/Time_Series_Analysis_icon.png" width="50"></a> in the Apps Gallery and choose <b>Show Samples Folder</b>.</li>
+
+    <li>A folder will open. Drag-and-drop the project file <i>TSA Sample.opju</i> into Origin.</li>
+  </ol>
+
+  <h3><a name="Differences"></a><span class="mw-headline">Differences</span></h3>
+
+  <ol>
+    <li>Expand <b>Project Explorer</b> docked on the left. Select folder <i>Transform and Decompose</i> and go to sheet "Sheet1" in workbook "Airpass".
+
+      <dl>
+        <dd><a class="image"><img alt="Simple Time Series Analysis 01 00.png" src="../images/Differences/500px-Simple_Time_Series_Analysis_01_00.png" width="500"></a></dd>
+      </dl>
+    </li>
+
+    <li>Click the <b>Time Series Analysis</b> App icon <a class="image"><img alt="Time Series Analysis icon.png" src="../images/Differences/Time_Series_Analysis_icon.png" width="50"></a> in the Apps Gallery. Click the button <b>Differences</b> under the <b>Tranform and Decompose</b> tab to open the app dialog.
+
+      <dl>
+        <dd><a class="image"><img alt="Simple Time Series Analysis 01 0.png" src="../images/Differences/800px-Simple_Time_Series_Analysis_01_0.png" width="800"></a></dd>
+      </dl>
+    </li>
+
+    <li>Select Col(B) as <b>Time Series</b>. For this seasonal time series dataset (the seasonal period is 12 months), select <b>Seasonal Difference</b> as <b>Type</b>, set <b>Order</b> to <b>1</b> and <b>Period</b> to <b>12</b>.
+
+      <dl>
+        <dd><a class="image"><img alt="Simple Time Series Analysis 01 a.png" src="../images/Differences/Simple_Time_Series_Analysis_01_a.png" width="543"></a></dd>
+      </dl>
+    </li>
+
+    <li>Click OK button to get the difference result.
+
+      <dl>
+        <dd><a class="image"><img alt="Simple Time Series Analysis 01 b.png" src="../images/Differences/Simple_Time_Series_Analysis_01_b.png" width="475"></a></dd>
+      </dl>
+    </li>
+  </ol>
+
+  <dl>
+    <dd>The results you get here is calculated by formula: C[i+12]=B[i+12]-B[i]</dd>
+  </dl>
+
+  <h2><a name="Algorithm"></a><span class="mw-headline">Algorithm</span></h2>
+
+  <p>Differences tool calculates non-seasonal and seasonal differencing on a time series.</p>
+
+  <p>This app calls <i>nag_tsa_diff (g13aac)</i> function [<a href="#Ref1">1</a>] to calculate.</p>
+
+  <p>Given a time series <i>x</i><sub><i>i</i></sub>, <i>i</i> = 1, 2, ..., <i>n</i>, after non-seasonal differencing of order <i>d</i> and seasonal differencing of order <i>D</i> with period <i>s</i>, the transformation can be expressed as:</p>
+
+  <dl>
+    <dd><img src="../images/Differences/math-3425202c9fd385da8680cf64f6812b9b.png" title="\notag\begin{alignat}{2}\nabla^d \nabla_s^D x_i &amp;= \nabla^d \nabla_s^{D-1} x_{i+s} - \nabla^d \nabla_s^{D-1} x_{i} \\ &amp;= \nabla^{d-1} \nabla_s^{D} x_{i+1} - \nabla^{d-1} \nabla_s^{D} x_{i} \qquad\text{for } i=1,\, 2,\, \cdots,\, (n - d - D \cdot   s)\end{alignat}" alt="\notag\begin{alignat}{2}\nabla^d \nabla_s^D x_i &amp;= \nabla^d \nabla_s^{D-1} x_{i+s} - \nabla^d \nabla_s^{D-1} x_{i} \\ &amp;= \nabla^{d-1} \nabla_s^{D} x_{i+1} - \nabla^{d-1} \nabla_s^{D} x_{i} \qquad\text{for } i=1,\, 2,\, \cdots,\, (n - d - D \cdot   s)\end{alignat}" class="tex"></dd>
+  </dl>
+
+  <p>The first <img src="../images/Differences/math-ea26f78523274cadb517dbd3ecbcbcdd.png" title="n - d - D \cdot s" alt="n - d - D \cdot s" class="tex"> elements in the result are missing values.</p>
+
+  <h2><a name="Reference"></a><span class="mw-headline">Reference</span></h2>
+
+  <p>1. <span id="Ref1"></span><a class="external text" href="https://d2mvzyuse3lwjc.cloudfront.net/pdfs/NAG26/Manual/html/g13/g13aac.html" target="_blank">nag_tsa_diff (g13aac)</a></p>

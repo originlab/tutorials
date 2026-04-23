@@ -1,0 +1,54 @@
+﻿<h1 class="firstheading">STFT (短時間フーリエ変換)</h1>
+<p class="urlname" style="display: none;">STFT</p>
+<h2><span class="mw-headline" id="Summary">サマリー</span></h2>
+<p>短時間フーリエ変換（STFT）は、時間-周波数分析で非定常信号の分析に適しています。そしてSTFTは、時間の経過とともにどのように、周波数が変化するかについての情報を提供することができます。時間軸に沿ってウィンドウを移動し、時間と周波数の変化の関係が識別できます。</p>
+<h2><span class="mw-headline" id="What_You_Will_Learn">学習する項目</span></h2>
+<p>このチュートリアルで以下のことを行います：</p>
+<ol>
+<li>短時間フーリエ変換（STFT）を実行する</li>
+<li>時間と周波数解像度を向上させるためダイアログの設定を変更する</li>
+<li>解像度の向上のため、ウィンドウの種類を変更する</li>
+</ol>
+<h2><span class="mw-headline" id="Steps">ステップ</span></h2>
+<ol>
+<li>新しいワークブックを作成し、<b>&lt;Origin インストールディレクトリ&gt;\Samples\Signal Processing\</b>Chirp Signal.dat をインポートします。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="SP Tutorial STFT 1.png" src="../images/STFT/SP_Tutorial_STFT_1.png" width="396" height="322" border="0" /></a></dd>
+</dl>
+</li>
+<li>B列を選択して、<b>解析：信号処理：STFT</b>を選択し、<b>Signal Processing: stft</b>ダイアログを開きます。</li>
+<li>ダイアログの<b>自動プレビュー</b>チェックボックスにチェックを付け、右パネルでプレビューできるようにします。<b>ウィンドウ長</b>の項目にある<b>自動</b>のチェックを外し、<b>ウィンドウ長</b>を8にし、<b>オーバーラップ</b>を7に設定します。<b>ウィンドウタイプ</b>を<b>Hanning</b>、<b>オプション</b>は<b>振幅結果</b>にします。
+<dl>
+<dd><span><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="SP Tutorial STFT 2.png" src="../images/STFT/SP_Tutorial_STFT_2.png" width="1102" height="524" border="0" /></a></span></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">OK</b>ボタンをクリックして、この設定でSTFTを実行し、行列データと等高線グラフを含む結果を取得します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="SP Tutorial STFT 3.png" src="../images/STFT/SP_Tutorial_STFT_3.png" width="515" height="387" border="0" /></a></dd>
+</dl>
+</li>
+<li>上図を見ると時間解像度は良好ですが、周波数は明らかではないことがわかります。グラフ内の鍵のアイコンをクリックして、コンテキストメニューから<b>パラメータの変更</b>を選択して、ダイアログを再度開きます。<b>ウィンドウ法</b>を<b>四角形</b>に変更して<b>OK</b>ボタンをクリックします。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="SP Tutorial STFT 4.png" src="../images/STFT/SP_Tutorial_STFT_4.png" width="515" height="387" border="0" /></a></dd>
+</dl>
+</li>
+<li>時間と周波数解像度がよくなりました。時間と周波数ともに最良な解像度を得ることはできないので注意してください。片方が良く、片方が悪い場合、それらのバランスを取ることはできます。</li>
+<li>3次元的に結果を表示するため、結果行列をアクティブにし、メニューから<b>作図：3D曲面：カラーマップ曲面</b>を選択して3D曲面図を作図します。</li>
+<li>3Dグラフ上でダブルクリックして、<b>作図の詳細</b>ダイアログを開き、左パネルで<b>カラーマップ/等高線</b>タブを開きます。<b>線</b>ヘッダをクリックして<b>等高線</b>ダイアログを開き、全ての線を非表示にします。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="SP Tutorial STFT 5.png" src="../images/STFT/SP_Tutorial_STFT_5.png" width="591" height="548" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">メッシュ</b>タブを開き、<b>有効にする</b>チェックを外してメッシュ線を非表示にします。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="SP Tutorial STFT 6.png" src="../images/STFT/SP_Tutorial_STFT_6.png" width="668" height="548" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">OK</b> をクリックして終了します。グラフを回転して下図のように見やすくします。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="SP Tutorial STFT 7.png" src="../images/STFT/SP_Tutorial_STFT_7.png" width="594" height="442" border="0" /></a></dd>
+</dl>
+</li>
+</ol>
+
+

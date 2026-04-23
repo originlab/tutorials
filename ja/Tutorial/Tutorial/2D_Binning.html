@@ -1,0 +1,78 @@
+﻿<h1 class="firstheading">2Dビン化</h1>
+<p class="urlname" style="display: none;">2D-Binning</p>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>目次</h2>
+</div>
+<ol>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Further_Customizations"><span class="tocnumber">4</span> <span class="toctext">詳細な編集</span></a></li>
+</ol>
+</div>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>2D度数カウント/ビン化の操作はデータの出現頻度を2つの変数について数えます。このデータから3D棒グラフあるいはイメージプロットを作図でき、データの分布について視覚的に特徴を捉えることができます。</p>
+<p><a class="image"><img alt="2D Binning.png" src="../images/2D_Binning/2D_Binning.png" width="566" border="0" /></a></p>
+<p class="version">必要なOriginのバージョン: Origin 2015 SR0以降</p>
+<h2><a name="What_you_will_learn" id="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul>
+<li>2つの変数を使用してデータの頻度を数える方法</li>
+<li>2Dビン化データを3Dヒストグラムとして作図する</li>
+</ul>
+<h2><a name="Steps" id="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>このチュートリアルは、チュートリアルデータプロジェクト（<i>&lt;Origin EXE フォルダ&gt;\Samples\TutorialData.opj</i>）と関連しています。</p>
+<ol>
+<li><b style="font-weight: bold;">Tutorial Data.opj</b>を開き、<b>2D Frequency Count (Binning)</b>フォルダにあるブック<b>3D Histogram.dat</b>をアクティブにします。</li>
+<li>列Aと列Bを選択し、メニューから<b>統計：記述統計：２D度数カウント/ビン化</b>と操作して<b>TwoDBinning</b>ダイアログを開きます。</li>
+<li>ダイアログ内で次の設定を行います。
+<ul>
+<li>ビンサイズの<b>自動</b>チェックを外し、Xの<b>ビンサイズ</b>値を40に設定します。</li>
+</ul>
+<ul>
+<li>同じように、Yの<b>ビンサイズ</b>を15にセットします。</li>
+</ul>
+<br />
+<a class="image"><img alt="2D Binning 02.png" src="../images/2D_Binning/2D_Binning_02.png" width="599" height="756" border="0" /></a><br />
+<br />
+<ul>
+<li>ダイアログの最後にある<b>出力行列</b>にチェックをつけ、表示される<b>行列プロット</b>では<b>3D棒グラフ</b>を選択します。</li>
+</ul>
+<br />
+<a class="image"><img alt="2D Binning 02-1.png" src="../images/2D_Binning/2D_Binning_02-1.png" width="597" height="155" border="0" /></a><br />
+<br /></li>
+<li><b style="font-weight: bold;">OK</b> ボタンをクリックすると、次の出力が表示されます。
+<ul>
+<li><b style="font-weight: bold;">ワークシート</b></li>
+</ul>
+<a class="image"><img alt="2D Binning 03.png" src="../images/2D_Binning/2D_Binning_03.png" width="700" height="225" border="0" /></a><br />
+<ul>
+<li><b style="font-weight: bold;">行列</b></li>
+</ul>
+<a class="image"><img alt="2D Binning 04.png" src="../images/2D_Binning/2D_Binning_04.png" width="324" height="167" border="0" /></a><br />
+<ul>
+<li><b style="font-weight: bold;">3Dヒストグラム</b></li>
+</ul>
+<a class="image"><img alt="Graph1-3D.png" src="../images/2D_Binning/Graph1-3D.png" width="473" border="0" /></a><br />
+<h2><a name="Further_Customizations" id="Further_Customizations"></a><span class="mw-headline">詳細な編集</span></h2>
+<ol>
+<li>3Dヒストグラムをダブルクリックして<b>作図の詳細</b>ダイアログを開きます。<b>カラーマップ</b>タブを開き、<b>色塗り</b>ヘッダをクリックして<b>塗り方</b>ダイアログを開き、以下の図のように設定します。
+<p><br />
+<a class="image"><img alt="2D Bining 06.png" src="../images/2D_Binning/2D_Bining_06.png" width="559" height="396" border="0" /></a></p>
+<p><b style="font-weight: bold;">OK</b>をクリックして<b>塗り方</b>ダイアログを閉じ、もう一度<b>OK</b>をクリックして<b>作図の詳細</b>ダイアログを閉じます。</p>
+</li>
+<li>軸をダブルクリックして<b>軸</b>ダイアログを開きます。<b>スケール</b>タブを指定してXYZ軸をそれぞれ以下の図のように設定します。
+<ul>
+<li>X アイコンを選択してX 軸のスケールを開始820、終了1220、主目盛の値を40に設定します。</li>
+</ul>
+<p><br />
+<a class="image"><img alt="2D Bining 07.png" src="../images/2D_Binning/2D_Bining_07.png" width="600" height="338" border="0" /></a></p>
+<ul>
+<li>Yアイコンを選択してY 軸のスケールを開始127.5、終了277.5、主目盛の値を15に設定します。</li>
+<li>Z アイコンを選択してZ 軸のスケールを開始0、終了100、主目盛の値を20に設定します。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><b style="font-weight: bold;">タイトル</b>タブを開き、X軸、Y軸、Z 軸のタイトルをそれぞれ「<i>Tensile Strength</i>」、「<i>Brinell Hardness</i> 」、「<i>Number of Tests</i>」に設定します。 <b>OK</b>をクリックしてこの設定を適用して、ダイアログを閉じます。</li>
+</ol>

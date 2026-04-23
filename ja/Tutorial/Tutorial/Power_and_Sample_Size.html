@@ -1,0 +1,99 @@
+﻿<h1 class="firstheading">検出力と標本サイズ</h1><p class='urlname' style='display: none'>Power-SampleSize</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#.28PSS.29One-Sample_t-Test"><span class="tocnumber">3</span> <span class="toctext">(PSS)1群のt検定</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#.28PSS.29Two-Sample_t-Test"><span class="tocnumber">4</span> <span class="toctext">(PSS)2群のt検定</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#.28PSS.29Paired-Sample_t-Test"><span class="tocnumber">5</span> <span class="toctext">(PSS)対応のあるt検定</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#.28PSS.29One-Way_ANOVA"><span class="tocnumber">6</span> <span class="toctext">(PSS)一元配置の分散分析</span></a></li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>検出力と標本サイズの分析は実験計画をたてる際に重要になります。不十分なデータは検出力が足りなくなり、帰無仮説を棄却する能力を失う恐れがあり、データを余分に集めてしまうのは時間と資源を無駄にしてしまうことに繋がります。つまり、実験を行う前に適切な標本サイズを割り出すことが非常に大切になってきます。実験の検出力はある特定標本サイズを元にすれば計算でき、また、特定の検出力で検定できる標本サイズも計算できます。
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルは標本サイズの計算方法、または検出力を推定する方法を、実際に使用するデータを元に紹介します。
+</p>
+<h2><a name=".28PSS.29One-Sample_t-Test"></a><span class="mw-headline">(PSS)1群のt検定</span></h2>
+<p><b>背景：</b><br />社会学者が、アメリカにおける乳児の平均死亡率が8であるかどうか調べるものとします。実験計画では、死亡率の差は 0.5より大きく変化しません。また、予備実験から、標準偏差は2.1になるはずである、という事が分かっています。 
+<br /><br />
+<b>質問：</b><br />検出力の値が0.7, 0.8, 0.9に対して、信頼水準95%(<img src="../images/Power_and_Sample_Size/math-7b7f9dbfea05c83784f8b85149852f08.png" title="\alpha" alt="\alpha" class="tex"/>=0.05)で乳児の平均死亡率を推定するのに必要なサンプルサイズはいくつでしょうか? 
+<br />
+<b>Originでの操作：</b>
+</p>
+<ol><li>空のワークシートをアクティブにし、メニューから<b><b>統計：検出力と標本サイズ：（PSS）1群t検定</b></b>と選択します。</li>
+<li><b>PSS_tTest1</b>ダイアログで以下の画像のように設定を行い、<b>OK</b>をクリックします。</li></ol>
+<p><a  class="image"><img alt="Tutorial PSS 001.png" src="../images/Power_and_Sample_Size/Tutorial_PSS_001.png" width="431"  /></a><br /><br />
+</p><p><b>Originの出力：</b>
+<br />結果シートが作成され、指定された仮説の検出力に必要な標本サイズを表示します。<br />
+<a  class="image"><img alt="Tutorial PSS 002.png" src="../images/Power_and_Sample_Size/Tutorial_PSS_002.png" width="288"  /></a><br /><br />
+</p><p><br />
+<b>結果の解釈：</b>
+<br />この結果によると、実験を計画する際に検出力0.7にするには111、0.8にするには141、0.9にするには188のサンプルを集める必要がある事が、計算により分かりました。
+</p>
+<h2><a name=".28PSS.29Two-Sample_t-Test"></a><span class="mw-headline">(PSS)2群のt検定</span></h2>
+<p><b>背景：</b>
+<br />ある診療所では、2つの保険制度Healthwise と Medcareに加入しています。この2つの保険に対して、請求してから補償給付までの平均時間(日数)を比較するものとします。経験上、Healthwiseでは、平均32日で標準偏差7.5日であることが分かっています。また、Medcareは、補償給付までの平均時間は42日で、標準偏差は3.5日です。 
+<br /><br />
+<b>質問：</b>
+<br />それぞれの保険に対して行われた10個の請求を抜き出し、補償までの平均時間を記録します。2つの保険における平均時間の差が5%以上になるための検出力はいくつでしょうか? 
+<br /><br />
+<b>Originでの操作：</b>
+</p>
+<ol><li>プールド標準偏差を次のように計算します。
+<dl><dd><img src="../images/Power_and_Sample_Size/math-c65ff368584626545d265cc2abd9362d.png" title="\sqrt{((5-1)^{*}7.5^{\land} 2+(5-1)^{*}3.5^{\land }2)/(5+5-2)}=5.85235" alt="\sqrt{((5-1)^{*}7.5^{\land} 2+(5-1)^{*}3.5^{\land }2)/(5+5-2)}=5.85235" class="tex"/><br /><br />*この値はのちほど検出力を計算する際に標準偏差として使用します。</dd></dl></li>
+<li>第1グループと第2グループのサンプルサイズは10になります（合計で20）。</li>
+<li>空のワークシートをアクティブにし、メニューから<b><b>統計：検出力と標本サイズ：（PSS）2群ｔ検定</b></b>と選択します。</li>
+<li><b>PSS_tTest2</b>ダイアログで以下の画像のように設定を行い、<b>OK</b>をクリックします。<br /></li></ol>
+<p><a  class="image"><img alt="Tutorial PSS 003.png" src="../images/Power_and_Sample_Size/Tutorial_PSS_003.png" width="462"  /></a>
+<br /><br />
+</p><p><b>Originの出力：</b>
+<br />結果が出力され、検出力が計算されました。
+</p><p><a  class="image"><img alt="Tutorial PSS 004.png" src="../images/Power_and_Sample_Size/Tutorial_PSS_004.png" width="316"  /></a>
+</p><p><br />
+<b>結果の解釈：</b>
+<br />それぞれに対して10個の請求を集めれば、その診療所は0.95054:1、または95%の可能性で差を検出できると結論付けることができます。帰無仮説を棄却できず、2つの平均は同じである(異なっていない）と誤って結論付ける危険性は、4.946%(1-0.95054)あります。
+</p>
+<h2><a name=".28PSS.29Paired-Sample_t-Test"></a><span class="mw-headline">(PSS)対応のあるt検定</span></h2>
+<p><b>背景：</b>
+<br />同種の2台の機械を使用し、薄いフィルムの中のアモルファスシリコンの厚みを測定しています。これら2台の機械の計測結果に差があるかどうか調べるため、エンジニアが2台の計測結果を比較する計画を立てました。
+</p><p>以前行われたアモルファスシリコンの実験から、差の標準偏差は2µmであるとわかっています。さらに、これら2台の機械の差は0.5µmを超えてはならず、1番目の機械で計測した平均の厚みは5000µmです。
+</p><p><b>質問：</b>
+<br />検出力の値が0.8, 0.9, 0.95に対して信頼水準99%で結果が必要なとき、いくつの標本をとる必要があるでしょうか?
+</p><p><b>Originでの操作：</b>
+<br />上記情報から、1番目のグループの平均は5000 µm、 2番目のグループは5000.5 µmとなっています。
+</p>
+<ol><li>空のワークシートをアクティブにし、メニューから<b><b>統計：検出力と標本サイズ：（PSS）対データt検定</b></b>と選択します。</li>
+<li><b>PSS_tTestPair</b>ダイアログで以下の画像のように設定を行い、<b>OK</b>をクリックします。</li></ol>
+<p><a  class="image"><img alt="Paired t test.PNG" src="../images/Power_and_Sample_Size/Paired_t_test.PNG" width="447"  /></a>
+</p><p><b>Originの出力：</b>
+<br />結果シートが作成され、指定された仮説の検出力に必要なサンプルサイズが出力されます。
+</p><p><a  class="image"><img alt="Paired t test result.PNG" src="../images/Power_and_Sample_Size/Paired_t_test_result.PNG" width="315"  /></a>
+</p><p><b>結果の解釈：</b>
+<br />191個のサンプルを計測した場合、エンジニアは80%の確率で差を確認できるといえます。同じように242個のサンプルでは90%、289個のサンプルを使用すれば95%の確率で、2台の機械の計測に差がある場合は計測できます。
+</p>
+<h2><a name=".28PSS.29One-Way_ANOVA"></a><span class="mw-headline">(PSS)一元配置の分散分析</span></h2>
+<p><b>背景：</b>
+<br />異なる植物で窒素含有量が異なるか、調べるものとします。4種類の植物に対して窒素含有量をミリグラム単位で記録する実験計画があります (各々の種類に対して80個の標本を観測します)。先行研究は、MSE（平均二乗誤差）の平方根は60で、平均のCSS（補正平方和）は400であると提示しています。 
+</p><p><b>質問：</b>
+<br />この計画は適切でしょうか? （つまり、計算した検出力は妥当でしょうか？）
+</p><p><br />
+<b>Originでの操作：</b>
+</p>
+<ol><li>各グループのサンプルサイズは80です。</li>
+<li>空のワークシートをアクティブにし、<b>統計：検出力と標本サイズ：（PSS）一元配置の分散分析</b>と選択します。</li>
+<li><b>PSS_ANOVA1</b>ダイアログで以下の画像のように設定を行い、<b>OK</b>をクリックします。</li></ol>
+<p><a  class="image"><img alt="Tutorial PSS 007.png" src="../images/Power_and_Sample_Size/Tutorial_PSS_007.png" width="477"  /></a>
+</p><p><br />
+</p><p><b>Originの出力：</b>
+<br />結果シートが作成され、検出力が現在の状況から算出されます。
+</p><p><a  class="image"><img alt="Tutorial PSS 008.png" src="../images/Power_and_Sample_Size/Tutorial_PSS_008.png" width="285"  /></a>
+</p><p><br />
+</p><p><b>結果の解釈：</b>
+<br />どうやら、元の実験計画はあまりよくないようです。各グループから差を検出する可能性は、この計画だと69%しかありません。より説得力のある結果を得るために、研究者は植物の種ごとにさらに多くの標本を集めるべきでしょう。
+</p>
+
+
+
+    

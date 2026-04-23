@@ -1,0 +1,140 @@
+﻿<h1 class="firstHeading">管理図のチュートリアル</h1><p class='urlname' style='display: none'>Tutorial-Control-Charts</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Notes_for_Starting"><span class="tocnumber">1</span> <span class="toctext">始める前の注意</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Variables_Charts_for_Subgroups:_Xbar-R"><span class="tocnumber">2</span> <span class="toctext">変数管理図 - サブグループ: Xbar-R管理図</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Background"><span class="tocnumber">2.1</span><span class="toctext">背景</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Steps_in_Origin"><span class="tocnumber">2.2</span> <span class="toctext">Originでの操作</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Interpreting_the_Results"><span class="tocnumber">2.3</span> <span class="toctext">結果の解釈</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Variables_Chart_for_Individuals:_I-MR"><span class="tocnumber">3</span> <span class="toctext">変数管理図 - 個別: I-MR管理図</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#Background_2"><span class="tocnumber">3.1</span><span class="toctext">背景</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Steps_in_Origin_2"><span class="tocnumber">3.2</span> <span class="toctext">Originでの操作</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Interpreting_the_Results_2"><span class="tocnumber">3.3</span> <span class="toctext">結果の解釈</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="#Attributes_Charts:_P_Chart_Diagnostic_and_P"><span class="tocnumber">4</span> <span class="toctext">計数管理図: P管理図診断とP管理図</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="#Background_3"><span class="tocnumber">4.1</span><span class="toctext">背景</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Steps_in_Origin_3"><span class="tocnumber">4.2</span> <span class="toctext">Originでの操作</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Interpreting_the_Results_3"><span class="tocnumber">4.3</span> <span class="toctext">結果の解釈</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="#Time-Weighted_Charts:_CUSUM"><span class="tocnumber">5</span> <span class="toctext">時間重み付き管理図: CUSUM（累積和）管理図</span></a>
+<ul>
+<li class="toclevel-2 tocsection-15"><a href="#Background_4"><span class="tocnumber">5.1</span><span class="toctext">背景</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#Steps_in_Origin_4"><span class="tocnumber">5.2</span> <span class="toctext">Originでの操作</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#Interpreting_the_Results_4"><span class="tocnumber">5.3</span> <span class="toctext">結果の解釈</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Notes_for_Starting"></a><span class="mw-headline">始める前の注意</span></h2>
+<ul><li> <a class="external text" href="https://blog.originlab.com/wp-content/uploads/2023/10/SPCData.zip" target="_blank">ここ</a>からサンプルプロジェクトファイルをダウンロードし、Originで開きます。</li></ul>
+<ul><li> アプリ<a class="external text" href="https://www.originlab.com/fileExchange/details.aspx?fid=934" target="_blank"><b>Statistical Process Control（統計的工程管理）</b></a>がインストールされている状態でこのチュートリアルを開始してください。アプリをインストールしていない場合は、<a class="external text" href="https://www.originlab.com/doc/User-Guide/Apps" target="_blank">Originのアプリ</a>を参照して検索とインストールを行ってください。</li></ul>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Tutorial_Control_Charts/Tip_icon.png" width="57"  border="0" /></td><td><p><i><b>詳細情報</b></i>:
+</p>
+<ul><li> <a href="../../Tutorial/Category/Control_Charts(App).html" title="カテゴリ:管理図（アプリ）">イントロダクション:管理図</a></li>
+<li> <a href="../../Tutorial/App/Algorithm_Control_Charts.html" title="アプリケーション:アルゴリズム管理図">アルゴリズム:管理図</a></li></ul>
+</td></tr></table>
+<p><br />
+</p>
+<h2><a name="Variables_Charts_for_Subgroups:_Xbar-R"></a><span class="mw-headline">変数管理図 - サブグループ: Xbar-R管理図</span></h2>
+<h5><a name="Background"></a><span class="mw-headline">背景</span></h5>
+<p>あるメーカーが、直径21mmの高品質なナット を生産しています。 
+</p><p>品質管理部門では、2台の機械から 20日間にわたり毎日4つのナット を抜き取り、直径を測定しました。 
+</p><p>ナットの平均直径が21±0.05 (20.95～21.05) になるか確認し、2台の機械の動作を管理したい場合を考えます。
+</p>
+<h5><a name="Steps_in_Origin"></a><span class="mw-headline">Originでの操作</span></h5>
+<ol><li> フォルダ<b>1.Normal</b>を開き、ワークブック<b>Diameter</b>をアクティブにします。</li>
+<li> Originのウィンドウ左側にある<b>アプリギャラリー</b>ウィンドウを開き、<b>Statistical Process Control</b>アイコン<a  class="image"><img alt="SPC Icon.png" src="../images/Tutorial_Control_Charts/SPC_Icon.png" width="32"  /></a>をクリックします。</li>
+<li> <b>管理図</b>タブを選択し、ドロップダウンリストから<b>サブグループ管理図</b>を選び、<b>Xbar-R</b>を選択します。
+<dl><dd><a  class="image"><img alt="XbarR GUI.png" src="../images/Tutorial_Control_Charts/700px-XbarR_GUI.png" width="700"   /></a></dd></dl></li>
+<li> 開いたダイアログの<b>入力</b>タブで、列BとCを<b>測定データ</b>として選択します。<b>サブグループのサイズ</b>を<b>列</b>にし、<b>サブグループのサイズ列</b>を列Aに設定します。
+<dl><dd><a  class="image"><img alt="XbarR Input.png" src="../images/Tutorial_Control_Charts/450px-XbarR_Input.png" width="450"   /></a></dd></dl></li>
+<li> <b>パラメータ</b>タブで、<b>履歴平均</b>を<b>21</b>に設定します。
+<dl><dd> <a  class="image"><img alt="XbarR Parameters.png" src="../images/Tutorial_Control_Charts/400px-XbarR_Parameters.png" width="400"   /></a></dd></dl></li>
+<li> <b>制限</b>タブ<b>Xbar管理図の管理限界の境界</b>ブランチを開きます。<b>上側管理限界</b> の<b>20.95</b>、<b>下側管理限界</b>に<b>21.05</b>を設定します。
+<dl><dd> <a  class="image"><img alt="XbarR Limits.png" src="../images/Tutorial_Control_Charts/450px-XbarR_Limits.png" width="450"   /></a></dd></dl></li>
+<li> <b>検定</b>タブを開いて以下を選択します。
+<ul><li> <b>1点&gt;中心線からのK標準偏差</b></li>
+<li> <b>連続するK点が中心線の片側にある</b></li>
+<li> <b>連続するK点が中心線から1標準偏差内にある (両側)</b> </li></ul>
+<dl><dd><a  class="image"><img alt="XbarR Tests.png" src="../images/Tutorial_Control_Charts/500px-XbarR_Tests.png" width="500"   /></a></dd></dl></li>
+<li> <b>OK</b>ボタンをクリックします。レポート表付きのグラフが作成されます。</li></ol>
+<h5><a name="Interpreting_the_Results"></a><span class="mw-headline">結果の解釈</span></h5>
+<p>プロセスばらつきが管理されていない場合、Xbar管理図は不正確になる可能性があるので、最初にR管理図を確認します。2台の機械のR管理図ではすべての点が管理限界内にあり、プロセスばらつきが管理されていることがわかります。 
+</p><p>機械は1つの異常点を持っています。Machine 1のXbar管理図では、管理限界を超えている点があることがわかります。TEST 1の検定結果から、ポイント18が不合格であることが確認できます。 
+</p><p>機械2は管理状態にあります。Machine 2のXbar管理図では、すべてのポイントが管理限界内にあります。
+</p><p><a  class="image"><img alt="XbarR Results.png" src="../images/Tutorial_Control_Charts/900px-XbarR_Results.png" width="900"   /></a>
+</p>
+<h2><a name="Variables_Chart_for_Individuals:_I-MR"></a><span class="mw-headline">変数管理図 - 個別: I-MR管理図</span></h2>
+<h5><a name="Background_2"></a><span class="mw-headline">背景</span></h5>
+<p>品質管理エンジニアが、パイプの生産プロセスを評価します。150サンプルのパイプの高さ（フィート）データを収集しました。彼はこの工程が管理状態にあるかどうかを確認したいと考えています。
+</p>
+<h5><a name="Steps_in_Origin_2"></a><span class="mw-headline">Originでの操作</span></h5>
+<ol><li> フォルダ<b>1.Normal</b>を開きます。ワークブック<b>Height of Pipe</b>をアクティブにします。</li>
+<li> ワークシートのA列を選択します。Originのウィンドウ左側にある<b>アプリギャラリー</b>ウィンドウを開き、<b>Statistical Process Control</b>アイコン<a  class="image"><img alt="SPC Icon.png" src="../images/Tutorial_Control_Charts/SPC_Icon.png" width="32"  /></a>をクリックします。</li>
+<li> <b>管理図</b>タブを選択し、ドロップダウンリストから<b>個別管理図</b>を選び、 <b>I-MR</b>を選択します。</li>
+<li> 開いたダイアログの<b>入力</b>タブで、列Aが<b>測定データ</b>として自動的に選択されます。</li>
+<li> <b>検定</b>タブを開いて以下を選択します。
+<ul><li> <b>1点&gt;中心線からのK標準偏差</b></li>
+<li> <b>連続するK点が中心線の片側にある</b></li></ul>
+<dl><dd> <a  class="image"><img alt="IMR Tests.png" src="../images/Tutorial_Control_Charts/500px-IMR_Tests.png" width="500"   /></a></dd></dl></li></ol>
+<h5><a name="Interpreting_the_Results_2"></a><span class="mw-headline">結果の解釈</span></h5>
+<p>まずMRチャートを確認します。82番目、133番目の点がTest 1に失敗、105番目の点がTest 2に失敗と記載されています。プロセスの変動が大きく安定していない可能性があります。 
+</p><p><a  class="image"><img alt="IMR Results.png" src="../images/Tutorial_Control_Charts/800px-IMR_Results.png" width="800"   /></a>
+</p>
+<h2><a name="Attributes_Charts:_P_Chart_Diagnostic_and_P"></a><span class="mw-headline">計数管理図: P管理図診断とP管理図</span></h2>
+<h5><a name="Background_3"></a><span class="mw-headline">背景</span></h5>
+<p>あるショップのマネージャーが、25日間にわたり顧客満足度調査 を実施し、不満のある顧客数を記録しました。 
+</p><p>彼は サービスが仕様を満たしているか を確認したいと考えています。
+</p>
+<h5><a name="Steps_in_Origin_3"></a><span class="mw-headline">Originでの操作</span></h5>
+<ol><li> フォルダ<b>4.Binomial</b>を開き、ワークブック<b>Survey</b>をアクティブにします。</li>
+<li> Originのウィンドウ左側にある<b>アプリギャラリー</b>ウィンドウを開き、<b>Statistical Process Control</b>アイコン<a  class="image"><img alt="SPC Icon.png" src="../images/Tutorial_Control_Charts/SPC_Icon.png" width="32"  /></a>をクリックします。</li>
+<li> <b>管理図</b>タブで、ドロップダウンリストから<b>係数管理図</b>を選択し、<b>P管理図診断</b>を選択します。
+<dl><dd><a  class="image"><img alt="Attribute GUI.png" src="../images/Tutorial_Control_Charts/700px-Attribute_GUI.png" width="700"   /></a></dd></dl></li>
+<li> 開いたダイアログの<b>入力</b>タブで<b>不良</b>を列Bに設定します。<b>サンプルサイズ</b><b>列</b>にし、<b>サンプルサイズ列</b>にA列を設定します。
+<dl><dd><a  class="image"><img alt="P Input.png" src="../images/Tutorial_Control_Charts/380px-P_Input.png" width="380"   /></a></dd></dl></li>
+<li> <b>OK</b>ボタンをクリックします。グラフが作成されます
+<dl><dd> <a  class="image"><img alt="PDiagnostic.png" src="../images/Tutorial_Control_Charts/400px-PDiagnostic.png" width="400"   /></a></dd>
+<dd> <b>P管理図診断</b>のメモに記載されているように<b>Laney P&apos;管理図</b>を使用する必要があります。Originのウィンドウ左側にある<b>アプリギャラリー</b>ウィンドウを開き、<b>Statistical Process Control</b>アイコン<a  class="image"><img alt="SPC Icon.png" src="../images/Tutorial_Control_Charts/SPC_Icon.png" width="32"  /></a>をクリックします。</dd></dl></li>
+<li> <b>管理図</b>タブで<b>Laney P&apos;</b>を選択します。</li>
+<li> 開いたダイアログの<b>入力</b>タブで<b>不良</b>を列Bに設定します。<b>サンプルサイズ</b><b>列</b>にし、<b>サンプルサイズ列</b>にA列を設定します。
+<dl><dd><a  class="image"><img alt="LaneyP Input.png" src="../images/Tutorial_Control_Charts/400px-LaneyP_Input.png" width="400"   /></a></dd></dl></li>
+<li> <b>入力</b>タブの<b>検定</b>ドロップダウンリストから<b>すべての検定を実行する</b>を選択します。
+<dl><dd><a  class="image"><img alt="LaneyP Tests.png" src="../images/Tutorial_Control_Charts/500px-LaneyP_Tests.png" width="500"   /></a></dd></dl></li></ol>
+<h5><a name="Interpreting_the_Results_3"></a><span class="mw-headline">結果の解釈</span></h5>
+<p>すべてのデータポイントが管理限界内にあります。ノートには失敗したポイントについて記載がなく、すべてのテストに合格したことを意味する。プロセスは管理状態にあることが確認できます。
+</p>
+<dl><dd><a  class="image"><img alt="LaneyP Results.png" src="../images/Tutorial_Control_Charts/500px-LaneyP_Results.png" width="500"   /></a></dd></dl>
+<h2><a name="Time-Weighted_Charts:_CUSUM"></a><span class="mw-headline">時間重み付き管理図: CUSUM（累積和）管理図</span></h2>
+<h5><a name="Background_4"></a><span class="mw-headline">背景</span></h5>
+<p>ある製造業者は直径21ミリメートルの高品質のねじナットを製造しています。 
+</p><p>品質管理部門では、2台の機械から 20日間にわたり毎日4つのナット を抜き取り、直径を測定しました。 
+</p><p>ナットの平均直径が21±0.05 (20.95～21.05) になるか確認し、2台の機械の動作を管理したい場合を考えます。
+</p><p>品質管理部門は、<a href="../../Tutorial/App/Tutorial_Control_Charts.html#Variables_Charts_for_Subgroups:_Xbar-R" title="アプリ:チュートリアル管理図">X-Bar管理図</a>のX-Barを作成済みです。しかし、これらの機械の摩耗も監視したいと考えています。
+</p>
+<h5><a name="Steps_in_Origin_4"></a><span class="mw-headline">Originでの操作</span></h5>
+<ol><li> フォルダ<b>1.Normal</b>を開き、ワークブック<b>Diameter</b>をアクティブにします。</li>
+<li> Originのウィンドウ左側にある<b>アプリギャラリー</b>ウィンドウを開き、<b>Statistical Process Control</b>アイコン<a  class="image"><img alt="SPC Icon.png" src="../images/Tutorial_Control_Charts/SPC_Icon.png" width="32"  /></a>をクリックします。</li>
+<li> <b>管理図</b>タブを選択し、ドロップダウンリストから<b>時間重み付き管理図</b>を選び、 <b>CUSUM</b>を選択します。
+<dl><dd><a  class="image"><img alt="CUSUM GUI.png" src="../images/Tutorial_Control_Charts/700px-CUSUM_GUI.png" width="700"   /></a></dd></dl></li>
+<li> 開いたダイアログの<b>入力</b>タブで、列BとCを<b>測定データ</b>として選択します。<b>サブグループのサイズ</b>を<b>列</b>にし、<b>サブグループのサイズ列</b>を列Aに設定します。<b>目標</b>は<b>21</b>にします。
+<dl><dd><a  class="image"><img alt="CUSUM Input.png" src="../images/Tutorial_Control_Charts/500px-CUSUM_Input.png" width="500"   /></a></dd></dl></li>
+<li> <b>OK</b>ボタンをクリックします。グラフが作成されます。</li></ol>
+<h5><a name="Interpreting_the_Results_4"></a><span class="mw-headline">結果の解釈</span></h5>
+<p>machine 2の場合、すべての点がCUSUMチャートで管理限界内にあります。 
+</p><p>machine 1の場合、17番目の点から小さなズレが示されています。メーカーはmachine 2が摩耗による影響が時間とともに現れるか確認すべきであることがわかります。 
+</p><p><br />
+<a  class="image"><img alt="CUSUM Results.png" src="../images/Tutorial_Control_Charts/900px-CUSUM_Results.png" width="900"   /></a>
+</p>
+
+
+    

@@ -1,0 +1,240 @@
+﻿<h1 class="firstHeading">分析のためにデータベースからデータをインポートする</h1>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> 
+		 <span class="toctext">概要</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> 
+		 <span class="toctext">手順</span></a> 
+		<ol>
+			<li class="toclevel-2 tocsection-4"><a href="#Import_Data_from_Database"><span 
+			 class="tocnumber">3.1</span> <span class="toctext">データベースからデータをインポートする</span></a></li>
+			<li class="toclevel-2 tocsection-5"><a href="#Data_Filter_and_Statistics"><span 
+			 class="tocnumber">3.2</span> <span class="toctext">データフィルタと統計</span></a></li>
+			<li class="toclevel-2 tocsection-6"><a href="#Radar_Plot"><span 
+			 class="tocnumber">3.3</span> <span class="toctext">レーダーチャート</span></a></li>
+		</ol></li>
+	</ol>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<table class="noborder">
+	<tr>
+		<td style="vertical-align: top;" width="60"><img src="../images/Import_Data_from_a_Database_for_Analysis/Alert_icon.png" 
+														 alt="" width="57" 
+														 border="0" /></td>
+		<td><p>このチュートリアルで使用するデータベースはMicrosoft Azure上に設定されています。 </p></td>
+	</tr>
+</table>
+<p>このチュートリアルでは、SQLエディタを使用してデータベースから Origin ワークシートにデータをインポートする方法を示します。次に、フィルタ、統計など、データに対していくつかの操作を実行して、グラフ作成に必要なデータを取得します。 
+ </p>
+<p><br />
+手順はOrigin 2023bに基づいています。 </p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。 </p>
+<ul>
+	<li>SQLエディタを使用して、同じデータベースの2つのSQLクエリをワークブックデータの2つのシートにインポート</li>
+	<li>ワークシートのデータにデータフィルタを適用</li>
+	<li>列の統計を実行</li>
+	<li>棒グラフなどのグラフを作成</li>
+</ul>
+<h2><a name="Steps"></a><span class="mw-headline">手順</span></h2>
+<h3><a name="Import_Data_from_Database"></a><span class="mw-headline">データベースからデータをインポートする</span></h3>
+<ol>
+	<li>新しいプロジェクトを開始します。メニューから<b>データ：データベースに接続：新規作成...</b>をクリックするか、<b>データベースアクセス</b>ツールバーの<b>SQLエディタを開く</b>ボタンをクリックします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="ImportDataDatabase 1.png" src="../images/Import_Data_from_a_Database_for_Analysis/ImportDataDatabase_1.png" 
+									 width="243" border="0" /></a></dd>
+	</dl></li>
+
+	<li><b>接続文字列</b>ラジオボタンを選択してOKをクリックします。下記の接続文字列を貼り付けます。 
+	<pre class="sql" style="font-family: monospace;">
+Driver<span style="color: #66cc66;">=</span><span style="color: #66cc66;">{</span><span style="color: #993333; font-weight: bold;">SQL</span> Server<span style="color: #66cc66;">}</span>; Server<span style="color: #66cc66;">=</span>olab<span style="color: #66cc66;">.</span><span style="color: #993333; font-weight: bold;">DATABASE</span><span style="color: #66cc66;">.</span>windows<span style="color: #66cc66;">.</span>net; Port<span style="color: #66cc66;">=</span><span style="color: #cc66cc;">1433</span>; <span style="color: #993333; font-weight: bold;">
+DATABASE</span><span style="color: #66cc66;">=</span>sample1; Uid<span style="color: #66cc66;">=</span>Olabts; Pwd<span style="color: #66cc66;">=</span>Origin@2024;
+	</pre>
+	<p>ODBC Drive 18 for SQL Serverを使用している場合は、 </p>
+	<pre class="sql" style="font-family: monospace;">
+Driver<span style="color: #66cc66;">=</span><span style="color: #66cc66;">{</span>ODBC Driver <span style="color: #cc66cc;">18</span> <span style="color: #993333; font-weight: bold;">FOR</span> <span style="color: #993333; font-weight: bold;">SQL</span> Server<span style="color: #66cc66;">}</span>; Server<span style="color: #66cc66;">=</span>olab<span style="color: #66cc66;">.</span><span style="color: #993333; font-weight: bold;">DATABASE</span><span style="color: #66cc66;">.</span>windows<span style="color: #66cc66;">.</span>net; Port<span style="color: #66cc66;">=</span><span style="color: #cc66cc;">1433</span>; <span style="color: #993333; font-weight: bold;">
+DATABASE</span><span style="color: #66cc66;">=</span>sample1; Uid<span style="color: #66cc66;">=</span>Olabts; Pwd<span style="color: #66cc66;">=</span>Origin@2024;;
+	</pre></li>
+	<li><b>テスト</b>ボタンをクリックして、接続が成功したことを確認します。問題なければ、<b><b>OK</b></b>をクリックしてデータベースにアクセスします。</li>
+	<li>左側のパネルで、<i>SalesLT.Product</i>ノードをダブルクリックします。 右側のパネルに<b>select 
+	 * from SalesLT.Product</b>と表示されます。</li>
+	<dl>
+		<dd><a class="image"><img alt="ImportDB for Analysis SQL.png" src="../images/Import_Data_from_a_Database_for_Analysis/ImportDB_for_Analysis_SQL.png" 
+									 width="599" border="0" /></a></dd>
+	</dl>
+	<li><b>結果データをプレビュー</b>ボタン<a class="image"><img alt="Button db Preview Import.png" 
+													 src="../images/Import_Data_from_a_Database_for_Analysis/Button_db_Preview_Import.png" 
+													 width="24" border="0" /></a>をクリックして下のパネルでデータを参照します。 
+	 </li>
+	<li><b>OK</b>ボタンをクリックすると、アクティブなワークシートにデータがインポートされます。 
+	<dl>
+		<dd><a class="image"><img alt="ImportDB for Analysis book1.png" 
+									 src="../images/Import_Data_from_a_Database_for_Analysis/ImportDB_for_Analysis_book1.png" 
+									 width="634" border="0" /></a></dd>
+	</dl></li>
+	<li>同じデータベースから別のSQLクエリに基づいてデータを新しいシートにインポートするには、シートタブを右クリックし、<b>データなしで複製</b>を選択します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="ImportDB for Analysis Dup no data.png" 
+									 src="../images/Import_Data_from_a_Database_for_Analysis/ImportDB_for_Analysis_Dup_no_data.png" 
+									 width="404" border="0" /></a></dd>
+	</dl></li>
+	<li>Sheet2で、<a class="image"><img alt="DBConnector.png" src="../images/Import_Data_from_a_Database_for_Analysis/DBConnector.png" 
+										 width="20" border="0" /></a>をクリックしてSQLエディタを選択します。 
+	 </li>
+	<li>メニューから<b>クエリ―：LabTalk...</b>を選択して<b>LabTalkサポート設定</b>ダイアログを開きます。<b><b>LabTalk置換(%,$)をする</b></b>のチェックボックスを付けて、以下のスクリプトをテキストボックスに入力します。 
+	 
+	<pre class="lt" style="font-family: monospace;">
+int cate<span style="color: #000080;">=</span><span style="color: #0000dd;">1</span>;
+	</pre>
+	<p>ダイアログは次のようになります。 </p>
+	<dl>
+		<dd><a class="image"><img alt="ImportDB for Analysis LT substitution.png" 
+									 src="../images/Import_Data_from_a_Database_for_Analysis/ImportDB_for_Analysis_LT_substitution.png" 
+									 width="530" border="0" /></a></dd>
+	</dl></li>
+	<li><b>OK </b>をクリックして、SQLエディタに戻ります。そして下記のSQLスクリプトを右側上のパネルに貼り付けます。このSQLは、データベースの2つの列を照会します。1つは製品のカテゴリ名で、もう1つは親カテゴリ1の各カテゴリのLineTotalforの合計です。 
+	 
+	<pre class="sql" style="font-family: monospace;">
+<span style="color: #993333; font-weight: bold;">SELECT</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>Name<span style="color: #66cc66;">,</span> <span style="color: #993333; font-weight: bold;">SUM</span><span style="color: #66cc66;">(</span>SALEANDPRODUCT<span style="color: #66cc66;">.</span>LineTotal<span style="color: #66cc66;">)</span> <span style="color: #993333; font-weight: bold;">AS</span> LineTotal<span style="color: #993333; font-weight: bold;">
+FROM</span>
+&#160;&#160;&#160;&#160;<span style="color: #66cc66;">(</span><span style="color: #993333; font-weight: bold;">SELECT</span> SALEINFO<span style="color: #66cc66;">.</span>LineTotal<span style="color: #66cc66;">,</span> PRODUCTINFO<span style="color: #66cc66;">.</span>ProductCategoryID
+&#160;&#160;&#160;&#160;<span style="color: #993333; font-weight: bold;">FROM</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #66cc66;">(</span><span style="color: #993333; font-weight: bold;">SELECT</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderHeader<span style="color: #66cc66;">.</span>OrderDate<span style="color: #66cc66;">,</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>LineTotal<span style="color: #66cc66;">,</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>ProductID
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #993333; font-weight: bold;">FROM</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderHeader 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #993333; font-weight: bold;">INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #993333; font-weight: bold;">ON</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderHeader<span style="color: #66cc66;">.</span>SalesOrderID<span style="color: #66cc66;">=</span>SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>SalesOrderID<span style="color: #66cc66;">)</span> <span style="color: #993333; font-weight: bold;">AS</span> SALEINFO
+&#160;&#160;&#160;&#160;<span style="color: #993333; font-weight: bold;">INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #66cc66;">(</span><span style="color: #993333; font-weight: bold;">SELECT</span> SalesLT<span style="color: #66cc66;">.</span>Product<span style="color: #66cc66;">.</span>ProductID<span style="color: #66cc66;">,</span> SalesLT<span style="color: #66cc66;">.</span>Product<span style="color: #66cc66;">.</span>ProductCategoryID
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #993333; font-weight: bold;">FROM</span> SalesLT<span style="color: #66cc66;">.</span>Product<span style="color: #66cc66;">)</span> <span style="color: #993333; font-weight: bold;">AS</span> PRODUCTINFO
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #993333; font-weight: bold;">ON</span> SALEINFO<span style="color: #66cc66;">.</span>ProductID<span style="color: #66cc66;">=</span>PRODUCTINFO<span style="color: #66cc66;">.</span>ProductID<span style="color: #66cc66;">)</span> <span style="color: #993333; font-weight: bold;">AS</span> SALEANDPRODUCT<span style="color: #993333; font-weight: bold;">
+INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #993333; font-weight: bold;">
+ON</span> SALEANDPRODUCT<span style="color: #66cc66;">.</span>ProductCategoryID<span style="color: #66cc66;">=</span>SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>ProductCategoryID<span style="color: #993333; font-weight: bold;">
+WHERE</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>ParentProductCategoryID <span style="color: #66cc66;">=</span> $<span style="color: #66cc66;">(</span>cate<span style="color: #66cc66;">)</span><span style="color: #993333; font-weight: bold;">
+GROUP</span> <span style="color: #993333; font-weight: bold;">BY</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>Name<span style="color: #993333; font-weight: bold;">
+ORDER</span> <span style="color: #993333; font-weight: bold;">BY</span> LineTotal
+	</pre></li>
+	<li><a class="image"><img alt="Button db Preview LabTalk Substitute.png" 
+								 src="../images/Import_Data_from_a_Database_for_Analysis/Button_db_Preview_LabTalk_Substitute.png" 
+								 width="23" border="0" /></a>ボタンをクリックして、置換された変数を含むSQLクエリスクリプトを表示します。<b>結果データをプレビュー</b>ボタン<a 
+	 class="image"><img alt="Button db Preview Import.png" src="../images/Import_Data_from_a_Database_for_Analysis/Button_db_Preview_Import.png" 
+						 width="24" border="0" /></a>をクリックして下のパネルでデータを参照します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="ImportDB for Analysis LT preview.png" 
+									 src="../images/Import_Data_from_a_Database_for_Analysis/ImportDB_for_Analysis_LT_preview.png" 
+									 width="763" border="0" /></a></dd>
+	</dl></li>
+	<li>ダイアログを閉じる前に、メニューから<b>ファイル：接続とクエリ―を新規に保存...</b>を選択します。<i>LineTotal_by_parentCategory.ODQ</i>という名前で保存します。 
+	 </li>
+	<li><b><b>OK</b></b>ボタンをクリックします。クエリ結果がSheet2に表示されます。 
+	<dl>
+		<dd><a class="image"><img alt="ImportDB for Analysis total by cate.png" 
+									 src="../images/Import_Data_from_a_Database_for_Analysis/ImportDB_for_Analysis_total_by_cate.png" 
+									 width="323" border="0" /></a></dd>
+	</dl></li>
+	<h3><a name="Data_Filter_and_Statistics"></a><span class="mw-headline">データフィルタと統計</span></h3>
+	<ol>
+		<li>SUM(), INNER JION, GROUP BYとは別の方法で統計情報を取得します。最初に単純なクエリを実行して、興味のある列をインポートします。その後Originのフィルタや統計などを使って、目的の結果やグラフを得ます。 
+		 </li>
+		<li>新しいワークブックを作成します。ここではBook2とします。 </li>
+		<li>メニューから<b>データ：データベースに接続</b>をクリックしてLineTotal_by_parentCategory.ODQを選択します。 
+		 </li>
+		<li>右側パネルの内容を下記のクエリで置き換えます。これは内部のみで複数のテーブルを結合し、Category Name、ParentCategoryID、LineTotalの3つの列をクエリします。 
+		 
+		<pre class="sql" style="font-family: monospace;">
+<span style="color: #993333; font-weight: bold;">SELECT</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>Name <span style="color: #66cc66;">,</span>SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>ParentProductCategoryID<span style="color: #66cc66;">,</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>LineTotal<span style="color: #993333; font-weight: bold;">
+FROM</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #993333; font-weight: bold;">
+INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> &#160;SalesLT<span style="color: #66cc66;">.</span>Product<span style="color: #993333; font-weight: bold;">
+ON</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>productID <span style="color: #66cc66;">=</span> SalesLT<span style="color: #66cc66;">.</span>Product<span style="color: #66cc66;">.</span>ProductID<span style="color: #993333; font-weight: bold;">
+INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory <span style="color: #993333; font-weight: bold;">
+ON</span> SalesLT<span style="color: #66cc66;">.</span>Product<span style="color: #66cc66;">.</span>ProductCategoryID <span style="color: #66cc66;">=</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>ProductCategoryID <span style="color: #993333; font-weight: bold;">
+ORDER</span> <span style="color: #993333; font-weight: bold;">BY</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>ProductCategoryID
+	</pre></li>
+		<li>列<b>B</b>（ロングネームはParentProductCategoryID）を選択し、<b>ワークシートデータ操作</b>ツールバーの<b>データフィルターを追加/削除</b>ボタンをクリックします。 
+		 
+		<dl>
+			<dd><a class="image"><img alt="ImportDataDatabase 9.png" src="../images/Import_Data_from_a_Database_for_Analysis/ImportDataDatabase_9.png" 
+										 width="420" border="0" /></a></dd>
+		</dl></li>
+		<li>列ヘッダの左上ににフィルタアイコンが追加されます。アイコンをクリックして<b>等しい...</b>をコンテキストメニューから選択します。 
+		 
+		<dl>
+			<dd><a class="image"><img alt="ImportDB for Analysis filterContext.png" 
+										 src="../images/Import_Data_from_a_Database_for_Analysis/ImportDB_for_Analysis_filterContext.png" 
+										 width="396" border="0" /></a></dd>
+		</dl></li>
+		<li>ダイアログが開きます。<b>値</b>をデフォルトの1のままにして<b>OK</b>ボタンをクリックします。 
+		<dl>
+			<dd><a class="image"><img alt="ImportDB for Analysis equals1.png" 
+										 src="../images/Import_Data_from_a_Database_for_Analysis/ImportDB_for_Analysis_equals1.png" 
+										 width="217" border="0" /></a></dd>
+		</dl></li>
+		<li>列C (LineTotal)を選択し、メニューから<b>統計：記述統計：列の統計</b>を選択して<b>列の統計</b>ダイアログを開きます。 
+		 </li>
+		<li>ダイアログで、<b>グループ</b>を列Aに設定します。右向き三角のボタンをクリックして右側のリストから列Aを選択できます。 
+		 
+		<dl>
+			<dd><a class="image"><img alt="ImportDB for Analysis stats db 1.png" 
+										 src="../images/Import_Data_from_a_Database_for_Analysis/ImportDB_for_Analysis_stats_db_1.png" 
+										 width="473" border="0" /></a></dd>
+		</dl></li>
+		<li><b><b>プロット</b></b>タブを開いて<b><b><b>ボックスチャート</b></b></b>をチェックします。 
+		 
+		<dl>
+			<dd><a class="image"><img alt="ImportDB for Analysis stats db 2.png" 
+										 src="../images/Import_Data_from_a_Database_for_Analysis/ImportDB_for_Analysis_stats_db_2.png" 
+										 width="330" border="0" /></a></dd>
+		</dl></li>
+		<li><b><b>OK</b></b>ボタンをクリックすると、結果が表示されます。 
+		<dl>
+			<dd><a class="image"><img alt="ImportDB for Analysis stats box.png" 
+										 src="../images/Import_Data_from_a_Database_for_Analysis/ImportDB_for_Analysis_stats_box.png" 
+										 width="680" border="0" /></a></dd>
+		</dl></li>
+		<li>フィルタ条件の変更や、更新された統計情報の取得は非常に簡単です。Sheet1に戻ります。<b>=1</b>をダブルクリックして<b>=2</b>に変更します。 
+		 </li>
+		<li>DescStatsOnCol1シートを開きます。再計算アイコンが黄色に変わり、入力データが変更されたことを示します。これをクリックして再計算を選択します。これで、parentCategoryID=2のすべての製品のLineTotalが表示されます。 
+		 
+		<dl>
+			<dd><a class="image"><img alt="ImportDB for Analysis stats box cate2.png" 
+										 src="../images/Import_Data_from_a_Database_for_Analysis/ImportDB_for_Analysis_stats_box_cate2.png" 
+										 width="652" border="0" /></a></dd>
+		</dl>
+		<table class="noborder">
+			<tr>
+				<td style="vertical-align: top;" width="60"><img src="../images/Import_Data_from_a_Database_for_Analysis/Tip_icon.png" 
+				 alt="" width="57" border="0" /></td>
+				<td><p>再計算アイコンをクリックして、再計算モードを自動に設定します。これにより、元のデータが変更されたり、フィルタが変更されたりすると、統計解析結果は自動的に更新されます。 
+				 </p></td>
+			</tr>
+		</table></li>
+	</ol>
+	<h3><a name="Radar_Plot"></a><span class="mw-headline">レーダーチャート</span></h3>
+	<ol>
+		<li><b>列の統計</b>ツールはフラットな結果シートも生成し、これを使ってさらなる分析やグラフ化を行うことができます。 
+		 </li>
+		<li><b>DescStatsQuantities1</b>シートを開きます。 </li>
+		<li>列F（合計）を選択し、メニューから<b>作図：プロット：特殊グラフ：レーダー</b>を選択してレーダーチャートを作成します。 
+		 
+		<dl>
+			<dd><a class="image"><img alt="ImportDB for Analysis radar.png" 
+										 src="../images/Import_Data_from_a_Database_for_Analysis/ImportDB_for_Analysis_radar.png" 
+										 width="628" border="0" /></a></dd>
+		</dl></li>
+		<li><b>DescStatsQuantities1</b>シートに戻り、列B (Name) にフィルタを追加し、<b>Mountain 
+		 Frames</b>、<b>Road Frames</b>、<b>Touring Frames</b>を除外します。軸を再スケールして、LineTotal値の合計が小さい製品の詳細を表示します。 
+		 
+		<dl>
+			<dd><a class="image"><img alt="ImportDB for Analysis radar2.png" 
+										 src="../images/Import_Data_from_a_Database_for_Analysis/ImportDB_for_Analysis_radar2.png" 
+										 width="868" border="0" /></a></dd>
+		</dl></li>
+	</ol>
+</ol>

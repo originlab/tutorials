@@ -1,0 +1,58 @@
+﻿<h1 class="firstheading">コヒーレンスと相関</h1><p class='urlname' style='display: none'>Coherence-and-Correlation</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span><span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Coherence"><span class="tocnumber">3</span> <span class="toctext">コヒーレンス</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#1D_Correlation"><span class="tocnumber">4</span> <span class="toctext">1D 相関</span></a></li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>コヒーレンスは、2つの信号が似たような周波数成分が含んでいるかどうかテストすることによって、線形依存性の度合いを測定します。2つの信号を周波数で完全に一致していると考えられる場合には、コヒーレンスの大きさは1になります。そうでなく、完全に無関係の場合は0となります。
+</p><p>相関はもうひとつの2つの信号間の関係指標です。相関係数は、相関の強さを評価するために使用されます。計算された相関係数が大きい場合には、2つの信号の類似度は高く、小さな場合は、2つの信号はほとんどまたは全く線形関係がないことを意味しています。
+</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。
+</p>
+<ol><li> コヒーレンスを計算し、2つの信号で線形依存の最も高い周波数を見つける</li>
+<li> 相関を計算し、データセットを変換するためのラグを見つける</li></ol>
+<h2><a name="Coherence"></a><span class="mw-headline">コヒーレンス</span></h2>
+<ol><li> 新しいワークブックを用意します。</li>
+<li> 新しいワークブックを用意します。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Signal Processing</i>サブフォルダにある<i>Coherence.dat</i> ファイルを探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Coherence 1.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Coherence_1.png" width="396"  /></a></dd></dl></li>
+<li> 列Aを選択し、右クリックしてショートカットメニューから<b>列XY属性の設定：Y</b>を選択します。これにより、列Aの属性を<i><i>Y</i></i> データとします。</li>
+<li> 2つの列を選択して、<b><b>解析：信号処理：</b>コヒーレンス</b>を選択します。  <b><b>コヒーレンス:cohere</b></b>ダイアログを開きます</li>
+<li> <b><b>ウィンドウ法</b></b>を<i><i>Welch</i></i> に変更し、<b><b>OK</b></b>ボタンをクリックしてコヒーレンスを計算します。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Coherence 2.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Coherence_2.png" width="442"  /></a></dd></dl></li>
+<li> ワークシートに2列追加されます。これら2つの列を選択し、<b><b>作図：基本の2Dグラフ：折れ線</b></b>を選択して結果から周波数に対するコヒーレンスの状況を作図します。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Coherence 3.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Coherence_3.png" width="504"  /></a></dd></dl></li>
+<li> <b><b>プロット操作・オブジェクト作成</b></b>ツールバーから<b><b>データリーダ</b></b>を選択し、一番髙いピークの値を調べます。上図のように、周波数が0.25の時、一番強いピークが出ることがわかります。そして、このコヒーレンスのピークの大きさは、この周波数で2つの信号が強く対応するということを意味します</li></ol>
+<h2><a name="1D_Correlation"></a><span class="mw-headline">1D相関</span></h2>
+<ol><li> 新しいワークブックを用意します。</li>
+<li> メニューの<b><b>ファイル：インポート：単一ASCIIインポート</b></b>を選択し、<b>&lt;Origin インストールフォルダ&gt;\Samples\Signal Processing\Correlation.dat</b>ファイルをインポートします。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Correlation 1.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Correlation_1.png" width="396"  /></a></dd></dl></li>
+<li> A列を選択し、右クリックしてコンテキストメニューを開きます。<b><b>列XY属性の設定：Y列</b></b>と選択して、この列の属性を<i><i>Y</i></i> 列にします。</li>
+<li> 2つの列を選択して、<b><b>解析：信号処理：</b>相関</b>を選択します。  すると、<b>相関:corr1</b>ダイアログボックスが開きます。デフォルト設定のまま使用します。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Correlation 2.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Correlation_2.png" width="442"  /></a></dd></dl></li>
+<li> <b><b>OK</b></b>ボタンをクリックして2つの信号の相関を計算します。</li>
+<li> ワークシートに、相関の結果が時間差列と共に出力されます。D列を選択し、<b><b>作図：基本の2Dグラフ：折れ線</b></b>を選択して結果からグラフを作図します。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Correlation 3.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Correlation_3.png" width="458"  /></a></dd></dl></li>
+<li> 上図のように、データリーダを使用して強いピークの位置をみると、Time=49であることがわかります。これにより、これら2つの信号を位置合わせするには、2つ目のデータセットを49単位変換する必要があることがわかります。</li>
+<li> ワークシートに戻り、A列とB列を選択します。メニューの<b><b>作図：複数区分/軸：垂直2区分</b></b>を選択して2つの信号データから2つのレイヤを持つグラフを作成します。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Correlation 4.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Correlation_4.png" width="419"  /></a></dd></dl></li>
+<li> 上グラフのプロット上でダブルクリックして、<b><b>作図の詳細（プロット属性）</b></b>ダイアログを開きます。左パネルで、<b><b>Layer 2</b></b>を選択し、右パネルで<b><b>軸スケール間のリンク対応</b></b>タブを開きます。そして、<b><b>X 軸のリンク</b></b>を<b><b>直接（1対1）</b></b>に変更します。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Correlation 5.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Correlation_5.png" width="798"  /></a></dd></dl></li>
+<li> <b><b>OK</b></b>ボタンをクリックすると、2つのグラフでX軸が同じ値になります。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Correlation 6.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Correlation_6.png" width="419"  /></a></dd></dl></li>
+<li> データセットを移動可能にするために、グラフ内の鍵のアイコン上でクリックし、<b><b>再計算モード：しない</b></b>に変更します。<b><b>確認メッセージ</b></b>が開いたら、<b><b>OK</b></b>をクリックして閉じます。</li>
+<li> 上グラフを選択して、メニューから<b><b>解析：データ操作：水平移動</b></b>を選択して、レイヤ内に三角形ボタン付きの垂直線を追加します。三角形のボタンをクリックしてコンテキストメニューを開き、<b><b>平行移動後もツールを表示</b></b>のチェックを外します。メニューを再度開き、<b><b>複製して移動：新規の列</b></b><b><b>を選択します。</b></b>新しい列が2列追加され、曲線のソースデータがコピーされます。 
+<dl><dd> <a  class="image"><img alt="SP Tutorial Correlation 7a.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Correlation_7a.png" width="551"  /></a></dd></dl></li>
+<li> 再度コンテキストメニューを開き、<b><b>曲線シフト</b></b>を選択し、ダイアログを開きます。<b><b>値</b></b>を<b>49</b>にセットします。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Correlation 7.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Correlation_7.png" width="779"  /></a></dd></dl></li>
+<li> <b>OK </b>をクリックして、変換します。2つの信号を整列できました。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Correlation 8.png" src="../images/Coherence_and_Correlation/SP_Tutorial_Correlation_8.png" width="422"  /></a></dd></dl></li></ol>
+
+
+
+
+    

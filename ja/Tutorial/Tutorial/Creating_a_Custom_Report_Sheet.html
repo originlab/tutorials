@@ -1,0 +1,87 @@
+﻿<h1 class="firstheading">カスタムレポートシートの作成</h1><p class='urlname' style='display: none'>Create-Custom-Report</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span><span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Importing_Data"><span class="tocnumber">3.1</span> <span class="toctext">データをインポートする</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Creating_a_Custom_Report_Sheet"><span class="tocnumber">3.2</span> <span class="toctext">カスタムレポートシートの作成</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Saving_the_Analysis_Template"><span class="tocnumber">3.3</span> <span class="toctext">分析テンプレートの保存</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Re-using_the_Analysis_Template"><span class="tocnumber">3.4</span> <span class="toctext">分析テンプレートの再利用</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Creating_a_Custom_Report_Sheet/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Creating_a_Custom_Report_Sheet/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=137" target="_blank">Origin分析レポートとMicrosoft Wordを使用してバッチレポートを作成する</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Creating_a_Custom_Report_Sheet/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Creating_a_Custom_Report_Sheet/Blog_Image_33x33px.png" width="135"  /></a>
+<ul><li> <a class="external text" href="http://blog.originlab.com/creating-html-reports-and-documents-in-origin-2019b" target="_blank">Creating HTML Reports and Documents in Origin 2019b</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>Originのワークシートをカスタマイズして、セルを統合したり、グラフや画像のようなオブジェクトを配置したり、変数や他のシートのテーブル/セルへのリンクを埋め込んで、カスタムレポートを作成することができます 
+</p><p>このチュートリアルでは、既存の分析テンプレートにカスタムレポートを追加する方法を説明しています。これにより、新しいデータをインポートすれば解析結果が更新さるので、カスタムレポートをエクスポートしたり印刷することができます。
+</p>
+<table class="note">
+<tr>
+<td><b>Note:</b>このチュートリアルでは、ファイルをOriginにドラッ&amp;ドロップする方法を学習します。この場合、<a class="external text" href="../../QuickHelp/QuickHelp/Why_does_not_drag_and_drop_work.html">Originを管理者として起動しないでください。</a>
+</td></tr></table>
+<p class="version" >必要なOriginのバージョン:Origin 9.0 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul><li> カスタムレポートシートの作成方法</li>
+<li> 分析テンプレート(OGW)の一部としてカスタムレポートを保存して、新しいデータで再利用する方法</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p><b><b>Note</b></b>：あらかじめ<a href="../../Tutorial/Tutorial/Creating_and_Using_Analysis_Templates.html" title="Tutorial: 分析テンプレートの作成と利用">分析テンプレートの作成と利用</a>というチュートリアルを行い、<b>MySensorData.OGWU</b> を作成する必要があります。
+</p>
+<h3><a name="Importing_Data"></a><span class="mw-headline">データのインポート</span></h3>
+<ol><li><b><b>ファイル：開く</b></b>メニューからダイアログを開き、<b><b>ファイルの種類</b></b>を<b><b>ワークブック（*.ogwu）</b></b>として、分析テンプレート <b>MySensorData.OGWU</b>を開きます。この分析テンプレートは、最初のシートの列Bに対して線形フィットの分析操作と、入力データとフィット曲線がから作図された埋め込みグラフとともに保存されています（テンプレートにはデータは含まれません）。</li>
+<li>ワークシート<b>Data</b>をアクティブにします。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Curve Fitting</i>サブフォルダにある<i>Sensor01.dat</i> ファイルを探します。ワークシート<b>Data</b>にファイルをドラッグアンドドロップしてインポートします。<br /></li></ol>
+<h3><a name="Creating_a_Custom_Report_Sheet"></a><span class="mw-headline">カスタムレポートシートの作成</span></h3>
+<ol><li>ワークシート<b><b>Data</b></b>タブ上で右クリックし、<b><b>追加</b></b>を選択して、新しいワークシートを追加します。このワークシートを<b>Custom Report</b>という名前にします。</li>
+<li><b><b>Custom Report</b></b>シートをアクティブにし、<b><b>フォーマット：ワークシートの表示属性</b></b>（または<b><b>F4</b></b>キーを押す）を選択しダイアログを開きます。<b><b>サイズ</b></b>タブを開き、<b><b>サイズ</b></b>の項目の<b><b>行数</b></b>を<b><b>20</b></b>、と<b><b>列数</b></b>を<b><b>9</b></b>に設定します。<b><b>その他</b></b>タブを開き、<b><b>行の自動追加</b></b>にチェックを付けます。<b><b>OK</b></b>ボタンをクリックしてこのダイアログを閉じます。</li>
+<li>ワークシートで、<b><b>ロングネーム</b></b>、<b><b>単位</b></b>、<b><b>コメント</b></b>、<b>F(x)=</b>のヘッダ行でクリックしてドラッグして、これらの4つの行を選択します。右クリックして開くメニューから、<b>非表示</b>を選択します。これによりワークシートから、これら4行が隠されます。</li>
+<li>全ての列の最初の3行を選択して、スタイルツールバーにある<b><b>セルの統合</b></b>ボタン<a  class="image"><img alt="Button Merge Cells.png" src="../images/Creating_a_Custom_Report_Sheet/Button_Merge_Cells.png" width="23"  /></a>をクリックします。統合したセルに、<b>Sensor Data Analysis Report</b> と入力します。</li>
+<li>G、H列の5行目から6行目についても同様に統合します。F列の5行目に<b>File Name:</b>と入力し、6行目には<b>File Date:</b>と入力します。 </li>
+<li>G、H行を統合した5行目のセルで右クリックして、コンテキストメニューかあら<b><b>変数の挿入</b></b>を選択します。ダイアログが下図のようになっているのを確認して、<b>FILENAME</b>変数を選択して挿入をクリックし、このセルに変数を挿入します。
+<dl><dd><a  class="image"><img alt="Tutorial Create Custom Report 002.png" src="../images/Creating_a_Custom_Report_Sheet/Tutorial_Create_Custom_Report_002.png" width="662"  /></a></dd></dl></li>
+<li>同様に、G、H行を統合した6行目のセルで右クリックして、コンテキストメニューかあら<b>変数の挿入</b>を選択します。ここでは、下図のように<b>FILEDATE</b> 変数を挿入します。
+<dl><dd><a  class="image"><img alt="Tutorial Create Custom Report 003.png" src="../images/Creating_a_Custom_Report_Sheet/Tutorial_Create_Custom_Report_003.png" width="662"  /></a></dd></dl></li>
+<li>日付データの入力されたセル上で右クリックして、コンテキストメニューから<b><b>セルのフォーマット</b></b>を選択します。<b><b>列のデータ型</b></b>を<b><b>日付</b></b>に変更して、<b>OK</b>ボタンをクリックします。</li>
+<li>ワークシート<b>FitLinear1</b>を開き、<b>パラメータ</b>表を表示します。三角形のボタンをクリックして、フライアウトメニューから<b><b>表のコピー</b></b>を選択します。</li>
+<li><b>Custom Report</b> シートを開き、E列の9行目を選択します。そして右クリックして、<b><b>リンクの貼り付け</b></b>を選択します。E列に入力された<b>Sensor Output</b>というテキストは、<b>Delete</b>キーを使用して削除します。</li>
+<li>G、H列の13行目と14行目を統合します。 </li>
+<li><b>FitLinear1</b>シートを開き、<b><b>統計</b></b>表で<b><b>ピアソンのr</b></b>と<b>補正R二乗</b>の値を選択して右クリックして<b><b><b>コピー</b></b></b>を選択します。</li>
+<li><b>Custom Report</b> シートを開き、統合した13行目を選択します。そして右クリックして、<b><b>リンクの貼り付け</b></b>を選択します。2つの統合セルに値が貼り付けられます。これらのセルの一つ左に、<b><b>ピアソンのr</b></b>と、<b><b>補正R二乗</b></b>と入力します。</li>
+<li>F、G、H列の8行目、12行目、20行目をそれぞれ統合します。統合したそれぞれのセルに、<b>Fit Parameters</b>、<b>Fit Statistics</b>、<b>Report Date: $(@D, D1)</b>  と入力します。</li>
+<li>このうち20行目のセルで、右クリックして<b><b>データの書式を設定：リッチテキスト</b></b>を選択します。リッチテキストが有効になると、<b>$(@D,D1)</b> には実際のシステム日付が表示されます。</li>
+<li>CTRLキーを押しながら、数値データが入力されたセルをクリックして選択してから、右クリックして<b><b>セルのフォーマット</b></b>を選択します。<b><b>桁数指定法</b></b>のドロップダウンリストから、<b><b>少数桁数</b></b><b>＝</b>を選択して<b><b>桁数</b></b>を<b><b>3</b></b>に設定します。最後に、<b><b>OK</b></b>ボタンをクリックします。</li>
+<li><b><b>スタイル</b></b>と<b><b>書式</b></b>ツールバーにあるボタンを使用して、下図のようにセルの境界線、フォントサイズやスタイル、色などを変更します。必要に応じて、手動で列幅などの調節を行います。
+<dl><dd><a  class="image"><img alt="Tutorial Create Custom Report 001.png" src="../images/Creating_a_Custom_Report_Sheet/Tutorial_Create_Custom_Report_001.png" width="595"  /></a></dd></dl></li>
+<li><b>FitLinear1</b>シートを開き、<b><b>フィット曲線のプロット</b></b>のグラフをダブルクリックして埋め込まれたグラフを開きます。グラフのタイトルバーで右クリックし、コンテキストメニューから、<b><b>ウィンドウの複製作成</b></b>を選択し、グラフを複製します（Graph1）。複製したグラフの軸をダブルクリックして、<b><b>軸</b></b>ダイアログボックスを開きます。<b><b>X 軸</b></b>と<b><b>Y軸</b></b>(垂直と水平)、その両方で<b><b>スケール</b></b>タブにある<b><b>再スケール</b></b>項目を<b><b>自動</b></b>に変更します。それから埋め込みグラフを閉じます。</li>
+<li>ワークシート<b>Custom Report</b> に戻り、ワークシート内の灰色の領域で右クリックして開くコンテキストメニューから、<b><b>グラフを追加</b></b>を選択します。開いた<b><b>グラフブラウザ</b></b>で、埋め込みグラフを複製して作成した<b><b>Graph1</b></b>を選択します。<b><b>OK</b></b>ボタンをクリックし、このグラフをフローティンググラフとしてワークシートに追加します。</li>
+<li>このフローティンググラフは、クリックして表示されるアンカーポイントを使用して位置や大きさを変更できます。</li>
+<li><b><b>フォーマット：ワークシートの表示属性</b></b>を選ぶか、<b><b>F4</b></b>キーを押して、<b><b>ワークシートプロパティ</b></b>ダイアログを開きます。<b>表示</b>タブで、<b><b>グリッド線を表示</b></b>の項目を開き、<b><b>列グリッド</b></b>と<b><b>行グリッド</b></b>のチェックを外します。<b><b>列のデータ型</b></b>タブを開き、<b><b>適用先</b></b>を<b><b>データ</b></b>にし、<b><b>欠損値を空白として表示する</b></b>にチェックを付けて、<b>「--」</b>で表示されている欠損値が空欄になるようにします。<b><b>OK</b></b>ボタンをクリックして、ダイアログボックスを閉じます。</li>
+<li><b><b>ファイル</b></b>メニューの<b><b>印刷プレビュー</b></b>を選択してカスタムレポートをプレビューすると、下図のようになります。
+<dl><dd><a  class="image"><img alt="Tutorial Create Custom Report 004.png" src="../images/Creating_a_Custom_Report_Sheet/Tutorial_Create_Custom_Report_004.png" width="584"  /></a></dd></dl></li></ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Creating_a_Custom_Report_Sheet/Tip_icon.png" width="57"  border="0" /></td><td><p>Origin 2018bから、<i>選択された</i>範囲内のすべての統合されたセル（統合されたセルの非連続ブロックを含む）は、<b>スタイル</b>ツールバーの<b>セルの統合</b>ボタン<a  class="image"><img alt="Button Merge Cells.png" src="../images/Creating_a_Custom_Report_Sheet/Button_Merge_Cells.png" width="23"  /></a>をクリックすると統合を解除できます。
+</p></td></tr></table>
+<h3><a name="Saving_the_Analysis_Template"></a><span class="mw-headline">分析テンプレートを保存する</span></h3>
+<ol><li>ワークブックをアクティブにして、<b><b>ファイル</b></b>メニューから<b><b>ワークシートを分析テンプレートとして保存</b></b>をクリックします。</li>
+<li>ファイルパスを指定して、ファイル名として<b>SensorDataReport</b> を付け、<b><b>保存</b></b>ボタンをクリックします。</li>
+<li>分析テンプレートとして保存された<b>SensorDataReport.OGWU</b> は、似通ったデータに対して同じ分析を実行する際に使用可能です。</li></ol>
+<h3><a name="Re-using_the_Analysis_Template"></a><span class="mw-headline">分析テンプレートの再利用</span></h3>
+<ol>
+<li>新しいプロジェクトを開き、メニューから<b>ファイル：最近使ったブック</b>を選択します。先ほど保存した<b>SensorDataReport.OGW</b> を選択して開きます。
+<li>ワークシート<b>Data</b>をアクティブにし、<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Curve Fitting</i>サブフォルダにある<i>Sensor02.dat</i> ファイルを探します。ワークシート「Data」にファイルをドラッグアンドドロップしてインポートします。<br />
+</li>
+<li>新しくインポートされたデータを使用した線形フィット結果や、カスタムレポートが出力されます。
+</li></ol>
+
+
+    

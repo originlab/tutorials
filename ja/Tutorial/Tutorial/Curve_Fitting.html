@@ -1,0 +1,96 @@
+﻿<h1 class="firstheading">カーブフィッティング</h1>
+<p class="urlname" style="display: none;">GSB-curve-fitting</p>
+<p><br />
+</p>
+<p>このレッスンでは線形と非線形の回帰の方法を学びます。 </p>
+<h3><a name="Linear_Fit_with_Outliers"></a><span class="mw-headline">外れ値付き線形フィット</span></h3>
+<ol>
+	<li>前回のレッスンで保存したプロジェクトを開き、プロジェクトエクスプローラのルートレベルに<i><b>カーブフィッティング</b></i>という名前の新しいフォルダを追加します。</li>
+	<li>Originのプログラムフォルダにある、<i>Samples\Curve Fitting\Outlier.dat</i>をインポートします。</li>
+	<li>2つ目の列を選択し、散布図を作成します。</li>
+	<li>メニューの<b>解析: フィット: 線形フィット</b>を選択します。開いたダイアログでデフォルトの設定のまま<b>OK</b>をクリックして、線形フィットを実行します。</li>
+	<li>グラフでフィット結果テーブルを右クリックし、<b>表中の値</b>を選択します。<b>切片</b>、<b>傾き</b>、<b>ピアソンのr</b>を除いてすべての入力を削除します 
+	 (CTRLキーを押しながら複数選択します)。<b>OK</b>をクリックし、必要に応じて結果テーブルの大きさを変更します。</li>
+	<li>左側のツールバーにある<b>現プロットを対象にマスクを付加する</b>ボタン<a class="image"><img alt="Button Mask Data.png" 
+	 src="../images/Curve_Fitting/Button_Mask_Data.png" width="25" border="0" /></a>をクリックし、他のポイントと明らかに離れている右下のポイントをマスクします。</li>
+	<li>グラフページの左上にある錠前アイコン<a class="image"><img alt="Yellow Lock.png" src="../images/Curve_Fitting/Yellow_Lock.png" 
+												 width="18" border="0" /></a>がデータが変更されたこと示す黄色に変わり、フィット結果を更新する必要があります。</li>
+	<li>ESCキーを押してカーソルをポインタモードに戻します。黄色の錠前アイコンをクリックし、表示されたメニューから<b>再計算モード:自動</b>を選択します。フィット結果が更新されます。</li>
+	<table class="mtip">
+		<tr>
+			<td style="vertical-align: top;"><img src="../images/Curve_Fitting/Mini_bulb.png" 
+													 alt="" border="0" /></td>
+			<td><p>標準ツールバーにある<b>再計算</b>ボタン<a class="image"><img alt="Button Run for All OPS.png" 
+			 src="../images/Curve_Fitting/Button_Run_for_All_OPS.png" width="25" 
+			 border="0" /></a>をクリックすると、プロジェクト内のすべての未決定状態の操作を更新することができます。 
+			 </p></td>
+		</tr>
+	</table>
+	<li>グラフに戻り、マスクツールを使用して上部にある外れ値をマスクします。結果が自動的に更新されることが分かります。グラフはこの画像に近い状態になります 
+	 <br />
+	<a class="image"><img alt="Mini tut curve fit 1.png" src="../images/Curve_Fitting/Mini_tut_curve_fit_1.png" 
+							 width="380" border="0" /></a></li>
+</ol>
+<h3><a name="Nonlinear_Curve_Fit"></a><span class="mw-headline">非線形曲線フィット</span></h3>
+<ol>
+	<li>新しいワークブックを開き、Originのプログラムフォルダにある、<i>Samples\Curve Fitting\Gaussian.dat</i>ファイルをインポートします。</li>
+	<li>ロングネームが<i>Amplitude</i>の列を選択し、散布図を作成します。</li>
+	<li>ワークブックに戻り、ロングネームが<i>Error</i>の列を選択してから右クリックし、コンテキストメニューから<b>列XY属性の設定：Yエラーバー</b>を選択します。</li>
+	<li>マウスカーソルを選択している列の右端に近づけます。マウスカーソルの形状が<a class="image"><img alt="Drag Drop Cursor.png" 
+	 src="../images/Curve_Fitting/Drag_Drop_Cursor.png" width="34" border="0" /></a>に変わります。この状態で列をグラフにドラッグアンドドロップします。データがエラーバーとして散布図に追加されます。</li>
+	<li>このデータをフィットしましょう。メニューから<b>解析：フィット：非線形曲線フィット</b>を選択して<b>NLFit</b>ダイアログを開きます。</li>
+	<li><b>関数選択</b>ページで、<b>カテゴリ</b>ドロップダウンで<b>Peak Functions</b>を選択し、<b>関数</b>ドロップダウンで<b>Gauss</b>を選択します。</li>
+	<li><b>フィット</b>ボタンをクリックしてフィットを実行し、次のダイアログで<b>いいえ</b>を選択してグラフウィンドウをアクティブなままにしておきます。 
+	 <br />
+	<a class="image"><img alt="Nonlinear Curve Fit.png" src="../images/Curve_Fitting/Nonlinear_Curve_Fit.png" 
+							 width="798" height="590" border="0" /></a><br />
+	</li>
+	<li>次に<i>y0</i>を<i>0</i>に修正し結果を更新しようと思います。グラフの左上の角にある緑の錠前アイコンをクリックして、<b>パラメータを変更</b>を選択します。</li>
+	<li>先ほどのダイアログが最後に実行した設定の状態で再度開きます。<b>パラメータ</b>タブに移動し、<i>y0</i>の<b>固定</b>ボックスにチェックを入れ、<b>値</b>に<i>0</i>と入力します。 
+	 <br />
+	<a class="image"><img alt="GST Curve Fitting 01.png" src="../images/Curve_Fitting/GST_Curve_Fitting_01.png" 
+							 width="296" border="0" /></a></li>
+	<li><b>フィット</b>ボタンをクリックしてファイルを更新し、ダイアログを閉じます。グラフの更新されたテーブルで<img src="../images/Curve_Fitting/math-1c9d6409af68a33d266754cb5eba223d.png" 
+	 title="y0 = 0 \pm 0" alt="y0 = 0 \pm 0" class="tex" border="0" />となっていることを確認できます。</li>
+</ol>
+<h3><a name="Global_Fit_with_Parameter_Sharing"></a><span class="mw-headline">パラメータを共有したグローバルフィット</span></h3>
+<ol>
+	<li>新しいワークブックを開き、Originのプログラムフォルダにある、<i>Samples\Curve Fitting\Exponential 
+	 Decay.dat</i>ファイルをインポートします。</li>
+	<li>3つのY列をドラッグして選択し、折れ線グラフを作成します。</li>
+	<li>すべてのデータプロットを同時に0.4から1.0のx範囲でフィットしようと思います。インターフェースの左側にドックされている<b>ツール</b>ツールバーで、 
+	 <b>アクティブプロットから選択</b>ボタン<a class="image"><img alt="Button Select On Active Plot.png" 
+													 src="../images/Curve_Fitting/Button_Select_On_Active_Plot.png" 
+													 width="31" border="0" /></a>の右側にある下向き三角のボタンをクリックします。表示されたメニューから<b>全てのプロットから選択</b>を選択します。グラフに移動し、0.4から1.0のx範囲をカバーして、3つの曲線がすべて含まれるようにドラッグして四角を描きます。<br />
+	<a class="image"><img alt="Mini tut curve fit 2.png" src="../images/Curve_Fitting/Mini_tut_curve_fit_2.png" 
+							 width="503" border="0" /></a></li>
+	<li><b>CTRL+Y</b>キーを押すと、すぐに<b>NLFit</b>ダイアログが開きます。<b>カテゴリ</b>に<b>Exponential</b> 
+	 をセットし、<b>関数</b>に<b>ExpDec1</b>をセットします。</li>
+	<li><b>設定</b>タブの下にある<b>データ選択</b>をクリックし、 <b>入力データ</b>ノードを開いて3つの曲線が追加されていることを確認します。<b>Range<i>#</i></b>ノードを開いてデータの範囲を行インデックスまたはx値のどちらかで修正することができます。</li>
+	<table class="mtip">
+		<tr>
+			<td style="vertical-align: top;"><img src="../images/Curve_Fitting/Mini_bulb.png" 
+													 alt="" border="0" /></td>
+			<td><p>範囲選択が複数のプロットで行われていない場合は、Originは複数のプロットを含んでいるグラフレイヤからアクティブなデータプロットのみを選択します。この場合、<b>入力データ</b>の右側にあるボタン<a 
+			 class="image"><img alt="Button Right Triangle.png" src="../images/Curve_Fitting/Button_Right_Triangle.png" 
+								 width="22" border="0" /></a>をクリックして<b>現在のページのすべてのプロットを追加する</b>を選択することができます。 
+			 </p></td>
+		</tr>
+	</table>
+	<li><b>複数データフィットモード</b>を<b>グローバルフィット</b>に変更し、<b>パラメータ</b>タブに切り替えて<b>収束までフィット</b>ボタン<a 
+	 class="image"><img alt="Fit until converge.png" src="../images/Curve_Fitting/Fit_until_converge.png" 
+						 width="26" border="0" /></a>をクリックして、3つすべての曲線を同時にダイアログを開いたままフィットします。 
+	 </li>
+	<li>グローバルフィット中にパラメータを共有することができます。time constant <i><b>t1</b></i>の<b>共有</b>ボックスにチェックを入れます。他の曲線の時間パラメータがパラメータリストから削除されたことに気が付くはずです。 
+	 </li>
+	<li><b>フィット</b>ボタンをクリックし、次のダイアログで<b>はい</b>を選択してレポートシートに切り替えます。このダイアログが表示されない場合はグラフの緑色の錠前アイコンをクリックして<b>結果に行く</b>を選択します。 
+	 </li>
+	<li>レポートをした方向にスクロールして<i>概要</i>テーブルを表示します。すべてのtime constants <i><b>t1</b></i> 
+	 が同じ値で共有されていることが分かります。<br />
+	<a class="image"><img alt="GST Curve Fitting 02.png" src="../images/Curve_Fitting/GST_Curve_Fitting_02.png" 
+							 width="545" border="0" /></a></li>
+	<li><b>概要</b>ノードの横にある下向き三角のボタンをクリックし、<b>新しいシートとしてコピーを作成</b>を選択します。フィット結果を含んだ新しいシートがブックに追加されます。</li>
+	<li>列DとEを選択し、縦棒グラフを作成して振幅パラメータ(A1)が3つのデータセット全体でどのように変化するかを表示します。<br />
+	<a class="image"><img alt="Mini tut curve fit 3.png" src="../images/Curve_Fitting/Mini_tut_curve_fit_3.png" 
+							 width="298" border="0" /></a></li>
+</ol>

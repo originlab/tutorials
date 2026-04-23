@@ -1,0 +1,113 @@
+﻿<h1 class="firstheading">3Dグラフの基本</h1>
+<p class="urlname" style="display: none;">3D-Plotting-Basic</p>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> 
+		 <span class="toctext">サマリー</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Create_a_3D_Surface_and_Scatter_Plot"><span 
+		 class="tocnumber">3</span> <span class="toctext">3D曲面図、散布図を作成</span></a></li>
+		<li class="toclevel-1 tocsection-4"><a href="#Smooth_the_3D_surface_plot"><span 
+		 class="tocnumber">4</span> <span class="toctext">3D曲面図をスムージング</span></a></li>
+	</ol>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>Originで等高線図や、カラーマップ曲面図等の3Dグラフを作成する場合、XYZデータから直接作図することができます。 </p>
+<p>より滑らかな3D曲面図を作成したい場合は、Originのグリッディング機能を使用し、XYZデータを行列に変換してから作図することをおすすめします。 
+ </p>
+<p class="version">必要なOriginのバージョン: Origin 9.0 SR1以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。 </p>
+<ul>
+	<li>XYZデータから3Dグラフを作成する</li>
+	<li>「<b>レイヤ内容</b>」ダイアログを使ってデータを追加/削除する方法</li>
+	<li>XYZデータを行列に変換する方法 </li>
+	<li>「<b>作図の詳細</b>」ダイアログを使って、グラフを編集する</li>
+</ul>
+<h2><a name="Create_a_3D_Surface_and_Scatter_Plot"></a><span class="mw-headline">3D曲面図、散布図を作成</span></h2>
+<ol>
+	<li>「<b>データ：ファイルに接続：Text/CSV</b>」を選択し、Originのプログラムフォルダにある、<b>Samples\Matrix 
+	 Conversion and Gridding\XYZ Random Gaussian.dat</b>をインポートします。 </li>
+	<li>C列を選択し、表示されるミニツールバーの<b>Z</b>ボタン<a class="image"><img alt="Popup Set as Z.png" 
+															 src="../images/3D_Plotting/Popup_Set_as_Z.png" 
+															 width="24" 
+															 border="0" /></a> 
+	 をクリックします。 </li>
+	<li>「<b><b>作図</b></b>」メニューの<b><b>3D：<b>3D</b>カラーマップ曲面</b></b>を選択し、作図します（Graph1）。 
+	 <br />
+	<a class="image"><img alt="Tutorial 3D Plotting01.png" src="../images/3D_Plotting/Tutorial_3D_Plotting01.png" 
+							 width="570" height="432" border="0" /></a> 
+	 </li>
+	<li>グラフの左上にある、レイヤ1アイコンを右クリックして、<b>レイヤの内容</b>を選択してダイアログを開きます。このダイアログでは、<b><a 
+	 class="image"><img alt="Plot type button.png" src="../images/3D_Plotting/Plot_type_button.png" 
+						 width="24" border="0" /></a></b>ボタンをクリックして開くメニューから、<b>3D散布図/トランジェクトリ/ベクトル</b>を選択します。 
+	 <br />
+	<a class="image"><img alt="Tutorial 3D Plotting02.png" src="../images/3D_Plotting/Tutorial_3D_Plotting02.png" 
+							 width="247" border="0" /></a> </li>
+	<li>左パネルでC列を選択して<b>プロットの追加<a class="image"><img alt="Add plot button.png" 
+													 src="../images/3D_Plotting/Add_plot_button.png" 
+													 width="24" border="0" /></a></b>ボタンをクリックし、3D散布図をグラフに追加します。<b>OK</b>をクリックしてダイアログを閉じます。 
+	 <br />
+	<a class="image"><img alt="Tutorial 3D Plotting03.png" src="../images/3D_Plotting/Tutorial_3D_Plotting03.png" 
+							 width="1003" border="0" /></a> </li>
+	<li>Graph1の散布図上でダブルクリックし、<b>作図の詳細</b>ダイアログを開きます。<b>シンボル</b> タブにおいて、 
+	 <b>形状</b>を <b>球</b>、 <b>サイズ</b>を<b>12</b>、そして<b>色</b> を<b>マップ: Col(C)</b>(下のように矢印マークから色選択を展開して<b>ポイント毎</b>タブ 
+	 にて設定します)。 <br />
+	<a class="image"><img alt="Tutorial 3D Plotting04.png" src="../images/3D_Plotting/Tutorial_3D_Plotting04.png" 
+							 width="839" border="0" /></a> </li>
+	<li><b>ドロップライン</b>タブで<b>Z軸に平行</b>のチェックを外します。 <br />
+	<a class="image"><img alt="Tutorial 3D Plotting05.png" src="../images/3D_Plotting/Tutorial_3D_Plotting05.png" 
+							 width="391" border="0" /></a> </li>
+	<li><b>カラーマップ</b>タブで、<i>色塗り</i>ヘッダをクリックし、「塗り方」ダイアログを開きます。<b>塗り方</b>ダイアログで、<b>パレットをロード</b>を選択し、<b>パレット選択</b>ボタンをクリックしてリストから<b>Rainbow</b>を選択し、<b>OK</b>ボタンをクリックします。 
+	 <br />
+	<a class="image"><img alt="Tutorial 3D Plotting06.png" src="../images/3D_Plotting/Tutorial_3D_Plotting06.png" 
+							 width="520" border="0" /></a> </li>
+	<li><b>作図の詳細</b>ダイアログの左パネルで、<b>Layer1</b>を選択します。<b>ライティング</b> タブにおいて、<b><b>モード</b></b>で<b>平行光源</b> 
+	 を選択し、<i>光の色</i>にて下図のように設定します。<b>OK</b>をクリックして、ダイアログを閉じます。 <br />
+	<a class="image"><img alt="Tutorial 3D Plotting07.png" src="../images/3D_Plotting/Tutorial_3D_Plotting07.png" 
+							 width="1023" border="0" /></a> <br />
+	<br />
+	グラフは次のようになります： <br />
+	<a class="image"><img alt="Tutorial 3D Plotting08.png" src="../images/3D_Plotting/Tutorial_3D_Plotting08.png" 
+							 width="571" border="0" /></a> </li>
+</ol>
+<table class="noborder">
+	<tr>
+		<td style="vertical-align: top;" width="60"><img src="../images/3D_Plotting/Tip_icon.png" 
+														 alt="" width="57" 
+														 border="0" /></td>
+		<td><p>3D openGLグラフ上でSキーを押します。マウスカーソルの形状が変わります。マウスカーソルまたは方向キーで光源の方向を変更します。 
+		 </p></td>
+	</tr>
+</table>
+<h2><a name="Smooth_the_3D_surface_plot"></a><span class="mw-headline">3D曲面図をスムージング</span></h2>
+<p>上記の3D曲面図（XYZデータから作成されたもの)よりも滑らかな3D曲面図を作成したい場合は、まず <b>XYZグリッディング</b>ツールを使用してXYZデータを行列に変換します。そして、その行列データを使用して3D曲面図を作成します。 
+ </p>
+<ol>
+	<li><b><b>XYZ Random Gaussian</b></b>ワークシートをアクティブにします。 </li>
+	<li>メニューから<b><b>ワークシート：行列に変換：XYZグリッディング</b></b>を選択してダイアログを開きます。<b>グリッディング設定</b>ブランチを展開し、 
+	 <b>グリッディング手法とそのパラメータ</b>のドロップダウンリストから<b>ランダム (Thin Plate Spline)</b>を選択します。 
+	 さらに <b>列</b>と<b>行</b> を <i>30</i>にします。<b>OK</b>をクリックしてXYZデータを行列に変換します。 
+	 <br />
+	<a class="image"><img alt="Tutorial 3D Plotting09.png" src="../images/3D_Plotting/Tutorial_3D_Plotting09.png" 
+							 width="786" border="0" /></a> </li>
+	<li>この行列をアクティブにし、メインメニューから<b>作図：3D：曲面：3Dカラーマップ曲面</b>を選択し、<b>Graph2</b>を作成します。 
+	 </li>
+	<li>Go back to <b>Graph1</b>に戻り、レイヤ枠内の白いスペース上で右クリックして開くメニューから<b>フォーマットのコピー：全てのスタイルフォーマットC</b> 
+	 を選択します。 <br />
+	<a class="image"><img alt="Tutorial 3D Plotting11.png" src="../images/3D_Plotting/Tutorial_3D_Plotting11.png" 
+							 width="643" border="0" /></a> </li>
+	<li><b>Graph2</b>をアクティブにしてレイヤ枠内で右クリックし、メニューから<b><b>フォーマットの</b>貼り付け</b>を選択します。 
+	 </li>
+	<li>メニューから<b>フォーマット：作図の詳細（プロット属性）</b>を選択し、<b><b>作図の詳細</b></b>ダイアログボックスを開きます。<b>カラーマップ/等高線</b>タブを開き、<b>等高線図を有効にする</b>のチェックを外します。 
+	 <br />
+	<a class="image"><img alt="Tutorial 3D Plotting12.png" src="../images/3D_Plotting/Tutorial_3D_Plotting12.png" 
+							 width="549" border="0" /></a><br />
+	<b>Graph2</b> は次のようになります。<br />
+	<a class="image"><img alt="Tutorial 3D Plotting10.png" src="../images/3D_Plotting/Tutorial_3D_Plotting10.png" 
+							 width="572" border="0" /></a> </li>
+</ol>

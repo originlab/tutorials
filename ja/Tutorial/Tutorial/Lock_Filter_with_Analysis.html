@@ -1,0 +1,36 @@
+﻿<h1 class="firstheading">分析におけるフィルタロック</h1>
+<p class="urlname" style="display: none;">Lock-Filter</p>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>通常、フィルタを使用してデータの分析を行った場合、元のワークシートのデータのフィルタ条件を変更すると、分析結果やグラフの再計算が実行されます。</p>
+<p>しかし、<a class="external text" href="../../UserGuide/UserGuide/Copy_Columns_to_New_Destination.html">列をコピー</a>と<a class="external text" href="../../UserGuide/UserGuide/Pivot_Table.html">ピボットテーブル</a>には、再計算の鍵アイコンのコンテキストメニューに<a class="external text" href="../../UserGuide/UserGuide/Data_Filter.html#Save_Data_Filter_into_Operation">3つのワークシートフィルタオプション</a>が存在します。これらのオプションは、解析実行後のデータフィルタ条件変更を反映するかどうか制御できます。</p>
+<p class="version">必要なOriginのバージョン:Origin 9.1 SR0</p>
+<h2><a name="What_you_will_learn" id="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul>
+<li>新しいワークブックまたはワークシートに列をコピーする</li>
+<li>コピーした列のデータフィルタ条件をロックする</li>
+<li>ソースワークシートにデータフィルタ条件を戻す</li>
+</ul>
+<h2><a name="Steps" id="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<ol>
+<li><b style="font-weight: bold;">&lt;Originプログラムフォルダ&gt;\Samples\Statistics</b>にあるOriginのサンプルファイル<i>automobile.dat</i> をインポートします。</li>
+<li><b style="font-weight: bold;">Make</b>列を選択後に右クリックし、<b>フィルタ：</b><b>フィルタを追加または削除</b>をコンテキストメニューで選択します。あるいは、<b>ワークシートデータ操作</b>ツールバーのフィルタボタンをクリックします。<br />
+<a class="image"><img alt="Lock Filter with Analysis 01.png" src="../images/Lock_Filter_with_Analysis/Lock_Filter_with_Analysis_01.png" width="590" height="240" border="0" /></a></li>
+<li><b style="font-weight: bold;">Honda</b>のデータのみを表示するには、列の1行目のセル左上に表示されるフィルタアイコン<a class="image"><img alt="Button Add Or Remove Data Filter.png" src="../images/Lock_Filter_with_Analysis/Button_Add_Or_Remove_Data_Filter.png" width="23" height="23" border="0" /></a> をクリックします。<b>全て選択</b>をクリックして全てのチェックを外します。<b>Honda</b>を選択します。<b>OK</b> ボタンをクリックします。<br />
+<a class="image"><img alt="Lock Filter with Analysis 02.png" src="../images/Lock_Filter_with_Analysis/Lock_Filter_with_Analysis_02.png" width="410" height="492" border="0" /></a></li>
+<li>列を別のワークシートにコピーするには、Ctrlキーを押しながら<b>Make</b>、<b>Power</b>、<b>Engine Displacement</b>列をクリックして選択します。そして、選択した列上で右クリックし、ショートカットメニューから<b>列をコピー</b>を選択します。</li>
+<li><b style="font-weight: bold;">colcopy</b>ダイアログで、<b>再計算</b>ドロップダウンリストから<b>自動</b>を選択します。<b>コピー先の列</b>が同じワークブックの新しいワークシートに設定されていることを確認してください。列をコピーした新しいワークシートが作成されます。<br />
+<a class="image"><img alt="Lock Filter with Analysis 03.png" src="../images/Lock_Filter_with_Analysis/Lock_Filter_with_Analysis_03.png" width="461" height="352" border="0" /></a></li>
+<li>コピーしたワークシートのタブを空欄になっているOriginのワークスペースにドラッグします。この操作で、新しいワークブックが作成されます。これにより、コピーしたデータと元のデータを横に並べて比較することができます。</li>
+<li>コピーした列1行目にある左上の再計算を示す緑色のロックアイコンをクリックします。コンテキストメニューで<b>ワークシートフィルタ：</b><b>ロック</b>を選びます。これでフィルタ条件を保存することができます。<br />
+<a class="image"><img alt="Lock Filter with Analysis 04-vNext.png" src="../images/Lock_Filter_with_Analysis/Lock_Filter_with_Analysis_04.png" width="404" height="473" border="0" /></a></li>
+<li>もとのワークシートで、<b>Power</b>列にフィルタを追加します。フィルタアイコンをクリックして<b>より大きい</b>を選択します。ダイアログで<b>値</b>を100に設定し、<b>OK</b>ボタンをクリックします。元のワークブックでは<b>Power</b>列が100よりも大きい値しか表示しませんが、コピーしたワークシートではフィルタがロックされているため、更新はされなくなります。</li>
+<li>元のワークブックのフィルタ条件は変更されましたが、それをコピーしたときの条件に戻すには、<b>戻す</b>というオプションを使用します。操作としては、コピーしたワークシートで列Aのヘッダに表示された緑の鍵のアイコンをクリックし、<b>ワークシートフィルタ</b><b>戻す</b>をコンテキストメニューから選びます。これで、コピーした時のフィルタ条件が元のデータに戻され、<b>Power</b>列で設定した条件は反映されなくなります。</li>
+</ol>
+<table class="noborder">
+<tr>
+<td style="vertical-align: top;" width="60"><img src="../images/Lock_Filter_with_Analysis/Tip_icon.png" alt="" width="57" height="57" border="0" /></td>
+<td>
+<p>ロックフィルタオプションは新しいシートにのみ有効です。同じワークシートに列をコピーしても、鍵のアイコンをクリックして開くコンテキストメニュー内にこれらのオプションは表示されません。</p>
+</td>
+</tr>
+</table>

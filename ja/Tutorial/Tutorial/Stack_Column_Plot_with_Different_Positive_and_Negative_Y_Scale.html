@@ -1,0 +1,87 @@
+﻿<h1 class="firstheading">正負のYスケールの積み上げ棒グラフ</h1>
+<p><br />
+</p>
+<p><br />
+</p>
+<p class="urlname" style="display: none;">積み上げ棒グラフーカスタムYスケール</p>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span><span 
+		 class="toctext">サマリー</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Steps_to_Add_Axis_Break_with_No_Gap"><span 
+		 class="tocnumber">3</span> <span class="toctext">ギャップなしの軸破断を追加</span></a></li>
+		<li class="toclevel-1 tocsection-4"><a href="#More_Customization_Steps"><span 
+		 class="tocnumber">4</span> <span class="toctext">グラフの編集</span></a></li>
+	</ol>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>負の棒のための広いYスケール範囲をもつグラフを作成するために、ギャップのない軸破断を追加する方法を説明します。 </p>
+<p><a class="image"><img alt="Axis Different Scale 01.png" src="../images/Stack_Column_Plot_with_Different_Positive_and_Negative_Y_Scale/Axis_Different_Scale_01.png" 
+						 width="537" height="405" border="0" /></a> </p>
+<p class="version">必要なOriginのバージョン: Origin 2015 SR0以降</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。 </p>
+<ul>
+	<li>エラーバーとともに積み上げ棒グラフを作成する</li>
+	<li>ギャップなしの軸破断を有効にする</li>
+	<li>一つの軸をいくつかのセグメントに分け、それぞれのスケールを設定する</li>
+</ul>
+<h2><a name="Steps_to_Add_Axis_Break_with_No_Gap"></a><span class="mw-headline">ギャップなしの軸破断を追加</span></h2>
+<ol>
+	<li><b>ヘルプ: ラーニングセンター</b> メニューを選択、または キーボードの<b>F11</b> キーを押して、ラーニングセンターを開きます。<b>グラフサンプル</b>タブを選択し、カテゴリーのドロップダウンリストから<b>縦棒及び横棒グラフ</b>を選択します。下のグラフサンプルから「Column 
+	 and Bar Charts - Zero Length Break to Change Axis Scale」をダブルクリックしてサンプルを開きます。<br />
+	<a class="image"><img alt="Xis Different Scale 00.png" src="../images/Stack_Column_Plot_with_Different_Positive_and_Negative_Y_Scale/Xis_Different_Scale_00.png" 
+							 width="852" border="0" /></a><br />
+	<b>Note:</b>このチュートリアルは、チュートリアルデータプロジェクト<i>&lt;Origin EXE フォルダ&gt;\Samples\TutorialData.opju</i>の<i>Custom 
+	 Axis Scale to Show Different Scale</i> フォルダと関連しています。 </li>
+	<li>ワークブック「Temperature &amp; Exothermic Energy」をアクティブにし、全ての列を選択して、<b><b><b>作図：棒、円、面積：積み上げ縦棒</b></b></b>と選択して、エラーバー付きの縦棒グラフを作図します。 
+	 <br />
+	<a class="image"><img alt="Axis Different Scale MakePlot.png" src="../images/Stack_Column_Plot_with_Different_Positive_and_Negative_Y_Scale/Axis_Different_Scale_MakePlot.png" 
+							 width="469" border="0" /></a> </li>
+	<li>この負の値と比較して正のデータの絶対値は小さすぎるため、グラフ内には正の値が表示されていません。 </li>
+	<li>そのため、Y = 0で軸破断を追加し、それらの2つのセグメントに対して異なる軸スケールを使用します。Y 軸をダブルクリックして<b>軸</b>ダイアログを開きY 
+	 軸（<b>垂直</b>アイコン）のスケールの開始を-180000、終了を80に設定します。 <br />
+	<a class="image"><img alt="Axis Different Scale Y scale.png" src="../images/Stack_Column_Plot_with_Different_Positive_and_Negative_Y_Scale/Axis_Different_Scale_Y_scale.png" 
+							 width="617" border="0" /></a> </li>
+	<li><b>垂直</b>アイコンがアクティブな状態で<b>軸破断</b>ページを開き、軸破断の数を1にします。記号が表示されないように、軸破断記号の長さを0に設定します。<b>軸破断開始</b>と<b>軸破断終了</b>を<b>0</b>に設定します。これで一度軸が分断しますが隙間は表示されなくなります。<b>自動位置</b>のチェックを外し、<b>位置</b>のセルに<i>50</i>と入力します。 
+	 <br />
+	<a class="image"><img alt="Axis Different Scale add break.png" src="../images/Stack_Column_Plot_with_Different_Positive_and_Negative_Y_Scale/Axis_Different_Scale_add_break.png" 
+							 width="617" border="0" /></a> </li>
+	<li><b>詳細</b>ボタンをクリックして軸破断後の範囲のスケールを設定します。 <br />
+	<a class="image"><img alt="Axis Different Scale break1.png" src="../images/Stack_Column_Plot_with_Different_Positive_and_Negative_Y_Scale/Axis_Different_Scale_break1.png" 
+							 width="543" border="0" /></a> </li>
+	<li><b>適用</b>をクリックして、更新されたグラフを見ると、Y＝0の上と下の範囲で軸スケールが異なり、正の値のグラフが表示されたことがわかります。 
+	 <br />
+	<a class="image"><img alt="Axis Different Scale after add brk.png" 
+							 src="../images/Stack_Column_Plot_with_Different_Positive_and_Negative_Y_Scale/Axis_Different_Scale_after_add_brk.png" 
+							 width="467" border="0" /></a> </li>
+</ol>
+<h2><a name="More_Customization_Steps"></a><span class="mw-headline">グラフの編集</span></h2>
+<p>以下の編集操作により、<b>サマリー</b>で表示されている画像のグラフと同じようにグラフを編集します。 </p>
+<ol>
+	<li>Xスケールを-2から20に設定し、<i>主目盛</i>の増分を2に設定します。 </li>
+	<li><b>グリッド線</b>タブで<b>垂直</b>アイコンと<b>水平</b>アイコンの両方を選択します(Ctrlキーを押しながらクリックで選択できます)。追加の線グループの<b>反対</b>にチェックを入れます。 
+	 <br />
+	<a class="image"><img alt="Axis Different Scale add y 0.png" src="../images/Stack_Column_Plot_with_Different_Positive_and_Negative_Y_Scale/Axis_Different_Scale_add_y_0.png" 
+							 width="469" border="0" /></a> </li>
+	<li><b><b>OK</b></b>ボタンをクリックしてこの<b>軸</b>ダイアログを閉じます。 </li>
+	<li>正と負の棒の色を明るい灰色と灰色に変更するために、棒をクリックしてミニツールバーで<b>単一</b>タブ<a class="image"><img 
+	 alt="Popup Single Tab.png" src="../images/Stack_Column_Plot_with_Different_Positive_and_Negative_Y_Scale/Popup_Single_Tab.png" 
+	 width="49" border="0" /></a>に移動し、<b>塗色</b>ボタン<a class="image"><img 
+	 alt="Popup Symbol Fill Color.png" src="../images/Stack_Column_Plot_with_Different_Positive_and_Negative_Y_Scale/Popup_Symbol_Fill_Color.png" 
+	 width="24" border="0" /></a>をクリックし、カラーチューザーで正の棒を灰色に設定します。 <br />
+	<a class="image"><img alt="Axis Different Scale 05.png" src="../images/Stack_Column_Plot_with_Different_Positive_and_Negative_Y_Scale/Axis_Different_Scale_05.png" 
+							 width="481" border="0" /></a> <br />
+	負の棒をクリックして上記のように色を明るい灰色に変更します。 </li>
+	<li>凡例を編集するために、凡例オブジェクトをクリックしてミニツールバーで水平に配置ボタン<a class="image"><img 
+	 alt="Popup Arrange in Horizontal.png" src="../images/Stack_Column_Plot_with_Different_Positive_and_Negative_Y_Scale/Popup_Arrange_in_Horizontal.png" 
+	 width="25" border="0" /></a>をクリックして同じ行に2つの凡例を並べます。 <br />
+	<a class="image"><img alt="Axis Different Scale 06.png" src="../images/Stack_Column_Plot_with_Different_Positive_and_Negative_Y_Scale/Axis_Different_Scale_06.png" 
+							 width="596" border="0" /></a><br />
+	そうすると最終的なグラフが完成します。 </li>
+</ol>

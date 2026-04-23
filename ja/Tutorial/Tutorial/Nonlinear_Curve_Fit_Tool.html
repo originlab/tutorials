@@ -1,0 +1,148 @@
+﻿<h1 class="firstheading">チュートリアル：非線形曲線フィット</h1>
+<p class="urlname" style="display: none;">Fitting-NLFit-Basic</p>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> 
+		 <span class="toctext">サマリー</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Use_a_built-in_function_to_fit_the_data"><span 
+		 class="tocnumber">3</span> <span class="toctext">組込関数を使ってデータにフィットする</span></a></li>
+		<li class="toclevel-1 tocsection-4"><a href="#Define_and_fit_with_a_user-defined_function"><span 
+		 class="tocnumber">4</span> <span class="toctext">ユーザ定義関数を定義する</span></a></li>
+	</ol>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>Originで非線形フィットを行うには、非線形フィット(NLフィット)ダイアログボックスを使用します。NLフィットツールは200以上の組込関数があります。 
+ </p>
+<table class="noborder">
+	<tr>
+		<td style="vertical-align: top;" width="60"><img src="../images/Nonlinear_Curve_Fit_Tool/Tip_icon.png" 
+														 alt="" border="0" /></td>
+		<td><p>NLフィットダイアログを開かずフィットする場合は、<a href="../../Tutorial/Tutorial/Quick_Fit_Gadget.html" 
+											 title="チュートリアル：クィックフィットガジェット">クイックフィットツール</a>をお試しください。 
+		 </p></td>
+	</tr>
+</table>
+<p class="version">必要なOriginのバージョン: Origin 8.5</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul>
+	<li>組込関数でフィットするには</li>
+	<li>再計算してNLフィットの設定を変更するには</li>
+	<li>ユーザ定義関数を定義するには</li>
+</ul>
+<h2><a name="Use_a_built-in_function_to_fit_the_data"></a><span class="mw-headline">組込関数を使ってデータにフィットするには</span></h2>
+<ol>
+	<li><b>ファイル:開く...</b>をクリックして<b>\Samples\Curve Fitting</b>フォルダから、<b>Intro_to_Nonlinear 
+	 Curve Fit Tool.opj</b>を開き、プロジェクトエクスプローラウィンドウで<b>組込関数</b>を選びます。 </li>
+	<li><b>Graph1</b>をアクティブにして、<b>解析: 非線形曲線フィット</b>を選び、<b>NLFit</b>ダイアログを開きます。<b>関数</b>のドロップダウンリストから<b>Gauss</b>を選択します。 
+	 <br />
+	<a class="image"><img alt="Nonlinear Curve Fit Tool 001.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_001.png" 
+							 width="840" border="0" /></a></li>
+	<li>組み込み関数にはパラメータの自動初期化コードが組み込まれているので、<b>パラメータ</b>タブには、初期値があらかじめ入力されています。<br />
+	<b>残差</b>タブでは、現在の残差を確認できます。この図から現在のフィットがうまくいっているかどうかを確認できます。<br />
+	<a class="image"><img alt="Nonlinear Curve Fit Tool 002.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_002.png" 
+							 width="840" border="0" /></a></li>
+	<li>パラメータの初期値で作成されたフィット曲線がグラフに表示されます。 <br />
+	<a class="image"><img alt="Nonlinear Curve Fit Tool 003.png" src="../images/Nonlinear_Curve_Fit_Tool/Nonlinear_Curve_Fit_Tool_003.png" 
+							 width="417" border="0" /></a></li>
+	<li><b>収束までフィット</b>ボタン<a class="image"><img alt="Button Fit Untill Converged.png" 
+												 src="../images/Nonlinear_Curve_Fit_Tool/Button_Fit_Untill_Converged.png" 
+												 width="26" border="0" /></a>をクリックすると、<b>メッセージ</b>タブには反復回数、自由度あたりのカイ二乗、R二乗値が表示されます。 
+	 <br />
+	<a class="image"><img alt="Nonlinear Curve Fit Tool 004.png" src="../images/Nonlinear_Curve_Fit_Tool/Nonlinear_Curve_Fit_Tool_004.png" 
+							 width="834" border="0" /></a></li>
+	<li><b>OK</b>ボタンをクリックします。パラメータ値やフィット統計を表示した<b>FitNL1</b>レポートを作成します。 
+	 <br />
+	<a class="image"><img alt="Nonlinear Curve Fit Tool 005.png" src="../images/Nonlinear_Curve_Fit_Tool/Nonlinear_Curve_Fit_Tool_005.png" 
+							 width="576" border="0" /></a></li>
+	<li>非線形曲線フィットダイアログを再度開きます。グラフの左上の角にある緑の錠前アイコンをクリックして、<b>パラメータの変更</b>を選択し、ダイアログボックスを開きます。 
+	 <br />
+	<a class="image"><img alt="Nonlinear Curve Fit Tool 006.png" src="../images/Nonlinear_Curve_Fit_Tool/Nonlinear_Curve_Fit_Tool_006.png" 
+							 width="417" border="0" /></a></li>
+	<li><b>パラメータ</b>タブを開き、<i>xc</i>値に<i>25</i> (セルをダブルクリックして編集します)<b>固定</b>にチェックを入れます。 
+	 <br />
+	<a class="image"><img alt="Nonlinear Curve Fit Tool 007.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_007.png" 
+							 width="840" border="0" /></a></li>
+	<li><b>収束までフィット</b>ボタン<a class="image"><img alt="Button Fit Untill Converged.png" 
+												 src="../images/Nonlinear_Curve_Fit_Tool/Button_Fit_Untill_Converged.png" 
+												 width="26" border="0" /></a>をクリックして<b>OK</b>ボタンを押します。 
+	 </li>
+	<li>レポートシートでは、パラメータが固定されたので、xcの誤差値は<i>xc</i>が25から0なったことがわかります。 <br />
+	<a class="image"><img alt="Nonlinear Curve Fit Tool 008.png" src="../images/Nonlinear_Curve_Fit_Tool/Nonlinear_Curve_Fit_Tool_008.png" 
+							 width="416" border="0" /></a></li>
+</ol>
+<h2><a name="Define_and_fit_with_a_user-defined_function"></a><span class="mw-headline">ユーザ定義関数を定義する</span></h2>
+<p>このセクションでは、<br />
+フィット関数、<b>y=y0+a*exp(-b*x)</b>を定義し、その関数を使ったフィットを行います。 </p>
+<ol>
+	<li>プロジェクトエクスプローラを開きます。メニューの<b>ツール: フィット関数ビルダ...</b>を選び、<b>フィット関数ビルダ</b>ダイアログを開きます。 
+	 </li>
+	<li>処理のゴールページで<b>新しい関数の作成</b>をクリックして、<b>進む</b>ボタンをクリックして<b>関数名と関数形式</b>のページを開きます。 
+	 <br />
+	<a class="image"><img alt="Nonlinear Curve Fit Tool 009.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_009.png" 
+							 width="928" border="0" /></a> </li>
+	<li><b>関数名と関数形式</b>ページでは関数の名前と関数の種類を選択します。この関数はデフォルトでは<b>User Defined</b>のカテゴリになります。 
+	 
+	<ul>
+		<li><b>関数名</b>を<b>MyFunction</b>と設定します。</li>
+		<li><b>関数形式リスト</b>から<b>算術式</b>を選びます。ヒントは左側のパネルで見る事ができます。</li>
+		<li>進むをクリックし、<b>変数とパラメータ</b>ページに移動します。<br />
+		</li>
+	</ul>
+	<a class="image"><img alt="Nonlinear Curve Fit Tool 010.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_010.png" 
+							 width="928" border="0" /></a> </li>
+	<li><b>変数とパラメータ</b>ページでは、<b>独立変数</b>に<i>x</i>、<b>従属変数</b>に<i>y</i>が設定されている事を確認してください。<b>パラメータ</b>のテキストボックスに<i>y0, 
+	 a, b</i>と入力します。<b><b>進む</b></b>ボタンをクリックします。 <br />
+	<a class="image"><img alt="Nonlinear Curve Fit Tool 011.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_011.png" 
+							 width="928" border="0" /></a> </li>
+	<li><b>式形式の関数</b>ページで、次の操作をします。 
+	<ul>
+		<li>パラメータの<b>初期値</b>を設定します。 </li>
+		<li><b>関数内容</b>の編集ボックスには<i>y0+a*exp(-b*x)</i>と入力します。</li>
+		<li>関数の有効性をチェックするために、<b>クイックチェック</b>を使用してください。独立変数<i>x</i>に値の入力したら、<b>評価</b>ボタン<a 
+		 class="image"><img alt="Button Evaluate.png" src="../images/Nonlinear_Curve_Fit_Tool/Button_Evaluate.png" 
+							 width="23" border="0" /></a>,クリックして、従属変数<i>y</i>を推定して関数の正当性を評価します。 
+		 <br />
+		</li>
+	</ul>
+	<a class="image"><img alt="Nonlinear Curve Fit Tool 012.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_012.png" 
+							 width="928" border="0" /></a> </li>
+	<li><b>完了</b>ボタンをクリックして定義を修了します。 </li>
+	<li>プロジェクトエクスプローラを開き(<b>表示: プロジェクトエクスプローラ</b>)、<b>User-Defined Function</b>フォルダを開きます。 
+	 </li>
+	<li>[Book1]Sheet1の列Aと列Bをハイライトして、<b>解析: フィット: 非線形曲線フィット</b>と操作して<b>NLFit</b>ダイアログを開きます。<b>設定</b>タブの<b>関数選択</b>ページでは、<b>UserDefinde</b>カテゴリに保存した<b>MyFunction</b>を選択します。 
+	 <br />
+	<a class="image"><img alt="Nonlinear Curve Fit Tool 013.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_013.png" 
+							 width="840" border="0" /></a> </li>
+	<li><b>1回反復ボタン</b>をクリックして、パラメータ値の変化とフィット曲線の変化を見る事ができます。 
+	<ul>
+		<li>&quot;1回反復&quot;ボタン<a class="image"><img alt="Button 1 Iteration.png" 
+													 src="../images/Nonlinear_Curve_Fit_Tool/Button_1_Iteration.png" 
+													 width="26" border="0" /></a>をクリックする。<br />
+		</li>
+	</ul>
+	<a class="image"><img alt="Nonlinear Curve Fit Tool 014.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_014.png" 
+							 width="840" border="0" /></a> 
+	<ul>
+		<li>&quot;1回反復&quot;ボタン<a class="image"><img alt="Button 1 Iteration.png" 
+													 src="../images/Nonlinear_Curve_Fit_Tool/Button_1_Iteration.png" 
+													 width="26" border="0" /></a>をクリックする。<br />
+		</li>
+	</ul>
+	<a class="image"><img alt="Nonlinear Curve Fit Tool 015.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_015.png" 
+							 width="840" border="0" /></a> 
+	<ul>
+		<li>そして<b>収束までフィット</b>ボタンをクリックします。<a class="image"><img alt="Button Fit Untill Converged.png" 
+		 src="../images/Nonlinear_Curve_Fit_Tool/Button_Fit_Untill_Converged.png" 
+		 width="26" border="0" /></a> <br />
+		</li>
+	</ul>
+	<a class="image"><img alt="Nonlinear Curve Fit Tool 016.png" src="../images/Nonlinear_Curve_Fit_Tool/750px-Nonlinear_Curve_Fit_Tool_016.png" 
+							 width="840" border="0" /></a> </li>
+	<li><b>OK</b>ボタンをクリックするとFitNL1レポートシートにパラメータ値やフィット統計がフィット結果として表示されます。これで、最適なパラメータとフィット統計を調査します。 
+	 </li>
+</ol>

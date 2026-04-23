@@ -1,0 +1,111 @@
+﻿<h1 class="firstheading">複数シートのワークブックを操作する</h1><div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Adding_and_Arranging_Worksheets"><span class="tocnumber">3.1</span> <span class="toctext">ワークシートの追加と整列</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Handling_Metadata"><span class="tocnumber">3.2</span><span class="toctext">メタデータの取り扱い</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="#Add_Metadata_to_the_Worksheet"><span class="tocnumber">3.2.1</span> <span class="toctext">ワークシートにメタデータを追加</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#View_Metadata_in_the_Workbook_Organizer"><span class="tocnumber">3.2.2</span> <span class="toctext">ワークブックオーガナイザでメタデータを表示</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-8"><a href="#Splitting_Worksheets_into_Panels_using_Dividers"><span class="tocnumber">3.3</span> <span class="toctext">ディバイダを使ってワークシートを複数パネルに分割</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="#Split_from_Menu"><span class="tocnumber">3.3.1</span> <span class="toctext">メニューから分割</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#Split_by_Dragging_the_Divider"><span class="tocnumber">3.3.2</span> <span class="toctext">ディバイダをドラッグして分割</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Working_with_Multi-Sheet_Workbooks/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Working_with_Multi-Sheet_Workbooks/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=18" target="_blank">Originワークブックのイントロダクション</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=203" target="_blank">ワークブックの保存　OGWU vs 分析テンプレート</a> </li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=212" target="_blank">ワークシートにグラフを追加する</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=305" target="_blank">ワークブックにグラフを追加する</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=14" target="_blank">グラフ挿入</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=137" target="_blank">Origin分析レポートとMicrosoft Wordを使用してバッチレポートを作成する</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Working_with_Multi-Sheet_Workbooks/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Working_with_Multi-Sheet_Workbooks/Blog_Image_33x33px.png" width="135"  /></a>
+<ul><li> <a class="external text" href="http://blog.originlab.com/using-variable-values-in-the-workbook-page-info" target="_blank">計算におけるワークシートのメタデータの使用 &ndash; Part 2: Page.Info</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>Originのワークブックはスプレッドシートに似ており、複数ワークシートを持つことができます。複数ワークブックを使用すれば、プロジェクトを組織化しやすくし、情報密度を高くすることが可能です。
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。
+</p>
+<ul><li> ワークシートの追加と整列</li>
+<li> メタデータの取り扱い</li>
+<li> ディバイダを使ってワークシートを複数パネルに分割</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Adding_and_Arranging_Worksheets"></a><span class="mw-headline">ワークシートの追加と整列</span></h3>
+<ol>
+<li> <b><b>標準</b></b>ツールバーの<b>新しいプロジェクト</b>ボタン<a  class="image"><img alt="Button New Project.png" src="../images/Working_with_Multi-Sheet_Workbooks/Button_New_Project.png" width="22"  /></a>をクリックします。 
+<li> あるいは、<b>Sheet1</b>タブ上で右クリックし、<b>名前とコメント</b>を選択します。<b>名前</b>として<b>Subjects</b>を入力します。   
+<li> <b>シート追加</b>ボタンをクリックすると、<b>Sheet1</b>という名前の2番目のシートが追加されます。
+<li> 新しい<b><b>Sheet1</b></b>タブをダブルクリックして、表示されるテキストボックスに<b>2nd Test</b> と入力して名称を変更します。（あるいは、再度右クリックして<b>名前とコメント</b>を使用します。） 
+<li> <b><b>2nd Test</b></b>の名前を右クリックして、<b><b>挿入</b></b>を選択します。新しいシート<b><b>Sheet1</b></b>が、<b>Subjects</b> と <b>2nd Test</b>の間に追加されます。新しいシートの名前を<b>1st Test</b>にします。
+<li> <b>1st Test</b>シートを左クリックしながらマウスをOriginのワークスペースにドラッグし、離します。これで、<b><b>1st Test</b></b>シートは固有のブック内に格納されます。 
+<li> <b><b>ウィンドウ：左右に並べる</b></b>を選択して、ワークブックを並べます。 <br /><br />
+<a  class="image"><img alt="Working with Multi-Sheet Workbooks 2.png" src="../images/Working_with_Multi-Sheet_Workbooks/Working_with_Multi-Sheet_Workbooks_2.png" width="661"  /></a><br /><br />
+<li> <b><b>2st Test</b></b> シートを2つ目のシートにドラッグアンドドロップします。これにより、<b><b>2st Test</b></b><b> </b>が元のワークブックから新しいワークブックに移動します。 <br /><br />
+<a  class="image"><img alt="Working with Multi-Sheet Workbooks 3.png" src="../images/Working_with_Multi-Sheet_Workbooks/Working_with_Multi-Sheet_Workbooks_3.png" width="661"  /></a><br /><br />
+<li> <b>保存ボタン</b><a  class="image"><img alt="Button Save Project.png" src="../images/Working_with_Multi-Sheet_Workbooks/Button_Save_Project.png" width="23"  /></a>をクリックします。  これまでに保存していないプロジェクトなので、<b><b>名前を付けて保存</b></b>ダイアログが開きます。  <b>Multi-Sheet Workbooks.opju</b>という名称でユーザファイルフォルダに保存します。
+</ol>
+<table class="note">
+<tr>
+<td><b><b>Note</b></b>：ワークブック内でシートをドラッグすれば、順番を変更できます。  シート名を右クリックすると、他のオプションを利用可能です：<b><b>データなしに複製</b></b><b>、<b>複製</b>、<b>削除</b>、<b>移動</b></b>
+</td></tr></table>
+<h3><a name="Handling_Metadata"></a><span class="mw-headline">メタデータの取り扱い</span></h3>
+<h4><a name="Add_Metadata_to_the_Worksheet"></a><span class="mw-headline">ワークシートにメタデータを追加</span></h4>
+<ol>
+<li> <b><b>標準</b></b>ツールバーの<b>新しいプロジェクト</b>ボタン<a  class="image"><img alt="Button New Project.png" src="../images/Working_with_Multi-Sheet_Workbooks/Button_New_Project.png" width="22"  /></a>をクリックします。 
+<li> Originメニューから、<b><b>フォーマット：ワークシートの表示属性</b></b>と選択（または、<b><b>F4</b></b>キーを使用するか、ワークシート内右側の灰色の領域をダブルクリック）します。  <b><b>ワークシートプロパティ</b></b>ダイアログが開きます。 <br /><br />
+<a  class="image"><img alt="Working with Multi-Sheet Workbooks 4.png" src="../images/Working_with_Multi-Sheet_Workbooks/Working_with_Multi-Sheet_Workbooks_4.png" width="396"  /></a><br /><br />
+<li> <b><b>表示</b></b>タブで、<b><b>列ラベル行の編集</b></b>ボタンをクリックします。<b><b>列ラベルの行</b></b>ダイアログが開きます。 
+<li> 表の中の任意の場所で右クリックして<b><b>ユーザ定義パラメータの追加</b></b>を選択します。リストをスクロールすると、<b><b>UserDefined</b></b> ラベルがあります。<b><b>表示</b></b>のチェックが自動的に付いています。<br /><br />
+ 
+<a  class="image"><img alt="Working with Multi-Sheet Workbooks 5.png" src="../images/Working_with_Multi-Sheet_Workbooks/Working_with_Multi-Sheet_Workbooks_5.png" width="444"  /></a><br /><br />
+<li> <b><b>UserDefined</b></b> テキスト上でダブルクリック（または、一度クリックしてF2キーを押す）して、テキストを<b>Wavelength (nm)</b>に変更します。
+<li> <b>Wavelength (nm)</b>の左隣りにあるボックスをクリックしてドラッグし、リストの上部、<b><b>ロングネーム</b></b>の上にドロップします。行の順番が下図のように変更されます。<br /><br />
+<a  class="image"><img alt="Working with Multi-Sheet Workbooks 6.png" src="../images/Working_with_Multi-Sheet_Workbooks/Working_with_Multi-Sheet_Workbooks_6.png" width="443"  /></a><br /><br />
+<li> <b>OK</b>をクリックして<b><b>列ラベルの行</b></b>ダイアログを閉じます。 
+<li> <b><b>ワークシートプロパティ</b></b>ダイアログで、<b><b>フォーマット</b></b>タブを開き、<b><b>適用先</b></b>で<b><b>ロングネーム</b></b>を選択します。<b><b>リッチテキスト</b></b>のチェックボックスにチェックを付けます。 <br /><br />
+<a  class="image"><img alt="Working with Multi-Sheet Workbooks 8.png" src="../images/Working_with_Multi-Sheet_Workbooks/Working_with_Multi-Sheet_Workbooks_8.png" width="415"  /></a><br /><br />
+<li> <b><b>OK</b></b>をクリックして、<b><b>ワークシートプロパティ</b></b>ダイアログを閉じます。
+<li> <b><b>コメント</b></b>行を選択して、<b>スタイル</b>ツールバーの<b><b>セルの統合</b></b>ボタン<a  class="image"><img alt="Button Merge Cells.png" src="../images/Working_with_Multi-Sheet_Workbooks/Button_Merge_Cells.png" width="23"  /></a>をクリックします。
+<li> A、B列のヘッダ行（<b><b>Wavelength</b></b><b> </b>から<b><b>コメント</b></b>行）に以下のように値を入力します。<br />（Note:リッチテキストチェックボックスにチェックをつければ、ダブルクリックして編集モードにすると書式ボタン<a  class="image"><img alt="Buttons Rich Text.png" src="../images/Working_with_Multi-Sheet_Workbooks/Buttons_Rich_Text.png" width="139"  /></a>がアクティブになって使用できます。これらを使用して下図のようにリッチテキストフォーマットを適用します。） 
+<br /><br />
+<a  class="image"><img alt="Working with Multi-Sheet Workbooks 9.png" src="../images/Working_with_Multi-Sheet_Workbooks/Working_with_Multi-Sheet_Workbooks_9.png" width="330"  /></a><br /><br />
+</ol>
+<h4><a name="View_Metadata_in_the_Workbook_Organizer"></a><span class="mw-headline">ワークブックオーガナイザでメタデータを表示</span></h4>
+<ol><li><b><b>新規フォルダ</b></b>ボタン<a  class="image"><img alt="Button New Folder.png" src="../images/Working_with_Multi-Sheet_Workbooks/Button_New_Folder.png" width="23"  /></a> をクリックします。新しいワークブックを用意します。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Import and Export</i>サブフォルダにある<i>S15-125-03.dat</i>を探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。</li>
+<li> <b>オーガナイザを表示/非表示</b>ボタンをクリック<b><b>ワークシートオーガナイザ</b></b>が、ワークシートの下部に表示されます。</li>
+<li> <b><b>インポートされたファイル</b></b>を開くと、格納されたメタデータが表示されます。 </li></ol>
+<dl><dd><a  class="image"><img alt="Working with Multi-Sheet Workbooks 11.png" src="../images/Working_with_Multi-Sheet_Workbooks/Working_with_Multi-Sheet_Workbooks_11.png" width="663"  /></a></dd></dl>
+<h3><a name="Splitting_Worksheets_into_Panels_using_Dividers"></a><span class="mw-headline">ディバイダを使用してワークシートを複数のパネルに分割</span></h3>
+<h4><a name="Split_from_Menu"></a><span class="mw-headline">メニューから分割</span></h4>
+<ol><li> ワークシートをアクティブにしてセルを選択します。</li>
+<li> Originメニューから<b><b>ウィンドウ：ウィンドウ分割</b></b>を選択します。 </li>
+<li> ワークシートや行列が4つのパネルに分割され、垂直ディバイダと水平ディバイダが選択したセルに配置されます。マウスでつかんでドラッグすれば、ディバイダを移動できます。</li>
+<li> <b><b>ウィンドウ：分割を削除</b></b>を選択すれば、非表示にできます。 <br /> （Note：この操作はワークシートと行列シートの両方で利用可能です。）</li></ol>
+<h4><a name="Split_by_Dragging_the_Divider"></a><span class="mw-headline">ディバイダをドラッグして分割</span></h4>
+<ol><li> シートの右下にある、垂直スクロールバーの終了点の横にカーソルをあわせる（水平ディバイダ）、または、水平スクロールバーの終了点の横にカーソルをあわせます（垂直ディバイダ）。 </li>
+<li> マウスのポインタが変化したら、ドラッグして移動します。
+すると、水平/垂直ディバイダが作成されます。 
+<dl><dd><a  class="image"><img alt="Working with Multi-Sheet Workbooks 12.png" src="../images/Working_with_Multi-Sheet_Workbooks/Working_with_Multi-Sheet_Workbooks_12.png" width="421"  /></a></dd>
+<dd>下図のように水平/垂直方向のディバイダが表示されます。</dd>
+<dd><a  class="image"><img alt="Working with Multi-Sheet Workbooks 13.png" src="../images/Working_with_Multi-Sheet_Workbooks/Working_with_Multi-Sheet_Workbooks_13.png" width="421"  /></a></dd></dl></li></ol>
+
+
+
+
+    

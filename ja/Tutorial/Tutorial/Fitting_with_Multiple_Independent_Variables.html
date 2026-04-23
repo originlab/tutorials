@@ -1,0 +1,80 @@
+﻿<h1 class="firstheading">複数の独立変数でフィットする</h1>
+<a name="Summary" id="Summary"></a>
+<h2><span class="mw-headline">サマリー</span></h2>
+<p>「<b>関数オーガナイザ</b>」ツールは、1以上の独立変数または従属変数を持つユーザ定義関数を作成するのに使われます。そして、<b>NLFitダイアログ</b>を使って、データをフィットします。フィットダイアログのプレビューウィンドウは、1つの変量に対して別の変量をプロットすることができますが、もしプレビューの表示でまだフィットが<i>不十分</i>な場合、フィット処理は1回だけ行われ、パラメータに値がセットされます。</p>
+<p>次のような数式（<br />
+<i>y = A0 + A1 * x1 + A2 * x2 + ...</i>）で複数の独立変数でフィットを行いたい場合、<br />
+非線形曲線フィットではなく、線形体重回帰を使用することをお勧めします。</p>
+<p class="version">必要なOriginのバージョン:8.0 SR6</p>
+<a name="What_you_will_learn" id="What_you_will_learn"></a>
+<h2><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。</p>
+<ul>
+<li>2つの独立変数と1つの従属変数を持つユーザ定義関数を作成する</li>
+<li>NLFitを使ってその関数でフィットする</li>
+</ul>
+<a name="Steps" id="Steps"></a>
+<h2><span class="mw-headline">ステップ</span></h2>
+<ol start="1">
+<li>新しいワークブックを開き、<i>Samples</i>\<i>Curve Fitting</i>\<i>Activity.dat</i>ファイルをインポートします。</li>
+<li>メニューから「<b>ツール：フィット関数オーガナイザ</b>」を選択(または<b>F9</b>を押す)し、<span class="db">フィット関数オーガナイザ</span>を開き、<b>NewCategory</b> カテゴリー(カテゴリーが無ければ作成)に<b>MultiIndep</b>という名前の新しい関数を次のように定義します。
+<table class="blank">
+<tr>
+<td width="170"><b style="font-weight: bold;">関数名：</b></td>
+<td>
+<p>MultiIndep</p>
+</td>
+</tr>
+<tr>
+<td width="170"><b style="font-weight: bold;">実現方式：</b></td>
+<td>
+<p>ユーザ定義</p>
+</td>
+</tr>
+<tr>
+<td width="170"><b style="font-weight: bold;">独立変数：</b></td>
+<td>
+<p>substr,inhib</p>
+</td>
+</tr>
+<tr>
+<td width="170"><b style="font-weight: bold;">従属変数：</b></td>
+<td>
+<p>act</p>
+</td>
+</tr>
+<tr>
+<td width="170"><b style="font-weight: bold;">パラメータの名前：</b></td>
+<td>
+<p>ki,km,vm</p>
+</td>
+</tr>
+<tr>
+<td width="170"><b style="font-weight: bold;">定義形式：</b></td>
+<td>
+<p>Origin C</p>
+</td>
+</tr>
+<tr>
+<td width="170"><b style="font-weight: bold;">関数：</b></td>
+<td>
+<p>double mix = inhib / ki;<br />
+act = vm * substr / (km + (1 + mix) * substr);</p>
+</td>
+</tr>
+</table>
+<p><b style="font-weight: bold;">NOTE:</b>OriginCを使用しているので定義名と関数定義内で使用されている形式（大文字と小文字の違いなど）に注意しなければなりません。例：Substrとsubstrは違うものです。</p>
+<p>「保存」をクリックして関数を保存し、OKをクリックして、オーガナイザを終了します。</p>
+<p>ユーザ定義関数についての詳細は、<a href="../../Tutorial/Tutorial/User_Defined_Fitting_Function_using_OC.html" title="チュートリアル:OCを使ったユーザ定義関数">Origin Cを使ったユーザ定義関数</a>をご覧下さい。</p>
+</li>
+<li>ワークシートの列C<b>だけ</b>を選択し、<b>解析：</b> <b>フィット：</b> <b>非線形曲線フィット</b>と操作してNLFitダイアログを開きます。「<b>設定：関数選択</b>」ページで、 <b>NewCategory</b> カテゴリーにある<b>MultiIndep</b>関数を選択します。次のように、<b>データ選択</b>ページで入力データセットをセットします。<br />
+<a><img alt="Image:MultiFittingDataSelection1.png" src="../images/Fitting_with_Multiple_Independent_Variables/MultiFittingDataSelection1.png" width="840" height="365" border="0" /></a></li>
+<li>「<b>フィット曲線</b>」ページを選択し、「<b>フィット曲線のプロット</b>」ブランチを開きます。そして、「<b>Xデータタイプ</b>」の隣にあるドロップダウンリストから「<b>入力Xに同じ</b>」を選択します。<br />
+<a><img alt="Image:MultiFittingFittingCurves1.png" src="../images/Fitting_with_Multiple_Independent_Variables/MultiFittingFittingCurves1.png" width="840" height="365" border="0" /></a></li>
+<li>「<b>パラメータ</b>」タブを選択し、初期値を次のようにセットします。<br />
+<a><img alt="Image:MultiFittingSettingPara1.png" src="../images/Fitting_with_Multiple_Independent_Variables/MultiFittingSettingPara1.png" width="282" height="141" border="0" /></a></li>
+<li>「<b>フィット</b>」ボタンをクリックし、フィットレポートを生成します。レポートワークシートから次のようにこれらの結果を見ることができます。<br />
+<a><img alt="Image:MultiIndepParameter.png" src="../images/Fitting_with_Multiple_Independent_Variables/MultiIndepParameter.png" width="225" height="76" border="0" /></a><br />
+<a><img alt="Image:MultiIndepStat.png" src="../images/Fitting_with_Multiple_Independent_Variables/MultiIndepStat.png" width="220" height="127" border="0" /></a><br />
+統計の表より、フィットはまずまずの成果であったということができます。</li>
+</ol>

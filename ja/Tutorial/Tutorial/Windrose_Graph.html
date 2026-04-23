@@ -1,0 +1,403 @@
+﻿<h1 class="firstheading">ウィンドローズグラフ</h1>
+<p class="urlname" style="display: none;">Windrose-Graph</p>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> 
+		 <span class="toctext">サマリー</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_will_you_learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> 
+		 <span class="toctext">ステップ</span></a> 
+		<ol>
+			<li class="toclevel-2 tocsection-4"><a href="#Part_1:_Create_a_Windrose_Graph_from_Binned_Data"><span 
+			 class="tocnumber">3.1</span> <span class="toctext">Part 1: 
+			 ビン化したデータからウィンドローズグラフを作成する </span></a></li>
+			<li class="toclevel-2 tocsection-5"><a href="#Part_2:_Create_a_Windrose_from_Raw_Data"><span 
+			 class="tocnumber">3.2</span> <span class="toctext">Part 2: 
+			 素データからウィンドローズグラフを作成する </span></a></li>
+		</ol></li>
+		<li class="toclevel-1 tocsection-6"><a href="#Sample_Data"><span 
+		 class="tocnumber">4</span> <span class="toctext">サンプルデータ</span></a> 
+		 
+		<ol>
+			<li class="toclevel-2 tocsection-7"><a href="#Binned_Data"><span 
+			 class="tocnumber">4.1</span> <span class="toctext">ビン化データ</span></a></li>
+			<li class="toclevel-2 tocsection-8"><a href="#Raw_Data"><span 
+			 class="tocnumber">4.2</span> <span class="toctext">素データ</span></a></li>
+		</ol></li>
+	</ol>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>ウィンドローズグラフは、ある場所で一定時間計測した風速および風向データを表すのに使用します。このチュートリアルでは、Origin9でウィンドローズグラフを作成する方法を示します。<br />
+<br />
+<a class="image"><img alt="Two Windrose Plot.png" src="../images/Windrose_Graph/750px-Two_Windrose_Plot.png" 
+						 width="750" height="311" border="0" /></a> </p>
+<h2><a name="What_will_you_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。 </p>
+<ul>
+	<li>ビン化したデータからウィンドローズグラフを作成する</li>
+	<li>ウィンドローズグラフの方位軸ラベルを編集する</li>
+	<li>素データからウィンドローズグラフを作成する</li>
+</ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>このチュートリアルは、チュートリアルデータプロジェクト（<i><i>&lt;Origin EXE フォルダ&gt;\Samples\TutorialData.opj</i></i>）と関連しています。 
+ <br />
+また、ラーニングセンターからこのグラフを呼び出すことができます。(<b>ヘルプ：ラーニングセンター</b>メニューを選択、または キーボードの<b>F11</b> 
+ キーを押して、<b>グラフサンプル：統計グラフ</b>を選択します) </p>
+<h3><a name="Part_1:_Create_a_Windrose_Graph_from_Binned_Data"></a><span 
+	 class="mw-headline">Part 1: ビン化したデータからウィンドローズグラフを作成する</span></h3>
+<ol>
+	<li><b><b>TutorialData.opj</b></b><b> </b>を開き、<b><b>プロジェクトエクスプローラ</b></b>で<b>Wind 
+	 Rose</b> フォルダを開きます。 <br />
+	(プロジェクトファイルがなければ、 <a href="../../Tutorial/Tutorial/Windrose_Graph.html#Binned_Data" 
+						 title="チュートリアル：Windrose グラフ">ここから</a>データをダウンロードできます。) 
+	 </li>
+	<li><b>Book６E</b> ワークブックをアクティブにします。すべての列を選択し、<b><b>2Dグラフギャラリー</b></b>ツールバーから<b><b>ウィンドローズ－ビン化データ</b></b>ボタンをクリックするか、メインメニューの<b><b>作図：特殊：ウィンドローズ－ビン化データ</b></b>と選択します。<br />
+	<a class="image"><img alt="Windrose button.png" src="../images/Windrose_Graph/Windrose_button.png" 
+							 width="383" border="0" /></a><br />
+	</li>
+	<li>放射軸をダブルクリックして、<b><b>軸</b></b>ダイアログボックスを開きます。<b>放射-内部1</b>を選び、<b>表示</b>タブを選択します。内側の放射軸を非表示にするように、<b>表示</b>チェックボックスのチェックを外します。<br />
+	<a class="image"><img alt="Windrose Graph inner axis01.png" src="../images/Windrose_Graph/400px-Windrose_Graph_inner_axis01.png" 
+							 width="431" border="0" /></a><br />
+	左側のパネルで<b>放射-外部2</b>を選択します。外部軸を表示させるように、表示チェックボックスにチェックを入れます。<br />
+	<a class="image"><img alt="Windrose Graph inner axis02.png" src="../images/Windrose_Graph/450px-Windrose_Graph_inner_axis02.png" 
+							 width="491" border="0" /></a><br />
+	<b>OK</b>ボタンをクリックして、左下に放射軸を表示します。<br />
+	<a class="image"><img alt="Windrose Graph inner axis03.png" src="../images/Windrose_Graph/Windrose_Graph_inner_axis03.png" 
+							 width="479" border="0" /></a> </li>
+	<li>グラフ内の棒をどれかクリックし、ミニツールバーを表示させます。<b>グループ</b>タブの<b>塗り色</b>ボタン<a class="image"><img 
+	 alt="Popup Fill Color.png" src="../images/Windrose_Graph/Popup_Fill_Color.png" 
+	 width="24" border="0" /></a>をクリックし、カラーチューザーを開きます。<b>プロット毎</b>タブのカラーチューザーで、カラーリストかカラーパレットから棒の色を設定します。<br />
+	 <a class="image"><img alt="Windrose Graph FillColor.png" src="../images/Windrose_Graph/550px-Windrose_Graph_FillColor.png" 
+							 width="500" border="0" /></a> </li>
+	<li><b><b>テキストツール</b></b>ボタン<a class="image"><img alt="Button Text Tool.png" 
+														 src="../images/Windrose_Graph/Button_Text_Tool.png" 
+														 width="23" border="0" /></a>をクリックして、グラフにタイトルとして<b><b>テキスト</b></b>オブジェクトを追加します。追加した<b><b>テキスト</b></b>オブジェクトには「<i>Wind 
+	 Rose (Binned Data)</i>」と入力します。<br />
+	<a class="image"><img alt="Windrose Graph 2.png" src="../images/Windrose_Graph/Windrose_Graph_2.png" 
+							 width="476" border="0" /></a> </li>
+</ol>
+<h3><a name="Part_2:_Create_a_Windrose_from_Raw_Data"></a><span class="mw-headline">Part 
+ 2: 素データからウィンドローズグラフを作成する</span></h3>
+<ol>
+	<li>プロジェクトエクスプローラで<i>Statistical and Specialized Graphs : Specialized：Wind 
+	 Rose</i>と選択し、<b>Book7E</b>の、<b>Raw Data</b>ワークシートをアクティブにします。(プロジェクトファイルがなければ、 
+	 <a href="../../Tutorial/Tutorial/Windrose_Graph.html#Raw_Data" title="Tutorial: ウィンドローズグラフ">ここから</a>データをインポートしてください。) 
+	 </li>
+	<li>列Aと列Bを選択し、<b><b>2Dグラフギャラリー</b></b>ツールバーから<b><b>ウィンドローズ－素データ</b></b>ボタンをクリックするか、メインメニューの<b><b>作図：特殊：ウィンドローズ－素データ</b></b>と選択します。<br />
+	<a class="image"><img alt="Windrose Raw Data Button.png" src="../images/Windrose_Graph/Windrose_Raw_Data_Button.png" 
+							 width="334" border="0" /></a><br />
+	ダイアログを開き、以下のように設定してOKボタンをクリックすると、ウィンドローズグラフが作成されます。<br />
+	<a class="image"><img alt="Windrose Raw Data Settings.png" src="../images/Windrose_Graph/Windrose_Raw_Data_Settings.png" 
+							 width="581" border="0" /></a> </li>
+	<li><a href="#Part_1:_Create_a_Windrose_Graph_from_Binned_Data">パート1</a>のステップ3と同じ操作を実行して、放射軸を左下に移動します。そして、<b>放射-外部2</b>の<b>目盛ラベル</b> 
+	 タブに移動し、放射軸の目盛りラベルの接尾「％」を削除します。 </li>
+	<li><a href="#Part_1:_Create_a_Windrose_Graph_from_Binned_Data">パート1</a>のステップ4と同じ操作を実行して、棒の塗り色を変更します。<br />
+	最終的に、次のようなグラフになります。<br />
+	<a class="image"><img alt="Wind Rose Example Raw Data.png" src="../images/Windrose_Graph/Wind_Rose_Example_Raw_Data.png" 
+							 width="493" border="0" /></a> </li>
+</ol>
+<h2><a name="Sample_Data"></a><span class="mw-headline">サンプルデータ</span></h2>
+<h3><a name="Binned_Data"></a><span class="mw-headline">ビン化データ</span></h3>
+<p><b><b>ビン化データ</b></b>をワークシートにインポートするには、<b><b>Binned Data 1</b></b><b> 
+ (</b>ヘッダを含む)をコピーして、<b><b>ファイル：インポートウィザード</b></b>を選択します。<b><b>データソース</b></b>グループで、<b><b>クリップボード</b></b>チェックボックスを選択し、<b><b>完了</b></b>ボタンをクリックしてOriginにデータをインポートします。<br />
+<a class="image"><img alt="Import Wizard Clipboard.png" src="../images/Windrose_Graph/Import_Wizard_Clipboard.png" 
+						 width="347" border="0" /></a><br />
+</p>
+<dl>
+	<dd><table class="simple">
+		<tr>
+			<th>方向 </th>
+			<th>0.-4 </th>
+			<th>4.-8 </th>
+			<th>8.-12 </th>
+			<th>12.-16 </th>
+			<th>16.-20 </th>
+		</tr>
+		<tr>
+			<td>22.5 </td>
+			<td>3.125 </td>
+			<td>3.125 </td>
+			<td>3.125 </td>
+			<td>6.25 </td>
+			<td>0 </td>
+		</tr>
+		<tr>
+			<td>45 </td>
+			<td>0 </td>
+			<td>3.125 </td>
+			<td>3.125 </td>
+			<td>0 </td>
+			<td>0 </td>
+		</tr>
+		<tr>
+			<td>67.5 </td>
+			<td>0 </td>
+			<td>6.25 </td>
+			<td>0 </td>
+			<td>0 </td>
+			<td>0 </td>
+		</tr>
+		<tr>
+			<td>90 </td>
+			<td>0 </td>
+			<td>0 </td>
+			<td>0 </td>
+			<td>0 </td>
+			<td>3.125 </td>
+		</tr>
+		<tr>
+			<td>112.5 </td>
+			<td>0 </td>
+			<td>0 </td>
+			<td>0 </td>
+			<td>0 </td>
+			<td>0 </td>
+		</tr>
+		<tr>
+			<td>135 </td>
+			<td>3.125 </td>
+			<td>0 </td>
+			<td>0 </td>
+			<td>0 </td>
+			<td>3.125 </td>
+		</tr>
+		<tr>
+			<td>157.5 </td>
+			<td>0 </td>
+			<td>0 </td>
+			<td>9.375 </td>
+			<td>3.125 </td>
+			<td>0 </td>
+		</tr>
+		<tr>
+			<td>180 </td>
+			<td>3.125 </td>
+			<td>3.125 </td>
+			<td>0 </td>
+			<td>3.125 </td>
+			<td>3.125 </td>
+		</tr>
+		<tr>
+			<td>202.5 </td>
+			<td>0 </td>
+			<td>0 </td>
+			<td>0 </td>
+			<td>0 </td>
+			<td>0 </td>
+		</tr>
+		<tr>
+			<td>225 </td>
+			<td>0 </td>
+			<td>0 </td>
+			<td>3.125 </td>
+			<td>0 </td>
+			<td>0 </td>
+		</tr>
+		<tr>
+			<td>247.5 </td>
+			<td>0 </td>
+			<td>3.125 </td>
+			<td>0 </td>
+			<td>3.125 </td>
+			<td>3.125 </td>
+		</tr>
+		<tr>
+			<td>270 </td>
+			<td>0 </td>
+			<td>0 </td>
+			<td>0 </td>
+			<td>0 </td>
+			<td>3.125 </td>
+		</tr>
+		<tr>
+			<td>292.5 </td>
+			<td>0 </td>
+			<td>6.25 </td>
+			<td>3.125 </td>
+			<td>0 </td>
+			<td>0 </td>
+		</tr>
+		<tr>
+			<td>315 </td>
+			<td>0 </td>
+			<td>0 </td>
+			<td>3.125 </td>
+			<td>3.125 </td>
+			<td>0 </td>
+		</tr>
+		<tr>
+			<td>337.5 </td>
+			<td>0 </td>
+			<td>0 </td>
+			<td>0 </td>
+			<td>0 </td>
+			<td>0 </td>
+		</tr>
+		<tr>
+			<td>360 </td>
+			<td>0 </td>
+			<td>6.25 </td>
+			<td>0 </td>
+			<td>0 </td>
+			<td>0 </td>
+		</tr>
+		<tr>
+			<td>382.5 </td>
+			<td>0 </td>
+			<td>0 </td>
+			<td>0 </td>
+			<td>0 </td>
+			<td>0 </td>
+		</tr>
+	</table></dd>
+</dl>
+<h3><a name="Raw_Data"></a><span class="mw-headline">素データ</span></h3>
+<p><b>素データ</b>をワークシートにインポートするには、<b>素データ</b> (ヘッダを含む)をコピーして、<b>ファイル：インポートウィザード</b>を選択します。<b>データソース</b>グループで、<b>クリップボード</b>チェックボックスを選択し、<b>完了</b>ボタンをクリックしてOriginにデータをインポートします。<br />
+<br />
+</p>
+<dl>
+	<dd><a class="image"><img alt="Import Wizard Clipboard.png" src="../images/Windrose_Graph/Import_Wizard_Clipboard.png" 
+								 width="347" border="0" /></a><br />
+	<br />
+	</dd>
+</dl>
+<dl>
+	<dd><table class="simple">
+		<tr>
+			<th>方向 </th>
+			<th>Speed </th>
+		</tr>
+		<tr>
+			<td>311.5 </td>
+			<td>12.75 </td>
+		</tr>
+		<tr>
+			<td>142.7 </td>
+			<td>11.18 </td>
+		</tr>
+		<tr>
+			<td>161.6 </td>
+			<td>5.9 </td>
+		</tr>
+		<tr>
+			<td>277.3 </td>
+			<td>8.24 </td>
+		</tr>
+		<tr>
+			<td>155.3 </td>
+			<td>13.46 </td>
+		</tr>
+		<tr>
+			<td>40.8 </td>
+			<td>8.57 </td>
+		</tr>
+		<tr>
+			<td>43.4 </td>
+			<td>4.38 </td>
+		</tr>
+		<tr>
+			<td>1.3 </td>
+			<td>10.91 </td>
+		</tr>
+		<tr>
+			<td>78.8 </td>
+			<td>18.72 </td>
+		</tr>
+		<tr>
+			<td>237.8 </td>
+			<td>16.22 </td>
+		</tr>
+		<tr>
+			<td>114.6 </td>
+			<td>0.88 </td>
+		</tr>
+		<tr>
+			<td>2.1 </td>
+			<td>12.05 </td>
+		</tr>
+		<tr>
+			<td>290.5 </td>
+			<td>4.6 </td>
+		</tr>
+		<tr>
+			<td>174.1 </td>
+			<td>3.29 </td>
+		</tr>
+		<tr>
+			<td>267.6 </td>
+			<td>16.64 </td>
+		</tr>
+		<tr>
+			<td>8 </td>
+			<td>5.6 </td>
+		</tr>
+		<tr>
+			<td>213.9 </td>
+			<td>8.04 </td>
+		</tr>
+		<tr>
+			<td>134.8 </td>
+			<td>17.26 </td>
+		</tr>
+		<tr>
+			<td>137.6 </td>
+			<td>11.87 </td>
+		</tr>
+		<tr>
+			<td>46.1 </td>
+			<td>5.48 </td>
+		</tr>
+		<tr>
+			<td>4.5 </td>
+			<td>13.47 </td>
+		</tr>
+		<tr>
+			<td>311.2 </td>
+			<td>10.17 </td>
+		</tr>
+		<tr>
+			<td>154.4 </td>
+			<td>11.17 </td>
+		</tr>
+		<tr>
+			<td>176.2 </td>
+			<td>18.91 </td>
+		</tr>
+		<tr>
+			<td>348.1 </td>
+			<td>4.11 </td>
+		</tr>
+		<tr>
+			<td>225.2 </td>
+			<td>6.65 </td>
+		</tr>
+		<tr>
+			<td>236.4 </td>
+			<td>12.87 </td>
+		</tr>
+		<tr>
+			<td>11.7 </td>
+			<td>1.07 </td>
+		</tr>
+		<tr>
+			<td>278.9 </td>
+			<td>4.36 </td>
+		</tr>
+		<tr>
+			<td>356.5 </td>
+			<td>5.01 </td>
+		</tr>
+		<tr>
+			<td>58.9 </td>
+			<td>7.3 </td>
+		</tr>
+		<tr>
+			<td>161.8 </td>
+			<td>15.6 </td>
+		</tr>
+	</table></dd>
+</dl>

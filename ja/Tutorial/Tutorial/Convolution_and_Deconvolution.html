@@ -1,0 +1,27 @@
+﻿<h1 class="firstheading">コンボリューション</h1>
+<p class="urlname" style="display: none;">コンボリューション</p>
+<h2><a name="Summary" id="Summary"></a> <span class="mw-headline">サマリー</span></h2>
+<p>コンボリューションは信号処理で一般的に使われています。Originは、コンボリューションを計算するために、フーリエ変換を伴うコンボリューション定理を使用しています。</p>
+<h2><a name="What_You_Will_Learn" id="What_You_Will_Learn"></a> <span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、Originでコンボリューションを行う方法を紹介します。</p>
+<h2><a name="Steps" id="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<ol>
+<li>新しいワークブックを用意します。</li>
+<li>サンプルデータ <b>&lt;Origin インスト―ルディレクトリ&gt;\Samples\Signal Processing\Convolution.dat</b> をインポートします。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="SP Tutorial Convolution 1.png" src="../images/Convolution_and_Deconvolution/SP_Tutorial_Convolution_1.png" width="396" height="322" border="0" /></a></dd>
+</dl>
+</li>
+<li>B、C列を選択して、<b>解析：信号処理：コンボリューション</b>を選択し、<b>Signal Processing: conv</b>ダイアログを開きます。ダイアログでは、B列が信号データ、C列が応答データとしてラベル付けされます。サンプリング間隔はXデータを参照してセットされます。</li>
+<li><b style="font-weight: bold;">オプション</b>の項目を開き、<b>コンボリューションの種類</b>を<i>円</i>に変更し、入力データ範囲外側のデータポイントは範囲内のデータポイントの繰り返しとします。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="SP Tutorial Convolution 2.png" src="../images/Convolution_and_Deconvolution/SP_Tutorial_Convolution_2.png" width="502" height="402" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">OK</b>をクリックして結果を出力します。</li>
+<li>ワークシートで列BとEを選択（Ctrlキーを押しながらクリックをして隣り合わない列を選択できます）し、メニューから<b>作図：</b><b>線図:</b><b>折れ線</b>と操作して入力信号と出力信号のグラフを作成します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="SP Tutorial Convolution 3.png" src="../images/Convolution_and_Deconvolution/SP_Tutorial_Convolution_3.png" width="458" height="347" border="0" /></a></dd>
+</dl>
+</li>
+</ol>

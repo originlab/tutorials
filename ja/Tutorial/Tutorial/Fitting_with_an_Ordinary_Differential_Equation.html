@@ -1,0 +1,219 @@
+﻿<h1 class="firstheading">常微分方程式によるフィット</h1><p class='urlname' style='display: none'>Fitting-Ordinary-Differential-Equation</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span><span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">サンプルとステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Import_Data"><span class="tocnumber">3.1</span> <span class="toctext">データをインポート</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Define_Fitting_Function"><span class="tocnumber">3.2</span> <span class="toctext">フィット関数を定義する</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Fit_the_Curve"><span class="tocnumber">3.3</span> <span class="toctext">曲線をフィットする</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Fitting_Results"><span class="tocnumber">3.4</span> <span class="toctext">フィット結果</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Fitting_with_an_Ordinary_Differential_Equation/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Fitting_with_an_Ordinary_Differential_Equation/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=60" target="_blank">ユーザ定義フィット関数</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Fitting_with_an_Ordinary_Differential_Equation/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Fitting_with_an_Ordinary_Differential_Equation/Blog_Image_33x33px.png" width="135"  /></a>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>このチュートリアルでは、<b><b>フィット関数ビルダー</b></b>を使用して常微分方程式（<b><b>ODE</b></b>）を作成し、この関数を使用してデータのフィットを実行する方法をご紹介します。
+</p>
+<p class="version" >必要なOriginのバージョン:Origin 9.1 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。 
+</p>
+<ul><li> ODFフィット関数を定義する</li>
+<li> OriginCコードを使用してNAG関数を呼び出す</li>
+<li> パラメータが更新されたときのみODE結果を再計算する</li>
+<li> ODF結果の補間</li></ul>
+<h2><a name="Example_and_Steps"></a><span class="mw-headline">3 サンプルと操作</span></h2>
+<p>このチュートリアルでは、以下のサンプルのような、1階常微分方程式 を使用します。 
+</p>
+<dl><dd><img src="../images/Fitting_with_an_Ordinary_Differential_Equation/math-3139ba5ac00c6da70c79240db577d5af.png" title="\frac{\mathrm{d} y}{\mathrm{d} x}=ay" alt="\frac{\mathrm{d} y}{\mathrm{d} x}=ay" class="tex"/></dd>
+<dd><img src="../images/Fitting_with_an_Ordinary_Differential_Equation/math-fa0aad52f07a3069cc4b0a22552679b3.png" title="y|_{x=x0}=y0" alt="y|_{x=x0}=y0" class="tex"/></dd></dl>
+<p>ここで、<b><b>a</b></b>は常微分方程式 のパラメータで、<b><b>y0</b></b>はODEの初期値です。このODEの問題を解くために、Runge&ndash;Kuttaメソッドを使用して、NAG関数 <b>d02pvc</b> と <b>d02pcc</b> が呼び出されます。 
+</p>
+<h3><a name="Import_Data"></a><span class="mw-headline">データのインポート</span></h3>
+<ol><li> 新しいワークブックを用意します。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Curve Fitting</i>サブフォルダにある<i>Exponential Growth.dat</i> ファイルを探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。</li>
+<li> <b>B</b>列を選択して、Originのメニューから<b><b>作図：シンボル図：散布図</b></b>を選択します。グラフは次のようになります。
+<dl><dd><a  class="image"><img alt="Fit ODEex.jpg" src="../images/Fitting_with_an_Ordinary_Differential_Equation/Fit_ODEex.jpg" width="503"  /></a></dd></dl></li></ol>
+<h3><a name="Define_Fitting_Function"></a><span class="mw-headline">フィット関数を定義する</span></h3>
+<p>フィット関数は、<b><b>フィット関数ビルダー</b></b>を使用して定義できます。
+</p>
+<ol>
+<li> メニューから、<b><b>ツール：フィット関数ビルダー</b></b>を選択します。
+<li> 開いた<b><b>フィット関数ビルダー</b></b>の<b><b>処理のゴール</b></b>ページで、<b><b>新しい関数の作成</b></b>が選択されているの確認します。<b><b>進む</b></b>ボタンをクリックします。
+<li> <b><b>関数名と関数形式</b></b>のページでは、<b><b>関数カテゴリーの選択</b></b>ドロップダウンリストで<b><b>User Defin</b></b><b>ed</b>を選択し、<b><b>関数名</b></b>を<b><b>FitODE</b></b>とします。<b><b>関数形式</b></b>は、<b><b>Origin C</b></b>にします。進むボタンをクリックします。<b><b>進む</b></b>をクリックします。
+<li> <b><b>変数とパラメータ</b></b>ページでは、<b><b>パラメータ</b></b>として、<b><b>a, y0</b></b> と入力します。<b><b>進む</b></b>をクリックします。
+<li> <b><b>Origin Cフィット関数</b></b>のページで、<b><b>関数内容</b></b>編集ボックスの右上にある、<a  class="image"><img alt="User-Defined Fitting Functions-2.png" src="../images/Fitting_with_an_Ordinary_Differential_Equation/User-Defined_Fitting_Functions-2.png" width="19"  /></a>ボタンをクリックして<b><b>コードビルダ</b></b>を開き、関数を以下のように定義します。
+NAGとフィットのためにヘッダファイルを含めます。 
+<pre class="oc" style="font-family:monospace;"><span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>oc_nag.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>ONLSF.<span style="color: #000000;">H</span><span style="color: #000080;">&gt;</span></pre>
+<p>NAG関数を呼び出して、ODEを解くための静的な関数を定義します。NAG関数<b>d02pvc</b>を呼び出して、ODEモデルを確立し、<b>d02pcc</b>でモデルを解きます。
+</p>
+<pre class="oc" style="font-family:monospace;"><span style="color: #0000ff;">struct</span> user   <span style="color: #008000;">//ODEのパラメータ</span>
+<span style="color: #000000;">{</span>
+	<span style="color: #0000ff;">double</span> a;
+<span style="color: #000000;">}</span>;
+<span style="color: #008000;">//微分方程式を定義: y&apos;=a*y</span>
+<span style="color: #0000ff;">static</span> <span style="color: #0000ff;">void</span> NAG_CALL f<span style="color: #000000;">(</span><span style="color: #0000ff;">double</span> t, Integer neq, <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">double</span> <span style="color: #000040;">*</span>y, <span style="color: #0000ff;">double</span> <span style="color: #000040;">*</span>yp, Nag_Comm <span style="color: #000040;">*</span>comm<span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+	neq; <span style="color: #008000;">//常微分方程式の数</span>
+	t; <span style="color: #008000;">//独立変数</span>
+	y; <span style="color: #008000;">//従属変数</span>
+	yp; <span style="color: #008000;">//一階微分</span>
+	<span style="color: #0000ff;">struct</span> user <span style="color: #000040;">*</span>sp <span style="color: #000080;">=</span> <span style="color: #000000;">(</span><span style="color: #0000ff;">struct</span> user <span style="color: #000040;">*</span><span style="color: #000000;">)</span><span style="color: #000000;">(</span>comm<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>p<span style="color: #000000;">)</span>;
+	<span style="color: #0000ff;">double</span> a;
+	a <span style="color: #000080;">=</span> sp<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>a;
+	yp<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span> <span style="color: #000080;">=</span> a<span style="color: #000040;">*</span>y<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span>;
+<span style="color: #000000;">}</span>
+
+<span style="color: #008000;">//ODEを解くためにRunge-Kutta ODE23を使用</span>
+<span style="color: #0000ff;">static</span> <span style="color: #0000ff;">bool</span> nag_ode_fit<span style="color: #000000;">(</span> <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">double</span> a, <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">double</span> y0, <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">double</span> tstart, 
+  <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">double</span> tend, <span style="color: #0000ff;">const</span> <span style="color: #0000ff;">int</span> nout, vector <span style="color: #000040;">&amp;</span>vP <span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+	<span style="color: #008000;">//nout: 出力ポイント数	</span>
+	<span style="color: #0000ff;">if</span><span style="color: #000000;">(</span> nout <span style="color: #000080;">&lt;</span> <span style="color: #0000dd;">2</span> <span style="color: #000000;">)</span>
+		<span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span>;
+	vP.<span style="color: #000000;">SetSize</span><span style="color: #000000;">(</span> nout <span style="color: #000000;">)</span>;
+	vP<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span> <span style="color: #000080;">=</span> y0;
+	<span style="color: #0000ff;">int</span> neq <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>; <span style="color: #008000;">//常微分方程式の数</span>
+	Nag_RK_method method;
+	<span style="color: #0000ff;">double</span> hstart, tgot, tinc;
+	<span style="color: #0000ff;">double</span> tol, twant;
+	<span style="color: #0000ff;">int</span> i, j;
+	vector thres<span style="color: #000000;">(</span>neq<span style="color: #000000;">)</span>, ygot<span style="color: #000000;">(</span>neq<span style="color: #000000;">)</span>, ymax<span style="color: #000000;">(</span>neq<span style="color: #000000;">)</span>, ypgot<span style="color: #000000;">(</span>neq<span style="color: #000000;">)</span>, ystart<span style="color: #000000;">(</span>neq<span style="color: #000000;">)</span>;
+		
+	Nag_ErrorAssess errass;
+	Nag_Comm comm;
+	<span style="color: #0000ff;">struct</span> user s;
+	s.<span style="color: #000000;">a</span> <span style="color: #000080;">=</span> a;
+	comm.<span style="color: #000000;">p</span> <span style="color: #000080;">=</span> <span style="color: #000000;">(</span>Pointer<span style="color: #000000;">)</span><span style="color: #000040;">&amp;</span>s;
+	ystart<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span> <span style="color: #000080;">=</span> y0;
+	<span style="color: #0000ff;">for</span> <span style="color: #000000;">(</span>i<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span>; i<span style="color: #000080;">&lt;</span>neq; i<span style="color: #000040;">++</span><span style="color: #000000;">)</span>
+		thres<span style="color: #000000;">[</span>i<span style="color: #000000;">]</span> <span style="color: #000080;">=</span> 1.0e<span style="color: #000040;">-</span>8;
+	errass <span style="color: #000080;">=</span> Nag_ErrorAssess_off;
+	hstart <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>;
+	method <span style="color: #000080;">=</span> Nag_RK_2_3;
+	tinc <span style="color: #000080;">=</span> <span style="color: #000000;">(</span>tend<span style="color: #000040;">-</span>tstart<span style="color: #000000;">)</span><span style="color: #000040;">/</span><span style="color: #000000;">(</span>nout<span style="color: #000040;">-</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span>;
+	tol <span style="color: #000080;">=</span> 1.0e<span style="color: #000040;">-</span>3;
+	NagError nagErr1;
+	<span style="color: #008000;">//ODEセットアップ</span>
+	<span style="color: #0000ff;">int</span> iwsav<span style="color: #000000;">[</span><span style="color: #0000dd;">130</span><span style="color: #000000;">]</span>;
+	<span style="color: #0000ff;">double</span><span style="color: #000040;">*</span> rwsav <span style="color: #000080;">=</span> <span style="color: #000000;">(</span><span style="color: #0000ff;">double</span><span style="color: #000040;">*</span><span style="color: #000000;">)</span><span style="color: #000000;">malloc</span><span style="color: #000000;">(</span><span style="color: #000000;">(</span><span style="color: #0000dd;">350</span> <span style="color: #000040;">+</span> <span style="color: #0000dd;">32</span><span style="color: #000040;">*</span>neq<span style="color: #000000;">)</span><span style="color: #000040;">*</span><span style="color: #000000;">sizeof</span><span style="color: #000000;">(</span><span style="color: #0000ff;">double</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>;
+	nag_ode_ivp_rkts_setup<span style="color: #000000;">(</span>neq, tstart, tend, ystart, tol, thres, method, errass, hstart, iwsav, rwsav, <span style="color: #000040;">&amp;</span>nagErr1<span style="color: #000000;">)</span>;
+	<span style="color: #0000ff;">if</span><span style="color: #000000;">(</span> nagErr1.<span style="color: #000000;">code</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span> NE_NOERROR <span style="color: #000000;">)</span>
+	<span style="color: #000000;">{</span>
+		<span style="color: #000000;">free</span><span style="color: #000000;">(</span>rwsav<span style="color: #000000;">)</span>;
+		<span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span>;
+	<span style="color: #000000;">}</span>
+	<span style="color: #0000ff;">for</span> <span style="color: #000000;">(</span>j<span style="color: #000080;">=</span><span style="color: #0000dd;">1</span>; j<span style="color: #000080;">&lt;</span>nout; j<span style="color: #000040;">++</span><span style="color: #000000;">)</span>
+	<span style="color: #000000;">{</span>
+		twant <span style="color: #000080;">=</span> tstart <span style="color: #000040;">+</span> j<span style="color: #000040;">*</span>tinc;
+		NagError nagErr2;
+		<span style="color: #008000;">//ODEを解く</span>
+		nag_ode_ivp_rkts_range<span style="color: #000000;">(</span>f, neq, twant, <span style="color: #000040;">&amp;</span>tgot, ygot, ypgot, ymax, <span style="color: #000040;">&amp;</span>comm, iwsav, rwsav, <span style="color: #000040;">&amp;</span>nagErr2<span style="color: #000000;">)</span>;
+			
+		<span style="color: #0000ff;">if</span><span style="color: #000000;">(</span> nagErr2.<span style="color: #000000;">code</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span> NE_NOERROR <span style="color: #000000;">)</span>
+		<span style="color: #000000;">{</span>
+			<span style="color: #000000;">free</span><span style="color: #000000;">(</span>rwsav<span style="color: #000000;">)</span>;
+			<span style="color: #0000ff;">return</span> <span style="color: #0000ff;">false</span>;
+		<span style="color: #000000;">}</span>
+			
+		vP<span style="color: #000000;">[</span>j<span style="color: #000000;">]</span> <span style="color: #000080;">=</span> ygot<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span>;
+	<span style="color: #000000;">}</span>
+	<span style="color: #000000;">free</span><span style="color: #000000;">(</span>rwsav<span style="color: #000000;">)</span>;
+	<span style="color: #0000ff;">return</span> <span style="color: #0000ff;">true</span>;
+<span style="color: #000000;">}</span></pre>
+<p>フィット関数内容<b>_nlsfFitODE</b>を定義
+</p>
+<pre class="oc" style="font-family:monospace;">NLFitContext <span style="color: #000040;">*</span>pCtxt <span style="color: #000080;">=</span> Project.<span style="color: #000000;">GetNLFitContext</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+<span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span> pCtxt <span style="color: #000000;">)</span>
+<span style="color: #000000;">{</span>
+  <span style="color: #0000ff;">static</span> vector vX, vY;
+  <span style="color: #0000ff;">static</span> <span style="color: #0000ff;">int</span> nSize;
+  <span style="color: #0000ff;">BOOL</span> bIsNewParamValues <span style="color: #000080;">=</span> pCtxt<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>IsNewParamValues<span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+  <span style="color: #008000;">// パラメータを更新したら、ODEの結果を再計算</span>
+  <span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span> bIsNewParamValues <span style="color: #000000;">)</span>
+  <span style="color: #000000;">{</span>
+    <span style="color: #008000;">//独立変数の初期および最終の値</span>
+    <span style="color: #0000ff;">double</span> tstart <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.02</span>, tend <span style="color: #000080;">=</span> <span style="color: #0000dd;">2</span>, tinc;
+    <span style="color: #0000ff;">int</span> nout <span style="color: #000080;">=</span> <span style="color: #0000dd;">100</span>; <span style="color: #008000;">//ポイント数</span>
+		
+    tinc <span style="color: #000080;">=</span> <span style="color: #000000;">(</span>tend<span style="color: #000040;">-</span>tstart<span style="color: #000000;">)</span><span style="color: #000040;">/</span><span style="color: #000000;">(</span>nout<span style="color: #000040;">-</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span>;
+    vX.<span style="color: #000000;">Data</span><span style="color: #000000;">(</span> tstart, tend, tinc <span style="color: #000000;">)</span>;
+    nSize <span style="color: #000080;">=</span> vX.<span style="color: #000000;">GetSize</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+		
+    <span style="color: #0000ff;">if</span><span style="color: #000000;">(</span> <span style="color: #000040;">!</span>nag_ode_fit<span style="color: #000000;">(</span> a, y0, tstart, tend, nout, vY<span style="color: #000000;">)</span> <span style="color: #000000;">)</span>
+      <span style="color: #0000ff;">return</span>;
+  <span style="color: #000000;">}</span>
+	
+  <span style="color: #008000;">//ODE結果の近似データのxからyを内挿</span>
+  ocmath_interpolate<span style="color: #000000;">(</span> <span style="color: #000040;">&amp;</span>x, <span style="color: #000040;">&amp;</span>y, <span style="color: #0000dd;">1</span>, vX, vY, nSize <span style="color: #000000;">)</span>;
+  <span style="color: #000000;">}</span></pre>
+<p><b><b>コンパイル</b></b>ボタンをクリックして関数内容をコンパイルします。<b><b>NLSFに戻る</b></b>ボタンをクリックし、戻ります。ダイアログの人が走っているマークのボタンは<b><b>評価</b></b>ボタンです。  これをクリックすると、y=2.6627270424371 と表示されます。関数が動作することを意味します。<b><b>進む</b></b>をクリックします。
+</p>
+<li><b>パラメータの初期化コード</b>のページで、<b>カスタムコードを使用する</b>のラジオボタンを選択して、<b>初期化</b>ボックスのコードを入力します。
+<pre class="oc" style="font-family:monospace;"><span style="color: #008000;">// y0の初期値として、フィットデータのyの開始値をセット</span>
+y0 <span style="color: #000080;">=</span> y_data<span style="color: #000000;">[</span><span style="color: #0000dd;">0</span><span style="color: #000000;">]</span>;
+a <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>;</pre>
+<p><b><b>完了</b></b>ボタンをクリックします。
+</p>
+</ol>
+<p><br />
+</p>
+<table class="note">
+<tr>
+<td><b>Note:</b><a class="external text" href="../../OriginC/Category/NLFitContext_(class).html">NLFitContext class</a>でフィットしたパラメータを確認できます。
+</td></tr></table>
+<h3><a name="Fit_the_Curve"></a><span class="mw-headline">曲線をフィットする</span></h3>
+<ol>
+<li> <b><b>B</b></b>列を選択して、Originメニューから、<b><b>解析：フィット：非線形曲線フィット</b></b>を選択します。開いた<b><b>NLFit</b></b>ダイアログの、<b><b>設定：関数選択</b></b>のページで、<b><b>カテゴリ</b></b>ドロップダウンリストから<b>User Defined</b> を選択し、<b><b>関数</b></b>ドロップダウンリストから<b>FitODE</b>を選択します。
+<li> <b><b>パラメータ</b></b>タブを開き、下図のように<b><b>y0</b></b>を固定します。
+<dl><dt><dl><dd><a  class="image"><img alt="Fit ODE FitP.jpg" src="../images/Fitting_with_an_Ordinary_Differential_Equation/Fit_ODE_FitP.jpg" width="462"  /></a></dt></dl></dd></dl>
+<li> <b>フィット</b>ボタンをクリックして、曲線をフィットします。
+</ol>
+<h3><a name="Fitting_Results"></a><span class="mw-headline">フィット結果</span></h3>
+<p>グラフは下図のようになります。
+</p>
+<dl><dt><dl><dd><a  class="image"><img alt="Fit ODE Curve.png" src="../images/Fitting_with_an_Ordinary_Differential_Equation/Fit_ODE_Curve.png" width="423"  /></a></dt></dl></dd></dl>
+<p>フィットパラメータは以下のようになります
+</p>
+<table class="simple">
+<tr>
+<th><b>パラメータ</b>
+</th>
+<th><b>値</b>
+</th>
+<th><b>標準誤差</b>
+</th></tr>
+<tr>
+<th><b>a</b>
+</th>
+<td> 1.30272
+</td>
+<td> 0.00858
+</td></tr>
+<tr>
+<th><b>y0</b>
+</th>
+<td> 0.77038
+</td>
+<td> 0
+</td></tr></table>
+<p><br />
+<b><b>Note</b></b>：より複雑なODEフィット関数を使用したフィットも同様の方法で実行できます。
+</p>
+
+
+
+    

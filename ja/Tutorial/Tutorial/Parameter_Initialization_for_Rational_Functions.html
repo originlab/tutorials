@@ -1,0 +1,264 @@
+﻿<h1 class="firstheading">有理関数のパラメータ初期化</h1>
+<p class="urlname" style="display: none;">RationalFunc-InitialParameter</p>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>目次</h2>
+</div>
+<ol>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">サンプルとステップ</span></a>
+<ol>
+<li class="toclevel-2 tocsection-4"><a href="#Algorithm"><span class="tocnumber">3.1</span> <span class="toctext">アルゴリズム</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Import_Data"><span class="tocnumber">3.2</span> <span class="toctext">データをインポートする</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Define_Fitting_Function_and_Initialize_Parameters"><span class="tocnumber">3.3</span> <span class="toctext">フィット関数の定義とパラメータの初期化</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Fit_the_Curve"><span class="tocnumber">3.4</span> <span class="toctext">曲線をフィットする</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Fitting_Results"><span class="tocnumber">3.5</span> <span class="toctext">フィット結果</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Sample_Data"><span class="tocnumber">3.6</span> <span class="toctext">サンプルデータ</span></a></li>
+</ol>
+</li>
+</ol>
+</div>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>このチュートリアルでは、複数線形回帰法を使って有理フィット関数の初期パラメータを計算する方法を示します。また、計算された初期パラメータを使用してフィットを実行します。</p>
+<p class="version">必要なOriginのバージョン: Origin 9.0 SR0以降</p>
+<h2><a name="What_you_will_learn" id="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。</p>
+<ul>
+<li>有理フィット関数用の初期パラメータを計算する</li>
+<li>OriginCのコードを使って複数の線形回帰を行う</li>
+</ul>
+<h2><a name="Example_and_Steps" id="Example_and_Steps"></a><span class="mw-headline">サンプルとステップ</span></h2>
+<h3><a name="Algorithm" id="Algorithm"></a><span class="mw-headline">アルゴリズム</span></h3>
+<p>このチュートリアルでは、次の有理関数を例として使用します。</p>
+<dl>
+<dd><img src="../images/Parameter_Initialization_for_Rational_Functions/math-7b22b261a734d77ec481710d31438e8b.png" title="y=\frac{a+bx+cx^2}{1+dx+ex^2}" alt="y=\frac{a+bx+cx^2}{1+dx+ex^2}" class="tex" border="0" /></dd>
+</dl>
+<p><b style="font-weight: bold;">x</b>は独立変数、<b>y</b>は従属変数、<b>a</b>, <b>b</b>, <b>c</b>, <b>d</b>, <b>e</b>は全てフィットパラメータです。</p>
+<p>両辺を右辺の分母で掛けると、次のようになります。</p>
+<dl>
+<dd><img src="../images/Parameter_Initialization_for_Rational_Functions/math-49984b4bd157baa38e5969f39a0fa57a.png" title="y+dxy+ex^2y\;=\;a+bx+cx^2" alt="y+dxy+ex^2y\;=\;a+bx+cx^2" class="tex" border="0" /></dd>
+</dl>
+<p>この数式は次のように表現できます。</p>
+<dl>
+<dd><img src="../images/Parameter_Initialization_for_Rational_Functions/math-4c28a5eb57421ca39fddb4a5931fb8b6.png" title="y\;=\;a+bx+cx^2-dxy-ex^2y" alt="y\;=\;a+bx+cx^2-dxy-ex^2y" class="tex" border="0" /></dd>
+</dl>
+<p>フィットデータ<img src="../images/Parameter_Initialization_for_Rational_Functions/math-5ea4666bfd7816bb9cee6f5bd2d85bef.png" title="(x_i, y_i) \;\; i=1 \ldots N" alt="(x_i, y_i) \;\; i=1 \ldots N" class="tex" border="0" /> を数式に代入すると、次のようになります。</p>
+<dl>
+<dd><img src="../images/Parameter_Initialization_for_Rational_Functions/math-f7c9b3743c7733a99d22122a25cb0b63.png" title=" \begin{cases} a+bx_1+cx_1^2-dx_1y_1-ex_1^2y_1=y_1 \\ a+bx_2+cx_2^2-dx_2y_2-ex_2^2y_2=y_2 \\ \vdots \\ a+bx_N+cx_N^2-dx_Ny_N-ex_N^2y_N=y_N \\ \end{cases} " alt=" \begin{cases} a+bx_1+cx_1^2-dx_1y_1-ex_1^2y_1=y_1 \\ a+bx_2+cx_2^2-dx_2y_2-ex_2^2y_2=y_2 \\ \vdots \\ a+bx_N+cx_N^2-dx_Ny_N-ex_N^2y_N=y_N \\ \end{cases} " class="tex" border="0" /></dd>
+</dl>
+<p>よって、有理多項フィット関数の初期パラメータを推定するのは、線形係数として<b>a</b>, <b>b</b>, <b>c</b>, <b>d</b>, <b>e</b>を持つ、複数の線形回帰の問題に変形します。つまり、次のような式になります。</p>
+<dl>
+<dd><img src="../images/Parameter_Initialization_for_Rational_Functions/math-4d9d5f2c4d5d2f042e52603a4ef53034.png" title=" \begin{bmatrix} 1 &amp; x_1 &amp; x_1^2 &amp; -x_1y_1 &amp; -x_1^2y_1 \\ 1 &amp; x_2 &amp; x_2^2 &amp; -x_2y_2 &amp; -x_2^2y_2 \\ \vdots \\ 1 &amp; x_N &amp; x_N^2 &amp; -x_Ny_N &amp; -x_N^2y_N \\ \end{bmatrix} \begin{bmatrix} a \\ b \\ c \\ d \\ e \\ \end{bmatrix}= \begin{bmatrix} y_1 \\ y_2 \\ \vdots \\ y_N \\ \end{bmatrix} " alt=" \begin{bmatrix} 1 &amp; x_1 &amp; x_1^2 &amp; -x_1y_1 &amp; -x_1^2y_1 \\ 1 &amp; x_2 &amp; x_2^2 &amp; -x_2y_2 &amp; -x_2^2y_2 \\ \vdots \\ 1 &amp; x_N &amp; x_N^2 &amp; -x_Ny_N &amp; -x_N^2y_N \\ \end{bmatrix} \begin{bmatrix} a \\ b \\ c \\ d \\ e \\ \end{bmatrix}= \begin{bmatrix} y_1 \\ y_2 \\ \vdots \\ y_N \\ \end{bmatrix} " class="tex" border="0" /></dd>
+</dl>
+<p>Originは複数線形回帰のための関数<a class="external text" href="../../OriginC/OriginC/Ocmath_multiple_linear_regression_(global_function).html">ocmath_複数線形回帰</a>をOriginCから提供しており、初期化コードで呼び出すことができます。</p>
+<h3><a name="Import_Data" id="Import_Data"></a><span class="mw-headline">データのインポート</span></h3>
+<ol>
+<li>新規ワークブックを作成します。</li>
+<li><a href="#Sample_Data">サンプルデータ</a> の内容をワークブックにコピーします。</li>
+<li>列Bを選択し、メニューから<b>作図： シンボル図：散布図</b> と操作します。グラフは次のようになります。</li>
+</ol>
+<dl>
+<dd>
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Rational PI G1.png" src="../images/Parameter_Initialization_for_Rational_Functions/Rational_PI_G1.png" width="509" border="0" /></a></dd>
+</dl>
+</dd>
+</dl>
+<h3><a name="Define_Fitting_Function_and_Initialize_Parameters" id="Define_Fitting_Function_and_Initialize_Parameters"></a><span class="mw-headline">フィット関数の定義と初期化パラメータ</span></h3>
+<p>フィット関数は、<b>フィット関数ビルダー</b>ツールを使用して定義できます。</p>
+<ol>
+<li>メニューから、<b>ツール：フィット関数ビルダー</b>を選択します。</li>
+<li><b style="font-weight: bold;">フィット関数ビルダー</b>ダイアログの<b>処理のゴール</b>ページで<b>進む</b>のボタンをクリックします。</li>
+<li><b style="font-weight: bold;">関数名と関数形式</b>のページでは<b>関数カテゴリーの選択/新規名称</b>のドロップダウンリストから<b>User Defined</b>を選択します。次に<b>関数名</b>のエリアに <b>rationalfunc</b>と入力し、<b>関数形式</b>で<b>算術式</b>を選びます。<b>進む</b>ボタンをクリックします。</li>
+<li><b style="font-weight: bold;">変数とパラメータ</b>のページでは、<b>パラメータ</b>エリアに<b>a</b>, <b>b</b>, <b>c</b>, <b>d</b>, <b>e</b>を入力します。<b>進む</b>ボタンをクリックします。</li>
+<li><b style="font-weight: bold;">式形式の関数</b>ページで、以下のスクリプトを<b>関数内容</b>編集ボックスに入力します。
+<pre class="oc" style="font-family: monospace;">
+<span style="color: #000000;">(</span>a<span style="color: #000040;">+</span>b<span style="color: #000040;">*</span>x<span style="color: #000040;">+</span>c<span style="color: #000040;">*</span>x<span style="color: #000040;">^</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span><span style="color: #000040;">/</span><span style="color: #000000;">(</span><span style="color: #0000dd;">1</span><span style="color: #000040;">+</span>d<span style="color: #000040;">*</span>x<span style="color: #000040;">+</span>e<span style="color: #000040;">*</span>x<span style="color: #000040;">^</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span>
+        
+</pre>
+<p><b>評価</b>ボタンをクリックすると、x=1の時にy=1であると示しているので、数式は正しいことを示しています。<b>進む</b>ボタンをクリックします。</p>
+</li>
+<li><b>パラメータ初期化ルーチン</b>ページでは、<b>初期化コード</b>ボックスの右側にある、<b>コードビルダを開く</b>ボタン<a class="image"><img alt="User-Defined Fitting Functions-2.png" src="../images/Parameter_Initialization_for_Rational_Functions/User-Defined_Fitting_Functions-2.png" width="19" border="0" /></a>をクリックします。フィットパラメータを<a href="#Algorithm">algorithm</a>の記述に沿って初期化します。
+<pre class="oc" style="font-family: monospace;">
+UINT nOSizeN <span style="color: #000080;">=</span> x_data.<span style="color: #000000;">GetSize</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>; <span style="color: #008000;">//ポイントの数</span>
+  UINT nVSizeM <span style="color: #000080;">=</span> <span style="color: #0000dd;">5</span>; <span style="color: #008000;">//パラメータの数</span>
+ 
+  matrix mX<span style="color: #000000;">(</span>nOSizeN, <span style="color: #0000dd;">5</span><span style="color: #000000;">)</span>;
+ 
+  <span style="color: #008000;">//独立変数のデータポイントのための行列を作成する</span>
+  vector vCa<span style="color: #000000;">(</span>nOSizeN<span style="color: #000000;">)</span>, vCb, vCc, vCd, vCe;
+  vCa <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>;
+  mX.<span style="color: #000000;">SetColumn</span><span style="color: #000000;">(</span> vCa, <span style="color: #0000dd;">0</span> <span style="color: #000000;">)</span>;
+  vCb <span style="color: #000080;">=</span> x_data;
+  mX.<span style="color: #000000;">SetColumn</span><span style="color: #000000;">(</span> vCb, <span style="color: #0000dd;">1</span> <span style="color: #000000;">)</span>;
+  vCc <span style="color: #000080;">=</span> x_data<span style="color: #000040;">^</span><span style="color: #0000dd;">2</span>;
+  mX.<span style="color: #000000;">SetColumn</span><span style="color: #000000;">(</span> vCc, <span style="color: #0000dd;">2</span> <span style="color: #000000;">)</span>;
+  vCd <span style="color: #000080;">=</span> <span style="color: #000040;">-</span>x_data<span style="color: #000040;">*</span>y_data;
+  mX.<span style="color: #000000;">SetColumn</span><span style="color: #000000;">(</span> vCd, <span style="color: #0000dd;">3</span> <span style="color: #000000;">)</span>;
+  vCe <span style="color: #000080;">=</span> <span style="color: #000040;">-</span>x_data<span style="color: #000040;">^</span><span style="color: #0000dd;">2</span><span style="color: #000040;">*</span>y_data;
+  mX.<span style="color: #000000;">SetColumn</span><span style="color: #000000;">(</span> vCe, <span style="color: #0000dd;">4</span> <span style="color: #000000;">)</span>;
+ 
+  <span style="color: #008000;">//複数の線形回帰オプション</span>
+  LROptions stLROptions;
+  stLROptions.<span style="color: #000000;">UseReducedChiSq</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>;
+  stLROptions.<span style="color: #000000;">FixIntercept</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>; <span style="color: #008000;">//交点を0に固定</span>FitParameter stFitParameters<span style="color: #000000;">[</span> <span style="color: #0000dd;">6</span> <span style="color: #000000;">]</span>; <span style="color: #008000;">// nVSizeM+1 となるはずです</span>
+  UINT nFitSize <span style="color: #000080;">=</span> nVSizeM <span style="color: #000040;">+</span> <span style="color: #0000dd;">1</span>;
+ 
+  <span style="color: #0000ff;">int</span> nRet <span style="color: #000080;">=</span> ocmath_multiple_linear_regression<span style="color: #000000;">(</span>mX, nOSizeN, nVSizeM, y_data, 
+    <span style="color: #0000ff;">NULL</span>, <span style="color: #0000dd;">0</span>, <span style="color: #000040;">&amp;</span>stLROptions, stFitParameters, nFitSize <span style="color: #000000;">)</span>;
+ 
+  <span style="color: #0000ff;">if</span><span style="color: #000000;">(</span> nRet <span style="color: #000080;">==</span> STATS_NO_ERROR <span style="color: #000000;">)</span>
+  <span style="color: #000000;">{</span>
+    a <span style="color: #000080;">=</span> stFitParameters<span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span>.<span style="color: #000000;">Value</span>;
+    b <span style="color: #000080;">=</span> stFitParameters<span style="color: #000000;">[</span><span style="color: #0000dd;">2</span><span style="color: #000000;">]</span>.<span style="color: #000000;">Value</span>;
+    c <span style="color: #000080;">=</span> stFitParameters<span style="color: #000000;">[</span><span style="color: #0000dd;">3</span><span style="color: #000000;">]</span>.<span style="color: #000000;">Value</span>;
+    d <span style="color: #000080;">=</span> stFitParameters<span style="color: #000000;">[</span><span style="color: #0000dd;">4</span><span style="color: #000000;">]</span>.<span style="color: #000000;">Value</span>;
+    e <span style="color: #000080;">=</span> stFitParameters<span style="color: #000000;">[</span><span style="color: #0000dd;">5</span><span style="color: #000000;">]</span>.<span style="color: #000000;">Value</span>;
+  <span style="color: #000000;">}</span>
+        
+</pre>
+<p><b style="font-weight: bold;">コンパイル</b>ボタンをクリックしてファイルをコンパイルします。<b>NLSFに戻る</b>ボタンをクリックします。<b>完了</b>をクリックして、<b>フィット関数ビルダー</b>ダイアログを閉じます。</p>
+</li>
+</ol>
+<h3><a name="Fit_the_Curve" id="Fit_the_Curve"></a><span class="mw-headline">曲線をフィットする</span></h3>
+<ol>
+<li><b style="font-weight: bold;">解析：フィット：非線形曲線フィット</b>をメニューから選択します。<b>NLFit</b>ダイアログで、<b>設定：関数選択</b>を選び、<b>カテゴリ</b>ドロップダウンリストから<b>User Defined</b>を選びます。そして<b>関数</b>ドロップダウンリストでは<b>rationalfunc</b>を選びます。</li>
+<li><b style="font-weight: bold;">パラメータ</b>タブをクリックします。<b>パラメータ</b>タブを開くと、初期化コードから初期化パラメータが計算されてダイアログにあらかじめ入力されます。そして、初期パラメータ用のフィット関数は次のようになります。初期化コードから算出された初期パラメータはとても良いようです。<br />
+<a class="image"><img alt="Rational PI G2.png" src="../images/Parameter_Initialization_for_Rational_Functions/Rational_PI_G2.png" width="509" border="0" /></a></li>
+<li><b>フィット</b>ボタンをクリックし、フィットを行います。</li>
+</ol>
+<h3><a name="Fitting_Results" id="Fitting_Results"></a><span class="mw-headline">フィット結果</span></h3>
+<p>フィット曲線は次のようになります。</p>
+<dl>
+<dd>
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Rational PI G3.png" src="../images/Parameter_Initialization_for_Rational_Functions/Rational_PI_G3.png" width="501" border="0" /></a></dd>
+</dl>
+</dd>
+</dl>
+<p>フィットパラメータは以下の通りです。</p>
+<table class="simple">
+<tr>
+<th><b style="font-weight: bold;">パラメータ</b></th>
+<th><b style="font-weight: bold;">値</b></th>
+<th><b style="font-weight: bold;">標準誤差</b></th>
+</tr>
+<tr>
+<th><b style="font-weight: bold;">a</b></th>
+<td>3.17139</td>
+<td>0.30284</td>
+</tr>
+<tr>
+<th><b style="font-weight: bold;">b</b></th>
+<td>-1.65602</td>
+<td>1.76748</td>
+</tr>
+<tr>
+<th><b style="font-weight: bold;">c</b></th>
+<td>0.26407</td>
+<td>1.81764</td>
+</tr>
+<tr>
+<th><b style="font-weight: bold;">d</b></th>
+<td>3.6884</td>
+<td>0.26362</td>
+</tr>
+<tr>
+<th><b style="font-weight: bold;">e</b></th>
+<td>5.31812</td>
+<td>0.55265</td>
+</tr>
+</table>
+<h3><a name="Sample_Data" id="Sample_Data"></a><span class="mw-headline">サンプルデータ</span></h3>
+<table class="simple">
+<tr>
+<th width="80">x</th>
+<th width="80">y</th>
+</tr>
+<tr>
+<td>-1.5</td>
+<td>1.13173</td>
+</tr>
+<tr>
+<td>-1.39474</td>
+<td>0.8262</td>
+</tr>
+<tr>
+<td>-1.28947</td>
+<td>1.06999</td>
+</tr>
+<tr>
+<td>-1.18421</td>
+<td>1.37155</td>
+</tr>
+<tr>
+<td>-1.07895</td>
+<td>0.79569</td>
+</tr>
+<tr>
+<td>-0.97368</td>
+<td>2.11346</td>
+</tr>
+<tr>
+<td>-0.86842</td>
+<td>2.32006</td>
+</tr>
+<tr>
+<td>-0.76316</td>
+<td>3.9205</td>
+</tr>
+<tr>
+<td>-0.65789</td>
+<td>5.81904</td>
+</tr>
+<tr>
+<td>-0.55263</td>
+<td>7.38037</td>
+</tr>
+<tr>
+<td>-0.44737</td>
+<td>8.31272</td>
+</tr>
+<tr>
+<td>-0.34211</td>
+<td>11.39718</td>
+</tr>
+<tr>
+<td>-0.23684</td>
+<td>8.39808</td>
+</tr>
+<tr>
+<td>-0.13158</td>
+<td>4.7305</td>
+</tr>
+<tr>
+<td>-0.02632</td>
+<td>4.11105</td>
+</tr>
+<tr>
+<td>0.07895</td>
+<td>2.39105</td>
+</tr>
+<tr>
+<td>0.18421</td>
+<td>1.65394</td>
+</tr>
+<tr>
+<td>0.28947</td>
+<td>0.42953</td>
+</tr>
+<tr>
+<td>0.39474</td>
+<td>0.83337</td>
+</tr>
+<tr>
+<td>0.5</td>
+<td>1.18758</td>
+</tr>
+</table>
+<table class="note">
+<tr>
+<td><b style="font-weight: bold;">Note</b>この方法を使って、他の有理多項フィット関数のパラメータも初期化できます。</td>
+</tr>
+</table>

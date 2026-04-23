@@ -1,0 +1,227 @@
+﻿<h1 class="firstheading">NAGライブラリを使った積分フィット</h1>
+<p class="urlname" style="display: none;">Fitting-Integral-NAG</p>
+<table id="toc" class="toc">
+<tr>
+<td>
+<div id="toctitle">
+<h2>内容</h2>
+</div>
+<ol>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">サンプルとステップ</span></a>
+<ol>
+<li class="toclevel-2 tocsection-4"><a href="#Define_the_Function"><span class="tocnumber">3.1</span> <span class="toctext">関数を定義する</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Set_the_Initial_Values_for_the_Parameters_or_Setup_the_Initial_Code"><span class="tocnumber">3.2</span> <span class="toctext">パラメータの初期値または初期化コードを設定する</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Simulate_the_Function"><span class="tocnumber">3.3</span> <span class="toctext">関数をシミュレーションする</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Fit_the_Curve"><span class="tocnumber">3.4</span> <span class="toctext">曲線をフィットする</span></a></li>
+</ol>
+</li>
+</ol>
+</td>
+</tr>
+</table>
+<p><br /></p>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>Originで、積分を求めるOrigin Cフィット関数を定義することができます。NAG関数を呼び出し、積分を実行するようにフィット関数を定義します。積分を実行する組込のOrigin C関数があります。ここでのサンプルでは、NAG関数を使用する方法をお薦めします。組込の積分のアルゴリズムに比べ、パフォーマンスが優れているためです。ここでは有限NAG統合が使用されています。</p>
+<p class="version">必要なOriginのバージョン:8.0 SR6</p>
+<h2><a name="What_you_will_learn" id="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。</p>
+<ul>
+<li>フィット関数オーガナイザでフィット関数を作成する</li>
+<li>NAGの積分ルーチンを使って、定積分でのフィット関数を作成する</li>
+<li>フィット関数の初期化コードをセットアップする</li>
+</ul>
+<h2><a name="Example_and_Steps" id="Example_and_Steps"></a><span class="mw-headline">サンプルとステップ</span></h2>
+<p>次のモデルをフィットします。</p>
+<dl>
+<dd><img src="../images/Fitting_with_Integral_using_NAG_Library/math-35f4b7f96305928a8121504d9c139c23.png" title="y=y_0+\int_{-\infty}^{x} \frac{A}{w\sqrt{\frac{\pi}{2}}} e^{-2\frac{(t-x_c)^2}{w^2}} dt" alt="y=y_0+\int_{-\infty}^{x} \frac{A}{w\sqrt{\frac{\pi}{2}}} e^{-2\frac{(t-x_c)^2}{w^2}} dt" class="tex" border="0" /></dd>
+</dl>
+<p>ここで <img src="../images/Fitting_with_Integral_using_NAG_Library/math-ffe0f1c55b374ed8643060926316c1e6.png" title="y_0" alt="y_0" class="tex" border="0" /> <img src="../images/Fitting_with_Integral_using_NAG_Library/math-7fc56270e7a70fa81a5935b72eacbe29.png" title="A" alt="A" class="tex" border="0" />, <img src="../images/Fitting_with_Integral_using_NAG_Library/math-831c4baa8a44083a6434b892d573846b.png" title="xc" alt="xc" class="tex" border="0" /> および <img src="../images/Fitting_with_Integral_using_NAG_Library/math-f1290186a5d0b1ceab27f4e77c0c5d68.png" title="w" alt="w" class="tex" border="0" /> は、データフィットから取得したいモデルのパラメータです。フィットの手順は、次のステップに沿って行います。</p>
+<h3><a name="Define_the_Function" id="Define_the_Function"></a><span class="mw-headline">関数を定義する</span></h3>
+<p><b style="font-weight: bold;">F9</b> を押し、<span class="db">フィット関数オーガナイザ</span>を開き、 <i><b>FittingWithIntegral</b></i>という名前の新しいカテゴリーを作成します。このカテゴリーに、新しいフィット関数 <i><b>nag_integration_fitting</b></i> を以下のように定義します。</p>
+<dl>
+<dd>
+<table class="simple">
+<tr>
+<td width="150"><b style="font-weight: bold;">関数名：</b></td>
+<td>nag_integration_fitting</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">実現方式：</b></td>
+<td>ユーザ定義</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">独立変数：</b></td>
+<td>x</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">従属変数：</b></td>
+<td>y</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">パラメータの名前：</b></td>
+<td>y0, A, xc, w</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">定義形式：</b></td>
+<td><font color="#0000FF">Origin C</font></td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">関数：</b></td>
+<td>&#160;</td>
+</tr>
+</table>
+</dd>
+</dl>
+<p><b style="font-weight: bold;">関数</b>ボックスの近くにある<a class="image"><img alt="Open Code Builder Dialog in FFO.png" src="../images/Fitting_with_Integral_using_NAG_Library/Open_Code_Builder_Dialog_in_FFO.png" width="25" height="31" border="0" /></a>ボタンをクリックしてコードビルダを開き、次のように操作します。</p>
+<ol>
+<li>スクロールして次の行まで移動します。
+<pre class="oc" style="font-family: monospace;">
+<span style="color: #008000;">//add the header file for the NAG functions here.</span>
+        
+</pre>
+そして、以下のコードをこの行の下に貼り付けます。
+<pre class="oc" style="font-family: monospace;">
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>oc_nag8.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+        
+</pre></li>
+<li>次の行まで行きます。
+<pre class="oc" style="font-family: monospace;">
+<span style="color: #008000;">// and access in your fitting function.</span>
+        
+</pre>
+そして、以下のコードをこの行の下に貼り付けます。
+<pre class="oc" style="font-family: monospace;">
+<span style="color: #0000ff;">struct</span> user   <span style="color: #008000;">// 被積分関数のパラメータ</span><span style="color: #000000;">
+{</span>
+        <span style="color: #0000ff;">double</span> amp, center, width;
+ <span style="color: #000000;">
+}</span>;<span style="color: #008000;">
+// ユーザによって定義された関数は、与えられたxで被積分関数の値を返します。</span><span style="color: #0000ff;">
+static</span> <span style="color: #0000ff;">double</span> NAG_CALL f_callback<span style="color: #000000;">(</span><span style="color: #0000ff;">double</span> x, Nag_User <span style="color: #000040;">*</span>comm<span style="color: #000000;">)</span> <span style="color: #000000;">
+{</span>
+        <span style="color: #0000ff;">struct</span> user <span style="color: #000040;">*</span>sp <span style="color: #000080;">=</span> <span style="color: #000000;">(</span><span style="color: #0000ff;">struct</span> user <span style="color: #000040;">*</span><span style="color: #000000;">)</span><span style="color: #000000;">(</span>comm<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>p<span style="color: #000000;">)</span>;
+ 
+        <span style="color: #0000ff;">double</span> amp, center, width;    <span style="color: #008000;">// Nag_User構造体でのパラメータを受け付ける一時的な変数</span>
+        amp <span style="color: #000080;">=</span> sp<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>amp;
+        center <span style="color: #000080;">=</span> sp<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>center;
+        width <span style="color: #000080;">=</span> sp<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>width;
+ 
+        <span style="color: #0000ff;">return</span> amp <span style="color: #000040;">*</span> <span style="color: #000000;">exp</span><span style="color: #000000;">(</span> <span style="color: #000040;">-</span><span style="color: #0000dd;">2</span><span style="color: #000040;">*</span><span style="color: #000000;">(</span>x <span style="color: #000040;">-</span> center<span style="color: #000000;">)</span><span style="color: #000040;">*</span><span style="color: #000000;">(</span>x <span style="color: #000040;">-</span> center<span style="color: #000000;">)</span><span style="color: #000040;">/</span>width<span style="color: #000040;">/</span>width <span style="color: #000000;">)</span> <span style="color: #000040;">/</span> <span style="color: #000000;">(</span>width<span style="color: #000040;">*</span><span style="color: #000000;">sqrt</span><span style="color: #000000;">(</span>PI<span style="color: #000040;">/</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>;<span style="color: #000000;">
+}</span>
+</pre></li>
+<li>次の行まで行きます。
+<pre class="oc" style="font-family: monospace;">
+<span style="color: #008000;">// Beginning of editable part.</span>
+        
+</pre>
+そして、以下のコードをこの行の下に貼り付けます。
+<pre class="oc" style="font-family: monospace;">
+<span style="color: #008000;">// epsabsは絶対精度、epsrelおよびmax_num_subintは相対精度であり、
+ </span>
+        <span style="color: #008000;">// 必要な積分の精度を制御できます。 </span>
+        <span style="color: #008000;">// epsrelが負にセットされている場合、絶対精度が使われます。</span>
+        <span style="color: #008000;">// 同様に、epsabs を負にセットすることで、相対精度のみを制御することもできます。</span>
+        <span style="color: #0000ff;">double</span> epsabs <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.0</span>, epsrel <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.0001</span>;
+        <span style="color: #008000;">// 積分で関数を評価するのに必要なsub-intervalsの最大数</span>
+        <span style="color: #008000;">// より複雑な被積分関数にると、max_num_subintも大きくなります。</span>
+        <span style="color: #008000;">// ほとんどの問題に対しては、200から500くらいが適切であり、お薦めです。</span>
+        Integer max_num_subint <span style="color: #000080;">=</span> <span style="color: #0000dd;">200</span>;
+ 
+        <span style="color: #008000;">// 結果はアルゴリズムによって返される適切な積分値を持ちます。</span>
+        <span style="color: #008000;">//  abserrは、|I - result|に対する上側境界であるエラーの推測です。</span>
+        <span style="color: #008000;">// ここで、Iは整数値です。</span>
+        <span style="color: #0000ff;">double</span> result, abserr;
+ 
+        <span style="color: #008000;">// Nag_QuadProgressの構造体</span>
+        <span style="color: #008000;">// これには、max_num_subint 要素への内部的なメモリアロケーションへのポインタが含まれます。</span>
+        Nag_QuadProgress qp;
+ 
+        <span style="color: #008000;">// NAG エラーパラメータ(構造体)</span>
+        <span style="color: #0000ff;">static</span> NagError fail;
+ 
+        <span style="color: #008000;">// Nag_User構造体によって、パラメータが被積分関数に渡されます。</span>
+                Nag_User comm;       
+        <span style="color: #0000ff;">struct</span> user s;
+                s.<span style="color: #000000;">amp</span> <span style="color: #000080;">=</span> A;
+                s.<span style="color: #000000;">center</span> <span style="color: #000080;">=</span> xc;
+                s.<span style="color: #000000;">width</span> <span style="color: #000080;">=</span> w;
+                comm.<span style="color: #000000;">p</span> <span style="color: #000080;">=</span> <span style="color: #000000;">(</span>Pointer<span style="color: #000000;">)</span><span style="color: #000040;">&amp;</span>s;
+ 
+        <span style="color: #008000;">// 積分実行</span>
+        <span style="color: #008000;">// Nag無限積分器で使うことができる無限の境界は3種類あります。</span>
+        <span style="color: #008000;">// Nag_LowerSemiInfinite, Nag_UpperSemiInfinite, Nag_Infinite</span>
+        d01smc<span style="color: #000000;">(</span>f_callback, Nag_LowerSemiInfinite, x, epsabs, epsrel, max_num_subint, <span style="color: #000040;">&amp;</span>result, <span style="color: #000040;">&amp;</span>abserr, <span style="color: #000040;">&amp;</span>qp, <span style="color: #000040;">&amp;</span>comm, <span style="color: #000040;">&amp;</span>fail<span style="color: #000000;">)</span>;
+ 
+                <span style="color: #008000;">// エラーメッセージを出力することで、エラーを調査するには、以下の行のコメントを解除します。</span>
+        <span style="color: #008000;">// if (fail.code != NE_NOERROR)</span>
+                <span style="color: #008000;">// printf("%s\n", fail.message);</span>
+ 
+        <span style="color: #008000;">// 次の3つのエラー以外は、入力パラメータが不正であるか </span>
+        <span style="color: #008000;">// アロケーションエラーに当たります。 NE_INT_ARG_LT  NE_BAD_PARAM   NE_ALLOC_FAIL</span>
+        <span style="color: #008000;">// メモリーリークを避けるため、積分ルーチンを呼ぶ前にメモリのアロケーションを解放する必要があります。</span>
+        <span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span>fail.<span style="color: #000000;">code</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span> NE_INT_ARG_LT <span style="color: #000040;">&amp;&amp;</span> fail.<span style="color: #000000;">code</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span> NE_BAD_PARAM <span style="color: #000040;">&amp;&amp;</span> fail.<span style="color: #000000;">code</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span> NE_ALLOC_FAIL<span style="color: #000000;">)</span>
+        <span style="color: #000000;">{</span>
+                NAG_FREE<span style="color: #000000;">(</span>qp.<span style="color: #000000;">sub_int_beg_pts</span><span style="color: #000000;">)</span>;
+                NAG_FREE<span style="color: #000000;">(</span>qp.<span style="color: #000000;">sub_int_end_pts</span><span style="color: #000000;">)</span>;
+                NAG_FREE<span style="color: #000000;">(</span>qp.<span style="color: #000000;">sub_int_result</span><span style="color: #000000;">)</span>;
+                NAG_FREE<span style="color: #000000;">(</span>qp.<span style="color: #000000;">sub_int_error</span><span style="color: #000000;">)</span>;
+        <span style="color: #000000;">}</span>
+ 
+        <span style="color: #008000;">// フィット値の計算</span>
+        y <span style="color: #000080;">=</span> y0 <span style="color: #000040;">+</span> result;
+        
+</pre></li>
+<li><b style="font-weight: bold;">コンパイル</b>ボタンをクリックしてファイルをコンパイルします。</li>
+</ol>
+<p>上記のコードでは、フィット関数 <i><b>_nlsfnag_integration_fitting</b></i>の本体の外側で、最初に被積分関数をコールバック関数 <i><b>f_callback</b></i> として定義しています。被積分関数を変数 <i><b>amp</b></i>、<b>center</b>、<b><i>width</i></b> でパラメータ化し、それらを <i>Nag_User</i> 構造体を使ってコールバック関数に渡します。フィット関数の内部で、NAG積分器<i><b>d01smc</b></i>を使って積分を実行します。</p>
+<p>NAG関数を呼び出すのは、自分でルーチンを書き出すよりも効率的になるはずです。類似手法を使う事で、有限、無限、一次元、複数次元をフィット関数内で使用できるようになりました。<a class="external text" href="http://www.originlab.com/pdfs/nagcl25/manual/pdf/d01/d01intro.pdf" target="_blank">NAG 直交</a> ページを読んで詳しく知りたいルーチンを選択してください。</p>
+<p><br /></p>
+<h3><a name="Set_the_Initial_Values_for_the_Parameters_or_Setup_the_Initial_Code" id="Set_the_Initial_Values_for_the_Parameters_or_Setup_the_Initial_Code"></a><span class="mw-headline">パラメータの初期値または初期化コードを設定する</span></h3>
+<p>ユーザ定義のフィット関数なので、パラメータの初期値を指定する必要があります。<b>非線形曲線</b>フィットダイアログの<b>パラメータ</b>タブで手動でセットすることができます。</p>
+<h3><a name="Simulate_the_Function" id="Simulate_the_Function"></a><span class="mw-headline">関数をシミュレーションする</span></h3>
+<p>関数本体のコードを入力したら、<b>コードビルダ</b>の「<b>コンパイル</b>」ボタンをクリックして、シンタックスにエラーがないかチェックすることができます。そして、「<b>ダイアログに戻る</b>」ボタンをクリックして、<span class="db">フィット関数オーガナイザ</span>ダイアログボックスに戻ります。「<b>保存</b>」ボタンをクリックして、FDFファイル(関数定義ファイル)を生成します。</p>
+<p>FDFファイルがあれば、「<b>シミュレート</b>」ボタンをクリックして、曲線のシミュレーションを行うことができ、これは初期値を求めるのに役立ちます。「<b>simcurve</b>」ダイアログで、適切なパラメータ値やX範囲を入力すると、「<b>プレビュー</b>」パネルに曲線がどのように表示されるのかが表示されます。</p>
+<h3><a name="Fit_the_Curve" id="Fit_the_Curve"></a><span class="mw-headline">曲線をフィットする</span></h3>
+<p>曲線フィットを行う前に、関数のシミュレーションを行うことは大変役立ちます。積分の実行には、ある程度の時間がかかりますが、誤りがあると「<b>フィット</b>」ボタンをクリックした後、Originが反応しなくなる場合があります。そのため、<span class="db">フィット関数オーガナイザ</span>ダイアログで、定義した関数を選択し、「<b>シミュレート</b>」ボタンをクリックします。すると、「<b>simcurve</b>」Xファンクションダイアログが開きます。推定される値を入力し、「<b>適用</b>」ボタンをクリックします。シミュレーションした曲線が、元のデータと近くなったら、フィットを行うことができます。</p>
+<p>フィット関数をテストするには、</p>
+<ol>
+<li>Originに<i>Samples\Curve Fitting\Replicate Response Data.dat</i> をインポートします。</li>
+<li>次に、列Aのデータの対数スケールを使用します。そのために、列Aの<b>F(x) =</b> 列ラベルに、列式<i>Col(A) = log(Col(A))</i> を入力して<b>Enter</b>を押してデータを変換します。</li>
+<li>列AとBを選択し、散布図を作成すると、形状はシグモイド型になっていることがわかります。</li>
+<li><span class="db">NLFit</span>ダイアログを開くために、メニューから<b>解析：</b><b>フィット：</b><b>非線形曲線フィット</b>を選択します。</li>
+<li>上述のセクションで定義したフィット関数を選択し、<b>パラメータ</b>タブを開いて、すべてのパラメータを1で初期化し、<b>フィット</b>ボタンをクリックします。</li>
+<li>以下のような結果を得ることができます。</li>
+</ol>
+<dl>
+<dd>
+<table class="dialogcontroltable" width="240">
+<tr>
+<th width="20">&#160;</th>
+<th width="60">値</th>
+<th width="100">標準誤差</th>
+</tr>
+<tr>
+<th>y0</th>
+<td>-0.00806</td>
+<td>0.18319</td>
+</tr>
+<tr>
+<th>A</th>
+<td>3.16479</td>
+<td>0.39624</td>
+</tr>
+<tr>
+<th>xc</th>
+<td>-0.19393</td>
+<td>0.10108</td>
+</tr>
+<tr>
+<th>w</th>
+<td>1.77252</td>
+<td>0.33878</td>
+</tr>
+</table>
+</dd>
+</dl>

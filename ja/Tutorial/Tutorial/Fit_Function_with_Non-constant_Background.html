@@ -1,0 +1,230 @@
+﻿<h1 class="firstheading">非定数のバックグラウンドを持つフィット関数</h1>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>内容</h2>
+</div>
+<ol>
+<li class="toclevel-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1"><a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">サンプルとステップ</span></a>
+<ol>
+<li class="toclevel-2"><a href="#Prepare_the_Data"><span class="tocnumber">3.1</span> <span class="toctext">データの準備</span></a></li>
+<li class="toclevel-2"><a href="#Define_the_Function"><span class="tocnumber">3.2</span> <span class="toctext">関数を定義する</span></a></li>
+<li class="toclevel-2"><a href="#Auto_Parameter_Initialization"><span class="tocnumber">3.3</span> <span class="toctext">自動パラメータ初期化</span></a></li>
+<li class="toclevel-2"><a href="#Fit_the_Curve"><span class="tocnumber">3.4</span> <span class="toctext">曲線をフィットする</span></a></li>
+</ol>
+</li>
+</ol>
+</td>
+</tr>
+</table>
+
+<p><br /></p>
+<a name="Summary" id="Summary"></a>
+<h2><span class="mw-headline">サマリー</span></h2>
+<p>Originの組み込み関数の多くは、次のように定義されます。</p>
+<dl>
+<dd><img class="tex" alt="\begin{matrix}y=y_0+......\end{matrix}" src="../images/Fit_Function_with_Non-constant_Background/math-1f7b7b3f3ede7f29999d940b2659a042.png" width="95" height="14" border="0" /></dd>
+</dl>
+<p>ここでy0は、定数のバックグラウンドとして扱うことができます。では、非定数のバックグラウンドを持つ曲線は、どのようにフィットしたら良いでしょうか?1つの方法として、OriginProで提供しているピークアナライザを使うことができます。ピークアナライザには、指数または多項式のバックグラウンドを含む基線を減算する方法がいくつかあります。このチュートリアルでは、ピークアナライザを使わずに、このような曲線をフィットする方法を示します。</p>
+<p class="version">必要なOriginのバージョン:8.0 SR6</p>
+<a name="What_you_will_learn" id="What_you_will_learn"></a>
+<h2><span class="mw-headline">学習する項目</span></h2>
+<ul>
+<li><a href="../../Tutorial/Tutorial/Extract_Worksheet_Data.html" title="チュートリアル：ワークシートデータを抽出する">ワークシートクエリ</a>の復習</li>
+<li><a href="../../UserGuide/UserGuide/User-Defined_Fitting_Functions.html#Defining_a_function" title="http://docwiki.originlab.com/index.php?title=UserGuide:User-Defined_Fitting_Functions#Defining_a_function" rel="nofollow">nlfx<i>FuncName</i></a> メソッドで組み込み関数を引用する</li>
+<li>パラメータの自動初期化</li>
+</ul>
+<a name="Example_and_Steps" id="Example_and_Steps"></a>
+<h2><span class="mw-headline">サンプルとステップ</span></h2>
+<a name="Prepare_the_Data" id="Prepare_the_Data"></a>
+<h3><span class="mw-headline">データを準備する</span></h3>
+<p>\<i>Samples</i>\<i>Spectroscopy</i>\<i>Peaks on Exponential Baseline.dat</i>をインポートして、このチュートリアルを開始します。ワークシートのスパークラインから、曲線に2つのピークがあることが分かります。問題を単純化するため、この例の1つのピークをフィットします。</p>
+<dl>
+<dd><span><a style="color: #0000ff; text-decoration: underline;"><img alt="Image:Fit_Function_with_Nonconstant_Background_001.png" src="../images/Fit_Function_with_Non-constant_Background/Fit_Function_with_Nonconstant_Background_001.png" width="300" height="257" border="0" /></a></span><br />
+<br /></dd>
+</dl>
+<p>メニューから<b>ワークシート：ワークシートクエリ</b>と操作して、 <a href="../../UserGuide/UserGuide/Extract_Worksheet_Data.html" title="http://docwiki.originlab.com/index.php?title=UserGuide:Extract_Worksheet_Data" rel="nofollow">ワークシートクエリダイアログ</a> を開きます。行1から行240のデータを抽出します。</p>
+<dl>
+<dd><span><a style="color: #0000ff; text-decoration: underline;"><img alt="Image:Fit_Function_with_Nonconstant_Background_002.png" src="../images/Fit_Function_with_Non-constant_Background/Fit_Function_with_Nonconstant_Background_002.png" width="581" height="550" border="0" /></a></span><br />
+<br /></dd>
+</dl>
+<p>フィットする曲線は次のようになります。</p>
+<dl>
+<dd><a style="color: #0000ff; text-decoration: underline;"><img alt="Image:Fit_Function_with_Nonconstant_Background_003.png" src="../images/Fit_Function_with_Non-constant_Background/Fit_Function_with_Nonconstant_Background_003.png" width="261" height="208" border="0" /></a></dd>
+</dl>
+<a name="Define_the_Function" id="Define_the_Function"></a>
+<h3><span class="mw-headline">関数を定義する</span></h3>
+<p>下の図から分かるように、元の曲線は指数関数形崩壊（バックグラウンドに相当）とVoigtピークの組み合わせである事が分かります。</p>
+<dl>
+<dd><a style="color: #0000ff; text-decoration: underline;"><img alt="Image:Fit_Function_with_Nonconstant_Background_004.png" src="../images/Fit_Function_with_Non-constant_Background/Fit_Function_with_Nonconstant_Background_004.png" width="266" height="197" border="0" /></a><br />
+<br /></dd>
+</dl>
+<p>関数全部を記述して関数を定義しなければならないでしょうか?例えば：</p>
+<dl>
+<dd><img class="tex" alt="y=y_0+A_1e^{-x/t1}+A_2\frac{2w_L\ln{2}}{\pi^{\frac{3}{2}}w^2_G}\int_{-\infty}^{\infty}\frac{e^{-t^2}}{\left( \sqrt{\ln2}\frac{w_L}{w_G} \right)^2 + \left( \sqrt{4\ln{2}}\frac{x-x_c}{w_G}-t \right)^2}dt" src="../images/Fit_Function_with_Non-constant_Background/math-4b8d0eb51a50fb2107fb9e3f75be916e.png" width="540" height="61" border="0" /></dd>
+</dl>
+<p>これは複雑な数式で、無限区間の積分も含まれています。数式を直接記述するのは大変です。Originには次の2つの組み込み関数があります。</p>
+<p>ExpDec1</p>
+<dl>
+<dd><img class="tex" alt="\begin{matrix}y=y_0+Ae^{-x/t}\end{matrix}" src="../images/Fit_Function_with_Non-constant_Background/math-405a73342845b9438972485516ad1027.png" width="117" height="19" border="0" /></dd>
+</dl>
+<p>Voigt</p>
+<dl>
+<dd><img class="tex" alt="y=y_0+A\frac{2w_L\ln{2}}{\pi^{\frac{3}{2}}w^2_G}\int_{-\infty}^{\infty}\frac{e^{-t^2}}{\left( \sqrt{\ln2}\frac{w_L}{w_G} \right)^2 + \left( \sqrt{4\ln{2}}\frac{x-x_c}{w_G}-t \right)^2}dt" src="../images/Fit_Function_with_Non-constant_Background/math-2f064f69637d685313e7580888b4fc32.png" width="448" height="61" border="0" /></dd>
+</dl>
+<p><b style="font-weight: bold;">nlfx<i>FuncName</i></b> メソッドを使って、これら2つの関数を引用し、新しい関数を簡単に作成することができます。<b>F9</b>を押し、<b>フィット関数オーガナイザ</b>を開き、以下のように関数を定義します。</p>
+<table class="blank">
+<tr>
+<th width="150">&#160;</th>
+<th>&#160;</th>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">関数名：</b></td>
+<td>ExpVoigt</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">実現方式：</b></td>
+<td>ユーザ定義</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">独立変数：</b></td>
+<td>x</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">従属変数：</b></td>
+<td>y</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">パラメータの名前：</b></td>
+<td>y0, A1, t1, xc, A2, wG, wL</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">定義形式：</b></td>
+<td><font color="#0000FF">Origin C</font></td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">関数：</b></td>
+<td>y = nlf_ExpDec1(x, y0, A1, t1) + nlf_Voigt(x, y0, xc, A2, wG, wL) - y0;</td>
+</tr>
+</table>
+<table class="note">
+<tr>
+<td><b style="font-weight: bold;">Note:</b>
+<ol>
+<li style="list-style: none; display: inline;">組み込み関数名のいくつかは、実際のDLL関数名と一致しません。Voigt5.FDFで定義しているVoigt関数のように、メモ帳でFDFファイルを開く場合、 [GENERAL INFORMATION]セクションの中に次の行があります。<br />
+<dl>
+<dd>Function Source=fgroup.Voigt5<br /></dd>
+</dl>
+"fgroup"の後の名前は、<b>nlfx<i>FuncName</i></b>に入れる実際の名前です。
+<p><font color="#FF0000"><b style="font-weight: bold;">Origin 8.1 SR2</b></font>以前のバージョンでは、関数のボディは次に定義されるような旧式のnlfxFuncNameを使ってください。<br /></p>
+<pre class="oc">
+y <span style="color: #000080;">=</span> nlfxExpDec1<span style="color: #000000;">(</span>x, y0, A1, t1<span style="color: #000000;">)</span> <span style="color: #000040;">+</span> nlfxVoigt<span style="color: #000000;">(</span>x, y0, xc, A2, wG, wL<span style="color: #000000;">)</span> <span style="color: #000040;">-</span> y0;
+x; xc; A1; t1; A2; wG; wL;
+</pre>
+最後にパラメータを一覧にするのは、関数でこれらのパラメータを使っているにもかかわらず、関数内でパラメータが使われていないというエラーを避けるためです。これを入れないと、関数のコンパイルがうまくいきません。</li>
+</ol>
+</td>
+</tr>
+</table>
+<p><b style="font-weight: bold;">パラメータ設定</b>の右にあるボタン<a><img alt="Image:User-Defined Fitting Functions-2.png" src="../images/Fit_Function_with_Non-constant_Background/User-Defined_Fitting_Functions-2.png" width="19" height="25" border="0" /></a>をクリックし、これらのパラメータの初期値を入力します。</p>
+<dl>
+<dd>
+<table class="blank">
+<tr>
+<th width="20">&#160;</th>
+<th>&#160;</th>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">y0:</b></td>
+<td>0</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">A1:</b></td>
+<td>5</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">t1:</b></td>
+<td>50</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">xc:</b></td>
+<td>100</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">A2:</b></td>
+<td>50</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">wG:</b></td>
+<td>10</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">wL:</b></td>
+<td>10</td>
+</tr>
+</table>
+</dd>
+</dl>
+<p>ですので、最終的な定義部分は、次のようになります。</p>
+<dl>
+<dd><span><a style="color: #0000ff; text-decoration: underline;"><img alt="Image:Fit_Function_with_Nonconstant_Background_006.png" src="../images/Fit_Function_with_Non-constant_Background/Fit_Function_with_Nonconstant_Background_006.png" width="437" height="613" border="0" /></a></span></dd>
+</dl>
+<a name="Auto_Parameter_Initialization" id="Auto_Parameter_Initialization"></a>
+<h3><span class="mw-headline">自動パラメータ初期化</span></h3>
+<p>上記のセクションで、パラメータの初期値を固定にセットしました。有力なフィット結果を知っていれば、このように初期値をセットすることができます。しかし、データが変わった場合はどうでしょうか?Originは、初期値を推定するOrigin Cインターフェースを提供しています。パラメータ初期化コードを使うには、<b>パラメータの自動初期化</b>を行うと<b>Origin Cを使用する</b>チェックボックスにチェックを付け、<a><img alt="Image:User-Defined Fitting Functions-2.png" src="../images/Fit_Function_with_Non-constant_Background/User-Defined_Fitting_Functions-2.png" width="19" height="25" border="0" /></a>アイコンをクリックしてコードビルダでコードを編集します。<br />
+(初期値をよく分かっていたり、コードを記述したくない場合、このセクションを読み飛ばしても構いません。)</p>
+<dl>
+<dd><span><a style="color: #0000ff; text-decoration: underline;"><img alt="Image:Fit_Function_with_Nonconstant_Background_007.png" src="../images/Fit_Function_with_Non-constant_Background/Fit_Function_with_Nonconstant_Background_007.png" width="438" height="196" border="0" /></a></span><br />
+<br /></dd>
+</dl>
+<p>曲線は2つのコンポーネントで構成され、これら2つの部分を分けることで、パラメータ値を推測できます。初期化コードには次を含みます。</p>
+<ol>
+<li><a href="../../OriginC/OriginC/Peak_pos_%28global_function%29.html" title="http://ocwiki.originlab.com/index.php?title=OriginC:Peak_pos_%28global_function%29" rel="nofollow">get_exponent</a>関数を使って、曲線をフィットし、指数成分に対するパラメータ値を取得します。</li>
+<li>元のデータからバックグラウンド(指数成分)を除去します。</li>
+<li><a href="../../OriginC/OriginC/Peak_pos_%28global_function%29.html" title="http://ocwiki.originlab.com/index.php?title=OriginC:Peak_pos_%28global_function%29" rel="nofollow">peak_pos</a> 関数を使って、ガウスピークによってピークを近づけ、ピークコンポーネントに対する初期値をセットします。</li>
+</ol>
+<p>コードビルダ内の初期化コードは次のようになります。</p>
+<pre class="oc">
+<span style="color: #0000ff;">void</span> _nlsfParamExpVoigt<span style="color: #000000;">(</span><span style="color: #008000;">
+// フィットパラメータ:</span><span style="color: #0000ff;">
+double</span><span style="color: #000040;">&amp;</span> y0, <span style="color: #0000ff;">double</span><span style="color: #000040;">&amp;</span> A1, <span style="color: #0000ff;">double</span><span style="color: #000040;">&amp;</span> t1, <span style="color: #0000ff;">double</span><span style="color: #000040;">&amp;</span> xc, <span style="color: #0000ff;">double</span><span style="color: #000040;">&amp;</span> A2, <span style="color: #0000ff;">double</span><span style="color: #000040;">&amp;</span> wG, <span style="color: #0000ff;">double</span><span style="color: #000040;">&amp;</span> wL,<span style="color: #008000;">
+// 独立データセット</span>
+vector<span style="color: #000040;">&amp;</span> x_data,<span style="color: #008000;">
+// 従属データセット</span>
+vector<span style="color: #000040;">&amp;</span> y_data,<span style="color: #008000;">
+// 曲線</span>
+Curve x_y_curve,<span style="color: #008000;">
+// 補助的なエラーコード</span><span style="color: #0000ff;">
+int</span><span style="color: #000040;">&amp;</span> nErr<span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+        <span style="color: #008000;">// 編集可能部分の開始</span>
+        <span style="color: #0000ff;">int</span> nSign;
+        <span style="color: #008000;">//  y = y0+A*exp(R*x)に対するパラメータの値y0, ln(A), Rを評価</span>
+        t1 <span style="color: #000080;">=</span> get_exponent<span style="color: #000000;">(</span>x_data, y_data, <span style="color: #000040;">&amp;</span>y0, <span style="color: #000040;">&amp;</span>A1, <span style="color: #000040;">&amp;</span>nSign<span style="color: #000000;">)</span>;
+        <span style="color: #008000;">// フィット関数に対する指数成分の値をセット</span>
+        t1 <span style="color: #000080;">=</span> <span style="color: #0000dd;">-1</span><span style="color: #000040;">/</span>t1;
+        A1 <span style="color: #000080;">=</span> nSign<span style="color: #000040;">*</span><span style="color: #000000;">exp</span><span style="color: #000000;">(</span>A1<span style="color: #000000;">)</span>;
+        <span style="color: #008000;">// 曲線から指数成分を除去</span>
+        x_y_curve <span style="color: #000080;">=</span> x_y_curve <span style="color: #000040;">-</span> <span style="color: #000000;">(</span>y0 <span style="color: #000040;">+</span> A1 <span style="color: #000040;">*</span> <span style="color: #000000;">exp</span><span style="color: #000000;">(</span><span style="color: #000040;">-</span>x_data<span style="color: #000040;">/</span>t1<span style="color: #000000;">)</span><span style="color: #000000;">)</span>;
+        <span style="color: #008000;">// フィットしてピーク値を取得</span>
+        xc <span style="color: #000080;">=</span> peak_pos<span style="color: #000000;">(</span>x_y_curve, <span style="color: #000040;">&amp;</span>wG, <span style="color: #000040;">&amp;</span>y0, <span style="color: #000040;">&amp;</span>A2<span style="color: #000000;">)</span>;
+        wL <span style="color: #000080;">=</span> wG;
+        <span style="color: #008000;">// 編集可能部分の終了</span><span style="color: #000000;">
+}</span>
+</pre>
+<table class="note">
+<tr>
+<td><b style="font-weight: bold;">Note:</b>
+<p><b style="font-weight: bold;">自動初期化を行う</b>にチェックを付けて、初期化コードを入力すると、これらのコードは<b>パラメータ設定</b>での初期値にも影響します。</p>
+</td>
+</tr>
+</table>
+<a name="Fit_the_Curve" id="Fit_the_Curve"></a>
+<h3><span class="mw-headline">曲線をフィットする</span></h3>
+<p>使用したパラメータ初期化の方法に関係なく、列Bを選択し、<b>Ctrl + Y</b>を押して、NLFitダイアログを開き、ExpVoigt関数を選んでフィットします。結果は次のようになります。</p>
+<dl>
+<dd><span><a style="color: #0000ff; text-decoration: underline;"><img alt="Image:Fit_Function_with_Nonconstant_Background_008.png" src="../images/Fit_Function_with_Non-constant_Background/Fit_Function_with_Nonconstant_Background_008.png" width="231" height="123" border="0" /></a></span></dd>
+</dl>

@@ -1,0 +1,103 @@
+﻿<h1 class="firstheading">散布図行列</h1><p class='urlname' style='display: none'>ScatterMatrix</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span><span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Creating_Scatter_Matrix_plot"><span class="tocnumber">3.1</span> <span class="toctext">散布図行列を作図する</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Customizing_Scatter_Matrix_plot"><span class="tocnumber">3.2</span> <span class="toctext">散布図行列を編集する</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Add_Grouping_Range"><span class="tocnumber">3.3</span> <span class="toctext">グループ範囲を追加する</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Customizing_Matrix_Display"><span class="tocnumber">3.4</span> <span class="toctext">行列表示の編集</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Scatter_Matrix/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Scatter_Matrix/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=344" target="_blank">Creating Statistical Graphs</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Scatter_Matrix/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Scatter_Matrix/Blog_Image_33x33px.png" width="135"  /></a>
+<ul><li> <a class="external text" href="http://blog.originlab.com/easy-correlation-plots-in-origin-2020b" target="_blank">Easy Correlation Plots in Origin 2020b</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>散布図行列は、行列形式で表した変数の散布図を対としていくつか構成したものです。変数に相関性があるか、相関が正か負かを決定するのに使用できます。このチュートリアルは、散布図行列を作成する方法を説明します。
+</p>
+<dl><dd><a  class="image"><img alt="Scatter Matrix 01.png" src="../images/Scatter_Matrix/500px-Scatter_Matrix_01.png" width="500"   /></a></dd></dl>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul><li>ヒストグラムと共に散布図行列を作図する</li>
+<li>散布図行列を編集する </li>
+<li>色インデックスを表示するためにグループ化する範囲を設定する</li>
+<li>上下の対格にある隠れた散布プロットを特定する</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Creating_Scatter_Matrix_plot"></a><span class="mw-headline">散布図行列を作図する</span></h3>
+<ol>
+<li>新しいワークブックを用意します。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Statistics</i>サブフォルダにある<i>Fisher&apos;s Iris Data.dat</i> ファイルを探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。
+<li> 列AからDまでを選択し(列Eは選択しません)、メインメニューから<b><b>作図：統計グラフ：散布図行列</b></b>と操作します。
+<li><b>ダイアログ内の<b><b>対角のセル</b>に表示</b></b>ドロップダウンリストから<b><b>ヒストグラム</b></b>を選択し、<b><b>目盛とラベルを表示</b></b>のドロップダウンリストから、<b><b>交互</b></b>を選択します。
+<br /><a  class="image"><img alt="Scatter Matrix 02.png" src="../images/Scatter_Matrix/500px-Scatter_Matrix_02.png" width="484"   /></a>
+<li><b>OK</b>をクリックしてダイアログを閉じます。散布図行列の<b>PlotData1</b>シートが作成され、元のデータと同じワークブックに追加されます。このワークシートには、散布図行列のそれぞれのグラフ用のデータが格納され、ワークブック下部の<b>PlotData1</b>タブをクリックすることで開いて確認することができます。グラフは次のようになります：
+<br /><a  class="image"><img alt="Scatter Matrix 03.png" src="../images/Scatter_Matrix/500px-Scatter_Matrix_03.png" width="500"   /></a>
+<br />
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Scatter_Matrix/Tip_icon.png" width="57"  border="0" /></td><td><p>散布図ごとに線形近似を実行し、調整済みのR二乗を計算し、さらにPearsonの相関係数（Pearsonのr）を計算することもできます。Origin 2019以降、これらの統計はアクティブブックのシートに出力され、<b>ScatterMatrixStats<i>N</i></b>という名称がつけられます。 
+</p><p>散布図行列の各プロットにAdjのラベルを付けます。<b>追加の統計</b>の下にあるボックスをチェックして、R-SquareまたはPearsonのr値を表示します。
+</p>
+<dl><dd><a  class="image"><img alt="Scatter Matrix tip.png" src="../images/Scatter_Matrix/Scatter_Matrix_tip.png" width="579"  /></a> </dd></dl>
+</td></tr></table>
+<h3><a name="Customizing_Scatter_Matrix_plot"></a><span class="mw-headline">散布図行列を編集する</span></h3>
+<p>散布図行列は複数のレイヤに分かれています。このセクションでは、背景色、データプロットの種類と色、散布図行列の目盛ラベルの編集方法を示します。Origin 2016以降、デフォルトで、<a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Layers_Tab.html#Common_Display_.28Scatter_Matrices.29">1つのレイヤの印刷スタイルまたは軸設定を変更すると、他のすべてのレイヤが続きます</a>（個別の編集については、このセクションの最後にあるヒントを参照してください）。 
+</p>
+<ol>
+<li>散布図をダブルクリックして、<b>作図の詳細</b>ダイアログを開きます。<b><b>シンボルの色</b></b>を変更するには、シンボルの色ドロップダウンメニューで<b><b>指定色</b></b>オプションを選択してから目的の色を選びます。次の図のようにシンボルの種類と色を選択して、<b>OK</b>ボタンをクリックします。
+<br /><a  class="image"><img alt="Scatter Matrix 04.png" src="../images/Scatter_Matrix/500px-Scatter_Matrix_04.png" width="842"   /></a>
+<li>ヒストグラムのパターンを編集するには、レイヤ1の下のプロットを選択して<b>パターン</b>タブを編集します。次の図のように、<b>縁の色</b>を<b>赤</b>に、<b>塗りつぶし</b>を<b>なし</b>に、<b>パターン</b>を<b>中</b>に設定します。<b>OK</b>ボタンをクリックします。
+<br /><a  class="image"><img alt="Scatter Matrix 04 2.png" src="../images/Scatter_Matrix/500px-Scatter_Matrix_04_2.png" width="928"   /></a>
+<br /><br />この変更はこのグラフの全ての散布データに適用されます。
+<br /> <a  class="image"><img alt="Scatter Matrix 05.png" src="../images/Scatter_Matrix/500px-Scatter_Matrix_05.png" width="500"   /></a>
+<br />
+<li>ウィンドウ全体の背景色を変更するには、<b><b>フォーマット：作図の詳細（ページ属性）</b></b>と操作し、<b><b>作図の詳細</b></b>ダイアログを表示します。同じダイアログを表示するのに、散布図行列内をダブルクリックしても開くことが出来ます。  <b>表示</b>]ブで、<b>色</b>ドロップダウンをクリックし、<b>カスタム</b>の下の空欄色をクリックします。これにより、<b>色</b>ダイアログボックスが開き、カスタム色を定義できます。</li>
+<li><b><b>色の設定</b></b>ダイアログで、色を<i>赤= 235</i>、<i>緑= 235</i>、<i>青= 255</i>として指定し、<b>OK</b>をクリックします。
+<br /><a  class="image"><img alt="Scatter Matrix 06.png" src="../images/Scatter_Matrix/Scatter_Matrix_06.png" width="785"  /></a>
+<li>ヒストグラムまたはグラフの残りの部分の背景色を変更せずに散布図レイヤの背景色を変更するには、散布図をダブルクリックして、作図の詳細ダイアログを開きます。<b><b>背景</b></b>タブをクリックして開き、<b>色</b>を<i><b>白</b></i>にします。 
+<br /><a  class="image"><img alt="Scatter Matrix 07.png" src="../images/Scatter_Matrix/600px-Scatter_Matrix_07.png" width="851"   /></a>
+<br />そしてダイアログ内の <b>OK</b> ボタンをクリックします。散布データプロットがある全てのレイヤに対してこの変更が反映されます。
+<br /> <a  class="image"><img alt="Scatter Matrix 08.png" src="../images/Scatter_Matrix/500px-Scatter_Matrix_08.png" width="500"   /></a>
+<li>下にある軸の目盛ラベル上でダブルクリックし、<b>軸</b>ダイアログを開きます。<b><b>目盛ラベル</b></b>タブを開き、左側パネルで<b>上軸</b>アイコンが選択されていることを確認します。<b><b>フォーマット</b></b>タブの<b><b>フォント</b></b>の<b>サイズ</b>を<b><b>36</b></b>に設定します。<b><b>適用</b></b>をクリックします。
+<li>左パネルで、<b><b>適用先</b></b>ボタンをクリックし、<b><b>適用先</b></b>ダイアログを表示します。今行った設定がウィンドウ内の他の軸にも適用されるよう、以下のように設定します。<b>OK</b>をクリックして、<b><b>作図の詳細</b></b>ダイアログボックスを閉じます。
+<br /><a  class="image"><img alt="Scatter Matrix 09.png" src="../images/Scatter_Matrix/550px-Scatter_Matrix_09.png" width="801"   /></a>
+<li>下図のようなグラフになります。
+<br /><a  class="image"><img alt="Scatter Matrix 10.png" src="../images/Scatter_Matrix/500px-Scatter_Matrix_10.png" width="500"   /></a>
+</ol>
+<h3><a name="Add_Grouping_Range"></a><span class="mw-headline">グループ 範囲の追加</span></h3>
+<p>現在、散布図は変数Sepal Length、Sepal Widthなどのペアワイズ比較を示しています。散布図から明らかではないのは、3種類のIrisで測定が行われたことです。すべての散布点は同じように見えるので、種を区別することはできません。ペアワイズ比較で種の効果を確認できるように、元のワークシートのSpecies列（グラフ作成時に除外した列）を使用して各散布点に色を付けます。
+</p>
+<ol>
+<li>プロットに種情報を追加するには、グラフウィンドウの左上隅にある緑色のロックアイコンをクリックしてください。  <b><b>パラメータの変更</b></b>を選択し、<b>Plotting: plot_matrix</b>ダイアログを再度開きます。</li>
+<li><b><b>グループ化範囲</b></b>の横にある三角ボタン<a  class="image"><img alt="Button Select Data Right Triangle.png" src="../images/Scatter_Matrix/Button_Select_Data_Right_Triangle.png" width="18"  /></a>をクリックし、<b><b>E（Y）：Species</b></b>を選択してから<b>OK</b>をクリックします。</li>
+<li><b><b>Plotting: plot_matrix</b></b>ダイアログの<b><b>OK</b></b>ボタンをクリック します。  下図のようなグラフになります。</li>
+<p><br />
+<a  class="image"><img alt="Scatter Matrix 13.png" src="../images/Scatter_Matrix/500px-Scatter_Matrix_13.png" width="500"   /></a>
+</p>
+</ol>
+<h3><a name="Customizing_Matrix_Display"></a><span class="mw-headline">行列表示の編集</span></h3>
+<p>散布図の表示オプションの1つは、散布図の半分を非表示にすることです（散布図の他の半分と同じ情報が繰り返されるため）。
+</p>
+<ol>
+<li>散布図グラフの対角線の下にあるレイヤーを非表示にするには、左上隅にある緑色のロックアイコンをクリックします。  <b><b>パラメータの変更</b></b>を選択し、<b>Plotting: plot_matrix</b>ダイアログを再度開きます。
+<li>ダイアログの<b><b>行列プロファイル</b></b>のブランチにある、
+<ul><li><b><b>行列表示</b></b>のドロップダウンリストから、<b><b>上三角形</b></b>を選択します。</li>
+<li><b><b>目盛とラベルの表示</b></b>のドロップダウンリストから<b><b>すべて</b></b>を選択します。</li>
+<li><b>ギャップ（ページ寸法の％内）</b>のテキストボックスに<b>２</b>を入力します。</li></ul>
+<br /><a  class="image"><img alt="Scatter Matrix 14.png" src="../images/Scatter_Matrix/Scatter_Matrix_14.png" width="501"  /></a>
+
+<br /><br />最終的に、下図のようなグラフになります。 
+<br /><a  class="image"><img alt="Scatter Matrix 01.png" src="../images/Scatter_Matrix/500px-Scatter_Matrix_01.png" width="500"   /></a>
+</ol>
+
+
+    

@@ -1,0 +1,294 @@
+﻿<h1 class="firstheading">ノンパラメトリック検定概要</h1><p class='urlname' style='display: none'>NonparametricStatisticsOverview</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Introduction:_Nonparametric_Tests_in_Origin"><span class="tocnumber">3</span> <span class="toctext">イントロダクション：Originでノンパラメトリック検定を行う</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Examples"><span class="tocnumber">4</span> <span class="toctext">サンプル</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#One_Sample_Independent_Tests"><span class="tocnumber">4.1</span> <span class="toctext">1群の独立検定</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Two_Sample_Independent_Tests"><span class="tocnumber">4.2</span> <span class="toctext">2群の独立検定</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Non-parametric_Measures_of_Correlation"><span class="tocnumber">4.3</span> <span class="toctext">相関に関するノンパラメトリック測定</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Paired_Sample_wilcoxon_Signed_Rank_Tests"><span class="tocnumber">4.4</span> <span class="toctext">対応のあるデータのWilcoxon符号順位検定</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Multiple_Independent_Samples_Test"><span class="tocnumber">4.5</span> <span class="toctext">複数の独立した標本検定</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Multiple_Related_Samples_Test"><span class="tocnumber">4.6</span> <span class="toctext">複数の関連のある標本検定</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Non-parametric_Statistics_Overview/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Non-parametric_Statistics_Overview/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=78" target="_blank">2つのサンプルのノンパラメトリック検定</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=113" target="_blank">複数サンプルのノンパラメトリック検定</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Non-parametric_Statistics_Overview/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Non-parametric_Statistics_Overview/Blog_Image_33x33px.png" width="135"  /></a>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>ノンパラメトリック検定はデータが正規分布するかわからない時や、正規分布に従わないと確認済みであるときに使用されます。 
+</p><p><br />
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。
+</p>
+<ul><li> Originでのノンパラメトリック検定のイントロダクション</li>
+<li> 実際の様々な状況でノンパラメトリック検定を実行する方法</li>
+<li> ノンパラメトリック統計で相関係数を計算する方法</li></ul>
+<h2><a name="Introduction:_Nonparametric_Tests_in_Origin"></a><span class="mw-headline">イントロダクション：Originでノンパラメトリック検定を行う</span></h2>
+<p>ノンパラメトリック検定は、正規性の仮定を必要としません。一般に、次のような状況で使用されます。
+</p>
+<ul><li> 標本サイズが小さい</li>
+<li> カテゴリ/バイナリ/序数のデータ</li>
+<li> 正規分布と仮定できない場合</li></ul>
+<table class="simple">
+<tr>
+<th>
+</th>
+<th>
+</th>
+<th>ノンパラメトリック
+</th>
+<th>パラメトリック
+</th></tr>
+<tr>
+<td rowspan="2">
+</td>
+<td rowspan="2">
+</td>
+<td><i><b>全ての分布からのデータ</b></i>
+</td>
+<td><i><b>正規分布からのデータ</b></i>
+</td></tr>
+<tr>
+<td><i><b>小さい集団</b></i>
+</td>
+<td><i><b>大きい集団</b></i>
+</td></tr>
+<tr>
+<td><b>1群</b>
+</td>
+<td>
+</td>
+<td>Wilcoxonの符号順位検定
+</td>
+<td>1群のt検定
+</td></tr>
+<tr>
+<td rowspan="2"><b>2群</b>
+</td>
+<td>独立した群
+</td>
+<td>
+<ul><li> Mann-Whitney検定</li>
+<li>Kolmogorov-Smirnov 検定 </li></ul>
+</td>
+<td>2群のt検定
+</td></tr>
+<tr>
+<td>対応のある群
+</td>
+<td>
+<ul><li>Wilcoxonの符号順位検定 </li>
+<li>符号検定 </li></ul>
+</td>
+<td>対応のあるt検定
+</td></tr>
+<tr>
+<td rowspan="2"><b>複数群</b>
+</td>
+<td>独立した群
+</td>
+<td>
+<ul><li>Kruskal-WallisのANOVA </li>
+<li>Moodのメディアン検定 </li></ul>
+</td>
+<td>一元配置ANOVA
+</td></tr>
+<tr>
+<td>関連した群
+</td>
+<td>FriedmanのANOVA
+</td>
+<td>繰り返し測定のある一元配置ANOVA
+</td></tr></table>
+<h2><a name="Examples"></a><span class="mw-headline">サンプル</span></h2>
+<h3><a name="One_Sample_Independent_Tests"></a><span class="mw-headline">1群の独立検定</span></h3>
+<p>1群のWilcoxon の符号順位検定は、特定の値に対して母集団の中央値が適切か否かを検定します。片側または両端の検定から選ぶことができます。Wilcoxon の符号順位検定の仮定は、「H0：中央値は仮定した中央値と等しい」に対して「H1：中央値は仮定した中央値と等しくない」になります。<br />
+この例では、製造店勤務の品質管理技術者が製品の重さの中央値（または、平均）が166と等しくなるか調べます。技術者は10個の製品をランダムに取り出し、重さを測りました。測定データは次のようになりました。
+<br />
+151.5 152.4 153.2 156.3 179.1 180.2 160.5 180.8 149.2 188.0
+<br />
+技術者は<b>正規性検定</b>このデータの分布が正規分布か否かを判断します。
+</p>
+<ol><li>新しいワークシートを開き、上記データを列Aをに入力します。メニューから<b>統計：記述統計：正規性検定...</b>を選択して<b>正規性検定</b>ダイアログを開きます。</li>
+<li><b>データ範囲</b>として列A(X) を選択します。<br />
+<dl><dd><a  class="image"><img alt="Normality test.PNG" src="../images/Non-parametric_Statistics_Overview/Normality_test.PNG" width="438"  /></a></dd></dl></li>
+<li><b><b>OK</b></b>ボタンをクリックし、結果を出力します。
+<dl><dd><a  class="image"><img alt="Normailty test result.PNG" src="../images/Non-parametric_Statistics_Overview/Normailty_test_result.PNG" width="388"  /></a></dd></dl></li></ol>
+<p><br />
+結果によると、P値＝0.03814となっており、このデータは0.05レベルでは正規分布ではない、という事ができます。1群のWilcoxon符号付順位検定を実行するには
+</p>
+<ol><li> メニューから、<b><b>統計：ノンパラメトリック検定：1群のWilcoxon符号付順位検定</b></b>を選択してダイアログを開きます。</li>
+<li> 列Aを<b><b>入力</b></b>としてセットします。 </li>
+<li> <b>検定の中央値</b>として<b>166</b>をテキストボックスに入力します。
+<dl><dd> <a  class="image"><img alt="Nonprarmetric test w1.PNG" src="../images/Non-parametric_Statistics_Overview/Nonprarmetric_test_w1.PNG" width="414"  /></a></dd></dl></li>
+<li> <b>OK</b>ボタンをクリックし、結果を出力します。
+<dl><dd><a  class="image"><img alt="Nonprarmetric test w1 result.PNG" src="../images/Non-parametric_Statistics_Overview/Nonprarmetric_test_w1_result.PNG" width="423"  /></a></dd></dl></li></ol>
+<p>結果によると、帰無仮説を0.05レベルで棄却できないので、結果として中央値は166と等しいといえます。
+</p>
+<h3><a name="Two_Sample_Independent_Tests"></a><span class="mw-headline">2群の独立検定</span></h3>
+<p>Originは集団が独立システムとなっている時に使用できるノンパラメトリック統計検定として、<b>マンホイットニー検定</b>と<b>2群のKolmogorov-Smirnov検定</b>の2つを用意しています。
+</p><p>次の例題は<b>マンホイットニー検定</b>の実用的な例を示します。2種類のタイヤ（AとB）ですり減り具合（mg）の量を測定し、各タイヤに8つの実験が行われました。このデータはインデックス化され、abrasion_indexed.dat ファイルに保存されています。 
+</p>
+<ol><li> <b>\Samples\Statistics\</b> から abrasion_indexed.dat ファイルをインポートします。</li>
+<li> メニューから<b><b>統計：ノンパラメトリック検定：マンホイットニー検定</b></b>と選択してダイアログを開きます。</li>
+<li> <b>入力データフォーム</b>は<b>インデックス</b>のままにします。 </li>
+<li> 列Aを<b>グループ範囲</b>、列Bを<b>データ範囲</b>と設定します。 </li>
+<li> <b>正確なP値</b>チェックボックスにチェックを入れます。
+<dl><dd> <a  class="image"><img alt="Mwtest dlg.png" src="../images/Non-parametric_Statistics_Overview/Mwtest_dlg.png" width="457"  /></a></dd></dl></li>
+<li> <b>OK</b>ボタンをクリックすると<b>MannWhitney1</b>シートに結果が出力されます。
+<dl><dd><a  class="image"><img alt="Mwtest result.png" src="../images/Non-parametric_Statistics_Overview/Mwtest_result.png" width="321"  /></a></dd></dl>
+<ul><li><b>U</b>： <b>U</b>統計は2群のランクから計算されます。2番目の群のスコアが1番目の群よりも大きかった回数を記録します。</li>
+<li> <b>Z</b>： おおよその標準検定統計です。標本数が大きくなればなるほどより正確に予測できるようになります。</li>
+<li> <b>正確なP値</b>はダイアログ内で<b><b>正確なP値</b></b>を選択していないと確認できません。ただし、大きなサンプルの場合、CPU時間がかかります。</li>
+<li> <b>漸近的P値</b>: 漸近的P値はおおよその標準統計検定<b><b>Z</b></b>から計算されています。</li></ul></li></ol>
+<h3><a name="Non-parametric_Measures_of_Correlation"></a><span class="mw-headline">相関に関するノンパラメトリック測定</span></h3>
+<p>相関係数は2つの変数間の関係性を見るのに使用されます。ノンパラメトリック統計でも、相関係数を計算することが可能です。
+</p><p>Originは相関係数を計算する2種類のノンパラメトリック手法を搭載しています。 
+</p>
+<ul><li> <b>スピアマン</b>： ピアソン相関係数の代替えとして良く利用されます。スピアマンの係数は、従属変数と独立変数の両方が序数、または、片方が序数でもう一方が連続変数である場合に利用できます。しかし、スピアマンの係数は両方の変数が連続数の場合でも使用できます。</li>
+<li> <b>ケンドール</b>： 序数の変数で利用され、各評価者間の同意地点見つけるために利用されます。</li></ul>
+<p>次のサンプルは、ノンパラメトリック状況の相関係数を計算する方法を示します。
+</p>
+<ol><li> <b>\Samples\Statistics\</b> から  abrasion_raw.dat ファイルをインポートします。 </li>
+<li> 列Aと列Bを選択します。メニューから<b>統計：記述統計：相関係数</b>と選択し、corrcoefダイアログを開きます。</li>
+<li> <b>スピアマン</b>にチェックを入れ、<b>ピアソン</b>のチェックを外します。
+<dl><dd><a  class="image"><img alt="Corrcoef nonpara.png" src="../images/Non-parametric_Statistics_Overview/Corrcoef_nonpara.png" width="477"  /></a></dd></dl></li>
+<li> <b>OK</b>ボタンをクリックし、<b>CorrCoef1</b>シートに結果を出力します。 </li></ol>
+<p><b>Spearman相関</b>の値から、AタイヤとBタイヤのすり減り具合には相関があるといえます。<br /><a  class="image"><img alt="Corrcoef nonpara result.png" src="../images/Non-parametric_Statistics_Overview/Corrcoef_nonpara_result.png" width="278"  /></a>
+<br />
+</p>
+<h3><a name="Paired_Sample_wilcoxon_Signed_Rank_Tests"></a><span class="mw-headline">対応のあるデータのWilcoxon符号順位検定</span></h3>
+<p>上記例で使用した、<i>タイヤA</i>と<i>タイヤB</i>の中央値を使用します。
+<br />
+</p>
+<ol><li> <b>\Samples\Statistics\</b> から abrasion_raw.dat ファイルをインポートします。 </li>
+<li>メニューから、<b><b>統計：ノンパラメトリック検定：対応のあるデータのWilcoxon符号付順位検定</b></b>を選択してダイアログを開きます。</li>
+<li> 列Aを<b><b>第1データ範囲</b></b>、列Bを<b><b>第2データ範囲</b></b>と設定します。
+<dl><dd><a  class="image"><img alt="Nonpara w2 test.PNG" src="../images/Non-parametric_Statistics_Overview/Nonpara_w2_test.PNG" width="429"  /></a></dd></dl></li>
+<li> <b><b>OK</b></b>ボタンをクリックし、結果を生成します。
+<dl><dd><a  class="image"><img alt="Nonpara w2 test result.PNG" src="../images/Non-parametric_Statistics_Overview/Nonpara_w2_test_result.PNG" width="349"  /></a></dd></dl></li></ol>
+<p>最終的に2つの中央値は有意に異なる、と結論付ける事ができます。一見して分かりますが、グループAの中央値の方がグループBより大きくなっています。
+</p>
+<h3><a name="Multiple_Independent_Samples_Test"></a><span class="mw-headline">複数の独立標本検定</span></h3>
+<p>この例題では4種類の車の燃費が測定されました。各車に対して複数の実験が行われました。結果は以下の表にまとめられています。
+</p>
+<table class="simple">
+<tr>
+<th> GMC/mpg
+</th>
+<th> Infinity/mpg
+</th>
+<th> Saab/mpg
+</th>
+<th> Kia/mpg
+</th></tr>
+<tr>
+<td> 26.1
+</td>
+<td> 32.2
+</td>
+<td> 24.5
+</td>
+<td> 28.4
+</td></tr>
+<tr>
+<td> 28.4
+</td>
+<td> 34.3
+</td>
+<td> 23.5
+</td>
+<td> 34.2
+</td></tr>
+<tr>
+<td> 24.3
+</td>
+<td> 29.5
+</td>
+<td> 26.4
+</td>
+<td> 29.5
+</td></tr>
+<tr>
+<td> 26.2
+</td>
+<td> 35.6
+</td>
+<td> 27.1
+</td>
+<td> 32.2
+</td></tr>
+<tr>
+<td> 27.8
+</td>
+<td> 32.5
+</td>
+<td> 29.9
+</td>
+<td>
+</td></tr>
+<tr>
+<td> 30.6
+</td>
+<td> 30.2
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td> 28.1
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>
+</td></tr></table>
+<p>これら4つの製造元で作られた車の燃費の等しさ、あるいは、一番効率的な車かを評価するのに、ノンパラメトリック検定の1つである、Kruskal-Wallis のANOVAを行います。
+</p>
+<ol><li>Originで新しいワークブックを作成し、そこにサンプルデータをコピーして貼り付けます。</li>
+<li>メニューから<b><b>統計：ノンパラメトリック検定：Kruskal-Wallis のANOVA</b></b>と選択してkwanovaダイアログを開きます。</li>
+<li><b><b>入力データフォーム</b></b>として、「素データ値」を選択します。</li>
+<li><b><b>入力</b></b>の隣にある<b><b>三角形のボタン</b></b><a  class="image"><img alt="Button Select Data Right Triangle.png" src="../images/Non-parametric_Statistics_Overview/Button_Select_Data_Right_Triangle.png" width="18"  /></a>をクリックし、コンテキストメニュー内にある<b><b>全列</b></b>を選びます。<br />
+<dl><dd><a  class="image"><img alt="Tutorial Nonparametric Test 001.png" src="../images/Non-parametric_Statistics_Overview/Tutorial_Nonparametric_Test_001.png" width="414"  /></a><br /></dd></dl></li>
+<li><b><b>OK</b></b>ボタンをクリックすると結果を新しいワークシート<b><b>KWANOVA1</b></b>に表示します。</li></ol>
+<p>p値から、これらの4つの製造元の車の燃費は有意に異なるという事ができます。<br />
+<a  class="image"><img alt="Tutorial Nonparametric Test 002.png" src="../images/Non-parametric_Statistics_Overview/Tutorial_Nonparametric_Test_002.png" width="309"  /></a><br /><br />
+</p>
+<h3><a name="Multiple_Related_Samples_Test"></a><span class="mw-headline">複数の関連のある標本検定</span></h3>
+<p>眼科医がヘリウム・ネオンレーザー治療が子供に有効か調べています。6-10歳の子供たちのと11-16歳の子供たちの2群からのデータがあります。各データセットは5人の裸眼視力が3回の治療を通してどのように変わったのか記録しています。結果はeyesight.datに保存されています。
+</p><p>標本数が少ないのでノンパラメトリック検定を行います。次の手順に沿って操作してください。
+</p>
+<ol><li><b>\Samples\Statistics\</b> から  eyesight.dat ファイルをインポートします。</li>
+<li>メニューから<b><b>統計：ノンパラメトリック検定：FriedmanのANOVA</b></b>と選択してfriedmanダイアログを開きます。</li>
+<li>列Aを<b>データ範囲</b>、列Cを<b>因子範囲</b>、列Dを<b>従属する範囲</b>と設定します。
+<dl><dd><a  class="image"><img alt="Tutorial Nonparametric Statistics 004.png" src="../images/Non-parametric_Statistics_Overview/Tutorial_Nonparametric_Statistics_004.png" width="424"  /></a></dd></dl></li>
+<li><b><b>OK</b></b>ボタンをクリックし、結果を出力します。</li></ol>
+<p><a  class="image"><img alt="Origin Analysis Case 10.png" src="../images/Non-parametric_Statistics_Overview/Origin_Analysis_Case_10.png" width="38"  /></a>のp値は0.0067379となっており、0.05よりも小さい値になっています。この2群は大きく異なる事が分かるので、治療は6-10歳の群には有効であるといえます。<br />
+<a  class="image"><img alt="Tutorial Nonparametric Statistics 005.png" src="../images/Non-parametric_Statistics_Overview/Tutorial_Nonparametric_Statistics_005.png" width="279"  /></a><br />
+</p><p>同じように、列B を<b><b>データ範囲</b></b>にして、他の<b>入力</b>設定はステップ3と同じようにします。
+</p><p><a  class="image"><img alt="Tutorial Nonparametric Statistics 006.png" src="../images/Non-parametric_Statistics_Overview/Tutorial_Nonparametric_Statistics_006.png" width="424"  /></a>
+</p><p><br />
+結果を確認すると、<a  class="image"><img alt="Origin Analysis Case 16.png" src="../images/Non-parametric_Statistics_Overview/Origin_Analysis_Case_16.png" width="36"  /></a>のp値は0.02599となっており、0.05や0.10よりも小さくなっていることが分かります。つまり、11-16歳までの子供でも、3回の治療で視力が良くなっていると結論づける事ができます。
+</p><p><a  class="image"><img alt="Tutorial Nonparametric Statistics 007.png" src="../images/Non-parametric_Statistics_Overview/Tutorial_Nonparametric_Statistics_007.png" width="282"  /></a>
+</p><p>また、<a  class="image"><img alt="Origin Analysis Case 10.png" src="../images/Non-parametric_Statistics_Overview/Origin_Analysis_Case_10.png" width="38"  /></a>&gt;<a  class="image"><img alt="Origin Analysis Case 16.png" src="../images/Non-parametric_Statistics_Overview/Origin_Analysis_Case_16.png" width="36"  /></a>という事が分かるので、ヘリウム・ネオンレーザー治療は6-10歳までの子供の方が良く効くといえます。まだ年齢が幼い子供たちがこの治療を行うと、視力が改善する可能性が高くなります。
+<br /><br />
+</p>
+
+
+
+    

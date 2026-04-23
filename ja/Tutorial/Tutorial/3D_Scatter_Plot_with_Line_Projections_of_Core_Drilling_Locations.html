@@ -1,0 +1,70 @@
+﻿<h1 class="firstheading">掘削ドリル位置の3D散布図と線の投影</h1>
+<p class="urlname" style="display: none;">3D-Scatter-LineProjection</p>
+<p><br />
+</p>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>このチュートリアルは、3D散布図の作成方法とそのプロットの射影の表示方法を紹介します。 </p>
+<dl>
+	<dd><dl>
+		<dd><a class="image"><img alt="3D Scatter FinalGraph.png" src="../images/3D_Scatter_Plot_with_Line_Projections_of_Core_Drilling_Locations/3D_Scatter_FinalGraph.png" 
+									 width="508" border="0" /></a></dd>
+	</dl></dd>
+</dl>
+<p class="version">必要なOriginのバージョン: Origin 2015 SR0以降</p>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>このチュートリアルは、チュートリアルデータプロジェクト（<i>&lt;Origin EXE フォルダ&gt;\Samples\TutorialData.opj</i>）と関連しています。 
+ </p>
+<ol>
+	<li>チュートリアルデータを開き、プロジェクトエクスプローラで<b>3D Scatter with Line Projections</b>のフォルダを開いて、ワークブック<b>3DScatterPlot</b>をアクティブにします。</li>
+	<li>ワークシート<b>The_First_Curve_of_3D_Scatter</b> をアクティブにします。列のＸＹ属性は、予めXYZに設定されているため、そのまま3Ｄ散布図を作図できます。列<b>Ｃ</b>を選択し、メニューから<b>作図:3D:3D散布図</b>と操作してグラフを作図します。</li>
+	<li><b>The Second Curve of 3D Scatter</b> というワークシートをアクティブにします。<b>C</b>列を選択します。マウスを選択した列の右端に移動すると、マウスカーソルが 
+	 <a class="image"><img alt="DragAndDrop.png" src="../images/3D_Scatter_Plot_with_Line_Projections_of_Core_Drilling_Locations/DragAndDrop.png" 
+							 width="33" border="0" /></a> のような形になります。マウスボタンを押したまま、選択されたデータを新しく作成したグラフウィンドウまでドラッグします。操作の後、下図のようなグラフになります。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="3D Scatter FinalGraph.png" src="../images/3D_Scatter_Plot_with_Line_Projections_of_Core_Drilling_Locations/3D_Scatter_FirstGraph.png" 
+									 width="436" height="360" border="0" /></a></dd>
+	</dl></li>
+	<li>Ｚ軸をダブルクリックして<b>軸</b>ダイアログを開きます。<b>スケール</b>タブで<b>Ｚ</b>アイコンが選択されているのを確認してから、<b>開始</b>と<b>終了</b>の値を交換することでＺ軸を反転させます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="3D Scatter FinalGraph.png" src="../images/3D_Scatter_Plot_with_Line_Projections_of_Core_Drilling_Locations/3D_Scatter_Z.png" 
+									 width="487" height="409" border="0" /></a></dd>
+	</dl></li>
+	<li><b>OK </b>をクリックして、ダイアログを閉じます。メニューから<b>フォーマット：レイヤ</b>を選択し、<b>作図の詳細</b>ダイアログボックスを開きます。あるいは、プロットをダブルクリックしてもダイアログを開くことができます。もし、左パネルが開いていない場合、<a 
+	 class="image"><img alt="Plot Details Expansion.png" src="../images/3D_Scatter_Plot_with_Line_Projections_of_Core_Drilling_Locations/Plot_Details_Expansion.png" 
+						 width="33" border="0" /></a> ボタンをクリックしてダイアログを拡張します。<b>Layer1</b> 
+	 ノードを広げます。最初のプロットを選択し、<b>依存性を編集</b>の項目で<b>全てまとめて</b>のオプションを選びます。この操作で、元のデータと他の投影、全てに同じ設定を適用します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="3D Scatter FinalGraph.png" src="../images/3D_Scatter_Plot_with_Line_Projections_of_Core_Drilling_Locations/3D_Scatter_FirstPlot.png" 
+									 width="685" height="226" border="0" /></a></dd>
+	</dl></li>
+	<li>最初のプロットのノードを選択して開き、<b>オリジナル</b>と<b>XY/ZX/YZ投影</b>の全てを選択します。 </li>
+	<li>下図のようにオプションをセットします。色を設定するには、<b>色</b>のドロップダウンリストの<b>指定色</b>から目的の色を選択します。前の手順で<b>全てまとめて</b>が選択されているため、ここの設定は投影図にも反映されます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="3D Scatter FirstPlot Line.png" src="../images/3D_Scatter_Plot_with_Line_Projections_of_Core_Drilling_Locations/3D_Scatter_FirstPlot_Line.png" 
+									 width="700" height="243" border="0" /></a></dd>
+	</dl></li>
+	<li><b>シンボル</b>タブで、<b>形状</b>を<b>立方体</b>に変更します。 
+	<dl>
+		<dd><a class="image"><img alt="3D Scatter FirstPlot Symbol.png" 
+									 src="../images/3D_Scatter_Plot_with_Line_Projections_of_Core_Drilling_Locations/3D_Scatter_FirstPlot_Symbol.png" 
+									 width="751" height="246" border="0" /></a></dd>
+	</dl></li>
+	<li>同様に、2番目のプロットを選択し、下図のようにオプションをセットします。 
+	<dl>
+		<dd><a class="image"><img alt="Scatter 2Plot.png" src="../images/3D_Scatter_Plot_with_Line_Projections_of_Core_Drilling_Locations/3D_Scatter_2Plot.png" 
+									 width="749" height="289" border="0" /></a></dd>
+		<dd><a class="image"><img alt="Scatter 2Plot" src="../images/3D_Scatter_Plot_with_Line_Projections_of_Core_Drilling_Locations/3D_Scatter_2Plot_Line.png" 
+									 width="715" height="245" border="0" /></a></dd>
+		<dd><a class="image"><img alt="Scatter 2Plot" src="../images/3D_Scatter_Plot_with_Line_Projections_of_Core_Drilling_Locations/3D_Scatter_2Plot_Symbol.png" 
+									 width="735" height="262" border="0" /></a></dd>
+	</dl></li>
+	<li>最終的に、下図のようなグラフになります。 
+	<dl>
+		<dd><a class="image"><img alt="3D Scatter FinalGraph.png" src="../images/3D_Scatter_Plot_with_Line_Projections_of_Core_Drilling_Locations/3D_Scatter_FinalGraph.png" 
+									 width="508" height="412" border="0" /></a></dd>
+	</dl></li>
+</ol>

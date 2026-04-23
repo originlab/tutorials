@@ -1,0 +1,77 @@
+﻿<h1 class="firstheading">偏相関係数</h1>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>目次</h2>
+</div>
+<ol>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#User_Story"><span class="tocnumber">3</span> <span class="toctext">ユーザストーリー</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Detect_Relationship_with_Pearson.27s_R"><span class="tocnumber">4</span> <span class="toctext">ピアソンのＲで関係性を検出する</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Revealing_the_Real_Relationship_with_Partial_Correlation_Coefficients"><span class="tocnumber">5</span> <span class="toctext">偏相関係数で実際の関係性を明らかにする</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Conclusion"><span class="tocnumber">6</span> <span class="toctext">結論</span></a></li>
+</ol>
+</div>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>偏相関係数は、1つまたはそれ以上の制御変数の影響を除外した後に、2つの不規則な変数間の線形な関係性を測定する為のツールです。</p>
+<h2><a name="What_you_will_learn" id="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。</p>
+<ul>
+<li>実際の例を使った、originでの偏相関の実行方法</li>
+<li>算出された結果の読み取り方</li>
+</ul>
+<h2><a name="User_Story" id="User_Story"></a><span class="mw-headline">ユーザストーリー</span></h2>
+<p>我々は、2000年から2010年までの、国ごとの11の指標（医療費、GDP、人口等）を含んだ公のデータをワールドバンクから入手しました。インターネットの利用、携帯の利用、米国での医療費の関係性を学習します。</p>
+<h2><a name="Detect_Relationship_with_Pearson.27s_R" id="Detect_Relationship_with_Pearson.27s_R"></a><span class="mw-headline">ピアソンのＲで関係性を検出する</span></h2>
+<p>このチュートリアルは、チュートリアルデータプロジェクト（<i>&lt;Origin EXE フォルダ&gt;\Samples\TutorialData.opj</i>）と関連しています。</p>
+<ol>
+<li><b style="font-weight: bold;">Tutorial Data.opj</b>を開き、<b>Partial Correlation Coefficient</b>フォルダのブック<b>Partial Correlation Coefficient</b>をアクティブにします。</li>
+<li>ソースデータの<b>Sheet1</b> をアクティブにします。2000年から2010年までの米国のデータを入手するために、既にデータフィルタを掛けています。</li>
+<li><b style="font-weight: bold;">Mobile phone subscribers</b>と<b>Total internet users</b>及び、 <b>Health expenditures per capita</b> と <b>GDP per capita</b>の関係性を視覚的に検出するために、まず<b>相関係数</b>ツールは使われます。
+<ol>
+<li><b style="font-weight: bold;">Ctrl</b> キーを押して<b>Col(E)</b>、<b>Col(U1)</b>、<b>Col(H)</b> と<b>Col(S)</b>を選択します。</li>
+<li>メインメニューの<b>統計：記述統計：相関係数</b>を選択します。</li>
+<li>開いたダイアログで、<b>プロット</b>のブランチにある、<b>散布図</b>を選択し、<b>信頼楕円の追加</b>のボックスにチェックを入れます。<b>結果表に有意性を表示する</b>のチェックを外し、<b>有意相関のフラグ</b>のボックスにチェックを入れます。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Partial corr coef 1.png" src="../images/Partial_Correlation_Coefficient/Partial_corr_coef_1.png" width="468" height="278" border="0" /></a></dd>
+</dl>
+</li>
+</ol>
+</li>
+<li>ピアソンの相関係数と散布図行列から、次の内容が分かります。
+<ul>
+<li>散布図データはおおよそ線形になっている。</li>
+<li>信頼楕円の形状は細くなっている。</li>
+<li>全てのピアソンの相関係数は赤色にフラグされている。</li>
+<li>個々のピアソン相関係数は0.9よりも大きい。</li>
+</ul>
+<dl>
+<dd><b style="font-weight: bold;">Mobile phone subscribers</b>と<b>Total internet users</b>及び、<b>Health expenditures per capita</b> と<b>GDP per capita</b>の間には、強い相関性があることが表れている。</dd>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Partial corr coef 2.png" src="../images/Partial_Correlation_Coefficient/500px-Partial_corr_coef_2.png" width="500" height="297" border="0" /></a></dd>
+</dl>
+</li>
+</ol>
+<h2><a name="Revealing_the_Real_Relationship_with_Partial_Correlation_Coefficients" id="Revealing_the_Real_Relationship_with_Partial_Correlation_Coefficients"></a><span class="mw-headline">偏相関係数で実際の関係性を明らかにする</span></h2>
+<p><b style="font-weight: bold;">Mobile phone subscribers</b>と<b>Total internet users</b>及び、 <b>Health expenditures per capita</b> は強く相関していて、<b>GDP per capit</b>もこれら3つの値に影響することが分かっています。<b>GDP per capita</b>の影響を除外した後に、3つの指標の関連性を測定します。</p>
+<ol>
+<li>ソースデータのSheetをアクティブにします。<b>Ctrl</b> キーを押しながら、<b>Col(E)</b>、<b>Col(U1)</b> 、<b>Col(H)</b> を選択します。</li>
+<li>メインメニューから<b>統計：記述統計：偏相関係数</b>」を選択します。</li>
+<li>開いたダイアログで、3つの選択された列は<b>変数</b>として自動的に選択されています。</li>
+<li><b style="font-weight: bold;">GDP per capita</b>の影響を除くために、 <b>Col(S)</b> を <b>制御変数</b>に設定します。<b>Flag Significant Correlations</b> のチェックボックスにチェックを入れます。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Partial corr coef 3.png" src="../images/Partial_Correlation_Coefficient/Partial_corr_coef_3.png" width="444" height="168" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">PCorr1</b>のシートに移動します。このシートには、<b>GDP per capita</b>の影響を除いた後の、<b>偏相関係数</b>が含まれています。ここから次のことが分かります。
+<ul>
+<li><b style="font-weight: bold;">Mobile phone subscribers</b>と<b>Health expenditures per capita</b> だけが明らかに関連しています。（Partial Corr の値が赤色にマークされています）しかし、前にピアソンのＲで示した時よりも、実際の相関性は強くありません。(偏相関 = 0.87307 対Pearsonの相関 = 0.99157).</li>
+<li><b style="font-weight: bold;">Mobile phone subscribers</b>と<b>Total internet users</b> の偏相関係数は0.26178に減少しています。これらは相関していないことが明らかです。</li>
+<li><b style="font-weight: bold;">Total internet users</b> と <b>Health expenditures per capita</b> が相関している根拠は示されていません。 (Partial Corr = 0.07615), 以前に得たピアソンのＲは 0.96685でした。</li>
+</ul>
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Partial corr coef 4.png" src="../images/Partial_Correlation_Coefficient/Partial_corr_coef_4.png" width="630" height="143" border="0" /></a></dd>
+</dl>
+</li>
+</ol>
+<h2><a name="Conclusion" id="Conclusion"></a><span class="mw-headline">結論</span></h2>
+<p>なぜこのように結果が異なるのでしょうか？他の3つの指標間の <b>GDP per capita</b> のピアソンのＲに着目すると、<b>GDP per capita</b> が3つの値に影響していることが分かります。たとえ、<b>Total internet users</b> と <b>Health expenditures per capita</b>及び、<b>Total internet users</b> と <b>Mobile phone subscribers</b>の間に、相関性がなかったとしても、"誤った相関性”は<b>GDP per capita</b>の影響により、ピアソンのＲによって未だに表れてきます。偏相関係数は、相関する制御変数の影響を無くすことで、2つのファクターの真の関係性について検査する、便利な機能です。統計はさまざまな相互関係の現象が研究される実験のために有用です</p>

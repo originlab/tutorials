@@ -1,0 +1,136 @@
+﻿<h1 class="firstheading">ユーザ定義フィット関数</h1><p class='urlname' style='display: none'>UserDef-FitFunc</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#How_to_Create_a_Fitting_Function_and_Use_it_to_Perform_Curve_Fitting"><span class="tocnumber">3</span> <span class="toctext">フィット関数の作成と曲線フィットの実行</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Method_1:_Using_Simple_Fit_app"><span class="tocnumber">3.1</span> <span class="toctext">方法 1 - Simple Fit アプリの使用</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Method_2:_Using_Fitting_Function_Organizer_and_NLFit_Tool"><span class="tocnumber">3.2</span> <span class="toctext">方法 2 - フィット関数オーガナイザとNLFitツールの使用</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="#Step_1:_Create_a_Fitting_Function_Using_Fitting_Function_Organizer"><span class="tocnumber">3.2.1</span> <span class="toctext">ステップ1 - フィット関数オーガナイザでフィット関数を作成する</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#Step_2:Carry_Out_Curve_Fitting_using_NLFit_Tool"><span class="tocnumber">3.2.2</span> <span class="toctext">ステップ2 - NLFitツールで曲線フィットを実行する</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/User_Defined_Fitting_Function_using_OC/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/User_Defined_Fitting_Function_using_OC/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/jwplayer.html?v=ftp/mm_tutorials/mp4/Fit_by_User_Functions.mp4%7C767%7C600" target="_blank">ユーザ定義フィット関数</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=3" target="_blank">クイックフィットガジェット</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=67" target="_blank">非線形曲線フィット</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/User_Defined_Fitting_Function_using_OC/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/User_Defined_Fitting_Function_using_OC/Blog_Image_33x33px.png" width="135"  /></a>
+<ul><li> <a class="external text" href="http://blog.originlab.com/use-initial-formula-to-better-guess-fitting-parameter-values-from-data" target="_blank">Use Initial Formula to Better Guess Fitting Parameter Values from Data</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p><a class="external text" href="../../UserGuide/Category/Appendix_3_-_Built-in_Functions.html">200以上の組み込みフィット関数</a>に加えて、ユーザ自身で作成したフィット関数を作成することが出来ます。以下のように多くのOriginツールは、ユーザ独自の関数でのフィッティングをサポートしています。 
+</p>
+<ul><li> <a class="external text" href="http://originlab.com/fileExchange/details.aspx?fid=239" target="_blank"><b>Simple Fit</b> アプリ</a> 
+<dl><dd><b>Simple Fit</b> アプリは、y = f(x)形式で構成される簡単な関数でしフィットするより便利な方法を提供します。関数式を入力するもしくは既存の関数を選択し、初期値を指定するだけで、すぐにフィット結果をレポート出力します。<a href="#Method_1:_Using_Simple_Fit_app">この項</a>では、このアプリの使い方を学べます。
+<dl><dd><b>Note:</b>Simple FitアプリはOriginにプリインストールされており、グラフウィンドウをアクティブにして<a class="external text" href="../../UserGuide/UserGuide/Apps.html#The_Apps_Gallery"><b>アプリギャラリー</b></a>から呼び出すことができます。</dd></dl></dd></dl></li>
+<li><a href="../../Tutorial/Tutorial/Quick_Fit_Gadget.html" title="チュートリアル：クィックフィットガジェット">クイックフィットガジェット</a>
+<dl><dd>クイックフィットガジェットは、詳細な設定まで可能だが、少々複雑な線形フィットダイアログ及び非線形曲線フィットダイアログを開くことなく、線形及び非線形の両方を簡単に実行できる別の方法です。このガジェットでフィットプロセスを始めるには、まず関数リストに作成した関数を追加する必要があります。 </dd></dl></li>
+<li> <a class="external text" href="../../UserGuide/Category/The_NLFit_Dialog_Box.html"><b>NLFit</b> ツール</a> 
+<dl><dd><b>NLFit</b> ツールはウィザード方式で、より複雑なフィット関数を定義し、フィットの工程をあらゆる可能な方法で制御することが出来ます。<b>NLFit</b> ツールで、ユーザ定義関数をフィットするには、まず、<a class="external text" href="../../UserGuide/Category/The_Fitting_Function_Builder.html"><b>フィット関数ビルダー</b></a> で関数を作成します。</dd></dl></li></ul>
+<p><br />
+このチュートリアルでは、主に<b>フィット関数ビルダー</b>でのフィット関数の作成の仕方を図解し、<b>NLFit</b> ツールを使って、カーブフィットに必要なパラメータを定義して、フィットを実行するかを説明します。
+</p>
+<p class="version" >必要なOriginのバージョン:Origin 2016 SR0以降</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。
+</p>
+<ul><li>ユーザ定義フィット関数を作成する</li>
+<li>ユーザ定義フィット関数で非線形曲線フィットを実行する</li></ul>
+<h2><a name="How_to_Create_a_Fitting_Function_and_Use_it_to_Perform_Curve_Fitting"></a><span class="mw-headline">フィット関数の作成と曲線フィットの実行</span></h2>
+<p><i>&lt;Origin EXE Folder&gt;\Samples\Curve Fitting\</i> のパスにある、<b>ConcentrationCurve.dat</b> のデータを使ってフィットを実行します。
+</p><p>次の様にフィット関数は作成され使用されます。
+</p><p><img src="../images/User_Defined_Fitting_Function_using_OC/math-13a2da4db13747594cc6f088f7811a65.png" title="y=A\exp(2.303kx-k_{m})\sqrt{2.303+\frac{C}{(x-C_{0})}}" alt="y=A\exp(2.303kx-k_{m})\sqrt{2.303+\frac{C}{(x-C_{0})}}" class="tex"/>
+</p><p>ここで、 
+</p><p><img src="../images/User_Defined_Fitting_Function_using_OC/math-415290769594460e2e485922904f345d.png" title="y" alt="y" class="tex"/> ：従属変数  
+</p><p><img src="../images/User_Defined_Fitting_Function_using_OC/math-9dd4e461268c8034f5c8564e155c67a6.png" title="x" alt="x" class="tex"/> ：独立変数
+</p><p><img src="../images/User_Defined_Fitting_Function_using_OC/math-610f5342226d90a3c96f3f75ddfb3470.png" title="A, k_{m}, k, C, C_{0}" alt="A, k_{m}, k, C, C_{0}" class="tex"/> はすべてフィットパラメータです。
+</p>
+<h3><a name="Method_1:_Using_Simple_Fit_app"></a><span class="mw-headline">方法 1 - Simple Fit アプリの使用</span></h3>
+<ol>
+<li><a  class="image"><img alt="Button Import Single ASCII.png" src="../images/User_Defined_Fitting_Function_using_OC/Button_Import_Single_ASCII.png" width="25"  /></a>ボタンをクリックして<i>&lt;Origin インストールフォルダ&gt;\Samples\Curve Fitting\</i> にある<b>ConcentrationCurve.dat</b>をインポートします。
+<li>B列を選択して<a  class="image"><img alt="Button Scatter.png" src="../images/User_Defined_Fitting_Function_using_OC/Button_Scatter.png" width="22"  /></a>ボタンをクリックし、散布図を作図します。
+<li><b>解析：フィット：Simple Fit</b>と選択し、Simple Fitアプリを開きます。<b>非線形</b>タブに切り替え、<b>y(x)=</b>ボックスに式を入力します。そしてそのとき、パラメータテーブルが表示され、パラメータの初期値を入力できます。<br />
+<a  class="image"><img alt="Simple Fit User-defined Function 01.png" src="../images/User_Defined_Fitting_Function_using_OC/700px-Simple_Fit_User-defined_Function_01.png" width="700"   /></a>
+<li>方程式を入力し、パラメータを初期化して修正したら、<b>フィット</b>ボタンをクリックして、先ほど定義した関数で曲線をフィットさせます。もちろん、<b>1回反復</b>ボタンを1回ずつクリックすると、フィッティングの傾向を確認できます。 
+<li><b>名前を付けて保存...</b>をクリックして、この関数を保存してさらに使用することができます。<b>閉じる</b>ボタンをクリックし、フィッティング結果を確認します。<br />
+<a  class="image"><img alt="Simple Fit User-defined Function 02.png" src="../images/User_Defined_Fitting_Function_using_OC/650px-Simple_Fit_User-defined_Function_02.png" width="650"   /></a>
+</li>
+</ol>
+<h3><a name="Method_2:_Using_Fitting_Function_Organizer_and_NLFit_Tool"></a><span class="mw-headline">方法 2 - フィット関数オーガナイザとNLFitツールの使用</span></h3>
+<h4><a name="Step_1:_Create_a_Fitting_Function_Using_Fitting_Function_Organizer"></a><span class="mw-headline">ステップ1 - フィット関数オーガナイザでフィット関数を作成する</span></h4>
+<p>このセクションでは、<b><b>フィット関数ビルダー</b></b>でユーザ定義関数を作成する方法を説明します。他のツール、<b>フィット関数オーガナイザー</b>でも、ユーザ定義関数を作成することが出来ます。<b>ツール：フィット関数オーガナイザー</b> と選択、または<b>F9</b>をキーボードで押してダイアログを開きます。
+</p>
+<ol>
+<li>Originを起動し、<b><b>ツール：フィット関数ビルダー</b></b>を選択（または<b><b>F8</b></b>キーを押す）して、<b>フィット関数ビルダ</b>を開きます。</li>
+<li><b><b>処理のゴール</b></b>ページで、<b><b>新しい関数の作成</b></b>を選択し、<b><b>進む</b></b>ボタンをクリックします。
+<li><b><b>関数と関数形式</b></b>のページでは、下図のように設定を変更し、<b><b>進む</b></b>ボタンをクリックします。<br />
+<a  class="image"><img alt="Tutorial UserDefFitFunc 001.png" src="../images/User_Defined_Fitting_Function_using_OC/Tutorial_UserDefFitFunc_001.png" width="611"  /></a></li>
+<li><b><b>変数とパラメータ</b></b>ページで、変数とパラメータ名を下図のように入力し、<b>パラメータ</b><b><b>ボックスの</b><b>進む</b></b><br /> <a  class="image"><img alt="Tutorial UserDefFitFunc 002.png" src="../images/User_Defined_Fitting_Function_using_OC/Tutorial_UserDefFitFunc_002.png" width="611"  /></a><br />をクリックします。区切りにはカンマ&rdquo;,&rdquo;を使います。
+</li>
+<li><b><b>式形式の関数</b></b>ページで、以下の式を<b><b>関数内容</b></b>に入力します。
+<pre class="lt" style="font-family:monospace;">A<span style="color: #000080;">*</span>exp<span style="color: #000000;">(</span>R0<span style="color: #000080;">*</span>k<span style="color: #000080;">*</span>x<span style="color: #000080;">-</span>km<span style="color: #000000;">)</span><span style="color: #000080;">*</span>sqrt<span style="color: #000000;">(</span>R0<span style="color: #000080;">+</span>c<span style="color: #000080;">/</span><span style="color: #000000;">(</span>x<span style="color: #000080;">-</span>c0<span style="color: #000000;">)</span><span style="color: #000000;">)</span></pre>
+</li>
+<li><b><b>定数</b></b>タブを開き、<b><b>R0</b></b>の値を<b><b>2.303</b></b>に設定します。</li>
+<li>予測された初期値を、このデータと関数に基づいたパラメータに与えます。<br />
+<a  class="image"><img alt="Tutorial UserDefFitFunc 003.png" src="../images/User_Defined_Fitting_Function_using_OC/Tutorial_UserDefFitFunc_003.png" width="315"  /></a><br />
+<b><b>Note</b>：</b>フィット実行時に異なる初期値を入力することもできます。</li>
+<li><b><b>評価</b></b>ボタン<a  class="image"><img alt="Button Evaluate.png" src="../images/User_Defined_Fitting_Function_using_OC/Button_Evaluate.png" width="23"  /></a>をクリックして、関数が動作するか確認します（動作する場合、実際のyの値が返されます）。<br />
+<b><b>Note</b>：</b>最初の操作で、<b><b>関数形式</b></b>として<b><b>OriginC</b></b>を使用すると、この操作画面で関数をコンパイルして何かエラーがないか確認できます。これは特に括弧の合致を調べるのに便利です。</li>
+<li><b><b>進む</b></b>を3度クリックして、<b><b>派生パラメータ</b></b>ページを開きます。</li>
+<li>このページで、派生パラメータ<b><b>A0</b></b>を定義し、<b><b>派生パラメータ定義式</b></b>を入力します。
+<pre class="lt" style="font-family:monospace;">A0<span style="color: #000080;">=</span><span style="color: #000080;">-</span>A<span style="color: #000080;">*</span>exp<span style="color: #000000;">(</span>km<span style="color: #000000;">)</span><span style="color: #000080;">*</span>1E<span style="color: #000080;">-</span>4</pre>
+</li>
+<li><b><b>完了</b></b>ボタンをクリックして関数の定義を終了します。関数ファイル(.fdf) は、ユーザファイルフォルダに保存されます。
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/User_Defined_Fitting_Function_using_OC/Tip_icon.png" width="57"  border="0" /></td><td><p><b><b>フィット関数ビルダー</b></b>を使用して一度定義した関数を、あとから編集することもできます（その場合、最初に表示される<b>処理のゴール</b>ページで<b>フィット関数の編集</b>を選択）。また、<b><b>フィット関数オーガナイザ</b></b>を使用することもできます。
+</p></td></tr></table>
+</li>
+</ol>
+<h4><a name="Step_2:Carry_Out_Curve_Fitting_using_NLFit_Tool"></a><span class="mw-headline">ステップ2 - NLFitツールで曲線フィットを実行する</span></h4>
+<ol>
+<li><a  class="image"><img alt="Button Import Single ASCII.png" src="../images/User_Defined_Fitting_Function_using_OC/Button_Import_Single_ASCII.png" width="25"  /></a>ボタンをクリックして<i>&lt;Origin インストールフォルダ&gt;\Samples\Curve Fitting\</i> にある<b>ConcentrationCurve.dat</b>をインポートします。
+<li>B列を選択して<a  class="image"><img alt="Button Scatter.png" src="../images/User_Defined_Fitting_Function_using_OC/Button_Scatter.png" width="22"  /></a>ボタンをクリックし、散布図を作図します。
+<li>グラフウィンドウがアクティブ状態で、<b>解析：フィット：非線形曲線フィット...</b>メニューを選択し、<b>NLFit</b> ダイアログを開きます。
+<li><b>関数選択</b>のページの<b>カテゴリ</b>を<b><b>User Defined</b></b>にし、<b>関数</b>を<b>MyFitFunc(User)</b> にします。
+<li><a  class="image"><img alt="Button Fit Untill Converged.png" src="../images/User_Defined_Fitting_Function_using_OC/Button_Fit_Untill_Converged.png" width="26"  /></a>ボタンをクリックしてデータをフィットします。
+<li><b><b>メッセージ</b></b>タブで、パラメータ過剰によりフィットが収束しなかったというエラーメッセージが表示されます。<br />
+<a  class="image"><img alt="Tutorial UserDefFitFunc 004.png" src="../images/User_Defined_Fitting_Function_using_OC/Tutorial_UserDefFitFunc_004.png" width="788"  /></a>
+</li>
+<li>パラメータ<b>A</b>と<b>km</b>で、相互依存性を持っているため、どちらか1つを修正することでこの問題を解決します。ここでは<b><b>A</b></b>を修正します。
+<li><b><b>パラメータ</b></b>タブを開き、<a  class="image"><img alt="Button Initialize Parameters.png" src="../images/User_Defined_Fitting_Function_using_OC/Button_Initialize_Parameters.png" width="26"  /></a>をクリックして初期値を呼び出します。パラメータ<b><b>A</b></b>の<b><b>固定</b></b>のチェックボックスにチェックを付けます。<br />
+<a  class="image"><img alt="Tutorial UserDefFitFunc 005.png" src="../images/User_Defined_Fitting_Function_using_OC/Tutorial_UserDefFitFunc_005.png" width="606"  /></a>
+</li>
+<li><b>フィット</b>ボタンをクリックしてフィットを実行します。
+<li>グラフにはフィット曲線が追加されます。 <br />
+<a  class="image"><img alt="Tutorial UserDefFitFunc 006.png" src="../images/User_Defined_Fitting_Function_using_OC/Tutorial_UserDefFitFunc_006.png" width="566"  /></a>
+</li>
+<li>また、結果レポートシートか作成され、すべてのパラメータ値（派生パラメータを含む）がパラメータ表に出力されます。<br />
+<a  class="image"><img alt="Tutorial UserDefFitFunc 007.png" src="../images/User_Defined_Fitting_Function_using_OC/Tutorial_UserDefFitFunc_007.png" width="472"  /></a>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/User_Defined_Fitting_Function_using_OC/Tip_icon.png" width="57"  border="0" /></td><td><p>パラメータ過剰が発生した場合、
+異なるパラメータを固定して複数のフィット結果を取得し、その後、<b><b>解析：フィット：モデルの比較</b></b>ツールにより統計的にフィットモデルを比較することができます。
+</p></td></tr></table>
+</li>
+<ol></ol>
+</li>
+</li>
+</li>
+</li>
+</li>
+</li>
+</li>
+</ol>
+
+
+    

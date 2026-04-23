@@ -1,0 +1,241 @@
+﻿<h1 class="firstheading">動力学モデルのための線形フィット</h1>
+<p class="urlname" style="display: none;">Linear-Fit-For-Kinetic-Models</p>
+<table id="toc" class="toc">
+	<tr>
+		<td><div id="toctitle">
+			<h2>内容</h2>
+		</div>
+		<ol>
+			<li class="toclevel-1 tocsection-1"><a href="#Summary"><span 
+			 class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+			<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+			 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+			<li class="toclevel-1 tocsection-3"><a href="#Linear_fit_for_Langmuir_model"><span 
+			 class="tocnumber">3</span> <span class="toctext">Langmuir 
+			 モデルのための線形フィット</span></a> 
+			<ol>
+				<li class="toclevel-2 tocsection-4"><a href="#Identify_transformed_independent_and_dependent_variables"><span 
+				 class="tocnumber">3.1</span> <span class="toctext">変換した独立変数と従属変数を識別する</span></a></li>
+				<li class="toclevel-2 tocsection-5"><a href="#Create_new_independent_and_dependent_variable_data"><span 
+				 class="tocnumber">3.2</span> <span class="toctext">新しい独立変数と従属変数のデータを作成する</span></a></li>
+				<li class="toclevel-2 tocsection-6"><a href="#Linear_fit_on_transformed_linear_data"><span 
+				 class="tocnumber">3.3</span> <span class="toctext">変換した線形データに線形フィットを行う</span></a></li>
+				<li class="toclevel-2 tocsection-7"><a href="#Apparent_linear_fit_on_original_non-linear_data"><span 
+				 class="tocnumber">3.4</span> <span class="toctext">元の非線形データに図上値による線形フィットを行う</span></a></li>
+			</ol></li>
+			<li class="toclevel-1 tocsection-8"><a href="#Solutions_for_other_non-linear_kinetic_models"><span 
+			 class="tocnumber">4</span> <span class="toctext">その他の非線形動力学モデルへの提案</span></a> 
+			 
+			<ol>
+				<li class="toclevel-2 tocsection-9"><a href="#Freudlich_equation"><span 
+				 class="tocnumber">4.1</span> <span class="toctext">Freudlich 
+				 関数式</span></a></li>
+				<li class="toclevel-2 tocsection-10"><a href="#Lagergren.27s_pseudo-first_order"><span 
+				 class="tocnumber">4.2</span> <span class="toctext">Lagergrenの擬一次式</span></a></li>
+				<li class="toclevel-2 tocsection-11"><a href="#Ho.27s_pseudo-second_order"><span 
+				 class="tocnumber">4.3</span> <span class="toctext">Hoの擬二次式</span></a></li>
+			</ol></li>
+		</ol></td>
+	</tr>
+</table>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>非線形動力学モデル（kinetic model）は自然科学、例えば物理、化学、生物など、幅広い分野で使われています。実験的には、動力学モデルの重要なパラメータは素データをフィットすることにより入手されています。素データを直感的にフィットする方法は、動力学方程式（kinetic 
+ equation）から直接数式を導き出して非線形フィットを行うことです。あるいは、従属変数が独立変数に線形の関係で関連を持つように方程式を変換すれば、線形フィットを行うこともできます。</p>
+<h2><a name="What_you_will_learn" id="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。</p>
+<ul>
+	<li>同じ非線形動力学モデルを異なる方法で線形に変形し、それぞれ線形フィットを行う</li>
+	<li>非線形動力学モデルに明らかな線形フィットを行う</li>
+</ul>
+<h2><a name="Linear_fit_for_Langmuir_model" id="Linear_fit_for_Langmuir_model"></a><span 
+	 class="mw-headline">Langmuir モデルのための線形フィット</span></h2>
+<h3><a name="Identify_transformed_independent_and_dependent_variables" 
+		 id="Identify_transformed_independent_and_dependent_variables"></a><span 
+	 class="mw-headline">変換した独立変数と従属変数を識別する</span></h3>
+<p>Langmuirモデルは以下の非線形方程式で説明されます。</p>
+<p><br />
+<br />
+<img src="../images/Linear_Fit_For_Kinetic_Models/math-57abb1dd18566ddae9368a8578f2f447.png" 
+	 title="y = \frac{ym*K*x}{1+K*x}" alt="y = \frac{ym*K*x}{1+K*x}" class="tex" 
+	 border="0" /><br />
+<br />
+</p>
+<p>ここで、ymとK はフィットを通じて入手したいパラメータです。</p>
+<p>Langmuir モデルに線形フィットを行うには、以下の2つの方法のうちどちらかで線形に変換します。</p>
+<ol>
+	<li>伝統的な線形Langmuir 方程式に変換する<br />
+	<br />
+	<img src="../images/Linear_Fit_For_Kinetic_Models/math-b9755ab93b51a8b31c24af0c9aaf3b75.png" 
+		 title="y = -\frac{1}{K}\frac{y}{x}+ym" alt="y = -\frac{1}{K}\frac{y}{x}+ym" 
+		 class="tex" border="0" /><br />
+	<br />
+	ここで、独立変数は y/x、従属変数は y、傾きは -1/K、切片は ymを表します。</li>
+	<li>両辺逆数型線形Langmuir 方程式に変換する<br />
+	<br />
+	<img src="../images/Linear_Fit_For_Kinetic_Models/math-3d8319ab99a2a16fa8021e10a7da96c6.png" 
+		 title="\frac{1}{y} = \frac{1}{ym*K}\frac{1}{x}+\frac{1}{ym}" alt="\frac{1}{y} = \frac{1}{ym*K}\frac{1}{x}+\frac{1}{ym}" 
+		 class="tex" border="0" /><br />
+	<br />
+	ここで、独立変数は 1/x、従属変数は 1/y、傾きは 1/(ym*K) 、切片は 1/ymを表します。</li>
+</ol>
+<h3><a name="Create_new_independent_and_dependent_variable_data" id="Create_new_independent_and_dependent_variable_data"></a><span 
+	 class="mw-headline">新しい独立変数と従属変数のデータを作成する</span></h3>
+<ol>
+	<li>ワークブックを新しく作成します。</li>
+	<li><i style="font-style: italic;">単一ASCIIファイルインポート</i> ボタン<a class="image"><img 
+	 alt="Import Single ASCII.png" src="../images/Linear_Fit_For_Kinetic_Models/Import_Single_ASCII.png" 
+	 width="26" height="24" border="0" /></a> をクリックし、「ASCII」ダイアログボックスを開きます。<i>Samples\Curve 
+	 Fitting</i> フォルダに移動し、<i>LangmuirModel.dat</i>ファイルを開きます。<b>オプションダイアログを表示する</b>にチェックを付けてＯＫを押すことで<b>impASC</b>ダイアログが表示されます。<b>インポートオプション</b>ノードの<b>スパークラインの追加</b>で<b>しない</b>を選択してOKをクリックします。</li>
+	<li>Ctrl＋Dを押して<b>新規列の追加</b>ダイアログを表示します。テキストボックスに4を入力してOKを押し、4つの列を追加します。これらは後からXY属性に設定します。</li>
+	<li>伝統的な線形Langmuirモデルに変換するには、独立変数はy/xになりますが、従属変数はyのままです。列CとDのロングネームにそれぞれy/x 
+	 と y を入力します。これで、グラフの中でX軸とY軸のタイトルにとして表示できます。</li>
+	<li>列Cの<b>F(x)</b> 関数セルに「Col(B)/Col(A)」と入力して独立変数y/xを計算して入力するように設定し、Enterキーを押します。列Cを選択し、右クリックして表示されるコンテキストメニューから<b>列XY属性の設定：X列</b>と操作して列Dに対するXになるようにします。</li>
+	<li>列Dの<b>F(x)</b> 関数セルに「Col(B)」と入力して従属変数yの値を入力するように設定し、Enterキーを押します。</li>
+	<li>両辺逆数型線形Langmuirモデルに変換するには、独立変数は1/xに、従属変数は1/yになります。先ほどの列CとDのように、列EとFを設定します。ロングネームには1/xと1/yをそれぞれ入力し、F(x)関数セルには1/Col(A) 
+	 と1/Col(B)を入力しましょう。列Eの列XY属性の設定はXに変更します。</li>
+	<li>ワークシートは下図のようになります。<br />
+	<br />
+	<a class="image"><img alt="Linear Fit Kinetic Model 07.png" src="../images/Linear_Fit_For_Kinetic_Models/Linear_Fit_Kinetic_Model_07.png" 
+							 width="585" height="322" border="0" /></a><br />
+	<br />
+	</li>
+</ol>
+<h3><a name="Linear_fit_on_transformed_linear_data" id="Linear_fit_on_transformed_linear_data"></a><span 
+	 class="mw-headline">変換した線形データに線形フィットを行う</span></h3>
+<ol>
+	<li>まず、伝統的な線形Langmuir 変換に線形フィットを行います。Highlight column <i>D</i> and 
+	 select <b>Plot:Symbol:Scatter</b> to make a scatter plot.</li>
+	<li>作図した散布図に線形フィットを行うには、<b>解析：フィット：線形フィット</b>と操作してダイアログを開きます。<b>線形フィット</b>ダイアログで全ての設定はデフォルトのまま<b>OK</b>ボタンをクリックしてフィットします。表示されるポップアップでは<b>いいえ</b>を選択してから<b>OK</b>ボタンをクリックします。<br />
+	<br />
+	<a class="image"><img alt="Linear Fit Kinetic Model 17 v.png" src="../images/Linear_Fit_For_Kinetic_Models/Linear_Fit_Kinetic_Model_17_v.png" 
+							 width="502" height="452" border="0" /></a><br />
+	<br />
+	</li>
+	<li>同じように、両辺逆数型線形Langmuir変換でも線形フィットを行います。列Fを選択し、上記1番と2番の手順を繰り返し、散布図を作成してからフィットを行ってください。<br />
+	<br />
+	<a class="image"><img alt="Linear Fit Kinetic Model 15 v.png" src="../images/Linear_Fit_For_Kinetic_Models/Linear_Fit_Kinetic_Model_15_v.png" 
+							 width="569" height="446" border="0" /></a><br />
+	<br />
+	</li>
+</ol>
+<p>Langmuirモデルの係数はそれぞれの傾きと切片の式から計算することが出来ます。</p>
+<h3><a name="Apparent_linear_fit_on_original_non-linear_data" id="Apparent_linear_fit_on_original_non-linear_data"></a><span 
+	 class="mw-headline">元の非線形データに図上値による線形フィットを行う</span></h3>
+<p>あるいは、見かけとして線形に表示しているデータに見かけによる(データの見え方による線形フィットを実行します）。Langmuir動力学的モデルを見ると、両辺逆数型Langmuir線形変換から、元の従属変数の逆数（1/y）と元の独立変数の逆数（1/x）は線形関係にあるといえます。よって、Xのスケールを1/xに設定し、Yのスケールを 
+ 1/yに設定すれば、素データの Langmuir 運動データは線形に表示されます。</p>
+<ol>
+	<li>図上値による線形フィットをLangmuir モデルの素データで行うには、列Bを選択し、<b>作図：シンボル図：散布図</b>と操作して非線形の散布図を作図します。<br />
+	<br />
+	<a class="image"><img alt="Linear Fit Kinetic Model 10.png" src="../images/Linear_Fit_For_Kinetic_Models/Linear_Fit_Kinetic_Model_10.png" 
+							 width="553" height="479" border="0" /></a><br />
+	<br />
+	</li>
+	<li>X軸をダブルクリックして、<b>軸</b>ダイアログを開き、<b>開始</b>に<i>0.08</i>、<b>終了</b>に<i>3</i>を設定します。<b>タイプ</b>のドロップダウンリストから<b>カスタム関数</b>を選択し、<b>直接式</b>に1/xを、<b>逆関数</b>に1/xを設定します。<b>再スケール</b>のドロップダウンリストから<b>開始を固定</b>を選択します。<b>OK</b>をクリックしてダイアログを閉じます。<br />
+	<br />
+	<a class="image"><img alt="Linear Fit Kinetic Model 18.png" src="../images/Linear_Fit_For_Kinetic_Models/Linear_Fit_Kinetic_Model_18.png" 
+							 width="560" height="504" border="0" /></a><br />
+	<br />
+	</li>
+	<li>作図したプロットから分かるように、デフォルトのX軸の目盛は適切な間隔が開いていません。X 軸の目盛を分かりやすくするため、データセットの目盛りの位置を指定しましょう。<i>LangmuirModel</i> 
+	 ワークシートをアクティブにし、Ctrl＋Dで列を追加するダイアログを表示し、1つ列を追加します。新しく追加された列Gに<i>0.1, 
+	 0.15, 0.2, 0.3, 0.4, 0.7, 1.3</i> のデータを入力します。</li>
+	<li>列Gを主目盛の位置として使用するには、X 軸をダブルクリックして<b>軸</b>ダイアログを開きます。<b>スケール</b>タブの<b>主目盛</b>ノードの<b>タイプ</b>で<b>データセット</b>を選択し、表示される<b>データセットドロップダウン</b>リストで「<i>[LangmuirModel]LangmuirModel!G</i> 
+	 」を選択します。<br />
+	<br />
+	<a class="image"><img alt="Linear Fit Kinetic Model 19.png" src="../images/Linear_Fit_For_Kinetic_Models/Linear_Fit_Kinetic_Model_19.png" 
+							 width="584" height="632" border="0" /></a><br />
+	<br />
+	</li>
+	<li>左側パネルで<b>垂直</b>をクリックし、先ほどと同じように<b>タイプ</b>で<b>カスタム関数</b>を選択します。表示される<b>直接式</b>と<b>逆関数</b>には1/x 
+	 を入力します。<b>OK</b> をクリックして、ダイアログを閉じます。<br />
+	<br />
+	<a class="image"><img alt="Linear Fit Kinetic Model 12.png" src="../images/Linear_Fit_For_Kinetic_Models/Linear_Fit_Kinetic_Model_12.png" 
+							 width="584" height="581" border="0" /></a><br />
+	<br />
+	</li>
+	<li>図上値による線形フィットを実行するには、<b>解析：フィット：線形フィット</b>と操作して<b>線形フィット</b>ダイアログを開きます。デフォルトで<b>図上値による線形フィット</b>が選択されていることが分かります。<br />
+	<br />
+	<a class="image"><img alt="Linear Fit Kinetic Model 13.png" src="../images/Linear_Fit_For_Kinetic_Models/Linear_Fit_Kinetic_Model_13.png" 
+							 width="546" height="786" border="0" /></a><br />
+	<br />
+	</li>
+	<li><b style="font-weight: bold;">OK</b>をクリックしてダイアログを閉じ、ポップアップするダイアログでは<b>いいえ</b>を選択してから<b>OK</b>をクリックします。<br />
+	<br />
+	<a class="image"><img alt="Linear Fit Kinetic Model 16 v.png" src="../images/Linear_Fit_For_Kinetic_Models/Linear_Fit_Kinetic_Model_16_v.png" 
+							 width="512" height="391" border="0" /></a><br />
+	<br />
+	</li>
+</ol>
+<h2><a name="Solutions_for_other_non-linear_kinetic_models" id="Solutions_for_other_non-linear_kinetic_models"></a><span 
+	 class="mw-headline">その他の非線形動力学モデルへの提案</span></h2>
+<h3><a name="Freudlich_equation" id="Freudlich_equation"></a><span class="mw-headline">Freudlich数式</span></h3>
+<p>Freudlichモデルの非線形動力学モデルの式は、以下のようになります。</p>
+<p><img src="../images/Linear_Fit_For_Kinetic_Models/math-ca3db92f4dd5755e86ab3c380f82dd04.png" 
+		 title="ln(y) = ln(K)+\frac{ln(x)}{n} " alt="ln(y) = ln(K)+\frac{ln(x)}{n} " 
+		 class="tex" border="0" /></p>
+<p>ここで、独立変数はln(x)、従属変数はln(y)、傾きは 1/nで交点はln(K)になります。なお、Kとnは求めるべき係数です。</p>
+<p>この場合、自然対数Ln スケールは組み込まれているので、図上値による線形フィットがお勧めです。この非線形動力学モデルをフィットするには、XとY軸のスケールがどちらもLnスケールに設定されている状態で図上値によるフィットを行う必要があります。</p>
+<p>あるいは、XとYのデータセットに対してLnの値をけいさんしてから線形フィットを行うことが出来ます。詳細はLangmuir モデルを確認してください。</p>
+<h3><a name="Lagergren.27s_pseudo-first_order" id="Lagergren.27s_pseudo-first_order"></a><span 
+	 class="mw-headline">Lagergrenの擬一次式</span></h3>
+<p>Lagergrenの擬一次式モデルの非線形動力学モデルの式は、以下のようになります。</p>
+<p><img src="../images/Linear_Fit_For_Kinetic_Models/math-236960c3fc94165d6fff6cb1e7e6df51.png" 
+		 title="log(q_{e,exp}-y) = \frac{log(q_{e,fit})-k_1*x}{2.303}" 
+		 alt="log(q_{e,exp}-y) = \frac{log(q_{e,fit})-k_1*x}{2.303}" class="tex" 
+		 border="0" /></p>
+<p>ここで、独立変数はx、従属変数は<img src="../images/Linear_Fit_For_Kinetic_Models/math-f736214c95d83a2fd4242b68c9ba7398.png" 
+						 title="log(q_{e,exp}-y)" alt="log(q_{e,exp}-y)" 
+						 class="tex" border="0" />、傾きは<img src="../images/Linear_Fit_For_Kinetic_Models/math-fb7c53d135157c134052a8a20d093297.png" 
+															 title="-k_{1}/2.303" 
+															 alt="-k_{1}/2.303" 
+															 class="tex" 
+															 border="0" />、切片は<img 
+	 src="../images/Linear_Fit_For_Kinetic_Models/math-533073f62589dfd38673f6ca973be488.png" 
+	 title="log(q_{e,fit})/2.303" alt="log(q_{e,fit})/2.303" class="tex" 
+	 border="0" />となります。 <img src="../images/Linear_Fit_For_Kinetic_Models/math-d565214b738c2daa94d89e7c35cc539b.png" 
+								 title="q_{e,exp}" alt="q_{e,exp}" class="tex" 
+								 border="0" /> は既知の定数で、<img src="../images/Linear_Fit_For_Kinetic_Models/math-5329d5e4c37a4ce07e1aa5937393c6bb.png" 
+															 title="-k_{1}" 
+															 alt="-k_{1}" 
+															 class="tex" 
+															 border="0" /> 
+ と <img src="../images/Linear_Fit_For_Kinetic_Models/math-2f77e3b1dd87ca5e875a7b85d8609012.png" 
+		 title="q_{e,fit}" alt="q_{e,fit}" class="tex" border="0" />は求められる係数です。</p>
+<p><br />
+この場合、Log スケールは組み込まれているので、図上値による線形フィットがお勧めです。この非線形な動力学モデルをフィットするには、<img 
+	 src="../images/Linear_Fit_For_Kinetic_Models/math-70d24d63065b8de2615989576039b007.png" 
+	 title="q_{e,exp}-y" alt="q_{e,exp}-y" class="tex" border="0" /> を計算してからY軸だけをLogスケールに設定して図上値にフィットを使用してフィットします。</p>
+<p>あるいは、まず<img src="../images/Linear_Fit_For_Kinetic_Models/math-52c53bb5c4cbc099adbc10de9cee9918.png" 
+				 title="Log(q_{e,exp}-y)" alt="Log(q_{e,exp}-y)" class="tex" 
+				 border="0" />を計算し、作成したこのデータを使って直接線形フィットを行います。詳細はLangmuir 
+ モデルを確認してください。</p>
+<h3><a name="Ho.27s_pseudo-second_order" id="Ho.27s_pseudo-second_order"></a><span 
+	 class="mw-headline">Hoの擬二次式</span></h3>
+<p>Freudlichモデルの非線形動力学モデルの式は、以下のようになります。</p>
+<p><img src="../images/Linear_Fit_For_Kinetic_Models/math-24d1561f31ef60f9c8d2b62788bad694.png" 
+		 title="\frac{x}{y} = \frac{1}{k_{2}q_e^2}+\frac{x}{q_e} " alt="\frac{x}{y} = \frac{1}{k_{2}q_e^2}+\frac{x}{q_e} " 
+		 class="tex" border="0" /></p>
+<p>ここで、独立変数はx、従属変数は x/y、傾きは<img src="../images/Linear_Fit_For_Kinetic_Models/math-357e74328be026c05600e2621ea50122.png" 
+								 title="1/q{_{e}}" alt="1/q{_{e}}" class="tex" 
+								 border="0" />、切片は<img src="../images/Linear_Fit_For_Kinetic_Models/math-1b4a279c1f8b58c43c0703cfbf08505f.png" 
+														 title="1/(k_{2}q_e^2)" 
+														 alt="1/(k_{2}q_e^2)" 
+														 class="tex" border="0" />となります。 
+ <img src="../images/Linear_Fit_For_Kinetic_Models/math-565916fdc4f0364b33ce9c7f270984a2.png" 
+		 title="k_{2}" alt="k_{2}" class="tex" border="0" /> は既知の定数で、 と 
+ <img src="../images/Linear_Fit_For_Kinetic_Models/math-b4d66375940a034a87c1355eff23cadb.png" 
+		 title="q_e" alt="q_e" class="tex" border="0" />は求められる係数です。</p>
+<p>このモデルをフィットするには、まずx/yを計算し、そのデータを使用して線形フィットを行ってください。</p>
+<p>あるいは、この計算式を以下のような形に変形させます。</p>
+<p><br />
+<img src="../images/Linear_Fit_For_Kinetic_Models/math-aa42657d3a47a8fa3ef9cd8ea23b7399.png" 
+	 title="\frac{1}{y} = \frac{1}{k_{2}q_e^2}\frac{1}{x}+\frac{1}{q_e} " 
+	 alt="\frac{1}{y} = \frac{1}{k_{2}q_e^2}\frac{1}{x}+\frac{1}{q_e} " 
+	 class="tex" border="0" /></p>
+<p>ここで、独立変数は 1/x、従属変数は 1/y、傾きは <img src="../images/Linear_Fit_For_Kinetic_Models/math-1b4a279c1f8b58c43c0703cfbf08505f.png" 
+									 title="1/(k_{2}q_e^2)" alt="1/(k_{2}q_e^2)" 
+									 class="tex" border="0" /> 、切片は <img 
+	 src="../images/Linear_Fit_For_Kinetic_Models/math-357e74328be026c05600e2621ea50122.png" 
+	 title="1/q{_{e}}" alt="1/q{_{e}}" class="tex" border="0" />を表します。</p>
+<p>この変換をしてから新しい独立変数を1/xとして設定し、従属ライセンスを1/yとして設定してから線形フィットを行う方法と、図上値による線形フィットをXとY軸のスケールを1/x 
+ に設定して行います。詳細は、Langmuir モデルを参照して下さい。</p>

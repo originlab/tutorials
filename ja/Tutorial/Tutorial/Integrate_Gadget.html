@@ -1,0 +1,64 @@
+﻿<h1 class="firstheading">積分ガジェット</h1>
+<p class="urlname" style="display: none;">Integrate-Gadget</p>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>目次</h2>
+</div>
+<ol>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Integrate_and_output_the_quantities"><span class="tocnumber">3</span> <span class="toctext">積分を行い分量を出力する</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Integrate_with_a_data_plot_baseline"><span class="tocnumber">4</span> <span class="toctext">グラフの基線と共に積分する</span></a></li>
+</ol>
+</div>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>積分ガジェットはデータプロットの数値的積分を行い、曲線以下の面積を計算します。グラフ上に表示されるデータプロットの任意の位置をガジェットの「関心のある範囲（ROI）」で選択して積分できます。<br /></p>
+<h2><a name="What_you_will_learn" id="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul>
+<li>四角形の範囲で簡単に積分する</li>
+<li>積分の制限と基線を指定する</li>
+<li>ROIボックス内で積分曲線を表示する</li>
+<li>ピークの範囲、ピークの高さ、ピークの中心、FWHMなどのパラメータを計算する</li>
+</ul>
+<h2><a name="Integrate_and_output_the_quantities" id="Integrate_and_output_the_quantities"></a><span class="mw-headline">積分を行い分量を出力する</span></h2>
+<ol>
+<li>新規ワークブックを開始して、<i>&lt;Originプログラムフォルダ&gt;Samples\Curve fitting</i>にあるOriginのサンプルデータ、<i>Multiple Peaks.DAT</i>をインポートします。</li>
+<li>Col(C)を選択し、<b>作図： 線図： 線図</b>を選択してグラフを作図します。<br />
+<br />
+<a class="image"><img alt="Integrate Gadget 01.png" src="../images/Integrate_Gadget/Integrate_Gadget_01.png" width="410" height="341" border="0" /></a><br />
+<br /></li>
+<li>グラフウィンドウをアクティブにして、Originメニューから<b>ガジェット： 積分</b>を選び、<b>積分: addtool_curve_integ</b>ダイアログを開きます。<br />
+<b>積分</b>タブで<b>積分曲線</b>ドロップダウンリストから<b>四角形に制限</b>を選択し、四角形の内部に積分曲線を表示します。<br />
+<br />
+<a class="image"><img alt="Integrate Gadget 02.png" src="../images/Integrate_Gadget/Integrate_Gadget_02.png" width="440" height="349" border="0" /></a><br />
+<br /></li>
+<li><b style="font-weight: bold;">OK</b> ボタンをクリックします。黄色い四角形と青い積分曲線がグラフの上に追加されました。積分範囲は灰色で着色され、その値が長方形の上部に表示されます。<br />
+<br />
+<a class="image"><img alt="Integrate Gadget 03.png" src="../images/Integrate_Gadget/Integrate_Gadget_03.png" width="480" height="395" border="0" /></a><br />
+<br /></li>
+<li>黄色いROIボックスを移動して、積分を行いたい1つのピークに合わせます。<br />
+<br />
+<a class="image"><img alt="Integrate Gadget 04.png" src="../images/Integrate_Gadget/Integrate_Gadget_04.png" width="480" height="395" border="0" /></a><br />
+<br /></li>
+<li>ROIボックスの右上角にある三角形のボタン<a class="image"><img alt="Triangle button.png" src="../images/Integrate_Gadget/Triangle_button.png" width="15" height="14" border="0" /></a>をクリックして、フライアウトメニューから<b>新しい出力</b>を選択します。<b>スクリプトウィンドウ</b>に<b>ガジェット：積分結果</b>が表示されます。<br />
+<br />
+<a class="image"><img alt="Integrate Gadget 05.png" src="../images/Integrate_Gadget/Integrate_Gadget_05.png" width="687" height="496" border="0" /></a><br />
+<br /></li>
+</ol>
+<h2><a name="Integrate_with_a_data_plot_baseline" id="Integrate_with_a_data_plot_baseline"></a><span class="mw-headline">グラフの基線と共に積分する</span></h2>
+<ol>
+<li>新しいワークブックを開き、\Samples\Spectroscopy\ Peaks with Base.DATファイルをインポートします。</li>
+<li>Col(B)とCol(C)を選択して、<b>作図: 線図：</b> <b>線図</b>を選択してグラフを作図します。<br />
+<br />
+<a class="image"><img alt="Integrate Gadget 06.png" src="../images/Integrate_Gadget/Integrate_Gadget_06.png" width="495" height="407" border="0" /></a><br />
+<br /></li>
+<li>グラフウィンドウをアクティブにして、Originメニューから<b>ガジェット： 積分</b>を選び、<b>積分: addtool_curve_integ</b>ダイアログを開きます。</li>
+<li><b style="font-weight: bold;">基線</b>タブで<b>モード</b>として<b>既存のデータセットを使用</b>を選びます。<i>Plot(2): Base</i>を<b>データセット</b>として選択し、<b>OK</b>ボタンをクリックします。<br />
+<br />
+<a class="image"><img alt="Integrate Gadget 07.png" src="../images/Integrate_Gadget/Integrate_Gadget_07.png" width="627" height="284" border="0" /></a><br />
+<br /></li>
+<li>三角形ボタン<a class="image"><img alt="Triangle button.png" src="../images/Integrate_Gadget/Triangle_button.png" width="15" height="14" border="0" /></a> をクリックし、<b>プロット群の最大範囲に拡大する</b>をフライアウトメニューから選択し、曲線全体を積分します。<br />
+<br />
+<a class="image"><img alt="IntegrateGadget 08.png" src="../images/Integrate_Gadget/IntegrateGadget_08.png" width="487" height="399" border="0" /></a><br />
+<br /></li>
+</ol>

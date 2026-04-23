@@ -1,0 +1,65 @@
+﻿<h1 class="firstheading">アクティブなワークブックからクローン複製されたワークブックに複数のファイルをインポート</h1><p class='urlname' style='display: none'>Import-Multi-Clone</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span><span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Import_Multiple_ASCII_Files_into_Cloned_Workbooks"><span class="tocnumber">3</span> <span class="toctext">クローン化されたワークブックに複数のASCII ファイルをインポート</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Create_a_Prototype_Workbook"><span class="tocnumber">3.1</span> <span class="toctext">原型となるワークブックを作成する</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Import_Multiple_Files_and_Perform_Analysis_by_Cloning_the_Workbook"><span class="tocnumber">3.2</span> <span class="toctext">複数のファイルをインポートしワークブックのクローンを作成して分析を実行</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Importing_Multiple_Files_into_Workbooks_Cloned_from_Active_Workbook/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Importing_Multiple_Files_into_Workbooks_Cloned_from_Active_Workbook/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=269" target="_blank">Use Clone Import to batch process more data files</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=138" target="_blank">Import Multiple Data into Cloned Book or Sheets for Batch Processing</a> </li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=206" target="_blank">Clone Folder Import App</a> </li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Importing_Multiple_Files_into_Workbooks_Cloned_from_Active_Workbook/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Importing_Multiple_Files_into_Workbooks_Cloned_from_Active_Workbook/Blog_Image_33x33px.png" width="135"  /></a>
+<ul><li> <a class="external text" href="http://blog.originlab.com/batch-processing-when-dragging-and-dropping-data-into-origin" target="_blank">Batch Processing when Dragging and Dropping Data into Origin</a></li>
+<li> <a class="external text" href="http://blog.originlab.com/batch-processing-on-matrices" target="_blank">Batch Processing on Matrices</a></li></ul>
+</td></tr></table>
+<p><br />
+</p>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>Originには、アクティブなワークブックでのインポートおよび分析操作を簡単に「複製」する方法があります。この強力な機能を使用すると、ボタンを数回クリックするだけで、複数のファイルをすばやく処理できます。
+</p><p>この機能は、ASCII、CSV、Excelなど、Originでサポートされているほとんどのインポートファイルタイプに実装されており、従来のXファンクションベースのルーチン（<b>データ：ファイルからインポート</b>）または、新しい<a class="external text" href="../../UserGuide/Category/Data_Connector.html">データコネクタ</a>（<b>データ：ファイルに接続</b>）で機能します。  このチュートリアルでは、新しいコネクタ機能を使用しますが、従来のXファンクションベースのインポートルーチンでも基本的に同じ方法です。
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。
+</p>
+<ul><li>原型となるワークブックを作成する</li>
+<li>類似のデータファイルを複数インポートして分析し、ブックのクローンを作成</li></ul>
+<h2><a name="Import_Multiple_ASCII_Files_into_Cloned_Workbooks"></a><span class="mw-headline">クローン複製されたワークブックに複数のASCII ファイルをインポート</span></h2>
+<h3><a name="Create_a_Prototype_Workbook"></a><span class="mw-headline">原型となるワークブックを作成する</span></h3>
+<p>このサンプルでは、ファイルをインポートして、散布図を作成し、線形フィットの操作行います。その後、フィット結果のグラフをワークブックに埋め込みます。
+</p>
+<ol><li> 新しいプロジェクトを開始します。メニューから<b>データ：ファイルに接続： Text/CSV</b>を選択します。</li>
+<li> <i>&lt;Origin インストールフォルダ&gt;\Samples\Curve Fitting\</i> フォルダの<i>Sensor01.dat</i> を選択します。</li>
+<li> CSVインポートオプションダイアログの設定はデフォルトのままにして、 <b>OK</b>をクリックします。データファイルがワークシートに接続されます。</li>
+<li> B列のヘッダをクリックして選択し、<b>散布図</b>ボタンをクリックします。 </li>
+<li> 列<b>B</b> (<i>Sensor Output</i>)を強調表示し、<b>作図：2D: 散布図：散布図</b> を選択して散布図をプロットします。</li>
+<li> X軸をダブルクリックして、<b>軸</b>ダイアログを開きます。<b>スケール</b>タブを開き、CTRLキーを押しながら左パネルの<b>水平方向</b>と<b>垂直方向</b>をクリックして選択します。<b>再スケール</b>を<b>自動</b>に設定して、<b>OK</b>をクリックします。</li>
+<li> メニューから<b>解析：フィット：線形フィット</b>と選択して<b>線形フィット</b>ダイアログを開きます。<b>再計算</b>を<b>自動</b>（<i>任意</i>--<i>ヒント</i>を確認）にして、<b>OK</b>をクリックしてフィットを実行します。確認メッセージで「<b>いいえ</b>」を選択して<b>OK</b>をクリックします。</li>
+<li> ワークシートの<b>Sensor01</b>右側の灰色の領域を右クリックして、<b>グラフを追加:[Graph1]</b>を選択します。線形フィット結果付きの散布図が<b>Sensor01</b>上に追加されます。</li></ol>
+<dl><dd><dl><dd><a  class="image"><img alt="Import Multiple Files Clone Active Workbook 02.png" src="../images/Importing_Multiple_Files_into_Workbooks_Cloned_from_Active_Workbook/Import_Multiple_Files_Clone_Active_Workbook_02.png" width="653"  /></a></dd></dl></dd></dl>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Importing_Multiple_Files_into_Workbooks_Cloned_from_Active_Workbook/Tip_icon.png" width="57"  border="0" /></td><td><p>ステップ<b>7</b>で、<b>再計算</b>モードを<b>自動</b>に設定しました。Origin 2018b以降では、複製されたインポートで自動的に再計算を開始するため、この手順は不要です。以前のバージョンのOriginのASCIIインポートダイアログボックスでは、ASCIIダイアログボックスの<b>それぞれのファイルインポート後のスクリプト</b>ボックス（スクリプトの項目下）の後に以下のスクリプト行を入力することで、同じ動作を呼び出すことができます。
+</p>
+<pre class="lt" style="font-family:monospace;">run <span style="color: #000080;">-</span>p au;</pre>
+<dl><dd><dl><dd><a  class="image"><img alt="ASCII clone run-p au2.png" src="../images/Importing_Multiple_Files_into_Workbooks_Cloned_from_Active_Workbook/ASCII_clone_run-p_au2.png" width="654"  /></a></dd></dl></dd></dl>
+</td></tr></table>
+<h3><a name="Import_Multiple_Files_and_Perform_Analysis_by_Cloning_the_Workbook"></a><span class="mw-headline">複数のファイルをインポートしワークブックのクローンを作成して分析を実行</span></h3>
+<p>ここでは、複数のSensorデータファイルをインポートすることにより、グラフ化や線形フィットなど、Book1に関連するすべての操作を「複製」します。
+</p>
+<ol><li> Book1をアクティブにして、<b>インポート</b>ツールバーの<b>クローンインポート</b>ボタン<a  class="image"><img alt="Button Clone Import.png" src="../images/Importing_Multiple_Files_into_Workbooks_Cloned_from_Active_Workbook/Button_Clone_Import.png" width="25"  /></a>をクリックします。</li>
+<li> Curve Fittingフォルダを開き、SHIFT あるいは CTRLキーを使ってSensor02.dat からSensor07.datを選択し、<b>ファイルの追加</b>をクリックして<b>OK</b>をクリックします。全ファイルが処理されて、各シートに埋め込まれた結果のグラフにはフィット曲線が表示されます。</li></ol>
+<dl><dd><dl><dd><a  class="image"><img alt="Tutorial clone import and linear fit.png" src="../images/Importing_Multiple_Files_into_Workbooks_Cloned_from_Active_Workbook/Tutorial_clone_import_and_linear_fit.png" width="854"  /></a></dd></dl></dd></dl>
+
+
+    

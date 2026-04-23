@@ -1,0 +1,56 @@
+﻿<h1 class="firstheading">クイックピークガジェット</h1><p class='urlname' style='display: none'>Quick-Peak-Gadget</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a></li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Quick_Peak_Gadget/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Quick_Peak_Gadget/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://d2mvzyuse3lwjc.cloudfront.net/www/products/images/VT-1248_Quick_Peaks_Origin_2015_200.png" target="_blank">クイックピークガジェット</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Quick_Peak_Gadget/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Quick_Peak_Gadget/Blog_Image_33x33px.png" width="135"  /></a>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>クイックピークガジェットはROI(Region of Interest, 関心領域)内でのピーク検索、基線の減算、ピークの積分、フィットを実行できます。また、<b>ピークアナライザ</b>と連携することもできます。詳細は<a href="../../Tutorial/Tutorial/Combine_Quick_Peaks_Gadget_with_Peak_Analyzer.html" title="チュートリアル: クイックピークガジェットとピークアナライザを組み合わせて使用">このチュートリアル</a>を参照してください。 
+</p>
+<p class="version" >必要なOriginのバージョン: Origin 2015 SR1以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。
+</p>
+<ul><li> クイックピークガジェットでスペクトルのベースラインを検索し、減算する</li>
+<li> クイックピークガジェットを使用してグラフ内のピークを検索する</li>
+<li> 初期設定をカスタマイズする</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<ol>
+<li><b>新規ワークブック</b>ボタン<a  class="image"><img alt="Button New Workbook.png" src="../images/Quick_Peak_Gadget/Button_New_Workbook.png" width="23"  /></a>をクリックして、新しいワークブックを作成します。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Spectroscopy</i>サブフォルダにある<i>Zircon.dat</i> ファイルを探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。
+<li> 列Bを選択して、<b><b>2Dグラフギャラリー</b></b>ツールバーの<b>折れ線</b><a  class="image"><img alt="Button Line.png" src="../images/Quick_Peak_Gadget/Button_Line.png" width="22"  /></a>ボタンをクリックして折れ線グラフを作図します。
+<li> Originメニューから<b><b>ガジェット：クイックピーク</b></b>を選択し、<b><b>クイックピーク：addtool_quickpeaks</b></b>ダイアログボックスを開きます。 
+<li> <b>基線</b>タブを開き、<b>モード</b>を<b>二次微分</b>にし、<b>範囲</b>を<b>全プロット範囲</b>に変更します。<b>OK</b>をクリックして、適用します。 
+<br /><a  class="image"><img alt="Quick Peak Gadget 01.png" src="../images/Quick_Peak_Gadget/Quick_Peak_Gadget_01.png" width="360"  /></a><br />
+<li>黄色いROIボックス内のピークが検出され、マークが付きます。ROIボックスのサイズを変更して、グラフ内のX範囲が[0,7000]の部分を囲みます。ベースラインとピークの検索のために設定を変更する必要があるようです。
+<br /><a  class="image"><img alt="Quick Peak Gadget 02.png" src="../images/Quick_Peak_Gadget/Quick_Peak_Gadget_02.png" width="550"  /></a><br />
+<li>三角形のボタン<a  class="image"><img alt="Triangle Button.png" src="../images/Quick_Peak_Gadget/Triangle_button.png" width="15"  /></a>をクリックして、メニューから<b>設定</b>を選択し、<b>基線</b>タブの<b>スムージング法</b>の項目を次のように調整します。
+<br /><a  class="image"><img alt="Quick Peak Gadget 03.png" src="../images/Quick_Peak_Gadget/Quick_Peak_Gadget_03.png" width="360"  /></a><br />
+適用をクリックして適用し、<b>ピーク検索</b>タブで値を調整します。
+<br /><a  class="image"><img alt="Quick Peak Gadget 03-1.png" src="../images/Quick_Peak_Gadget/Quick_Peak_Gadget_03-1.png" width="467"  /></a><br />
+<li><b>OK</b>をクリックして設定を適用し、ダイアログを閉じます。<b><b>しきい値</b></b>と<b><b>最大アンカーポイント</b></b>を変更したことで基線が、<b><b>しきい値高さ</b></b>を変更したことでピークがうまく検出されたのがわかります。
+<br /><a  class="image"><img alt="Quick Peak Gadget 04.png" src="../images/Quick_Peak_Gadget/Quick_Peak_Gadget_04.png" width="565"  /></a><br />
+<li>  三角形ボタン<a  class="image"><img alt="Triangle Button.png" src="../images/Quick_Peak_Gadget/Triangle_button.png" width="15"  /></a>をクリックして、メニューから<b>新しい出力</b>を選択するとピーク検索の結果がレポートシートに出力します。<br />  
+もう一度三角形ボタン<a  class="image"><img alt="Triangle Button.png" src="../images/Quick_Peak_Gadget/Triangle_button.png" width="15"  /></a>をクリックして、<b>レポートシートに行く</b>を選択すると、出力ワークシートを確認できます。
+<br /><a  class="image"><img alt="Quick Peak Gadget 05.png" src="../images/Quick_Peak_Gadget/Quick_Peak_Gadget_05.png" width="606"  /></a>
+<li> ガジェットを適用したグラフウィンドウをアクティブにして、三角形ボタン<a  class="image"><img alt="Triangle Button.png" src="../images/Quick_Peak_Gadget/Triangle_button.png" width="15"  /></a>をクリックし、<b><b>基線の減算</b></b>を選択します。確認メッセージは<b><b>OK</b></b>をクリックしてデータからベースラインを減算します。 <br />
+<dl><dd><b>Note:</b> 基線を減算した後にワークシートを確認しても何も起こらない場合は、データが接続によってインポートされています。この場合、ワークシートの左上隅にある緑色のアイコン<a  class="image"><img alt="Data connector icon.PNG" src="../images/Quick_Peak_Gadget/Data_connector_icon.PNG" width="24"  /></a>をクリックし、<b>インポートしたデータのロック解除</b>または<b>データコネクタを削除</b>をクリックする必要があります。その後、基線を再度減算します。<br /></dd></dl>
+<li> 右上隅の×ボタンをクリックして、ガジェットを閉じます。最終的なグラフは下図のようになります。<br />
+<br /><a  class="image"><img alt="Quick Peak Gadget 06.png" src="../images/Quick_Peak_Gadget/Quick_Peak_Gadget_06.png" width="654"  /></a><br />
+<b>Note:</b>フィット時の詳細設定を行う場合は<a href="../../Tutorial/Tutorial/Combine_Quick_Peaks_Gadget_with_Peak_Analyzer.html" title="チュートリアル: クイックピークガジェットとピークアナライザを組み合わせて使用">クイックピークガジェットとピークアナライザを組み合わせて使用</a>します。
+</ol>
+
+
+
+
+    

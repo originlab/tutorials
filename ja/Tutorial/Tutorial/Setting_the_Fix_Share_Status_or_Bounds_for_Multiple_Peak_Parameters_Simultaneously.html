@@ -1,0 +1,32 @@
+﻿<h1 class="firstheading">複数のピークパラメータの修正、共有、境界を同時に設定</h1><p class='urlname' style='display: none'>Quick-Set-MultiPeakParameter</p>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>ピーク分析を実行する場合、パラメータ値を修正したり、複数のピーク間でパラメータ値を共有したり、境界を指定したりすることがよくあります。データが少数のピークを持つ場合は、ピークごとにこれらの設定を実行するだけです。ただし、データが多い場合は、個別に設定すると時間がかかる場合があります。より効率的に処理するために、<b>ピークアナライザー</b>には、複数のピークパラメータの修正、共有、境界を同時に設定できるコンテキストメニューが用意されています。これらの設定について詳細は、Originのヘルプファイルを参照してください。
+</p>
+<p class="version" >必要なOriginのバージョン: OriginPro 8.0 SR6以降</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul><li>複数のピークパラメータの共有ステータスを同時に設定する方法</li>
+<li>複数のピークパラメータの上限値を同時に設定する方法</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<ol><li>新しいワークブックを開き、<i>&lt;Originのインストールフォルダ&gt;\Samples\Spectroscopy\Positive &amp; Negative Peaks.dat </i>ファイルをインポートします。 </li>
+<li>2番目の列を選択して、メインメニューで、<b>解析：ピークと基線：ピークアナライザー</b>を選択して<b>ピークアナライザー</b>のダイアログを開きます。最初に表示される<b>目的</b>ページで、<b>処理</b>を<b>ピークフィット</b>に設定します。<b>進む</b>ボタンをクリックして、次のページに移動します。 </li>
+<li><b>基線モード</b>ページで、<b>基線モード</b>を<b>定数</b>にし、<b>定数</b>グループにある<b>平均</b>の項目を選択します。上部パネルで<b>ピークフィット</b>を選択して、<b>ピークフィット</b>ページに移動します。
+<dl><dd><a  class="image"><img alt="PA QuickSet BaselineMode.png" src="../images/Setting_the_Fix_Share_Status_or_Bounds_for_Multiple_Peak_Parameters_Simultaneously/PA_QuickSet_BaselineMode.png" width="386"  /></a></dd></dl></li>
+<li><b>ピークフィット</b>ページで以下のように設定します。 
+<ol><li><b>フィット制御</b>ボタンをクリックして、<b>ピークフィットパラメータ</b>ダイアログを開きます。ダイアログの左下のドロップダウンリストで、フィット関数を<b>Voigt</b>にします。 </li>
+<li><b>パラメータ</b>タブで、<b>wG_1</b>行の<b>共有</b>を<b>1</b>に変更します。さらに、右クリックして、<b>同じ&quot;共有&quot;を全てwGに設定する</b>を選択します。  <b>wG</b>で始まる名前のパラメータが全て同じグループに設定されたのがわかります。
+<dl><dd><a  class="image"><img alt="Tutorial PA QuickSet 2.png" src="../images/Setting_the_Fix_Share_Status_or_Bounds_for_Multiple_Peak_Parameters_Simultaneously/Tutorial_PA_QuickSet_2.png" width="664"  /></a></dd></dl></li>
+<li><b>wL_1</b> 行の<b>共有</b>を<b>2</b>に変更します。さらに、右クリックして、<b>同じ&quot;共有&quot;を全てwLに設定する</b>を選択します。  <b>wL</b>で始まる名前のパラメータが全て同じグループに設定されたのがわかります。上述の操作が終わると、<b>パラメータ</b>タブは下図のようになります。
+<dl><dd><a  class="image"><img alt="PA QuickSet Parameters.png" src="../images/Setting_the_Fix_Share_Status_or_Bounds_for_Multiple_Peak_Parameters_Simultaneously/PA_QuickSet_Parameters.png" width="664"  /></a></dd></dl></li>
+<li><b>境界</b>タブを開きます。最初の<b>Gaussian width</b>の行にある、右側の<b>&lt; または &lt;=</b> セルをダブルクリックします。すると、このセルに<b>&lt;=</b>が表示されます（更にもう一度ダブルクリックすると<b>&lt;</b>に表示が変わります）。同じ行の<b>上限</b>の列に<b>5</b>を入力します。 </li>
+<li>さらに、右クリックして、<b>同じ&quot;境界&quot;を全てwLに適用する</b>を選択します。  
+<dl><dd><a  class="image"><img alt="Tutorial PA QuickSet 4.png" src="../images/Setting_the_Fix_Share_Status_or_Bounds_for_Multiple_Peak_Parameters_Simultaneously/Tutorial_PA_QuickSet_4.png" width="664"  /></a></dd>
+<dd>上述の操作が終わると、<b>境界</b>タブは下図のようになります。 </dd>
+<dd><a  class="image"><img alt="PA QuickSet Bounds.png" src="../images/Setting_the_Fix_Share_Status_or_Bounds_for_Multiple_Peak_Parameters_Simultaneously/PA_QuickSet_Bounds.png" width="664"  /></a></dd></dl></li></ol></li>
+<li><b>収束までフィット</b>ボタンをクリックします。フィットが済んだら、<b>OK</b>をクリックして、ダイアログを閉じます。 </li>
+<li><b>ピークのフィット</b>ページに戻り、<b>完了</b>ボタンをクリックして分析を完了します。元のワークブックの結果レポートとグラフで結果を確認できます。</li></ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Setting_the_Fix_Share_Status_or_Bounds_for_Multiple_Peak_Parameters_Simultaneously/Tip_icon.png" width="57"  border="0" /></td><td><p><a class="external text" href="../../QuickHelp/QuickHelp/Peak_Fit_to_Converged_Result_Differs_from_Multiple_1_Iteration.html">FAQ-1012 ピークフィッティング時に「収束までフィット」すると「1反復」の倍数とは異なる結果が生成されるのはなぜですか？</a>も参照してください。
+</p></td></tr></table>
+
+
+    

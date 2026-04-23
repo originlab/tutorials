@@ -1,0 +1,189 @@
+﻿<h1 class="firstheading">部分最小二乗（Partial Least Squares）</h1>
+<p class="urlname" style="display: none;">Partial-Least-Squares</p>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> 
+		 <span class="toctext">サマリー</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#Partial_Least_Squares_Regression"><span 
+		 class="tocnumber">2</span> <span class="toctext">PLS回帰</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Developing_the_Model"><span 
+		 class="tocnumber">3</span> <span class="toctext">モデルの開発</span></a></li>
+		<li class="toclevel-1 tocsection-4"><a href="#Interpreting_the_Results"><span 
+		 class="tocnumber">4</span> <span class="toctext">結果の解釈</span></a></li>
+		<li class="toclevel-1 tocsection-5"><a href="#Using_the_Model_to_Predict"><span 
+		 class="tocnumber">5</span> モデルを使用して予測する</a></li>
+	</ol>
+</div>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>非常に共線状な要因が多くあるとき、部分最小二乗法（Partial least squares, PLS）は、予測モデルを構築するための方法です。</p>
+<p><br />
+このチュートルでは、サンプル中に存在する3つの化合物の量を決定するために、サンプルのスペクトルのデータを使用します。データには、</p>
+<ul>
+	<li>異なる波長での発光スペクトル強度のデータ（V1 - V43）</li>
+	<li>試料中の3つの化合物の量（COMP1、COMP2、COMP3）</li>
+</ul>
+<p><br />
+v1 - v43から3つの化合物の量を予測するモデルを確立します。</p>
+<p class="version">必要なOriginのバージョン: Origin 2016 SR0以降</p>
+<h2><a name="Partial_Least_Squares_Regression" id="Partial_Least_Squares_Regression"></a><span 
+	 class="mw-headline">PLS回帰</span></h2>
+<ol>
+	<li>新しいプロジェクトの新しいワークブックで開始します。<b>\Samples\Statistics\MixtureSpectra.dat</b>ファイルをインポートします。</li>
+	<li>列(&quot;v1&quot;)から(&quot;v43&quot;)までを選択します。</li>
+	<li>メニューから<b>統計：多変量解析：</b>部分最小二乗法と選択します。開いたplsダイアログの<b>入力</b>データのタブを開きます。</li>
+	<li>選択した列が自動的に独立変数として追加されます。<b>独立変数</b>の隣にある<b>三角形のボタン</b><a class="image"><img 
+	 alt="Button Select Data Right Triangle.png" src="../images/Partial_Least_Squares/Button_Select_Data_Right_Triangle.png" 
+	 width="18" border="0" /></a>をクリックし、コンテキストメニュー内にある<b>列の選択</b>を選びます。</li>
+	<li><b style="font-weight: bold;">列ブラウザ</b>ダイアログの右下にある矢印ボタンをクリックして下部パネルを表示します。</li>
+	<li>下部パネルで ... ボタンをクリックします。<b>範囲</b>ダイアログが開くので、<b>全列</b>のチェックを外し、データ範囲を<b>1</b>から<b>20</b>に変更してOKをクリックします。さらにOKをクリックし、列ブラウザを閉じます。 
+	 
+	<dl>
+		<dd><a class="image" style="color: #0000ff; text-decoration: underline; "><img 
+		 alt="Pls ex2 col browser.png" src="../images/Partial_Least_Squares/Pls_ex2_col_browser.png" 
+		 width="727" height="500" border="0" /></a></dd>
+	</dl></li>
+	<li><b style="font-weight: bold;">従属編集</b>の右側にある参照ボタン<a class="image"><img 
+	 alt="Button Select Data Interactive.png" src="../images/Partial_Least_Squares/Button_Select_Data_Interactive.png" 
+	 width="18" border="0" /></a> をクリックします。ワークシートに戻り列(&quot;comp1&quot;)を選択して列(&quot;comp3&quot;)へドラッグします。再度ボタンをクリックしてダイアログボックスを開きます。 
+	 
+	<dl>
+		<dd><a class="image" style="color: #0000ff; text-decoration: underline; "><img 
+		 alt="Pls dialog settings 1.png" src="../images/Partial_Least_Squares/380px-Pls_dialog_settings_1.png" 
+		 width="417" height="347" border="0" /></a></dd>
+	</dl></li>
+	<li>v1から143までは吸光度なので、それら標準化する必要はありません。<b>設定</b>タブをクリックし、<b>方法</b>をSVDにして、<b>スケール変数</b>のチェックを外します。</li>
+	<li><b style="font-weight: bold;">交差確認</b>にチェックを付けます。これにより、モデルの要因の最適な数を見つけやすくなります。 
+	 
+	<dl>
+		<dd><a class="image" style="color: #0000ff; text-decoration: underline; "><img 
+		 alt="Pls dialog settings 1A.png" src="../images/Partial_Least_Squares/350px-Pls_dialog_settings_1A.png" 
+		 width="360" height="325" border="0" /></a></dd>
+	</dl></li>
+	<li><b style="font-weight: bold;">プロット</b>の項目を開き、さらに、<b>成分プロット</b>の項目を開きます。以下のチェックボックスにチェックを付け、<b>OK</b>ボタンをクリックします。 
+	 
+	<ul>
+		<li><b style="font-weight: bold;">変数重要度プロット</b></li>
+		<li><b style="font-weight: bold;">Xのローディングプロット</b></li>
+		<li><b style="font-weight: bold;">Yのローディングプロット</b></li>
+		<li><b style="font-weight: bold;">Xの得点プロット</b></li>
+		<li><b style="font-weight: bold;">Yの得点プロット</b></li>
+		<li><b style="font-weight: bold;">診断グラフ</b></li>
+	</ul></li>
+</ol>
+<dl>
+	<dd><dl>
+		<dd><a class="image" style="color: #0000ff; text-decoration: underline; "><img 
+		 alt="Pls dialog settings 1B.png" src="../images/Partial_Least_Squares/220px-Pls_dialog_settings_1B.png" 
+		 width="360" height="573" border="0" /></a></dd>
+	</dl></dd>
+</dl>
+<h2><a name="Developing_the_Model" id="Developing_the_Model"></a><span 
+	 class="mw-headline">モデルの開発</span></h2>
+<p>ワークブックの、<b>PLS1</b>シートを開きます。</p>
+<ol>
+	<li><b style="font-weight: bold;">交差確認</b>の表は、抽出のための最適な因子数を示しています。PRESS 
+	 はモデルの予測した残差の二乗和です。PRESSの最小ルート平均のモデルが、最適な因子数を持ちます。 
+	<dl>
+		<dd><a class="image" style="color: #0000ff; text-decoration: underline; "><img 
+		 alt="Pls cross validation.png" src="../images/Partial_Least_Squares/450px-Pls_cross_validation.png" 
+		 width="428" height="374" border="0" /></a></dd>
+	</dl></li>
+	<li>診断グラフは、YとXの残差プロットで、モデルの質を判断するのに使用されます。全体的に、フィットされたモデルが良好であると言うことができます。なぜなら、 
+	 
+	<ul>
+		<li>レイヤ1 - <b>予測値と実際の値</b>のグラフは、モデルが最初のコンポーネントとフィットしていることを示しています。</li>
+		<li>レイヤ2 - <b>予測値と残差</b>グラフでは、残差はゼロの周りにランダムに分布しています。これは、プロセスにはドリフトが存在しないことを意味します。</li>
+		<li>レイヤ4 - 残差のP-P図は、分散が正規分布しているかどうか確認するために使用できます。結果はほぼ直線なので、分散は正規分布していることを意味します。</li>
+	</ul>
+	<dl>
+		<dd><a class="image" style="color: #0000ff; text-decoration: underline; "><img 
+		 alt="Pls dianostics plots.png" src="../images/Partial_Least_Squares/450px-Pls_dianostics_plots.png" 
+		 width="450" height="366" border="0" /></a></dd>
+	</dl></li>
+	<li>v1からv43の重要度のサマリーはVIPグラフで与えられます。変数が小さな回帰係数と低いVIP値をもつ場合、モデルでそれを除外することを検討できます。例えば 
+	 
+	<ul>
+		<li>以下のグラフでは、v41～v43のVIP値は小さい 
+		<dl>
+			<dd><a class="image" style="color: #0000ff; text-decoration: underline; "><img 
+			 alt="Pls vip plot.png" src="../images/Partial_Least_Squares/Pls_vip_plot.png" 
+			 width="442" height="366" border="0" /></a></dd>
+		</dl></li>
+		<li>以下の3つの係数グラフでは、v41～v43の係数は小さい 
+		<dl>
+			<dd><a class="image" style="color: #0000ff; text-decoration: underline; "><img 
+			 alt="Pls coefficient plot.png" src="../images/Partial_Least_Squares/Pls_coefficient_plot.png" 
+			 width="475" height="129" border="0" /></a></dd>
+		</dl></li>
+	</ul>
+	<dl>
+		<dd>しかし、ステップ2のように、このモデルは良くフィットしているので、これらの重要度の低い変数はそのままにしても良いことがわかります。</dd>
+	</dl></li>
+</ol>
+<h2><a name="Interpreting_the_Results" id="Interpreting_the_Results"></a><span 
+	 class="mw-headline">結果の解釈</span></h2>
+<ol>
+	<li><span style="font-weight: bold;">Variance Explained</span>テーブルは、各要因によって説明される分散の割合を示します。このサンプルでは、ファクター1はX効果の分散71.36％とY効果の分散75.6％を説明します。このサンプルでは、ファクター2はX効果の分散23.99%とY効果の分散22.14%を説明します。<b>因子寄与</b>プロットから、これら2つのX効果とY効果が95％以上になることから、最初の2つの因子にはより多くの注意を払うべきであることがわかります。 
+	 
+	<dl>
+		<dd><a class="image" style="color: #0000ff; text-decoration: underline; "><img 
+		 alt="Pls variance explained.png" src="../images/Partial_Least_Squares/Pls_variance_explained.png" 
+		 width="542" height="260" border="0" /></a></dd>
+	</dl></li>
+	<li>ローディングプロットは、最初の2つの因子の空間での、変数XとY間の関係を明らかにします。 
+	<ul>
+		<li>Yローディングプロットから、3つの化合物は、因子1と因子2上で異なる負荷を持っていることを確認できます。 
+		<dl>
+			<dd><a class="image" style="color: #0000ff; text-decoration: underline; "><img 
+			 alt="Pls y loading plot.png" src="../images/Partial_Least_Squares/Pls_y_loading_plot.png" 
+			 width="427" height="357" border="0" /></a></dd>
+		</dl></li>
+		<li>Xローディングプロットからは、v26 ~ v38 は因子2に似たような高い負荷をもち、v17、v18、v19、v23、v24は因子1と2に同様軽い負荷を持つことがわかります。 
+		 
+		<dl>
+			<dd><a class="image" style="color: #0000ff; text-decoration: underline; "><img 
+			 alt="Pls x loading plot.png" src="../images/Partial_Least_Squares/Pls_x_loading_plot.png" 
+			 width="409" height="343" border="0" /></a></dd>
+		</dl></li>
+	</ul></li>
+</ol>
+<table class="note">
+	<tr>
+		<td><b style="font-weight: bold;">Note</b>：詳細にプロットの情報を確認するには、ローディングプロットを含むグラフをダブルクリックしてウィンドウとして開き、<b>スケールイン</b>ツールを使用して<a 
+		 class="external text" href="../../UserGuide/UserGuide/Zooming_In_or_Out_on_the_Graph_Page.html#Scale_In.2FOut_toolbar">拡大</a>できます。 
+		 <a class="image"><img alt="Button Zoom Out Tool.png" src="../images/Partial_Least_Squares/Button_Zoom_Out_Tool.png" 
+								 width="21" border="0" /></a></td>
+	</tr>
+</table>
+<p><br />
+</p>
+<h2><a name="Using_the_Model_to_Predict" id="Using_the_Model_to_Predict"></a>モデルを使用して予測する</h2>
+<p>モデルが確立されると、異なる波長でのそれらの新しい発光スペクトル強度のサンプルに対して、3つの化合物の量を予測することができます。</p>
+<ol>
+	<li>PLS1シートにある錠前マークをクリックし、<b>パラメータを変更</b>をコンテキストメニューから選びます。</li>
+	<li>開いたダイアログで、<b>入力データ</b>の項目にある、<b>反応予測</b>にチェックを付けます。</li>
+	<li><b style="font-weight: bold;">予測のための独立変数</b>の右側にある参照ボタン<a class="image"><img 
+	 alt="Button Select Data Interactive.png" src="../images/Partial_Least_Squares/Button_Select_Data_Interactive.png" 
+	 width="18" border="0" /></a> をクリックします。ワークブックに戻り、<b>MixtureSpectra</b>シートを開きます。列(&quot;v1&quot;)から列(&quot;v43&quot;)までを選択します。再度ボタンをクリックしてダイアログボックスを開きます。</li>
+	<li><b style="font-weight: bold;">予測のための独立変数</b>の隣にある、<b>三角形のボタン</b><a 
+	 class="image"><img alt="Button Select Data Right Triangle.png" src="../images/Partial_Least_Squares/Button_Select_Data_Right_Triangle.png" 
+						 width="18" border="0" /></a>をクリックし、コンテキストメニュー内にある<b>列の選択</b>を選びます。</li>
+	<li><b style="font-weight: bold;">列ブラウザ</b>ダイアログの下部パネルで ... ボタンをクリックします。<b>全列</b>のチェックを外し、データ範囲を<b>21</b>から<b>25</b>に変更します。<b>OK</b>をクリックして、<b>範囲</b>ダイアログと<b>列ブラウザ</b>ダイアログを閉じます。 
+	 
+	<dl>
+		<dd><a class="image" style="color: #0000ff; text-decoration: underline; "><img 
+		 alt="Pls predict response.png" src="../images/Partial_Least_Squares/Pls_predict_response.png" 
+		 width="484" height="381" border="0" /></a></dd>
+	</dl></li>
+	<li><b style="font-weight: bold;">OK</b>ボタンをクリックして設定を適用し、ダイアログを閉じます。</li>
+	<li><b style="font-weight: bold;">PLSResults1</b>に、新しい5つのサンプルに対する3化合物の予測量が入力されています。 
+	 
+	<dl>
+		<dd><a class="image" style="color: #0000ff; text-decoration: underline; "><img 
+		 alt="Pls predicted results.png" src="../images/Partial_Least_Squares/Pls_predicted_results.png" 
+		 width="295" height="181" border="0" /></a></dd>
+	</dl></li>
+</ol>

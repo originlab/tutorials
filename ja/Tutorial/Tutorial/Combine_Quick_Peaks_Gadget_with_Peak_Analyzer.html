@@ -1,0 +1,67 @@
+﻿<h1 class="firstheading">クイックピークガジェットとピークアナライザを組み合わせて使用</h1>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>クイックピークガジェットはピーク解析を直感的に行う事ができ、ピークアナライザはピーク検索やピークフィットの詳細設定が可能です。例えば、最初にクイックピークガジェットでピークを探し、それからピークアナライザでピークの解析を行う事ができます。設定全体をピークアナライザでテーマとして保存すれば、後にバッチ処理に活用できます。</p>
+<p class="version">必要なOriginのバージョン: OriginPro 9.0 SR0以降</p>
+<h2><a name="What_You_Will_Learn" id="What_You_Will_Learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。</p>
+<ul>
+<li>クイックピークガジェットを使ってピークを検索する</li>
+<li>クイックピークガジェットからピークアナライザを開く</li>
+<li>クイックピークガジェットで見つけたピークをピークアナライザで詳しく分析する</li>
+</ul>
+<h2><a name="Steps" id="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>このチュートリアルは、チュートリアルデータプロジェクト（<i>&lt;Origin EXE フォルダ&gt;\Samples\TutorialData.opj</i>）と関連しています。</p>
+<ol>
+<li><b style="font-weight: bold;">TutorialData.opj</b> を開き、<b>プロジェクトエクスプローラ</b>で<b>Quick Peaks Gadget</b> フォルダを開きます。</li>
+<li><b style="font-weight: bold;">Nitrate</b> ワークシート内にある全ての列を選択し、<b>2Dグラフギャラリー</b>ツールバーの<a class="image"><img alt="Button Line.png" src="../images/Combine_Quick_Peaks_Gadget_with_Peak_Analyzer/Button_Line.png" width="22" border="0" /></a>ボタンをクリックして折れ線グラフを作成します。</li>
+<li>作成されたグラフウィンドウをアクティブにし、<b>ガジェット:クイックピーク</b>と選択します。</li>
+<li><b style="font-weight: bold;">ROIボックス</b>タブで、Xスケールの<b>開始</b>と<b>終了</b>の値をそれぞれ<b>34.75</b>と<b>35</b>に設定し、<b>固定(ROIによる変動を防止)</b>にチェックを付けます。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Tutorial Quick Peak 01.png" src="../images/Combine_Quick_Peaks_Gadget_with_Peak_Analyzer/Tutorial_Quick_Peak_01.png" width="362" height="371" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">基線</b>タブを開いて、<b>範囲</b>から<b>全プロット範囲</b>のラジオボタンを選択します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Tutorial Quick Peak 02.png" src="../images/Combine_Quick_Peaks_Gadget_with_Peak_Analyzer/Tutorial_Quick_Peak_02.png" width="360" height="416" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">ピーク検索</b>タブでは、<b>ピークフィルタリング</b>の<b>方法</b>で<b>数による</b>を選択し、<b>ピークの数</b>を<b>3</b>に設定します。<b>ピークラベル</b>の色を<b>青</b>に設定します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Tutorial Quick Peak 02b.png" src="../images/Combine_Quick_Peaks_Gadget_with_Peak_Analyzer/Tutorial_Quick_Peak_02b.png" width="442" height="614" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">出力先</b>タブでは<b>結果ワークシート名</b>を<b>[QkPeak]%C_Result2</b>に変更します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Tutorial Quick Peak 02c.png" src="../images/Combine_Quick_Peaks_Gadget_with_Peak_Analyzer/Tutorial_Quick_Peak_02c.png" width="360" height="346" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">値</b>タブでは出力する値を指定できます。<b>ピークID</b>、<b>ピークX</b>、<b>ピークY</b>、<b>高さ</b>、<b>ピーク領域</b>、<b>FWHM</b>のチェックのみを残して他のチェックは外します。<b>OK</b>をクリックすると、ガジェットがプロットに追加されます。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Tutorial Quick Peak 03.png" src="../images/Combine_Quick_Peaks_Gadget_with_Peak_Analyzer/Tutorial_Quick_Peak_03.png" width="496" height="408" border="0" /></a></dd>
+</dl>
+</li>
+<li>ROIボックスの右上にある矢印ボタン<a class="image"><img alt="Button Triangle.png" src="../images/Combine_Quick_Peaks_Gadget_with_Peak_Analyzer/Button_Triangle.png" width="15" border="0" /></a>をクリックして<b>新しい出力</b>を選び、レポートシートを生成します。</li>
+<li>もう一度同じ方法でコンテキストメニューを開き、今度は<b>レポートシートに行く</b>を選択してレポートシートを開きます。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Tutorial Quick Peak 04.png" src="../images/Combine_Quick_Peaks_Gadget_with_Peak_Analyzer/Tutorial_Quick_Peak_04.png" width="670" height="318" border="0" /></a></dd>
+</dl>
+</li>
+<li>では、ピークアナライザを開いてピークフィットを続けて行きましょう。コンテキストメニューを開き、<b>ピークアナライザに切り替え</b>を選びます。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Tutorial Quick Peak 05.png" src="../images/Combine_Quick_Peaks_Gadget_with_Peak_Analyzer/Tutorial_Quick_Peak_05.png" width="563" height="402" border="0" /></a></dd>
+</dl>
+</li>
+<li>ピークアナライザが開くと、<b>ピークフィット</b>のゴールは既に選択されており、基線モードとピーク検索の方法はクイックピークガジェットの設定を引き継いでいる事がわかります。</li>
+<li><b style="font-weight: bold;">ピークのフィット</b>ページに直接行き、<b>フィット実行</b>ボタンをクリックして、先程見つけた3つのピークをガウス関数でフィットします。</li>
+<li><a class="image"><img alt="Button Select Dialog Theme.png" src="../images/Combine_Quick_Peaks_Gadget_with_Peak_Analyzer/Button_Select_Dialog_Theme.png" width="21" border="0" /></a> ボタンをクリックして、コンテキストメニューから<b>名前を付けて保存</b>を選択し、テーマ名を<b>MyQuickPeaks</b>として保存します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Tutorial Quick Peak 06.png" src="../images/Combine_Quick_Peaks_Gadget_with_Peak_Analyzer/Tutorial_Quick_Peak_06.png" width="637" height="651" border="0" /></a></dd>
+</dl>
+</li>
+<li>ピークアナライザでは<b>完了</b>ボタンをクリックしてピークフィット結果を生成します。</li>
+</ol>
+<table class="note">
+<tr>
+<td><b style="font-weight: bold;">Notes:</b> 保存したテーマはバッチ処理でピーク解析を行う時に使用できます。<b>解析：ピークと基線：テーマを使ったピーク分析のバッチ処理</b>を選び、<b>paMultiY</b>ダイアログを開きます。バッチ処理によるピーク解析は、複数の似たようなデータファイルがあるときなどに便利です。詳細は、<a class="external text" href="../../XFunction/X-Function/PaMultiY.html#Example">このサンプル</a>をご覧ください。</td>
+</tr>
+</table>

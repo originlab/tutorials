@@ -1,0 +1,36 @@
+﻿<h1 class="firstheading">補間ガジェット</h1><p class='urlname' style='display: none'>Interpolate-Gadget</p>
+<p><br />
+</p>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>Originはグラフがアクティブなときに補間ガジェットを使用するとROI（関心のある範囲）ボックスの範囲内で簡単な補間を実行します。ROIボックスを移動すると、補間する範囲を簡単に変更できます。
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul><li> 矩形領域内のデータポイントを簡単に補間する方法 </li>
+<li> 任意のX値から補間されたY値を素早く検索する方法 </li>
+<li> 補間値を<b>スクリプトウィンドウ</b>や<b>結果ログ</b>、特定のワークシートに出力する方法</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>このチュートリアルは、チュートリアルデータプロジェクト（<i><i>&lt;Origin EXE フォルダ&gt;\Samples\TutorialData.opj</i></i>）と関連しています。
+</p>
+<ol>
+<li><b><b>TutorialData.opj</b></b><b> </b>を開き、<b><b>プロジェクトエクスプローラ</b></b>で<b>Interpolate Gadget</b>  フォルダを開きます。
+<li>ワークブックBook1Rで列Aと列Bを選択し、<b>線＋シンボル</b>グラフを作図します。
+<br /><br /><a  class="image"><img alt="Interpolation Gadget 01.png" src="../images/Interpolate_Gadget/Interpolation_Gadget_01.png" width="468"  /></a><br /><br />
+<li>グラフをアクティブにしてから、Originメニューで<b>ガジェット：</b><b>補間</b>を選び、<b>Interpolate: addtool_curve_intep</b>ダイアログを開きます。 
+<li><b>補間/補外オプション</b>タブを開きます。<b>方法</b>では<b>3次スプライン</b>を選択し、<b>フィット制限範囲</b>では<b>枠の端まで補間/補外</b>を選択します。 
+<br /><br /><a  class="image"><img alt="Interpolation Gadget 02.png" src="../images/Interpolate_Gadget/Interpolation_Gadget_02.png" width="457"  /></a><br /><br />
+<li><b>OK</b>ボタンをクリックします。すると、グラフに補間曲線が追加されます。そして、補間線の左右両端のY値は矩形領域の上に表示されます。 
+<br /><br /><a  class="image"><img alt="Interpolation Gadget 03.png" src="../images/Interpolate_Gadget/Interpolation_Gadget_03.png" width="468"  /></a><br /><br />
+<li>データ範囲は黄色いROIボックスを移動およびサイズ変更で簡単に変更でき、補間曲線はROIボックスを移動するごとに更新されます。
+<br />
+三角形ボタン<a  class="image"><img alt="Triangle Button.png" src="../images/Interpolate_Gadget/Triangle_button.png" width="15"  /></a> をクリックし、<b><b><b>プロット群の最大範囲に拡大する</b></b></b>をフライアウトメニューから選択し、曲線全体を補間します。
+ 
+<br /><br /><a  class="image"><img alt="Interpolation Gadget 04.png" src="../images/Interpolate_Gadget/Interpolation_Gadget_04.png" width="468"  /></a><br /><br />
+<li>このガジェットは特定のx値からy値の補間値を出力することもできます。三角ボタン<a  class="image"><img alt="Triangle Button.png" src="../images/Interpolate_Gadget/Triangle_button.png" width="15"  /></a>をクリックし、<b>X/Yの補間</b>を選択し、<b>XからYを補間</b>ダイアログを表示します。複数のX値を入力して<b>補間</b>ボタンをクリックします。このツールで各X値から補間されたY値を出力します。
+<br /><br /><a  class="image"><img alt="Interpolation Gadget 05.png" src="../images/Interpolate_Gadget/Interpolation_Gadget_05.png" width="378"  /></a><br /><br />
+<li>補間されたY値は<b>スクリプトウィンドウ</b>、<b>結果ログ</b>、特定のワークシートのいずれかに出力できます。
+</ol>
+
+
+
+
+    

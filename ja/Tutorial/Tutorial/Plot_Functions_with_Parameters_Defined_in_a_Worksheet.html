@@ -1,0 +1,105 @@
+﻿<h1 class="firstheading">ワークシートで定義したパラメータで関数をプロットする</h1>
+<p class="urlname" style="display: none;">PlotFunc-Parameter-in-Wks</p>
+<p><br />
+</p>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> 
+		 <span class="toctext">サマリー</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> 
+		 <span class="toctext">ステップ</span></a></li>
+		<li class="toclevel-1 tocsection-4"><a href="#Scripts"><span class="tocnumber">4</span> 
+		 <span class="toctext">スクリプト</span></a></li>
+	</ol>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>Originは関数をプロットできます。 また、ワークシートで定義したパラメータで関数をプロットすることもできます。 ワークシートにあるパラメータの変更に伴って、関数グラフを自動的に更新できます。 
+ </p>
+<dl>
+	<dd><dl>
+		<dd><a class="image"><img alt="Plot Functions with Parameters-6.png" 
+									 src="../images/Plot_Functions_with_Parameters_Defined_in_a_Worksheet/Plot_Functions_with_Parameters-6.png" 
+									 width="396" height="332" border="0" /></a></dd>
+	</dl></dd>
+</dl>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。 </p>
+<dl>
+	<dd><ul>
+		<li><b>値の設定</b>ダイアログでワークシートから変数を定義する </li>
+		<li>パラメータと一緒に関数をプロットする </li>
+		<li>パラメータの変更時に自動的にグラフを更新する </li>
+	</ul></dd>
+</dl>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>この関数を例に解説をします。 <code>y=p0+p1*x+p2*x^2</code> </p>
+<ol>
+	<li>3つのパラメータ p0, p1, p2 が次の図のように、それぞれ列A、列B、列Cに保存されているものとします。 
+	<dl>
+		<dd><a class="image"><img alt="Plot Functions with Parameters-1.png" 
+									 src="../images/Plot_Functions_with_Parameters_Defined_in_a_Worksheet/Plot_Functions_with_Parameters-1.png" 
+									 width="396" border="0" /></a></dd>
+	</dl></li>
+	<li><b>標準</b>ツールバーの<b>列の追加</b>ボタン <a class="image"><img alt="Button Add New Columns.png" 
+															 src="../images/Plot_Functions_with_Parameters_Defined_in_a_Worksheet/Button_Add_New_Columns.png" 
+															 width="22" 
+															 border="0" /></a>をクリックして、新しい列を追加します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Plot Functions with Parameters-2.png" 
+									 src="../images/Plot_Functions_with_Parameters_Defined_in_a_Worksheet/Plot_Functions_with_Parameters-2.png" 
+									 width="396" border="0" /></a></dd>
+	</dl></li>
+	<li>D列を選択してから、<b>列：列値の設定</b>を選択します。 <b>再計算</b>ドロップダウンリストから<b>自動</b>を選択します。 
+	 以下の<a href="#Scripts">スクリプト</a>を<b>実行前の処理スクリプト</b>編集ボックスに入力します。<b><b>OK</b></b>ボタンをクリックしてダイアログを閉じます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Plot Functions with Parameters-3.png" 
+									 src="../images/Plot_Functions_with_Parameters_Defined_in_a_Worksheet/Plot_Functions_with_Parameters-3.png" 
+									 width="490" border="0" /></a></dd>
+		<dd>列Dの右上角に、再計算モードが自動であることを示す緑色の錠前アイコン<a class="image"><img alt="Icon Recalculate Auto.png" 
+		 src="../images/Plot_Functions_with_Parameters_Defined_in_a_Worksheet/Icon_Recalculate_Auto.png" 
+		 width="14" border="0" /></a>が表示されます。 </dd>
+		<dd><a class="image"><img alt="Plot Functions with Parameters-4.png" 
+									 src="../images/Plot_Functions_with_Parameters_Defined_in_a_Worksheet/Plot_Functions_with_Parameters-4.png" 
+									 width="427" border="0" /></a></dd>
+	</dl></li>
+	<li><b>作図：関数プロット：2Dグラフ作成</b>を選択し、<b>2D関数グラフの作成</b>ダイアログを開きます。</li>
+	<li>ダイアログで以下のようにオプションを設定し、<b>OK</b>ボタンをクリックしてダイアログを閉じます。 
+	<dl>
+		<dd><a class="image"><img alt="Plot Functions with Parameters-5.png" 
+									 src="../images/Plot_Functions_with_Parameters_Defined_in_a_Worksheet/Plot_Functions_with_Parameters-5.png" 
+									 width="455" border="0" /></a></dd>
+		<dd>すると、このような関数グラフが作図されます。</dd>
+		<dd><a class="image"><img alt="Plot Functions with Parameters-6.png" 
+									 src="../images/Plot_Functions_with_Parameters_Defined_in_a_Worksheet/Plot_Functions_with_Parameters-6.png" 
+									 width="396" border="0" /></a></dd>
+	</dl></li>
+	<li>関数グラフはワークシートの最初の行を変更すると、自動的に更新されます。列2の最初の行の値を<b>2</b>から<b>5</b>に変更します。当該セル以外の場所をクリックして変更を終了します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Plot Functions with Parameters-7.png" 
+									 src="../images/Plot_Functions_with_Parameters_Defined_in_a_Worksheet/Plot_Functions_with_Parameters-7.png" 
+									 width="396" border="0" /></a></dd>
+		<dd>関数グラフが更新され、この変更が反映されます。</dd>
+		<dd><a class="image"><img alt="Plot Functions with Parameters-8.png" 
+									 src="../images/Plot_Functions_with_Parameters_Defined_in_a_Worksheet/Plot_Functions_with_Parameters-8.png" 
+									 width="396" border="0" /></a></dd>
+	</dl></li>
+</ol>
+<h2><a name="Scripts"></a><span class="mw-headline">スクリプト</span></h2>
+<p>こちらは、<b>値の設定</b>ダイアログの<b>実行前の処理スクリプト</b>に入力するスクリプトです。 </p>
+<pre class="lt" style="font-family: monospace;">
+p0<span style="color: #000080;">=</span>col<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span><span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span>; &#160;<span style="color: #008000;">//p0に対する列A</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;p1<span style="color: #000080;">=</span>col<span style="color: #000000;">(</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span><span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span>; &#160;<span style="color: #008000;">//p1に対する列B</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;p2<span style="color: #000080;">=</span>col<span style="color: #000000;">(</span><span style="color: #0000dd;">3</span><span style="color: #000000;">)</span><span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span>; &#160;<span style="color: #008000;">//p2に対する列C</span>
+</pre>
+<p><b>作図の詳細</b>ダイアログボックスの<b>F1(x)</b>編集ボックスの関数は次のように定義されます。 </p>
+<pre class="lt" style="font-family: monospace;">
+p0<span style="color: #000080;">+</span>p1<span style="color: #000080;">*</span>x<span style="color: #000080;">+</span>p2<span style="color: #000080;">*</span>x<span style="color: #000080;">^</span><span style="color: #0000dd;">2</span>
+</pre>

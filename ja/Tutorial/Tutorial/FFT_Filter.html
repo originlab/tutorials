@@ -1,0 +1,66 @@
+﻿<h1 class="firstheading">FFTフィルタ</h1><p class='urlname' style='display: none'>FFT-Filter</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span><span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Low-pass_Filter"><span class="tocnumber">3</span> <span class="toctext">ローパスフィルタ</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Band-pass_Filter"><span class="tocnumber">4</span> <span class="toctext">バンドパスフィルタ</span></a></li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/FFT_Filter/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/FFT_Filter/Video_Text_Image.png" width="135"  /></a>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/FFT_Filter/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/FFT_Filter/Blog_Image_33x33px.png" width="135"  /></a>
+<ul><li> <a class="external text" href="http://blog.originlab.com/how-to-remove-dc-offset-before-performing-fft" target="_blank">FFTを実行する前にDCオフセットを取り除くには</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>OriginはFFTフィルタ、 つまりフーリエ変換を使って入力信号の周波数成分を分析するフィルタリングを備えています。
+</p><p>FFTフィルタでは、ローパス、ハイパス、バンドパス、バンドブロック、しきい値、ローパスパラボリックの6種類のフィルターを利用できます。ローパスフィルターは、カットオフ周波数より大きいすべての周波数成分をブロックし、小さい周波数のみを通します。ハイパスフィルターはローパスフィルターの逆で、カットオフ周波数より小さいすべての周波数成分を除去します。 
+</p><p>このチュートリアルはFFTフィルタでのローパス、バンドパスフィルタの使い方を学習します。
+</p><p><br />
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。
+</p>
+<ul><li> ローパスフィルタを実行</li>
+<li> バンドパスフィルタを実行</li></ul>
+<h2><a name="Low-pass_Filter"></a><span class="mw-headline">ローパスフィルター</span></h2>
+<ol><li>新しいワークブックを用意します。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Signal Processing</i>サブフォルダにある<i>Origin 8 Message.wav</i> ファイルを探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。
+<dl><dd><a  class="image"><img alt="Tutorial Data Filter 001.png" src="../images/FFT_Filter/Tutorial_FFT_Filter_001.png" width="333"  /></a></dd></dl></li>
+<li>列A(Y)を選択して、<b><b>2Dグラフ</b></b>ツールバーの<a  class="image"><img alt="Button Line.png" src="../images/FFT_Filter/Button_Line.png" width="22"  /></a>ボタンをクリックし、<b><b>折れ線</b></b>グラフを作図します。</li>
+<li>この信号は、音波であり、すでに高い周波数成分をノイズとみなすことができ、ブロックされるべきであることがわかっています。そのため、さらなる分析のために、低周波数成分を取得するため、<b><b>FFTフィルタ</b></b>の<b><b>ローパス</b></b>を使用します。 </li>
+<li>グラフがアクティブなことを確認して、<b><b>解析：信号処理：FFTフィルタ</b></b>を選択してダイアログを開きます。</li>
+<li><b><b>フィルタの種類</b></b>が<b><b>ローパス</b></b>に設定されていることを確認します。</li>
+<li><b><b>自動プレビュー</b></b>のチェックボックスにチェックを付け、<b><b>プレビュー</b></b>パネルを有効にします。
+<dl><dd><a  class="image"><img alt="Tutorial FFT Filter 002 v.png" src="../images/FFT_Filter/Tutorial_FFT_Filter_002_v.png" width="516"  /></a></dd>
+<dd>上の2つのグラフは時間領域における信号を表示し、下の画像では、高速フーリエ変換後の周波数領域の信号を示しています。赤い縦の点線は、カットオフ周波数を意味しています。この縦線を移動して、元の信号と、このパネルの上部にリアルタイムでフィルタリングされた信号間の比較をプレビューすることができます。</dd></dl></li>
+<li>振幅のピーク（下図のような）のX位置に縦線を移動します。この操作では、人的誤差があるかもしれません。しかし、ここでは、大まかに信号をフィルタリングするので許容します。
+<dl><dd><a  class="image"><img alt="Tutorial FFT Filter 009 v.png" src="../images/FFT_Filter/Tutorial_FFT_Filter_009_v.png" width="485"  /></a></dd></dl></li>
+<li><b>OK</b>をクリックして、信号データにFFTフィルタを適用します。</li>
+<li>グラフにフィルタ後のデータか追加されます。メニューの<b><b>グラフ操作：スピードモード</b></b>を選択してこのグラフのスピードモードを解除します。最終的なグラフは下図のようになります。
+<dl><dd><a  class="image"><img alt="Tutorial Data Filter 004.png" src="../images/FFT_Filter/Tutorial_FFT_Filter_004.png" width="524"  /></a></dd></dl></li>
+<li>結果グラフから、ローパスフィルタにより高周波数データがブロックされたことがわかります。</li></ol>
+<h2><a name="Band-pass_Filter"></a><span class="mw-headline">バンドパスフィルター</span></h2>
+<ol><li> 新規ワークブックを開きます。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Signal Processing</i>サブフォルダにある<i>fftfilter3.dat</i> ファイルを探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。</li>
+<li> 列Bを選択して、<b><b>2Dグラフ</b></b>ツールバーの<a  class="image"><img alt="Button Line.png" src="../images/FFT_Filter/Button_Line.png" width="22"  /></a>ボタンをクリックし、<b>折れ線</b>グラフを作図します。
+<dl><dd><a  class="image"><img alt="Tutorial Data Filter 008.png" src="../images/FFT_Filter/Tutorial_FFT_Filter_008.png" width="509"  /></a></dd></dl></li>
+<li> グラフが表示されたら、<b><b>解析：信号処理：FFTフィルタ</b></b>を選択します。すると、<b><b>fft_filters</b></b>ダイアログボックスが開きます。</li>
+<li> <b><b>自動プレビュー</b></b>のチェックボックスにチェックを付け、<b><b>プレビュー</b></b>パネルを有効にします。</li>
+<li> 周波数領域のプロット（下）から、この信号は、複数の異なる周波数での成分を持っていることがわかります。ここでは、約300Hzので成分を取得します。そのために<b><b>バンドパス</b></b>の手法を使用します。
+<dl><dd><a  class="image"><img alt="Tutorial Data Filter 005.png" src="../images/FFT_Filter/Tutorial_FFT_Filter_005.png" width="626"  /></a></dd></dl></li>
+<li> <b><b>フィルタの種類</b></b>を<b><b>バンドパス</b></b>に変更します。
+<dl><dd><b><b>バンドパス</b></b>が選択されると、2つの垂直な赤い線がプレビューグラフ内に配置され、上部/下部のカットオフ周波数を参照します。これら2つの線を移動し、このパネルの上部にあるフィルタリング結果のリアルタイムプレビューを取得できます。</dd></dl></li>
+<li> ここでは、カットオフ周波数は以下のように設定します。
+<dl><dd><a  class="image"><img alt="Tutorial Data Filter 006.png" src="../images/FFT_Filter/Tutorial_FFT_Filter_006.png" width="539"  /></a></dd>
+<dd>目的の振幅のピークがカットオフ周波数範囲内に留まるようにさえすれば、上下のカットオフ周波数の値は若干異なるケースであっても、フィルタリングの誤差を許容できると考えることができます。</dd></dl></li>
+<li> <b><b>OK</b></b> ボタンをクリックしてフィルタリングを実行します。</li>
+<li> フィルタリングによって300Hz周辺の周波数を取り出すことができました。
+<dl><dd><a  class="image"><img alt="Tutorial Data Filter 007.png" src="../images/FFT_Filter/Tutorial_FFT_Filter_007.png" width="458"  /></a></dd></dl></li></ol>
+
+
+
+
+    

@@ -1,0 +1,133 @@
+﻿<h1 class="firstheading">データをカラーマップしたパラメトリック曲面図</h1>
+<p class="urlname" style="display: none;">3D-ParaSurf-DataColormap</p>
+<p><br />
+</p>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>このチュートリアルでは3つの行列の情報から3D球を作成する方法を紹介します。さらに、表面には他の等高線を元にした表面温度を表すカラーマップ等高線により色を付けます。 
+ </p>
+<dl>
+	<dd><a class="image"><img alt="データをカラーマップしたパラメトリック曲面図" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_15.png" 
+								 width="500" height="493" border="0" /></a></dd>
+</dl>
+<p class="version">必要なOriginのバージョン: Origin 2015 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します: </p>
+<ul>
+	<li>行列データからパラメトリック曲面を作成する</li>
+	<li>等高線の塗りつぶしを他の行列から行う</li>
+	<li>3Dパラメトリック曲面図を編集する</li>
+</ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>このチュートリアルは、チュートリアルデータプロジェクト（<i><i>&lt;Origin EXE フォルダ&gt;\Samples\TutorialData.opj</i></i>）と関連しています。 
+ <br />
+また、「ラーニングセンター」からこのグラフを呼び出すことができます。(<b>ヘルプ: ラーニングセンター</b> メニューを選択、または キーボードの<b>F11</b> 
+ キーを押して、<b>グラフサンプルから、グラフサンプル：3D Function Plots</b>を選択します) </p>
+<ol>
+	<li><b>TutorialData.opj </b>を開き、プロジェクトエクスプローラ（PE）で<b>Parametric Surface 
+	 with Colormap from Data</b>を選択します。</li>
+	<li>行列<i>FUNCA:1/4</i>をアクティブにし、データを選択します。<b>3Dおよび等高線グラフ</b>ツールバーの<a 
+	 class="image"><img alt="Button Multiple Color Map Surfaces.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Button_Multiple_Color_Map_Surfaces.png" 
+						 width="21" border="0" /></a> ボタンをクリックし以下のようなカラーマップ曲面を作図します。このカラーマップ曲面は、メニューから<b>作図：3D：3Dカラーマップ曲面</b>と操作しても作成できます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="データをカラーマップしたパラメトリック曲面図" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_01.png" 
+									 width="488" height="370" border="0" /></a></dd>
+	</dl></li>
+	<li>グラフのプロット上でダブルクリックして、<b>作図の詳細（プロット属性）</b>ダイアログを開きます。<b>面</b>タブを開き、<b>パラメトリック曲面</b>にチェックを付け、X行列、Y行列をそれぞれに<b>Mat(2)</b>と<b>Mat(3)</b> 
+	 を設定します。 
+	<dl>
+		<dd><a class="image"><img alt="データをカラーマップしたパラメトリック曲面図" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_02.png" 
+									 width="537" height="341" border="0" /></a></dd>
+		<dd><b>OK</b>をクリックして、ダイアログを閉じます。</dd>
+	</dl></li>
+	<li>軸の範囲内に全てのカラーマップ曲面を表示するには、グラフ操作ツールバーの再スケールボタン<a class="image"><img 
+	 alt="Button Rescale.png" src="../images/Parametric_Surface_with_Colormap_from_Data/Button_Rescale.png" 
+	 width="23" border="0" /></a>をクリックします。下図のようなカラーマップ曲面になります。 
+	<dl>
+		<dd><a class="image"><img alt="データをカラーマップしたパラメトリック曲面図" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_03.png" 
+									 width="488" height="370" border="0" /></a></dd>
+	</dl></li>
+	<li>プロットをダブルクリックして、<b>作図の詳細</b>ダイアログを開きます。このダイアログボックスを使用して曲面を編集します。表面のセクションの<b>塗りつぶし</b>タブでは、<b>自身</b>のチェックを外し、<b>行列から等高線を塗りつぶす</b>で<b>Mat(4)</b>を選択します。<b>適用</b>をクリックします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="データをカラーマップしたパラメトリック曲面図" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_04.png" 
+									 width="524" height="369" border="0" /></a></dd>
+	</dl></li>
+	<li><b>カラーマップ/等高線</b>タブをアクティブにします。<b>レベル</b>ヘッダをクリックして、<b>レベルの設定</b>ダイアログを開きます。<b>最小/最大の検索</b>をクリックし、<b>主レベル数</b>と<b>副レベル数</b>をそれぞれ<b>16</b>と<b>8</b>にします。<b><b>OK</b></b>をクリックします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="データをカラーマップしたパラメトリック曲面図" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_05.png" 
+									 width="623" height="430" border="0" /></a></dd>
+	</dl></li>
+	<li><b>色塗り</b>ヘッダをクリックして、<b>塗り方</b>ダイアログを開きます。このダイアログは色スケールの編集をする為に使用します。<b>パレットをロード</b>オプションは使用可能なパレットのリスト内からパレットを選択できるようにします。<b>パレットをロード</b>から<b>Temperature</b>を選択します。<b><b>OK</b></b>をクリックします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="データをカラーマップしたパラメトリック曲面図" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_06.png" 
+									 width="546" height="418" border="0" /></a></dd>
+	</dl></li>
+	<li><b>メッシュ</b>タブをクリックします。<b>線の太さ</b>を<b>0.05</b>に設定します。ドロップダウンメニューから選択すると値が無いので、入力ボックスをクリックして入力します。線の色を<b>明るい灰色</b>に設定します。<b>適用</b>をクリックします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="データをカラーマップしたパラメトリック曲面図" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_07.png" 
+									 width="516" height="387" border="0" /></a></dd>
+	</dl></li>
+	<li><b>数値の表示形式</b>タブでは<b>小数点桁数</b>のラジオボタンを選択し、値を<b>0</b>にします。 
+	<dl>
+		<dd><a class="image"><img alt="データをカラーマップしたパラメトリック曲面図" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_08.png" 
+									 width="515" height="258" border="0" /></a></dd>
+		<dd><b>OK</b> をクリックして設定を適用し、<b>作図の詳細</b>ダイアログを閉じます。下図のようなグラフになります。</dd>
+		<dd><a class="image"><img alt="データをカラーマップしたパラメトリック曲面図" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_09.png" 
+									 width="488" height="370" border="0" /></a></dd>
+	</dl></li>
+	<li>軸を編集します。Z軸をダブルクリックして、<b>軸</b>ダイアログボックスを開きます。<b>スケール</b>タブを開き、<b>Z</b>アイコンを選択します。<b>開始</b>と<b>終了</b>を、<b>-400</b>と<b>400</b>に設定します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="データをカラーマップしたパラメトリック曲面図" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_10.png" 
+									 width="435" height="395" border="0" /></a></dd>
+	</dl></li>
+	<li><b>タイトル</b>タブを開きます。<b>Ctrl</b>キーを押しながら<b>X</b>、<b>Y</b>、<b>Z</b>のアイコンをクリックします。<b>表示</b>チェックを外して全ての軸のタイトルを非表示にし、<b>OK</b>をクリックしてダイアログを閉じます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="データをカラーマップしたパラメトリック曲面図" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_16.png" 
+									 width="432" height="259" border="0" /></a></dd>
+	</dl></li>
+	<li>XY面をダブルクリックし、<b>作図の詳細（レイヤ属性）</b>を開きます。軸を非表示にするため、表示項目セクションにある<b>X軸</b>、<b>Y軸</b>、<b>Z軸</b>のチェックを外します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="データをカラーマップしたパラメトリック曲面図" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_11.png" 
+									 width="515" height="308" border="0" /></a></dd>
+	</dl></li>
+	<li>YZ と ZXの面を非表示にするため、<b>平面</b>タブを開いて<b>YZ</b>と<b>ZX</b>のチェックを外します。残っている 
+	 <b>XY</b>の軸では色を<b>明るい灰色</b>に設定します。<b>OK</b>をクリックして、ダイアログを閉じます。 
+	<dl>
+		<dd><a class="image"><img alt="データをカラーマップしたパラメトリック曲面図" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_12.png" 
+									 width="596" height="356" border="0" /></a></dd>
+	</dl></li>
+	<li>次に、色スケールを編集します。色スケールをダブルクリックして<b>色スケール制御</b>ダイアログを開きます。<b>ラベル</b>ノードを開いてフォントを<b>Verdana</b>に設定します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="データをカラーマップしたパラメトリック曲面図" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_13.png" 
+									 width="640" height="428" border="0" /></a></dd>
+	</dl></li>
+	<li><b>軸と軸目盛</b>ノードを開き、境界と軸目盛を非表示に設定します。 
+	<dl>
+		<dd><a class="image"><img alt="データをカラーマップしたパラメトリック曲面図" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_13b.png" 
+									 width="538" height="257" border="0" /></a></dd>
+	</dl></li>
+	<li><b>OK</b>をクリックしてこの設定を適用して、ダイアログを閉じます。色スケールオブジェクトをドラッグして適当な場所に移動します。</li>
+	<li>グラフの白い部分を右クリックし、コンテキストメニューを開いて<b>レイヤタイトルを追加/変更</b>を選択します。別の場所を一度クリックして選択を解除してからその上で右クリックを行います。ショートカットメニューから<b>オブジェクトの表示属性</b>を選択して<b>オブジェクトプロパティ</b>ダイアログを開きます。テキストのフォントを<b>Verdana</b>に設定し、テキストボックスに<b>Surface 
+	 Temperature (\+(o)C)</b>と入力します。<b><b>OK</b></b>をクリックします。 
+	<dl>
+		<dd><a class="image"><img alt="データをカラーマップしたパラメトリック曲面図" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_14.png" 
+									 width="587" height="373" border="0" /></a></dd>
+	</dl></li>
+	<li>3Dフレーム内でグラフレイヤをクリックし（データプロットではありません）、以下のように表示される<b>回転</b>ボタンをクリックしてアクティブ回転モードにします。3Dグラフを回転させる際に使用できる他のツールとして、<b>プロット操作・オブジェクト作成</b>ツールバーの赤い回転ボタン、<b>3D回転操作</b>ツールバーの各種ボタン、プロットを選択して<b>R</b>キーを押しながらマウスで移動するという方法もあります。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="データをカラーマップしたパラメトリック曲面図" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_17.png" 
+									 width="469" height="401" border="0" /></a></dd>
+		<dd>グラフを回転させましょう。グラフは下図のようになります。</dd>
+		<dd><a class="image"><img alt="データをカラーマップしたパラメトリック曲面図" src="../images/Parametric_Surface_with_Colormap_from_Data/Parametric_Surface_with_Colormap_from_Data_15.png" 
+									 width="500" height="493" border="0" /></a></dd>
+	</dl></li>
+</ol>

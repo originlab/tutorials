@@ -1,0 +1,130 @@
+﻿<h1 class="firstheading">サイズと色をマッピングした3D散布図</h1>
+<p class="urlname" style="display: none;">3D-Scatter-ColorMap</p>
+<p><br />
+</p>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>このチュートリアルでは、Ｚカラーマップ付き3Ｄ散布図をワークシートのXYZデータから作成し、散布図の各シンボルサイズを指定した列の大きさと同じ比率になるようにし、3つの面全てに投影図を表示する方法を紹介します。 
+ </p>
+<dl>
+	<dd><a class="image"><img alt="3D Scatter with Colormap.png" src="../images/3D_Scatter_with_Colormap/3D_Scatter_with_Colormap.png" 
+								 width="559" height="460" border="0" /></a></dd>
+</dl>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。 </p>
+<ul>
+	<li>Zカラーマップ付き3D散布図を作成する</li>
+	<li>指定した列に対応するようにシンボルサイズを設定する</li>
+	<li>散布図を軸平面に投影する</li>
+</ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>このチュートリアルは、チュートリアルデータプロジェクト（<i>&lt;Origin EXE Folder&gt;\Samples\Tutorial 
+ Data.opj</i>）と関連しています。 <br />
+また、ラーニングセンターからこのグラフを呼び出すことができます。(<b>ヘルプ: ラーニングセンター</b> メニューを選択、または キーボードの<b>F11</b> 
+ キーを押して、<b>グラフサンプル：3D Symbol Bar and Wall</b>を選択します) </p>
+<ol>
+	<li><b>Tutorial Data.opj</b>を開き、<b><b>プロジェクト・エクスプローラ</b></b> (PE)で<b>3D 
+	 Scatter with Colormap</b> フォルダを開きます。</li>
+	<li>ワークブック<b>A3DScatter</b>を選択して、C列を選択します。<b><b>作図：3D：3D散布図</b></b>とメニューから操作して3D散布図を作成します。</li>
+	<li>OpenGLのバージョンが2.1より低い場合、グラフが正しく表示されない可能性があるという内容の以下のような<b><b>確認メッセージ</b></b>がポップアップします。コンピュータで使用しているビデオカードのOpenGLのバージョンは<b><b>確認メッセージ</b></b>に表示されます。<b><b>OK</b></b>をクリックして、ウィンドウを閉じます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Reminder Msg.png" src="../images/3D_Scatter_with_Colormap/Reminder_Msg.png" 
+									 width="408" border="0" /></a></dd>
+		<dd><b><b>Note</b></b>：OpenGLのバージョンが低い場合、スピードモードがオンになります。</dd>
+	</dl></li>
+	<li>プロット上でダブルクリックして、<b>作図の詳細（プロット属性）</b>ダイアログを開きます。もし、左パネルが表示されていない場合、<a 
+	 class="image"><img alt="Plot Details Expansion.png" src="../images/3D_Scatter_with_Colormap/Plot_Details_Expansion.png" 
+						 width="33" border="0" /></a> ボタンをクリックしてダイアログを拡張します。左パネルで<b><b>レイヤ1</b></b>のノードを開き、その下にある<b><b>オリジナル</b></b>レベルを選択します。このプロットは下データを有しています。このダイアログで3Ｄ散布図を編集します。</li>
+	<li>右側パネルで<b><b>シンボル</b></b>タブを開き、<b><b>形状</b></b>を<b><b>球</b></b>にします。エンジン排気量をシンボルの大きさで表わすには、<b><b>サイズ</b></b>のドロップダウンで<b><b>Col(&quot;Engine 
+	 Displacement&quot;)</b></b>を選択し、<b><b>縮尺倍率</b></b>を<b><b>0.005</b></b>にします。ドロップダウンを使用せずに、直接、手で入力してください。<b><b>色</b></b>は、ドロップダウンリストをクリックし、カラーチューザーの<b><b>ポイント</b>毎</b>タブでを選択します。ドロップダウンリストで<b><b>カラーマップ</b>:Col(&quot;Power&quot;) 
+	 </b>と選んでワークシート<b>のZカラーマップを設定</b>します。<b><b>透過率</b></b>を<b>25%</b>に設定します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="3D Scatter with Colormap dialog1.png" 
+									 src="../images/3D_Scatter_with_Colormap/3D_Scatter_with_Colormap_dialog1.png" 
+									 width="495" border="0" /></a></dd>
+	</dl></li>
+	<li><b><b>カラーマップ</b></b>タブを選択します。<b><b>レベル</b></b>ヘッダをクリックして、<b>レベルの設定</b>ダイアログを開きます。<b><b>開始</b></b>を<b><b>30</b></b>にセットします。<b><b>増分</b></b>のラジオボタンを選択して値を<b><b>15</b></b>にします。<b><b>副レベル数</b></b>を<b><b>9</b></b>にセットします。<b>OK</b>をクリックします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="3D Scatter with Colormap dialog2.png" 
+									 src="../images/3D_Scatter_with_Colormap/3D_Scatter_with_Colormap_dialog2.png" 
+									 width="555" border="0" /></a></dd>
+	</dl></li>
+	<li><b><b>色塗り</b></b>ヘッダをクリックして、<b><b>塗り方</b></b>ダイアログを開きます。<b><b>制限つき混合</b></b>を選択します。デフォルトの<b><b>最小値</b></b>をクリックし、色設定パネルの<b><b>カスタム</b></b>セクション下のボックスをクリックして、<b><b>色</b></b>ダイアログを開きます。<b><b>色</b></b>ダイアログでは、右下の<b><b>赤</b></b>、<b><b>緑</b></b>、<b><b>青</b></b>に最小値は74, 
+	 74, 255を設定します。同じように、<b><b>最大値</b></b>に255, 100, 255 を入力します。<b>OK</b>をクリックします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="3D Scatter with Colormap dialog3.png" 
+									 src="../images/3D_Scatter_with_Colormap/3D_Scatter_with_Colormap_dialog3.png" 
+									 width="455" border="0" /></a></dd>
+		<dd><a class="image"><img alt="3D Scatter with Colormap dialog3 1.png" 
+									 src="../images/3D_Scatter_with_Colormap/3D_Scatter_with_Colormap_dialog3_1.png" 
+									 width="443" border="0" /></a></dd>
+	</dl></li>
+	<li>レベル列が<b><b>&lt;30</b></b>の色塗り列をクリックして、<b><b>塗り方</b></b>ダイアログを開きます。<b><b>塗り色</b></b>を<b><b>なし</b></b>に設定します。<b>OK</b>をクリックします。同じように、レベル列が<b><b>&gt;168</b></b>の色塗りを<b><b>なし</b></b>にします。これで、指定した範囲外の場合は何も色がつかないようになります。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="3D Scatter with Colormap dialog4.png" 
+									 src="../images/3D_Scatter_with_Colormap/3D_Scatter_with_Colormap_dialog4.png" 
+									 width="539" border="0" /></a></dd>
+	</dl></li>
+	<li>次に、データの投影図を追加します。<b><b>作図の詳細</b></b>ダイアログの左側パネルで<b><b>オリジナル</b></b>の上の項目を選択し、<b><b>完全に独立</b></b>のラジオボタンを選択します。これにより、投影が有効になったときに、それぞれを独立して編集できるようになります。左側パネルで、<b><b>XY投影</b></b>、<b><b>ZX投影</b></b>、<b><b>YZ投影</b></b>のチェックを全て付け、3つ全ての面で投影図を表示するようにします。 
+	 </li>
+	<li>投影図の色を編集するには、<b><b>XY投影</b></b>を選択してから<b><b>シンボル</b></b>タブを開き、<b><b>色</b></b>のドロップダウンで<b><b>指定色</b></b>を選択してから<b><b>12</b></b><b> 
+	 <b>オリーブ</b></b>に設定します。同じように、<b><b>ZX投影</b></b>と<b><b>YZ投影</b></b>では、ぞれぞれ色を<b><b>2</b></b><b> 
+	 <b>赤</b></b>と<b><b>15</b></b><b> <b>橙色</b></b>に設定します。<b>OK</b>をクリックします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="3D Scatter with Colormap dialog5.png" 
+									 src="../images/3D_Scatter_with_Colormap/3D_Scatter_with_Colormap_dialog5.png" 
+									 width="785" border="0" /></a></dd>
+	</dl></li>
+	<li>グリッド線を取り除くには、Ｘ軸をダブルクリックして<b><b>軸</b></b>ダイアログを開きます。右側パネルで<b><b>グリッド線</b></b>タブを開いてから、Ctrlキーを押しながらX、Y、Zのアイコンを全てクリックして選択します。これで、3つの軸全てを同時に編集できます。<b><b>主グリッド線</b></b>の下にある<b><b>表示</b></b>のチェックを外し、全ての軸の主グリッド線を非表示にします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="3D Scatter with Colormap dialog6.png" 
+									 src="../images/3D_Scatter_with_Colormap/3D_Scatter_with_Colormap_dialog6.png" 
+									 width="636" border="0" /></a></dd>
+	</dl></li>
+	<li>では、軸のスケールを変更します。それぞれの軸の<b>スケール</b>タブで、次のように設定してください。X軸の場合、<b><b>開始</b></b>、<b><b>終了</b></b>、主目盛の増分<b><b>値</b></b>をそれぞれ、<b>5</b>, 
+	 <b>30</b>, <b>5</b>に変更し、<b><b>逆順</b></b>のチェックをつけます。Y軸でも同様に<b><b>開始</b></b>、<b><b>終了</b></b>、主目盛の増分<b><b>値</b></b>を、<b>5</b>, 
+	 <b>40</b>,<b>10</b>に変更して<b><b>逆順</b></b>のチェックをつけ、Z軸では<b><b>開始</b></b>、<b><b>終了</b></b>、主目盛の増分<b><b>値</b></b>を、<b>20</b>, 
+	 <b>180</b>, <b>20</b>に変更します。<b>OK</b>をクリックします。</li>
+	<li>ウィンドウ全ての背景色を設定するには、<b><b>作図の詳細</b></b>ダイアログを再び開きます。左のパネルで、<b><b>Layer1</b></b>の上にある<b>Graph</b>を選択します。<b>表示指定</b>タブを開きます。<b><b>色</b></b>を<b>明るい灰色</b> 
+	 に設定します。<b>OK</b>をクリックします。 
+	<dl>
+		<dd><a class="image"><img alt="3D Scatter with Colormap dialog7.png" 
+									 src="../images/3D_Scatter_with_Colormap/3D_Scatter_with_Colormap_dialog7.png" 
+									 width="445" border="0" /></a></dd>
+	</dl></li>
+	<li>デフォルトで作成された凡例オブジェクトを削除し、色スケールを変わりに作成します。</li>
+	<li>色スケール凡例を追加するには<b><b>グラフにオブジェクトを追加</b></b>ツールバーにある<b><b>色スケールの追加</b></b> 
+	 <a class="image"><img alt="Button Add Color Scale.png" src="../images/3D_Scatter_with_Colormap/Button_Add_Color_Scale.png" 
+							 width="23" border="0" /></a>ボタンをクリックします。色スケールをダブルクリックし、<b>色階調制御</b>ダイアログを開きます。色スケールのフォーマットを、以下の図のように設定します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="3D Scatter with Colormap dialog8a.png" 
+									 src="../images/3D_Scatter_with_Colormap/3D_Scatter_with_Colormap_dialog8a.png" 
+									 width="562" border="0" /></a></dd>
+		<dd><a class="image"><img alt="3D Scatter with Colormap dialog8.png" 
+									 src="../images/3D_Scatter_with_Colormap/3D_Scatter_with_Colormap_dialog8.png" 
+									 width="562" border="0" /></a></dd>
+		<dd><a class="image"><img alt="3D Scatter with Colormap dialog8b.png" 
+									 src="../images/3D_Scatter_with_Colormap/3D_Scatter_with_Colormap_dialog8b.png" 
+									 width="562" border="0" /></a></dd>
+		<dd><a class="image"><img alt="3D Scatter with Colormap dialog8c.png" 
+									 src="../images/3D_Scatter_with_Colormap/3D_Scatter_with_Colormap_dialog8c.png" 
+									 width="562" border="0" /></a></dd>
+		<dd><a class="image"><img alt="3D Scatter with Colormap dialog8d.png" 
+									 src="../images/3D_Scatter_with_Colormap/3D_Scatter_with_Colormap_dialog8d.png" 
+									 width="562" border="0" /></a></dd>
+	</dl></li>
+	<li>ページレイヤを右クリックし、コンテキストメニューを開きます。<b><b>レイヤタイトルの追加/変更</b></b>を選択して、レイヤタイトルにとして表示されるテキストボックスに「<i>Symbol 
+	 Size proportional to Engine Displacement</i>」と入力します。</li>
+	<li>下図のようなグラフになります。回転して他の角度も確認してください。 
+	<dl>
+		<dd><a class="image"><img alt="3D Scatter with Colormap.png" src="../images/3D_Scatter_with_Colormap/3D_Scatter_with_Colormap.png" 
+									 width="559" border="0" /></a></dd>
+	</dl></li>
+</ol>

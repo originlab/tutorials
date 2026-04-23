@@ -1,0 +1,40 @@
+﻿<h1 class="firstheading">共有パラメータを使った異なる関数でのグローバルフィット</h1>
+<p class="urlname" style="display: none;">Multi-Functions-Global-Fitting</p>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>このチュートリアルでは、次の問題を解決することを目的としています。それぞれのカーブに対して異なる関数を用い、2つまたはそれ以上の曲線に対して、グローバル曲線フィットを行う際に、いくつかのパラメーターを共有しようとすると、共有したパラメーターは全てのデータセットに共通となってしまいます。この問題は、異方性スペクトルのフィットなどの多種多様な科学分野に起こります。</p>
+<p class="version">必要なOriginのバージョン:Origin 2015 SR0</p>
+<h2><a name="What_you_will_learn" id="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。</p>
+<ul>
+<li>グローバルフィットを行うために、複数のデータセットを選択します。</li>
+<li>全ての関数に繋がる切り替えパラメーターを設定します。</li>
+<li>複数のフィット関数に共有されるパラメーターで、グローバルフィットを実行します。</li>
+</ul>
+<h2><a name="Steps" id="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<ol>
+<li>新規ワークブックボタン <a class="image"><img alt="Button New Workbook.png" src="../images/Multi_Functions_Global_Fitting/Button_New_Workbook.png" width="23" height="23" border="0" /></a> をクリックして、新規ワークブックを作成します。</li>
+<li><a class="image"><img alt="Button Import Single ASCII.png" src="../images/Multi_Functions_Global_Fitting/Button_Import_Single_ASCII.png" width="23" height="23" border="0" /></a> ボタンをクリックして、<i>&lt;Origin EXE Folder&gt;\Samples\Curve Fitting\</i>フォルダの、<b>MultiFunctionsFit.dat</b>ファイルをインポートします。</li>
+<li>列A、列Bと列Ｃを選択し、メニューから<b>解析：フィット：</b><b>非線形曲線フィット</b>と操作して<b>NLFit</b>ダイアログを開きます。<br />
+次の3つのステップで、ユーザー定義のフィット関数を作成します。その関数は、次の数量的モデルを元に構築されます。<br />
+<img src="../images/Multi_Functions_Global_Fitting/math-84f1517acc4ea0900aff2093c34ff64f.png" title="Col(B):\;L_1=\frac{A_1e^{-t/t_0}+B_1}{A_2e^{-t/t_0}+B_2}" alt="Col(B):\;L_1=\frac{A_1e^{-t/t_0}+B_1}{A_2e^{-t/t_0}+B_2}" class="tex" border="0" /><br />
+<img src="../images/Multi_Functions_Global_Fitting/math-63034923ad23c06d8239d1bb9e4f1417.png" title="Col(C):\;L_2=A_2e^{-t/t_0}+B_2" alt="Col(C):\;L_2=A_2e^{-t/t_0}+B_2" class="tex" border="0" /><br /></li>
+<li><b style="font-weight: bold;">関数選択</b>ページで、<b>User Defined</b>カテゴリから<b>H＜新規..＞</b>関数を選択します。</li>
+<li>関数名に"GlobalFit" と入力し、関数モデルと関数形式を次の図のように設定します。<br />
+<a class="image"><img alt="MultiFunctionsFit1.png" src="../images/Multi_Functions_Global_Fitting/MultiFunctionsFit1.png" width="678" height="441" border="0" /></a><br />
+　 <b>進む</b>をクリックし、変数とパラメータの設定ページに移動します。</li>
+<li>変数とパラメータを、下の図のように設定します。<br />
+<a class="image"><img alt="MultiFunctionsFit2.png" src="../images/Multi_Functions_Global_Fitting/MultiFunctionsFit2.png" width="678" height="441" border="0" /></a><br />
+次に<b>、進む</b> をクリックし、式形式の関数ページに移動します。</li>
+<li>関数内容のボックスにある <img src="../images/Multi_Functions_Global_Fitting/math-2c6f3b6c16df97a1b00e04ff17e4906e.png" title="L_1" alt="L_1" class="tex" border="0" /> と <img src="../images/Multi_Functions_Global_Fitting/math-07cbd6c155424e110559a84df364be5a.png" title="L_2" alt="L_2" class="tex" border="0" /> の関数式を含む式形式を入力します。<br />
+<code>s*(A1*exp(-t/t0)+B1)/(A2*exp(-t/t0)+B2)-(s-1)*(A2*exp(-t/t0)+B2)</code><br />
+The parameter <code>s</code> is a switch for global fitting, if <code>s=1</code>, the <img src="../images/Multi_Functions_Global_Fitting/math-2c6f3b6c16df97a1b00e04ff17e4906e.png" title="L_1" alt="L_1" class="tex" border="0" /> is used for fitting, if <code>s=0</code>, <img src="../images/Multi_Functions_Global_Fitting/math-07cbd6c155424e110559a84df364be5a.png" title="L_2" alt="L_2" class="tex" border="0" /> が、フィット計算に使われます。<code>s</code> の値は次のフィット手順で制御されます。A1とB1の初期値を設定します。そして、<b>OK</b>をクリックします。<br />
+<a class="image"><img alt="MultiFunctionsFit2-1.png" src="../images/Multi_Functions_Global_Fitting/MultiFunctionsFit2-1.png" width="678" height="441" border="0" /></a><br /></li>
+<li><b style="font-weight: bold;">NLFit</b> ダイアログに戻り、Use DefinedカテゴリのGlobalFit関数を選択します。<b>データ選択</b>ページに移動し、<b>複数データフィットモード</b>のドロップダウンリストから<b>グローバルフィット</b>を選択します。<br />
+<a class="image"><img alt="MultiFunctionsFit3.png" src="../images/Multi_Functions_Global_Fitting/MultiFunctionsFit3.png" width="671" height="305" border="0" /></a><br /></li>
+<li><b style="font-weight: bold;">パラメータ</b>タブに移動し、A2とB、t0の<b>共有</b>のチェックボックスにチェックを入れ、s と s_2 の固定のボックスにチェックを入れ、それぞれに1 と0を入力します。sの設定では、<img src="../images/Multi_Functions_Global_Fitting/math-07cbd6c155424e110559a84df364be5a.png" title="L_2" alt="L_2" class="tex" border="0" />を利用してC列をフィットしながら、<img src="../images/Multi_Functions_Global_Fitting/math-2c6f3b6c16df97a1b00e04ff17e4906e.png" title="L_1" alt="L_1" class="tex" border="0" />を使ってB列をフィット制御します。<br />
+<a class="image"><img alt="MultiFunctionsFit4.png" src="../images/Multi_Functions_Global_Fitting/MultiFunctionsFit4.png" width="349" height="237" border="0" /></a><br /></li>
+<li><b style="font-weight: bold;">フィット</b>ボタンをクリックして、フィットを実行します。結果シートのパラメータ表でフィット結果を確認できます。<br />
+<a class="image"><img alt="MultiFunctionsFit5.png" src="../images/Multi_Functions_Global_Fitting/MultiFunctionsFit5.png" width="206" height="195" border="0" /></a><br /></li>
+<li>グラフの元データプロットに、フィット曲線が追加されます。B列のフィット曲線<img src="../images/Multi_Functions_Global_Fitting/math-2c6f3b6c16df97a1b00e04ff17e4906e.png" title="L_1" alt="L_1" class="tex" border="0" /> と、C列のフィット曲線<img src="../images/Multi_Functions_Global_Fitting/math-07cbd6c155424e110559a84df364be5a.png" title="L_2" alt="L_2" class="tex" border="0" />は<b>GlobalFit (User) Fit of Multiple Dataset</b> のグラフをダブルクリックすると確認することが出来ます。<br />
+<a class="image"><img alt="MultiFunctionsFit6.png" src="../images/Multi_Functions_Global_Fitting/MultiFunctionsFit6.png" width="397" height="610" border="0" /></a><br /></li>
+</ol>

@@ -1,0 +1,112 @@
+﻿<h1 class="firstheading">ユーザ定義関数で組み込み関数を引用する</h1>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>内容</h2>
+</div>
+<ol>
+<li class="toclevel-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ol>
+<li class="toclevel-2"><a href="#Data"><span class="tocnumber">3.1</span> <span class="toctext">データ</span></a></li>
+<li class="toclevel-2"><a href="#Define_the_Function"><span class="tocnumber">3.2</span> <span class="toctext">関数を定義する</span></a></li>
+</ol>
+</li>
+</ol>
+</td>
+</tr>
+</table>
+
+<p><br /></p>
+<a name="Summary" id="Summary"></a>
+<h2><span class="mw-headline">サマリー</span></h2>
+<p>このチュートリアルでは、ユーザ定義のフィット関数を作成する時に組み込み関数を引用する方法を示します。</p>
+<p class="version">必要なOriginのバージョン:8.0 SR6</p>
+<a name="What_you_will_learn" id="What_you_will_learn"></a>
+<h2><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。</p>
+<ul>
+<li>区間のフィット関数を定義する</li>
+<li>新しい関数で組み込み関数にアクセスする</li>
+<li>パラメータの自動初期化</li>
+</ul>
+<a name="Steps" id="Steps"></a>
+<h2><span class="mw-headline">ステップ</span></h2>
+<a name="Data" id="Data"></a>
+<h3><span class="mw-headline">データ</span></h3>
+<p>新しいワークブックに \<i>Samples</i>\<i>Curve Fitting</i>\<i>Asymmetric Gaussian</i>.<i>dat</i> のファイルをインポートするところから始めます。</p>
+<p>列Bを選択してグラフを作成します。データ内のピークはわずかに右に傾いています。このような曲線をフィットするにはどうしたら良いでしょうか?1つのアイデアとして、グラフを2つの区間に分けて下図のように2つのガウス関数から成り立っていると考える事ができます。これらの2つのガウス曲線は、基線とピークの中心を共有し、ピークの幅と振幅が異なっています。</p>
+<dl>
+<dd><a style="color: #0000ff; text-decoration: underline;"><img alt="image:Tutorial_Quoting_Built_in_Functions_001.png" src="../images/Quoting_Built_in_Functions_in_Your_New_Function/Tutorial_Quoting_Built_in_Functions_001.png" width="221" height="186" border="0" /></a></dd>
+</dl>
+<a name="Define_the_Function" id="Define_the_Function"></a>
+<h3><span class="mw-headline">関数を定義する</span></h3>
+<p><b style="font-weight: bold;">F9</b>を押し、<b>フィット関数オーガナイザ</b>を開き、以下のように関数を定義します。</p>
+<table class="blank">
+<tr>
+<th width="150">&#160;</th>
+<th>&#160;</th>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">関数名：</b></td>
+<td>AsymmetricGauss</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">実現方式：</b></td>
+<td>ユーザ定義</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">独立変数：</b></td>
+<td>x</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">従属変数：</b></td>
+<td>y</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">パラメータの名前：</b></td>
+<td>y0, xc, w1, w2, A1, A2</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">定義形式：</b></td>
+<td><font color="#0000FF">Origin C</font></td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">関数：</b></td>
+<td>y = x&lt;xc? nlf_Gauss(x, y0, xc, w1, A1)&#160;: nlf_Gauss(x, y0, xc, w2, A2);</td>
+</tr>
+</table>
+<table class="note">
+<tr>
+<td><b style="font-weight: bold;">Note:</b>
+<p><font color="#FF0000"><b style="font-weight: bold;">Origin 8.1</b></font>より前のバージョンでは、関数は次のように定義します。<br /></p>
+<pre class="oc">
+y <span style="color: #000080;">=</span> x<span style="color: #000080;">&lt;</span>xc? nlfxGauss<span style="color: #000000;">(</span>x, y0, xc, w1, A1<span style="color: #000000;">)</span> <span style="color: #000000;">:</span> nlfxGauss<span style="color: #000000;">(</span>x, y0, xc, w2, A2<span style="color: #000000;">)</span>;
+x; y0; xc; w1; w2; A1; A2;
+</pre>
+<p>最後にパラメータを一覧にすると、関数でこれらのパラメータを使っているにもかかわらず、関数内でパラメータが使われていないというエラーを避けることができます。この手順は関数を正しくコンパイルするのに必要です。</p>
+</td>
+</tr>
+</table>
+<p>組み込み関数を利用するために <b>nlf_FuncName</b>を呼び出す場合のシンタックスは</p>
+<dl>
+<dd>nlf_FuncName( 独立変数、パラメータリスト ... )</dd>
+</dl>
+<p>FuncNameがフィット関数の名前です。古い表記法ですが、<b>nlfxFuncName</b>もサポートしています。</p>
+<p>組み込み関数のパラメータリストは関数定義ファイル（FDFファイル）で設定された順番に従います。（FDFファイルはメモ帳で開く事ができます。ファイルは\\Origin EXE Folder\FitFunc\に保存されています。）Origin内で使用する関数名はDLL インターフェイス名のものです。本来の名前はFDFファイルの「General Information」セクションに表示されます。<i>Function Source</i> 項目を見て、値が<b>fgroup.<i>FuncName</i></b>で、この<i>FuncName</i>を使用します。通常、この関数名はNLFitダイアログに表示される関数名で一貫性があります。Voigtのようにいくつかの関数名は異なります。</p>
+<p>この関数のパラメータ初期化には、ガウス関数の初期化コードをコピーして、いくつか修正を加えるだけで行えます。</p>
+<pre class="oc">
+xc <span style="color: #000080;">=</span> peak_pos<span style="color: #000000;">(</span>x_y_curve, <span style="color: #000040;">&amp;</span>w1, <span style="color: #000040;">&amp;</span>y0, <span style="color: #000040;">&amp;</span>A1<span style="color: #000000;">)</span>;
+w2 <span style="color: #000080;">=</span> w1;
+A2 <span style="color: #000080;">=</span> A1;
+</pre>
+<p>最終的な関数は次のようになります。</p>
+<dl>
+<dd><a style="color: #0000ff; text-decoration: underline;"><img alt="Image:Tutorial_Quoting_Built_in_Functions_002.png" src="../images/Quoting_Built_in_Functions_in_Your_New_Function/Tutorial_Quoting_Built_in_Functions_002.png" width="364" height="673" border="0" /></a></dd>
+</dl>
+<p>関数の作成がうまくいったら、関数を保存して曲線をフィットします。結果は次のようになります。</p>
+<dl>
+<dd><a style="color: #0000ff; text-decoration: underline;"><img alt="Image:Tutorial_Quoting_Built_in_Functions_003.png" src="../images/Quoting_Built_in_Functions_in_Your_New_Function/Tutorial_Quoting_Built_in_Functions_003.png" width="243" height="109" border="0" /></a></dd>
+</dl>

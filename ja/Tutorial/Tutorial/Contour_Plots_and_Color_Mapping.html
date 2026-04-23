@@ -1,0 +1,139 @@
+﻿<h1 class="firstheading">等高線とカラーマップ</h1><p class='urlname' style='display: none'>等高線カラーマップ</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span><span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Create_Contour_Plot_from_Matrix"><span class="tocnumber">3</span> <span class="toctext">行列から等高線図を作成する</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Customize_Levels.2C_Lines_and_Color_Map"><span class="tocnumber">4</span> <span class="toctext">レベル、等高線、カラーマップを編集する</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Create_a_Contour_Plot_from_XYZ_Data"><span class="tocnumber">5</span> <span class="toctext">XYZデータから等高線図を作成する</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Show_the_Triangulation_Grid"><span class="tocnumber">6</span> <span class="toctext">三角形分割グリッドを表示する</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Apply_Custom_Boundary"><span class="tocnumber">7</span> <span class="toctext">カスタム境界を適用する</span></a></li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Contour_Plots_and_Color_Mapping/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Contour_Plots_and_Color_Mapping/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=33" target="_blank">Contour Plots and Color Mapping</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=280" target="_blank">Contour Levels</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=279" target="_blank">Plot 3D or Contour Graph from Virtual Matrix</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=190" target="_blank">4D XYZ Plot With Custom Boundary</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Contour_Plots_and_Color_Mapping/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Contour_Plots_and_Color_Mapping/Blog_Image_33x33px.png" width="135"  /></a>
+<ul><li> <a class="external text" href="http://blog.originlab.com/xyz-contour-plot-with-colormap-from-second-z-and-custom-boundary" target="_blank">XYZ Contour plot with colormap from second Z and custom boundary</a></li>
+<li> <a class="external text" href="http://blog.originlab.com/how-to-make-a-contour-plot-of-difference-of-two-contours" target="_blank">How to make a contour plot of the difference between two contours</a></li>
+<li> <a class="external text" href="http://blog.originlab.com/plot-stacked-contour-plots-in-a-cylinder-coordinates" target="_blank">Stacked Contour Plots in Cylindrical Coordinates</a></li>
+<li> <a class="external text" href="http://blog.originlab.com/create-cylinder-and-colored-by-a-different-data-souce" target="_blank">Contour Plot in Cylindrical Coordinates</a></li>
+<li> <a class="external text" href="http://blog.originlab.com/faster-plotting-for-large-data-in-origin-2020" target="_blank">Faster plotting for large data in Origin 2020</a></li>
+<li> <a class="external text" href="http://blog.originlab.com/how-to-create-a-3d-surface-plot-animation" target="_blank">How to create a 3D Surface Plot Animation</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>Originは、四角形、円形(極座標)、三角形(ターナリ)の等高線図をサポートしています。<b>四角形の等高線図</b>では、データを行列形式またはXYZのワークシート形式にすることができます。<b>極座標等高線図</b>はワークシート内の、R <img src="../images/Contour_Plots_and_Color_Mapping/math-b9dce96eb3d5a71b28f9f198c28d2d1b.png" title="シータ(中心角)" alt="シータ(中心角)" class="tex"/> Z または <img src="../images/Contour_Plots_and_Color_Mapping/math-b9dce96eb3d5a71b28f9f198c28d2d1b.png" title="シータ(中心角)" alt="シータ(中心角)" class="tex"/> R Z 形式の3列から作図できます。
+<b>三点等高線図</b>はX・Y・Z・Z形式のデータから作図します。この2つ目のZは4つ目のパラメータを含んでおり、このパラメータはXYZ三点図内において高さの値を示しています。
+</p><p>等高線図を編集するため、数多くのオプションが利用できます。例えば、主副等高線レベルの設定、主レベルのみの等高線の設定、カラーパレットの適用、さらにカスタム境界の制御（ワークシートから直接作成した等高線の場合）などがあります。
+</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。
+</p>
+<ul><li> 行列に値をセットし、等高線図を作成する</li>
+<li> レベル、等高線、カラーマップを編集する</li>
+<li> 等高線からデータを抽出する</li>
+<li> XYZデータから等高線図を作成する</li>
+<li> カスタム境界を使用する</li></ul>
+<h2><a name="Create_Contour_Plot_from_Matrix"></a><span class="mw-headline">行列から等高線図を作成する</span></h2>
+<ol>
+<li>新しい行列ウィンドウを作成するには<b>新しい行列ウィンドウボタン</b><b><a  class="image"><img alt="CreateNewMatrix.png" src="../images/Contour_Plots_and_Color_Mapping/CreateNewMatrix.png" width="24"  /></a></b>をクリックします。マウスでカーソルを行列左上角に移動し、カーソルの形状が下図のようになったら、クリックして行列全体を選択します。
+<dl><dd><a  class="image"><img alt="SelectWholeMatrix.png" src="../images/Contour_Plots_and_Color_Mapping/SelectWholeMatrix.png" width="346"  /></a></dd></dl>
+行列の次数をセットするには右クリックして、コンテキストメニューから<b>行列次数/ラベルの設定</b>を選択します。XYマッピングタブでは、以下の図のように設定を変更します。
+<dl><dd><a  class="image"><img alt="SetDimension.png" src="../images/Contour_Plots_and_Color_Mapping/SetDimension.png" width="494"  /></a></dd></dl>
+<li>データを行列に入力するには、行列ブックを選択後に右クリックします。コンテキストメニューから<b>行列の</b><b>セル値の設定</b>を選択し、<b>値の設定</b>ダイアログを開きます。<b>計算式</b>編集ボックスに<b>i*sin(x) - j*cos(y)</b> と入力し、<b>OK</b>ボタンをクリックして、データを生成します。行列は次のようになります。
+<dl><dd><a  class="image"><img alt="ShowRowColumnIndex.png" src="../images/Contour_Plots_and_Color_Mapping/ShowRowColumnIndex.png" width="489"  /></a></dd></dl>
+<li>行列の各データポイントは2種類の異なるインデックスに対応しています。1つは、行と列のインデックスです。もう1つは、X座標とY座標です。メインメニューで<b>表示：X/Yを表示</b>と選択すると、XとYの座標を確認できます。
+<dl><dd><a  class="image"><img alt="ShowXYCoordinatesNew.png" src="../images/Contour_Plots_and_Color_Mapping/ShowXYCoordinatesNew.png" width="489"  /></a></dd></dl>
+<li>また、<b>表示：イメージモード</b>を選択すると、行列のイメージモードが確認できます。
+<dl><dd><a  class="image"><img alt="MatirxShowAsImage.png" src="../images/Contour_Plots_and_Color_Mapping/MatirxShowAsImage.png" width="313"  /></a></dd></dl>
+<li>イメージモードから切り替えるには<b>表示：データモード</b>と操作します。行列をアクティブにして、メニューから<b>作図：等高線図：カラーマップ等高線</b>と選択して等高線を作図します。  下図のようなグラフになります。
+<dl><dd><a  class="image"><img alt="OriginalContourGraphNew.png" src="../images/Contour_Plots_and_Color_Mapping/OriginalContourGraphNew.png" width="453"  /></a></dd></dl>
+</ol>
+<h2><a name="Customize_Levels.2C_Lines_and_Color_Map"></a><span class="mw-headline">レベル、等高線、カラーマップを編集する</span></h2>
+<p>カラースケールを変更したり、ラベルを追加するような、等高線のあらゆる要素をOriginでは簡単に編集できます。
+</p>
+<ol>
+<li><b>Graph1</b>をアクティブにして、<b>グラフ操作：スピードモード</b>を選択してダイアログを開きます。<b>スピードモード</b> = <b>オフ</b>と設定して<b>OK</b>をクリックします。
+<li><b>Graph1</b>の等高線プロットをクリックし、表示されたミニツールバーで<b>レベルの設定</b>ボタンをクリックします。<b>レベルの設定</b>ダイアログで、<b>最小/最大の検索</b>ボタンをクリックし、 <b>主レベル数</b>を<b>8</b>、<b>副レベル数</b>を<b>32</b>に設定します。<b><b>OK</b></b>ボタンをクリックします。
+<dl><dd><a  class="image"><img alt="Contour Plots Mini Toolbar Set Levels.png" src="../images/Contour_Plots_and_Color_Mapping/Contour_Plots_Mini_Toolbar_Set_Levels.png" width="713"  /></a></dd></dl>
+<li>等高線プロットをクリックし、表示されたミニツールバーで<b>パレット</b>ボタンをクリックします。ドロップダウンから <b>Rainbow</b> パレットを選択します。
+<dl><dd><a  class="image"><img alt="Contour Plots Mini Toolbar Palettes.png" src="../images/Contour_Plots_and_Color_Mapping/Contour_Plots_Mini_Toolbar_Palettes.png" width="531"  /></a></dd></dl>
+<li>等高線の線の上を2回クリック(シングルクリック2回)してそのレベルの全ての線を選択します。同じレベルの等高線を選択したら<b>スタイル</b>ツールバーの<b>線/境界色</b>ボタン <a  class="image"><img alt="Tutorial81LineAndBordColorGreen.png" src="../images/Contour_Plots_and_Color_Mapping/Tutorial81LineAndBordColorGreen.png" width="36"  /></a>を使って、色を<b>緑</b>に変更します。  また、同じツールバーの<b>線/境界幅</b>ボタン <a  class="image"><img alt="Tutorial81WidthNew.png" src="../images/Contour_Plots_and_Color_Mapping/Tutorial81WidthNew.png" width="42"  /></a> を使って、太さを<b>3</b>に変更します。 
+<dl><dd><a  class="image"><img alt="Contour Plots Custom Contour Lines.png" src="../images/Contour_Plots_and_Color_Mapping/Contour_Plots_Custom_Contour_Lines.png" width="453"  /></a></dd></dl>
+<li>1つの等高線の線を3度クリックして、その線だけが選択されていることを確認して(そのレベルの全ての等高線ではなく)右クリックします。<b>等高線ラベルの付加</b>を選択してラベルを追加します。
+<dl><dd><a  class="image"><img alt="Contour Plots Add Contour Label.png" src="../images/Contour_Plots_and_Color_Mapping/Contour_Plots_Add_Contour_Label.png" width="453"  /></a></dd></dl>
+<li>等高線を2回クリックして選択し、右クリックして<b>等高線データの抽出</b>を選びます。Originが、等高線データをワークシートに抽出します。次の図は、ワークシートのデータの一部です。
+<dl><dd><a  class="image"><img alt="Contour Plots Extract Contour Lines.png" src="../images/Contour_Plots_and_Color_Mapping/Contour_Plots_Extract_Contour_Lines.png" width="365"  /></a></dd></dl>
+</ol>
+<p><br />
+</p>
+<h2><a name="Create_a_Contour_Plot_from_XYZ_Data"></a><span class="mw-headline">XYZデータから等高線図を作成する</span></h2>
+<p>Originは、中間的な行列を作成することなく、ワークシート内のXYZデータから直接等高線図を作成することができます。等高線の計算と描画には、ドローネー三角分割法が使われています。
+</p>
+<ol>
+<li>新しいワークブックを用意します。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Matrix Conversion and Gridding</i>サブフォルダにある<i>3D XYZ.dat</i>を探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。<br />
+ 
+<li>3番目の列を選択し、右クリックして、「<b>列XY属性の設定：Z列</b>を選択します。 <b> 作図：等高線図：カラーマップ等高線</b> を選択して、次の図のようなグラフを作成します。
+<dl><dd><a  class="image"><img alt="Tutorial81CreateXYZContour.png" src="../images/Contour_Plots_and_Color_Mapping/Tutorial81CreateXYZContour.png" width="452"  /></a></dd></dl>
+</ol>
+<h2><a name="Show_the_Triangulation_Grid"></a><span class="mw-headline">三角形分割グリッドを表示する</span></h2>
+<ol>
+<li>データから等高線図を作成するのに使われた三角形分割グリッドを表示します。個々のデータポイントは、グリッドの結節点(交点)または頂点にあります。 
+<li>新しいワークブックを用意します。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Matrix Conversion and Gridding</i>サブフォルダにある<i>XYZ Random Gaussian.dat</i>を探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。<br />
+<li>3番目の列を選択し、右クリックして、「<b>列XY属性の設定：Z列</b>を選択します。<b>作図：等高線図：カラーマップ等高線</b>を選び、等高線グラフを作成します。
+<dl><dd><a  class="image"><img alt="Tutorial81NewContourGraph.png" src="../images/Contour_Plots_and_Color_Mapping/Tutorial81NewContourGraph.png" width="452"  /></a></dd></dl>
+<li>等高線図をダブルクリックして、<b>作図の詳細</b>ダイアログを開きます。<b>カラーマップ/等高線</b>タブで、<b>線</b>ヘッダをクリックして、<b>等高線</b>ダイアログを開きます。<b>主レベル上のみ表示</b>のチェックを外し、<b>全て隠す</b>を選んで、全等高線を非表示にします。<b>OK</b>ボタンをクリックして、ダイアログボックスを閉じます。<b>グリッド表示</b>と<b>データポイント表示</b>チェックボックスを選択します。<b>OK</b>をクリックして、<b>作図の詳細</b>ダイアログボックスを閉じます。
+<dl><dd><a  class="image"><img alt="Tutorial81ShowGrideLinesNew.png" src="../images/Contour_Plots_and_Color_Mapping/Tutorial81ShowGrideLinesNew.png" width="248"  /></a></dd></dl>
+<b></b>グリッドを重ね合わせた等高線は、下図のようになります。
+<dl><dd><a  class="image"><img alt="Tutorial81ContourShowGridLine.png" src="../images/Contour_Plots_and_Color_Mapping/Tutorial81ContourShowGridLine.png" width="442"  /></a></dd></dl>
+</ol>
+<h2><a name="Apply_Custom_Boundary"></a><span class="mw-headline">カスタム境界を適用する</span></h2>
+<p>カスタム境界は、XYZデータから直接作成した等高線図に適用することができ、同じワークシートの別の列に境界用のデータセットを用意します。この機能は、オブジェクトのアウトラインを定義する境界データがある時に役立ちます。例えば、エンジンの輪郭と等高線を使用してエンジンの温度を表示ようなことができます。
+</p>
+<ol>
+<li>
+前のサンプルでの<b>XYZ Random Gaussian.dat</b> ファイルで作成したワークシートと等高線図を続けて使用します。 </li>
+<li><b>XYZRandomGaus </b>ワークシートに移動し、<b>列の追加</b>ボタン <a  class="image"><img alt="Tutorial81AddColumns.png" src="../images/Contour_Plots_and_Color_Mapping/Tutorial81AddColumns.png" width="24"  /></a> を2回クリックし、列を2つ追加します。これら2列を選択し、右クリックします。コンテキストメニューから<b><b>列XY属性の設定</b>：XY XY</b>を選択して、以下のようなデータを入力します。
+<table class="simple">
+<tr>
+<td> 12
+</td>
+<td> 10
+</td></tr>
+<tr>
+<td> 18
+</td>
+<td> 12
+</td></tr>
+<tr>
+<td> 16
+</td>
+<td> 18
+</td></tr>
+<tr>
+<td> 14
+</td>
+<td> 16
+</td></tr></table>
+</li>
+<li>等高線図をダブルクリックして、<b>作図の詳細</b>ダイアログを開きます。右側パネルで、<b>等高線設定</b>タブを選択します。次の図のようにダイアログを設定し、等高線図の境界を編集します。<b>カラーマップ/等高線</b>タブの<b>グリッド表示</b>と<b>データポイント表示</b>チェックボックスのチェックを外してください。<b>OK</b>をクリックして、作図の詳細ダイアログボックスを閉じます。</li>
+<dl><dd><a  class="image"><img alt="Tutorial81ContourCustomizeBoundary.png" src="../images/Contour_Plots_and_Color_Mapping/Tutorial81ContourCustomizeBoundary.png" width="473"  /></a></dd></dl>
+<p>等高線図は次のようになります。
+</p>
+<dl><dd><a  class="image"><img alt="Tutorial81ContourCustomizeBoundaryPlot.png" src="../images/Contour_Plots_and_Color_Mapping/Tutorial81ContourCustomizeBoundaryPlot.png" width="441"  /></a></dd></dl>
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Contour_Plots_and_Color_Mapping/Tip_icon.png" width="57"  border="0" /></td><td><p>Origin 2018 SR0以前は、カスタム境界を適用すると境界マージンに不完全な色塗りが生成されることがありました。これはバージョン2018で改善されました。<a class="external text" href="../../LabTalk/LabTalk/System_Variable_List.html#T">システム変数 @TCSM</a>を使って、以前の不具合現象を修正することが可能です。
+</p>
+<dl><dd><a  class="image"><img alt="Tri contour smooth mode.png" src="../images/Contour_Plots_and_Color_Mapping/Tri_contour_smooth_mode.png" width="297"  /></a></dd></dl>
+</td></tr></table>
+
+
+    

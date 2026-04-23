@@ -1,0 +1,77 @@
+﻿<h1 class="firstheading">投影図付きの球面の等高線図</h1>
+<p class='urlname' style='display: none'>Sphere-Surface-Projections-NetCDF</p>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>目次</h2>
+</div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Steps"><span class="tocnumber">2</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Create_NetCDF_data-based_plot_on_a_Sphere_Surface_Projection"><span class="tocnumber">2.1</span> <span class="toctext">投影図付きの球面でNetCDFデータベースのプロットを作成する</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Customize_Levels.2C_Lines_and_Color_Map"><span class="tocnumber">2.2</span> <span class="toctext">レベル、等高線、カラーマップを編集する</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Add_Map_Lines_and_Grid_line"><span class="tocnumber">2.3</span> <span class="toctext">マップラインとグリッド線を追加します</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>グローバルNetCDFデータ（グローバル温度データなど）をインポートすると、投影図付きの球面の等高線図を作成できます。</p>
+<p><a class="image"><img alt="NetCDF on Sphere Surface Projections 01.png" src="../images/Sphere_Surface_Projections_from_NetCDF_data/NetCDF_on_Sphere_Surface_Projections_01.png" width="780" /></a></p>
+<p><br /></p>
+<p class="version">必要なOriginのバージョン: 2021b SR0以降</p>
+<h2><a name="Steps" id="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Create_NetCDF_data-based_plot_on_a_Sphere_Surface_Projection" id="Create_NetCDF_data-based_plot_on_a_Sphere_Surface_Projection"></a><span class="mw-headline">投影図付きの球面でNetCDFデータベースのプロットを作成する</span></h3>
+<ol>
+<li>NetCDFデータ行列の<a class="external text" href="http://blog.originlab.com/wp-content/uploads/2021/07/NetCDF_on_Sphere_Surface_Projections.zip" target="_blank">このプロジェクトファイル</a>を開きます。</li>
+<li>行列をアクティブにし、同じ行列シートに4つの新しい行列オブジェクトを追加します。<br />
+<a class="image"><img alt="NetCDF on Sphere Surface Projections 02.png" src="../images/Sphere_Surface_Projections_from_NetCDF_data/NetCDF_on_Sphere_Surface_Projections_02.png" width="811" /></a></li>
+<li><b>イメージセレクタ</b>をダブルクリックして、これらの行列オブジェクトの名前を <i>Lon</i>, <i>Lat</i>, <i>x</i>, <i>y</i> に変更します。<br />
+<a class="image"><img alt="NetCDF on Sphere Surface Projections 03.png" src="../images/Sphere_Surface_Projections_from_NetCDF_data/NetCDF_on_Sphere_Surface_Projections_03.png" width="544" /></a></li>
+<li>各行列をアクティブにし、表示されたミニツールバーの<b>プロパティ</b>ボタンをクリックして、<b>値の設定</b>を選択します。 <b>値の設定</b>ダイアログで、以下の式を入力します。
+<pre class="lt" style="font-family:monospace;">
+<span style="color: #008000;">//Lonオブジェクト</span>
+x<span style="color: #000080;">*</span>pi<span style="color: #000080;">/</span><span style="color: #0000dd;">180</span>
+<span style="color: #008000;">//Latオブジェクト</span>
+y<span style="color: #000080;">*</span>pi<span style="color: #000080;">/</span><span style="color: #0000dd;">180</span>
+<span style="color: #008000;">//xオブジェクト</span>
+<span style="color: #0000dd;">3</span><span style="color: #000080;">*</span>Mat<span style="color: #000000;">(</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span><span style="color: #000080;">/</span><span style="color: #0000dd;">2</span> <span style="color: #000080;">*</span> sqrt<span style="color: #000000;">(</span><span style="color: #0000dd;">1.0</span><span style="color: #000080;">/</span><span style="color: #0000dd;">3</span> <span style="color: #000080;">-</span> <span style="color: #000000;">(</span>Mat<span style="color: #000000;">(</span><span style="color: #0000dd;">3</span><span style="color: #000000;">)</span><span style="color: #000080;">/</span>pi<span style="color: #000000;">)</span><span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span>
+<span style="color: #008000;">//yオブジェクト</span>
+Mat<span style="color: #000000;">(</span><span style="color: #0000dd;">3</span><span style="color: #000000;">)</span>
+</pre>
+<p><a class="image"><img alt="NetCDF on Sphere Surface Projections 04.png" src="../images/Sphere_Surface_Projections_from_NetCDF_data/NetCDF_on_Sphere_Surface_Projections_04.png" width="743" /></a></p>
+</li>
+<li><b>MBook1</b>の1つ目の行列を選択し、メニューから<b>作図：等高線図：カラーマップ等高線</b>を選択します。<br />
+<a class="image"><img alt="NetCDF on Sphere Surface Projections 05.png" src="../images/Sphere_Surface_Projections_from_NetCDF_data/NetCDF_on_Sphere_Surface_Projections_05.png" width="849" /></a></li>
+<li>グラフをダブルクリックして<b>作図の詳細</b>ダイアログを開きます。<b>等高線設定</b>タブに移動し、<b>X座標</b>および<b>Y座標</b>ドロップダウンリストで<b>[MBook1]air!4"x"]</b>と<b>[MBook1]air!5"y"]</b>を選択します。<br />
+<a class="image"><img alt="NetCDF on Sphere Surface Projections 06.png" src="../images/Sphere_Surface_Projections_from_NetCDF_data/NetCDF_on_Sphere_Surface_Projections_06.png" width="662" /></a></li>
+<li>左パネルで<b>レイヤ1</b>を選択して、<b>レイヤ表示方法・描画</b>スピードタブに移動します。<b>表示項目</b>セクションにある<b>X軸</b>、<b>Y軸</b>チェックボックスのチェックを外します。<b>OK</b> をクリックして設定を保存します。<br />
+<a class="image"><img alt="NetCDF on Sphere Surface Projections 07.png" src="../images/Sphere_Surface_Projections_from_NetCDF_data/NetCDF_on_Sphere_Surface_Projections_07.png" width="872" /></a></li>
+<li><b>再スケール</b>ボタンをクリックします。</li>
+<li>軸タイトルとカラースケールタイトルを削除します。すると、次のグラフのようになります。<br />
+<a class="image"><img alt="NetCDF on Sphere Surface Projections 08.png" src="../images/Sphere_Surface_Projections_from_NetCDF_data/NetCDF_on_Sphere_Surface_Projections_08.png" width="630" /></a></li>
+</ol>
+<h3><a name="Customize_Levels.2C_Lines_and_Color_Map" id="Customize_Levels.2C_Lines_and_Color_Map"></a><span class="mw-headline">レベル、等高線、カラーマップを編集する</span></h3>
+<ol>
+<li>等高線プロットをクリックして、表示されたミニツールバーで<b>等高線の種類</b>ボタンをクリックし、<b>等高線なしのカラースケール</b>を選択します。<br />
+<a class="image"><img alt="NetCDF on Sphere Surface Projections 09.png" src="../images/Sphere_Surface_Projections_from_NetCDF_data/NetCDF_on_Sphere_Surface_Projections_09.png" width="646" /></a><br /></li>
+<li>表示されたミニツールバーの<b>レベルの設定</b>ボタンをクリックします。<b>レベルの設定</b>ダイアログにて、<b>主レベル数</b>を<b>16</b>、<b>副レベル数</b>を<b>16</b>に設定します。<b>OK</b>ボタンをクリックします。<br />
+<a class="image"><img alt="NetCDF on Sphere Surface Projections 10.png" src="../images/Sphere_Surface_Projections_from_NetCDF_data/NetCDF_on_Sphere_Surface_Projections_10.png" width="668" /></a><br /></li>
+<li>等高線プロットをクリックし、表示されたミニツールバーで<b>パレット</b>ボタンをクリックします。ドロップダウンから <b>Surface</b> パレットを選択します。<br />
+<a class="image"><img alt="NetCDF on Sphere Surface Projections 11.png" src="../images/Sphere_Surface_Projections_from_NetCDF_data/NetCDF_on_Sphere_Surface_Projections_11.png" width="646" /></a><br />
+すると、以下のグラフのような等高線プロットが得られます。<br />
+<a class="image"><img alt="NetCDF on Sphere Surface Projections 12.png" src="../images/Sphere_Surface_Projections_from_NetCDF_data/NetCDF_on_Sphere_Surface_Projections_12.png" width="671" /></a></li>
+</ol>
+<p><br /></p>
+<h3><a name="Add_Map_Lines_and_Grid_line" id="Add_Map_Lines_and_Grid_line"></a><span class="mw-headline">マップラインとグリッド線を追加します</span></h3>
+<p>ワークブックには、経度と緯度のデータ、およびグリッド線のデータがあります。まず、それらを球面に変換する必要があります。</p>
+<ol>
+<li>列CおよびDとして2つの列を挿入し、数式の列ラベル行F(x)で、Col(C)に<i><b>3 * A * pi / 180 / 2 * sqrt(1/3 - (B / 180)^2)</b></i>と入力します。 そしてCol(D)に<i><b>B * pi / 180</b></i>と入力します。</li>
+<li>列GおよびHとして2つの列を追加し、数式の列ラベル行F(x)で、Col(G)に<i><b>3 * E * pi / 180 / 2 * sqrt(1/3 - (F / 180)^2)</b></i>と入力します。そしてCol(H)に<i><b>F * pi / 180</b></i>と入力します。</li>
+<li>Col(C)とCol(G)を<b>X</b>として設定します。<br />
+<a class="image"><img alt="NetCDF on Sphere Surface Projections 13.png" src="../images/Sphere_Surface_Projections_from_NetCDF_data/NetCDF_on_Sphere_Surface_Projections_13.png" width="1079" /></a></li>
+<li>列Dと列Hを選択し、等高線図にドラッグアンドドロップします。グラフをダブルクリックして<b>作図の詳細</b>ダイアログを開き、<i>グリッド線</i>の<b>スタイル</b>を<b>破線</b>に設定します。<br />
+<a class="image"><img alt="NetCDF on Sphere Surface Projections 14.png" src="../images/Sphere_Surface_Projections_from_NetCDF_data/NetCDF_on_Sphere_Surface_Projections_14.png" width="911" /></a></li>
+<li>線の凡例を削除します。すると、以下のグラフのような等高線プロットが得られます。<br />
+<a class="image"><img alt="NetCDF on Sphere Surface Projections 01.png" src="../images/Sphere_Surface_Projections_from_NetCDF_data/NetCDF_on_Sphere_Surface_Projections_01.png" width="780" /></a></li>
+</ol>

@@ -1,0 +1,50 @@
+﻿<h1 class="firstheading">インポートウィザード</h1><p class='urlname' style='display: none'>インポートウィザード</p>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p><b>インポートウィザード</b>を使うと、複雑なASCIIファイルをインポートでき、インポートするファイル名とヘッダから変数に抽出し(Originで利用するため)、ユーザ指定の区切り文字や日時フォーマットを指定したり、LabTalkスクリプトを使ってデータをインポートした後にデータ処理を行うことができます。さらに、カスタム設定をフィルタファイル（.oif）として保存して、同じまたは同様の構造のファイルをインポートするために繰り返し使用することができます。
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、<b>インポートウィザード</b>の使用方法について説明しています。
+</p>
+<ul><li> ファイル名やファイルヘッダから変数を抽出します</li>
+<li> インポート設定を保存し、それを新しいデータで使用する</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<ol>
+<li>新規ワークブックを開きます。メニューより<b>データ：ファイルからインポート：インポートウィザード</b>と選択し、<b>インポートウィザード</b>ダイアログを開きます。<b><b>ファイル</b></b>ボックスの右側にある参照 ボタン<a  class="image"><img alt="Tutorial Import 005.png" src="../images/Import_Wizard/Tutorial_Import_005.png" width="19"  /></a>をクリックします。\<i>Samples</i>\<i>Import and Export</i> フォルダを開き、<i>S15-125-03</i>を選択します。 
+<dl><dd><a  class="image"><img alt="Tutorial Import 013.png" src="../images/Import_Wizard/Tutorial_Import_013.png" width="727"  /></a></dd></dl>
+<br /><i>VarsFromFileNameAndheader.oif</i>インポートフィルタは、[<b>インポートフィルタ</b>]：[<b>現在のタイプのインポートフィルタ</b>]で自動的に選択されます。デフォルトでは、データフォルダにインポートフィルタがある場合、フィルタはデータのインポートに自動的に使用されます。この例では、このデータを段階的にインポートして、同様のフィルタを作成する方法を示します。したがって、<b>&lt;なし&gt;</b>を選択します。<br /><b>進む</b>をクリックします。</li>
+<li><b>ヘッダ行</b>ページでは、ワークシートヘッダを簡単にカスタマイズすることができます。下部のプレビューパネルは、この例のように多くのヘッダ行を持つファイルをインポートする場合、特に役立ちます。<b>ヘッダ行の自動決定</b> のチェックボックスを外します。プレビューパネルの行6にカーソルを置き、<b>メインヘッダ行 固定番号</b>の隣にある<a  class="image"><img alt="Tutorial Import 012.png" src="../images/Import_Wizard/Tutorial_Import_012.png" width="26"  /></a>ボタンをクリックして、メインヘッダ行を指定します。同様に、<b>ロングネーム</b>と<b>単位</b>の行を指定します。
+<dl><dd><a  class="image"><img alt="Tutorial Import 002.png" src="../images/Import_Wizard/Tutorial_Import_002.png" width="727"  /></a></dd></dl>
+<br /><b>進む</b>をクリックします。</li>
+<li><b>変数抽出</b>ページでは、ファイル名とファイルヘッダから変数を抽出できます。これらの変数は、ページ情報に保存したり、列ヘッダ行に配置したり、グラフの注釈に使用したりできます。<b>区切りを使って変数名とその値の位置を指定する</b>、<b>変数をページ情報に追加する</b>、<b>各変数のユーザパラメータの行を作成する</b>を選択します。
+<dl><dd><a  class="image"><img alt="Tutorial Import 014.png" src="../images/Import_Wizard/Tutorial_Import_014.png" width="727"  /></a></dd></dl>
+<br /><b>進む</b>をクリックします。</li>
+<li><b>区切り記号による変数抽出</b>ページでは、指定した区切り文字で変数の名前と値を抽出できます。このサンプルでは、以下を入力します。
+<ul><li><b>変数</b>の<b>行</b> <i>FN04</i>、<b>区切り</b> = <i>その他</i>で<i>-</i>を入力し、 </li></ul>
+<dl><dd><ul><li><b>値</b> = <i>S15</i>、<b>変数名を入力</b> = <i>SampleID</i>;</li>
+<li><b>値</b> = <i>125</i>、<b>変数名を入力</b> = <i>BatchNo</i>;</li>
+<li><b>値</b> = <i>03</i>、<b>変数名を入力</b> = <i>RunNo</i>;</li></ul></dd></dl>
+<ul><li><b>変数</b>の<b>行</b> <i>H002</i>、<b>区切り</b> = <i>コロン</i>、<b>値</b> = <i>1000</i>、<b>ファイルより変数名を抽出</b>を選択して<b>名前</b>= <i>No. of points</i>;</li>
+<li><b>変数</b>の<b>行</b> <i>H004</i>、<b>区切り</b> = <i>コロン</i>、<b>値</b> = <i>12/01/2004</i>、<b>ファイルより変数名を抽出</b>を選択して<b>名前</b>= <i>Measured on</i>;</li>
+<li><b>変数</b>の<b>行</b> <i>H005</i>、<b>区切り</b> = <i>タブ</i>、
+<b>値</b> = <i>03:20:39 AM</i>、<b>ファイルより変数名を抽出</b>を選択して<b>名前</b>= <i>Time</i>;</li>
+<li><b>変数</b>の<b>行</b> <i>H006</i>、<b>区切り</b> = <i>タブ</i>、
+<b>値</b> = <i>Trial Run 1</i>、<b>ファイルより変数名を抽出</b>を選択して<b>名前</b>= <i>Run Type</i>;</li></ul>
+<dl><dd><a  class="image"><img alt="Tutorial Import 011.png" src="../images/Import_Wizard/Tutorial_Import_011.png" width="727"  /></a></dd></dl>
+<br /><b>進む</b>をクリックします。</li>
+<li><b>ファイル名オプション</b>ページで、<b>変数でワークシート名を指定する</b>にチェックを入れ、ドロップダウンリストより<b>RunType</b>を選択します。これにより変数<i>RunType</i>にワークシートの名前を変更します。また、<b>ブックのロングネームのみを名前変更する</b>と<b>ファイル名を列コメントに追加する</b>を選択します。
+<dl><dd><a  class="image"><img alt="Tutorial Import 015.png" src="../images/Import_Wizard/Tutorial_Import_015.png" width="727"  /></a></dd></dl>
+<br /><b>進む</b>をクリックします。 </li>
+<li><b>データ列</b>ページで、<b>列区切り</b>から<b>区切り記号</b>で<b>タブ</b>を選択します。また、<i>XY属性の割り当て</i>で<b>XY</b>と入力します。<b>適用</b>ボタンをクリックし、下部パネルでデータ列をプレビューします。
+<dl><dd><a  class="image"><img alt="Tutorial Import 007.png" src="../images/Import_Wizard/Tutorial_Import_007.png" width="727"  /></a></li></dd></dl>
+<li>「<b>進む</b>」を2回クリックし、「<b><b>フィルタの保存</b></b>」ページに移動します。これらの設定を再度使用するには、このインポート手順をフィルタとして保存します。<b>フィルタを保存する</b>チェックボックスにチェックを付け、<b>ファイル名</b>に適切なフィルタ名を入力します。(例えば<i>MyFilter </i>など)
+<br /><a  class="image"><img alt="Tutorial Import 009.png" src="../images/Import_Wizard/Tutorial_Import_009.png" width="727"  /></a><br /><br /><b>完了</b>ボタンをクリックして、データをインポートします。
+<dl><dd><a  class="image"><img alt="Tutorial Import 008.png" src="../images/Import_Wizard/Tutorial_Import_008.png" width="467"  /></a></li></dd></dl>
+<li><b>インポートウィザード</b>ダイアログを再度開きます。<i>&lt;Originインストールフォルダ&gt;\Samples\Import and Export\S21-235-07.dat</i>を選択します。<b>現在のデータタイプのインポートフィルタ</b>から保存したばかりの<i>MyFilter</i>フィルタを選択できます。
+<br /><a  class="image"><img alt="Tutorial Import 010.png" src="../images/Import_Wizard/Tutorial_Import_010.png" width="670"  /></a>
+<br /><b><b>完了</b></b>ボタンを直接クリックします。ファイルのインポートに<b>MyFilter</b>の設定が使用されます。
+</ol>
+
+
+
+
+    

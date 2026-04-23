@@ -1,0 +1,87 @@
+﻿<h1 class="firstheading">散布図データと透過したパラメトリック曲面グラフ</h1>
+<p class="urlname" style="display: none;">3D-TransParaSurf-Scatter</p>
+<p><br />
+</p>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> 
+		 <span class="toctext">サマリー</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> 
+		 <span class="toctext">ステップ</span></a> 
+		<ol>
+			<li class="toclevel-2 tocsection-4"><a href="#Create_the_3D_Scatter_plot_with_color_index"><span 
+			 class="tocnumber">3.1</span> <span class="toctext">カラーインデックス付き3D散布図を作成する</span></a></li>
+			<li class="toclevel-2 tocsection-5"><a href="#Add_transparent_parametric_surfaces_on_the_active_graph"><span 
+			 class="tocnumber">3.2</span> <span class="toctext">アクティブなグラフにパラメトリック曲面を追加する 
+			 </span></a></li>
+		</ol></li>
+	</ol>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>このチュートリアルは、3D散布図と3Dパラメトリック曲面を組み合わせる方法を紹介します。 </p>
+<dl>
+	<dd><dl>
+		<dd><a class="image"><img alt="Transparent Parametric Surfaces 01.png" 
+									 src="../images/Transparent_Parametric_Surfaces_combined_with_Scatter_Plot/Transparent_Parametric_Surfaces_01.png" 
+									 width="511" height="392" border="0" /></a></dd>
+	</dl></dd>
+</dl>
+<p class="version">必要なOriginのバージョン:Origin 2016 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul>
+	<li>カラーインデックス付き3D散布図を作成する方法</li>
+	<li>アプリを使って3D confidence ellipsoidを作成する方法</li>
+</ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Create_the_3D_Scatter_plot_with_color_index"></a><span class="mw-headline">カラーインデックス付きで3D散布図を作図する</span></h3>
+<ol>
+	<li><b>ヘルプ: ラーニングセンター</b> メニューを選択、または キーボードの<b>F11</b> キーを押して、ラーニングセンターを開きます。<b>グラフサンプル</b>を選択し、カテゴリーのドロップダウンリストから<b>3D散布図 
+	 リボン ウォール</b>を選択します。グラフサンプルをダブルクリックし「3D Scatter Ribbon and Wall Graphs 
+	 - 3D Confidence Ellipsoid for 3D Scatter」を開きます。<br />
+	<a class="image"><img alt="3Ys Y-YY tutorial 0.png" src="../images/Transparent_Parametric_Surfaces_combined_with_Scatter_Plot/3Ys_Y-YY_tutorial_0.png" 
+							 width="852" border="0" /></a><br />
+	このチュートリアルはサンプルデータ<i>&lt;Origin EXE Path&gt;\Samples\Statistics\Fisher&amp;apos;s 
+	 Iris Data.dat</i>と関連しています。 </li>
+	<li>3番目の列を選択し、<b>作図&gt;3D:3D散布図</b>と選択し、3D散布図を作図します。 </li>
+	<li>グラフをダブルクリックして<b>作図の詳細</b>ダイアログを開き、左パネルのプロットレベルの下にある<b>オリジナル</b>を選択します。右のパネルで<b>シンボル</b>タブを選択し、<b>色</b>を<b>ポイント毎：インデックス：Col(E)：&quot;Species&quot;</b>に設定します。カラーリストを開き、シンボルの色を設定します。 
+	 </li>
+	<li>グラフ凡例を右クリックして、コンテキストメニューから<b><b>凡例：凡例の再構成</b></b>を選択します。 以下のように、3D散布図が作成されます。 
+	 <br />
+	<a class="image"><img alt="Transparent Parametric Surfaces 06.png" 
+							 src="../images/Transparent_Parametric_Surfaces_combined_with_Scatter_Plot/Transparent_Parametric_Surfaces_06.png" 
+							 width="511" border="0" /></a> <br />
+	</li>
+	<li>以降の操作で凡例が更新されないようにするには、メニューから<b><b>フォーマット：作図の詳細（ページ属性）</b></b>を選択して<b>作図の詳細</b>ダイアログを開きます。<b><b>凡例更新モード/タイトル</b></b>タブで、<b><b>凡例更新モード</b></b>を<b>なし</b>にします。 
+	 <br />
+	<a class="image"><img alt="Transparent Parametric Surfaces 14.png" 
+							 src="../images/Transparent_Parametric_Surfaces_combined_with_Scatter_Plot/Transparent_Parametric_Surfaces_14.png" 
+							 width="785" border="0" /></a> <br />
+	</li>
+</ol>
+<h3><a name="Add_transparent_parametric_surfaces_on_the_active_graph"></a><span 
+	 class="mw-headline">透過性を設定したパラメトリック曲面をアクティブグラフに追加する</span></h3>
+<ol>
+	<li>OriginLab File Exchange Pageから<b>3D Confidence Ellipsoid</b> アプリをダウンロードします。: 
+	 <a class="external text" href="http://www.originlab.com/fileExchange/details.aspx?fid=280" 
+		 target="_blank">3D Confidence Ellipsoid</a> </li>
+	<li>Originのプログラムにアプリをドロップ&amp;ドラッグしてインストールし、アプリギャラリーに<b>3D Confidential 
+	 Ellipsoid</b>のアイコンが表示されます。 <br />
+	<a class="image"><img alt="3D Confidence Ellipsoid icon.png" src="../images/Transparent_Parametric_Surfaces_combined_with_Scatter_Plot/3D_Confidence_Ellipsoid_icon.png" 
+							 width="80" border="0" /></a> </li>
+	<li>グラフをアクティブにして、アプリギャラリーにあるこの<b>3D Confidential Ellipsoid</b>ボタンをクリックします。<b>Plot 
+	 3D Confidence Ellipsoid</b>ダイアログが開きます。初期設定のまま、<b>OK</b>ボタンをクリックします。3つの楕円体がグラフに追加され、それぞれ同じ色でデータのグループを覆っています。 
+	 <br />
+	<a class="image"><img alt="Plot 3D Confidence Ellipsoid dialog.png" 
+							 src="../images/Transparent_Parametric_Surfaces_combined_with_Scatter_Plot/Plot_3D_Confidence_Ellipsoid_dialog.png" 
+							 width="294" border="0" /></a> <br />
+	<br />
+	最終的に、下図のようなグラフになります。 <br />
+	<a class="image"><img alt="Transparent Parametric Surfaces 01.png" 
+							 src="../images/Transparent_Parametric_Surfaces_combined_with_Scatter_Plot/Transparent_Parametric_Surfaces_01.png" 
+							 width="511" border="0" /></a> </li>
+</ol>

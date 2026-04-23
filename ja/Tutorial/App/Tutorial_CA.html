@@ -1,0 +1,146 @@
+﻿<h1 class="firstHeading">工程能力分析のチュートリアル</h1><p class='urlname' style='display: none'>Tutorial-CA</p>
+<div class="toclimit-2"><div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Notes_for_Starting"><span class="tocnumber">1</span> <span class="toctext">始める前の注意</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Normal_Capability_Analysis"><span class="tocnumber">2</span> <span class="toctext">正規工程能力分析</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Background"><span class="tocnumber">2.1</span><span class="toctext">背景</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Steps_in_Origin"><span class="tocnumber">2.2</span> <span class="toctext">Originでの操作</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Interpreting_the_Results"><span class="tocnumber">2.3</span> <span class="toctext">結果の解釈</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Between_Within_Capability_Analysis"><span class="tocnumber">3</span> <span class="toctext">サブグループ間/内の工程能力分析</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#Background_2"><span class="tocnumber">3.1</span><span class="toctext">背景</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Steps_in_Origin_2"><span class="tocnumber">3.2</span> <span class="toctext">Originでの操作</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Interpreting_the_Results_2"><span class="tocnumber">3.3</span> <span class="toctext">結果の解釈</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="#Non-normal_Capability_Analysis"><span class="tocnumber">4</span> <span class="toctext">非正規工程能力分析</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="#Background_3"><span class="tocnumber">4.1</span><span class="toctext">背景</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Steps_in_Origin_3"><span class="tocnumber">4.2</span> <span class="toctext">Originでの操作</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Interpreting_the_Results_3"><span class="tocnumber">4.3</span> <span class="toctext">結果の解釈</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="#Binomial_Capability_Analysis"><span class="tocnumber">5</span> <span class="toctext">二項分布の工程能力分析</span></a>
+<ul>
+<li class="toclevel-2 tocsection-15"><a href="#Background_4"><span class="tocnumber">5.1</span><span class="toctext">背景</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#Steps_in_Origin_4"><span class="tocnumber">5.2</span> <span class="toctext">Originでの操作</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#Interpreting_the_Results_4"><span class="tocnumber">5.3</span> <span class="toctext">結果の解釈</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-18"><a href="#Poisson_Capability_Analysis"><span class="tocnumber">6</span> <span class="toctext">ポアソン分布の工程能力分析</span></a>
+<ul>
+<li class="toclevel-2 tocsection-19"><a href="#Background_5"><span class="tocnumber">6.1</span><span class="toctext">背景</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="#Steps_in_Origin_5"><span class="tocnumber">6.2</span> <span class="toctext">Originでの操作</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="#Interpreting_the_Results_5"><span class="tocnumber">6.3</span> <span class="toctext">結果の解釈</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<h2><a name="Notes_for_Starting"></a><span class="mw-headline">始める前の注意</span></h2>
+<ul><li> <a class="external text" href="https://blog.originlab.com/wp-content/uploads/2023/10/SPCData.zip" target="_blank">ここ</a>からサンプルプロジェクトファイルをダウンロードし、Originで開きます。</li></ul>
+<ul><li> アプリ<a class="external text" href="https://www.originlab.com/fileExchange/details.aspx?fid=934" target="_blank"><b>Statistical Process Control（統計的工程管理）</b></a>がインストールされている状態でこのチュートリアルを開始してください。アプリをインストールしていない場合は、<a class="external text" href="https://www.originlab.com/doc/User-Guide/Apps" target="_blank">Originのアプリ</a>を参照して検索とインストールを行ってください。</li></ul>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Tutorial_CA/Tip_icon.png" width="57"  border="0" /></td><td><p><i><b>詳細情報</b></i>:
+</p>
+<ul><li> <a href="../../Tutorial/Category/Capability_Analysis(App).html" title="カテゴリ:工程能力分析（アプリ）">イントロダクション:工程能力分析</a></li>
+<li> <a href="../../Tutorial/App/Algorithm_CA.html" title="アプリ:Algorithm CA">アルゴリズム:工程能力分析</a></li></ul>
+</td></tr></table>
+<h2><a name="Normal_Capability_Analysis"></a><span class="mw-headline">正規工程能力分析</span></h2>
+<h5><a name="Background"></a><span class="mw-headline">背景</span></h5>
+<p>品質管理エンジニアが、パイプの生産プロセスを評価します。150サンプルのパイプの高さ（フィート）データを収集しました。 
+</p><p>このデータを分析して、パイプの高さが5.0±0.02 (4.98～5.02) になるか確認します。
+</p>
+<h5><a name="Steps_in_Origin"></a><span class="mw-headline">Originでの操作</span></h5>
+<ol><li> フォルダ<b>1.Normal</b>を開きます。ブックの<b>Height of Pipe</b>をアクティブにします。</li>
+<li> ワークシートのA列を選択します。Originのウィンドウ左側にある<b>アプリギャラリー</b>ウィンドウを開き、<b>Statistical Process Control</b>アイコン<a  class="image"><img alt="SPC Icon.png" src="../images/Tutorial_CA/SPC_Icon.png" width="32"  /></a>をクリックします。</li>
+<li> <b>工程能力分析</b>タブを選択し、<b>正規工程能力分析</b>を選択します。
+<dl><dd><a  class="image"><img alt="NPA GUI.png" src="../images/Tutorial_CA/700px-NPA_GUI.png" width="700"   /></a></dd></dl></li>
+<li> 開いたダイアログの<b>入力</b>タブで、列Aが<b>測定データ</b>として自動的に選択されます。<b>サブグループのサイズ</b>を<b>定数</b>にし、<b>サブグループのサイズの定数</b>を1に設定します。
+<dl><dd><a  class="image"><img alt="NPA Input.png" src="../images/Tutorial_CA/380px-NPA_Input.png" width="380"   /></a></dd></dl></li>
+<li> <b>限界</b>タブで、<b>下限規格</b>を<b>4.98</b>にし、<b>上限規格</b>を<b>5.02</b>にして、 <b>目標</b>を<b>5</b>に設定します。
+<dl><dd><a  class="image"><img alt="NPA Limit.png" src="../images/Tutorial_CA/380px-NPA_Limit.png" width="380"   /></a></dd></dl></li>
+<li> <b>OK</b>ボタンをクリックします。レポート表付きのグラフが作成されます。</li></ol>
+<h5><a name="Interpreting_the_Results"></a><span class="mw-headline">結果の解釈</span></h5>
+<p>測定値が規格限界のほぼ中心にあり、すべての測定値は規格限界内にあります。また、工程能力指数であるCpk、PpkおよびCpmはすべて一般的に許容される最小値である1.33より大きいため工程能力が十分だと評価できます。従って、生産要件を満たしていると結論付けできます。
+</p>
+<dl><dd><a  class="image"><img alt="NPA Report.png" src="../images/Tutorial_CA/600px-NPA_Report.png" width="600"   /></a></dd></dl>
+<h2><a name="Between_Within_Capability_Analysis"></a><span class="mw-headline">サブグループ間/内の工程能力分析</span></h2>
+<h5><a name="Background_2"></a><span class="mw-headline">背景</span></h5>
+<p>あるエンジニアがステンレス鋼板の製造プロセスを評価したいと考えています。 
+</p><p>彼は、連続した20枚の鋼板から４つの厚さの測定値を収集します。  厚さはほぼ3±0.1mmです。 
+</p>
+<h5><a name="Steps_in_Origin_2"></a><span class="mw-headline">Originでの操作</span></h5>
+<ol><li> フォルダ<b>2.Between-Within</b>を開き、ワークブックの<b>スチールシートを</b>アクティブにします。</li>
+<li> Originのウィンドウ左側にある<b>アプリギャラリー</b>ウィンドウを開き、<b>Statistical Process Control</b>アイコン<a  class="image"><img alt="SPC Icon.png" src="../images/Tutorial_CA/SPC_Icon.png" width="32"  /></a>をクリックします。</li>
+<li> <b>工程能力分析</b>タブを選択し、<b>サブグループ間/内の工程能力分析</b>を選択します。</li>
+<li> 開いたダイアログの<b>入力</b>タブで、列Aを<b>測定データ</b>として選択します。<b>サブグループのサイズ</b>を<b>列</b>にし、<b>サブグループのサイズ列</b>を列Bに設定します。
+<dl><dd><a  class="image"><img alt="BCA Input.png" src="../images/Tutorial_CA/380px-BCA_Input.png" width="380"   /></a></dd></dl></li>
+<li> <b>限界</b>タブで、<b>下限規格</b>を<b>2.9</b>にし、<b>上限規格</b>を<b>3.1</b>にして、 <b>目標</b>を<b>3</b>に設定します。
+<dl><dd><a  class="image"><img alt="BCA limit.png" src="../images/Tutorial_CA/380px-BCA_limit.png" width="380"   /></a></dd></dl></li>
+<li> <b>OK</b>ボタンをクリックします。レポート表付きのグラフが作成されます。</li></ol>
+<h5><a name="Interpreting_the_Results_2"></a><span class="mw-headline">結果の解釈</span></h5>
+<p>すべての測定値が仕様範囲内に収まっているわけではありません。サブグループ間/内の工程能力分析の場合、CPは1.188であり、仕様の幅がプロセスの6σ幅の1.19倍であることを示しています。CpとCpkは若干異なっており、プロセスの平均値が仕様の中心から少しずれている（偏っている） ことを意味します。全体的な能力については、PP、Ppk、およびCPMがほぼ同じであるため、プロセスの変動が比較的安定し、ターゲット（目標値）に合っていることを示しています。しかし、Ppkは1.33よりも小さく、プロセスはある程度の品質を維持しているが、まだ改善の余地があるということが確認できます。これらから、プロセスは問題ないが、さらなる改善が可能であると結論付けることができる。
+</p>
+<dl><dd><a  class="image"><img alt="BCA Results.png" src="../images/Tutorial_CA/600px-BCA_Results.png" width="600"   /></a></dd></dl>
+<h2><a name="Non-normal_Capability_Analysis"></a><span class="mw-headline">非正規工程能力分析</span></h2>
+<h5><a name="Background_3"></a><span class="mw-headline">背景</span></h5>
+<p>重さの値のデータセットがあり、それはワイブル分布に従っています。そのデータが1を超えないことを望んでいます。 
+</p>
+<h5><a name="Steps_in_Origin_3"></a><span class="mw-headline">Originでの操作</span></h5>
+<ol><li> フォルダ<b>3.Nonnormal</b>を開きます。ワークブック<b>Weibull</b>をアクティブにします。</li>
+<li> Originのウィンドウ左側にある<b>アプリギャラリー</b>ウィンドウを開き、<b>Statistical Process Control</b>アイコン<a  class="image"><img alt="SPC Icon.png" src="../images/Tutorial_CA/SPC_Icon.png" width="32"  /></a>をクリックします。</li>
+<li> <b>工程能力分析</b>タブを選択し、<b>非正規工程能力分析</b>を選択します。</li>
+<li> 開いたダイアログの<b>入力</b>タブで、列Aを<b>測定データ</b>として選択します。</li>
+<li> <b>分布<i>タブで</i></b><i>分布<b>を</b>Weibull<b>に設定し、</b>方法<b>を </b>推定パラメータ<b>に設定します。  形状を固定は空のまま</b></i>にします。
+<dl><dd><a  class="image"><img alt="NCA Distribution.png" src="../images/Tutorial_CA/250px-NCA_Distribution.png" width="250"   /></a></dd></dl></li>
+<li> <b>限界</b>タブで、<b>上限規格</b>を<b>1</b>設定し、その他のすべてのテキストボックスを空のままにします。
+<dl><dd><a  class="image"><img alt="NCA Limit.png" src="../images/Tutorial_CA/250px-NCA_Limit.png" width="250"   /></a></dd></dl></li>
+<li> <b>OK</b>ボタンをクリックします。レポート表付きのグラフが作成されます。</li></ol>
+<h5><a name="Interpreting_the_Results_3"></a><span class="mw-headline">結果の解釈</span></h5>
+<p>データセットがワイブル分布に適合していることを示しています。すべての測定値が仕様の上限以下になっています。プロセスが要求を満たしていると言えます。
+</p>
+<dl><dd><a  class="image"><img alt="NCA Results.png" src="../images/Tutorial_CA/600px-NCA_Results.png" width="600"   /></a></dd></dl>
+<h2><a name="Binomial_Capability_Analysis"></a><span class="mw-headline">二項分布の工程能力分析</span></h2>
+<p>二項分布の工程能力分析は工程内の不良品の割合が顧客の仕様を満たしているかを評価するために使用される手法です。不良品か良品かの2値データ（属性データ）を分析する際に適用されます。
+</p>
+<h5><a name="Background_4"></a><span class="mw-headline">背景</span></h5>
+<p>あるショップのマネージャーが、25日間にわたり顧客満足度調査 を実施し、不満のある顧客数を記録しました。 
+</p><p>彼は サービスが仕様を満たしているか を確認したいと考えています。
+</p>
+<h5><a name="Steps_in_Origin_4"></a><span class="mw-headline">Originでの操作</span></h5>
+<ol><li> フォルダ<b>4.Binomial</b>を開き、ワークブック<b>Survey</b>をアクティブにします。</li>
+<li> Originのウィンドウ左側にある<b>アプリギャラリー</b>ウィンドウを開き、<b>Statistical Process Control</b>アイコン<a  class="image"><img alt="SPC Icon.png" src="../images/Tutorial_CA/SPC_Icon.png" width="32"  /></a>をクリックします。</li>
+<li> <b>工程能力分析</b>タブを選択し、<b>二項分布の工程能力分析</b>を選択します。</li>
+<li> 開いたダイアログの<b>入力</b>タブで<b>不良</b>を列Bに設定します。<b>サンプルサイズ</b><b>列</b>にし、<b>サンプルサイズ列</b>にA列を設定します。
+<dl><dd><a  class="image"><img alt="BinCA Input.png" src="../images/Tutorial_CA/380px-BinCA_Input.png" width="380"   /></a></dd></dl></li>
+<li> <b>OK</b>ボタンをクリックします。レポート表付きのグラフが作成されます。</li></ol>
+<h5><a name="Interpreting_the_Results_4"></a><span class="mw-headline">結果の解釈</span></h5>
+<p>P管理図から、すべてのサンプルが管理限界内に収まっているため、プロセスは統計的に管理状態にあることが確認できます。  累積不良率チャートでは、累積不良率（不満足ユーザー率）が約20%で安定しています。不良率プロットでは、点が平均線の周りにランダムに分布している。
+<b>サマリー統計</b>テーブルでは、プロセスZ値が0.853と、2よりはるかに低いことが確認できます。これは仕様を満たしていないこと示しています。利用者の約20%が満足していません。 
+</p>
+<dl><dd><a  class="image"><img alt="BinCA Results.png" src="../images/Tutorial_CA/600px-BinCA_Results.png" width="600"   /></a></dd></dl>
+<h2><a name="Poisson_Capability_Analysis"></a><span class="mw-headline">ポアソン分布の工程能力分析</span></h2>
+<h5><a name="Background_5"></a><span class="mw-headline">背景</span></h5>
+<p>プラスチックフィルムの製造工程を評価する場合を考えます。プラスチックフィルムについて1時間ごとにデータが収集されます。特定の面積をカットし、傷や欠陥をカウントします。面積はcm2単位で、傷の数も記録します。計100時間分のデータを収集しました。製造プロセスが仕様を満たしているかを確認します。
+</p>
+<h5><a name="Steps_in_Origin_5"></a><span class="mw-headline">Originでの操作</span></h5>
+<ol><li> フォルダ<b>5.Poisson</b> を<b>プロジェクトエクスプローラ</b>で開き、<b>Plastic Film</b>ワークブックをアクティブにします。</li>
+<li> Originのウィンドウ左側にある<b>アプリギャラリー</b>ウィンドウを開き、<b>Statistical Process Control</b>アイコン<a  class="image"><img alt="SPC Icon.png" src="../images/Tutorial_CA/SPC_Icon.png" width="32"  /></a>をクリックします。</li>
+<li> <b>工程能力分析</b>タブを選択し、<b>ポアソン分布の工程能力分析</b>を選択します。</li>
+<li> 開いたダイアログの<b>入力</b>タブで<b>不良</b>を列Bに設定します。<b>サンプルサイズ</b><b>列</b>にし、<b>サンプルサイズ列</b>にA列を設定します。
+<dl><dd><a  class="image"><img alt="PoiCA Input.png" src="../images/Tutorial_CA/380px-PoiCA_Input.png" width="380"   /></a></dd></dl></li>
+<li> <b>OK</b>ボタンをクリックします。レポート表付きのグラフが作成されます。</li></ol>
+<h5><a name="Interpreting_the_Results_5"></a><span class="mw-headline">結果の解釈</span></h5>
+<p>U管理図は結果の統計的制御の状態を評価します。U管理図では、1つの異常点が確認できます。全体的にはプロセスは安定している。累積DPUグラフは、十分なサンプル数があるかを確認するためのものです。データが平均DPU線に沿って平坦になっていることがわかります。これは、平均DPUの推定値が有効であることを保証するのに十分なサンプルがあることを意味します。 
+</p><p>サマリー統計テーブルから、平均DPU（単位あたりの欠陥）が0.115であることがわかる。つまり、1つの欠陥が8.69cm²ごとに発生しています。DPUの95%信頼区間はLCL: 0.108 ～ UCI: 0.121である。すなわち、95%の確率で平均DPUが(0.108,0.121)内にあるということがわかります。
+</p><p><br />
+</p>
+<dl><dd><a  class="image"><img alt="PoiCA Results.png" src="../images/Tutorial_CA/600px-PoiCA_Results.png" width="600"   /></a></dd></dl>
+
+
+
+    

@@ -1,0 +1,198 @@
+﻿<h1 class="firstheading">鋭いピークの関数を積分でフィットする</h1>
+<p class="urlname" style="display: none;">Fitting-Integral-SharpPeak</p>
+<table id="toc" class="toc">
+<tr>
+<td>
+<div id="toctitle">
+<h2>内容</h2>
+</div>
+<ol>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">サンプルとステップ</span></a>
+<ol>
+<li class="toclevel-2 tocsection-4"><a href="#Import_Data"><span class="tocnumber">3.1</span> <span class="toctext">データをインポート</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Define_Fitting_Function"><span class="tocnumber">3.2</span> <span class="toctext">フィット関数を定義する</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Fit_the_Curve"><span class="tocnumber">3.3</span> <span class="toctext">曲線をフィットする</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Fitting_Results"><span class="tocnumber">3.4</span> <span class="toctext">フィット結果</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Sample_Data"><span class="tocnumber">3.5</span> <span class="toctext">サンプルデータ</span></a></li>
+</ol>
+</li>
+</ol>
+</td>
+</tr>
+</table>
+<p><br /></p>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>このチュートリアルでは積分関数内に鋭いピークを持つ積分フィット関数を定義し、その関数でデータをフィットする方法を示します。</p>
+<p>積分関数内に鋭いピークを含んでいるので、それを狭い間隔で積分する必要があります。そのため、このピークを3つの部分に区分けして積分を行います。</p>
+<p class="version">必要なOriginのバージョン:Origin 9.0 SR0</p>
+<h2><a name="What_you_will_learn" id="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。</p>
+<ul>
+<li>積分フィット関数を定義する</li>
+<li>鋭いピークの関数を積分する</li>
+<li>積分の区間を複数に区分けする</li>
+</ul>
+<h2><a name="Example_and_Steps" id="Example_and_Steps"></a><span class="mw-headline">サンプルとステップ</span></h2>
+<h3><a name="Import_Data" id="Import_Data"></a><span class="mw-headline">データのインポート</span></h3>
+<ol>
+<li>新規ワークブックを作成します。</li>
+<li><a href="#Sample_Data">サンプルデータ</a> の内容をワークブックにコピーします。</li>
+<li>列Bを選択し、<b>作図：シンボル図：</b><b>散布図</b>と操作します。グラフは次のようになります。</li>
+</ol>
+<dl>
+<dt>&#160;</dt>
+<dd>
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Fit Integral Peak G1.png" src="../images/Fitting_Integral_Function_with_a_Sharp_Peak/Fit_Integral_Peak_G1.png" width="509" height="351" border="0" /></a></dd>
+</dl>
+</dd>
+</dl>
+<h3><a name="Define_Fitting_Function" id="Define_Fitting_Function"></a><span class="mw-headline">フィット関数を定義する</span></h3>
+<p>フィットする積分関数は次の式で表されます。</p>
+<dl>
+<dd><img src="../images/Fitting_Integral_Function_with_a_Sharp_Peak/math-ba2599fbd2266a09de6f0d189020ad62.png" title="y=\log (\int_{0}^{1} \frac{1}{\sqrt{2\pi}b}e^{-\frac{(t-a)^2}{2b^2}-xt}\, dt)" alt="y=\log (\int_{0}^{1} \frac{1}{\sqrt{2\pi}b}e^{-\frac{(t-a)^2}{2b^2}-xt}\, dt)" class="tex" border="0" /></dd>
+</dl>
+<p>aとbはフィット関数内のパラメータです。</p>
+<p>初期パラメータ値は、a=1e-4, b=1e-4となります。積分関数内には中心がaにあり、太さが2b程度のピークがあります。そして、ピークの幅(2e-4)は積分の範囲から見ても、とても狭いことが分かります。正しくピークの中心あたりで積分される事を確認するために、積分範囲である[0,1] は3つの区分に分けられています。[0,a-5*b], [a-5*b,a+5*b], [a+5*b,1].この区分内で積分が施され、最終的に合計します。</p>
+<p><b style="font-weight: bold;">フィット関数ビルダー</b>ツールでフィット関数を定義します。</p>
+<ol>
+<li><b style="font-weight: bold;">ツール：</b><b>フィット関数ビルダー</b>をメニューから選択します。</li>
+<li><b style="font-weight: bold;">フィット関数ビルダー</b>ダイアログの<b>処理のゴール</b>ページで<b>進む</b>のボタンをクリックします。</li>
+<li><b style="font-weight: bold;">関数名と関数形式</b>のページでは<b>関数カテゴリーの選択/新規名称</b>のドロップダウンリストから<b>User Defined</b>を選択します。次に<b>関数名</b>のエリアに<b>fintpeak</b>と入力し、<b>関数形式</b>で<b>算術式</b>を選びます。最後に<b>フィット中に積分を実行</b>のチェックを付けます。それから、<b>進む</b>ボタンをクリックします。</li>
+<li><b style="font-weight: bold;">被積分関数</b>ページでは<b>被積分関数名</b>の編集ボックス内に<b>myint</b>と入力します。そして、<b>被積分関数の変数</b>の編集ボックスには<b>t</b>を、<b>引数</b>の編集ボックスには<b>a</b>, <b>b</b>, <b>x</b>を入力します。<b>被積分関数</b>ボックスに次のスクリプトを入力します。
+<pre class="lt" style="font-family: monospace;">
+return <span style="color: #0000dd;">1</span><span style="color: #000080;">/</span><span style="color: #000000;">(</span>sqrt<span style="color: #000000;">(</span><span style="color: #0000dd;">2</span><span style="color: #000080;">*</span>pi<span style="color: #000000;">)</span><span style="color: #000080;">*</span>b<span style="color: #000000;">)</span><span style="color: #000080;">*</span>exp<span style="color: #000000;">(</span><span style="color: #000080;">-</span><span style="color: #000000;">(</span>t<span style="color: #000080;">-</span>a<span style="color: #000000;">)</span><span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000080;">/</span><span style="color: #000000;">(</span><span style="color: #0000dd;">2</span><span style="color: #000080;">*</span>b<span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span><span style="color: #000080;">-</span>x<span style="color: #000080;">*</span>t<span style="color: #000000;">)</span>;
+        
+</pre>
+<p>それから、<b>進む</b>ボタンをクリックします。</p>
+</li>
+<li><b style="font-weight: bold;">変数とパラメータ</b>のページでは、<b>パラメータ</b>エリアに<b>a</b>, <b>b</b>を入力します。<b>進む</b>ボタンをクリックします。</li>
+<li><b style="font-weight: bold;">式形式の関数</b>ページの<b>パラメータ</b>タブでは、パラメータaとbの<b>初期値</b>を1e<sup>-4</sup>に設定します。それから<b>被積分関数</b>タブをクリックし、<b>下限</b>と<b>上側限界</b>の<b>値</b>をそれぞれ0と1に設定し、<b>a</b>、<b>b</b>、<b>x</b>の<b>値</b>はそれぞれa、b、xと入力してください。</li>
+<li><b style="font-weight: bold;">式形式の関数</b>ページで<b>挿入</b>ボタンをクリックします。<b>クイックチェック</b>のグループでは<b>ｘ＝</b>編集ボックスに0を入力し、<b>評価</b>ボタンをクリックします。すると、y=9.3e-21と表示されるはずです。ｘ＝０の時にｙは1へ近づかないといけないので、このピークが正しく積分されなかったことが分かります。積分を3つに区分し、<b>関数内容</b>ボックスに次のスクリプトを入力します。
+<pre class="lt" style="font-family: monospace;">
+integral<span style="color: #000000;">(</span>myint, <span style="color: #0000dd;">0</span>, a<span style="color: #000080;">-</span><span style="color: #0000dd;">5</span><span style="color: #000080;">*</span>b, a ,b ,x<span style="color: #000000;">)</span><span style="color: #000080;">+</span>integral<span style="color: #000000;">(</span>myint, a<span style="color: #000080;">-</span><span style="color: #0000dd;">5</span><span style="color: #000080;">*</span>b, a<span style="color: #000080;">+</span><span style="color: #0000dd;">5</span><span style="color: #000080;">*</span>b, a ,b ,x<span style="color: #000000;">)</span><span style="color: #000080;">+</span>
+integral<span style="color: #000000;">(</span>myint, a<span style="color: #000080;">+</span><span style="color: #0000dd;">5</span><span style="color: #000080;">*</span>b, <span style="color: #0000dd;">1</span>, a ,b ,x<span style="color: #000000;">)</span>
+        
+</pre>
+<p>もう一度<b>評価</b>ボタンをクリックするとy=0.84が表示され、今回は正確にピークが積分されたことが分かります。</p>
+</li>
+<li><b style="font-weight: bold;">式形式の関数</b>ページの<b>関数内容</b>ボックスを次のスクリプトで更新します。
+<pre class="lt" style="font-family: monospace;">
+log<span style="color: #000000;">(</span>integral<span style="color: #000000;">(</span>myint, <span style="color: #0000dd;">0</span>, a<span style="color: #000080;">-</span><span style="color: #0000dd;">5</span><span style="color: #000080;">*</span>b, a ,b ,x<span style="color: #000000;">)</span><span style="color: #000080;">+</span>integral<span style="color: #000000;">(</span>myint, a<span style="color: #000080;">-</span><span style="color: #0000dd;">5</span><span style="color: #000080;">*</span>b, a<span style="color: #000080;">+</span><span style="color: #0000dd;">5</span><span style="color: #000080;">*</span>b, a ,b ,x<span style="color: #000000;">)</span><span style="color: #000080;">
++</span>integral<span style="color: #000000;">(</span>myint, a<span style="color: #000080;">+</span><span style="color: #0000dd;">5</span><span style="color: #000080;">*</span>b, <span style="color: #0000dd;">1</span>, a ,b ,x<span style="color: #000000;">)</span><span style="color: #000000;">)</span>
+        
+</pre>
+<p><b style="font-weight: bold;">完了</b>ボタンをクリックします。</p>
+</li>
+</ol>
+<h3><a name="Fit_the_Curve" id="Fit_the_Curve"></a><span class="mw-headline">曲線をフィットする</span></h3>
+<ol>
+<li><b style="font-weight: bold;">解析：</b><b>フィット：</b><b>非線形曲線フィット</b>をメニューから選択します。<b>NLFit</b>ダイアログで、<b>設定</b>タブを選択します。<b>関数選択</b>を選び、<b>カテゴリ</b>ドロップダウンリストから<b>User Defined</b>を選びます。そして<b>関数</b>ドロップダウンリストでは<b>fintpeak</b>関数を選びます。<b>Note</b>: 初期パラメータはフィット関数の定義中に設定されています。</li>
+<li><b style="font-weight: bold;">フィット</b>ボタンをクリックし、フィットを行います。</li>
+</ol>
+<h3><a name="Fitting_Results" id="Fitting_Results"></a><span class="mw-headline">フィット結果</span></h3>
+<p>フィット曲線のグラフは次のようになります。</p>
+<dl>
+<dt>&#160;</dt>
+<dd>
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Fit Integral Peak G2.png" src="../images/Fitting_Integral_Function_with_a_Sharp_Peak/Fit_Integral_Peak_G2.png" width="492" height="365" border="0" /></a></dd>
+</dl>
+</dd>
+</dl>
+<p>フィットパラメータは以下の通りです。</p>
+<table class="simple">
+<tr>
+<th><b style="font-weight: bold;">パラメータ</b></th>
+<th><b style="font-weight: bold;">値</b></th>
+<th><b style="font-weight: bold;">標準誤差</b></th>
+</tr>
+<tr>
+<th><b style="font-weight: bold;">a</b></th>
+<td>4.98302E-4</td>
+<td>1.07593E-5</td>
+</tr>
+<tr>
+<th><b style="font-weight: bold;">b</b></th>
+<td>1.94275E-4</td>
+<td>8.21815E-6</td>
+</tr>
+</table>
+<p>補正R二乗値は 0.99799です。つまり、このフィット結果はとても良いことを示しています。</p>
+<h3><a name="Sample_Data" id="Sample_Data"></a><span class="mw-headline">サンプルデータ</span></h3>
+<table class="simple">
+<tr>
+<th width="80">x</th>
+<th width="80">y</th>
+</tr>
+<tr>
+<td>0</td>
+<td>-0.00267</td>
+</tr>
+<tr>
+<td>60</td>
+<td>-0.01561</td>
+</tr>
+<tr>
+<td>240</td>
+<td>-0.05268</td>
+</tr>
+<tr>
+<td>500</td>
+<td>-0.10462</td>
+</tr>
+<tr>
+<td>1000</td>
+<td>-0.22092</td>
+</tr>
+<tr>
+<td>1500</td>
+<td>-0.31004</td>
+</tr>
+<tr>
+<td>2000</td>
+<td>-0.40695</td>
+</tr>
+<tr>
+<td>3000</td>
+<td>-0.61328</td>
+</tr>
+<tr>
+<td>4000</td>
+<td>-0.75884</td>
+</tr>
+<tr>
+<td>5000</td>
+<td>-0.9127</td>
+</tr>
+<tr>
+<td>6000</td>
+<td>-0.98605</td>
+</tr>
+<tr>
+<td>7000</td>
+<td>-1.18957</td>
+</tr>
+<tr>
+<td>9000</td>
+<td>-1.43831</td>
+</tr>
+<tr>
+<td>10000</td>
+<td>-1.41393</td>
+</tr>
+<tr>
+<td>12000</td>
+<td>-1.61458</td>
+</tr>
+<tr>
+<td>15000</td>
+<td>-1.88098</td>
+</tr>
+<tr>
+<td>20000</td>
+<td>-2.07792</td>
+</tr>
+</table>

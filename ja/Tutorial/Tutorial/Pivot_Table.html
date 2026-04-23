@@ -1,0 +1,157 @@
+﻿<h1 class="firstheading">ピボットテーブル</h1><p class='urlname' style='display: none'>Pivot-Table</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Import_Data_from_Database"><span class="tocnumber">3</span> <span class="toctext">データベースからデータをインポートする</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Create_a_Pivot_Table"><span class="tocnumber">4</span> <span class="toctext">ピボットテーブルを作成する</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Combine_Small_Values"><span class="tocnumber">5</span> <span class="toctext">小さな値をまとめる</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Extra_Categories_Source"><span class="tocnumber">6</span> <span class="toctext">追加カテゴリソース</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Create_analysis_template"><span class="tocnumber">7</span> <span class="toctext">分析テンプレートの作成</span></a></li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>ピボットテーブルはデータ概要の把握や、分析、比較、データ間の関係確認を簡便に行えます。このツールは、ワークシートにある情報をソート、カウントしたり、合計、最小・最大・平均の計算もできます。 
+</p>
+<p class="version" >必要なOriginのバージョン: Origin 2015 SR0以降 </p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul><li>ピボットテーブルでデータの概要を表示する</li>
+<li>ピボットテーブルで出力した列や行の合計によってデータをソートする</li>
+<li>列や行の小さな値をまとめる等、カスタムする</li></ul>
+<h2><a name="Import_Data_from_Database"></a><span class="mw-headline">データベースからデータをインポートする</span></h2>
+<ol>
+<li>ピボットテーブルを作成する前に、データベースからデータをインポートする必要があります。 
+ここでは、サーバマシン<i>myServer</i> でSQLを実行している環境で<i>AdventureWorks2008R2</i>という名前のデータベースの設定を行ったとします。ユーザ名は「accounting」、パスワードは「mydatabase」であるとします。</li>
+<li> データベースに接続するには、接続文字列を使用します。
+<pre class="lt" style="font-family:monospace;">Provider<span style="color: #000080;">=</span>SQLOLEDB.1;Password<span style="color: #000080;">=</span>mydatabase;Persist Security Info<span style="color: #000080;">=</span>True;
+User ID<span style="color: #000080;">=</span>accounting;Initial Catalog<span style="color: #000080;">=</span>AdventureWorks2008R2;Data Source<span style="color: #000080;">=</span>myServer</pre>
+</li>
+<li> 空白のワークシートをアクティブにし、<b>データベースアクセス</b>ツールバーの<b>SQLエディタを開く</b>ボタンをクリックしてSQLエディタを起動します。
+<dl><dd><a  class="image"><img alt="ImportDataDatabase 1.png" src="../images/Pivot_Table/ImportDataDatabase_1.png" width="260"  /></a></li></dd></dl>
+<li> SQLエディタの<b>ファイル</b>メニューから<b>接続文字列を編集</b>を選択してダイアログを開きます。テキストボックスに上記の接続文字列を入力します。入力してから<b>テスト</b>ボタンをクリックして、接続を確認します。問題なければ、<b><b>OK</b></b>をクリックしてデータベースにアクセスします。
+<dl><dd><a  class="image"><img alt="ImportDataDatabase 2.png" src="../images/Pivot_Table/ImportDataDatabase_2.png" width="1035"  /></a></li></dd></dl>
+<li>右側のテキストボックスに以下のSQLステートメントを入力します。 </li>
+<pre class="lt" style="font-family:monospace;">SELECT 
+DatePart<span style="color: #000000;">(</span>yyyy, SOH.<span style="color: #000080;">OrderDate</span><span style="color: #000000;">)</span> AS YEAR,
+CR.<span style="color: #000080;">Name</span> As CustomerCountry,
+	Pr.<span style="color: #000080;">Name</span> As ProductName,
+	Pr.<span style="color: #000080;">Color</span> As ProductColor,
+	PC.<span style="color: #000080;">Name</span> As ProductCategory,
+	PS.<span style="color: #000080;">Name</span> As ProductSubcategory,
+	SOH.<span style="color: #000080;">OrderDate</span> As OrderDate,
+	SOD.<span style="color: #000080;">OrderQty</span> As OrderAmount,
+	SOD.<span style="color: #000080;">LineTotal</span> As TotalCost
+FROM Person.<span style="color: #000080;">CountryRegion</span> AS CR
+INNER JOIN Person.<span style="color: #000080;">StateProvince</span> AS SP
+ON SP.<span style="color: #000080;">CountryRegionCode</span> <span style="color: #000080;">=</span> CR.<span style="color: #000080;">CountryRegionCode</span>
+INNER JOIN Person.<span style="color: #000080;">Address</span> AS A
+ON A.<span style="color: #000080;">StateProvinceID</span> <span style="color: #000080;">=</span> SP.<span style="color: #000080;">StateProvinceID</span>
+INNER JOIN Person.<span style="color: #000080;">BusinessEntityAddress</span> AS BEA
+ON BEA.<span style="color: #000080;">AddressID</span> <span style="color: #000080;">=</span> A.<span style="color: #000080;">AddressID</span>
+INNER JOIN Person.<span style="color: #000080;">Person</span> AS P
+ON P.<span style="color: #000080;">BusinessEntityID</span> <span style="color: #000080;">=</span> BEA.<span style="color: #000080;">BusinessEntityID</span>
+INNER JOIN Sales.<span style="color: #000080;">PersonCreditCard</span> AS PCC
+ON PCC.<span style="color: #000080;">BusinessEntityID</span> <span style="color: #000080;">=</span> P.<span style="color: #000080;">BusinessEntityID</span>
+INNER JOIN Sales.<span style="color: #000080;">SalesOrderheader</span> AS SOH
+ON SOH.<span style="color: #000080;">CreditCardID</span> <span style="color: #000080;">=</span> PCC.<span style="color: #000080;">CreditCardID</span>
+INNER JOIN Sales.<span style="color: #000080;">SalesOrderDetail</span> AS SOD
+ON SOD.<span style="color: #000080;">SalesOrderID</span> <span style="color: #000080;">=</span> SOH.<span style="color: #000080;">SalesOrderID</span>
+INNER JOIN Production.<span style="color: #000080;">Product</span> AS Pr
+ON Pr.<span style="color: #000080;">ProductID</span> <span style="color: #000080;">=</span> SOD.<span style="color: #000080;">ProductID</span>
+INNER JOIN Production.<span style="color: #000080;">ProductSubcategory</span> AS PS
+ON PS.<span style="color: #000080;">ProductSubcategoryID</span> <span style="color: #000080;">=</span> Pr.<span style="color: #000080;">ProductSubcategoryID</span>
+INNER JOIN Production.<span style="color: #000080;">ProductCategory</span> AS PC
+ON PC.<span style="color: #000080;">ProductCategoryID</span> <span style="color: #000080;">=</span> PS.<span style="color: #000080;">ProductCategoryID</span>
+<span style="color: #000080;">--</span>WHERE SOH.<span style="color: #000080;">OrderDate</span> BETWEEN <span style="color: #ff00ff;">&apos;1/1/2005&apos;</span> AND <span style="color: #ff00ff;">&apos;12/31/2008&apos;</span></pre>
+</li>
+<li> メインメニューの<b>ファイル：現在のワークシートに保存</b>を選択し、これらの設定をワークシートに保存します。次に<b>クエリー：インポート</b>を選択して、データをワークシートにインポートします。SQLエディタを閉じます。次の画像で、インポートされたデータを確認出来ます。 </li>
+<dl><dd><a  class="image"><img alt="Pivot imp1.png" src="../images/Pivot_Table/Pivot_imp1.png" width="695"  /></a></dd></dl>
+<li><b>閉じる</b>をクリックしてダイアログを閉じます。
+</ol>
+<h2><a name="Create_a_Pivot_Table"></a><span class="mw-headline">ピボットテーブルを作成する</span></h2>
+<p>インポートしたデータセットは、異なる6つの国々での、3つの製品カテゴリー（Bikes,Accessories, Clothing）の年毎の全体費用をまとめたものです。異なる製品カテゴリーの年間<i>全体コストの合計</i>を確認するために、ピボットテーブルを作成します。次のピボットテーブルを作成するステップに従ってください。 
+</p>
+<ol>
+<li>Sheet1をアクティブにし、メニューから<b>データ整形：ピボットテーブル</b>を選択し、ダイアログを開きます。ダイアログ内で次の設定を行います。
+<ul><li><b>ピボットテーブルの行ソース</b>では三角形ボタン<a  class="image"><img alt="Button Group List Add.png" src="../images/Pivot_Table/Button_Group_List_Add.png" width="17"  /></a>をクリックし、列Aを追加します。</li>
+<li><b>ピボットテーブルの列ソース</b>では三角形ボタン<a  class="image"><img alt="Button Group List Add.png" src="../images/Pivot_Table/Button_Group_List_Add.png" width="17"  /></a>をクリックし、列Eを追加します。</li>
+<li><b>サマリー出力タイプ</b>は<b>合計</b>を選択します。<b>ピボットテーブルのデータソース</b>に列Iを選択します。</li>
+<li><b>オプション</b>ブランチを開き、<b>行合計の列追加</b>と<b>列合計の行追加</b>にチェックを付けます。そして、<b>合計列のソート</b>ドロップダウンリストから<b>行ラベルの昇順</b>を選びます。</li></ul>
+<br /><a  class="image"><img alt="Pivot Table Tutorial n02.png" src="../images/Pivot_Table/Pivot_Table_Tutorial_n02.png" width="486"  /></a><br /><br />
+<li><b>OK</b>ボタンをクリックして、ピボットテーブルを作成します。テーブルは次のようになります。
+<br /><a  class="image"><img alt="Pivot Table Tutorial n03.png" src="../images/Pivot_Table/Pivot_Table_Tutorial_n03.png" width="478"  /></a><br /><br />
+</ol>
+<p><br />
+</p>
+<h2><a name="Combine_Small_Values"></a><span class="mw-headline">小さな値をまとめる</span></h2>
+<p>このセクションでは、しきい値％を超えた総計に閉める集計値(Count/Sum/Mean/Min/Max)の割合をこれらのカテゴリに表示し、デフォルトの<b>他</b>分類に小さな値の分類を統合する方法を示します。
+</p>
+<ol>
+<li>上記の例題を踏まえて、<b>Pivot1</b>ワークシートの錠前アイコンをクリックし、<b>パラメータの変更</b>を選んで再びダイアログを開きます。
+ 
+<br /><br /><a  class="image"><img alt="Pivot Table Tutorial nn.png" src="../images/Pivot_Table/Pivot_Table_Tutorial_nn.png" width="479"  /></a><br /><br />
+<li>ダイアログ内で次の設定を行います。 
+<ul><li><b>より小さな値をまとめる</b>ブランチを開き、<b>方向の統合</b>ドロップダウンリストから、<b>列</b>を選びます。 </li>
+<li><b>総計の％</b>を<b>モード</b>のドロップダウンリストから選択し、</li>
+<li><b>%</b>の欄に<b>30</b>を入力します。<b>列ラベル</b>のテキストボックスに、<b>Other Smaller Items</b>と入力します。 </li>
+<li><b>オプション</b>ブランチを開き、<b>行合計の列追加</b>と<b>列合計の行追加</b>にチェックを外します。 </li></ul>
+<a  class="image"><img alt="Pivot Table Tutorial n05.png" src="../images/Pivot_Table/Pivot_Table_Tutorial_n05.png" width="492"  /></a><br /><br />
+<li><b>OK</b>ボタンをクリックします。ピボットテーブルは<b>合計</b>によってまとめられたデータを表示します。<i>Bikes</i>のカテゴリーのみ、総合計の％がしきい値の30％を超えています。他の小さいカテゴリーは減少して、<b>Other Smaller Items</b>のカテゴリーに入れられます。
+<br /><br /><a  class="image"><img alt="Pivot Table Tutorial n06.png" src="../images/Pivot_Table/Pivot_Table_Tutorial_n06.png" width="345"  /></a><br /><br />
+</ol>
+<h2><a name="Extra_Categories_Source"></a><span class="mw-headline">追加カテゴリソース</span></h2>
+<p>このセクションでは、<b>Column Source Extra Value</b>でソースデータシートから無くなっている、いくつかのカテゴリーを表示する方法を説明します。これは、全ての必要なカテゴリーが、後で作図に使用される可能性のある結果ピボットテーブル内にあるか確認する時に便利です。 
+</p><p>2007<i>年</i>より前の、異なる製品カテゴリーの<i>全体コストの合計</i>を確認したいとします。次のピボットテーブルを作成するステップに従ってください。
+</p>
+<ol>
+<li>2007年より前の年を除外するため、データフィルタを使います。Sheet 1 に移動し、<b>列A</b>を選択します。メインメニューバーにある<a  class="image"><img alt="Button Add Or Remove Data Filter.png" src="../images/Pivot_Table/Button_Add_Or_Remove_Data_Filter.png" width="23"  /></a>ボタンをクリックします。<b>列A</b>にあるフィルタアイコンを再度クリックし、<b>より小さい</b>を選択します。単純な数値フィルター ダイアログを次の通りに編集し、OKをクリックしてダイアログを閉じます。
+<br /><a  class="image"><img alt="Pivot Table Tutorial filt.png" src="../images/Pivot_Table/Pivot_Table_Tutorial_filt.png" width="242"  /></a>
+</li>
+<li><b>Pivot1</b>ワークシートのカギマークをクリックし、<b>再計算</b>を選択します。次のピボットテーブルが示すように、他の2つの製品カテゴリは2005・2006<i>年</i>の費用データには記録されていませんので、<i>Bikes</i>のみが存在しています。  
+<br /><a  class="image"><img alt="Pivot Table Tutorial filt1.png" src="../images/Pivot_Table/Pivot_Table_Tutorial_filt1.png" width="213"  /></a>
+</li>
+<li><b>Pivot1</b> のワークシートに戻り、<b>作図：棒、円、面積：縦棒</b> を選択し、縦棒グラフ(<i>Graph1</i>)を作図します。 
+<li>次に、ピボットテーブルに2つの無くなったカテゴリを加えます。<b>Pivot1</b>ワークシートのカギマークをクリックし、<b>パラメータを変更</b>を選択します。次のようにダイアログを編集し、OKをクリックしてダイアログを閉じます。
+ピボットテーブルは次のようになります。
+<br /><a  class="image"><img alt="Pivot Table Tutorial filt3.png" src="../images/Pivot_Table/Pivot_Table_Tutorial_filt3.png" width="485"  /></a>
+<br />
+ピボットテーブルは次のようになります。
+<br /><a  class="image"><img alt="Pivot Table Tutorial filt4.png" src="../images/Pivot_Table/Pivot_Table_Tutorial_filt4.png" width="627"  /></a>
+</li>
+<li> <b>Pivot1</b>のワークシートに再度戻ります。  <b>列A</b>にあるフィルタアイコンを再度クリックし、ポップアップメニューから<b>フィルタを削除</b>を選択してフィルタを削除します。全ての列を選択して縦棒グラフ(<i>Graph2</i>)を作図します。グラフでは無くなったカテゴリが表れています。 
+</li>
+<li> <b>Pivot1</b>のワークシートに再度戻り、灰色の部分を右クリックして、<b>グラフの追加</b>を選択し、Graph2を<b>Pivot1</b>ワークシートに追加します。 
+<br /><a  class="image"><img alt="Pivot Table Tutorial filt5.png" src="../images/Pivot_Table/Pivot_Table_Tutorial_filt5.png" width="722"  /></a>
+</li>
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Pivot_Table/Tip_icon.png" width="57"  border="0" /></td><td><p>同様に年のフィルタも<b>データベースから取得されます。この場合、次のスクリプトを書き換えることで、好みの時間帯に編集することが出来ます。</b>
+</p>
+<pre class="lt" style="font-family:monospace;"> <span style="color: #000080;">--</span>WHERE SOH.<span style="color: #000080;">OrderDate</span> BETWEEN <span style="color: #ff00ff;">&apos;1/1/2005&apos;</span> AND <span style="color: #ff00ff;">&apos;12/31/2008&apos;</span></pre>
+</td></tr></table>
+<h2><a name="Create_analysis_template"></a><span class="mw-headline">分析テンプレートの作成</span></h2>
+<p>このセクションでは、ピボットテーブル用の分析テンプレートの作成、データベースからの再インポートと新規のデータのためにピボットテーブルを作成する分析テンプレートの再利用について説明します。 
+</p>
+<ol>
+<li>Book1をアクティブにし、<b>ファイル：ワークシートをテンプレートとして保存</b>を選択し、Book1を<i>SumTotalCost.ogw</i>と名前を付けて保存します。 
+<li>新規のOPJを開き、<b>ファイル：開く</b>から<i>SumTotalCost.ogw</i> を開きます。 
+<li>データソースを、データベースで<i>AdventureWorks2008</i> に変更します。
+<ul><li>Sheet1 をアクティブにし、<b>SQLエディタを開く</b>ボタン<a  class="image"><img alt="Button Open SQL Editer.png" src="../images/Pivot_Table/Button_Open_SQL_Editer.png" width="24"  /></a>をクリックして、SQLエディタを開きます。</li>
+<li>メインメニューから<b>ファイル：接続文字列を編集</b>を選択し、開いたダイアログに次の文字列を入力します。<b>テスト</b>をクリックして、OKをクリックしデータベースに接続します。</li></ul>
+<pre class="lt" style="font-family:monospace;">Provider<span style="color: #000080;">=</span>SQLOLEDB.1;Password<span style="color: #000080;">=</span>mydatabase;Persist Security Info<span style="color: #000080;">=</span>True;
+User ID<span style="color: #000080;">=</span>accounting;Initial Catalog<span style="color: #000080;">=</span>AdventureWorks2008;Data Source<span style="color: #000080;">=</span>myServer</pre>
+<ul><li><b>SQL編集</b>のダイアログに戻り、右側のパネルで、以前のスクリプトを次のように書き直します。 </li></ul>
+<pre class="lt" style="font-family:monospace;"><span style="color: #000080;">--</span>WHERE SOH.<span style="color: #000080;">OrderDate</span> BETWEEN <span style="color: #ff00ff;">&apos;1/1/2001&apos;</span> AND <span style="color: #ff00ff;">&apos;12/31/2004&apos;</span></pre>
+<ul><li>メインメニューの ファイル：現在のワークシートに保存 を選択し、これらの設定をワークシートに保存します。次に クエリー：インポート を選択して、データをワークシートにインポートします。SQLエディタを閉じます。次の画像で、インポートされたデータを確認出来ます。</li></ul>
+<p><a  class="image"><img alt="Pivot-table-reimport1.png" src="../images/Pivot_Table/Pivot-table-reimport1.png" width="527"  /></a>
+</p>
+<li>ピボットテーブルを更新するために、<i>Pivot1</i> のシートに移動し、黄色のカギマークをクリックして<b>再計算</b>を選択します。新規のデータに従って、ピボットテーブルが更新されます。
+<li>埋め込みグラフを更新するには、 
+<ul><li>埋め込みのグラフをダブルクリックし、フローティングチャートをポップアップさせます。 </li>
+<li>グラフを選択し、<b>再計算</b>ボタン<a  class="image"><img alt="Button Rescale.png" src="../images/Pivot_Table/Button_Rescale.png" width="22"  /></a>をクリックして更新します。フローティングチャートも同様に更新します。 </li>
+<li>フローティングチャート右上の矢印をクリックし、ワークシートにフローティングチャートを戻します。ワークシートは次のようになります。</li></ul>
+<a  class="image"><img alt="Pivot-table-reimport2.png" src="../images/Pivot_Table/Pivot-table-reimport2.png" width="719"  /></a> 
+</ol>
+
+
+    

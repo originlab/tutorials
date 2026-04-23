@@ -1,0 +1,130 @@
+﻿<h1 class="firstheading">シェープファイルデータのインポートと作図</h1>
+<p class='urlname' style='display: none'>Shapefile</p>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>目次</h2>
+</div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span><span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_will_you_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Step_One-_Importing_the_Data"><span class="tocnumber">3.1</span> <span class="toctext">ステップ1 データインポート</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Step_Two-_Making_the_Data_Useful"><span class="tocnumber">3.2</span> <span class="toctext">ステップ2 データを使いやすくする</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Customizing_the_Graph"><span class="tocnumber">3.3</span> <span class="toctext">グラフを編集する</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><br /></p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a class="image"><img alt="Video Image.png" src="../images/Shapefile/Video_Image.png" width="33" /></a> <a class="image"><img alt="Video Text Image.png" src="../images/Shapefile/Video_Text_Image.png" width="135" /></a>
+<ul>
+<li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=175" target="_blank">Google Map App</a></li>
+<li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=174" target="_blank">An Introduction to the Maps Online App</a></li>
+<li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=158" target="_blank">Creating a 3D Bar on XY Plane using Maps Online App</a></li>
+<li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=156" target="_blank">Import Shapefile App</a></li>
+</ul>
+</td>
+<td style="width: 40%"><a class="image"><img alt="Website blog icon circle.png" src="../images/Shapefile/Website_blog_icon_circle.png" width="31" /></a> <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Shapefile/Blog_Image_33x33px.png" width="135" /></a>
+<ul>
+<li><a class="external text" href="http://blog.originlab.com/covid-19-real-time-report-from-china" target="_blank">COVID-19 Real Time Report from China</a></li>
+<li><a class="external text" href="http://blog.originlab.com/colormap-with-specified-values-for-map-data-plot" target="_blank">Colormap with Specified Values for Map Data Plot</a></li>
+<li><a class="external text" href="http://blog.originlab.com/colormap-demonstration-of-2016-us-election-result" target="_blank">Summarizing 2016 Presidential Election Results using Origin Apps</a></li>
+</ul>
+</td>
+</tr>
+</table>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>このチュートリアルでは、シェープファイルをインポートし、サードパーティ製データを使用してファイル内の境界にカラーマップを適用するために必要な操作を説明します。</p>
+<p><a class="image"><img alt="Shapefile finished.png" src="../images/Shapefile/600px-Shapefile_finished.png" width="600" /></a></p>
+<h2><a name="What_will_you_learn" id="What_will_you_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p><b>Import Shapefile</b> および <b>Colormap for Map Data</b>アプリを使用して、シェープファイルデータからマップベースのグラフを作成する方法を学習します。</p>
+<h2><a name="Steps" id="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>このチュートリアルを開始する前に、以下を実行してください。</p>
+<ol>
+<li><b>アプリセンター</b>で<b>Import Shapefile</b> アプリをインストールします。</li>
+<li><b>アプリセンター</b>で<b>Colormap for Map Data</b> アプリをインストールします。</li>
+<li><a class="external text" href="http://blog.originlab.com/wp-content/uploads/2020/11/cb_2015_us_state_20m.zip" target="_blank">インポートするシェープファイルをダウンロード</a>します（デスクトップなどに解凍）。</li>
+</ol>
+<h3><a name="Step_One-_Importing_the_Data" id="Step_One-_Importing_the_Data"></a><span class="mw-headline">ステップ1 データインポート</span></h3>
+<p>Originのワークスペース右側にある<b>アプリギャラリー</b>で、<b>Import Shapefile</b>アプリのアイコンをクリックします。ダウンロードした*.SHPファイルを選択します。下図のように<b>Output Data Points</b>にチェックをつけて、<b>OK</b>ボタンをクリックします。</p>
+<p><a class="image"><img alt="Shapefile dlg.png" src="../images/Shapefile/500px-Shapefile_dlg.png" width="500" /></a></p>
+<p>下図のようにデータが入力されたワークブックとグラフが作成されます。このチュートリアルでは、あとでグラフを作成するので、このグラフは削除しても構いません。</p>
+<p><a class="image"><img alt="Shapefile imported.png" src="../images/Shapefile/500px-Shapefile_imported.png" width="572" /></a></p>
+<h3><a name="Step_Two-_Making_the_Data_Useful" id="Step_Two-_Making_the_Data_Useful"></a><span class="mw-headline">ステップ2 データを使いやすくする</span></h3>
+<p>シェープファイルデータを含むワークシートがアクティブな状態で、アプリギャラリーの<b>Colormap for Map Data</b> アプリのアイコンをクリックします。2つのボタンのあるツールバーが表示されます。<b>Reorder Shapefile Data</b>ボタンをクリックします。開いたダイアログで、<b>Names for ID</b> にある&gt;ボタンをクリックし、<b>J(Y): NAME</b>を選択します（下図参照）。OKをクリックします。</p>
+<p><a class="image"><img alt="Shapefile colormap dlg.png" src="../images/Shapefile/350px-Shapefile_colormap_dlg.png" width="350" /></a></p>
+<p><b>Shapefile Data Reordered</b>というシートが出力され、アクティブになります。<b>Value</b>列が空欄になっているのを確認します（下図）。</p>
+<p><a class="image"><img alt="Shapefile reordered.png" src="../images/Shapefile/600px-Shapefile_reordered.png" width="549" /></a></p>
+<p>その列に、次の貧困率データ<sup>1</sup>を貼り付けます。</p>
+<pre>
+16.8
+10.9
+14
+17.2
+12.8
+9.6
+10.4
+12.5
+16.2
+13.6
+14.3
+8.8
+11.8
+12.1
+13.1
+11.2
+12
+16.9
+18.6
+11.6
+9
+10
+14.1
+9.6
+19.7
+13.2
+13
+11
+12.9
+7.6
+9.5
+19.5
+13.6
+14
+10.7
+13.9
+15.6
+12.6
+12.2
+43.1
+12.9
+15.3
+13.1
+15.3
+14.9
+9
+11
+10.7
+10.3
+17.8
+11
+11.1
+</pre>
+<p><sup>1</sup> 出典: <a class="external text" href="https://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_poverty_rate" target="_blank">List of U.S. states and territories by poverty rate</a></p>
+<p><b>Colormap for Map Data</b>ツールバーの2番目のボタン<b>Create Colormap Map Plot</b>をクリックします。新しいグラフが作成されます。<b>水平方向</b>の軸スケールの<b>開始</b>と<b>終了</b>を、<b>-175</b>と<b>-60</b> に変更します。<b>垂直方向</b>の軸スケールの<b>開始</b>と<b>終了</b>を<b>17</b>と<b>72</b>に変更します（下図参照）。</p>
+<p><a class="image"><img alt="Shapefile beforeafter.png" src="../images/Shapefile/700px-Shapefile_beforeafter.png" width="700" /></a></p>
+<p>これで、グラフが編集可能な状態になりました（下図参照）。</p>
+<p><a class="image"><img alt="Shapefile rough.png" src="../images/Shapefile/Shapefile_rough.png" width="602" /></a></p>
+<h3><a name="Customizing_the_Graph" id="Customizing_the_Graph"></a><span class="mw-headline">グラフを編集する</span></h3>
+<p>以下がこのチュートリアルの上部にある完成グラフに近づけるためのグラフ編集操作です。任意で操作してください。</p>
+<ol>
+<li>軸の線、目盛、ラベル、タイトルを非表示にします。</li>
+<li>グラフ操作メニューの<b>レイヤにページサイズを合わせる</b>を選択し、グラフサイズを調整します。</li>
+<li>プロットの方ーマップレベルを調整します。</li>
+<li>色スケールスケールの設定を調整します。</li>
+<li>個別にラベル位置を調整します。</li>
+</ol>
+<p>また、アラスカ、ハワイ、プエルトリコの位置が移動していることがわかります。これは、メイングラフレイヤのコピーを作成し、貼り付け、各レイヤ（州）の軸スケールの開始値と終了値を調整しています。そして、レイヤサイズを変更し、所定の位置に移動しています。</p>

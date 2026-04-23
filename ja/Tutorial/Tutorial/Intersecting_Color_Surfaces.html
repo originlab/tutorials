@@ -1,0 +1,73 @@
+﻿<h1 class="firstheading">色付き曲面図の交差</h1>
+<p class="urlname" style="display: none;">3D-Surface-Intersect-Mat</p>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>Originは複数の交差した色付き曲面図をサポートしています。 </p>
+<p class="version">必要なOriginのバージョン:Origin 9.0 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。 </p>
+<ul>
+	<li>異なる行列オブジェクトから交差する色つき曲面図を作図する</li>
+	<li>カラーマップ曲面図の編集する</li>
+	<li>複合カラーマップ曲面に対して、追加の色スケールを作成する</li>
+</ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>このチュートリアルは、チュートリアルデータプロジェクト<i>&lt;Origin EXE フォルダ&gt;\Samples\TutorialData.opj</i>と関連しています。 
+ </p>
+<ol>
+	<li>チュートリアルデータプロジェクトを開き、<b>プロジェクトエクスプローラ</b>で、<i>ntersecting Surfaces</i> 
+	 フォルダを開きます。 </li>
+	<li>行列<b>MBook36</b>を選択します。 行列データの上にイメージサムネールが2つあり、それぞれの行列オブジェクトを表示しています。 
+	 
+	<table class="noborder">
+		<tr>
+			<td style="vertical-align: top;" width="60"><img src="../images/Intersecting_Color_Surfaces/Tip_icon.png" 
+															 alt="" width="57" 
+															 border="0" /></td>
+			<td><p>交差する曲面図を作成する場合、各行列オブジェクトは同じサイズで同じXYマッピングである必要があります。この条件は2つの行列オブジェクトが同じ行列ブック内に組み込まれている時点で自動的に満たされています。 
+			 </p></td>
+		</tr>
+	</table></li>
+	<li>どちらかのサムネール画像を選択します。 メインメニューで<b>作図：3D</b>と選択してから、<b>複合カラーマップ曲面図</b>を選択します。 
+	 これは行列シート内にある全ての行列オブジェクトを使用して、交差する曲面図を作成します。 </li>
+	<li>グラフをダブルクリックして作<b>図の詳細</b>を開くか、メインメニューから<b>フォーマット：作図の詳細(レイヤ属性)</b>と選択します<b>ライト</b>タブを開き、<b>モード</b>を<b>平行光源</b>に変更して照明効果を付加します。 
+	 <br />
+	<a class="image"><img alt="Wire Surface 1b.png" src="../images/Intersecting_Color_Surfaces/Intersecting_surfaces_1b.png" 
+							 width="600" height="454" border="0" /></a> 
+	 <br />
+	<br />
+	適用ボタンをクリックすると、次のようなグラフになります。 <br />
+	<a class="image"><img alt="Wire Surface 1.png" src="../images/Intersecting_Color_Surfaces/Intersecting_surfaces_1.png" 
+							 width="512" height="426" border="0" /></a> 
+	 </li>
+	<li>左側パネルでLayer1のブランチを開き、<b>[MBook36]MSheet1!_1(Z)[1*:400*]</b>を選択して<b>作図の詳細（プロット属性）を</b>選択します。 
+	 右側パネルの<b>カラーマップ/等高線</b>タブで<b>等高線図を有効にする</b>のチェックを外し、等高線の表示をオフにします。 
+	 </li>
+	<li><b>色塗り</b>ヘッダをクリックして、<b>塗り方</b>ダイアログボックスを開きます。 デフォルトの<b>Rainbow</b>パレットをクリックして、パレットメニューを開きます。 
+	 パレットメニューで<b>Pastel</b>を選択します。 <b><b>OK</b></b>をクリックして<b><b>軸</b></b>ダイアログを閉じます。 
+	 <br />
+	<a class="image"><img alt="Wire Surface surfaces4" src="../images/Intersecting_Color_Surfaces/Intersecting_color_surfaces4_cropped.png" 
+							 width="457" height="214" border="0" /></a> 
+	 </li>
+	<li>左側のパネルで、<b>[MBook36]MSheet1!_2(Z)[1*:400*]</b> を選択します。<b>等高線図を有効にする</b>のチェックを外します。これまでの変更を確認するために、<b>適用</b>をクリックしましょう。同じ操作を<b>[MBook36]MSheet1!_1(Z)[1*:400*]</b>のプロットでも行います。 
+	 </li>
+	<li><b>[MBook36]MSheet1!_2(Z)[1*:400*]</b>を選択したまま、<b>メッシュ</b>タブを開きます。<b>有効にする</b>のチェックボックスを外して、メッシュ線を非表示にします。同じ操作を<b>[MBook36]MSheet1!_1(Z)[1*:400*]</b>のプロットでも行います。 
+	 <br />
+	<b>OK</b> をクリックして<b>作図の詳細</b>ダイアログボックスを閉じて、グラフを更新します。 </li>
+	<li>2つ目の曲線のための追加の色スケールを作成します。アクティブにするために、<b>データ：</b><b>2 [MBook36]MSheet1!_2(Z)[1*:400*]</b>をメニューから選択し、<b>グラフ操作：新規の色スケール</b>と操作します。 
+	 </li>
+	<li>追加したばかりの色スケールをダブルクリックして<b>色スケール制御</b>ダイアログを開きます。以下の画像のように設定を変更し、ドラッグでレイヤ内の希望の位置に配置します。 
+	 <br />
+	<a class="image"><img alt="Wire Surface surfaces5a.png" src="../images/Intersecting_Color_Surfaces/Intersecting_color_surfaces5a.png" 
+							 width="640" height="428" border="0" /></a><br />
+	<br />
+	<a class="image"><img alt="Wire Surface surfaces5b.png" src="../images/Intersecting_Color_Surfaces/Intersecting_color_surfaces5b.png" 
+							 width="640" height="428" border="0" /></a></li>
+	<li>3Dの回転ボタン<a class="image"><img alt="3D Rotation bar.png" src="../images/Intersecting_Color_Surfaces/3D_Rotation_Button.png" 
+										 width="33" border="0" /></a>を使えば、グラフを回転して上から見た図を表示できます。このボタンは3D表現ツールバーの1つで、グラフレイヤを1回クリックすると開きます。 
+	 <a class="image"><img alt="3D toolbar.png" src="../images/Intersecting_Color_Surfaces/3D_annotation_toolbar.png" 
+							 width="139" border="0" /></a> 
+	<p>最終的なグラフはこのようになります。</p>
+	<p><a class="image"><img alt="Wire Surface 5.png" src="../images/Intersecting_Color_Surfaces/Intersecting_surfaces_5.png" 
+							 width="482" height="382" border="0" /></a> 
+	 </p></li>
+</ol>

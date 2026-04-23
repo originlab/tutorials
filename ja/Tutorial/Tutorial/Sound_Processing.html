@@ -1,0 +1,74 @@
+﻿<h1 class="firstheading">音の処理</h1>
+<p class="urlname" style="display: none;">sound-processing</p>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>Originの機能の中にはいくつか便利な信号処理の機能、例えばスムージング、FFTフィルタ、特殊な分析ツールである高速フーリエ変換(FFT)等があります。これらは例えば、音の解析を行う際に使用できます。このチュートリアルでは、ノイズのスペクトル領域を元に音の信号(.WAVファイル)から特定のノイズを取り除きます。</p>
+<p class="version">必要なOriginのバージョン:Origin 9 SR0</p>
+<h2><a name="What_You_Will_Learn" id="What_You_Will_Learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ol>
+<li>サウンドファイル(.WAV)をOriginにインポートする</li>
+<li>サンプリング間隔情報を表示する</li>
+<li>FFTガジェットを使用して、信号の周波数スペクトルを確認する</li>
+<li>音の信号に対してFFTフィルタを実行する</li>
+<li>フィルタをかけた信号を.WAVファイルとしてエクスポートする</li>
+</ol>
+<h2><a name="Steps" id="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>このチュートリアルでは、Originのインストールフォルダ内のサブフォルダ、"\Samples\Signal Processing\"の中にある「Origin8 Message.wav」と「Dial Tone.wav」ファイルを使用します。</p>
+<p>Origin8 Message.wavファイルを再生すると、後ろで電話の電子音が聞こえることが分かります。2番目のwavファイルはこの電子音を記録したものです。</p>
+<ol>
+<li>Originを起動して新しいプロジェクトを開始し、空のワークブックとワークシートを準備します。</li>
+<li>メニューで<b>ファイル：インポート：音声（WAV）</b>と操作して<b>Sound</b>ダイアログを開きます。 (ヒント：メニュー項目内に見当たらない場合は<b>ファイル：インポート：カスタム化</b>と操作して<b>インポートメニューのカスタマイズ</b>ダイアログで追加します。)\Samples\Signal Processing\フォルダまでブラウズし、その中にある「Origin 8 Message.wav」と「Dial Tone.wav」をインポートリストに追加します。<b>オプションダイアログを表示する</b>チェックボックスにチェックが付いている事を確認して<b>OK</b>をクリックします。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="WAV Sound 01.png" src="../images/Sound_Processing/WAV_Sound_01.png" width="688" height="586" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">Import and Export: impWav</b>ダイアログが表示されます。一番上の<b>ダイアログ・テーマ</b>の隣にある三角形のボタンをクリックし、コンテキストメニューから<i>システムデフォルト</i>を選択します。<b>インポートオプション</b>ノードの<b>複数ファイル(第一以外)のインポートモード</b>ドロップダウンから<i>シートを新たに作って読み込む</i>を選択します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="WAV Sound 02.png" src="../images/Sound_Processing/WAV_Sound_02.png" width="804" height="479" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">OK</b>をクリックして2つのサウンドファイルをインポートします。<br />
+<a class="image"><img alt="WAV Sound 03.png" src="../images/Sound_Processing/WAV_Sound_03.png" width="396" height="322" border="0" /></a></li>
+<li>それぞれのワークシートで、<b>サンプリング間隔</b>が同じ値である <i>2.26757E-5</i> (秒)である事が分かります。列の左上に小さくある<i>i</i> アイコンをクリックすると、<b>列の追加情報</b>ダイアログが開き、サンプリング間隔の情報を確認できます。<b>OK</b>ボタンをクリックして、ダイアログボックスを閉じます。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="WAV Sound 04.png" src="../images/Sound_Processing/WAV_Sound_04.png" width="588" height="226" border="0" /></a></dd>
+</dl>
+</li>
+<li>ワークシート<b>Dial Tone</b>をアクティブにし、列Aを選択してから<b>作図：線図：折れ線</b>と操作して折れ線グラフを作図します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="WAV Sound 05.png" src="../images/Sound_Processing/WAV_Sound_05.png" width="506" height="347" border="0" /></a></dd>
+</dl>
+</li>
+<li>このグラフでメニューの<b>ガジェット：FFT ROIツール</b>と操作して<b>Data Exploration: addtool_curve_fft</b>ダイアログを開きます。デフォルトの設定のままで<b>OK</b>をクリックし、データにFFTを実行します。そして、結果と共に<b>FFTPREVIEW</b>グラフも作図します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="WAV Sound 06.png" src="../images/Sound_Processing/WAV_Sound_06.png" width="506" height="347" border="0" /></a></dd>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="WAV Sound 07.png" src="../images/Sound_Processing/WAV_Sound_07.png" width="681" height="330" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">FFTPREVIEW</b>グラフで<b>Logスケール</b>の×印を外し、メニューで<b>グラフ操作：再スケールをして全てを表示</b>と選択してグラフを再スケールします。周波数の分布は主に2000ヘルツよりも下で、最も大きなピークは500ヘルツのあたりにあることが分かります。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="WAV Sound 08.png" src="../images/Sound_Processing/WAV_Sound_08.png" width="681" height="330" border="0" /></a></dd>
+</dl>
+</li>
+<li>ワークシート<b>Origin 8 Message</b>をアクティブにし、列Aを選択します。メニューから<b>解析：信号処理：FFTフィルタ</b>と操作して<b>Signal Processing: fft_filters</b>ダイアログを開きます。ダイアログで、<b>再計算</b>を<i>なし</i>に、<b>フィルタの種類</b>を<i>ハイパス</i>に、<b>カットオフ周波数</b>の<b>自動</b>チェックを外して値に500を入力します。<b>DCオフセットを保持</b>のチェックを外します。結果をプレビューするにはダイアログ下部にある<b>自動プレビュー</b>にチェックを付けます。これで右側のパネルにプレビューが表示されるようになります。なお、この右側パネルは右下の二重の矢印をクリックすることで非表示にしたり表示したりと切り替えられます。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="WAV Sound 09.png" src="../images/Sound_Processing/WAV_Sound_09.png" width="844" height="384" border="0" /></a></dd>
+</dl>
+Note:<b>再計算</b>がなしの場合、<b>データの種類</b>を変更するときに、結果を再計算の鍵アイコンがない新しい列にコピーする必要があります。ステップ11で紹介しているので確認してください。</li>
+<li><b style="font-weight: bold;">OK</b> をクリックして、結果を作成します。フィルタを行った結果が浮動小数形式である事が分かります。新しいWAVファイルを作成するには、この形式を整数に変える必要があります。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="WAV Sound 10.png" src="../images/Sound_Processing/WAV_Sound_10.png" width="464" height="416" border="0" /></a></dd>
+</dl>
+</li>
+<li>列D(フィルタをかけた結果の列)を選択します。それから右クリックをして<b>列フォーマット</b>を選択し、<b>列プロパティ</b>ダイアログを開きます。<b>オプション</b>ノードの<b>フォーマット</b>を<i>数値</i>に設定し、<b>データ型</b>を<i>Short(2)</i>に設定します。<b>OK</b>ボタンをクリックしてこの設定を列Dに適用してダイアログを閉じます。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="WAV Sound 11.png" src="../images/Sound_Processing/WAV_Sound_11.png" width="425" height="534" border="0" /></a></dd>
+</dl>
+</li>
+<li>列Dを選択したまま、メニューから<b>ファイル：エクスポート：サウンド(WAV)</b>と選択します。このダイアログではファイル名を入力し(例えば、<i>Origin 8 Message_filtered.wav</i>)、分かりやすい場所に保存します。<b>オプションダイアログの表示</b>チェックボックスに、チェックが付いていることを確認します。</li>
+<li><b style="font-weight: bold;">保存</b>ボタンをクリックすると、 <b>Import and Export: expWAV</b>ダイアログが表示されます。<b>列</b>の<b>自動</b>チェックを外し、4に変更します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="WAV Sound 12.png" src="../images/Sound_Processing/WAV_Sound_12.png" width="505" height="310" border="0" /></a></dd>
+</dl>
+Note:<b>列</b>はY列のために指定します。Originはある場合は自動的にサンプリング間隔を探すか対応するXを元に出力します。もしX列が無かったりX列が等間隔ではない場合、エラーメッセージが出力されます。</li>
+<li><b style="font-weight: bold;">OK</b>をクリックして列Dをサウンドファイルとしてエクスポートします。これでこのサウンドファイルを再生し、電子音がなくなったことを確認してみてください。また、スペクトルを確認してみても、電子音の情報は取り除かれていることが確認できます。</li>
+</ol>

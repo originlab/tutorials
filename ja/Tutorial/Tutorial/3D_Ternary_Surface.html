@@ -1,0 +1,135 @@
+﻿<h1 class="firstheading">等高線投影付きの3Dカラーマップ三点曲面図</h1>
+<p class="urlname" style="display: none;">3D-Ternary-Colormap-Surface</p>
+<p><br />
+</p>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> 
+		 <span class="toctext">サマリー</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> 
+		 <span class="toctext">ステップ</span></a> 
+		<ol>
+			<li class="toclevel-2 tocsection-4"><a href="#Creating_3D_ternary_surface"><span 
+			 class="tocnumber">3.1</span> <span class="toctext">3D 三点曲面図を作成する</span></a></li>
+			<li class="toclevel-2 tocsection-5"><a href="#Creating_projection_with_contour_lines"><span 
+			 class="tocnumber">3.2</span> <span class="toctext">等高線を投影する</span></a></li>
+		</ol></li>
+	</ol>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>このチュートリアルでは、XYZZデータからZカラーマップ付きの3D三点曲面図を作成し、その等高線を投影させる方法を学習します。 </p>
+<dl>
+	<dd><a class="image"><img alt="3D Ternerin Surface.png" src="../images/3D_Ternary_Surface/3D_Ternerin_Surface.png" 
+								 width="453" border="0" /></a></dd>
+</dl>
+<p class="version">必要なOriginのバージョン: Origin 2015 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します: </p>
+<ul>
+	<li>3D カラーマップ三点（ターナリ）グラフを作成する</li>
+	<li>XYZ軸平面上にカラーマップ等高線を投影する</li>
+</ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Creating_3D_ternary_surface"></a><span class="mw-headline">3D三点曲面図を作成する</span></h3>
+<p>このチュートリアルは、チュートリアルデータプロジェクト<i>&lt;Origin EXE フォルダ&gt;\Samples\TutorialData.opj</i>と関連しています。 
+ </p>
+<ol>
+	<li>チュートリアルデータプロジェクトを開き、<i>3D Ternary Surface</i>フォルダをブラウズします。</li>
+	<li><b>Ternary Surface</b>ワークシートの<b>Book1F</b>をアクティブにし、C列とD列を選択します。<b>作図：</b><b>3D：3Dカラーマップ三点曲面</b>を選択し、作図します。</li>
+	<li>高さ方向の軸と軸平面を表示するために、グラフをダブルクリックして、<b>作図の詳細</b>ダイアログを開きます。左パネルで<b>Layer1</b>を選択します（このときLayer1の左側にあるチェックを外さないように注意してください）。<b>平面</b>タブを開き、<b>角柱</b>を<b>角柱全体</b>に設定し、<b>平面の縁</b>を有効にします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="3D Binning 02-1.png" src="../images/3D_Ternary_Surface/3D_Surface_plane-1.png" 
+									 width="510" height="353" border="0" /></a></dd>
+	</dl></li>
+	<li><b>Layer1</b>を開き、データプロットを選択して<b>塗りつぶし</b>タブを開きます。<b>有効にする</b>にチェックを付け、<b>カラーマップ</b>を選択します。 
+	 <b>裏面を塗りつぶす</b>にチェックを付け、色を<b>明るい灰色</b>にします。 
+	<dl>
+		<dd><a class="image"><img alt="3D Binning 02-2.png" src="../images/3D_Ternary_Surface/3D_Surface_fill-2.png" 
+									 width="432" height="281" border="0" /></a></dd>
+	</dl></li>
+	<li><b>カラーマップ/等高線</b>タブをクリックします。<b>レベル</b>ヘッダをクリックして<b>レベルの設定</b>ダイアログを開き、以下のように設定し、<b>OK</b>をクリックします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="3D Binning 02-3.png" src="../images/3D_Ternary_Surface/3D_Surface_Level-3.png" 
+									 width="452" height="224" border="0" /></a></dd>
+	</dl></li>
+	<li>曲面上に等高線を追加するには、<b>等</b><b><b>高線図を有効にする</b></b>にチェックを付けます。 
+	<dl>
+		<dd><a class="image"><img alt="3D Binning 02-3.png" src="../images/3D_Ternary_Surface/3D_Surface_color-3.png" 
+									 width="380" height="265" border="0" /></a></dd>
+	</dl></li>
+	<li>表示した等高線を編集するには、表の<b>線</b>ヘッダをクリックして<b>等高線</b>ダイアログを開きます。 <i>線の属性</i> 
+	 の項目の、<b>色</b>と<b>線種</b>にチェックを付け、色は<b>濃い灰色</b>にし、線種は<b>短い破線</b>に変更し、<b>OK</b>ボタンをクリックします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="3D Binning 02-4.png" src="../images/3D_Ternary_Surface/3D_Surface_enable_contour-4.png" 
+									 width="353" height="470" border="0" /></a></dd>
+	</dl></li>
+	<li><b>メッシュ</b>タブを開き、<b>有効にする</b>チェックを外して<b>OK</b>ボタンをクリックします。 
+	<dl>
+		<dd><a class="image"><img alt="3D Binning 02-5.png" src="../images/3D_Ternary_Surface/3D_Surface_mesh-5.png" 
+									 width="368" height="122" border="0" /></a></dd>
+	</dl></li>
+	<li>X/Y/Z軸のスケールや主目盛を編集するには、軸の内のどれかをダブルクリックして<b>軸</b>ダイアログを開きます。<b>X、Y、Z</b>軸のそれぞれのスケールページをCtrlキーを押しながら選択します。<b>主目盛</b>＞<b>値</b>を<b>0.2</b>に設定します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="3D Binning 02-1.png" src="../images/3D_Ternary_Surface/3D_Surface_Tick-1.png" 
+									 width="484" height="282" border="0" /></a></dd>
+	</dl></li>
+	<li>Zh軸ノードを開き、<b>スケール</b>を選択します。スケール範囲と<b>主目盛</b>＞<b>値</b>び設定を下図のようにします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="3D Binning 02-2.png" src="../images/3D_Ternary_Surface/3D_Surface_Tick-2.png" 
+									 width="300" height="209" border="0" /></a></dd>
+	</dl></li>
+	<li><b>OK</b>をクリックして、<b>軸ダイアログ</b>ボックスを閉じます。</li>
+</ol>
+<h3><a name="Creating_projection_with_contour_lines"></a><span class="mw-headline">等高線を投影する</span></h3>
+<ol>
+	<li>グラフをアクティブにして、メニューから<b>グラフ操作：レイヤ内容</b>を選び、<b>レイヤ内容</b>ダイアログを開きます。ドロップダウンリストから<b>フォルダ中のワークシート</b>を選択します。</li>
+	<li>グラフ内に他の三点曲面図を追加するために、Ternary Surfaceシートの<b>XC</b> と <b>CRC299</b>を選択して<b>プロットの追加</b>ボタン<a 
+	 class="image"><img alt="Button Add plot.png" src="../images/3D_Ternary_Surface/Button_Add_plot.png" 
+						 width="24" border="0" /></a>をクリックします。<b>OK</b>をクリックしてください。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="3D Binning 02-6.png" src="../images/3D_Ternary_Surface/3D_Surface_layer-con-6.png" 
+									 width="537" height="300" border="0" /></a></dd>
+	</dl></li>
+	<li>プロットをダブルクリックして、「<b>作図の詳細</b>」ダイアログを開きます。Layer1の下にあるリストから、2つ目のデータプロットを選択し、<b>面</b>タブを開きます。<b>平面</b>と<b>Z方向に移動</b>のチェックボックスにチェックを付けます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="3D Surface contour plot de.png" 
+									 src="../images/3D_Ternary_Surface/3D_Surface_contour_plot_de.png" 
+									 width="361" height="127" border="0" /></a></dd>
+	</dl></li>
+	<li><b>カラーマップ/等高線</b>タブを開き、<b>等高線図を有効にする</b>にチェックを付けます。<b>線</b>ヘッダをクリックして<b>等高線</b>ダイアログを開き、下図のように設定して<b>OK</b>ボタンをクリックします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="3D Surface contour line pro.png" 
+									 src="../images/3D_Ternary_Surface/3D_Surface_contour_line_pro.png" 
+									 width="294" height="358" border="0" /></a></dd>
+	</dl></li>
+	<li><b>カラーマップ/等高線</b>タブを開き、<b>レベル</b>ヘッダをクリックして<b>レベルの設定</b>ダイアログで、<b>主レベル数</b>を<b>20</b>にし、<b>副レベル数</b>を<b>5</b>に設定します。<b>OK</b>をクリックしてダイアログを閉じます。</li>
+	<li><b>塗りつぶし</b>タブを開き、<b>有効にする</b>にチェックを付けます。 
+	<dl>
+		<dd><a class="image"><img alt="3D Surface unc fill.png" src="../images/3D_Ternary_Surface/3D_Surface_unc_fill.png" 
+									 width="377" height="122" border="0" /></a></dd>
+	</dl></li>
+	<li><b>メッシュ</b>タブを開き、<b>有効にする</b>のチェックをはずします。<b>OK</b>をクリックしてダイアログを閉じます。</li>
+	<li>軸平面のグリッド線を点線に変更するために、軸上でダブルクリックして軸ダイアログを開きます。左パネルで、<b>X</b>の下の<b>グリッド線</b>を選択します。<b>他を選択</b>ボタンをクリックして、全ての軸の<b>グリッド線</b>を選択します。<i>主グリッド線</i> 
+	 の設定は以下のように行います。 
+	<dl>
+		<dd><a class="image"><img alt="3D Surface Colormap.png" src="../images/3D_Ternary_Surface/3D_Surface_Grids.png" 
+									 width="224" height="130" border="0" /></a></dd>
+	</dl></li>
+	<li>ホットスポットをドラッグしてプロットを回転します（ヒント：グラフフレーム内部で一度クリックし、移動/サイズ変更/回転の関数をアクティブにします）。または、3D回転ツールバーを使用します。 
+	 </li>
+</ol>
+<p><a class="image"><img alt="3D Surface Colormap.png" src="../images/3D_Ternary_Surface/3D_Surface_rotter.png" 
+						 width="447" height="412" border="0" /></a> </p>

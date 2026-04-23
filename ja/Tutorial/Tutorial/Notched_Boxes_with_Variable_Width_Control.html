@@ -1,0 +1,186 @@
+﻿<h1 class="firstheading">変数により幅を制御した刻み目付きボックスチャート</h1>
+<p class="urlname" style="display: none;"><b>刻み目付きボックス</b></p>
+<p><br />
+</p>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> 
+		 <span class="toctext">サマリー</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Steps_to_Control_Box_Width_by_Variable"><span 
+		 class="tocnumber">3</span> <span class="toctext">変数によりボックスの幅を制御するステップ</span></a></li>
+		<li class="toclevel-1 tocsection-4"><a href="#More_Box_Style_Customization_Steps"><span 
+		 class="tocnumber">4</span> <span class="toctext">グラフスタイルの編集</span></a></li>
+		<li class="toclevel-1 tocsection-5"><a href="#More_Axis_Customization_Steps"><span 
+		 class="tocnumber">5</span> <span class="toctext">軸の編集</span></a></li>
+		<li class="toclevel-1 tocsection-6"><a href="#Steps_to_Add_National_Average_Line_and_Min.26Max_Range"><span 
+		 class="tocnumber">6</span> <span class="toctext">国の平均線と最大・最小範囲を追加</span></a></li>
+	</ol>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>Originのボックスチャートは高度な編集が可能です。このチュートリアルでは、刻み目付きのグループ化ボックスチャートを作成し、他のデータセットによりボックス幅を制御する方法を紹介します。 
+ </p>
+<dl>
+	<dd><a class="image"><img alt="Tutorial Box Plot 01.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_01.png" 
+								 width="579" height="485" border="0" /></a></dd>
+</dl>
+<p class="version">必要なOriginのバージョン: Origin 2015 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul>
+	<li>ボックスチャートを編集する</li>
+	<li>データセットをしようして棒の幅をコントロール</li>
+	<li>ボックスチャートの軸を編集する</li>
+	<li>背景としてボックスチャートに塗りつぶし領域を追加する</li>
+</ul>
+<h2><a name="Steps_to_Control_Box_Width_by_Variable"></a><span class="mw-headline">変数によりボックスの幅を制御するステップ</span></h2>
+<p>このチュートリアルは、チュートリアルデータプロジェクト（<i>&lt;Origin EXE フォルダ&gt;\Samples\TutorialData.opj</i>）と関連しています。 
+ </p>
+<p><b>Origin Central</b>にある「このグラフ」を参照してください。(<b>ヘルプ：Origin Central</b>メニューを選択するか、<b>F11</b>キーを押してダイアログを開き、<b>グラフサンプル</b>タブのドロップダウンリストで<b>ボックスチャート</b>を選択します。) 
+ </p>
+<ol>
+	<li><b>Tutorial Data.opj</b> を開き、<i>Box Variable Width</i>フォルダへブラウズします。</li>
+	<li>ワークブック<b>Book7</b>をアクティブにし、 <b>A~F</b> 列を選択します。それから <b>作図：統計：ボックス</b>を選択します。次に、凡例をクリックして選択し、Deleteキーを押して削除します。</li>
+	<li>ボックス上でダブルクリックして<b>作図の詳細</b>ダイアログを開き、<b>ボックスチャート</b>タブを開きます。<b>形状</b>を<b>刻み目付き</b>にします。<b>パラメータによるボックス幅</b>にチェックを付け、<b>ボックス幅</b>を<b>単位</b>にして、<b>倍率</b>を<i>1.2</i>にします。<b>外れ値</b>のボックスにチェックを付けます。<b>外れ値を線上に</b>のチェックが自動的に付きます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Tutorial Box Plot 04.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_04.png" 
+									 width="491" height="386" border="0" /></a></dd>
+	</dl></li>
+	<li>OKをクリックしてダイアログを閉じます。Origin画面の右端にある<b>オブジェクトマネージャー</b>を開き、 最後のプロットのチェックを外します。<b>再スケール</b>ボタン<a 
+	 class="image"><img alt="Button Rescale.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Button_Rescale.png" 
+						 width="22" border="0" /></a>をクリックして、グラフを再スケールします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Notched Boxes 01.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Notched_Boxes_01.png" 
+									 width="247" height="200" border="0" /></a></dd>
+		<dd>グラフは次のようになります。 </dd>
+		<dd><a class="image"><img alt="Tutorial Box Plot 2.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_01_2.png" 
+									 width="442" height="349" border="0" /></a></dd>
+	</dl></li>
+</ol>
+<h2><a name="More_Box_Style_Customization_Steps"></a><span class="mw-headline">グラフスタイルの編集</span></h2>
+<p>以下のステップでボックスチャートの詳細な編集を行います。 </p>
+<ol>
+	<li>各ボックスの色を同じ色にするには、ボックスのどれか1つでダブルクリックして、<b>作図の詳細</b>ダイアログを開きます。<b>パターン</b>タブに行きます。<b>縁</b>の<b>色</b>を<b>橙色</b>に設定します。<b>太さ</b>を<b>1.5</b>にセットします。 
+	 </li>
+	<li>ボックスを塗りつぶすために、<b>色の塗りつぶし</b> のドロップダウンリストを開き、単一色にてより明るい橙色を下図の様に選択します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Tutorial Box Plot 03.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_03.png" 
+									 width="569" height="545" border="0" /></a></dd>
+	</dl></li>
+	<li><b>ボックスチャート</b>タブの<b>外れ値</b>のチェックをつけているので、<b>シンボル</b>タブが追加されています。このタブの編集オプションを使ってシンボルの表示を編集します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Tutorial Box Plot 05.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_05.png" 
+									 width="454" height="442" border="0" /></a></dd>
+	</dl></li>
+	<li>99% と 1%のシンボルを表示しないようにするには、<b>パーセンタイル</b>タブで<b>99%</b> と<b>1%</b> 
+	 のチェックを外します。平均のドロップダウンを開いて、1行2列目の記号を選択します。 
+	<dl>
+		<dd><a class="image"><img alt="Tutorial Box Plot 06.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_06.png" 
+									 width="486" height="310" border="0" /></a></dd>
+	</dl></li>
+	<li><b>OK</b>ボタンをクリックして、全ての変更を適用します。</li>
+</ol>
+<h2><a name="More_Axis_Customization_Steps"></a><span class="mw-headline">軸の編集</span></h2>
+<ol>
+	<li>各ボックス間に垂直の線を表示するには、X 軸上でダブルクリックし、<b>軸</b>ダイアログを開きます。<b>水平</b>アイコンを選択している事を確認して<b>スケール</b>タブを開きます。<b>副目盛</b>の<b>カウント</b>を<b>1</b>にします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Tutorial Box Plot 11.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_11.png" 
+									 width="467" height="424" border="0" /></a></dd>
+	</dl></li>
+	<li><b>グリッド線</b>タブを開いてから<b>垂直</b>アイコンを選択します。<b>副グリッド線</b>の下にある<b>表示</b>にチェックを付けて<b>スタイル</b>を<b>実線</b>に設定します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Tutorial Box Plot 12.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_12.png" 
+									 width="445" height="409" border="0" /></a></dd>
+	</dl></li>
+	<li><b>軸と軸目盛</b>タブを開き、下X 軸の目盛を編集するので、<b>下</b>アイコンが選択されていることを確認して下図のように設定します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Tutorial Box Plot 14.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_14.png" 
+									 width="506" height="538" border="0" /></a></dd>
+	</dl></li>
+	<li><b>Ctrl</b>キーを抑えながら<b>上</b>と<b>右</b>アイコンをクリックして選択します。<b>軸と軸目盛の表示</b>にチェックを付け、上X軸と右Y軸を表示します。軸目盛は<b>なし</b>に設定します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Tutorial Box Plot 13.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_13.png" 
+									 width="498" height="468" border="0" /></a></dd>
+	</dl></li>
+	<li><b>スケール</b>タブを開き、<b>垂直</b>アイコンを選択します。次のように設定します。 
+	<dl>
+		<dd><a class="image"><img alt="Tutorial Box Plot 15.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_15.png" 
+									 width="484" height="317" border="0" /></a></dd>
+	</dl></li>
+	<li><b>目盛ラベル</b>タブを開き、<b>左</b>アイコンが選択されていることを確認してラベル接頭語に<i>＄</i>を入力します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Tutorial Box Plot 16.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_16.png" 
+									 width="455" height="394" border="0" /></a></dd>
+	</dl></li>
+	<li><b>タイトル</b>タブを開き、<b>左</b>アイコンが選択されていることを確認します。Y 軸のタイトルを「<i>Gasoline 
+	 Prices</i>」に変更します。</li>
+	<li><b>OK</b>をクリックして<b>軸</b>ダイアログを閉じます。</li>
+	<li>グラフ上にタイトルとフットノートを追加するために、グラフの空白領域上で右クリックして、<b>レイヤタイトルの追加/変更</b>をクリックします。<i>US 
+	 Weekly Retail Gasoline Prices</i> と入力します。タイトルを選択し、<b>書式</b>ツールバーを使用してフォントサイズを<b>26</b>にします。X 
+	 軸の目盛ラベルの下部で右クリックして、<b>テキストの追加</b>を選択します。編集モードにして、書式ツールバーの<i><b>I</b></i> 
+	 ボタンをクリックし、フットノートとして <i>Box width indicates number of vehicles in each 
+	 area</i> と入力します。入力した文字は斜体で表示されます。</li>
+</ol>
+<h2><a name="Steps_to_Add_National_Average_Line_and_Min.26Max_Range"></a><span 
+	 class="mw-headline">国の平均線と最大・最小範囲を追加</span></h2>
+<p>さらに、Y 軸に3つの参照線を追加して、国際的なガソリン価格の最大最小範囲を表示します。 </p>
+<ol>
+	<li>Y軸をダブルクリックして、再度<b>軸</b>ダイアログを開きます。<b>参照線</b>タブに移動し、<b>詳細...</b>ボタンをクリックして、参照線ダイアログを開きます。 
+	 <br />
+	<a class="image"><img alt="Tutorial Box Plot 09b.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_09b.png" 
+							 width="553" height="524" border="0" /></a> 
+	 </li>
+	<li><b>参照線</b>ダイアログの下側にある<b>追加</b>ボタンをクリックして、参照線を追加します。新規の線を選択し、<b>値の種類</b>を<b>統計</b>に設定します。軸の値に<i>Mean(plotdata(6, 
+	 Y))</i> を入力します。（このボックスの最後にある矢印をクリックして、埋め込みパターンから選択することが出来ます。）自動フォーマットのチェックを外し、線の色と種類を<b>暗い青</b> 
+	 と <b>破線</b>に設定します。<b>ラベル</b>ノードの下にある<b>表示</b>にチェックを入れます。 <br />
+	<a class="image"><img alt="Tutorial Box Plot 09c.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_09c.png" 
+							 width="543" height="686" border="0" /></a> 
+	 </li>
+	<li><b>追加</b>ボタンをクリックして、2番目の参照線を追加します。<b>参照線</b>パネルで<b>値の種類</b>を<b>統計</b>に設定し、<b>軸の値</b>のボックスに<i>min(plotdata(6, 
+	 Y))</i>を入力します。線の色と種類を<b>暗い青</b>と<b>実線</b>に設定します。 <br />
+	<a class="image"><img alt="Tutorial Box Plot 09d.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_09d.png" 
+							 width="543" height="342" border="0" /></a> 
+	 </li>
+	<li><b>追加</b>ボタンをクリックして、3番目の参照線を追加します。<b>参照線</b>パネルで<b>値の種類</b>を<b>統計</b>に設定し、<b>軸の値</b>のボックスに<i>max(plotdata(6, 
+	 Y))</i>を入力します。線の色と種類を<b>暗い青</b>と<b>実線</b>に設定します。 </li>
+	<li>Okボタンをクリックし、ダイアログを閉じます。表に参照線が追加されています。 <br />
+	<a class="image"><img alt="Tutorial Box Plot 10.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_10.png" 
+							 width="647" height="524" border="0" /></a> 
+	 </li>
+	<li>最初に追加された線の<b>ラベル</b>セルで<b>National Average</b>と入力します。2番目と3番目の参照線で、<b>塗りつぶし</b>を次図のように設定します。 
+	 <br />
+	<a class="image"><img alt="Notched box ReferLines 01.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Notched_box_ReferLines_01.png" 
+							 width="583" height="145" border="0" /></a> 
+	 </li>
+	<li><b>適用</b>ボタンをクリックし、参照線をグラフに追加します。<b>詳細...</b>ボタンを再度クリックして<b>参照線</b>ダイアログを開き、左のパネルから2番目の線を選択します。<b>パターン</b>ノードにある<b>色</b>を<b>空色</b>に設定し、<b>透明度</b>を<i>90</i>にします。OK 
+	 ボタンをクリックします。 <br />
+	<a class="image"><img alt="Notched box ReferLines 02.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Notched_box_ReferLines_02.png" 
+							 width="543" height="456" border="0" /></a> 
+	 </li>
+	<li>OKボタンをクリックして、ダイアログを閉じます。グラフに戻り、平均のラベルで右クリックして、<b>プロパティ..</b>から<b>テキストオブジェクト</b>ダイアログを開きます。次のテキストを入力して、書式を設定します。<br />
+	
+	<pre class="lt" style="font-family: monospace;">
+National Average <span style="color: #000080;">$$</span><span style="color: #000000;">(</span>v, <span style="color: #000080;">*</span><span style="color: #0000dd;">3</span><span style="color: #000000;">)</span>
+	</pre>
+	<br />
+	
+	<p><a class="image"><img alt="Notched box ReferLines 03.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Notched_box_ReferLines_03.png" 
+							 width="606" height="471" border="0" /></a> 
+	 </p></li>
+	<li>OK ボタンをクリックします。最終的なグラフが作成されます。<br />
+	<a class="image"><img alt="Tutorial Box Plot 01.png" src="../images/Notched_Boxes_with_Variable_Width_Control/Tutorial_Box_Plot_01.png" 
+							 width="579" height="485" border="0" /></a> 
+	 </li>
+</ol>

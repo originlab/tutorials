@@ -1,0 +1,224 @@
+﻿<h1 class="firstheading">複数データのドットチャート</h1>
+<p class="urlname" style="display: none;">MultiDataDot-Chart</p>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p><b>ドットチャート</b>は、シンプルなスケール上にプロットしたデータポイントで構成される統計グラフです。これは量を簡単に比較できるので、円グラフに代わるものとしても使われます。このチュートリアルでは、ドットチャートの作成方法を説明します。 
+ </p>
+<dl>
+	<dd><a class="image"><img alt="複数データのドットチャート" src="../images/Multi-Data_Dot_Chart/Multi-Data_Dot_Chart.png" 
+								 width="426" height="497" border="0" /></a></dd>
+</dl>
+<p class="version">必要なOriginのバージョン: Origin 2015 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します: </p>
+<dl>
+	<dd><ul>
+		<li>散布図を作成する</li>
+		<li>X-Y軸を変更する</li>
+		<li>レイヤ管理を使う</li>
+		<li>軸を編集する</li>
+		<li>グラフにオブジェクトを追加する</li>
+	</ul></dd>
+</dl>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>以下のデータは複数の場所により異なる元素の含有量を示します。このデータを基に複数データのドットチャートを作図します。 </p>
+<dl>
+	<dd><table class="simple" width="200">
+		<tr>
+			<td><b>Sulphate</b> </td>
+			<td>0.346 </td>
+			<td>0.560 </td>
+			<td>0.333 </td>
+			<td>0.887 </td>
+			<td>0.310 </td>
+			<td>0.899 </td>
+		</tr>
+		<tr>
+			<td><b>Nitrate</b> </td>
+			<td>0.382 </td>
+			<td>0.780 </td>
+			<td>0.456 </td>
+			<td>0.732 </td>
+			<td>0.456 </td>
+			<td>0.732 </td>
+		</tr>
+		<tr>
+			<td><b>Chloride</b> </td>
+			<td>0.441 </td>
+			<td>0.880 </td>
+			<td>0.120 </td>
+			<td>0.656 </td>
+			<td>0.221 </td>
+			<td>0.673 </td>
+		</tr>
+		<tr>
+			<td><b>Ammonium</b> </td>
+			<td>0.481 </td>
+			<td>0.900 </td>
+			<td>0.256 </td>
+			<td>0.890 </td>
+			<td>0.434 </td>
+			<td>0.825 </td>
+		</tr>
+	</table></dd>
+</dl>
+<ol>
+	<li><b>標準</b>ツールバーの<b>新規ワークブック</b>アイコンをクリックし、新規ワークブックを作成してデータを入力します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="複数データのドットチャート" src="../images/Multi-Data_Dot_Chart/Multi-Data_Dot_Chart-1.png" 
+									 width="593" height="228" border="0" /></a></dd>
+	</dl></li>
+	<li>列Bの一番最初のセルにカーソルを移動し、カーソルが下向き矢印になる場所を見つけます。クリックして列Bを全て選択し、ドラッグして列Cも選択します。メニューから<b>作図：基本の2Dグラフ：散布図</b>を選択して、グラフを作成し、<b>グラフ操作：X軸とY軸の交換</b>を選びます。散布図を作成するもうひとつの方法は、<b>2Dグラフギャラリー</b>ツールバーの散布図アイコンをクリックする方法です。</li>
+	<li>ステップ2をそれぞれ列Dと列E、列Fと列Gに対して繰り返し、合計3つのグラフを作成します。</li>
+	<li>3つのグラフを統合するには、Orginメニューから<b>グラフ操作：グラフウィンドウの統合</b>と操作してダイアログを開きます。開いたダイアログで、<b>配置の設定</b>の項目の下にある<b>行の数</b>を<b>3</b>にし、<b>列の数</b>を<b>1</b>に設定します。右側にあるプレビューウィンドウで3つのグラフがどのように配置されるか、どのレイヤのグラフかが表示されます。<b>OK</b>ボタンをクリックして保存します。これで3つの異なるレイヤと別々のグラフを含む新しいグラフが出来ます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="複数データのドットチャート" src="../images/Multi-Data_Dot_Chart/Multi-Data_Dot_Chart-2.png" 
+									 width="824" height="426" border="0" /></a></dd>
+	</dl></li>
+	<li>グラフを見やすくするために凡例と軸タイトルをクリックで選択してから<b>Delete</b>キーを押すことで削除します。 
+	<dl>
+		<dd><a class="image"><img alt="複数データのドットチャート" src="../images/Multi-Data_Dot_Chart/Multi-Data_Dot_Chart-3.png" 
+									 width="457" height="349" border="0" /></a></dd>
+	</dl></li>
+	<li><b>グラフ操作：レイヤ管理</b> をメインメニューから開きます。左側のパネルで、Layer 2を選びます。右側パネルで<b>リンク</b>タブを開き、<b>リンク先</b>に<b>1</b>を設定します。これは、レイヤ2(2番目のグラフ)のY軸の内容をレイヤ1(1番上のグラフ)にリンクします。<b>Y 
+	 軸リンク</b>に<b>直接(1対1)</b>を設定し、2つのグラフのY軸が同じ表示になるようにします。<b>適用</b>ボタンをクリックします。 
+	 <b>ドラッグして位置を変えると関連のレイヤも位置が変わる</b>、にチェックを付けますこの設定は、片方の軸が移動した場合、もう1つも同じように移動するように設定できます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Multi-Data Dot Chart-13.png" src="../images/Multi-Data_Dot_Chart/Multi-Data_Dot_Chart-13.png" 
+									 width="1059" height="358" border="0" /></a></dd>
+	</dl></li>
+	<li>左側パネルでレイヤ3を選択し、上記のステップを繰り返します。 <b>OK</b>ボタンをクリックして変更を保存します。</li>
+	<li>X軸とY軸を再設定します。まずはレイヤ1がアクティブになっていることを確認するため、グラフの左上にある<b>1</b>をクリックします。グラフレイヤの水平軸をクリックします。<b>スケール</b>タブで<b>水平</b>アイコンが選択されていることを確認してから、以下のように設定します（レイヤの軸は先ほどの手順でリンクしたため、ここの編集内容は3つの軸全てに反映します）。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="複数データのドットチャート" src="../images/Multi-Data_Dot_Chart/Multi-Data_Dot_Chart-14.png" 
+									 width="651" height="486" border="0" /></a></dd>
+	</dl></li>
+	<li><b>軸と軸目盛</b>タブを開きます。左側パネルで<b>上</b>アイコンを選択し、<b>軸と軸目盛を表示</b>にチェックを付けて上Y軸を表示するようにします。それぞれのスタイルを、<b>主目盛</b>は<b>外側</b>、<b>副目盛</b>は<b>なし</b>に設定します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="複数データのドットチャート" src="../images/Multi-Data_Dot_Chart/Multi-Data_Dot_Chart-15.png" 
+									 width="651" height="536" border="0" /></a></dd>
+	</dl></li>
+	<li>左側パネルで<b>下</b>アイコンを選択し、<b>軸と軸目盛</b>タブで<b>主目盛</b>と<b>副目盛</b>のスタイルをどちらも<b>なし</b>に設定して目盛りを設定させません。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="複数データのドットチャート" src="../images/Multi-Data_Dot_Chart/Multi-Data_Dot_Chart-16.png" 
+									 width="651" height="536" border="0" /></a></dd>
+	</dl></li>
+	<li>右側パネルで<b>目盛ラベル</b>タブを開きます。左側パネルで<b>上</b>アイコンを選択し、<b>表示</b>チェックを付けます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="複数データのドットチャート" src="../images/Multi-Data_Dot_Chart/Multi-Data_Dot_Chart-17.png" 
+									 width="651" height="536" border="0" /></a></dd>
+	</dl></li>
+	<li><b>特別な軸刻み</b>タブを開いて左側パネルで<b>上</b>アイコンを選択します。<b>軸の開始</b>と<b>軸の終わり</b>、両方の表示を<b>隠す</b>に設定します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="複数データのドットチャート" src="../images/Multi-Data_Dot_Chart/Multi-Data_Dot_Chart-29.png" 
+									 width="651" height="536" border="0" /></a></dd>
+	</dl></li>
+	<li><b>目盛ラベル</b>タブを開きます。左側パネルで<b>上</b>アイコンを選択し、<b>表示</b>のチェックを外します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="複数データのドットチャート" src="../images/Multi-Data_Dot_Chart/Multi-Data_Dot_Chart-31.png" 
+									 width="596" height="420" border="0" /></a></dd>
+	</dl></li>
+	<li><b>目盛ラベル</b>タブを開きます。左側パネルで<b>下</b>アイコンを選択し、<b>表示</b>のチェックを外します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="複数データのドットチャート" src="../images/Multi-Data_Dot_Chart/Multi-Data_Dot_Chart-31-1.png" 
+									 width="596" height="420" border="0" /></a></dd>
+	</dl></li>
+	<li><b>軸と軸目盛</b>タブを開きます。左側パネルで<b>左</b>アイコンをクリックし、<b>左と右で同じオプションを使用する</b>、にチェックをつけます。そして、<b>主目盛</b>と<b>副目盛</b>のスタイルは<b>なし</b>に設定します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="複数データのドットチャート" src="../images/Multi-Data_Dot_Chart/Multi-Data_Dot_Chart-32.png" 
+									 width="596" height="541" border="0" /></a></dd>
+	</dl></li>
+	<li><b>グリッド線</b>タブを開きます。左側パネルで<b>水平</b>アイコンを選択し、<b>主グリッド線</b>の下の<b>表示</b>にチェックをつけます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="複数データのドットチャート" src="../images/Multi-Data_Dot_Chart/Multi-Data_Dot_Chart-18.png" 
+									 width="596" height="512" border="0" /></a></dd>
+	</dl></li>
+	<li><b>OK</b>ボタンをクリックして設定を適用し、<b>軸</b>ダイアログを閉じます。下図のようなグラフになります。 
+	<dl>
+		<dd><a class="image"><img alt="複数データのドットチャート" src="../images/Multi-Data_Dot_Chart/Multi-Data_Dot_Chart-21.png" 
+									 width="526" height="395" border="0" /></a></dd>
+	</dl></li>
+	<li>レイヤ1で右クリックして、<b>フォーマットのコピー：すべてのスタイルフォーマット</b>を選択します。グラフページ内で右クリックし、<b>フォーマットの貼り付け</b>を選択してレイヤ1のスタイルをページ全体に反映させます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="複数データのドットチャート" src="../images/Multi-Data_Dot_Chart/Multi-Data_Dot_Chart-33.png" 
+									 width="526" border="0" /></a></dd>
+	</dl></li>
+	<li>レイヤ2の上軸上でダブルクリックして、<b>軸と軸目盛</b>タブを開きます。左側パネルで<b>上</b>アイコンを選択し、<b>主目盛</b>と<b>副目盛</b>のスタイルを<b>なし</b>設定します。レイヤ3の上軸に対しても同じように設定します。</li>
+	<li>レイヤ3の<b>軸</b>ダイアログで、<b>軸と軸目盛</b>タブを開きます。左側パネルで<b>下</b>アイコンを選択し、<b>主目盛</b>のスタイルを<b>外側</b>に設定します。</li>
+	<li><b>目盛ラベル</b>タブを開きます。左側パネルで<b>下</b>アイコンを選択し、<b>表示</b>のチェックをつけます。</li>
+	<li><b>特別な軸刻み</b>タブを開いて左側パネルで<b>下</b>アイコンを選択します。<b>軸の開始</b>と<b>軸の終わり</b>、両方の表示を<b>隠す</b>に設定します。<b><b>OK</b></b>をクリックします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="複数データのドットチャート" src="../images/Multi-Data_Dot_Chart/Multi-Data_Dot_Chart-34.png" 
+									 width="596" height="399" border="0" /></a> 
+		 </dd>
+	</dl></li>
+	<li>下図のようなグラフになります。 
+	<dl>
+		<dd><a class="image"><img alt="複数データのドットチャート" src="../images/Multi-Data_Dot_Chart/Multi-Data_Dot_Chart-8.png" 
+									 width="526" height="395" border="0" /></a></dd>
+	</dl></li>
+	<li>グラフをダブルクリックして、<b>作図の詳細</b>ダイアログを開きます。以下のように他の設定を編集します。<b>編集モード</b>を<b>独立</b>にすると、シンボルをレイヤとデータごとに個別に編集できるようになります。シンボルの形状に関しては、<b>カスタムコンストラクション</b>のチェックを外すとドロップダウンの三角矢印から選択できるようになります。シンボルの色は<b>シンボル</b>タブで<b>シンボルの色</b>オプションから<b>指定色</b>を選び、更に目的の色を選択します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="複数データのドットチャート" src="../images/Multi-Data_Dot_Chart/Multi-Data_Dot_Chart-23.png" 
+									 width="1003" height="619" border="0" /></a></dd>
+		<dd><a class="image"><img alt="Multi-Data Dot Chart-24.png" src="../images/Multi-Data_Dot_Chart/Multi-Data_Dot_Chart-24.png" 
+									 width="828" height="545" border="0" /></a></dd>
+		<dd><a class="image"><img alt="Multi-Data Dot Chart-25.png" src="../images/Multi-Data_Dot_Chart/Multi-Data_Dot_Chart-25.png" 
+									 width="827" height="524" border="0" /></a></dd>
+	</dl></li>
+	<li>レイヤ2と3について、前の操作（ステップ24）を繰り返します。<b>OK</b>ボタンをクリックすると、グラフは以下のようになります。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="複数データのドットチャート" src="../images/Multi-Data_Dot_Chart/Multi-Data_Dot_Chart-9.png" 
+									 width="535" border="0" /></a></dd>
+	</dl></li>
+	<li><b>プロット操作・オブジェクト作成</b>ツールバーの<a class="image"><img alt="Multi-Data Dot Chart-12.png" 
+															 src="../images/Multi-Data_Dot_Chart/Multi-Data_Dot_Chart-12.png" 
+															 width="23" 
+															 border="0" /></a> 
+	 ボタンをクリックし、グラフに3つの四角形を描きます。各四角形に対して以下の操作をします。 
+	<ol>
+		<li>四角形をダブルクリックし、<b>オブジェクト表示制御</b>ダイアログを開きます。</li>
+		<li><b>塗りパターン</b>タブを開き、<b>塗りつぶしの色</b>を設定します。この色が作成した長方形の色になります。 
+		 
+		<dl>
+			<dd><a class="image"><img alt="複数データのドットチャート" src="../images/Multi-Data_Dot_Chart/Multi-Data_Dot_Chart-26.png" 
+										 width="416" height="327" border="0" /></a></dd>
+		</dl></li>
+		<li><b>大きさ</b>タブで、四角形のサイズと位置を調整します。 </li>
+	</ol>
+	<dl>
+		<dd><a class="image"><img alt="複数データのドットチャート" src="../images/Multi-Data_Dot_Chart/Multi-Data_Dot_Chart-10.png" 
+									 width="432" height="582" border="0" /></a></dd>
+	</dl></li>
+	<li>「プロット操作オブジェクト作成」ツールバーのテキストツール<a class="image"><img alt="複数データのドットチャート" 
+															 src="../images/Multi-Data_Dot_Chart/Multi-Data_Dot_Chart-27.png" 
+															 width="23" 
+															 border="0" /></a>を選び、テキストを入力する四角形の内側をクリックします。</li>
+	<li>シンボルに対する凡例を作成するには、メインメニューで<b>グラフ操作：凡例：データプロット</b>と操作します。適切な位置に凡例を移動し、右クリックをして<b>オブジェクトの表示制御</b>を選択します。下図のように設定を変更します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="複数データのドットチャート" src="../images/Multi-Data_Dot_Chart/Multi-Data_Dot_Chart-28.png" 
+									 width="587" height="373" border="0" /></a></dd>
+	</dl></li>
+	<li>レイヤ1の上X軸をアクティブにし、適切な位置に移動します。</li>
+</ol>
+<p>完成した複数データのドットチャートは下図のようになります。 </p>
+<dl>
+	<dd><a class="image"><img alt="複数データのドットチャート" src="../images/Multi-Data_Dot_Chart/Multi-Data_Dot_Chart-11.png" 
+								 width="445" height="599" border="0" /></a></dd>
+</dl>

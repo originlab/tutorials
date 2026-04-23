@@ -1,0 +1,252 @@
+﻿<h1 class="firstheading">Excelと一緒に操作する</h1>
+<p class="urlname" style="display: none;">Working-with-Excel</p>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> 
+		 <span class="toctext">サマリー</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Copy-pasting_Data_from_Excel"><span 
+		 class="tocnumber">3</span> <span class="toctext">Excelからデータをコピー&amp;ペーストする 
+		 </span></a></li>
+		<li class="toclevel-1 tocsection-4"><a href="#Importing_Excel_File"><span 
+		 class="tocnumber">4</span> <span class="toctext">ExcelファイルをOriginワークブックにインポートする 
+		 </span></a></li>
+		<li class="toclevel-1 tocsection-5"><a href="#Open_Excel_File_in_Origin"><span 
+		 class="tocnumber">5</span> <span class="toctext">OriginでExcelファイルを開く</span></a></li>
+		<li class="toclevel-1 tocsection-6"><a href="#Setting_External_Excel_File_Path_Relative_to_OPJ_Path"><span 
+		 class="tocnumber">6</span> <span class="toctext">OPJファイルパスへのExcelファイルの相対パスを設定する 
+		 </span></a></li>
+	</ol>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>Originは柔軟な方法でExcelを操作することができます。OriginワークブックにExcelデータをインポートすることも、Origin内部でExcelブックを開くこともできます。Originのすべてのグラフ機能およびデータ分析機能を使用する場合、ExcelファイルをOriginにインポートする必要があります。Originユーザではない人とExcelワークブックファイルを共有するために、Excelワークブックのままにしておく場合、Excelデータファイルを直接開きます。このチュートリアルで、Excelを操作する方法を紹介します。 
+ </p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します: </p>
+<ul>
+	<li>完全精度でExcelからデータをコピー&amp;ペーストする</li>
+	<li>ExcelファイルをOriginワークブックにインポートする</li>
+	<li>OriginでExcelファイルを開く</li>
+	<li>Originプロジェクトファイルと相対パスでExcelファイルを保存する</li>
+</ul>
+<h2><a name="Copy-pasting_Data_from_Excel"></a><span class="mw-headline">Excelからデータをコピー&amp;ペーストする</span></h2>
+<p>Excelをインポートしたり、開くのではなく、単にExcelからOriginにデータをコピーして貼り付けたい場合があります。以下のステップでは、完全精度でデータをコピーし貼り付ける方法を説明しています。 
+ </p>
+<ol>
+	<li>ExcelとOriginを別々に起動します。 </li>
+	<li>Excelで<b>Originインストールフォルダ\Samples\Graphing\ExcelData.XLS</b>ファイルを開きます。 
+	 </li>
+	<li>列Bから列Lを選択します。右クリックして<b>セルの書式設定</b>を選び、ダイアログで小数点以下の桁数を2にします。これでExcelはOrginよりも少ない小数点以下の数字を表示します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Tutorials81 Working with Excel 001.png" 
+									 src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_001.png" 
+									 width="502" height="477" border="0" /></a></dd>
+	</dl></li>
+	<li>Excelシートの左上のセルをクリックして、シート全体を選択し、右クリックして<b>コピー</b>を選ぶか、キーボードのショートカット<b>Ctrl</b>+<b>C</b>を使ってコピーします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Tutorials81 Working with Excel 002.png" 
+									 src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_002.png" 
+									 width="335" height="211" border="0" /></a></dd>
+	</dl></li>
+	<li>Originの新しいブックに移動し、1行1列目を選択してカーソルを配置し、<b>Ctrl</b>+<b>V</b> を押すまたは右クリックして<b>貼り付け</b>を選びます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Tutorials81 Working with Excel 003.png" 
+									 src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_003.png" 
+									 width="397" height="270" border="0" /></a></dd>
+	</dl></li>
+	<li>Excelで表示された桁数ではなく、Originでは完全な精度で数値がコピーされます。以下の例で示されていますが、円で囲まれた値はExcelでは小数点以下2桁で表示(0.35)されているのに対し、Originには小数点以下3桁全てが表示された(0.348)ことが分かります。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Tutorials81 Working with Excel 004.png" 
+									 src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_004.png" 
+									 width="396" height="322" border="0" /></a></dd>
+	</dl></li>
+	<li>Originで、1行目のヘッダを右クリックし、<b><b>コメントとして設定</b></b>を選び、この行をOriginのコメント行にします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Tutorials81 Working with Excel 005.png" 
+									 src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_005.png" 
+									 width="396" height="714" border="0" /></a></dd>
+	</dl></li>
+	<li>再び1行目を右クリックし、<b><b>ロングネームに設定</b></b>を選びます。この操作でExcelの1行目と2行目がそれぞれOriginのワークシートヘッダになります。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Tutorials81 Working with Excel 018.png" 
+									 src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_018.png" 
+									 width="411" height="351" border="0" /></a></dd>
+	</dl></li>
+	<li>1列目をダブルクリックし、<b>日付</b>に設定し、表示フォーマットを2013にします。 
+	<dl>
+		<dd><a class="image"><img alt="Tutorials81 Working with Excel 006.png" 
+									 src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_006.png" 
+									 width="393" height="485" border="0" /></a></dd>
+	</dl></li>
+</ol>
+<table class="noborder">
+	<tr>
+		<td style="vertical-align: top;" width="60"><img src="../images/Working_with_Excel/Tip_icon.png" 
+														 alt="" width="57" 
+														 border="0" /></td>
+		<td><p>ステップ5で右クリックして<b>リンクを貼りつけ</b>するか、 <b>貼り付け</b>を選択する代わりに 「Ctrl+Alt+V」を押すか、「Ctrl+V」を押すことができます。これにより、ExcelデータとOriginのワークブックの間にDDEリンクが作成されます。この方法により、Excelのデータが変更されると、Originのワークブックにリンクしたデータが変更されます。詳細は<a 
+		 class="external text" href="http://blog.originlab.com/graphing/dynamic-data-exchange-dde-with-excel-workbooks-in-origin-2017" 
+		 target="_blank">このブログ</a>をご覧ください。 </p></td>
+	</tr>
+</table>
+<h2><a name="Importing_Excel_File"></a><span class="mw-headline">ExcelファイルをOriginワークブックにインポートする</span></h2>
+<p>Originには、Excelファイルを直接Originワークブックにインポートする機能があります。複数シートをサポートし、Excelシートの特定の行を指定するオプションを使って、Originワークブックのロングネーム行やコメント行などのヘッダ情報にインポートすることができます。Excelデータで分析やデータ操作を行う場合には、Originにインポートする必要があります。 
+ </p>
+<ol>
+	<li>Originで新しいブックをアクティブにし、メニューから<b><b>データ：ファイルからインポート：Excel (XLS, XLSX)...</b></b>を選びます。 
+	 </li>
+	<li>Originのインストールフォルダにあるファイル <b>\samples\graphing\Excel Data.xls</b> 
+	 を選択し、<b>オプションダイアログを表示する</b>にチェックが付いていることを確認します。 
+	<dl>
+		<dd><a class="image"><img alt="Tutorials81 Working with Excel 019.png" 
+									 src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_019.png" 
+									 width="688" height="586" border="0" /></a></dd>
+	</dl></li>
+	<li>現れたダイアログで、<b>Excel COMコンポーネントを使用</b>してインポートのチェックボックスにチェックが付いたままにします。 
+	 </li>
+	<li>列ヘッダブランチで、<b>コメント行の開始インデックス</b>を1にセットします。 </li>
+	<li><b>ロングネームに対する行のインデックス</b>ドロップダウンリストで2を選び、<b>OK</b>をクリックしてインポートします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Tutorials81 Working with Excel 007.png" 
+									 src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_007.png" 
+									 width="622" height="776" border="0" /></a></dd>
+	</dl></li>
+	<li>1列目の<b>コメント</b>セルをクリックして選択し、選択したセルの右下にあるポイントを<b>Ctrl</b>キーを押しながらドラッグしてデータがある列のコメント行すべてを選択します。これはすべての列に同じコメントをコピーします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Tutorials81 Working with Excel 008.png" 
+									 src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_008.png" 
+									 width="360" height="184" border="0" /></a></dd>
+	</dl></li>
+	<li><b>F4</b>を押し、ワークシートプロパティダイアログを開き、<b>列のデータ型</b>タブをクリックして、<b>適用先</b>ドロップダウンリストで、<b>コメント</b>を選び、<b>ダイナミック統合</b>を<b>水平</b>にし、<b><b>OK</b></b>をクリックします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Tutorials81 Working with Excel 009.png" 
+									 src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_009.png" 
+									 width="420" height="480" border="0" /></a></dd>
+	</dl>
+	この操作でコメント行をとうとうしあいとるを全てのデータ列の中央に表示します。 
+	<dl>
+		<dd><a class="image"><img alt="Tutorials81 Working with Excel 010.png" 
+									 src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_010.png" 
+									 width="404" height="195" border="0" /></a></dd>
+	</dl></li>
+</ol>
+<h2><a name="Open_Excel_File_in_Origin"></a><span class="mw-headline">OriginでExcelファイルを開く</span></h2>
+<p>外部のXLSファイルをそのまま維持したい場合には、Origin内でExcelワークブックとしてファイルを開き、データを操作します。Origin内で、Excelファイル(.XLSまたは.XLSX)をExcelワークブックとして開くとき、Microsoft 
+ ExcelのOLEインスタンスが起動します。Excelワークブックデータから直接プロットできますが、3Dプロットや分析機能の多くは利用できません。 
+ </p>
+<ol>
+	<li>メニューから<b>ファイル：Excelを開く...</b>を選び、<b>\Samples\Graphing\Excel Data.xls</b>ファイルを選びます。 
+	 </li>
+	<li>新しいExcelウィンドウがOriginワークスペース内に開きます。このウィンドウをアクティブにすると、Originのメインメニューが変わり、Excel固有のメニューのいくつかが表示されます。Excelのツールバーも利用できます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Tutorials81 Working with Excel 011.png" 
+									 src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_011.png" 
+									 width="579" height="578" border="0" /></a></dd>
+	</dl></li>
+	<li>Excelのデータ範囲、<b>A3:A26</b>を選択して右クリックします。<b><b><b>セルの書式設定</b></b></b>を選び、データが<b>日付</b>フォーマットである事を確認します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Tutorials81 Working with Excel 020.png" 
+									 src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_020.png" 
+									 width="550" height="441" border="0" /></a></dd>
+	</dl></li>
+	<li><b>作図</b>メニューを選択し、<b>複数Y軸：二重Y軸</b>を選びます。 </li>
+	<li>Excelシートの<b>A3:A26</b>を選択し、<b>作図データの選択</b>ダイアログで<b>X</b>ボタンをクリックして、Xデータに割り当てます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Tutorials81 Working with Excel 013.png" 
+									 src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_013.png" 
+									 width="498" height="353" border="0" /></a></dd>
+	</dl></li>
+	<li>Excelシートの<b>B3:C26</b>を選択し、<b>作図データの選択</b>ダイアログで<b>Y</b>をクリックして、Yデータに割り当てます。<b><b>作図先</b></b>ドロップダウンで<b><b>複数レイヤ</b></b>を選択します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Tutorials81 Working with Excel 014.png" 
+									 src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_014.png" 
+									 width="498" height="353" border="0" /></a></dd>
+	</dl></li>
+	<li><b>作図</b>ボタンをクリックして二重Y軸グラフを作図します。 
+	<dl>
+		<dd><a class="image"><img alt="Tutorials81 Working with Excel 015.png" 
+									 src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_015.png" 
+									 width="541" height="407" border="0" /></a></dd>
+	</dl></li>
+	<li>デフォルトで、OriginはX軸の時間の目盛ラベルをYYYY/MM/DD形式で表示します(日本語の場合)。X軸をダブルクリックして、<b>軸</b>ダイアログボックスを開きます。<b>スケール</b>タブの<b>水平</b>アイコンを選択し、スケールの開始値を<b>1970/1/1</b> 
+	 に、終了値を <b>2000/1/1 </b>に設定します。 
+	<dl>
+		<dd><a class="image"><img alt="Tutorials81 Working with Excel 021.png" 
+									 src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_021.png" 
+									 width="584" height="493" border="0" /></a></dd>
+	</dl>
+	<b><b>目盛ラベル</b></b>タブを開き、左側パネルで<b><b><b>下</b></b></b>アイコンを選択してから、<b><b><b>表示</b></b></b>タブでタイプを日付に、表示を年に設定します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Tutorials81 Working with Excel 022.png" 
+									 src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_022.png" 
+									 width="584" height="426" border="0" /></a></dd>
+	</dl>
+	<b>OK</b>をクリックしてこの設定を適用して、ダイアログを閉じます。グラフは次の図のようになります。 
+	<dl>
+		<dd><a class="image"><img alt="Tutorials81 Working with Excel 023.png" 
+									 src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_023.png" 
+									 width="541" border="0" /></a></dd>
+	</dl></li>
+</ol>
+<table class="noborder">
+	<tr>
+		<td style="vertical-align: top;" width="60"><img src="../images/Working_with_Excel/Tip_icon.png" 
+														 alt="" width="57" 
+														 border="0" /></td>
+		<td><p>OriginでExcelを開いた後、別のOriginウィンドウに切り替えると、Excelメニューが存在していた場所に、ツールバーのスペーサが表示されるようになります。。スペーサを取り除くには、右クリックして<b>ツールバースペーサを隠す</b>または<b>ツールバースペーサを常に隠す</b>を選択することができます。 
+		 </p></td>
+	</tr>
+</table>
+<h2><a name="Setting_External_Excel_File_Path_Relative_to_OPJ_Path"></a><span 
+	 class="mw-headline">OPJファイルパスへのExcelファイルの相対パスを設定する</span></h2>
+<p>Originプロジェクトは、外部ExcelファイルにリンクしているExcelウィンドウを含めることができます。上記のような場合、Originのプロジェクトと同じフォルダまたはOriginのプロジェクトフォルダの中のサブフォルダにExcelファイルを保存すると便利です。これにより2つのファイルをより共に移動しやすくなります。次のように操作しましょう。 
+ </p>
+<ol>
+	<li>Excelが実行していたら、閉じます。 </li>
+	<li>上記の<b>OriginでExcelファイルを開く</b>にあるステップを実行します。任意でグラフを作成します。 </li>
+	<li>&quot;C:\My Files\My Project.opj&quot;のような同じフォルダ位置にOPJファイルを保存します。 
+	 </li>
+	<li>Excelウィンドウを右クリックして<b>ワークブックの新規保存</b>を選びます。OPJファイルを保存した場所と同じまたはサブフォルダに保存します。例えば、「C:\My 
+	 Files\Data\My Data.xls」というパスのフォルダです。 
+	<dl>
+		<dd><a class="image"><img alt="Tutorials81 Working with Excel 016.png" 
+									 src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_016.png" 
+									 width="357" height="446" border="0" /></a></dd>
+	</dl></li>
+	<li>Excelのウィンドウのタイトルを右クリックして<b>プロパティ</b>を選択します。<b><b>現プロジェクト（OPJ）パスとの相対位置</b></b>にチェックを付けます。このチェックボックスの下にあるテキストボックスのExcelファイルのパスが&quot;Data\My 
+	 Data.xls&quot;のように相対パスに変わります。 
+	<dl>
+		<dd><a class="image"><img alt="Tutorials81 Working with Excel 017.png" 
+									 src="../images/Working_with_Excel/Tutorials81_Working_with_Excel_017.png" 
+									 width="527" height="476" border="0" /></a></dd>
+	</dl></li>
+	<li>再度、OPJを保存します。これで、OPJファイルが保存されている場所から、サブフォルダ構造全体をコピーし、外部メモリ(USBメモリなど)に置いたり、フォルダ構造全体をzip化できます。 
+	 別のコンピュータで、OPJファイルを開くとき、OriginはOPJパスからの相対パスでExcelファイルを探します。 </li>
+</ol>
+<table class="noborder">
+	<tr>
+		<td style="vertical-align: top;" width="60"><img src="../images/Working_with_Excel/Tip_icon.png" 
+														 alt="" width="57" 
+														 border="0" /></td>
+		<td><p>Excelファイルが別の場所にあり、OPJファイルと同じ場所に保存したい場合、OriginでExcelファイルを開き、タイトルバーを右クリックして、<b><b>プロパティ</b></b>を選び、<b><b>保存時にOPJパスに切り替え</b></b>ボタンをクリックします。 
+		 OPJファイルを保存すると、Excelファイルが元の場所からOPJが保存されている場所にコピーされます。 </p></td>
+	</tr>
+</table>

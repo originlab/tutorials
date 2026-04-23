@@ -1,0 +1,158 @@
+﻿<h1 class="firstheading">区間ごとに関数でフィットする</h1>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>内容</h2>
+</div>
+<ol>
+<li class="toclevel-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1"><a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">サンプルとステップ</span></a>
+<ol>
+<li class="toclevel-2"><a href="#Define_the_Function"><span class="tocnumber">3.1</span> <span class="toctext">関数を定義する</span></a></li>
+<li class="toclevel-2"><a href="#Fit_the_Curve"><span class="tocnumber">3.2</span> <span class="toctext">曲線をフィットする</span></a></li>
+</ol>
+</li>
+</ol>
+</td>
+</tr>
+</table>
+<a name="Summary" id="Summary"></a>
+<h2><span class="mw-headline">サマリー</span></h2>
+<p>このチュートリアルでは、区間毎のフィット関数を定義する方法を説明します。</p>
+<p class="version">必要なOriginのバージョン:8.0 SR6</p>
+<a name="What_you_will_learn" id="What_you_will_learn"></a>
+<h2><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。</p>
+<ul>
+<li>区間(条件)のフィット関数を定義する</li>
+</ul>
+<a name="Example_and_Steps" id="Example_and_Steps"></a>
+<h2><span class="mw-headline">サンプルとステップ</span></h2>
+<p>\<i>Samples</i>\<i>Curve Fitting</i>\<i>Exponential Decay</i>.<i>dat</i>ファイルをインポートして、このチュートリアルを開始します。列Dを選択し、散布図をプロットします。Growth/Sigmoidalカテゴリーにある多くの組込関数を使ってこの曲線をフィットできますが、このチュートリアルでは、区間関数で曲線を2つの区間に分けます。</p>
+<dl>
+<dd><a style="color: #0000ff; text-decoration: underline;"><img alt="image:Tutorial_Fitting_with_Piecewise_Functions_001.png" src="../images/Fitting_with_Piecewise_Functions/Tutorial_Fitting_with_Piecewise_Functions_001.png" width="279" height="196" border="0" /></a></dd>
+</dl>
+<p>関数式は次のようなものです。</p>
+<dl>
+<dd><img class="tex" alt="y = \begin{cases} a+bx+e^{-\frac{x-x_c}{t1}}, &amp; \mbox{if } x&lt;x_c \\ a+bx, &amp; \mbox{if } x \ge x_c \end{cases}" src="../images/Fitting_with_Piecewise_Functions/math-283a8f0a9b16b947c827fd94c4e94bbb.png" width="245" height="51" border="0" /></dd>
+</dl>
+<a name="Define_the_Function" id="Define_the_Function"></a>
+<h3><span class="mw-headline">関数を定義する</span></h3>
+<p><b style="font-weight: bold;">F9</b>を押し、<b>フィット関数オーガナイザ</b>を開き、以下のように関数を定義します。</p>
+<dl>
+<dd>
+<table class="blank">
+<tr>
+<th width="150">&#160;</th>
+<th>&#160;</th>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">関数名：</b></td>
+<td>piecewise</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">実現方式：</b></td>
+<td>ユーザ定義</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">独立変数：</b></td>
+<td>x</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">従属変数：</b></td>
+<td>y</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">パラメータの名前：</b></td>
+<td>xc, a, b, t1</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">定義形式：</b></td>
+<td><font color="#0000FF">Origin C</font></td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">関数：</b></td>
+<td>&#160;</td>
+</tr>
+</table>
+</dd>
+</dl>
+<p><b style="font-weight: bold;">関数</b>編集ボックスの右にあるボタン<a><img alt="Image:User-Defined Fitting Functions-2.png" src="../images/Fitting_with_Piecewise_Functions/User-Defined_Fitting_Functions-2.png" width="19" height="25" border="0" /></a> をクリックし、コードビルダで次のようにフィット関数を定義します。</p>
+<pre class="oc">
+<span style="color: #0000ff;">void</span> _nlsfpiecewise<span style="color: #000000;">(</span><span style="color: #008000;">
+// フィットパラメータ:</span><span style="color: #0000ff;">
+double</span> xc, <span style="color: #0000ff;">double</span> a, <span style="color: #0000ff;">double</span> b, <span style="color: #0000ff;">double</span> t1,<span style="color: #008000;">
+// 独立変数:</span><span style="color: #0000ff;">
+double</span> x,<span style="color: #008000;">
+// 従属変数:</span><span style="color: #0000ff;">
+double</span><span style="color: #000040;">&amp;</span> y<span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+        <span style="color: #008000;">// 編集可能部分の開始</span>
+        <span style="color: #008000;">// if条件で、曲線を分ける</span>
+        <span style="color: #0000ff;">if</span><span style="color: #000000;">(</span>x<span style="color: #000080;">&lt;</span>xc<span style="color: #000000;">)</span> <span style="color: #000000;">{</span>
+                y <span style="color: #000080;">=</span> a<span style="color: #000040;">+</span>b<span style="color: #000040;">*</span>x<span style="color: #000040;">+</span><span style="color: #000000;">exp</span><span style="color: #000000;">(</span><span style="color: #000040;">-</span><span style="color: #000000;">(</span>x<span style="color: #000040;">-</span>xc<span style="color: #000000;">)</span><span style="color: #000040;">/</span>t1<span style="color: #000000;">)</span>;
+        <span style="color: #000000;">}</span> <span style="color: #0000ff;">else</span> <span style="color: #000000;">{</span>
+                y <span style="color: #000080;">=</span> a<span style="color: #000040;">+</span>b<span style="color: #000040;">*</span>x;
+        <span style="color: #000000;">}</span>
+        <span style="color: #008000;">// 編集可能部分の終了</span><span style="color: #000000;">
+}</span>
+</pre>
+<a name="Fit_the_Curve" id="Fit_the_Curve"></a>
+<h3><span class="mw-headline">曲線をフィットする</span></h3>
+<p><b style="font-weight: bold;">Ctrl + Y</b> を押すと、グラフウィンドウをアクティブにしてNLFitダイアログが開きます。定義した <i>piecewise</i> 関数を選択し、次の値でパラメータを初期化します。</p>
+<dl>
+<dd>
+<table class="blank">
+<tr>
+<th width="20">&#160;</th>
+<th>&#160;</th>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">xc:</b></td>
+<td>1</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">a:</b></td>
+<td>1</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">b:</b></td>
+<td>-1</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">t1:</b></td>
+<td>0.1</td>
+</tr>
+</table>
+</dd>
+</dl>
+<p>「<b>フィット</b>」ボタンをクリックし、結果を生成します。</p>
+<dl>
+<dd>
+<table class="blank">
+<tr>
+<th width="20">&#160;</th>
+<th>&#160;</th>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">xc:</b></td>
+<td>0.24</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">a:</b></td>
+<td>36.76585</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">b:</b></td>
+<td>-24.62876</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">t1:</b></td>
+<td>0.04961</td>
+</tr>
+</table>
+</dd>
+</dl>
+<p>Note: この関数は、<i>xc</i>と<i>t1</i>に敏感で、異なる初期値を使うと結果も異なります。</p>

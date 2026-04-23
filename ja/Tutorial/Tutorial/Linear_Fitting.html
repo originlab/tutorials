@@ -1,0 +1,46 @@
+﻿<h1 class="firstheading">線形フィットと外れ値の除去</h1>
+<p class="urlname" style="display: none;">Linear-Fitting</p>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>外れ値は、通常、他のデータポイントから離れたデータポイントまたは観測ポイントであり、例えば測定時の誤りなどで発生します。外れ値の識別と除去については、さまざまな議論が行われており、データの特徴が分かっている場合、モデルを使うことが広く行われています。<br /></p>
+<h2><a name="What_you_will_learn" id="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。</p>
+<ul>
+<li>一連のデータポイントで線形回帰を実行する方法</li>
+<li>出力の残差テーブルを調べ、外れ値を識別する方法</li>
+<li>マスクツールを使って外れ値を除去する方法</li>
+<li>再計算機能を使って、外れ値を除去した後に自動的に分析結果を更新する方法</li>
+</ul>
+<p>このチュートリアルで説明している手順は、多項式回帰や非線形フィットでも利用できます。</p>
+<h2><a name="Steps" id="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<ol>
+<li>新しいワークブックを開き、<i>Samples\Curve Fitting\Outlier.dat</i>ファイルを開きます。</li>
+<li>2列目をクリックして選択した後にメニューから操作を行います。<b>作図：</b><b>シンボル図：</b><b>散布図</b>と操作を行い、散布図を作成します。</li>
+<li>グラフをアクティブにしたうえで次の操作を行います。<b>解析：</b><b>フィット：</b><b>線形フィット</b>と選び、線形フィットダイアログを出します。以前に「線形フィット」ダイアログを使ったことがある場合、サブメニューが開きますので、「<b>&gt;&gt;ダイアログを開く</b>」サブメニューを選択します。</li>
+<li><b style="font-weight: bold;">フィットオプション</b>ブランチで、<b>図上値によるフィット</b>のチェックを外します。<br />
+<br />
+<a class="image"><img alt="DOC-2411 Tutorial FitLinear 007a Magenta.png" src="../images/Linear_Fitting/DOC-2411_Tutorial_FitLinear_007a_Magenta.png" width="531" height="411" border="0" /></a><br />
+<br /></li>
+<li>『<b>残差解析</b>』ツリーノードを開き、『<b>標準化</b>』チェックボックスにチェックを付けます。<br />
+<br />
+<a class="image"><img alt="DOC-2411 Tutorial FitLinear 003a Magenta.png" src="../images/Linear_Fitting/DOC-2411_Tutorial_FitLinear_003a_Magenta.png" width="531" height="154" border="0" /></a><br />
+<br /></li>
+<li>ダイアログの一番上にある「<b>再計算</b>」ドロップダウンリストを「<b>自動</b>」にし、ダイアログの一番下にあるOKボタンをクリックします。ダイアログが閉じ、データに線形回帰が実行されます。<br />
+<br />
+<a class="image"><img alt="DOC-2411 Tutorial FitLinear 004a Magenta.png" src="../images/Linear_Fitting/DOC-2411_Tutorial_FitLinear_004a_Magenta.png" width="531" height="120" border="0" /></a><br />
+<br /></li>
+<li>データワークブックの<b>FitLinearCurves1</b>結果シートを選択し、右方向にスクロールして、「<b>標準残差</b>」列を表示します。この列の6行目の値が <code>-2.54889</code>となっています。<br />
+<br />
+<a class="image"><img alt="DOC-2411 Tutorial FitLinear 001a Magenta.png" src="../images/Linear_Fitting/DOC-2411_Tutorial_FitLinear_001a_Magenta.png" width="642" height="286" border="0" /></a><br />
+<br /></li>
+<li>グラフをアクティブにして、「プロット操作・オブジェクト作成」ツールバーの「領域マスクツール」のボタンをマウスで数秒押します。フライアウトメニューの最初の項目「現プロットを対象にマスクを付加する」サブメニューを選択します。<br />
+<br />
+<a class="image"><img alt="Tutorial FitLinear 002.png" src="../images/Linear_Fitting/Tutorial_FitLinear_002.png" width="256" height="166" border="0" /></a><br />
+<br /></li>
+<li>上記のサブメニューを使って、グラフの6番目のデータポイントをクリックして、マスクします。<br />
+<br />
+<a class="image"><img alt="Tutorial FitLinear 005.png" src="../images/Linear_Fitting/Tutorial_FitLinear_005.png" width="576" height="406" border="0" /></a><br />
+<br />
+　これにより線形フィットでの入力データが変わり、自動更新機能が働きます。このマスクしたデータを除外して線形フィットが再度実行されます。グラフ内のフィット曲線と貼り付けたパラメータが自動的に更新されます。結果のグラフは次のようになります。<br />
+<br />
+<a class="image"><img alt="Tutorial FitLinear 006.png" src="../images/Linear_Fitting/Tutorial_FitLinear_006.png" width="565" height="405" border="0" /></a></li>
+</ol>

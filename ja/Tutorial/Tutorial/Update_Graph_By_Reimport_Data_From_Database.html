@@ -1,0 +1,106 @@
+﻿<h1 class="firstHeading">データベースからデータを再インポートしてグラフを更新する</h1>
+<p><br />
+</p>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> 
+		 <span class="toctext">概要</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> 
+		 <span class="toctext">手順</span></a> 
+		<ol>
+			<li class="toclevel-2 tocsection-4"><a href="#Add_Button_to_Run_LabTalk_Script"><span 
+			 class="tocnumber">3.1</span> <span class="toctext">LabTalkスクリプトを実行するボタンを追加する</span></a></li>
+			<li class="toclevel-2 tocsection-5"><a href="#Use_Button_to_Modify_the_Import"><span 
+			 class="tocnumber">3.2</span> <span class="toctext">ボタンを使用してインポートデータを変更する</span></a></li>
+		</ol></li>
+	</ol>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<table class="noborder">
+	<tr>
+		<td style="vertical-align: top;" width="60"><img src="../images/Update_Graph_By_Reimport_Data_From_Database/Alert_icon.png" 
+														 alt="" width="57" 
+														 border="0" /></td>
+		<td><p>このチュートリアルで使用するデータベースはMicrosoft Azure上に設定されています。 </p></td>
+	</tr>
+</table>
+<p>このチュートリアルは、前のチュートリアル<a class="external text" href="../../Tutorial/Tutorial/Update_Database_Importing_By_LabTalk_Substitution.html">データベースからのインポートをLabTalk置換で更新する</a>の続きです。LabTalkスクリプトを実行するボタンをグラフに追加する方法を示します。このボタンによって、<a 
+	 class="external text" href="../../LabTalk/Script/Getting_Numeric_and_String_Input.html">GetNダイアログ</a>を開いてcompany名を入力し、新しいcompany名に基づいてデータベースを再インポートし、更新されたグラフを取得します。 
+ </p>
+<p>手順はOrigin 2023bに基づいています。 </p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。 </p>
+<ul>
+	<li>スクリプトを実行するボタンをグラフに追加。</li>
+	<li>新しい入力データを取得するための簡単なダイアログの作成方法。</li>
+</ul>
+<h2><a name="Steps"></a><span class="mw-headline">手順</span></h2>
+<h3><a name="Add_Button_to_Run_LabTalk_Script"></a><span class="mw-headline">LabTalkスクリプトを実行するボタンを追加する</span></h3>
+<ol>
+	<li>前のチュートリアル<a class="external text" href="../../Tutorial/Tutorial/Update_Database_Importing_By_LabTalk_Substitution.html">データベースからのインポートをLabTalk置換で更新する</a>で作成したGraph1の右下隅を右クリックします。 
+	 <b>テキストの追加...</b>を選択します。テキストラベルとして<b>Modify...</b>と入力します。 </li>
+	<li>テキスト上で右クリックして<b>プロパティ...</b>コンテキストメニューを選択します。<b>テキストオブジェクト</b>ダイアログが開きます。<b>プログラミング</b>タブを開きます。Note: 
+	 Origin 2017より前のバージョンでは、<b>プログラミング制御...</b>メニューから<b>プログラミング制御</b>ダイアログを開きます。 
+	 </li>
+	<li><b>のあとでスクリプトを実行</b>の前にあるドロップダウンで<i>ボタンアップ</i>を選択し、下にあるテキストボックスに次のスクリプトを入力します。<b>OK</b>をクリックします。 
+	 
+	<pre class="lt" style="font-family: monospace;">
+string thecompany<span style="color: #000080;">$</span><span style="color: #000080;">=</span><span style="color: #ff00ff;">&quot;Professional Sales and Service&quot;</span>; <span style="color: #008000;">//最初のcompany名を設定</span><span style="color: #008000;">
+//次の3行は新しい thecompany$ 文字列値を割り当てるダイアログを生成</span>
+getN<span style="color: #000000;">
+(</span>Company Name<span style="color: #000000;">)</span> thecompany<span style="color: #000080;">$</span> <span style="color: #008000;">//(Company Name) はダイアログ内の編集ボックスラベル</span><span style="color: #000000;">
+(</span>Which Company to Analyze<span style="color: #000000;">)</span>; <span style="color: #008000;">//これはダイアログタイトル</span>
+dbimport iw<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #000000;">[</span>book1<span style="color: #000000;">]</span>sheet1<span style="color: #000080;">!</span>; <span style="color: #008000;">//新しいcompanyのデータをデータベースからBook1のSheet1に際インポート</span>
+	</pre>
+	<dl>
+		<dd><a class="image"><img alt="Modify button script.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/Modify_button_script.png" 
+									 width="643" border="0" /></a></dd>
+	</dl>
+	<p>テキストオブジェクトがボタンに変わります。 </p>
+	<dl>
+		<dd><a class="image"><img alt="Modify button graph1.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/Modify_button_graph1.png" 
+									 width="636" border="0" /></a></dd>
+	</dl></li>
+</ol>
+<h3><a name="Use_Button_to_Modify_the_Import"></a><span class="mw-headline">ボタンを使用してインポートデータを変更する</span></h3>
+<ol>
+	<li>Modify...ボタンをクリックして、新しいcompany名<b>Riding Cycles</b>を入力します。 
+	<dl>
+		<dd><a class="image"><img alt="GetN company.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/GetN_company.png" 
+									 width="251" border="0" /></a></dd>
+	</dl></li>
+	<li><b>OK</b>をクリックします。データはBook1のSheet1に再インポートされ、グラフは自動更新されます。 
+	<dl>
+		<dd><a class="image"><img alt="ImportDB for LT sub colum graph2.png" 
+									 src="../images/Update_Graph_By_Reimport_Data_From_Database/ImportDB_for_LT_sub_colum_graph2.png" 
+									 width="806" border="0" /></a></dd>
+	</dl></li>
+	<li>すべてのcompany名と注文の総数を表示してみましょう。Sheet1タブを右クリックし、<b>データなしで複製</b>を選択してSheet2を作成します。 
+	 
+	<dl>
+		<dd>Sheet2上の<a class="image"><img alt="DBConnector.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/DBConnector.png" 
+											 width="20" border="0" /></a>をクリックし、<b>SQLエディタ</b>を選択します。</dd>
+	</dl>
+	クエリを次のように修正します。 
+	<pre class="sql" style="font-family: monospace;">
+<span style="color: #993333; font-weight: bold;">SELECT</span> SalesLT<span style="color: #66cc66;">.</span>Customer<span style="color: #66cc66;">.</span>CompanyName<span style="color: #66cc66;">,</span> <span style="color: #993333; font-weight: bold;">SUM</span><span style="color: #66cc66;">(</span>SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>OrderQty <span style="color: #66cc66;">)</span> <span style="color: #993333; font-weight: bold;">AS</span> OrderCounts<span style="color: #993333; font-weight: bold;">
+FROM</span> SalesLT<span style="color: #66cc66;">.</span>Customer<span style="color: #993333; font-weight: bold;">
+INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderHeader <span style="color: #993333; font-weight: bold;">
+ON</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderHeader<span style="color: #66cc66;">.</span>CustomerID <span style="color: #66cc66;">=</span>SalesLT<span style="color: #66cc66;">.</span>Customer<span style="color: #66cc66;">.</span>CustomerID <span style="color: #993333; font-weight: bold;">
+INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #993333; font-weight: bold;">
+ON</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderHeader<span style="color: #66cc66;">.</span>SalesOrderID <span style="color: #66cc66;">=</span>SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>SalesOrderID <span style="color: #993333; font-weight: bold;">
+GROUP</span> <span style="color: #993333; font-weight: bold;">BY</span> SalesLT<span style="color: #66cc66;">.</span>Customer<span style="color: #66cc66;">.</span>CompanyName<span style="color: #993333; font-weight: bold;">
+ORDER</span> <span style="color: #993333; font-weight: bold;">BY</span> <span style="color: #993333; font-weight: bold;">SUM</span><span style="color: #66cc66;">(</span>SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>OrderQty <span style="color: #66cc66;">)</span> <span style="color: #993333; font-weight: bold;">DESC</span>
+	</pre></li>
+	<li>OKをクリックします。すべてのcompany名と注文の総数が表示されるため、再インポートするために別のcompany名に変更するときに、このシートを簡単に参照できます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Db import company names.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/Db_import_company_names.png" 
+									 width="856" border="0" /></a></dd>
+	</dl></li>
+</ol>

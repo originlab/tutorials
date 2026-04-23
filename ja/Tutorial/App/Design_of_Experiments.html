@@ -1,0 +1,130 @@
+﻿<h1 class="firstHeading">実験計画法 (Pro)</h1><p class='urlname' style='display: none'>DOE</p>
+<div class="toclimit-2"><div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Sample_OPJ"><span class="tocnumber">2</span> <span class="toctext">サンプルOPJ</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Example_1:_2-Level_Factorial"><span class="tocnumber">3</span> <span class="toctext">サンプル1: 2水準因子計画</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Create_Desgin"><span class="tocnumber">3.1</span> <span class="toctext">計画の作成</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Analyze_Design"><span class="tocnumber">3.2</span> <span class="toctext">計画の分析</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Optimize_Response"><span class="tocnumber">3.3</span> <span class="toctext">応答の最適化</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#Example_2:_Central_Composite"><span class="tocnumber">4</span> <span class="toctext">サンプル2: 中心複合計画</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="#Create_Desgin_2"><span class="tocnumber">4.1</span> <span class="toctext">計画の作成</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Analyze_Design_2"><span class="tocnumber">4.2</span> <span class="toctext">計画の分析</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Optimize_Response_2"><span class="tocnumber">4.3</span> <span class="toctext">応答の最適化</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="#Example_3:_Power_and_Sample_Size"><span class="tocnumber">5</span> <span class="toctext">サンプル3: 検出力とサンプルサイズ</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="#Installing_the_APP"><span class="tocnumber">6</span> <span class="toctext">アプリのインストール</span></a></li>
+</ul>
+</div>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p><a class="external text" href="https://www.originlab.com/fileExchange/details.aspx?fid=462" target="_blank">実験計画法（Design of Experiments）アプリ</a>はDOEのためのツールです。このアプリを使用すると、実験の設計、実験データへのモデル適合、および応答を最適化するための最適な因子設定の特定が可能になります。
+</p><p>アプリにはRソフトウェア(バージョン3.4.1以上)とパッケージ(RSM, FrF2, qPCR)が必要です。パッケージはアプリが起動された時に自動的にインストールされます。もしインストールされない場合は、本チュートリアルの<a href="#Installing_the_APP">アプリのインストール</a>セクションの手順に従ってトラブルシューティングを行ってください。
+</p>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Design_of_Experiments/Tip_icon.png" width="57"  border="0" /></td><td><p>このアプリはOrigin 2024以降に改善および更新されました。<a class="external text" href="https://blog.originlab.com/doe-app-updates-for-originpro-2024" target="_blank">このブログ</a>で詳細を確認できます。
+</p></td></tr></table>
+<h2><a name="Sample_OPJ"></a><span class="mw-headline">サンプルOPJ</span></h2>
+<ol><li> アプリギャラリーでこのアプリのアイコンを右クリックし、<b>サンプルフォルダを開く</b>を選択します。
+<dl><dd><a  class="image"><img alt="DOESample.png" src="../images/Design_of_Experiments/180px-DOESample.png" width="180"   /></a></dd></dl></li>
+<li> 開いたフォルダ内のプロジェクトファイルをOriginにドラッグアンドドロップして開きます。</li></ol>
+<p><br />
+</p>
+<h2><a name="Example_1:_2-Level_Factorial"></a><span class="mw-headline">サンプル1: 2水準因子計画</span></h2>
+<h4><a name="Create_Desgin"></a><span class="mw-headline">計画を作成</span></h4>
+<ol><li> <b>アプリケーションギャラリー</b>の<b>実験計画法（Design of Experiments）</b>アイコン<a  class="image"><img alt="DOEAPP.png" src="../images/Design_of_Experiments/50px-DOEAPP.png" width="50"   /></a>をクリックします。</li>
+<li> <b>計画を作成</b>ボタンをクリックして、<b>因子計画（Factorial Design）</b>を選択します。
+<dl><dd> <a  class="image"><img alt="DOE Factorial.png" src="../images/Design_of_Experiments/500px-DOE_Factorial.png" width="500"   /></a></dd></dl></li>
+<li> <b>2 水準因子計画 (2-Level Factorial) </b>と <b>デフォルト生成器 (Default Generators)</b> が選択されていることを確認します。<b>因子</b>タブで、<b>因子の数</b>を3に設定します。因子名としてTemp、Dens、Reagentを入力し、因子タイプをそれぞれ、数値、数値、テキストとして設定します。低水準と高水準の値を設定します（Temp:50, 80; Dens:20, 30; Reagent: TypeA, TypeB）。
+<dl><dd> <a  class="image"><img alt="DOE Factorial Factors.png" src="../images/Design_of_Experiments/650px-DOE_Factorial_Factors.png" width="650"   /></a></dd></dl></li>
+<li> <b>設定<i>タブ</i></b>で、<i>完全因子計画</i>を選択します。<b>反復数</b>に2を入力します。<b>ブロック数</b>ドロップダウンリストから2を選択します。
+<dl><dd><a  class="image" title="480"><img alt="480" src="../images/Design_of_Experiments/DOE_Factorial_Settings.png" width="752"  /></a></dd></dl></li>
+<li> <b>その他</b>タブで<b>乱数シード</b>テキストボックスに5を入力します。 </li>
+<li> <b>OK </b>をクリックすると、実験計画表が出力されます。
+<dl><dd><a  class="image"><img alt="DOE Factorial Results.png" src="../images/Design_of_Experiments/500px-DOE_Factorial_Results.png" width="500"   /></a></dd></dl></li></ol>
+<h4><a name="Analyze_Design"></a><span class="mw-headline">計画の分析</span></h4>
+<ol><li> 計画表に新しい列を追加し、応答データを入力します。<b>ロングネーム</b>をpHにします。 
+<dl><dd><a  class="image"><img alt="DOE Factorial Results response.png" src="../images/Design_of_Experiments/500px-DOE_Factorial_Results_response.png" width="500"   /></a></dd></dl></li>
+<li> <b>実験計画法（Design of Experiments）</b>アイコン<a  class="image"><img alt="DOEAPP.png" src="../images/Design_of_Experiments/50px-DOEAPP.png" width="50"   /></a>をクリックしてツールバーを開きます。<b>計画の分析（Analyze Design）</b>を選択します。
+<dl><dd><a  class="image"><img alt="DOE Factorial. Analyze.png" src="../images/Design_of_Experiments/500px-DOE_Factorial._Analyze.png" width="500"   /></a></dd></dl></li>
+<li> <b>モデル</b>タブで、<b>応答</b>ドロップダウンリストからpHを選択します。次に、モデル次数から2を選択する。<b>ブロックをモデルに含める</b>を選択します。
+<dl><dd><a  class="image"><img alt="DOE Factorial. Analyze Model.png" src="../images/Design_of_Experiments/500px-DOE_Factorial._Analyze_Model.png" width="500"   /></a></dd></dl></li>
+<li> <b>設定</b>タブで、<b>平均表</b>ドロップダウンリストから<b>主効果</b>を選択します。</li>
+<li> <b>値</b>タブで、<b>係数テーブル</b>ドロップダウンリストから<b>係数</b>、<b>標準誤差</b>, <b>信頼区間</b>、<b>t値</b>、<b>p値</b>を選択します。</li>
+<li> <b>プロット</b>タブで<b>キューブプロット</b>、<b>等高線図</b>、<b>曲面図</b>、<b>2 因子交互作用プロット</b>を選択します。<b>キューブプロットの設定</b>グループで、Temp、Dens、Reagentを3つの因子として選択します。<b>等高線図と曲面図の設定</b>グループで、X軸とY軸の係数として温度（Temp）と密度（Dens）を選択します。次に、試薬の値としてTypeAを選択します。 
+<dl><dd> <a  class="image"><img alt="DOE Factorial. Analyze Plots.png" src="../images/Design_of_Experiments/650px-DOE_Factorial._Analyze_Plots.png" width="650"   /></a></dd></dl></li>
+<li> <b>OK </b>をクリックして、分析結果を作成します。
+<dl><dd><a  class="image"><img alt="DOE Factorial. Analyze Results.png" src="../images/Design_of_Experiments/500px-DOE_Factorial._Analyze_Results.png" width="500"   /></a></dd></dl></li></ol>
+<h4><a name="Optimize_Response"></a><span class="mw-headline">応答の最適化</span></h4>
+<ol><li> <b>アプリケーションギャラリー</b>の実験計画法（Design of Experiments）アイコン<a  class="image"><img alt="DOEAPP.png" src="../images/Design_of_Experiments/50px-DOEAPP.png" width="50"   /></a>をクリックします。</li>
+<li> 前のセクションで取得した解析ワークブックをアクティブにして、応答の最適化ボタンをクリックします。 <a  class="image"><img alt="DOE Optimize Icon.png" src="../images/Design_of_Experiments/80px-DOE_Optimize_Icon.png" width="80"   /></a></li>
+<li>  <b>ゴール</b>タブで、pHのゴールとして<b>最小化</b>を選択します。下限と上限に5と9を入力します。 
+<dl><dd><a  class="image"><img alt="DOE Optimize Goal.png" src="../images/Design_of_Experiments/600px-DOE_Optimize_Goal.png" width="600"   /></a></dd></dl></li>
+<li> <b>設定</b>タブを開きます。因子: Reagentの行で、 <b>制約</b>に<b>値で固定</b>を選択し、固定値にTypeAを選択します。<b>初期値</b>を有効にします。TempとDensの行にそれぞれ60と25を入力します。
+<dl><dd><a  class="image"><img alt="DOE Optimize Settings.png" src="../images/Design_of_Experiments/600px-DOE_Optimize_Settings.png" width="600"   /></a></dd></dl></li>
+<li> <b>OK </b>をクリックして、最適化レポートを作成します。
+<dl><dd> <a  class="image"><img alt="DOE Optimize Results.png" src="../images/Design_of_Experiments/600px-DOE_Optimize_Results.png" width="600"   /></a></dd></dl></li>
+<li> <b>最適化プロットを</b>ダブルクリックして、グラフウィンドウを表示します。縦の赤い線を動かし、因子値を変更して応答（pH）や Composite Desirability（総合適合度）がどのように変化するかを確認します。<b>リセット</b>ボタンをクリックすると、最適解に設定されます。
+<dl><dd><a  class="image"><img alt="DOE Optimize Graph.png" src="../images/Design_of_Experiments/600px-DOE_Optimize_Graph.png" width="600"   /></a></dd></dl></li></ol>
+<h2><a name="Example_2:_Central_Composite"></a><span class="mw-headline">サンプル2: 中心複合計画</span></h2>
+<h4><a name="Create_Desgin_2"></a><span class="mw-headline">計画を作成</span></h4>
+<ol><li> <b>アプリケーションギャラリー</b>の<b>実験計画法（Design of Experiments）</b>アイコン<a  class="image"><img alt="DOEAPP.png" src="../images/Design_of_Experiments/50px-DOEAPP.png" width="50"   /></a>をクリックします。</li>
+<li> <b>計画を作成</b>ボタンをクリックして、<b>応答曲面計画（Response Surface Design）</b>を選択します。
+<dl><dd> <a  class="image"><img alt="DOE RSD.png" src="../images/Design_of_Experiments/500px-DOE_RSD.png" width="500"   /></a></dd></dl></li>
+<li> <b>中心複合</b>を選択します。<b>因子</b>タブで、<b>連続因子の数</b>ドロップダウンリストから3を選択します。係数名(Time、Temp、Catalyst)を入力します。低水準と高水準の値を設定します（それぞれ40-50、80-90、0.02-0.03）。<b>カテゴリ因子の数</b>ドロップダウンリストから1を選択します。因子名にReagentと入力します。次に、レベル値を入力(TypeA、TypeB)します。
+<dl><dd> <a  class="image"><img alt="DOE RSD Factors.png" src="../images/Design_of_Experiments/600px-DOE_RSD_Factors.png" width="600"   /></a></dd></dl></li>
+<li> <b>設定</b>タブで、2番目の計画（ブロック= 2）を選択します。 
+<dl><dd><a  class="image"><img alt="DOE RSD Settings.png" src="../images/Design_of_Experiments/600px-DOE_RSD_Settings.png" width="600"   /></a></dd></dl></li>
+<li> <b>その他</b>タブで、<b>計画をランダム化</b>をオフにします。 </li>
+<li> <b>OK </b>をクリックすると、実験計画表が出力されます。
+<dl><dd><a  class="image"><img alt="DOE RSD Results.png" src="../images/Design_of_Experiments/600px-DOE_RSD_Results.png" width="600"   /></a></dd></dl></li></ol>
+<h4><a name="Analyze_Design_2"></a><span class="mw-headline">計画の分析</span></h4>
+<ol><li> 計画表に2つの新しい列を追加し、応答データを入力します。ロングネームにPHとConductivityを設定します。
+<dl><dd><a  class="image"><img alt="DOE RSD Analyze Input.png" src="../images/Design_of_Experiments/600px-DOE_RSD_Analyze_Input.png" width="600"   /></a></dd></dl></li>
+<li> <b>アプリケーションギャラリー</b>の<b>実験計画法（Design of Experiments）</b>アイコン<a  class="image"><img alt="DOEAPP.png" src="../images/Design_of_Experiments/50px-DOEAPP.png" width="50"   /></a>をクリックします。</li>
+<li> 計画表をアクティブにし、計画の分析ボタンをクリックします。 <a  class="image"><img alt="DOE RSD Analyze Button.png" src="../images/Design_of_Experiments/80px-DOE_RSD_Analyze_Button.png" width="80"   /></a></li>
+<li> <b>モデル</b>タブで、<b>応答</b>にPHおよびConductivityを選択します。次に、<b>モデルタイプ</b>ドロップダウンリストから<b>線形+二乗</b>を選択します。<b>ブロックをモデルに含める</b>を有効にします。
+<dl><dd><a  class="image"><img alt="DOE RSD Analyze Model.png" src="../images/Design_of_Experiments/600px-DOE_RSD_Analyze_Model.png" width="600"   /></a></dd></dl></li>
+<li> <b>値</b>タブで、<b>係数テーブル</b>ドロップダウンリストから係数、標準誤差, 信頼区間、t値、p値を選択します。</li>
+<li> <b>プロット</b>タブを開いて、<b>等高線図</b>と<b>曲面図</b>を選択します。  <b>等高線図と曲面図の設定</b>グループで、X軸とY軸の係数として時間（Time）と温度（Temp）を選択します。Catalystの行の値に0.02を入力します。Reagentの行で、値の欄のTypeAを選択します。 
+<dl><dd><a  class="image"><img alt="DOE RSD Analyze Plot.png" src="../images/Design_of_Experiments/600px-DOE_RSD_Analyze_Plot.png" width="600"   /></a></dd></dl></li>
+<li> <b>OK </b>をクリックして、分析結果を作成します。
+<dl><dd><a  class="image"><img alt="DOE RSD Analyze Results.png" src="../images/Design_of_Experiments/700px-DOE_RSD_Analyze_Results.png" width="700"   /></a></dd></dl></li></ol>
+<h4><a name="Optimize_Response_2"></a><span class="mw-headline">応答の最適化</span></h4>
+<ol><li> <b>アプリケーションギャラリー</b>の実験計画法（Design of Experiments）アイコン<a  class="image"><img alt="DOEAPP.png" src="../images/Design_of_Experiments/50px-DOEAPP.png" width="50"   /></a>をクリックします。</li>
+<li> 前のセクションで取得した解析ワークブックをアクティブにして、応答の最適化ボタンをクリックします。 <a  class="image"><img alt="DOE Optimize Icon.png" src="../images/Design_of_Experiments/80px-DOE_Optimize_Icon.png" width="80"   /></a></li>
+<li> <b>ゴール</b>タブで、PHの場合、ゴールとして最大化を選択し、下限に5、上限に9を設定します。 Conductivityは、最小化をゴールにします。下限は350、上限は550に設定します。 
+<dl><dd> <a  class="image"><img alt="DOE RSD Optimize Goal.png" src="../images/Design_of_Experiments/700px-DOE_RSD_Optimize_Goal.png" width="700"   /></a></dd>
+<dd> <b>設定</b>タブで、制約として<b>制約付き領域</b>を選択します。下限および上限として85および90を入力します。 </dd>
+<dd> <a  class="image"><img alt="DOE RSD Optimize Setting.png" src="../images/Design_of_Experiments/700px-DOE_RSD_Optimize_Setting.png" width="700"   /></a></dd></dl></li>
+<li> <b>OK </b>をクリックして、最適化レポートを作成します。
+<dl><dd> <a  class="image"><img alt="DOE RSD Optimize Results.png" src="../images/Design_of_Experiments/650px-DOE_RSD_Optimize_Results.png" width="650"   /></a></dd></dl></li>
+<li> <b>最適化プロットを</b>ダブルクリックして、グラフウィンドウを表示します。縦の赤い線を動かし、因子値を変更して応答（pH）や Composite Desirability（総合適合度）がどのように変化するかを確認します。<b>リセット</b>ボタンをクリックすると、最適解に設定されます。
+<dl><dd><a  class="image"><img alt="DOE RSD Optimize Graph.png" src="../images/Design_of_Experiments/650px-DOE_RSD_Optimize_Graph.png" width="650"   /></a></dd></dl></li></ol>
+<h2><a name="Example_3:_Power_and_Sample_Size"></a><span class="mw-headline">サンプル3: 検出力とサンプルサイズ</span></h2>
+<ol><li> <b>アプリケーションギャラリー</b>の<b>実験計画法（Design of Experiments）</b>アイコン<a  class="image"><img alt="DOEAPP.png" src="../images/Design_of_Experiments/50px-DOEAPP.png" width="50"   /></a>をクリックします。</li>
+<li> 検出力とサンプルサイズボタンをクリックします。 <a  class="image"><img alt="DOE PSS Icon.png" src="../images/Design_of_Experiments/80px-DOE_PSS_Icon.png" width="80"   /></a></li>
+<li> <b>2 水準因子計画 (2-Level Factorial)</b> を選択します。<b>計画</b>タブで、<b>因子の数</b>ドロップダウンリストから3を選択します。<b>分数計画</b>ドロップダウンリストから<b>完全因子計画</b>を選択します。<b>ブロック数</b>に2を選択します。<b>モデルから省略する項の数</b>に0を入力します。<b>ブロックをモデルに含める</b>を有効にします。
+<dl><dd><a  class="image"><img alt="DOE PSS Design.png" src="../images/Design_of_Experiments/550px-DOE_PSS_Design.png" width="550"   /></a></dd></dl></li>
+<li> <b>設定</b>タブで、計算に<b>検出力</b>を選択する。プラスボタンをクリックして<b>反復数</b>に1レベルを追加し、各レベルに1と2を入力します。<b>効果</b>に0.4を入力します。<b>ブロックごとの中心点数</b>に0を入力します。<b>標準偏差</b>に0.2を入力します。<b>OK</b>をクリックします。
+<dl><dd><a  class="image"><img alt="DOE PSS Settiings.png" src="../images/Design_of_Experiments/500px-DOE_PSS_Settiings.png" width="500"   /></a></dd></dl></li>
+<li> 結果レポートに反復数 2 の場合、検出力が 0.92679 であることが表示 される。
+<dl><dd><a  class="image"><img alt="DOE PSS Results.png" src="../images/Design_of_Experiments/480px-DOE_PSS_Results.png" width="480"   /></a></dd></dl></li></ol>
+<h2><a name="Installing_the_APP"></a><span class="mw-headline">アプリのインストール</span></h2>
+<ol><li> <b>R</b>ソフトウェア(3.4.1以降)をインストールしていることを確認します。</li>
+<li> <b>アプリケーションギャラリー</b>の実験計画法（Design of Experiments）アイコン<a  class="image"><img alt="DOEAPP.png" src="../images/Design_of_Experiments/50px-DOEAPP.png" width="50"   /></a>をクリックします。</li>
+<li> 必要なパッケージは自動的にダウンロードされます。失敗すると、<b>結果ログ</b>に次のメッセージがポップアップ表示されます。
+<dl><dd><a  class="image"><img alt="Failed Results Log.png" src="../images/Design_of_Experiments/500px-Failed_Results_Log.png" width="500"   /></a></dd></dl></li>
+<li> <b>R</b>を開き、<b>結果ログ</b>の最後の2行をコピーして <b>R</b>に貼り付け、Enterキーを押して実行します。
+<dl><dd><a  class="image"><img alt="Run R 01.png" src="../images/Design_of_Experiments/500px-Run_R_01.png" width="500"   /></a></dd></dl></li>
+<li> ダイアログが表示されるので、ミラーサイトを選択すると、必要なパッケージが R で自動ダウンロードされます。</li>
+<li> パッケージが正常にインストールされ、エラーメッセージが出なければ Origin を再起動します。</li></ol>
+
+
+
+    

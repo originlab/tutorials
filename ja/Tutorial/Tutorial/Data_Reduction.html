@@ -1,0 +1,90 @@
+﻿<h1 class="firstHeading">データ削減</h1><p class='urlname' style='display: none'>Data-Reduction</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">手順</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Reduce_to_Evenly_Spaced_X"><span class="tocnumber">3.1</span> <span class="toctext">等間隔なXにデータを削減</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Reduce_Duplicate_X"><span class="tocnumber">3.2</span> <span class="toctext">重複するXデータを削減</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Reduce.2FCombine_Duplicate_Rows"><span class="tocnumber">3.3</span> <span class="toctext">重複する行を削減/結合</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Reduce_by_Group"><span class="tocnumber">3.4</span> <span class="toctext">グループごとに削減</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Reduce_Worksheet_Rows"><span class="tocnumber">3.5</span> <span class="toctext">ワークシートの行を削減</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Data_Reduction/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Data_Reduction/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=6" target="_blank">データ削減</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=17" target="_blank">ワークシートデータの抽出</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=83" target="_blank">データフィルタ</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Data_Reduction/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Data_Reduction/Blog_Image_33x33px.png" width="135"  /></a>
+<ul><li> <a class="external text" href="http://blog.originlab.com/delete-every-nth-row-or-column-from-worksheet-2" target="_blank">ワークシートから行または列を削減する</a></li>
+<li> <a class="external text" href="http://blog.originlab.com/speed-mode-how-does-it-affect-my-graph-and-its-exported-image" target="_blank">スピードモード - グラフとエクスポートされた画像にどのような影響があるのか</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>Origin には、ワークシートのデータ削減に使用できるさまざまなツール（<a href="../../Tutorial/Tutorial/Data_Filter.html" title="チュートリアル：データフィルタ">データフィルタ</a>、<a href="../../Tutorial/Tutorial/Extract_Worksheet_Data.html" title="チュートリアル：ワークシートデータの抽出">ワークシートクエリ</a>、さまざまな方法でデータ行の数を削減する<a class="external text" href="../../UserGuide/UserGuide/Data_Reduction.html">いくつかのXファンクション</a>など）が用意されています。
+</p>
+<p class="version" >必要なOriginのバージョン: Origin 2015 SR0以降</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、次の方法を学びます。
+</p>
+<ul><li>XYデータを等間隔のXに削減</li>
+<li>XYデータセットの重複するXデータを削減</li>
+<li>グループごとにXYデータを削減</li>
+<li>ワークシートの行を削減</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">手順</span></h2>
+<h3><a name="Reduce_to_Evenly_Spaced_X"></a><span class="mw-headline">等間隔なXにデータを削減</span></h3>
+<ol><li>新しいワークブックを作成し、<a  class="image"><img alt="Button Import Single ASCII.png" src="../images/Data_Reduction/Button_Import_Single_ASCII.png" width="25"  /></a>ボタンをクリックして<i>&lt;Origin EXE folder&gt;\Samples\Graphing\</i> にある<b>Signal with High Frequency Noise.dat</b> をインポートします。 </li>
+<li>列Bを選択し、<b>ワークシート：データ削減：等間隔X</b>を選択して、<b>reduce_ex</b>ダイアログを開きます。次のように設定を編集します。 
+<dl><dd><a  class="image"><img alt="Tutorial Data Reduction 06.png" src="../images/Data_Reduction/Tutorial_Data_Reduction_06.png" width="976"  /></a></dd></dl></li>
+<li> <b>OK</b>をクリックします。新たな列（C列）がワークシートに追加されました。この列には独自のサンプリング間隔情報が含まれます。列ヘッダをクリックして列を選択してから、<b><b>列：X列を表示</b></b>を選択します。<b>X列を表示：colshowx</b>ダイアログボックスで<b>OK</b>をクリックし、サンプリング間隔を使用してX列を生成します。サンプリング間隔が広く設定され、データが削減できたことがわかります。
+<dl><dd><a  class="image"><img alt="Tutorial Data Reduction 07.png" src="../images/Data_Reduction/Tutorial_Data_Reduction_07.png" width="396"  /></a></dd></dl></li>
+<li> <b>Ctrl</b>キーを押しながらB列とD列を選択し、<a  class="image"><img alt="Button Line.png" src="../images/Data_Reduction/Button_Line.png" width="22"  /></a>ボタンをクリックすると、元のデータ（黒）および削減されたデータ（赤）の折れ線がプロットされます。 </li>
+<li> プロットから、データ量が大幅に削減されたことがわかります。
+<dl><dd><a  class="image"><img alt="Tutorial Data Reduction 08.png" src="../images/Data_Reduction/Tutorial_Data_Reduction_08.png" width="506"  /></a></dd></dl></li></ol>
+<h3><a name="Reduce_Duplicate_X"></a><span class="mw-headline">重複するXデータを削減</span></h3>
+<ol><li>新しいワークブックを作成し、<a  class="image"><img alt="Button Import Wizard.png" src="../images/Data_Reduction/Button_Import_Wizard.png" width="25"  /></a>ボタンをクリックして<b>インポートウィザード</b>を開きます。<i>&lt;Origin EXE Folder&gt;\Samples\Curve Fitting\</i>下のデータファイル<b>Step01.dat</b>、<b>Step02.dat</b>および<b>Step03.dat</b>を選択します。<b>インポートモード</b>を<b>行の末尾に追加する</b>に変更し、デフォルトのインポートフィルタ<b>step</b>が適用されていることを確認します。<b>完了</b>ボタンをクリックして、データをインポートします。</li>
+<li>列AとBを選択し、<b>ワークシート：データ削減：重複X</b>をクリックして<b>reducedup</b>ダイアログを開きます。次のように設定します。
+<dl><dd><a  class="image"><img alt="Tutorial Data Reduction 09.png" src="../images/Data_Reduction/Tutorial_Data_Reduction_09.png" width="906"  /></a></dd></dl></li>
+<li><b>OK</b>をクリックして設定を適用します。結果シート<b>Sheet2</b>では、重複したXデータの数がそれぞれ3であることがわかります。削減されたデータセットでは、重複したXに対するYデータにはすべてのYデータの合計値が入力されています。
+<dl><dd><a  class="image"><img alt="Tutorial Data Reduction 10.png" src="../images/Data_Reduction/Tutorial_Data_Reduction_10.png" width="396"  /></a></dd></dl></li></ol>
+<h3><a name="Reduce.2FCombine_Duplicate_Rows"></a><span class="mw-headline">重複する行を削減/結合</span></h3>
+<ol><li>前のセクションの<i>Sheet1</i>に移動し、列Aを選択します。メニューの<b>ワークシート：重複行の削除</b>を選択して<b>wdeldup</b>ダイアログを開きます。<b>重複の統合基準</b>ドロップダウンリストから<b>平均</b>を選択します。<b>出力ワークシート</b>の右向き三角ボタンをクリックして<b>&lt;新規&gt;：新しいシート</b>選択します。<b>出力カウント</b>ボックスにチェックを付けて<b>OK</b>をクリックします。
+<dl><dd><a  class="image"><img alt="Tutorial Data Reduction 11.png" src="../images/Data_Reduction/Tutorial_Data_Reduction_11.png" width="441"  /></a></dd></dl></li>
+<li>ワークシートの行全体が統合した行の平均値に削減されます。この統合は選択した列の重複を元に行われています。結果ワークシートの<i>wdeldup</i>の最後に新しい列<b>カウント</b>が追加され、それぞれのX値に対する重複データの数が出力されます。
+<dl><dd><a  class="image"><img alt="Tutorial Data Reduction 15.png" src="../images/Data_Reduction/Tutorial_Data_Reduction_15.png" width="465"  /></a></dd></dl></li></ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Data_Reduction/Tip_icon.png" width="57"  border="0" /></td><td><p><b>データ削減：重複X</b>ツールはXYデータセットに対してのみ使用できます。<b>重複行の削除</b>ツールはワークシート全体に対して使用できます。 
+</p><p><a class="external text" href="../../UserGuide/Category/Statistics_on_Columns.html">列の統計</a>ツールを使用して、XYZデータ中の重複XYデータを削減することができます。詳細は<a href="../../QuickHelp/QuickHelp/How_do_I_reduce_XY_or_XYZ_dataset.html" title="クイックヘルプ：XYまたはXYZデータをどのように削減したらよいでしょうか">クイックヘルプ</a>を参照してください。
+</p></td></tr></table>
+<h3><a name="Reduce_by_Group"></a><span class="mw-headline">グループごとに削減</span></h3>
+<ol><li>新しいワークブックを作成し、<a  class="image"><img alt="Button Import Single ASCII.png" src="../images/Data_Reduction/Button_Import_Single_ASCII.png" width="25"  /></a>ボタンをクリックして<i>&lt;Origin EXE folder&gt;\Samples\Data Manipulation</i>にある<b>Magnetization.dat</b>をインポートします。</li>
+<li>A,B列を選択して<a  class="image"><img alt="Button Line.png" src="../images/Data_Reduction/Button_Line.png" width="22"  /></a>ボタンをクリックし、折れ線図を作成します。</li>
+<li>このグラフをアクティブにし、メインメニューの<b>解析：データ操作：データ削減：クラスタX</b>選択して<b>reducexy</b>ダイアログを開きます。以下のように設定します。
+<dl><dd><a  class="image"><img alt="Tutorial Data Reduction 12.png" src="../images/Data_Reduction/Tutorial_Data_Reduction_12.png" width="914"  /></a></dd></dl></li>
+<li><b>OK</b>をクリックしてデータ削減を実行します。削減されたXYデータセットは、元のワークシートの最後に2つの新しい列として追加されます。 
+<dl><dd><a  class="image"><img alt="Tutorial Data Reduction 13.png" src="../images/Data_Reduction/Tutorial_Data_Reduction_13.png" width="621"  /></a></dd></dl></li>
+<li>グラフにも削減されたXYデータのプロットが追加されます。
+<dl><dd><a  class="image"><img alt="Tutorial Data Reduction 14.png" src="../images/Data_Reduction/Tutorial_Data_Reduction_14.png" width="506"  /></a></dd></dl></li></ol>
+<h3><a name="Reduce_Worksheet_Rows"></a><span class="mw-headline">ワークシート行を削除</span></h3>
+<ol><li>新しいワークブックを作成し、<a  class="image"><img alt="Button Import Single ASCII.png" src="../images/Data_Reduction/Button_Import_Single_ASCII.png" width="25"  /></a>ボタンをクリックして<i>&lt;Origin EXE folder&gt;\Samples\Spectroscopy</i>にある<b>Nitrite.dat</b>をインポートします。このファイルには6392個のデータポイントがあります。
+<dl><dd><a  class="image"><img alt="Tutorial Data Reduction 01.png" src="../images/Data_Reduction/Tutorial_Data_Reduction_01.png" width="259"  /></a></dd></dl></li>
+<li>Nitriteワークシートにある2列を選択して、メインメニューの<b>ワークシート：行の削減</b>と選択し、<b>wreducerows</b>ダイアログを開きます。次のように設定します。
+<dl><dd><a  class="image"><img alt="Tutorial Data Reduction 02.png" src="../images/Data_Reduction/Tutorial_Data_Reduction_02.png" width="407"  /></a></dd>
+<dd><b>Note: </b>出力<b></b>ボックスの横にある右向き矢印ボタンをクリックし、<b>&lt;新規&gt;：新しい列</b>を選択すれば、削減されたデータが新たな列に出力されます。</dd></dl></li>
+<li><b>OK</b>をクリックすると、10行ごとに最初の行だけが保持されます。データポイントの90%は破棄されます。残りのデータポイントは新しい列に出力されます。
+<dl><dd><a  class="image"><img alt="Tutorial Data Reduction 03.png" src="../images/Data_Reduction/Tutorial_Data_Reduction_03.png" width="396"  /></a></dd></dl></li>
+<li>ワークシート全体を選択し、<a  class="image"><img alt="Button Line.png" src="../images/Data_Reduction/Button_Line.png" width="22"  /></a>ボタンをクリックして、元のデータ（黒）および削減されたデータ（赤）の折れ線グラフを作成します。
+<dl><dd><a  class="image"><img alt="Tutorial Data Reduction 04.png" src="../images/Data_Reduction/Tutorial_Data_Reduction_04.png" width="672"  /></a></dd></dl></li>
+<li>データ削減によりピークの高さが変化しています。データの形状を維持するために、より多くのデータを残す必要があることがわかります。グラフ上の緑色の錠前アイコンをクリックして<b>パラメータを変更</b>を選択して、<b>wreducerows</b>ダイアログを再度開きます。<b>行を削除</b>の値を <b>3</b>に変更し、<b>OK</b>をクリックします。</li>
+<li>今回は25%のデータポイントが保持され、グラフの形状も維持できていることがわかります。
+<dl><dd><a  class="image"><img alt="Tutorial Data Reduction 05.png" src="../images/Data_Reduction/Tutorial_Data_Reduction_05.png" width="672"  /></a></dd></dl></li></ol>
+
+
+    

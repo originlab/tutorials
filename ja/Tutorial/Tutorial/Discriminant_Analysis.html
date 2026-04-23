@@ -1,0 +1,117 @@
+﻿<h1 class="firstheading">判別分析</h1><p class='urlname' style='display: none'>Discriminant-Analysis</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Discriminant_Analysis"><span class="tocnumber">2</span> <span class="toctext">判別分析</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Interpreting_Results"><span class="tocnumber">3</span> <span class="toctext">結果の解釈</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Canonical_Discriminant_Analysis"><span class="tocnumber">3.1</span> <span class="toctext">正準判別分析</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Classification"><span class="tocnumber">3.2</span> <span class="toctext">分類</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Model_Validation"><span class="tocnumber">4</span> <span class="toctext">モデルの検証</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#Preparing_Data_for_Analysis"><span class="tocnumber">4.1</span> <span class="toctext">データ分析の準備をする</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Run_Discriminant_Analysis"><span class="tocnumber">4.2</span> <span class="toctext">判別分析を実行する</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Cross-validation"><span class="tocnumber">4.3</span> <span class="toctext">交差検証</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Subset_Validation"><span class="tocnumber">4.4</span> <span class="toctext">サブセット検証</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="#Adjusting_Prior_Probabilities"><span class="tocnumber">5</span> <span class="toctext">事前確率の修正</span></a></li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>「フィッシャーのアヤメ」ともいわれるアヤメのデータは1936年にサー・ロナルド・エイルマー・フィッシャーによって発表された多変量データです。   このデータはよく分類システムの説明のために使われます。  3種類のアヤメ(iris setosa, iris virginica,iris versicolor)について50個のサンプルから成るデータセットを用意しています。  各サンプルは、花弁とがくの長さと幅の計4つの特徴を計測され、センチメートルで記録されています。  判別分析を使ってこの4つの特徴をもとに種の判別を行いたいと思います。
+</p><p>無作為に120行のアヤメのデータを選択し、判別分析のモデルを作成します。そして残りの30行を使用してこのモデルの精度を検証します。
+</p>
+<p class="version" >必要なOriginのバージョン: OriginPro 8.6 SR0以降</p>
+<h2><a name="Discriminant_Analysis"></a><span class="mw-headline">判別分析</span></h2>
+<ol><li> 新しいプロジェクトまたは新しいワークブックを開きます。  <b>\Samples\Statistics\Fisher&apos;s Iris Data.dat</b>ファイルをインポートします。 </li>
+<li> 列Aから列Dを選択し、メニューから<b>統<b>計：多変量解析：判別分析</b></b>と操作して<b><b>判別分析discrim</b></b>ダイアログを表示し、<b>入力データ</b> タブを開きます。A～D列は自動的に<b>トレーニングデータ</b>として反映されています。 </li>
+<li> <b>トレーニングデータのグループ</b>の右にある<b>三角形ボタン</b><a  class="image"><img alt="Button Select Data Right Triangle.png" src="../images/Discriminant_Analysis/Button_Select_Data_Right_Triangle.png" width="18"  /></a>をクリックして、コンテキストメニューから<b>E(Y):Species</b>を選択します。
+<dl><dd><a  class="image"><img alt="Discrim dialog 1.png" src="../images/Discriminant_Analysis/Discrim_dialog_1.png" width="696"  /></a></dd></dl></li>
+<li> <b><b>量</b></b>タブを開いて、<b><b>判別関数</b>の<b>係数</b></b>にチェックを付けます。<b>正準判別分析</b>のブランチを広げ、<b>正準判別関数の係数</b>にチェックを付けます。他はデフォルトのまま、<b>OK</b>ボタンをクリックします。
+<dl><dd><a  class="image"><img alt="Discrim dialog 1A.png" src="../images/Discriminant_Analysis/Discrim_dialog_1A.png" width="360"  /></a></dd></dl></li></ol>
+<h2><a name="Interpreting_Results"></a><span class="mw-headline">結果の解釈</span></h2>
+<p><b>判別分析結果</b>のタブをクリックします。
+</p>
+<h3><a name="Canonical_Discriminant_Analysis"></a><span class="mw-headline">正準判別分析</span></h3>
+<p><b>正準判別分析</b>はモデルの判別関数を作成するために使用されます。  
+</p>
+<ol><li> <b>標準化されていない正準係数</b>の表より、正準判別関数を作成することができます。
+<dl><dd><a  class="image"><img alt="UCC.png" src="../images/Discriminant_Analysis/UCC.png" width="257"  /></a></dd>
+<dd><img src="../images/Discriminant_Analysis/math-4b965fb2bdc883f9eb0fc82454a768ba.png" title="D1 = -2.10511 - 0.82938*SL - 1.53447*SW + 2.20121*PL + 2.81046*PW" alt="D1 = -2.10511 - 0.82938*SL - 1.53447*SW + 2.20121*PL + 2.81046*PW" class="tex"/></dd>
+<dd><img src="../images/Discriminant_Analysis/math-c4233c9999192b38ae4bb83b0c1037d2.png" title="D2 = -6.66147 + 0.0241*SL + 2.16452*SW -0.93192*PL + 2.83919*PW" alt="D2 = -6.66147 + 0.0241*SL + 2.16452*SW -0.93192*PL + 2.83919*PW" class="tex"/></dd>
+<dd> ここで、SL = Sepal Length, SW = Sepal Width, PL = Petal Length, PW = Petal Width</dd></dl></li>
+<li> 固有値の表から、上記の正準判別関数の重要性が分かります。  1つ目の関数は99.12%の分散を示し、2つ目の関数で残りの0.88%の分散を示しています。
+<dl><dd> <a  class="image"><img alt="Eigenvalues da.png" src="../images/Discriminant_Analysis/Eigenvalues_da.png" width="306"  /></a></dd></dl></li>
+<li> Wilk&apos;s Lambda検定の表では判別関数が有意にグループメンバーシップの説明をしていることを確認できます。  表の中で列<b>Sig.</b>を確認すると、どちらも0.05より小さくなっています。  したがって、判別分析においてどちらの値も含まれるべきであることが分かります。
+<dl><dd> <a  class="image"><img alt="Wilks Lambda.png" src="../images/Discriminant_Analysis/Wilks_Lambda.png" width="294"  /></a></dd></dl></li></ol>
+<h3><a name="Classification"></a><span class="mw-headline">分類</span></h3>
+<ol><li> <b>トレーニングデータの分類概要</b>の表は判別モデルを評価するのに使うことができます。表によると、<b>setosa</b>群の分類は100%正しいといえます。  <b>versicolor</b>は、2つの観測値が誤ってvirginicaと分類され、<b>virginica</b>では1つの観測値のみ誤って分類されました。エラー率はたったの2.00%です。  このモデルはよくできているといえるでしょう。
+<dl><dd><a  class="image"><img alt="Classification Summary Training Data.png" src="../images/Discriminant_Analysis/Classification_Summary_Training_Data.png" width="346"  /></a></dd></dl></li>
+<li> どの観測値が誤って分類されているかを確認するために、<b>Training Result1</b>のシートに移ることが出来ます。このシートでは、判別モデルから計算された事後確率と、観測値が割り当てられたグループを確認できます。 
+<dl><dd><a  class="image"><img alt="Discrim training results.png" src="../images/Discriminant_Analysis/500px-Discrim_training_results.png" width="411"   /></a></dd></dl>
+<ul><li> 84番目の観測値では、virginicaの0.85661が事後確率として最大値であることがわかります。よって、約85.7%の確率で<b>virginica</b>のグループに割り当てられます。</li>
+<li> しかし、84番目の観測値は<b>versicolor</b>のグループに割り当てられるはずです。つまり、この観測値はモデルによって誤って分類されたということになります。</li></ul></li></ol>
+<h2><a name="Model_Validation"></a><span class="mw-headline">モデルの検証</span></h2>
+<p>モデルの検証は判別分析分類器の安定性を保証にするために使われます。 
+</p><p>モデルの検証方法には2つあります。
+</p>
+<ul><li> <b>交差検証</b> 
+<dl><dd>交差検証では、どのグループに分類すべきか判断するためのデータを除いて、その他のトレーニングデータをテストデータとして扱い、分類が正しいかそうでないかを確認します。</dd></dl></li>
+<li> <b>サブセット検証</b> 
+<dl><dd>観測値のセットを無作為にサブセットへ分割し、最初のサブセット(トレーニングセット)を判断モデルの判断に使い、次のサブセット(テストセット)を結果の信頼性を検証するのに使います。</dd></dl></li></ul>
+<h3><a name="Preparing_Data_for_Analysis"></a><span class="mw-headline">データ分析の準備</span></h3>
+<p>無作為に選択したデータをソートにかけ、最初の120行のデータをトレーニングデータとして、最後の30行のデータをテストデータとして使います。
+</p>
+<ol><li> <b>Fisher&apos;s Iris Data</b>のワークシートに戻ります。 </li>
+<li> 新しく列を追加して、<b>正規乱数</b>を追加します。(列ヘッダを右クリックし、列値の一律設定：正規乱数を選択） </li>
+<li> 新しく追加した列を選択します。  右クリックして、ショートカットメニューから<b>ソート(ワークシート)：昇順</b>を選びます。</li></ol>
+<p><br />
+</p>
+<table class="note">
+<tr>
+<td><b>Notes:</b> Originは正規乱数として毎回ランダムに数値を入力するので、毎回結果が変わります。
+<p>このチュートリアルと同じ結果を得るには、<b><b>Samples</b></b>フォルダ内にある<i>Tutorial Data.opj</i>を開き、<b><b>プロジェクトエクスプローラ</b></b>で<b><b>Discriminant Analysis (Pro Only)</b></b>サブフォルダを開きます。その中にある<b><b>Fisher&rsquo;s Iris Data</b></b>ワークシートの列Fのデータを使用します。
+</p>
+</td></tr></table>
+<h3><a name="Run_Discriminant_Analysis"></a><span class="mw-headline">判別分析を実行する</span></h3>
+<ol><li> A～D列を選択します。</li>
+<li> <b>統計：多変量解析：判別分析</b>と選択し、<b>判別分析</b>ダイアログを開きます。</li>
+<li> A～D列の最初の120行分のデータを<b>トレーニングデータ</b>として設定するために、<b><b>トレーニングデータ</b></b>の隣にある<b><b>三角形ボタン</b></b><a  class="image"><img alt="Button Select Data Right Triangle.png" src="../images/Discriminant_Analysis/Button_Select_Data_Right_Triangle.png" width="18"  /></a>をクリックして、コンテキストメニューから<b>列を選択…</b>を選びます。
+<dl><dd><a  class="image"><img alt="Discrim dialog 1B.png" src="../images/Discriminant_Analysis/Discrim_dialog_1B.png" width="692"  /></a></dd></dl></li>
+<li> <b><b>列ブラウザ</b></b>ダイアログで下のパネルにある <b>...</b> ボタンをクリックします。  データの範囲を<b>1</b>から<b>120</b>に設定します。<b><b>OK</b></b>をクリックします。
+<dl><dd><a  class="image"><img alt="Discrim dialog 1C.png" src="../images/Discriminant_Analysis/Discrim_dialog_1C.png" width="727"  /></a></dd></dl></li>
+<li> 列Eの始めの120行を<b><b>トレーニングデータのグループ</b></b>に設定するために、<b><b>トレーニングデータのグループ</b></b>の隣にある<b><b>三角形ボタン</b></b><a  class="image"><img alt="Button Select Data Right Triangle.png" src="../images/Discriminant_Analysis/Button_Select_Data_Right_Triangle.png" width="18"  /></a>を押して、コンテキストメニューから<b>E(Y): Species</b>を選びます。もう一度<b>トレーニングデータのグループ</b>の<b><b>三角形ボタン</b></b><a  class="image"><img alt="Button Select Data Right Triangle.png" src="../images/Discriminant_Analysis/Button_Select_Data_Right_Triangle.png" width="18"  /></a>をクリックし、コンテキストメニューから<b><b>列の選択…</b></b>を選び、<b>列ブラウザダイアログで</b>下のパネルにある…ボタンから範囲ダイアログで<b><b>1</b></b>から<b><b>120</b></b>に設定します。  <b><b>OK</b></b>をクリックします。</li>
+<li> <b><b>テストデータの予測</b></b>のチェックボックスにチェックを付けます。<b>テストデータ</b>のインタラクティブボタン<a  class="image"><img alt="Button Select Data Interactive.png" src="../images/Discriminant_Analysis/Button_Select_Data_Interactive.png" width="18"  /></a>をクリックします。ダイアログを縮小します。  ワークシートのA～D列を選択します。再度インタラクティブボタンをクリックしてダイアログを開きます。<b><b>列ブラウザ</b></b>を開くために<b><b>三角形ボタン</b></b><a  class="image"><img alt="Button Select Data Right Triangle.png" src="../images/Discriminant_Analysis/Button_Select_Data_Right_Triangle.png" width="18"  /></a>をクリックしてからコンテキストメニューで<b><b>列の選択…</b></b>を選びます。下のパネルの<b>…</b>ボタンをクリックして、範囲を<b>121</b>から<b>150</b>に設定します。 
+<dl><dd><a  class="image"><img alt="Discrim dialog 1D.png" src="../images/Discriminant_Analysis/Discrim_dialog_1D.png" width="522"  /></a></dd></dl></li>
+<li> <b>設定</b>タブを開いて、<b>交差確認</b>にチェックを付けます。<b><b>OK</b></b>をクリックします。
+<dl><dd><a  class="image"><img alt="Discrim dialog 1E.png" src="../images/Discriminant_Analysis/Discrim_dialog_1E.png" width="360"  /></a></dd></dl></li></ol>
+<h3><a name="Cross-validation"></a><span class="mw-headline">交差検証</span></h3>
+<dl><dd><b>Discriminant Analysis Report1</b>ワークシートに移動します。<b>トレーニングデータの交差検証概要</b>の表では、モデル計算から除外しながらそれぞれのケースを分類することにより事前エラー率を提供しています。しかし、この方法ではサブセット検証よりも楽観的なままとなっています。
+<dl><dd><a  class="image"><img alt="Cross Validation Summary.png" src="../images/Discriminant_Analysis/Cross_Validation_Summary.png" width="353"  /></a></dd></dl></dd></dl>
+<h3><a name="Subset_Validation"></a><span class="mw-headline">サブセット検証</span></h3>
+<ol><li> <b>テストデータの分類概要</b>の表では、テストデータがどのように分類されているかが分かります。
+<dl><dd> <a  class="image"><img alt="Classification Summary Test Data.png" src="../images/Discriminant_Analysis/Classification_Summary_Test_Data.png" width="321"  /></a></dd></dl></li>
+<li> <b>Fisher&apos;s Iris Data</b>のワークシートで、<b><b>列E/Species</b></b>の最後の30行（121から150）をコピーします。</li>
+<li> <b><b>TestResult</b></b>のワークシートに、1列（<b><b>列</b>E</b>）を追加します。  新しく作成した列にコピーした内容を貼り付けます。</li>
+<li> ワークシートに新しい列（<b><b>列F</b></b>）を追加し、右クリックして&ldquo;列値の設定&rdquo;をコンテキストメニューから選びます。開いたダイアログで<b>Compare(col(A),col(E))</b>と入力します。そして<b>ＯＫ</b>をクリックします。
+<dl><dd> <a  class="image"><img alt="Discrim Set Value.png" src="../images/Discriminant_Analysis/Discrim_Set_Value.png" width="528"  /></a></dd></dl></li>
+<li> 30行のデータで0と表示されるのはありません。つまり、テストデータのエラー率は0ということを示しています。この判別モデルはとても良いといえるでしょう。</li></ol>
+<h2><a name="Adjusting_Prior_Probabilities"></a><span class="mw-headline">事前確率の修正</span></h2>
+<p>判別分析はグループメンバーシップの事前確率は同一と仮定しています。グループの集団の大きさが等しくなければ、事前確率は異なるかもしれません。この場合、<b>事前確率</b>オプションに<b>グループの大きさに比例する</b>ことを利用できます。
+</p>
+<ol><li> <b>Discrim2</b>のワークシートに移動し、<b>トレーニングデータの交差検証概要</b>にある<b>エラー率</b>の<b>事前</b>行はグループごとにメンバーシップの事前確率を示しています。3グループとも確率がほぼ等しくなることが想定されます。グループの大きさによって事前確率を調整することで、全体の分類率も改善できます。 
+<dl><dd><a  class="image"><img alt="Discrim error rate.png" src="../images/Discriminant_Analysis/Discrim_error_rate.png" width="300"  /></a></dd></dl></li>
+<li> <a  class="image"><img alt="Icon Recalculate Manual Green.png" src="../images/Discriminant_Analysis/Icon_Recalculate_Manual_Green.png" width="14"  /></a> ボタンをクリックし、コンテキストメニューから<b>パラメータを変更</b>をクリックします。<b>事前確率</b>ラジオボタンの<b>グループサイズに比例</b>を選択します。<b>OK</b> ボタンをクリックします。 
+<dl><dd><a  class="image"><img alt="Discrim dialog 1F.png" src="../images/Discriminant_Analysis/Discrim_dialog_1F.png" width="330"  /></a></dd></dl></li>
+<li> 分類エラー率は2.50%である事が分かり、事前確率が等しい場合のエラー率2.63%よりも良い値です。 
+<dl><dd><a  class="image"><img alt="Discrim error rate compare.png" src="../images/Discriminant_Analysis/Discrim_error_rate_compare.png" width="300"  /></a></dd></dl></li></ol>
+
+
+
+
+    

@@ -1,0 +1,119 @@
+﻿<h1 class="firstheading">分析テーマ</h1>
+<p class="urlname" style="display: none;">分析テーマ</p>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>内容</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> 
+		 <span class="toctext">サマリー</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> 
+		 <span class="toctext">ステップ</span></a> 
+		<ol>
+			<li class="toclevel-2 tocsection-4"><a href="#Save_the_analysis_procedure_as_Theme"><span 
+			 class="tocnumber">3.1</span> <span class="toctext">テーマとして分析手順を保存</span></a></li>
+			<li class="toclevel-2 tocsection-5"><a href="#Repeat_the_analysis_procedure_by_Theme"><span 
+			 class="tocnumber">3.2</span> <span class="toctext">テーマで分析手順を繰り返す</span></a></li>
+		</ol></li>
+	</ol>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>Origin では、分析手順をテーマで制御することができます。テーマは、実際には分析ダイアログの設定を保存するXMLファイルです。たとえば、分析を実行した後、このダイアログには最近使用された設定を保存した&lt;前回通り&gt;テーマが表示されます。 
+ テーマに適切な名前を割り当てて将来それを使うことができます。 </p>
+<p>このチュートリアルでは、[列の統計]ダイアログを使用して、分析テーマの作成方法と使用方法を説明します。この分析は、平均、標準偏差、最小、最大などのデータに関する記述統計を提供します。 
+ 視覚化のために、ヒストグラムまたはボックスチャートを分析結果シートに作成することもできます。 </p>
+<p class="version">必要なOriginのバージョン: Origin 8.0 SR6以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します </p>
+<ul>
+	<li>簡単な記述統計を実行します。</li>
+	<li>分析テーマの作成</li>
+	<li>テーマを使用する。</li>
+</ul>
+<p><br />
+</p>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Save_the_analysis_procedure_as_Theme"></a><span class="mw-headline">テーマとして分析手順を保存</span></h3>
+<ol>
+	<li>新しいワークブックを開き、\<i>Samples</i>\<i>Statistics</i>\<i>automobile.dat</i> 
+	 ファイルを開きます。</li>
+	<li>C列を選択し、<b>統計：</b><b> 記述統計： </b><b>列の統計</b>を選びダイアログを開きます。 </li>
+	<li><b>値</b>タブを選択し、<b>モーメント</b>ツリーノードを展開して、<b>N合計</b>、<b>平均</b>、<b>標準偏差</b>、<b>標準誤差</b><b>と合計</b>ボックスをオンにします。 
+	 </li>
+	<li><b>プロット</b>タブを開き、<i>ヒストグラム</i>と<i>ボックスチャート</i>にチェックを付けます。対応するヒストグラムとボックスチャートのグラフを取得します。</li>
+	<li>この分析ダイアログで選択した内容はテーマとして保存できるので、手順を簡単に繰り返すことができます。ダイアログ右上にある矢印ボタンをクリックして<b>名前を付けて保存</b>を選択します。...<br />
+	<br />
+	<a class="image"><img alt="Tutorial Statistics 001.png" src="../images/Analysis_Themes/Tutorial_Statistics_001.png" 
+							 width="272" border="0" /></a><br />
+	<br />
+	ダイアログボックスが開きます。<br />
+	<br />
+	<a class="image"><img alt="Tutorial Statistics 002.png" src="../images/Analysis_Themes/Tutorial_Statistics_002.png" 
+							 width="336" border="0" /></a><br />
+	<br />
+	</li>
+	<li>「<i>MyTheme</i>」など適切なテーマ名を入力し、<b>OK</b> ボタンをクリックします。<br />
+	<br />
+	</li>
+	<li>「<b>列の統計</b>」ダイアログで<b>OK</b>ボタンをクリックします。 ワークシートDescStatsOnCols1が作成され、結果レポートが出力されます。 
+	 <br />
+	<br />
+	</li>
+</ol>
+<p><a class="image"><img alt="Tutorial Statistics 003.png" src="../images/Analysis_Themes/Tutorial_Statistics_003.png" 
+						 width="331" border="0" /></a><br />
+<br />
+</p>
+<table class="noborder">
+	<tr>
+		<td style="vertical-align: top;" width="60"><img src="../images/Analysis_Themes/Tip_icon.png" 
+														 alt="" width="57" 
+														 border="0" /></td>
+		<td><p>設定を変更したダイアログテーマをその解析ダイアログのデフォルトとして保存しておくと、いつも同じ設定でダイアログを開き、解析に使用できます。実際の操作としては、ダイアログデータを保存する際に、<b>＜デフォルト＞として保存</b>を選択します。一度デフォルトテーマを保存した後に、元に戻す場合、メニューから<b>削除</b>を選択するとシステムデフォルトに戻すことができます。 
+		 </p></td>
+	</tr>
+</table>
+<table class="noborder">
+	<tr>
+		<td style="vertical-align: top;" width="60"><img src="../images/Analysis_Themes/Tip_icon.png" 
+														 alt="" width="57" 
+														 border="0" /></td>
+		<td><p>出力ノードを展開または折りたたんで、ショートカットメニューから<b>ノード設定を保存</b>を選択して、<a class="external text" 
+		 href="../../UserGuide/UserGuide/Analysis_Report_Sheets_and_Columns.html"> 
+		 分析レポートシート</a>の設定をテーマファイルに保存することもできます。詳細については、この表の<b>ノード構成を保存する</b>を参照してください。 
+		 </p>
+		<p><a class="image"><img alt="ARS Save Node Config.png" src="../images/Analysis_Themes/ARS_Save_Node_Config.png" 
+								 width="402" border="0" /></a> </p></td>
+	</tr>
+</table>
+<h3><a name="Repeat_the_analysis_procedure_by_Theme"></a><span class="mw-headline">テーマで分析手順を繰り返す。</span></h3>
+<p>テーマを保存すると、多くの方法でご利用頂けます。例えば、列Eを選択して、同じ設定で統計分析を実行できます。 </p>
+<ul>
+	<li><b>統計</b>メニューの下部にある、<b>最近使った機能</b>グループから<b>列の統計</b>を選択しダイアログを開きます。メニューにアクセスできるダイアログのほとんどは、MRUメニュー<br />
+	<br />
+	<a class="image"><img alt="Tutorial Statistics 004.png" src="../images/Analysis_Themes/Tutorial_Statistics_004.png" 
+							 width="410" border="0" /></a><br />
+	<br />
+	から開くことができます。MRUからダイアログを開くと、デフォルトのテーマは&lt;前回通り&gt;です。<b>MyTheme</b> 
+	 テーマを使うには、<b>ダイアログテーマ</b>ショートカットメニューから <i>MyTheme</i> を選択します。 そのテーマの設定がダイアログに表示されます。 
+	 <b>OK</b> ボタンをクリックして、分析を実行します。<br />
+	<br />
+	<a class="image"><img alt="Tutorial Statistics 005.png" src="../images/Analysis_Themes/Tutorial_Statistics_005.png" 
+							 width="273" border="0" /></a><br />
+	<br />
+	</li>
+</ul>
+<ul>
+	<li>分析テーマを適用する別の方法は、カスケードメニュー項目を使うことです。インストール後初めて分析ダイアログを使うか、ダイアログのテーマを保存すると、メニューレベルが1つ追加されます。ここから 
+	 <i>MyTheme</i> メニューを選択します。 <br />
+	<br />
+	<a class="image"><img alt="Tutorial Statistics 006.png" src="../images/Analysis_Themes/Tutorial_Statistics_006.png" 
+							 width="713" border="0" /></a><br />
+	<br />
+	「<i>ダイアログを開く...</i>」メニューを選択すると、 &lt;デフォルト&gt; テーマでダイアログボックスが開きます。 テーマの設定を変更するには、<b>ダイアログテーマ</b>ショートカットリストからテーマを選択し、設定を変更して、テーマを再保存します。 
+	 別の方法としては、分析を実行しないで保存したテーマを開きます。これには、<i>shift</i> キーを押しながらメニューからテーマを選択します。テーマが適用されたダイアログが表示されるので、必要に応じて変更を加えることができます。<br />
+	<br />
+	</li>
+</ul>

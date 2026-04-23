@@ -1,0 +1,109 @@
+﻿<h1 class="firstheading">システム関数で非線形フィットを行う</h1><p class='urlname' style='display: none'>Fitting-NLFit-Built-in</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span><span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Import_the_file"><span class="tocnumber">3.1</span> <span class="toctext">ファイルインポート</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Plotting_the_Data"><span class="tocnumber">3.2</span> <span class="toctext">グラフを作成</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Fitting_with_the_Michaelis-Menten_Function"><span class="tocnumber">3.3</span> <span class="toctext">Michaelis-Menten関数でフィットする</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Fitting_Lineweaver-Burk_Plot"><span class="tocnumber">3.4</span> <span class="toctext">Lineweaver-Burk プロットをフィットする</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/NLFIT_Built_In/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/NLFIT_Built_In/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/jwplayer.html?v=ftp/mm_tutorials/mp4/VT-0001Nonlinear_Curve_Fit_Tool.mp4%7C767%7C600" target="_blank">非線形曲線フィット</a></li>
+<li> <a class="external text" href="https://www.originlab.com/jwplayer.html?v=ftp/mm_tutorials/mp4/Global_Fit.mp4%7C767%7C600" target="_blank">グローバルフィット</a></li>
+<li> <a class="external text" href="https://www.originlab.com/jwplayer.html?v=ftp/mm_tutorials/mp4/Nonlinear_Curve_Fitting.mp4%7C767%7C600" target="_blank">非線形フィットツールでデータ範囲を設定する</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/NLFIT_Built_In/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/NLFIT_Built_In/Blog_Image_33x33px.png" width="135"  /></a>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>「NLFit」ダイアログは、非線形フィット処理中にフィット処理を確認することができるインタラクティブなツールです。このチュートリアルでは、Michaelis-Menten関数を使ってフィットします。これは、酵素反応速度での基本的なモデルで、これを例にして「NLFit」ダイアログの基本機能を説明します。フィットを実行する際にグローバルフィットを実行する方法を示します。これは、いくつかのパラメータを共有して、2つのデータセットを同時にフィットするものです。
+</p>
+<p class="version" >必要なOriginのバージョン: Origin 8.0 SR6以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。
+</p>
+<ul><li>単一ASCIIファイルをインポートする方法</li>
+<li>パラメータを共有してグローバルフィットを実行する方法</li>
+<li>フィット範囲を選択して、データの一部をフィットする方法</li>
+<li>コマンドウィンドウを使って、簡単な計算を行う方法</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Import_the_file"></a><span class="mw-headline">ファイルインポート</span></h3>
+<p>ワークブックを新しく作成します。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Curve Fitting</i>サブフォルダにある<i>Enzyme.dat</i> ファイルを探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。
+</p>
+<dl><dd><a  class="image"><img alt="Tutorial NLFit 001.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_001.png" width="345"  /></a><br /><br /></dd></dl>
+<h3><a name="Plotting_the_Data"></a><span class="mw-headline">データをプロットする</span></h3>
+<p>列Bと列Cを選択して、<a  class="image"><img alt="Scatter.png" src="../images/NLFIT_Built_In/Scatter.png" width="22"  /></a> ボタンをクリックし、散布図としてプロットします。
+</p>
+<dl><dd><a  class="image"><img alt="Tutorial NLFit 002 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_002_SR6.png" width="465"  /></a><br /></dd></dl>
+<h3><a name="Fitting_with_the_Michaelis-Menten_Function"></a><span class="mw-headline">Michaelis-Menten関数でフィットする</span></h3>
+<p>単一基質の Michaelis-Menten 関数モデルは、酵素反応速度論で使用される基本モデルです。 
+</p>
+<dl><dd><img src="../images/NLFIT_Built_In/math-b8d0588cf34e1ab60b8c19de1f2a4336.png" title="v=\frac{V_{max}[S]}{K_m+[S]}" alt="v=\frac{V_{max}[S]}{K_m+[S]}" class="tex"/></dd></dl>
+<p>パラメータは<img src="../images/NLFIT_Built_In/math-9e3669d19b675bd57058fd4664205d2a.png" title="v" alt="v" class="tex"/>が反応速度、<img src="../images/NLFIT_Built_In/math-38bd6c19740e43396bd14b1575d58f60.png" title="[S]" alt="[S]" class="tex"/> は基質濃度、<img src="../images/NLFIT_Built_In/math-aef61aad770bee032baeac63f516e127.png" title="V_{max}" alt="V_{max}" class="tex"/>は最大速度、<img src="../images/NLFIT_Built_In/math-970fc38d3e1faed4fad256cf650ccde0.png" title="K_m" alt="K_m" class="tex"/> は、Michaelisの定数を表します。<img src="../images/NLFIT_Built_In/math-aef61aad770bee032baeac63f516e127.png" title="V_{max}" alt="V_{max}" class="tex"/> と<img src="../images/NLFIT_Built_In/math-970fc38d3e1faed4fad256cf650ccde0.png" title="K_m" alt="K_m" class="tex"/> のパラメータは重要な酵素の特性で、こららの値はM-M (Michaelis-Menten)関数を <img src="../images/NLFIT_Built_In/math-9e3669d19b675bd57058fd4664205d2a.png" title="v" alt="v" class="tex"/>対 <img src="../images/NLFIT_Built_In/math-38bd6c19740e43396bd14b1575d58f60.png" title="[S]" alt="[S]" class="tex"/>でプロットした曲線にフィットして求めます。Originには、M-Mフィット関数はありませんが、より一般的なモデルである組み込みである<i>Hill </i>関数を使ってフィットできます。
+</p>
+<dl><dd><img src="../images/NLFIT_Built_In/math-c8c3f0c0a606c9f2c460bbac249fa621.png" title="v=V_{max}\frac{x^n}{k^n+x^n}" alt="v=V_{max}\frac{x^n}{k^n+x^n}" class="tex"/></dd></dl>
+<p>ここで、 <img src="../images/NLFIT_Built_In/math-7b8b965ad4bca0e41ab51de7b31363a1.png" title="n" alt="n" class="tex"/> は結合サイトです。単一基質モデルの場合、<img src="../images/NLFIT_Built_In/math-6d24e2bc97c5e4283dd8e34674afe7ea.png" title="n=1" alt="n=1" class="tex"/>の値は固定します。よってモデルをシンプルにしてM-M関数のように使用できるようにします。
+</p><p>作図したグラフを確認すると、2つの曲線がある事が分かります。ひとつは抑制物質なし、もうひとつは競合型抑制物質がある場合です。非線形曲線フィットツールを使用して2つの曲線を一度にフィットしましょう。競合抑制反応に対して、最大反応速度は抑制無しと同じなので、フィット処理中に <img src="../images/NLFIT_Built_In/math-aef61aad770bee032baeac63f516e127.png" title="V_{max}" alt="V_{max}" class="tex"/> 値を共有することができ、<i>グローバルフィット</i>により行われます。
+</p><p><br />
+</p>
+<ol><li>グラフをアクティブにして、<b><b>解析：フィット：非線形曲線フィット</b></b>と操作を行い、<b>NLFit</b>ダイアログを開きます。<b>設定：関数選択</b>ページにある<i>Growth/Sigmoidal</i>カテゴリーから <i>Hill </i>関数を選択します。
+<dl><dd><a  class="image"><img alt="Tutorial NLFit 003 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_003_SR6.png" width="851"  /></a></dd></dl></li>
+<li><b>設定：データ選択</b>ページで、<b>入力データ</b>の隣にある三角形のボタンをクリックし、<b>現在のページのすべてのプロットを追加</b>を選択して、データをセットします。
+<dl><dd><a  class="image"><img alt="Tutorial NLFit 004 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_004_SR6.png" width="848"  /></a></dd></dl></li>
+<li><b>設定：データ選択</b>ページにある<b>複数データフィットモード</b>のドロップダウンリストから <i>グローバルフィット</i>を選択します。
+<dl><dd><a  class="image"><img alt="Tutorial NLFit 005 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_005_SR6.png" width="848"  /></a></dd></dl></li>
+<li><b>パラメータ</b>タブをクリックし、 Vmaxの行にある<b>共有</b>チェックボックスにチェックを付けます。  これらの『<i>共有</i>』チェックボックスは、<i>グローバルフィット</i> モードを使っているときだけ利用できます。n と n_2の『<b>固定</b>』チェックボックスにチェックを付け、それらの値を1にします。
+<dl><dd><a  class="image"><img alt="Tutorial NLFit 006 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_006_SR6.png" width="848"  /></a></dd></dl></li>
+<li>「<i>フィット</i>」ボタンをクリックし、分析レポートを生成します。元のグラフにフィットのパラメータが表示されます(以下の画像ではフィットパラメータ値のみが表示されています)。
+<dl><dd><a  class="image"><img alt="Tutorial NLFit 007 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_007_SR6.png" width="465"  /></a></dd></dl></li></ol>
+<p>フィット結果から、最大速度は、2162.8 <img src="../images/NLFIT_Built_In/math-647804bc34e270eeb60a78ea7e25409d.png" title="\mu M/min" alt="\mu M/min" class="tex"/>であると結論付けできます。抑制なしの場合、<img src="../images/NLFIT_Built_In/math-970fc38d3e1faed4fad256cf650ccde0.png" title="K_m" alt="K_m" class="tex"/>の値は1.78<img src="../images/NLFIT_Built_In/math-c358cc719bf4f10b00fa965e845dc8c2.png" title="\mu M" alt="\mu M" class="tex"/>になります。競合型抑制の場合、<img src="../images/NLFIT_Built_In/math-970fc38d3e1faed4fad256cf650ccde0.png" title="K_m" alt="K_m" class="tex"/>の値は4.18<img src="../images/NLFIT_Built_In/math-c358cc719bf4f10b00fa965e845dc8c2.png" title="\mu M" alt="\mu M" class="tex"/>になります。
+</p>
+<h3><a name="Fitting_Lineweaver-Burk_Plot"></a><span class="mw-headline">Lineweaver-Burk プロットをフィットする</span></h3>
+<p>モデルのパラメータは、Lineweaver-Burkまたは二重逆数プロットによっても推定できます。Lineweaver-Burkプロットは、 M-M関数の両側の逆数を取り、  <code>1/v</code> と <code>1/[S]</code>でプロットします。
+</p>
+<dl><dd><img src="../images/NLFIT_Built_In/math-7b926509a42cfcf4d7b1269ee5b66f95.png" title="\frac{1}{v}=\frac{1}{V_{max}}+\frac{K_m}{V_{max}[S]}" alt="\frac{1}{v}=\frac{1}{V_{max}}+\frac{K_m}{V_{max}[S]}" class="tex"/></dd></dl>
+<p>これは実際には線形の関数です。
+</p>
+<dl><dd><a  class="image"><img alt="Tutorial NLFit L-B Plot.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_L-B_Plot.png" width="264"  /></a></dd></dl>
+<p>抑制なしの場合のデータを使用して、計算方法<img src="../images/NLFIT_Built_In/math-970fc38d3e1faed4fad256cf650ccde0.png" title="K_m" alt="K_m" class="tex"/>と<img src="../images/NLFIT_Built_In/math-aef61aad770bee032baeac63f516e127.png" title="V_{max}" alt="V_{max}" class="tex"/>L-Bプロットを示します。
+</p><p><br />
+</p>
+<ol><li>元のデータのワークシートに行き、<a  class="image"><img alt="Add New Columns.png" src="../images/NLFIT_Built_In/Add_New_Columns.png" width="20"  /></a>ボタンをクリックして、2つ以上の列を追加します。列Dを右クリックして、<b>列XY属性の設定: X列</b>を選択してX列に設定します。再度、列Dを右クリックして、ショートカットメニューから<b>列値の設定</b>を選択し、<b>値の設定</b>ダイアログを開きます。ダイアログの編集ボックスに <code>1/Col(A)</code> と入力し、この例では逆数の値を自動更新する必要はないので、<b>再計算</b>モードを「<i>無し</i> 」にします。
+<dl><dd>同様に、列Eの値を<code> 1/Col(B)</code>として設定します。列DとEのロングネームをそれぞれ<img src="../images/NLFIT_Built_In/math-9ef7cbd115a40bb95a13f1f7dc418975.png" title="1/[S]" alt="1/[S]" class="tex"/> &amp; <img src="../images/NLFIT_Built_In/math-91fe420319052e8835ef9135f6efefc1.png" title="1/V" alt="1/V" class="tex"/>として入力します。すると、次のようになります。</dd>
+<dd><a  class="image"><img alt="Tutorial NLFit 009 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_009_SR6.png" width="484"  /></a></dd></dl></li>
+<li>列Dと列Eを選択し、 <a  class="image"><img alt="Scatter.png" src="../images/NLFIT_Built_In/Scatter.png" width="22"  /></a>ボタンをクリックして、散布図を作成します。
+<dl><dd><a  class="image"><img alt="Tutorial NLFit 010 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_010_SR6.png" width="464"  /></a></dd>
+<dd>上記の式から、<code>1/v</code> と<code> 1/[S]</code> には線形の関係があることが分かっているので、線形フィットツールを使って、このプロットを直線でフィットできます。（<b>解析：フィット：線形フィット</b>より線形フィット機能を使用することもできます）</dd></dl></li>
+<li><i>もう一度、非線形曲線フィットのダイアログを開き、「Polynomial」カテゴリーから </i><i>Line</i> 関数を選び、「<i>フィット</i>」ボタン <a  class="image"><img alt="Fit.png" src="../images/NLFIT_Built_In/Fit.png" width="51"  /></a> をクリックして、直接結果を生成します。
+<dl><dd><a  class="image"><img alt="Tutorial NLFit 011 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_011_SR6.png" width="851"  /></a></dd>
+<dd>プロットから離れているデータポイントがあるので、これが最も良いフィットであるかどうかは疑う必要があります。実際、L-Bプロットの右側には、低い基質濃度の領域があり、測定誤差が大きいかもしれません。そのため、これらのデータポイントを除外した方が無難でしょう。</dd>
+<dd><a  class="image"><img alt="Tutorial NLFit 012 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_012_SR6.png" width="464"  /></a></dd></dl></li>
+<li>グラフの左上の角にある錠のアイコンをクリックして、<i>パラメータの変更</i>を選び、NLFitダイアログに戻ります。
+<dl><dd><a  class="image"><img alt="Tutorial NLFit 013 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_013_SR6.png" width="464"  /></a></dd>
+<dd><b>設定：データ選択</b>ページで、<b>入力データ</b>ノードにある<a  class="image"><img alt="Triangle Button.png" src="../images/NLFIT_Built_In/Triangle_Button.png" width="18"  /></a> ボタンをクリックし、メニューから「<i>グラフからすべてのデータを再選択する</i>」を選択します。</dd>
+<dd><a  class="image"><img alt="Tutorial NLFit 014 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_014_SR6.png" width="848"  /></a></dd>
+<dd>NLFitダイアログは最小化し、 グラフページにカーソルを移動すると、カーソルが <a  class="image"><img alt="Tutorial NLFit 015.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_015.png" width="35"  /></a>のようになります。フィットしたデータポイントを囲むようにドラッグして矩形を描きます。すると、入力範囲は縦線で印が付けられます。縦線をクリックして移動すれば、入力範囲を変更することができます。</dd>
+<dd><a  class="image"><img alt="Tutorial NLFit 015 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_015_SR6.png" width="464"  /></a></dd>
+<dd><b>グラフから範囲を選択する</b>にある<a  class="image"><img alt="Tutorial NLFit 018.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_018.png" width="18"  /></a>ボタンをクリックして、「NLFit」ダイアログに戻ります。</dd>
+<dd><a  class="image"><img alt="Tutorial NLFit 016 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_016_SR6.png" width="861"  /></a></dd></dl></li>
+<li>「NLFit」ダイアログの「<i>フィット</i> 」ボタンをクリックして、結果を再計算します。レポートテーブルが更新されたのがグラフから分かります。
+<dl><dd><a  class="image"><img alt="Tutorial NLFit 017 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_017_SR6.png" width="464"  /></a></dd></dl></li>
+<li>フィット曲線の切片が <img src="../images/NLFIT_Built_In/math-dfdcb5722c7b6821823cc629b97afb7d.png" title="1/V_{max}" alt="1/V_{max}" class="tex"/> であり、この例では、これは <code>4.76191E-4</code> です。<img src="../images/NLFIT_Built_In/math-aef61aad770bee032baeac63f516e127.png" title="V_{max}" alt="V_{max}" class="tex"/>値を得るには、<b>ウィンドウ：コマンドウィンドウ</b>を選択し、コマンドウィンドウを開き、次のように入力します。
+<dl><dd><code>1/4.76191E-4 = </code></dd>
+<dd>そして、ENTERキーを押します。</dd>
+<dd><a  class="image"><img alt="Tutorial NLFit 018 SR6.png" src="../images/NLFIT_Built_In/Tutorial_NLFit_018_SR6.png" width="482"  /></a></dd>
+<dd>Originは<code>2099</code>という値を返し、これは上記で得た2160に近い数字となっています。(Hill関数でフィットしたとき、2つのデータセットをフィットするのに <img src="../images/NLFIT_Built_In/math-aef61aad770bee032baeac63f516e127.png" title="V_{max}" alt="V_{max}" class="tex"/> を共有しました。  抑制無しのデータのみをフィットすれば、この値はもっと近くなります。)</dd></dl></li></ol>
+
+
+
+
+    

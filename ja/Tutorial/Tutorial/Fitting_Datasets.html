@@ -1,0 +1,90 @@
+﻿<h1 class="firstheading">あるデータセットを別のデータセットの関数としてフィットする</h1>
+<a name="Summary" id="Summary"></a>
+<h2><span class="mw-headline">サマリー</span></h2>
+<p>出力が以下のように1または複数のデータセットで構成される「データセットフィッティング」を実行したい場合があります。</p>
+<dl>
+<dd><span style="font-style: italic;"><a style="color: #0000ff; text-decoration: underline;"><img alt="Image:Tutorials_Fitting_Datasets_MultiIndep.png" src="../images/Fitting_Datasets/math-af98e1b2cf12ec081bc67966b6a99be2.png" width="299" height="14" border="0" /></a></span></dd>
+</dl>
+<p>例えば、合成されたスペクトルを分析して、個々のスペクトルの比率を求めたいような場合です。これは、複数の独立変数を定義するか、フィット関数内で組合せを計算することで行うことができます。</p>
+<p class="version">必要なOriginのバージョン:8.0 SR6</p>
+<a name="What_you_will_learn" id="What_you_will_learn"></a>
+<h2><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。</p>
+<ul>
+<li>「データセットフィッティング」を実行する</li>
+<li>複数の独立変数のフィット関数を定義する</li>
+</ul>
+<a name="Steps" id="Steps"></a>
+<h2><span class="mw-headline">ステップ</span></h2>
+<p><i style="font-style: italic;">Samples\Curve Fitting</i>フォルダから<i>Composite Spectrum.dat</i>ファイルをインポートします。このサンプルデータをみると、列Aがインデックス、列Bと列Cが成分Aと成分Bに関するスペクトルである事が分かります。列Dは成分Aと成分Bの複合スペクトルの構成物を読み取った後の値が入力されます。純物質から算出された列Bと列Cの関数で列Dをフィットすれば、列Bと列Cの構成要素にかかる係数（便宜上、c1とc2と呼びます）を算出できます。(Note: この場合、独立変数と従属変数は同じ数であると仮定します。そうでない場合、補間が必要です。)</p>
+<p><span class="db">フィット関数オーガナイザ</span>を開き、新しいフィット関数を定義します。</p>
+<dl>
+<dd>
+<table class="blank">
+<tr>
+<td width="170"><b style="font-weight: bold;">関数名：</b></td>
+<td>MultiIndep</td>
+</tr>
+<tr>
+<td width="170"><b style="font-weight: bold;">実現方式：</b></td>
+<td>ユーザ定義</td>
+</tr>
+<tr>
+<td width="170"><b style="font-weight: bold;">独立変数：</b></td>
+<td>a, b</td>
+</tr>
+<tr>
+<td width="170"><b style="font-weight: bold;">従属変数：</b></td>
+<td>ab</td>
+</tr>
+<tr>
+<td width="170"><b style="font-weight: bold;">パラメータの名前：</b></td>
+<td>C1, C2</td>
+</tr>
+<tr>
+<td width="170"><b style="font-weight: bold;">定義形式：</b></td>
+<td>Origin C</td>
+</tr>
+<tr>
+<td width="170"><b style="font-weight: bold;">関数：</b></td>
+<td>ab = C1*a + C2*b;</td>
+</tr>
+</table>
+</dd>
+</dl>
+<p><b style="font-weight: bold;">パラメータ初期化</b>編集ボックスにC1とC2を初期化するため、次の値を入力します。<br />
+C1=1;<br />
+C2=1;<br />
+フィット関数を保存してフィット関数オーガナイザを閉じます。列D<b>だけ</b>を選択し、<span class="db">NLFit</span> ダイアログを開き、次のように<b>データ選択</b>ページで入力データセットを指定します。</p>
+<dl>
+<dd><a style="color: #0000ff; text-decoration: underline;"><img alt="Image:Tutorials_Fitting_Datasets_MultiIndep.png" src="../images/Fitting_Datasets/Tutorials_Fitting_Datasets_MultiIndep.png" width="843" height="517" border="0" /></a></dd>
+</dl>
+<p>そして、<b>フィット</b>ボタンをクリックして、結果を求めます。</p>
+<a name="Results" id="Results"></a>
+<h2><span class="mw-headline">結果</span></h2>
+<p>以下のような結果を得ることができます。</p>
+<dl>
+<dd>
+<table>
+<tr>
+<td width="20">&#160;</td>
+<th width="80">値</th>
+<th width="100">標準誤差</th>
+</tr>
+<tr>
+<th>C1</th>
+<td style="text-align: right;">0.37169</td>
+<td style="text-align: right;">0.00483</td>
+</tr>
+<tr>
+<th>C2</th>
+<td style="text-align: right;">0.66469</td>
+<td style="text-align: right;">0.0047</td>
+</tr>
+</table>
+</dd>
+</dl>
+<p>フィット結果を確認するには、新しい列を追加し、そこに<i>FitNLCurve1</i>というワークシートにあるフィットしたYからフィット値をコピー＆ペーストします。そして、<i>Composite</i> とフィットデータを選択し、折れ線グラフをプロットし、どの程度良くフィットしているかを見ます。</p>
+<dl>
+<dd><a style="color: #0000ff; text-decoration: underline;"><img alt="Image:Tutorials_Fitting_Datasets_Results.png" src="../images/Fitting_Datasets/Tutorials_Fitting_Datasets_Results.png" width="528" height="474" border="0" /></a></dd>
+</dl>

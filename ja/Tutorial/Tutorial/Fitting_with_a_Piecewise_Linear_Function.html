@@ -1,0 +1,187 @@
+﻿<h1 class="firstheading">区分線形関数を使ってフィットする</h1><p class='urlname' style='display: none'>Fitting-Piecewise-Linear</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span><span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">サンプルとステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Import_Data"><span class="tocnumber">3.1</span> <span class="toctext">データをインポート</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Define_Fitting_Function"><span class="tocnumber">3.2</span> <span class="toctext">フィット関数を定義する</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Define_Derived_Parameters_for_Slopes_and_Intercepts"><span class="tocnumber">3.3</span> <span class="toctext">交点と傾きとなる派生パラメータを定義する</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Fit_the_Curve"><span class="tocnumber">3.4</span> <span class="toctext">曲線をフィットする</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Fitting_Results"><span class="tocnumber">3.5</span> <span class="toctext">フィット結果</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>このチュートリアルでは2つの線形区分から成る区分線形関数を定義してデータのフィットを実行し、結果から求められる交点位置を計算する方法を示します。
+</p>
+<p class="version" >必要なOriginのバージョン:Origin 8.6 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。 
+</p>
+<ul><li> 区間(条件)のフィット関数を定義する</li>
+<li> パラメータの自動初期化</li>
+<li> 区間フィットの交差位置を計算する</li></ul>
+<h2><a name="Example_and_Steps"></a><span class="mw-headline">サンプルとステップ</span></h2>
+<h3><a name="Import_Data"></a><span class="mw-headline">データのインポート</span></h3>
+<ol><li> 新しいワークブックを用意します。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Curve Fitting</i>サブフォルダにある<i>Step01.dat</i> ファイルを探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。</li>
+<li> <b><b>Sensor E x</b></b>列（列J） を右クリックし、コンテキストメニューから<b><b>列XY属性の設定：X列</b></b>を選びます。<b><b>Sensor E y</b></b>列を選択し、メニューから<b>作図： シンボル図：散布図 </b>と操作します。グラフは次のようになります。
+<dl><dd><a  class="image"><img alt="Fit PWL G1.png" src="../images/Fitting_with_a_Piecewise_Linear_Function/Fit_PWL_G1.png" width="467"  /></a></dd></dl></li></ol>
+<h3><a name="Define_Fitting_Function"></a><span class="mw-headline">フィット関数を定義する</span></h3>
+<p>上記のグラフから、曲線は2つの部分に分けられる部分からできていることが分かります。これは区分線形関数を使ってフィットすることができます。この関数は次のように表現できます。
+</p>
+<dl><dd><img src="../images/Fitting_with_a_Piecewise_Linear_Function/math-118b6e761a829c9a3cc596f21246cd23.png" title="y =
+\begin{cases}
+\frac{y_1(x_3-x)+y_3(x-x_1)}{x_3-x_1}, &amp; \mbox{if } x&lt;x_3 \\
+\frac{y_3(x_2-x)+y_2(x-x_3)}{x_2-x_3}, &amp; \mbox{if } x \ge x_3
+\end{cases}" alt="y =
+\begin{cases}
+\frac{y_1(x_3-x)+y_3(x-x_1)}{x_3-x_1}, &amp; \mbox{if } x&lt;x_3 \\
+\frac{y_3(x_2-x)+y_2(x-x_3)}{x_2-x_3}, &amp; \mbox{if } x \ge x_3
+\end{cases}" class="tex"/></dd></dl>
+<p><b><b>x1</b></b>と<b><b>x2</b></b>は曲線の終着点を示すｘ値で、フィット中に固定されます。<b><b>x3</b></b>は2つの部分の交点のx値を示しています。そして<b><b>y1</b></b>、<b><b>y2</b></b>、<b></b><b>y3</b>は<img src="../images/Fitting_with_a_Piecewise_Linear_Function/math-bb72ab647a46b52c993ced389f95c09a.png" title="\ x_i, \ i=1, 2, 3" alt="\ x_i, \ i=1, 2, 3" class="tex"/>地点でのy値をそれぞれ表しています。
+</p><p>フィット関数は、<b><b>フィット関数ビルダー</b></b>を使用して定義できます。
+</p>
+<ol>
+<li> メニューから、<b><b>ツール：フィット関数ビルダー</b></b>を選択します。
+<li> <b><b>フィット関数ビルダー</b></b>ダイアログの<b><b>処理のゴール</b></b>ページで<b><b>進む</b></b>のボタンをクリックします。
+<li> <b><b>関数名と関数形式</b></b>のページでは、<b><b>関数カテゴリーの選択</b></b>ドロップダウンリストで<b>User Defined</b>を選択し、<b><b>関数名</b></b>を<b>pwl2s</b>とします。また、<b><b>関数形式</b></b>は<b><b>Origin C</b></b>にします。それから、<b><b>進む</b></b>ボタンをクリックします。
+<li> <b><b>変数とパラメータ</b></b>ページでは、<b><b>パラメータ</b></b>として、<b>x1,y1,x2,y2,x3,y3</b> と入力します。<b><b>進む</b></b>ボタンをクリックします。
+<li> <b><b>Origin Cフィット関数</b></b>のページで、<b><b>関数内容</b></b>編集ボックスの右上にある、<a  class="image"><img alt="User-Defined Fitting Functions-2.png" src="../images/Fitting_with_a_Piecewise_Linear_Function/User-Defined_Fitting_Functions-2.png" width="19"  /></a>ボタンをクリックして<b><b>コードビルダ</b></b>を開き、フィット関数を以下のように定義します。
+<pre class="oc" style="font-family:monospace;">   <span style="color: #0000ff;">if</span><span style="color: #000000;">(</span> x <span style="color: #000080;">&lt;</span> x3 <span style="color: #000000;">)</span>
+      y <span style="color: #000080;">=</span> <span style="color: #000000;">(</span>y1<span style="color: #000040;">*</span><span style="color: #000000;">(</span>x3<span style="color: #000040;">-</span>x<span style="color: #000000;">)</span><span style="color: #000040;">+</span>y3<span style="color: #000040;">*</span><span style="color: #000000;">(</span>x<span style="color: #000040;">-</span>x1<span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000040;">/</span><span style="color: #000000;">(</span>x3<span style="color: #000040;">-</span>x1<span style="color: #000000;">)</span>;
+   <span style="color: #0000ff;">else</span>
+      y <span style="color: #000080;">=</span> <span style="color: #000000;">(</span>y3<span style="color: #000040;">*</span><span style="color: #000000;">(</span>x2<span style="color: #000040;">-</span>x<span style="color: #000000;">)</span><span style="color: #000040;">+</span>y2<span style="color: #000040;">*</span><span style="color: #000000;">(</span>x<span style="color: #000040;">-</span>x3<span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000040;">/</span><span style="color: #000000;">(</span>x2<span style="color: #000040;">-</span>x3<span style="color: #000000;">)</span>;</pre>
+<p><b><b>コンパイル</b></b>ボタンをクリックして関数内容をコンパイルします。<b><b>NLSFに戻る</b></b>ボタンをクリックします。<b><b>進む</b></b>ボタンをクリックします。
+</p>
+<li> <b>パラメータ初期化ルーチン</b>ページでは、<b>初期化コード</b>編集ボックスの右にある<a  class="image"><img alt="User-Defined Fitting Functions-2.png" src="../images/Fitting_with_a_Piecewise_Linear_Function/User-Defined_Fitting_Functions-2.png" width="19"  /></a>ボタンをクリックしてフィットパラメータの初期化を<b>コードビルダ</b>で定義します。
+<pre class="oc" style="font-family:monospace;">   <span style="color: #0000ff;">int</span> n1, n2, n3;
+	
+   x_data.<span style="color: #000000;">GetMinMax</span><span style="color: #000000;">(</span> x1, x2, <span style="color: #000040;">&amp;</span>n1, <span style="color: #000040;">&amp;</span>n2 <span style="color: #000000;">)</span>;
+   x3 <span style="color: #000080;">=</span> x1 <span style="color: #000040;">+</span> <span style="color: #000000;">(</span>x2 <span style="color: #000040;">-</span> x1<span style="color: #000000;">)</span><span style="color: #000040;">/</span><span style="color: #0000dd;">2</span>;
+	
+   y1 <span style="color: #000080;">=</span> y_data<span style="color: #000000;">[</span>n1<span style="color: #000000;">]</span>;
+   y2 <span style="color: #000080;">=</span> y_data<span style="color: #000000;">[</span>n2<span style="color: #000000;">]</span>;
+	
+   vector vd;
+   vd <span style="color: #000080;">=</span> <span style="color: #000000;">abs</span><span style="color: #000000;">(</span> x_data <span style="color: #000040;">-</span> x3 <span style="color: #000000;">)</span>;
+   <span style="color: #0000ff;">double</span> xta, xtb;
+   vd.<span style="color: #000000;">GetMinMax</span><span style="color: #000000;">(</span> xta, xtb, <span style="color: #000040;">&amp;</span>n3 <span style="color: #000000;">)</span>;
+   y3 <span style="color: #000080;">=</span> y_data<span style="color: #000000;">[</span>n3<span style="color: #000000;">]</span>;</pre>
+<p><b>コンパイル</b>ボタンをクリックしてコンパイルします。<b><b>NLSFに戻る</b></b>ボタンをクリックします。<b><b>完了</b></b>ボタンをクリックします。
+</p>
+</ol>
+<h3><a name="Define_Derived_Parameters_for_Slopes_and_Intercepts"></a><span class="mw-headline">交点と傾きとなる派生パラメータを定義する</span></h3>
+<p>関数を定義する手順の途中でも、追加で派生パラメータ、例えば傾きや交点となる値を定義できます。これらの値はフィットの処理が完了した後の関数パラメータから計算されます。<br />
+</p>
+<ol>
+<li><b><b>&lt;&lt;戻る</b></b>ボタンを2回クリックして<b><b>変数とパラメータ</b></b>ページに戻ります。そこで<b><b>派生パラメータ</b></b>のボックスに<b>a1,b1,a2,b2</b> と入力します。 
+<li><b><b>進む</b></b>ボタンを4回押して<b><b>派生パラメータ</b></b>ページに進みます。上の表の<b><b>意味</b></b>列を入力し、下の<b><b>派生パラメータ定義式</b></b>には次の数式を入力して<b><b>完了</b></b>ボタンをクリックします。<br />
+<i>a1=(y1*x3-y3*x1)/(x3-x1)</i>;<br />
+<i>b1=(-y1+y3)/(x3-x1)</i>;<br />
+<i>a2=(y3*x2-y2*x3)/(x2-x3)</i>;<br />
+<i>b2=(-y3+y2)/(x2-x3)</i>;<br />
+</ol>
+<ol>
+<a  class="image"><img alt="Piecewise slope and intercept.png" src="../images/Fitting_with_a_Piecewise_Linear_Function/Piecewise_slope_and_intercept.png" width="625"  /></a>
+</ol>
+<h3><a name="Fit_the_Curve"></a><span class="mw-headline">曲線をフィットする</span></h3>
+<ol>
+<li> <b><b>解析：フィット：非線形曲線フィット</b></b>をメニューから選択します。<b>NLFit</b>ダイアログで、<b><b>設定：関数選択</b></b>を選び、<b><b>カテゴリ</b></b>ドロップダウンリストから<b><b>User Defined</b></b>を選びます。そして<b><b>関数</b></b>ドロップダウンリストでは<b><b>pwl2s</b></b>を選びます。
+<li> <b>NLFit</b>ダイアログで<b>パラメータ</b>タブを選択し、このパラメータ、<b>x1</b>と<b>x2</b>を下図のように固定します。<br />
+<a  class="image"><img alt="Fit PWL FixP.png" src="../images/Fitting_with_a_Piecewise_Linear_Function/Fit_PWL_FixP.png" width="363"  /></a>
+<li> <b>フィット</b>ボタンをクリックして、曲線をフィットします。
+</ol>
+<h3><a name="Fitting_Results"></a><span class="mw-headline">フィット結果</span></h3>
+<p>フィット曲線のグラフは次のようになります。
+</p>
+<dl><dt><dl><dd><a  class="image"><img alt="Fit PWL FitCurve 2.png" src="../images/Fitting_with_a_Piecewise_Linear_Function/Fit_PWL_FitCurve_2.png" width="613"  /></a></dt></dl></dd></dl>
+<p>フィットパラメータは以下の通りです。
+</p>
+<table class="simple">
+<tr>
+<th><b>パラメータ</b>
+</th>
+<th><b>値</b>
+</th>
+<th><b>標準誤差</b>
+</th></tr>
+<tr>
+<th><b>x1</b>
+</th>
+<td>0.8
+</td>
+<td>0
+</td></tr>
+<tr>
+<th><b>y1</b>
+</th>
+<td> -0.0271
+</td>
+<td>0.01063
+</td></tr>
+<tr>
+<th><b>x2</b>
+</th>
+<td>60
+</td>
+<td>0
+</td></tr>
+<tr>
+<th><b>y2</b>
+</th>
+<td>0.95585
+</td>
+<td>0.0083
+</td></tr>
+<tr>
+<th><b>x3</b>
+</th>
+<td>22.26316
+</td>
+<td>0.58445
+</td></tr>
+<tr>
+<th><b>y3</b>
+</th>
+<td>0.66106
+</td>
+<td>0.01197
+</td></tr>
+<tr>
+<th><b>a1</b>
+</th>
+<td> -0.05275
+</td>
+<td>0.01123
+</td></tr>
+<tr>
+<th><b>b1</b>
+</th>
+<td>0.03206
+</td>
+<td>8.7153E-4
+</td></tr>
+<tr>
+<th><b>a2</b>
+</th>
+<td>0.48715
+</td>
+<td>0.01664
+</td></tr>
+<tr>
+<th><b>b2</b>
+</th>
+<td>0.00781
+</td>
+<td>3.86455E-4
+</td></tr></table>
+<p>この2つの区分の交点は(22.26316, 0.66106)となります。
+</p><p><b>Note：</b>区分線形関数で2つ以上の区分にフィットする場合も同様の手順で行えます。
+</p>
+
+
+
+    

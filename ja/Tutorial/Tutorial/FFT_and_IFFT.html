@@ -1,0 +1,102 @@
+﻿<h1 class="firstheading">FFT と IFFT</h1>
+<p class="urlname" style="display: none;">FFT-and-IFFT</p>
+<table id="toc" class="toc">
+<tr>
+<td>
+<div id="toctitle">
+<h2>内容</h2>
+</div>
+<ol>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3" style="font-weight: normal;"><a href="#FFT_Gadget" style="font-weight: normal;"><span class="tocnumber" style="font-weight: normal;">3</span> <span class="toctext"><b style="font-weight: normal;">FFT ROIツール</b></span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#FFT" style="font-weight: normal;"><span class="tocnumber" style="font-weight: normal;">4</span> <span style="font-weight: normal;"></span><span class="toctext"><b style="font-weight: normal;">FFT</b></span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#IFFT" style="font-weight: normal;"><span class="tocnumber" style="font-weight: normal;">5</span> <span style="font-weight: normal;"></span><span class="toctext"><b style="font-weight: normal;">IFFT</b></span></a></li>
+</ol>
+</td>
+</tr>
+</table>
+<h2><a name="Summary" id="Summary"></a> <span class="mw-headline">サマリー</span></h2>
+<p>FFT（高速フーリエ変換）は、時間領域の信号を周波数領域に変換します。IFFT（逆FFT）は周波数領域から時間領域に変換します。非周期な信号のFFTは、結果の周波数スペクトルの漏れが起こることがあります。Originは、漏れを軽減するためにいくつかの窓関数をサポートしています。</p>
+<h2><a name="What_You_Will_Learn" id="What_You_Will_Learn"></a> <span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルで以下のことを行います：</p>
+<ol>
+<li>異なる窓関数を使用してFFTを実行する</li>
+<li>スペクトルにより元の信号を修復する</li>
+<li>FFTガジェットを使用してFFTを実行する</li>
+</ol>
+<h2><a name="FFT_Gadget" id="FFT_Gadget"></a> <span class="mw-headline"><b>FFT ROIツール</b></span></h2>
+<p>FFT ROIツールは、信号データのグラフ上に矩形を配置し、その中のデータにFFTを実行するために使用されます。このツールは、データのFFTによる効果を素早く観察するためにとても便利です。</p>
+<p>以下では、1つのデータに対してFFT ROIツールを使用する方法を紹介します。</p>
+<ol>
+<li>新しいワークブックを作成し、<b>&lt;Origin インストールディレクトリ&gt;\Samples\Signal Processing\</b>Chirp Signal.dat をインポートします。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="SP Tutorial FFT 1.png" src="../images/FFT_and_IFFT/SP_Tutorial_FFT_1.png" width="324" height="322" border="0" /></a></dd>
+</dl>
+</li>
+<li>B列を選択し、メニューから<b>作図：線図：折れ線</b>を選択してグラフを作図します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="SP Tutorial FFT 2.png" src="../images/FFT_and_IFFT/SP_Tutorial_FFT_2.png" width="458" height="347" border="0" /></a></dd>
+</dl>
+</li>
+<li>グラフをアクティブにして、<b>ガジェット</b>メニューの<b>FFT ROIツール</b>を選択してダイアログを開きます。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="SP Tutorial FFT 3.png" src="../images/FFT_and_IFFT/SP_Tutorial_FFT_3.png" width="360" height="347" border="0" /></a></dd>
+</dl>
+</li>
+<li>デフォルトのまま、<b>OK</b>ボタンをクリックし、グラフに矩形（ROI）を配置します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="SP Tutorial FFT 4.png" src="../images/FFT_and_IFFT/SP_Tutorial_FFT_4.png" width="458" height="347" border="0" /></a></dd>
+</dl>
+</li>
+<li>選択されたデータにするFFT結果をグラフ化した、<b>FFTPREVIEW</b>グラフが作成されます。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="SP Tutorial FFT 5.png" src="../images/FFT_and_IFFT/SP_Tutorial_FFT_5.png" width="655" height="330" border="0" /></a></dd>
+</dl>
+</li>
+<li>異なる部分を覆うために、データの矩形を左右に移動することが可能です。また、矩形の幅を変更して、カバーするデータポイント数を変えることもできます。ROIを移動したりサイズを変更すると、<b>FFTPREVIEW</b> は更新されます。</li>
+</ol>
+<h2><a name="FFT" id="FFT"></a> <span class="mw-headline"><b>FFT</b></span></h2>
+<p>このサンプルでは、漏れを抑制するために窓関数の変更を行います。</p>
+<ol>
+<li>上のセクションの<b>FFT ROIツール</b>で使用したデータと同じデータを使用します。</li>
+<li>B列を選択して、<b>解析：信号処理：FFT：FFT</b>を選択し、<b>Signal Processing\FFT: fft1</b>ダイアログを開きます。</li>
+<li>ダイアログの<b>自動プレビュー</b>チェックボックスにチェックを付け、右パネルでプレビューできるようにします。<b>ウィンドウ法</b>を<b>Blackman</b>にし、その他の設定はデフォルトのままにします。右パネルで、振幅の鋭くて幅の狭いピークスペクトルがあることがわかります。<b>Blackman</b>ウィンドウは非常によく、漏れを抑制しています。
+<dl>
+<dd><span><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="SP Tutorial FFT 6.png" src="../images/FFT_and_IFFT/SP_Tutorial_FFT_6.png" width="954" height="586" border="0" /></a></span></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">OK</b>ボタンをクリックして、グラフとデータを含む結果を出力します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="SP Tutorial FFT 7.png" src="../images/FFT_and_IFFT/SP_Tutorial_FFT_7.png" width="737" height="396" border="0" /></a></dd>
+</dl>
+</li>
+</ol>
+<h2><a name="IFFT" id="IFFT"></a> <span class="mw-headline"><b>IFFT</b></span></h2>
+<p>このサンプルでは、FFT結果から信号を復元する方法を示します。そのためには、FFTおよびIFFT双方の設定を同じにし、<b>スペクトルタイプ</b>は<b>両側</b>、ウ<b>ィンドウ法</b>は<b>四角形</b>にする必要があります。</p>
+<ol>
+<li>上のFFT結果から始めます。緑の鍵のアイコンをクリックします。<b>パラメータの変更</b>を選択してダイアログを再度開きます。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="SP Tutorial FFT 8.png" src="../images/FFT_and_IFFT/SP_Tutorial_FFT_8.png" width="355" height="287" border="0" /></a></dd>
+</dl>
+</li>
+<li>上述したように、<b>スペクトルタイプ</b>は<b>両側</b>、ウ<b>ィンドウ法</b>は<b>四角形</b>に設定する必要があるので、これらを変更します。
+<dl>
+<dd><span><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="SP Tutorial FFT 9.png" src="../images/FFT_and_IFFT/SP_Tutorial_FFT_9.png" width="954" height="586" border="0" /></a></span></dd>
+</dl>
+</li>
+<li>OKをクリックすると結果が変更されます。</li>
+<li><b style="font-weight: bold;">FFTResultData1</b>を開きます。1列が複素数で、1列は実数、もう1列は虚数であることがわかります。ここでは、複素数データを使用します（実数と虚数データを使用することもできます）。この列を選択して、<b>解析：信号処理：FFT：IFFT</b>を選択し、<b>Signal Processing\FFT: ifft1</b>ダイアログを開きます。（もし、実数と虚数データ列を使用する場合、<b>入力</b>データとして実数データを選択し、<b>虚数</b>として虚数データ列を選択します。）ダイアログの<b>自動プレビュー</b>チェックボックスにチェックを付け、右パネルでプレビューできるようにします。
+<dl>
+<dd><span><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="SP Tutorial FFT 10.png" src="../images/FFT_and_IFFT/SP_Tutorial_FFT_10.png" width="905" height="486" border="0" /></a></span></dd>
+</dl>
+</li>
+<li>デフォルトの設定のまま、<b>OK</b> をクリックします。</li>
+<li>IFFTの結果（ワークシート<b>IFFTResultData1</b>）と元のデータを比べてみましょう。下図のように、2つのデータがほどんど同じであることがわかります。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="SP Tutorial FFT 11.png" src="../images/FFT_and_IFFT/SP_Tutorial_FFT_11.png" width="1000" height="383" border="0" /></a></dd>
+</dl>
+</li>
+</ol>
+
+

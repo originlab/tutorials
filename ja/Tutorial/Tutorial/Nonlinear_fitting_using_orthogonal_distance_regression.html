@@ -1,0 +1,58 @@
+﻿<h1 class="firstheading">直交距離回帰を使用した非線形曲線フィット</h1>
+<p class="urlname" style="display: none;">Nonlinear-fitting-using-orthogonal-regression</p>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> 
+		 <span class="toctext">概要</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Example_and_Steps"><span 
+		 class="tocnumber">3</span> <span class="toctext">サンプルとステップ</span></a></li>
+	</ol>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>指数データに非線形曲線フィットを実行するとき、データに含まれる独立変数と従属変数の両方のエラーを考慮する必要があります。Originでは、直交距離回帰(ODR)を使用して、陽関数でも陰関数でもフィットできます。このチュートリアルでは、Xの誤差とYの誤差のあるデータで組み込み関数と共にODRを使用して非線形曲線フィットを実行します。 
+ </p>
+<p><br />
+</p>
+<p class="version">必要なOriginのバージョン: Origin 9.1 以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>XとYの両方の誤差を含んだデータに直交距離回帰を使用して非線形曲線フィットを行う方法を紹介します。 </p>
+<h2><a name="Example_and_Steps"></a><span class="mw-headline">サンプルとステップ</span></h2>
+<ol>
+	<li>ワークブックを新しく作成します。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Curve 
+	 Fitting</i>サブフォルダにある<i>ODR fitting.dat</i> ファイルを探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。 
+	 </li>
+	<li>ロングネームが<i>XError</i> となっている列を選択し、<b><b>列のXY属性の設定：Xエラーバー</b></b>と操作してXのエラー列にします。 
+	 </li>
+	<li>ロングネームが<i>YError</i>となっている列を選択し、<b><b>列のXY属性の設定：Yエラーバー</b></b>と操作してYのエラー列にします。 
+	 </li>
+	<li>4つの列全てを選択し、<b><b>作図：基本の2Dグラフ：散布図</b></b>と操作してXとYのエラーバー付散布図を作図します。 
+	 </li>
+	<li><b><b>解析：フィット：非線形曲線フィット</b></b>と操作して<b>NLFit</b> ダイアログを開きます。 </li>
+	<li><b><b>関数選択</b></b>項目で、<b><b>カテゴリ</b></b>では<b>Polynomial</b>、<b><b>関数</b></b>では<b>Poly4</b>、<b><b>アルゴリズム</b></b>では<b><b>直交距離回帰</b></b>を選択します。 
+	 <br />
+	<a class="image"><img alt="Tutorial Nonlinear fitting using ORD 01.png" 
+							 src="../images/Nonlinear_fitting_using_orthogonal_distance_regression/Tutorial_Nonlinear_fitting_using_ORD_01.png" 
+							 width="992" border="0" /></a> <br />
+	</li>
+	<li>XとYの誤差列はステップ3と4で設定したため、<b><b>直交距離回帰</b></b>がアルゴリズムで設定されたとき、自動的にこれらの情報がXとYの重みとして換算され、適用されます。<b><b>データ選択</b></b>項目を開き、<b><b>入力データ</b></b>のなかでそれぞれ<b><b>x</b></b>と<b><b>y</b></b>開くと確認できます。 
+	 <a class="image"><img alt="Tutorial Nonlinear fitting using ORD 02.png" 
+							 src="../images/Nonlinear_fitting_using_orthogonal_distance_regression/Tutorial_Nonlinear_fitting_using_ORD_02.png" 
+							 width="851" height="500" border="0" /></a> 
+	 </li>
+	<li><b>フィット</b>ボタンをクリックし、表示される<b>確認メッセージ</b>ダイアログで<b>いいえ</b>のラジオボタンを選択します。フィット結果は以下のようになります。 
+	 <a class="image"><img alt="Tutorial Nonlinear fitting using ORD v03.png" 
+							 src="../images/Nonlinear_fitting_using_orthogonal_distance_regression/Tutorial_Nonlinear_fitting_using_ORD_v03.png" 
+							 width="688" height="486" border="0" /></a> 
+	 </li>
+</ol>
+<p><br />
+<br />
+ODRアルゴリズムの詳細やLevenberg Marquardt (L-M) アルゴリズムの詳細は<a class="external text" 
+													 href="../../UserGuide/UserGuide/Nonlinear_Implicit_Curve_Fitting_(OriginPro_Only).html#Iteration_Algorithm">こちらのページ</a>を参照してください。直交直線回帰を陰関数にフィットしている例としては<a 
+	 class="external text" href="../../UserGuide/UserGuide/Nonlinear_Implicit_Curve_Fitting_(OriginPro_Only).html#Fit_with_the_Implicit_Functions">こちら</a>をご覧ください。 
+ </p>

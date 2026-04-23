@@ -1,0 +1,53 @@
+﻿<h1 class="firstHeading">Gage Linear Bias Analysis</h1>
+<p>This video will cover the Gage Linear Bias Analysis, which includes both Bias, the difference between the Measured Value and the Reference Value, and Linearity, which determines if bias changes across different part sizes. Under linearity, some questions that can come up are: Does bias increase as part size increases? Does the gage measure large parts accurately but underestimate the smaller parts?</p>
+<p>Our example dataset includes 50 observations. A single operator measured 10 parts 5 times. Each part is a different size. The engineering team wants to know if the measurement shows any bias, and if there is a bias, is this bias linear?<br /></p>
+<ul>
+<li>Col(A) is the Part ID. There are ten parts, measured 5 times</li>
+<li>Col(B) is the Reference Value. This is the true value.</li>
+<li>Col(C) is the operator's Measured Value</li>
+<li>Col(D) is Bias or Difference between Measured and Reference Value</li>
+</ul>
+<dl>
+<dd><a class="image"><img alt="Gage Linear Bias Analysis 01.png" src="../images/Gage_Linear_Bias_Analysis/500px-Gage_Linear_Bias_Analysis_01.png" width="500" /></a></dd>
+</dl>
+<h2><a name="Steps" id="Steps"></a><span class="mw-headline">Steps</span></h2>
+<p>Start this tutorial with the app <a class="external text" href="https://www.originlab.com/FileExchange/details.aspx?fid=354" target="_blank"><b>Gage Study</b></a> installed. If you have not installed the app, see <a class="external text" href="https://www.originlab.com/doc/User-Guide/Apps" target="_blank">Apps for Origin</a> to find and install the app.</p>
+<ol>
+<li>Import the sample data file. Look for the app icon <a class="image"><img alt="GageIcon.png" src="../images/Gage_Linear_Bias_Analysis/30px-GageIcon.png" width="30" /></a> in the <b>Apps Gallery</b> window and click it to open the tool. Click the <b>Gage Linear Bias Analysis</b> icon <a class="image"><img alt="Gage Linear Bias Analysis.png" src="../images/Gage_Linear_Bias_Analysis/32px-Gage_Linear_Bias_Analysis.png" width="32" /></a> to open the app dialog.
+<dl>
+<dd><a class="image"><img alt="Gage Linear Bias Analysis 02.png" src="../images/Gage_Linear_Bias_Analysis/Gage_Linear_Bias_Analysis_02.png" width="766" /></a></dd>
+</dl>
+</li>
+<li>In the opened dialog,
+<ul>
+<li>select Col("Part ID") under <b>Part Numbers</b>, Col("Reference Value") under <b>Reference Values</b>, and Col("Measured Value") under <b>Measurement Data</b>.</li>
+<li>The <b>Process Variation</b> is optional. It's best to estimate this using historical data, by taking a sample of part measures, and calculating standard deviation from this sample. The engineering department has stated that they believe process variation is around <i>0.083</i>, which was calculated as 6 * SD.</li>
+<li>The repeatability standard deviation measures the spread of repeated measures for each part. A high standard deviation indicates poor precision in the measuring device. There are two options for calculating the repeatability standard deviation: 1) Sample Range; 2) Sample SD. The first option, Sample Range, will only use two data points, the smallest and largest Measured Value for each part. The operator made five measurements. We will select the second option, <b>Sample standard deviation</b>, since this option uses all data points.
+<dl>
+<dd><a class="image"><img alt="Gage Linear Bias Analysis 03.png" src="../images/Gage_Linear_Bias_Analysis/Gage_Linear_Bias_Analysis_03.png" width="612" /></a></dd>
+</dl>
+</li>
+</ul>
+</li>
+<li>Click OK to generate the result worksheets.<br /></li>
+</ol>
+<p><a class="image"><img alt="Gage Linear Bias Analysis 04.png" src="../images/Gage_Linear_Bias_Analysis/880px-Gage_Linear_Bias_Analysis_04.png" width="880" /></a></p>
+<h2><a name="Analyze_the_Results" id="Analyze_the_Results"></a><span class="mw-headline">Analyze the Results</span></h2>
+<p><a class="image"><img alt="Gage Linear Bias Analysis 05.png" src="../images/Gage_Linear_Bias_Analysis/880px-Gage_Linear_Bias_Analysis_05.png" width="880" /></a></p>
+<p>The first plot shows that there is a linear relationship between the Reference Value and Bias. The blue points are the individual data points. Double click the Report Worksheet to open the Interactive Window. If you hover over any of the blue points, you can see the corresponding row in Sheet 1. The red rectangle is the Average Bias for each part. For the first three parts, the average bias is negative, and for the remaining parts, the average bias is positive. This suggests that:</p>
+<ul>
+<li>As the Reference Value increases, Device Measurement &gt; than the Reference Value</li>
+<li>As the Reference Value decreases, Device Measurement &lt; than the Reference Value</li>
+</ul>
+<p>The Gage Linearity table provides the intercept and slope for the fitted line under the first plot. The coefficient estimate for Slope = 0.01818, suggesting that there is a positive relationship between Reference Value and Bias. The small p-value indicates that slope is significant.</p>
+<p>Model diagnostics are provided in the second table. S estimates the standard deviation around the regression line. A lower S is better. R-squared is a measure of how well the gage’s bias is explained by the Reference Values. The calculated R-square of 0.464 is not very high, which may be due to variation in the bias values.</p>
+<ul>
+<li>Linearity is calculated as Beta1 (coefficient estimate of the slope) * true process variation. Linearity = 0.01818 * 0.083 = 0.00151.</li>
+<li>&#160;%Linearity is calculated as Linearity / Process Variation * 100 = 0.00151/0.083*100 = 1.818. Notice that this is equal to Beta1*100</li>
+</ul>
+<p>The bias values are displayed under the Gage Bias table.</p>
+<p>The first row is the study Average. Rows 2 to 11 are for the individual parts, listed by their Reference Value. The bias for each part is displayed as a red square in plot 1.</p>
+<p>% Bias is Bias as a&#160;% of Process Variation. In the input window, we specified Process Variation = 0.083.&#160;% Bias = Absolute value of Bias / 0.083 * 100 The p-values under the rightmost column are the result of a hypothesis test, where, under the null hypothesis bias = 0, and under the alternative hypothesis bias does not equal zero. When linearity is present, the best approach is to evaluate bias for each part separately.</p>
+<p>We can see that parts with reference value = 24.5, 26, 26.5, 26.75 have significant bias. These rows are highlighted in red. If we look at plot 1, we can see that the red squares for these three parts are furthest from the dotted reference line where bias = 0.</p>
+<p>The second plot shows the&#160;% of Process Variation that comes from Linearity and Bias. The table values that appear in this plot are highlighted in blue.</p>
+<p>If you open the Gage Study app, right click on the&#160;? at the top right, you will be taken to the home page for Origin’s Gage Study app. The algorithms used to generate these measures are available under this link.</p>

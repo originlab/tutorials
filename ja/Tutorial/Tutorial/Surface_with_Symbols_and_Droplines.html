@@ -1,0 +1,126 @@
+﻿<h1 class="firstheading">シンボルと垂直線を持つ曲面図</h1>
+<p class="urlname" style="display: none;">3D-Surface-Symbol-DropLine</p>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> 
+		 <span class="toctext">サマリー</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> 
+		 <span class="toctext">ステップ</span></a> 
+		<ol>
+			<li class="toclevel-2 tocsection-4"><a href="#Create_a_surface_graph_with_symbols_and_droplines"><span 
+			 class="tocnumber">3.1</span> <span class="toctext">シンボルや垂直線を含んだ曲面図を作成する</span></a></li>
+			<li class="toclevel-2 tocsection-5"><a href="#Create_a_surface_with_symbols_and_error_bar"><span 
+			 class="tocnumber">3.2</span> <span class="toctext">シンボルとエラーバーのついた曲面図を作成する</span></a></li>
+		</ol></li>
+	</ol>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>Originはほとんどのグラフで透過機能をサポートしています。 この機能はプロットが重なったところでも、背後のプロットを見えるようにします。 
+ このチュートリアルでは散布図に曲面フィットを追加し、透過率を設定して曲面の背後にあるデータポイントを可視化し、データポイントに垂直線とエラーバーを追加します。 
+ </p>
+<table class="noborder">
+	<tr>
+		<td><a class="image"><img alt="シンボルと垂直線を持つ曲面図" src="../images/Surface_with_Symbols_and_Droplines/400px-Surface_with_symbols_and_droplines_1.png" 
+									 width="644" height="521" border="0" /></a> 
+		 </td>
+		<td><a class="image"><img alt="シンボルと垂直線を持つ曲面図" src="../images/Surface_with_Symbols_and_Droplines/400px-Surface_with_symbols_and_droplines_5.png" 
+									 width="649" height="524" border="0" /></a> 
+		 </td>
+	</tr>
+	<tr>
+		<th>シンボルと垂直線を持つ曲面図 </th>
+		<th>シンボルとエラーバーのついた曲面図 </th>
+	</tr>
+</table>
+<p><br />
+</p>
+<p class="version">必要なOriginのバージョン:8.5SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul>
+	<li>ワークシートのデータから3D散布図を作成し、色塗り曲面図を追加する </li>
+	<li>データポイントに垂直線やエラーバーを表示する</li>
+	<li>曲面の透過率を設定する</li>
+</ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Create_a_surface_graph_with_symbols_and_droplines"></a><span 
+	 class="mw-headline">シンボルや垂直線を含んだ曲面図を作成する</span></h3>
+<p>このチュートリアルは、チュートリアルデータプロジェクト（<i>&lt;Origin EXE フォルダ&gt;\Samples\TutorialData.opj</i>）と関連しています。 
+ </p>
+<ol>
+	<li><b>Tutorial Data.opj</b>を開き、<b>Surface with symbols and droplines</b> 
+	 フォルダを開きます。 </li>
+	<li><i>XYZRandomGauA</i>ワークシートを選択して、アクティブにします。XYZを選択し、メニューから<b>作図：3D：3D散布図</b>と操作して、3D散布図を作成します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="シンボルと垂直線を持つ曲面図" src="../images/Surface_with_Symbols_and_Droplines/400px-Surface_with_symbols_and_droplines_3.png" 
+									 width="644" height="521" border="0" /></a></dd>
+	</dl></li>
+	<li>この3D散布図に3D色塗り曲面図を追加します。 グラフウィンドウの左上にあるレイヤ<b>1</b> アイコンをダブルクリックし、<b>レイヤ内容</b>ダイアログを開きます。 
+	 </li>
+	<li><b>レイヤ内容</b>ダイアログで、左上のメニューから<b>フォルダ内の行列</b>を選択します。 左側パネルで、<b>MBook3</b>を選択し、<b>A</b>の隣にある<b>三角形ボタン</b>をクリックして<b>3D-曲面</b>を選択します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="シンボルと垂直線を持つ曲面図" src="../images/Surface_with_Symbols_and_Droplines/600px-Surface_with_symbols_and_droplines_6v.png" 
+									 width="831" height="306" border="0" /></a></dd>
+		<dd><a class="image"><img alt="Add plot button.png" src="../images/Surface_with_Symbols_and_Droplines/Add_plot_button.png" 
+									 width="24" border="0" /></a>をクリックし、右側パネルに追加します。</dd>
+		<dd><a class="image"><img alt="シンボルと垂直線を持つ曲面図" src="../images/Surface_with_Symbols_and_Droplines/600px-Surface_with_symbols_and_droplines_7v.png" 
+									 width="831" height="306" border="0" /></a></dd>
+	</dl></li>
+	<li><b>OK</b> をクリックして設定を適用し、<b>レイヤ内容</b>ダイアログを閉じます。グラフをダブルクリックして、<b>作図の詳細</b>ダイアログを開きます。 
+	 このダイアログの左のパネルで、全ての項目を開き、<b>オリジナル</b>を選択(または、<b>フォーマット</b>メニューから<b>作図</b>を選択)します。右側パネルの<b><b>シンボル</b></b>タブで、<b><b>サイズ</b></b>を<i><i><i>9</i></i></i>、<b><b>色</b></b>には<b><b>指定色</b></b>からオリーブを選択して<b><b>適用</b></b>をクリックします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Surface with symbols and droplines 4.png" 
+									 src="../images/Surface_with_Symbols_and_Droplines/600px-Surface_with_symbols_and_droplines_4.png" 
+									 width="855" height="745" border="0" /></a></dd>
+	</dl></li>
+	<li>左側パネルで曲面図を選択し、右側パネルで<b><b>塗りつぶし</b></b>タブを開きます。<b><b><b>ひとつずつ塗りつぶす</b></b></b>を<b><b>赤</b></b>に設定します。 
+	 <b><b>透明度</b></b>を<b><b>60</b></b>に設定し、<b><b><b>適用</b></b></b>をクリックします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Surface with symbols and droplines 14.png" 
+									 src="../images/Surface_with_Symbols_and_Droplines/600px-Surface_with_symbols_and_droplines_14.png" 
+									 width="854" height="745" border="0" /></a></dd>
+	</dl></li>
+	<li><b><b>メッシュ</b></b>タブを開き、<b><b><b>線の太さ</b></b></b>を<b><b>1</b></b>にし、<b><b>主線の数の設定</b></b>を<i>X=9</i>と<i>Y=9</i>に設定します。また、<b><b>主線の色</b></b>を<i><i>黒</i></i>に設定し、<b><b>適用</b></b>をクリックします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="シンボルと垂直線を持つ曲面図" src="../images/Surface_with_Symbols_and_Droplines/600px-Surface_with_symbols_and_droplines_13.png" 
+									 width="991" height="745" border="0" /></a></dd>
+	</dl></li>
+	<li>では、垂直線を作図しましょう。左側パネルで、散布図（オリジナル）を再び選択します。右側のパネルで、<b>垂線</b> タブを選びます。<b>Z軸に平行</b>というチェックボックスを選択して、ドロップラインの<b>太さ</b>を<b>2</b>に、<b>Drop 
+	 to</b>を<b>Surface</b>に設定します。 
+	<dl>
+		<dd><a class="image"><img alt="シンボルと垂直線を持つ曲面図" src="../images/Surface_with_Symbols_and_Droplines/600px-Surface_with_symbols_and_droplines_12.png" 
+									 width="762" height="745" border="0" /></a></dd>
+	</dl></li>
+	<li><b>OK</b> をクリックしてダイアログボックスを閉じ、凡例を削除します。最終的なグラフは次のようになります。 
+	<dl>
+		<dd><a class="image"><img alt="シンボルと垂直線を持つ曲面図" src="../images/Surface_with_Symbols_and_Droplines/400px-Surface_with_symbols_and_droplines_1.png" 
+									 width="644" height="521" border="0" /></a></dd>
+	</dl></li>
+</ol>
+<h3><a name="Create_a_surface_with_symbols_and_error_bar"></a><span class="mw-headline">シンボルとエラーバーのついた曲面図を作成する</span></h3>
+<ol>
+	<li>上記のステップ1から8をもう一度行い、<b><b>OK</b></b>を押して散布図付きの3D曲面グラフを作成します。</li>
+	<li>ワークシート&quot;XYZRandomGauA&quot;に新しい列を追加します。 列を選択して、右クリックします。 列値の一律設定のメニューから、一様乱数をクリックします。</li>
+	<li>新しく作成したグラフをダブルクリックして、<b>作図の詳細</b>ダイアログを開きます。 左側パネルのノードを開いて、データプロット（オリジナル）を選択します。 
+	 <b><b>エラーバー</b></b>タブを開き、<b><b>有効にする</b></b>チェックボックスをクリックします。そして、<b><b>エラーデータ</b></b>ドロップダウンメニューから<b>Col(D)</b>を選択します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Surface with symbols and droplines 10.png" 
+									 src="../images/Surface_with_Symbols_and_Droplines/600px-Surface_with_symbols_and_droplines_10.png" 
+									 width="867" height="745" border="0" /></a></dd>
+	</dl></li>
+	<li><b>OK</b> をクリックしてダイアログボックスを閉じ、凡例を削除します。 最終的なグラフは次のようになります。 
+	<dl>
+		<dd><a class="image"><img alt="シンボルと垂直線を持つ曲面図" src="../images/Surface_with_Symbols_and_Droplines/400px-Surface_with_symbols_and_droplines_5.png" 
+									 width="649" height="524" border="0" /></a></dd>
+	</dl></li>
+</ol>

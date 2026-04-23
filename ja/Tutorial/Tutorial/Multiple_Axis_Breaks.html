@@ -1,0 +1,89 @@
+﻿<h1 class="firstheading">複数の軸破断</h1><p class='urlname' style='display: none'>複数の軸破断</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span><span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps_to_Customize_Label_Display_and_Add_Axis_Breaks"><span class="tocnumber">3</span> <span class="toctext">ラベル表示の編集を軸破断の追加の操作</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Steps_to_Add_Recession_Bars"><span class="tocnumber">4</span> <span class="toctext">リセッションバーの追加操作</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#More_Customization_Steps"><span class="tocnumber">5</span> <span class="toctext">グラフの編集</span></a></li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Multiple_Axis_Breaks/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Multiple_Axis_Breaks/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=363" target="_blank">Add Multiple Axis Breaks to show details in one region</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=362" target="_blank">Axis scale after break</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=170" target="_blank">Multiple Axis Reference Line and Recession Bars</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Multiple_Axis_Breaks/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Multiple_Axis_Breaks/Blog_Image_33x33px.png" width="135"  /></a>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>Originは、ひとつの軸に対して複数の軸破断をサポートしています。軸破断の数や位置は<b>軸</b>ダイアログボックスで制御します。さらに、X軸上に複数の参照線を追加してそれらのギャップを埋めることにより、リセッションバー（下図の垂直のバー）を作成することができます。
+</p><p><a  class="image"><img alt="Multiple Axis Breaks 01.png" src="../images/Multiple_Axis_Breaks/Multiple_Axis_Breaks_01.png" width="640"  /></a>
+</p>
+<p class="version" >必要なOriginのバージョン: 2017 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。
+</p>
+<ul><li> X軸とY軸に複数の軸破断追加する</li>
+<li> 軸目盛ラベルフォーマットの編集</li>
+<li> 欠損値領域を垂直に塗りつぶす</li></ul>
+<h2><a name="Steps_to_Customize_Label_Display_and_Add_Axis_Breaks"></a><span class="mw-headline">ラベル表示の編集と軸破断追加の操作</span></h2>
+<p>このチュートリアルは、<i>&lt;Origin EXE Folder&gt;\Samples\Tutorial Data.opj</i>というプロジェクトの<i>Multiple Axis Breaks</i>と関連しています。<br />
+このグラフは<b>ラーニングセンター</b>からも開けます（<i>ヘルプ： ラーニングセンター</i>メニューを選択するか、<b>F11</b> キーを押します）。<b>線＋シンボルグラフ</b>のグラフサンプル表 にリストされています。サムネイルをダブルクリックすると、対象のフォルダが開きます。
+</p>
+<ol>
+<li> ワークブックをアクティブにします。列A、Bを選択してメニューから<b>作図：基本の2Dグラフ：折れ線</b>を選択して、グラフを作成します。凡例を選択し、削除します。
+<li> グラフ軸を編集するために、下軸をクリックし、ミニツールバーの<b>軸ダイアログ</b>ボタンをクリックして、ドロップダウンリストの一番下を選択します。
+<dl><dd><a  class="image"><img alt="Multiple Axis Breaks 01 1.png" src="../images/Multiple_Axis_Breaks/Multiple_Axis_Breaks_01_1.png" width="424"  /></a></dd></dl>
+<li> ダイアログの<b>水平方向</b>の<b>スケール</b>タブで、下図のようにグラフのスケールを設定します。
+<dl><dd><a  class="image"><img alt="Multiple Axis Breaks 04.png" src="../images/Multiple_Axis_Breaks/Multiple_Axis_Breaks_04.png" width="649"  /></a></dd></dl>
+<li> <b>目盛ラベル</b>タブを開き、左側パネルで<b>下軸</b>アイコンを選択します。タイプが日付になっていることを確認してから表示を<i>20</i> (2桁の西暦を意味します)に変更し、ラベル接頭語として<b><b><b>&apos;</b></b></b>を追加します。
+<dl><dd><a  class="image"><img alt="Multiple Axis Breaks 05.png" src="../images/Multiple_Axis_Breaks/Multiple_Axis_Breaks_05.png" width="640"  /></a></dd></dl>
+<li> X 軸にいくつかの軸破断を追加するために、<b><b>軸破断</b></b>タブで<b><b><b>水平</b></b></b>アイコンを選択します。<b><b><b>有効にする</b></b></b>にチェックをつけ、<b>3</b>つの軸破断を設定します。
+<dl><dd><a  class="image"><img alt="Multiple Axis Breaks 07a.png" src="../images/Multiple_Axis_Breaks/Multiple_Axis_Breaks_07a.png" width="640"  /></a></dd></dl>
+<li> <b><b>詳細</b></b>ボタンを押し、<b><b>軸破断の詳細</b></b>ダイアログを開きます。<b><b>破断1</b></b>を選択して<b>1961/12/01</b>から<b>1972/09/01</b>と設定します。
+<dl><dd><a  class="image"><img alt="Multiple Axis Breaks 07c.png" src="../images/Multiple_Axis_Breaks/Multiple_Axis_Breaks_07c.png" width="543"  /></a></dd></dl>
+<li> <b><b>破断2</b></b>を左側パネルから選択し、開始と終了を<b>1977/03/31</b>と<b><b>1980/08/29</b></b>に設定します。<b>破断3</b>を選択し、開始と終了をそれぞれ<b>1984/07/27</b>と<b>2007/03/01</b>に設定します。<b>OK</b>ボタンをクリックして<b>軸破断の詳細</b>を閉じて<b>軸</b>ダイアログに戻ります。<b>適用</b>ボタンをクリックして、変更を表示します。 
+<li>これからY軸の編集を行います。左パネルで<b>目盛ラベル</b>タブを開いてから左パネルの<b>左軸</b>アイコンをクリックします。<b>表示</b>を<b>工学：1K</b>にします。ラベル接頭語として「＄」を入力します。<b>適用</b>をクリックしてグラフを更新します。
+<dl><dd><a  class="image"><img alt="Multiple Axis Breaks 08.png" src="../images/Multiple_Axis_Breaks/Multiple_Axis_Breaks_08.png" width="640"  /></a></dd></dl>
+<li> <b><b>軸破断</b></b>タブを開き左パネルで<b><b>垂直</b></b>を選択します。軸破断の数を2に設定して、ステップ4と6でX軸に行ったように、それぞれのスケールを<b>3.1T</b> から <b>4.5T</b> 、 <b>6.7T</b> から <b>12.5T</b>に設定します。
+<li> <b>OK</b> をクリックして設定を適用し、以下のようなグラフが作図されます。
+<dl><dd><a  class="image"><img alt="Multiple Axis Breaks 01 2.png" src="../images/Multiple_Axis_Breaks/Multiple_Axis_Breaks_01_2.png" width="567"  /></a></dd></dl>
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Multiple_Axis_Breaks/Tip_icon.png" width="57"  border="0" /></td><td><p>軸破断が追加されると、破断上をクリックして開くミニツールバーを使って、破断シンボルの長さや形状、シンボルの間隔といった破断の見た目を変更できます。
+</p>
+<dl><dd><dl><dd><a  class="image"><img alt="Tutorials Multiple Axis Breaks.png" src="../images/Multiple_Axis_Breaks/Tutorials_Multiple_Axis_Breaks.png" width="279"  /></a></dd></dl></dd></dl>
+</td></tr></table>
+<h2><a name="Steps_to_Add_Recession_Bars"></a><span class="mw-headline">リセッションバーの追加操作</span></h2>
+<ol>
+<li> X軸をダブルクリックして、軸ダイアログを開きます。<b>参照線</b>タブで、<b>値の参照線</b>テキストボックスの隣にある、参照ボタン<a  class="image"><img alt="Button Select Data Interactive.png" src="../images/Multiple_Axis_Breaks/Button_Select_Data_Interactive.png" width="18"  /></a>をクリックして、ワークシートからcol(C)を選択します。すべてのリセッション間隔のX軸は、参照線として表にリスト化されます。<b>交互塗りつぶし</b>ボックスにチェックを入れて、各間隔を塗りつぶします。 
+<dl><dd><a  class="image"><img alt="Multiple Axis Breaks 02.png" src="../images/Multiple_Axis_Breaks/Multiple_Axis_Breaks_02.png" width="640"  /></a></dd></dl>
+<li> <b>OK</b>をクリックして、設定を適用します。
+<dl><dd><a  class="image"><img alt="Multiple Axis Breaks 01 3.png" src="../images/Multiple_Axis_Breaks/Multiple_Axis_Breaks_01_3.png" width="580"  /></a></dd></dl>
+</ol>
+<p><br />
+</p>
+<h2><a name="More_Customization_Steps"></a><span class="mw-headline">グラフの編集</span></h2>
+<p>以下の編集操作により、<b>サマリー</b>で表示されている画像のグラフと同じようにグラフを編集します。
+</p>
+<ol>
+<li> グラフのX 軸タイトル<b>Date</b>上でダブルクリックして、名称を<b>Year</b>に変更します。 
+<li> Y 軸範囲を編集するために、左軸をクリックし、ミニツールバーの<b>軸ダイアログ</b>ボタンをクリックして、ドロップダウンリストの一番下を選択します。<b>スケール</b>タブで<b>垂直方向</b>アイコンを選択した状態で、開始と終了、主目盛、副目盛を設定します。
+<dl><dd><a  class="image"><img alt="Multiple Axis Breaks 09.png" src="../images/Multiple_Axis_Breaks/Multiple_Axis_Breaks_09.png" width="640"  /></a></dd></dl>
+<li> 再び、<b><b>軸破断</b></b>タブを開きます。最初の破断を選択した状態で<b><b>詳細</b></b>ボタンをクリックし、<b><b>破断1</b></b>が選択された<b><b>軸破断の詳細</b></b>ダイアログを開きます。位置（軸長さの％）オプションの隣にある<b>自動</b>のチェックをはずし、<b><b>38</b></b>％に変更します。<b><b>自動スケール</b></b>のチェックを外して目盛りの設定を以下のようにします。
+<dl><dd><a  class="image"><img alt="Multiple Axis Breaks 10b.png" src="../images/Multiple_Axis_Breaks/Multiple_Axis_Breaks_10b.png" width="426"  /></a></dd></dl>
+<li><b><b>軸破断2</b></b>を選択して、位置、主目盛の値、副目盛のカウントを以下のように設定します。 
+<dl><dd><a  class="image"><img alt="Multiple Axis Breaks 10c.png" src="../images/Multiple_Axis_Breaks/Multiple_Axis_Breaks_10c.png" width="543"  /></a></dd></dl>
+<li> <b>OK</b> をクリックして設定を適用し、<b><b>軸破断の詳細</b></b>ダイアログを閉じます。<b>軸</b>ダイアログで<b>適用</b>をクリックして、設定内容を適用します。
+<li> <b>グリッド線</b>タブを開きます。左側のパネルで<b>垂直</b>と<b>水平</b>アイコンの両方を選び、<b>反対</b>をチェックして上軸と右軸を表示します。
+<li> グラフ内の空白部分で、右クリックして、コンテキストメニューから<b>レイヤタイトルを追加/変更</b>を選択します。タイトルとして、<i>US Recessions and Recoveries</i>を入力します。
+<li> <b>作図の詳細</b>ダイアログでグラフページ領域を調整します。
+<dl><dd><a  class="image"><img alt="Multiple Axis Breaks 12.png" src="../images/Multiple_Axis_Breaks/Multiple_Axis_Breaks_12.png" width="425"  /></a></dd></dl>
+</ol>
+
+
+    

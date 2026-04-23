@@ -1,0 +1,67 @@
+﻿<h1 class="firstheading">Originに新しいOrigin C関数を追加する</h1>
+<a name="Summary" id="Summary"></a>
+<h2><span class="mw-headline">サマリー</span></h2>
+<p>Origin Cで書かれた関数は、スクリプトウィンドウなどのOriginインターフェースからアクセスできます。関数は、void型 (前のチュートリアル), double型, string型, doubleまたはstringのvector型のいずれかを返します。Originから関数に渡される変数は、double型、string型、これらのデータ型のvector型です。この条件に合っていない関数はOriginインターフェースから呼び出すことはできませんが、他のOrigin C関数から呼び出すことができます。int型の変数を受付けたり、返すことができるOrigin C関数をOriginインターフェースから呼び出すことができますが、インターフェースはdouble型のみをサポートしているため、これはデータの切り詰めが行われます。</p>
+<p>このチュートリアルでは、算術関数で計算した結果を返す関数を作成する方法を紹介します。最初に、Originにdouble型の値を返す関数を作成し、そして、double型のvector変数を返す関数を作成します。</p>
+<p class="version">必要なOriginのバージョン:Origin 8.0 SR0</p>
+<a name="What_you_will_learn" id="What_you_will_learn"></a>
+<h2><span class="mw-headline">学習する項目</span></h2>
+<p>新しい関数を追加して、スクリプトウィンドウでこの関数を実行する方法</p>
+<a name="Steps" id="Steps"></a>
+<h2><span class="mw-headline">ステップ</span></h2>
+<ol>
+<li><b style="font-weight: bold;">コードビルダ</b>で新しいOriginCファイルを作成します。</li>
+<li>次のコードを入力します。</li>
+</ol>
+<pre class="oc">
+<span style="color: #0000ff;">double</span> myfunc1<span style="color: #000000;">(</span><span style="color: #0000ff;">double</span> x, <span style="color: #0000ff;">double</span> a<span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+         <span style="color: #0000ff;">return</span> <span style="color: #000000;">sin</span><span style="color: #000000;">(</span> a <span style="color: #000040;">*</span> x <span style="color: #000000;">)</span>;        <span style="color: #000000;">
+}</span>
+</pre>
+<ol start="3">
+<li><b style="font-weight: bold;">ビルド</b>ボタン<a><img alt="Image:Button_Build.png" src="../images/Adding_New_Origin_C_Functions_to_Origin/Button_Build.png" width="23" height="22" border="0" /></a> をクリックして関数をコンパイルします。</li>
+</ol>
+<p>この関数はOriginインターフェイス、例えばスクリプトウィンドウ等から呼び出すことができます。</p>
+<ol start="4">
+<li>スクリプトウィンドウを開き、以下の行を入力して各行を入力した後に<b>ENTER</b>を押します。</li>
+</ol>
+<pre>
+y = myfunc1(2, 3)
+y =
+</pre>
+<p>特定の値ではなく、ワークシートのセルを指定する事もできます。</p>
+<ol start="5">
+<li>ワークシートをアクティブにして列A1行目にある数字を入力します。そして、次の内容をスクリプトウィンドウに入力して<b>ENTER</b>を押します。</li>
+</ol>
+<pre>
+col(B)[1] = myfunc1(col(A)[1], 3)
+</pre>
+<p>myfunc1のような関数は、Double型の変数を受け取って返してきます。また、ベクター演算も可能です。</p>
+<ol start="6">
+<li>列Aの1行目から10行目までに数字を入力し、次の行をスクリプトウィンドウに入力します。</li>
+</ol>
+<pre>
+col(B) = myfunc1(col(A), 3)
+</pre>
+<p>上記例ではOriginはmyfunc1を列Aの各行に対して呼び出しています。上記のようにベクター演算を行うには、Vectorデータを受け取って返す関数を作成した方がより効率的です。</p>
+<ol start="7">
+<li>コードビルダに戻り、同じファイル内に次の関数を入力し、<b>ビルド</b>ボタン<a><img alt="Image:Button_Build.png" src="../images/Adding_New_Origin_C_Functions_to_Origin/Button_Build.png" width="23" height="22" border="0" /></a>をおして関数をコンパイルします。 &#160;</li>
+</ol>
+<pre class="oc">
+vector<span style="color: #000080;">&lt;</span><span style="color: #0000ff;">double</span><span style="color: #000080;">&gt;</span> myfunc2<span style="color: #000000;">(</span>vector<span style="color: #000080;">&lt;</span><span style="color: #0000ff;">double</span><span style="color: #000080;">&gt;</span> vecIn, <span style="color: #0000ff;">double</span> a<span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>  
+       vector<span style="color: #000080;">&lt;</span><span style="color: #0000ff;">double</span><span style="color: #000080;">&gt;</span> vecOut;
+       vecOut <span style="color: #000080;">=</span> <span style="color: #000000;">sin</span><span style="color: #000000;">(</span> a <span style="color: #000040;">*</span> vecIn <span style="color: #000000;">)</span>;
+       <span style="color: #0000ff;">return</span> vecOut;<span style="color: #000000;">
+}</span>
+</pre>
+<ol start="8">
+<li>Originのインターフェイスに戻り、列Aに別の数字を入力してから、次の内容をスクリプトウィンドウに入力します。</li>
+</ol>
+<pre>
+col(B) = myfunc2(col(A), 3)
+</pre>
+<p>myfunc2関数は1度だけ呼び出されて全列の計算を算出しました。</p>
+<p>このような関数は、例えば「列値の設定」ダイアログなどで利用できます。「列値の設定」の自動更新機能はダイアログ内で対応するチェックボックスにチェックを付けると適用されます。OriginC関数がコンパイルされると、Originから呼び出すことができ、元データの列を変更すると結果の列の値も変更されます。</p>
+<p><br /></p>

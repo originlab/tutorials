@@ -1,0 +1,108 @@
+﻿<h1 class="firstheading">交差した曲面図の作成</h1>
+<p class="urlname" style="display: none;">3D-Surface-Intersect-VM</p>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> 
+		 <span class="toctext">サマリー</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> 
+		 <span class="toctext">ステップ</span></a> 
+		<ol>
+			<li class="toclevel-2 tocsection-4"><a href="#Create_Surface_Plots_from_Virtual_Matrix_Data"><span 
+			 class="tocnumber">3.1</span> <span class="toctext">仮想行列から曲面図を作成する</span></a></li>
+			<li class="toclevel-2 tocsection-5"><a href="#Add_Another_Surface_Plot_to_Layer"><span 
+			 class="tocnumber">3.2</span> <span class="toctext">レイヤ内の他の曲面図を追加する</span></a></li>
+			<li class="toclevel-2 tocsection-6"><a href="#Set_Surface_Transparency"><span 
+			 class="tocnumber">3.3</span> <span class="toctext">透過率を設定する</span></a></li>
+		</ol></li>
+	</ol>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>3D曲面図、3D棒グラフ、等高線図などの多くのグラフは、行列オブジェクトに含まれるデータまたは、ワークシートのセルブロックに配置されたデータから作成することができます。ワークシートに配置されたデータは、<b>仮想行列</b>として参照されます。標準的な行列オブジェクトは、線形にマッピングされたXY座標のみをサポートしていますが、仮想行列は非線形のマッピングもサポートしています。このチュートリアルでは、仮想行列のデータから交差したカラーマップ曲面図を作成する方法を示します。 
+ </p>
+<p class="version">必要なOriginのバージョン: Origin 2015 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します: </p>
+<ul>
+	<li>仮想行列データを使ってカラーマップ曲面図を作成する</li>
+	<li>グラフにもう一つの曲面図を追加し、交差した曲面図を作成する</li>
+	<li>透過率を設定する</li>
+</ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Create_Surface_Plots_from_Virtual_Matrix_Data"></a><span class="mw-headline">仮想行列から曲面図を作成する</span></h3>
+<p>このセクションでは、ワークシート上のデータから曲面図を作成する方法を紹介します。 </p>
+<ol>
+	<li>新しいプロジェクトを開始します。 </li>
+	<li>標準ツールバーの<b>複数ASCIIのインポート</b>ボタン <a class="image"><img alt="Button Import Multiple ASCII.png" 
+	 src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Button_Import_Multiple_ASCII.png" 
+	 width="23" border="0" /></a> をクリックします。</li>
+	<li>ボタンをクリックすると開くダイアログで、<i>\Samples\Graphing</i>フォルダを開き、Ctrlキーを押しながら<i>VSurface 
+	 1.dat</i> と <i>VSurface 2.dat</i>を選択し、<b>ファイルの追加</b>ボタンをクリックします。 </li>
+	<li><b>オプションダイアログを表示する</b>チェックボックスにチェックを付けます。 <br />
+	<a class="image"><img alt="Import 2 data.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Import_2_data.png" 
+							 width="688" height="585" border="0" /></a><br />
+	</li>
+	<li><b>OK</b>ボタンをクリックします。</li>
+	<li><b>impASC</b> ダイアログで、下図のように設定し、1つのワークブックに、2つのデータ<b>VSurface1</b> 
+	 と <b>VSurface2</b> がそれぞれ別のシートとしてインポートされます。<br />
+	<a class="image"><img alt="Import data 2.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Import_2_data_2.png" 
+							 width="696" height="786" border="0" /></a></li>
+	<li><b>OK</b> をクリックして、これら2つのデータファイルをインポートします。 <br />
+	<a class="image"><img alt="Import data 3.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Import_2_data_3.png" 
+							 width="483" height="330" border="0" /></a><br />
+	データは、一番上の行にX座標値、一番左にある列にY座標値が入っています。X座標は、非線形の間隔であることに注意してください。</li>
+	<li>&quot;VSurface 1&quot; シートをアクティブにしてワークシートの左上角にカーソルを移動し、斜めを向いた黒い矢印を表示させます。クリックしてワークシート全体を選択します。 
+	 . </li>
+	<li><b>作図：3D：3Dカラーマップ曲面</b>と選択して、<b>plotvm</b>ダイアログを開きます。 </li>
+	<dl>
+		<dd><b>Note</b>：このダイアログは、仮想行列を選択して、3Dまたは等高線の作図メニューを選ぶと開きます。このダイアログでXやYデータがワークシートのどの部分に入力されているかを定義します。 
+		 </dd>
+	</dl>
+	<li>このダイアログで、次の図のように設定を編集してください。<br />
+	<a class="image"><img alt="Plot gindexed dialog box.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Plot_vm_dialog_box.png" 
+							 width="475" height="429" border="0" /></a><br />
+	</li>
+	<li><b>OK</b>ボタンをクリックして仮想行列を使用してカラーマップ曲面図を作図します。<br />
+	<a class="image"><img alt="Colormap surface 1.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Colormap_surface_1.png" 
+							 width="495" height="405" border="0" /></a></li>
+	<li>ワークシートVSurface 2に対しても同様に最後のステップを実行して、別のカラーマップ曲面図を作成します。今回は<b>plotvm</b>ダイアログに、Zタイトルとして<b>VSurface 
+	 2</b>と入力します。<br />
+	<a class="image"><img alt="Wire Surface 2.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Colormap_surface_2.png" 
+							 width="501" height="409" border="0" /></a> 
+	 </li>
+</ol>
+<h3><a name="Add_Another_Surface_Plot_to_Layer"></a><span class="mw-headline">レイヤ内の他の曲面図を追加する</span></h3>
+<p>このセクションでは、曲面図が既に含まれているグラフレイヤに別の曲面図を追加する方法を示します。 </p>
+<ol>
+	<li>グラフ1をアクティブにし、グラフの左上の角にあるレイヤ1アイコン<a class="image"><img alt="Button Layer Icon 1st.png" 
+	 src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Layer_Icon_1st.png" 
+	 width="19" border="0" /></a>を右クリックして、コンテキストメニューから<b>レイヤの内容</b>を選択します。 
+	 </li>
+	<li><b>レイヤ内容</b>ダイアログが開きます。選択可能なデータリストパネル(左側パネル)で<b>VSurface2</b>を選択し、レイヤ内容のボックス(右側パネル)に中央部分の右向き矢印を使用して追加します（その下の左向き矢印はレイヤから選択したデータを取り除くのに使用します）。 
+	 <br />
+	<a class="image"><img alt="Add vm2 to graph1 v.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Add_vm2_to_graph1_v.png" 
+							 width="827" height="220" border="0" /></a></li>
+	<li><b>OK</b>をクリックして2つ目の曲面を1つ目に追加します。グラフは次のようになります。<br />
+	<a class="image"><img alt="Wire Surface 3.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Colormap_surface_3.png" 
+							 width="495" height="405" border="0" /></a><br />
+	Originは、適切な位置で交差する曲面図を表示します。 </li>
+</ol>
+<p><br />
+</p>
+<h3><a name="Set_Surface_Transparency"></a><span class="mw-headline">透過率を設定する</span></h3>
+<p>最後に、2番目の曲面図の透過率を設定し、最初のプロットの重なった部分が見えるようにします。 </p>
+<ol>
+	<li>2つ目の曲面上でダブルクリックして、<b>作図の詳細（プロット属性）</b>ダイアログを開きます。</li>
+	<li><b>面</b>タブで<b>透明度</b>のスライドを40%まで移動し、<b>適用</b>をクリックしてから<b>OK</b>をクリックします。<br />
+	<a class="image"><img alt="Set transparency.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Set_transparency.png" 
+							 width="599" height="349" border="0" /></a><br />
+	<br />
+	完成したグラフは下図のようになります。<br />
+	<a class="image"><img alt="Transparent graph.png" src="../images/Creating_Intersecting_Surface_Plots_from_Worksheets/Transparent_graph.png" 
+							 width="540" height="439" border="0" /></a> 
+	 </li>
+</ol>

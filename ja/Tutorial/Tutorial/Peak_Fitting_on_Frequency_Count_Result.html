@@ -1,0 +1,74 @@
+﻿<h1 class="firstheading">確率密度関数と累積分布関数による分布フィット</h1>
+<p><br /></p>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>目次</h2>
+</div>
+<ol>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">サンプルとステップ</span></a>
+<ol>
+<li class="toclevel-2 tocsection-4"><a href="#Generating_Normally_Distributed_Data_for_Fitting"><span class="tocnumber">3.1</span> <span class="toctext">フィットによる一般的なデータ分布の作成</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Fitting_with_Probability_Density_Function_.28PDF.29"><span class="tocnumber">3.2</span> <span class="toctext">確率密度関数によるフィット(PDF)</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Fitting_with_Cumulative_Distribution_Function_.28CDF.29"><span class="tocnumber">3.3</span> <span class="toctext">累積分布関数によるフィット(CDF)</span></a></li>
+</ol>
+</li>
+</ol>
+</div>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>データの<a href="../../Tutorial/Tutorial/Distribution_Fit.html" title="チュートリアル：分布フィット">統計検定を行うと</a>、サンプル分布のスケールや位置を知る事ができます。また、確率密度関数を使ってビン化したデータをフィットすると、これらの値を入手できます。このチュートリアルはこれらのパラメータを曲線フィットからどのように推定するか示します。</p>
+<p class="version">必要なOriginのバージョン: Origin 2016 SR6以降</p>
+<h2><a name="What_you_will_learn" id="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul>
+<li>フィットによる一般的なデータ分布の作成</li>
+<li>確率密度関数によるフィット(PDF)</li>
+<li>累積分布関数によるフィット(CDF)</li>
+</ul>
+<h2><a name="Example_and_Steps" id="Example_and_Steps"></a><span class="mw-headline">サンプルとステップ</span></h2>
+<h3><a name="Generating_Normally_Distributed_Data_for_Fitting" id="Generating_Normally_Distributed_Data_for_Fitting"></a><span class="mw-headline">フィットによる一般的なデータ分布の作成</span></h3>
+<ol>
+<li>以下のスクリプトを実行し、サンプルデータセットを準備してください。
+<pre class="lt" style="font-family: monospace;">
+newbook;
+col<span style="color: #000000;">(</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span> <span style="color: #000080;">=</span> normal<span style="color: #000000;">(</span><span style="color: #0000dd;">1000</span><span style="color: #000000;">)</span> <span style="color: #000080;">*</span> <span style="color: #0000dd;">2</span> <span style="color: #000080;">+</span> <span style="color: #0000dd;">5</span>;
+        
+</pre>
+このスクリプトは、平均がおおよそ5になり標準偏差(σ)がおおよそ２になる、一様に分布した1000ポイントを生成します。</li>
+<li>まず、簡単な記述統計をこの列で行い、対応する<i>モーメント</i>の出力を確認しましょう。<br />
+<br />
+データ列を選択し、<b>統計：</b> <b>記述統計：</b> <b>列の統計</b>を選びダイアログを開きます。<b>値</b> タブを開き、モーメント欄の<b>平均</b>と<b>標準偏差</b>のチェックボックスが選択されていることを確認します。<b>OK</b> をクリックして、レポートを作成します。<br />
+<br />
+<a class="image"><img alt="Fitting on Frequency Count Stats Result.png" src="../images/Peak_Fitting_on_Frequency_Count_Result/250px-Fitting_on_Frequency_Count_Stats_Result.png" width="315" height="178" border="0" /></a><br />
+レポートワークシートから、平均 と 標準偏差 がセットした値にとても近いことが分かります。</li>
+</ol>
+<h3><a name="Fitting_with_Probability_Density_Function_.28PDF.29" id="Fitting_with_Probability_Density_Function_.28PDF.29"></a><span class="mw-headline">確率密度関数によるフィット(PDF)</span></h3>
+<ol>
+<li>PDFでデータをフィットするには、ビンのデータを<b>度数カウント</b> ツールにて計算する必要があります。ソースデータの列を選択し、<b>統計：</b> <b>記述統計：</b> <b>度数表</b>をメニューから選びます。このダイアログでは、設定したビンサイズの区間ごとにいくつのデータが含まれるかを数える事ができます。
+<ul>
+<li><b style="font-weight: bold;">計算制御</b>ブランチを開き、<b>増分</b>のグループで<b>ビンサイズ</b>ののラジオボタンが選択されている事を確認してください。<b>ビンサイズ</b>を<i>0.5</i>に設定します。(<b>自動</b>のチェックは外します)</li>
+<li>計算する値ブランチの下にある<b>ビンの中心</b> と<b>度数（カウント）</b>チェックボックスが選択されている事を確認します。<b>OK</b> をクリックしてデータを数えます。</li>
+</ul>
+</li>
+<li>FreqCounts1のワークシートにある<i>カウント</i> 列をを選択し、<b>作図：棒グラフ：棒グラフ</b> を選択して棒グラフを作成します。元データのヒストグラムが作成されます。</li>
+<li>グラフをアクティブにして、<b>解析：フィット：非線形曲線フィット</b>と操作を行い、<b>NLFit</b>ダイアログを開きます。そして<b>Origin Basic Function</b> カテゴリから <i><b>Gauss</b></i> 関数を選びます。他の設定はデフォルトのままで、<b>フィット</b>ボタンをクリックしてフィットレポートを出力します。<br />
+<a class="image"><img alt="Fitting on Frequency Count Fit Result.png" src="../images/Peak_Fitting_on_Frequency_Count_Result/Fitting_on_Frequency_Count_Fit_Result.png" width="341" height="232" border="0" /></a><br />
+<br />
+フィットレポートから、フィットした<i>xc</i> および <i>sigma</i> が <i>5</i> および <i>2</i>に近いことが分かります。</li>
+</ol>
+<h3><a name="Fitting_with_Cumulative_Distribution_Function_.28CDF.29" id="Fitting_with_Cumulative_Distribution_Function_.28CDF.29"></a><span class="mw-headline">累積分布関数によるフィット(CDF)</span></h3>
+<ol>
+<li>CDFでデータをフィットするには、累積ビンデータから始めます。前セクションの<b>FreqCounts1</b> シートのD列、累積カウントを選択します<i>累積カウント</i>列をハイライトします。メニューの<b>作図&gt;2次元：散布図：散布図</b>を選択してCDFのポイントを作図します。</li>
+<li>グラフをアクティブにして、<b>解析：フィット：非線形曲線フィット</b>と操作を行い、<b>NLFit</b>ダイアログを開きます。そして<b>Origin Basic Function</b> カテゴリから <i><b>Gauss</b></i> 関数を選びます。他の設定はデフォルトのままで、<b>フィット</b>ボタンをクリックしてフィットレポートを出力します。<br />
+<a class="image"><img alt="Fitting on Frequency Count Fit Result 2.png" src="../images/Peak_Fitting_on_Frequency_Count_Result/Fitting_on_Frequency_Count_Fit_Result_2.png" width="400" height="88" border="0" /></a><br />
+<br />
+フィットレポートから、フィットした<i>xc</i> および <i>sigma</i> が <i>5</i> および <i>2</i>に近いことが分かります。</li>
+</ol>
+<table class="noborder">
+<tr>
+<td style="vertical-align: top;" width="60"><img src="../images/Peak_Fitting_on_Frequency_Count_Result/Tip_icon.png" alt="" width="57" border="0" /></td>
+<td>
+<p><b style="font-weight: bold;">度数カウント</b> ツールでビンデータを取得したあとは、ビンデータを、ユーザ定義の確率密度関数または累積度数関数にてフィットすることが出来ます。<a href="../../Tutorial/Tutorial/Nonlinear_Curve_Fit_Tool.html#Define_and_fit_with_a_user-defined_function" title="チュートリアル：非線形曲線フィット">ユーザ定義関数の指定とフィットについてはこちらのページを参照してください</a></p>
+</td>
+</tr>
+</table>

@@ -1,0 +1,153 @@
+﻿<h1 class="firstheading">グラフの統合と整列</h1><p class='urlname' style='display: none'>Customize-Merge-Arrange-Graph</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span><span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Aligning_Layers_using_the_Object_Edit_Toolbar"><span class="tocnumber">3</span> <span class="toctext">オブジェクト操作ツールバーを使用してレイヤを整列する</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Displaying_Opposite_Axes_with_a_Nonlinear_Formula"><span class="tocnumber">4</span> <span class="toctext">非線形の数式を使用して反対の軸を表示する</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Using_Layer_Management_to_Link_and_Position_Layers"><span class="tocnumber">5</span> <span class="toctext">レイヤ管理を使用して、レイヤのリンクや位置を設定する</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Merge_Multiple_Graphs"><span class="tocnumber">6</span> <span class="toctext">複数グラフを統合する</span></a></li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Merging_and_Arranging_Graphs/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Merging_and_Arranging_Graphs/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=57" target="_blank">Link Graph Layers</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=372" target="_blank">Align legend, multi-line text, layer &amp; text</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=166" target="_blank">Merge Graphs</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=346" target="_blank">Merge 2D and 3D Graphs into one Window</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=316" target="_blank">Merge Graphs in Specified Order and Label Them</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Merging_and_Arranging_Graphs/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Merging_and_Arranging_Graphs/Blog_Image_33x33px.png" width="135"  /></a>
+<ul><li> <a class="external text" href="http://blog.originlab.com/make-stacked-graph-with-same-axis-unit-length" target="_blank">Make Stacked Graph with Same Axis Unit Length</a></li>
+<li> <a class="external text" href="http://blog.originlab.com/plot-multi-panel-graphs-by-group" target="_blank">Plot Multi-Panel Graphs by Group</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p><b>グラフウィンドウの統合</b>ダイアログは、プロジェクト内のグラフから組み合わせたいグラフを選択することができます。新しいページでどのように個々のグラフを配置したいのかを指定するオプションがあります。 
+</p><p>「<b>オブジェクト編集</b>」ツールバーを使えば、複数レイヤを素早く整列したり、サイズ変更することができます。
+</p><p><b>レイヤ管理</b>ダイアログは、1つのグラフページでレイヤを追加、整列、リンクを行います。
+</p><p><b>ミニツールバー</b>（Origin 2020からの機能）を使うと、簡単かつ直感的にグラフ要素の編集が可能です。
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。
+</p>
+<ul><li>レイヤのサイズ変更と整列を素早く行う</li>
+<li>主要な軸と非線形な関係を持つ2番目の軸を追加する</li>
+<li>レイヤ管理を使って、複雑なレイヤ位置とリンクを設定する</li>
+<li>複数のグラフを1つのグラフに統合する</li></ul>
+<h2><a name="Aligning_Layers_using_the_Object_Edit_Toolbar"></a><span class="mw-headline">オブジェクト操作ツールバーを使用してレイヤを整列する</span></h2>
+<ol>
+<li>「<b>ファイル：開く</b>」を選択し、プロジェクトファイル <b>\<i>Samples</i>\<i>Graphing</i>\<i>Layer Management.opj</i></b> を開き、サブフォルダ<i>Arranging Layers</i>を開きます。（サブフォルダが見当たらない場合、<b>表示：プロジェクト・エクスプローラ</b>を選択してOriginのプロジェクトエクスプローラウィンドウを開きます）
+</li>
+<li><b>オブジェクト操作</b>ツールバーを使用してグラフを編集するので、このツールバーが開いてることを確認します。ない場合は、<b>表示：ツールバー</b>メニューを選択し、ダイアログからこのツールバーを表示します。<br />
+<a  class="image"><img alt="Tutorial81 Merging and Arranging Graphs Object Toolbar.png" src="../images/Merging_and_Arranging_Graphs/Tutorial81_Merging_and_Arranging_Graphs_Object_Toolbar.png" width="365"  /></a>
+</li>
+<li>グラフ上で、<b>Shift</b>キーを押しながら、4つのレイヤすべてをクリックして、グループとして選択します。<b>オブジェクト操作</b>ツールバーの<b>同じ幅</b>ボタン <a  class="image"><img alt="Button Uniform Width.png" src="../images/Merging_and_Arranging_Graphs/Button_Uniform_Width.png" width="23"  /></a> と<b>同じ高さ</b>ボタン <a  class="image"><img alt="Button Uniform Height.png" src="../images/Merging_and_Arranging_Graphs/Button_Uniform_Height.png" width="23"  /></a> をクリックして、レイヤを同じ高さと同じ幅にします。レイヤ内の白い個所をクリックし、全てのグラフレイヤの選択を外します。
+</li>
+<li>下の2つのレイヤをShiftキーを押しながらクリックして選択し、オブジェクト操作ツールバーの<b>下揃え</b> <a  class="image"><img alt="Button Bottom.png" src="../images/Merging_and_Arranging_Graphs/Button_Bottom.png" width="23"  /></a> ボタンをクリックして、それらを整列させます。レイヤ内の白い個所をクリックし、全てのグラフレイヤの選択を外します。
+<li>上の2つのレイヤをShiftキーを押しながらクリックして選択し、<b>上揃え</b> <a  class="image"><img alt="Button Top.png" src="../images/Merging_and_Arranging_Graphs/Button_Top.png" width="23"  /></a> ボタンをクリックして揃えます。レイヤ内の白い個所をクリックし、全てのグラフレイヤの選択を外します。
+</li>
+<li>同様に、左側の2つのレイヤをクリックして選択し、<b>左揃え</b><a  class="image"><img alt="Button Left.png" src="../images/Merging_and_Arranging_Graphs/Button_Left.png" width="23"  /></a>ボタン をクリックし、レイヤ内の白い個所をクリックし、全てのグラフレイヤの選択を外します。
+<li>右側の2つのレイヤに対しても<b>右揃え</b><a  class="image"><img alt="Button Right.png" src="../images/Merging_and_Arranging_Graphs/Button_Right.png" width="23"  /></a>ボタンを押し、揃えます。
+</li>
+<li>後のレイヤ管理の説明で、同じプロジェクトを使用するので、ここでは変更をプロジェクトに保存しないでください。</li>
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Merging_and_Arranging_Graphs/Tip_icon.png" width="57"  border="0" /></td><td><p>オブジェクト操作ツールバーを使えば、複数のレイヤの整列や大きさを素早く調整することができます。最初に選択したレイヤは参照レイヤとなり、他のすべてのレイヤは、その参照レイヤに従って調整されます。  <b>レイヤ管理</b>ツールは、レイヤの大きさや整列だけでなく、レイヤのリンクや並び替えのような多くのオプションがあります。
+</p></td></tr></table>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Merging_and_Arranging_Graphs/Tip_icon.png" width="57"  border="0" /></td><td><p>複数レイヤグラフでレイヤを選択するもう1つの方法は、CtrlキーまたはShiftキーを押しながらグラフレイヤアイコンをクリックすることです。
+</p></td></tr></table>
+<h2><a name="Displaying_Opposite_Axes_with_a_Nonlinear_Formula"></a><span class="mw-headline">非線形の数式を使って逆の軸を表示する</span></h2>
+<p>Originの２DグラフはX・Y軸のセットで描かれています。それぞれXとY軸で逆の軸を表示することができます。さらにその逆の軸は元の軸に関してユーザ定義された非線形の数式を使用し目盛りを設定することもできます。
+</p>
+<ol>
+<li>プロジェクトエクスプローラウィンドウで、<b>Nonlinear Axis</b>というサブフォルダを開きます。
+</li>
+<li>グラフウィンドウをアクティブにして、下X軸上でクリックし、ミニツールバーを開きます。反対側の軸を表示ボタンをクリックして、上X軸を表示します。<br /> 
+<a  class="image"><img alt="Merging and Arranging Graphs b1.png" src="../images/Merging_and_Arranging_Graphs/Merging_and_Arranging_Graphs_b1.png" width="515"  /></a></li>
+<li>レイヤに上X軸が表示されます。この軸上でクリックしてミニツールバーを開き、<b>目盛ラベルを表示</b>ボタンをクリックして軸ラベルを表示し、<b>目盛のスタイル</b>ボタンをクリックして<b>内側</b>にします。
+<br /> 
+<a  class="image"><img alt="Merging and Arranging Graphs b2.png" src="../images/Merging_and_Arranging_Graphs/Merging_and_Arranging_Graphs_b2.png" width="613"  /></a></li>
+<li>軸ラベル上でダブルクリックして、<b>軸</b>ダイアログの<b>目盛ラベル</b>タブを開きます。上軸のラベルを、wavelength(下X軸) と energy(上X軸)の関係が、Energy (eV) = 1240/Wavelength (nm) になるように設定します。そのため、<b>数式</b>ボックスに<i>1240/x</i> を入力します。 <br />
+<a  class="image"><img alt="Merging and Arranging Graphs 001.png" src="../images/Merging_and_Arranging_Graphs/Merging_and_Arranging_Graphs_001.png" width="496"  /></a> </li>
+<li>OK ボタンをクリックします。下軸との適正な関係が設定さえた軸ラベルが表示されます。 
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Merging_and_Arranging_Graphs/Tip_icon.png" width="57"  border="0" /></td><td><ul><li> 右Y軸に対して非線形の関係を設定する場合、<b>数式</b>ボックスでは、<b>y</b>ではなく<b>x</b>を使用する必要があります。</li>
+<li> <b>グラフ操作: レイヤ管理</b> ダイアログでも同様の設定で、反対側に軸を設けることができます。<br /></li></ul>
+<p><a  class="image"><img alt="Tutorial81 Merging and Arranging Graphs LM Top Axis.png" src="../images/Merging_and_Arranging_Graphs/Tutorial81_Merging_and_Arranging_Graphs_LM_Top_Axis.png" width="505"  /></a>
+</p></td></tr></table>
+</li>
+<li>上X軸タイトルとして、テキストオブジェクト<b>Energy (eV)</b>を追加します。 
+<br /><a  class="image"><img alt="Tutorial81 Merging and Arranging Graphs Change Title.png" src="../images/Merging_and_Arranging_Graphs/Tutorial81_Merging_and_Arranging_Graphs_Change_Title.png" width="447"  /></a>
+</li>
+<li>上図を見ると、上軸の開始の位置に欠損値が表示されていることがわかります。これを非表示にするには、軸上でクリックしてミニツールバーを開き、<b>軸ダイアログ</b>ボタンをクリックして、<b>特別な軸刻み</b>を選択し、ダイアログを開きます。<br />
+<a  class="image"><img alt="Merging and Arranging Graphs b3.png" src="../images/Merging_and_Arranging_Graphs/Merging_and_Arranging_Graphs_b3.png" width="515"  /></a></li>
+<li>開いたダイアログで、左タブの<b>軸の開始</b>を選択し、<b>表示</b>ドロップダウンリストから<b>隠す</b>を選択します。<b>OK</b>をクリックしてこの設定を適用して、ダイアログを閉じます。
+<br /><a  class="image"><img alt="Tutorial81 Merging and Arranging Graphs Hide Tick.png" src="../images/Merging_and_Arranging_Graphs/Tutorial81_Merging_and_Arranging_Graphs_Hide_Tick.png" width="543"  /></a>
+</li>
+</ol>
+<h2><a name="Using_Layer_Management_to_Link_and_Position_Layers"></a><span class="mw-headline">レイヤ管理を使ってレイヤのリンクや位置を設定する</span></h2>
+<p>レイヤ管理ツールを使って、レイヤの位置、サイズ、入れ替え、リンクによるレイヤ間の関係の構築を行うことができます。
+</p>
+<ol>
+<li>プロジェクト <b>\<i>Samples</i>\<i>Graphing</i>\<i>Layer Management.opj</i></b> を再度開き、 <i><b>Arranging Layers</b></i>というサブフォルダに切り替えます。  <b>ファイル：最近使ったプロジェクト：Layer Management.opj</b>を選択して、このプロジェクトを再度開くことができます。  プロジェクトに変更を保存しないでください。
+</li>
+<li><b>グラフ操作：レイヤ管理</b>から、<b>レイヤ管理</b>ダイアログを開きます。左側パネルで、それぞれのレイヤの名前をダブルクリックして、変更します。上から順に、Peak 1, Peak 2, Peak 3, Peak 4と名前を付けます。  レイヤ名は、各レイヤの凡例に対応します。 
+<br />
+<a  class="image"><img alt="Tutorial81 Merging and Arranging Graphs LM Left Panel.png" src="../images/Merging_and_Arranging_Graphs/Tutorial81_Merging_and_Arranging_Graphs_LM_Left_Panel.png" width="487"  /></a>
+</li>
+<li><b>配置</b>タブを開き、下の手順に沿って操作します。 
+<ol>
+<li><b>軸フレームの表示</b>にチェックをします。  
+<li><b>水平ギャップ</b>と<b>垂直ギャップ</b>を0にセットします。<br />
+<a  class="image"><img alt="Tutorial81 Merging and Arranging Graphs Arrange Tab.png" src="../images/Merging_and_Arranging_Graphs/Tutorial81_Merging_and_Arranging_Graphs_Arrange_Tab.png" width="581"  /></a></li>
+<li><b>適用</b>をクリックします。  
+</ol>
+<p>これにより、レイヤの大きさと位置を変更して整列し、レイヤが重なった部分の軸刻みとラベルを非表示になります。 
+</p>
+</li>
+<li>軸タブを開き、<b>Ctrl</b>キーを押しながら、左側のパネルでPeak 1 と 3 を選択し、<b>左</b>ブランチを開き、軸刻みの方向を<b>内側</b>にし、<b>適用</b>をクリックします。 <br />
+<a  class="image"><img alt="Tutorial81 Merging and Arranging Graphs Axes Tab.png" src="../images/Merging_and_Arranging_Graphs/Tutorial81_Merging_and_Arranging_Graphs_Axes_Tab.png" width="525"  /></a>
+</li>
+<li>Peak 3と4を選択し、<b>下軸</b>の軸刻みの方向を<b>内側</b>にし、<b>適用</b>をクリックします。  そして、Peak 1と2を選択し、<b>上軸</b>の軸刻みの方向を<b>内側</b>にし、<b>適用</b>をクリックします。
+</li>
+<li><b>リンク</b>タブに移動し、左側のリストで、Peaks 2、3、4 を選択し、これらのX軸を<b>直接(1対1)</b>でLayer1にリンクし、<b>適用</b>をクリックします。<br />
+<a  class="image"><img alt="Tutorial81 Merging and Arranging Graphs Link Tab.png" src="../images/Merging_and_Arranging_Graphs/Tutorial81_Merging_and_Arranging_Graphs_Link_Tab.png" width="686"  /></a><br />
+<b>OK </b>をクリックして、ダイアログを閉じます。
+</li>
+<li>左側上のレイヤ（レイヤ1）を選択し、ドラッグしてサイズを変更します。そして、そのレイヤを動かします。  なお、Layer1にリンクされているので、他のレイヤも同時に動きます。<br />
+<a  class="image"><img alt="Tutorial81 Merging and Arranging Graphs Resize Layer.png" src="../images/Merging_and_Arranging_Graphs/Tutorial81_Merging_and_Arranging_Graphs_Resize_Layer.png" width="361"  /></a>
+</li>
+<li>レイヤ1の上軸をクリックして、ミニツールバーの<b>軸スケール</b>ボタンをクリックし、ダイアログを開きます。スケールの<b>開始</b>を<i>10</i>、<b>終了</b>を<i>35</i> に変更して、<b>OK</b>をクリックします。他のすべてのレイヤのX軸はリンクしているので、この操作により新しいX範囲で同じように表示されます。<br />
+<a  class="image"><img alt="Tutorial81 Merging and Arranging Graphs Link X Axis.png" src="../images/Merging_and_Arranging_Graphs/Tutorial81_Merging_and_Arranging_Graphs_Link_X_Axis.png" width="660"  /></a>
+</li>
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Merging_and_Arranging_Graphs/Tip_icon.png" width="57"  border="0" /></td><td><p>リンクしたレイヤを並び替えるとき、それらは1つの単位で扱われるので、並び替える際には最初にリンクを解除し、並び替えた後に再びリンクの設定をします。
+</p></td></tr></table>
+<h2><a name="Merge_Multiple_Graphs"></a><span class="mw-headline">複数グラフを統合する</span></h2>
+<p>このセクションでは、同じプロジェクト内の異なるサブフォルダにある2つのグラフを統合します。4つのレイヤを持つグラフは1つの単位として扱います。
+</p>
+<ol>
+<li><b>Arranging Layers</b> サブフォルダのGraph1がアクティブな状態で、<b>再スケール</b>ボタンをクリックします。
+<li>メニューから、<b>グラフ操作：グラフウィンドウの統合</b>を選択してダイアログを開きます。
+<li>以下の操作を行います。
+<ul><li><b>グラフ</b>の右横の三角ボタンをクリックして、フライアウトメニューから<b>プロジェクト中の全て</b>を選択します。<b>プレビュー</b>ウィンドウに<b>Graph1</b> と <b>Graph2</b> 表示されます。</li>
+<li><b>行の数</b>が<b>2</b>で、<b>列の数</b>が<b>1</b>であることを確認します。 </li>
+<li><b>元のグラフを1つの単位として扱う</b>のチェックが付いていることを確認します。 </li>
+<li><b>垂直の間隔</b>を<b>20</b>に設定します。</li></ul>
+<dl><dd><a  class="image"><img alt="Merging Graphs01.png" src="../images/Merging_and_Arranging_Graphs/Merging_Graphs01.png" width="570"  /></a></dd></dl>
+</li>
+<li><b>OK </b>をクリックして、ダイアログを閉じます。新しく統合グラフが作成されました。
+<br /><a  class="image"><img alt="Merging Graphs02.png" src="../images/Merging_and_Arranging_Graphs/Merging_Graphs02.png" width="539"  /></a>
+<ol></ol>
+</li>
+</li>
+</li>
+</ol>
+
+
+    

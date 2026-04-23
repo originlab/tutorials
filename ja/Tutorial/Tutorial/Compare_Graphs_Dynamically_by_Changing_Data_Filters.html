@@ -1,0 +1,116 @@
+﻿<h1 class="firstheading">データフィルタを使用してグラフをダイナミックに比較する</h1><p class='urlname' style='display: none'>Dynamic-Graphs-Changing-Filters</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Set_Up_the_Worksheets"><span class="tocnumber">3.1</span> <span class="toctext">ワークシートの設定</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Set_Filters"><span class="tocnumber">3.2</span> <span class="toctext">フィルタのセット</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Creating_the_Graph_and_Adding_a_Linear_Fit"><span class="tocnumber">3.3</span> <span class="toctext">グラフを作成して線形フィットを追加する</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Add_Dynamically_Changing_Labels"><span class="tocnumber">3.4</span> <span class="toctext">ダイナミックに変化するラベルを追加する</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Add_Floating_Graph_to_the_Worksheet"><span class="tocnumber">3.5</span> <span class="toctext">ワークシートにフローティンググラフを追加する</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p><b><b>列をコピー...</b></b>機能は1つのワークシートから他のワークシートへ2つのワークシート間のリンクは維持して列をコピーします。この機能を利用すると、1つの列に対してワークシートを準備した数だけのフィルタ条件を設定できます。例えば、列<b>Gas Type</b>に2つのフィルタ条件をそれぞれのワークシート<i>Type1</i> と<i>Type2</i>に設定し、それはワークシート<i>Raw</i>にリンクしています。<br />また、他にもさまざまな機能を利用してダイナミックグラフを作成でき、それらはリアルタイムに変更されるフィルタ条件を反映して更新することが出来ます。これらの概念を説明している動画はこちらから確認してください。<a class="external free" href="https://www.youtube.com/watch?v=N0Pud-91qCM" target="_blank">https://www.youtube.com/watch?v=N0Pud-91qCM</a>
+</p>
+<p class="version" >必要なOriginのバージョン: Origin 2015 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します:
+</p>
+<ul><li>異なるフィルタ条件により異なるデータをダイナミックに比較</li>
+<li>1つの列に異なるワークシートを使用して複数の条件をつける</li>
+<li>ダイナミックフィルタラベルをグラフに追加し、フィルタ条件により更新するように設定する</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>このチュートリアルは、チュートリアルデータプロジェクト（<i>&lt;Origin EXE  Folder&gt;\Samples\TutorialData.opj</i>）と関連しています。
+</p>
+<h3><a name="Set_Up_the_Worksheets"></a><span class="mw-headline">ワークシートの設定</span></h3>
+<p>チュートリアルデータを開き、プロジェクトエクスプローラで<b>Compare Graphs with Filters Data</b>のフォルダを開いて、ワークブック<b>Book1</b>をアクティブにします。ワークシート<b>Raw</b>には、複数年にわたる温室効果ガスの排出量を計測したデータが格納されています。    
+</p>
+<ol>
+<li> 最後の3列(<i>Year, Gas Type, Value</i>)を選択します。 </li>
+<li> 1つの列の上で右クリックを行い、コンテキストメニューで<b>列をコピー...</b>を選択します。(見当たらないときはメニューの最後にある下向き矢印をクリックしてください。)
+<br /><br /><a class="image"><img alt="Data Filter1 ii.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter1_ii.png" width="586"  /></a><br /><br />
+<li> <b>ワークシート：列のコピー:colcoly</b> ダイアログで<b><b>再計算</b></b>で<b><b>自動</b></b>を選択して、新しく入力したデータに自動的に更新されるように設定します。また、<b><b>コピー先の列</b></b>が<i><i>&lt;新規&gt;!&lt;新規&gt;</i></i>（新しいワークシートを意味します）に設定されていることを確認し、<b><b>OK</b></b>をクリックします。</li>
+<p><br /><br /><a class="image"><img alt="Data Filter2.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter2.png" width="461"  /></a><br /><br />
+</p>
+<li> 新しいワークシートを<i>Type1</i>とします。 </li>
+<li> 同じ操作を繰り返し、2番目のワークシートを<i>Type2</i>とします。</li>
+<p><br /><a class="image"><img alt="Data Filter3i.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter3i.png" width="346"  /></a><br />
+</p>
+</ol>
+<h3><a name="Set_Filters"></a><span class="mw-headline">フィルタのセット</span></h3>
+<ol>
+<li>シート<i>Raw</i> では列<b>Country</b>を選択してフィルタボタンをクリックします。</li>
+<p><br /><a class="image"><img alt="Data Filter4.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter4.png" width="481"  /></a><br />
+</p>
+<li> クリックすると列<b>Country</b>の左上にろうと型のアイコンが作成されます。クリックするとメニューが開きます。<b><b>全て選択</b></b>のチェックをはずして<b><b>France</b></b>にチェックをつけます。<b><b>OK</b></b>をクリックします。 </li>
+<p><br /><a class="image"><img alt="Data Filter5.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter5.png" width="305"  /></a><br />
+</p>
+<li> これで、ワークシートはフランスの情報のみを表示します。</li>
+<li> ワークシート<i>Type1</i> の列<b>Gas Type</b>にフィルタを設定し、<b>HFCs</b>という気体を選びます。ワークシート<i>Raw</i> と<i>Type1</i> はリンクしているため、このワークシートはフランスのHFC排出量のみを表示します。 </li>
+<p><br /><a class="image"><img alt="Data Filter6.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter6.png" width="267"  /></a><br />
+</p>
+<li> ワークシート<i>Type2</i> では列<b>Gas Type</b>でフィルタをかけてPFCsのみを表示します。このワークシートはフランスのPFC排出量のみを表示します。</ol>
+<h3><a name="Creating_the_Graph_and_Adding_a_Linear_Fit"></a><span class="mw-headline">グラフを作成して線形フィットを追加する</span></h3>
+<ol>
+<li>ワークシートで何も選択していない状態で、<b>作図：複数区分/軸：積み上げグラフ</b>と操作します。 </li>
+<li> 開いたダイアログで<b><b>入力</b></b>の右側にある三角形のボタンをクリックして<b><b>列を選択...</b></b>を選びます。</li>
+<p><br /><a class="image"><img alt="Data Filter7.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter7.png" width="755"  /></a><br />
+</p>
+<li> <b><b>データセットブラウザ</b></b>ダイアログで、<b><b>リストデータセット</b> = <b>現在のブック</b></b>であることを確認し、<i><i>Type1</i></i>と<i><i>Type2</i></i>の<b><b>Value</b></b>列を選択します。<b><b>追加</b></b>を押してからOKをクリックします。</li>
+<p><br /><a class="image"><img alt="Data Filter8.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter8.png" width="607"  /></a><br />
+</p>
+<li> <b>積上げ:plotstack</b>ダイアログボックスで<b>プロットタイプ</b>を<b>散布図</b>に設定します。結果は、次のようなグラフになります。 </li>
+<p><br /><a class="image"><img alt="Data Filter9.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter9.png" width="387"  /></a><br />
+</p>
+<li> 新たに作成されたグラフの中の、どの軸でもかまわないのでダブルクリックを行い、<b><b>スケール</b></b>タブの<b><b>再スケール</b></b>を<b><b>自動</b></b>に設定します。この操作を両方のプロットの全ての軸に対して行います。これでワークシートフィルタが変更されてデータが変わっても、軸は自動的に際スケールされます。</li>
+<p><br /><a class="image"><img alt="Data Filter10.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter10.png" width="424"  /></a><br />
+<b>Note:</b>なお、<b><b>Ctrl</b></b>キーを押しながら<b><b>水平</b></b>と<b><b>垂直</b></b>のアイコンを選択して同じレイヤのX軸とY軸の<b>再スケール</b>を一度に編集することもできます。ダイアログボックス下のドロップダウンリストで変更を両方のレイヤに適用します。(例: レイヤ1とレイヤ2)
+</p>
+<li> レイヤドロップダウンをレイヤ1に設定し、<b><b>目盛ラベル</b></b>をクリックします。<b><b>下</b></b>アイコンが選択されていることを確認して、年度のみ表示されるように<b><b>表示</b></b>を変更します。<br />
+<dl><dd><a class="image"><img alt="Data Filter10b.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter10b.png" width="465"  /></a><br /></dd></dl>
+<li> <b>軸と軸目盛</b>タブを開きます。<b><b>右</b></b>アイコンを選択して、<b><b>主目盛</b></b>と<b><b>副目盛</b></b>を<b><b>なし</b></b>にします。
+<dl><dd><a class="image"><img alt="Data Reader Filter10c.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter10c.png" width="552"  /></a><br /></dd></dl>
+<li> <b><b>レイヤ</b></b>ドロップダウンリストで<b><b>レイヤ2</b></b>の上X軸と右Y軸で繰り返してから、<b><b>OK</b></b>をクリックします。
+<li> 2つあるY軸のタイトルをどちらも削除します。新しいテキストラベルとして<b><b>Value</b></b>を追加し、90度回転させます(右クリックで表示される<b><b>オブジェクトの表示属性</b></b>で回転させる度数を選択)。これを新しいY軸のタイトルとします。
+<li> 次に、線形フィットを行い、温暖化ガスの排出を分かりやすくします。</li>
+<li> グラフをアクティブにして、<b><b>解析：フィット：線形フィット</b></b>を選択します。</li> 
+<li><b>再計算</b> を <b>自動</b>にセットします。 </li>
+<li><b><b>入力</b></b>ボックスの右側にある三角形をクリックし<b>て<b><b>現在のページの全てのプロットを追加する</b></b></b>を選択します。OK をクリックして、線形フィットを実行します。</li>
+<p><br /><a class="image"><img alt="Data Filter11.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter11.png" width="788"  /></a><br />
+</p>
+<li> 線形フィットをした直線をダブルクリックして<b>作図の詳細</b>ダイアログを開きます。<b><b>グラフの線</b></b>タブを開き、それぞれの線の色を<b>赤</b>に設定します。凡例オブジェクトを削除し、レポート表を移動します。グラフは、次のようになります。</li>
+<p><br /><a class="image"><img alt="Data Filter12.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter12.png" width="396"  /></a><br />
+</p>
+</ol>
+<h3><a name="Add_Dynamically_Changing_Labels"></a><span class="mw-headline">ダイナミックに変化するラベルを追加する</span></h3>
+<ol>
+<li>フィルタをかけたワークシート<i><i>Type1</i></i>のラベルを選択します。</li>
+<li>メニューで<b><b>編集：コピー：コピー</b></b>と操作します。 
+<br /><a class="image"><img alt="Data Filter13.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter13.png" width="546"  /></a><br />
+<li> テキストツール<a class="image"><img alt="Data Filter14.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter14.png" width="32"  /></a>を選択してグラフまたはワークシートをクリックします。小さい青いテキストボックスが表示されたら<b>Ctrl + Alt + V</b>を押します。これでデータフィルタのラベルをテキストボックスに貼り付けます。</li>
+<li>貼り付けたテキストを選択し、右クリックをしてからオブジェクトの<b><b>プログラム制御</b></b>を選択します。 </li>
+<p><br /><a class="image"><img alt="Data Filter15.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter15.png" width="475"  /></a><br />
+</p>
+<li> <b><b>オブジェクトのプログラム制御</b></b>ダイアログで<b>リアルタイム</b>にチェックをつけ、OKをクリックすると、データフィルタが変わるごとに内容が変更するようにします。</li>
+<li>同じように、ワークシート<i>Type2</i>とワークシート<i>Raw</i>のフィルタラベルも設定します。&quot;PFC&quot;と &quot;HFC&quot;の前にそれぞれ&quot;Gas Type&quot; と入力し、&quot;France&quot;というラベルの前には&quot;Country&quot;と入力します。さらに、テキストツールでタイトルを追加します。</li>
+<p><br /><a class="image"><img alt="Data Filter17.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter17.png" width="384"  /></a><br />
+</p>
+</ol>
+<h3><a name="Add_Floating_Graph_to_the_Worksheet"></a><span class="mw-headline">ワークシートにフローティンググラフを追加する</span></h3>
+<ol>
+<li> ワークシートにグラフを追加するには、ワークシート<i>Raw</i>をアクティブにします。</li>
+<li>ワークシートの灰色部分で右クリックを行い、コンテキストメニューで<b><b>グラフ追加</b></b>を選択します。</li>
+<p><b><br /><a class="image"><img alt="Data Filter18.png" src="../images/Compare_Graphs_Dynamically_by_Changing_Data_Filters/Data_Filter18.png" width="637"  /></a><br />
+</b></p>
+<li><b><b>グラフブラウザ</b></b>ダイアログが開きます。そこで先ほど作成したグラフを選択して<b><b>OK</b></b>をクリックします。</li>
+<li>
+グラフを拡大するには、グラフの端をつかみ、ドラッグすると大きくなります。この時点で、ワークシートのフィルタを変更すると、グラフはその内容に更新されます。(更新されない場合は、錠前アイコンが緑(再計算：自動)に設定されていることを確認してください。)</li>
+</ol>
+
+
+    

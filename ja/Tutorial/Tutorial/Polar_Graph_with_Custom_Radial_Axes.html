@@ -1,0 +1,189 @@
+﻿<h1 class="firstheading">極座標グラフの放射軸編集</h1>
+<p class="urlname" style="display: none;">polar-custom-radial</p>
+<p><br />
+</p>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> 
+		 <span class="toctext">サマリー</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> 
+		 <span class="toctext">ステップ</span></a> 
+		<ol>
+			<li class="toclevel-2 tocsection-4"><a href="#Create_a_Polar_without_Angular_Axis"><span 
+			 class="tocnumber">3.1</span> <span class="toctext">方位軸なしの極座標グラフを作図する</span></a></li>
+			<li class="toclevel-2 tocsection-5"><a href="#Add_Radial_Axis_on_each_Major_Tick"><span 
+			 class="tocnumber">3.2</span> <span class="toctext">各主目盛上に放射軸を追加する</span></a></li>
+			<li class="toclevel-2 tocsection-6"><a href="#Use_Configuration_Dialog_to_Customize_Radial_Axis"><span 
+			 class="tocnumber">3.3</span> <span class="toctext">新しい軸設定ダイアログで放射軸を編集</span></a></li>
+			<li class="toclevel-2 tocsection-7"><a href="#Further_Customization"><span 
+			 class="tocnumber">3.4</span> <span class="toctext">詳細な編集</span></a></li>
+		</ol></li>
+	</ol>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>Originの極座標グラフの軸ダイアログでは、方位軸と放射軸を柔軟に編集することができます。 </p>
+<p><a class="image"><img alt="Tutorial Polar with Custom Azimuth Scale 01.png" 
+						 src="../images/Polar_Graph_with_Custom_Radial_Axes/Tutorial_Polar_with_Custom_Radial_Axes_01.png" 
+						 width="374" border="0" /></a> </p>
+<p class="version">必要なOriginのバージョン: Origin 2015 SR0以降</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。 </p>
+<ul>
+	<li>極座標グラフを作成する</li>
+	<li>方位軸を非表示にする</li>
+	<li>放射軸を編集する</li>
+</ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>このチュートリアルは、チュートリアルデータプロジェクト（<i><i>&lt;Origin EXE フォルダ&gt;\Samples\TutorialData.opj</i></i>）と関連しています。 
+ </p>
+<h3><a name="Create_a_Polar_without_Angular_Axis"></a><span class="mw-headline">方位軸なしの極座標グラフを作図する</span></h3>
+<ol>
+	<li>TutorialData.opj を開き、<b>プロジェクトエクスプローラ</b>で<i>Custom Radial Axis</i> 
+	 folderフォルダを開き、<b>Book１E</b>を開きます。 </li>
+	<li>列Bを選択して、<b>作図：特殊グラフ：θr極座標グラフ：</b>を選択して極座標グラフを作成します。 </li>
+	<li>凡例を選択して削除します。 
+	<dl>
+		<dd><a class="image"><img alt="Tutorial Polar with Custom Azimuth Scale 17.png" 
+									 src="../images/Polar_Graph_with_Custom_Radial_Axes/Tutorial_Polar_with_Custom_Radial_Axes_17.png" 
+									 width="398" border="0" /></a></dd>
+	</dl></li>
+	<li>外軸（グラフ外側の円形の軸）を非表示にするには、軸上でダブルクリックして、<b>軸</b>ダイアログを開きます。<b>表示</b> 
+	 タブに移動し、左のパネルで<b>角度 - 外部</b> を選択し、表示のチェックを外します。 
+	<dl>
+		<dd><a class="image"><img alt="Tutorial Polar with Custom Azimuth Scale 03.png" 
+									 src="../images/Polar_Graph_with_Custom_Radial_Axes/Tutorial_Polar_with_Custom_Radial_Axes_03.png" 
+									 width="699" height="408" border="0" /></a></dd>
+	</dl></li>
+	<li>全ての角度グリッドを隠すには、<b>グリッド</b> タブに移動し、左のパネルで<b>角度</b> が選ばれていることを確認します。<b>グリッド線</b>のセクションで、<b>主グリッド線</b>と<b>副グリッド線</b>の<b>表示</b>のチェックをはずします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Tutorial Polar with Custom Azimuth Scale 14.png" 
+									 src="../images/Polar_Graph_with_Custom_Radial_Axes/Tutorial_Polar_with_Custom_Radial_Axes_14.png" 
+									 width="597" height="480" border="0" /></a></dd>
+	</dl></li>
+	<li>スケールタブに移動し、左パネルで「放射」を選択します。軸スケールを以下のように設定します。 
+	<dl>
+		<dd><a class="image"><img alt="Tutorial Polar with Custom Azimuth Scale 05.png" 
+									 src="../images/Polar_Graph_with_Custom_Radial_Axes/Tutorial_Polar_with_Custom_Radial_Axes_05.png" 
+									 width="597" height="480" border="0" /></a></dd>
+	</dl></li>
+	<li><b>グリッド線</b>ページを開き、以下のように設定します。 
+	<dl>
+		<dd><a class="image"><img alt="Tutorial Polar with Custom Azimuth Scale 06.png" 
+									 src="../images/Polar_Graph_with_Custom_Radial_Axes/Tutorial_Polar_with_Custom_Radial_Axes_06.png" 
+									 width="597" height="480" border="0" /></a></dd>
+	</dl></li>
+</ol>
+<h3><a name="Add_Radial_Axis_on_each_Major_Tick"></a><span class="mw-headline">各主目盛上に放射軸を追加する</span></h3>
+<ol>
+	<li>方位軸の主目盛位置に放射軸を表示するために、<b>放射軸</b>ノードのダイアログを開きます。このダイアログで、極座標図内の軸セクションの主目盛オプションをチェックします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Tutorial Polar with Custom Azimuth Scale 04.png" 
+									 src="../images/Polar_Graph_with_Custom_Radial_Axes/Tutorial_Polar_with_Custom_Radial_Axes_04.png" 
+									 width="597" height="480" border="0" /></a></dd>
+	</dl></li>
+	<li>軸タイトルを隠すには、<b>タイトル</b>タブを開き、<b>放射 - 主軸</b>を左のパネルで選択します。<b>表示</b>チェックボックスのチェックを外します。<b>適用</b>ボタンをクリックします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Tutorial Polar with Custom Azimuth Scale 18.png" 
+									 src="../images/Polar_Graph_with_Custom_Radial_Axes/Tutorial_Polar_with_Custom_Radial_Axes_18.png" 
+									 width="597" height="480" border="0" /></a></dd>
+	</dl></li>
+	<li>グラフ中央に4つの0が表示されています。これを非表示にするために、<b>特別な軸刻み</b>ノードを開きます。<b>軸の開始</b>ドロップダウンリストから<b>隠す</b>を選択します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Tutorial Polar with Custom Azimuth Scale 19.png" 
+									 src="../images/Polar_Graph_with_Custom_Radial_Axes/Tutorial_Polar_with_Custom_Radial_Axes_19.png" 
+									 width="664" height="480" border="0" /></a></dd>
+	</dl>
+	<b>OK</b>をクリックして、ダイアログを閉じます。 
+	<dl>
+		<dd><a class="image"><img alt="Tutorial Polar with Custom Azimuth Scale 15.png" 
+									 src="../images/Polar_Graph_with_Custom_Radial_Axes/Tutorial_Polar_with_Custom_Radial_Axes_15.png" 
+									 width="363" border="0" /></a></dd>
+	</dl>
+	各主目盛で放射軸が表示されるように設定されている場合、<b>放射軸のスケール</b>タブを開き、主目盛を変更すると、放射軸は新たな刻みに対応した位置に配置されます。 
+	 
+	<h3><a name="Use_Configuration_Dialog_to_Customize_Radial_Axis"></a><span 
+	 class="mw-headline">新しい軸設定ダイアログで放射軸を編集</span></h3>
+	<p>Originは2種類の放射軸をサポートしています。ひとつは、極座標グラフを囲むようなフレーム型で、もうひとつは、極座標グラフの中心から外側に向かって伸びる内部の軸です。 
+	 </p>
+	<ol>
+		<li>以前のセクションからグラフ操作を続けます。左のパネルの放射軸の設定ボタンをクリックします。<b>放射軸設定</b>のダイアログで、<b>色座標図内の軸</b>ブランチの下の<b>角度</b>リストを下図のように設定し、OKをクリックしてダイアログを閉じます。 
+		 
+		<dl>
+			<dd><a class="image"><img alt="Tutorial Polar with Custom Azimuth Scale 08.png" 
+										 src="../images/Polar_Graph_with_Custom_Radial_Axes/Tutorial_Polar_with_Custom_Radial_Axes_08.png" 
+										 width="251" height="378" border="0" /></a></dd>
+		</dl></li>
+		<li><b>適用</b>ボタンをクリックします。左のパネルに、4の内側放射軸が表示されます。 </li>
+		<li><b>タイトル</b>タブに移動し、左パネルで<b>「放射―内部軸１」</b>を選択します。<b>すべての放射軸に同じオプションを使用</b>チェックボックスをチェックして、<b>表示</b>チェックボックスのチェックを外して全てのタイトルを非表示にします。これで、この設定が4つの放射軸に適用されます。 
+		 
+		<dl>
+			<dd><a class="image"><img alt="Tutorial Polar with Custom Azimuth Scale 09.png" 
+										 src="../images/Polar_Graph_with_Custom_Radial_Axes/Tutorial_Polar_with_Custom_Radial_Axes_09.png" 
+										 width="699" height="591" border="0" /></a></dd>
+		</dl></li>
+		<li><b>目盛ラベル</b>タブを開き、<b>すべての放射軸に同じオプションを使用</b>にチェックを入れます。<b>フォーマット</b>タブで、<b>回転(度)</b>を<b>0</b>にします。 
+		 
+		<dl>
+			<dd><a class="image"><img alt="Tutorial Polar with Custom Azimuth Scale 10.png" 
+										 src="../images/Polar_Graph_with_Custom_Radial_Axes/Tutorial_Polar_with_Custom_Radial_Axes_10.png" 
+										 width="699" height="591" border="0" /></a></dd>
+		</dl></li>
+		<li><b>特別な軸刻み</b>タブを開き、<b>すべての放射軸に同じオプションを使用</b>をチェックします。<b>軸の開始</b>を<b>隠す</b>にします。 
+		 </li>
+		<li><b>表示</b>タブを開き、<b>Shift</b>キーを押して<b>放射 - 内部3</b>と<b>放射 - 内部4</b>を選択し、<b>軸位置</b>セクションの<b>流れの方向</b>を<b>負</b>に変更します。 
+		 
+		<dl>
+			<dd><a class="image"><img alt="Tutorial Polar with Custom Azimuth Scale 12.png" 
+										 src="../images/Polar_Graph_with_Custom_Radial_Axes/Tutorial_Polar_with_Custom_Radial_Axes_12.png" 
+										 width="699" height="591" border="0" /></a></dd>
+		</dl></li>
+		<li><b>目盛ラベル</b>ノードを開き、<b>表示</b>サブタブにある<b>ラベル接頭語</b>として、マイナス（-）記号を入力します。 
+		 
+		<dl>
+			<dd><a class="image"><img alt="Tutorial Polar with Custom Azimuth Scale 13.png" 
+										 src="../images/Polar_Graph_with_Custom_Radial_Axes/Tutorial_Polar_with_Custom_Radial_Axes_13.png" 
+										 width="699" height="591" border="0" /></a></dd>
+		</dl></li>
+		<li><b>OK</b> ボタンをクリックします。 
+		<dl>
+			<dd><a class="image"><img alt="Tutorial Polar with Custom Azimuth Scale 16.png" 
+										 src="../images/Polar_Graph_with_Custom_Radial_Axes/Tutorial_Polar_with_Custom_Radial_Axes_16.png" 
+										 width="334" height="313" border="0" /></a></dd>
+		</dl></li>
+	</ol>
+	<h3><a name="Further_Customization"></a><span class="mw-headline">詳細な編集</span></h3>
+	<ol>
+		<li>グラフの線の色を赤にし、太さを変更するために、線を選択し、<b>スタイル</b>ツールバーを使用して、<b>線/境界色</b>を<b>赤</b>にし、<b>線/境界の太さ</b>を<b>1.5</b>に設定します。 
+		 
+		<dl>
+			<dd><a class="image"><img alt="Radial axis plot.png" src="../images/Polar_Graph_with_Custom_Radial_Axes/Radial_axis_plot.png" 
+										 width="295" height="35" border="0" /></a></dd>
+		</dl></li>
+		<li>グラフ上にタイトルとしてこのグラフの式を追加します。グラフ上で右クリックして、レイヤタイトルの追加/編集を選択します。そして、数式 
+		 <b>r=exp(q*cot(79.5p/180))</b> をコピーしてタイトルとします。 </li>
+		<li>Originはリッチテキストをサポートしているので、テキスト内の <b>q</b> をハイライトし、<b>スタイル</b>ツールバーの<a 
+		 class="image"><img alt="Radial axis greek.png" src="../images/Polar_Graph_with_Custom_Radial_Axes/Radial_axis_greek.png" 
+							 width="25" border="0" /></a>ボタンをクリックして<b><img 
+		 src="../images/Polar_Graph_with_Custom_Radial_Axes/math-2554a2bb846cffd697389e5dc8912759.png" 
+		 title="\theta" alt="\theta" class="tex" border="0" /></b>にします。同様に<b> 
+		 p</b> も<b><img src="../images/Polar_Graph_with_Custom_Radial_Axes/math-4f08e3dba63dc6d40b22952c7a9dac6d.png" 
+						 title="\pi" alt="\pi" class="tex" border="0" /></b>に変更します。テキストは次のようになります。 
+		 
+		<dl>
+			<dd><a class="image"><img alt="Radial axis equation.png" src="../images/Polar_Graph_with_Custom_Radial_Axes/Radial_axis_equation.png" 
+										 width="143" border="0" /></a></dd>
+		</dl></li>
+		<li>タイトルオブジェクト上で右クリックし、<b>オブジェクトの表示属性</b>を選択して、<b>オブジェクトプロパティ</b>ダイアログを開きます。<b>テキスト</b>タブで、フォントのサイズを<b>26</b>にし、<b>枠</b>タブの<b>枠</b> 
+		 を <b>影</b>に設定します。 <b>OK</b> をクリックして設定を保存します。</li>
+		<li>式をドラッグして適当な場所に移動します。グラフは<b>サマリー</b>にある画像のようになります。</li>
+	</ol></li>
+</ol>

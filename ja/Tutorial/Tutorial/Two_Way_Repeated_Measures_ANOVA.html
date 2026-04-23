@@ -1,0 +1,78 @@
+﻿<h1 class="firstheading">繰り返し測定のある二元配置分散分析</h1><p class='urlname' style='display: none'>2WayRepeatedMeasuresANOVA</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Raw_data_mode"><span class="tocnumber">3.1</span> <span class="toctext">素データモード</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Results_Interpretation"><span class="tocnumber">3.2</span> <span class="toctext">結果の解釈</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>繰り返しのある二元配置分散分析の、「二元配置」は実験に2つの要因がある、例えば別々の治療と別々の状態を示します。「繰り返しのある」は同じ被験者が1つ以上の治療もしくは1つ以上の状態が適用されたことを示しています。 
+二元配置の分散分析と同様、繰り返しのある二元配置の分散分析は、因子内の因子レベル平均間の有意差や因子間の交互作用の検定を行います。一般的な分散分析を使うのが適さないのは、繰り返しのある観測に対しての相関のモデリングを行う事ができないからです。また、データが分散分析の仮定である独立性を侵害しているので、使用できません。繰り返しのある二元配置の分散分析のデザインとして、2つの繰り返しのある観測因子でも可能ですし、1つの繰り返しのある観測因子と1つの繰り返しの無い因子の組み合わせでも行えます。繰り返す因子が存在する場合、繰り返しのある分散分析を使用する必要があります。
+</p><p>以下の例では、2つの因子は繰り返しがある因子です。 
+</p>
+<p class="version" >必要なOriginのバージョン:Origin 8.6 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。
+</p>
+<ul><li>統計解析ダイアログにに素データを入力</li>
+<li>繰り返し測定のある二元配置ANOVAを実行</li>
+<li>繰り返しのある二元配置ANOVA解析の結果を読みとく</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>Originはインデックスデータと素データの両方から<b>繰り返しのある二元配置ANOVA</b>を実行できます。繰り返しのある二元配置ANOVAでインデックスデータモードが使用される場合、データは因子A、因子B、データ、被験者の4つの列で整理されている必要があります。素データモードを使用する場合、異なるレベルと因子は別の列に入力します。
+</p><p>このサンプルでは、異なる薬が被験者に別々の影響を与えるのか調査するのが目的です。<b>繰り返しのある二元配置ANOVA</b>を行う事で、薬の種類と用量が被験者に有意な影響を与えているか検証します。有意な違いがある場合、<b>ペアワイズ比較</b>を行ってどのレベルの影響が異なるのか検証します。
+</p>
+<h3><a name="Raw_data_mode"></a><span class="mw-headline">素データモード</span></h3>
+<ol><li>新しいワークブックを用意します。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Statistics\ANOVA</i>サブフォルダにある<i>Two-Way_RM_ANOVA_raw.dat</i> ファイルを探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。</li>
+<li>メニューから、<b>統計: ANOVA: 二元配置(繰り返し測定)</b>を選択し、ダイアログを開きます。</li>
+<li><b><b>入力</b>データ</b>ドロップダウンリストから<b><b>素データ値</b></b><b>を</b>選択します。 </li>
+<li>この例では、2つの因子が存在します。<b>因子A</b>と<b>因子B</b>のレベルの数に、それぞれドロップダウンリストから3と2をセットします。それぞれ<b>名前</b>を<b>drug</b>・<b>dose</b>とします。 
+<dl><dd></dd></dl></li></ol>
+<table class="note">
+<tr>
+<td><b>Note:</b> <b>因子A</b>と<b>因子B</b>は繰り返しのある因子であるとデフォルトで設定されています(<b>因子</b>ブランチ内の<b>繰り返し</b>にチェックが付いています)。もし片方の因子が繰り返しが無い因子である場合、<b>繰り返し</b>のチェックを外せば設定できます。
+</td></tr></table>
+<ol start="5">
+<li><b>データ</b>ブランチには、3つのサブグループがあります。<b><b>因子Aレベル1</b></b>グループの<b><b>因子Bレベル</b></b><b>1</b>では、入力データ列に列<b><b>d1d1</b></b>を選択します。
+<li>同様に、<b>d1d2</b>, <b>d2d1</b>, <b>d2d2</b>, <b>d3d1</b>, <b>d3d2</b> を次の5つの入力データに加えます。
+<li><b>相互作用</b>チェックボックスにチェックを付け、相互作用の効果を計算します。 <br />
+<a  class="image"><img alt="DOC-2411 RM01a.png" src="../images/Two_Way_Repeated_Measures_ANOVA/DOC-2411_RM01a.png" width="490"  /></a>
+<li><b><b>記述統計</b></b>ブランチで、相互作用だけでなく、因子のすべてのレベルの平均、標準誤差、95%信頼区間を計算します。<br />
+<a  class="image"><img alt="DOC-2411 RM01b.png" src="../images/Two_Way_Repeated_Measures_ANOVA/DOC-2411_RM01b.png" width="336"  /></a>
+<li><b><b>平均比較</b></b>のブランチを開き、<b>Bonferroni</b> のチェックを付けてBonferroni検定を有効にします。<br />
+<a  class="image"><img alt="DOC-2411 RM01c.png" src="../images/Two_Way_Repeated_Measures_ANOVA/DOC-2411_RM01c.png" width="360"  /></a>
+<li><b>OK</b> ボタンをクリックして、分析を実行します。
+<br />
+</ol>
+<h3><a name="Results_Interpretation"></a><span class="mw-headline">結果の解釈</span></h3>
+<p><b>ANOVATwoWayRM1</b>ワークシートを開き、分析結果の表を開きます。
+</p><p>繰り返しのある二元配置ANOVAの結果の読み取りについての詳細は、<a class="external text" href="../../UserGuide/UserGuide/Interpreting_Results_of_Repeated_Measures_ANOVA.html">ヘルプファイル</a>を参照してください。
+</p>
+<dl><dd><a  class="image"><img alt="Multivariate Tests.png" src="../images/Two_Way_Repeated_Measures_ANOVA/Multivariate_Tests.png" width="443"  /></a></dd></dl>
+<p>Originは多変量分析を行い、繰り返しのある要因の影響を検出します。この例では、4つの手法(Pillaiのトレース, Wilksのラムダ, Hotellingのトレース, Royの最大根)で等しいF統計量と確率を生成します。<b>drug</b>はP値=0.1564となっているので、<b>drugs</b>は慣習的な統計的有意水準に達しなかった事が分かります。同様に、<b>dose</b>と<b>drug*dose</b>はどちらも統計的に有意であるといえます。
+</p>
+<dl><dd><a  class="image"><img alt="Test of Sphericity.png" src="../images/Two_Way_Repeated_Measures_ANOVA/Test_of_Sphericity.png" width="811"  /></a></dd></dl>
+<p>この表はMauchlyの球面性検定の結果とエプシロンの評価を記載しています。
+列<b>Prob&gt;カイ二乗</b>から、因子A(<b>drugs</b>)の有意水準は0.05よりも大きくなっている事が分かります(P値=0.11096)。そして、<b>drug*dose</b>の値は0.05よりも小さくなっています。つまり、<b>drug*dose</b>の球面性の仮定は破られていないことを示します。drug*doseの<b>Greenhouse-Geisserのエプシロン</b>=0.65362となっており、この値は0.75よりも小さくなっています。この結果から、<b>Greenhouse-Geisser</b>修正を使用して検定を続けていきます。
+</p><p><a  class="image"><img alt="Test of with-subjects effects.png" src="../images/Two_Way_Repeated_Measures_ANOVA/Test_of_with-subjects_effects.png" width="543"  /></a>
+</p><p>この表からは因子についてのF値と共に、その値の有意水準と効果サイズが分かります。<b>durg</b>では、<b>prob&gt;</b>F列からP値が0.06461となっているので、<b>drug</b>は被験者に対して有意な影響はありません。対して、<b>dose</b>はP値が0.01504となっています。<b>drug*dose</b>の相互作用については、このまま<b>Greenhouse-Geisser</b>修正を利用して検定を進めます。この値から、<b>drug*dose</b>の相互作用は有意な影響があるといえます（P値 = 0.02564）。
+</p>
+<dl><dd><a  class="image"><img alt="RM02.png" src="../images/Two_Way_Repeated_Measures_ANOVA/RM02.png" width="801"  /></a></dd></dl>
+<p>一般的に、Bonferroni 検定はどの平均の値が異なっていたのかということと、球面性の仮定が違反していないかどうか、という2点について推奨します。Bonferroni 検定による修正は全般的な確率の不等性に基づいて作成され、それにより特定のANOVAの仮定から独立していることになります。この表はBonferroni 検定の結果で、平均は有意に異ならないと結論付けることができます(P&gt;0.05 の時に有意フラグ=0のため)。    
+もちろん、この場合薬(drug)は有意な影響を与えないので、<b>ペアワイズ比較</b>を実行する必要はありません。 
+</p>
+<dl><dd><a  class="image"><img alt="TwoRM03.png" src="../images/Two_Way_Repeated_Measures_ANOVA/TwoRM03.png" width="799"  /></a></dd></dl>
+<p>この表では、異なる用量の平均は有意に異ならないと結論付ける事ができます(P値 = 0.06714 で、有意フラグ= 0のため)。
+</p>
+<dl><dd><a  class="image"><img alt="TwoRM04.png" src="../images/Two_Way_Repeated_Measures_ANOVA/TwoRM04.png" width="801"  /></a></dd></dl>
+<p>この表では、drug1の中で比較するとdose1の方がdose2よりも効果が有意に大きく、dose1の中で比較するとdrug1はdrug2とdrug3よりも有意に影響があると結論付ける事ができます。
+</p>
+
+
+
+    

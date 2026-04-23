@@ -1,0 +1,120 @@
+﻿<h1 class="firstheading">クイックシグモイダルフィットガジェット</h1>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>目次</h2>
+</div>
+<ol>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ol>
+<li class="toclevel-2 tocsection-4"><a href="#Quick_Fit"><span class="tocnumber">3.1</span> <span class="toctext">クイックフィット</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Connect_to_NLFit"><span class="tocnumber">3.2</span> <span class="toctext">NLFitに接続</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Find_X.2FY"><span class="tocnumber">3.3</span> <span class="toctext">X,Y値を検索</span></a></li>
+</ol>
+</li>
+</ol>
+</div>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>クイックシグモイダルフィットガジェットはユーザがインタラクティブに操作できるROI領域に指定したグラフの一部分に、すばやくシグモイダルフィットを実行できるツールです。</p>
+<p class="version">必要なOriginのバージョン: Origin 2015 SR0以降</p>
+<h2><a name="What_you_will_learn" id="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul>
+<li>グラフ上でクイックシグモイダルフィットガジェットを使う</li>
+<li>フィットオプションを選択する</li>
+<li>NLFitダイアログに切り替える</li>
+<li>フィット結果を出力する</li>
+<li>フィット曲線上でX/Y値を探す</li>
+</ul>
+<h2><a name="Steps" id="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>このチュートリアルは、チュートリアルデータプロジェクト（<i>&lt;Origin EXE フォルダ&gt;\Samples\TutorialData.opj</i>）と関連しています。</p>
+<h3><a name="Quick_Fit" id="Quick_Fit"></a><span class="mw-headline">クイックフィット</span></h3>
+<ol>
+<li><b style="font-weight: bold;">TutorialData.opj</b> を開き、<b>プロジェクトエクスプローラ</b>で<b>Quick Sigmoidal Fit Gadget</b> フォルダを開きます。</li>
+<li><b style="font-weight: bold;">DoseResponseN</b> ワークブックを選択し、列AからDを選択します。メニューから<b>作図：散布図：散布図</b>と選択して散布図を作成します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Quick Sigmoidal Fit Gadget 01.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Quick_Sigmoidal_Fit_Gadget_01.png" width="422" height="351" border="0" /></a></dd>
+</dl>
+</li>
+<li>X軸をダブルクリックして、<b>X軸</b>ダイアログを開きます。<b>スケール</b>タブで、<b>タイプ</b>を<i>Log10</i> に変更して<b>OK</b>ボタンをクリックします。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Quick Sigmoidal Fit Gadget 02.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Quick_Sigmoidal_Fit_Gadget_02.png" width="596" height="539" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">再スケール</b>ボタン<a class="image"><img alt="Rescale button.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Rescale_button.png" width="23" border="0" /></a>をクリックしてプロットのスケールを調整します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Quick Sigmoidal Fit Gadget 03.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Quick_Sigmoidal_Fit_Gadget_03.png" width="422" border="0" /></a></dd>
+</dl>
+</li>
+<li>メインメニューから<b>ガジェット</b>：<b>クイックシグモイダルフィット</b>を選択し、<b>addtool_sigmoidal_fit</b>ダイアログを開きます。<b>設定</b>タブの<b>関数</b>ドロップダウンリストから<i>Logistic5</i>を選んでください。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Quick Sigmoidal Fit Gadget 04.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Quick_Sigmoidal_Fit_Gadget_04.png" width="577" height="259" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">ROIボックス</b>のタブを開き、<b>パラメータリスト</b>のブランチ内にあるパラメータ<i>x0</i>、<i>h</i>、<i>s</i>のチェックを外します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Quick Sigmoidal Fit Gadget 05.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Quick_Sigmoidal_Fit_Gadget_05.png" width="577" height="682" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">フィット曲線</b>タブを開き、<b>グラフタイプ</b>のドロップダウンリストから<b>平均、SD</b>を選びます。そして、<b>フィット曲線の出力先</b>のドロップダウンリストからは<b>ソースブック、新しいシート</b>を選びます。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Quick Sigmoidal Fit Gadget 06.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Quick_Sigmoidal_Fit_Gadget_06.png" width="577" height="344" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">OK</b>ボタンをクリックし、ROIボックスをグラフに追加します。ROIボックスの右上角には三角形のボタン<a class="image"><img alt="Triangle button.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Triangle_button.png" width="15" border="0" /></a>があるのでそれをクリックし、コンテキストメニューから<b>プロット群の最大範囲に拡大する</b>を選択します。ROIボックスはグラフ上の全範囲をカバーします。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Quick Sigmoidal Fit Gadget 07.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Quick_Sigmoidal_Fit_Gadget_07.png" width="664" height="406" border="0" /></a></dd>
+</dl>
+</li>
+<li>再び三角形ボタン<a class="image"><img alt="Triangle button.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Triangle_button.png" width="15" border="0" /></a>をクリックして、メニューから<b>設定...</b>を選択します。<b>シグモイドフィット設定</b>ダイアログが再度開きます。このダイアログ内では<b>レポート</b>タブを開き、<b>出力先</b>を「<i>なし</i>」に設定します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Quick Sigmoidal Fit Gadget 08.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Quick_Sigmoidal_Fit_Gadget_08.png" width="517" height="444" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">OK</b> をクリックして、ダイアログを閉じます。三角形ボタン<a class="image"><img alt="Triangle button.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Triangle_button.png" width="15" border="0" /></a>をクリックし、コンテキストメニューから<b>関数変更：Logistic</b>を選び、フィット関数をLogisticに変更します。ROIボックスの上にあるラベルは、自動的に更新されます。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Quick Sigmoidal Fit Gadget 09.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Quick_Sigmoidal_Fit_Gadget_09.png" width="475" height="393" border="0" /></a></dd>
+</dl>
+</li>
+<li>再度三角形ボタン<a class="image"><img alt="Triangle button.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Triangle_button.png" width="15" border="0" /></a> をクリックして<b>新しい出力</b>を選び、フィット結果をワークシートとグラフに出力します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Quick Sigmoidal Fit Gadget 10.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Quick_Sigmoidal_Fit_Gadget_10.png" width="737" height="716" border="0" /></a></dd>
+</dl>
+</li>
+</ol>
+<h3><a name="Connect_to_NLFit" id="Connect_to_NLFit"></a><span class="mw-headline">NLFitに接続</span></h3>
+<p>クイックシグモイダルフィットガジェットを使用している時は、簡単にNLFitに切り替えが出来ます。これにより、ガジェット内の設定で詳細なフィット結果のレポートを表示できます。</p>
+<ol>
+<li>上記のステップ1からステップ８までをやり直してください。</li>
+<li>三角形ボタン<a class="image"><img alt="Triangle button.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Triangle_button.png" width="15" border="0" /></a> をクリックし、<b>NLFitに行く…</b>を選んでガジェットの設定を引き継いだ<b>NLFit</b>ダイアログを開きます。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Quick Sigmoidal Fit Gadget 11.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Quick_Sigmoidal_Fit_Gadget_11.png" width="987" height="333" border="0" /></a></dd>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Quick Sigmoidal Fit Gadget 12.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Quick_Sigmoidal_Fit_Gadget_12.png" width="984" height="332" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">フィット</b>ボタンをクリックすると、曲線フィットを実行します。フィット結果は、結果シートの出力と元のグラフに表示されます。 フィット結果はソースシートに出力されます。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Quick Sigmoidal Fit Gadget 13.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Quick_Sigmoidal_Fit_Gadget_13.png" width="579" height="644" border="0" /></a></dd>
+</dl>
+</li>
+</ol>
+<h3><a name="Find_X.2FY" id="Find_X.2FY"></a><span class="mw-headline">X/Y値を検索</span></h3>
+<p>このガジェットでは、フィットした曲線上でX/Yの値をすばやく求めることが出来ます。</p>
+<ol>
+<li>一番目のセクションにあるステップ1からステップ８までをやり直します。</li>
+<li>三角形ボタン<a class="image"><img alt="Triangle button.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Triangle_button.png" width="15" border="0" /></a>をクリックし、<b>X/Y値の検索...</b>をメニューから選び、<b>X/Y検索</b>ダイアログを開きます。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Quick Sigmoidal Fit Gadget 14.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Quick_Sigmoidal_Fit_Gadget_14.png" width="378" height="280" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">ワークシート</b>のラジオボタンを選択して<b>Y</b>には<i>40；45；50</i>と入力し、<b>Xを検索</b>をクリックすると対応するXの値が空欄の<b>X</b>ボックスに表示されます。それから<b>出力</b>ボタンをクリックすると、XとYの値を指定したワークシートに出力します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Quick Sigmoidal Fit Gadget 15.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Quick_Sigmoidal_Fit_Gadget_15.png" width="378" height="280" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">ワークシート</b>ラジオボタンを選択してから<b>今すぐ出力</b>ボタンをクリックすると、<b>FindX/Y</b>ワークブックを開きます。そして、<b>閉じる</b>ボタンをクリックして<b>X/Y検索</b>ダイアログを閉じます。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Quick Sigmoidal Fit Gadget 16.png" src="../images/Quick_Sigmoidal_Fit_Gadget/Quick_Sigmoidal_Fit_Gadget_16.png" width="418" height="233" border="0" /></a></dd>
+</dl>
+</li>
+</ol>

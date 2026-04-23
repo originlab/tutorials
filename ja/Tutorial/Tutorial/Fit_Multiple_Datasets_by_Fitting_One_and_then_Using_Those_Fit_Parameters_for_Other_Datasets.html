@@ -1,0 +1,92 @@
+﻿<h1 class="firstheading">複数のデータセットで一つのフィットを行い、そのパラメータを使って他のデータセットのフィットを行う</h1>
+<p class="urlname" style="display: none;">Fitting-MultiDataset</p>
+<table id="toc" class="toc">
+<tr>
+<td>
+<div id="toctitle">
+<h2>内容</h2>
+</div>
+<ol>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ol>
+<li class="toclevel-2 tocsection-4"><a href="#Create_a_User-Defined_Function_in_Fitting_Function_Builder"><span class="tocnumber">3.1</span> <span class="toctext">フィット関数ビルダーを使用してユーザ定義関数を作成する</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Fit_Multiple_Dataset_with_User-Defined_Fitting_Function"><span class="tocnumber">3.2</span> <span class="toctext">ユーザ定義関数を使用して、複数データセットをフィットする</span></a></li>
+</ol>
+</li>
+</ol>
+</td>
+</tr>
+</table>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>複数のデータセットがあり、それをユーザ定義関数でフィットする時に、パラメータ初期コードを使わずにフィットしたいこともあるでしょう。効率を上げるために、1つのデータセットをフィットした後に他のデータセットにパラメータを当てはめる事ができます。</p>
+<p class="version">必要なOriginのバージョン: Origin 8.6 以降</p>
+<h2><a name="What_you_will_learn" id="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。</p>
+<ul>
+<li>フィット関数ビルダーでフィット関数を作成する</li>
+<li>独立フィットを行う</li>
+<li>複数のデータセットのうち1つのフィットを1回反復と完全反復する</li>
+<li>1つのデータセットのパラメータを他のデータセットに適用する</li>
+</ul>
+<h2><a name="Steps" id="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Create_a_User-Defined_Function_in_Fitting_Function_Builder" id="Create_a_User-Defined_Function_in_Fitting_Function_Builder"></a><span class="mw-headline">フィット関数ビルダーを使用してユーザ定義関数を作成する</span></h3>
+<p><a class="external text" href="../../UserGuide/Category/The_Fitting_Function_Builder.html"><b>フィット関数ビルダー</b></a>は、ユーザ定義関数の作成と編集に使用します。以下のセクションでは、このツールを使用してフィット関数<i>MyExp</i> を作成します。</p>
+<ol>
+<li>メインメニューから<b>ツール: フィット関数</b><b>ビルダー</b> を選択、もしくは<b>F8</b>キーを押して<b>フィット関数</b><b>ビルダ</b>ーダイアログを開きます。<b>新しい関数の作成</b>のラジオボタンを選択します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Tutorial User Defined Function 07.png" src="../images/Fit_Multiple_Datasets_by_Fitting_One_and_then_Using_Those_Fit_Parameters_for_Other_Datasets/Tutorial_User_Defined_Function_07.png" width="678" height="440" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">進む</b>をクリックし、<b>関数名と関数形式</b>ページに移動します。<b>関数名</b>ボックスに<i>MyExp</i> と入力し、<b>関数形式</b>の中で<b>OriginC</b>のラジオボタンを選択します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Tutorial User Defined Function 08.png" src="../images/Fit_Multiple_Datasets_by_Fitting_One_and_then_Using_Those_Fit_Parameters_for_Other_Datasets/Tutorial_User_Defined_Function_08.png" width="678" height="440" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">進む</b>をクリックし、<b>変数とパラメータ</b>ページに移動します。次のスクリーンショットのように変数とパラメータを入力します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Tutorial User Defined Function 09.png" src="../images/Fit_Multiple_Datasets_by_Fitting_One_and_then_Using_Those_Fit_Parameters_for_Other_Datasets/Tutorial_User_Defined_Function_09.png" width="678" height="440" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">進む</b>をクリックし、<b>OriginCフィット関数</b>ページに移動します。関数内容のボックスに、関数の内容 <i>y=y0+a*exp(b*x)</i> を入力します。関数の正確性を確認するために、関数ボックスの隣にあるボタンをクリックしてOriginコードビルダを開きます。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Tutorial User Defined Function 10.png" src="../images/Fit_Multiple_Datasets_by_Fitting_One_and_then_Using_Those_Fit_Parameters_for_Other_Datasets/Tutorial_User_Defined_Function_10.png" width="678" height="440" border="0" /></a></dd>
+<dd>開いた<b>コードビルダ</b>で、<b>コンパイル</b>ボタンをクリックして関数をコンパイルします。コンパイル完了のメッセージが表示されるので、<b>ダイアログに戻る</b>ボタンをクリックして<b>フィット関数ビルダー</b>に戻ります。</dd>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Tutorial User Defined Function 11.png" src="../images/Fit_Multiple_Datasets_by_Fitting_One_and_then_Using_Those_Fit_Parameters_for_Other_Datasets/Tutorial_User_Defined_Function_11.png" width="642" height="597" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">完了</b>ボタンをクリックして関数<i>MyExp</i> の定義を終了します。</li>
+</ol>
+<h3><a name="Fit_Multiple_Dataset_with_User-Defined_Fitting_Function" id="Fit_Multiple_Dataset_with_User-Defined_Fitting_Function"></a><span class="mw-headline">ユーザ定義関数を使用して、複数データセットをフィットする</span></h3>
+<ol>
+<li>Originのワークシートに <i>\Samples\Curve Fitting\Exponential Decay.dat</i> をインポートします。</li>
+<li>全ての列を選択し、メニューから<b>解析：</b> <b>フィット：</b> <b>非線形曲線フィット</b>と操作し、<b>NLFit</b>ダイアログを開きます。</li>
+<li><b style="font-weight: bold;">設定</b>タブの<b>関数選択</b>ページで、定義した関数を選択します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Fit Multiple Datasets by Fitting One Firstly.png" src="../images/Fit_Multiple_Datasets_by_Fitting_One_and_then_Using_Those_Fit_Parameters_for_Other_Datasets/Fit_Multiple_Datasets_by_Fitting_One_Firstly.png" width="840" height="355" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">パラメータ</b>タブに切り替え、1番目のデータセットで<i>y0</i>, <i>a</i>, <i>b</i>の初期値として、<b>値</b>列に<i>80,</i> <i>100,</i> <i>-5</i>をそれぞれ入力します。独立フィットのドロップダウンリストから1を選択し、そのまま1番目のデータセットを収束まで反復します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Fit Multiple Datasets by Fitting One Firstly 01.png" src="../images/Fit_Multiple_Datasets_by_Fitting_One_and_then_Using_Those_Fit_Parameters_for_Other_Datasets/Fit_Multiple_Datasets_by_Fitting_One_Firstly_01.png" width="840" height="355" border="0" /></a></dd>
+</dl>
+</li>
+<li>パラメータ値が計算され、フィットの結果がこのダイアログの左角にヒントとして表示されます。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Fit Multiple Datasets by Fitting One Firstly 02.png" src="../images/Fit_Multiple_Datasets_by_Fitting_One_and_then_Using_Those_Fit_Parameters_for_Other_Datasets/Fit_Multiple_Datasets_by_Fitting_One_Firstly_02.png" width="840" height="355" border="0" /></a></dd>
+</dl>
+</li>
+<li>他のデータセットのパラメータを初期化するには1つ目のデータセットのパラメータを他のデータセットに当てはめます。値を右クリックし、<b>"値"の全体をすべてのデータセットに適用する</b>をコンテキストメニューから選びます。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Fit Multiple Datasets by Fitting One Firstly 03.png" src="../images/Fit_Multiple_Datasets_by_Fitting_One_and_then_Using_Those_Fit_Parameters_for_Other_Datasets/Fit_Multiple_Datasets_by_Fitting_One_Firstly_03.png" width="588" height="384" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">フィット</b>ボタンをクリックして、全てのデータセットのフィットを実行します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Fit Multiple Datasets by Fitting One Firstly 04.png" src="../images/Fit_Multiple_Datasets_by_Fitting_One_and_then_Using_Those_Fit_Parameters_for_Other_Datasets/Fit_Multiple_Datasets_by_Fitting_One_Firstly_04.png" width="470" height="351" border="0" /></a></dd>
+</dl>
+</li>
+</ol>
+
+

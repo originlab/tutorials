@@ -1,0 +1,350 @@
+﻿<h1 class="firstheading">カスタマイズの概要</h1>
+<p class="urlname" style="display: none;">Customizing-Graph</p>
+<p><br />
+</p>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span><span 
+		 class="toctext">概要</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#Re-sizing_Layer"><span 
+		 class="tocnumber">2</span> <span class="toctext">レイヤサイズの変更</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Customize_Data_Plot_and_Axes"><span 
+		 class="tocnumber">3</span> <span class="toctext">データプロットと軸の編集</span></a></li>
+		<li class="toclevel-1 tocsection-4"><a href="#Save_and_Reuse_a_Template"><span 
+		 class="tocnumber">4</span> <span class="toctext">グラフテンプレートの保存と再利用</span></a></li>
+		<li class="toclevel-1 tocsection-5"><a href="#Changing_graph_using_theme"><span 
+		 class="tocnumber">5</span> <span class="toctext">テーマを使用したグラフ編集</span></a></li>
+		<li class="toclevel-1 tocsection-6"><a href="#Plotting_Order"><span 
+		 class="tocnumber">6</span> <span class="toctext">プロット順序</span></a> 
+		 
+		<ol>
+			<li class="toclevel-2 tocsection-7"><a href="#By_Layer_Contents_Dialog"><span 
+			 class="tocnumber">6.1</span> <span class="toctext">レイヤ内容ダイアログを使用</span></a></li>
+			<li class="toclevel-2 tocsection-8"><a href="#By_Object_Manager"><span 
+			 class="tocnumber">6.2</span> <span class="toctext">オブジェクトマネージャ</span></a></li>
+			<li class="toclevel-2 tocsection-9"><a href="#By_Plot_Setup_Dialog"><span 
+			 class="tocnumber">6.3</span> <span class="toctext">作図のセットアップダイアログを使用</span></a></li>
+		</ol></li>
+		<li class="toclevel-1 tocsection-10"><a href="#Customize_points"><span 
+		 class="tocnumber">7</span> <span class="toctext">1つのデータポイントを編集</span></a></li>
+		<li class="toclevel-1 tocsection-11"><a href="#Group_plots"><span 
+		 class="tocnumber">8</span> <span class="toctext">グループ化プロット</span></a></li>
+	</ol>
+</div>
+<p><br />
+</p>
+<table class="simple" width="80%">
+	<tr style="vertical-align: top;">
+		<td style="width: 40%;"><a class="image"><img alt="Video Image.png" 
+														 src="../images/Customizing_a_Graph/Video_Image.png" 
+														 width="33" border="0" /></a> 
+		 <a class="image"><img alt="Video Text Image.png" src="../images/Customizing_a_Graph/Video_Text_Image.png" 
+								 width="135" border="0" /></a> 
+		<ul>
+			<li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=214" 
+					 target="_blank">Fit Layer to Page</a></li>
+			<li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=49" 
+					 target="_blank">Graph Template</a></li>
+			<li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=329" 
+					 target="_blank">What is a Graph Theme and How Does 
+			 it Make Customization Easier</a></li>
+			<li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=13" 
+					 target="_blank">Adding, Grouping and Reordering Plots 
+			 with Layer Contents</a></li>
+			<li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=255" 
+					 target="_blank">Customize a Single Point</a></li>
+			<li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=171" 
+					 target="_blank">Labeling Graphs with the Annotation 
+			 Tool</a></li>
+			<li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=144" 
+					 target="_blank">Customizing Annotation Labels</a></li>
+			<li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=274" 
+					 target="_blank">Group and Ungroup Plots in Object 
+			 Manager</a></li>
+			<li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=376" 
+					 target="_blank">Color List</a></li>
+		</ul></td>
+		<td style="width: 40%;"><a class="image"><img alt="Website blog icon circle.png" 
+														 src="../images/Customizing_a_Graph/Website_blog_icon_circle.png" 
+														 width="31" border="0" /></a> 
+		 <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Customizing_a_Graph/Blog_Image_33x33px.png" 
+								 width="135" border="0" /></a> </td>
+	</tr>
+</table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>Originグラフを編集するのは、とても簡単です。 どのグラフ要素でも選択でき、それに関連するダイアログボックスを開いて、プロパティを編集することができます。 
+ グラフ全体から1つのデータポイントまで編集することができます。 </p>
+<p>このチュートリアルでは、以下の項目について説明します。 </p>
+<ul>
+	<li>レイヤサイズの変更</li>
+	<li>レイヤタイトルを追加</li>
+	<li>グラフテンプレートの編集と保存</li>
+	<li>軸の編集</li>
+	<li>グラフテーマを適用</li>
+	<li>レイヤ内のプロット順序を変更</li>
+	<li>データポイントの変更 </li>
+	<li>グループ化したプロットの編集</li>
+	<li>カラーマップのウォータフォールプロットの作成</li>
+</ul>
+<h2><a name="Re-sizing_Layer"></a><span class="mw-headline">レイヤのサイズ調整</span></h2>
+<ol>
+	<li><b>Samples\Graphing</b>フォルダから<b>Customizing Graphs.OPJ</b>を開き、<b>プロジェクトエクスプローラ</b>で、 
+	 <b>Resize Graph and Customize Symbol</b> フォルダを開きます。 </li>
+	<li><b>Graph2</b> をアクティブにして、レイヤ内のデータポイントの上方を右クリックし、<b>レイヤタイトルの追加/変更</b>を選択します。 
+	 以下のグラフ画像のようにタイトルを追加します。<br />
+	<a class="image"><img alt="AddLayerTitle.png" src="../images/Customizing_a_Graph/AddLayerTitle.png" 
+							 width="444" border="0" /></a></li>
+	<li>レイヤの大きさは、サイズハンドル(黒い四角)をドラッグするだけで簡単に変更できます。レイヤの大きさを変更するには、レイヤ内部のデータポイントではないところでクリックします。下図のようにレイヤが選択状態になり、8つのアンカーポイントのうち1つをドラッグして、レイヤの大きさを変更できます。 
+	 Note: Ctrlキーを押しながらドラッグすると、縦横比が保持されます。<br />
+	<a class="image"><img alt="ResizeTheGraphByDrag.png" src="../images/Customizing_a_Graph/ResizeTheGraphByDrag.png" 
+							 width="444" border="0" /></a> </li>
+	<li>また、詳細に大きさを指定するには、<b><b><b>作図の詳細</b></b></b>ダイアログを使って、レイヤの大きさを入力します。レイヤ内部をダブルクリックして、<b>作図の詳細</b>ダイアログを開きます。 
+	 <b>レイヤの大きさ・描画スピード</b>タブを開き、レイヤの大きさを下図に示す値にセットします。<br />
+	<a class="image"><img alt="SetTheSizeofLayer.png" src="../images/Customizing_a_Graph/SetTheSizeofLayer.png" 
+							 width="432" border="0" /></a> </li>
+</ol>
+<table class="note">
+	<tr>
+		<td>Note：<b>軸の長さをリンクするX:Yの比率</b>にチャックを入れ、レイヤサイズを変更しても、XとYのスケールの縦横比を変えないようにするために、X軸とY軸の長さ（レイヤの「幅」と「高さ」の比率）を設定します。隣にあるボックスで比率を設定することが出来ます。 
+		 </td>
+	</tr>
+</table>
+<h2><a name="Customize_Data_Plot_and_Axes"></a><span class="mw-headline">データプロットと軸の編集</span></h2>
+<p>ここでは、データプロットの色を変更する方法と軸を編集する方法を説明します。 </p>
+<ol>
+	<li><b>Graph2</b> のデータポイントの1つをクリックし、「<b>スタイル</b>」ツールバーの<b>線/境界色</b>ボタン 
+	 <a class="image"><img alt="Button Line And Border Color.png" src="../images/Customizing_a_Graph/Button_Line_And_Border_Color.png" 
+							 width="33" border="0" /></a>を使って、データポイントの色を<b>赤</b>に変更します。 
+	 </li>
+	<li>次に、<b>軸</b>ダイアログを使って、軸をカスタマイズします。 X軸をダブルクリックして、ダイアログを開き、次のように設定します。 
+	 
+	<ul>
+		<li><b>スケール</b>ページの<b>水平</b>アイコンをクリックし、<b>主目盛</b>の<b>タイプ</b>を<b>カウント</b>にし、<b>カウント</b>に<b>5</b>を入力します。</li>
+		<li><b>スケール</b>ページの<b>垂直</b>アイコンをクリックし、<b>開始</b>を<b>0</b>、<b>終了</b>を<b>16</b>に変更し、<b>主目盛</b>の<b>タイプ</b>を<b>カウント</b>にして<b>カウント</b>を<b>11</b>に設定します。 
+		 </li>
+		<li><b>軸と軸目盛</b>タブに移動し、左側パネルの上と下をCtrlボタンを押しながらクリックして選択します。Y軸の項目も選択されたら、<b>軸と軸目盛の表示</b>にチェックを付け、上X軸と右Y軸を表示します。<b>OK</b>をクリックしてこの設定を適用して、ダイアログを閉じます。下図のようなグラフになります。<br />
+		<a class="image"><img alt="DoubleYSensor.png" src="../images/Customizing_a_Graph/DoubleYSensor.png" 
+								 width="444" border="0" /></a> </li>
+	</ul></li>
+</ol>
+<h2><a name="Save_and_Reuse_a_Template"></a><span class="mw-headline">グラフテンプレートの保存と再利用</span></h2>
+<p>このセクションでは、ここまでで作成したグラフをテンプレートとして保存し、再利用する方法を紹介します。 </p>
+<ol>
+	<li>メニューから<b>ファイル：テンプレートの新規保存</b>を選択し(別の方法としては、グラフウィンドウタイトルを右クリックして、<b>テンプレートの新規保存</b>を選択)、テンプレートに<b>MyGraphTemplate</b>という名前を付けます。<b>OK</b>ボタンをクリックして保存します。<br />
+	<a class="image"><img alt="SaveTemplateAS v.png" src="../images/Customizing_a_Graph/SaveTemplateAS_v.png" 
+							 width="705" border="0" /></a> </li>
+	<li>新しいワークブックを作成し、<b>データ：ファイルに接続：Text/CSV</b>ツールを使ってデータファイル<i>\Samples\Curve 
+	 Fitting\Sensor2.dat</i>をインポートします。B列を選択し、<b><b>作図：マイテンプレート：<i>MyGraphTemplate</i>と選択してグラフを作成します。</b><br />
+	</b> グラフは次のようになります。<br />
+	<a class="image"><img alt="TemplateGraph2.png" src="../images/Customizing_a_Graph/TemplateGraph2.png" 
+							 width="483" border="0" /></a> </li>
+</ol>
+<table class="note">
+	<tr>
+		<td>Note：バッチ作図ツールを使って、同じデータ構造を持つ異なるワークシート/ワークブックから一度に複数のグラフを作成することも出来ます。このツールがどのように機能するかは<a 
+		 href="../../Tutorial/Tutorial/Graph_Templates_Themes_and_Batch_Plotting.html#Batch_Plotting" 
+		 title="チュートリアル：グラフテンプレートとバッチ作図">こちらのチュートリアル</a>をご参照ください。 </td>
+	</tr>
+</table>
+<h2><a name="Changing_graph_using_theme"></a><span class="mw-headline">テーマを使用したグラフ編集</span></h2>
+<p>Originは、グラフのプロパティをテーマファイルに保存できます。このセクションでは、テーマを使って、グラフをカスタマイズする方法を説明します。 
+ </p>
+<ol>
+	<li><b>Graph3</b>をアクティブにした後、メニューから<b>環境設定：テーマオーガナイザ</b>を選択して、ダイアログを開きます。テーマ名<b>Times 
+	 New Roman Font</b> を選択して、<b>今すぐ適用</b>ボタンをクリックします。テーマ名<b>Ticks All 
+	 In</b>を選択して、<b>今すぐ適用</b>ボタンをクリックし、<b>閉じる</b>ボタンをクリックしてダイアログを閉じます。グラフは下図のようになります。 
+	 <br />
+	<a class="image"><img alt="Graph3AppliedTheme.png" src="../images/Customizing_a_Graph/Graph3AppliedTheme.png" 
+							 width="444" border="0" /></a></li>
+	<li>次に現在のグラフのフォーマットをコピーして、<b>Graph2</b>に貼り付けます。レイヤの右側の白い空白の領域または灰色の領域を右クリックし、<b>フォーマットのコピー：全てのスタイルフォーマット</b>を選択します。<b>Graph2</b>をアクティブにしてから先程と同じような箇所を右クリックし、コンテキストメニューから<b>フォーマットの貼り付け</b>を選びます。すると、<b>Graph2</b>は、下図のようになります。 
+	 <br />
+	<a class="image"><img alt="Graph2AppliedTheme.png" src="../images/Customizing_a_Graph/Graph2AppliedTheme.png" 
+							 width="444" border="0" /></a> </li>
+</ol>
+<h2><a name="Plotting_Order"></a><span class="mw-headline">プロット順序</span></h2>
+<p>データプロットの順序変更は<b>レイヤ内容</b>ダイアログ、<b>オブジェクトマネージャー</b> 、または<b>作図のセットアップ</b>ダイアログから行えます。 
+ </p>
+<p><i>\Samples\Graphing</i> フォルダから<b>Customizing Graphs.OPJ</b>を開き、<b>プロジェクトエクスプローラ</b>で、 
+ <b>Plotting Order</b>フォルダを開きます。 </p>
+<h3><a name="By_Layer_Contents_Dialog"></a><span class="mw-headline">レイヤ内容ダイアログを使用</span></h3>
+<ol>
+	<li>Graph 1ウィンドウをアクティブにします。レイヤ1のアイコン上でダブルクリックして、<b>レイヤの内容</b>を選択します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Reorder 1v.png" src="../images/Customizing_a_Graph/Reorder_1v.png" 
+									 width="805" border="0" /></a></dd>
+	</dl></li>
+	<li><b>＞＞</b>ボタンをクリックし、左側パネルを閉じます。右側パネルで、折れ線グラフGauss Fit Countを選択します。下向き矢印ボタンをクリックして折れ線グラフのプロット順序を変更します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Reorder 2v.png" src="../images/Customizing_a_Graph/Reorder_2v.png" 
+									 width="463" border="0" /></a></dd>
+	</dl></li>
+	<li><b>適用</b>ボタンをクリックします。棒グラフの上にガウスフィット曲線が表示されます。<b>閉じる</b>ボタンをクリックしてダイアログを閉じます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Reorder 3.png" src="../images/Customizing_a_Graph/Reorder_3.png" 
+									 width="430" border="0" /></a></dd>
+	</dl></li>
+</ol>
+<h3><a name="By_Object_Manager"></a><span class="mw-headline">オブジェクトマネージャー</span></h3>
+<ol>
+	<li>Graph 1ウィンドウをアクティブにします。初期設定では、Originの右隅にある<b>オブジェクトマネージャー</b>を、マウスを<b>オブジェクトマネージャー</b>バーに合わせて広げます。</li>
+	<li>Gauss Fit Count lineの上で右クリックし、メニューから上へ移動を選択します。 
+	<dl>
+		<dd><a class="image"><img alt="Q-Q Plot 01.png" src="../images/Customizing_a_Graph/Reorder_Plots_By_OM_01.png" 
+									 width="368" border="0" /></a></dd>
+	</dl></li>
+	<li>赤いプロットがヒストグラムの後ろに移動します。 
+	<dl>
+		<dd><a class="image"><img alt="Q-Q Plot 02.png" src="../images/Customizing_a_Graph/Reorder_Plots_By_OM_02.png" 
+									 width="457" border="0" /></a></dd>
+	</dl></li>
+</ol>
+<h3><a name="By_Plot_Setup_Dialog"></a><span class="mw-headline">作図のセットアップダイアログを使用</span></h3>
+<ol>
+	<li>前のサンプルで使用したものと同じデータを使用します。<b>Plotting Order </b>フォルダの<b>Graph 1</b>をアクティブにします。メインメニューの<b>グラフ操作：作図のセットアップ</b>と選択して<b>作図のセットアップ</b>ダイアログを開きます（グラフ左上にあるレイヤアイコン1を右クリックして<b>作図のセットアップ</b>を選択しても開けます）。 
+	 
+	<table class="noborder">
+		<tr>
+			<td style="vertical-align: top;" width="60"><img src="../images/Customizing_a_Graph/Tip_icon.png" 
+															 alt="" width="57" 
+															 border="0" /></td>
+			<td><p><b>作図のセットアップ</b>ダイアログで3つのパネルを全ての表示するために<a class="image"><img 
+			 alt="Button Expand Preview Up.png" src="../images/Customizing_a_Graph/Button_Expand_Preview_Up.png" 
+			 width="24" border="0" /></a>ボタンをクリックして<b>グラフタイプ</b>パネルを開き、再度<a 
+			 class="image"><img alt="Button Expand Preview Up.png" src="../images/Customizing_a_Graph/Button_Expand_Preview_Up.png" 
+								 width="24" border="0" /></a>をクリックして<b>利用可能なデータ</b>パネルを開きます。<br />
+			</p></td>
+		</tr>
+	</table></li>
+	<li><b>プロットリスト</b>パネルで、折れ線グラフをドラッグし、縦棒/横棒の下にドロップします。 <br />
+	<a class="image"><img alt="DragCurveInPlotSetup.png" src="../images/Customizing_a_Graph/DragCurveInPlotSetup.png" 
+							 width="718" border="0" /></a></li>
+	<li><b>OK</b>ボタンをクリックすると、赤い曲線が前面に表示されます。 凡例も新しいプロット順序が反映されます。 <br />
+	<a class="image"><img alt="CustomzieColumn.png" src="../images/Customizing_a_Graph/CustomzieColumn.png" 
+							 width="445" border="0" /></a></li>
+</ol>
+<h2><a name="Customize_points"></a><span class="mw-headline">データポイントを編集</span></h2>
+<p>ここでは、プロットの内1つのポイントを編集する方法を説明します。 </p>
+<ol>
+	<li>引き続き<b>Plotting Order</b>フォルダのデータを使用します。<b>Graph1</b>がアクティブになっていることを確認します。棒グラフ上で１度クリックすると全ての棒が選択されます。 
+	 もう一度クリックすると、1つの曲線だけが選択されます。 そして、「<b>スタイル</b>」ツールバーの「<b>オブジェクトの塗り色</b>」ボタン<a 
+	 class="image"><img alt="Button Fill Color.png" src="../images/Customizing_a_Graph/Button_Fill_Color.png" 
+						 width="22" border="0" /></a>を使って、色を<b>緑</b>に変更します。 
+	 </li>
+	<li><b>作図の詳細</b>ダイアログを使って、1つの縦棒グラフを編集することもできます。Ctrl キーを押しながら、縦棒グラフの1つをダブルクリックし、<b>作図の詳細</b>ダイアログを開きます。 
+	 このダイアログでは、1つのデータポイントのプロパティだけを編集できます。 作図の詳細ダイアログの左パネルで選択したデータポイントのインデックスが選択された状態であることを確認しましょう。 
+	 黄色から赤色に徐々に変化するように<b>階調色</b>グループを以下のように設定します。 <br />
+	<a class="image"><img alt="CustomzieSingleBar 2.png" src="../images/Customizing_a_Graph/CustomzieSingleBar_2.png" 
+							 width="536" border="0" /></a><br />
+	<br />
+	グラフは次のようになります。<br />
+	<a class="image"><img alt="CustomzieSingleBar 3.png" src="../images/Customizing_a_Graph/CustomzieSingleBar_3.png" 
+							 width="441" border="0" /></a> </li>
+	<li>同じ方法で円グラフの要素１つを編集できます。<b>Edit Single Data Point</b> フォルダに移動し、円グラフをアクティブにします。Ctrl 
+	 キーを押しながら、スライスの1つをダブルクリックし、<b>作図の詳細</b>ダイアログを開きます。<b>パターン</b>タブで、ドロップダウンリストから<b>塗りつぶしパターン</b>を<b>密</b>にし、<b>パターンの色</b>を<b>赤</b>にします。(別の方法として、ゆっくりと2回クリックし、そのスライスだけを選択し、スタイルツールバーを使用してそのポイントを編集します。) 
+	 グラフは下図のようになります。<br />
+	<a class="image"><img alt="PiePatternModify.png" src="../images/Customizing_a_Graph/PiePatternModify.png" 
+							 width="447" border="0" /></a> </li>
+	<li>1つのデータポイントを編集し、それにラベルを付けることができます。<b>Resize Graph and Customize 
+	 Symbol </b>フォルダに移動します。Ctrl キーを押しながら、散布図データの1つをダブルクリックし、<b>作図の詳細</b>ダイアログを開きます。 
+	 <b>シンボル</b>タブで、三角形の<b>プレビュー</b>ボタンをクリックし、シンボルギャラリーを開き、形状で<b>球</b>を選びます。 
+	 <b>サイズ</b>を<b>18</b>まで大きくし、<b>OK</b>ボタンをクリックしてダイアログを閉じます。</li>
+	<li>次に、注釈ツールを使って、編集したデータポイントに対応するXとY値を追加します。<b>プロット操作・オブジェクト作成</b>のツールバーにある<b>データラベル</b>ボタンをクリックします。（ヒント：データリーダとデータラベル、データカーソルはグループ化されています。データラベルツールが見つからない場合、ボタン右下にある三角形をクリックすると現在表示されていないツールを選択できます。）<br />
+	<a class="image"><img alt="AnnotationTool.png" src="../images/Customizing_a_Graph/AnnotationTool.png" 
+							 width="146" border="0" /></a><br />
+	そして、データラベルカーソルをデータポイントまで移動し、データポイント上でダブルクリックします。これにより、自動的にテキストオブジェクトが追加されます。 
+	 ESCキーを押すか、ポインタツールをクリックして、データラベルツールを解除します。 シングルクリックして選択してドラッグすればテキストオブジェクトを移動できます。位置を移動しても、ラベルから伸びた線はラベルとデータポイントを常に結びます。<br />
+	<a class="image"><img alt="AnnotationGraph.png" src="../images/Customizing_a_Graph/AnnotationGraph.png" 
+							 width="490" border="0" /></a> <br />
+	テキストオブジェクトの上で右クリックします。<b>プロパティ...</b>を選択し、<b>テキストオブジェクト</b> ダイアログを開きます。テキストのラベルをこのダイアログにて編集できます。 
+	 <b>テキスト</b>タブで、編集ボックスに <b>%(1,@LL)=$(Y,.2)&#160;%(1,@LU)</b> と入力します。編集ボックスの右にあるボタン 
+	 <a class="image"><img alt="Triangle button Annotation.png" src="../images/Customizing_a_Graph/Triangle_button_Annotation.png" 
+							 width="24" border="0" /></a> にて、いくつかの<a class="external text" 
+	 href="../../LabTalk/LabTalk/Text_Label_Options.html">frequently used 
+	 notations</a>やシンタックス例を作ることが出来ます。 <br />
+	<a class="image"><img alt="AnnotationGraph 01.png" src="../images/Customizing_a_Graph/AnnotationGraph_01.png" 
+							 width="681" border="0" /></a> </li>
+</ol>
+<table class="noborder">
+	<tr>
+		<td style="vertical-align: top;" width="60"><img src="../images/Customizing_a_Graph/Tip_icon.png" 
+														 alt="" width="57" 
+														 border="0" /></td>
+		<td><p>Origin 2017移行では、見出しラベルをドラッグして移動できるようになりました。ポインタボタン<a class="image"><img 
+		 alt="Button Pointer.png" src="../images/Customizing_a_Graph/Button_Pointer.png" 
+		 width="23" border="0" /></a>をクリックして、ALTキーを押して十字カーソルでラベルをドラッグして移動します。 
+		 </p></td>
+	</tr>
+</table>
+<h2><a name="Group_plots"></a><span class="mw-headline">グループ化プロット</span></h2>
+<p>１つ前のセクションでは、グラフ内の単一データポイントを編集しました。このセクションでは、グループ化されたデータプロットを編集する方法を説明します。 
+ </p>
+<ol>
+	<li><b>Grouped Data</b> フォルダを開きます。 <b>Book3</b> がアクティブになっています。 そして、ワークシート全体を選択し、<b>2Dグラフギャラリー</b>ツールバーで折れ線グラフボタン 
+	 <a class="image"><img alt="Button Line.png" src="../images/Customizing_a_Graph/Button_Line.png" 
+							 width="22" border="0" /></a> をクリックし、折れ線グラフを作成します。</li>
+	<li>X軸をダブルクリックして、<b><b>軸</b></b>ダイアログボックスを開きます。スケールの<b><b>開始</b></b>を<b><b>0.5</b></b>にし、<b><b>終了</b></b>を<b><b>3.0</b></b>に変更します。<b>再スケール</b><b>方式</b>ドロップダウンリストから<b>固定</b>を選択します(リスト内でスクロールする必要があります。)。これは、再スケール時に、<b>開始</b>と<b>終了</b>の値が変更されるのを防ぎます。 
+	 <b>OK </b>をクリックして、これらの設定を適用します。</li>
+	<li>レイヤの内部の折れ線グラフの上部にある、空白の領域でダブルクリックし、<b>作図の詳細</b>ダイアログを開きます。<b>積上げ形式</b>タブで、<b>オフセット</b>グループを<b>自動</b>にします。<b>OK</b> 
+	 をクリックしてダイアログを閉じます。</li>
+	<li><b>グラフ操作：再スケールして全てを表示</b>を選択します。 グラフのYスケールが自動的に再スケールしますが、Xスケールは再スケール方式オプションで手動にセットされているので、変更されません。レイヤの大きさを変更して、好みに合せて凡例を移動してみてください。<br />
+	<a class="image"><img alt="RescaledGraph9.png" src="../images/Customizing_a_Graph/RescaledGraph9.png" 
+							 width="446" border="0" /></a></li>
+	<li>データプロットの1つをクリックして全体を選択し、<b>スタイル</b>ツールバーの<b>線/境界の色</b>ボタン<a class="image"><img 
+	 alt="Button Line And Border Color.png" src="../images/Customizing_a_Graph/Button_Line_And_Border_Color.png" 
+	 width="33" border="0" /></a>を使って、色を変更します。<b>プロット毎</b>タブをクリックして、以下の<b>推移リスト</b>から<b>Q03 
+	 Rainbow7</b>を選択します。 <br />
+	<a class="image"><img alt="GroupDataGraph2New.png" src="../images/Customizing_a_Graph/GroupDataGraph2New.png" 
+							 width="579" border="0" /></a> </li>
+	<li>最初の推移リストを選択します。グラフは次のようになります。<br />
+	<a class="image"><img alt="GroupDataGraph2New 01.png" src="../images/Customizing_a_Graph/GroupDataGraph2New_01.png" 
+							 width="701" border="0" /></a> </li>
+	<li>これらのデータプロットはグループ化していますが、データプロットを2回クリックすることで、それぞれのデータプロットを個別に編集することができます。例えば、黄色のデータポイントを2回クリックして、<b>スタイル</b>ツールバーの<b>線/境界の色</b>ボタン 
+	 <a class="image"><img alt="Button Line And Border Color.png" src="../images/Customizing_a_Graph/Button_Line_And_Border_Color.png" 
+							 width="33" border="0" /></a>を使って、色を<b>オリーブ</b>などの別の色に変更します。</li>
+	<li>データプロットの1つをダブルクリックして、<b>作図の詳細</b>ダイアログを開いて、グラフを編集することもできます。 <b>グラフグループ</b>タブで、詳細列内のフィールドをクリックし、参照ボタンをクリックします。<br />
+	<a class="image"><img alt="BrowIncreEditor 2.png" src="../images/Customizing_a_Graph/BrowIncreEditor_2.png" 
+							 width="272" border="0" /></a><br />
+	<b>推移リストエディタ</b>ダイアログが開きます。このダイアログで、次の図のようにグラフを編集します。行のインデックスをドラッグして移動し、カラーリストの順序を変更することができます。 
+	 <br />
+	<a class="image"><img alt="IncrementEditor2.png" src="../images/Customizing_a_Graph/IncrementEditor2.png" 
+							 width="463" border="0" /></a><br />
+	</li>
+	<li>推移リストエディタダイアログの内部を右クリックして、<b>推移リストを保存</b>を選択し、この推移リストを繰り返し使用のために<b>MyPallete 
+	 </b>という名前で保存します。右クリックして、コンテキストメニューから<b>推移リストを</b><b>ロード</b>を選択します。次の図のように<b>MyPallete</b>がフライアウトメニューの最初の項目として表示されます。<br />
+	<a class="image"><img alt="IncrementMenu.png" src="../images/Customizing_a_Graph/IncrementMenu.png" 
+							 width="184" border="0" /></a> </li>
+</ol>
+<p>次に、データプロットグループの色を設定する<b>パレット</b>の使用方法を説明します。 </p>
+<ol>
+	<li><b>Book3</b>をアクティブにし、すべての列を選択します。メニューから<b><b><b>作図： ３D：<b>ウォーターフォール</b></b></b></b>を選び、グラフを作成します。X軸をダブルクリックして、<b>軸</b>ダイアログを開き、スケールタブで<b>開始</b>を<b>0.5</b>、<b>終了</b>を<b>3</b>に設定します。<b>選択</b>リストから<b>Y</b> 
+	 アイコンを選択し、 <b>スケール</b> タブにある、<b>開始</b>と <b>終了</b>と<b>主目盛</b> オプションの 
+	 <b>推移</b> を<b>-10</b>、開始と終了を<b>100</b> と <b>20</b>にそれぞれ変更します。 <br />
+	<a class="image"><img alt="3D Waterfall 2.png" src="../images/Customizing_a_Graph/Waterfall_2.png" 
+							 width="429" border="0" /></a> </li>
+	<li>データプロットの1つをクリックし、<b>スタイル</b>ツールバーの<b>線/境界の色</b>ボタン<a class="image"><img 
+	 alt="Button Line And Border Color.png" src="../images/Customizing_a_Graph/Button_Line_And_Border_Color.png" 
+	 width="33" border="0" /></a>をクリックして、色を変更します。<b>ポイント毎</b>タブの<b>パレット</b>リストにある<b>Rainbow</b> 
+	 パレット <a class="image"><img alt="Button Rainbow Pallete.png" src="../images/Customizing_a_Graph/Button_Rainbow_Pallete.png" 
+								 width="35" border="0" /></a> を選択します。グラフは下図のようになります。 
+	 <br />
+	<a class="image"><img alt="RainbowGraph 2.png" src="../images/Customizing_a_Graph/RainbowGraph_2.png" 
+							 width="425" border="0" /></a> </li>
+	<li>プロットの1つをダブルクリックし、次の図のようにカラーリストを表示します。<br />
+	<a class="image"><img alt="Binned256Color.png" src="../images/Customizing_a_Graph/Binned256Color.png" 
+							 width="523" border="0" /></a><br />
+	<b>推移</b>が<b>ビン化</b>に設定され、色は<b>Rainbow</b> パレットで利用可能な256色から適用されています。 
+	 </li>
+	<li>パレットを<b>Reef</b>に変更しましょう。参照ボタンをクリックして、<b>推移項目エディタ</b>ダイアログを開きます。このダイアログの内部を右クリックして、<b>パレットをロード: 
+	 Reefを</b>を選択し、<b>OK</b>をクリックします。<b>作図の詳細</b>ダイアログにある色リストは、次の様に表示されていますので、<br />
+	<a class="image"><img alt="ReefPal.png" src="../images/Customizing_a_Graph/ReefPal.png" 
+							 width="270" border="0" /></a><br />
+	OKをクリックして<b>Plot Details</b> ダイアログを閉じます。下図のようなグラフになります。<br />
+	<a class="image"><img alt="Binned256ColorReef 2.png" src="../images/Customizing_a_Graph/Binned256ColorReef_2.png" 
+							 width="429" border="0" /></a> </li>
+</ol>

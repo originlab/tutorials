@@ -1,0 +1,304 @@
+﻿<h1 class="firstheading">ヒストグラムに複数フィット曲線を追加する</h1>
+<p class="urlname" style="display: none;">MultiFittedCurve-in-Histogram</p>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> 
+		 <span class="toctext">サマリー</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> 
+		 <span class="toctext">ステップ</span></a> 
+		<ol>
+			<li class="toclevel-2 tocsection-4"><a href="#Frequency_Count"><span 
+			 class="tocnumber">3.1</span> <span class="toctext">度数カウント</span></a></li>
+			<li class="toclevel-2 tocsection-5"><a href="#Fit_peaks"><span 
+			 class="tocnumber">3.2</span> <span class="toctext">ピークフィット</span></a></li>
+			<li class="toclevel-2 tocsection-6"><a href="#Add_the_fitted_curves"><span 
+			 class="tocnumber">3.3</span> <span class="toctext">フィット曲線の追加 
+			 </span></a></li>
+			<li class="toclevel-2 tocsection-7"><a href="#Sample_Data"><span 
+			 class="tocnumber">3.4</span> <span class="toctext">サンプルデータ</span></a></li>
+		</ol></li>
+	</ol>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>Originでは、度数カウントの結果からピークをフィットすることができます。また、フィットした曲線は、ヒストグラムの新しいレイヤに追加できます。 
+ </p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul>
+	<li>ヒストグラムを作図する</li>
+	<li>度数カウントを使って統計を実行する</li>
+	<li>複数ピークフィットの機能を使ってピークを検索し、フィットを実行する </li>
+	<li>新しいレイヤを追加する</li>
+</ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p><a href="#Sample_Data">サンプルデータ</a>をコピーして、Originに貼り付け、対象の列をYに設定します（列を選択してOriginのメニューから<b>列：列XY属性の設定:Y列として設定</b>を選びます）。メニューから<span 
+	 class="menu">作図：2D：：ヒストグラム：ヒストグラム</span>」を選び、ヒストグラムを作図します。 </p>
+<dl>
+	<dd><a class="image"><img alt="Histogram Not Fitted curve.png" src="../images/Add_multiple_fitted_curves_in_a_Histogram/Histogram_Not_Fitted_curve.png" 
+								 width="457" height="349" border="0" /></a></dd>
+</dl>
+<h3><a name="Frequency_Count"></a><span class="mw-headline">度数カウント</span></h3>
+<ol>
+	<li>サンプルデータを選択し、<b>度数カウント</b>ダイアログを開くために<span class="menu">統計：記述統計：度数表</span>を選択して、<b>freqcounts</b>ダイアログを開きます。 
+	 </li>
+	<li><b>OK</b>ボタンをクリックして終了します。新しい結果シートが生成されます。 </li>
+</ol>
+<h3><a name="Fit_peaks"></a><span class="mw-headline">ピークフィット</span></h3>
+<ol>
+	<li><b>FreqCounts1</b>のCol(Counts)を選択し、<b>解析：ピークと基線：複数ピークフィット</b>メニューから、<b>複数ピークフィットダイアログ</b>を開きます。 
+	 </li>
+	<li>開いたダイアログで、<b>ピーク関数</b>としてGaussianを選択して、<b>OK</b>ボタンをクリックします。 </li>
+	<li>グラフウィンドウが自動作成されるので、グラフ上でピーク位置を指定します。ピーク中心でダブルクリックするとピークを取得できます。この方法で2つのピークを取得します。 
+	 <br />
+	<a class="image"><img alt="MultiFittedCurve pickpeaks.png" src="../images/Add_multiple_fitted_curves_in_a_Histogram/MultiFittedCurve_pickpeaks.png" 
+							 width="552" height="450" border="0" /></a> 
+	 <br />
+	<b>注意:</b> ピーク中心を一回クリックしてから、キーボードの右/左矢印キーで移動し、中心を調整することもできます。確定するときは、Enterキーを押します。</li>
+	<li>ベースラインをY=0にします。この設定は、<b>NLFitを開く</b>ボタンをクリックして開くダイアログで行います。パラメータタブを開きます。パラメータ<i>y0</i> 
+	 の<b>値</b>を0にし、<b>固定</b>チェックボックスにチェックをつけます。「<b>フィット</b>」ボタンをクリックし、フィットを実行します。 
+	 
+	<table class="noborder">
+		<tr>
+			<td style="vertical-align: top;" width="60"><img src="../images/Add_multiple_fitted_curves_in_a_Histogram/Tip_icon.png" 
+															 alt="" width="57" 
+															 border="0" /></td>
+			<td><p>ベースラインが複雑な場合や、指定した手法によるピークの自動検索をしたい場合、<b>ピークアナライザー</b>を使用してください。<b>ピークアナライザー</b>は、<b>解析：ピークと基線：ピークアナライザー</b>メニューから使用できます。<b>ピークアナライザー</b>は、上記の2つの場合だけでなく、より強力なコントロールを提供しています。 
+			 </p></td>
+		</tr>
+	</table></li>
+	<li>元のワークブックに、フィット結果のレポートとフィット曲線データを含む<b>nlfitpeaks1</b>および<b>nlfitpeaksCurve1</b>シートが追加されます。 
+	 </li>
+</ol>
+<p><br />
+</p>
+<h3><a name="Add_the_fitted_curves"></a><span class="mw-headline">フィット曲線の追加</span></h3>
+<ol>
+	<li>ヒストグラムのグラフをアクティブにして、メニューから<span class="db">グラフ操作：新規レイヤ(軸)：右Y（Xスケール・寸法リンク）</span>を選択して、レイヤを追加します。 
+	 </li>
+	<li><b>レイヤ2</b>アイコンをダブルクリックして<b>レイヤ内容</b>ダイアログボックスを開きます。 </li>
+	<li>左パネルで、Ctrlキーを押しながら<b>nlfitpeaksCurve1</b>シートのcol(&quot;Fit Peak 
+	 1&quot;) と col(&quot;Fit Peak 2&quot;)を選択し、<b>A</b>の隣の三角形ボタンをクリックしてメニューから折れ線を選択します。次に、<b>-&gt;</b>ボタンをクリックして右パネルに追加します。 
+	 </li>
+	<li>OKをクリックします。2つのフィット曲線がヒストグラムに追加されます。 </li>
+	<li>グラフをダブルクリックして、<span class="db">作図の詳細</span>ダイアログを開きます。左側のパネルから<b>RightY</b>を選択し、右側のパネルで「<b>軸スケール間のリンク対応</b>」タブを開き、<b>X軸のリンク</b>と<b>Y軸のリンク</b>の両方に対して、<b>直接(1対1)</b>を選択します。OKをクリックしてダイアログを閉じます。 
+	 </li>
+	<li>フィット曲線が右側のスケールでヒストグラムに追加されます。下のグラフは結果のグラフで、右Y軸は消去されています。 <br />
+	<a class="image"><img alt="Histogram Fitted curve.png" src="../images/Add_multiple_fitted_curves_in_a_Histogram/Histogram_Fitted_curve.png" 
+							 width="473" border="0" /></a> </li>
+</ol>
+<h3><a name="Sample_Data"></a><span class="mw-headline">サンプルデータ</span></h3>
+<dl>
+	<dd><table class="simple">
+		<tr>
+			<td>0.631 </td>
+		</tr>
+		<tr>
+			<td>0.642 </td>
+		</tr>
+		<tr>
+			<td>0.652 </td>
+		</tr>
+		<tr>
+			<td>0.662 </td>
+		</tr>
+		<tr>
+			<td>0.669 </td>
+		</tr>
+		<tr>
+			<td>0.676 </td>
+		</tr>
+		<tr>
+			<td>0.677 </td>
+		</tr>
+		<tr>
+			<td>0.69 </td>
+		</tr>
+		<tr>
+			<td>0.691 </td>
+		</tr>
+		<tr>
+			<td>0.696 </td>
+		</tr>
+		<tr>
+			<td>0.697 </td>
+		</tr>
+		<tr>
+			<td>0.699 </td>
+		</tr>
+		<tr>
+			<td>0.699 </td>
+		</tr>
+		<tr>
+			<td>0.7 </td>
+		</tr>
+		<tr>
+			<td>0.7 </td>
+		</tr>
+		<tr>
+			<td>0.708 </td>
+		</tr>
+		<tr>
+			<td>0.712 </td>
+		</tr>
+		<tr>
+			<td>0.718 </td>
+		</tr>
+		<tr>
+			<td>0.731 </td>
+		</tr>
+		<tr>
+			<td>0.744 </td>
+		</tr>
+		<tr>
+			<td>0.749 </td>
+		</tr>
+		<tr>
+			<td>0.751 </td>
+		</tr>
+		<tr>
+			<td>0.752 </td>
+		</tr>
+		<tr>
+			<td>0.753 </td>
+		</tr>
+		<tr>
+			<td>0.758 </td>
+		</tr>
+		<tr>
+			<td>0.758 </td>
+		</tr>
+		<tr>
+			<td>0.759 </td>
+		</tr>
+		<tr>
+			<td>0.761 </td>
+		</tr>
+		<tr>
+			<td>0.761 </td>
+		</tr>
+		<tr>
+			<td>0.763 </td>
+		</tr>
+		<tr>
+			<td>0.763 </td>
+		</tr>
+		<tr>
+			<td>0.763 </td>
+		</tr>
+		<tr>
+			<td>0.765 </td>
+		</tr>
+		<tr>
+			<td>0.767 </td>
+		</tr>
+		<tr>
+			<td>0.768 </td>
+		</tr>
+		<tr>
+			<td>0.768 </td>
+		</tr>
+		<tr>
+			<td>0.769 </td>
+		</tr>
+		<tr>
+			<td>0.769 </td>
+		</tr>
+		<tr>
+			<td>0.77 </td>
+		</tr>
+		<tr>
+			<td>0.771 </td>
+		</tr>
+		<tr>
+			<td>0.771 </td>
+		</tr>
+		<tr>
+			<td>0.772 </td>
+		</tr>
+		<tr>
+			<td>0.774 </td>
+		</tr>
+		<tr>
+			<td>0.775 </td>
+		</tr>
+		<tr>
+			<td>0.775 </td>
+		</tr>
+		<tr>
+			<td>0.776 </td>
+		</tr>
+		<tr>
+			<td>0.776 </td>
+		</tr>
+		<tr>
+			<td>0.776 </td>
+		</tr>
+		<tr>
+			<td>0.777 </td>
+		</tr>
+		<tr>
+			<td>0.778 </td>
+		</tr>
+		<tr>
+			<td>0.779 </td>
+		</tr>
+		<tr>
+			<td>0.78 </td>
+		</tr>
+		<tr>
+			<td>0.78 </td>
+		</tr>
+		<tr>
+			<td>0.781 </td>
+		</tr>
+		<tr>
+			<td>0.784 </td>
+		</tr>
+		<tr>
+			<td>0.784 </td>
+		</tr>
+		<tr>
+			<td>0.785 </td>
+		</tr>
+		<tr>
+			<td>0.785 </td>
+		</tr>
+		<tr>
+			<td>0.789 </td>
+		</tr>
+		<tr>
+			<td>0.789 </td>
+		</tr>
+		<tr>
+			<td>0.791 </td>
+		</tr>
+		<tr>
+			<td>0.794 </td>
+		</tr>
+		<tr>
+			<td>0.795 </td>
+		</tr>
+		<tr>
+			<td>0.796 </td>
+		</tr>
+		<tr>
+			<td>0.798 </td>
+		</tr>
+		<tr>
+			<td>0.798 </td>
+		</tr>
+		<tr>
+			<td>0.803 </td>
+		</tr>
+		<tr>
+			<td>0.82 </td>
+		</tr>
+		<tr>
+			<td>0.831 </td>
+		</tr>
+	</table></dd>
+</dl>

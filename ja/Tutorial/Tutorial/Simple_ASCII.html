@@ -1,0 +1,55 @@
+﻿<h1 class="firstheading">単一ASCII</h1><p class='urlname' style='display: none'>SingleASCII</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span><span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a></li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Simple_ASCII/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Simple_ASCII/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=240" target="_blank">Data Connectors</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=358" target="_blank">Matlab Connector Improvements in Origin 2020b</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Simple_ASCII/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Simple_ASCII/Blog_Image_33x33px.png" width="135"  /></a>
+<ul><li> <a class="external text" href="http://blog.originlab.com/data-connector-json" target="_blank">Origin Web Data Connector in 2019b</a></li>
+<li> <a class="external text" href="http://blog.originlab.com/data-connector-improvements-in-origin-2020b" target="_blank">Data Connector Improvements in Origin 2020b</a></li>
+<li> <a class="external text" href="http://blog.originlab.com/using-origin-project-as-data-repository-with-the-origin-connector" target="_blank">Using an Origin Project as a Data Repository for the Origin Connector</a></li>
+<li> <a class="external text" href="http://blog.originlab.com/exclude-imported-data-when-saving-project" target="_blank">Exclude imported data when saving project</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>メニューの<b>データ：ファイルに接続：Text/CSV</b>を使用すると、データ列が順序正しく区切られていて、ヘッダ行が少ない（ファイルに対する短い説明と各列に対する名前や単位程度）のASCIIファイルをインポートすることができます。
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、データコネクタを使用したASCIIファイルのインポートについて説明します。
+</p>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>Originメインメニューより<b>ヘルプ：フォルダを開く：サンプルフォルダ</b>を選択し、WindowsエクスプローラでOriginプログラムフォルダにあるサンプルフォルダを開きます（デフォルトではProgram Filesフォルダにインストールされます）。\<i>Import and Export</i> サブフォルダを開きます。Windowsのメモ帳を使って、<i>S15-125-03.dat</i>ファイルを開いてみましょう。このファイルにヘッダ行とデータ行があることが分かります。単一ASCIIファイルでは、Originのデータコネクタはヘッダ/サブヘッダを自動検出し、この情報を<i>ロングネーム</i>や<i>単位</i>などのワークシート列ヘッダに抽出することができます。
+</p>
+<dl><dd><br /><a  class="image"><img alt="Tutorial Import 001.png" src="../images/Simple_ASCII/Tutorial_Import_001.png" width="430"  /></a><br /><br /></dd></dl>
+<p><b>Note:</b> ヘッダ行は、データの一部ではなく、データとは異なる区切り文字を使用しているテキスト行です。サブヘッダ行もデータの一部ではありませんが、データと同じ区切り文字を使用しており、データ列に対応しています。
+</p><p><br />
+このファイルをインポートするには<br />
+</p>
+<ol><li>メインメニューから<b>データ：ファイルに接続：Text/CSV</b> を選びます。開かれたダイアログで \<i>&lt;Originプログラムフォルダ&gt;\Samples\Import and Export</i>を開き、<i>S15-125-03.dat</i>を選択します。<br /><br /></li>
+<li>このファイルをダブルクリックする、もしくは<b>開く</b>ボタンをクリックして<b>インポートオプション</b>ダイアログを開きます。このダイアログでは、ファイルのインポート方法の設定を表示および指定することができます。 <br /><br /></li>
+<li>デフォルトでは、Originはサブヘッダ行を自動検出し、データはサブヘッダからインポートされます。この例では、Originは自動的に最初の行を、列のロングネームとして<br /><code>Time	Delta Temperature Magnetic Field Position</code><br />2番目の行を単位として<br /><code>(sec) (K) (Oe) (mm)</code><br />のように設定します。<br /><br /><a  class="image"><img alt="Tutorial Import 003.png" src="../images/Simple_ASCII/Tutorial_Import_003.png" width="457"  /></a><br /><br /><b>ファイルヘッダーの保存先</b>を<b>ブックオーガナイザ</b>に変更して、メインヘッダー情報をブックオーガナイザの<i>情報</i>ツリーに保存します（ワークブックのタイトルバーを右クリックして<b>オーガナイザを表示</b>を選択して開きます）。</li>
+<li><b><b>OK</b></b>ボタンをクリックすると、これらの設定を使って、ワークシートにデータをインポートします。<br /><br /><a  class="image"><img alt="Tutorial Import 004.png" src="../images/Simple_ASCII/Tutorial_Import_004.png" width="424"  /></a><br /><br /></li></ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Simple_ASCII/Tip_icon.png" width="57"  border="0" /></td><td><p>インポートされたデータはデフォルトでは保護されており、編集することができないことに注意してください。以下のヒントをご覧いただけます。
+</p>
+<dl><dd><a  class="image"><img alt="Connector hint.png" src="../images/Simple_ASCII/250px-Connector_hint.png" width="250"   /></a></dd></dl>
+<p><span class='headerInParagraph'>データ編集を有効にするには</span>
+</p>
+<ul><li> ワークシートの左上隅にある緑色のアイコンをクリックし、<b>シートを接続しない</b>または<b>データコネクタを削除</b>をコンテキストメニューから選択します。</li></ul>
+<dl><dd><a  class="image"><img alt="Remove data connector.png" src="../images/Simple_ASCII/250px-Remove_data_connector.png" width="252"   /></a></dd></dl>
+<p><br />
+詳細は、こちらのページを参照してください：<a class="external text" href="../../QuickHelp/QuickHelp/How_to_allow_changing_data_when_data_connector_is_used.html">データコネクタを使用するときにデータの編集を許可するにはどうすればよいですか？</a>
+</p><p><br />
+</p></td></tr></table>
+
+
+    

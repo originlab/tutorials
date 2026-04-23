@@ -1,0 +1,31 @@
+﻿<h1 class="firstheading">インポートフィルタを使った後処理</h1>
+<p class="urlname" style="display: none;">PostProcess-ImpFilter</p>
+<h2><a name="Summary" id="Summary"></a> <span class="mw-headline">サマリー</span></h2>
+<p>インポートウィザードを使って、ASCIIファイルやバイナリファイルをインポートするカスタムフィルタを定義することができます。そして、フィルタを1度作成したら、フィルタを再利用して、似たようなデータファイルをインポートすることができます。フィルタには、インポート終了時に実行するLabTalkスクリプトを含めることができます。この機能により、フィルタに後処理用のスクリプトを追加することが出来ます。</p>
+<p class="version">必要なOriginのバージョン:8.0 SR6</p>
+<h2><a name="What_you_will_learn" id="What_you_will_learn"></a> <span class="mw-headline">学習する項目</span></h2>
+<ul>
+<li>既存のインポートフィルタに後処理用のスクリプトを追加する方法</li>
+</ul>
+<h2><a name="Steps" id="Steps"></a> <span class="mw-headline">ステップ</span></h2>
+<ol>
+<li>標準ツールバーの<b>新規ワークブック</b>ボタン<a class="image"><img alt="New Workbook.png" src="../images/Post_Processing_with_Import_Filter/New_Workbook.png" width="25" height="25" border="0" /></a>をクリックして、新しいワークブックを開きます。</li>
+<li><b style="font-weight: bold;"><span style="font-weight: normal;">標準ツールバーにある</span>インポートウィザード</b>ボタン&#160;<a class="image"><img alt="Import Wizard.png" src="../images/Post_Processing_with_Import_Filter/Import_Wizard.png" width="23" height="23" border="0" /></a> をクリックしてウィザードを開きます。</li>
+<li><b style="font-weight: bold;">データソースグループ</b>で<b>ファイル</b>の右にある<a class="image"><img alt="Browse.png" src="../images/Post_Processing_with_Import_Filter/Browse.png" width="17" height="18" border="0" /></a>ボタンをクリックして<b>Samples\Import and Export\S15-125-03.dat<span style="font-weight: normal;">ファイルを追加しましす。</span></b></li>
+<li>このファイルを適切にインポートするためのフィルタが既にデータフォルダに存在しています。ウィザードの「<b>進む</b>」ボタンをクリックし、「<b>フィルタの保存</b>」ページまで移動します。</li>
+<li>このページで<b>フィルタを保存する</b>にチェックをつけ、<b>ユーザファイルのフォルダに保存</b>を選択します。<b>ファイル名(拡張子.OIFが自動付加)</b>の項目に<b>fil_01</b>に設定します。</li>
+<li><b style="font-weight: bold;">フィルタ詳細オプションの指定</b>にチェックをつけてから<b>進む</b>をクリックします。これにより「<b>オプション詳細</b>」ページが開きます。</li>
+</ol>
+<ol start="7">
+<li>このページで、以下の行をコピーして<b>ファイルインポート後に実行するスクリプト<span style="font-weight: normal;">入力ボックスに貼り付けます</span></b>:
+<pre class="lt" style="font-family: monospace;">
+nlbegin iy<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">4</span><span style="color: #000000;">)</span> func<span style="color: #000000;">:</span><span style="color: #000080;">=</span>gauss;
+nlfit;
+nlend output<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">1</span> autoupdate<span style="color: #000000;">:</span><span style="color: #000080;">=</span>au_auto;
+        
+</pre></li>
+<li><b style="font-weight: bold;">完了<span style="font-weight: normal;">をクリックします。</span></b>これにより、追加したスクリプト行と共にフィルタを保存し、ファイルをインポートして、スクリプトを実行します。ワークブックには3つのシートが作成され、インポートしたデータの4列目をGauss関数でフィットした結果のカスタムレポートシートおよびフィット曲線シートが含まれます。</li>
+<li>新しいプロジェクトを開き、再度インポートウィザードを開き、3つのファイル<b>S15_125_03.dat, S21-235-07, S32-014-04</b> を選択します。</li>
+<li><i style="font-style: italic;">インポートフィルタ</i>グループで<b>データタイプとファイル名の両方に適用可能なフィルタを表示</b>にチェックをつけてから、<b>現在のデータタイプのインポートフィルタ</b>のドロップダウンリストで<b>ユーザファイルフォルダ：fil_01</b>を選びます。</li>
+<li><i style="font-style: italic;">ターゲットウィンドウ</i>グループでは<b>インポートモード</b>のドロップダウンで<b>ブックを新たに作って読み込む</b>を選択して<b>完了</b>をクリックします。修正したフィルタが使われ、各ファイルをインポートした後、4番目の列がGauss関数でフィットされます。</li>
+</ol>

@@ -1,0 +1,82 @@
+﻿<h1 class="firstheading">列値の設定を使って分析テンプレートを作成する</h1>
+<a name="Summary" id="Summary"></a>
+<h2><span class="mw-headline">サマリー</span></h2>
+<p>このチュートリアルでは、列を追加し、<b>実行前の処理スクリプト</b>を設定して、別の列のデータが変わったら、スクリプトを実行します。この手法は、繰り返し行われる似たようなデータ分析を行うための<b>分析テンプレート</b>として利用することができます。</p>
+<p class="version">必要なOriginのバージョン:8.0 SR6</p>
+<a name="What_you_will_learn" id="What_you_will_learn"></a>
+<h2><span class="mw-headline">学習する項目</span></h2>
+<ul>
+<li>列値の設定を使って、分析テンプレートを作成する</li>
+<li>Go to関数を使って行を選択する</li>
+</ul>
+<a name="Steps" id="Steps"></a>
+<h2><span class="mw-headline">ステップ</span></h2>
+<ol>
+<li>下図のように、新しいワークブックに<i>\Samples\Statistics\automobile.dat</i> データをインポートします。この例では、Make列に応じてデータを別のワークシートに抽出します。
+<dl>
+<dd><a style="color: #0000ff; text-decoration: underline;"><img alt="Image:Analysis_Template_thru_Set_Column_Value_001.png" src="../images/Creating_Analysis_Templates_using_Set_Column_Value/Analysis_Template_thru_Set_Column_Value_001.png" width="477" height="289" border="0" /></a></dd>
+</dl>
+</li>
+<li>空の列をワークシートに追加し、その列の<b>列値の設定</b>ダイアログを開きます。<b>実行前の処理スクリプト</b>のボックスに以下のスクリプトを入力します。
+<pre class="lt">
+<span style="color: #008000;">//離散度数カウントを実行するデータの範囲</span>
+range makeCol <span style="color: #000080;">=</span> <span style="color: #000080;">!</span>col<span style="color: #000000;">(</span>make<span style="color: #000000;">)</span>;<span style="color: #008000;">
+// 抽出するワークシート</span>
+range sourceWks <span style="color: #000080;">=</span> <span style="color: #000080;">!</span>;
+ <span style="color: #008000;">
+// ワークシートのクリア</span>
+int sheetNum <span style="color: #000080;">=</span> page.<span style="color: #000080;">nlayers</span>;
+int colNum <span style="color: #000080;">=</span> wks.<span style="color: #000080;">ncols</span> <span style="color: #000080;">-</span> <span style="color: #0000dd;">1</span>;
+if <span style="color: #000000;">(</span>sheetNum<span style="color: #000080;">&gt;</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+        for <span style="color: #000000;">(</span>jj<span style="color: #000080;">=</span><span style="color: #0000dd;">2</span>; jj<span style="color: #000080;">&lt;=</span>sheetNum; jj<span style="color: #000080;">++</span><span style="color: #000000;">)</span>
+        <span style="color: #000000;">{</span>
+                layer <span style="color: #000080;">-</span>d <span style="color: #0000dd;">2</span>;
+        <span style="color: #000000;">}</span><span style="color: #000000;">
+}</span>
+ <span style="color: #008000;">
+// discfreqsの出力を保持するツリー変数</span>
+tree tr;<span style="color: #008000;">
+// 離散度数カウントを実行</span>
+discfreqs irng<span style="color: #000000;">:</span><span style="color: #000080;">=</span>makeCol rd<span style="color: #000000;">:</span><span style="color: #000080;">=</span>tr;<span style="color: #008000;">
+// ツリーから結果を取得する文字列配列</span>
+StringArray sa;
+sa.<span style="color: #000080;">append</span><span style="color: #000000;">(</span>tr.<span style="color: #000080;">FreqCount1</span>.<span style="color: #000080;">Data1</span><span style="color: #000000;">)</span>;
+ 
+if<span style="color: #000000;">(</span> sa.<span style="color: #000080;">GetSize</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span> <span style="color: #000080;">!</span><span style="color: #000080;">=</span> NANUM <span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+        <span style="color: #008000;">// データ抽出のループ</span>
+        for <span style="color: #000000;">(</span>ii<span style="color: #000080;">=</span><span style="color: #0000dd;">1</span>; ii<span style="color: #000080;">&lt;=</span>sa.<span style="color: #000080;">GetSize</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>; ii<span style="color: #000080;">++</span><span style="color: #000000;">)</span>
+        <span style="color: #000000;">{</span>
+                string sn<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> sa.<span style="color: #000080;">GetAt</span><span style="color: #000000;">(</span>ii<span style="color: #000000;">)</span><span style="color: #000080;">$</span>;
+                <span style="color: #008000;">// 条件文字列を抽出</span>
+                string cond<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">"makeCol$ = "</span> <span style="color: #000080;">+</span> sn<span style="color: #000080;">$</span>;
+                <span style="color: #008000;">// 異なるMake名を持つワークシートの作成</span>
+                newsheet name<span style="color: #000000;">:</span><span style="color: #000080;">=</span>sn<span style="color: #000080;">$</span> cols<span style="color: #000000;">:</span><span style="color: #000080;">=</span>colNum outname<span style="color: #000000;">:</span><span style="color: #000080;">=</span>on<span style="color: #000080;">$</span> active<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">0</span>;
+                <span style="color: #008000;">// データ抽出</span>
+                wxt test<span style="color: #000000;">:</span><span style="color: #000080;">=</span>cond<span style="color: #000080;">$</span> iw<span style="color: #000000;">:</span><span style="color: #000080;">=</span>sourceWks c2<span style="color: #000000;">:</span><span style="color: #000080;">=</span>colNum ow<span style="color: #000000;">:</span><span style="color: #000080;">=</span>on<span style="color: #000080;">$</span>;
+        <span style="color: #000000;">}</span><span style="color: #000000;">
+}</span>
+</pre>
+<p>このスクリプトは、まずMake 列に対して離散度数カウントを実行し、 Makeの明確な値を取得します。そして各ブランドに対する新しいワークシートを作成し、シートにデータを抽出します。</p>
+<dl>
+<dd><a style="color: #0000ff; text-decoration: underline;"><img alt="Image:Analysis_Template_thru_Set_Column_Value_006.png" src="../images/Creating_Analysis_Templates_using_Set_Column_Value/Analysis_Template_thru_Set_Column_Value_006.png" width="437" height="493" border="0" /></a></dd>
+</dl>
+</li>
+<li>再計算モードが<b>自動</b>に設定されている事を確認して<b>OK</b>をクリックします。データは別々のワークシートに分けられます。緑の錠前アイコンがある空の列(H)は、この操作が自動的に更新されることを示しています。
+<dl>
+<dd><a style="color: #0000ff; text-decoration: underline;"><img alt="Image:Analysis_Template_thru_Set_Column_Value_002.png" src="../images/Creating_Analysis_Templates_using_Set_Column_Value/Analysis_Template_thru_Set_Column_Value_002.png" width="477" height="289" border="0" /></a></dd>
+</dl>
+</li>
+<li>元のデータには18の自動車メーカーがあるので、18個の新しいワークシートが作成されます。では、自動更新が機能するか確認しましょう。<br />
+<b>Honda</b>タブを開きます。19行のデータが入力されている事が分かります。</li>
+<li>最初のシートを開きます。スクロールして、最後の行を削除します。
+<dl>
+<dd><a style="color: #0000ff; text-decoration: underline;"><img alt="Image:Analysis_Template_thru_Set_Column_Value_004.png" src="../images/Creating_Analysis_Templates_using_Set_Column_Value/Analysis_Template_thru_Set_Column_Value_004.png" width="620" height="348" border="0" /></a></dd>
+</dl>
+すると、自動更新が行われます。<b>Honda</b>タブを開きます。すると、18行分のデータのみ確認できます。
+<dl>
+<dd><a style="color: #0000ff; text-decoration: underline;"><img alt="Image:Analysis_Template_thru_Set_Column_Value_005.png" src="../images/Creating_Analysis_Templates_using_Set_Column_Value/Analysis_Template_thru_Set_Column_Value_005.png" width="599" height="306" border="0" /></a></dd>
+</dl>
+</li>
+</ol>

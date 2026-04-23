@@ -1,0 +1,81 @@
+﻿<h1 class="firstheading">ボックスチャートの重ねあわせ</h1><p class='urlname' style='display: none'>Box-Overlap</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Create_the_First_Box_Chart"><span class="tocnumber">3.1</span> <span class="toctext">最初のボックスチャートを作図</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Create_the_Overlapped_Box_Chart"><span class="tocnumber">3.2</span> <span class="toctext">最初のボックスチャートを作図</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Do_Further_Customizations"><span class="tocnumber">3.3</span> <span class="toctext">詳細な編集</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>全てのOriginグラフはグラフテンプレートから作図されます。テンプレートは、以前の編集を呼び出しますが、新たな編集の開始点としても使用できます。このチュートリアルは、以下のような高度な編集を行ったボックスチャートを作成する方法を示しています。
+</p>
+<dl><dd><a class="image"><img alt="Creating Box Charts 01.png" src="../images/Overlapping_Box_Chart/Overlapped_Box_Chart_01.png" width="578"  /></a></dd></dl>
+<p class="version" >必要なOriginのバージョン: 2016 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul><li>ボックスチャートを編集する</li>
+<li>ボックスチャートの軸を編集する</li>
+<li>グラフの統合とリンク付け</li>
+<li>XとY軸の交換</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>このチュートリアルは、チュートリアルデータプロジェクト（<i><i>&lt;Origin EXE フォルダ&gt;\Samples\TutorialData.opj</i></i>）と関連しています。
+</p>
+<h3><a name="Create_the_First_Box_Chart"></a><span class="mw-headline">最初のボックスチャートを作図</span></h3>
+<ol><li>チュートリアルデータプロジェクトを開き、<i>Overlapped Box Chart</i> フォルダにブラウズします。</li>
+<li><b>Book1B</b>の<b>Sheet1</b>をアクティブにします。B列からF列を選択して、<b>作図：統計：ボックス</b>を選択します。ボックスチャートが作成されます。</li>
+<li>凡例はクリックして選択し、Deleteキーを押して削除します。</li>
+<li>ボックスをダブルクリックして、<b><b>作図の詳細</b></b>ダイアログを開きます。<b>グラフグループ</b>タブを開き、<b>境界色</b>の<b>推移</b>を<b>なし</b>にセットします(他の要素は元から<b>なし</b>が設定されているはずです)。
+<dl><dd><a class="image"><img alt="Creating Box Charts 02.png" src="../images/Overlapping_Box_Chart/Overlapped_Box_Chart_02.png" width="555"  /></a></dd></dl></li>
+<li><b><b>パターン</b></b>タブを開き、下図のように設定します。
+<dl><dd><a class="image"><img alt="Creating Box Charts 03.png" src="../images/Overlapping_Box_Chart/Overlapped_Box_Chart_03.png" width="549"  /></a></dd></dl></li>
+<li><b>間隔</b>タブをクリックし、<b>ボックス間の間隔(%)</b>を<b>40</b>にします。
+<dl><dd><a class="image"><img alt="Creating Box Charts 04.png" src="../images/Overlapping_Box_Chart/Overlapped_Box_Chart_04.png" width="421"  /></a></dd></dl></li>
+<li><b>ボックスチャート</b>タブを開き、下図のように設定します。
+<dl><dd><a class="image"><img alt="Creating Box Charts 05.png" src="../images/Overlapping_Box_Chart/Overlapped_Box_Chart_05.png" width="456"  /></a></dd></dl></li>
+<li><b>パーセンタイル</b>タブを開き、すべてのシンボルを削除します。<b>OK</b> をクリックしてダイアログを閉じます。
+<dl><dd><a class="image"><img alt="Creating Box Charts 06.png" src="../images/Overlapping_Box_Chart/Overlapped_Box_Chart_06.png" width="428"  /></a></dd></dl></li></ol>
+<h3><a name="Create_the_Overlapped_Box_Chart"></a><span class="mw-headline">重ねるボックスチャートを作図</span></h3>
+<ol><li>グラフウィンドウのタイトルバーを右クリックし、<b>ウィンドウの複製</b>を選択します。これを2回繰り返します。これで、4つのグラフウィンドウができます。
+<dl><dd><a class="image"><img alt="Creating Box Charts 07.png" src="../images/Overlapping_Box_Chart/Overlapped_Box_Chart_07.png" width="457"  /></a></dd></dl></li>
+<li>Graph2のボックス上でダブルクリックして<b>作図の詳細</b>ダイアログを開きます。<b><b>ボックスチャート</b></b>タブを開き、<b><b>係数</b></b>を0.95、<b><b>ボックス幅</b></b>を15、ヒゲなしに設定します。
+<dl><dd><a class="image"><img alt="Creating Box Charts 08.png" src="../images/Overlapping_Box_Chart/Overlapped_Box_Chart_08.png" width="430"  /></a></dd></dl></li>
+<li>Graph3に対してステップ2を繰り返し、<b><b>係数</b></b>を0.75、<b><b>ボックス幅</b></b>を40、ヒゲなしに設定します。</li>
+<li>Graph4に対してステップ2を繰り返し、<b><b>係数</b></b>を0.5、<b><b>ボックス幅</b></b>を70、ヒゲなしに設定します。
+<dl><dd><a class="image"><img alt="Creating Box Charts 09.png" src="../images/Overlapping_Box_Chart/650px-Overlapped_Box_Chart_09.png" width="650"   /></a></dd></dl></li>
+<li>グラフ操作メニューのグラフウィンドウの統合を選択して、<b>merge_graph</b> ダイアログを開きます。以下の設定し、<b>OK</b>をクリックします。
+<dl><dd><a class="image"><img alt="Creating Box Charts 10.png" src="../images/Overlapping_Box_Chart/Overlapped_Box_Chart_10.png" width="519"  /></a></dd></dl></li>
+<li>メニューから<b>グラフ操作：レイヤ管理</b>を選択し、ダイアログボックスを開きます。</li>
+<li><b>Layer2</b>を選択し、<b>リンク</b>タブを開きます。以下の設定し、<b>適用</b>をクリックします。
+<dl><dd><a class="image"><img alt="Creating Box Charts 11.png" src="../images/Overlapping_Box_Chart/Overlapped_Box_Chart_11.png" width="756"  /></a></dd></dl></li>
+<li><b>軸</b>タブで全てのチェックを外し、<b>適用</b>をクリックします。
+<dl><dd><a class="image"><img alt="Creating Box Charts 12.png" src="../images/Overlapping_Box_Chart/Overlapped_Box_Chart_12.png" width="796"  /></a></dd></dl></li>
+<li><b>layer3</b> と <b>Layer4</b>に対してステップ7～8を繰り返します。<b>OK </b>をクリックして、ダイアログを閉じます。
+<dl><dd><a class="image"><img alt="Creating Box Charts 13.png" src="../images/Overlapping_Box_Chart/Overlapped_Box_Chart_13.png" width="500"  /></a></dd></dl></li></ol>
+<h3><a name="Do_Further_Customizations"></a><span class="mw-headline">詳細な編集</span></h3>
+<ol><li>Y軸をダブルクリックして、<b>軸</b>ダイアログボックスを開きます。<b>スケール</b>タブを開き、<b>垂直</b>アイコンが選択されていることを確認して下図のように設定します。
+<dl><dd><a class="image"><img alt="Creating Box Charts 14.png" src="../images/Overlapping_Box_Chart/Overlapped_Box_Chart_14.png" width="596"  /></a></dd></dl></li>
+<li><b>目盛ラベル</b>タブを開き、下図のように設定します。
+<dl><dd><a class="image"><img alt="Creating Box Charts 15.png" src="../images/Overlapping_Box_Chart/Overlapped_Box_Chart_15.png" width="535"  /></a></dd>
+<dd><a class="image"><img alt="Button  Histogram 15b.png" src="../images/Overlapping_Box_Chart/Overlapped_Box_Chart_15b.png" width="471"  /></a></dd></dl></li>
+<li>グリッド線タブを開き、下図のように設定します。
+<dl><dd><a class="image"><img alt="Creating Box Charts 16.png" src="../images/Overlapping_Box_Chart/Overlapped_Box_Chart_16.png" width="425"  /></a></dd></dl></li>
+<li><b>軸と軸目盛</b>タブを開き、<b>Ctrl</b>キーを押しながら<b>下</b>と<b>左</b>のアイコンをクリックして選択します。<b>下と上で同じオプションを使用する</b>にチェックを付けてから軸と軸目盛の設定を以下のようにします。
+<dl><dd><a class="image"><img alt="Creating Box Charts 17.png" src="../images/Overlapping_Box_Chart/Overlapped_Box_Chart_17.png" width="596"  /></a></dd></dl></li>
+<li><b>目盛ラベル</b>タブに戻ります。X軸(<b>下</b>アイコン)に以下のような設定を行い、全て完了したら<b>OK</b>をクリックして<b>軸</b>ダイアログを閉じて設定を適用します。
+<dl><dd><a class="image"><img alt="Creating Box Charts 19.png" src="../images/Overlapping_Box_Chart/Overlapped_Box_Chart_19.png" width="452"  /></a></dd>
+<dd><a class="image"><img alt="Button  Histogram 19b.png" src="../images/Overlapping_Box_Chart/Overlapped_Box_Chart_19b.png" width="452"  /></a></dd></dl></li>
+<li>Y 軸タイトルで右クリックし、<b>オブジェクト表示属性</b>を選択します。以下の設定し、<b>OK</b>をクリックします。
+<dl><dd><a class="image"><img alt="Creating Box Charts 20.png" src="../images/Overlapping_Box_Chart/Overlapped_Box_Chart_20.png" width="587"  /></a></dd></dl></li>
+<li>グラフウィンドウの左上角にある目的のレイヤ1アイコンをクリックして、レイヤ1をアクティブにします。<b>グラフ操作：X軸とY軸の交換</b>を選択します。</li>
+<li>必要に応じてグラフレイヤのサイズや位置を変更し、グラフウィンドウ内にすべての要素が入るようにします。</li></ol>
+<dl><dd><a class="image"><img alt="Creating Box Charts 01.png" src="../images/Overlapping_Box_Chart/Overlapped_Box_Chart_01.png" width="578"  /></a></dd></dl>
+
+
+    

@@ -1,0 +1,72 @@
+﻿<h1 class="firstheading">Kaplan-Meier法</h1><p class='urlname' style='display: none'>Kaplan-Meier-Estimator</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Running_Kaplan-Meier_Estimator"><span class="tocnumber">3.1</span> <span class="toctext">Kaplan-Meier法の実行</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Interpreting_the_Results"><span class="tocnumber">3.2</span> <span class="toctext">結果の解釈</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Kaplan-Meier_Estimator/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Kaplan-Meier_Estimator/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=44" target="_blank">Survival Analysis</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Kaplan-Meier_Estimator/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Kaplan-Meier_Estimator/Blog_Image_33x33px.png" width="135"  /></a>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>生存分析は、死亡や治療の失敗などのイベントに至るまでの時間を分析するものです。また、社会科学ではイベント履歴分析、エンジニアリングでは信頼性解析も呼ばれています。  
+</p><p>生存関数 S(t) は、時間 t までの生存率を表します。らに、S(t)=1-F(t)、ここでF(t)は、故障時間の累積分布関数です。一方、ハザード関数h(t)（故障率、ハザード率、または死亡率とも呼ばれる）は、F(t)の確率密度関数P(t)と生存関数S(t)の比です。 
+</p><p>カプランマイヤー法または積極限推定法は、徐々に打ち切られる故障時間の標本データからS(t)の推定値を提供します。
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。
+</p>
+<ul><li>Kaplan-Meier法の実行</li>
+<li>結果の解釈方法</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Running_Kaplan-Meier_Estimator"></a><span class="mw-headline">Kaplan-Meier法の実行</span></h3>
+<p>科学者は、がん抵抗性のためのより良い薬を探しています。一部のラットを発がん性物質DMBAに曝露した後、ラットのグループごとに異なる薬を適用し、最初の60時間の生存状況を記録します。最初のグループでは、暴露後生存した15匹のラットにdrug1が投与されました。30時間経過後に1匹のラットが死亡しますが、癌腫によるものではありませんでした。2番目のグループでは、15匹のラットが生存し、drug 2が投与された。14時間後、15時間後、25時間後に、1匹のラットが死亡しますが、癌腫によるものではありません。2群のラットの記録は、<b>/Samples/Statistics/SurvivedRats.dat</b>ファイルに保存されています。Status列の値は、0 = 癌が原因でない死亡、1 = 癌による死亡、2 = 生存、を示しています。 
+</p>
+<ol><li>新しいワークブックを用意します。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Statistics</i>サブフォルダにある<i>SurvivedRats.dat</i> ファイルを探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。</li>
+<li>Kaplan-Meier法の機能を使って、データセットを分析します。メニューの<b>統計: 生存分析: Kaplan-Meier法</b>を選択してダイアログを開きます。 </li>
+<li>列<b><b>A</b></b>, <b><b>B</b></b>, <b><b>C</b></b>をそれぞれ入力ブランチ内の<b>時間範囲</b>, <b>打切り範囲</b>, <b>グループ範囲</b> にセットします。</li>
+<li><b>打ち切り値</b>として、0と2を設定します。
+<dl><dd><a  class="image"><img alt="DOC-2411 KM01a Magenta.png" src="../images/Kaplan-Meier_Estimator/DOC-2411_KM01a_Magenta.png" width="512"  /></a></dd></dl></li>
+<li><b>生存表</b>グループでは、<b><b>イベントと打ち切り値のサマリー</b></b>、<b><b>生存推定量</b></b>、<b><b>四分位の推定量</b></b>、<b><b>平均の推定量</b></b>のチェックを付けます。 
+<dl><dd><a  class="image"><img alt="DOC-2411 KM01b Magenta.png" src="../images/Kaplan-Meier_Estimator/DOC-2411_KM01b_Magenta.png" width="378"  /></a></dd></dl></li>
+<li><b><b>生存プロット</b></b>タブでは、<b><b><b>One Minus生存</b>グラフ</b></b><b>、<b><b>ハザードグラフ</b></b></b>のチェックを付けます。
+<dl><dd><a  class="image"><img alt="DOC-2411 KM01c Magenta.png" src="../images/Kaplan-Meier_Estimator/DOC-2411_KM01c_Magenta.png" width="330"  /></a></dd></dl></li>
+<li><b>同等性の検定</b>タブでは、<b>ログランク法</b>、<b>Breslow法</b>の、<b>Tarone-Ware法</b>にチェックを付けます。
+<dl><dd><a  class="image"><img alt="DOC-2411 KM01d Magenta.png" src="../images/Kaplan-Meier_Estimator/DOC-2411_KM01d_Magenta.png" width="320"  /></a></dd></dl></li>
+<li> <b><b>OK</b></b>ボタンをクリックします。</li></ol>
+<h3><a name="Interpreting_the_Results"></a><span class="mw-headline">結果の解釈</span></h3>
+<p>分析レポートのワークシート<b>KaplanMeier1</b>を開きます。
+</p>
+<ol><li>「イベントと打ち切り変数のサマリー」表から、drug 1グループは<b>打切り=3</b>および<b>打切りパーセント</b> = 0.2、drug 2グループでは、<b>打切り=9</b>および<b>打切りパーセント</b> = 0.6であることがわかります。
+<dl><dd><a  class="image"><img alt="KM02.png" src="../images/Kaplan-Meier_Estimator/KM02.png" width="317"  /></a></dd></dl></li>
+<li>「Kaplan-Meier生存推定」表では、イベントまでの時間変数の分布を調べるための説明的な処理が表示されます。因子変数のレベルによって分布を比較することもできます。<b>四分位推定</b>と<b>平均推定</b>表では、四分位数と平均の推定値と信頼区間を提供します。 
+<dl><dd><a  class="image"><img alt="KM03.png" src="../images/Kaplan-Meier_Estimator/KM03.png" width="436"  /></a></dd></dl></li>
+<li>生存曲線では生命表を視覚的にとらえる事ができます。生存関数のKaplan-Meier推定を元にしたプロットは、水平なステップの繰り返しで徐々に大きさが少なっていくものです。プロット内でより生存曲線の減少が急なものほど生存確率は小さくなります。生存関数プロットはdrug1とdrug2のグループで、1時間ごとにどれぐらい割合の個体が生存していたかを示しています。drug1のグループの減少率の方が急なので、drug2の方が抗ガン剤としてよいといえます。
+<dl><dd><a  class="image"><img alt="KM5.png" src="../images/Kaplan-Meier_Estimator/KM5.png" width="664"  /></a></dd></dl></li>
+<li>1つマイナス生存関数を形成すると、生存関数プロットと同じ結論を得ることができます。
+<dl><dd><a  class="image"><img alt="KM6.png" src="../images/Kaplan-Meier_Estimator/KM6.png" width="606"  /></a></dd></dl></li>
+<li>ハザード率は、任意の時点で発生する特定のイベントの瞬間確率です。X軸の時間に対してプロットし、時間に対するハザード率のグラフを作成できます。そして、ハザード関数は、このプロットされた線を説明する方程式です。グラフから、drug1グループのハザード率がdrug 2グループよりも大きいことがわかります。したがって、drug 2の方が癌抵抗性を改善するための優れていると結論付けることができます。
+<dl><dd><a  class="image"><img alt="KM7.png" src="../images/Kaplan-Meier_Estimator/KM7.png" width="633"  /></a></dd></dl></li>
+<li>グループ全体の生存時間の同等性の全体的な検定のために、Originは3つの方法を提供します。 </li></ol>
+<dl><dd><ul><li>ログランク法: すべての時点を同じように重み付けすることにより、生存関数の同等性を検定します。</li>
+<li>Breslow法: 各時点におけるリスクのある症例数ですべての時点を重み付けすることにより、生存関数の同等性を検定します。</li>
+<li>Tarone-Ware法: 各時点におけるリスクのある症例数の平方根ですべての時点を重み付けすることにより、生存関数の同等性を検定します。</li></ul></dd>
+<dd><a  class="image"><img alt="KM08.png" src="../images/Kaplan-Meier_Estimator/KM08.png" width="391"  /></a></dd>
+<dd>検定の有意値はすべて0.05より小さいため、2つの治療法（drug1とdrug2）の生存時間には統計的に有意な差があるといえます。</dd></dl>
+
+
+
+
+    

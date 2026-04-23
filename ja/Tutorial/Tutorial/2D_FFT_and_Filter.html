@@ -1,0 +1,58 @@
+﻿<h1 class="firstheading">2D FFT とフィルタ</h1><p class='urlname' style='display: none'>2D-FFT-and-Filter</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#2D_FFT"><span class="tocnumber">3.1</span> <span class="toctext">2D FFT</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#2D_IFFT"><span class="tocnumber">3.2</span> <span class="toctext">2D FFT</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#2D_FFT_Filter"><span class="tocnumber">3.3</span> <span class="toctext">2D FFTフィルタ</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>2D FFT（2次元の高速フーリエ変換）は、2D信号（行列）データに対して周波数スペクトルを分析することができます。逆に、2D IFFT（2次元逆高速フーリエ変換）は2次元周波数スペクトルから2D信号を再構成することができます。OriginProは、2D信号にフィルタリングを実行する2D FFTフィルタと一緒に、時間と2次元の周波数ドメイン間の変換を提供します。
+</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。
+</p>
+<ol><li> 画像をデータに変換する</li>
+<li> 中心部へのDCシフトのある行列データに2D FFTを実行する</li>
+<li> 2D FFTの結果に2D IFFT実行し、元の行列データを修正する</li>
+<li> 行列データに対して2D FFTフィルタを実行する</li></ol>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="2D_FFT"></a><span class="mw-headline">2D FFT</span></h3>
+<ol><li> 新しい行列ブックを用意し、メインメニューから<b>データ：インポート：イメージファイルを行列へインポート</b>を選択し、<b>&lt;Originのインストールフォルダ&gt;\Samples\Image Processing and Analysis\cell.jpg</b> を選択し、インポートします。
+<dl><dd> <a class="image"><img alt="Tutorial 2DFFT 1.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_1.png" width="320"  /></a></dd></dl></li>
+<li> Originはイメージデータを直接解析できないので、画像を行列データに変更する必要があります。そのためには、メニューの<b>イメージ：変換：データに変換</b>を選択し、<b>データに変換: img2m</b>ダイアログを開きます。<b>種類</b>を<b>byte(1)</b>にします。
+<dl><dd> <a class="image"><img alt="Tutorial 2DFFT 2.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_2.png" width="411"  /></a></dd></dl></li>
+<li>  <b>OK</b> をクリックして変換を終了します。結果は下図のようになります。メニューから<b>表示：データモード</b>または<b>表示：イメージモード</b>を選択して表示モードの切り替えが可能です。
+<dl><dd> <a class="image"><img alt="Tutorial 2DFFT 3.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_3.png" width="716"  /></a></dd></dl></li>
+<li> 変換した行列データをアクティブにし、メニューから<b>解析：信号処理：FFT：2D FFT</b>を選択して<b>2D FFT: fft2</b> ダイアログを開きます。<b>DC成分を中央に移動</b>にチェックを付けてDCを中央にシフトします。<b>出力</b>の項目では、<b>複素行列</b>と<b>対数振幅行列</b>にチェックを付けます。
+<dl><dd> <a class="image"><img alt="Tutorial 2DFFT 4.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_4.png" width="482"  /></a> </dd></dl></li>
+<li> <b>OK</b>ボタンをクリックし、FFT結果を生成します。1つの行列ブックに複素行列と対数振幅行列が出力されます。対数振幅行列をイメージモードにする（<b>表示：イメージモード</b>）と、下図のようになります。
+<dl><dd> <a class="image"><img alt="Tutorial 2DFFT 5.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_5.png" width="823"  /></a></dd></dl></li></ol>
+<h3><a name="2D_IFFT"></a><span class="mw-headline">2D IFFT</span></h3>
+<ol><li> <b>2D FFT</b>のセクションで出力した、複素行列（FFT2_Complex1）から操作を始めます。ウィンドウをアクティブにします。</li>
+<li> メニューから<b>解析：信号処理：FFT：2D IFFT</b>を選択して<b>2D IFFT: ifft2</b>ダイアログを開きます。 </li>
+<li> <b>入力行列</b>は複素行列なので、ダイアログの虚数行列は必要ありません。DCはシフトされたので、<b>移動を元に戻す</b>にチェックを付けます。<b>出力</b>の項目では<b>実行列</b>と<b>虚数行列</b>にチェックを付けます。
+<dl><dd> <a class="image"><img alt="Tutorial 2DFFT 6.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_6.png" width="447"  /></a></dd></dl></li>
+<li> <b>OK</b>ボタンをクリックすると、2つの行列データが同じ行列ブックに出力されます。
+<dl><dd> <a class="image"><img alt="Tutorial 2DFFT 7.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_7.png" width="412"  /></a></dd></dl></li>
+<li> 比べると、IFFTにより、元のデータが修復されたのがわかります。
+<dl><dd> <a class="image"><img alt="Tutorial 2DFFT 8.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_8.png" width="1070"  /></a></dd></dl></li></ol>
+<h3><a name="2D_FFT_Filter"></a><span class="mw-headline">2D FFTフィルタ</span></h3>
+<ol><li> 新しい行列ブックを用意し、メインメニューから<b>データ：インポート：イメージファイルを行列へインポート</b>を選択し、<b>&lt;Originのインストールフォルダ&gt;\Samples\Image Processing and Analysis\<b>myocyte1.tif</b></b> を選択し、インポートします。
+<dl><dd> <a class="image"><img alt="Tutorial 2DFFT 9.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_9.png" width="320"  /></a></dd></dl></li>
+<li> メニューの<b>イメージ：変換：データに変換</b>を選択し、すると、「<b>データに変換: img2m</b>」ダイアログボックスが開きます。<b>種類</b>を<b>byte(1)</b>にし、<b>OK</b>ボタンをクリックします。
+<dl><dd> <a class="image"><img alt="Tutorial 2DFFT 10.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_10.png" width="411"  /></a></dd></dl></li>
+<li> 変換した行列データをアクティブにし、メニューから<b>解析：信号処理：FFT：2D FFTフィルタ</b>を選択して、<b>2D FFT</b><b><b>: fft_filter2</b></b>ダイアログを開きます。</li>
+<li> ダイアログの<b>自動プレビュー</b>チェックボックスにチェックを付け、右パネルで結果を表示します。<b>フィルタ種類</b>を<b>バンドパス</b>にし、<b>下カットオフ値</b>と<b>上カットオフ値</b>を<b>0.05</b>と<b>0.25</b>に設定します。他の設定項目はデフォルトのままにします。
+<dl><dd> <a class="image"><img alt="Tutorial 2DFFT 11.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_11.png" width="819"  /></a></dd></dl></li>
+<li> <b>OK</b> をクリックして実行します。出力結果から、バックグラウンドのノイズが除去できたことがわかります。
+<dl><dd> <a class="image"><img alt="Tutorial 2DFFT 12.png" src="../images/2D_FFT_and_Filter/SP_Tutorial_2DFFT_12.png" width="627"  /></a></dd></dl></li></ol>
+
+
+    

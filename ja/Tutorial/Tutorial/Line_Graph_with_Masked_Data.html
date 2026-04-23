@@ -1,0 +1,52 @@
+﻿<h1 class="firstheading">マスクデータを持つ折れ線グラフ</h1><p class='urlname' style='display: none'>LineGraph-MaskedData</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span><span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a></li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Line_Graph_with_Masked_Data/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Line_Graph_with_Masked_Data/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=261" target="_blank">Exclude Data Points in Analysis (Mask Data)</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Line_Graph_with_Masked_Data/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Line_Graph_with_Masked_Data/Blog_Image_33x33px.png" width="135"  /></a>
+<ul><li> <a class="external text" href="http://blog.originlab.com/extract-masked-points-to-a-new-workbook-automatically" target="_blank">Extract Masked Points to a New Workbook Automatically</a></li>
+<li> <a class="external text" href="http://blog.originlab.com/new-data-highlight-tool-in-origin-2019" target="_blank">New Data Highlight Tool in Origin 2019</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>グラフのサブ範囲のデータをマスクできます。このチュートリアルでは、折れ線グラフを最初に作成し、マスクツールを使って、グラフの下側のピークをマスクします。
+</p>
+<dl><dd><a  class="image"><img alt="Graph Gallery Line Graph With Masked Data 7.png" src="../images/Line_Graph_with_Masked_Data/Graph_Gallery_Line_Graph_With_Masked_Data_7.png" width="611"  /></a></dd></dl>
+<p class="version" >必要なOriginのバージョン: Origin 2015 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul><li>折れ線グラフをプロットする</li>
+<li>軸スケールを設定する</li>
+<li>折れ線グラフのデータをマスクする</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<ol><li>新しいワークブックを用意します。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Graphing</i>サブフォルダにある<i>Line_Graph_with_Masked_Data.txt</i> ファイルを探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。</li>
+<li>ワークシートの両方の列を選択してメニューから<b>作図：基本の2Dグラフ：折れ線</b>を選択して、グラフを作成します。
+<dl><dd><a  class="image"><img alt="Graph Gallery Line Graph With Masked Data 2.png" src="../images/Line_Graph_with_Masked_Data/Graph_Gallery_Line_Graph_With_Masked_Data_2.png" width="566"  /></a></dd></dl></li>
+<li>X 軸上でダブルクリックして<b>軸</b>ダイアログを開きます。以下の図のように<b>増分</b>値を<b>0.25</b>に設定します。
+<dl><dd><a  class="image"><img alt="Graph Gallery Line Graph With Masked Data 3.png" src="../images/Line_Graph_with_Masked_Data/Graph_Gallery_Line_Graph_With_Masked_Data_3.png" width="651"  /></a></dd></dl></li>
+<li>左側パネルにある<b>垂直アイコン</b>をクリックしてY軸のスケールを以下の図のように設定します。
+<dl><dd><a  class="image"><img alt="Graph Gallery Line Graph With Masked Data 4.png" src="../images/Line_Graph_with_Masked_Data/Graph_Gallery_Line_Graph_With_Masked_Data_4.png" width="651"  /></a></dd></dl></li>
+<li><b>OK</b> をクリックして軸ダイアログを閉じ、グラフの凡例を削除します。X軸のラベルを「<b>Time[s]</b>」に、Y軸のラベルを「<b>Signal[A.U.]</b>」に設定し、どちらも書式を太字でフォントサイズ<b>28</b>に設定します。テキストオブジェクトで「<b>Time Series</b>」と記述してタイトルにします。タイトルも太字に設定し、サイズは<b>36</b>にします。
+<dl><dd><a  class="image"><img alt="Graph Gallery Line Graph With Masked Data 5.png" src="../images/Line_Graph_with_Masked_Data/Graph_Gallery_Line_Graph_With_Masked_Data_5.png" width="566"  /></a></dd></dl></li>
+<li>このグラフをアクティブにし、プロット操作・オブジェクト作成ツールバーの<b>領域マスクツール</b>を左クリックでおさえて、コンテキストメニューを表示します。<b>現プロットを対象にマスクを付加する</b>を選択してマスキングモードに入ります。
+<dl><dd><a  class="image"><img alt="Graph Gallery Line Graph With Masked Data 6.png" src="../images/Line_Graph_with_Masked_Data/Graph_Gallery_Line_Graph_With_Masked_Data_6.png" width="264"  /></a></dd></dl></li>
+<li>グラフ上の適切な位置をクリックし、下側のピークを選択するように矩形の領域をドラッグして、同時にそれらをマスクします。全ての低いピークがマスクされるまでドラッグでマスクを継続します。そして、プロット操作・オブジェクト作成ツールバーの<b>ポインタツール</b>をクリックし、マスクモードを抜けます。
+<dl><dd><a  class="image"><img alt="Graph Gallery Line Graph With Masked Data 7.png" src="../images/Line_Graph_with_Masked_Data/Graph_Gallery_Line_Graph_With_Masked_Data_7.png" width="611"  /></a></dd></dl></li></ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Line_Graph_with_Masked_Data/Tip_icon.png" width="57"  border="0" /></td><td><p><b>Origin 2021</b>以降、マスクツールでのデータポイント選択モードが変更されました。 
+</p>
+<dl><dd><ul><li> デフォルトが、<i>行番号</i>によるマスクから<i>矩形の範囲</i>によるマスクに変更されました。</li>
+<li> それ以外の挙動は以前と同じで、スペースキーを押して<a class="external text" href="../../GettingStarted/OriginLab/Data_Analysis.html#Masking_with_the_Tools_Toolbar_.28graph.29">マスクモード</a>を変更できます。</li>
+<li> <a class="external text" href="../../QuickHelp/QuickHelp/How_do_I_permanently_change_the_value_of_a_system_variable.html">システム変数 <b>@MTI=1</b></a>（永続）を使用して、デフォルトを行番号によるマスクに戻すことができます。</li></ul></dd></dl>
+</td></tr></table>
+
+
+    

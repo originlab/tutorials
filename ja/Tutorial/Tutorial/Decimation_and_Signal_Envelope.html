@@ -1,0 +1,49 @@
+﻿<h1 class="firstheading">デシメーションと包絡線</h1><p class='urlname' style='display: none'>Decimation-and-Signal-Envelope</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>内容</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Decimation"><span class="tocnumber">3</span> <span class="toctext">デシメーション</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Signal_Envelope"><span class="tocnumber">4</span> <span class="toctext">信号の包絡線</span></a></li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>デシメーションは、N個ごとのサンプルを1つに統合しすることによって信号系列のサイズを小さくするために使用されます。
+</p><p>包絡線検出は、入力信号に包絡線を追加します。Originの包絡線ツールは、「上部」境界線と「下部」境界線の出力が可能です。
+</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。
+</p>
+<ol><li> 入力信号系列のサイズ縮小のために信号を間引く</li>
+<li> 包絡線を追加するために包絡線検出を行う</li></ol>
+<h2><a name="Decimation"></a><span class="mw-headline">デシメーション</span></h2>
+<p>このチュートリアルでは、太陽の黒点数データに対してデシメーションを実行します。太陽黒点数のソースデータは、200年以上にわたって毎月測定されたものです。ここでは、デシメーションを使用して、データセットを年ごとに1つの黒点数に削減しましょう。
+</p>
+<ol><li> 新しいワークブックを作成し、<b>&lt;Origin インストールディレクトリ&gt;\Samples\Signal Processing\<b>Sunspot.dat</b></b> をインポートします。
+<dl><dd> <a class="image"><img alt="SP Tutorial Decimation 1.png" src="../images/Decimation_and_Signal_Envelope/SP_Tutorial_Decimation_1.png" width="396"  /></a></dd></dl></li>
+<li> 列Aを選択して、右クリックし、コンテキストメニューから<b>列XY属性の設定：Y列</b>と選択してこの列の属性をYに設定します。これにより太陽の黒点の数はXデータとしてのA列に関連付けられなくなります。デシメーションの場合、単調なXデータが必要なため、この操作を行います。</li>
+<li> B、C列を選択して、<b>解析：信号処理：デシメーション</b>を選択し、<b>デシメーション: decimate</b>ダイアログを開きます。</li>
+<li> ダイアログでは、<b>再サンプリングファクター</b>として、<b>12</b>を入力し、<b>フィルタタイプ</b>を<b>移動平均フィルタ</b>に変更します。<b>自動プレビュー</b>にチェックを付け、右パネルでプレビューを表示します。
+<dl><dd> <a class="image"><img alt="Tutorial 2DFFT 2.png" src="../images/Decimation_and_Signal_Envelope/SP_Tutorial_Decimation_2.png" width="934"  /></a></dd></dl></li>
+<li> <b>OK</b>をクリックして結果を出力します。</li>
+<li> ワークシートで、列D（結果から生成されたX列）を選択し、右クリックしてコンテキストメニューから<b>挿入</b>を選択します。再度列Dを右クリックして、<b>列XY属性の設定：Y列</b>を選択して、この列の属性を<i>Y</i> とします。</li>
+<li> 挿入された列を選択して右クリックし、<b>列XY属性の設定：X列</b>を選択し、この列を<i>X</i>データとします。列を再度右クリックして、<b>列値の設定</b>を選択し、<b>列値の設定</b>ダイアログボックスを開き、テキストボックスに<img src="../images/Decimation_and_Signal_Envelope/math-0aa77325e9a00497ce87512a376dbfa0.png" title="data(1749, 1749+255)" alt="data(1749, 1749+255)" class="tex"/>を入力して、<b>OK</b>をクリックします。
+<dl><dd> <a class="image"><img alt="Tutorial 2DFFT 3.png" src="../images/Decimation_and_Signal_Envelope/SP_Tutorial_Decimation_3.png" width="454"  /></a></dd></dl></li>
+<li> 列Aを選択して、<b>列XY属性の設定：X列</b>と選択してこの列を<i>X</i> データとします。最終的なワークシートは下図のようになります。
+<dl><dd> <a class="image"><img alt="Tutorial 2DFFT 4.png" src="../images/Decimation_and_Signal_Envelope/SP_Tutorial_Decimation_4.png" width="574"  /></a></dd></dl></li>
+<li> Ctrlキーを押しながら、列Cと列Eを選択して、<b>作図：基本の2Dグラフ：垂直2区分</b>を選択します。下図のように、滑らかなデシメーション曲線を描くことができました。
+<dl><dd> <a class="image"><img alt="Tutorial 2DFFT 5.png" src="../images/Decimation_and_Signal_Envelope/SP_Tutorial_Decimation_5.png" width="462"  /></a></dd></dl></li></ol>
+<h2><a name="Signal_Envelope"></a><span class="mw-headline">包絡線</span></h2>
+<ol><li> 新しいワークブックを用意します。</li>
+<li> メニューの<b>データ：ファイルからインポート：単一ASCIIインポート</b>を選択し、<b>&lt;Origin インストールフォルダ&gt;\Samples\Signal Processing\<b>Gaussian Envelope.dat</b> </b>ファイルをインポートします。
+<dl><dd> <a class="image"><img alt="Tutorial 2DFFT 1.png" src="../images/Decimation_and_Signal_Envelope/SP_Tutorial_Envelope_1.png" width="396"  /></a></dd></dl></li>
+<li> B列を選択し、<b>作図：基本の2Dグラフ：折れ線</b>を選択して折れ線グラフを作図します。
+<dl><dd> <a class="image"><img alt="Tutorial 2DFFT 2.png" src="../images/Decimation_and_Signal_Envelope/SP_Tutorial_Envelope_2.png" width="460"  /></a></dd></dl></li>
+<li> このグラフをアクティブにして、<b>解析：信号処理：包絡線</b>を選択し、<b>包括線: envelope</b>ダイアログを開きます。</li>
+<li> ダイアログで、<b>包絡線のタイプ</b>を<b>上下両方の包絡線</b>にし、<b>スムーズポイント数</b>を10に設定します。ダイアログの<b>自動プレビュー</b>チェックボックスにチェックを付け、右パネルでプレビューできるようにします。
+<dl><dd> <a class="image"><img alt="Tutorial 2DFFT 3.png" src="../images/Decimation_and_Signal_Envelope/SP_Tutorial_Envelope_3.png" width="790"  /></a></dd></dl></li>
+<li> <b>OK</b>ボタンをクリックして、上側と下側に包絡線を表示したグラフを作成します。
+<dl><dd> <a class="image"><img alt="Tutorial 2DFFT 4.png" src="../images/Decimation_and_Signal_Envelope/SP_Tutorial_Envelope_4.png" width="460"  /></a></dd></dl></li></ol>
+
+
+    

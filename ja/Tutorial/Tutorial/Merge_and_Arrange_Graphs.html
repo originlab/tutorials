@@ -1,0 +1,140 @@
+﻿<h1 class="firstHeading">グラフの統合と整列</h1>
+<p class="urlname" style="display: none;">GSB-Merge-Arrange-graphs</p>
+<p><br />
+</p>
+<p>このレッスンでは、グラフの統合で、いくつかのグラフを作成し、統合したり、レイヤを整列したりします。また、同様のデータからグラフをすばやく再作成するために、グラフを複製可能なテンプレートとして保存します。 
+ </p>
+<h3><a name="Import_data_and_create_graphs"></a><span class="mw-headline">データインポートとグラフ作成</span></h3>
+<ol>
+	<li><a href="../../Tutorial/Tutorial/Data_Selection.html" title="チュートリアル：データ選択">レッスン３：データ選択</a> 
+	 で保存したプロジェクトファイルを開きます。<b>プロジェクトエクスプローラ</b> で、ルートフォルダに新規のフォルダを作成し、<i><b>グラフの統合</b></i> 
+	 と名前を変えます。フォルダをクリックして開きます。 </li>
+	<li>標準ツールバーの<b>新規ワークブック</b>ボタン <a class="image"><img alt="Button New Workbook.png" 
+														 src="../images/Merge_and_Arrange_Graphs/Button_New_Workbook.png" 
+														 width="23" border="0" /></a>をクリックし、新しいワークブックを作成します。<b>ヘルプ: 
+	 フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Statistics</i>サブフォルダにある<i>automobile.dat</i> 
+	 ファイルを探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。</li>
+	<li>列Cのヘッダをクリックして列全体を選択します。<b>2Dグラフギャラリー</b>ツールバーの<b><b>散布図</b></b>ボタン<a 
+	 class="image"><img alt="Button Scatter.png" src="../images/Merge_and_Arrange_Graphs/Button_Scatter.png" 
+						 width="22" border="0" /></a>をクリックします。</li>
+	<li>散布図をクリックして選択し、プロット上で右クリックします。コンテキストメニューが開きますので、<b>Xを変更： [automobile]automobile!G(Y):EnginDisplacement</b> 
+	 を選択してXデータを変更します。グラフを再スケールするかどうか確認するメッセージが開きます。<b>はい</b> を選択し、<b>OK</b> 
+	 を押します。<br />
+	
+	<table class="mtip">
+		<tr>
+			<td style="vertical-align: top;"><img src="../images/Merge_and_Arrange_Graphs/Mini_bulb.png" 
+													 alt="" border="0" /></td>
+			<td><p>確認メッセージには複数の選択肢があります。もし、<b><b>はい、これからも同様に行い、再度尋ねることは必要ありません。</b></b>を選択した場合、このダイアログは現れなくなります。<b>ヘルプ：確認メッセージの復活</b> 
+			 から、全ての確認メッセージを復活させることが出来ます。 </p></td>
+		</tr>
+	</table>
+	<br />
+	<a class="image"><img alt="Merge and arrange graph 01.png" src="../images/Merge_and_Arrange_Graphs/600px-Merge_and_arrange_graph_01.png" 
+							 width="600" border="0" /></a></li>
+	<li>凡例を選択し、キーボードの<b>Delete</b> キーを押すと削除出来ます。 </li>
+	<li>このグラフのコピーを作成して、コピーのデータを変更します。まず、ワークシートに戻り、タイトルバーの右上にある<b>X</b> 
+	 ボタンを押します。開いたダイアログで <b>非表示化</b> を選びます。画面からこのウィンドウが非表示となります。<br />
+	
+	<table class="mtip">
+		<tr>
+			<td style="vertical-align: top;"><img src="../images/Merge_and_Arrange_Graphs/Mini_bulb.png" 
+													 alt="" border="0" /></td>
+			<td><p>非表示となったウインドウは、プロジェクト・エクスプローラの下パネルに、霞んだアイコンで表示されています。ウィンドウを再度開きたい場合は、アイコンをダブルクリックします。 
+			 </p></td>
+		</tr>
+	</table></li>
+	<li>グラフのタイトルバーを右クリックし、<b>ウィンドウの複製作成</b> を選択し、コピーを作成します。これを後2回行い、合計4つのグラフウィンドウを表示します。</li>
+	<li><b>ウィンドウ：上下に並べる</b> をクリックすると、4つのグラフが重なることなく、画面に並べられます。 </li>
+	<li>先に説明した<b>Xを変更</b>または<b>Yを変更</b> では、次のようにコピーしたグラフのX/Y設定を変更し、必要に応じて再スケールを行います。 
+	 
+	<ul>
+		<li>コピー1: Yを <i>[automobile]automobile!D(Y):0^60 mph</i> に変更 </li>
+		<li>コピー2: Xを <i>[automobile]automobile!E(Y):Weight</i> に変更 </li>
+		<li>コピー3: Xを <i>[automobile]automobile!F(Y):Gas Mileage</i> に変更 
+		 </li>
+	</ul></li>
+	<li>PowerとWeightの組み合わせのグラフをアクティブにします。いくつか編集を行います。ータプロット上でクリックしてミニツールバーを開き、プロットのプロパティを以下のように変更します。 
+	 
+	<ul>
+		<li><b>シンボルの色</b>をオリーブにします。 </li>
+		<li><b>シンボルの形状</b>を円形にします。 </li>
+		<li><b>シンボルの<b>透過率</b></b>を56パーセントに設定します。<br />
+		<a class="image"><img alt="Merge and arrange graph TM 01.png" src="../images/Merge_and_Arrange_Graphs/350px-Merge_and_arrange_graph_TM_01.png" 
+								 width="350" border="0" /></a> </li>
+	</ul></li>
+	<li>Y軸をダブルクリックして、<b>軸</b>ダイアログ を開きます。次のように、軸のプロパティを変更します。 
+	<ul>
+		<li><b>目盛ラベル</b>タブをアクティブにします。キーボードの <b>Ctrl</b> キーを押しながら、左のパネルで<b>下</b> 
+		 と <b>左</b> の両方の軸を選択します。 </li>
+		<li><b>表示</b> サブタブで、<b>表示</b>を<b>工学：1k</b> に設定します。 </li>
+		<li><b>小数点以下の桁数の設定</b> にチェックを入れ、<b>桁数</b> を 0と入力します。<b>OK</b>をクリックして、ダイアログを閉じます。<br />
+		<a class="image"><img alt="Merge and arrange graph 02.png" src="../images/Merge_and_Arrange_Graphs/350px-Merge_and_arrange_graph_02.png" 
+								 width="444" border="0" /></a> </li>
+	</ul></li>
+	<li>このグラフの設定形式を他の3つのグラフにコピーすることが出来ます。軸の外側のようなグラフの空白の部分で右クリックし、コンテキストメニューからフォーマットの<b>コピー：全てのスタイルフォーマット</b> 
+	 を選択します。 </li>
+	<li>メインメニューから<b>編集：フォーマットの貼り付け（詳細）</b>を選択します。<b>フォーマットを適用する</b>ダイアログが開きます。 
+	 <b>適用するフォーマット</b>グループの<b>全て</b>のチェックを外し、<b>全てのスタイルフォーマット</b>のチェックを入れます。下部にある<b>適用スコープ</b>ドロップダウンで<b>フォルダ中の全グラフ</b>を選択します。<b>適用</b> 
+	 ボタンをクリックし、他のグラフにフォーマットを貼り付けます。<b>閉じる</b> をクリックします。 <br />
+	<a class="image"><img alt="Merge and arrange graph 06.png" src="../images/Merge_and_Arrange_Graphs/Merge_and_arrange_graph_06.png" 
+							 width="450" border="0" /></a> </li>
+</ol>
+<h3><a name="Merge_and_arrange_graphs"></a><span class="mw-headline">グラフの統合と整列</span></h3>
+<ol>
+	<li>これら4つのグラフを統合します。メインメニューから<b>グラフ操作：グラフウィンドウの統合</b> を選択します。</li>
+	<li><b>グラフウィンドウの統合</b> ダイアログが開きます。初期設定のまま、<b><b>OK</b></b>ボタンをクリックします。４つのレイヤを持つグラフウィンドウが新規に生成されます。</li>
+	<li>統合したグラフにある4つのレイヤを並べ替えることが出来ます。メインメニューから<b>グラフ操作：レイヤ管理</b>を選択します。<b>レイヤ管理</b>ダイアログが開きます。</li>
+	<li><b>配置</b>タブを開き、<b>間隔（ページの％）</b>欄を開きます 。次のように設定します。 
+	<ul>
+		<li>水平の間隔 = 15 </li>
+		<li>垂直の間隔 = 15 </li>
+		<li>左端余白 = 10 </li>
+		<li>右端余白 = 5 </li>
+		<li>上部余白 = 5 </li>
+		<li>下部余白 = 15<br />
+		<b>適用</b>ボタンをクリックします。 </li>
+	</ul></li>
+	<li><b>表示</b>タブを開きます。キーボードの<b>Ctrl</b> キーを押しながら、左の<b>レイヤ</b> にある4つのレイヤを選択します。<b>オプション</b> 
+	 欄にある <b>スケールエレメント</b> にチェックを入れます。<b>スケールモード</b> を <b>固定倍率</b> にし、<b>固定倍率</b> 
+	 に１と入力します。 </li>
+	<table class="mtip">
+		<tr>
+			<td style="vertical-align: top;"><img src="../images/Merge_and_Arrange_Graphs/Mini_bulb.png" 
+													 alt="" border="0" /></td>
+			<td><p>デフォルトで、グラフレイヤをドラッグして大きさを変えたり、統合時にレイヤの大きさが変わった場合、テキストフォントや他のグラフオブジェクトのサイズも調整されます。レイヤサイズが変更したときにフォントサイズや線の太さが調整されないようにするには、<b>スケールモード</b>を<b>固定倍率</b>に設定します。（レイヤレベルの<b>作図の詳細</b>ダイアログの<b>レイヤの大きさ</b>タブでも同じ設定が可能です） 
+			 </p></td>
+		</tr>
+	</table>
+	<li><b>適用</b>ボタンをクリックします。OKをクリックして、ダイアログを閉じます。<br />
+	<a class="image"><img alt="Merge and arrange graph 03.png" src="../images/Merge_and_Arrange_Graphs/400px-Merge_and_arrange_graph_03.png" 
+							 width="496" border="0" /></a> <br />
+	統合されたグラフは、最終的に下図のようになります。<br />
+	<a class="image"><img alt="Merge and arrange graph 04.png" src="../images/Merge_and_Arrange_Graphs/350px-Merge_and_arrange_graph_04.png" 
+							 width="350" border="0" /></a></li>
+	<li>プロジェクトエクスプローラの下パネルにあるアイコンをダブルクリックして、<i>automobile</i> ワークブックをアクティブにします。B列を選択して、<b>データフィルタを追加/削除</b>ボタン<a 
+	 class="image"><img alt="Button Add Or Remove Data Filter.png" src="../images/Merge_and_Arrange_Graphs/Button_Add_Or_Remove_Data_Filter.png" 
+						 width="23" border="0" /></a>をクリックしてフィルタを追加します。</li>
+	<li>列ヘッダの左上ににフィルタアイコンが追加されますので、クリックします。コンテキストメニューが現れるので、<b>全て選択</b>を一度選択して全てのアイテムを非選択にし、次に、<b>Honda</b>にチェックを入れてOKをクリックします。これで<i>Honda</i>に関連した行だけが表示されます。他の行は全て非表示となり、全てのグラフでも変更が更新されます。<br />
+	<a class="image"><img alt="Merge and arrange graph 05.png" src="../images/Merge_and_Arrange_Graphs/Merge_and_arrange_graph_05.png" 
+							 width="263" border="0" /></a></li>
+</ol>
+<h3><a name="Cloneable_Template_and_Smart_Plotting"></a><span class="mw-headline">クローンテンプレートとスマートプロット</span></h3>
+<ol>
+	<li>では、統合したグラフをテンプレートとして保存しましょう。タイトルバーを右クリックして、<b>テンプレートの新規保存</b> を選択します。<b>テンプレートの保存</b>ダイアログが開きます。</li>
+	<li><b>クローンテンプレートのマーク</b> にチェックが入っていることを確認したら、<b>プロット列の一致条件</b> を <b>ロングネーム</b> 
+	 に設定します。<b>テンプレート名</b> に、<i>MyMergeGraph</i> と入力して、<b>OK</b> をクリックします。テンプレートが保存されたというメッセージがメッセージログに残されます。 
+	 
+	<table class="mtip">
+		<tr>
+			<td style="vertical-align: top;"><img src="../images/Merge_and_Arrange_Graphs/Mini_bulb.png" 
+													 alt="" border="0" /></td>
+			<td><p>他のグラフの状態に合わせて、クローンテンプレートに列の場所、列の名称が保存されます。同様の列配置や名称の他のデータから、複雑な構造のグラフを複製することができます。 
+			 </p></td>
+		</tr>
+	</table></li>
+	<li><i>automobile</i> ワークブックアクティブにします。B列のフィルタを選択し、<i>Honda</i>と<i>Lexus</i>の両方を選択してOKをクリックすると、両方のメーカーが表示されます。 
+	 </li>
+	<li>ワークブックをアクティブにして、メインメニューから<b>作図：ユーザテンプレートに作図：MyMergeGraph</b>を選択します。先に統合して作成したグラフと同様の設定、形式で新しいグラフが作成されます。</li>
+	<p>プロジェクトファイルを保存します。 </p>
+</ol>

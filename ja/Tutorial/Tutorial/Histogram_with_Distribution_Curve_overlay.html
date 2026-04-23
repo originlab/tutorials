@@ -1,0 +1,43 @@
+﻿<h1 class="firstheading">分布曲線付きヒストグラム</h1>
+<p class="urlname" style="display: none;">Histogram-DistributionCurve</p>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>ヒストグラムを作図後、Origindでは、<b>作図の詳細</b>ダイアログの<b>データ</b>タブにある、<b>種類</b>ドロップダウンリストから<b>正規分布</b>、<b>対数正規</b>、<b>ポアソン</b>、<b>指数</b>、<b>ラプラス</b>、<b>ローレンツ</b>から選択することにより、ビン化データ上に分布曲線を描くことができます。 
+ </p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul>
+	<li>ヒストグラムを作成する </li>
+	<li>分布曲線を追加する </li>
+	<li>分布曲線データのビンワークシートを作成する</li>
+</ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<ol>
+	<li>メインメニューから、<b>データ：ファイルからインポート：単一ASCIIファイル</b>を選択して、<b>Sample: Graphing: 
+	 Histogram2.dat</b>をインポートします。 </li>
+	<li>B列を選択して、メインメニューから<b>作図：統計：ヒストグラム</b>を選択します。 <br />
+	<a class="image"><img alt="分布曲線付きヒストグラム" src="../images/Histogram_with_Distribution_Curve_overlay/Histogram_with_Distribution_Curve_01.png" 
+							 width="450" height="350" border="0" /></a> 
+	 </li>
+	<li>メインメニューの<b>フォーマット：プロット</b>を選択します。 開いたダイアログで、<b>データ</b>タブをクリックして開きます。</li>
+	<li><b>分布曲線：種類</b>のドロップダウンリストから、<b>正規分布</b>を選択し、<b>適用</b>ボタンをクリックします。<b>分布曲線を追加</b>のチェックボックスにチェックを付け、<b>ジャンプ</b>をクリックします。すると、<b>作図の詳細（プロット属性）</b>ダイアログが閉じ、ビンデータのワークシート(<b>Histogram2_B 
+	 Bins</b>) がワークブックに追加されます。 <br />
+	<a class="image"><img alt="分布曲線付きヒストグラム" src="../images/Histogram_with_Distribution_Curve_overlay/Histogram_with_Distribution_Curve_02.png" 
+							 width="551" height="624" border="0" /></a> 
+	 </li>
+	<li><b>Histogram2_B Bins</b>ワークシートで、<b>B(Y2)</b>列の<b>コメント</b>行で、このデータの<b>Mean</b>（平均）と<b>SD</b>（標準偏差）の値が出力されます。 
+	 このセルを右クリックして、メニューから<b>コピー</b>を選択します。 <br />
+	<a class="image"><img alt="分布曲線付きヒストグラム" src="../images/Histogram_with_Distribution_Curve_overlay/Histogram_with_Distribution_Curve_03.png" 
+							 width="729" height="296" border="0" /></a> 
+	 </li>
+	<li>ヒストグラムのフレーム内（棒上ではなく）を右クリックして、<b>テキストの追加</b>を選択します。追加されたテキストボックス内で、右クリックし、<b>貼り付け</b>を選択します。 
+	 <b>Mean</b>と<b>SD</b>の小数点以下1桁までを残し、それ以外をDeleteキーで削除します。<b>Mean= 60.7</b> 
+	 の後ろにカーソルを配置し、Enterキーをおして、改行します。 最終的に、下図のようなグラフになります。 
+	<table class="note">
+		<tr>
+			<td><b>Note</b>&#160;: もしデータが選択した分布によくフィットしていれば、分布曲線はヒストグラムと一致します。 
+			 </td>
+		</tr>
+	</table>
+	<br />
+	<a class="image"><img alt="分布曲線付きヒストグラム" src="../images/Histogram_with_Distribution_Curve_overlay/Histogram_with_Distribution_Curve_04.png" 
+							 width="451" height="357" border="0" /></a></li>
+</ol>

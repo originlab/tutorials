@@ -1,0 +1,102 @@
+﻿<h1 class="firstheading">分布曲線投影</h1><p class='urlname' style='display: none'>Marginal-Distribution-Curve</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps_to_Use_the_Filter_Lock"><span class="tocnumber">3</span> <span class="toctext">フィルタロックを使用するためのステップ</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Steps_to_Create_a_Plot_with_Marginal_Distribution_Curves"><span class="tocnumber">4</span> <span class="toctext">分布曲線投影グラフの作成操作 </span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Steps_to_Plot_Grouped_Marginal_Distribution_Curves"><span class="tocnumber">5</span> <span class="toctext">グループ化分布曲線投影グラフの作成操作  </span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Steps_to_Group_the_Plots"><span class="tocnumber">6</span> <span class="toctext">プロットをグループ化するステップ</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Steps_to_Further_Customization"><span class="tocnumber">7</span> <span class="toctext">詳細編集</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="#Steps_to_Reposition_the_Graph_Layers"><span class="tocnumber">8</span> <span class="toctext">グラフレイヤの再配置のステップ</span></a></li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>Originのグラフは高度な編集が可能です。ヒストグラム投影グラフから分布曲線投影グラフを作図する方法を紹介します。
+</p>
+<dl><dd><a class="image"><img alt="分布曲線投影" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_01.png" width="532"  /></a></dd></dl>
+<p class="version" >必要なOriginのバージョン: Origin 2015 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul><li>ヒストグラム投影グラフの作図</li>
+<li>異なるフィルタ条件のプロットを作図するためにフィルタロックを使用する</li>
+<li>手動でプロットをグループ化する</li></ul>
+<h2><a name="Steps_to_Use_the_Filter_Lock"></a><span class="mw-headline">フィルタロックを使用するためのステップ</span></h2>
+<p>Origin9.1では、単一ソースワークシート内の異なるデータフィルタを設定できるため、既存のグラフを失うことなくそれぞれのフィルタ条件の変更が可能です。これにより、新しいシートにフィルタデータをコピーし、フィルタデータ上に「フィルタロック」を配置可能です。
+</p>
+<ol><li>&lt;Origin EXE フォルダ&gt;\Samples\Statistics\automobile.datをインポートします。</li>
+<li>A列を選択して、右クリックし、<b>フィルタ：フィルタを追加または削除</b>を選択します。</li>
+<li>列ヘッダに表示されたフィルタアイコンをクリックし、<b>範囲</b>を選択します。</li>
+<li>開いたダイアログで、<b>開始</b>と<b>終了</b>を1992と1995にセットし、<b>OK</b>をクリックします。</li>
+<li>Power列とWeight列を選択し、右クリックして、<b>列をコピー</b>を選択します。</li>
+<li><b>colcopy</b>ダイアログで、<b>コピー先の列</b>のテキストボックスに、以下の例のように<b>1992~1995!&lt;新規&gt;</b>を入力し、<b>OK</b>をクリックします。
+<dl><dd><a class="image"><img alt="分布曲線投影" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_02.png" width="429"  /></a></dd></dl></li>
+<li>新しく作成されたシートで、列Aのヘッダに表示された緑の鍵のアイコンをクリックし、<b>ワークシートフィルタ：ロック</b>を選択します。
+<dl><dd><a class="image"><img alt="分布曲線投影" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_03.png" width="394"  /></a></dd></dl></li>
+<li>automobileシートに戻り、ステップ4から7を繰り返し、フィルタ条件1996~1999と2000~2004のシートを作成します。シートの名前はその都度<b>colcopy</b>ダイアログで設定する必要があります。。それぞれのシートで、フィルタ条件のロックは、<b>ワークシートフィルタ：戻る</b>を使用して戻ることができます。</li></ol>
+<h2><a name="Steps_to_Create_a_Plot_with_Marginal_Distribution_Curves"></a><span class="mw-headline">分布曲線投影グラフの作成操作</span></h2>
+<ol><li>&quot;1992~1995&quot;シートを開き、全ての列を選択して<b>作図：統計グラフ：ヒストグラム投影</b>を選択します。
+<dl><dd><a class="image"><img alt="分布曲線投影" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_04.png" width="457"  /></a></dd></dl></li>
+<li>ヒストグラムの棒上でダブルクリックして、<b>作図の詳細</b>ダイアログを開きます。<b>データ</b>タブを開き、<b>分布曲線：種類</b>を<b>正規分布</b>にします。この設定は<b>Layer2</b>用です。
+<dl><dd><a class="image"><img alt="分布曲線投影" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_05.png" width="512"  /></a></dd></dl></li>
+<li><b>パターン</b>タブを開き、下図のようにビンの棒を非表示に設定します。
+<dl><dd><a class="image"><img alt="分布曲線投影" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_06.png" width="513"  /></a></dd></dl></li>
+<li><b>グラフの線</b>タブを開き、<b>色</b>を黒にします。<b>適用</b>ボタンをクリックして、グラフを更新します。
+<dl><dd><a class="image"><img alt="分布曲線投影" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_07.png" width="294"  /></a></dd></dl></li>
+<li>2~4の操作をLayer3（右のヒストグラム）に対しても行います。
+<dl><dd><a class="image"><img alt="分布曲線投影" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_08.png" width="446"  /></a></dd></dl></li></ol>
+<h2><a name="Steps_to_Plot_Grouped_Marginal_Distribution_Curves"></a><span class="mw-headline">グループ化分布曲線投影グラフの作成操作</span></h2>
+<ol>
+<li>メニューから<b>グラフ操作：作図のセットアップ</b>と選択します。
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Marginal_Distribution_Curve/Tip_icon.png" width="57"  border="0" /></td><td><p><b><b>作図のセットアップ</b></b>ダイアログで3つのパネルを全ての表示するために<a class="image"><img alt="Button Expand Preview Up.png" src="../images/Marginal_Distribution_Curve/Button_Expand_Preview_Up.png" width="24"  /></a>ボタンをクリックして<b><b>グラフタイプ</b></b>パネルを開き、再度<a class="image"><img alt="Button Expand Preview Up.png" src="../images/Marginal_Distribution_Curve/Button_Expand_Preview_Up.png" width="24"  /></a>をクリックして<b><b>利用可能なデータ</b></b>パネルを開きます。<br />
+<p>詳細な情報は<a class="external text" href="../../Tutorial/Tutorial/Plotting_using_Plot_Setup.html">作図のセットアップで作図</a>を参照してください。
+</p>
+</p></td></tr></table>
+<li>下部パネルで、<b>Layer1</b>を選択します。以下ように設定し、<b>追加</b>をクリックします。
+<br /><a class="image"><img alt="分布曲線投影" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_09.png" width="769"  /></a>
+<li>Layer2に&quot;Power&quot;のヒストグラムを追加します。
+<br /><a class="image"><img alt="分布曲線投影" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_10.png" width="769"  /></a>
+<li>Layer3に&quot;Weight&quot;のヒストグラムを追加します。
+<li>操作2から4を繰り返し、2000～2004のデータをそれぞれのレイヤに追加します。プロットリストは次のようになります。
+<br /><a class="image"><img alt="Marginal distribution curve 22 Plot list.png" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_22_Plot_list.png" width="739"  /></a>
+<li><b>OK</b> をクリックして<b>作図の詳細</b>ダイアログボックスを閉じて、グラフを再スケールします。
+</ol>
+<h2><a name="Steps_to_Group_the_Plots"></a><span class="mw-headline">プロットをグループ化するステップ</span></h2>
+<ol><li>グラフウィンドウ左上のレイヤ1アイコン<a class="image"><img alt="Button Layer Icon 1st.png" src="../images/Marginal_Distribution_Curve/Layer_Icon_1st.png" width="19"  /></a>を右クリックし、<b>レイヤの内容</b>を選択します。</li>
+<li>3つすべてのプロットを選択し、<b>グループ化</b>ボタンをクリックします。そして<b>OK</b>ボタンをクリックします。
+<dl><dd><a class="image"><img alt="分布曲線投影" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_12.png" width="375"  /></a></dd></dl></li>
+<li>ステップ2の操作をレイヤ2と3に対して同様に行います。
+<dl><dd><a class="image"><img alt="分布曲線投影" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_11.png" width="470"  /></a></dd></dl></li></ol>
+<h2><a name="Steps_to_Further_Customization"></a><span class="mw-headline">詳細編集</span></h2>
+<ol><li>下の軸をダブルクリックしてレイヤ1の<b>軸ダイアログ</b>を開きます。<b>スケール</b>タブを開いて<b>垂直</b>と<b>水平</b>の軸は以下のようにそれぞれ設定します。
+<dl><dd><a class="image"><img alt="分布曲線投影" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_17.png" width="542"  /></a></dd>
+<dd><a class="image"><img alt="分布曲線投影" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_17b.png" width="477"  /></a></dd></dl></li>
+<li><b>OK </b>をクリックして、<b>軸</b>ダイアログを閉じます。グラフをダブルクリックして<b>作図の詳細</b>ダイアログを開きます。レイヤ1にある最初のデータプロットの<b>Layer1</b>を選択して<b>グラフグループ</b>タブを開きます。<b>シンボルタイプ</b>は<b>なし</b>を設定し、次のように設定します。
+<dl><dd><a class="image"><img alt="分布曲線投影" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_13.png" width="951"  /></a></dd></dl></li>
+<li><b>OK</b>をクリックして、ダイアログを閉じます。<b>シンボル</b>タブを開き、以下のように設定します。
+<dl><dd><a class="image"><img alt="分布曲線投影" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_14.png" width="650"  /></a></dd></dl></li>
+<li><b>Layer2</b>の<b>データ</b>タブを開き、ビンの設定をXのスケールと同じにします。そして<b>適用</b>をクリックします。
+<dl><dd><a class="image"><img alt="分布曲線投影" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_19.png" width="512"  /></a></dd></dl></li>
+<li>Layer2の<b>グラフグループ</b>タブを開きます。<b>編集モード</b>を<b>独立</b>にして、独自にプロットの詳細を決めることが出来るようにして、<b>適用</b>をクリックします。
+<dl><dd><a class="image"><img alt="分布曲線投影" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_15.png" width="806"  /></a></dd></dl></li>
+<li><b>パターン</b>タブを開き、Layer2の3つのデータプロットにうちて、先ほどの<a href="../../Tutorial/Tutorial/Marginal_Distribution_Curve.html#Steps_to_Create_a_Plot_with_Marginal_Distribution_Curves" title="分布曲線投影">分布曲線投影グラフの作成操作のステップ3</a>で行った操作により棒を非表示にします。</li>
+<li>データプロット1992~1995の<b>グラフの線</b>タブを開き、以下のように設定します。
+<dl><dd><a class="image"><img alt="分布曲線投影" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_16.png" width="297"  /></a></dd></dl></li>
+<li>レイヤ2内のほかのデータプロットに対しても操作7を繰り返し、レイヤ1のシンボルんの色に対応する線の色にします。</li>
+<li>Layer3にステップ5から8の手順を繰り返し、<b>OK</b>をクリックして<b>作図の詳細</b>を閉じて設定を適用します。</li>
+<li>レイヤ1をアクティブにし、<b>グラフ操作：凡例：データプロット</b>を選択します。</li>
+<li>凡例上で右クリックし、<b>オブジェクトの表示属性</b>を選択し、<b>背景</b>を<b>黒線</b>にし、<b>サイズ</b>を<b>18</b>に設定します。<b>OK</b>をクリックします。</li>
+<li><b>フォーマット：作図の詳細(ページ属性)</b>と操作して<b>作図の詳細</b>ダイアログを開きます。<b>凡例/タイトル</b>タブを開き、以下のように設定して凡例のテキストとしてワークシート名を使用するようにします。
+<dl><dd><a class="image"><img alt="分布曲線投影" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_16b.png" width="483"  /></a></dd></dl></li>
+<li>必要に応じて、凡例の位置を調整します。この時点では、グラフは以下のようになります。
+<dl><dd><a class="image"><img alt="分布曲線投影" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_16c.png" width="488"  /></a></dd></dl></li></ol>
+<h2><a name="Steps_to_Reposition_the_Graph_Layers"></a><span class="mw-headline">グラフレイヤの再配置のステップ</span></h2>
+<ol><li>下の軸をダブルクリックしてレイヤ1の<b>軸</b>ダイアログを開きます。グリッド線タブを開き、Ctrlキーを押しながら<b>垂直</b>と<b>水平</b>アイコンを選択します。
+<dl><dd><a class="image"><img alt="分布曲線投影" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_18.png" width="434"  /></a></dd></dl></li>
+<li><b>OK </b>をクリックして、ダイアログを閉じます。レイヤ2の<b>軸</b>ダイアログを開き、<b>軸と軸目盛</b>タブを開き、左側パネルで<b>下</b>アイコンが選択されている事を確認した後、<b>軸と軸目盛の表示</b>のチェックを図して下にある軸線を非表示にします。同じ事をレイヤ3にある<b>左</b>アイコンでも行います。</li>
+<li><b>レイヤ管理</b>ダイアログを開き、Layer2を選択して<b>サイズ/位置</b>タブで、<b>オプション</b>を<b>移動</b>にし、<b>上</b>を<b>-35</b>にします。<b><b>適用</b></b>をクリックします。
+<dl><dd><a class="image"><img alt="分布曲線投影" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_20.png" width="512"  /></a></dd></dl></li>
+<li>Layer3では、<b>左</b>を102にします。<b>適用</b>ボタンをクリックします。<b>OK</b>をクリックしてダイアログボックスを閉じます。
+<dl><dd><a class="image"><img alt="分布曲線投影" src="../images/Marginal_Distribution_Curve/Marginal_distribution_curve_21.png" width="498"  /></a></dd></dl></li></ol>
+
+    

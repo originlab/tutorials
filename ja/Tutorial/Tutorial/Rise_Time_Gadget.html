@@ -1,0 +1,73 @@
+﻿<h1 class="firstheading">立ち上がり時間パネルツール</h1>
+<table id="toc" class="toc">
+<tr>
+<td>
+<div id="toctitle">
+<h2>内容</h2>
+</div>
+<ol>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Analyze_Rise_Time"><span class="tocnumber">3</span> <span class="toctext">立ち上がり時間を分析</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Analyze_Fall_Time"><span class="tocnumber">4</span> <span class="toctext">下降時間を分析</span></a></li>
+</ol>
+</td>
+</tr>
+</table>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>立ち上がり時間ガジェットは、グラフ内のステップ状の信号の上昇または下降の時間を分析するのに使用できます。このガジェットは、四角形オブジェクトで直感的にグラフの領域を選択し、その領域の上昇または下降の時間を計算できます。</p>
+<p class="version">必要なOriginのバージョン:Pro 2015 SR0</p>
+<h2><a name="What_you_will_learn" id="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul>
+<li>シグナルの特定の領域をROIボックスの移動とサイズ変更で選択する</li>
+<li>グラフ内で<b>立上がり時間</b>（<b>下降時間</b>）と<b>立上がり範囲</b>（<b>下降範囲</b>）の印をつける</li>
+<li><b style="font-weight: bold;">立上がり時間</b>と<b>下降時間</b>でツールを切り替える</li>
+<li><b style="font-weight: bold;">立上がり時間</b>（<b>下降時間</b>）の結果を出力する</li>
+</ul>
+<h2><a name="Analyze_Rise_Time" id="Analyze_Rise_Time"></a><span class="mw-headline">立ち上がり時間分析</span></h2>
+<ol>
+<li>新しいワークブックを作成し、<a class="image"><img alt="Button Import Single ASCII.png" src="../images/Rise_Time_Gadget/Button_Import_Single_ASCII.png" width="23" height="23" border="0" /></a>ボタンをクリックして、<i>&lt;Origin インストールフォルダ&gt;\Samples\Signal Processing</i>にある<b>Signal with High Frequency Noise.dat</b> をインポートします。</li>
+<li>列Bを選択し、メニューから<b>作図：線図：折れ線</b>を選択して、グラフを作成します。<br />
+<br />
+<a class="image"><img alt="Rise Time Gadget 01.png" src="../images/Rise_Time_Gadget/Rise_Time_Gadget_01.png" width="413" height="347" border="0" /></a><br />
+<br /></li>
+<li>X軸をダブルクリックして、<b>X軸</b>ダイアログボックスを開きます。<b>スケール</b>タブを開き、主目盛の軸範囲を下図のように設定します。<br />
+<br />
+<a class="image"><img alt="Rise Time Gadget 02.png" src="../images/Rise_Time_Gadget/Rise_Time_Gadget_02.png" width="596" height="494" border="0" /></a><br />
+<br /></li>
+<li><b style="font-weight: bold;">OK</b>ボタンをクリックすると、グラフは以下のように更新されます。<br />
+&#160;<a class="image"><img alt="Rise Time Gadget 08.png" src="../images/Rise_Time_Gadget/Rise_Time_Gadget_08.png" width="413" height="347" border="0" /></a><br />
+<br /></li>
+<li>Originメニューから<b>ガジェット：立ち上がり時間ROIツール</b>を選択し、<b>Data Exploration：addtool_rise_time</b>ダイアログボックスを開きます。<b>グラフ上の表示</b>タブを開き、<b>立上がり時間</b>と<b>立上がり範囲</b>のチェックを付けます。<br />
+<br />
+<a class="image"><img alt="Rise Time Gadget 03.png" src="../images/Rise_Time_Gadget/Rise_Time_Gadget_03.png" width="421" height="387" border="0" /></a><br />
+<br /></li>
+<li><b style="font-weight: bold;">OK</b>ボタンをクリックすると、黄色い四角形がグラフに追加されます。四角形のROIボックスを水平に移動して立上がりシグナルステップの範囲に合わせます。<br />
+<br />
+<a class="image"><img alt="Rise Time Gadget 04.png" src="../images/Rise_Time_Gadget/Rise_Time_Gadget_04.png" width="618" height="462" border="0" /></a><br />
+<br />
+グラフ内では、<b>立上がり時間</b>と<b>立上がり範囲</b>が四角形の上部に表示されている事を確認してください。<br />
+2本の青い垂線が<b>立上がり時間</b>を表していて目印を通過しています。<br />
+2本の青い水平線は<b>低参照レベル</b>と<b>高参照レベル</b>を表し、2つの目印を通過するのは<b>立上がり範囲</b>として認識されます。<br />
+2本の赤い水平線は<b>低状態レベル</b>と<b>高状態レベル</b>を表しています。</li>
+<li>四角形の右上付近にある三角形<a class="image"><img alt="Triangle button.png" src="../images/Rise_Time_Gadget/Triangle_button.png" width="15" height="14" border="0" /></a> ボタンをクリックします。コンテキストメニューから<b>新しい出力</b>を選択します。結果は、<b>スクリプトウィンドウ</b>に出力されます。<br />
+<br />
+<a class="image"><img alt="Rise Time Gadget 05.png" src="../images/Rise_Time_Gadget/Rise_Time_Gadget_05.png" width="440" height="308" border="0" /></a><br />
+<br /></li>
+</ol>
+<h2><a name="Analyze_Fall_Time" id="Analyze_Fall_Time"></a><span class="mw-headline">下降時間の分析</span></h2>
+<ol>
+<li>このガジェットは、同じように下降時間と下降範囲を求める事もできます。ROIの四角形を水平移動させて下降シグナルを確認します。<br />
+<br />
+<a class="image"><img alt="Rise Time Gadget 09.png" src="../images/Rise_Time_Gadget/Rise_Time_Gadget_09.png" width="461" height="352" border="0" /></a><br />
+<br /></li>
+<li>もう一度三角形ボタン<a class="image"><img alt="Triangle button.png" src="../images/Rise_Time_Gadget/Triangle_button.png" width="15" height="14" border="0" /></a>をクリックし、メニューから<b>設定…</b>を選択して<b>立上がり時間設定</b>ダイアログを表示します。<b>ROIボックス</b>タブを開き、<b>ツール</b>ドロップダウンリストから<b>下降時間</b>を選びます。<br />
+<br />
+<a class="image"><img alt="Rise Time Gadget 06.png" src="../images/Rise_Time_Gadget/Rise_Time_Gadget_06.png" width="421" height="368" border="0" /></a><br />
+<br /></li>
+<li><b style="font-weight: bold;">OK</b>ボタンをクリックすると<b>下降時間</b>と<b>下降範囲</b>の数値が四角形の上部に表示されます。<br />
+<br />
+<a class="image"><img alt="Rise Time Gadget 07.png" src="../images/Rise_Time_Gadget/Rise_Time_Gadget_07.png" width="565" height="439" border="0" /></a><br />
+<br /></li>
+<li>三角形ボタン <a class="image"><img alt="Triangle button.png" src="../images/Rise_Time_Gadget/Triangle_button.png" width="15" height="14" border="0" /></a> をクリックし、<b>新しい出力</b>を選択します。結果は、<b>スクリプトウィンドウ</b>に出力されます。</li>
+</ol>

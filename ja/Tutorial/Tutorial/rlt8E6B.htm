@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Adobe RoboHelp 2019" />
+<title>データベースからデータを再インポートしてグラフを更新する</title>
+<link href="../OriginHTML.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+<a href="http://www.originlab.com" title="www.originlab.com" target="_blank" style="color: #0000ff; text-decoration: underline;"><img src="../header_logo.png" alt="OriginLab Corporation - 科学技術系グラフデータ分析ソフトウェア - 2Dグラフ、3Dグラフ、等高線図、統計グラフ、データ探索、統計、曲線フィット、信号処理、ピーク分析" width="224" height="62" border="0" /></a>
+<h1 class="firstheading">データベースからデータを再インポートしてグラフを更新する</h1>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>目次</h2>
+</div>
+<ul>
+<li style="list-style:none;display: inline">
+<ol>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ol>
+<li class="toclevel-2 tocsection-4"><a href="#Import_Data_from_Database"><span class="tocnumber">3.1</span> <span class="toctext">データベースからデータをインポートする</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Create_Pivot_Table_and_Do_Column_Calculations"><span class="tocnumber">3.2</span> <span class="toctext">ピボットテーブルの作成と列演算の実行</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Create_Graph_and_Customize_Graph"><span class="tocnumber">3.3</span> <span class="toctext">グラフの作成とグラフの編集</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Add_Button_to_Run_LabTalk_Script"><span class="tocnumber">3.4</span> <span class="toctext">ボタンを追加してLabTalkスクリプトを実行する</span></a></li>
+</ol>
+</li>
+</ol>
+</li>
+</ul>
+</div>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>このチュートリアルでは、データベースからのデータインポートおよび分析とグラフ作成を行います。その後、OriginのLabTalkスクリプトを使用したデータベースクエリーの更新とデータ再インポートを行うボタンをグラフに追加します。</p>
+<p>ここで使用するSQLデータベースは <a class="external text" href="http://msftdbprodsamples.codeplex.com/releases/view/93587" target="_blank">AdventureWorks データベース</a>です。AdventureWorks データベースの取り付け方法についての詳細情報は、<a class="external text" href="http://msftdbprodsamples.codeplex.com/releases/view/93587" target="_blank">CodePlex のWebサイト</a>を参照してください。</p>
+<p class="version">必要なOriginのバージョン:Origin 9.1 SR0</p>
+<h2><a name="What_you_will_learn" id="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。</p>
+<ul>
+<li>クエリーのデータ範囲を定義するためにSQLクエリーのLabTalk変数を使用して、データベースからデータをインポートする</li>
+<li>ピボットテーブルとグラフを作成し、データを分析する</li>
+<li>クエリーのデータ範囲を編集するボタンをグラフに追加して、データベースからの再インポートを行う</li>
+</ul>
+<h2><a name="Steps" id="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>サーバマシン<i>noho</i>上にSQLサーバ<i>AdventureWorks2008</i>を予めセットアップ済であることを想定しています。</p>
+<h3><a name="Import_Data_from_Database" id="Import_Data_from_Database"></a><span class="mw-headline">データベースからデータをインポートする</span></h3>
+<ol>
+<li>新しいプロジェクトを開始します。<b>データベースアクセス</b>ツールバーの<b>SQLエディタを開く</b>ボタンをクリックしてSQLエディタを起動します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="ImportDataDatabase 1.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/ImportDataDatabase_1.png" width="275" height="104" border="0" /></a></dd>
+</dl>
+</li>
+<li>メニューから<b>ファイル：接続文字列の編集</b>を選択してテキストボックスに以下の接続文字列を入力します。<br />
+<pre class="sql" style="font-family: monospace;">
+Provider<span style="color: #66cc66;">=</span>SQLOLEDB<span style="color: #66cc66;">.</span>1;
+Password<span style="color: #66cc66;">=</span>labtalk2015;
+Persist Security Info<span style="color: #66cc66;">=</span><span style="color: #993333; font-weight: bold;">TRUE</span>;<span style="color: #993333; font-weight: bold;">
+USER</span> ID<span style="color: #66cc66;">=</span><span style="color: #993333; font-weight: bold;">CONNECT</span>;
+Initial Catalog<span style="color: #66cc66;">=</span>AdventureWorks2008;<span style="color: #993333; font-weight: bold;">
+DATA</span> <span style="color: #993333; font-weight: bold;">SOURCE</span><span style="color: #66cc66;">=</span>noho
+        
+</pre></li>
+<li><b style="font-weight: bold;">テスト</b>ボタンをクリックして接続を確認します。大丈夫なら<b>OK</b>をクリックしてデータベースにアクセスします。</li>
+<li>SQLエディタで<b>クエリー：LabTalk...</b>と操作し、<b>LabTalkサポート設定</b>ダイアログを開きます。ダイアログで、<b>LabTalk置換(%,$)をする</b>のチェックボックスを付けて、以下のスクリプトをテキストボックスに入力します。<br />
+<pre class="lt" style="font-family: monospace;">
+string pastFrom<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">""</span>;
+string pastTo<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">""</span>;
+string curFrom<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">""</span>;
+string curTo<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">""</span>;
+if<span style="color: #000000;">(</span>exist<span style="color: #000000;">(</span>strPast1<span style="color: #000080;">$</span>, <span style="color: #0000dd;">18</span><span style="color: #000000;">)</span> <span style="color: #000080;">==</span> <span style="color: #0000dd;">18</span><span style="color: #000000;">)</span>  <span style="color: #008000;">// strPast1$に値があるか確認</span><span style="color: #000000;">
+{</span>
+        <span style="color: #008000;">// strPast1$に値がある場合</span>
+        pastFrom<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> strPast1<span style="color: #000080;">$</span>;  <span style="color: #008000;">// strPast1 $をpastFrom$に割り当てる</span><span style="color: #000000;">
+}</span>
+else  <span style="color: #008000;">// strPast1$が定義されていない場合</span><span style="color: #000000;">
+{</span>
+        pastFrom<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">"1/1/2003"</span>;  <span style="color: #008000;">// 定数文字列をpastFrom$に割り当てる</span><span style="color: #000000;">
+}</span>
+if<span style="color: #000000;">(</span>exist<span style="color: #000000;">(</span>strPast2<span style="color: #000080;">$</span>, <span style="color: #0000dd;">18</span><span style="color: #000000;">)</span> <span style="color: #000080;">==</span> <span style="color: #0000dd;">18</span><span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+        pastTo<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> strPast2<span style="color: #000080;">$</span>;<span style="color: #000000;">
+}</span>
+else<span style="color: #000000;">
+{</span>
+        pastTo<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">"3/31/2003"</span>;<span style="color: #000000;">
+}</span>
+if<span style="color: #000000;">(</span>exist<span style="color: #000000;">(</span>strCurrent1<span style="color: #000080;">$</span>, <span style="color: #0000dd;">18</span><span style="color: #000000;">)</span> <span style="color: #000080;">==</span> <span style="color: #0000dd;">18</span><span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+        curFrom<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> strCurrent1<span style="color: #000080;">$</span>;<span style="color: #000000;">
+}</span>
+else<span style="color: #000000;">
+{</span>
+        curFrom<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">"4/1/2003"</span>;<span style="color: #000000;">
+}</span>
+if<span style="color: #000000;">(</span>exist<span style="color: #000000;">(</span>strCurrent2<span style="color: #000080;">$</span>, <span style="color: #0000dd;">18</span><span style="color: #000000;">)</span> <span style="color: #000080;">==</span> <span style="color: #0000dd;">18</span><span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+        curTo<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> strCurrent2<span style="color: #000080;">$</span>;<span style="color: #000000;">
+}</span>
+else<span style="color: #000000;">
+{</span>
+        curTo<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">"6/30/2003"</span>;<span style="color: #000000;">
+}</span>
+</pre>
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Update Graph Database 01.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/Update_Graph_Database_01.png" width="533" height="481" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">OK</b>をクリックしてSQLエディタに戻ります。右側のテキストボックスに、以下のSQLステートメントを入力します。<br />
+<pre class="sql" style="font-family: monospace;">
+<span style="color: #993333; font-weight: bold;">SELECT</span> OrderDateTotalDueAndProductSubcategoryID<span style="color: #66cc66;">.</span>OrderDate <span style="color: #993333; font-weight: bold;">AS</span> <span style="color: #ff0000;">'Order Date'</span><span style="color: #66cc66;">,</span> <span style="color: #ff0000;">'Date Range'</span> <span style="color: #66cc66;">=</span> 
+        <span style="color: #993333; font-weight: bold;">CASE</span> 
+                <span style="color: #993333; font-weight: bold;">WHEN</span> OrderDateTotalDueAndProductSubcategoryID<span style="color: #66cc66;">.</span>OrderDate <span style="color: #66cc66;">&lt;</span> <span style="color: #ff0000;">'%(curFrom$)'</span> <span style="color: #993333; font-weight: bold;">THEN</span> <span style="color: #ff0000;">'Past'</span>
+                <span style="color: #993333; font-weight: bold;">ELSE</span> <span style="color: #ff0000;">'Current'</span>
+        <span style="color: #993333; font-weight: bold;">END</span><span style="color: #66cc66;">,</span>
+        Production<span style="color: #66cc66;">.</span>ProductSubcategory<span style="color: #66cc66;">.</span>Name <span style="color: #993333; font-weight: bold;">AS</span> <span style="color: #ff0000;">'Subcategory Name'</span><span style="color: #66cc66;">,</span> 
+        OrderDateTotalDueAndProductSubcategoryID<span style="color: #66cc66;">.</span>TotalDue <span style="color: #993333; font-weight: bold;">AS</span> <span style="color: #ff0000;">'Total Due'</span><span style="color: #993333; font-weight: bold;">
+FROM</span> 
+        <span style="color: #66cc66;">(</span><span style="color: #993333; font-weight: bold;">SELECT</span> OrderDateAndTotalDue<span style="color: #66cc66;">.</span>OrderDate<span style="color: #66cc66;">,</span> OrderDateAndTotalDue<span style="color: #66cc66;">.</span>TotalDue<span style="color: #66cc66;">,</span> Production<span style="color: #66cc66;">.</span>Product<span style="color: #66cc66;">.</span>ProductSubcategoryID
+        <span style="color: #993333; font-weight: bold;">FROM</span>
+                <span style="color: #66cc66;">(</span><span style="color: #993333; font-weight: bold;">SELECT</span> Sales<span style="color: #66cc66;">.</span>SalesOrderheader<span style="color: #66cc66;">.</span>OrderDate<span style="color: #66cc66;">,</span> Sales<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>ProductID<span style="color: #66cc66;">,</span> Sales<span style="color: #66cc66;">.</span>SalesOrderheader<span style="color: #66cc66;">.</span>TotalDue
+                <span style="color: #993333; font-weight: bold;">FROM</span> Sales<span style="color: #66cc66;">.</span>SalesOrderheader
+                <span style="color: #993333; font-weight: bold;">INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> Sales<span style="color: #66cc66;">.</span>SalesOrderDetail
+                <span style="color: #993333; font-weight: bold;">ON</span> Sales<span style="color: #66cc66;">.</span>SalesOrderheader<span style="color: #66cc66;">.</span>SalesOrderID<span style="color: #66cc66;">=</span>Sales<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>SalesOrderID
+                <span style="color: #993333; font-weight: bold;">WHERE</span> <span style="color: #66cc66;">(</span>Sales<span style="color: #66cc66;">.</span>SalesOrderheader<span style="color: #66cc66;">.</span>OrderDate <span style="color: #993333; font-weight: bold;">BETWEEN</span> <span style="color: #ff0000;">'%(pastFrom$)'</span> <span style="color: #993333; font-weight: bold;">AND</span> <span style="color: #ff0000;">'%(pastTo$)'</span>
+                                <span style="color: #993333; font-weight: bold;">OR</span> Sales<span style="color: #66cc66;">.</span>SalesOrderheader<span style="color: #66cc66;">.</span>OrderDate <span style="color: #993333; font-weight: bold;">BETWEEN</span> <span style="color: #ff0000;">'%(curFrom$)'</span> <span style="color: #993333; font-weight: bold;">AND</span> <span style="color: #ff0000;">'%(curTo$)'</span><span style="color: #66cc66;">)</span><span style="color: #66cc66;">)</span> <span style="color: #993333; font-weight: bold;">AS</span> OrderDateAndTotalDue
+        <span style="color: #993333; font-weight: bold;">INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> Production<span style="color: #66cc66;">.</span>Product
+        <span style="color: #993333; font-weight: bold;">ON</span> OrderDateAndTotalDue<span style="color: #66cc66;">.</span>ProductID<span style="color: #66cc66;">=</span>Production<span style="color: #66cc66;">.</span>Product<span style="color: #66cc66;">.</span>ProductID<span style="color: #66cc66;">)</span> <span style="color: #993333; font-weight: bold;">AS</span> OrderDateTotalDueAndProductSubcategoryID<span style="color: #993333; font-weight: bold;">
+INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> Production<span style="color: #66cc66;">.</span>ProductSubcategory<span style="color: #993333; font-weight: bold;">
+ON</span> OrderDateTotalDueAndProductSubcategoryID<span style="color: #66cc66;">.</span>ProductSubcategoryID<span style="color: #66cc66;">=</span>Production<span style="color: #66cc66;">.</span>ProductSubcategory<span style="color: #66cc66;">.</span>ProductSubcategoryID
+        
+</pre>
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Update Graph Database 02.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/Update_Graph_Database_02.png" width="781" height="496" border="0" /></a></dd>
+</dl>
+<p>上の図で確認できるように、合計で3つのLabTalk変数がステートメントの中で使用されています。</p>
+</li>
+<li>ツールバーの最後のボタンをクリックすると、置換結果を確認出来ます。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Update Graph Database 03.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/Update_Graph_Database_03.png" width="781" height="496" border="0" /></a></dd>
+</dl>
+</li>
+<li>メニューから、<b>ファイル：アクティブワークシートに保存</b>を選択し、この設定をワークシートに保存します。そして、<b>ワークシートにデータをインポート</b>ボタン<a class="image"><img alt="Button db Import Data.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/Button_db_Import_Data.png" width="25" border="0" /></a>をクリックしてインポートを行い、SQLエディタ閉じます。インポートデータを確認でき、以下のような画像が表示されます。ワークシートの右上に表示される黄色いアイコンは、ワークシートにデータベース接続が含まれていることを示します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Update Graph Database 04.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/Update_Graph_Database_04.png" width="441" height="345" border="0" /></a></dd>
+</dl>
+</li>
+</ol>
+<h3><a name="Create_Pivot_Table_and_Do_Column_Calculations" id="Create_Pivot_Table_and_Do_Column_Calculations"></a><span class="mw-headline">ピボットテーブルの作成と列演算の実行</span></h3>
+<ol>
+<li>インポートしたデータで操作を開始します。列Cを選択し、<b>ワークシート：ピボットテーブル</b>と操作して<b>Data Manipulation\Worksheet: wpivot</b> ダイアログを開きます。</li>
+<li>再計算を自動に設定します。</li>
+<li><b style="font-weight: bold;">ピボットテーブルの列ソース</b>で右向きの三角形をクリックし、列Bを設定します。</li>
+<li><b style="font-weight: bold;">サマリー出力タイプ</b>に<i>合計</i>を設定します。すると、ピボットテーブルのデータソースが追加されます。列Dを右向きの三角形をクリックして選択します。</li>
+<li><b style="font-weight: bold;">オプション</b>ノードを開き、<b>出力列のソート</b>を<i>なし</i>に設定します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Update Graph Database 05.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/Update_Graph_Database_05.png" width="507" height="691" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">OK</b>ボタンをクリックして、設定した方法でピボットテーブルを作図します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Update Graph Database 06.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/Update_Graph_Database_06.png" width="403" height="345" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">列の追加</b>ボタン<a class="image"><img alt="Update Graph Database 07.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/Update_Graph_Database_07.png" width="20" border="0" /></a>を2回クリックして、新しい列を2列追加します。</li>
+<li>それぞれのロングネームを<i>Percent Change</i> と <i>Gain/Loss</i> にします。</li>
+<li>列DのF(x)=セルにおいて、
+<dl>
+<dd>Origin 2017を使用している場合、以下を入力します。</dd>
+</dl>
+<pre class="lt" style="font-family: monospace;">
+B<span style="color: #000080;">==</span><span style="color: #0000dd;">0</span> ? <span style="color: #0000dd;">100</span> <span style="color: #000000;">:</span> <span style="color: #0000dd;">100</span><span style="color: #000080;">*</span><span style="color: #000000;">(</span>C<span style="color: #000080;">-</span>B<span style="color: #000000;">)</span><span style="color: #000080;">/</span>B
+        
+</pre>
+<dl>
+<dd>Origin 2017より前のバージョンを使用している場合、以下を入力します。</dd>
+</dl>
+<pre class="lt" style="font-family: monospace;">
+col<span style="color: #000000;">(</span>B<span style="color: #000000;">)</span><span style="color: #000080;">==</span><span style="color: #0000dd;">0</span> ? <span style="color: #0000dd;">100</span> <span style="color: #000000;">:</span> <span style="color: #0000dd;">100</span><span style="color: #000080;">*</span><span style="color: #000000;">(</span>col<span style="color: #000000;">(</span>C<span style="color: #000000;">)</span><span style="color: #000080;">-</span>col<span style="color: #000000;">(</span>B<span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000080;">/</span>col<span style="color: #000000;">(</span>B<span style="color: #000000;">)</span>
+        
+</pre></li>
+<li>列EのF(x)=セルにおいて、
+<dl>
+<dd>Origin 2017を使用している場合、以下を入力します。</dd>
+</dl>
+<pre class="lt" style="font-family: monospace;">
+D <span style="color: #000080;">&gt;</span> <span style="color: #0000dd;">0</span> ? <span style="color: #0000dd;">12</span> <span style="color: #000000;">:</span> <span style="color: #0000dd;">2</span>
+        
+</pre>
+<dl>
+<dd>Origin 2017より前のバージョンを使用している場合、以下を入力します。</dd>
+</dl>
+<pre class="lt" style="font-family: monospace;">
+col<span style="color: #000000;">(</span>D<span style="color: #000000;">)</span> <span style="color: #000080;">&gt;</span> <span style="color: #0000dd;">0</span> ? <span style="color: #008000;"> </span><span style="color: #0000dd;">12</span> <span style="color: #000000;">:</span> <span style="color: #0000dd;">2</span>
+        
+</pre>
+<p>結果は次のようになります。</p>
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Update Graph Database 10.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/Update_Graph_Database_10.png" width="565" height="345" border="0" /></a></dd>
+</dl>
+</li>
+</ol>
+<h3><a name="Create_Graph_and_Customize_Graph" id="Create_Graph_and_Customize_Graph"></a><span class="mw-headline">グラフの作成とグラフの編集</span></h3>
+<ol>
+<li><b style="font-weight: bold;">Pivot1</b>ワークシートで、列CとDを選択して、メニューから<b>作図: 複数区分: 積み上げ...</b> を選択します。</li>
+<li>ダイアログで、以下のように設定します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Update Graph Database 14.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/Update_Graph_Database_14.png" width="566" height="478" border="0" /></a></dd>
+</dl>
+</li>
+<li>OKをクリックします。2区分のグラフが作成されます。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Update Graph Database 15.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/Update_Graph_Database_15.png" width="630" height="437" border="0" /></a></dd>
+</dl>
+</li>
+<li>左パネルの下軸をダブルクリックします。<b>目盛ラベルタ</b>ブで、<b>割る値</b>を<i>1000000</i> にし、<b>ラベル接尾語</b>で<i>M</i>を入力します。スケールタブで、<b>開始</b>と<b>終了</b>を<i>0</i>と<i>120</i>に設定します。主目盛のタイプは増分とし、値は20にします。軸ダイアログの左パネルで垂直方向を選択します。再スケール方法を自動にします。OKをクリックします。</li>
+<li>右パネルの下軸をダブルクリックします。スケールタブで、<b>開始</b>と<b>終了</b>を<i>-100</i>と<i>400</i>に設定します。主目盛のタイプは増分とし、値は100にします。軸ダイアログの左パネルで垂直方向を選択します。再スケール方法を自動にします。グリッド線タブを開き、左パネルで<b>垂直方向</b>が選択されています。下の方にあるY=0 にチェックをつけます。<b>特別な軸刻み</b>タブを開き、左パネルで下軸を選択します。<b>軸の開始</b>行の<b>表示</b>を<i>隠す</i>に設定します。これをしないと、左プロットの最後の目盛ラベルが、右プロットの最初の目盛ラベルと重なります。OKをクリックします。</li>
+<li>右パネルの下軸をダブルクリックします。スケールタブで、<b>開始</b>と<b>終了</b>を<i>-100</i>と<i>400</i>に設定します。主目盛のタイプは増分とし、値は100にします。軸ダイアログの左パネルで垂直方向を選択します。再スケール方法を自動にします。グリッド線タブを開き、左パネルで<b>垂直方向</b>が選択されています。下の方にあるY=0 にチェックをつけます。<b>特別な軸刻み</b>タブを開き、左パネルで下軸を選択します。<b>軸の開始</b>行の<b>表示</b>を<i>隠す</i>に設定します。これをしないと、左プロットの最後の目盛ラベルが、右プロットの最初の目盛ラベルと重なります。OKをクリックします。</li>
+<li>凡例、右軸の目盛ラベルなどを削除すると、下図のようになります。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Update Graph Database 16.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/Update_Graph_Database_16.png" width="585" height="437" border="0" /></a></dd>
+</dl>
+</li>
+<li>左の横棒グラフの塗り色を薄い空色にします。</li>
+<li>右の横棒グラフの塗り色を列E(Gain/Loss)のインデックスにします。ラベルを有効にし、<b>ラベル形式</b>を<i>カスタム</i>、<b>フォーマット指定</b>に<i>$(Y, .1)%</i>を入力して、接尾語%付きの小数点以下1桁のY値を表示します。</li>
+<li>必要に応じて上、右、下の軸を削除するなどの軸編集を行います。グリッド線を表示します。左軸の主目盛、副目盛などを非表示にすると、グラフは下図のようになります。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Update Graph Database 18.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/Update_Graph_Database_18.png" width="585" height="437" border="0" /></a></dd>
+</dl>
+</li>
+</ol>
+<h3><a name="Add_Button_to_Run_LabTalk_Script" id="Add_Button_to_Run_LabTalk_Script"></a><span class="mw-headline">ボタンを追加してLabTalkスクリプトを実行する</span></h3>
+<ol>
+<li>グラフの右下で右クリックして、<b>テキストの追加</b>を選択します。テキストボックスに<b>Update</b>と入力します。</li>
+<li>このテキスト<b>Update</b>を右クリックして、<b>プロパティ</b>を選択し、<b>テキストオブジェクト</b>ダイアログを開きます。<b>プログラミング</b>タブを開きます。Note: Origin 2017より前のバージョンでは、メニューから<b>オブジェクトのプログラミング制御</b>を選択して開くダイアログを使用します。</li>
+<li>「<b>のあとでスクリプトを実行</b>」の前にあるドロップダウンで<i>ボタンアップ</i>を選択し、下にあるテキストボックスに次のスクリプトを入力します。<b>OK</b>をクリックします。<br />
+<pre class="lt" style="font-family: monospace;">
+double pastDate1 <span style="color: #000080;">=</span> date<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span><span style="color: #000080;">/</span><span style="color: #0000dd;">1</span><span style="color: #000080;">/</span><span style="color: #0000dd;">2003</span><span style="color: #000000;">)</span>;
+double pastDate2 <span style="color: #000080;">=</span> date<span style="color: #000000;">(</span><span style="color: #0000dd;">3</span><span style="color: #000080;">/</span><span style="color: #0000dd;">31</span><span style="color: #000080;">/</span><span style="color: #0000dd;">2003</span><span style="color: #000000;">)</span>;
+double currentDate1 <span style="color: #000080;">=</span> date<span style="color: #000000;">(</span><span style="color: #0000dd;">4</span><span style="color: #000080;">/</span><span style="color: #0000dd;">1</span><span style="color: #000080;">/</span><span style="color: #0000dd;">2003</span><span style="color: #000000;">)</span>;
+double currentDate2 <span style="color: #000080;">=</span> date<span style="color: #000000;">(</span><span style="color: #0000dd;">6</span><span style="color: #000080;">/</span><span style="color: #0000dd;">30</span><span style="color: #000080;">/</span><span style="color: #0000dd;">2003</span><span style="color: #000000;">)</span>;<span style="color: #008000;">
+// strPast1$, strPast2$, strCurrent1$, strCurrent2$が同時に存在するか確認</span>
+if<span style="color: #000000;">(</span><span style="color: #000000;">(</span>exist<span style="color: #000000;">(</span>strPast1<span style="color: #000080;">$</span>, <span style="color: #0000dd;">18</span><span style="color: #000000;">)</span> <span style="color: #000080;">==</span> <span style="color: #0000dd;">18</span><span style="color: #000000;">)</span> <span style="color: #000080;">&amp;&amp;</span> <span style="color: #000000;">(</span>exist<span style="color: #000000;">(</span>strPast2<span style="color: #000080;">$</span>, <span style="color: #0000dd;">18</span><span style="color: #000000;">)</span> <span style="color: #000080;">==</span> <span style="color: #0000dd;">18</span><span style="color: #000000;">)</span> <span style="color: #000080;">&amp;&amp;</span> <span style="color: #000000;">(</span>exist<span style="color: #000000;">(</span>strCurrent1<span style="color: #000080;">$</span>, <span style="color: #0000dd;">18</span><span style="color: #000000;">)</span> <span style="color: #000080;">==</span> <span style="color: #0000dd;">18</span><span style="color: #000000;">)</span> <span style="color: #000080;">&amp;&amp;</span> <span style="color: #000000;">(</span>exist<span style="color: #000000;">(</span>strCurrent2<span style="color: #000080;">$</span>, <span style="color: #0000dd;">18</span><span style="color: #000000;">)</span> <span style="color: #000080;">==</span> <span style="color: #0000dd;">18</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+        <span style="color: #008000;">// ある場合、ダイアログに表示するようにdouble値に設定します</span>
+        pastDate1 <span style="color: #000080;">=</span> date<span style="color: #000000;">(</span>strPast1<span style="color: #000080;">$</span><span style="color: #000000;">)</span>;
+        pastDate2 <span style="color: #000080;">=</span> date<span style="color: #000000;">(</span>strPast2<span style="color: #000080;">$</span><span style="color: #000000;">)</span>;
+        currentDate1 <span style="color: #000080;">=</span> date<span style="color: #000000;">(</span>strCurrent1<span style="color: #000080;">$</span><span style="color: #000000;">)</span>;
+        currentDate2 <span style="color: #000080;">=</span> date<span style="color: #000000;">(</span>strCurrent2<span style="color: #000080;">$</span><span style="color: #000000;">)</span>;<span style="color: #000000;">
+}</span><span style="color: #008000;">
+// 日付設定のダイアログ</span>
+GetN <span style="color: #000000;">(</span>Last Seaon<span style="color: #000000;">)</span> <span style="color: #000000;">:</span>@G
+        <span style="color: #000000;">(</span>From<span style="color: #000000;">)</span> pastDate1<span style="color: #000000;">:</span>@FD0
+        <span style="color: #000000;">(</span>To<span style="color: #000000;">)</span> pastDate2<span style="color: #000000;">:</span>@FD0 <span style="color: #000000;">(</span><span style="color: #000080;">-</span><span style="color: #000000;">)</span> <span style="color: #000000;">:</span>@G
+     <span style="color: #000000;">(</span>Current Seaon<span style="color: #000000;">)</span> <span style="color: #000000;">:</span>@G
+        <span style="color: #000000;">(</span>From<span style="color: #000000;">)</span> currentDate1<span style="color: #000000;">:</span>@FD0
+        <span style="color: #000000;">(</span>To<span style="color: #000000;">)</span> currentDate2<span style="color: #000000;">:</span>@FD0 <span style="color: #000000;">(</span><span style="color: #000080;">-</span><span style="color: #000000;">)</span> <span style="color: #000000;">:</span>@G<span style="color: #000000;">
+(</span>Set Date<span style="color: #000000;">)</span>;<span style="color: #008000;">
+// 設定された日付を取得し文字列に変換</span>
+string strPast1<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #000080;">$</span><span style="color: #000000;">(</span>pastDate1, D0<span style="color: #000000;">)</span>;
+string strPast2<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #000080;">$</span><span style="color: #000000;">(</span>pastDate2, D0<span style="color: #000000;">)</span>;
+string strCurrent1<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #000080;">$</span><span style="color: #000000;">(</span>currentDate1, D0<span style="color: #000000;">)</span>;
+string strCurrent2<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #000080;">$</span><span style="color: #000000;">(</span>currentDate2, D0<span style="color: #000000;">)</span>;<span style="color: #008000;">
+// 設定された日付に従ってデータベースからデータを再インポート</span>
+dbimport iw<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #000000;">[</span>book1<span style="color: #000000;">]</span>sheet1<span style="color: #000080;">!</span>;
+range rPivot <span style="color: #000080;">=</span> <span style="color: #000000;">[</span>Book1<span style="color: #000000;">]</span>Pivot1<span style="color: #000080;">!</span>;  <span style="color: #008000;">// ピボットテーブル範囲</span>
+layer.<span style="color: #000080;">x</span>.<span style="color: #000080;">to</span> <span style="color: #000080;">=</span> rPivot.<span style="color: #000080;">maxRows</span><span style="color: #000080;">+</span><span style="color: #0000dd;">0.5</span>;  <span style="color: #008000;">// 垂直軸の値を設定</span>
+rPivot.<span style="color: #000080;">runfilter</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>;  <span style="color: #008000;">// データフィルタを実行</span>
+        
+</pre>
+<p>テキストオブジェクトがボタンになり、これをクリックすると、入力されたスクリプトが実行されます。</p>
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Update Graph Database 30.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/Update_Graph_Database_30.png" width="585" height="437" border="0" /></a></dd>
+</dl>
+</li>
+<li>このボタンをクリックすると、デフォルトの日付が入力された状態でダイアログが開きます。(初回起動時のみ。初回起動ではない場合は、最後に使用したときの値。)</li>
+<li>では期間を変更してみます。「Last Season」を2004/01/01から2004/03/31まで、「Current Season」を2004/04/01から2004/06/30までに設定します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Update Graph Database 31.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/Update_Graph_Database_31.png" width="244" height="257" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">OK</b>をクリックすると、指定した日付範囲のデータがワークシートに再インポートされ、Pivot1ワークシートが更新されます。グラフも同様に更新されます。Pivot1シートのGain/Loss列の値により、横棒の色が塗り分けられます。1つの製品にロスがあるということが簡単に伝えられます。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Update Graph Database 32.png" src="../images/Update_Graph_By_Reimport_Data_From_Database/Update_Graph_Database_32.png" width="585" height="437" border="0" /></a></dd>
+</dl>
+</li>
+</ol>
+</body>
+</html>

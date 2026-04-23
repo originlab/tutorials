@@ -1,0 +1,39 @@
+﻿<h1 class="firstHeading">データ変換のチュートリアル</h1><p class='urlname' style='display: none'>Tutorial-DT</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Notes_for_Starting"><span class="tocnumber">1</span> <span class="toctext">始動に関する注意事項</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#User_Story"><span class="tocnumber">2</span> <span class="toctext">ユーザストーリー</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps_in_Origin"><span class="tocnumber">3</span> <span class="toctext">Steps in Origin</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Interpreting_the_Results"><span class="tocnumber">4</span> <span class="toctext">結果の解釈</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Notes_for_Starting"></a><span class="mw-headline">始める前の注意</span></h2>
+<ul><li> <a class="external text" href="https://blog.originlab.com/wp-content/uploads/2023/10/SPCData.zip" target="_blank">ここ</a>からサンプルプロジェクトファイルをダウンロードし、Originで開きます。</li></ul>
+<ul><li> アプリ<a class="external text" href="https://www.originlab.com/fileExchange/details.aspx?fid=934" target="_blank"><b>Statistical Process Control（統計的工程管理）</b></a>がインストールされている状態でこのチュートリアルを開始してください。アプリをインストールしていない場合は、<a class="external text" href="https://www.originlab.com/doc/User-Guide/Apps" target="_blank">Originのアプリ</a>を参照して検索とインストールを行ってください。</li></ul>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Tutorial_DT/Tip_icon.png" width="57"  border="0" /></td><td><p><i><b>詳細情報</b></i>:
+</p>
+<ul><li> <a href="../../Tutorial/Category/Data_Transformation(App).html" title="カテゴリ:データ変換(アプリ)">イントロダクション:データ変換</a></li>
+<li> <a href="../../Tutorial/App/Algorithm_DT.html" title="アプリ:アルゴリズムDT">アルゴリズム:データ変換</a></li></ul>
+</td></tr></table>
+<h2><a name="User_Story"></a><span class="mw-headline">ユーザストーリー</span></h2>
+<p>ある地域で販売された住宅のデータがあります。<a href="../../Tutorial/App/Tutorial_IDD.html" title="アプリ:チュートリアルIDD">分布の識別</a>ツールを実行したところ正規分布に従っていないことがわかりました。 
+</p><p>そこで、データを変換することで、分析に使用するデータを正規分布に従うようにしたいと考えています。
+</p>
+<h2><a name="Steps_in_Origin"></a><span class="mw-headline">Originでの操作</span></h2>
+<ol><li> Originでサンプルプロジェクトファイルを開き、フォルダ<b>3.Nonnormal</b>を<b>プロジェクトエクスプローラ</b>で開きます。ブック<b>House Sold</b>をアクティブにします。</li>
+<li> ワークシートのB列を選択します。Originのウィンドウ左側にある<b>アプリギャラリー</b>ウィンドウを開き、アイコン<a  class="image"><img alt="SPC Icon.png" src="../images/Tutorial_DT/SPC_Icon.png" width="32"  /></a>をクリックします。</li>
+<li> <b>データ変換</b>タブを開き、データがすべて0より大きいことを確認します。ツリーから <b>Box-Cox</b>変換法を使用するべきであることがわかります。<b>Box-Cox変換</b>アイコンをクリックして、ダイアログを開きます。</li>
+<li> 開いたダイアログの<b>入力</b>タブで、列Bが測定データとして自動的に選択されます。<b>サブグループのサイズ</b>を<b>定数</b>にし、<b>サブグループのサイズの定数</b>を1に設定します。
+<dl><dd> <a  class="image"><img alt="DT Input.png" src="../images/Tutorial_DT/500px-DT_Input.png" width="500"   /></a></dd></dl></li>
+<li> 他はデフォルトのまま、<b>OK</b>ボタンをクリックします。</li></ol>
+<h2><a name="Interpreting_the_Results"></a><span class="mw-headline">結果の解釈</span></h2>
+<ol><li> 埋め込みグラフをダブルクリックすると個別のグラフウィンドウとして開けます。
+<ul><li> <img src="../images/Tutorial_DT/math-c6a6eb61fd9c6c913da73b3642ca147d.png" title="\lambda" alt="\lambda" class="tex"/> の信頼区間は [0.11, 0.52] で、1が含まれません。これは、変換が適切であるとがわかります。</li>
+<li> また、変換後のデータのヒストグラムと確率プロットから、変換されたデータがほぼ正規分布であることがわかります。</li></ul></li></ol>
+<dl><dd><a  class="image"><img alt="DT Results.png" src="../images/Tutorial_DT/800px-DT_Results.png" width="800"   /></a></dd></dl>
+
+
+
+    

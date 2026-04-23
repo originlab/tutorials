@@ -1,0 +1,99 @@
+﻿<h1 class="firstHeading">SQLエディタでのデータベース分析</h1>
+<p class="urlname" style="display: none;">SQL-Editor-for-Database-Analysis</p>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> 
+		 <span class="toctext">概要</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> 
+		 <span class="toctext">手順</span></a> 
+		<ol>
+			<li class="toclevel-2 tocsection-4"><a href="#Import_Data_from_Database"><span 
+			 class="tocnumber">3.1</span> <span class="toctext">データベースからデータをインポート</span></a></li>
+			<li class="toclevel-2 tocsection-5"><a href="#Filter_Data"><span 
+			 class="tocnumber">3.2</span> <span class="toctext">データのフィルタリング</span></a></li>
+			<li class="toclevel-2 tocsection-6"><a href="#Create_Pivot_Table_and_Plot_Column_Graph"><span 
+			 class="tocnumber">3.3</span> <span class="toctext">ピボットテーブルと棒グラフの作成</span></a></li>
+			<li class="toclevel-2 tocsection-7"><a href="#Customize_Graph_and_Create_Analysis_Template"><span 
+			 class="tocnumber">3.4</span> <span class="toctext">グラフを編集して分析テンプレートを作成</span></a></li>
+			<li class="toclevel-2 tocsection-8"><a href="#Add_Graph_in_Worksheet_and_Save_Analysis_Template"><span 
+			 class="tocnumber">3.5</span> <span class="toctext">ワークシートにグラフを追加して分析テンプレートとして保存</span></a></li>
+			<li class="toclevel-2 tocsection-9"><a href="#Change_Query_and_Re-import_Data_to_Automatically_Update_Analysis"><span 
+			 class="tocnumber">3.6</span> <span class="toctext">クエリを変更してデータを再インポートし、分析を自動的に更新</span></a></li>
+		</ol></li>
+	</ol>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<table class="noborder">
+	<tr>
+		<td style="vertical-align: top;" width="60"><img src="../images/SQL_Editor_for_Database_Analysis/Alert_icon.png" 
+														 alt="" width="57" 
+														 border="0" /></td>
+		<td><p>このチュートリアルで使用するデータベースはMicrosoft Azure上に設定されています。 </p></td>
+	</tr>
+</table>
+<p>このチュートリアルでは、SQLエディタを使用してデータベースからデータをインポートし、列のフィルタリングやピボットテーブルなどの一般的な操作を行い、ピボットテーブルの結果を使用してグラフを作成する方法を示します。最後にグラフをワークブックに追加し、ワークブックを分析テンプレートとして保存して将来使用できるようにします。 
+ </p>
+<p><br />
+手順はOrigin 2023bに基づいています。 </p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。 </p>
+<ul>
+	<li>SQLエディタを使用してデータベースからデータをインポート</li>
+	<li>列フィルタを追加して、関心のある製品のみを表示</li>
+	<li>異なるStatesにある異なる製品のLineTotalの合計のピボットテーブルを作成 </li>
+	<li>棒グラフをプロットして結果を表示</li>
+	<li>グラフをワークシートに挿入し、自己完結型ワークブックを分析テンプレートとして保存</li>
+	<li>解析テンプレートをロードし、データを再インポート</li>
+</ul>
+<h2><a name="Steps"></a><span class="mw-headline">手順</span></h2>
+<h3><a name="Import_Data_from_Database"></a><span class="mw-headline">データベースからデータをインポートする</span></h3>
+<ol>
+	<li>新しいプロジェクトを開始します。メニューから<b>データ：データベースに接続：新規作成...</b>をクリックするか、<b>データベースアクセス</b>ツールバーの<b>SQLエディタを開く</b>ボタンをクリックします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="ImportDataDatabase 1.png" src="../images/SQL_Editor_for_Database_Analysis/ImportDataDatabase_1.png" 
+									 width="243" border="0" /></a></dd>
+	</dl></li>
+<li><b>接続文字列</b>を選択してOKをクリックします。接続文字列の欄に下記を貼り付けます。 
+<pre class="sql" style="font-family: monospace;">
+Driver<span style="color: #66cc66;">=</span><span style="color: #66cc66;">{</span><span style="color: #993333; font-weight: bold;">SQL</span> Server<span style="color: #66cc66;">}</span>; Server<span style="color: #66cc66;">=</span>olab<span style="color: #66cc66;">.</span><span style="color: #993333; font-weight: bold;">DATABASE</span><span style="color: #66cc66;">.</span>windows<span style="color: #66cc66;">.</span>net; Port<span style="color: #66cc66;">=</span><span style="color: #cc66cc;">1433</span>; <span style="color: #993333; font-weight: bold;">
+DATABASE</span><span style="color: #66cc66;">=</span>sample1; Uid<span style="color: #66cc66;">=</span>Olabts; Pwd<span style="color: #66cc66;">=</span>Origin@2024;
+</pre>
+<p>ODBC Drive 18 for SQL Serverを使用している場合は、 </p>
+<pre class="sql" style="font-family: monospace;">
+Driver<span style="color: #66cc66;">=</span><span style="color: #66cc66;">{</span>ODBC Driver <span style="color: #cc66cc;">18</span> <span style="color: #993333; font-weight: bold;">FOR</span> <span style="color: #993333; font-weight: bold;">SQL</span> Server<span style="color: #66cc66;">}</span>; Server<span style="color: #66cc66;">=</span>olab<span style="color: #66cc66;">.</span><span style="color: #993333; font-weight: bold;">DATABASE</span><span style="color: #66cc66;">.</span>windows<span style="color: #66cc66;">.</span>net; Port<span style="color: #66cc66;">=</span><span style="color: #cc66cc;">1433</span>; <span style="color: #993333; font-weight: bold;">
+DATABASE</span><span style="color: #66cc66;">=</span>sample1; Uid<span style="color: #66cc66;">=</span>Olabts; Pwd<span style="color: #66cc66;">=</span>Origin@2024;
+</pre></li>
+<li>問題なければ、<b><b>OK</b></b>をクリックしてデータベースにアクセスします。</li>
+<li>以下のクエリをコピーして、SQLエディタのテキストボックスに貼り付けます。このクエリで2003年のデータを表示します。 
+<pre class="sql" style="font-family: monospace;">
+<span style="color: #993333; font-weight: bold;">SELECT</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>LineTotal<span style="color: #66cc66;">,</span>
+SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>Name<span style="color: #66cc66;">,</span>
+SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>ParentProductCategoryID<span style="color: #66cc66;">,</span> 
+SalesLT<span style="color: #66cc66;">.</span>Address<span style="color: #66cc66;">.</span>StateProvince<span style="color: #66cc66;">,</span>SalesLT<span style="color: #66cc66;">.</span>Address<span style="color: #66cc66;">.</span>CountryRegion &#160;<span style="color: #993333; font-weight: bold;">
+FROM</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #993333; font-weight: bold;">
+INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>Product<span style="color: #993333; font-weight: bold;">
+ON</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>ProductID <span style="color: #66cc66;">=</span> SalesLT<span style="color: #66cc66;">.</span>Product<span style="color: #66cc66;">.</span>ProductID<span style="color: #993333; font-weight: bold;">
+INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory <span style="color: #993333; font-weight: bold;">
+ON</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>ProductCategoryID <span style="color: #66cc66;">=</span>SalesLT<span style="color: #66cc66;">.</span>Product<span style="color: #66cc66;">.</span>ProductCategoryID <span style="color: #993333; font-weight: bold;">
+INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderHeader <span style="color: #993333; font-weight: bold;">
+ON</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderHeader<span style="color: #66cc66;">.</span>SalesOrderID <span style="color: #66cc66;">=</span>SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>SalesOrderID <span style="color: #993333; font-weight: bold;">
+INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>CustomerAddress <span style="color: #993333; font-weight: bold;">
+ON</span> SalesLT<span style="color: #66cc66;">.</span>CustomerAddress<span style="color: #66cc66;">.</span>CustomerID <span style="color: #66cc66;">=</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderHeader<span style="color: #66cc66;">.</span>CustomerID<span style="color: #993333; font-weight: bold;">
+INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>Address <span style="color: #993333; font-weight: bold;">
+ON</span> &#160;SalesLT<span style="color: #66cc66;">.</span>Address<span style="color: #66cc66;">.</span>AddressID <span style="color: #66cc66;">=</span>SalesLT<span style="color: #66cc66;">.</span>CustomerAddress<span style="color: #66cc66;">.</span>AddressID <span style="color: #993333; font-weight: bold;">
+ORDER</span> <span style="color: #993333; font-weight: bold;">BY</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>ParentProductCategoryID
+</pre></li>
+<li><b>OK</b>ボタンをクリックするとワークブックにデータがインポートされます。デフォルトでは、SQLはワークシートと一緒に保存されます。 
+ </li>
+<li>ワークブックの左上にあるアイコンは、シートにSQLクエリが含まれていることを示します。 
+<dl>
+	<dd><a class="image"><img alt="ImportDB for Analysis template afterimport.png" 
+								 src="../images/SQL_Editor_for_Database_Analysis/ImportDB_for_Analysis_template_afterimport.png" 
+								 width="571" border="0" /></a></dd>
+</dl></li>

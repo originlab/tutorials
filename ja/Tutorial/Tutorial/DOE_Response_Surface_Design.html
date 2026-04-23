@@ -1,0 +1,103 @@
+﻿<h1 class="firstHeading">DOE:Response Surface Design</h1>
+<p class='urlname' style='display: none'>Response-Surface-Design</p>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">Summary</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Steps"><span class="tocnumber">2</span> <span class="toctext">Steps</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Create_Response_Surface_Design"><span class="tocnumber">2.1</span> <span class="toctext">Create Response Surface Design</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Collect_Data_and_Fit_the_Model"><span class="tocnumber">2.2</span> <span class="toctext">Collect Data and Fit the Model</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Fit_the_Model_for_the_second_response_variable.2C_pH"><span class="tocnumber">2.3</span> <span class="toctext">Fit the Model for the second response variable, pH</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Optimize_Response"><span class="tocnumber">2.4</span> <span class="toctext">Optimize Response</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">Summary</span></h2>
+<p>Origin’s Design of Experiments app can design an experiment, fit a model to collected data, and find the best factor settings that optimize responses. In this sample, we will optimize responses under a Box-Behnken design.</p>
+<p>A company is developing a new facial cream designed to meet two objectives: maximize hydration and target a neutral pH of 7. During the product development phase, the formulation team identified three key variables that influence hydration and pH level:</p>
+<ol>
+<li>Type of oil used</li>
+<li>Choice of emulsifier</li>
+<li>Selected fragrance</li>
+</ol>
+<p>All three are measured as a percentage of the ingredients that make up the facial cream.</p>
+<p>A response surface design can be used to model the relationship between the response variables (hydration and pH level), and the three factors of interest (oil, emulsifier, and fragrance). The objective is to identify the optimal combination of these three factors that maximize hydration while keeping the pH level at 7. The company has two concerns:</p>
+<ol>
+<li>They believe that the formula’s consistency will not be maintained at extreme points</li>
+<li>There is a limited budget for testing the new formula</li>
+</ol>
+<p>Given these limitations, an ideal design choice is a Box-Behnken design. Under a Box-Behnken design, experimental runs are restricted to the center area: two factors can vary while the third factor is held at the center level. A Box-Behnken design requires fewer experimental runs and is a good choice when there are limited resources on hand.</p>
+<p><br /></p>
+<p class="version">Minimum Origin Version Required: OriginPro 2025b SR0</p>
+<p><br /></p>
+<h2><a name="Steps" id="Steps"></a><span class="mw-headline">Steps</span></h2>
+<h3><a name="Create_Response_Surface_Design" id="Create_Response_Surface_Design"></a><span class="mw-headline">Create Response Surface Design</span></h3>
+<ol>
+<li>Select and click on the <b>Design of Experiments</b> app on in the <b>Stats</b> in the <b>Apps Gallery</b><br />
+<a class="image"><img alt="Response Surface Design 01.png" src="../images/DOE_Response_Surface_Design/Response_Surface_Design_01.png" width="152" /></a></li>
+<li>Click on <b>Create Design</b> and select <b>Response Surface Design</b> in the pop-up list.<br />
+<a class="image"><img alt="Response Surface Design 02.png" src="../images/DOE_Response_Surface_Design/700px-Response_Surface_Design_02.png" width="700" /></a></li>
+<li>In the <b>Factorial Design</b> dialog, select <b>Box-Behnken</b> as Response Surface Design. Click <b>Display Available Designs</b> button. The pop-up table shows the number of experimental runs that are required. Along the top are the number of continuous factors. The last row is for the Box-Behnken design. An experiment with three factors will require 15 runs, which includes 3 Center Points and 12 experimental points.<br />
+<a class="image"><img alt="Response Surface Design 03.png" src="../images/DOE_Response_Surface_Design/830px-Response_Surface_Design_03.png" width="830" /></a></li>
+<li>Under the <b>Factors</b> tab, the Number of Continuous Factors is 3. And then enter 3 factors (<i><b>oil</b></i>, <i><b>emulsifier</b></i> and <i><b>fragrance</b></i>) with Low and High value in the table as following image:<br />
+<a class="image"><img alt="Response Surface Design 04.png" src="../images/DOE_Response_Surface_Design/700px-Response_Surface_Design_04.png" width="700" /></a></li>
+<li>Go to <b>Setting</b> tab. Keep default setting, and make sure the number of Total Runs is 15. (A total of 15 experimental runs are required.)<br />
+<a class="image"><img alt="Response Surface Design 05.png" src="../images/DOE_Response_Surface_Design/700px-Response_Surface_Design_05.png" width="700" /></a></li>
+<li>Go to <b>Miscellaneous</b> tab and turn off the <b>Randomize Design</b> option. (The option to Randomize the Design should be used for a real-life example but for the purpose of this tutorial.)<br />
+<a class="image"><img alt="Response Surface Design 06.png" src="../images/DOE_Response_Surface_Design/700px-Response_Surface_Design_06.png" width="700" /></a></li>
+<li>Click <b>OK</b> to generate the <b>DesignSummary</b>, <b>CodedDesign</b> and <b>DesignTable</b> worksheets. In the <b>DesignTable</b> worksheet, you will find since we chose not to Randomize the Design, the Run Order is the same as the Standard Order. Under Point Type, zero are the three Center Points. Notice that the levels of each factor are maintained so that two factors are allowed to vary while the third factor is kept at the center level.<br />
+<a class="image"><img alt="Response Surface Design 07.png" src="../images/DOE_Response_Surface_Design/Response_Surface_Design_07.png" width="659" /></a></li>
+</ol>
+<h3><a name="Collect_Data_and_Fit_the_Model" id="Collect_Data_and_Fit_the_Model"></a><span class="mw-headline">Collect Data and Fit the Model</span></h3>
+<ol>
+<li>Enter <i><b>Hydration</b></i> and <i><b>pH</b></i> data in columns H and I of <b>DesignTable</b> worksheet.<br />
+<a class="image"><img alt="Response Surface Design 08.png" src="../images/DOE_Response_Surface_Design/Response_Surface_Design_08.png" width="800" /></a></li>
+<li>Select and click on the <b>Design of Experiments</b> app again, and then click on <b>Analyze Design</b>.<br />
+<a class="image"><img alt="Response Surface Design 09.png" src="../images/DOE_Response_Surface_Design/700px-Response_Surface_Design_09.png" width="700" /></a></li>
+<li>In the <b>Model</b> tab, select <b>Hydration</b> under <b>Response</b> drop-down list. Click the <b>+</b> button and select <b>Full Quadratic</b> as Model Type.<br />
+<a class="image"><img alt="Response Surface Design 10.png" src="../images/DOE_Response_Surface_Design/700px-Response_Surface_Design_10.png" width="700" /></a></li>
+<li>Go to <b>Stepwise</b> tab, set <b>Stepwise</b> as Method and leave the default settings as is.<br />
+<a class="image"><img alt="Response Surface Design 11.png" src="../images/DOE_Response_Surface_Design/700px-Response_Surface_Design_11.png" width="700" /></a></li>
+<li>Go to <b>Quantities</b> tab and select <b>Coefficients Type</b> as <b>Uncoded</b>.<br />
+<a class="image"><img alt="Response Surface Design 12.png" src="../images/DOE_Response_Surface_Design/700px-Response_Surface_Design_12.png" width="700" /></a></li>
+<li>Go to <b>Plots</b> tab, add the <b>Fitted Plot</b> option to <b>Plots</b> list. Click <b>OK</b>.<br />
+<a class="image"><img alt="Response Surface Design 13.png" src="../images/DOE_Response_Surface_Design/700px-Response_Surface_Design_13.png" width="700" /></a></li>
+<li>In the result sheet <b>DOEAnalysis</b>, you can find the stepwise approach was used to remove insignificant terms from the model. Only the main effects – oil, emulsifier, and fragrance – were retained. The p-values for all three terms are less than 0.05.<br />
+An adjusted R-squared of 0.874 demonstrates that the model is effective at capturing variation present in the data. The predictive R-square of 0.794 demonstrates that the model can generalize new data, not just fit the data on hand.<br />
+<a class="image"><img alt="Response Surface Design 14.png" src="../images/DOE_Response_Surface_Design/Response_Surface_Design_14.png" width="754" /></a><br />
+<br />
+The Residual plots show no patterns. The Effects plot shows significance for all three main effects, oil, fragrance, and emulsifier. This is also reflected in the Main Effects plot. All three lines have steep slopes.<br />
+<a class="image"><img alt="Response Surface Design 15.png" src="../images/DOE_Response_Surface_Design/880px-Response_Surface_Design_15.png" width="880" /></a></li>
+<li>Click on the <b>DOEFindYfromX</b> result sheet. Enter values for <i>oil=9.69</i>, <i>emulsifier=4</i>, and <i>fragrance=0.2</i>, then calculate the value of Hydration using the fitted model. The fitted value of Hydration is 81.4%.<br />
+<a class="image"><img alt="Response Surface Design 16.png" src="../images/DOE_Response_Surface_Design/Response_Surface_Design_16.png" width="881" /></a></li>
+</ol>
+<h3><a name="Fit_the_Model_for_the_second_response_variable.2C_pH" id="Fit_the_Model_for_the_second_response_variable.2C_pH"></a><span class="mw-headline">Fit the Model for the second response variable, pH</span></h3>
+<ol>
+<li>Select and click on the <b>Design of Experiments</b> app again, and then click on <b>Analyze Design</b>.<br />
+<a class="image"><img alt="Response Surface Design 09.png" src="../images/DOE_Response_Surface_Design/700px-Response_Surface_Design_09.png" width="700" /></a></li>
+<li>In the <b>Model</b> tab, select <b>pH</b> under <b>Response</b> drop-down list. Click the <b>+</b> button to make sure the <b>Linear</b> set as Model Type.<br />
+<a class="image"><img alt="Response Surface Design 17.png" src="../images/DOE_Response_Surface_Design/700px-Response_Surface_Design_17.png" width="700" /></a></li>
+<li>Go to <b>Stepwise</b> tab, make sure Method is <b>None</b>.<br />
+<a class="image"><img alt="Response Surface Design 18.png" src="../images/DOE_Response_Surface_Design/700px-Response_Surface_Design_18.png" width="700" /></a></li>
+<li>Go to <b>Quantities</b> tab and select <b>Coefficients Type</b> as <b>Uncoded</b>.<br />
+<a class="image"><img alt="Response Surface Design 12.png" src="../images/DOE_Response_Surface_Design/700px-Response_Surface_Design_12.png" width="700" /></a></li>
+<li>Go to <b>Plots</b> tab, add the <b>Fitted Plot</b> option to <b>Plots</b> list. Click <b>OK</b>.<br />
+<a class="image"><img alt="Response Surface Design 13.png" src="../images/DOE_Response_Surface_Design/700px-Response_Surface_Design_13.png" width="700" /></a></li>
+<li>In the result sheet <b>DOEAnalysis1</b>, you will find that only one main effect, <b>Oil</b>, is significant.<br />
+<a class="image"><img alt="Response Surface Design 19.png" src="../images/DOE_Response_Surface_Design/Response_Surface_Design_19.png" width="809" /></a></li>
+</ol>
+<h3><a name="Optimize_Response" id="Optimize_Response"></a><span class="mw-headline">Optimize Response</span></h3>
+<ol>
+<li>To optimize the response for both Hydration and pH, click on <b>Optimize Response</b> of this app.<br />
+<a class="image"><img alt="Response Surface Design 20.png" src="../images/DOE_Response_Surface_Design/700px-Response_Surface_Design_20.png" width="700" /></a></li>
+<li>Under <i><b>Hydration</b></i>, select <b>Maximize</b> as the Goal. Under <i><b>pH</b></i>, select <b>Target</b>, and enter <b>7</b> for the Target. Click on <b>Set Lower/Upper Limits</b> to generate system values. Then click <b>OK</b>.<br />
+<a class="image"><img alt="Response Surface Design 21.png" src="../images/DOE_Response_Surface_Design/700px-Response_Surface_Design_21.png" width="700" /></a></li>
+<li>In the <b>DOEOptimization</b> result sheet, the <b>Solution</b> table displays the combination of values for <b>oil</b>, <b>emulsifier</b>, and <b>fragrance</b> where the response variable <b>Hydration</b> is maximized and <b>pH</b> is 7. The <b>Prediction</b> table shows the fitted values for <b>Hydration</b> and <b>pH</b> at these values.<br />
+<a class="image"><img alt="Response Surface Design 22.png" src="../images/DOE_Response_Surface_Design/Response_Surface_Design_22.png" width="754" /></a></li>
+<li>Double Click on the <b>Optimization</b> plot to open the interactive window. Move the red lines over the range of values for oil, emulsifier, and fragrance to obtain different Desirability scores.<br />
+<a class="image"><img alt="Response Surface Design 23.png" src="../images/DOE_Response_Surface_Design/Response_Surface_Design_23.png" width="763" /></a></li>
+</ol>

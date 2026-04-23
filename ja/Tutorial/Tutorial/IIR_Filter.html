@@ -1,0 +1,68 @@
+﻿<h1 class="firstheading">IIRフィルタ</h1><p class='urlname' style='display: none'>IIR-Filter</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Design_and_Apply_IIR_Filter"><span class="tocnumber">3.1</span> <span class="toctext">IIRフィルタの作成と活用</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Compare_Results_with_FFT_Filter"><span class="tocnumber">3.2</span> <span class="toctext">FFTフィルタと結果を比較する</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Ripples_in_FFT_Filter"><span class="tocnumber">3.3</span> <span class="toctext">FFTフィルタで出来る小さな波</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/IIR_Filter/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/IIR_Filter/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=84" target="_blank">IIRフィルタ</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/IIR_Filter/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/IIR_Filter/Blog_Image_33x33px.png" width="135"  /></a>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>OriginではIIR（無限インパルス応答、Infinite Impulse Response）型のデジタルフィルタのデザイン、分析、活用を行えます。IIRフィルタは<b>Butterworth</b>、<b>第一種Chebyshev</b>、<b>第二種Chebyshev</b>、<b>楕円</b>の4つの方法を備えています。  
+</p><p>これで信号処理を行うユーザに、より多くの選択肢を提供します。
+</p><p><br />
+</p>
+<p class="version" >必要なOriginのバージョン: 9.0 SR0以降</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。
+</p>
+<ul><li>IIRフィルタの作成と活用の方法</li>
+<li>IIRフィルタとFFTフィルタの違いを比較</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Design_and_Apply_IIR_Filter"></a><span class="mw-headline">IIRフィルタの作成と活用</span></h3>
+<ol><li>新しいワークシートを開き、<b>EMG Recording.dat</b>ファイルを<i>\Samples\Signal Processing\</i>からインポートします。</li>
+<li>列Bを選択し、上部のメニューから<b>解析：信号処理：IIRフィルタ</b>と選択してダイアログを表示します。</li>
+<li>レスポンスタイプを<b>ハイパス</b>に設定し、手法は<b>Butterworth</b>のままにします。そして、フィルタ順の<b>最小</b>のチェックを外して<b>4</b>と入力します。周波数仕様ブランチではカットオフ周波数（Fc）を<b>20</b>に設定します。そして<b>Forward-Backward Filtering</b>のチェックをつけます。ダイアログの設定は次の図のようになり、IIRフィルタが作成されます。
+<dl><dd><a  class="image"><img alt="Tutorial IIR 001.png" src="../images/IIR_Filter/Tutorial_IIR_001.png" width="586"  /></a><br /></dd></dl></li>
+<li><b>OK</b>をクリックして作成したIIRフィルタで入力データセットを処理します。</li>
+<li>新しい列が元のデータセットに追加され、フィルタ後のデータとして表示されます。そして、新しいSOSMatrixワークシートが作成されます。</li></ol>
+<h3><a name="Compare_Results_with_FFT_Filter"></a><span class="mw-headline">FFTフィルタと結果を比較する</span></h3>
+<ol><li>元のワークシートで列Bを選択します。そして、<b>解析：信号処理：FFTフィルタ</b>と選択してFFTフィルタを実行します。</li>
+<li>開いたダイアログで、フィルタの種類で<b>ハイパス</b>を選択し、カットオフ周波数を<b>20</b>に設定します。
+<dl><dd><a  class="image"><img alt="Tutorial IIR 002.png" src="../images/IIR_Filter/Tutorial_IIR_002.png" width="531"  /></a><br /></dd></dl></li>
+<li>OKボタンをクリックします。EMGRecordingワークシートの列Cは先程作成したIIRフィルタでフィルタをかけた結果です。列Bと列Cを選択して、<a  class="image"><img alt="Button Line.png" src="../images/IIR_Filter/Button_Line.png" width="22"  /></a>ボタンをクリックし、折れ線グラフを作成します（Graph1）。</li>
+<li>スケールインボタン<a  class="image"><img alt="Button Scale In.png" src="../images/IIR_Filter/Button_Scale_In.png" width="22"  /></a>を使って12.5sから13.3sの範囲にズームインします。</li>
+<li>EMGRecordingワークシートの列EはFFTフィルタのフィルタ結果です。列Bと列Eを選択してボタン<a  class="image"><img alt="Button Line.png" src="../images/IIR_Filter/Button_Line.png" width="22"  /></a>を押す事で折れ線グラフを作図します（Graph2）。</li>
+<li>再びスケールインボタン<a  class="image"><img alt="Button Scale In.png" src="../images/IIR_Filter/Button_Scale_In.png" width="22"  /></a>を使って12.5sから13.3sの範囲にズームインします。この2つのグラフを使用して視覚的な比較を行えます。
+<dl><dd><a  class="image"><img alt="Tutorial IIR 003.png" src="../images/IIR_Filter/Tutorial_IIR_003.png" width="516"  /></a><br /></dd></dl></li></ol>
+<ul><li>上記画像から分かる事は、FFTフィルタの結果には小さな波が多くありますが、IIRフィルタの結果にはほとんどありません。</li></ul>
+<h3><a name="Ripples_in_FFT_Filter"></a><span class="mw-headline">FFTフィルタで出来る小さな波</span></h3>
+<ol><li>E列を選択して<a  class="image"><img alt="Button Line.png" src="../images/IIR_Filter/Button_Line.png" width="22"  /></a>ボタンをクリックし、折れ線グラフを作図します（Graph3）。</li>
+<li>Graph3をアクティブにして、メニューから<b>ガジェット：FFTROIツール</b>と選んでからXスケールを<b>12.664</b>から<b>13.052</b>までにするように設定します。</li>
+<li>OKをクリックしてプレビューウィンドウを開くと、小さな波の正体が20.125 Hzにあるサイン波である事が分かります。
+<dl><dd><a  class="image"><img alt="Tutorial IIR 004.png" src="../images/IIR_Filter/Tutorial_IIR_004.png" width="506"  /></a><br /></dd></dl></li>
+<li>では、この20.125 Hzの波紋を取り除いてみましょう。そのためには25Hzのハイパスフィルタをもう一度行います。列Eを選択したまま、メニューから<b>解析：信号処理：FFTフィルタ</b>と操作します。</li>
+<li>フィルタの種類から<b>ハイパス</b>を選び、カットオフ周波数を<b>25</b>にします。</li>
+<li>結果は列Gに表示されるので、列Gを選択して折れ線グラフを表示するために<a  class="image"><img alt="Button Line.png" src="../images/IIR_Filter/Button_Line.png" width="22"  /></a>ボタンをクリックします（Graph4）。</li>
+<li>Graph4をアクティブにし、メニューから<b>ガジェット：FFT ROIツール</b>を選択してXスケールを<b>12.664</b>から<b>13.052</b>へ設定します。プレビューウィンドウにはそれでも小さな波が見られます。周波数が20.125 Hzから25.157 Hzに移動しただけです。
+<dl><dd><a  class="image"><img alt="Tutorial IIR 005.png" src="../images/IIR_Filter/Tutorial_IIR_005.png" width="506"  /></a><br /></dd></dl></li></ol>
+<ul><li>つまり、このデータセットにおける小さな波は、FFTフィルタでは取り除けない事を示しています。</li></ul>
+
+
+
+
+    

@@ -1,0 +1,209 @@
+﻿<h1 class="firstheading">グラフ作成</h1><p class='urlname' style='display: none'>Create-Graph</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span><span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Create_a_Plot_Quickly_by_Selecting_Data"><span class="tocnumber">3</span> <span class="toctext">データを選択して、すばやくプロットを作成する</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Change_X.2FY_Data_of_the_Plot"><span class="tocnumber">4</span> <span class="toctext">プロットのX/Yデータを変更する</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Add_Data_to_an_Existing_Graph_and_Update_Legend"><span class="tocnumber">5</span> <span class="toctext">既存のグラフにデータを追加し、凡例を更新する</span></a>
+<ul>
+<li class="toclevel-2 tocsection-6"><a href="#By_Drag_and_Drop"><span class="tocnumber">5.1</span> <span class="toctext">ドラッグアンドドロップで追加</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#By_Copy_for_Plotting_Mini_Toolbar"><span class="tocnumber">5.2</span> <span class="toctext">ミニツールバーのグラフ作図のためにコピーで追加</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#By_Layer_Contents_Dialog"><span class="tocnumber">5.3</span> <span class="toctext">レイヤ内容ダイアログを使用</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-9"><a href="#Create_a_Plot_using_Plot_Setup"><span class="tocnumber">6</span> <span class="toctext">作図のセットアップを使ってグラフを作成する</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="#Plot_Grouped_Data_As"><span class="tocnumber">7</span> <span class="toctext">グループ化データとしてプロットする</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="#Trellis_Plot"><span class="tocnumber">7.1</span> <span class="toctext">トレリスプロット</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Grouped_Box_Plot"><span class="tocnumber">7.2</span> <span class="toctext">グループ化されたボックスプロット</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-13"><a href="#Plot_Graphs_by_Label"><span class="tocnumber">8</span> <span class="toctext">ラベルでグラフをプロット</span></a></li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Graphing_Data_From_Multiple_Sheets/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Graphing_Data_From_Multiple_Sheets/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=369" target="_blank">ワークシートや行列からグラフにデータをコピーする</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=256" target="_blank">ドラッグ&amp;ドロップで、グラフにプロットを追加する</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=169" target="_blank">トレリスプロット</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=237" target="_blank">二重Y軸のトリレスプロットを作成</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=364" target="_blank">トリレスプロットのパネル枠を編集する</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=13" target="_blank">レイヤ内容を使用したプロットの追加、グループ化、順序変更</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=231" target="_blank">オブジェクトマネージャ</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Graphing_Data_From_Multiple_Sheets/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Graphing_Data_From_Multiple_Sheets/Blog_Image_33x33px.png" width="135"  /></a>
+<ul><li> <a class="external text" href="http://blog.originlab.com/quick-graphs-with-graph-maker-app" target="_blank">Graph Maker アプリを用いて素早くグラフを作成する</a></li>
+<li> <a class="external text" href="http://blog.originlab.com/creating-grouped-bar-plots-in-origin-2016" target="_blank">Easier Way to Control Grouped Bar Plot Colors in Origin 2016</a></li>
+<li> <a class="external text" href="http://blog.originlab.com/plotting-barcolumn-graphs-with-indexed-patterns" target="_blank">パターンがインデックスに基づく縦/横棒グラフを作成する</a></li>
+<li> <a class="external text" href="http://blog.originlab.com/how-to-control-the-increment-list" target="_blank">推移リストを制御する方法</a></li>
+<li> <a class="external text" href="http://blog.originlab.com/plot-multi-panel-graphs-by-group" target="_blank">グループごとに複数パネルグラフを作成する</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>Originにはテンプレートライブラリーがあります。これらのテンプレートを修正したり、自分専用のグラフを作成することができます。Originでグラフを作成するのは、目的のデータを選択して、メニューまたはツールバーから目的のグラフを選択するだけです。<b>作図のセットアップ</b>ダイアログは、複数のブックやシートからデータをプロットするといったグラフの作成を柔軟に行うことができます。
+<br /><br />
+Origin2016から、さらに使いやすくなった「クローン」テンプレートが利用できるようになりました。これらのテンプレートは「スマートプロッティング」という機能の為にデザインされており、複雑なレイヤ階層があったり、単純な選択では特定できないソースデータに対しても、グラフを複製することが出来ます。<a href="../../Tutorial/Tutorial/Plot_from_User_Defined_Graph_Template.html" title="チュートリアル：ユーザー定義グラフテンプレートから作図">ユーザー定義グラフテンプレートから作図するチュートリアル</a> を参照し、標準とクローン両方のテンプレートを保存して利用する方法を演習します。
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。 
+</p>
+<ul><li>ワークシート内のデータを選択し、プロットを素早く作成する</li>
+<li>コンテキストメニューを使用してデータプロットのX/Yデータを変更する</li>
+<li>既存のグラフ対してデータを追加/削除する</li>
+<li>作図のセットアップを使用して複数のシートからデータをプロットする</li>
+<li>ラベル別のプロットグループをプロットする</li></ul>
+<h2><a name="Create_a_Plot_Quickly_by_Selecting_Data"></a><span class="mw-headline">データを選択して、すばやくプロットを作成する</span></h2>
+<ol><li><b>複数ファイルに接続</b>ボタン <a  class="image"><img alt="Button Connect Multiple Files.png" src="../images/Graphing_Data_From_Multiple_Sheets/Button_Connect_Multiple_Files.png" width="19"  /></a>をクリックしてダイアログを開きます。複数のASCIIファイルをインポートするには、<b>データコネクタ</b>で<b>CSV</b>を選択します。 </li>
+<li><b>ファイル名</b>入力ボックスの隣の<b>...</b>ボタンをクリックします。ダイアログを開き、<i>\Samples\Import and Export\</i> にある、<b>S15-125-03.dat</b>, <b>S21-235-07.dat</b>, <b>S32-014-04.dat</b> を選択し、<b>ファイルの追加</b>ボタンをクリックして下部パネルに追加します。<b>OK</b>をクリックし、<b>ファイル名</b>入力ボックスに追加します。</li>
+<li><b>同一ブック</b>にチェックを入れます。
+<dl><dd><a  class="image"><img alt="Tutorial Connecting Data 003.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorial_Connecting_Data_003.png" width="590"  /></a></dd></dl></li>
+<li><b><b>OK</b></b>をクリックします。インポート結果は次のようになります。
+<dl><dd><a  class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 003.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorials81_Graphing_Data_From_Multiple_Sheets_003.png" width="396"  /></a></dd></dl></li>
+<li>ワークシートS32-014-4をアクティブにします。  3つのレイヤを持つグラフを作成するには、3つのY列－Delta Temperature, Magnetic Field, Position－を選択し、「<b>作図：複数区分/軸：3Ys Y-YY</b>」を選択します。  Originは自動的にワークシートのY列と結びついたX列に対してプロットするので、Time列を選択する必要はありません。
+<dl><dd><a  class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 004.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorials81_Graphing_Data_From_Multiple_Sheets_004.png" width="445"  /></a></dd></dl></li></ol>
+<h2><a name="Change_X.2FY_Data_of_the_Plot"></a><span class="mw-headline">プロットのX/Yデータを変更する</span></h2>
+<p>前のセクションで使用したものと同じワークシートを使用します。
+</p>
+<ol><li>B列を選択して<b>折れ線</b><a  class="image"><img alt="Button Line.png" src="../images/Graphing_Data_From_Multiple_Sheets/Button_Line.png" width="22"  /></a>ボタンをクリックし、折れ線グラフを作図します。
+<dl><dd><a  class="image"><img alt="Tutorial Creating Graph New 00.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorial_Creating_Graph_New_00.png" width="351"  /></a></dd></dl></li>
+<li>データプロット上で右クリックして<b>Yを変更</b>を選択し、フライアウトメニューからC列データを選択します。
+<dl><dd><a  class="image"><img alt="Tutorial Creating Graph New 01.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorial_Creating_Graph_New_01.png" width="638"  /></a></dd></dl></li>
+<li>全てのデータを表示するために、グラフの再スケールに関するメッセージが現れた場合、<b>はい</b>を選択して<b>OK</b>を押すと自動で再スケールされます。
+<dl><dd><a  class="image"><img alt="Tutorial Creating Graph New 02.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorial_Creating_Graph_New_02.png" width="429"  /></a></dd></dl></li>
+<li>プロットは下図のように更新されます。
+<dl><dd><a  class="image"><img alt="Tutorial Creating Graph New 03.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorial_Creating_Graph_New_03.png" width="341"  /></a></dd></dl></li></ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Graphing_Data_From_Multiple_Sheets/Tip_icon.png" width="57"  border="0" /></td><td><p>このコンテキストメニューでは、現在のグラフデータのうち、XまたはYデータを現在のプロジェクト内にある他の列データに変更できます。この列は、列の指定にかかわらず、現在のXまたはYデータ列以外の列になります。<b>列を選択</b>メニューを選択し、現在のフォルダもしくはプロジェクトから列を指定します。 
+</p><p><b>ワークシートを変更</b> コンテキストメニューを使用して現在のXとYのデータを、列の指定と列のショートネームを問わず、現在のワークブックの他のワークシートで同じ列インデックスを持つ列にすることもできます。
+<p><a  class="image"><img alt="Tutorial Creating Graph New 04.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorial_Creating_Graph_New_04.png" width="373"  /></a>
+</p>
+</p></td></tr></table>
+<p><b>Note:</b> <b>レイヤ内容</b>や<b>作図のセットアップ</b>ダイアログを使用したデータ変更も可能です。
+</p>
+<h2><a name="Add_Data_to_an_Existing_Graph_and_Update_Legend"></a><span class="mw-headline">既存のグラフにデータを追加し、凡例を更新する</span></h2>
+<h3><a name="By_Drag_and_Drop"></a><span class="mw-headline">ドラッグアンドドロップで追加</span></h3>
+<ol>
+<li>上の例の3つのデータがあるブックに戻ります。</li>
+<li>最初のシートから<b>Delta Temperature</b>列(列B)を選択し、「<b>作図：Basic 2D：折れ線</b>」を選択して、折れ線グラフを作成します。</li>
+<li>ワークシートに戻ります。それぞれ2つのシートが残るように、<b><b>Dalta Temperature</b></b>の列を選択してマウスカーソルをその列の端に位置づけ、カーソルの形状が <a  class="image"><img alt="Button Drag Column to Graph.png" src="../images/Graphing_Data_From_Multiple_Sheets/Button_Drag_Column_to_Graph.png" width="34"  /></a>に変わるようにします。
+<dl><dd><a  class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 005.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorials81_Graphing_Data_From_Multiple_Sheets_005.png" width="491"  /></a></li></dd></dl>
+<li>グラフページまでそのままカーソルを移動し、ドラッグ＆ドロップします。2つのデータを追加されると下図のようになります。
+<dl><dd><a  class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 006.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorials81_Graphing_Data_From_Multiple_Sheets_006.png" width="362"  /></a></li></dd></dl>
+<li>データを追加したら、デフォルトでOriginワークスペースの右上隅にある<b>オブジェクトマネージャ</b>パネルを展開します（必要に応じて、<b>表示：オブジェクトマネージャ</b>から再表示できます）。レイヤ1の下の最後のプロットを右クリックし、<b>グループ終了に設定</b>を選択し、これら3つのデータをすべてグループ化します。
+<dl><dd><a  class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 008.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorials81_Graphing_Data_From_Multiple_Sheets_008.png" width="361"  /></a></dd></dl>
+</li>
+<li>グループ化の機能を使うとグループ内の各データプロットは異なる表示属性(線の色＝黒、赤、緑...シンボル形状＝正方形、円、三角形....)になるので、プレゼンテーション用のグラフが素早く作成できます。</li> 
+<li><b>グラフ操作：凡例：凡例の更新</b>を選択し、<i>legendupdate</i> Xファンクションダイアログを開きます。  <b>凡例の自動更新モード</b>を<i>カスタム</i>にします。  <b>凡例のカスタムフォーマット</b>に<i>@WS</i>と入力します。 
+<br /><a  class="image"><img alt="Graphing tutorial legend update.png" src="../images/Graphing_Data_From_Multiple_Sheets/Graphing_tutorial_legend_update.png" width="454"  /></a></li> 
+<li><b>OK </b>をクリックすると、凡例には各データプロットのワークシート名が表示されるようになります。
+<dl><dd><a  class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 009.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorials81_Graphing_Data_From_Multiple_Sheets_009.png" width="361"  /></a></li></dd></dl>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Graphing_Data_From_Multiple_Sheets/Tip_icon.png" width="57"  border="0" /></td><td><p>ドラッグアンドドロップででプロットを追加した場合のデフォルトグラフタイプは<b>現在の設定</b>で、アクティブなプロットと同じグラフが作図されます。このオプションは変更可能です。作図形式を変更する場合、メインメニューの<b>環境設定：オプション</b>を選択してダイアログを開き、<a class="external text" href="../../UserGuide/UserGuide/The_(Options)_Graph_Tab.html"><b>グラフ</b>タブ</a>の<b>ドラッグ＆ドロップ時の作図デフォルト</b>ドロップダウンから選択します。
+</p></td></tr></table>
+</ol>
+<h3><a name="By_Copy_for_Plotting_Mini_Toolbar"></a><span class="mw-headline">ミニツールバーのグラフ作図のためにコピーで追加</span></h3>
+<p>このセクションでは、ミニツールバーのグラフ作図のためにコピーボタンを使って既存のグラフに新しいプロットを追加します。 
+</p>
+<ol>
+<li>上の例の3つのデータがあるブックに戻ります。</li>
+<li>最初のシート<i>S15-125-03</i> から<b>Delta Temperature</b>列(列B)を選択し、<b>作図：基本の2Dグラフ：折れ線</b>を選択して、折れ線グラフを作成します。</li>
+<li>ワークブックに戻り、2番目のシート <i>S21-235-07</i> をアクティブにします。<b>Delta Temperature</b>列をクリックし、ミニツールバーを開きます。<b>グラフ作図のためにコピー</b>ボタンをクリックします。 <a  class="image"><img alt="Copy for plotting button.png" src="../images/Graphing_Data_From_Multiple_Sheets/Copy_for_plotting_button.png" width="25"  /></a>
+<dl><dd><a  class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 020.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorials81_Graphing_Data_From_Multiple_Sheets_020.png" width="650"  /></a></dd></dl>
+<li>グラフウィンドウをアクティブにして、 <b>Ctrl+P</b> キーを押しすと、ピーした列のデータが折れ線として既存のレイヤにプロットされます。
+<li>残りのシート<i>S32-014-04</i>について、データセットをコピーして既存のグラフに貼り付けるプロセスを同様に行い、<i>S32-014-04</i>のDelta Temperatureの新しい折れ線を追加します。
+</ol>
+<h3><a name="By_Layer_Contents_Dialog"></a><span class="mw-headline">レイヤ内容ダイアログを使用</span></h3>
+<p><b><b>レイヤ内容</b></b>ダイアログはアクティブなレイヤに対して、データセット(データプロット)の追加および削除の際に使用されます。Origin2016から、複数レイヤのグラフに対しても、プロットをより簡単に追加削除出来るように、このダイアログを閉じなくても、レイヤを切り替えることが出来るようになりました。試しに、このチュートリアルの最初の演習で作成した3つのレイヤを持つグラフを戻ります。
+</p>
+<dl><dd><a  class="image"><img alt="Layer contents starting graph.png" src="../images/Graphing_Data_From_Multiple_Sheets/Layer_contents_starting_graph.png" width="439"  /></a></dd></dl>
+<p>最初の演習では、ワークシートS32-014-04のデータから作図しました。この演習では、ワークシートS32-014-04のデータと、ワークシートS21-235-07のデータを交換します。
+</p>
+<ol><li> グラフウィンドウ左上のレイヤ<b><b>1</b></b>アイコンを右クリックし、<b><b>レイヤの内容</b></b>を選択します。</li>
+<li> 開いたダイアログの左上にあるドロップダウンリストをクリックし、<b><b>フォルダ内のワークシート</b></b>を選択します。</li>
+<li> （もし表示されていなければ）左側パネルのヘッダー上で右クリックして、どのワークシートがどのワークブックのデータセットにあるかが分かるように、<b>ブック名</b>をオフにし、<b>シート</b>を選択して表示します。ワークシート名によってデータセットが分けられるように、ヘッダーのシートをクリックします。
+<dl><dd><a  class="image"><img alt="Layer Contents headings.png" src="../images/Graphing_Data_From_Multiple_Sheets/Layer_Contents_headings.png" width="442"  /></a></dd></dl></li>
+<li> レイヤ内容の右側パネルで、ワークシートS32-014-04の<b>Delta Temperature</b> を選択し、グラフのレイヤ1からプロットを削除するために、<b><b>プロットを削除</b></b><a  class="image"><img alt="Remove plot button.png" src="../images/Graphing_Data_From_Multiple_Sheets/Remove_plot_button.png" width="24"  /></a> tのボタンをクリックします。
+<dl><dd><a  class="image"><img alt="Layer Contents swap plot.png" src="../images/Graphing_Data_From_Multiple_Sheets/Layer_Contents_swap_plot.png" width="907"  /></a></dd></dl></li>
+<li> 左側のパネルで、ワークシートS21-235-07から<b>Delta Temperature</b>を選択し、レイヤ1に新しいプロットを追加するために、<b><b>プロットを追加</b></b><a  class="image"><img alt="Button Add plot.png" src="../images/Graphing_Data_From_Multiple_Sheets/Button_Add_plot.png" width="24"  /></a>ボタンを押し、<b><b>適用</b></b>をクリックします。データセットが入れ替わりました。</li>
+<li> ダイアログの上部にある<b>レイヤ(1)</b>のボタンをクリックし、<b><b>他のレイヤ＞レイヤ2</b></b>を選択します。<b>レイヤ(2)</b>を選択します。</li>
+<li> 現在ある<b>Magnetic Field</b> のデータセットを削除を再度行い、ワークシートS21-235-07のMagnet Fieldのデータセットに入れ替えて、<b><b>適用</b></b>をクリックします。</li>
+<li> <b><b>レイヤ(2)</b></b>のボタンをクリックし、<b><b>他のレイヤ＞レイヤ3</b></b>を選択します。ワークシートS32-014-04の<b>Position</b>データセットと、ワークシートS21-235-07の<b><b>Position</b></b>データセットを交換を再度行い、<b><b>適用</b></b>ボタンを押してダイアログを閉じます。</li></ol>
+<dl><dd><a  class="image"><img alt="Layer contents finished graph.png" src="../images/Graphing_Data_From_Multiple_Sheets/Layer_contents_finished_graph.png" width="439"  /></a></dd></dl>
+<h2><a name="Create_a_Plot_using_Plot_Setup"></a><span class="mw-headline">作図のセットアップを使ってグラフを作成する</span></h2>
+<p>作図のセットアップダイアログボックスは、グラフの作成、プロットタイプの変更、グラフへのプロットの追加または削除、プロットのグループ化またはグループ解除、およびプロット範囲の編集など、さまざまなプロット作業に役立ちます。 
+</p>
+<ol>
+<li>ワークブックに戻り、どのデータも選択されていないことを確認します。ワークシートがアクティブであるかどうかは関係ありません。重要なことは、どの列も選択していないことです。</li>
+<li>メニューから「<b>作図：複数区分/軸：4区分</b>」を選択します。  ワークシートデータが選択されていない場合、Originは<b>作図のセットアップ</b>ダイアログを開くので、ここでプロットしたデータを選択して作図することができます。 </li>
+<li><a  class="image"><img alt="Button Expand Preview Up.png" src="../images/Graphing_Data_From_Multiple_Sheets/Button_Expand_Preview_Up.png" width="24"  /></a>ボタンをクリックして上部パネルを拡張します。<b>Ctrl</b>キーを押しながら、3つのワークシートを選択します。  また、3つのワークシートすべてがハイライト指定されるように選択項目をクリックしてドラッグすることもできます。<br />
+<a  class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 010.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorials81_Graphing_Data_From_Multiple_Sheets_010.png" width="581"  /></a></li>
+<li>中央のパネルには、3シートすべての共通の列が表示されます。  この場合、3つのシートすべてに一致する列名を持つ同様のデータがあります。このパネルの右上にある ボタン<a  class="image"><img alt="Button Switch to Custom Mode.png" src="../images/Graphing_Data_From_Multiple_Sheets/Button_Switch_to_Custom_Mode.png" width="24"  /></a>をクリックし、同じ列ロングネームでプロットできる列をリスト表示します。  このモードは、XY属性のチェックボックスにチェックを付ける必要がないので、簡単です。 <br />
+<a  class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 011.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorials81_Graphing_Data_From_Multiple_Sheets_011.png" width="596"  /></a></li>
+<li>表示されていなければ、ダイアログの下側パネル、プロットリストを開きます。  <b>レイヤ1</b> がハイライトされています。  中央のパネルにある<b>Delta Temperature</b> を選択して、<b>追加</b>ボタンをクリックします。ステップ3で既に3つのワークシートを選択しているので、これは3つのワークシートそれぞれから<b>Delta Temperature</b>列をLayer1に追加します。 <br />
+<a  class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 012.png" src="../images/Graphing_Data_From_Multiple_Sheets/600px-Tutorials81_Graphing_Data_From_Multiple_Sheets_012.png" width="755"   /></a></li>
+<li>このステップを繰り返し、<b>Magnetic Field</b>と全ての<b>Position</b>をそれぞれレイヤ2およびレイヤ3に追加します。<br />
+<a  class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 013.png" src="../images/Graphing_Data_From_Multiple_Sheets/Tutorials81_Graphing_Data_From_Multiple_Sheets_013.png" width="711"  /></a><br />
+各レイヤで、3つのデータプロットは自動的にグループ化されます。</li>
+<li><b>OK</b>ボタンをクリックして、グラフを作成します。<br />
+<a  class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 014.png" src="../images/Graphing_Data_From_Multiple_Sheets/500px-Tutorials81_Graphing_Data_From_Multiple_Sheets_014.png" width="500"   /></a></li>
+<li>それぞれのレイヤに対して作成されるデフォルトの凡例は、このグラフではあまり意味がないことがわかります。Originの凡例オブジェクトはカスタマイズしやすいので、まずはデフォルトの凡例を修正します。凡例オブジェクトで右クリックして、ショートカットメニューから「<b>凡例：凡例を更新</b>」を選択します。</li>
+<li>開いているダイアログで、<a href="#By_Drag_and_Drop"><b>ドラッグ＆ドロップによる</b></a> のステップ８と同じ設定を行います。<b>凡例カスタムフォーマット</b>のシンタックス <b>@WS</b> は、 <a class="external text" href="../../LabTalk/LabTalk/Legend_Substitution_Notation.html#List_of_.40Options">LabTalk 置換表記</a> で表される、個々のプロット線が含まれているワークシートの名前です。</li>
+<li>グラフページには空のレイヤが追加されています。  レイヤを削除するには、そのレイヤを選択し、キーボードの<b><b>Delete</b></b>キーを押します。次のチュートリアルで使用するグラフウィンドウを削除しないように注意してください。<br />
+<a  class="image"><img alt="Tutorials81 Graphing Data From Multiple Sheets 015.png" src="../images/Graphing_Data_From_Multiple_Sheets/500px-Tutorials81_Graphing_Data_From_Multiple_Sheets_015.png" width="713"   /></a>
+</li>
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Graphing_Data_From_Multiple_Sheets/Tip_icon.png" width="57"  border="0" /></td><td><p>上のグラフでは、それぞれのレイヤの凡例が同じになっています。この内2つは削除することもできます。または、下の<a class="external text" href="../../UserGuide/UserGuide/The_legendupdate_Dialog_Box.html"><b>凡例の更新</b> ダイアログ</a>で、1つの凡例で全てのグラフの内容を表示するように設定します。<br />
+<p><a  class="image"><img alt="Legend Update dlg merge legends.png" src="../images/Graphing_Data_From_Multiple_Sheets/400px-Legend_Update_dlg_merge_legends.png" width="456"   /></a>
+<br /><br />
+設定が適用されたら、凡例のテキストをCtrl +ダブルクリックすると、インプレース編集を行うことができます。 あるいは、コンテキストメニューから凡例ボックスを右クリックして<b>プロパティ</b>を選択し、<a class="external text" href="../../UserGuide/Category/Text_and_Drawing_Objects.html"><b>テキストオブジェクト</b></a>ダイアログで詳細な編集も可能です。
+</p>
+</p></td></tr></table>
+<h2><a name="Plot_Grouped_Data_As"></a><span class="mw-headline">グループ化データとしてプロットする</span></h2>
+<p>データにカテゴリデータの列が含まれている場合や、下位のデータと同様に、ある種のネストされたデータのサブグループ化を特徴付ける複数の列が含まれている場合、<br />
+</p>
+<dl><dd><a  class="image"><img alt="GroupedPlot 01.png" src="../images/Graphing_Data_From_Multiple_Sheets/300px-GroupedPlot_01.png" width="434"   /></a><br /></dd></dl>
+<p>データを次のようにプロットすることができます。
+</p>
+<h3><a name="Trellis_Plot"></a><span class="mw-headline">トレリスプロット</span></h3>
+<p>Origin 2017から、1つのレイヤーが<i>M x N</i> 個のパネルを持つ<a class="external text" href="../../UserGuide/UserGuide/Trellis.html">トレリスプロット</a> を導入しました。
+</p>
+<ol>
+<li>新規のワークブックを作成します。 
+<ol><li>新しいワークブックを用意します。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Statistics</i>サブフォルダにある<i>2010.dat</i> ファイルを探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。</li></li></ol>
+<li>col(H)からcol(J)をハイライト選択し、<b>作図：基本の2Dグラフ：トレリスプロット</b> メニューを選択します。<a class="external text" href="../../XFunction/X-Function/Plot_group.html">グループ化プロット</a> ダイアログが開きます。水平グループ変数としてcol（ &quot;City&quot;）を選択し、パネルの垂直グループ変数としてcol（ &quot;Gender&quot;）を選択します。
+<br /><a  class="image"><img alt="GroupedPlot 02.png" src="../images/Graphing_Data_From_Multiple_Sheets/500px-GroupedPlot_02.png" width="637"   /></a></li>
+<li>OK ボタンをクリックして、グラフを作成します。X軸上でクリックしてミニツールバーを開き、<b>軸スケール</b>ボタン<a  class="image"><img alt="Button axis scale.png" src="../images/Graphing_Data_From_Multiple_Sheets/Button_axis_scale.png" width="20"  /></a>を選択します。開かれたダイアログで、水平方向の軸の<b>開始</b>と<b>終了</b>を<i>-10</i>と<i>90</i>に設定します。するとグラフはこのようになります。<br />
+<a  class="image"><img alt="GroupedPlot 03.png" src="../images/Graphing_Data_From_Multiple_Sheets/450px-GroupedPlot_03.png" width="450"   /></a></li>
+<p>このトレリスプロットは1つのレイヤしか持たず、6つのパネル（<b><b>2×3</b></b>）を持っています：2行は変数&rdquo;Gender&rdquo;、<i>Female</i> と <i>Male</i>を表します。 3つの列は、変数&rdquo;City&rdquo;、<i><i>A</i></i>、<i><i>B</i></i>および<i><i>C</i></i>を表します。
+</p>
+</ol>
+<h3><a name="Grouped_Box_Plot"></a><span class="mw-headline">グループ化ボックスチャート</span></h3>
+<p>トレリスプロットのほかに、これらの種類のデータをグループ化されたボックス/列プロットとしてプロットすることもできます。 
+</p>
+<ol>
+<li>元のワークシートをアクティブにします。Salary列を選択して、メニューから<b><b>作図: ボックス：グループ化したボックスチャート‐インデックスデータ</b></b>と操作し、<a class="external text" href="../../UserGuide/UserGuide/Grouped_Box_Charts-Indexed_Data.html">plot_gboxindexed</a>ダイアログを開きます。col(&quot;Gender&quot;)とcol(&quot;City&quot;)を <b>グループ列</b>として選択します。<br />
+<a  class="image"><img alt="GroupedPlot 04.png" src="../images/Graphing_Data_From_Multiple_Sheets/450px-GroupedPlot_04.png" width="496"   /></a></li>
+<li>OK ボタンをクリックして、グラフを作成します。<br />
+<a  class="image"><img alt="上のソースワークシートを再びアクティブにします。" src="../images/Graphing_Data_From_Multiple_Sheets/350px-GroupedPlot_05.png" width="350"   /></a></li>
+<p>データ列（&rdquo;Salary&rdquo;）はグループ化されたボックスチャートとしてプロットされています。&rdquo;Gender&rdquo;の<i>Female</i> と <i>Male</i>の2つのグループと、2つのグループの中で、 &rdquo;City&rdquo;、<i>A</i>、<i>B</i>、および<i>C</i>の3つのサブグループに分かれています。
+</p>
+</ol>
+<h2><a name="Plot_Graphs_by_Label"></a><span class="mw-headline">ラベルでグラフをプロット</span></h2>
+<p>Originには、同じラベルで識別された複数のプロットが含まる複数レイヤグラフを作成できる、<b>ラベルから複数パネルを一括作成</b>という作図メニューが用意されています。 
+</p>
+<ol>
+<li>ワークシート<b>Samples\Graphing\Automobile Data.ogw</b>を開きます。（ヒント：<b><b>開く</b></b>ダイアログで、表示するファイル種類を<b>Workbooks(*.ogw)</b>に変更する必要があります。） <br />
+<a  class="image"><img alt="Plot Grouped Plot wks.png" src="../images/Graphing_Data_From_Multiple_Sheets/Plot_Grouped_Plot_wks.png" width="498"  /></a></li>
+<li>ワークシートの左上の角をクリックしてシート全体を選択します。<b>作図：複数区分/軸：ラベルから複数パネルを一括作成</b>を選択し、<b>plotbylabel</b>ダイアログを開きます。 </li>
+<li>ダイアログのオプションを次の図のように設定し、<b>OK</b>をクリックしてグラフを作成します。<br />
+<a  class="image"><img alt="Plot by label dlg.png" src="../images/Graphing_Data_From_Multiple_Sheets/Plot_by_label_dlg.png" width="492"  /></a><br />
+グラフは次のようになります。<br />
+<a  class="image"><img alt="Grouped Graphs By Label.png" src="../images/Graphing_Data_From_Multiple_Sheets/Grouped_Graphs_By_Label.png" width="591"  /></a></li>
+</ol>
+
+
+    

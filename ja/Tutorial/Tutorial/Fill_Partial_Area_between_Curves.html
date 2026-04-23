@@ -1,0 +1,155 @@
+﻿<h1 class="firstheading">関数曲線間の部分領域を塗りつぶす</h1><p class='urlname' style='display: none'>fill-partial-area-between-curves</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Filling_Area_Between_Parts_of_Two_Curves"><span class="tocnumber">3.1</span> <span class="toctext">2つの曲線間の一部領域を塗りつぶす</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Changing_the_Axis_Range"><span class="tocnumber">3.2</span> <span class="toctext">軸範囲の変更</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Adding_Special_Points_with_Labels_to_Annotate_the_Intersections"><span class="tocnumber">3.3</span> <span class="toctext">特別なポイントを追加して交点に脚注を付ける</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Adding_Function_Formulas_and_Axis_Arrows"><span class="tocnumber">3.4</span> <span class="toctext">関数式と軸を追加</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Generating_Function_Data_using_Set_Values_tool"><span class="tocnumber">3.5</span> <span class="toctext">「値の設定」ツールで関数データを作成</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Fill_Partial_Area_between_Curves/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Fill_Partial_Area_between_Curves/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=294" target="_blank">Fill Area Between Curves</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=51" target="_blank">Set Column Values</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=328" target="_blank">Annotate a Point on the Graph</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=255" target="_blank">Customize a Single Point</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=285" target="_blank">Special Ticks</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=154" target="_blank">Adding Special Tick Labels to Graph Axes</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=51" target="_blank">Set Column Values</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Fill_Partial_Area_between_Curves/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Fill_Partial_Area_between_Curves/Blog_Image_33x33px.png" width="135"  /></a>
+<ul><li> <a class="external text" href="http://blog.originlab.com/fill-area-under-intersection-of-two-curves" target="_blank">Fill Area Under Intersection of Two Curves</a></li>
+<li> <a class="external text" href="http://blog.originlab.com/fill-area-above-curve" target="_blank">Fill Area Above and Below Curve</a></li>
+<li> <a class="external text" href="http://blog.originlab.com/shading-sections-of-a-graph-and-customizing-their-formatting" target="_blank">Shading Sections of a Graph and Customizing their Formatting</a></li></ul>
+</td></tr></table>
+<p><br />
+</p>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>このチュートリアルでは、2つの関数をプロットし、曲線の間の領域を部分的に塗りつぶす方法を示します。 
+</p>
+<dl><dd><a  class="image"><img alt="Fill Partial Area between Curves 01.png" src="../images/Fill_Partial_Area_between_Curves/300px-Fill_Partial_Area_between_Curves_01.png" width="300"   /></a></dd></dl>
+<p class="version" >必要なOriginのバージョン: 2017 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul><li>「値の設定」ツールで関数データを作成</li>
+<li>異なる色で2曲線間を塗りつぶし</li>
+<li>グラフ上にオブジェクトを追加、編集</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>このチュートリアルは、<i>&lt;Origin EXE Folder&gt;\Samples\Tutorial Data.opj</i>というプロジェクトの<i>Fill Partial Area between Function Plots</i>フォルダーを使います。
+</p>
+<h3><a name="Filling_Area_Between_Parts_of_Two_Curves"></a><span class="mw-headline">2つの曲線間の一部領域を塗りつぶす</span></h3>
+<p>曲線の2つ以上の部分に異なる塗りつぶしの色を適用するために、曲線をセグメントでプロットする必要があります。このチュートリアルでは、<b>X &lt;= 1</b>の曲線間の領域を塗りつぶす方法を学習します。 
+</p>
+<ol>
+<li>Tutorial Data.opj から<i>Fill Partial Area between Function Plots</i>フォルダを開きます。<b>Book2L</b>には、2つの関数曲線データが入力されています（<b><b>Note</b>:</b> 関数からデータセットを生成する方法は、<a href="#Generating_Function_Data_using_Set_Values_tool">このチュートリアル</a>の後半で示しています）。
+<li> <b>Book2L</b>の<b>Sheet1</b>内の3列すべてにおいて、1~36 (-2.5 &lt;= X &lt;= 1) 行目を選択し、<b>作図：Basic 2D：折れ線</b>を選択して2曲線を作図します。2つのデータセット（折れ線）が自動でグループ化されます。
+<li> 次に、ワークシートに戻り、Book2LのSheeet1の36~51 (1 &lt;= X &lt;= 2.5)行目の全ての列を選択し、カーソルが <a  class="image"><img alt="関数曲線間の部分領域を塗りつぶす" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_27.png" width="35"  /></a>のように表示されるようにハイライトした領域の端にマウスカーソルを移動します。選択した範囲を、作成したグラフにドラッグアンドドロップします。再スケールに関して確認メッセージが表示されたら、<b>はい</b>を選択します。 
+<li> 凡例と軸タイトルを選択して削除します。
+<dl><dd><a  class="image"><img alt="Fill Partial Area between Curves 28.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_28.png" width="404"  /></a></dd></dl>
+<li> 折れ線グラフ上でダブルクリックし、<b>作図の詳細</b>ダイアログボックスを開きます。左パネルで<b>Layer1</b>の1番目のプロットを選択します。 
+<li> <b>グラフの線</b>タブに移動し、<b>曲線以下の塗りつぶし</b>の<b>有効にする</b>にチェックをつ付けます。<b>データプロットまで塗りつぶす - 上下色</b>、<b>データプロット</b> = <b>次のプロット</b>、<b>塗り方</b> = <b>共通X面積</b>に設定して<b>適用</b>をクリックします。 
+この操作で<b>パターン_上部</b>、<b>パターン_下部</b>タブがダイアログに追加されます。
+<dl><dd><a  class="image"><img alt="Fill Partial Area between Curves 03.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_03.png" width="800"  /></a></dd></dl>
+<li> 左のパネルで3番目のプロットを選択して、<b>グループ</b>タブで<b>詳細</b>列の線のカラーリストをクリックして、以下のように、推移リスト<b>Candy</b>を選択します。
+<dl><dd><a  class="image"><img alt="Fill Partial Area between Curves 03 2.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_03_2.png" width="800"  /></a></dd></dl>
+<li><b>パターン-上部タブ</b>を開き、黒い折れ線の上部領域の塗りつぶし色を<b>薄い深紅色</b>にし、透過率を50%に設定します。
+<dl><dd><a  class="image"><img alt="Fill Partial Area between Curves 04.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_04.png" width="541"  /></a></dd></dl>
+<li><b>パターン-下部タブ</b>を開き、黒い折れ線の下部領域の塗りつぶし色を<b>薄い空色</b>にします。<b>パターン_下部</b>の透過率の設定は<b>自動</b>になっているので、<b>パターン_上部</b>での透過率の設定に従います。 
+<dl><dd><a  class="image"><img alt="Pattern below.png" src="../images/Fill_Partial_Area_between_Curves/Pattern_below.png" width="679"  /></a></dd></dl>
+<li> 左のパネルで3番目のプロットを選択して、<b>グループ</b>タブで<b>詳細</b>列の線のカラーリストをクリックして、以下のように、推移リスト<b>Q11 Candy</b>を選択します。
+<dl><dd><a  class="image"><img alt="Fill Partial Area between Curves 31.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_31.png" width="869"  /></a></dd></dl>
+<li> <b>OK</b>をクリックしてダイアログを閉じます。X &lt;= 1の曲線間の領域が塗りつぶされます。
+<dl><dd><a  class="image"><img alt="Partial fill.png" src="../images/Fill_Partial_Area_between_Curves/Partial_fill.png" width="356"  /></a></dd></dl>
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Fill_Partial_Area_between_Curves/Tip_icon.png" width="57"  border="0" /></td><td><p>作図の詳細の<b>グラフの線</b>タブコントロールの代わりに、Ctrlキーを使用してグラフレイヤ内の任意の2つのプロットを選択し、ミニツールバーボタンを使用して選択した曲線の間に塗りつぶしを適用することもできます。
+</p>
+<dl><dd><a  class="image"><img alt="MT fill area between curves.png" src="../images/Fill_Partial_Area_between_Curves/MT_fill_area_between_curves.png" width="356"  /></a></dd></dl>
+</td></tr></table>
+<h3><a name="Changing_the_Axis_Range"></a><span class="mw-headline">軸範囲の変更</span></h3>
+<ol><li> <b>X</b>と<b>Y</b>軸の表示範囲を変更します。X 軸でクリックして、ミニツールバーを開き、<b>軸スケール</b>ボタンをクリックしてダイアログを開きます。表示範囲を<b>-2.5</b>から<b>2.5</b>にし、<b>目盛増分</b>を<i>2</i> にします。
+<dl><dd><a  class="image"><img alt="Fill Partial Area between Curves 05.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_05.png" width="468"  /></a></dd>
+<dd> <b>Y</b> 軸も同じように操作し、表示範囲を<b>-10.5</b>から<b>4</b>、<b>目盛増分</b>を<i>4</i> に設定します。 </dd></dl></li>
+<li> X軸とY軸が<b>0,0</b>で交差するように構成します。X 軸をダブルクリックして、<b>軸</b>ダイアログを開き、<b>軸と軸目盛</b>タブを開きます。軸ダイアログの左パネルで<b>下軸</b>と<b>左軸</b>を両方選択します。<b>軸位置</b>を<b>位置 = 0</b>に設定します。
+<dl><dd><a  class="image"><img alt="Fill Partial Area between Curves 07.png" src="../images/Fill_Partial_Area_between_Curves/450px-Fill_Partial_Area_between_Curves_07.png" width="560"   /></a></dd></dl></li>
+<li><b>OK</b>をクリックして、ダイアログを閉じます。軸のタイトルを削除して、2つの線グループをそれぞれ選択して、スタイルツールバーを使って<b>幅</b>を<b>2</b>に選択します。グラフは、次のようになります。
+<dl><dd><a  class="image"><img alt="Fill Partial Area between Curves 08.png" src="../images/Fill_Partial_Area_between_Curves/400px-Fill_Partial_Area_between_Curves_08.png" width="400"   /></a></dd></dl></li></ol>
+<h3><a name="Adding_Special_Points_with_Labels_to_Annotate_the_Intersections"></a><span class="mw-headline">特別なポイントを追加して交点に脚注を付ける</span></h3>
+<p>上のグラフには、2つの関数曲線の3つの交点があります。そのうちX=-2とX=2の2点に、それぞれ印を付ける場合には以下のように操作します。
+</p>
+<ol>  
+<li><b>CTRL</b>キーを押しながらX=-2の交点をクリックして1つののポイントを選択してから、右クリックで<b>編集ポイント</b>を選択し、<b>作図の詳細</b>ダイアログを開きます。<a class="external text" href="../../UserGuide/Category/Customizing_Plot_Elements.html#Customizing_Individual_Data_Points">グラフ上の個々のポイントを表示・編集する方法</a>についての詳細もご参考にしてください。
+<br /><a  class="image"><img alt="Fill Partial Area between Curves 18.png" src="../images/Fill_Partial_Area_between_Curves/400px-Fill_Partial_Area_between_Curves_18.png" width="568"   /></a></li>
+<li>開いたダイアログで、行インデックスが表示された<i>特別な</i>ポイントが追加されて、2番目のプロットで選択されています。 
+<ul>
+<li><b>シンボル</b>タブで、以下のようにスタイルをカスタマイズします。
+<br /><a  class="image"><img alt="Fill Partial Area between Curves 19.png" src="../images/Fill_Partial_Area_between_Curves/550px-Fill_Partial_Area_between_Curves_19.png" width="736"   /></a></li>
+<li><b>ドロップライン</b>タブで、垂直ドロップラインを有効にして、 以下のようにスタイルを設定します。
+<br /><a  class="image"><img alt="Fill Partial Area between Curves 24.png" src="../images/Fill_Partial_Area_between_Curves/550px-Fill_Partial_Area_between_Curves_24.png" width="610"   /></a></li>
+<li><b><b>ラベル</b></b>タブで、「有効にする」チェックを付けてから、<b>ラベル形式</b>を<i>(X,Y)</i>に、<b>フォントサイズ</b>を<i>22</i>に設定します。
+<br /><a  class="image"><img alt="Fill Partial Area between Curves 34.png" src="../images/Fill_Partial_Area_between_Curves/550px-Fill_Partial_Area_between_Curves_34.png" width="604"   /></a>
+</li>
+</ul>
+</li>
+<li>OKボタンをクリックして、ダイアログを閉じます。手順1と同様にして、X=2（行インデックス=46）で別の交点追加します。 
+<br /><a  class="image"><img alt="Fill Partial Area between Curves 35.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_35.png" width="257"  /></a>
+<br />次に、同じスタイルに設定します。以下のようなグラフが作成できます。
+<br /><a  class="image"><img alt="Fill Partial Area between Curves 29.png" src="../images/Fill_Partial_Area_between_Curves/400px-Fill_Partial_Area_between_Curves_29.png" width="400"   /></a>
+</li>
+</ol>
+<h3><a name="Adding_Function_Formulas_and_Axis_Arrows"></a><span class="mw-headline">関数式と軸を追加</span></h3>
+<ol>
+<li>(0,0)交点の目盛ラベルを非表示にするには、<b>軸</b>ダイアログを再び開き、<b>特別な軸刻み</b>タブを開きます。左側パネルの<b>下</b>アイコンで図のように設定します。同じように<b>左</b>アイコンも選択して設定します。
+<br /><a  class="image"><img alt="Fill Partial Area between Curves 21.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_21.png" width="628"  /></a></li>
+<li>軸の終端に矢印を追加します。<b>軸</b>ダイアログで<b><b>軸と軸目盛</b>タブ</b>を開きます。<b>軸</b>ダイアログの<b>左</b>側のパネルで軸ダイアログの<b>下</b>と<b>左</b>のアイコンを選択します。<b>矢印</b>を伸ばし、<b>終点の矢印</b>をにチェックを付け、<b>幅</b>を<b>5</b>に設定します。 
+<br /><a  class="image"><img alt="Fill Partial Area between Curves 23.png" src="../images/Fill_Partial_Area_between_Curves/500px-Fill_Partial_Area_between_Curves_23.png" width="470"   /></a>
+</li>
+<li>X軸をダブルクリックして、<b>軸</b>ダイアログを開きます。<b>参照線</b>タブで、<b>値の参照線</b>のテキストボックスで<i>1</i>を入力してから、参照線をリスト表のどこかをクリックして、X=1の参照線を追加します。以下のように設定します。<br /> <a  class="image"><img alt="Fill Partial Area between Curves 25.png" src="../images/Fill_Partial_Area_between_Curves/500px-Fill_Partial_Area_between_Curves_25.png" width="699"   /></a><br /><b>詳細</b>ボタンをクリックして線のスタイルを設定します。
+<br /><a  class="image"><img alt="Fill Partial Area between Curves 36.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_36.png" width="488"  /></a>
+<br /><b>OK</b>をクリックしてこのダイアログを閉じて、<b>OK</b>ボタンをクリックして<b>軸</b>ダイアログも閉じます。 
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Fill_Partial_Area_between_Curves/Tip_icon.png" width="57"  border="0" /></td><td><p><b>直線を追加</b>ツール（メニューの<b>グラフ操作: 直線を追加</b>から開きます。）を使って、<b>X=1</b>で垂直線を追加します。 
+</p></td></tr></table>
+</li>
+<li>グラフに2曲線の式を追加するために、何もない領域で右クリックして<b>テキストの追加...</b>を選択します。まず、オブジェクトに何か文字を入力して、テキストオブジェクトを作成します。次に、その上で右クリックして開くコンテキストメニューから、<b>オブジェクトプロパティ</b>を選択して、<b>テキストオブジェクト</b>ダイアログを開きます。<b>テキスト</b>タブで最初の式を入力します。<br />
+<pre class="lt" style="font-family:monospace;">y<span style="color: #000080;">=</span><span style="color: #000080;">-</span>x\<span style="color: #000080;">+</span><span style="color: #000000;">(</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span><span style="color: #000080;">+</span>3x y<span style="color: #000080;">=</span>2x\<span style="color: #000080;">+</span><span style="color: #000000;">(</span><span style="color: #0000dd;">3</span><span style="color: #000000;">)</span><span style="color: #000080;">-</span>x\<span style="color: #000080;">+</span><span style="color: #000000;">(</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span><span style="color: #000080;">-</span>5x</pre>
+</li>
+<li>OKボタンをクリックしてダイアログを閉じます。テキストオブジェクトをもう一つ追加して<b>テキストプロパティ</b>ダイアログをもう一度開いてから、<b>テキスト</b>タブで上の二番目の式を入力します。OKボタンをもう一度クリックして、これらの3つの式をグラフウィンドウにも追加します。必要があれば、位置を変更します。
+<li><b>曲線矢印ツール</b>を選択して、式ラベルと折れ線をつなぐ曲線矢印を2つ追加します。
+<br /><a  class="image"><img alt="Fill Partial Area between Curves 26.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_26.png" width="176"  /></a>
+<li>最終的なグラフは次のようになります。
+<br /><a  class="image"><img alt="Fill Partial Area between Curves 01.png" src="../images/Fill_Partial_Area_between_Curves/400px-Fill_Partial_Area_between_Curves_01.png" width="400"   /></a>
+</li>
+</ol>
+<h3><a name="Generating_Function_Data_using_Set_Values_tool"></a><span class="mw-headline">「値の設定」ツールで関数データを作成</span></h3>
+<ol>
+<li>新規ワークブックを作成します。右クリックして<b>新しい列の追加</b>を選択して3列にします。 
+<li>A列を右クリックし、<b>列値の一律設定：数字のセット</b>を選択します。
+<li><b>patternN</b> ダイアログで、以下のようにパラメータを設定します。<br />
+<a  class="image"><img alt="Fill Partial Area between Curves 12.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_12.png" width="461"  /></a>
+</li>
+<li>Col(B)の<b>F(x)</b>ラベル行をダブルクリックして、「直接編集モード」にし、以下のように<i>-1*A^2+3*A</i>を入力します。 <br />
+<a  class="image"><img alt="Fill Partial Area between Curves 33.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_33.png" width="243"  /></a>
+<table class="note">
+<tr>
+<td><b>Note:</b> Origin 2017から新しい<a class="external text" href="../../UserGuide/UserGuide/Column_Short_Name_Restriction.html"><b>スプレッドシートセル表記</b></a>が追加され、デフォルトで有効になっています。列のショートネームの使用が可能で、col(A)+1の代わりにA+1 のように表記できます。
+<p>以前のバージョンでは、<i>-1*col(A)^2+3*col(A)</i>というように入力します。
+</p>
+</td></tr></table>
+</li>
+<li>列Cを選択し、右クリックして開くコンテキストメニューから<b>列値の設定</b>を選択し、値の設定ダイアログを開きます。このダイアログに、以下のように計算式と範囲を入力します。<br />
+<a  class="image"><img alt="Fill Partial Area between Curves 30.png" src="../images/Fill_Partial_Area_between_Curves/Fill_Partial_Area_between_Curves_30.png" width="495"  /></a>
+</li>
+</ol>
+
+
+    

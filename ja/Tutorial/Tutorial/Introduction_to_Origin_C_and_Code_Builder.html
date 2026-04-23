@@ -1,0 +1,241 @@
+﻿<h1 class="firstheading">Origin Cとコードビルダの紹介</h1>
+<p class="urlname" style="display: none;">OC-CodeBuilder</p>
+<table id="toc" class="toc">
+	<tr>
+		<td><div id="toctitle">
+			<h2>内容</h2>
+		</div>
+		<ol>
+			<li class="toclevel-1 tocsection-1"><a href="#Summary"><span 
+			 class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+			<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+			 class="tocnumber">2</span> <span class="toctext">What you 
+			 will learn</span></a></li>
+			<li class="toclevel-1 tocsection-3"><a href="#Steps"><span 
+			 class="tocnumber">3</span> <span class="toctext">ステップ</span></a> 
+			 
+			<ol>
+				<li class="toclevel-2 tocsection-4"><a href="#Create_an_Origin_C_Function"><span 
+				 class="tocnumber">3.1</span> <span class="toctext">Origin 
+				 C関数を作成</span></a></li>
+				<li class="toclevel-2 tocsection-5"><a href="#Debug_and_Run_the_Function"><span 
+				 class="tocnumber">3.2</span> <span class="toctext">関数のデバッグと実行</span></a></li>
+				<li class="toclevel-2 tocsection-6"><a href="#Run_the_Function_Using_the_Custom_Routine_Button"><span 
+				 class="tocnumber">3.3</span> <span class="toctext">カスタムルーチンボタンを使用して関数を実行</span></a></li>
+			</ol></li>
+		</ol></td>
+	</tr>
+</table>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p><a class="external text" href="../../OriginC/Category/Origin_C_Programming_Guide.html">Origin 
+ C</a>は、ほぼ完全にANCI準拠のC言語の構文をサポートしており、内部クラスとDLL拡張クラスを含むC++のサブセットもサポートしています。さらに、Origin 
+ Cは、Originを認識しています。これは、ワークシートやグラフなどのOriginオブジェクトがOrigin Cにマッピングされているということです。これによりOrigin 
+ CでOriginのオブジェクトやプロパティを直接操作できます。</p>
+<p>Origin Cの統合開発環境 (IDE)をコードビルダといいます。コードビルダは、Origin Cのプログラムを記述したり、コンパイルしたり、デバッグするための標準ツールを提供します。Origin 
+ C関数をコンパイルすれば、その関数をOriginやコードビルダワークスペースのさまざまな場所から呼び出すことができます。</p>
+<p>コードビルダを開くには、Originの標準ツールバーの <a class="image"><img alt="Button Code Builder.png" 
+													 src="../images/Introduction_to_Origin_C_and_Code_Builder/Button_Code_Builder.png" 
+													 width="23" height="23" 
+													 border="0" /></a> 
+ ボタンをクリックするか、キーボードのALT+4キーを押します。</p>
+<p class="version">必要なOriginのバージョン:Origin 9以降</p>
+<h2><a name="What_you_will_learn" id="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。</p>
+<ul>
+	<li>Origin C関数を作成する</li>
+	<li>関数をデバッグし実行する</li>
+	<li>カスタムルーチンボタンを使用して関数を実行する</li>
+</ul>
+<h2><a name="Steps" id="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Create_an_Origin_C_Function" id="Create_an_Origin_C_Function"></a><span 
+	 class="mw-headline">Origin C関数を作成する</span></h3>
+<ol>
+	<li>コードビルダを開き、新しいワークスペースを作成します（メニューの<b>ファイル：</b><b>新規ワークスペース</b>）。コードビルダの<b>標準</b>ツールバーで<b>新規</b>ボタン 
+	 <a class="image"><img alt="Button New.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Button_New.png" 
+							 width="21" height="21" border="0" /></a> をクリックして<b>新規ファイル</b>ダイアログを開きます。</li>
+	<li>.cファイルを作成するために、<b>C File</b>を選択します。<b>ファイル名</b>テキストボックスに<b>Tutorial</b>と入力します。<b>場所</b>テキストボックスで、<i>User 
+	 File Folder/OriginC</i>サブフォルダを選択します。<b>ワークスペースに追加</b>チェックが付いていることを確認してください。<b>OK</b>をクリックします。Tutorial.cというファイルがコードビルダワークスペースに開きます。 
+	 
+	<dl>
+		<dd><a class="image" style="color: #0000ff; text-decoration: underline; "><img 
+		 alt="Introduction to Origin C and Code Builde 1.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Introduction_to_Origin_C_and_Code_Builde_1.png" 
+		 width="517" height="237" border="0" /></a></dd>
+	</dl></li>
+</ol>
+<ol start="4">
+	<li>// start your functions hereという行の下に次のように入力します。 
+	<pre class="oc" style="font-family: monospace;">
+<span style="color: #0000ff;">void</span> new_wks<span style="color: #000000;">(</span><span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Worksheet wks;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;wks.<span style="color: #000000;">Create</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;Origin&quot;</span><span style="color: #000000;">)</span>; <span style="color: #008000;">// create a Worksheet window with template - Origin</span>
+&#160;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;vector<span style="color: #000040;">&amp;</span> vecX <span style="color: #000080;">=</span> wks.<span style="color: #000000;">Columns</span><span style="color: #000000;">(</span><span style="color: #0000dd;">0</span><span style="color: #000000;">)</span>.<span style="color: #000000;">GetDataObject</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;vector<span style="color: #000040;">&amp;</span> vecY <span style="color: #000080;">=</span> wks.<span style="color: #000000;">Columns</span><span style="color: #000000;">(</span><span style="color: #0000dd;">1</span><span style="color: #000000;">)</span>.<span style="color: #000000;">GetDataObject</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+&#160;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;vecX.<span style="color: #000000;">Data</span><span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>, <span style="color: #0000dd;">10</span>, <span style="color: #0000dd;">1</span><span style="color: #000000;">)</span>;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;vecY.<span style="color: #000000;">Data</span><span style="color: #000000;">(</span><span style="color: #0000dd;">0.1</span>, <span style="color: #0000dd;">1</span>, <span style="color: #0000dd;">0.1</span><span style="color: #000000;">)</span>;
+&#160;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;vector<span style="color: #000080;">&lt;</span>string<span style="color: #000080;">&gt;</span> vsLongName <span style="color: #000080;">=</span> 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #000000;">{</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #ff00ff;">&quot;Index&quot;</span>,
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #ff00ff;">&quot;Data&quot;</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #000000;">}</span>;
+&#160;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #0000ff;">for</span> <span style="color: #000000;">(</span><span style="color: #0000ff;">int</span> nCol <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>; nCol <span style="color: #000080;">&lt;</span> wks.<span style="color: #000000;">GetNumCols</span><span style="color: #000000;">(</span><span style="color: #000000;">)</span>; <span style="color: #000040;">++</span>nCol<span style="color: #000000;">)</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #000000;">{</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Column col <span style="color: #000000;">(</span>wks, nCol<span style="color: #000000;">)</span>;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;col.<span style="color: #000000;">SetLongName</span><span style="color: #000000;">(</span>vsLongName<span style="color: #000000;">[</span>nCol<span style="color: #000000;">]</span><span style="color: #000000;">)</span>;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #000000;">}</span><span style="color: #000000;">
+}</span></pre>
+	<p>このnew_wks関数は、<b>Origin</b>テンプレートを使用したワークシートを作成します。増分1の1から10までのデータを1列目に入力し、増分0.1の0.1から1までのデータを1列目に入力します。これら2列のロングネームを<b>Index</b>、<b>Data</b>とします。</p></li>
+	<li>保存ボタン<a class="image"><img alt="Button Save.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Button_Save.png" 
+									 width="22" height="22" border="0" /></a>をクリックします。</li>
+</ol>
+<table class="noborder">
+	<tr>
+		<td style="vertical-align: top;" width="60"><img src="../images/Introduction_to_Origin_C_and_Code_Builder/Tutorial_icon.png" 
+														 alt="" width="57" 
+														 height="57" border="0" /></td>
+		<td><p><b style="font-weight: bold;">ミニチュートリアル：</b><b>GetDataObject</b>とマークされた行に素早く移動するブックマークの使用サンプル</p>
+		<ol>
+			<li>33行目をクリックして、<b>ブックマークの挿入</b>ボタン<a class="image"><img alt="Button Toggle Bookmark.png" 
+			 src="../images/Introduction_to_Origin_C_and_Code_Builder/Button_Toggle_Bookmark.png" 
+			 width="16" height="16" border="0" /></a> をクリックします。</li>
+			<li>37行目の、<b>GetDataObject()</b> を選択し、<b>ファイルから検索</b>ボタン<a 
+			 class="image"><img alt="Button Find In Files.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Button_Find_In_Files.png" 
+								 width="23" height="20" border="0" /></a> 
+			 をクリックします。</li>
+			<li><b style="font-weight: bold;">ファイルから検索</b>ダイアログで、<b>対象ファイル/ファイルタイプ</b>を<b>*.c;*.cpp</b>にし、対象フォルダを<b>&lt;program 
+			 folder&gt;\OriginC</b>に設定します。全てのチェックボックスのチェックを付け、<b>検索</b>ボタンをクリックします。</li>
+			<li><b style="font-weight: bold;">結果を表示</b>ウィンドウで、<b>GetDataObject()</b>を含む行をダブルクリックします。すると、この文字列を含むファイルが開き、関連する項目にジャンプします。</li>
+			<li>操作1でマークした行にもどるには、ブックマークウィンドウをアクティブにします。操作1で追加したブックマークをダブルクリックすると、Tutorial.cファイルの33行目に移動します。</li>
+		</ol></td>
+	</tr>
+</table>
+<table class="note">
+	<tr>
+		<td><b style="font-weight: bold;">Origin2015では、いくつかの便利なツールが使用できます。</b> 
+		 
+		<ul>
+			<li><b style="font-weight: bold;">クイックオープンファイル</b> 
+			<dl>
+				<dd>SHIFT + ALT + Oキーを押すか、<b>ツール:</b><b>クイックオープンファイル</b>を選択して<b>クイックオープンファイル</b>ダイアログを開きます。</dd>
+			</dl></li>
+			<li><b style="font-weight: bold;">.h と .c/.cpp ファイルをスイッチ</b> 
+			 
+			<dl>
+				<dd>キーボードのCTRL + ALT + O キーを押して関連するヘッダファイル（.hファイル）を開きます。</dd>
+			</dl></li>
+			<li><b style="font-weight: bold;">シンボルを検索</b> 
+			<dl>
+				<dd>SHIFT + ALT + Oキーを押すか、<b>ツール:シンボルを表示</b> を選択して<b>シンボルを検索</b> 
+				 ダイアログを開きます。</dd>
+			</dl></li>
+		</ul></td>
+	</tr>
+</table>
+<h3><a name="Debug_and_Run_the_Function" id="Debug_and_Run_the_Function"></a><span 
+	 class="mw-headline">関数をデバッグし実行する</span></h3>
+<ol>
+	<li>コードビルダの<b>標準</b>ツールバーで、<b>ビルド</b>ボタン<a class="image"><img alt="Button Build.png" 
+	 src="../images/Introduction_to_Origin_C_and_Code_Builder/Button_Build.png" 
+	 width="23" height="22" border="0" /></a> をクリックします。これにより、new_wks関数がコンパイルされ、リンクが実行されます（<b>Tutorial.c</b> 
+	 ファイルがアクティブであることを確認してください）。 
+	<dl>
+		<dd><a class="image" style="color: #0000ff; text-decoration: underline; "><img 
+		 alt="Debug Code Builder Output.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Debug_Code_Builder_Output.png" 
+		 width="363" height="163" border="0" /></a></dd>
+	</dl></li>
+	<li>34、35、37、50行の前の灰色の領域をクリックすると、赤い丸のアイコンが追加され、対応する行にブレークポイントが追加されたことを示します。すべてのブレークポイントの情報は、<b>ブレークポイント</b>ウィンドウにリストされます。</li>
+	<li><b style="font-weight: bold;">ブレークポイント</b>ウィンドウで、<b>tutorial.c, 
+	 line 35</b>のチェックを外し、このブレークポイントを無効にします。この操作により35行目のブレークポイントアイコンは、白抜きの表示になります。</li>
+</ol>
+<table class="noborder">
+	<tr>
+		<td style="vertical-align: top;" width="60"><img src="../images/Introduction_to_Origin_C_and_Code_Builder/Tip_icon.png" 
+														 alt="" width="57" 
+														 height="57" border="0" /></td>
+		<td><p>ブレークポイントを削除するには、対応する行についているブレークポイントアイコンをクリックします。または、<b>ブレークポイント</b>ウィンドウで右クリックし、<b>ブレークポイントを削除</b>を選択します。</p></td>
+	</tr>
+</table>
+<ol start="4">
+	<li>37行のブレークポイント上で右クリックし、<b>ヒットした時...</b>を選択してダイアログを開きます。<b>メッセージを表示</b>にチェックを付けます。<b>メッセージを表示</b>の下にあるテキストボックスに、test 
+	 code run to here. と入力します。.<b>OK</b>ボタンをクリックして終了します。この操作により、ブレークポイントがひし形になりました。 
+	 
+	<dl>
+		<dd><a class="image" style="color: #0000ff; text-decoration: underline; "><img 
+		 alt="Code Builder When Hit.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Code_Builder_When_Hit.png" 
+		 width="569" height="332" border="0" /></a></dd>
+	</dl></li>
+</ol>
+<ul>
+	<li>50行のブレークポイント上で右クリックし、<b>条件...</b>を選択してダイアログを開きます。<b>条件</b>を有効にし、テキストボックスに、<b>nCol==1</b> 
+	 と入力します。<b>OK</b>をクリックします。</li>
+</ul>
+<dl>
+	<dd><a class="image" style="color: #0000ff; text-decoration: underline; "><img 
+	 alt="Code Builder Condition.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Code_Builder_Condition.png" 
+	 width="475" height="226" border="0" /></a></dd>
+</dl>
+<ul>
+	<li>このコードを実行するには、LabTalkコンソールウィンドウの上パネルに関数名<b>new_wks</b>を入力します。</li>
+	<li>ENTERキーを押します。最初のブレークポイントアイコンに黄色い矢印が表示され、コードのうちどの行まで実行されたか示します。</li>
+	<li>F8を押し、コードのデバッグを続けます。50行目に矢印のアイコンが移動します。</li>
+	<li>コマンド・結果ウィンドウの下部パネルに、37のブレークポイントに追加したメッセージが表示されます。</li>
+</ul>
+<dl>
+	<dd><a class="image" style="color: #0000ff; text-decoration: underline; "><img 
+	 alt="Code Builder Print Msg.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Code_Builder_Print_Msg.png" 
+	 width="402" height="274" border="0" /></a></dd>
+</dl>
+<ul>
+	<li><b style="font-weight: bold;">変数</b>ウィンドウを開きます。1列目に変数名がリストされ、2列目にそれらの値がリストされます。<b>nCol</b>の値を確認します。</li>
+</ul>
+<dl>
+	<dd><a class="image" style="color: #0000ff; text-decoration: underline; "><img 
+	 alt="Code Builder nCol.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Code_Builder_nCol.png" 
+	 width="288" height="274" border="0" /></a></dd>
+</dl>
+<ul>
+	<li>黄色の矢印アイコンが表示されなくなるまで、F5キーを押し続けます。</li>
+	<li>Originワークスペースに戻ります。ワークブックが以下の画像のように作成されます。</li>
+</ul>
+<dl>
+	<dd><a class="image" style="color: #0000ff; text-decoration: underline; "><img 
+	 alt="Code Builder New Wks.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Code_Builder_New_Wks.png" 
+	 width="396" height="322" border="0" /></a></dd>
+</dl>
+<h3><a name="Run_the_Function_Using_the_Custom_Routine_Button" id="Run_the_Function_Using_the_Custom_Routine_Button"></a><span 
+	 class="mw-headline">カスタムルーチンボタンを使用して関数を実行する</span></h3>
+<ol>
+	<li>CTRL + SHIFTキーを押しながら、<b>カスタムルーチン</b>ボタン <a class="image"><img alt="Button Custom Routine.png" 
+	 src="../images/Introduction_to_Origin_C_and_Code_Builder/Button_Custom_Routine.png" 
+	 width="23" height="23" border="0" /></a> をクリックします。これにより、コードビルダにCustom.ogsファイルが開きます。</li>
+	<li>11行目にカーソルを合わせ、<b>コメント</b>ボタン<a class="image"><img alt="Button Comment.png" 
+															 src="../images/Introduction_to_Origin_C_and_Code_Builder/Button_Comment.png" 
+															 width="22" 
+															 height="21" 
+															 border="0" /></a>をクリックし、11行目をコメントアウトします。</li>
+</ol>
+<ol start="3">
+	<li>12行目と13行目に以下のコードを入力します。 
+	<pre class="oc" style="font-family: monospace;">
+Run.<span style="color: #000000;">LoadOC</span><span style="color: #000000;">(</span><span style="color: #000040;">%</span>YOriginC\Tutorial.<span style="color: #000000;">c</span><span style="color: #000000;">)</span>; <span style="color: #008000;">// %Y はユーザファイルフォルダ</span>
+&#160;new_wks<span style="color: #000000;">(</span><span style="color: #000000;">)</span>;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</pre>
+	<p>このコードにより、前のセクションで追加した<b>Tutorial.c</b>ファイルがロードされ、<b>new_wks()</b> 
+	 関数を実行します。</p></li>
+	<li><b style="font-weight: bold;">保存</b>ボタン<a class="image"><img alt="Button Save.png" 
+	 src="../images/Introduction_to_Origin_C_and_Code_Builder/Button_Save.png" 
+	 width="22" height="22" border="0" /></a>をクリックします。</li>
+	<li>Originワークスペースに戻ります。<b>カスタムルーチン</b>ボタン<a class="image"><img alt="Button Custom Routine.png" 
+	 src="../images/Introduction_to_Origin_C_and_Code_Builder/Button_Custom_Routine.png" 
+	 width="23" height="23" border="0" /></a>をクリックします。前のセクションのように、データが入力されたワークシートが作成されます。 
+	 
+	<dl>
+		<dd><a class="image" style="color: #0000ff; text-decoration: underline; "><img 
+		 alt="Code Builder Cus Routine Result.png" src="../images/Introduction_to_Origin_C_and_Code_Builder/Code_Builder_Cus_Routine_Result.png" 
+		 width="396" height="319" border="0" /></a></dd>
+	</dl></li>
+</ol>

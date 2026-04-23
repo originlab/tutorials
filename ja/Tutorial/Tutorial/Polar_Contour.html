@@ -1,0 +1,207 @@
+﻿<h1 class="firstheading">極座標等高線図</h1>
+<p class="urlname" style="display: none;">Polar-Contour</p>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> 
+		 <span class="toctext">サマリー</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_will_you_learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> 
+		 <span class="toctext">ステップ</span></a> 
+		<ol>
+			<li class="toclevel-2 tocsection-4"><a href="#Plot_Polar_Contour_from_XYZ_data"><span 
+			 class="tocnumber">3.1</span> <span class="toctext">XYZデータで極座標等高線図を作成する</span></a></li>
+			<li class="toclevel-2 tocsection-5"><a href="#Plot_Polar_Contour_from_Matrix_data"><span 
+			 class="tocnumber">3.2</span> <span class="toctext">行列データで極座標等高線図を作成する</span></a></li>
+		</ol></li>
+	</ol>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>このチュートリアルは、XYZデータまたは、行列データで極座標等高線図を作成する方法を示します。 </p>
+<h2><a name="What_will_you_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul>
+	<li>XYZデータと行列データで極座標等高線図を作成する</li>
+	<li>作図の詳細ダイアログを使ってグラフを編集する</li>
+</ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Plot_Polar_Contour_from_XYZ_data"></a><span class="mw-headline">XYZデータで極座標等高線図を作成する</span></h3>
+<ol>
+	<li>(<b>ヘルプ: ラーニングセンター</b> メニューを選択、または キーボードの<b>F11</b> キーを押して、ラーニングセンターを開きます。<b>グラフサンプル</b>を選択し、カテゴリーのドロップダウンリストから<b>極座標グラフ</b>を選択します。グラフサンプルをダブルクリックして、「Polar 
+	 Chart - Polar Contour」を開きます。<br />
+	<a class="image"><img alt="Polar Contour from XYZ data 00.png" src="../images/Polar_Contour/Polar_Contour_from_XYZ_data_00.png" 
+							 width="852" height="490" border="0" /></a><br />
+	このチュートリアルは、チュートリアルデータプロジェクト<i>&lt;Origin EXE フォルダ&gt;\Samples\TutorialData.opj</i>の<i>Polar 
+	 Contour</i> フォルダと関連しています。 </li>
+	<li>気温と位置データを含むワークブック<b>Temperature and Location</b>をアクティブにして、列<b>C</b>を選択します。メニューから<b>作図：等高線図：θrZ極座標等高線</b>を選択して、極座標等高線図を作成します。グラフは次のようになります。 
+	 <br />
+	<a class="image"><img alt="Polar Contour from XYZ data 01.png" src="../images/Polar_Contour/Polar_Contour_from_XYZ_data_01.png" 
+							 width="517" border="0" /></a> </li>
+	<li>次に、ミニツールバーを使ってグラフを編集します。等高線図上でクリックしてミニツールバーを開きます。<b>カラーマップを反転</b>ボタン<a 
+	 class="image"><img alt="Popup Flip Colormap.png" src="../images/Polar_Contour/Popup_Flip_Colormap.png" 
+						 width="26" border="0" /></a>をクリックして、カラーパップの色の順番を反転させます。 
+	 <br />
+	<a class="image"><img alt="Polar Contour from XYZ data 02.png" src="../images/Polar_Contour/Polar_Contour_from_XYZ_data_02.png" 
+							 width="500" border="0" /></a> </li>
+	<li>角度軸（極座標グラフの円弧の縁）をクリックし、ミニツールバーを表示させます。<b>軸スケール</b>ボタン<a class="image"><img 
+	 alt="Popup Axis Scale.png" src="../images/Polar_Contour/Popup_Axis_Scale.png" 
+	 width="24" border="0" /></a>をクリックし、<b>軸スケール</b>ダイアログを開きます。このダイアログで、<b>角度</b>を選択した状態で<b>目盛増分</b>を<b>60</b>に、<b>放射</b>を選択した状態で<b>開始</b>と<b>終了</b>をそれぞれ<i>0</i>と<i>7</i>に、<b>目盛増分</b>を<b>2</b>に設定します。 
+	 <br />
+	<a class="image"><img alt="Polar Contour from XYZ data 04.png" src="../images/Polar_Contour/Polar_Contour_from_XYZ_data_04.png" 
+							 width="767" border="0" /></a> </li>
+	<li>次に、<b>軸</b>ダイアログを開き、軸と軸ラベルの編集を行います。放射軸をダブルクリックして、<b>軸</b>ダイアログを開きます。<b>目盛ラベル</b>タブに移動します。キーボードで<b>Ctrl</b>キーを押しながら、左のパネルにある<b>放射軸 
+	 - 外部 1</b>と<b>放射軸 - 外部 2</b>の両方を選択します。右のパネルで<b>表示</b>タブを選んで、<b>タイプ</b>のドロップダウンリストから<b>主目盛ラベル用データセット</b>を選択し、<b>データセット名</b>のドロップダウンリストから<b>[Book2]Sheet2!A&quot;Latitude</b>を選びます。 
+	 <br />
+	<a class="image"><img alt="Polar Contour from XYZ data 07.png" src="../images/Polar_Contour/Polar_Contour_from_XYZ_data_07.png" 
+							 width="649" border="0" /></a> <br />
+	左パネルから<b>角度－外部</b>を選択します。右のパネルで<b>表示</b>タブを選んで、<b>タイプ</b>のドロップダウンリストから<b>主目盛ラベル用データセット</b>を選択し、<b>データセット名</b>のドロップダウンリストから<b>[Book2]Sheet2!B&quot;Longitude</b> 
+	 を選びます。 <br />
+	<a class="image"><img alt="Polar Contour from XYZ data 05.png" src="../images/Polar_Contour/Polar_Contour_from_XYZ_data_05.png" 
+							 width="649" border="0" /></a> </li>
+	<li><b><b>適用</b></b>ボタンをクリックします。<b>グリッド</b>タブの左パネルで<b><b>放射</b></b>が選択されていることを確認してください。以下の画像のようにダイアログボックスの設定を変更してください。<b><b>OK</b></b>をクリックして<b><b>軸</b></b>ダイアログを閉じます。 
+	 <br />
+	<a class="image"><img alt="Polar Contour from XYZ data 08.png" src="../images/Polar_Contour/Polar_Contour_from_XYZ_data_08.png" 
+							 width="649" border="0" /></a> </li>
+	<li><b>色スケール</b>上でダブルクリックして<b><b>色階調制御</b></b>ダイアログを開き、次のようにダイアログを設定します。 
+	 
+	<ul>
+		<li><b>ラベル</b>ページで、フォントサイズを<b>20</b>にします。</li>
+	</ul>
+	<dl>
+		<dd><a class="image"><img alt="Polar Contour from XYZ data 09.png" 
+									 src="../images/Polar_Contour/Polar_Contour_from_XYZ_data_09.png" 
+									 width="586" border="0" /></a></dd>
+	</dl>
+	<ul>
+		<li><b>レイアウト</b>ページで、<b>逆順</b>チェックボックスのチェックを外して、<b>色スケールの幅</b>を<b>100</b>に設定します。</li>
+	</ul>
+	<dl>
+		<dd><a class="image"><img alt="Polar Contour from XYZ data 10.png" 
+									 src="../images/Polar_Contour/Polar_Contour_from_XYZ_data_10.png" 
+									 width="586" border="0" /></a></dd>
+	</dl>
+	<ul>
+		<li><b><b>タイトル</b></b>ページで、タイトルに<i>(\+(o)F)</i>を入力します。<i>(<sup>o</sup>F)</i> 
+		 のように表示され、温度を表す単位(華氏)を示します。<b>位置</b>を<b>下</b>に設定します。</li>
+	</ul>
+	<dl>
+		<dd><a class="image"><img alt="Polar Contour from XYZ data 11.png" 
+									 src="../images/Polar_Contour/Polar_Contour_from_XYZ_data_11.png" 
+									 width="586" border="0" /></a></dd>
+	</dl>
+	<ul>
+		<li><b><b>軸と軸目盛</b></b>タブを開き、<b><b>右の軸と軸目盛を表示</b></b>と<b><b>境界を表示</b></b>のチェックを外します。<b>OK</b> 
+		 をクリックして設定を適用し、ダイアログを閉じます。</li>
+	</ul>
+	<dl>
+		<dd><a class="image"><img alt="Polar Contour from XYZ data 12.png" 
+									 src="../images/Polar_Contour/Polar_Contour_from_XYZ_data_12.png" 
+									 width="586" border="0" /></a></dd>
+	</dl>
+	<br />
+	<b>Note:</b><b><b>タイトル</b></b>で入力している文字は<i>(\+(o)F)</i>です。これは<i>(<sup>o</sup>F)</i> 
+	 のように表示され、温度を表す単位(華氏)を示します。 </li>
+	<li>グラフタイトルとして、<b>Temperature Contour Map</b>と、軸タイトル<b>Latitude</b>をグラフに追加します。グラフは次のようになります。 
+	 <br />
+	<a class="image"><img alt="Polar Contour from XYZ data 13.png" src="../images/Polar_Contour/Polar_Contour_from_XYZ_data_13.png" 
+							 width="544" border="0" /></a> </li>
+</ol>
+<h3><a name="Plot_Polar_Contour_from_Matrix_data"></a><span class="mw-headline">行列データで極座標等高線図を作成する</span></h3>
+<ol>
+	<li>(<b>ヘルプ: ラーニングセンター</b> メニューを選択、または キーボードの<b>F11</b> キーを押して、ラーニングセンターを開きます。<b>グラフサンプル</b>を選択し、カテゴリーのドロップダウンリストから<b>極座標グラフ</b>を選択します。グラフサンプルをダブルクリックして、「Polar 
+	 Chart - Polar Contour from Matrix」を開きます。<br />
+	<a class="image"><img alt="Polar Contour from Matrix 00.png" src="../images/Polar_Contour/Polar_Contour_from_Matrix_00.png" 
+							 width="852" border="0" /></a><br />
+	このチュートリアルは、チュートリアルデータプロジェクト<i>&lt;Origin EXE フォルダ&gt;\Samples\TutorialData.opj</i>の<i>Polar 
+	 Contour</i> フォルダと関連しています。 </li>
+	<li><i><i>MBook1</i></i> をアクティブにします。<b><b>作図：等高線図：θrz極座標等高線</b></b>と選択するか、<b>3<b>Dおよび等高線</b></b>ツールバーの<b><b>θrz極座標等高線θ(x) 
+	 r(y)</b></b>ボタンをクリックしてグラフを作成します。 <br />
+	<a class="image"><img alt="Polar Contour from Matrix 01.png" src="../images/Polar_Contour/Polar_Contour_from_Matrix_01.png" 
+							 width="424" border="0" /></a> <br />
+	</li>
+	<li>軸上でダブルクリックして、<b>軸</b>ダイアログを開き、このグラフの<b>放射軸</b>と<b>角度軸</b>を編集することができます。 
+	 
+	<ul>
+		<li><b>表示</b>タブに移動します。キーボードで<b>Ctrl</b>キーを押しながら、左のパネルにある<b>放射軸 
+		 - 外部 1</b>と<b>放射軸 - 外部 2</b>の両方を選択します。右のパネルの<b>表示</b>チェックボックスのチェックを外し、2つの軸を非表示にします。<b><b>適用</b></b>ボタンをクリックします。 
+		 
+		<dl>
+			<dd><a class="image"><img alt="Polar Contour from Matrix 02.png" 
+										 src="../images/Polar_Contour/Polar_Contour_from_Matrix_02.png" 
+										 width="432" border="0" /></a></dd>
+		</dl></li>
+		<li><b>放射軸の追加</b> ボタンをクリックすると、内部軸が追加されます。左パネルから<b>放射-内側1</b>を選びます。<b><b>角度</b></b>のドロップダウンリストから<b><b>終了角度</b></b>を選択し、<b><b>流れの方向</b></b>に<b><b>負</b></b>を選びます。 
+		 
+		<dl>
+			<dd><a class="image"><img alt="Polar Contour from Matrix 03.png" 
+										 src="../images/Polar_Contour/Polar_Contour_from_Matrix_03.png" 
+										 width="649" border="0" /></a></dd>
+		</dl></li>
+		<li>左パネルから<b>角度-外部</b>を選び、<b>軸の開始角度（度）</b>ボックスで-30と設定します。<b><b>OK</b></b>ボタンをクリックして設定を適用し、ダイアログを閉じます。 
+		 
+		<dl>
+			<dd><a class="image"><img alt="Polar Contour from Matrix 04.png" 
+										 src="../images/Polar_Contour/Polar_Contour_from_Matrix_04.png" 
+										 width="497" border="0" /></a></dd>
+		</dl></li>
+	</ul></li>
+	<li>等高線図上でクリックしてミニツールバーを開きます。レベルの設定ボタン<a class="image"><img alt="Popup Set Levels.png" 
+	 src="../images/Polar_Contour/Popup_Set_Levels.png" width="24" border="0" /></a>をクリックして、レベルの設定ダイアログを開き、次のように設定します。 
+	 <br />
+	<a class="image"><img alt="Polar Contour from Matrix 05.png" src="../images/Polar_Contour/Polar_Contour_from_Matrix_05.png" 
+							 width="629" border="0" /></a> </li>
+	<li>セクターの右の縁をクリックし、次のようにグラフレイヤを選択します。セクターをグラフウィンドウの中央までドラッグアンドドロップします。 
+	 <br />
+	<a class="image"><img alt="Polar Contour from Matrix 06.png" src="../images/Polar_Contour/Polar_Contour_from_Matrix_06.png" 
+							 width="377" border="0" /></a> </li>
+	<li><b>色スケール</b>をダブルクリックし、<b>色階調制御</b>ダイアログを開きます。 
+	<ul>
+		<li><b>レベル</b>ページで <b>両端のレベルを非表示にする</b>のチェックボックスにチェックを入れます。 
+		<dl>
+			<dd><a class="image"><img alt="Polar Contour from Matrix 08.png" 
+										 src="../images/Polar_Contour/Polar_Contour_from_Matrix_08.png" 
+										 width="586" border="0" /></a></dd>
+		</dl></li>
+		<li><b>レイアウト</b>ページで、<b>逆順</b>チェックボックスのチェックを外して、<b>色スケールの幅</b>を<b>400</b>に設定します。 
+		 
+		<dl>
+			<dd><a class="image"><img alt="Polar Contour from Matrix 09.png" 
+										 src="../images/Polar_Contour/Polar_Contour_from_Matrix_09.png" 
+										 width="623" border="0" /></a></dd>
+		</dl></li>
+		<li><b>タイトル</b>ページで<b>表示</b>チェックボックスのチェックを外します。 
+		<dl>
+			<dd><a class="image"><img alt="Polar Contour from Matrix 10.png" 
+										 src="../images/Polar_Contour/Polar_Contour_from_Matrix_10.png" 
+										 width="623" border="0" /></a></dd>
+		</dl></li>
+		<li><b><b>軸と軸目盛</b></b>タブを開き、<b><b>右の軸と軸目盛を表示</b></b>と<b><b>境界を表示</b></b>のチェックを外します。<b><b>OK</b></b>ボタンをクリックして設定を適用し、ダイアログを閉じます。 
+		 
+		<dl>
+			<dd><a class="image"><img alt="Polar Contour from Matrix 11.png" 
+										 src="../images/Polar_Contour/Polar_Contour_from_Matrix_11.png" 
+										 width="623" border="0" /></a></dd>
+		</dl></li>
+	</ul>
+	<br />
+	</li>
+	<li>カラースケールオブジェクトを選択し、アンカーポイントを使用することで垂直方向の大きさを調整します。最終的なグラフは下図のようになります。 
+	 <br />
+	<a class="image"><img alt="Polar Contour from Matrix 12.png" src="../images/Polar_Contour/Polar_Contour_from_Matrix_12.png" 
+							 width="518" border="0" /></a> </li>
+</ol>
+<table class="noborder">
+	<tr>
+		<td style="vertical-align: top;" width="60"><img src="../images/Polar_Contour/Tip_icon.png" 
+														 alt="" width="57" 
+														 border="0" /></td>
+		<td><p>行列データを利用した極座標等高線は行列グリッドまたは等高線の塗りつぶしをサポートしています。詳細は、こちらをご覧ください。 
+		 </p>
+		<ul>
+			<li><a class="external text" href="../../UserGuide/UserGuide/Polar_Contour_from_Matrix.html#Customizing_the_Graph">行列データで極座標等高線図を作成する</a></li>
+			<li><a class="external text" href="../../UserGuide/UserGuide/The_(Plot_Details)_Color_Map_Contours_Tab.html#Color_Fill_Control_Group">色塗りつぶし制御グループ</a></li>
+		</ul></td>
+	</tr>
+</table>

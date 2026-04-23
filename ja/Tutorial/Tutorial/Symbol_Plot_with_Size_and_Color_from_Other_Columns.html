@@ -1,0 +1,154 @@
+﻿<h1 class="firstheading">他の列からのカラーマップを使用したサイズ付き散布図</h1>
+<p><br />
+</p>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> 
+		 <span class="toctext">サマリー</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Steps_to_Construct_a_Symbol_Plot_with_Size_and_Colormap_from_Other_Columns"><span 
+		 class="tocnumber">3</span> <span class="toctext">他の列からのカラーマップを使用したサイズ付き散布図を作図する手順</span></a></li>
+		<li class="toclevel-1 tocsection-4"><a href="#Steps_to_Set_the_Colormap_and_Legend"><span 
+		 class="tocnumber">4</span> <span class="toctext">カラーマップと凡例を設定する手順</span></a></li>
+		<li class="toclevel-1 tocsection-5"><a href="#More_Customization_Steps"><span 
+		 class="tocnumber">5</span> <span class="toctext">グラフの編集</span></a></li>
+	</ol>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>このチュートリアルでは、シンボルに色とサイズをつけるために他の列を利用する散布図の作図方法を学習します。 </p>
+<p>このグラフは複数の列を基にした散布図に、他のデータ列から生成した色とサイズの違いを表示させます。このグラフには、ユーザ定義のカラーマップが適用されます。 
+ </p>
+<dl>
+	<dd><dl>
+		<dd><a class="image"><img alt="Symbol Plot with Size and Color 01.png" 
+									 src="../images/Symbol_Plot_with_Size_and_Color_from_Other_Columns/Symbol_Plot_with_Size_and_Color_01.png" 
+									 width="580" height="469" border="0" /></a></dd>
+	</dl></dd>
+</dl>
+<p class="version">必要なOriginのバージョン: 2016 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。 </p>
+<ul>
+	<li>ワークブック列の値を使用してシンボルのサイズと色をコントロールする</li>
+	<li>ユーザ定義のカラーマップを設定する</li>
+	<li>作図のグリッド線を編集する </li>
+</ul>
+<h2><a name="Steps_to_Construct_a_Symbol_Plot_with_Size_and_Colormap_from_Other_Columns"></a><span 
+	 class="mw-headline">他の列からのカラーマップを使用したサイズ付き散布図を作図する手順</span></h2>
+<p>このチュートリアルは、チュートリアルデータプロジェクト<i>&lt;Origin EXE フォルダ&gt;\Samples\TutorialData.opj</i>と関連しています。 
+ </p>
+<ol>
+	<li>チュートリアルデータプロジェクトを開き、<b><b>プロジェクトエクスプローラ</b></b>で<i>Symbol Plot 
+	 with Size and Color Mapping</i>フォルダを開きます。 </li>
+	<li>ワークブック内の最初のワークシートにある列Aと列Bを選択し、<b><b>作図：基本の2Dグラフ：散布図</b></b>と選択して散布図を作図します。 
+	 </li>
+	<li>グラフがアクティブな状態で<b><b>グラフ操作：レイヤ内容</b></b>と選択します。レイヤ内容というダイアログが開きます。左側パネルで<b>Y</b>, 
+	 <b>Y1</b>, <b>Y2</b>という ロングネームの列を全て選択して右側パネルに追加します。<b><b>非グループ化</b></b>ボタンをクリックしてグループ化を解きます。<b>OK</b>をクリックして、ダイアログを閉じます。列のロングネームの順番はそのままグラフの凡例に適用されます。グラフ操作：レイヤ内容ともう一度操作してダイアログを開き、右側パネル上部の上下矢印で順番を以下の図と同じになるように設定してください。繰り返しあるデータは<a 
+	 class="image"><img alt="Button Select To Left.png" src="../images/Symbol_Plot_with_Size_and_Color_from_Other_Columns/Button_Select_To_Left.png" 
+						 width="24" border="0" /></a>ボタンでリストから外します。 <br />
+	<a class="image"><img alt="SymbolandSize1v.png" src="../images/Symbol_Plot_with_Size_and_Color_from_Other_Columns/SymbolandSize1v.png" 
+							 width="842" border="0" /></a><br />
+	</li>
+	<li>散布図をダブルクリックして作図の詳細ダイアログを開きます。<b><b>シンボル</b></b>タブを開き、ひとつずつのプロットに対して以下の画像のように設定を行います。それぞれのプロットの設定が終わる度に<b><b>適用</b></b>ボタンを押してください。 
+	 </li>
+	<li>次の7つのステップはそれぞれのデータプロットのシンボル設定を表します。データプロット1の設定は以下の通りです。 <br />
+	<a class="image"><img alt="SymbolandSize2.png" src="../images/Symbol_Plot_with_Size_and_Color_from_Other_Columns/SymbolandSize2.png" 
+							 width="846" border="0" /></a><br />
+	</li>
+	<li>データプロット2の設定は以下の通りです。 <br />
+	<a class="image"><img alt="SymbolandSize3.png" src="../images/Symbol_Plot_with_Size_and_Color_from_Other_Columns/SymbolandSize3.png" 
+							 width="854" border="0" /></a><br />
+	</li>
+	<li>データプロット3の設定は以下の通りです。 <br />
+	<a class="image"><img alt="SymbolandSize4.png" src="../images/Symbol_Plot_with_Size_and_Color_from_Other_Columns/SymbolandSize4.png" 
+							 width="825" border="0" /></a><br />
+	</li>
+	<li>データプロット4の設定は以下の通りです。<br />
+	<a class="image"><img alt="SymbolandSize5.png" src="../images/Symbol_Plot_with_Size_and_Color_from_Other_Columns/SymbolandSize5.png" 
+							 width="776" border="0" /></a><br />
+	データプロット4にはラベルを追加します。 <br />
+	<a class="image"><img alt="SymbolandSize6.png" src="../images/Symbol_Plot_with_Size_and_Color_from_Other_Columns/SymbolandSize6.png" 
+							 width="927" border="0" /></a><br />
+	</li>
+	<li>データプロット5の設定は以下の通りです。<br />
+	<a class="image"><img alt="SymbolandSize7.png" src="../images/Symbol_Plot_with_Size_and_Color_from_Other_Columns/SymbolandSize7.png" 
+							 width="818" border="0" /></a><br />
+	データプロット5にはラベルを追加します。 <br />
+	<a class="image"><img alt="SymbolandSize8.png" src="../images/Symbol_Plot_with_Size_and_Color_from_Other_Columns/SymbolandSize8.png" 
+							 width="819" border="0" /></a><br />
+	</li>
+	<li>データプロット6と7のシンボル設定は凡例となります。 <br />
+	<a class="image"><img alt="SymbolandSize9.png" src="../images/Symbol_Plot_with_Size_and_Color_from_Other_Columns/SymbolandSize9.png" 
+							 width="826" border="0" /></a><br />
+	<br />
+	<a class="image"><img alt="SymbolandSize10.png" src="../images/Symbol_Plot_with_Size_and_Color_from_Other_Columns/SymbolandSize10.png" 
+							 width="821" border="0" /></a><br />
+	</li>
+	<li>そして <b>OK</b> ボタンをクリックして、ダイアログを閉じます。X軸をダブルクリックして軸ダイアログを開きます。<b>水平</b>と<b>垂直</b>の両方のアイコンで、開始に-50、終了に50の値を入力します。主目盛と副目盛の設定もそろえます。<br />
+	<a class="image"><img alt="SymbolandSize10-t.png" src="../images/Symbol_Plot_with_Size_and_Color_from_Other_Columns/SymbolandSize10-t.png" 
+							 width="560" border="0" /></a><br />
+	続けて<b>OK</b>をクリックして適用します。グラフは次のようになります： このようなグラフになります。</li>
+	<p><br />
+	<a class="image"><img alt="SymbolandSize11.png" src="../images/Symbol_Plot_with_Size_and_Color_from_Other_Columns/SymbolandSize11.png" 
+							 width="472" border="0" /></a><br />
+	</p>
+</ol>
+<h2><a name="Steps_to_Set_the_Colormap_and_Legend"></a><span class="mw-headline">カラーマップと凡例を設定する手順</span></h2>
+<ol>
+	<li>post-Electrical Openとpre-Electrical Openの境界の色はどちらもMap:Col(C)を使用しました。作図の詳細を開き、スタイルの設定について、<b><b>カラーマップ</b></b>タブで詳しく設定します。<b><b>レベル</b></b>ヘッダをクリックし、<b><b>レベルの設定</b></b>ダイアログを開きます、レベルの開始を0、終了を155に設定し、主レベルを5に設定します。 
+	 <br />
+	<a class="image"><img alt="Setlevels.png" src="../images/Symbol_Plot_with_Size_and_Color_from_Other_Columns/Setlevels.png" 
+							 width="452" border="0" /></a> </li>
+	<li>それぞれのレベルをダブルクリックして値を編集します。不要なレベルは削除してください。同じように色塗りもひとつずつ編集します。<br />
+	<a class="image"><img alt="SymbolandSize13.png" src="../images/Symbol_Plot_with_Size_and_Color_from_Other_Columns/SymbolandSize13.png" 
+							 width="928" border="0" /></a><br />
+	この色の設定を適用をクリックしてpost-Electrical Open散布図に適用します。 </li>
+	<li>この設定をテーマ、mycolor.othとして保存します。 このテーマは次にpost-Electrical Open 散布図に適用されます。 
+	 <br />
+	<a class="image"><img alt="SymbolandSize14.png" src="../images/Symbol_Plot_with_Size_and_Color_from_Other_Columns/SymbolandSize14.png" 
+							 width="906" border="0" /></a><br />
+	テーマをpre-Electrical Open散布図に適用します。 <br />
+	<a class="image"><img alt="SymbolandSize15.png" src="../images/Symbol_Plot_with_Size_and_Color_from_Other_Columns/SymbolandSize15.png" 
+							 width="991" border="0" /></a><br />
+	OK をクリックして、ウィンドウを閉じます。 </li>
+	<li>メインメニューで<b><b>グラフ操作：凡例：データプロット</b></b>と操作して凡例をグラフに表示します。凡例を右クリックして<b>プロパティ</b>を選択し、オブジェクトプロパティダイアログの内容を下図のように変更してOKをクリックします。 
+	 <br />
+	<a class="image"><img alt="SymbolandSize16.png" src="../images/Symbol_Plot_with_Size_and_Color_from_Other_Columns/SymbolandSize16.png" 
+							 width="587" border="0" /></a><br />
+	</li>
+	<li>メインメニューで<b><b>挿入：新規の色スケール</b></b>と操作して色スケールをグラフに表示します。 </li>
+</ol>
+<h2><a name="More_Customization_Steps"></a><span class="mw-headline">グラフの編集</span></h2>
+<ol>
+	<li>メインメニューで<b><b>フォーマット：作図の詳細（レイヤ属性）</b></b>と操作して<b><b>作図の詳細</b></b>ダイアログを開きます。<b><b>レイヤの大きさ</b></b><b>タブ</b>を開き、レイヤ領域を次の図のように設定します。 
+	 <br />
+	<a class="image"><img alt="SymbolandSize17.png" src="../images/Symbol_Plot_with_Size_and_Color_from_Other_Columns/SymbolandSize17.png" 
+							 width="465" border="0" /></a><br />
+	</li>
+	<li><b><b>作図の詳細</b></b>ダイアログで<b><b>レイヤ表示方法</b></b>タブを開き、<b><b>余白による切り取り(%)</b></b>を-2%に設定してOKをクリックし、ダイアログを閉じます。 
+	 <br />
+	<a class="image"><img alt="SymbolandSize18.png" src="../images/Symbol_Plot_with_Size_and_Color_from_Other_Columns/SymbolandSize18.png" 
+							 width="445" border="0" /></a><br />
+	</li>
+	<li>先ほど作成した凡例をコピーし、グラフに貼り付けてもうひとつ凡例を準備します。凡例の内容は以下のようにします。<br />
+	<a class="image"><img alt="SymbolandSize19.png" src="../images/Symbol_Plot_with_Size_and_Color_from_Other_Columns/SymbolandSize19.png" 
+							 width="587" border="0" /></a><br />
+	OKをクリックしてダイアログを閉じます。 </li>
+	<li>色スケールをダブルクリックして<b><b>色スケール制御</b></b>ダイアログを開きます。<b><b>レベル</b></b>を選択して<b><b>両端のレベルを非表示にする</b></b>を選択します。次に<b><b>ラベル</b></b>を選択し、<b><b>表示</b></b>ノードを次のように設定します。<br />
+	<a class="image"><img alt="SymbolandSize20.png" src="../images/Symbol_Plot_with_Size_and_Color_from_Other_Columns/SymbolandSize20.png" 
+							 width="606" border="0" /></a><br />
+	<b>タイトル</b>タブでカラースケールに<i>Elapsed Time</i>というタイトルを追加し、OKをクリックして適用します。 
+	 </li>
+	<li>軸をダブルクリックして、<b><b>軸</b></b>ダイアログを開きます。<b><b>グリッド線</b></b>タブを開き、垂直と水平、両方について、以下のように設定します。<br />
+	<a class="image"><img alt="SymbolandSize21.png" src="../images/Symbol_Plot_with_Size_and_Color_from_Other_Columns/SymbolandSize21.png" 
+							 width="560" border="0" /></a><br />
+	OKをクリックして設定を適用し、ダイアログを閉じます。 </li>
+	<li>最後に、<b><b>プロット操作・オブジェクト制御</b></b>ツールバーの<b><b>テキストツール</b></b><a 
+	 class="image"><img alt="Button Text Tool.png" src="../images/Symbol_Plot_with_Size_and_Color_from_Other_Columns/Button_Text_Tool.png" 
+						 width="23" border="0" /></a>を使い、「<i>symbol size 
+	 is relative to event energy</i>」と追加します。 </li>
+</ol>

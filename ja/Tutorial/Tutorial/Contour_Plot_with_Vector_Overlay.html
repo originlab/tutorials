@@ -1,0 +1,139 @@
+﻿<h1 class="firstheading">等高線図にベクトルグラフを重ねる</h1><p class='urlname' style='display: none'>Contour-Overlay-Vector</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span><span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Create_the_Contour_Graph"><span class="tocnumber">3.1</span> <span class="toctext">等高線図の作成</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Create_the_XYAM_Vector_Graph"><span class="tocnumber">3.2</span> <span class="toctext">XYAM型のベクトルグラフの作成</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Merge_the_Two_Graphs"><span class="tocnumber">3.3</span> <span class="toctext">2つのグラフを統合</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Contour_Plot_with_Vector_Overlay/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Contour_Plot_with_Vector_Overlay/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=33" target="_blank">Contour Plots and Color Mapping</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=280" target="_blank">Contour Levels</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=346" target="_blank">Merge 2D and 3D Graphs into one Window</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=279" target="_blank">Plot 3D or Contour Graph from Virtual Matrix</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=190" target="_blank">4D XYZ Plot With Custom Boundary</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Contour_Plot_with_Vector_Overlay/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Contour_Plot_with_Vector_Overlay/Blog_Image_33x33px.png" width="135"  /></a>
+<ul><li> <a class="external text" href="http://blog.originlab.com/xyz-contour-plot-with-colormap-from-second-z-and-custom-boundary" target="_blank">XYZ Contour plot with colormap from second Z and custom boundary</a></li>
+<li> <a class="external text" href="http://blog.originlab.com/how-to-make-a-contour-plot-of-difference-of-two-contours" target="_blank">How to make a contour plot of the difference between two contours</a></li>
+<li> <a class="external text" href="http://blog.originlab.com/streamline-vector-plot" target="_blank">Streamline Vector Plot</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>このチュートルアルでは、等高線図にベクトルグラフを重ねる方法を紹介します。 
+</p>
+<dl><dd><a  class="image"><img alt="Contour with Vector 01.png" src="../images/Contour_Plot_with_Vector_Overlay/Contour_with_Vector_01.png" width="452"  /></a></dd></dl>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。
+</p>
+<ul><li>等高線図を作成し、その色スケールを編集する</li>
+<li>XYAM型のベクトルグラフを作成する</li>
+<li>2つのグラフを統合</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>このチュートリアルは、チュートリアルデータプロジェクト（<i><i>&lt;Origin EXE フォルダ&gt;\Samples\TutorialData.opj</i></i>）と関連しています。
+<br />
+また、ラーニングセンターからこのグラフを呼び出すことができます。(<b>ヘルプ: ラーニングセンター</b> メニューを選択、または キーボードの<b>F11</b> キーを押して、<b>グラフサンプル：極座標グラフ：Polar Charts-Polar Contour from Matrix</b>を選択します)
+</p>
+<h3><a name="Create_the_Contour_Graph"></a><span class="mw-headline">等高線図の作成</span></h3>
+<ol>
+<li><b>TutorialData.opj </b>を開き、<b>プロジェクトエクスプローラ</b>で<b>Contour Plot with Vector Overlay</b>  フォルダを開きます。
+</li>
+<li><b>W147</b>行列をアクティブにして、メニューから<b>作図：等高線図：カラーマップ等高線</b>を選択して作図します。次のグラフが作成されます。<br /> 
+<a  class="image"><img alt="Contour with Vector 02.png" src="../images/Contour_Plot_with_Vector_Overlay/Contour_with_Vector_02.png" width="394"  /></a> 
+</li>
+<li>プロット上でクリックしてミニツールバーを開き、<b>レベルの設定</b>ボタンをクリックして、<b>レベルの設定</b>ダイアログを開きます。そして次のようにレベルを設定します。 <br />
+<ul><li><dl><dd><a  class="image"><img alt="Contour with Vector 03.png" src="../images/Contour_Plot_with_Vector_Overlay/Contour_with_Vector_03.png" width="533"  /></a> </dd></dl></li>
+<li>OK ボタンをクリックします。プロットを再度クリックして、ミニツールバーで<b>パレット</b>ボタンをクリックし、リストから<b>Temperature</b>を選択します。 
+<dl><dd><a  class="image"><img alt="Contour with Vector 03a.png" src="../images/Contour_Plot_with_Vector_Overlay/Contour_with_Vector_03a.png" width="587"  /></a> </dd></dl></li>
+<li>プロットを再度クリックして、ミニツールバーで<b>等高線の種類</b>ボタンンをクリックし、リストから<b>等高線なしのカラースケール</b>を選択します。
+<dl><dd><a  class="image"><img alt="Contour with Vector 03b.png" src="../images/Contour_Plot_with_Vector_Overlay/Contour_with_Vector_03b.png" width="459"  /></a> </dd></dl></li></ul>
+</li>
+<li><a href="#Merge_the_Two_Graphs">3番目のセクション<b>2つのグラフを統合</b></a>の準備をしましょう。まず、X 軸をクリックしてミニツールバーを開き、<b>目盛ラベルを表示</b>ボタンをクリックしてラベルを非表示にします。次に、ミニツールバーの<b>目盛のスタイル</b>ボタンをクリックしてリストから<b>なし</b>を選択します。<br />
+<a  class="image"><img alt="Contour with Vector 05.png" src="../images/Contour_Plot_with_Vector_Overlay/Contour_with_Vector_05.png" width="477"  /></a><br />
+XとY軸タイトルを削除します。</li> 
+<li>色スケールを編集するには、色スケールをダブルクリックし、<b>色スケール制御</b>ダイアログを開きます。次の設定を行います。<br />
+<ul>
+<li><b>ラベル</b>ノードでは、次の設定を行います。 
+<ul>
+<li>表示の項目にある、<b>自動</b>のチェックを外し、<b>カスタムフォーマット</b>を<b>*1</b>にします。
+<li><b>フォントサイズ</b>を<b>22</b>にします。 <br />
+</li>
+</ul>
+</li>
+<li><b>レイアウト</b>ページでは、
+<ul>
+<li><b>背景</b>ドロップダウンリストから<b>枠線</b>を選択します。
+<li><b>カラーバーの太さ</b>を<b>100</b>にします。<br />
+</li>
+</ul>
+</li>
+<li><b>タイトル</b> ページで、<b>タイトル</b>ボックスに<i>w(ms\+(-1))</i> を入力して、フォントサイズを26にします。<br />
+</li>
+<li><b><b>軸と軸目盛</b></b>タブを開き、<b><b>右の軸と軸目盛を表示</b></b>と<b><b>境界を表示</b></b>のチェックを外します。<br />
+</li>
+<p><a  class="image"><img alt="Contour with Vector 06.png" src="../images/Contour_Plot_with_Vector_Overlay/Contour_with_Vector_06.png" width="750"  /></a> 
+</p>
+<li><b>OK</b>をクリックし、色スケールをクリック＆ドラッグで希望の位置に移動します（例ではグラフの右側です）。<br />
+</li>
+</li>
+</ul>
+<li>ここまでの操作で等高線は以下のようになります。<br />
+<a  class="image"><img alt="Contour with Vector 07.png" src="../images/Contour_Plot_with_Vector_Overlay/Contour_with_Vector_07.png" width="400"  /></a> 
+</ol>
+<h3><a name="Create_the_XYAM_Vector_Graph"></a><span class="mw-headline">XYAM型のベクトルグラフを作成する</span></h3>
+<ol>
+<li>
+<b>WOR81147</b>ワークシートを選択し、最後の3列を選択してメニューから<b>作図：特殊グラフ：XYAM型ベクトル</b>と選びます。 
+<li>ベクトルをダブルクリックし、<b>作図の詳細</b>ダイアログの<b>ベクトル</b>タブを開きます。次の設定を使います： <br /> <a  class="image"><img alt="Contour with Vector 08.png" src="../images/Contour_Plot_with_Vector_Overlay/Contour_with_Vector_08.png" width="596"  /></a> <br />  <b>OK</b>をクリックします。
+</li>
+<li>軸のスケールを更新するには、<b>フォーマット：軸スケール：X軸</b>と操作してダイアログを開き、編集を加えます。
+<ul>
+<li><b>スケール</b>タブで、<b>開始＝1</b>、<b>終了＝10</b>、<b>増分</b>の<b>値＝2</b>にします。<br /> 
+<a  class="image"><img alt="Contour with Vector 09.png" src="../images/Contour_Plot_with_Vector_Overlay/Contour_with_Vector_09.png" width="528"  /></a> </li>
+<li><b>軸</b>ダイアログの<b>スケール</b>タブを開いてから、左側パネルで<b>垂直</b>アイコンをクリックします。Y軸スケールを<b>開始＝5</b>、<b>終了＝95</b>、<b>増分の値＝10</b>に設定します。 </li>
+<li><b>軸</b>ダイアログで<b><b>軸と軸目盛</b>タブ</b>を開きます。<b>Ctrl</b>キーを押しながら左側パネルで<b>上</b>と<b>右</b>を選択します。<b>軸と軸目盛の表示</b>のチェックをつけて<b>主目盛</b>と<b>副目盛</b>の<b>スタイル</b>を<b>内側</b>にします。これで、上X軸と右Y軸が表示されます。<br />
+<a  class="image"><img alt="Contour with Vector 13.png" src="../images/Contour_Plot_with_Vector_Overlay/Contour_with_Vector_13.png" width="637"  /></a> </li>
+<li><b><b>OK</b></b>をクリックします。 
+</ul></ul> 
+</li>
+<li>この時点でレイヤフレームからベクトルがはみ出している事が分かります。レイヤ枠内に表示されているか確認します。<b>フォーマット：レイヤ</b> を選択し、<b>レイヤ表示方法・描画スピード</b> タブで<b>枠でデータを切り取る</b> にチェックを入れます。<b><b>OK</b></b>をクリックします。<br />
+<a  class="image"><img alt="Contour with Vector 10.png" src="../images/Contour_Plot_with_Vector_Overlay/Contour_with_Vector_10.png" width="580"  /></a>
+</li>
+<li>ベクトルグラフの凡例で右クリックし、コンテキストメニューから<b>プロパティ</b>を選択してダイアログを開きます。ダイアログを以下のように設定します。 <br />
+<a  class="image"><img alt="Contour with Vector 11.png" src="../images/Contour_Plot_with_Vector_Overlay/Contour_with_Vector_11.png" width="643"  /></a> <br />
+<a  class="image"><img alt="Contour with Vector 11-b.png" src="../images/Contour_Plot_with_Vector_Overlay/Contour_with_Vector_11-b.png" width="643"  /></a> 
+</li>
+</ol>
+<h3><a name="Merge_the_Two_Graphs"></a><span class="mw-headline">2つのグラフを統合</span></h3>
+<p>上述の手順で等高線図とベクトルグラフを作成できました。これら、2つを統合します。
+</p>
+<ol>
+<li>作成した等高線図とベクトルグラフ以外のグラフは<b>最小化</b>または<b>非表示</b>にしてください。この2つの内1つのグラフがアクティブな状態で、メインメニューから<b>グラフ操作：グラフウィンドウの統合</b>を選択します。 
+<li><b>merge_graph</b>ダイアログでは次のように詳細を設定します。
+<ul>
+<li><b>配置の設定</b>ノードを開いて<b>行の数</b>を<b>1</b>にします。 
+<li><b>間隔（ページサイズの％）</b>ノードを展開し、<b>右端余白</b>テキストボックスに「25」を入力して色スケールを等高線の余白に表示出来るようにします。<b><b>OK</b></b>をクリックします。<br />
+<a  class="image"><img alt="Contour with Vector 12.png" src="../images/Contour_Plot_with_Vector_Overlay/650px-Contour_with_Vector_12.png" width="752"   /></a> 
+</li>
+</ul>
+<li>全てのオブジェクトでフォントを<b>Verdana</b>に設定するには、次のようにします。
+<ul><li>各オブジェクトを1つずつ設定する方法では、オブジェクトを選択して<b><b>書式</b></b> ツールバーの<b><b>フォント</b></b>ボタンで<a  class="image"><img alt="Button Font.png" src="../images/Contour_Plot_with_Vector_Overlay/Button_Font.png" width="125"  /></a>で、 <b>Verdana</b>を選びます。<br /></li></ul>
+<i>または、</i><br />
+<ul><li><a class="external text" href="../../UserGuide/UserGuide/Theme_Organizer.html">テーマオーガナイザ</a>を使い、現在のフォントテーマを作成して適用します。</li></ul>
+</li>
+<li>最終的なグラフはこのようになります。 <br /><a  class="image"><img alt="Contour with Vector 01.png" src="../images/Contour_Plot_with_Vector_Overlay/Contour_with_Vector_01.png" width="452"  /></a>
+</ol>
+
+
+
+
+    

@@ -1,0 +1,77 @@
+﻿<h1 class="firstheading">二元配置混合計画分散分析</h1><p class='urlname' style='display: none'>2Way-Mixed-Design-ANOVA</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#User_Story"><span class="tocnumber">3</span> <span class="toctext">ユーザストーリー</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Preparing_Analysis_Data"><span class="tocnumber">4</span> <span class="toctext">分析データの準備</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Performing_Two-Way_Mixed-Design_ANOVA"><span class="tocnumber">5</span> <span class="toctext">二元配置混合分析の実行</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Interpreting_the_Results"><span class="tocnumber">6</span> <span class="toctext">結果の解釈</span></a></li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>二元配置混合分散分析は、二元配置の分割法(SPANOVA)としても知られています。繰り返し測定のある1つの因子とグループ間因子のANOVAです。
+</p>
+<p class="version" >必要なOriginのバージョン: OriginPro 2016 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。
+</p>
+<ul><li>二元配置混合分析の実行</li>
+<li>繰り返しのある二元配置混合分析の結果を解釈する</li></ul>
+<h2><a name="User_Story"></a><span class="mw-headline">ユーザストーリー</span></h2>
+<p>研究者はある処置が人々の減量の助けになっているかどうかを知りたい。48人（24人は男性）の被験者がこの実験に参加しています。処置プログラムの期間、3か月ごとに彼らの体重を研究者は記録していきます。
+</p>
+<h2><a name="Preparing_Analysis_Data"></a><span class="mw-headline">分析データの準備</span></h2>
+<p>二元配置の混合分散分析ANOVAを実施するには、次のようにデータを準備する必要があります。
+</p>
+<dl><dd><a  class="image"><img alt="Mixed design anova 1.png" src="../images/Two_Way_Mixed_Design_ANOVA/400px-Mixed_design_anova_1.png" width="400"   /></a></dd></dl>
+<table class="note">
+<tr>
+<td><b>Notes:</b> 二元配置混合分析を実行するために、、データはインデックスモードに編集することも出来ます。このチュートリアルのデータをインデックスモードについては、次のサンプルデータを参照します。 \Samples\Statistics\ANOVA\two-way rm ANOVA1_indexed.dat,
+</td></tr></table>
+<h2><a name="Performing_Two-Way_Mixed-Design_ANOVA"></a><span class="mw-headline">二元配置混合分析の実行</span></h2>
+<ol><li> 新しいプロジェクトまたは新しいワークブックを開きます。データファイル<i>\Samples\Statistics\ANOVA\two-way rm ANOVA1_raw.dat</i>をインポートします。</li>
+<li> メニューから、<b>統計: ANOVA: 二元配置(繰り返し測定)</b>を選択します。</li>
+<li> 開いたダイアログの「<b>入力</b>」タブで、 
+<ul><li> <b>入力データ</b>を<b>素データ値</b>に設定し、</li>
+<li> <b>因子A</b>のブランチを開き、<b>名前</b>を<b>Weight</b>に変え、<b>レベルの数</b>を3に設定します。<b>因子B</b>のブランチを開き、<b>名前</b>を<b>Gender</b>に変え、<b>繰り返し</b>からチェックを外します。</li>
+<li> <b>データ</b>のブランチで、<b>C</b>, <b>D</b>列と<b>E</b>列を<b>Weight Level1</b>, <b>Weight Level2</b> 及び <b>Weight Level3</b>にそれぞれ設定し、<b>B</b>列は<b>Gender</b>に設定します。</li>
+<li> <b>相互作用</b>のボックスにチェックを入れます。</li></ul>
+<dl><dd> <a  class="image"><img alt="Mixed design anova 2.png" src="../images/Two_Way_Mixed_Design_ANOVA/800px-Mixed_design_anova_2.png" width="1101"   /></a></dd></dl></li>
+<li> <b>記述統計</b>タブを選択し、全てのボックスにチェックを入れます。
+<dl><dd><a  class="image"><img alt="Mixed design anova 3.png" src="../images/Two_Way_Mixed_Design_ANOVA/Mixed_design_anova_3.png" width="326"  /></a></dd></dl></li>
+<li> <b><b>平均比較</b></b>のタブを開いて、<b>Bonferroni</b> のチェックボックスにチェックを入れます。 
+<dl><dd> <a  class="image"><img alt="Mixed design anova 4.png" src="../images/Two_Way_Mixed_Design_ANOVA/Mixed_design_anova_4.png" width="326"  /></a></dd></dl></li>
+<li> <b>OK</b> ボタンをクリックして、分析を実行します。</li></ol>
+<h2><a name="Interpreting_the_Results"></a><span class="mw-headline">結果の解釈</span></h2>
+<p><b>ANOVATwoWayRM1</b>ワークシートを開き、分析結果の表を開きます。
+</p><p>繰り返しのある二元配置ANOVAの結果の読み取りについての詳細は、<a class="external text" href="../../UserGuide/UserGuide/Interpreting_Results_of_Repeated_Measures_ANOVA.html">結果の解釈のヘルプページ</a>を参照してください。
+. 
+</p>
+<ol><li> <b>Mauchlyの球面性検定</b>の欄から、<b>Prob&gt;カイ二乗</b>(0.01258) &lt; 0.05を確認出来ます。繰り返し測定変数、<b>Weight</b>は、球面性の過程を満たしています。<b>Greenhouse-Geisser</b> 補正なども考慮する必要があります。Epsilonが0.75より大きい場合は、次のステップ2にある、Huynh and Feldt 補正に着目します。
+<dl><dd> <a  class="image"><img alt="Mixed design anova 6.png" src="../images/Two_Way_Mixed_Design_ANOVA/700px-Mixed_design_anova_6.png" width="781"   /></a></dd></dl></li>
+<li> <b><b>被験者内要因の検定</b></b>の欄を見ると、 
+<ul><li> <b>Weight</b>の項目で、<b>確率&gt;F</b>列のp値はほぼ 0です。これは、体重は常に変動する有意に影響していることを示しています。</li>
+<li> <b>Weight*Gender</b>が明らかに異なる場合(p_value = 0.14025)、<b>Weight*Gender</b>は明らかに有意に影響していないと結論づけられます。</li></ul>
+<dl><dd><a  class="image"><img alt="Mixed design anova 7.png" src="../images/Two_Way_Mixed_Design_ANOVA/650px-Mixed_design_anova_7.png" width="531"   /></a></dd></dl></li>
+<li> 処置を行っている間に、体重がどのように変化しているかをさらに調査することが出来ます。<b>Weight</b> ブランチを広げ、表からわかることは、
+<ul><li> <b>記述統計</b>の欄から、体重が減少していることが分かります。</li>
+<li> <b>対比較</b>の欄にある<b><b>有意義フラグ</b></b>列の<b>1</b> は、対になっているグループが有意に異なることを示しています。体重が有意に減少していると結論づけることが出来ます。</li></ul>
+<dl><dd><a  class="image"><img alt="Mixed design anova 9.png" src="../images/Two_Way_Mixed_Design_ANOVA/800px-Mixed_design_anova_9.png" width="843"   /></a></dd></dl></li>
+<li> <b>被験者間要因の検定</b>の欄で、<b>Gender</b>が影響しており、男性と女性では有意に異なることが分かります。
+<dl><dd><a  class="image"><img alt="Mixed design anova 8.png" src="../images/Two_Way_Mixed_Design_ANOVA/Mixed_design_anova_8.png" width="385"  /></a></dd></dl></li>
+<li> <b>Gender</b>ブランチを見て、次の詳細を確認します。 
+<ul><li> ここには、2つのレベルの性別が存在しており、違いも分かっているので、<b><b>対比較</b></b>の欄を確認する必要はありません。 </li>
+<li> <b><b>記述統計</b></b>の欄で、男性の平均体重のほうが女性の体重より重いことが分かります。</li></ul>
+<dl><dd><a  class="image"><img alt="Mixed design anova 10.png" src="../images/Two_Way_Mixed_Design_ANOVA/350px-Mixed_design_anova_10.png" width="359"   /></a></dd></dl></li></ol>
+<table class="note">
+<tr>
+<td><b>Notes</b>：球面性の過程の深刻な違反は無いので、<b>多変量検定</b>の欄は無視することが出来ます。詳細は<a class="external text" href="../../UserGuide/UserGuide/Interpreting_Results_of_Repeated_Measures_ANOVA.html#Multivariate_Tests">結果の解釈のヘルプページ</a>をご覧ください。
+</td></tr></table>
+
+
+
+
+    

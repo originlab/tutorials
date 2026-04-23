@@ -1,0 +1,265 @@
+﻿<h1 class="firstheading">NAGライブラリを使ってパラメータ制限がある積分関数をフィットする</h1>
+<a name="Summary" id="Summary"></a> 
+<h2><span class="mw-headline">サマリー</span></h2>
+<p>このチュートリアルを始める前に、<a href="../../Tutorial/Tutorial/Fitting_with_Integral_using_NAG_Library.html" 
+						 title="チュートリアル:NAGライブラリを使った積分フィット">NAGライブラリを使った積分フィット</a>を読むことをお薦めします。そして、プログラミングに関する部分については、2つのチュートリアルは基本的に同じで、異なる点は、ここでは積分制限を持つフィットパラメータでのOrigin 
+ Cのフィット関数を定義することを学びますが、前のチュートリアルでは、積分制限での独立変数を定義します。また、ここでは<b>別のNAG積分関数</b>が使われています。</p>
+<p class="version">必要なOriginのバージョン:8.0 SR6</p>
+<a name="What_you_will_learn" id="What_you_will_learn"></a> 
+<h2><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。</p>
+<ul>
+	<li>NAGの積分ルーチンを使って、定積分でのフィット関数を作成します。</li>
+	<li>パラメータの積分制限を持つフィット関数を作成します。</li>
+	<li>log関数を使って、フィット関数から大きな戻り値のスケールに合わせます。</li>
+</ul>
+<a name="Example_and_Steps" id="Example_and_Steps"></a> 
+<h2><span class="mw-headline">サンプルとステップ</span></h2>
+<p>例えば、次のモデルを使って、このページの一番下にある<a href="#Sample_Data" title="">サンプルデータ</a> 
+ をフィットしましょう。</p>
+<dl>
+	<dd><img class="tex" alt="y=\int_{c}^{d} \frac { \cosh { ((x_i + b^2 \cdot x^2) /(b + x))}}{a+(x_i^2+x^2)}\, dx_i" 
+			 src="../images/Fitting_Integral_Function_with_parametric_limit_using_NAG_Library/math-c57a9cb3da04ebbb99d6869533f7e1ae.png" 
+			 width="285" height="42" border="0" /></dd>
+</dl>
+<p><img class="tex" alt="x_i \," src="../images/Fitting_Integral_Function_with_parametric_limit_using_NAG_Library/math-0877ed54238aefb676d353b0f3eb6615.png" 
+		 width="14" height="10" border="0" /> を使って積分の独立変数を示していますが、 <img 
+	 class="tex" alt="x \," src="../images/Fitting_Integral_Function_with_parametric_limit_using_NAG_Library/math-ba169516a48bea9e759c9586b827d9ff.png" 
+	 width="9" height="7" border="0" /> はフィッティングの独立変数を示していることに注意して下さい。モデルのパラメータ<img 
+	 class="tex" alt="x \," src="../images/Fitting_Integral_Function_with_parametric_limit_using_NAG_Library/math-0cc175b9c0f1b6a831c399e269772661.png" 
+	 width="9" height="7" border="0" />, <img class="tex" alt="x \," src="../images/Fitting_Integral_Function_with_parametric_limit_using_NAG_Library/math-92eb5ffee6ae2fec3ad71c777531578f.png" 
+												 width="7" height="11" 
+												 border="0" />, <img class="tex" 
+	 alt="x \," src="../images/Fitting_Integral_Function_with_parametric_limit_using_NAG_Library/math-4a8a08f09d37b73795649038408b5f33.png" 
+	 width="8" height="7" border="0" />, <img class="tex" alt="x \," src="../images/Fitting_Integral_Function_with_parametric_limit_using_NAG_Library/math-8277e0910d750195b448797616e091ad.png" 
+												 width="9" height="11" 
+												 border="0" /> は、サンプルデータから取得したいフィットパラメータです。データを準備するには、サンプルデータをOriginのワークシートにコピーする必要があります。フィットの手順は、前のチュートリアルと同じように行います。</p>
+<a name="Define_Fitting_Function_in_Fitting_Function_Organizer" id="Define_Fitting_Function_in_Fitting_Function_Organizer"></a> 
+ 
+<h3><span class="mw-headline">フィット関数オーガナイザでフィット関数を定義する</span></h3>
+<p><b style="font-weight: bold;">F9</b> を押して、フィット関数オーガナイザを開き、最初のチュートリアルと同様に、ユーザ定義の積分フィット関数 
+ <b><i>nag_integration_fitting_cosh</i></b> をカテゴリー<i><b>FittingWithIntegral</b></i> 
+ に追加します。</p>
+<dl>
+	<dd><table class="blank">
+		<tr>
+			<th width="150">&#160;</th>
+			<th>&#160;</th>
+		</tr>
+		<tr>
+			<td><b style="font-weight: bold;">関数名：</b></td>
+			<td>nag_integration_fitting_cosh</td>
+		</tr>
+		<tr>
+			<td><b style="font-weight: bold;">実現方式：</b></td>
+			<td>ユーザ定義</td>
+		</tr>
+		<tr>
+			<td><b style="font-weight: bold;">独立変数：</b></td>
+			<td>x</td>
+		</tr>
+		<tr>
+			<td><b style="font-weight: bold;">従属変数：</b></td>
+			<td>y</td>
+		</tr>
+		<tr>
+			<td><b style="font-weight: bold;">パラメータの名前：</b></td>
+			<td>a, b, c, d</td>
+		</tr>
+		<tr>
+			<td><b style="font-weight: bold;">定義形式：</b></td>
+			<td><font color="#0000FF">Origin C</font></td>
+		</tr>
+		<tr>
+			<td><b style="font-weight: bold;">関数：</b></td>
+			<td>&#160;</td>
+		</tr>
+	</table></dd>
+</dl>
+<p>「<b>関数</b>」ボックスの近くにあるボタン(アイコン)をクリックしてコードビルダを開き、次のようにフィット関数を定義して、コンパイルします。（<font 
+	 color="#FF0000">Note:</font>コンパイル後に関数を保存して関数オーガナイザダイアログに戻る事を忘れないでください。）</p>
+<pre class="oc">
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>origin.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span><span style="color: #008000;">
+// ここにincludeファイルを追加します。</span><span style="color: #008000;">
+// 例えば、NAGライブラリからの関数でフィットする場合、</span><span style="color: #008000;">
+// ここにNAG関数のヘッダファイルを追加します。</span><span style="color: #0000ff;">
+#include</span> <span style="color: #000080;">&lt;</span>oc_nag8.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+&#160;
+&#160;<span style="color: #008000;">
+// このファイルに定義したい他のOrigin C関数に対するコードをここに追加し、</span><span style="color: #008000;">
+// フィット関数でアクセスできるようにします。</span><span style="color: #0000ff;">
+struct</span> user<span style="color: #000000;">
+{</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #0000ff;">double</span> a, b, fitX; &#160;<span style="color: #008000;">// fitX はフィット関数の独立変数です。</span>
+&#160;<span style="color: #000000;">
+}</span>;<span style="color: #0000ff;">
+static</span> <span style="color: #0000ff;">double</span> NAG_CALL f_callback<span style="color: #000000;">(</span><span style="color: #0000ff;">double</span> x, Nag_User <span style="color: #000040;">*</span>comm<span style="color: #000000;">)</span> &#160;<span style="color: #008000;">// x は被積分関数の独立変数です。</span><span style="color: #000000;">
+{</span>
+&#160;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #0000ff;">struct</span> user <span style="color: #000040;">*</span>sp <span style="color: #000080;">=</span> <span style="color: #000000;">(</span><span style="color: #0000ff;">struct</span> user <span style="color: #000040;">*</span><span style="color: #000000;">)</span><span style="color: #000000;">(</span>comm<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>p<span style="color: #000000;">)</span>;
+&#160;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #0000ff;">double</span> aa, bb, fitX; <span style="color: #008000;">// 一時変数としてNag_User 通信構造体のパラメータとして受け入れます</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;aa <span style="color: #000080;">=</span> sp<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>a;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;bb <span style="color: #000080;">=</span> sp<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>b;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;fitX <span style="color: #000080;">=</span> sp<span style="color: #000040;">-</span><span style="color: #000080;">&gt;</span>fitX;
+&#160;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #0000ff;">return</span> <span style="color: #000000;">cosh</span><span style="color: #000000;">(</span><span style="color: #000000;">(</span>x<span style="color: #000040;">*</span>x<span style="color: #000040;">+</span>bb<span style="color: #000040;">*</span>bb<span style="color: #000040;">*</span>fitX<span style="color: #000040;">*</span>fitX<span style="color: #000000;">)</span><span style="color: #000040;">/</span><span style="color: #000000;">(</span>bb<span style="color: #000040;">+</span>fitX<span style="color: #000000;">)</span><span style="color: #000000;">)</span><span style="color: #000040;">/</span><span style="color: #000000;">(</span>aa<span style="color: #000040;">+</span><span style="color: #000000;">(</span>x<span style="color: #000040;">*</span>x<span style="color: #000040;">+</span>fitX<span style="color: #000040;">*</span>fitX<span style="color: #000000;">)</span><span style="color: #000000;">)</span>;<span style="color: #000000;">
+}</span>
+&#160;<span style="color: #008000;">
+// 他のファイルがワークスペースにロードされ、コンパイルされていれば、</span><span style="color: #008000;">
+// &#160;そのファイルで定義されているC関数にアクセスでき、関数は上記でインクルードした</span><span style="color: #008000;">
+//ヘッダファイルにプロトタイプがあります。</span>
+&#160;<span style="color: #008000;">
+// 関数コード内でNLSFオブジェクトのプロパティとメソッドにアクセスできます。</span>
+&#160;<span style="color: #008000;">
+// 関数の定義には、C言語のシンタックスを使います。</span><span style="color: #008000;">
+// 例えば、パラメータ名がP1の場合、関数定義に p1 と使うことはできません。</span><span style="color: #008000;">
+// 分数を使用する場合には、1/2のような整数の除算は0になり、0.5ではありません。</span><span style="color: #008000;">
+// 正しい値にするには、0.5または1/2.0を使います。</span>
+&#160;<span style="color: #008000;">
+// より詳細な情報およびサンプルは、Originヘルプファイルの「ユーザ定義フィット関数」</span><span style="color: #008000;">
+// を参照してください。</span>
+&#160;<span style="color: #008000;">
+//----------------------------------------------------------</span><span style="color: #008000;">
+// </span><span style="color: #0000ff;">
+void</span> _nlsfnag_integration_fitting<span style="color: #000000;">(</span><span style="color: #008000;">
+// フィットパラメータ:</span><span style="color: #0000ff;">
+double</span> a, <span style="color: #0000ff;">double</span> b, <span style="color: #0000ff;">double</span> c, <span style="color: #0000ff;">double</span> d,<span style="color: #008000;">
+// 独立変数:</span><span style="color: #0000ff;">
+double</span> x,<span style="color: #008000;">
+// 従属変数:</span><span style="color: #0000ff;">
+double</span><span style="color: #000040;">&amp;</span> y<span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #008000;">// 編集可能部分の開始</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #0000ff;">double</span> epsabs <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.00001</span>, epsrel <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.0000001</span>, result, abserr;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Integer max_num_subint <span style="color: #000080;">=</span> <span style="color: #0000dd;">500</span>; &#160;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #008000;">// epsabsとepsrel、およびこの値を使って必要な精度に向上できるので、</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #008000;">// 必要な積分の精度を制御できます。</span>
+&#160;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Nag_QuadProgress qp;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #0000ff;">static</span> NagError fail;
+&#160;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #008000;">// integrand のパラメータを初期化するのにcall_back 関数を利用でき、</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #008000;">// 上記を行うには Nag_User 通信構造体を通して行います。</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Nag_User comm; &#160;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #0000ff;">struct</span> user s;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;s.<span style="color: #000000;">a</span> <span style="color: #000080;">=</span> a;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;s.<span style="color: #000000;">b</span> <span style="color: #000080;">=</span> b;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;s.<span style="color: #000000;">fitX</span> <span style="color: #000080;">=</span> x;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;comm.<span style="color: #000000;">p</span> <span style="color: #000080;">=</span> <span style="color: #000000;">(</span>Pointer<span style="color: #000000;">)</span><span style="color: #000040;">&amp;</span>s;
+&#160;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;d01sjc<span style="color: #000000;">(</span>f_callback, c, d, epsabs, epsrel, max_num_subint, <span style="color: #000040;">&amp;</span>result, <span style="color: #000040;">&amp;</span>abserr, <span style="color: #000040;">&amp;</span>qp, <span style="color: #000040;">&amp;</span>comm, <span style="color: #000040;">&amp;</span>fail<span style="color: #000000;">)</span>;
+&#160;
+&#160;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #008000;">// エラーメッセージを出力することで、エラーを調査するには、以下の行のコメントを解除します。</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #008000;">// if (fail.code != NE_NOERROR)</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #008000;">// printf(&quot;%s\n&quot;, fail.message);</span>
+&#160;
+&#160;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #008000;">// 次の3つのエラー以外は、入力パラメータが不正であるか </span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #008000;">//アロケーションエラーに当たります： &#160;NE_INT_ARG_LT &#160;NE_BAD_PARAM &#160;&#160;NE_ALLOC_FAIL</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #008000;">// メモリーリークを避けるため、積分ルーチンを呼ぶ前にメモリのアロケーションを</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #008000;">// 解放する必要があります。</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #0000ff;">if</span> <span style="color: #000000;">(</span>fail.<span style="color: #000000;">code</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span> NE_INT_ARG_LT <span style="color: #000040;">&amp;&amp;</span> fail.<span style="color: #000000;">code</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span> NE_BAD_PARAM <span style="color: #000040;">&amp;&amp;</span> fail.<span style="color: #000000;">code</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span> NE_ALLOC_FAIL<span style="color: #000000;">)</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #000000;">{</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;NAG_FREE<span style="color: #000000;">(</span>qp.<span style="color: #000000;">sub_int_beg_pts</span><span style="color: #000000;">)</span>;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;NAG_FREE<span style="color: #000000;">(</span>qp.<span style="color: #000000;">sub_int_end_pts</span><span style="color: #000000;">)</span>;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;NAG_FREE<span style="color: #000000;">(</span>qp.<span style="color: #000000;">sub_int_result</span><span style="color: #000000;">)</span>;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;NAG_FREE<span style="color: #000000;">(</span>qp.<span style="color: #000000;">sub_int_error</span><span style="color: #000000;">)</span>;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #000000;">}</span>
+&#160;
+&#160;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;y <span style="color: #000080;">=</span> <span style="color: #000000;">log</span><span style="color: #000000;">(</span>result<span style="color: #000000;">)</span>; 
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #008000;">// 積分の対数結果を返すのは容量が大きくなることもあるので、 </span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #008000;">// 必ずしも行う必要はありません </span>
+&#160;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span style="color: #008000;">// 編集可能部分の終了</span><span style="color: #000000;">
+}</span></pre>
+<p>上記のコードでは、フィット関数 <i><b>_nlsfnag_integration_fitting_cosh</b></i>の本体の外側で被積分関数をコールバック関数 
+ <i><b>f_callback</b></i> として定義しています。被積分関数を変数 <i><b>a</b></i>, <b><i>b</i></b> 
+ , <i><b>fitX</b></i> でパラメータ化し、それらを <i>Nag_User</i> 構造体を使ってコールバック関数に渡します。その後、NAG積分ルーチン 
+ <i><b>d01sjc</b></i>を使って、積分を実行します。上記以外にも求積ルーチンを希望に合わせて利用する事ができます。現在のサンプルでは、フィット関数に対数スケールを使います。(サンプルデータは、既に対数関数でスケーリングされています。)</p>
+<p>コードをコンパイルし、ダイアログに戻り、フィット関数オーガナイザでフィット関数を保存し、「<b>解析：</b><b>フィット</b>」メニューから「<b>非線形曲線フィット</b>」ダイアログを開きます。そして、「<b>設定</b>」タブの「<b>関数選択</b>」ページで、このユーザ定義のフィット関数を選択することができます。</p>
+<a name="Set_the_Initial_Values_for_the_Parameters" id="Set_the_Initial_Values_for_the_Parameters"></a> 
+ 
+<h3><span class="mw-headline">パラメータの初期値をセットする</span></h3>
+<p>ユーザ定義のフィット関数なので、パラメータの初期値を指定する必要があります。<b>非線形曲線フィット</b>ダイアログの「<b>パラメータ</b>」タブで手動でセットすることもできます。今回の例では、パラメータの初期値を 
+ <img class="tex" alt="x \," src="../images/Fitting_Integral_Function_with_parametric_limit_using_NAG_Library/math-1dac19ea8389b16e6d9f16517173029d.png" 
+		 width="38" height="13" border="0" />, <img class="tex" alt="x \," 
+													 src="../images/Fitting_Integral_Function_with_parametric_limit_using_NAG_Library/math-0daca570410e633ef534e720f5d54852.png" 
+													 width="45" height="13" 
+													 border="0" />, <img 
+	 class="tex" alt="x \," src="../images/Fitting_Integral_Function_with_parametric_limit_using_NAG_Library/math-1d5d9042a46b53359b114b379816c578.png" 
+	 width="37" height="12" border="0" />, <img class="tex" alt="x \," 
+												 src="../images/Fitting_Integral_Function_with_parametric_limit_using_NAG_Library/math-cdf729c03df18f46e35e8fb096a71c43.png" 
+												 width="39" height="13" 
+												 border="0" />のようにセットします。パラメータが初期化されると、以下に示すようにフィットを実行して、フィット結果を取得することができます。</p>
+<a name="Sample_Data" id="Sample_Data"></a> 
+<h2><span class="mw-headline">サンプルデータ</span></h2>
+<dl>
+	<dd><table class="simple" width="480">
+		<tr>
+			<th colspan="2" style="text-align: center;">サンプルデータ</th>
+			<th>結果</th>
+		</tr>
+		<tr>
+			<td><b style="font-weight: bold;">X</b></td>
+			<td><b style="font-weight: bold;">Y</b></td>
+			<td rowspan="11" style="text-align: center;"><a class="image" 
+															 style="color: #0000ff; 
+															 text-decoration: underline; "><img 
+			 alt="FitResultCosh.PNG" src="../images/Fitting_Integral_Function_with_parametric_limit_using_NAG_Library/FitResultCosh.PNG" 
+			 width="173" height="87" border="0" /></a></td>
+		</tr>
+		<tr>
+			<td>-5</td>
+			<td>498.19046</td>
+			
+		</tr>
+		<tr>
+			<td>-4.33333</td>
+			<td>329.43196</td>
+			
+		</tr>
+		<tr>
+			<td>-3.66667</td>
+			<td>210.28005</td>
+			
+		</tr>
+		<tr>
+			<td>-3</td>
+			<td>126.55799</td>
+			
+		</tr>
+		<tr>
+			<td>-2.33333</td>
+			<td>69.01544</td>
+			
+		</tr>
+		<tr>
+			<td>-1.66667</td>
+			<td>31.3555</td>
+			
+		</tr>
+		<tr>
+			<td>-1</td>
+			<td>9.1393</td>
+			
+		</tr>
+		<tr>
+			<td>-0.33333</td>
+			<td>-0.84496</td>
+			
+		</tr>
+		<tr>
+			<td>0.33333</td>
+			<td>-0.99914</td>
+			
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>6.86736</td>
+			
+		</tr>
+	</table></dd>
+</dl>

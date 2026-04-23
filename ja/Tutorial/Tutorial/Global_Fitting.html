@@ -1,0 +1,41 @@
+﻿<h1 class="firstheading">パラメータ共有でのグローバルフィット</h1>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>グローバルフィットは、複数曲線を同時にフィットする際のOriginのフィットモードの1つです。データセットは個別のままなので、フィット処理の際にパラメータ値を共有できますパラメータが共有されると、1つのパラメータ値が計算されて、全データセットに使用され、共有しないとデータセットごとに異なるパラメータ値を計算します。</p>
+<p>対照的に、連結フィットは全データセットを一つのデータセットに連結して実行されます。非線形フィットは一つのデータセットに対して実行されますので、パラメーター値の一つのセットのみが戻されます。</p>
+<p>Origin2016 SR2から、新しいアプリ <a class="external text" href="http://www.originlab.com/FileExchange/details.aspx?fid=321" target="_blank"><b>Sequential Fit</b></a> がリリースされ、複数のデータで連続したフィットが行えるようになりました。このアプリでは、現在のデータセットから取得したパラメータ値を次のデータセットでも初期値として利用出来ます。順番に共通パラメータを変化させていく必要のある複数のデータに対して、最適なアプリです。</p>
+<h2><a name="What_you_will_learn" id="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します</p>
+<ul>
+<li>複数データセットを選択する</li>
+<li>異なるフィットモードを選択する</li>
+<li>パラメータを共有してグローバルフィットを実行する</li>
+</ul>
+<h2><a name="Steps" id="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<ol>
+<li>新規ワークブックボタン <a class="image"><img alt="Button New Workbook.png" src="../images/Global_Fitting/Button_New_Workbook.png" width="23" border="0" /></a> をクリックします。</li>
+<li><a class="image"><img alt="Button Import Single ASCII.png" src="../images/Global_Fitting/Button_Import_Single_ASCII.png" width="25" border="0" /></a> ボタンをクリックして、<i>&lt;Origin EXE Folder&gt;\Samples\Curve Fitting\</i>フォルダの、<b>Enzyme.dat</b>ファイルをインポートします。</li>
+<li>B、C列を選択して<a class="image"><img alt="Button Scatter.png" src="../images/Global_Fitting/Button_Scatter.png" width="22" border="0" /></a>ボタンをクリックし、散布図を作図します。</li>
+<li>グラフウィンドウがアクティブなまま、<b>解析：フィット：非線形曲線フィット...</b>メニューを選択し、<b>NLFit</b> ダイアログを開きます。</li>
+<li><b style="font-weight: bold;">再計算</b>モードはドロップダウンから<b>自動</b>を選択します。</li>
+<li><b style="font-weight: bold;">関数選択</b>ページで、<b>Growth/Sigmoidal</b> カテゴリーから<b>Hill</b>関数を選択します。</li>
+<li><b style="font-weight: bold;">データ選択</b>ページで、<b>入力データ</b>の隣にある三角形のボタンをクリックし、<b>現在のレイヤのすべてのプロットを追加する</b>を選択して、データをセットします。</li>
+<li><b style="font-weight: bold;">複数データフィットモード</b>のドロップダウンリストから<b>グローバルフィット</b>を選択します。<br />
+<a class="image"><img alt="Tutorial Global Fitting 002.png" src="../images/Global_Fitting/Tutorial_Global_Fitting_002.png" width="840" height="356" border="0" /></a></li>
+<li><b style="font-weight: bold;">パラメータ</b>タブに移動し、n と n_2の<b>固定</b>チェックボックスにチェックを付け、それらの値を1にします。<br />
+<a class="image"><img alt="Tutorial Global Fitting 003.png" src="../images/Global_Fitting/Tutorial_Global_Fitting_003.png" width="427" height="191" border="0" /></a></li>
+<li><b style="font-weight: bold;">フィット</b>ボタンをクリックして、フィットを実行します。結果シートのパラメータ表でフィット結果を確認できます。<br />
+<a class="image"><img alt="Tutorial Global Fitting 005.png" src="../images/Global_Fitting/Tutorial_Global_Fitting_005.png" width="487" height="127" border="0" /></a></li>
+<li>グラフの元データプロットに、フィット曲線が追加されます。<br />
+<a class="image"><img alt="Tutorial Global Fitting 004 2.png" src="../images/Global_Fitting/Tutorial_Global_Fitting_004_2.png" width="428" height="362" border="0" /></a></li>
+<li>この場合、最大の反応速度、 Vmax は同じかもしれません。次に、このパラメータを共有してフィットしてみましょう。</li>
+<li>レポートワークシートにある緑の鍵のアイコンをクリックして、<b>パラメータの変更</b>を選び、<b>NLFit</b>ダイアログを再度開きます。<br />
+<a class="image"><img alt="Tutorial Global Fitting 010.png" src="../images/Global_Fitting/Tutorial_Global_Fitting_010.png" width="283" height="276" border="0" /></a></li>
+<li><b style="font-weight: bold;">パラメータ</b>タブで、<i>Vmax</i>の「<b>共有</b>」チェックボックスにチェックを付けます。<br />
+<a class="image"><img alt="Tutorial Global Fitting 008.png" src="../images/Global_Fitting/Tutorial_Global_Fitting_008.png" width="427" height="175" border="0" /></a></li>
+<li>「<b>フィット</b>」ボタンをクリックし、結果を生成します。両方の曲線のVmax の値が同じであることが分かります。パラメータ名のアスタリスクはこのパラメータが共有されていることを表しています。<br />
+<a class="image"><img alt="Tutorial Global Fitting 015.png" src="../images/Global_Fitting/Tutorial_Global_Fitting_015.png" width="495" height="128" border="0" /></a></li>
+<li>フィット曲線も更新されました。<br />
+<a class="image"><img alt="Tutorial Global Fitting 016 2.png" src="../images/Global_Fitting/Tutorial_Global_Fitting_016_2.png" width="419" height="354" border="0" /></a>
+<p><br /></p>
+</li>
+</ol>

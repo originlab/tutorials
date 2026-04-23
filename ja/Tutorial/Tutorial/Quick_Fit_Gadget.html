@@ -1,0 +1,74 @@
+﻿<h1 class="firstheading">クイックフィットガジェット</h1><p class='urlname' style='display: none'>クイックフィットガジェット</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Linear_Fit"><span class="tocnumber">3.1</span> <span class="toctext">線形フィット</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Nonlinear_Curve_Fit"><span class="tocnumber">3.2</span> <span class="toctext">非線形曲線フィット</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>クイックフィットガジェットを使用すると、ROI(Region of Interest）範囲内のデータに対して、素早くカーブフィットを実行できます。 
+</p>
+<p class="version" >必要なOriginのバージョン:Origin 8.6 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。
+</p>
+<ul><li>クイックフィットガジェットを使用して線形フィットを実行する</li>
+<li>クイックフィットガジェットを使用して非線形曲線フィットを実行する</li>
+<li>ダイアログテーマの保存と再利用</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Linear_Fit"></a><span class="mw-headline">線形フィット</span></h3>
+<ol><li>Originを起動して、<b>データ：ファイルからインポート：インポートウィザード</b>と操作します。<b>データソース</b>で<i>&lt;Origin Folder&gt;/Samples/Curve Fitting</i> のフォルダを参照し、<b>Step01.dat</b>ファイルを追加します。ファイルを指定すると、インポートフィルタとして<b>データフォルダ：step</b>が、自動的に選択されます。（<b>現在のデータタイプのインポートフィルタ</b>の項目で確認できます）<b>完了</b>ボタンをクリックして、ファイルをインポートします。</li>
+<li>AからF列を選択して<a  class="image"><img alt="Button Scatter.png" src="../images/Quick_Fit_Gadget/Button_Scatter.png" width="22"  /></a>ボタンをクリックし、散布図を作図します。
+<dl><dd><a  class="image"><img alt="Quick Fit Gadget 01.png" src="../images/Quick_Fit_Gadget/Quick_Fit_Gadget_01.png" width="424"  /></a></dd></dl></li>
+<li>メインメニューの<b>ガジェット：クイックフィット：1 Linear(System)</b>を選択すると、ROI(Region of Interest）ボックスがグラフ内に表示されます。三角形ボタン<a  class="image"><img alt="Triangle Button.png" src="../images/Quick_Fit_Gadget/Triangle_button.png" width="15"  /></a> をクリックし、<b>プロット群の最大範囲に拡大する</b>をメニューから選択して、ROIボックスを最大範囲に拡大します。
+<dl><dd><a  class="image"><img alt="Quick Fit Gadget 02.png" src="../images/Quick_Fit_Gadget/Quick_Fit_Gadget_02.png" width="424"  /></a></dd></dl></li>
+<li> 三角形ボタン<a  class="image"><img alt="Triangle Button.png" src="../images/Quick_Fit_Gadget/Triangle_button.png" width="15"  /></a>をクリックして、メニューから<b>設定...</b>を選択します。<b>クイックフィット設定</b>ダイアログが開きます。このダイアログで、<b>ラベルボックス</b>タブを開き、<b>数式</b>のドロップダウンから<b>パラメータ値による関数式</b>を選択します。 
+<dl><dd><a  class="image"><img alt="Quick Fit Gadget 06.png" src="../images/Quick_Fit_Gadget/Quick_Fit_Gadget_06.png" width="423"  /></a></dd></dl></li>
+<li> <b>レポート</b>タブに切り替え、<b>出力先</b>ドロップダウンリストから <b>ワークシート</b>を選択します。 
+<dl><dd><a  class="image"><img alt="Quick Fit Gadget 07-vNext.png" src="../images/Quick_Fit_Gadget/Quick_Fit_Gadget_07.png" width="423"  /></a></dd></dl></li>
+<li> <b>OK</b>ボタンをクリックして、ダイアログボックスを閉じます。三角形ボタン<a  class="image"><img alt="Triangle Button.png" src="../images/Quick_Fit_Gadget/Triangle_button.png" width="15"  /></a>をクリックして、メニューから<b>新しい出力</b>を選択します。すると、レポートワークシートではSensor 01のフィットフィット結果が出力され、グラフウィンドウにはラベルボックスが追加されます。ラベルボックスにはフィット結果が入力されています。
+<dl><dd><a  class="image"><img alt="Quick Fit Gadget 07a.png" src="../images/Quick_Fit_Gadget/Quick_Fit_Gadget_07a.png" width="582"  /></a></dd></dl></li>
+<li> ラベルボックスをクリックして選択し、Deleteキーを押して削除します。三角形ボタン<a  class="image"><img alt="Triangle Button.png" src="../images/Quick_Fit_Gadget/Triangle_button.png" width="15"  /></a>をクリックして、メニューから<b>設定...</b>を選択します。<b>クイックフィット設定</b>ダイアログが開きます。<b>ラベルボックス</b>タブを開き、<b>グラフラベルボックスを付加</b>のチェックを外して<b>OK</b>ボタンをクリックします。</li>
+<li> 矢印ボタン <a  class="image"><img alt="Triangle Button.png" src="../images/Quick_Fit_Gadget/Triangle_button.png" width="15"  /></a> を再度クリックし、<b> 全ての曲線で出力</b> を選択して、全てのデータプロットに対して、設定した線形フィットが実行されるようにします。 </li>
+<li> 矢印ボタン<a  class="image"><img alt="Triangle Button.png" src="../images/Quick_Fit_Gadget/Triangle_button.png" width="15"  /></a>をもう一度クリックし、メニューから<b>レポートシートに行く</b>を選びます。3つのデータセットに対すつフィット結果が入力されたレポートシートが開きます。Note：上記のステップ6で最初の結果行が作成されます。最後の3行が現在の結果です。
+<dl><dd><a  class="image"><img alt="Quick Fit Gadget 09.png" src="../images/Quick_Fit_Gadget/700px-Quick_Fit_Gadget_09.png" width="900"   /></a></dd></dl></li></ol>
+<table class="note">
+<tr>
+<td>Note: ROIボックスが表示されたグラフで、矢印ボタン <a  class="image"><img alt="Triangle Button.png" src="../images/Quick_Fit_Gadget/Triangle_button.png" width="15"  /></a> を押すとフライアウトメニューが開き、<b>線形フィットツールに切り替え</b> を選択すると、現在の設定のまま<b>線形フィット</b> ダイアログが開きます。さらに詳細な線形フィットのダイアログで操作が行えます。
+</td></tr></table>
+<h3><a name="Nonlinear_Curve_Fit"></a><span class="mw-headline">非線形曲線フィット</span></h3>
+<ol><li> 新規ワークブックを作成して、<i>&lt;Originプログラムフォルダ&gt;\Samples\Curve fitting</i> にあるOriginのサンプルデータ、<b>Gaussian.DAT</b>をインポートします。 </li>
+<li> 列Bを選択してOriginメニューから<b>作図：基本の2Dグラフ：散布図</b>を選択して、散布図を作成します。 
+<dl><dd><a  class="image"><img alt="Quick Fit Gadget 1.png" src="../images/Quick_Fit_Gadget/Quick_Fit_Gadget_1.png" width="463"  /></a></dd></dl></li>
+<li> メインメニューの<b>ガジェット：クイックフィット：4 Peak - Gauss (System)</b>を選択すると、ROI(Region of Interest）ボックスがグラフ内に表示されます。
+<dl><dd><a  class="image"><img alt="Quick Fit Gadget 1b.png" src="../images/Quick_Fit_Gadget/Quick_Fit_Gadget_1b.png" width="423"  /></a></dd></dl></li>
+<li> 三角形ボタン<a  class="image"><img alt="Triangle Button.png" src="../images/Quick_Fit_Gadget/Triangle_button.png" width="15"  /></a>をクリックし、<b>プロット群の最大範囲に拡大する</b>をメニューから選択して、ROIボックスを最大範囲に拡大します。</li>
+<li> 三角形ボタン<a  class="image"><img alt="Triangle Button.png" src="../images/Quick_Fit_Gadget/Triangle_button.png" width="15"  /></a>をクリックして、メニューから<b>設定...</b>を選択します。<b>クイックフィット設定</b>ダイアログが開きます。このダイアログ内では、<b>ROIボックス</b>タブを開き、<b>パラメータリスト</b>を下図のように設定します。
+<dl><dd><a  class="image"><img alt="Quick Fit Gadget 3.png" src="../images/Quick_Fit_Gadget/Quick_Fit_Gadget_3.png" width="338"  /></a></dd></dl></li>
+<li><b>OK</b>ボタンをクリックして、ダイアログボックスを閉じます。三角形ボタン<a  class="image"><img alt="Triangle Button.png" src="../images/Quick_Fit_Gadget/Triangle_button.png" width="15"  /></a>をクリックして、フライアウトメニューから<b>新しい出力</b>を選択します。下図のようにラベルボックスが追加されます。
+<dl><dd><a  class="image"><img alt="Quick Fit Gadget 4.png" src="../images/Quick_Fit_Gadget/Quick_Fit_Gadget_4.png" width="570"  /></a></dd></dl></li>
+<li>三角形ボタン<a  class="image"><img alt="Triangle Button.png" src="../images/Quick_Fit_Gadget/Triangle_button.png" width="15"  /></a>をクリックして、メニューから<b>設定...</b>を選択します。<b>クイックフィット設定</b>ダイアログが再度開きます。ダイアログの<b>ラベルボックス</b>タブを開き、<b>パラメータ表</b>ドロップダウンリストから<b>ROIボックスのタブ設定を使う</b>を選択します。<b>OK</b>ボタンをクリックして、ダイアログボックスを閉じます。
+<dl><dd><a  class="image"><img alt="Quick Fit Gadget 5.png" src="../images/Quick_Fit_Gadget/Quick_Fit_Gadget_5.png" width="423"  /></a></dd></dl></li>
+<li> 三角形ボタン<a  class="image"><img alt="Triangle Button.png" src="../images/Quick_Fit_Gadget/Triangle_button.png" width="15"  /></a>をクリックして、フライアウトメニューから<b>最後の出力を更新</b>を選択します。ラベルボックスが更新され、xc と FWHM のみがパラメータとして表示されました。
+<dl><dd><a  class="image"><img alt="Quick Fit Gadget 6.png" src="../images/Quick_Fit_Gadget/Quick_Fit_Gadget_6.png" width="570"  /></a></dd></dl></li>
+<li> 三角形ボタン<a  class="image"><img alt="Triangle Button.png" src="../images/Quick_Fit_Gadget/Triangle_button.png" width="15"  /></a>をクリックして、フライアウトメニューから<b><b>テーマに</b>名前を付けて保存</b>を選択します。開いたダイアログで、<b>テーマ名</b>を<i>My_Gauss</i> とし、<b>OK</b>ボタンをクリックします。
+<dl><dd><a  class="image"><img alt="Quick Fit Gadget 7.png" src="../images/Quick_Fit_Gadget/Quick_Fit_Gadget_7.png" width="336"  /></a></dd></dl></li>
+<li> ワークシートに戻り、C列を選択して<b>作図：基本の2Dグラフ：散布図</b>を選択します。これにより散布図が作成されます。</li>
+<li> メインメニューの<b>ガジェット：クイックフィット：9 MyGauss</b>を選択して保存したテーマをロードします。グラフ内にROIボックスが表示され、ボックス上部にパラメータ <i>xc</i> と<i>FWHM</i>が表示されます。</li>
+<li> 三角形ボタン<a  class="image"><img alt="Triangle Button.png" src="../images/Quick_Fit_Gadget/Triangle_button.png" width="15"  /></a>をクリックし、<b>プロット群の最大範囲に拡大する</b>をメニューから選択して、ROIボックスを最大範囲に拡大します。そして、<b>新しい出力</b>をフライアウトメニューから選択します。グラフに追加されたラベルボックスにには、xc と FWHM のみがパラメータとして表示されているのが確認できます。
+<dl><dd><a  class="image"><img alt="Quick Fit Gadget 8.png" src="../images/Quick_Fit_Gadget/Quick_Fit_Gadget_8.png" width="509"  /></a></dd></dl></li></ol>
+<table class="note">
+<tr>
+<td>Note: ROIボックスが表示されたグラフで、矢印ボタン <a  class="image"><img alt="Triangle Button.png" src="../images/Quick_Fit_Gadget/Triangle_button.png" width="15"  /></a> を押すとフライアウトメニューが開き、<b>NLFitに行く</b> を選択すると、現在の設定のまま<b>NLFit</b> ダイアログが開きます。引き続き、非線形フィットダイアログでさらに詳しく設定した操作が可能です。
+</td></tr></table>
+
+
+
+
+    

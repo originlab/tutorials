@@ -1,0 +1,166 @@
+﻿<h1 class="firstheading">ベースグラフからタイルグリッドマップを作成</h1>
+<p class='urlname' style='display: none'>Tile-Grid-Map</p>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>目次</h2>
+</div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_will_you_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Prepare_a_Base_Graph"><span class="tocnumber">3.1</span><span class="toctext">ベースグラフを準備する</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Create_a_Tile_Grid_Map_from_the_Base_Graph"><span class="tocnumber">3.2</span> <span class="toctext">ベースグラフからタイルグリッドマップを作成する</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#How_to_Obtain_the_Arrangement_Data"><span class="tocnumber">3.3</span> <span class="toctext">配置データの入手方法</span></a>
+<ul>
+<li class="toclevel-3 tocsection-7"><a href="#How_to_use_the_Arrangement_Column_Data_when_Plot_Tile_Grid_Map"><span class="tocnumber">3.3.1</span> <span class="toctext">タイルグリッドマップをプロットするときの配置列データの使用方法</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p><br /></p>
+<table class="simple" style="width: 40%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a class="image"><img alt="Video Image.png" src="../images/Tile_Grid_Map/Video_Image.png" width="33" /></a> <a class="image"><img alt="Video Text Image.png" src="../images/Tile_Grid_Map/Video_Text_Image.png" width="135" /></a>
+<ul>
+<li><a class="external text" href="https://youtu.be/5KGr_g7T-jg" target="_blank">OriginProでタイルグリッドマップを表示</a></li>
+</ul>
+</td>
+</tr>
+</table>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>このチュートリアルでは、ベースグラフから<a class="external text" href="../../UserGuide/UserGuide/Tile_Grid_Map.html">タイルグリッドマップ</a>を作成する方法を説明します。</p>
+<dl>
+<dd><a class="image"><img alt="Tile Grid Map 01.png" src="../images/Tile_Grid_Map/750px-Tile_Grid_Map_01.png" width="750" /></a></dd>
+</dl>
+<p>これは米国の各州の資産犯罪率を表しているタイルグリッドマップです。各タイルはベースグラフから作成され、各州を表します。</p>
+<h2><a name="What_will_you_learn" id="What_will_you_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。</p>
+<ul>
+<li>ベースグラフを準備する</li>
+<li>ベースグラフからタイルグリッドマップを作成する</li>
+<li>タイルの配置データの取得方法</li>
+</ul>
+<h2><a name="Steps" id="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>このチュートリアルは、サンプルプロジェクト「Maps - Tile Grid Map for US Crime Rate」に関連しています。<b>ラーニングセンター</b>(<b>ヘルプ:ラーニングセンター</b>を選択するか、<b>F11</b>キーを押してください)で「Tile Grid Map」というキーワードを検索して見つけることができます。</p>
+<ol>
+<li><b>ラーニングセンター</b>でサンプルプロジェクトを検索して開きます。
+<dl>
+<dd><a class="image"><img alt="Tile Grid Map 02.png" src="../images/Tile_Grid_Map/750px-Tile_Grid_Map_02.png" width="857" /></a></dd>
+</dl>
+</li>
+<li>ワークブックをアクティブにします。「PlotData」シートでは、タイルをプロットするためにすべての州のプロットデータが配置されています。2つの列ラベル行（ColumnとRow）にはタイルを配置するための列行グリッドデータが格納され、列行「postal」には州の識別子が格納されます。
+<dl>
+<dd><a class="image"><img alt="Tile Grid Map 03.png" src="../images/Tile_Grid_Map/750px-Tile_Grid_Map_03.png" width="750" /></a></dd>
+</dl>
+</li>
+</ol>
+<table class="note">
+<tr>
+<td><b>Note:</b>
+<ul>
+<li>このサンプルでは、列ラベル行にある「ColumnとRow」のグリッドデータは「Arrangement」シートから転置されています。</li>
+<li>「Arrangement」シートは、<a class="external text" href="https://www.originlab.com/fileexchange/details.aspx?v=0&amp;fid=1003" target="_blank">オンラインテンプレートの「Grid Arrangements for Tile Grid Map」</a>からコピーされています。</li>
+</ul>
+<p>これらの配置データを取得する方法を「<a href="#How_to_Obtain_the_Arrangement_Data">配置データの入手方法</a>」のセクションで示します。</p>
+</td>
+</tr>
+</table>
+<h3><a name="Prepare_a_Base_Graph" id="Prepare_a_Base_Graph"></a><span class="mw-headline">ベースグラフを準備する</span></h3>
+<ol>
+<li>B列～D列を選択して<b>作図：棒、円、面積：積み上げ面</b>を選択し、積み上げ面グラフを作成します。
+<dl>
+<dd><a class="image"><img alt="Tile Grid Map 04.png" src="../images/Tile_Grid_Map/600px-Tile_Grid_Map_04.png" width="600" /></a></dd>
+</dl>
+</li>
+<li>凡例を削除し、X軸とY軸の目盛りと目盛りラベルを非表示にし増す。レイヤ枠を表示させ、レイヤ背景を事前に定義したカラーリストで塗りつぶします。
+<dl>
+<dd><a class="image"><img alt="Tile Grid Map 05.gif" src="../images/Tile_Grid_Map/Tile_Grid_Map_05.gif" width="639" /></a></dd>
+</dl>
+</li>
+<li>以上でベースグラフの準備ができました。
+<dl>
+<dd><a class="image"><img alt="Tile Grid Map 06.png" src="../images/Tile_Grid_Map/Tile_Grid_Map_06.png" width="437" /></a></dd>
+</dl>
+</li>
+</ol>
+<h3><a name="Create_a_Tile_Grid_Map_from_the_Base_Graph" id="Create_a_Tile_Grid_Map_from_the_Base_Graph"></a><span class="mw-headline">ベースグラフからタイルグリッドマップを作成する</span></h3>
+<ol>
+<li>データのワークブックをアクティブにします。「PlotData」シートのすべての列を選択して、<b>作図：マップ：グリッドマップ</b>を選択し、 <b>Plottilemap</b> ダイアログを開きます。
+<dl>
+<dd><a class="image"><img alt="Tile Grid Map 07.png" src="../images/Tile_Grid_Map/800px-Tile_Grid_Map_07.png" width="892" /></a></dd>
+<dd>このダイアログの設定項目</dd>
+</dl>
+<ul>
+<li><b>プロットタイプ</b>で<b>ベースグラフ</b>を選択します。次に<b>、ベースグラフ</b>ボックスの<b>グラフを選択</b><a class="image"><img alt="Button Select a Graph.png" src="../images/Tile_Grid_Map/Button_Select_a_Graph.png" width="22" /></a>より先ほど作成したベースグラフを選択してください。</li>
+<li><b>識別子を表示</b>にチェックを付け、<b>識別子</b>として<b>postal</b>を選択します。</li>
+<li>レイヤの並べ方のドロップダウンより、列と行それぞれに<b>Column</b>と<b>Row</b>を選択します。</li>
+</ul>
+</li>
+<li><b>OK</b>ボタンをクリックすると、グリッドマップが作成されます。タイルグリッドマップでは、1つのタイルをカスタマイズすると、すべてのタイルが一緒に更新されます。1つのラベルを移動してフォントサイズを変更します。
+<dl>
+<dd><a class="image"><img alt="Tile Grid Map 09.gif" src="../images/Tile_Grid_Map/Tile_Grid_Map_09.gif" width="681" /></a></dd>
+</dl>
+</li>
+</ol>
+<h3><a name="How_to_Obtain_the_Arrangement_Data" id="How_to_Obtain_the_Arrangement_Data"></a><span class="mw-headline">配置データの入手方法</span></h3>
+<p>サンプルプロジェクトでは、グリッドデータが列ラベル行に適切に配置されています。plottilemapダイアログでこれらを簡単に選択することができます。このような列ラベル行がない場合は、これらの値を手動でセルに1つずつ入力する以外に、以下のメソッドを使用して取得できます。</p>
+<ol>
+<li>まず、列行グリッドによってタイルがどのように配置されているかを説明するために、テーブルを準備します。
+<dl>
+<dd><a class="image"><img alt="Tile Grid Map 08.png" src="../images/Tile_Grid_Map/Tile_Grid_Map_08.png" width="514" /></a></dd>
+<dd>手動でテーブルを作成して、列行グリッドをタイルの位置の指標として使用します。</dd>
+<dd>現在のサンプルグラフについては、配置表をダウンロードして入手できるオンラインテンプレートをすでに提供しています。</dd>
+</dl>
+</li>
+<li><b>作図：テンプレートセンター</b>を選択し、<b>テンプレートセンター</b>を開きます。このダイアログ内の、<b>テンプレートの種類</b>でブックを選択し、「タイル」とキーワードを入力して、「タイルグリッドマップのグリッド配置」を見つけます。<b>Download and Install</b>ボタンをクリックしてテンプレートを取得します。
+<dl>
+<dd><a class="image"><img alt="Tile Grid Map 09.png" src="../images/Tile_Grid_Map/750px-Tile_Grid_Map_09.png" width="862" /></a></dd>
+</dl>
+</li>
+<li><b>テンプレートセンター</b>を閉じて、メニューから、<b>ファイル：新規作成：ワークブック：参照</b>で、<b>新しいブックダイアログ</b>を開きます。「タイルグリッドマップのグリッド配置」テンプレートを選択し、<b>開く</b>ボタンをクリックして開きます。
+<dl>
+<dd><a class="image"><img alt="Tile Grid Map 10.png" src="../images/Tile_Grid_Map/750px-Tile_Grid_Map_10.png" width="802" /></a></dd>
+</dl>
+</li>
+<li><b>新しいブック</b>ダイアログを閉じます。「United States_Arrangement」シートに移動すると、米国の各州のグリッド配置データが表示されます。
+<dl>
+<dd><a class="image"><img alt="Tile Grid Map 11.png" src="../images/Tile_Grid_Map/Tile_Grid_Map_11.png" width="638" /></a></dd>
+<dd>必要に応じてタイルの配置を変更するために、州コードの位置をリセットすることも可能です。</dd>
+</dl>
+</li>
+<li>すべての州のグリッド座標を取得します。<b>B</b>列～<b>L</b>列を選択して、メニューから<b>データ整形：列スタッキング</b>とクリックし、<b>列スタッキング</b>ダイアログを開きます。
+<dl>
+<dd><b>グループ行</b>として、列を選択し、<b>別の列を含める</b>にチェックします。右の三角ボタンより<b>A列</b>を選択しておきます。<b>欠損行の排除</b>にチェックを付け、<b>データ列のロングネーム</b>には「StateCode」と入力します。</dd>
+<dd><a class="image"><img alt="Tile Grid Map 12.png" src="../images/Tile_Grid_Map/450px-Tile_Grid_Map_12.png" width="516" /></a></dd>
+</dl>
+</li>
+<li><b>OK</b>ボタンをクリックします。既存のワークシート「United States_Grid_Index」と同じ新しいシートが作成されます。
+<dl>
+<dd><a class="image"><img alt="Tile Grid Map 13.png" src="../images/Tile_Grid_Map/Tile_Grid_Map_13.png" width="525" /></a></dd>
+</dl>
+</li>
+</ol>
+<h4><a name="How_to_use_the_Arrangement_Column_Data_when_Plot_Tile_Grid_Map" id="How_to_use_the_Arrangement_Column_Data_when_Plot_Tile_Grid_Map"></a><span class="mw-headline">タイルグリッドマップを作成するときの配置列データの使用方法</span></h4>
+<p>上記の3列を取得したら、それらを使用して指定した位置にタイルをプロットできます。</p>
+<ol>
+<li>このシートをソースワークブック「all_us_states_local_agencies_fbi_crime_data」にコピーします。
+<dl>
+<dd><a class="image"><img alt="Tile Grid Map 14.png" src="../images/Tile_Grid_Map/Tile_Grid_Map_14.png" width="370" /></a></dd>
+<dd><b>Note:</b>サンプルプロジェクトは配置列データを使用して、シート「Arrangement」をすでに作成しています。</dd>
+</dl>
+</li>
+<li>ベースグラフがあらかじめ用意されている状態で、「PlotData」シートのすべての列を選択して、<b>作図：マップ: タイルグリッドマップ</b>を選択し、 <b>Plottilemap</b> ダイアログを開きます。<b>プロットタイプ</b>として<b>ベースグラフ</b>を選択し、準備したベースグラフを選択します。<b>識別子を表示</b>にチェックを付けて、<b>識別子</b>にPostalを選択します。
+<dl>
+<dd><a class="image"><img alt="Tile Grid Map 15.png" src="../images/Tile_Grid_Map/Tile_Grid_Map_15.png" width="518" /></a></dd>
+</dl>
+</li>
+<li><b>ラベル行に情報を設定</b>ボタンをクリックし、識別子、列、行を設定それぞれ選択し、「PlotData」のワークシートへ反映させます。
+<dl>
+<dd><a class="image"><img alt="Tile Grid Map 16.gif" src="../images/Tile_Grid_Map/Tile_Grid_Map_16.gif" width="800" /></a></dd>
+<dd>図のように、配置データは変換され、プロットデータとともにワークシートに挿入されています。plottilemapダイアログの<b>レイヤの並べ方</b>は自動的に選択されます。</dd>
+</dl>
+</li>
+</ol>

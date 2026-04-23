@@ -1,0 +1,135 @@
+﻿<h1 class="firstheading">複数のレイヤを持つ極座標グラフ</h1><p class='urlname' style='display: none'>極座標-複数レイヤ</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">手順</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Create_a_Polar_Graph_for_the_Measured_Data"><span class="tocnumber">3.1</span> <span class="toctext">測定データで極座標グラフを作成する</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Duplicate_a_Polar_Graph_with_the_Calculated_Data"><span class="tocnumber">3.2</span> <span class="toctext">計算データで極座標グラフを複製する</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Create_a_Polar_Graph_to_Show_Full_Range_Grids"><span class="tocnumber">3.3</span> <span class="toctext">全範囲グリッドを表示するために極座標グラフを作成</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Create_the_Multi-layered_Graph_with_One_Legend"><span class="tocnumber">3.4</span> <span class="toctext">1つの凡例付きの複数レイヤグラフを作成する</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Polar_Graph_with_Multiple_Layers/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Polar_Graph_with_Multiple_Layers/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=124" target="_blank">極座標軸ダイアログ</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=166" target="_blank">グラフを統合</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=254" target="_blank">異なるレイヤの凡例を組み合わせる</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Polar_Graph_with_Multiple_Layers/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Polar_Graph_with_Multiple_Layers/Blog_Image_33x33px.png" width="135"  /></a>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>複数レイヤグラフにより、1つのグラフページに異なる範囲を持ついくつかの極座標グラフの配置が可能です。このグラフは、3つの独立した極座標グラフから作成され、グラフ統合の機能によりこれらを組み合わせ、3つのレイヤをもつグラフとして作成されました。
+</p>
+<dl><dd><a  class="image"><img alt="MultiLayerPolar.png" src="../images/Polar_Graph_with_Multiple_Layers/MultiLayerPolar.png" width="459"  /></a></dd></dl>
+<p class="version" >必要なOriginのバージョン: Origin 2015 SR0以降</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。
+</p>
+<ul><li> 方位軸と放射軸を編集する</li>
+<li> 新しいデータを用いてグラフを複製する</li>
+<li> 複数レイヤ極座標グラフを作成する</li>
+<li> すべてのページで1つの凡例を作成する</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>このチュートリアルは、<b>Tutorial Data.opj</b>ファイルの<i>&lt; Origin EXE Folder &gt;\Samples\</i>パスに関連付けられています。
+</p>
+<h3><a name="Create_a_Polar_Graph_for_the_Measured_Data"></a><span class="mw-headline">測定データで極座標グラフを作成する</span></h3>
+<ol>
+<li>チュートリアルデータを開き、<i>Polar Graph with Multiple Layers</i>フォルダを開きます。<b>Book26</b>をダブルクリックして、ワークブックウィンドウを開きます。
+<li> 列AとBを選択して、<b>作図：特殊グラフ：θ(X)r(Y)極座標グラフ</b>を選択します。
+<br /><a  class="image"><img alt="NewPolarMeasuredData.png" src="../images/Polar_Graph_with_Multiple_Layers/NewPolarMeasuredData.png" width="456"  /></a>
+</li>
+<li> 角度軸の軸上でダブルクリックして、ダイアログを開きます。角度軸の<b>スケール</b>タブに移動します。  <b>スケール</b>の単位定義で、<b>開始を60、終了を150</b>と設定します。<b>主目盛</b>の<b>値</b>を<b>30</b>とします。  <b>適用</b>ボタンをクリックして、グラフに変更を適用させます。
+<dl><dd><a  class="image"><img alt="PolarGraphMultiLayer 01.png" src="../images/Polar_Graph_with_Multiple_Layers/PolarGraphMultiLayer_01.png" width="699"  /></a></dd></dl>
+</li>
+<li><b>目盛ラベル</b>タブに移動し、左パネルで「<b>角度 - 外部</b>」を選択します。<b>表示</b>サブタブの下にある<b>ラベル接尾語</b>テキストボックスに <b>\(176)</b>と入力して、角度軸ラベルに「°　」を表示します。サポートされているテキストフォーマットコマンドの詳細については、<a class="external text" href="../../UserGuide/UserGuide/Escape_Sequences.html#Available_text_formatting_commands">エスケープシーケンス</a>のページを参照してください。
+<dl><dd><a  class="image"><img alt="PolarGraphMultiLayer 02.png" src="../images/Polar_Graph_with_Multiple_Layers/PolarGraphMultiLayer_02.png" width="699"  /></a></dd></dl>
+</li>
+<li> <b>放射軸設定</b>ボタンをクリックして<b><b>放射軸設定</b></b>ダイアログを開きます。
+<ul><li><b>極座標図内の軸</b>にチェックを付け、以下のように設定します。
+<ol><li><b>角度</b>リストを<b>カスタム</b>にします。</li>
+<li>60と150度の場所に軸を配置するために、<b>値</b>に<b>60 150</b>と入力します。 </li></ol></li>
+<li><b>極座標図外の軸</b>のオプションは以下のように設定します。
+<ol><li><b>右</b>のオプションを<b>上部</b>にして、レイヤ枠の右上に軸を配置します。</li>
+<li><b>％の半径</b>を<b>0</b>にします。</li></ol>
+<dl><dd><a  class="image"><img alt="PolarGraphMultiLayer 03.png" src="../images/Polar_Graph_with_Multiple_Layers/PolarGraphMultiLayer_03.png" width="699"  /></a></dd></dl></li></ul>
+<br />
+<b>OK</b>をクリックして、適用させます。
+</li>
+<li> <b>スケール</b>タブに移動し、左パネルで<b>放射</b>を選択します。放射軸スケールの<b>開始</b>を<b>2</b>にし、<b>終了</b>を<b>6</b>に変更します。<b>主目盛</b>の増分の<b>値</b>を<b>1</b>にセットします。
+<dl><dd><a  class="image"><img alt="PolarGraphMultiLayer 04.png" src="../images/Polar_Graph_with_Multiple_Layers/PolarGraphMultiLayer_04.png" width="699"  /></a></dd></dl>
+<li> <b>目盛りラベル</b>タブに移動し、左パネルで「<b>放射 - 内側の軸2</b>」を選択します。<b>表示</b>のチェックを外して、この軸の目盛ラベルを非表示にします。
+<dl><dd><a  class="image"><img alt="PolarGraphMultiLayer 05.png" src="../images/Polar_Graph_with_Multiple_Layers/PolarGraphMultiLayer_05.png" width="699"  /></a></dd></dl>
+<li> <b>タイトル</b>タブに移動し、左側のパネルで「<b>放射 - 外部軸1</b>」を選択します。<b>表示</b>のチェックを外して、この軸の目盛ラベルを非表示にします。<b><b>OK</b></b>ボタンをクリックします。
+<dl><dd><a  class="image"><img alt="PolarGraphMultiLayer 06.png" src="../images/Polar_Graph_with_Multiple_Layers/PolarGraphMultiLayer_06.png" width="699"  /></a></dd></dl>
+<li> グラフをダブルクリックして、<b>作図の詳細</b>ダイアログを開きます。<b>作図の詳細</b>ダイアログの左パネルで、<b>Graph<i>n</i></b>をクリックします。<b>凡例/タイトル</b>タブで、<b>アクティブデータセットの標識</b>のチェックを外して、凡例シンボルの周囲の赤いボックスを非表示にします。
+<li> 左パネルで<b>レイヤ</b>レベルを拡張し、プロットデータを選択します。<b>グラフの線</b>タブを開き、<b>太さ</b>を<b>4</b>に設定して、<b>色</b>を<b>青</b>に変更します。
+<dl><dd><a  class="image"><img alt="ChangePlotLine.png" src="../images/Polar_Graph_with_Multiple_Layers/ChangePlotLine.png" width="770"  /></a></dd></dl>
+<li> <b>OK</b>ボタンをクリックして、編集内容を最初の極座標グラフに適用します。
+<dl><dd><a  class="image"><img alt="FinalPolarMeasuredData.png" src="../images/Polar_Graph_with_Multiple_Layers/FinalPolarMeasuredData.png" width="456"  /></a></dd></dl>
+</ol>
+<p><br />
+</p>
+<h3><a name="Duplicate_a_Polar_Graph_with_the_Calculated_Data"></a><span class="mw-headline">計算データで極座標グラフを複製する</span></h3>
+<ol>
+<li> 極座標グラフのタイトルバー上で右クリックし、コンテキストメニューを開きます。<b>バッチ作図</b>を選択して列を選択ダイアログを開きます。<b>バッチ作図するデータ</b>ドロップダウンリストから<b>列</b>を選択します。<b>C:Calculated</b>を選択して<b>OK</b>ボタンをクリックし、列Cのデータを使用した極座標グラフを作図します。<br />
+<a  class="image"><img alt="PolarGraphMultiLayer 07.png" src="../images/Polar_Graph_with_Multiple_Layers/750px-PolarGraphMultiLayer_07.png" width="687"   /></a>
+</li>
+<li> 列Bと列Cのデータを大きく異なるので、<b>確認メッセージ</b>が表示され、全てのデータが表示されるように軸を再スケールするか聞かれます。<b>はい</b>のラジオボタンが選択された状態のまま、<b>OK</b>をクリックします。
+<li> 最後のセクションのステップ3に従って、角度軸のスケールを設定します。スケールページを開き、<b>開始</b>を<b>240</b>、<b>終了</b>を<b>360</b>にして<b>主目盛</b>の増分の値を<b>15</b>にします。
+<li> <b>スケール</b>タブで、左パネルから<b>放射</b>を選択し、<b>開始</b>を<b>2</b>、<b>終了</b>を<b>6</b>にして、<b>主目盛</b>の値を<b>1</b>にします。
+<li> <b>表示</b>タブを開きます。
+<ul><li>左パネルから<b>放射-内部1</b>を選びます。<b>軸位置</b>セクションで、<b>値 (角度)</b> を <b>240</b>と入力し、最初の内側極軸を240度にします。</li>
+<li>左パネルから<b>放射-内部2</b>を選びます。<b>値(度)</b>を<b>360</b>に設定します。</li>
+<li>左パネルから<b>放射-外部3</b>を選びます。軸位置の<b>軸</b>ドロップダウンリストで<b>左下</b>を選択して、外側の軸をレイヤ枠の左下に移動します。</li></ul>
+<b><b>OK</b></b>ボタンをクリックし、適用させます。
+<li> グラフをダブルクリックして、<b>作図の詳細</b>ダイアログを開きます。<b>グラフの線</b>タブで、線の<b>色</b>を<b>赤</b>、<b>幅</b>を<b>4</b>に変更します。<b>OK</b>をクリックします。
+<dl><dd><a  class="image"><img alt="FinalPolarCalculatedData.png" src="../images/Polar_Graph_with_Multiple_Layers/FinalPolarCalculatedData.png" width="456"  /></a></dd></dl>
+</ol>
+<h3><a name="Create_a_Polar_Graph_to_Show_Full_Range_Grids"></a><span class="mw-headline">全範囲グリッドを表示するために極座標グラフを作成</span></h3>
+<ol>
+<li> ワークブックBook26をアクティブにします。
+<li>列Dを選択して、<b>2Dグラフギャラリーツールバー</b>にある、<b>θ(X)r(Y)極座標グラフ</b><a  class="image"><img alt="Button Polar Theta R.png" src="../images/Polar_Graph_with_Multiple_Layers/Button_Polar_Theta_R.png" width="22"  /></a>ボタンをクリックして空のグラフを作成します。
+<li> <a href="../../Tutorial/Tutorial/Polar_Graph_with_Multiple_Layers.html#Create_a_Polar_Graph_for_the_Measured_Data" title="チュートリアル：複数レイヤを使用した極座標グラフ">測定データで極座標グラフを作成する</a>セクションで行った3～6のステップと同様に、方位軸のスケールを<b>開始を0、終了を360</b>にし、<b>主目盛</b>の増分の<b>値</b>を<b>30</b>にします。
+<li> <b>表示</b>タブに移動し、左のパネルで<b>角度 - 外部</b>を選択し、<b>表示</b>のチェックを外します。次に、左側のパネルで<b>角度-内部</b>を選択し、<b>表示</b>にチェックします。
+<li> <b>目盛ラベル</b>タブに移動し、左側のパネルで<b>角度 - 内部</b>を選択し  <b>表示</b>チェックボックスをオフにして内側の角度軸の目盛ラベルを非表示にします。
+<li> <b>グリッド線</b>タブに移動し、左側のパネルで<b>角度</b>が選択されていることを確認します。<b>主グリッド線</b>と<b>副グリッド線</b>の<b>表示</b>チェックボックスをオフにします。
+<li> <b>スケール</b>タブに移動して左側のパネルで<b>放射</b>を選択し、<b>開始を2、終了を6</b>とします。<b>主目盛</b>の<b>値</b>は1とします。
+<li> <b>表示</b>タブに移動し、<b>放射 - 外部1</b>を選択し、<b>すべての放射軸に同じオプションを使用</b>にチェックします。これにより、このページの設定が<b>放射 - 外部2</b>にも適用されます。<b>表示</b>チェックボックスをオフにします。<b><b>OK</b></b>ボタンをクリックします。
+</ol>
+<h3><a name="Create_the_Multi-layered_Graph_with_One_Legend"></a><span class="mw-headline">1つの凡例付きの複数レイヤグラフを作成する</span></h3>
+<ol><li> グラフウィンドウをアクティブにして、メニューから、<b>グラフ操作：グラフウィンドウの統合</b>を選択します。</li>
+<li> <b>統合</b>オプションを<b>指定</b>にし、<b>グラフ</b>テキストボックスの中を、作成した3つのグラフ（<b>Graph1、Graph2、</b><b>Graph3</b>）だけにします。</li>
+<li> <b>配置の設定</b>セクションの<b>行の数</b>、<b>列の数</b>をともに<b>1</b>に設定し、全てのグラフを重ねます。</li>
+<li> <b>レイヤリンク</b>にチェックを付けます。</li>
+<li> <b>ページ設定</b>セクションでは、<b>幅</b>と<b>高さ</b>を<b>15</b>に設定します。
+<dl><dd><a  class="image"><img alt="MergeGraphDialog.png" src="../images/Polar_Graph_with_Multiple_Layers/MergeGraphDialog.png" width="824"  /></a></dd></dl></li>
+<li> 右パネルに、グラフのプレビューが表示されます。</li>
+<li> 他の設定はデフォルトのまま、<b>OK</b>をクリックします。</li>
+<li> 凡例上で右クリックして、ショートカットメニューから<b>凡例：凡例を更新</b>と選択してダイアログを開きます。</li>
+<li> <b>更新モード</b>を<b>再構築</b>にし、新しい凡例を作成します。</li>
+<li> <b>凡例</b>の<b>全てのページ用の1つの凡例</b>を選択して、複数レイヤグラフに対する1つの凡例を作成します。</li>
+<li> <b>レイヤ順序</b>を<b>降順</b>に変更します。これにより、レイヤ2の凡例がレイヤ1の凡例の上にきます。</li>
+<li> <b>凡例の起動更新モード</b>を<b>@LA:ロングネーム</b>にして、凡例にロングネームを表示します。<b>OK</b>をクリックします。
+<dl><dd><a  class="image"><img alt="UpdateLegendDialog.png" src="../images/Polar_Graph_with_Multiple_Layers/UpdateLegendDialog.png" width="405"  /></a></dd></dl></li>
+<li> 作成された凡例上で右クリックし、<b>オブジェクトの表示属性</b>を選択してダイアログを開きます。</li>
+<li> 下のテキストボックスの最初の線を削除します。 </li>
+<li> <b>フレーム</b>タブを開き、フレームを<b>なし</b>に設定します。<b>OK</b>をクリックします。</li>
+<li> 凡例をドラッグして、方位軸の内部に移動します。</li>
+<li> このグラフのフォントサイズを変更するために、<b>フォントサイズテキストボックス</b><a  class="image"><img alt="Button Size.png" src="../images/Polar_Graph_with_Multiple_Layers/Button_Size.png" width="58"  /></a>を使用します。目盛ラベルをドラッグして、適当な場所に移動します。</li>
+<li> 内部の放射軸タイトル(<b>Calculated</b> または <b>Measured</b>) を右クリックして、コンテキストメニューから<b>オブジェクトの表示属性</b>を選択します。</li>
+<li> 開いた<b>オブジェクトプロパティ</b>ダイアログの<b>フレーム</b>タブで、<b>フレーム</b>のドロップダウンリストから<b>なし</b>を選択します。タイトルの背景部分を白地にします。<b>OK</b>をクリックします。</li>
+<li> 同じ操作で、もう一方のタイトルの背景も白地にします。</li>
+<li> 最終的に、下図のようなグラフになります。
+<dl><dd><a  class="image"><img alt="MultiLayerPolar.png" src="../images/Polar_Graph_with_Multiple_Layers/MultiLayerPolar.png" width="459"  /></a></dd></dl></li></ol>
+
+
+
+
+    

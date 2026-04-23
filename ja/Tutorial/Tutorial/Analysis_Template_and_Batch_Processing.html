@@ -1,0 +1,69 @@
+﻿<h1 class="firstheading">分析テンプレートを使用した複数ファイルのバッチ処理</h1><p class='urlname' style='display: none'>AnalysisTemplate-BatchProcess</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span><span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Preparing_an_Analysis_Template_containing_a_Result_Summary_Sheet"><span class="tocnumber">3.1</span> <span class="toctext">結果集計シートを含む分析テンプレートの準備</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Performing_Batch_Processing_with_Multiple_Data_Files"><span class="tocnumber">3.2</span> <span class="toctext">複数データファイルに対しバッチ処理を実行する</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Analysis_Template_and_Batch_Processing/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Analysis_Template_and_Batch_Processing/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=130" target="_blank">Introduction Batch Processing without Programming</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=356" target="_blank">Batch Processing improvements in 2020b</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=269" target="_blank">Use Clone Import to batch process more data files</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=198" target="_blank">Batch Processing Improvements in Origin 2018</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=145" target="_blank">Batch Import and Analysis of Groups of Files</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=138" target="_blank">Import Multiple Data into Cloned Book or Sheets for Batch Processing</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Analysis_Template_and_Batch_Processing/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Analysis_Template_and_Batch_Processing/Blog_Image_33x33px.png" width="135"  /></a>
+<ul><li> <a class="external text" href="http://blog.originlab.com/use-the-distributed-batch-processing-app-for-faster-batch-processing-results" target="_blank">Use the Distributed Batch Processing App for Faster Batch Processing Results Creating HTML Reports and Documents in Origin 2019b</a></li>
+<li> <a class="external text" href="http://blog.originlab.com/creating-html-reports-and-documents-in-origin-2019b" target="_blank">Creating HTML Reports and Documents in Origin 2019b</a></li>
+<li> <a class="external text" href="http://blog.originlab.com/batch-processing-when-dragging-and-dropping-data-into-origin" target="_blank">Batch Processing when Dragging and Dropping Data into Origin</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>Originは、複数のファイルをインポートするか、既存のデータセットを読み込んで、以前に作成した<b><b>分析テンプレート</b></b>を使用して<b><b>バッチ解析</b></b>を実行できます。<br />
+このチュートリアルでは、一般的なファイル構造の複数のテキストファイルをインポートし、線形フィットを実行するように設定された分析テンプレートを使用してそれらを1つずつ処理する方法について説明します。
+</p>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Analysis_Template_and_Batch_Processing/Tip_icon.png" width="57"  border="0" /></td><td><p>バッチ処理ツールほど多くのオプションは提供されていませんが、<a href="../../Tutorial/Tutorial/Importing_Multiple_Files_into_Workbooks_Cloned_from_Active_Workbook.html" title="アクティブなワークブックからクローン複製されたワークブックに複数のファイルをインポート">このチュートリアル</a>で概説されている手順を使用して、アクティブなブックでインポートおよび分析操作を「複製」できます。
+</p></td></tr></table>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。 
+</p>
+<ul><li>バッチ処理の出力を収集するために結果集計シートを含む分析テンプレートを作成</li>
+<li>分析テンプレートを使用した複数ファイルのバッチ処理</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>このチュートリアルは2つのパートに分かれています。
+</p>
+<ol><li> <b>分析テンプレート</b>を作成します。テンプレートはバッチ処理の分析の出力を収集する集計シートを含む空のフレームワークです。 </li>
+<li> 先ほど保存した分析テンプレートを使用して複数ファイルに対して<b>バッチ処理</b>を実行します。</li></ol>
+<h3><a name="Preparing_an_Analysis_Template_containing_a_Result_Summary_Sheet"></a><span class="mw-headline">結果集計シートを含む分析テンプレートの準備</span></h3>
+<ol><li> バッチ処理は類似の構造をしたデータファイルで動作するため、最初に典型的なデータファイルをインポートします。  新規のワークブックを作成し、<b>データ:ファイルに接続:Text/CSV</b>を選択します。&lt;Origin EXE folder&gt;\Samples\Curve Fitting\Sensor01.dat　をブラウズし、これを選択します。<b>CSVインポートオプション</b>をデフォルトのまま適用し<b>OK</b>をクリックしてデータをインポートします。</li>
+<li> 次に、データに線形フィットをしていきます。  B列を選択した状態で、<b>解析：フィット：線形フィット</b>を選択します。  <b>再計算</b>を<i>自動</i>に設定し、さらに<b>OK</b>をクリックします。(<i>自動</i>を選択すると、新たな入力を与えた場合に結果が自動で再計算されます。）確認メッセージで<i>はい</i>を選択し、<i>FitLinear1</i>レポートシートを開きます。</li>
+<li> 次に、<i>結果</i>シートをワークブックに追加して、バッチ分析から主要な統計を収集します。<i>FitLinear1</i>に移動し、<i>概要</i>の表の隣にあります、下矢印ボタンをクリックして、<b>新しいシートとしてコピーを作成</b>を選択してください。<a  class="image"><img alt="Button Add New Columns.png" src="../images/Analysis_Template_and_Batch_Processing/Button_Add_New_Columns.png" width="22"  /></a>ボタンを<b>2回</b>クリックして、概要シートに新しい列を2つ追加します。</li>
+<li> ピアソンのrを概要に追加したいので<i>FitLinear1</i>に戻り、統計の表を探し、値の隣にあるキャプションをクリックしてから右クリックして<b>コピー</b>を選択します。<i>概要</i>に移動し、<i>G列</i>の<i>パラメータ</i>セルで右クリックして<b>リンクの貼り付け</b>を選択します。ピアソンのrの値をコピーし、<i>G列</i>の１行目に<b>リンクの貼り付け</b>を行います。</li>
+<li> 次に、概要シートにフィット線を含むデータプロットを概要シートに追加します。FitLinear1に戻り、<i>フィット曲線のプロット</i>までスクロールし、プロットを右クリックして<b>コピー</b>を選択します。概要シートに戻り、<i>H列</i>の1行目で右クリックして<b>リンクの貼り付け</b>を選択します。この列のロングネームセルに<i>フィット曲線</i>を追加します。</li>
+<li> 分析テンプレートとしてワークブックを保存するために、<b>ファイル：ワークブックを分析テンプレートとして保存</b>を選択し、テンプレートの名前を<i>Sensor Analysis</i>としてデフォルトのユーザファイルの場所に保存するようにします。<b>保存</b> をクリックします。</li></ol>
+<h3><a name="Performing_Batch_Processing_with_Multiple_Data_Files"></a><span class="mw-headline">複数データファイルに対しバッチ処理を実行する</span></h3>
+<p>次に分析テンプレートを使用して、多数のデータファイルにバッチ処理を行い、概要を出力します。
+</p>
+<ol><li> 新しいプロジェクトを作成し<b>ファイル：バッチ処理</b>を選択するか標準ツールバーから<a  class="image"><img alt="Button Batch Processing.png" src="../images/Analysis_Template_and_Batch_Processing/Button_Batch_Processing.png" width="23"  /></a>ボタンをクリックします。 </li>
+<li> <b>バッチ処理モード</b>を<b>分析テンプレートをロード</b>に設定し、ユーザファイルフォルダをブラウズして<i>Sensor Analysis.ogwu</i>を選択します。</li>
+<li> <b>データソース</b>を<b>ファイルからインポート</b>に設定し、<b>ファイルリスト</b>の右側のブラウズボタンで&lt;Origin EXE Folder&gt;\Samples\Curve Fittingにある<i>Sensor02.dat</i>から<i>Sensor07.dat</i>までのファイルを追加します。</li>
+<li> <b>データセット識別子</b>を<b>ファイル名</b>に設定し、ソースファイル名を概要シートに出力するようにタグ付けします。</li>
+<li> <b>データシート</b>を<i>Sensor01</i>に、<b>結果シート</b>を<i>概要</i>に設定します。</li>
+<li> <b>中途生成されたワークブックの削除</b>にチェックを入れます。（<b>Origin 2018</b>以降には、必要に応じて、概要シートの<b>Open Book(s)</b>ボタンでそれぞれの中途生成されたワークブックを再生成するオプションがあります。）
+<dl><dd> <a  class="image"><img alt="Tutorial BatchProcessing 007-2.PNG" src="../images/Analysis_Template_and_Batch_Processing/500px-Tutorial_BatchProcessing_007-2.PNG" width="664"   /></a></dd></dl></li>
+<li> <b>OK</b>をクリックします。全てのデータファイルがファイルごとの分析に要約されて概要ワークブックで処理されます。
+<dl><dd> <a  class="image"><img alt="Tutorial BatchProcessing 007.png" src="../images/Analysis_Template_and_Batch_Processing/500px-Tutorial_BatchProcessing_007.png" width="872"   /></a></dd></dl></li></ol>
+
+
+    

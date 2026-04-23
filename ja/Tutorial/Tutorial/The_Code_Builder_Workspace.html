@@ -1,0 +1,224 @@
+﻿<h1 class="firstheading">コードビルダワークスペース</h1>
+<p class="urlname" style="display: none;">Code-Builder-Workspace</p>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> 
+		 <span class="toctext">サマリー</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#The_Workspace_File"><span 
+		 class="tocnumber">3</span> <span class="toctext">ワークスペースファイル</span></a></li>
+		<li class="toclevel-1 tocsection-4"><a href="#Workspace_Folders"><span 
+		 class="tocnumber">4</span> <span class="toctext">ワークスペースフォルダ</span></a></li>
+		<li class="toclevel-1 tocsection-5"><a href="#Build_on_Startup"><span 
+		 class="tocnumber">5</span> <span class="toctext">起動時にビルドする</span></a></li>
+		<li class="toclevel-1 tocsection-6"><a href="#Configure_Code_Builder_Interface"><span 
+		 class="tocnumber">6</span> <span class="toctext">コードビルダのインターフェイスを設定する</span></a></li>
+		<li class="toclevel-1 tocsection-7"><a href="#Create_an_App_Using_Apps_folder_in_Workspace"><span 
+		 class="tocnumber">7</span> <span class="toctext">ワークスペースのアプリフォルダを使って 
+		 アプリを作成</span></a></li>
+		<li class="toclevel-1 tocsection-8"><a href="#Frequently_Used_Hot_Keys"><span 
+		 class="tocnumber">8</span> <span class="toctext">便利なショートカットキー</span></a></li>
+	</ol>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>このチュートリアルでは、Originのコードビルダでワークスペースを作成し、新しい関数を含むソースファイルを追加して、ワークスペースファイルをビルドし、テストして保存します。また、コードビルダの見た目の設定も変更します。 
+ </p>
+<p class="version">必要なOriginのバージョン:Origin 2016 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します: </p>
+<ul>
+	<li>ワークスペースファイルをビルドする</li>
+	<li>ワークスペースフォルダを構築する</li>
+	<li>起動時にビルドする</li>
+	<li>コードビルダのインターフェイスを設定する</li>
+	<li>ワークスペースのアプリフォルダを使って アプリを作成する</li>
+	<li>ショートカットキーを使って作業を効率化する</li>
+</ul>
+<h2><a name="The_Workspace_File"></a><span class="mw-headline">ワークスペースファイル</span></h2>
+<p>ワークスペースは、Originのコードビルダ内の1つのメニュー(<b>ファイル：ワークスペースを開く</b>)で開く事ができる、複数のファイルの集まりです。 
+ どのテキストファイルでもワークスペースに加えることができます。 これはソースコードファイルである必要はなく、例えばメモ帳のようなテキストでも構いません。 
+ </p>
+<p>ワークスペースによって、複数ドキュメントウィンドウで開くすべてのファイルは、個々に編集や保存ができます。 複数ドキュメントウィンドウでファイルを開くだけでなく、ソースコードは、<b><b>ファイル：ワークスペースに追加</b></b>メニューで、ワークスペースウィンドウに追加できます。 
+ </p>
+<p>ワークスペースウィンドウにソースコードを含めることによって、適切なメニューまたはツールバーボタンを使って個々または複数のファイルをビルドできます。 
+ ヘッダファイルはソースファイルの中から参照されるので、ワークスペースウィンドウに置いたり、複数ドキュメントウィンドウで開く必要はありません。 
+ </p>
+<p>新しい名前でワークスペースを保存することができるので、複数のワークスペースファイルを持つことができます。 しかし、一度に開くことができるワークスペースは1つだけです。 
+ </p>
+<p><br />
+ワークスペースを作成する方法： </p>
+<ol>
+	<li><b>標準</b>ツールバーで、<b>コードビルダ</b>ボタン<a class="image"><img alt="Button Code Builder.png" 
+	 src="../images/The_Code_Builder_Workspace/Button_Code_Builder.png" 
+	 width="23" border="0" /></a>をクリックします。 </li>
+	<li>コードビルダのメニューで、<b>ファイル：新規ワークスペース</b>を選択します。 これは、デフォルトの名前「Untitled.ocw」で新しいワークスペースを作成します。</li>
+	<li><b>コードビルダ</b>のメニューで<b> <b>ファイル：新規</b></b>を選びます。 <b>新規</b> ファイルブラウザが開きます。</li>
+	<li><b>C File</b>を選び、<b>ファイル名</b>テキストボックスに<b>foo</b>と入力します。 <b>ワークスペースに追加</b>と<b>デフォルト内容を埋める</b>にチェックが付いているはずです。 
+	 場所はデフォルトのままにします。 <b>OK</b>をクリックします。</li>
+	<li>FOO.Cファイルで、\\start your functions hereと書かれた下の行に次のように入力します。</li>
+</ol>
+<pre class="oc" style="font-family: monospace;">
+<span style="color: #0000ff;">void</span> bar<span style="color: #000000;">(</span><span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+	<span style="color: #000000;">printf</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">&quot;Hello World!<span style="color: #666666; font-weight: bold;">\n</span>&quot;</span><span style="color: #000000;">)</span>;<span style="color: #000000;">
+}</span></pre>
+<ol start="6">
+	<li><b>ビルド</b>ボタン<a class="image"><img alt="Button Build.png" src="../images/The_Code_Builder_Workspace/Button_Build.png" 
+											 width="23" border="0" /></a>をクリックします。(または、ショートカットキーである<b>Shift+F8</b>を押します。) 
+	 Originは自動的にソースファイルを保存してコンパイルし、関数とリンクさせます。</li>
+</ol>
+<ol start="7">
+	<li>Originメニューから<b>ウィンドウ：スクリプトウィンドウ</b>を選択します。</li>
+</ol>
+<ol start="8">
+	<li>新しい関数を試すために、以下を入力します。</li>
+</ol>
+<pre>
+bar</pre>
+<ol start="9">
+	<li><b>ENTER</b>キーを押します。</li>
+</ol>
+<p>Originは、「<b>Hello World!</b>」と出力します。 </p>
+<ol start="10">
+	<li>コードビルダメニューから、<b>ファイル：ワークスペースを新規保存</b>を選びます。 </li>
+</ol>
+<p>図は、複数ドキュメントウィンドウに、1つのソースファイル, foo.cが含まれているワークスペースファイルfoo.ocwを示しています。 
+ ファイルは、ワークスペースウィンドウに追加されます。 出力ウィンドウは、ファイルがコンパイルされたことを示しています。 ソースファイルには1つの関数bar()が含まれており、これはワークスペースのツリー構造に一覧表示されています。 
+ <a class="image"><img alt="The Code Builder Workspace 1.png" src="../images/The_Code_Builder_Workspace/The_Code_Builder_Workspace_1.png" 
+						 width="933" border="0" /></a> </p>
+<h2><a name="Workspace_Folders"></a><span class="mw-headline">ワークスペースフォルダ</span></h2>
+<p>コードビルダワークスペースには、Packages, Project, System, Temporary, User [AutoLoad], 
+ Userという6つのサブフォルダがあります。 上記で追加したfoo.cのようなユーザが追加するファイルは、Userサブフォルダに置かれます。Origin自体、多くの分析ルーチンでOrigin 
+ Cを使用しています。 これらのルーチンを実行すると、Origin CソースファイルがワークスペースのSystemサブフォルダまたはTemporaryサブフォルダのどちらかにロードされます。Projectサブフォルダには、Originプロジェクトと一緒に保存され、ロードされるファイルを置きます。 
+ このプロジェクトにファイルを添付する方法については、別のチュートリアルで説明しているので、そちらを参照してください。 </p>
+<h2><a name="Build_on_Startup"></a><span class="mw-headline">起動時にビルドする</span></h2>
+<p><b>Origin C のワークスペース</b>フォルダを右クリックすると、ショートカットメニューに<b>開始時にビルド</b>という項目があります。 
+ これがチェックされていると、最後に保存したワークスペースがOrigin再起動時にロードされます。 ワークスペース内のすべてのソースファイルが、ビルドされソースファイル内のすべての関数が直ちに使用できます。 
+ </p>
+<p>ORIGIN.INIファイルの情報を含むことで、個々のソースファイルをビルドする詳細は、<a class="external text" 
+													 href="../../OriginC/OCGuide/Compiling,_Linking_and_Loading.html#Build_Individual_Source_File_on_Origin_Startup">起動時のビルド</a>にあります。 
+ </p>
+<p>これで、<b>コードビルダワークスペース</b>のチュートリアルを終了します。 </p>
+<h2><a name="Configure_Code_Builder_Interface"></a><span class="mw-headline">コードビルダのインターフェイスを設定する</span></h2>
+<p>ユーザは、フォントと色、ブラケットの色、アイコンのサイズなど、コードビルダのインターフェイスを変更できます。 </p>
+<ol>
+	<li><b>コードビルダ</b>で<b>ツール：オプション</b>と選択し、<b>オプション</b>ダイアログを開きます。テキストエディタの<b>フォントと色</b>項目を開き、<b>テーマ</b>を<b>Dark</b>に変更します。プレビューから確認できるように、暗い背景と明るい文字のインターフェイスが表示されました。このダイアログで、更にフォントのサイズや種類を変更できます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Interface1.png" src="../images/The_Code_Builder_Workspace/Interface1.png" 
+									 width="742" height="457" border="0" /></a></dd>
+	</dl></li>
+	<li>そのまま<b>オプション</b>ダイアログで、テキストエディタの<b>一般</b>を開きます。<b>多色のブラケットを有効にする</b>を<b>True</b>に変更します。入れ子形式になっている「()」が複数色で表示されます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="ColorBracket.png" src="../images/The_Code_Builder_Workspace/ColorBracket.png" 
+									 width="743" height="489" border="0" /></a></dd>
+	</dl></li>
+	<li>Originメインメニューの<b>表示：ツールバー</b>を選択して<b>カスタマイズ</b>ダイアログボックスを開きます。<b>オプション</b>タブを開き、<b>大きいアイコンを使用</b>ボックスにチェックを付けると、アイコンが大きくなります（表示設定によっては、この設定はシステム上でうまく機能しない場合があります）。<b>カスタマイズ</b>ダイアログボックスを閉じます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="LargeIons.png" src="../images/The_Code_Builder_Workspace/LargeIons.png" 
+									 width="506" height="501" border="0" /></a></dd>
+	</dl></li>
+	<li>メインとなる<b>コードビルダ</b>のウィンドウの下部にあるそれぞれのパネルは、メインメニューの<b>表示</b>メニューから表示の有無を切り替えることが出来ます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="View.png" src="../images/The_Code_Builder_Workspace/View.png" 
+									 width="568" height="323" border="0" /></a></dd>
+	</dl></li>
+</ol>
+<h2><a name="Create_an_App_Using_Apps_folder_in_Workspace"></a><span class="mw-headline">ワークスペースのアプリフォルダを使って 
+ アプリを作成する</span></h2>
+<p>アプリパッケージを作成するためには、コードビルダーのワークスペースにある、アプリフォルダと、 <a class="external text" 
+													 href="../../UserGuide/UserGuide/Package_Manager.html">パッケージマネージャー</a> 
+ を統合する必要があります。アプリ用のパッケージを作成する方法を、次の手順に示します。 </p>
+<p>1.<b>標準</b>ツールバーの上にある、<b>コードビルダー</b>ボタン <a class="image"><img alt="Button Code Builder.png" 
+	 src="../images/The_Code_Builder_Workspace/Button_Code_Builder.png" 
+	 width="23" border="0" /></a> をクリックし、コードビルダーを開きます。 </p>
+<p>2.<b>ワークスペース</b>ウィンドウが開いていることを確認し、もし開いていなければ、メニューの<b>表示：ワークスペース</b>を選択して開きます。Origin 
+ C ワークスペースにある、<b>Apps</b>フォルダを右クリックし、新規を選択して、新規フォルダを作成します。 </p>
+<dl>
+	<dd><a class="image"><img alt="Package1.png" src="../images/The_Code_Builder_Workspace/Package1.png" 
+								 width="381" height="145" border="0" /></a></dd>
+</dl>
+<p>3.新しく追加された<i>Untitled</i> フォルダで右クリックし、フォルダの名前を&quot;MyApp&quot;に変更します。 
+ </p>
+<p>4.<i>MyApp</i> フォルダで右クリックして<b>ファイルの追加</b>を選択し、<b>ワークスペースにファイルを追加</b>ダイアログを開きます。用意されているファイルを全て選択し、<b>開く</b>ボタンで現在のフォルダにこれらを追加します。 
+ </p>
+<dl>
+	<dd><a class="image"><img alt="Package3.png" src="../images/The_Code_Builder_Workspace/Package3.png" 
+								 width="643" height="209" border="0" /></a></dd>
+</dl>
+<p>5.<i>MyApp</i> フォルダで右クリックして<b>生成</b>を選択すると、<a class="external text" 
+												 href="../../UserGuide/UserGuide/Package_Manager.html"><b>Package 
+ Manager</b></a> が開きます。 </p>
+<dl>
+	<dd><a class="image"><img alt="Package4.png" src="../images/The_Code_Builder_Workspace/Package4.png" 
+								 width="282" height="279" border="0" /></a></dd>
+</dl>
+<p>6. パッケージマネージャの下側にあるパネルに、先ほど追加したファイルがあります。次のように、パッケージマネージャーに関するいくつかの基本情報を入力することが出来ます。<a 
+	 class="external text" href="../../UserGuide/UserGuide/Apps.html#The_Apps_Gallery"><b>App 
+ Gallery</b></a> のアイコンのように、アプリを表示することが出来ます。 32*32 (ピクセル内) のbmp イメージを準備し、アイコン編集ボックスの拡張子付名称を入力する必要があります。<b>Launch 
+ Script</b>でLabTalk スクリプトを入力すると、Originにこのアプリを立ち上げた時、何を行うかをOriginに指示することが出来ます。 
+ </p>
+<dl>
+	<dd><a class="image"><img alt="Package5.png" src="../images/The_Code_Builder_Workspace/Package5.png" 
+								 width="572" height="359" border="0" /></a></dd>
+</dl>
+<p>7. <b>ファイル：保存</b>を選択し、OPXファイルとしてパッケージを保存します。後から、このアプリをインストールするために、このOPXファイルをOriginワークスペースにドラッグアンドドロップすることが出来ます。 
+ </p>
+<h2><a name="Frequently_Used_Hot_Keys"></a><span class="mw-headline">便利なショートカットキー</span></h2>
+<p>コードビルダではショートカットキーを使うと、より効率的に作業を行うことができます。以下の部分は、便利なショートカットキーを1つずつ紹介します。 
+ </p>
+<p>まず、<a class="external text" href="http://blog.originlab.com/wp-content/uploads/2017/01/OriginCExamples.zip" 
+		 target="_blank">このzipファイル</a>をダウンロードして展開します。その後、ユーザフォルダを右クリックし、「ファイルを追加」を選択して<i>\Origin 
+ C Examples\Programming Guide\Practical Examples</i>サブフォルダにある<b>AccessMatrix. 
+ c</b>を追加してください。 </p>
+<ul>
+	<li><b>Ctrl+F2</b> と <b>F2</b></li>
+</ul>
+<p>Ctrl+F2は特定の行にブックマークを追加しますF2キーを使用すると次のブックマークに移動できます </p>
+<dl>
+	<dd><a class="image"><img alt="Hotkey3.png" src="../images/The_Code_Builder_Workspace/Hotkey3.png" 
+								 width="380" height="196" border="0" /></a></dd>
+</dl>
+<ul>
+	<li><b>Ctrl+F3</b> と <b>F3</b></li>
+</ul>
+<p><b>Ctrl+F3</b>は選択した言葉(下記例ではMatData)がコード内にあれば、全てハイライトします。<b>F3</b>を使用すると、次のハイライトした言葉に移動します。 
+ </p>
+<dl>
+	<dd><a class="image"><img alt="HotKey2.png" src="../images/The_Code_Builder_Workspace/HotKey2.png" 
+								 width="240" border="0" /></a></dd>
+</dl>
+<ul>
+	<li><b>Ctrl+]</b></li>
+</ul>
+<p>このショートカットキーはマッチしている括弧（ブレース）までカーソルを移動します。 </p>
+<ul>
+	<li><b>F9</b></li>
+</ul>
+<p>このショートカットキーは特定の行でブレークポイントを追加します。 </p>
+<dl>
+	<dd><a class="image"><img alt="HotKey4.png" src="../images/The_Code_Builder_Workspace/HotKey4.png" 
+								 width="297" border="0" /></a></dd>
+</dl>
+<ul>
+	<li><b>Ctrl+/</b> と <b>Ctrl + Shift + /</b></li>
+</ul>
+<p><b>Ctrl+/</b> は選択した行にコメントを追加し、<b>Ctrl + Shift + /</b>はそのコメントを取り除きます。 
+ </p>
+<ul>
+	<li><b>Ctrl+Alt+O</b> </li>
+</ul>
+<p>cファイルやhファイルを同じ名前で作成した後、このショートカットキーでそれぞれを切り替えることが出来ます。 </p>
+<dl>
+	<dd><a class="image"><img alt="HotKey5.png" src="../images/The_Code_Builder_Workspace/HotKey5.png" 
+								 width="445" height="258" border="0" /></a></dd>
+</dl>
+<p>他のショートカットキーの情報については、<a class="external text" href="CodeBuilderUsersGuide.chm::/CodeBuilder/Menu_Items_Toolbars_and_Status_Bar.html#Hotkeys_in_Code_Builder">コードビルダのショートカットキー</a>をご覧ください。 
+ </p>

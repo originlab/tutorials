@@ -1,0 +1,243 @@
+﻿<h1 class="firstheading">コマンドウィンドウとXファンクション</h1>
+<p class="urlname" style="display: none;">Command-Window</p>
+<table id="toc" class="toc">
+	<tr>
+		<td><div id="toctitle">
+			<h2>内容</h2>
+		</div>
+		<ol>
+			<li class="toclevel-1 tocsection-1"><a href="#Summary"><span 
+			 class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+			<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+			 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+			<li class="toclevel-1 tocsection-3"><a href="#Command_Window"><span 
+			 class="tocnumber">3</span> <span class="toctext">コマンドウィンドウ</span></a></li>
+			<li class="toclevel-1 tocsection-4"><a href="#Examples"><span 
+			 class="tocnumber">4</span> <span class="toctext">サンプル</span></a> 
+			 
+			<ol>
+				<li class="toclevel-2 tocsection-5"><a href="#Perform_Calculations"><span 
+				 class="tocnumber">4.1</span> <span class="toctext">計算を実行する</span></a> 
+				 
+				<ol>
+					<li class="toclevel-3 tocsection-6"><a href="#Single_Line"><span 
+					 class="tocnumber">4.1.1</span> <span class="toctext">1行で計算</span></a></li>
+					<li class="toclevel-3 tocsection-7"><a href="#Multiple_Lines"><span 
+					 class="tocnumber">4.1.2</span> <span class="toctext">複数行で計算</span></a></li>
+					<li class="toclevel-3 tocsection-8"><a href="#Functions"><span 
+					 class="tocnumber">4.1.3</span> <span class="toctext">関数で計算</span></a></li>
+				</ol></li>
+				<li class="toclevel-2 tocsection-9"><a href="#Access_Worksheet_Values"><span 
+				 class="tocnumber">4.2</span> <span class="toctext">ワークシートの値にアクセスする</span></a></li>
+				<li class="toclevel-2 tocsection-10"><a href="#Access_X-Functions"><span 
+				 class="tocnumber">4.3</span> <span class="toctext">Xファンクションにアクセスする</span></a></li>
+			</ol></li>
+		</ol></td>
+	</tr>
+</table>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>Originの分析ツールやデータ処理ツールの多くは、Xファンクションを使って実行しています。コマンドウィンドウは、これらのXファンクションを実行するのに便利な方法を提供しています。</p>
+<p>コマンドウィンドウの別の重要な役割は、LabTalkスクリプトをOriginに送ることです。スクリプトコマンドは、単純な数学演算やデータ操作から、ユーザが作成したXファンクションやOrigin 
+ C関数まで実行することができます。</p>
+<p class="version">必要なOriginのバージョン:8.0 SR6</p>
+<h2><a name="What_you_will_learn" id="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、まず、コマンドウィンドウについて説明して、以下の項目について説明します。</p>
+<ul>
+	<li>簡単な計算を実行する方法</li>
+	<li>ワークシートセル/列にアクセスする方法</li>
+	<li>Xファンクションにアクセスする</li>
+</ul>
+<h2><a name="Command_Window" id="Command_Window"></a><span class="mw-headline">コマンドウィンドウ</span></h2>
+<p>コマンドウィンドウは、<b>コマンドパネル</b> と <b>履歴パネル</b>の2つのパネルで構成されます。</p>
+<p><a class="image"><img alt="Tutorial Script 009.png" src="../images/Command_Window/Tutorial_Script_009.png" 
+						 width="343" height="185" border="0" /></a></p>
+<p>コマンドウィンドウは、通常画面の右下に配置されますが、表示されていない場合、<b>Alt+3</b> を押すか、「<b>表示：コマンドウィンドウ</b>」メニューを選択して表示できます。</p>
+<p>コマンドウィンドウパネルに入力するとき、オートコンプリート機能により、Xファンクションと現在の作業フォルダ内のOGSファイルを簡単に選択することができます。Xファンクションコマンド名とOGSファイル名の前に、それぞれXf 
+ と LTが目印として付けられています。矢印キーを使ってリストを上下に移動でき、Enterキーを押すと、そのコマンドが入力されます。選択したら、スペースキーを押し、今度はオートコンプリート機能により、そのコマンドで利用できるオプション引数が表示されます。</p>
+<h2><a name="Examples" id="Examples"></a><span class="mw-headline">サンプル</span></h2>
+<h3><a name="Perform_Calculations" id="Perform_Calculations"></a><span 
+	 class="mw-headline">計算を実行する</span></h3>
+<p>コマンドウィンドウは電卓として使用したり、Originの数学関数にアクセスすることもできます。次のサンプルをご覧下さい。</p>
+<h4><a name="Single_Line" id="Single_Line"></a><span class="mw-headline">1行で計算</span></h4>
+<p>コマンドウィンドウのより基本的な使用法の1つは、簡単な計算を実行するインターフェースとして利用することです。例えば、次のように入力します。</p>
+<pre class="lt" style="font-family: monospace;">
+<span style="color: #0000dd;">2</span><span style="color: #000080;">+</span><span style="color: #0000dd;">2</span><span style="color: #000080;">=</span>
+</pre>
+<p><b style="font-weight: bold;">ENTER</b>キーを押します。Originは次のように返します。</p>
+<pre class="lt" style="font-family: monospace;">
+<span style="color: #0000dd;">2</span><span style="color: #000080;">+</span><span style="color: #0000dd;">2</span><span style="color: #000080;">=</span><span style="color: #0000dd;">4</span>
+</pre>
+<p><a class="image"><img alt="Tutorial Statistics 001.png" src="../images/Command_Window/Tutorial_Script_001.png" 
+						 width="294" height="196" border="0" /></a></p>
+<h4><a name="Multiple_Lines" id="Multiple_Lines"></a><span class="mw-headline">複数行で計算</span></h4>
+<p>スクリプトを複数行入力する場合、最初にコードビルダ(「<b>表示：コードビルダ</b>」) やメモ帳などのテキストエディタを使って編集し、各行末にセミコロンを付け、コマンドウィンドウ内にコピー&amp;ペーストして、 
+ <b>ENTER</b> キーを押して実行します。例えば、次のスクリプトをコマンドウィンドウに貼り付けて、 <b>ENTER</b>を押します。</p>
+<pre class="lt" style="font-family: monospace;">
+sum <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>;
+loop<span style="color: #000000;">(</span>ii, <span style="color: #0000dd;">1</span>, <span style="color: #0000dd;">10</span><span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+&#160;&#160;&#160;sum <span style="color: #000080;">+</span><span style="color: #000080;">=</span> ii;<span style="color: #000000;">
+}</span>
+sum <span style="color: #000080;">=</span> ;
+</pre>
+<p>Originは次のように返します。</p>
+<pre class="lt" style="font-family: monospace;">
+SUM<span style="color: #000080;">=</span><span style="color: #0000dd;">55</span>
+</pre>
+<p><a class="image"><img alt="Tutorial Script 002.png" src="../images/Command_Window/Tutorial_Script_002.png" 
+						 width="404" height="218" border="0" /></a></p>
+<h4><a name="Functions" id="Functions"></a><span class="mw-headline">関数で計算</span></h4>
+<p>組込みやユーザ作成の数学関数をコマンドウィンドウで実行することができます。例えば</p>
+<pre class="lt" style="font-family: monospace;">
+ln<span style="color: #000000;">(</span><span style="color: #0000dd;">10</span><span style="color: #000000;">)</span> <span style="color: #000080;">=</span>
+</pre>
+<p>Originは、10の自然対数を返します。</p>
+<p><a class="image"><img alt="Tutorial Script 003.png" src="../images/Command_Window/Tutorial_Script_003.png" 
+						 width="404" height="218" border="0" /></a></p>
+<h3><a name="Access_Worksheet_Values" id="Access_Worksheet_Values"></a><span 
+	 class="mw-headline">ワークシートの値にアクセスする</span></h3>
+<p>スクリプトウィンドウを使って、ワークシートの値を読み書きしたり、データセットに対して数学演算を実行することができます。</p>
+<ol>
+	<li>次のデータを新しいワークシートに入力します。</li>
+</ol>
+<dl>
+	<dd><a class="image" style="color: #0000ff; text-decoration: underline; "><img 
+	 alt="Reading and Writing Worksheet Values 1.png" src="../images/Command_Window/Reading_and_Writing_Worksheet_Values_1.png" 
+	 width="255" height="218" border="0" /></a></dd>
+</dl>
+<ol start="2">
+	<li>2番目の列の最初のセルに値を返すには、次のように入力します。</li>
+</ol>
+<pre>
+cell(1,2)=</pre>
+<ol start="3">
+	<li><b style="font-weight: bold;">ENTER</b>キーを押します。Originは次のように返します。</li>
+</ol>
+<pre>
+CELL(1,2)=6</pre>
+<p>セルの値を参照するのに、列名や行番号を使う事もできます。</p>
+<ol start="4">
+	<li>次のように入力します。</li>
+</ol>
+<pre>
+col(B)[1]=</pre>
+<ol start="5">
+	<li><b style="font-weight: bold;">ENTER</b>キーを押します。Originは次のように返します。</li>
+</ol>
+<pre>
+COL(B)[1]=6</pre>
+<table class="note">
+	<tr>
+		<td><b style="font-weight: bold;">Note:</b>列名の使用に追加して、データセット名を使う事もできます。LabTalkではデータセットに名前を付けるシンタックスは「<i>worksheetName_columnName</i>」です。つまり、「 
+		 <i>Book1_A[1]=</i> 」はワークシートData1内の列Aにある最初の要素を返してきます。また、参照しているワークシートがアクティブなウィンドウであるなら、TabTalkの文字列変数 
+		 %H をワークシート名の代わりに使用する事もできます。例えば、「 %H_A[1]」のように使います。</td>
+	</tr>
+</table>
+<p>A列1行目の値をB列の全ての値から引く事もできます。</p>
+<ol start="6">
+	<li>次のように入力します。</li>
+</ol>
+<pre>
+col(B)=col(B)-col(A)[1]</pre>
+<ol start="7">
+	<li><b style="font-weight: bold;">ENTER</b>キーを押します。ワークシートは次のようになります。</li>
+</ol>
+<dl>
+	<dd><a class="image" style="color: #0000ff; text-decoration: underline; "><img 
+	 alt="Reading and Writing Worksheet Values 2.png" src="../images/Command_Window/Reading_and_Writing_Worksheet_Values_2.png" 
+	 width="255" height="218" border="0" /></a></dd>
+</dl>
+<p>今まで学んだ、スクリプトウィンドウで複数行に渡るスクリプトを実行する内容を利用してみましょう。列内のデータの値をある定数ｂで掛けていきます。</p>
+<ol start="8">
+	<li>次のように入力します。</li>
+</ol>
+<pre>
+b=3;</pre>
+<dl>
+	<dd><b style="font-weight: bold;">CTRL + ENTER</b>を押します。この操作はコマンドを実行せずにキャリッジリターンを行う事を思い出してください。</dd>
+</dl>
+<ol start="9">
+	<li>では、以下を入力します。</li>
+</ol>
+<pre>
+col(A)=col(A)*b;</pre>
+<dl>
+	<dd>再び<b>CTRL + ENTER</b>を押します。</dd>
+</dl>
+<ol start="10">
+	<li>スクリプトウィンドウのメニューバーから、<b>編集</b>を選択します。<b>スクリプトの実行</b>の隣にチェックが付いているはずです。付いていない場合、メニューアイテムを1回だけクリックしてチェックを付けます。</li>
+</ol>
+<ol start="11">
+	<li>スクリプトウィンドウに入力したばかりの2行のスクリプトを選択し、<b>ENTER</b>キーを押します。</li>
+</ol>
+<p>ワークシートは次のようになります。</p>
+<dl>
+	<dd><a class="image" style="color: #0000ff; text-decoration: underline; "><img 
+	 alt="Reading and Writing Worksheet Values 3.png" src="../images/Command_Window/Reading_and_Writing_Worksheet_Values_3.png" 
+	 width="255" height="218" border="0" /></a></dd>
+</dl>
+<p><br />
+</p>
+<table class="note">
+	<tr>
+		<td><b style="font-weight: bold;">Note:</b>次のようなC言語の表記もサポートしています。 
+		 
+		<p>b=3;</p>
+		<p>col(A)*=b;</p></td>
+	</tr>
+</table>
+<p><br />
+また、合わせて、線形補間および補外を指定したXデータセットに行い、それに対応するYデータセットの補間値および補外値を確認できます。上記を行うには、新しい表記法である、ブラケット[ 
+ ]ではなく、括弧( )を使います。</p>
+<p>この例では、book1_bはYデータセットで、(4) はXデータセット（book1_a）の値になります。この値について対応する補間Y値を探します。</p>
+<ol start="12">
+	<li>次のように入力します。</li>
+</ol>
+<pre>
+book1_b(4) =</pre>
+<ol start="13">
+	<li><b style="font-weight: bold;">ENTER</b>キーを押します。Originは次のように返します。</li>
+</ol>
+<pre>
+BOOK1_B(4)=5.333333</pre>
+<dl>
+	<dd><a class="image" style="color: #0000ff; text-decoration: underline; "><img 
+	 alt="Reading and Writing Worksheet Values 4.png" src="../images/Command_Window/Reading_and_Writing_Worksheet_Values_4.png" 
+	 width="455" height="353" border="0" /></a></dd>
+</dl>
+<p>これは、簡単なワークシートデータの折れ線グラフです。以上から、X=4と対応する補間Y値は5.333333である事が分かります。</p>
+<ol start="14">
+	<li>操作する列が異なるワークシート/ワークブックにある場合、範囲変数(range)を使ってワークシート列を表します。例えば、このスクリプトは、Book1の列Aのsin値を計算し、結果をBook2の列Aに入力します。（Enterキーを押す前にBook2の準備をしてください。） 
+	 
+	<pre class="lt" style="font-family: monospace;">
+range a <span style="color: #000080;">=</span> <span style="color: #000000;">[</span>Book1<span style="color: #000000;">]</span>Sheet1<span style="color: #000080;">!</span>Col<span style="color: #000000;">(</span>A<span style="color: #000000;">)</span>;
+range b <span style="color: #000080;">=</span> <span style="color: #000000;">[</span>Book2<span style="color: #000000;">]</span>Sheet1<span style="color: #000080;">!</span>Col<span style="color: #000000;">(</span>A<span style="color: #000000;">)</span>;
+b <span style="color: #000080;">=</span> sin<span style="color: #000000;">(</span>a<span style="color: #000000;">)</span>;
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</pre>
+	<p><a class="image"><img alt="Tutorial Script 007.png" src="../images/Command_Window/Tutorial_Script_007.png" 
+							 width="473" height="421" border="0" /></a></p>
+	<h3><a name="Access_X-Functions" id="Access_X-Functions"></a><span 
+	 class="mw-headline">Xファンクションにアクセスする</span></h3>
+	<p>Originには、幅広いさまざまなデータ処理操作を実行する多くのXファンクションがあります。Xファンクションの多くはLabTalkスクリプトから利用することができます。スクリプトからアクセス可能な関数であるため、定型業務を行うスクリプトコードを作成でき、ユーザに強力な環境を提供します。</p>
+	<p>スクリプトからアクセス可能なXファンクションは、コマンドウィンドウの中で一覧表示することができ、また、この関数のオートコンプリート機能だけでなく、コマンドシンタックスに関するヘルプを表示することもできます。</p>
+	<p>Xファンクションは、データ処理の入力元と出力先を指定するために、データ範囲文字列または範囲変数を受け付けます。例えば、信号処理の中にあるXファンクション「smooth」 
+	 は、次のようにしてコマンドウィンドウからアクセスできます。</p>
+	<ol>
+		<li><i style="font-style: italic;">Samples</i>\<i>Single Processing</i>\<i>Signal 
+		 with Shot Noise.dat</i>ファイルをインポートします。</li>
+		<li>コマンドウィンドウで、次のように入力します。 
+		<pre class="lt" style="font-family: monospace;">
+smooth iy<span style="color: #000000;">:</span><span style="color: #000080;">=</span>Col<span style="color: #000000;">(</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span> method<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">1</span> npts<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">200</span>
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</pre>
+		<b style="font-weight: bold;">ENTER</b>キーを押すと、結果が元のワークシートに追加されます。<br />
+		<br />
+		<a class="image"><img alt="Tutorial Script 008.png" src="../images/Command_Window/Tutorial_Script_008.png" 
+								 width="613" height="423" border="0" /></a><br />
+		<br />
+		</li>
+		<li>この 「smooth」Xファンクションに関するヘルプを表示するには、次のように入力します。 
+		<pre class="lt" style="font-family: monospace;">
+help smooth</pre>
+		対応するヘルプファイルが開きます。</li>
+	</ol></li>
+</ol>

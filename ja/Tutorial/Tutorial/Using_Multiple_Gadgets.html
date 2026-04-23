@@ -1,0 +1,84 @@
+﻿<h1 class="firstheading">複数のガジェットを使用する</h1><p class='urlname' style='display: none'>Using-Multiple-Gadgets</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Create_a_layout_for_multiple_gadget_windows"><span class="tocnumber">3</span> <span class="toctext">複数のガジェットウィンドウのためのレイアウトを作る</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Using_Quick_Peaks_gadget_to_find_baseline"><span class="tocnumber">4</span> <span class="toctext">クイックピークガジェットを使って基線を検索する</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Using_Quick_Fit_to_find_the_linear_fit_of_the_curve"><span class="tocnumber">5</span> <span class="toctext">クイックフィットガジェットを使って曲線に線形フィットを実行</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Using_Intersect_gadget_to_find_intersection_point"><span class="tocnumber">6</span> <span class="toctext">交差ガジェットを使って交点を探す</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Update_the_output"><span class="tocnumber">7</span> <span class="toctext">出力を更新する</span></a></li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>特定の目的を達成するために複数のガジェットを組み合わせて使用できます。同じプロットの上でガジェットウィンドウが重ならないようにするには、複数区分グラフの異なるレイヤ毎に違うガジェットを使用できます。他のガジェットからの結果は最終的に最後のガジェットウィンドウに追加され、新しい出力の度に更新されます。このチュートリアルでは、<b>クイックピーク</b>、<b>クイックフィット</b>、<b>交差</b>の3種類のガジェットを使用して基線と曲線の傾きの交点を探す方法を示します。
+</p>
+<p class="version" >必要なOriginのバージョン:Origin 2016 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。
+</p>
+<ul><li>複数のガジェットを同時に使用して同じデータを分析する</li>
+<li>ガジェットの分析結果を特定のグラフに出力し、更新する</li>
+<li>基線と曲線の線形フィット結果の交点を探す方法</li></ul>
+<h2><a name="Create_a_layout_for_multiple_gadget_windows"></a><span class="mw-headline">複数のガジェットウィンドウのためのレイアウトを作る</span></h2>
+<ol>
+<li>新しいワークブックを開き、<i>Samples</i>\<i>Curve Fitting</i>\<i>Gaussian.dat</i>ファイルをインポートします。
+<li>1つのグラフに複数のガジェットを重ねて使用することを避けるため、次のような複数レイヤグラフを作成し、同じデータを入力します。
+<li>2列目をクリックして選択した後にメニューから<b>作図：複数パネル：4区分</b>と操作を行い、4区分のグラフを作図します。
+<br /><br /><a  class="image"><img alt="Tutorial Using Multiple Gadgets 01.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_01.png" width="591"  /></a><br /><br />
+<table class="note">
+<tr>
+<td><b>Note:</b> 上記画像はこれからの説明を分かりやすくする為に、どのパネルがどのレイヤか青い文字で示しました。
+</td></tr></table>
+<li>ワークブックに戻り、<b>Amplitude</b>列を選択してマウスカーソルをその列の右端に位置づけ、カーソルの形状が <a  class="image"><img alt="Button Drag Column to Graph.png" src="../images/Using_Multiple_Gadgets/Button_Drag_Column_to_Graph.png" width="34"  /></a>に変わるようにします。カーソルの形状が変わったら、レイヤ2に向かい列Amplitudeをドラッグ＆ドロップで入力します。ダイアログが表示されたら<b>OK</b>をクリックしてダイアログを閉じます。同じ事をレイヤ3に対しても行ってください。レイヤ4の枠(右下の部分)については必要ないので、選択してからキーボードの<b>Delete</b>キーを押して削除します。
+<br /><br /><a  class="image"><img alt="Tutorial Using Multiple Gadgets 02.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_02.png" width="591"  /></a><br /><br />
+</ol>
+<h2><a name="Using_Quick_Peaks_gadget_to_find_baseline"></a><span class="mw-headline">クイックピークガジェットを使って基線を検索する</span></h2>
+<ol>
+<li>グラフをアクティブにしてから、Originメニューで<b>ガジェット：クイックピーク</b>を選び、<b>Data Exploration:addtool_quickpeaks</b>ダイアログを開きます。折れ線グラフの曲線の基線の種類をスプライン接続に変更します。基線の線の種類を変更するには、<b>基線</b>タブを開き、<b>接続法</b>ドロップダウンリストで<b>スプライン</b>を選択します。これでアンカーポイントをスプライン法で接続します。
+<br /><br /><a  class="image"><img alt="Tutorial Using Multiple Gadgets 03.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_03.png" width="333"  /></a><br /><br />
+<li>基線データの出力に関しては、素データが入っているワークシートに新しい列を追加せず、新しいワークブックに作成した基線データを出力し、更新があるたびにデータを置き換えるようにします。設定には、<b>出力先</b>タブを開き<b>ワークシートに追加</b>のチェックを外して<b>基線をワークシートに出力</b>にチェックを付けます。チェックを付けると表示されるテキストボックスに下図のように入力して、ワークブック名QkPeakとワークシート名Baselineに設定します。
+<br /><br /><a  class="image"><img alt="Tutorial Using Multiple Gadgets 04-vNext.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_04.png" width="332"  /></a><br /><br />
+
+<li><b>OK </b>をクリックして、ダイアログを閉じます。ROI領域(黄色の四角形)の境界に移動し、カーソルが両矢印に変わると、このROI領域のサイズを変更できます。
+<br /><br /><a  class="image"><img alt="Tutorial Using Multiple Gadgets 06.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_06.png" width="591"  /></a><br /><br />
+<li>ROIボックスの右上角にある三角形のボタン<a  class="image"><img alt="Triangle Button.png" src="../images/Using_Multiple_Gadgets/Triangle_Button.png" width="18"  /></a>をクリックして、フライアウトメニューから<b><b>新しい出力</b></b><b>新しい出力</b>を選択して基線のデータを出力します。
+<br /><br /><a  class="image"><img alt="Tutorial Using Multiple Gadgets 07.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_07.png" width="634"  /></a><br /><br />
+</ol>
+<h2><a name="Using_Quick_Fit_to_find_the_linear_fit_of_the_curve"></a><span class="mw-headline">クイックフィットガジェットを使って曲線に線形フィットを実行</span></h2>
+<ol>
+<li>グラフの左上にあるレイヤアイコン<a  class="image"><img alt="Button Layer Icon 02.png" src="../images/Using_Multiple_Gadgets/Button_Layer_Icon_02.png" width="19"  /></a>をクリックしてレイヤ2をアクティブにするか、右上のパネルをクリックして直接アクティブにします。
+<li>Originのメニューから<b><b><b>ガジェット：クイックフィット：Linear(System)</b></b> </b>と選択して<b><b>クイックフィット</b></b>ROIを開きます。ROI領域の大きさを調整して、ピークの左側が入るようにします。
+<br /><br /><a  class="image"><img alt="Tutorial Using Multiple Gadgets 08.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_08.png" width="591"  /></a><br /><br />
+<li>ROIボックスの右上角にある三角形のボタン<a  class="image"><img alt="Triangle Button.png" src="../images/Using_Multiple_Gadgets/Triangle_Button.png" width="18"  /></a>をクリックして、フライアウトメニューから<b><b>設定</b></b>を選択し、<b><b>クイックフィット設定</b></b>ダイアログを開きます。
+<li>この線形フィットについては他の出力は必要ないので<b>ラベルボックス</b>タブを開き、<b>グラフにラベルボックスを付加</b>のチェックを外します。
+<br /><br /><a  class="image"><img alt="Tutorial Using Multiple Gadgets 09.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_09.png" width="423"  /></a><br /><br />
+<li>同じように、出力結果を出力しないようにするには、<b><b>レポート</b></b>タブを開き、<b><b><b>出力先</b></b></b>のドロップダウンから<b><b>なし</b></b>を選び、<b>OK</b>をクリックしてダイアログを閉じます。
+<br /><br /><a  class="image"><img alt="Tutorial Using Multiple Gadgets 10.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_10.png" width="423"  /></a><br /><br />
+<li>ROI領域の右上にある三角ボタン<a  class="image"><img alt="Triangle Button.png" src="../images/Using_Multiple_Gadgets/Triangle_Button.png" width="18"  /></a> に戻ります。クリックすると開くコンテキストメニューから<b><b>新しい出力</b></b>を選択してワークシートにフィット結果を出力します。
+</ol>
+<h2><a name="Using_Intersect_gadget_to_find_intersection_point"></a><span class="mw-headline">交差ガジェットを使って交点を探す</span></h2>
+<ol>
+<li><b>交差</b>ガジェットを実行する前に、先の2つのガジェットから入手したフィットした基線と直線を3つ目のプロットに追加します。左上にあるレイヤアイコン<a  class="image"><img alt="Button Layer Icon 03.png" src="../images/Using_Multiple_Gadgets/Button_Layer_Icon_03.png" width="20"  /></a>をクリックし、レイヤ3をアクティブにします。レイヤアイコン<a  class="image"><img alt="Button Layer Icon 03.png" src="../images/Using_Multiple_Gadgets/Button_Layer_Icon_03.png" width="20"  /></a>の上で右クリックし、<b>レイヤの内容</b>を選択して<b>レイヤ内容-レイヤ3</b>ウィンドウを開きます。左側パネルでロングネームが<b>QuickFit Y1</b> と<b>基線 Y of Amplitude</b>となっている行をそれぞれ選び、右矢印アイコン<a  class="image"><img alt="Button Arrow Right 91.png" src="../images/Using_Multiple_Gadgets/Button_Arrow_Right_91.png" width="24"  /></a>をクリックして右側パネルに追加します。
+<br /><br /><a  class="image"><img alt="Tutorial Using Multiple Gadgets 11v.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_11v.png" width="947"  /></a><br /><br />
+<li><b><b>OK</b></b>をクリックしてウィンドウを閉じ、フィットした基線と折れ線が3つ目のレイヤに表示されます。
+<br /><br /><a  class="image"><img alt="Tutorial Using Multiple Gadgets 12.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_12.png" width="591"  /></a><br /><br />
+<li>グラフをアクティブにしてから、Originメニューで<b>ガジェット：交差</b>を選び、<b>交差:addtool_curve_intersect</b>ダイアログを開きます。そのまま<b>OK</b>をクリックしてダイアログを閉じると<b><b>交差</b></b>ガジェットROIが表示されます。
+<br /><br /><a  class="image"><img alt="Tutorial Using Multiple Gadgets 13.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_13.png" width="332"  /></a><br /><br />
+<li>ROI領域の位置と大きさを調整して基線と直線の交点が黄色いボックス内に入るようにしてください。元の曲線との交点を除外するには、ROI領域の右上にある三角ボタン<a  class="image"><img alt="Triangle Button.png" src="../images/Using_Multiple_Gadgets/Triangle_Button.png" width="18"  /></a>をクリックし、<b>データ変更</b>の中にある<b>Plot(1) Amplitude</b>のチェックを外します。
+<br /><br /><a  class="image"><img alt="Tutorial Using Multiple Gadgets 14.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_14.png" width="768"  /></a><br /><br />
+<li>ROI領域の右上にある三角ボタン<a  class="image"><img alt="Triangle Button.png" src="../images/Using_Multiple_Gadgets/Triangle_Button.png" width="18"  /></a> に戻ります。クリックすると開くコンテキストメニューから<b><b>新しい出力</b></b>を選択して基線と線形フィットを行った直線の交点の結果を出力します。
+<br /><br /><a  class="image"><img alt="Tutorial Using Multiple Gadgets 15.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_15.png" width="597"  /></a><br /><br />
+</ol>
+<h2><a name="Update_the_output"></a><span class="mw-headline">出力を更新する</span></h2>
+<ol>
+<li>レイヤアイコン<a  class="image"><img alt="Button Layer Icon 01.png" src="../images/Using_Multiple_Gadgets/Button_Layer_Icon_01.png" width="20"  /></a>をクリックしてレイヤ1をアクティブにします。<b>クイックピーク</b>ROIを移動し、新しい基線を作成します。ROI領域の右上にある三角ボタン<a  class="image"><img alt="Triangle Button.png" src="../images/Using_Multiple_Gadgets/Triangle_Button.png" width="18"  /></a> をクリックします。クリックすると開くコンテキストメニューから<b>新しい出力</b>を選択してワークシートに新しい基線を出力します。
+<li>レイヤアイコン<a  class="image"><img alt="Button Layer Icon 02.png" src="../images/Using_Multiple_Gadgets/Button_Layer_Icon_02.png" width="19"  /></a>をクリックしてレイヤ2をアクティブにし、<b><b>クイックフィット</b></b>ROIの位置を変えます。今度は曲線の反対側に設置しましょう。ROI領域の右上にある三角ボタン<a  class="image"><img alt="Triangle Button.png" src="../images/Using_Multiple_Gadgets/Triangle_Button.png" width="18"  /></a> をクリックします。クリックすると開くコンテキストメニューから<b>最後の出力を更新</b>を選択してワークシートに線形フィット結果を出力します。
+<li>レイヤアイコン<a  class="image"><img alt="Button Layer Icon 03.png" src="../images/Using_Multiple_Gadgets/Button_Layer_Icon_03.png" width="20"  /></a> をクリックしてレイヤ3をアクティブにします。<b><b>交差</b></b>ROIの位置を動かし、新しい基線と線形フィットをした直線の交点がボックスの中に入るようにします。ROI領域の右上にある三角ボタン<a  class="image"><img alt="Triangle Button.png" src="../images/Using_Multiple_Gadgets/Triangle_Button.png" width="18"  /></a> をクリックします。クリックすると開くコンテキストメニューから<b>新しい出力</b>を選択して新しい交点の情報を出力します。
+<br /><br /><a  class="image"><img alt="Tutorial Using Multiple Gadgets 16.png" src="../images/Using_Multiple_Gadgets/Tutorial_Using_Multiple_Gadgets_16.png" width="591"  /></a><br /><br />
+</ol>
+
+
+
+
+    

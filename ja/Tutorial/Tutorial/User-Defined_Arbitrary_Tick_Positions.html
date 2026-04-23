@@ -1,0 +1,190 @@
+﻿<h1 class="firstheading">ユーザ定義で任意の位置に目盛ラベルを打つ</h1><p class='urlname' style='display: none'>UserDef-TickPosition</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Sample_Data"><span class="tocnumber">4</span> <span class="toctext">サンプルデータ</span></a></li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>このチュートリアルは軸目盛りの位置をデータセットで指定する方法と目盛りラベルをカスタム表示する方法を示します。
+</p>
+<dl><dd><a class="image"><img alt="User-Defined Arbitrary Tick Positions 01.png" src="../images/User-Defined_Arbitrary_Tick_Positions/User-Defined_Arbitrary_Tick_Positions_01.png" width="529"  /></a></dd></dl>
+<p class="version" >必要なOriginのバージョン: Origin 2015 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul><li>データセットを使って目盛り位置を指定する</li>
+<li>カスタム化した目盛りラベルを表示する</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<ol><li><a href="#Sample_Data">サンプルデータ</a>をコピーし、Originのワークシートの列Aの1行目を選択して貼り付けます。1つ目の行をロングネームに、2つ目の行を単位に設定します。
+<dl><dd><a class="image"><img alt="User-Defined Arbitrary Tick Positions Data.png" src="../images/User-Defined_Arbitrary_Tick_Positions/User-Defined_Arbitrary_Tick_Positions_Data.png" width="454"  /></a></dd></dl></li>
+<li> A列とB列を選択して、<b>作図：基本の2Dグラフ：線+シンボル</b>と選択して作図します。  あるいは、<b>2Dグラフ</b>ツールバーから線＋シンボルのボタンをクリックします。  </li>
+<li> グラフをダブルクリックして、<b>作図の詳細</b>ダイアログを開きます。  <b>シンボル</b>タブを開き、シンボルを「塗りつぶし円」に、シンボルの色を「オリーブ」に設定します。  <b>グラフの線</b>タブを開き、線の色を「オリーブ」に変更します。そして<b>OK</b>ボタンをクリックしてダイアログを閉じます。
+<dl><dd><a class="image"><img alt="User-Defined Arbitrary Tick Positions 02.png" src="../images/User-Defined_Arbitrary_Tick_Positions/User-Defined_Arbitrary_Tick_Positions_02.png" width="824"  /></a></dd>
+<dd><a class="image"><img alt="User-Defined Arbitrary Tick Positions 03.png" src="../images/User-Defined_Arbitrary_Tick_Positions/User-Defined_Arbitrary_Tick_Positions_03.png" width="1003"  /></a></dd></dl></li>
+<li> X軸をダブルクリックして、<b>軸</b>ダイアログボックスを開きます。  <b>スケール</b>タブの<b>水平</b>と<b>垂直</b>のアイコンそれぞれに次のように入力してXとY軸の設定を行います。
+<dl><dd><a class="image"><img alt="User-Defined Arbitrary Tick Positions 04.png" src="../images/User-Defined_Arbitrary_Tick_Positions/User-Defined_Arbitrary_Tick_Positions_04.png" width="584"  /></a></dd>
+<dd><a class="image"><img alt="User-Defined Arbitrary Tick Positions 05.png" src="../images/User-Defined_Arbitrary_Tick_Positions/User-Defined_Arbitrary_Tick_Positions_05.png" width="584"  /></a></dd></dl></li>
+<li> <b>軸と軸目盛</b>タブでは<b>上</b>と<b>右</b>で、<b>軸と軸目盛を表示</b>にチェックを付けます。チェック後の設定は、図と同じになるようにします。
+<dl><dd><a class="image"><img alt="User-Defined Arbitrary Tick Positions 06.png" src="../images/User-Defined_Arbitrary_Tick_Positions/User-Defined_Arbitrary_Tick_Positions_06.png" width="584"  /></a></dd></dl></li>
+<li> <b>適用先</b>ボタンをクリックして、<b>適用先</b>ダイアログを開き、次のように設定します。
+<dl><dd><a class="image"><img alt="User-Defined Arbitrary Tick Positions 07.png" src="../images/User-Defined_Arbitrary_Tick_Positions/User-Defined_Arbitrary_Tick_Positions_07.png" width="584"  /></a></dd></dl></li>
+<li> <b>OK</b>をクリックして<b>適用先</b>ダイアログを閉じ、<b>軸</b>ダイアログに戻ります。</li>
+<li> <b>目盛ラベル</b>タブ内の<b>表示</b>タブを開き、上軸に対する目盛ラベルの設定を次の図のようにします。さらに、軸目盛を90度回転させる必要があります。同じく目盛ラベルタブの<b>フォーマット</b>タブで上軸についてふきだし内のように設定します。
+<dl><dd><a class="image"><img alt="User-Defined Arbitrary Tick Positions 08.png" src="../images/User-Defined_Arbitrary_Tick_Positions/User-Defined_Arbitrary_Tick_Positions_08.png" width="586"  /></a></dd></dl></li>
+<li> <b>X軸</b>の<b>目盛ラベル</b>の<b>下軸</b>ページを開き、<b>フォーマット</b>タブ内の<b>回転（度）</b>を<b>90</b>に設定します。</li>
+<li> 軸ダイアログで<b>グリッド線</b>タブを開きます。<b>垂直</b>と<b>水平</b>のアイコン、それぞれで<i>主グリッド線</i>の<b>表示</b>にチェックを付けます。
+<dl><dd><a class="image"><img alt="User-Defined Arbitrary Tick Positions 09.png" src="../images/User-Defined_Arbitrary_Tick_Positions/User-Defined_Arbitrary_Tick_Positions_09.png" width="584"  /></a></dd></dl></li>
+<li> <b>OK</b>をクリックして<b>軸</b>ダイアログを閉じます。メインメニューで<b>フォーマット：作図の詳細（レイヤ属性）：レイヤの大きさ</b>と操作して作図の詳細ダイアログを開き、レイヤ領域を調整します。最終的なグラフは次のようになります。
+<dl><dd><a class="image"><img alt="User-Defined Arbitrary Tick Positions 01.png" src="../images/User-Defined_Arbitrary_Tick_Positions/User-Defined_Arbitrary_Tick_Positions_01.png" width="529"  /></a></dd></dl></li></ol>
+<h2><a name="Sample_Data"></a><span class="mw-headline">サンプルデータ</span></h2>
+<table class="simple">
+<tr>
+<th>Temperature
+</th>
+<th>Transducer Output
+</th>
+<th>Custom Temperature
+</th>
+<th>Custom Label
+</th></tr>
+<tr>
+<th>°K
+</th>
+<th>volts
+</th>
+<th>
+</th>
+<th>
+</th></tr>
+<tr>
+<td>2.5
+</td>
+<td>1.5
+</td>
+<td>4.2
+</td>
+<td>He Boiling Point
+</td></tr>
+<tr>
+<td>2.5
+</td>
+<td>1.5
+</td>
+<td>4.2
+</td>
+<td>He Boiling Point
+</td></tr>
+<tr>
+<td>7.3
+</td>
+<td>1.42048
+</td>
+<td>77.36
+</td>
+<td>N Boiling Point
+</td></tr>
+<tr>
+<td>13
+</td>
+<td>1.28681
+</td>
+<td>233.15
+</td>
+<td> -40°C/-40°F
+</td></tr>
+<tr>
+<td>24
+</td>
+<td>1.06011
+</td>
+<td>273.15
+</td>
+<td>0°C
+</td></tr>
+<tr>
+<td>41
+</td>
+<td>0.90549
+</td>
+<td>373.15
+</td>
+<td>H<sub>2</sub>O Boiling Point
+</td></tr>
+<tr>
+<td>70
+</td>
+<td>0.85831
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>125
+</td>
+<td>0.7679
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>181
+</td>
+<td>0.63948
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>246
+</td>
+<td>0.53202
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>288
+</td>
+<td>0.40753
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>348
+</td>
+<td>0.24898
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>399
+</td>
+<td>0.13759
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>436
+</td>
+<td>0.09435
+</td>
+<td>
+</td>
+<td>
+</td></tr></table>
+
+
+    

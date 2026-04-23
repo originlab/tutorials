@@ -1,0 +1,180 @@
+﻿<h1 class="firstheading">データリーダツール</h1>
+<p class="urlname" style="display: none;">データリーダ</p>
+<p><br />
+</p>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>内容</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> 
+		 <span class="toctext">サマリー</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Tutorial_1:_Basic_Usage"><span 
+		 class="tocnumber">3</span> <span class="toctext">チュートリアル1: 基本の使用方法</span></a></li>
+		<li class="toclevel-1 tocsection-4"><a href="#Tutorial_2:_Custom_Numeric_Display_Format"><span 
+		 class="tocnumber">4</span> <span class="toctext">チュートリアル2: カスタム数値表示フォーマット</span></a></li>
+	</ol>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p><b>データリーダ</b><a class="image"><img alt="Button Data Reader.png" src="../images/Data_Reader_Tool/Button_Data_Reader.png" 
+										 width="22" border="0" /></a>は、<b>データ情報</b>ウィンドウを使用して選択したデータポイントに関する情報をグラフに表示する探索ツールです。基本的には、プロットされたデータポイントに関連してワークシートに含まれているものはすべて、<b>データ情報</b>ウィンドウに表示されます。これには、座標値、列ヘッダー、またはセル埋め込みイメージが含まれます。さらに、カスタムフォーマット（日付/時刻、緯度/経度など）を使用して数値を表示したり、ウィンドウの背景色を変更したり、ウィンドウタイトルを追加するなど、ウィンドウをカスタマイズすることもできます。 
+ </p>
+<dl>
+	<dd><dl>
+		<dd><a class="image"><img alt="Data Reader Tutorial Intro Fig.png" 
+									 src="../images/Data_Reader_Tool/Data_Reader_Tutorial_Intro_Fig.png" 
+									 width="476" height="348" border="0" /></a></dd>
+	</dl></dd>
+</dl>
+<p class="version">必要なOriginのバージョン: Origin 2019 以降</p>
+<table class="noborder">
+	<tr>
+		<td style="vertical-align: top;" width="60"><img src="../images/Data_Reader_Tool/Tip_icon.png" 
+														 alt="" width="57" 
+														 border="0" /></td>
+		<td><p>Origin 2019から、2Dグラフのデータポイント上にカーソルを合わせるだけでデータの座標値を表示することができます。この<b>データポイントのツールチップ</b>は高度にカスタマイズ可能で、<b>データ情報</b>ウィンドウの機能と似ています。詳細は、 
+		 <a class="external text" href="../../GettingStarted/OriginLab/Graphical_Exploration_of_Data.html#Data_Point_Tooltips">データポイントのツールチップ</a> 
+		 をご参照ください。 </p></td>
+	</tr>
+</table>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。 </p>
+<ul>
+	<li><b>データ情報</b>ウィンドウを使用してグラフのデータポイントを読み取る</li>
+	<li><b>データ情報</b>ウィンドウの内容をカスタマイズし、画像の表示を含める(チュートリアル1)。</li>
+	<li><b>データ情報</b>ウィンドウの内容をカスタマイズし、カスタムフォーマットを使用して数値データを表示する(チュートリアル2)。</li>
+</ul>
+<h2><a name="Tutorial_1:_Basic_Usage"></a><span class="mw-headline">チュートリアル1: 
+ 基本の使用方法</span></h2>
+<ol>
+	<li>メインメニューの<b>ファイル：開く</b>と選択して<i>&lt;Origin Folder&gt;\Samples\Data 
+	 Exploration</i> にある<i>Alkanes.opj</i> を開きます。 </li>
+	<li>Book1のSheet1にあるD列を選択し、メインメニューの<b>作図：散布図：散布図</b>を選択し、グラフを作成します。 
+	 </li>
+	<li><b>ツール</b>ツールバーから<b>データリーダボタン</b><a class="image"><img alt="Button Data Reader.png" 
+	 src="../images/Data_Reader_Tool/Button_Data_Reader.png" width="22" 
+	 border="0" /></a>をクリックし、作成したグラフ内の<i>Isobutane</i>データポイントをクリックします。 
+	 <br />
+	<b>データ情報</b>ウィンドウに、選択したデータポイントのX、Y座標が表示されます。 <br />
+	<a class="image"><img alt="Data Reader 01.png" src="../images/Data_Reader_Tool/Data_Reader_01.png" 
+							 width="302" height="128" border="0" /></a> 
+	 </li>
+	<li><b>データ情報</b>ウィンドウ内で右クリックし、メニューから<b>ユーザ設定</b>を選択すると、<b>データ情報レポート設定</b>ダイアログが開きます。 
+	 <br />
+	<a class="image"><img alt="Data Reader 02.png" src="../images/Data_Reader_Tool/Data_Reader_02.png" 
+							 width="383" height="191" border="0" /></a> 
+	 </li>
+	<li><b>データ情報</b>ウィンドウからブック名とシート名を削除するには、<b>レポートタイトル</b> のドロップダウンリストから<b>なし</b>を選択します。 
+	 <br />
+	<a class="image"><img alt="Data Reader 04.png" src="../images/Data_Reader_Tool/Data_Reader_04.png" 
+							 width="812" height="278" border="0" /></a> 
+	 </li>
+	<li>ダイアログの中央部分で、<i>&lt;X&gt;</i>をクリックしてX座標を削除し、削除ボタンをクリックします。<i>&lt;Y&gt;</i>についても同様にします。 
+	 <br />
+	<a class="image"><img alt="Data Reader 05.png" src="../images/Data_Reader_Tool/Data_Reader_05.png" 
+							 width="812" height="278" border="0" /></a> 
+	 </li>
+	<li>ダイアログ左上の角にある<b>Xデータ</b> <a class="image"><img alt="Button Source X Data.png" 
+														 src="../images/Data_Reader_Tool/Button_Source_X_Data.png" 
+														 width="49" border="0" /></a>ボタンと<b>Yデータ</b><a 
+	 class="image"><img alt="Button Source Y Data.png" src="../images/Data_Reader_Tool/Button_Source_Y_Data.png" 
+						 width="49" border="0" /></a>ボタンをクリックしてXとYの元データを追加します。<b>プレビュー</b>で<b>ロングネーム</b>のデータセットが使用されているのを確認できます。 
+	 </li>
+	<li><b>データ情報</b>ウィンドウに加えることができるすべてのワークシート列が、左側のパネルに表示されています。<b>B</b>、<b>C</b>、<b>E</b>、<b>G</b>、<b>H</b>列を選択して<b>選択</b>ボタンを押すと、中央パネルにデータが追加されます。このとき、<b>プレビュー</b>にはウィンドウに2つの列があることが示されています。 
+	 <br />
+	<a class="image"><img alt="Data Reader 06.png" src="../images/Data_Reader_Tool/Data_Reader_06.png" 
+							 width="812" height="282" border="0" /></a> 
+	 </li>
+	<li><b>列の追加</b>ボタンを押して、表に3つ目の列を追加します。3列目のタイトルの鉛筆アイコンをクリックして<b>列の設定</b>ダイアログを開き、<b>タイプ</b> 
+	 = <i>シングルセル</i>、<b>ソース</b> = <i>J &quot;Ball and stick model」</i>と設定します。<b>列幅</b> 
+	 = <i>20</i>と設定して<b>OK</b>をクリックします。1、2列目のタイトルの鉛筆アイコンをクリックして、それぞれ<b>列幅</b> 
+	 = <i>15</i>、<i>20</i>と設定します。 <br />
+	<a class="image"><img alt="Data Reader 07.png" src="../images/Data_Reader_Tool/Data_Reader_07.png" 
+							 width="812" height="443" border="0" /></a> 
+	 </li>
+	<li><b>フォント</b>ボタンを押して「ツールチップのフォント」ダイアログを開きます。<b>最小フォントサイズ</b>と<b>最大フォントサイズ</b>をそれぞれ<i>10</i>、<i>16</i>と設定します。この設定により、<b>データ情報</b>ウィンドウのサイズが変更された時のフォントサイズを自動制御します。これにより、<b>データ情報</b>テーブルのサイズ変更も制限されることに注意してください。<b>フォントの色</b>を<b>暗い青</b>に設定し、<b>OK</b>をクリックします。<b>背景</b>ボタンを押して<b>背景</b> 
+	 = <i>白</i>と設定し<b>OK</b>をクリックします。 </li>
+	<li><b>テーマの保存</b>ボタンを押して、メニューから<b>保存先 &lt;Graph&gt;</b>を選択します。これにより、<b>データ情報</b>ダイアログの設定がアクティブなグラフに保存されます。<b>OK</b>を押して<b>データ情報レポート設定</b>ダイアログを閉じます。 
+	 <br />
+	<a class="image"><img alt="Data Reader 03.png" src="../images/Data_Reader_Tool/Data_Reader_03.png" 
+							 width="808" height="380" border="0" /></a> 
+	 </li>
+	<li>ウィンドウの角をドラッグして<b>データ情報</b>ウィンドウのサイズを変更してみましょう。今回の設定により、フォントサイズやテーブルのサイズが制御されているのがわかります。 
+	 <br />
+	<a class="image"><img alt="Data Reader 10.png" src="../images/Data_Reader_Tool/Data_Reader_10.png" 
+							 width="657" height="377" border="0" /></a> 
+	 </li>
+</ol>
+<h2><a name="Tutorial_2:_Custom_Numeric_Display_Format"></a><span class="mw-headline">チュートリアル2: 
+ カスタム数値表示フォーマット</span></h2>
+<p>このチュートリアルでは、<b>データ情報</b>ウィンドウに表示される数値データにカスタム表示形式を適用する方法を学習します。 </p>
+<ol>
+	<li>F11キーを押して<b>ラーニングセンター</b>を開き、<b>グラフサンプル</b>タブにて&quot;Google Map 
+	 Temperature&quot;を検索します。サンプル上でダブルクリックするとプロジェクトが開きます。アメリカ大陸の地図に1月の平均気温の等高線プロットを重ねたグラフが表示されます。</li>
+	<dl>
+		<dd><a class="image"><img alt="Data Reader 2 1.png" src="../images/Data_Reader_Tool/Data_Reader_2_1.png" 
+									 width="594" height="314" border="0" /></a></dd>
+	</dl>
+	<li>マップ+等高線プロットをダブルクリックして、<b>作図の詳細</b>ダイアログボックスを開きます。<b>カラーマップ/等高線</b>タブを開き、<b>データポイント表示</b>にチェックを入れて<b>OK</b>を押します。表示されたプロットは、地図上の1月の気温データが記録されている米国の都市です。すべての点を見やすくするために、ウィンドウのサイズを拡大します。</li>
+	<li>ツールバーから<b>データリーダ</b>ツール<a class="image"><img alt="Button Data Reader.png" 
+													 src="../images/Data_Reader_Tool/Button_Data_Reader.png" 
+													 width="22" border="0" /></a>を選択し（<b>ヒント</b>：<b>データカーソル</b> 
+	 <a class="image"><img alt="Button Data Cursor.png" src="../images/Data_Reader_Tool/Button_Data_Cursor.png" 
+							 width="22" border="0" /></a>と<b>データハイライター</b> 
+	 <a class="image"><img alt="Button Data Highlighter.png" src="../images/Data_Reader_Tool/Button_Data_Highlighter.png" 
+							 width="25" border="0" /></a>がスプリットボタンに表示されます）、地図上の散布点の一つをクリックします。データ情報ウィンドウが開き、次の画像のように表示されます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Data Reader 2 2.png" src="../images/Data_Reader_Tool/Data_Reader_2_2.png" 
+									 width="300" height="150" border="0" /></a></dd>
+	</dl>
+	表示される情報はユーザフレンドリーではありませんので、<b>データ情報</b>ウィンドウをカスタマイズしてより有用な情報を表示します。</li>
+	<li>データ情報ウィンドウ上でダブルクリックして<b>データ情報レポート設定</b>ダイアログボックスを開きます。中央パネルの<b>Name</b>列の下にある<b>&lt;X&gt;</b>、<b>&lt;Y&gt;</b>、<b>&lt;Z&gt;</b>について、 
+	 1つずつ<b>削除</b>ボタン<a class="image"><img alt="Button Remove.png" src="../images/Data_Reader_Tool/Button_Remove.png" 
+											 width="28" border="0" /></a>を押して中央パネルから削除します。 
+	 </li>
+	<li>ダイアログ左上角の<a class="image"><img alt="Button Source X Data.png" src="../images/Data_Reader_Tool/Button_Source_X_Data.png" 
+										 width="49" border="0" /></a>、<a 
+	 class="image"><img alt="Button Source Y Data.png" src="../images/Data_Reader_Tool/Button_Source_Y_Data.png" 
+						 width="49" border="0" /></a>、<a class="image"><img 
+	 alt="Button Source Z Data.png" src="../images/Data_Reader_Tool/Button_Source_Z_Data.png" 
+	 width="49" border="0" /></a>ボタンをクリックして、<b>ロングネーム</b>列でラベルされたX、Y、Zの元データを中央パネルに追加します。設定の結果はダイアログボックス右側の<b>プレビュー</b>にて確認できます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Data Reader 2 3.png" src="../images/Data_Reader_Tool/Data_Reader_2_3.png" 
+									 width="501" height="144" border="0" /></a></dd>
+	</dl>
+	現在、<b>データ情報</b>には2つの列が表示されています。1つ目はロングネーム列（<i>Longitude</i>、<i>Latitude</i>、<i>January</i>）2つ目は 
+	 <i>Longitude</i>、<i>Latitude</i>、<i>January</i>に関連づけられている数値データの列です。これらの数字に書式を適用して、単純な一般的な10進数として表示されないようにしてみましょう。</li>
+	<li><b>列の追加</b>ボタンをクリックして3番目の列をデータ情報テーブルに追加し、新しく追加した列の鉛筆アイコンをクリックして<b>列の設定</b>ダイアログボックスを開きます。<b>タイプ</b>ドロップダウンリストから<b>数値表示形式</b>を選択して<b>OK</b>を押します。</li>
+	<dl>
+		<dd><a class="image"><img alt="Data Reader 2 4.png" src="../images/Data_Reader_Tool/Data_Reader_2_4.png" 
+									 width="465" height="225" border="0" /></a></dd>
+	</dl>
+	<li><b>数値表示形式</b>見出しの下にある最初のセルをクリックすると、カスタム書式設定オプションの一覧が表示されます。このリストは網羅的ではありませんが、<a 
+	 class="external text" href="../../UserGuide/UserGuide/Custom_Numeric_Format.html">カスタムフォーマット</a>でよく使用されるものが表示されています。このボックスに直接入力してカスタムフォーマットを指定することもできます。</li>
+	<dl>
+		<dd><a class="image"><img alt="Data Reader 2 5.png" src="../images/Data_Reader_Tool/Data_Reader_2_5.png" 
+									 width="368" height="423" border="0" /></a></dd>
+	</dl>
+	<li>最初の行のリストで、次のように入力します（東/西、度ー分と表示されます）： 
+	<pre class="lt" style="font-family: monospace;">
+DM EWB</pre></li>
+	<li>2番目の行のリストで、次のように入力します（北/南、度ー分と表示されます）： 
+	<pre class="lt" style="font-family: monospace;">
+DM NSB</pre></li>
+	<li>3番目の行のリストで次のように入力します（小数点以下1桁+接尾辞文字列「deg F」と表示されます）： 
+	<pre class="lt" style="font-family: monospace;">
+.1 <span style="color: #ff00ff;">&quot;deg F&quot;</span>
+	</pre></li>
+	<li><b>列の追加</b>ボタンをクリックしてデータ情報テーブルに列を追加し、新しく追加された列の鉛筆アイコンをクリックして<b>列の設定</b>ダイアログボックスを開きます。<b>タイプ</b>を<b>シングルセル</b>、ソースを<b>A 
+	 &quot;City&quot;</b>、<b>列幅</b>を<b>30</b>と設定して<b>OK</b>をクリックします。</li>
+	<li><b>テーマの保存</b>ボタンを押して<i>保存先&lt;Graph&gt;</i>を選択し、 現在のデータ情報ウィンドウの設定をグラフウィンドウに保存します。<b>OK 
+	 </b>をクリックしてダイアログを閉じます。</li>
+	<dl>
+		<dd><a class="image"><img alt="Data Reader 2 6.png" src="../images/Data_Reader_Tool/Data_Reader_2_6.png" 
+									 width="697" height="262" border="0" /></a></dd>
+	</dl>
+</ol>

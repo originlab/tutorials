@@ -1,0 +1,120 @@
+﻿<h1 class="firstheading">引出し線付きスマートピークラベル</h1>
+<p class="urlname" style="display: none;">SmartLabels</p>
+<p><br />
+</p>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> 
+		 <span class="toctext">サマリー</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Steps_to_Add_Smart_labels"><span 
+		 class="tocnumber">3</span> <span class="toctext">スマートラベルの追加操作</span></a></li>
+		<li class="toclevel-1 tocsection-4"><a href="#Steps_to_Customize_a_Single_Point_and_its_Label"><span 
+		 class="tocnumber">4</span> <span class="toctext">単一ポイントとラベルの編集操作</span></a></li>
+		<li class="toclevel-1 tocsection-5"><a href="#More_Customization_Steps"><span 
+		 class="tocnumber">5</span> <span class="toctext">グラフの編集</span></a></li>
+	</ol>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>2Dデカルト座標系での線/シンボルプロットの場合、Originは、重複しないように自動再配置可能なスマートラベルをサポートしています。ラベルとデータポイントをつなぐ引出線（直線または斜めの線）を追加することもできます。 
+ </p>
+<p><a class="image"><img alt="Smart Peak Labels with Leader Line 01.png" 
+						 src="../images/Smart_Peak_Labels_with_Leader_Line/Smart_Peak_Labels_with_Leader_Line_01.png" 
+						 width="623" height="373" border="0" /></a> </p>
+<p class="version">必要なOriginのバージョン:Origin 2016 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。 </p>
+<ul>
+	<li>引出線付きスマートラベルを追加する</li>
+	<li>特別なデータポイントを追加し、そのラベルを編集する</li>
+</ul>
+<h2><a name="Steps_to_Add_Smart_labels"></a><span class="mw-headline">スマートラベルの追加操作</span></h2>
+<p>このチュートリアルは、チュートリアルデータプロジェクト（<i><i>&lt;Origin EXE フォルダ&gt;\Samples\TutorialData.opj</i></i>）と関連しています。 
+ </p>
+<ol>
+	<li><b>チュートリアルデータ</b>を開き、<b><b>プロジェクトエクスプローラ</b></b>で<i>Smart Peak 
+	 Labels with Leader Line</i> フォルダを開きます。 </li>
+	<li><b>A100527IR</b> ワークブックには、2つのシートがあります。<i>100-52-7-IR</i> は、IR吸光度データで、<i>Peak_Centers1</i>はOriginの<b><b>ピークアナライザ</b></b>によって検索し、生成された結果シートです。 
+	 </li>
+	<li><i>100-52-7-IR</i> シートのB列を選択して、<b><b>作図：線図：折れ線</b></b>と選択してグラフを作成します。</li>
+	<li>ウィンドウの左上にあるLayer1アイコンをダブルクリックして<b>レイヤ内容</b>ダイアログボックスを開きます。左パネルで、col(pcy) 
+	 を選択します。<b><b>A</b></b>ボタンをクリックして作図形式を<b><b>散布図</b></b>にしてから、<b>右向き矢印</b>ボタンをクリックして現在のレイヤにデータセットを追加します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Smart Peak Labels with Leader Line 02v.png" 
+									 src="../images/Smart_Peak_Labels_with_Leader_Line/Smart_Peak_Labels_with_Leader_Line_02v.png" 
+									 width="831" border="0" /></a></dd>
+	</dl></li>
+	<li><b><b>作図の詳細</b></b>ダイアログの左パネルで、2つ目のデータを選択し、<b><b>シンボル</b></b>タブで下図のように設定します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Smart Peak Labels with Leader Line 03.png" 
+									 src="../images/Smart_Peak_Labels_with_Leader_Line/Smart_Peak_Labels_with_Leader_Line_03.png" 
+									 width="430" border="0" /></a></dd>
+	</dl></li>
+	<li><b><b>ラベル</b></b>タブを開き、<b><b>有効にする</b></b>のチェックを付け、下図のようにします。 
+	<dl>
+		<dd><a class="image"><img alt="Smart Peak Labels with Leader Line 04.png" 
+									 src="../images/Smart_Peak_Labels_with_Leader_Line/Smart_Peak_Labels_with_Leader_Line_04.png" 
+									 width="601" border="0" /></a></dd>
+	</dl></li>
+	<li><b><b>適用</b></b>ボタンをクリックすると、ラベルが重複していることがわかります。 
+	<dl>
+		<dd><a class="image"><img alt="Smart Peak Labels with Leader Line 05.png" 
+									 src="../images/Smart_Peak_Labels_with_Leader_Line/Smart_Peak_Labels_with_Leader_Line_05.png" 
+									 width="450" border="0" /></a> </dd>
+	</dl></li>
+	<li><b><b>ラベル</b></b>タブの、<b><b>自動的に位置を変更して重なりを避ける</b></b>にチェックを付け、<b><b>修正の方向</b></b>を<i><i>Y</i></i> 
+	 として、<b><b>引出線</b></b>を以下のように設定します。また、<b><b>垂直オフセット</b></b>を<b><b>170</b></b>にし、引き出し線を明確にします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Smart Peak Labels with Leader Line 06.png" 
+									 src="../images/Smart_Peak_Labels_with_Leader_Line/Smart_Peak_Labels_with_Leader_Line_06.png" 
+									 width="600" border="0" /></a></dd>
+	</dl></li>
+	<li>OKボタンをクリックして、ダイアログを閉じます。ラベルが自動的に再配置されます。</li>
+</ol>
+<h2><a name="Steps_to_Customize_a_Single_Point_and_its_Label"></a><span 
+	 class="mw-headline">単一ポイントとラベルの編集操作</span></h2>
+<ol>
+	<li>一番大きなピークのラベルが見えなくなっています。Y 軸をダブルクリックして<b>軸</b>ダイアログを開きます。<b>スケール</b>タブを開いていることを確認してから<b>垂直</b>アイコンを選択し、<b>開始</b>と<b>終了</b>の値に<i>-0.05</i>と<i>0.8</i>を入力し、OKをクリックして設定を適用します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Smart Peak Labels with Leader Line 10.png" 
+									 src="../images/Smart_Peak_Labels_with_Leader_Line/Smart_Peak_Labels_with_Leader_Line_10.png" 
+									 width="587" border="0" /></a></dd>
+	</dl></li>
+	<li><b><b>Crtrl</b></b>キーを押しながら、一番大きなピークラベル<b><b>1730</b></b>でダブルクリックし、<b><b>作図の詳細</b></b>ダイアログを開きます。左パネルでは、このノードは<b>18</b>と表示されます。これは選択したポイントの行インデックスです。</li>
+	<li><b><b>ラベル</b></b>タブを開き、編集を行います。 
+	<dl>
+		<dd><a class="image"><img alt="Smart Peak Labels with Leader Line 08.png" 
+									 src="../images/Smart_Peak_Labels_with_Leader_Line/Smart_Peak_Labels_with_Leader_Line_08.png" 
+									 width="941" border="0" /></a></dd>
+	</dl></li>
+	<li><b><b>シンボル</b></b>タブを開き、シンボルの形状とサイズを変更します。 
+	<dl>
+		<dd><a class="image"><img alt="Smart Peak Labels with Leader Line 07.png" 
+									 src="../images/Smart_Peak_Labels_with_Leader_Line/Smart_Peak_Labels_with_Leader_Line_07.png" 
+									 width="782" border="0" /></a></dd>
+	</dl></li>
+</ol>
+<h2><a name="More_Customization_Steps"></a><span class="mw-headline">グラフの編集</span></h2>
+<p>以下の編集操作により、<b><b>サマリー</b></b>で表示されている画像のグラフと同じようにグラフを編集します。 </p>
+<ol>
+	<li>X 軸上でダブルクリックして、<b><b>軸</b></b><b>ダイアログ</b>を開き、<b><b>スケール</b></b>タブを開いてから<b><b>開始</b></b>と<b><b>終了</b></b>を<i><i>400</i></i> 
+	 と<i><i>3500</i></i> に変更します。</li>
+	<li>上の右の枠線を表示するために、<b><b>軸</b></b>ダイアログの<b><b>グリッド線</b></b>タブを開きます。<b><b>水平</b></b>と<b><b>垂直</b></b>の両方において、<b><b>追加の線</b></b>ブランチにある<b><b>反対</b></b>のチェックをつけます。 
+	 </li>
+	<li>レイヤサイズを変更するために、メニューから<b>フォーマット：作図の詳細(レイヤ属性)</b>を選択し、<b><b>作図の詳細</b></b>ダイアログボックスを開きます。<b><b>レイヤの大きさ/描画</b></b>スピードタブを開き、<b><b>レイヤ領域</b></b>グループのレイヤサイズを以下のように変更します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Smart Peak Labels with Leader Line 09.png" 
+									 src="../images/Smart_Peak_Labels_with_Leader_Line/Smart_Peak_Labels_with_Leader_Line_09.png" 
+									 width="423" border="0" /></a></dd>
+	</dl></li>
+	<li>凡例をクリックして選択し、<b><b>Delete</b></b>キーを使用して凡例を削除します。</li>
+</ol>

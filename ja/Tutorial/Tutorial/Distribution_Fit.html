@@ -1,0 +1,98 @@
+﻿<h1 class="firstheading">分布フィット</h1><p class='urlname' style='display: none'>dist-fit</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#User_Story"><span class="tocnumber">3</span> <span class="toctext">ユーザストーリー</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Choosing_Distributions"><span class="tocnumber">4</span> <span class="toctext">分布の選択</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Performing_Distribution_Fit"><span class="tocnumber">5</span> <span class="toctext">分布フィットを実行</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Comparing_and_Selecting_Fitting_Models"><span class="tocnumber">6</span> <span class="toctext">フィットモデルの比較と選択</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Making_Estimations"><span class="tocnumber">7</span> <span class="toctext">推定</span></a></li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>データの分布モデルを知ることは正しい解析やデータの推定をするのに役立ちます。<b>分布フィットツール</b>ではユーザがデータの分布を調査するのに役立ち、分布のパラメータを推定することが可能です。
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。
+</p>
+<ul><li> 実用的なデータを使って分布フィットを実行する </li>
+<li> 算出された結果の読み取り方</li></ul>
+<h2><a name="User_Story"></a><span class="mw-headline">ユーザストーリー</span></h2>
+<p>建築業者は周辺エリアの過去の販売実績を基に、次年度いくつ家を建てるべきか決定しようとしています。次のことを知りたいと思っています。
+</p>
+<dl><dd><ul><li>もし80軒建てるとしたら、全ての家が売れる確率はどの程度になるのでしょうか？</li>
+<li>少なくとも60％の確率で家を売ることができれば、利益を生み出すことが可能になります。そうするには何軒家を建てればいいのでしょうか？</li></ul></dd></dl>
+<p><br />
+この疑問を解決するために、建築業者は次のことを調べる必要があります。
+</p>
+<dl><dd><ul><li> 周辺エリアの過去の販売実績のサンプルデータで分布フィットを実行する</li>
+<li> 最もフィットしている分布を選択する</li>
+<li> 選択した分布の累積分布関数を使って確率を計算する</li>
+<li> 確率が60％以上ならば、計画を考え直す</li></ul></dd></dl>
+<h2><a name="Choosing_Distributions"></a><span class="mw-headline">分布の選択</span></h2>
+<ol><li> 新規プロジェクト、または、新規ワークブックを作成します。ヘルプ：フォルダを開く：サンプルフォルダより、<b>\Samples\Statistics\MontanacOutlookPoll.dat</b>をインポートします。</li>
+<li> 列Bを選択し、<b>作図：統計：ヒストグラム</b>を選びます。
+<dl><dd><a  class="image"><img alt="Dist fit histogram.png" src="../images/Distribution_Fit/Dist_fit_histogram.png" width="387"  /></a></dd></dl></li>
+<li> 以下を考えて分布を選びます。
+<ul><li> データは自然数のみで集計されています。つまり、連続分布と離散分布の両方でフィットを考えることが可能です。(もし、小数点のデータがある場合、連続分布のみ適用できます。)しかし、大抵は離散分布よりも連続分布のほうがより良いフィットになるため、今回は連続分布を選択します。</li>
+<li> 新しく売れた家の戸数は正の数のため、負の数を取るような正規分布を考える必要はありません。</li>
+<li> ヒストグラムを見ると、ある特定の値周辺にデータが集まっているようです。つまり、指数分布(データが極端に不均整な場合に使用する分布)を考慮する必要はありません。</li></ul></li></ol>
+<h2><a name="Performing_Distribution_Fit"></a><span class="mw-headline">分布フィットを実行する</span></h2>
+<ol><li> <b>HouseSold</b>ワークシートに戻ります。列Bを選択してOriginのメニューから、<b><b>統計：記述統計：分布フィット</b></b>と操作します。</li>
+<li> ダイアログを開いて、<b>分布関数</b>タブを開き、<b>正規</b>のチェックを外し、下図のように3つの分布を選択します。これらの3つの分布は<a href="#Choosing_Distributions">分布を選択する</a>の内容と結論を元に決められています。
+<ul><li> <b>対数正規</b></li>
+<li> <b>ワイブル</b></li>
+<li> <b>ガンマ</b></li></ul>
+<dl><dd><a  class="image"><img alt="DOC-2411 Dist fit dlg settings a.png" src="../images/Distribution_Fit/DOC-2411_Dist_fit_dlg_settings_a.png" width="468"  /></a></dd></dl></li>
+<li> <b>プロット</b>タブを開いて、<b>確率プロット</b>を選択します。
+<dl><dd><a  class="image"><img alt="DOC-2411 Dist fit dlg settings b.png" src="../images/Distribution_Fit/DOC-2411_Dist_fit_dlg_settings_b.png" width="468"  /></a></dd></dl></li>
+<li> <b>フィットの良さ</b>タブを開いて、3つの全ての要素にチェックを付けます。<b>OK</b>をクリックして、ダイアログを閉じます。
+<dl><dd><a  class="image"><img alt="DOC-2411 Dist fit dlg settings c.png" src="../images/Distribution_Fit/DOC-2411_Dist_fit_dlg_settings_c.png" width="468"  /></a></dd></dl></li></ol>
+<h2><a name="Comparing_and_Selecting_Fitting_Models"></a><span class="mw-headline">フィットモデルの比較と選択</span></h2>
+<p>分布フィットの結果を基にして、フィットモデルを比較、選択します。
+</p>
+<ul><li> <b>確率(P-P)プロット</b>
+<dl><dd> 参照線にすべての散布図の点が近ければ、データセットに対する分布は良いといえるでしょう。確率プロットより、対数正規分布とガンマ分布のどちらもデータのモデルとして選択しても良いといえるでしょう。</dd>
+<dd> <a  class="image"><img alt="Dist fit prob plot.png" src="../images/Distribution_Fit/Dist_fit_prob_plot.png" width="692"  /></a></dd></dl></li>
+<li>  <b>フィットの良さの検定</b>
+<dl><dd> 表のP値において、P値が0.05よりも小さい場合、その分布を0.05レベルで棄却することを意味しています。正規対数分布とガンマ分布のP値が0.05より大きいことが、<b>フィットの良さの検定</b>より分かります。よって、対数正規分布とガンマ分布はどちらもこのデータには良いモデルであるといえます。 </dd>
+<dd> <a  class="image"><img alt="Dist fit results goodness of fit.png" src="../images/Distribution_Fit/Dist_fit_results_goodness_of_fit.png" width="576"  /></a></dd></dl></li></ul>
+<p><b>確率(P-P)プロット</b>と<b>フィットの良さの検定</b>より、対数正規分布とガンマ分布はこのデータに対してはどちらもよい分布であるといえます。ここでは対数正規分布を選択して、この後の例を進めていくこととします。
+</p>
+<h2><a name="Making_Estimations"></a><span class="mw-headline">推定</span></h2>
+<p>最も良い分布モデルが見つかったら、CDFとINV関数を使って、確率を計算していきます。
+</p>
+<ul><li> もし80軒建てるとしたら、全ての家が売れる確率はどの程度になるのでしょうか？</li>
+<li> 60％の利益を得るためには、何軒の家を建てる必要があるのでしょうか？</li></ul>
+<ol><li> 1つ目の問題を解決するために、<b>ウィンドウ</b>メニューから<b>コマンドウィンドウ</b>または<b>スクリプトウィンドウ</b>を開き、下記のコマンドを入力します。
+<dl><dd> <pre class="lt" style="font-family:monospace;">logncdf<span style="color: #000000;">(</span><span style="color: #0000dd;">80</span>, <span style="color: #0000dd;">3.94262</span>, <span style="color: #0000dd;">0.35614</span><span style="color: #000000;">)</span> <span style="color: #000080;">=</span></pre></dd>
+<dd>ここで3.94262はμで0.35614はσです。どちらもレポートシートの<b>パラメータ推定</b>表から生成された値です。
+</dd>
+<dd> <a  class="image"><img alt="Dist fit results parameter estimates.png" src="../images/Distribution_Fit/Dist_fit_results_parameter_estimates.png" width="482"  /></a></dd></dl></li>
+<li>以下のような結果になります。
+<dl><dd><pre class="lt" style="font-family:monospace;">logncdf<span style="color: #000000;">(</span><span style="color: #0000dd;">80</span>, <span style="color: #0000dd;">3.94262</span>, <span style="color: #0000dd;">0.35614</span><span style="color: #000000;">)</span> <span style="color: #000080;">=</span>  <span style="color: #0000dd;">0.89136185728793</span></pre></dd>
+<dd> 建築業者が80軒の新築物件を建てた場合、約89%の確率で、すべての家が売れることはないだろう、という事がいえます。
+</dd></dl></li></ol>
+<ol><li> 2番目の問題を解決するために、<b>コマンドウィンドウ</b>あるいは<b>スクリプトウィンドウ</b>で以下のコマンドを実行します。 
+<dl><dd> <pre class="lt" style="font-family:monospace;">logninv<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span><span style="color: #000080;">-</span><span style="color: #0000dd;">0.6</span>, <span style="color: #0000dd;">3.94262</span>, <span style="color: #0000dd;">0.35614</span><span style="color: #000000;">)</span> <span style="color: #000080;">=</span></pre></dd></dl></li>
+<li>以下のような結果になります。
+<dl><dd><pre class="lt" style="font-family:monospace;">logninv<span style="color: #000000;">(</span><span style="color: #0000dd;">1</span><span style="color: #000080;">-</span><span style="color: #0000dd;">0.6</span>, <span style="color: #0000dd;">3.94262</span>, <span style="color: #0000dd;">0.35614</span><span style="color: #000000;">)</span> <span style="color: #000080;">=</span>  <span style="color: #0000dd;">47.105650533425</span></pre></dd>
+<dd> この結果により、建築業者は47軒の新築物件を建てれば利益を得ることが出来そうである、といえます。</dd></dl></li></ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Distribution_Fit/Tip_icon.png" width="57"  border="0" /></td><td><p>上記の<a href="#Choosing_Distributions"><b>分布の選択</b>セクション</a>で対数正規分布を選択したので logncdf と logninv を使用して推定を実行しました。もしガンマ分布を選択していた場合、<a class="external text" href="../../LabTalk/LabTalk/Gamcdf_(function).html">gamcdf</a>と<a class="external text" href="../../LabTalk/LabTalk/Gaminv_(function).html">gaminv</a> を使用します。この場合でも似たような結果を得ることが可能です。
+</p></td></tr></table>
+<table class="note">
+<tr>
+<td><b>Notes：</b>データからより早く<b>分布フィット</b>の結果を見る方法として、他にも記述統計やグラフはあります。
+<dl><dd><ul><li> <b>記述統計</b>表</li>
+<li> <b>分位数</b>表</li>
+<li> <b>ヒストグラム</b></li>
+<li> <b>ボックスチャート</b></li>
+<li> <b>cdf</b>: 累積分布関数プロット</li></ul></dd></dl>
+</td></tr></table>
+
+
+    

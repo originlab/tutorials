@@ -1,0 +1,49 @@
+﻿<h1 class="firstHeading">ワイブルフィット</h1><p class='urlname' style='display: none'>Weibull-Fit</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Perform_Weibull_Fit"><span class="tocnumber">3</span> <span class="toctext">ワイブルフィットを実行</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Interpreting_the_Result"><span class="tocnumber">4</span> <span class="toctext">結果の解釈</span></a></li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>ワイブルフィットは、生存関数と故障時間の関係を解析するためのパラメトリック手法の一種です。解析によって、ワイブル分布のハザード関数と生存関数を決めるパラメータの推定値を得ることができます。
+</p><p>ワイブル分布：
+</p><p><img src="../images/Weibull_Fit/math-87198063c34af4438e5b1f5283a57c54.png" title="f(x)=\frac{b}{a }({\frac{x-\theta }{a }})^{b-1}e^{(-\left({\frac{x-\theta }{a }}\right)^{b})}" alt="f(x)=\frac{b}{a }({\frac{x-\theta }{a }})^{b-1}e^{(-\left({\frac{x-\theta }{a }}\right)^{b})}" class="tex"/>ここで<img src="../images/Weibull_Fit/math-4fd5766f07334764346efe1a997cf223.png" title="x &gt;\theta" alt="x &gt;\theta" class="tex"/>、<img src="../images/Weibull_Fit/math-e9494e3c8b6f841c5ca3d4ea415143ad.png" title="a, b &gt; 0" alt="a, b &gt; 0" class="tex"/>
+</p><p>生存関数：
+</p><p><img src="../images/Weibull_Fit/math-cd2821c3f78161db7022b9621b9ed96c.png" title="S(x)=e^{(-\left({\frac{x-\theta }{a}}\right)^{b})} " alt="S(x)=e^{(-\left({\frac{x-\theta }{a}}\right)^{b})} " class="tex"/>
+</p><p>ハザード関数：
+</p><p><img src="../images/Weibull_Fit/math-6dfce5f2f045c9872f0738ee477d914e.png" title="h(x)=\frac{b}{a}\left({\frac{x-\theta }{a}}\right)^{b-1}" alt="h(x)=\frac{b}{a}\left({\frac{x-\theta }{a}}\right)^{b-1}" class="tex"/>
+</p><p>ここで、bはｖ、<img src="../images/Weibull_Fit/math-0cc175b9c0f1b6a831c399e269772661.png" title="a" alt="a" class="tex"/>は尺度パラメータ、<img src="../images/Weibull_Fit/math-2554a2bb846cffd697389e5dc8912759.png" title="\theta" alt="\theta" class="tex"/>は位置パラメータです。Originでは、ワイブルフィットは b と a のみを扱い、<img src="../images/Weibull_Fit/math-2554a2bb846cffd697389e5dc8912759.png" title="\theta" alt="\theta" class="tex"/> = 0 と仮定します。
+</p><p>b &gt; 1：ハザード関数は増加、b = 1：ハザード関数は一定（指数分布モデル）、b &lt; 1：ハザード関数は減少となります。
+</p>
+<p class="version" >必要なOriginのバージョン: OriginPro 9.1 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。
+</p>
+<ul><li>ワイブルフィットを実行 </li>
+<li>分析レポートの説明方法</li></ul>
+<h2><a name="Perform_Weibull_Fit"></a><span class="mw-headline">ワイブルフィットを実行</span></h2>
+<ol><li>空のワークブックを開きます。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Statistics</i>サブフォルダにある<i>weibull fit.dat</i> ファイルを探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。</li>
+<li><b>統計：生存分析：ワイブルフィット</b>選択してダイアログを開きます。 </li>
+<li><b>時間範囲</b>に<b>A(X)</b>列を入力します。同様に、<b>打切り範囲</b>に<b>B(Y）</b>列を入力します。 </li>
+<li>打切り値のドロップダウンリストから打切り値として<b>0</b>を選択します。 </li>
+<li><b>プロット</b>ブランチを開き、<b>生存プロット</b>と<b>ハザードプロット</b>にチェックを付けます。<br /><a  class="image"><img alt="W01.png" src="../images/Weibull_Fit/W01.png" width="499"  /></a></li>
+<li><b>OK</b> ボタンをクリックして、ワイブルフィットを実行します。 </li></ol>
+<dl><dd><a  class="image"><img alt="W04.png" src="../images/Weibull_Fit/W04.png" width="515"  /></a></dd></dl>
+<h2><a name="Interpreting_the_Result"></a><span class="mw-headline">結果の解釈</span></h2>
+<p>分析レポートのワークシート<b>WeibullFit1</b>を開きます。
+</p>
+<ul><li>「イベントと打ち切り変数のサマリー」表から、<b><b>打切り</b></b>は19で<b><b>打切りパーセント</b></b>は0.2111である事がわかります。</li></ul>
+<dl><dd><a  class="image"><img alt="W02.png" src="../images/Weibull_Fit/W02.png" width="277"  /></a></dd></dl>
+<ul><li>「パラメータ推定の解析」の表では、Weibull 分布の全てのパラメータの推定値が以下のように得られます。<br />切片=<img src="../images/Weibull_Fit/math-2554a2bb846cffd697389e5dc8912759.png" title="\theta" alt="\theta" class="tex"/>=4.1959, (<img src="../images/Weibull_Fit/math-2554a2bb846cffd697389e5dc8912759.png" title="\theta" alt="\theta" class="tex"/>は「最小極値分布」の切片であり、<img src="../images/Weibull_Fit/math-2554a2bb846cffd697389e5dc8912759.png" title="\theta" alt="\theta" class="tex"/> = ln(ワイブルの尺度パラメータ))<br />ワイブル尺度パラメータ= <img src="../images/Weibull_Fit/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/> =66.4153,<br />ワイブル形状パラメータ=c=2.0204,<br />スケール =0.495 (scale = 1/c) </li></ul>
+<dl><dd><a  class="image"><img alt="W03.png" src="../images/Weibull_Fit/W03.png" width="388"  /></a></dd>
+<dd>c&gt;1なので、時間とともにハザードが増加すると結論付けられます。</dd></dl>
+<ul><li>さらに、生存関数とハザード関数を得ることができます。</li></ul>
+<dl><dd><a  class="image"><img alt="W05.png" src="../images/Weibull_Fit/W05.png" width="418"  /></a>  <a  class="image"><img alt="W06.png" src="../images/Weibull_Fit/W06.png" width="388"  /></a></dd></dl>
+
+
+
+
+    

@@ -1,0 +1,112 @@
+﻿<h1 class="firstHeading">データベースからのインポートをLabTalk置換で更新する</h1>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> 
+		 <span class="toctext">概要</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> 
+		 <span class="toctext">手順</span></a> 
+		<ol>
+			<li class="toclevel-2 tocsection-4"><a href="#Import_Data_from_Database"><span 
+			 class="tocnumber">3.1</span> <span class="toctext">データベースからデータをインポートする</span></a></li>
+			<li class="toclevel-2 tocsection-5"><a href="#Plot_a_Column_Graph"><span 
+			 class="tocnumber">3.2</span> <span class="toctext">棒グラフをプロットする</span></a></li>
+			<li class="toclevel-2 tocsection-6"><a href="#Update_Database_Importing_By_LabTalk_Substitution"><span 
+			 class="tocnumber">3.3</span> <span class="toctext">データベースからのインポートをLabTalk置換で更新する</span></a></li>
+		</ol></li>
+	</ol>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<table class="noborder">
+	<tr>
+		<td style="vertical-align: top;" width="60"><img src="../images/Update_Database_Importing_By_LabTalk_Substitution/Alert_icon.png" 
+														 alt="" width="57" 
+														 border="0" /></td>
+		<td><p>このチュートリアルで使用するデータベースはMicrosoft Azure上に設定されています。 </p></td>
+	</tr>
+</table>
+<p>このチュートリアルでは、SQLでLabTalk変数が定義されたOriginワークシートにデータベースからデータをインポートし、インポートされたデータから棒グラフをプロットする方法を示します。次に、LabTalk変数を変更し、データベースを再インポートします。 
+ </p>
+<p>手順はOrigin 2023bに基づいています。 </p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。 </p>
+<ul>
+	<li>SQLエディタを使ってデータをインポートする</li>
+	<li>SQLステートメント内でLabTalk置換を使う</li>
+	<li>棒グラフを作図する</li>
+	<li>データベースからのインポートをLabTalk置換で更新する</li>
+</ul>
+<h2><a name="Steps"></a><span class="mw-headline">手順</span></h2>
+<h3><a name="Import_Data_from_Database"></a><span class="mw-headline">データベースからデータをインポートする</span></h3>
+<ol>
+	<li>新しいプロジェクトを開始します。メニューの<b>データ：データベースに接続：新規作成...</b>をクリック、または<b>データベースアクセス</b>ツールバーの<b>SQLエディタを開く</b>ボタンをクリックします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="ImportDataDatabase 1.png" src="../images/Update_Database_Importing_By_LabTalk_Substitution/ImportDataDatabase_1.png" 
+									 width="256" border="0" /></a></dd>
+	</dl></li>
+<li><b>接続文字列</b>を選択してOKをクリックします。接続文字列の欄に下記を貼り付けます。 
+<pre class="sql" style="font-family: monospace;">
+Driver<span style="color: #66cc66;">=</span><span style="color: #66cc66;">{</span><span style="color: #993333; font-weight: bold;">SQL</span> Server<span style="color: #66cc66;">}</span>; Server<span style="color: #66cc66;">=</span>olab<span style="color: #66cc66;">.</span><span style="color: #993333; font-weight: bold;">DATABASE</span><span style="color: #66cc66;">.</span>windows<span style="color: #66cc66;">.</span>net; Port<span style="color: #66cc66;">=</span><span style="color: #cc66cc;">1433</span>; <span style="color: #993333; font-weight: bold;">
+DATABASE</span><span style="color: #66cc66;">=</span>sample1; Uid<span style="color: #66cc66;">=</span>Olabts; Pwd<span style="color: #66cc66;">=</span>Origin@2024;
+</pre>
+<p>ODBC Drive 18 for SQL Serverを使用している場合は、 </p>
+<pre class="sql" style="font-family: monospace;">
+Driver<span style="color: #66cc66;">=</span><span style="color: #66cc66;">{</span>ODBC Driver <span style="color: #cc66cc;">18</span> <span style="color: #993333; font-weight: bold;">FOR</span> <span style="color: #993333; font-weight: bold;">SQL</span> Server<span style="color: #66cc66;">}</span>; Server<span style="color: #66cc66;">=</span>olab<span style="color: #66cc66;">.</span><span style="color: #993333; font-weight: bold;">DATABASE</span><span style="color: #66cc66;">.</span>windows<span style="color: #66cc66;">.</span>net; Port<span style="color: #66cc66;">=</span><span style="color: #cc66cc;">1433</span>; <span style="color: #993333; font-weight: bold;">
+DATABASE</span><span style="color: #66cc66;">=</span>sample1; Uid<span style="color: #66cc66;">=</span>Olabts; Pwd<span style="color: #66cc66;">=</span>Origin@2024;
+</pre></li>
+<li>問題なければ、<b><b>OK</b></b>をクリックしてデータベースにアクセスします。</li>
+<li>以下のクエリをコピーして、SQLエディタのテキストボックスに貼り付けます。クエリは、指定された<b>company</b>名で各製品の総売上を表示します。 
+ 
+<pre class="sql" style="font-family: monospace;">
+<span style="color: #993333; font-weight: bold;">SELECT</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>Name <span style="color: #993333; font-weight: bold;">AS</span> ProductName<span style="color: #66cc66;">,</span> <span style="color: #993333; font-weight: bold;">
+SUM</span><span style="color: #66cc66;">(</span>SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>LineTotal<span style="color: #66cc66;">)</span> <span style="color: #993333; font-weight: bold;">AS</span> <span style="color: #ff0000;">&amp;apos;%(company$)&amp;apos;</span><span style="color: #993333; font-weight: bold;">
+FROM</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail <span style="color: #993333; font-weight: bold;">
+INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>Product<span style="color: #993333; font-weight: bold;">
+ON</span> SalesLT<span style="color: #66cc66;">.</span>Product<span style="color: #66cc66;">.</span>ProductID<span style="color: #66cc66;">=</span>SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>ProductID<span style="color: #993333; font-weight: bold;">
+INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderHeader <span style="color: #993333; font-weight: bold;">
+ON</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderHeader<span style="color: #66cc66;">.</span>SalesOrderID <span style="color: #66cc66;">=</span>SalesLT<span style="color: #66cc66;">.</span>SalesOrderDetail<span style="color: #66cc66;">.</span>SalesOrderID <span style="color: #993333; font-weight: bold;">
+INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory <span style="color: #993333; font-weight: bold;">
+ON</span> SalesLT<span style="color: #66cc66;">.</span>Product<span style="color: #66cc66;">.</span>ProductCategoryID &#160;<span style="color: #66cc66;">=</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>ProductCategoryID <span style="color: #993333; font-weight: bold;">
+INNER</span> <span style="color: #993333; font-weight: bold;">JOIN</span> SalesLT<span style="color: #66cc66;">.</span>Customer <span style="color: #993333; font-weight: bold;">
+ON</span> SalesLT<span style="color: #66cc66;">.</span>Customer<span style="color: #66cc66;">.</span>CustomerID <span style="color: #66cc66;">=</span> SalesLT<span style="color: #66cc66;">.</span>SalesOrderHeader<span style="color: #66cc66;">.</span>CustomerID <span style="color: #993333; font-weight: bold;">
+WHERE</span> SalesLT<span style="color: #66cc66;">.</span>Customer<span style="color: #66cc66;">.</span>CompanyName <span style="color: #993333; font-weight: bold;">LIKE</span> <span style="color: #ff0000;">&amp;apos;%(company$)&amp;apos;</span><span style="color: #993333; font-weight: bold;">
+GROUP</span> <span style="color: #993333; font-weight: bold;">BY</span> SalesLT<span style="color: #66cc66;">.</span>ProductCategory<span style="color: #66cc66;">.</span>Name
+</pre></li>
+<li>LabTalk文字列変数companyを追加するには、<b>クエリー：LabTalk...</b>を選択して<b>LabTalkサポート設定</b>ダイアログを開きます。 
+ 
+<dl>
+	<dd><a class="image"><img alt="Db LT Script1.png" src="../images/Update_Database_Importing_By_LabTalk_Substitution/Db_LT_Script1.png" 
+								 width="530" border="0" /></a></dd>
+</dl></li>
+<li><b>LabTalk置換 (%,$) をする</b>チェックボックスをオンにします。 </li>
+<li>次のスクリプトを入力して、LabTalk文字列変数<b>company</b>を定義します。 
+<pre class="lt" style="font-family: monospace;">
+string company<span style="color: #000080;">$</span> <span style="color: #000080;">=</span> <span style="color: #ff00ff;">&quot;Professional Sales and Service&quot;</span>;
+</pre>
+これを<b>クエリー前のスクリプト</b> に入力します。<b>OK</b>をクリックします。<br />
+
+<dl>
+	<dd><a class="image"><img alt="ImportDB for LT sub company.png" src="../images/Update_Database_Importing_By_LabTalk_Substitution/ImportDB_for_LT_sub_company.png" 
+								 width="530" border="0" /></a></dd>
+</dl></li>
+<li><a class="image"><img alt="Db editor labtalk.png" src="../images/Update_Database_Importing_By_LabTalk_Substitution/Db_editor_labtalk.png" 
+							 width="23" border="0" /></a>ボタンをクリックして、SQLエディタボックスでLabTalk変数が置換されたSQLクエリ文字列をプレビューします。<br />
+
+<dl>
+	<dd><a class="image"><img alt="ImportDB for LT sub company SQL.png" 
+								 src="../images/Update_Database_Importing_By_LabTalk_Substitution/ImportDB_for_LT_sub_company_SQL.png" 
+								 width="765" border="0" /></a></dd>
+</dl></li>
+<li><b>OK</b>ボタンをクリックするとワークブックにデータがインポートされます。デフォルトでは、SQLはワークシートと一緒に保存されます。 
+ </li>
+<li>ワークブックの左上にあるアイコンは、シートにSQLクエリが含まれていることを示します。 
+<dl>
+	<dd><a class="image"><img alt="ImportDB for LT sub company1 imported.png" 
+								 src="../images/Update_Database_Importing_By_LabTalk_Substitution/ImportDB_for_LT_sub_company1_imported.png" 
+								 width="396" border="0" /></a></dd>
+</dl></li>

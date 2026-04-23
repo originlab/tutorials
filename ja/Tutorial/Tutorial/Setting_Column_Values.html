@@ -1,0 +1,231 @@
+﻿<h1 class="firstheading">列/セル値の設定</h1><p class='urlname' style='display: none'>SetColVal</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Setting_Column_values"><span class="tocnumber">2</span> <span class="toctext">列値の設定</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Filling_a_Column_with_Arithmetic_Series"><span class="tocnumber">2.1</span> <span class="toctext">等差級数で列値を入力する</span></a>
+<ul>
+<li class="toclevel-3 tocsection-4"><a href="#Using_Auto_Fill"><span class="tocnumber">2.1</span> <span class="toctext">オートフィルを使用する</span></a></li>
+<li class="toclevel-3 tocsection-5"><a href="#Using_Filling_A_Set_of_Numbers"><span class="tocnumber">2</span> <span class="toctext">数字のセットで埋めるを使用する</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-6"><a href="#Using_Other_Columns"><span class="tocnumber">2.2</span> <span class="toctext">他の列を使用する</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Using_Built-in_Functions"><span class="tocnumber">2.3</span> <span class="toctext">組み込み関数を使用する</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Using_Columns_from_Other_Sheets"><span class="tocnumber">2.4</span> <span class="toctext">他のシートの列を使用する</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Using_Cell_Values"><span class="tocnumber">2.5</span> <span class="toctext">セル値を使用する</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#Using_Variables_from_Workbook_Metadata"><span class="tocnumber">2.6</span> <span class="toctext">ワークブックのメタデータの変数を使用する</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-11"><a href="#Setting_Cell_Values"><span class="tocnumber">3</span><span class="toctext">セル値の設定</span></a></li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Setting_Column_Values/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Setting_Column_Values/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=51" target="_blank">列値の設定</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=46" target="_blank">列値の設定</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=93" target="_blank">Worksheet Set Column Values to Reference Other Info</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=172" target="_blank">Use Spreadsheet Notation to Set Column Values</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=195" target="_blank">Cell Formula</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=377" target="_blank">数式バー</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=262" target="_blank">Set Multiple Column Values</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Setting_Column_Values/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Setting_Column_Values/Blog_Image_33x33px.png" width="135"  /></a>
+<ul><li> <a class="external text" href="http://blog.originlab.com/using-metadata-in-worksheet-in-calculation-part-1-column-label-rows" target="_blank">Using Metadata in Worksheet in Calculation &ndash; Part 1: Column Label Rows</a></li>
+<li> <a class="external text" href="http://blog.originlab.com/new-in-origin-2021-the-formula-bar" target="_blank">New in Origin 2021- The Formula Bar</a></li>
+<li> <a class="external text" href="http://blog.originlab.com/extracting-dates-from-text-strings" target="_blank">Extracting Dates from Text Strings</a></li>
+<li> <a class="external text" href="http://blog.originlab.com/create-timeline-chronology-chart" target="_blank">How to Create a Timeline in Origin</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>Originは、列値または行列値を計算するいくつかの方法があります。Originの最も強力な機能の1つは<a class="external text" href="../../UserGuide/UserGuide/Quick_Start_SetColumnValues.html"><b>列値の設定</b></a>で、一般にワークブックまたは行列に格納されている値に対して数学演算を実行するためのツールです。これらの操作では、Originの組み込み関数、カスタムOrigin C関数、Python関数、数学演算子と論理演算子、組み込み変数またはユーザー定義変数を利用でき、入力データの前処理も可能です。 
+</p><p>このチュートリアルでは、次の方法でセルまたは列の値を計算する方法を説明します。
+</p>
+<ul><li> 等差級数で列値を入力する</li>
+<li> 組み込み関数を使用する</li>
+<li> その他の列値を使用する</li>
+<li> セル値を使用する</li>
+<li> ワークブックのメタデータの変数を使用する</li></ul>
+<p><br />
+<i><b>さらに、次のことを学びます。</b></i>
+</p>
+<ul><li> ワークシートのセルに数式を入力してセル値を計算する方法</li>
+<li> セル値の自動設定</li></ul>
+<h2><a name="Setting_Column_values"></a><span class="mw-headline">列値の設定</span></h2>
+<h3><a name="Filling_a_Column_with_Arithmetic_Series"></a><span class="mw-headline">等差級数で列値を入力する</span></h3>
+<p>Originには、列を算術級数で満たす複数の方法が用意されています。
+</p>
+<h4><a name="Using_Auto_Fill"></a><span class="mw-headline">オートフィルを使用する</span></h4>
+<ol><li> セルにいくつかの開始値を入力します。
+<dl><dd><a  class="image"><img alt="Tutorial85SetValues AutoFill1.png" src="../images/Setting_Column_Values/Tutorial85SetValues_AutoFill1.png" width="275"  /></a></dd></dl></li>
+<li> 2つのセルを選択します。</li>
+<li> マウスを2番目のセルの右下隅に移動します。マウスカーソルの形状が&quot;+&quot;に変わります。 
+<dl><dd><a  class="image"><img alt="Tutorial85SetValues AutoFill2.png" src="../images/Setting_Column_Values/Tutorial85SetValues_AutoFill2.png" width="285"  /></a></dd></dl></li>
+<li> マウスを列の下にドラッグします。列に 1, 3, 5, 7 のように入力されます。.
+<dl><dd><a  class="image"><img alt="Tutorial85SetValues AutoFill3.png" src="../images/Setting_Column_Values/Tutorial85SetValues_AutoFill3.png" width="285"  /></a></dd></dl></li></ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Setting_Column_Values/Tip_icon.png" width="57"  border="0" /></td><td><p>右側にドラッグすることで行を自動入力することもできます。さらに、セル値の<i>シーケンス</i>を他の列または行のセルにコピーするには、Shiftキーを押しながら目的のシーケンスを選択し、Ctrlキーを押しながらドラッグします。
+</p></td></tr></table>
+<h4><a name="Using_Filling_A_Set_of_Numbers"></a><span class="mw-headline">数字のセットで埋めるを使用する</span></h4>
+<ol><li> 列Bを選択して、<b>列値の一律設定：数字のセット</b>を選択し、<b>PatternN</b> ダイアログを開きます</li>
+<li> スケールの<b><b>開始</b></b>を1にし、<b><i>終了</i></b>を23に変更します。<i><i>増分</i></i> を2にします。
+<dl><dd> <a  class="image"><img alt="TutorialSetValues FillANumberValues.png" src="../images/Setting_Column_Values/TutorialSetValues_FillANumberValues.png" width="450"  /></a></dd></dl></li>
+<li> <b>OK</b>ボタンをクリックすると、列Bに 1, 3, 5, 7..., 23 のように入力されます。</li></ol>
+<h3><a name="Using_Other_Columns"></a><span class="mw-headline">他の列を使用する</span></h3>
+<p>ここでは、どのように<b>F(x)</b> 行に式を入力し、列の値を設定するかをご説明します。
+</p>
+<ol><li> 新しいワークブックを作成します。  <b>\Samples\Data Manipulation\ </b>フォルダからUS Metropolitan Area Population.datファイルをインポートします。</li>
+<li>ワークシートに新しい列を追加します(ワークシートの最後の列の右側で右クリックし、コンテキストメニューから<b>新しい列の追加</b>を選びます。)。  列のロングネームを&quot;Population/Sq.Mi.&quot;に<i>Mi.</i>を選びます。</li>
+<li> 人口密度を計算には、<b>A/B</b>をE列のF(x) 行に入力します。
+<dl><dd><a  class="image"><img alt="値の設定チュートリアル" src="../images/Setting_Column_Values/600px-Set_value_fx.png" width="600"   /></a></dd></dl></li>
+<li>他の2列からのデータを使って、列が計算されます。</li></ol>
+<h3><a name="Using_Built-in_Functions"></a><span class="mw-headline">組み込み関数を使用する</span></h3>
+<ol>
+<li>新しいワークブックを作成します。  <b>\Samples\Signal Processing\</b>フォルダから <i>Step Signal with Random Noise.dat</i> をインポートし、B列の移動平均、B列のポイントのある前後サンプルから平均を計算します。 </li> 
+<li>標準ツールバーにある<b><b>列の追加</b></b>ボタン<a  class="image"><img alt="Button Add New Columns.png" src="../images/Setting_Column_Values/Button_Add_New_Columns.png" width="22"  /></a>をクリックして新しい列Cを追加します。この列を選択して右クリックし、<b><b>列値の設定</b></b>をクリックして、<b><b><b>値の設定</b></b></b>ダイアログを開きます。 </li>
+<li><b><b>値の設定</b></b>ダイアログで<b><b>関数の検索と挿入</b></b>ボタン<a  class="image"><img alt="Search Functions Set Column Value 2015.png" src="../images/Setting_Column_Values/Search_Functions_Set_Column_Value_2015.png" width="23"  /></a>をクリックしてキーワード「<i>adjacent average</i>」を検索します。<br />
+<a  class="image"><img alt="Set Column Value Adjacent Average.png" src="../images/Setting_Column_Values/Set_Column_Value_Adjacent_Average.png" width="605"  /></a>
+</li>
+<li>関数名である<b>Movavg(vd,back,forward)</b>をダブルクリックして値の設定ダイアログに挿入し、開いている「関数の検索と挿入」ダイアログを閉じます。<br />
+<a  class="image"><img alt="Tutorial Set Column Value Function Insert.png" src="../images/Setting_Column_Values/Tutorial_Set_Column_Value_Function_Insert.png" width="490"  /></a>
+</li>
+<li><b><b>vd</b></b>をハイライトして選択します。  <b>vd</b>の文字を選択して、vd を <b>B</b>に変更し、<b>back</b> を<b>0</b> 、<b>forward</b> を <b>2</b>に変更します。  数式は次のようになります：
+<a  class="image"><img alt="Tutorial81SetValuesFunction.png" src="../images/Setting_Column_Values/Tutorial81SetValuesFunction.png" width="490"  /></a>
+</li>
+<li><b>OK</b>をクリックします。  最後の列に列Bの移動平均の値が出力されます。<br />
+<a  class="image"><img alt="Tutorial81SetValuesFunctionResults.png" src="../images/Setting_Column_Values/Tutorial81SetValuesFunctionResults.png" width="392"  /></a></li>
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Setting_Column_Values/Tip_icon.png" width="57"  border="0" /></td><td><p>同じワークシート内の別の列を参照する場合は、インデックス（例：col（1））、ショートネーム（Aまたはcol（A）など）、またはロングネーム（例：&quot;signal with noise&quot;など ）を使用して列を識別します。
+</p></td></tr></table>
+<h3><a name="Using_Columns_from_Other_Sheets"></a><span class="mw-headline">他のシートの列を使用する</span></h3>
+<p><b>列値の設定</b>ダイアログボックスには、他のブック/シートを指定するための範囲変数を簡単に挿入できる<b>変数</b>メニューがあり、他のブック/シートを現在の列の値の計算に使用することができます。
+</p>
+<ol>
+<li>プロジェクトファイル <b>Samples\Data Manipulation\Setting Column Values.OPJ</b> を開き、<b>Columns from Other Sheets</b> サブフォルダを開きます。 </li>
+<li>シート<b>Sample</b>を右クリックし、「<b>データなしで複製</b>」を選択します。  （現在の名前をダブルクリックすることで）複製したシートの名前を<b>Corrected Sample</b>.のように変更します。
+<li>これらの3つの列には、他のシートの列を参照する数式に基づくデータを入力します。  最初の列を選択して右クリックし、<b>列値の設定</b>を選んでダイアログを開きます。<b>変数：選択から範囲変数を追加</b>を選択し、<b>ワークシートから選択する</b>ダイアログを開きます。ワークシート内のある範囲を直接選択すれば、<b>実行前の処理スクリプト</b>パネルで範囲変数として定義し、使用することができます。 
+<li><b><b>ワークシートから選択</b></b>ダイアログが開き、<b>Sample</b>シートがアクティブにして、A列を選択し<a  class="image"><img alt="Button Hunt Done.png" src="../images/Setting_Column_Values/Button_Hunt_Done.png" width="53"  /></a>ボタンをクリックします。<b>入力モード</b>ダイアログが開くので<b><b>OK</b></b>をクリックして戻ります。
+<li>「range r1 = Sample!Col(A);」が自動的に<b>実行前の処理スクリプト</b>に挿入されます。次のように式を編集します。
+<pre class="lt" style="font-family:monospace;">range rTime <span style="color: #000080;">=</span> Sample<span style="color: #000080;">!</span>Col<span style="color: #000000;">(</span>A<span style="color: #000000;">)</span>;</pre>
+</li>
+<li>そして、<b>列の計算式</b>に <b>rTime</b> と入力し、<b><b>OK</b></b>ボタンをクリックすると、1列目のデータを作成します。
+<br /><a  class="image"><img alt="SetValuesRangerTime.png" src="../images/Setting_Column_Values/SetValuesRangerTime.png" width="490"  /></a>
+</li>
+<li><b><b>Corrected Sample</b></b>ワークシートで、列Bと列Cを強調表示し、右クリックします。ショートカットメニューから、<b>複数列の値を設定</b>を選択してダイアログを開きます。そして<b><b>変数：選択から範囲変数を追加</b></b>を選択し、2つの変数（<b>Sample</b>シートと<b><b>Reference</b></b>シートのB列）を<b><b>実行前の処理スクリプト</b></b>に挿入します。これらの新しいエントリを次のように編集します。
+<pre class="lt" style="font-family:monospace;">range rSample <span style="color: #000080;">=</span> Sample<span style="color: #000080;">!</span>Col<span style="color: #000000;">(</span>B<span style="color: #000000;">)</span>;</pre>
+<p>および、 
+</p>
+<pre class="lt" style="font-family:monospace;">range rRef <span style="color: #000080;">=</span> Reference<span style="color: #000080;">!</span>Col<span style="color: #000000;">(</span>B<span style="color: #000000;">)</span>;</pre>
+</li>
+<li>では、<b>実行前の処理スクリプト</b>にある範囲変数(range)を編集し、別の計算式で同じ結果が得られるようにしてみましょう。2つの範囲変数にある列名<b>Col(B)</b>を消去し、両方の行で、 <b>変数: 事前定義変数: wcol(_ThisNumCol)</b> を選択し、次のようにします。
+<pre class="lt" style="font-family:monospace;">range rSample <span style="color: #000080;">=</span> Sample<span style="color: #000080;">!</span>wcol<span style="color: #000000;">(</span>_ThisColNum<span style="color: #000000;">)</span>;</pre>
+<pre class="lt" style="font-family:monospace;">range rRef <span style="color: #000080;">=</span> Reference<span style="color: #000080;">!</span>wcol<span style="color: #000000;">(</span>_ThisColNum<span style="color: #000000;">)</span>;</pre>
+</li>
+<li>そして、<b>列の計算式</b>ボックスに次の式を入力します。
+<pre class="lt" style="font-family:monospace;">rSample <span style="color: #000080;">-</span> <span style="color: #000000;">(</span>rSample<span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span> <span style="color: #000080;">-</span> rRef<span style="color: #000000;">[</span><span style="color: #0000dd;">1</span><span style="color: #000000;">]</span><span style="color: #000000;">)</span></pre>
+<p><a  class="image"><img alt="TutorialSetValuesRangerRef.png" src="../images/Setting_Column_Values/TutorialSetValuesRangerRef.png" width="490"  /></a>
+</p>
+</li>
+<li><b><b>OK</b></b>ボタンをクリックし、<b>Corrected Sample</b> ワークシートのB列とC列のデータを生成します。  
+<br /><a  class="image"><img alt="SetValuesRangeResults.png" src="../images/Setting_Column_Values/SetValuesRangeResults.png" width="392"  /></a>
+</li>
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Setting_Column_Values/Tip_icon.png" width="57"  border="0" /></td><td><ol><li> 角括弧を使って特定のセルを参照できます。上記の計算式にある[1]は、最初のセルということです。<br /></li>
+<li> 値の設定ダイアログのメニューで<b>計算式：保存</b>と<b>計算式：ロード</b>を選択すると、式を保存して他の列に新しいデータを生成する際にリロードして使用できます。</li></ol>
+</td></tr></table>
+<h3><a name="Using_Cell_Values"></a><span class="mw-headline">セル値を使用する</span></h3>
+<p>特定のワークシート・セルに含まれている値を参照し、列値を設定するための計算式の計算に使用できます。これにより、列内の値を更新するための制御セルとしてワークシート・セルを使用する簡単な方法が提供されます。
+</p>
+<ol>
+<li>プロジェクトファイル <b>Samples\Data Manipulation\Setting Column Values.OPJ</b> を開き、<b>Cells in a Worksheet</b>  サブフォルダを開きます。</li>
+<li>C列を右クリックし、<b>列値の設定 ..</b>.コンテキストメニューを選択して列値の設定ダイアログを表示します。 </li>
+<li><b>変数：選択から範囲変数を追加</b>メニューを使って、<b>ワークシートから選択</b>ダイアログを開きます。列G(Value)をこのワークシートから選択して<a  class="image"><img alt="Button Hunt Done.png" src="../images/Setting_Column_Values/Button_Hunt_Done.png" width="53"  /></a>をクリックします。<br />表示される<b>入力モード</b>ダイアログで<b>OK</b>をクリックすると、<b>実行前処理スクリプト</b>に自動的に表示されます。</li>
+<li><b>実行前の処理スクリプト</b>パネルで、範囲変数(range)の名前を <b>rControl </b>に変更し、いくつか行を追加して、次のようなスクリプトにします。
+<pre class="lt" style="font-family:monospace;">range rControl <span style="color: #000080;">=</span> Col<span style="color: #000000;">(</span>G<span style="color: #000000;">)</span>; <span style="color: #008000;">//range r1 = Col(7);</span> int nOrder <span style="color: #000080;">=</span> rControl<span style="color: #000000;">[</span><span style="color: #0000dd;">2</span><span style="color: #000000;">]</span>; int nPoints <span style="color: #000080;">=</span> rControl<span style="color: #000000;">[</span><span style="color: #0000dd;">3</span><span style="color: #000000;">]</span>; differentiate <span style="color: #000080;">-</span>se iy<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">2</span><span style="color: #000000;">)</span> order<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">1</span> smooth<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #0000dd;">1</span> poly<span style="color: #000000;">:</span><span style="color: #000080;">=</span>nOrder npts<span style="color: #000000;">:</span><span style="color: #000080;">=</span>nPoints oy<span style="color: #000000;">:</span><span style="color: #000080;">=</span><span style="color: #000000;">(</span><span style="color: #0000dd;">1</span>,<span style="color: #0000dd;">3</span><span style="color: #000000;">)</span>;</pre>
+スクリプトは、Xファンクション<b>differentiate</b> を呼び、多項式の次数およびポイント数に対する引数として、列Gのセル値を渡します。これは微分を実行中に実行されるSavitzky-Golayスムージングを制御するものです。</li>
+<li><b><b>値の設定</b></b>ダイアログは次のように設定されます。<br />
+<a  class="image"><img alt="SetValuesUseCellSetting.png" src="../images/Setting_Column_Values/SetValuesUseCellSetting.png" width="490"  /></a>
+</li>
+<li><b>OK</b>をクリックしてダイアログを閉じ、列Cの結果を確認しましょう。列Gの値を変更して出力を変えてみてください。</li>
+</ol>
+<p>Note: 多項式の次数は1から9までです。
+</p>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Setting_Column_Values/Tip_icon.png" width="57"  border="0" /></td><td><p>ワークシートに表示されたグラフが最初に作成され、セルのグループを統合してワークシートに埋め込まれました。
+</p></td></tr></table>
+<h3><a name="Using_Variables_from_Workbook_Metadata"></a><span class="mw-headline">ワークブックのメタデータの変数を使用する</span></h3>
+<p>インポートウィザードを使用してデータをインポートするときに保存された変数や、ワークブックに保存されているメタデータを参照して、列の値を計算することができます。
+</p>
+<ol>
+<li><b>\Samples\Data Manipulation\Setting Column Values.OPJ</b>を開くか、そのまま作業を続け、プロジェクトエクスプローラで <b>Worksheet Metadata</b> サブフォルダに移動します。</li>
+<li>列Aを選択し、右クリックして<b><b>挿入</b></b>メニューオプションを選択します。  列Aの左側に新しい列が挿入されます。</li>
+<li>最初の列（この新しく挿入された列）を選択し、右クリックします。そして、<b>列値の設定</b>メニューを選択し、値の設定ダイアログを開きます。</li>
+<li><b>変数：変数情報の追加</b>を選択し、<b>変数の挿入</b>ダイアログを開きます。<b>変数タイプ</b>ドロップダウンリストから <b>数値(int)</b> を選択します。USER.VARIABLESノードを広げます。<b>NUMBEROFPOINTS</b>行をクリックして選択し、<b><b>値</b></b>を<b><b>3800</b></b>に設定します。<b>挿入</b>ボタンをクリックして、<b>実行前の処理スクリプト</b>パネルに変数を挿入します。<br />
+<a  class="image"><img alt="InsertPageInfoVairale.png" src="../images/Setting_Column_Values/InsertPageInfoVairale.png" width="582"  /></a>
+</li>
+<li>次に、<b>変数タイプ</b>を<b>数値(double)</b>に設定します。<b>Shift</b>キーを押しながら、<b>StartFrequencyKHz</b>および<b>StepFrequencyKHz</b>の両方を選択し、<b>挿入</b>ボタンを押しこれら2つの変数を挿入します。<b>閉じる</b>ボタンをクリックしてダイアログを閉じます。</li>
+<li>上部の<b>列式</b>パネルで、<b>{d1:d2:d1+(n1-1)*d2}</b>を入力し、OKボタンを押してデータを生成し、ダイアログを閉じます。  列には度数が入力されます。</li>
+<li>1列・2列目を選択し、右クリックして<b>列XY属性の設定：XYY</b>と選択し、それぞれの列の属性をXとYに変更します。1列目のロングネームを<b>Frequency</b>に変更するとワークシートは次のようになります。<br />
+<a  class="image"><img alt="SetValuesPageInfo2.png" src="../images/Setting_Column_Values/SetValuesPageInfo2.png" width="379"  /></a>
+</li>
+</ol>
+<h2><a name="Setting_Cell_Values"></a><span class="mw-headline">セル値の設定</span></h2>
+<p>セル編集モードでは、以下のように、セル（データセルまたはユーザー定義パラメータ行セル）に等号 &quot;=&quot;で始まるセル数式を入力できます。
+</p>
+<dl><dd><a  class="image"><img alt="SettingCellValues 01.png" src="../images/Setting_Column_Values/SettingCellValues_01.png" width="435"  /></a></dd></dl>
+<p>数式を入力すると、編集モードを終了（インプレース編集または<b><b>編集: 編集モード</b></b>）して、結果のセル値を表示します。
+</p><p>Originでセル式がどのように機能するかを例を挙げて説明しましょう：
+</p>
+<ol>
+<li>新しいワークブックを開きます。
+<li><i>&lt;Origin Program Folder&gt;Samples\Statistics</i>フォルダにあるサンプルデータ &quot;automobile2.dat&quot;をワークブックにインポートします。
+<br /><a  class="image"><img alt="SettingCellValues 04.png" src="../images/Setting_Column_Values/720px-SettingCellValues_04.png" width="720"   /></a>
+</li>
+<li>ヘッダ行にある &quot;F（x）=&quot;セルを右クリックし、コンテキストメニューから<b>ユーザパラメータを追加</b>を選択してユーザパラメータを追加します 
+<br /><a  class="image"><img alt="SettingCellValues 03.png" src="../images/Setting_Column_Values/200px-SettingCellValues_03.png" width="209"   /></a>
+</li>
+<li>ここでは、2つのユーザパラメータを追加し、それらのパラメータ名として<i>Mean</i> と <i>Std Dev</i>を別々に入力しましょう。  次に、このワークシートの最後にもう1列を追加し、ロングネームに列として<i>Power/Engine Displacement</i>と入力します。
+<br /><a  class="image"><img alt="SettingCellValues 02.png" src="../images/Setting_Column_Values/750px-SettingCellValues_02.png" width="849"   /></a>
+</li>
+<li><b><b>編集：編集モード</b></b>を選択すると、編集モードに切り替わります。そして、セルの<i><i>Mean</i></i>とPower列の<i><i>Std Dev</i></i>に、それぞれ<i>=<i>mean(This)</i></i><i> </i>と<i><i>= stddev(this)</i></i>を入力します。編集が完了したら、セルの外側をクリックしてセル編集モードを終了し、<b><b>編集：編集</b>モード</b>メニュー項目を再度選択して、セル式の結果を表示します。
+<br /><a  class="image"><img alt="SettingCellValues 05.png" src="../images/Setting_Column_Values/450px-SettingCellValues_05.png" width="450"   /></a>
+<table class="note">
+<tr>
+<td><b>Note:</b> 変数&quot;This&quot;の意味については、<a class="external text" href="../../UserGuide/UserGuide/Using_Formulae_to_Set_Cell_Values.html#Referring_to_Worksheet_Columns_using_.22This.22">こちらのページ</a>をご参照ください。
+</td></tr></table>
+</li>
+<li>&quot;Power」列の<i>Mean</i>セルのクリックして選択し、このセルの右下隅にカーソルを合わせます。カーソルが十字<b><b>+</b></b>に変わったら、この &quot;+&quot;ハンドルをつかんでマウスで水平方向に列 &quot;Engine Displacement&quot;までドラッグします。カーソルを離すと、この行の他のセルがいくつかの結果値で満たされることがわかります。あるいは、「+」ハンドルをダブルクリックして、式を列(Power)の右側にあるすべての<i>Mean</i>にコピーすることもできます。
+<br /><a  class="image"><img alt="SettingCellValues 06.png" src="../images/Setting_Column_Values/750px-SettingCellValues_06.png" width="750"   /></a>
+</li>
+<li>これらの<i>Mean</i>セルをダブルクリックすると、同じ式で全て入力されています。<i>=mean(this)</i>
+<br /><a  class="image"><img alt="SettingCellValues 07.png" src="../images/Setting_Column_Values/350px-SettingCellValues_07.png" width="350"   /></a>
+</li>
+<li>標準偏差を計算するには、<b><b>Std Dev</b></b>行で同じことを行います。
+<li>先ほど追加した最後の列に移動し、最初のセルに<i><i><i>=E1/I1</i></i></i>と入力します。 
+<br /><a  class="image"><img alt="SettingCellValues 08.png" src="../images/Setting_Column_Values/700px-SettingCellValues_08.png" width="700"   /></a>
+<table class="note">
+<tr>
+<td><b><b>Note:</b></b>ここで、<b><b>E1</b></b>はcol（E）の最初のセルを意味し、<b><b>I1</b></b>はcol（I）の最初のセルを意味します。この式については、<a class="external text" href="../../UserGuide/UserGuide/Using_Formulae_to_Set_Cell_Values.html#Cell_Formula_Examples">こちらのページ</a>をご参照ください。
+</td></tr></table>
+</li>
+<li>カーソルを離して割り算を実行します。ステップ6と同じ方法で、この &quot;+&quot;ハンドルをつかんで、この列の最後のセルにマウスで垂直方向にドラッグします（<b>ヒント</b>：セルの右下にマウスポインタを置いた場合、 カーソルが「<b>+</b>」記号に変わります。この「<b><b>+</b></b>」記号が表示されたら、ダブルクリックして数式を列の最後まで拡張します。（これはマウスでドラッグするよりも速くて簡単です）
+<br /><a  class="image"><img alt="SettingCellValues 09.png" src="../images/Setting_Column_Values/750px-SettingCellValues_09.png" width="750"   /></a>
+</li>
+<li>カーソルを離して、各行で<i>col(E)/col(I)</i>のすべての除算結果を取得します。
+<br /><a  class="image"><img alt="SettingCellValues 10.png" src="../images/Setting_Column_Values/500px-SettingCellValues_10.png" width="500"   /></a>
+</li>
+<p><b><b>編集：編集モード</b></b>メニューを選択すると、これらのセル式をすべて確認および編集できます。
+<br /><a  class="image"><img alt="SettingCellValues 11.png" src="../images/Setting_Column_Values/500px-SettingCellValues_11.png" width="500"   /></a>
+</p>
+</ol>
+<table class="note">
+<tr>
+<td><b>Note:</b>さらに、<a class="external text" href="../../UserGuide/UserGuide/Using_Formulae_to_Set_Cell_Values.html#Extending_Formulas_Across_Rows_or_Columns">行と列にまたがって式を拡張する</a>こともできます。式でセルの値を設定する方法の詳細については、<a class="external text" href="../../UserGuide/UserGuide/Using_Formulae_to_Set_Cell_Values.html">こちらのページ</a>を参照してください。
+</td></tr></table>
+
+
+    

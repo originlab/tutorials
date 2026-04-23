@@ -1,0 +1,27 @@
+﻿<h1 class="firstheading">ピークの積分</h1><p class='urlname' style='display: none'>Integrate-Peaks</p>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>ピークアナライザを使用してピークを積分し、それらの面積を割り出します。
+</p>
+<p class="version" >必要なOriginのバージョン:8.0 SR6</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul><li>既存のデータセットを基線にする方法
+</li><li>スペクトルデータから基線を減算する方法
+</li><li>ピークアナライザからピーク面積を計算する方法
+</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<ol>
+<li>新しいワークブックを開き、<i>\Samples\Spectroscopy\Peaks with Base.DAT</i>ファイルをインポートします。
+<li>2列目を選択します。 <br /><a class="image"><img alt="Integrating Peaks 01.png" src="../images/Integrating_Peaks/Integrating_Peaks_01.png" width="396" height="322" /></a>
+<li>メインメニュー内で<B>解析</B>をクリックし、<B>ピークと基線</B>を指した後に<B>ピークアナライザ</B>をクリックします。
+<li><B>ピークアナライザ</B>の初めのページ（<B>ゴール</B>ページ）で<B>処理</B>グループ内の<B>ピークの積分</B>を選びます。「<b>進む</b>」をクリックし、「<b>基線モード</b>」ページに移動します。 <br /><a class="image"><img alt="Integrating Peaks 02.png" src="../images/Integrating_Peaks/Integrating_Peaks_02.png" width="450" height="619" /></a>
+<li>「<b>基線モード</b>」ページで、<b>基線モード</b>ドロップダウンリストから<b>既存データセットを使用</b>を選びます。データセットのドロップダウンメニューの右側にある<B>三角形ボタン</B>をクリックし、<b>[PeakswithBase]&quot;Peaks with Base&quot;!C&quot;Base&quot;</b>をフライアウトメニューから選択します。「<b>進む</b>」をクリックし、ピークアナライザの「<b>基線の処理</b>」ページに移動します。 <br /><a class="image"><img alt="Integrating Peaks 03.png" src="../images/Integrating_Peaks/Integrating_Peaks_03.png" width="709" height="626" /></a>
+<li>「<b>基線の自動減算</b>」チェックボックスを選択します。上段パネルの「ピークの積分」アイコンをクリックして<B>ピークの積分</B>ページに行きます。（あるいは<B>進む</B>ボタンを2回クリックします。）プレビューグラフでは、番号が付いた2つの黄色い四角形が表示され、デフォルトで検出された2つのピークを示しています。 <br /><a class="image"><img alt="Integrating Peaks 04.png" src="../images/Integrating_Peaks/Integrating_Peaks_04.png" width="450" height="619" /></a>
+<li><B>積分ウィンドウ幅</B>では、<B>プレビューグラフを変更する</B>を選択します。グラフ上の<B>1</B>番の四角形の内側をクリックします。1対のハンドルマークが黄色い積分ウィンドウの両端に出現します。このハンドルをドラッグすることで積分が行われる範囲を調整します。2番の四角形の内側をクリックし、同じように2つ目のピークに関しても調整します。 <br /><a class="image"><img alt="Integrating Peaks 05.png" src="../images/Integrating_Peaks/Integrating_Peaks_05.png" width="924" height="714" /></a>
+<li>ピークアナライザの<B>ピークの積分</B>ページで、<b>計算する値</b>グループで希望の項目すべてを選択します。例えば、各ピークの中心を計算するには、「<b>ピーク中心</b>」チェックボックスを選択します。「積分データに対するピーク面積」を出力したくなければ、「<b>積分データに対するピーク面積</b>」チェックボックスのチェックを外します。選択したら、「<b>完了</b>」ボタンをクリックして、分析を実行します。<br /><a class="image"><img alt="Integrating Peaks 06.png" src="../images/Integrating_Peaks/Integrating_Peaks_06.png" width="450" height="708" /></a> <br /> 結果は、<i>Integration_Result1</i>というワークシートに出力されます。<br /><a class="image"><img alt="Integrate peak result.png" src="../images/Integrating_Peaks/Integrate_peak_result.png" width="1092" height="180" /></a> <br /> 「計算する値」グループで「ピーク面積」にチェックを付けていれば、この結果ワークシートの「Area」列にピークの面積が算出することができます。
+</ol>
+
+
+
+
+
+    

@@ -1,0 +1,180 @@
+﻿<h1 class="firstHeading">シェープファイルインポート</h1><p class='urlname' style='display: none'>Import-Shapefile</p>
+<div class="toclimit-2"><div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Tutorial"><span class="tocnumber">2</span> <span class="toctext">チュートリアル</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Sample_1"><span class="tocnumber">2.1</span> <span class="toctext">サンプル1</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Sample_2"><span class="tocnumber">2.2</span> <span class="toctext">サンプル2</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-5"><a href="#Dialog_Settings"><span class="tocnumber">3</span> <span class="toctext">ダイアログ設定</span></a></li>
+</ul>
+</div>
+</div> 
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p><a class="external text" href="https://www.originlab.com/fileexchange/details.aspx?fid=285" target="_blank">シェープファイルインポート</a>アプリは、ESRI Shapefileから2Dオブジェクトを描画できます。必要に応じて、このデータをワークシートに保存することもできます。これらの2Dオブジェクトには、以下が含まれます。
+</p>
+<ul><li> ポイント（通常はサイトの場所を表す）</li>
+<li> 線（通常は川、道路、公共施設を表す）</li>
+<li> ポリゴン（通常は地理的および政治的境界を表す）</li></ul>
+<p>点は通常の散布図として生成され、線の形や多角形はグラフオブジェクトとしてレンダリングされます。データのインポート中に部分修正オプションがオンになっていれば、各シェイプの線と塗りつぶしのプロパティを選択して修正できます。特徴量が多すぎる場合は、処理が遅くなる可能性があるため、マシンの性能に応じて部分修正オプションをオフにすることを推奨します。
+</p>
+<h2><a name="Tutorial"></a><span class="mw-headline">チュートリアル</span></h2>
+<p>インポートするシェープファイルは以下より取得します。
+</p>
+<ul><li> アプリパネルからシェープファイルインポートアイコン<a  class="image"><img alt="Import Shapefile icon.png" src="../images/Import_Shapefile/50px-Import_Shapefile_icon.png" width="50"   /></a>を右クリックし、<b>サンプルフォルダを開く</b>を選択してアプリのサンプルフォルダを開きます。 </li></ul>
+<ul><li> 追加のサンプルファイル<a class="external text" href="https://blog.originlab.com/wp-content/uploads/2024/09/Import_Shapefile_App.zip" target="_blank"><b>Import_Shapefile_App.zipを</b></a>ダウンロードします。ファイルを解凍し、ファイル(France_Map.shp<i></i>、<i>World_Rivers.shp)</i>をアプリのサンプルフォルダに追加します。</li></ul>
+<dl><dd><a  class="image"><img alt="シェイプファイルのサンプルfiles.pngを読み込む" src="../images/Import_Shapefile/Import_Shapefile_sample_files.png" width="708"  /></a></dd></dl>
+<h3><a name="Sample_1"></a><span class="mw-headline">サンプル1</span></h3>
+<ol>
+<li>アプリパネルからシェープファイルインポートアイコン<a  class="image"><img alt="Import Shapefile icon.png" src="../images/Import_Shapefile/50px-Import_Shapefile_icon.png" width="50"   /></a>をクリックし、サンプルフォルダで<b>World_Countries_Map.shp</b>ファイルを選択して、<b>開く</b>をクリックして<b>APPS:impshp</b>ダイアログを開きます。
+<dl><dd><a  class="image"><img alt="Import Shapefile 01.png" src="../images/Import_Shapefile/Import_Shapefile_01.png" width="737"  /></a></dd></dl>
+
+<li>アプリケーションダイアログで、<b>線の色</b>を<b>グレー</b>に設定し、<b>データポイント出力</b>オプションにチェックを付けます。 
+<dl><dd><a  class="image"><img alt="Import Shapefile 02.png" src="../images/Import_Shapefile/Import_Shapefile_02.png" width="710"  /></a></dd></dl>
+
+<li><b>OK</b>ボタンをクリックして、世界のマップグラフを作成します。Shapefileデータセットがワークシートにインポートされます。
+<dl><dd><a  class="image"><img alt="Import Shapefile 03.png" src="../images/Import_Shapefile/Import_Shapefile_03.png" width="634"  /></a></dd></dl>
+
+<li>グラフウィンドウをアクティブにし、空白部分を右クリックして<b>レイヤにページサイズを合わせる</b>を選択します。ダイアログで、<b>余白の制御</b>を<b>境界</b>にし、<b>境界幅</b>を<b>8</b>にします。<b>OK</b>ボタンをクリックします。
+<dl><dd><a  class="image"><img alt="Import Shapefile 04.png" src="../images/Import_Shapefile/Import_Shapefile_04.png" width="382"  /></a></dd></dl>
+
+<li>グラフウィンドウをアクティブにし、シェープファイルインポートアイコン<a  class="image"><img alt="Import Shapefile icon.png" src="../images/Import_Shapefile/50px-Import_Shapefile_icon.png" width="50"   /></a>を再度クリックして、サンプルフォルダ内の<b>United_States_Map.shp</b>ファイルを選択し、<b>開く</b>をクリックしてダイアログを開きます。
+
+<li>アプリダイアログで、<b>線の幅</b>を <b>0</b>に設定し、<b>塗り色</b>を<b>オリーブ</b>に設定します。<b>グラフ</b>が<b>[Graph1] 1</b>（アクティブグラフ）であることを確認します。<b>OK</b>ボタンをクリックします。
+<dl><dd><a  class="image"><img alt="Import Shapefile 05.png" src="../images/Import_Shapefile/Import_Shapefile_05.png" width="563"  /></a></dd></dl>
+
+<li>アメリカ合衆国の地図がワールドマップに追加され、領域が塗りつぶされます。また、シェープファイルデータセットが新しいワークシートにインポートされます。
+<dl><dd><a  class="image"><img alt="Import Shapefile 06.png" src="../images/Import_Shapefile/Import_Shapefile_06.png" width="677"  /></a></dd></dl>
+
+
+<li>グラフウィンドウをアクティブにし、シェープファイルインポートアイコン<a  class="image"><img alt="Import Shapefile icon.png" src="../images/Import_Shapefile/50px-Import_Shapefile_icon.png" width="50"   /></a>を再度クリックして、サンプルフォルダ内の<b>World_Rivers.shp</b>ファイルを選択し、<b>開く</b>をクリックしてダイアログを開きます。
+
+<li>アプリダイアログで、<b>線の幅</b>を <b>1</b>に設定し、<b>線の色</b>を<b>#86ABE8</b>に設定します。<b>部分修正を許可</b>で<b>いいえ</b>を選択します。<b>グラフ</b>が<b>[Graph1] 1</b>（アクティブグラフ）であることを確認します。  <b>OK</b>ボタンをクリックします。
+<table class="note">
+
+<tr>
+<td><b>Note:</b>グラフ内の線の形状とポリゴンはグラフオブジェクトとしてレンダリングされます。このデータをインポートする際に<b>部分修正を許可</b>オプションがオンになっていれば、各シェイプの線と塗りつぶしのプロパティを選択して変更することができます（<i>サンプル2</i>のステップ8を参照）。特徴量が多すぎる場合は、処理が遅くなる可能性があリます。そのため、ここでは部分修正オプションをオフにすることを推奨します。
+</td></tr></table>
+<dl><dd><a  class="image"><img alt="Import Shapefile 07.png" src="../images/Import_Shapefile/Import_Shapefile_07.png" width="547"  /></a></dd></dl>
+<li>川の線が世界地図に追加されます。
+<dl><dd><a  class="image"><img alt="Import Shapefile 08.png" src="../images/Import_Shapefile/Import_Shapefile_08.png" width="679"  /></a></dd></dl>
+</ol>
+<p><br />
+</p>
+<h3><a name="Sample_2"></a><span class="mw-headline">サンプル2</span></h3>
+<ol>
+<li>アプリパネルからシェープファイルインポートアイコン<a  class="image"><img alt="Import Shapefile icon.png" src="../images/Import_Shapefile/50px-Import_Shapefile_icon.png" width="50"   /></a>をクリックし、サンプルフォルダで<b>Germany_Map.shp</b>ファイルを選択して、<b>開く</b>をクリックしてダイアログを開きます。
+<dl><dd><a  class="image"><img alt="Import Shapefile 09.png" src="../images/Import_Shapefile/Import_Shapefile_09.png" width="737"  /></a></dd></dl>
+
+<li>ダイアログの右上にある矢印ボタンをクリックし、<b>システムデフォルト</b>を選択します。すると、ダイアログはデフォルト設定に戻ります。
+<dl><dd><a  class="image"><img alt="Import Shapefile 10.png" src="../images/Import_Shapefile/Import_Shapefile_10.png" width="767"  /></a></dd></dl>
+
+<li><b>線の色</b>を<b>青</b>に設定します。<b>グラフ</b>が新規グラフである<b>[&lt;new&gt;]&lt;new&gt;</b>になっていることを確認します。<b>OK</b>ボタンをクリックします。
+<dl><dd><a  class="image"><img alt="Import Shapefile 11.png" src="../images/Import_Shapefile/Import_Shapefile_11.png" width="550"  /></a></dd></dl>
+
+<li>ドイツの地図が作成されます。 
+<dl><dd><a  class="image"><img alt="Import Shapefile 12.png" src="../images/Import_Shapefile/Import_Shapefile_12.png" width="512"  /></a></dd></dl>
+
+<li>ドイツの地図でグラフウィンドウをアクティブにし、シェープファイルインポートアイコン<a  class="image"><img alt="Import Shapefile icon.png" src="../images/Import_Shapefile/50px-Import_Shapefile_icon.png" width="50"   /></a>を再度クリックして、アプリのサンプルフォルダで<b>France_Map.shp</b>ファイルを選択して、<b>開く</b>をクリックしてダイアログを開きます。
+
+<li><b>線の色を</b>を<b>オリーブ</b>に設定します。  <b>シェープファイルによりソースを再スケール</b>にチェックを付けます。  <b>グラフ</b>が<b>[Graph2]1</b>（アクティブグラフ）であることを確認します。<b>OK</b>ボタンをクリックします。
+<dl><dd><a  class="image"><img alt="Import Shapefile 13.png" src="../images/Import_Shapefile/Import_Shapefile_13.png" width="550"  /></a></dd></dl>
+
+<li>フランスの地図がドイツの地図の隣のグラフに追加されます。グラフは自動で再スケールされます。
+<dl><dd><a  class="image"><img alt="Import Shapefile 14.png" src="../images/Import_Shapefile/Import_Shapefile_14.png" width="512"  /></a></dd></dl>
+
+<li>シェープファイルのインポート時に<b>部分修正を許可</b>が使用可能な場合、インポート後に<b>オブジェクトマネージャ</b>で選択したポリゴンのフォーマットを編集可能です。 
+<dl><dd><a  class="image"><img alt="Import Shapefile 15.png" src="../images/Import_Shapefile/Import_Shapefile_15.png" width="858"  /></a></dd></dl>
+
+</ol>
+<h2><a name="Dialog_Settings"></a><span class="mw-headline">ダイアログ設定</span></h2>
+<p><a  class="image"><img alt="Import Shapefile.png" src="../images/Import_Shapefile/Import_Shapefile.png" width="969"  /></a>
+</p>
+<table class="dialogcontroltable">
+
+<tr>
+<th> ファイル名 (shape)
+</th>
+<td> すべての特徴量のジオメトリが含まれるファイルの名前。
+</td></tr>
+<tr>
+<th> ファイル名 (attribute)
+</th>
+<td> 特徴量の属性を保存するファイルの名前。
+</td></tr>
+<tr>
+<th> ファイル名  (projection)
+</th>
+<td> 投影形式の情報が含まれるファイルの名前。
+</td></tr>
+<tr>
+<th> 特徴量の名前
+</th>
+<td> インポートする特徴量の属性。<b>ファイル名 (attribute)</b>が指定されている場合に使用可能。
+</td></tr>
+<tr>
+<th> ファイル情報
+</th>
+<td> シェープファイルのファイル情報。
+</td></tr>
+<tr>
+<th> 表示オプション
+</th>
+<td>
+<ul><li> 線種</li></ul>
+<p>線または多角形の線のスタイル。
+</p>
+<ul><li> 線の太さ</li></ul>
+<p>線または多角形の線の太さ。
+</p>
+<ul><li> 線の色</li></ul>
+<p>線または多角形の線の色。
+</p>
+<ul><li> 塗り色</li></ul>
+<p>多角形の塗りつぶし色。
+</p>
+<ul><li> 軸の長さをスケールとリンクする(等尺)</li></ul>
+<p>Shapefileレイヤに対して、<i>リンク軸の長さをX:Y比=1でスケール</i>するように指定。このオプションはデフォルトで選択されます。
+</p>
+<ul><li> シェープファイルによりソースを再スケール
+<ul><li>シャープファイルをアクティブなグラフウィンドウにインポートする際このオプションにチェックを付けると、グラフ軸はシェープファイルに応じて再スケールされます。チェックを外すと、アクティブグラフの軸スケールは変更されません。  </li>
+<li>シャープファイルを新しいグラフウィンドウにインポートする場合、このオプションは新しいグラフの軸スケールに影響しません。</li></ul></li></ul>
+</td></tr>
+<tr>
+<th> 部分修正を許可
+</th>
+<td> インポートするシェープファイルポリゴンを複数オブジェクトまたは単一オブジェクトとして指定します。インポート後、オブジェクトマネージャウィンドウで結果を確認できます。次の3つのオプションを利用出来ます。
+<ul><li> 自動 : Originがシェープファイルポリゴンの数をチェックします。シェープファイルのポリゴン数が@shpdl（@shpdlはシステム変数で、デフォルトでは30K ）より大きいと、単一オブジェクトとしてインポートされます。 </li>
+<li> はい : シェープファイルポリゴンを単一のオブジェクトとしてインポートします。</li>
+<li> いいえ : シェープファイルポリゴンを複数のオブジェクトとしてインポートします。</li></ul>
+</td></tr>
+<tr>
+<th> ワークシート
+</th>
+<td> 生データをワークシートに保存します。
+</td></tr>
+<tr>
+<th> データポイントを出力
+</th>
+<td> グラフデータポイントをワークブックに出力します。
+</td></tr>
+<tr>
+<th> グラフ
+</th>
+<td> マップを作成するグラフ。
+</td></tr>
+<tr>
+<th> 行列のROI
+</th>
+<td> シェープファイルを行列ウィンドウにROIとしてインポートします。
+</td></tr></table>
+
+
+
+
+
+
+
+    

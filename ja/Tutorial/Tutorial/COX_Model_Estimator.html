@@ -1,0 +1,46 @@
+﻿<h1 class="firstheading">Cox比例ハザードモデル</h1><p class='urlname' style='display: none'>COX-Model-Estimator</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span><span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Perform_COX_Model_Estimator"><span class="tocnumber">3</span> <span class="toctext">Cox比例ハザードモデルを実行</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Interpreting_the_Results"><span class="tocnumber">4</span> <span class="toctext">結果の解釈</span></a></li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>比例ハザードモデル、またはCOXモデル推定法は、生存分析において典型的な半パラメータ手法です。COXモデル推定法は各対象に対して生存する際の変数の影響や死の危険に対して推定します。COX回帰分析から、生存変数に対する関数として危険の数式を求めます。説明変数の正の回帰係数はその変数の値が大きくなると、危険がより高くなることを意味しています。説明変数が負の回帰係数を持つ場合は、その変数の値が大きくなると危険が低くなります。
+</p><p>比例ハザードの仮定は次の通りです。観測結果は独立で、ハザード比率は全ての時間で等しい必要があります。つまり、1つの出来事に関するハザード比率と他の出来事では、時間の経過と共に変化しない事が仮定されています。
+</p><p><br />
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。
+</p>
+<ul><li>Cox比例ハザードモデルを実行</li>
+<li>結果の解釈方法</li></ul>
+<h2><a name="Perform_COX_Model_Estimator"></a><span class="mw-headline">Cox比例ハザードモデルを実行</span></h2>
+<ol><li>新しいワークブックを用意します。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Statistics</i>サブフォルダにある<i>phm_Cox.dat</i> ファイルを探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。<br /></li>
+<li>メニューから<b>統計：生存分析：COX比例ハザードモデル</b>と選択し、ダイアログを開きます。 </li>
+<li><b>A(X):month</b>列を<b>時間範囲</b>にセットします。同様に、<b>打切り範囲</b>に<b>B(Y）:status</b>列を入力します。 </li>
+<li>ワークシートから選択ボタンをクリックして、「共分散範囲」ボックスでは<b>Charlson</b> と <b>tKt_v</b> 列を選択します。 </li>
+<li>打切り値のドロップダウンリストから打切り値として<b>0</b>を選択します。 </li>
+<li>「生存プロット」グループでは、<b>生存グラフ</b>と<b>ハザードグラフ</b>のチェックを付けます。</li>
+<li><b>OK</b> ボタンをクリックして、Cox比例ハザードモデル分析を実行します。 </li></ol>
+<dl><dd><a  class="image"><img alt="Cox01.png" src="../images/COX_Model_Estimator/Cox01.png" width="526"  /></a></dd></dl>
+<h2><a name="Interpreting_the_Results"></a><span class="mw-headline">結果の解釈</span></h2>
+<p>分析レポートのワークシート<b>CoxPHM1</b>を開きます。
+</p>
+<ol><li>「イベントと打ち切り変数のサマリー」表から、<b><b>打切り</b></b>は112で<b><b>打切りパーセント</b></b>は0.8である事がわかります。
+<dl><dd><a  class="image"><img alt="Cox02.png" src="../images/COX_Model_Estimator/Cox02.png" width="287"  /></a></dd></dl></li>
+<li>以下の表はこのモデルが有意かどうかを示しています。帰無仮説は<img src="../images/COX_Model_Estimator/math-216577fa474a2c877b6d9918f60e2ab3.png" title="\beta 1= \beta 2=0" alt="\beta 1= \beta 2=0" class="tex"/>となります。この例では、<b>Pr &gt; ChiSq</b> =4E(-4)&lt;0.05となるので、帰無仮説を棄却します。つまり、<img src="../images/COX_Model_Estimator/math-a246865ea0b897294a430ec2967a9c3c.png" title="\beta 1" alt="\beta 1" class="tex"/>または<img src="../images/COX_Model_Estimator/math-c8802e29d66912b327f95b429851e38c.png" title="\beta 2" alt="\beta 2" class="tex"/>もしくは両方です<img src="../images/COX_Model_Estimator/math-f4fb341e4e3e1228ad4038e6d594a775.png" title="\neq 0" alt="\neq 0" class="tex"/>。
+<dl><dd><a  class="image"><img alt="Cox03.png" src="../images/COX_Model_Estimator/Cox03.png" width="315"  /></a></dd></dl></li>
+<li>「パラメータ推定の解析」では、charlsonの推定係数は0.2876となり、 <b>Pr &gt; ChiSq</b> =5E-4&lt;0.05となります。よって、<img src="../images/COX_Model_Estimator/math-e3ef09148d8f72ce6608f85e5f54d42a.png" title="\beta1=0.287" alt="\beta1=0.287" class="tex"/>は有意に異なる charlson変数になります。ハザード比率は予測因子が1単位増えるときの推定変化として読み取る事ができます。charlson変数に関しては<b>ハザード比</b>=1.333なので、charlsonが1単位増えるとハザードは1.333倍になる事になります。同じように、<b>tKt_v</b>は有意変数です。<b>tKt_v</b>の推定係数は<img src="../images/COX_Model_Estimator/math-2b68eb262cdde92957c74c4c615fec9c.png" title="\beta2= -0.837" alt="\beta2= -0.837" class="tex"/>となり、ハザード比は0.433となります。これから、ハザード関数、h(t,x)=h<small>0</small>(t)*exp(0.2876*<i>charlson</i>-0.837*<i>tKt_v</i>)が分かります。
+<dl><dd><a  class="image"><img alt="Cox04.png" src="../images/COX_Model_Estimator/Cox04.png" width="447"  /></a></dd></dl></li>
+<li>生存関数プロットは各時間で生存している個体数を表示し、推定したモデルを視覚的に表示しています。水平の軸はイベントまでの時間を示します。垂直の軸は生存する確率を示します。
+<dl><dd><a  class="image"><img alt="Cox5.png" src="../images/COX_Model_Estimator/Cox5.png" width="441"  /></a></dd></dl></li>
+<li>ハザード関数プロットは、イベントがその瞬間に起こる確率をグラフで表しています。
+<dl><dd><a  class="image"><img alt="Cox6.png" src="../images/COX_Model_Estimator/Cox6.png" width="434"  /></a></dd></dl></li></ol>
+
+
+
+
+    

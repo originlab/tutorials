@@ -1,0 +1,148 @@
+﻿<h1 class="firstheading">既存グラフにデータプロットを追加する</h1><p class='urlname' style='display: none'>Adding-Plot</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span><span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Inputting_data_and_plotting"><span class="tocnumber">3.1</span> <span class="toctext">データのインプットと作図</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Adding_plot_by"><span class="tocnumber">3.2</span> <span class="toctext">プロットの追加</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="#Using_Drag-and-Drop"><span class="tocnumber">3.2.1</span> <span class="toctext">ドラッグアンドドロップの使用</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#Using_Plot_Setup"><span class="tocnumber">3.2.2</span> <span class="toctext">作図のセットアップの使用</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#Using_Layer_Contents"><span class="tocnumber">3.2.3</span> <span class="toctext">レイヤ内容の使用</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="#Using_mini_toolbar"><span class="tocnumber">3.2.4</span> <span class="toctext">ミニツールバーの使用</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-10"><a href="#Grouping_plots_in_Object_Manager"><span class="tocnumber">3.3</span> <span class="toctext">オブジェクトマネージャでプロットをグループ化する</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#Updating_the_Graph_Legend"><span class="tocnumber">3.4</span> <span class="toctext">凡例の更新</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Adding_Plot/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Adding_Plot/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=256" target="_blank">ドラッグ&amp;ドロップで、グラフにプロットを追加する</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=13" target="_blank">Adding, Grouping and Reordering Plots with Layer Contents</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=369" target="_blank">ワークシートや行列からグラフにデータをコピーする</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=274" target="_blank">オブジェクトマネージャでプロットをグループ化/非グループ化する</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=251" target="_blank">オブジェクトマネージャでプロットの順序を変更する</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=258" target="_blank">凡例を編集する</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=91" target="_blank">凡例でメタデータを結合する</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Adding_Plot/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Adding_Plot/Blog_Image_33x33px.png" width="135"  /></a>
+<ul><li> <a class="external text" href="http://blog.originlab.com/plotting-column-with-mean-values" target="_blank">グループ化された列を平均値と合わせてプロットする</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>データセットをグラフレイヤーにプロットした後で、もう1つのデータセットを同じグラフレイヤーにプロットしたい場合があります。
+</p><p>この場合、4つの方法が考えられます。
+</p>
+<ul><li> <a href="../../GettingStarted/OriginLab/2D_Graphs.html#Adding_Data_by_Drag_and_Drop" title="OriginLab:2Dグラフ">データセットをグラフレイヤにドラッグアンドドロップする</a>
+<dl><dd> データをグラフにドラッグアンドドロップして追加できます。この方法の場合、作図には、ワークシート列のXY属性が適用されます。</dd></dl></li>
+<li> 「<b>作図のセットアップ</b>」ダイアログを使ってプロットを追加する
+<dl><dd>作図のセットアップ ダイアログを使って、既存のグラフにデータプロットを追加、並び替え、再配置することができます。このダイアログは、目的のデータシートの選択したり、ロングネームのような列のメタデータを使ってプロットするデータを選択するという柔軟性があります。</dd></dl></li>
+<li> 「<b>レイヤ内容</b>」ダイアログを使ってレイヤにデータを追加します。 
+<dl><dd> レイヤ内容ダイアログは、グラフレイヤにデータプロットの追加と削除、グループ化と非グループ化、データプロットの順序変更(描画順序入れ替え)を行う際に使います。</dd></dl></li>
+<li> ミニツールバーの「<b>グラフ作図のためにコピー</b>」ボタンを使って、グラフレイヤに既存のプロットを追加する。
+<dl><dd> Origin2020から、<a class="external text" href="../../UserGuide/UserGuide/Popup_Button.html">ミニツールバーの「グラフ作図のためにコピー」ボタン</a>を使って、グラフからプロットをコピーして別のレイヤに貼り付けることが出来ます。この方法では、既存のプロットを既存の他のグラフレイヤに追加することが出来ます。</dd></dl></li></ul>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。
+</p>
+<ul><li>ドラッグアンドドロップを使って、レイヤにデータを追加する</li>
+<li>「<b>作図のセットアップ</b>」ダイアログを使って、レイヤにデータを追加する</li>
+<li>「<b>レイヤ内容</b>」ダイアログを使って、レイヤにデータを追加します</li>
+<li>ミニツールバーを使って、プロットをコピーしレイヤに貼り付ける</li>
+<li>オブジェクトマネージャでプロットをグループ化する</li>
+<li>「<b>データプロットの凡例を更新</b>」ダイアログを使って、グラフの凡例を更新します</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Inputting_data_and_plotting"></a><span class="mw-headline">データ入力と作図</span></h3>
+<ol><li>標準ツールバーの<b>新規プロジェクト</b>ボタンをクリックして、新しいプロジェクトを開きます。</li>
+<li>標準ツールバーの<b>インポートウィザード</b>ボタン をクリックします。インポートウィザードが開きます。(初めてインポートウィザードを開く場合、Originは必要なファイルをコンパイルするので少し時間がかかります。)</li>
+<li><b>データタイプ</b>グループで、<b>ASCII</b> ラジオボタンが選択されていることを確認します。</li>
+<li>『ファイル』テキストボックスの右側にある参照 ボタンをクリックします。  Originフォルダに移動し、<b>Samples</b> フォルダ内にある<b>Import and Export</b>フォルダに移動します。  </li>
+<li>CTRLキーを押して、ファイル <i>S15-125-03.dat</i>、<i>S21-235-07.dat</i>、<i>S32-014-04.dat</i> を選択し、<b>ファイルの追加</b>をクリックします。</li>
+<li><b><b>OK</b></b>をクリックします。</li>
+<li>「<b>現在のタイプのインポートフィルタ</b>」を「<b>データフォルダ：VarsFromFileNameAndheader</b>」のままにします。  (このフィルタにはファイルをインポートする時に使用される設定があります。)</li>
+<li><b>インポートモード</b>を<b>シートを新たに作って読み込む</b>に設定します。</li>
+<li><b><b>完了</b></b>ボタンをクリックします。3つのデータファイルがそれぞれ新しいシートとしてワークブックにインポートされます。<b>Trial Run 1</b>、<b>Trial Run 2</b>、<b>Trial Run 3</b>の3つのシートを持つブックができます。</li>
+<li><b>Trial Run 1</b> シートを選択し、D(Y) 列を選択します。<b><b>2Dグラフギャラリー</b></b>ツールバーの<b><b>折れ線</b></b>ボタンをクリックします。Graph1という新しいグラフが作成されます。</li></ol>
+<h3><a name="Adding_plot_by"></a><span class="mw-headline">プロットの追加</span></h3>
+<h4><a name="Using_Drag-and-Drop"></a><span class="mw-headline">ドラッグアンドドロップの使用</span></h4>
+<ol><li> Graph1のタイトルバーで右クリックし、コンテキストメニューから、<b><b>ウィンドウの複製作成</b></b>を選択し、グラフを複製します。 </li>
+<li> 新しいグラフウィンドウをアクティブにして、ソースのワークシートと重ならないようにOriginワークスペース内の灰色のスペースに移動させます。 </li>
+<li> ソースのワークシートの2枚目のシート「Trial Run 2」をクリックして選択し、列Dのヘッダをクリックして選択します。ドラッグアンドドロップアイコン<a  class="image"><img alt="Button Drag Column to Graph.png" src="../images/Adding_Plot/Button_Drag_Column_to_Graph.png" width="34"  /></a>が表示されるように、カーソルを列Dの右側の境界に移動します。</li>
+<li> グラフウィンドウまでそのままカーソルを移動し、ドラッグアンドドロップします。 
+<dl><dd><a  class="image"><img alt="Adding Plot 01.png" src="../images/Adding_Plot/600px-Adding_Plot_01.png" width="600"   /></a></dd></dl></li>
+<li> グラフに新しいプロットが追加されます。</li>
+<li> ソースのワークシートの3枚目のシート「Trial Run 3」をクリックして選択します。列Dを選択してグラフウィンドウにドラッグアンドドロップし、グラフレイヤに新しいプロットを追加します。</li>
+<li> レイヤに3つのプロットを持つグラフが完成しました。</li></ol>
+<table class="note">
+<tr>
+<td><b>他の方法</b>
+<p>ステップ3・4のときに、ミニツールバーの<b>グラフ作図のためにコピー</b>ボタンを使ってプロットを追加することも出来ます。次のような手順となります。
+</p>
+<ol>
+<li value="3">ソースのワークシートの2枚目のシート「Trial Run 2」をクリックして選択し、列Dのヘッダをクリックして選択します。表示された<a class="external text" href="../../UserGuide/UserGuide/Popup_Button.html#Single_Column">ミニツールバー</a>の<b>グラフ作図のためにコピー</b>ボタン<a  class="image"><img alt="Copy for plotting button.png" src="../images/Adding_Plot/Copy_for_plotting_button.png" width="25"  /></a>をクリックします。
+<li>グラフウィンドウをアクティブにします。レイヤ内の何もない部分で右クリックして、コンテキストメニューから<b>貼り付け：貼り付け</b>を選択します。
+</ol>
+</td></tr></table>
+<h4><a name="Using_Plot_Setup"></a><span class="mw-headline">作図のセットアップの使用</span></h4>
+<ol>
+<li>Graph1のタイトルバーで右クリックし、コンテキストメニューから、<b><b>ウィンドウの複製作成</b></b>を選択し、グラフを複製します。
+<li>グラフをアクティブにして、グラフの左上のレイヤ「１」アイコンを右クリックして、<b>作図のセットアップ</b>を選択します。</li>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Adding_Plot/Tip_icon.png" width="57"  border="0" /></td><td><p><b>作図のセットアップ</b>ダイアログには、3つのパネルがあります。<a  class="image"><img alt="Button Expand Preview Up.png" src="../images/Adding_Plot/Button_Expand_Preview_Up.png" width="24"  /></a>ボタンをクリックして<b>グラフタイプ</b>パネルを展開し、次に再度<a  class="image"><img alt="Button Expand Preview Up.png" src="../images/Adding_Plot/Button_Expand_Preview_Up.png" width="24"  /></a>ボタンをクリックして<b>利用可能なデータ</b>パネルを展開します。<br />
+<p>詳細な情報は<a class="external text" href="../../UserGuide/Category/Plot_Setup.html">作図のセットアップで作図</a>を参照してください。
+</p>
+</p></td></tr></table>
+<li>下パネルのプロットリストで<b>Layer 1</b>を選択します。<b>Ctrl</b>キーを押して、利用可能なデータリスト（3つのパネルの一番上）から<b>Trial Run 2</b>と<b>Trial Run 3</b>を同時に選択します。中央のパネルで、<b>Time</b>をX、<b>Position</b>をYにします。<b>追加</b>ボタンをクリックして、これら2つのデータをグラフレイヤに追加します。<br />
+<a  class="image"><img alt="Adding Plot 02.png" src="../images/Adding_Plot/600px-Adding_Plot_02.png" width="600"   /></a>
+</li>
+</ol>
+<h4><a name="Using_Layer_Contents"></a><span class="mw-headline">レイヤの内容の使用</span></h4>
+<ol>
+<li> Graph1のタイトルバーで右クリックし、コンテキストメニューから、<b><b>ウィンドウの複製作成</b></b>を選択し、グラフを複製します。 
+<li> レイヤ1アイコンをダブルクリックして<b>レイヤ内容</b>ダイアログボックスを開きます。 
+<table class="note">
+<tr>
+<td><b>他の方法</b>
+<p>メニューから<b>挿入：レイヤにプロット</b>から作図形式を選択し、<b>レイヤ内容</b>ダイアログを開くことが出来ます。 
+</p>
+</td></tr></table>
+<li> ダイアログの左パネルで <b>Trail Run 2</b> と <b>Trail Run 3</b> の列Dを選択し、<a  class="image"><img alt="Button Add plot.png" src="../images/Adding_Plot/Button_Add_plot.png" width="24"  /></a>ボタンをクリックしてレイヤ1にこれら2列を追加します。
+<dl><dd><a  class="image"><img alt="Adding Plot 03.png" src="../images/Adding_Plot/550px-Adding_Plot_03.png" width="1003"   /></a></dd></dl>
+<li> 右側のパネルで2つの新しいプロットが選択されているので、<b>非グループ化</b>ボタンをクリックして、最初にそれらのグループを解除します。これら3つすべてのプロットを後でグループ化します。
+<dl><dd><a  class="image"><img alt="Adding Plot 05.png" src="../images/Adding_Plot/550px-Adding_Plot_05.png" width="1003"   /></a></dd></dl>
+<li> OKボタンをクリックして、ダイアログを閉じます。
+</ol>
+<h4><a name="Using_mini_toolbar"></a><span class="mw-headline">ミニツールバーの使用</span></h4>
+<ol><li> 「Trail Run 2」の列Dを選択した状態で、<b>作図：基本の2Dグラフ：折れ線</b>と選択して1つのプロットからなる新しいグラフを作図します。</li>
+<li> 「Trail Run 3」の列Dを選択した状態で、<b>作図：基本の2Dグラフ：折れ線</b>と選択して1つのプロットからなる新しいグラフを作図します。</li>
+<li> これら2つのグラフのプロットをクリックし、ミニツールバーを表示させます。<b>プロットをコピー</b>ボタンをクリックし、現在のプロットをコピーします。最初に作成したGraph1をアクティブにして、レイヤーの空白部分を右クリックし、コンテキストメニューから「貼り付け：貼り付け」を選択して、プロットをグラフレイヤーに貼り付けます。
+<dl><dd><a  class="image"><img alt="Adding Plot 04.png" src="../images/Adding_Plot/650px-Adding_Plot_04.png" width="650"   /></a></dd></dl></li>
+<li> これら2つの新しいプロットをすべてGraph1にコピーして貼り付けると、3つのプロットを持つグラフとなります。</li></ol>
+<h3><a name="Grouping_plots_in_Object_Manager"></a><span class="mw-headline">オブジェクトマネージャでプロットをグループ化する</span></h3>
+<p>既存のグラフレイヤーに複数のプロットを追加すると、これらのプロットがグループ化されない場合があり、線の形式（線の色や線のスタイルなど）の推移を適用できなくなります。
+</p><p>では、これらのプロットをグループ化します。
+</p>
+<ol><li> 3つのプロットを持つグラフをアクティブにします。ワークスペースの右上隅に、<a class="external text" href="../../UserGuide/UserGuide/Object_Manager.html">「オブジェクトマネージャ」</a>という名前のパネルがあり、現在のグラフのすべてのプロットが一覧表示されます。</li>
+<li> 最後のプロットを右クリックして、コンテキストメニューから<b>グループ終了に設定</b>を選択します。
+<dl><dd><a  class="image"><img alt="Adding Plot 06.png" src="../images/Adding_Plot/500px-Adding_Plot_06.png" width="742"   /></a></dd></dl></li>
+<li> これら3つの曲線がグループ化され、線の色が変更されています。
+<dl><dd><a  class="image"><img alt="Adding Plot 07.png" src="../images/Adding_Plot/Adding_Plot_07.png" width="399"  /></a></dd></dl></li></ol>
+<h3><a name="Updating_the_Graph_Legend"></a><span class="mw-headline">凡例の更新</span></h3>
+<p>既存のグラフの凡例は、インポートされたデータプロットの名前を使用しています。凡例を変更して、シート名を表示します。
+</p>
+<ol><li>凡例オブジェクトを右クリックして<b><b>凡例：凡例を更新</b></b>と選択します。</li>
+<li><b>凡例の自動更新モード</b>を<b>カスタム</b>にします。</li>
+<li><b>凡例のカスタムフォーマット（@D、@LU etc）</b>で、右側の矢印をクリックして、<b>@ WS：シート表示名</b>を選択し、<b>OK</b>をクリックします。グラフの凡例に<b>Trial Run 1</b>などと表示されます。</li></ol>
+<p>デフォルトの凡例の編集方法については、次のトピックを参照して下さい。
+</p>
+<ul><li> <a class="external text" href="../../UserGuide/Category/Graph_Legends_and_Color_Scales.html">グラフの凡例</a></li>
+<li> <a class="external text" href="../../LabTalk/LabTalk/Legend_Substitution_Notation.html#Legend_Text_Customization">凡例テキストの詳細な編集</a></li></ul>
+
+
+    

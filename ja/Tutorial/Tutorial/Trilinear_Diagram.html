@@ -1,0 +1,93 @@
+﻿<h1 class="firstheading">トリリニアダイアグラム</h1>
+<p><br />
+</p>
+<p class="urlname" style="display: none;">piper-diagram</p>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> 
+		 <span class="toctext">サマリー</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_will_you_learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> 
+		 <span class="toctext">ステップ</span></a></li>
+		<li class="toclevel-1 tocsection-4"><a href="#More_Customization_Steps"><span 
+		 class="tocnumber">4</span> <span class="toctext">グラフの編集</span></a></li>
+	</ol>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>トリリニアダイアグラム（パイパーダイアグラム）は、水文地質学の研究において、水試料中の化学物質の効果的なグラフィカル表現として使用されます。6つのイオングループ、Ca、Mg、Na＋Kカチオン、硫酸塩、塩素及び炭酸水素アニオンのパーセンテージ値をプロットする際に用いられます。 
+ </p>
+<p>カチオンとアニオンは2つの3点グラフにプロットされ、ひし形のグラフに投影されます。Originでは、3つのプロットがそれぞれのグラフレイヤとしてプロットされます。 
+ </p>
+<p><a class="image"><img alt="Tutorial Piper 01.png" src="../images/Trilinear_Diagram/Tutorial_Piper_01.png" 
+						 width="554" height="458" border="0" /></a> </p>
+<h2><a name="What_will_you_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。 </p>
+<ul>
+	<li>パーセンテージデータからトリリニアダイアグラムを作図する</li>
+	<li>3点グラフとひし形グラフの間隔を編集する</li>
+	<li>トリリニアダイアグラム内にラベルを追加する</li>
+</ul>
+<p><br />
+</p>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<ol>
+	<li>新しいワークブックを作成し、<b>データ：ファイルに接続：Text/CSV</b>と選択して<i>&lt;Origin インストールフォルダ&gt;\Samples\Graphing\</i> 
+	 にある<b>Piper.dat</b>をインポートします。</li>
+	<li>インポートしたワークシートの<b><b>A</b></b>列はそれぞれのサンプルに対するIDを示します。<b>B</b>列から<b>G</b>列は6つのイオングループ（<b>Ca, 
+	 Mg, Na+K, Cl, SO4,</b> <b>CO3+HCO3</b>）のパーセンテージの値が、<b>H</b>列は水中の総溶解固形分の量が入力されています。カチオンのパーセントは、カチオンの総量に比例し、アニオンについても同様に算出されます。 
+	 
+	<dl>
+		<dd><b>Note：</b>組み込みワークブックテンプレートを使用して異なる単位(MEq/mgL/PPM)からパーセントに変換可能です（<b><b>ファイル：新規作成：テンプレートから</b></b>で開くことができます）。詳細については、<a 
+		 class="external text" href="../../UserGuide/UserGuide/Piper_Diagram.html#Controls">このヘルプファイル</a>を参照してください。</dd>
+	</dl></li>
+	<li><b><b>B</b></b>列から<b><b>G</b></b>列を選択して<b><b>作図：Specialized：トリリニアダイアグラム</b></b>と選択して<b><b>plotpiper</b></b>ダイアログを開きます</li>
+	<li><b><b>サンプルID</b></b>として列<b><b>A</b></b>を選択し、<b><b>総溶解固形分(TDS)</b></b>には、列<b>H</b>を選択します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Tutorial Piper 02.png" src="../images/Trilinear_Diagram/Tutorial_Piper_02.png" 
+									 width="425" border="0" /></a></dd>
+		<dd><b><b>Note</b>：</b><b><b>出力グラフ</b></b>として既に作図しているトリリニアダイアグラムを選択すれば、選択された新しいデータを既存グラフに追加することができます。</dd>
+	</dl></li>
+	<li><b>OK </b>をクリックして、トリリニアダイアグラムを作図します。 
+	<dl>
+		<dd><a class="image"><img alt="Tutorial Piper 03.png" src="../images/Trilinear_Diagram/Tutorial_Piper_03.png" 
+									 width="583" border="0" /></a></dd>
+		<dd>トリリニアダイアグラム作図の際、サンプルIDとTDSはオプションです。サンプルIDが指定されていると、シンボルの色の形状の制御に使用されます。TDSが指定されていると、ひし形のレイヤ（1）内に円が表示され、大きさの制御に使用されます。また、トリリニアダイアグラムの凡例には、各サンプルが表示されます。</dd>
+	</dl></li>
+</ol>
+<h2><a name="More_Customization_Steps"></a><span class="mw-headline">グラフの編集</span></h2>
+<p>以下の編集操作により、<b><b>サマリー</b></b>で表示されている画像のグラフと同じようにグラフを編集します。 </p>
+<ol>
+	<li>3点グラフとひし形のグラフの間隔を変更するには、グラフレイヤ上でダブルクリックして<b><b>作図の詳細</b></b>ダイアログを開きます。左側のパネルで、<b>Layer 
+	 2</b>を選択します。<b><b>レイヤの大きさ</b></b>タブを開き、<b><b>左</b></b>を<b><b>130</b></b>にし、菱形の上部頂点とレイヤ2の最頂点間の距離が菱形の辺の長さの130％になるようにします。<b><b>適用</b></b>ボタンをクリックします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Tutorial Piper 04.png" src="../images/Trilinear_Diagram/Tutorial_Piper_04.png" 
+									 width="445" border="0" /></a></dd>
+	</dl></li>
+	<li>シンボルの色または形状の推移リストを変更するには、左パネルで<b>Layer1</b>ノードの1番目のデータプロットを選択します。<b>シンボル</b>タブ：<b>シンボルの色</b>：<b>ポイント毎</b>と選択し、カラーリストを変更します。また、<b>図形リスト</b>からシンボルの形状を変更します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Tutorial Piper 05.png" src="../images/Trilinear_Diagram/Tutorial_Piper_05.png" 
+									 width="547" border="0" /></a></dd>
+	</dl></li>
+	<li>ひし形のレイヤ内にデータラベルとして<b><b>サンプルID</b></b>を追加するには、左パネルで<b><b>Layer1</b></b>ノードの1番目のデータプロットを選択します。<b><b>ラベル</b></b>タブで以下のように設定します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Tutorial Piper 06.png" src="../images/Trilinear_Diagram/Tutorial_Piper_06.png" 
+									 width="457" border="0" /></a></dd>
+		<dd>2つの三点グラフでデータラベルを追加するには、<b><b>作図の詳細</b></b>ダイアログの左パネルで<b><b>Layer2</b></b>と<b><b><b>Layer3</b></b></b>ノードのデータプロットを選択し、<b><b>Layer1</b></b>と同じように設定します。 
+		 </dd>
+	</dl></li>
+	<li><b><b>作図の詳細</b></b>ダイアログの<b><b>Layer1</b></b>の2番目のデータプロットは、TDSを表す円のための設定ページです。左パネルのデータプロットを選択し、<b><b>シンボル</b></b>タブを開きます。円のサイズがTDSで制御されていることが確認できます。縮尺倍率が適切な表示のために自動的に定義されます。<b><b>縮尺倍率</b></b>を<b><b>0.03</b></b>に変更します。</li>
+	<li>デフォルトでは、凡例内にはサンプルIDが表示されています。凡例内にサンプリング場所を表示するには、凡例上で右クリックし、<b><b>凡例：1ポイントずつ</b></b>を選択して<b>ポイントごとの凡例を更新</b>ダイアログを開きます。<b><b>ラベル形式</b></b>ドロップダウンリストから<b><b>カスタム</b></b>を選択して、メニューから<b><b>wcol(1)</b></b>を選択します。wcol(9)は9番目のデータ列（サンプリング場所が入力された列）を参照します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Tutorial Piper 07.png" src="../images/Trilinear_Diagram/Tutorial_Piper_07.png" 
+									 width="360" border="0" /></a></dd>
+	</dl></li>
+</ol>

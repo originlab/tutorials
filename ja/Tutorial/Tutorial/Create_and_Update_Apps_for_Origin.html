@@ -1,0 +1,128 @@
+﻿<h1 class="firstheading">Origin向けアプリの作成と更新</h1><p class='urlname' style='display: none'>Create-Update-Apps</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#App_Files_Specifications"><span class="tocnumber">3</span> <span class="toctext">アプリファイルの指定</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Icon_files"><span class="tocnumber">3.1</span> <span class="toctext">アイコンファイル</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Programming_files"><span class="tocnumber">3.2</span> <span class="toctext">プログラムファイル</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Other_files"><span class="tocnumber">3.3</span> <span class="toctext">その他のファイル</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="#Building_an_App"><span class="tocnumber">4</span> <span class="toctext">アプリの作成</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="#Uploading_App_to_File_Exchange_Website"><span class="tocnumber">4.1</span> <span class="toctext">「ファイル交換の場」サイトにアプリをアップロード</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Modifying_an_App"><span class="tocnumber">4.2</span> <span class="toctext">アプリの編集</span></a>
+<ul>
+<li class="toclevel-3 tocsection-10"><a href="#Modify_App_Settings"><span class="tocnumber">4.2.1</span> <span class="toctext">アプリ設定の編集</span></a></li>
+<li class="toclevel-3 tocsection-11"><a href="#Add.2C_Remove_or_Change_Files_in_App_Folder"><span class="tocnumber">4.2.2</span> <span class="toctext">アプリファイルフォルダのファイルの追加・削除・変更</span></a></li>
+<li class="toclevel-3 tocsection-12"><a href="#Upload_Modified_OPX_to_File_Exchange_Page"><span class="tocnumber">4.2.3</span> <span class="toctext">編集したOPXを「ファイル交換の場」ページにアップロード</span></a></li>
+<li class="toclevel-3 tocsection-13"><a href="#Request_Approval_from_OriginLab"><span class="tocnumber">4.2.4</span> <span class="toctext">OriginLabからのリクエストの承認</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p><a class="external text" href="../../UserGuide/UserGuide/Apps.html"><b>アプリ</b></a> は、特別なグラフ作成や分析タスクを行うためのカスタムアプリケーションです。OriginLab社のWebサイトの<a class="external text" href="http://www.originlab.com/fileexchange/" target="_blank">ファイル交換の場</a>から、必要なアプリをダウンロードして、インストールします。ユーザの皆様は、「ファイル交換の場」で、アプリを作成して、シェアすることも可能です。このチュートリアルでは、アプリの作成して、アップロード、および編集する方法を解説します。
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。
+</p>
+<ul><li> アプリの作成</li>
+<li> 「ファイル交換の場」サイトにアプリをアップロード </li>
+<li> アプリを編集して、承認のために提出</li></ul>
+<h2><a name="App_Files_Specifications"></a><span class="mw-headline">アプリファイルの指定</span></h2>
+<p>アプリがサポートしているファイルやアプリに必要なファイルは、次の通りです。
+</p>
+<h5><a name="Icon_files"></a><span class="mw-headline">アイコンファイル</span></h5>
+<dl><dd><dl><dd><b>アイコンファイル</b> (必須)
+<dl><dd>これは、32*32ピクセルのpngファイルになっている必要があります。このアイコンは、Originの<a class="external text" href="../../UserGuide/UserGuide/Apps.html"><b>アプリギャラリー</b></a>ウィンドウに表示されます。</dd></dl></dd>
+<dd><b>小さいアイコンファイル</b> (オプション)
+<dl><dd>これは、16*16ピクセルで16色（4bits)のbmpファイルである必要があります。<b>表示: ツールバー: アプリのボタングループ</b>から操作できます。ツールバーに追加して、ボタンとして使うことが可能です。</dd></dl></dd></dl></dd></dl>
+<h5><a name="Programming_files"></a><span class="mw-headline">プログラムファイル</span></h5>
+<p>X-Function, *.ogs, *.c, *.h, DLLファイルがサポートされています。Xファンクションのファイル名は、「*.c」と同じであってはいけません。
+</p>
+<h5><a name="Other_files"></a><span class="mw-headline">その他のファイル</span></h5>
+<p>「その他のファイル」には、文書(*.chm, *.pdf)、画像ファイル、サンプルデータなどがあります。
+</p>
+<h2><a name="Building_an_App"></a><span class="mw-headline">アプリの作成</span></h2>
+<p>1.<b>Apps</b>フォルダをインストールしたOriginの<b>AppData</b>の下に置きます。以下のコマンドを、「コマンド/スクリプト」ウィンドウに入力します。
+<br />
+</p>
+<pre class="lt" style="font-family:monospace;"><span style="color: #000080;">%</span>@A<span style="color: #000080;">=</span>; <span style="color: #008000;">// 出力は、例えば、次のようになります。C:\Users\XXX\AppData\Local\OriginLab\Apps\</span></pre>
+<p>2.ステップ1のパスでフォルダを開き、この場所にサブフォルダを作成します。ここで、サブフォルダ名は、アプリ名として使っているものと同じにします。全てのアプリ用ファイルをこのサブフォルダに置きます。
+<br />
+3.Originを起動して、インターフェイスにある<b>コードビルダ</b><a  class="image"><img alt="Button Code Builder.png" src="../images/Create_and_Update_Apps_for_Origin/Button_Code_Builder.png" width="23"  /></a>ボタンをクリックします。
+<br />
+4.<b>コードビルダ</b>ウィンドウで、左の<b>ワークスペース</b>にある<b>Apps</b>フォルダで右クリックします。ショートカットメニューから<b>既存フォルダの追加</b>を選択して、Step2で作成したフォルダを追加します。ワークスペースパネルのフォルダを広げます。フォルダの全てのファイルがリストアップされます。 
+<br />
+Appフォルダが空の場合は、ショートカットメニューから<b>新規作成</b>を選択して、Appsフォルダに新しいサブフォルダを作成できます。ファイルで右クリックすると、ファイルを削除する選択が可能です。フォルダで右クリックして、現在のフォルダに無いファイルを追加することができます。
+</p>
+<dl><dd><dl><dd><a  class="image"><img alt="AppCodeBuildDlg.png" src="../images/Create_and_Update_Apps_for_Origin/AppCodeBuildDlg.png" width="280"  /></a></dd></dl></dd></dl>
+<p>5.コードビルダのワークスペースパネルで、新しく作成したAppフォルダで右クリックして、ショートカットメニューから<b>生成</b>を選択します。<b>パッケージマネジャ</b>ダイアログが開きます。
+</p>
+<dl><dd><dl><dd><a  class="image"><img alt="AppGenerateDlg.png" src="../images/Create_and_Update_Apps_for_Origin/AppGenerateDlg.png" width="396"  /></a></dd></dl></dd></dl>
+<p>6.<b>パッケージマネジャ</b>ダイアログで、以下のように操作します。
+</p>
+<ul><li><b>パッケージブランチ：</b>
+<dl><dd> <b>名前</b>
+<dl><dd> <b>名前</b>の部分は、変更してはいけません。変更してしまうと、フォルダー名も変わってしまいます。</dd></dl></dd>
+<dd> <b>説明</b>
+<dl><dd> ここで、アプリの説明を入力します。この説明は、「ファイ交換の場」ウェブの<b>概要</b>の部分に表示されます。</dd></dl></dd>
+<dd> <b>バージョン</b>
+<dl><dd> 現在のAppバージョンを設定します。例えば、「1.11.」のように、小数点以下2桁の数値を使うことができます。 </dd></dl></dd>
+<dd> <b>必要なOriginバージョン</b>
+<dl><dd> 必要なOriginバージョンOrigin2016では、「2016」の代わりに「9.3」と入力する必要があります。</dd></dl></dd></dl></li></ul>
+<ul><li><b>アプリブランチ</b>
+<dl><dd> <b>アイコン</b>
+<dl><dd> アプリギャラリウィンドウに表示されているアイコンのファイル名にします。</dd></dl></dd>
+<dd> <b>アイコン（小さい）</b>
+<dl><dd> ツールバーに使われている小さいアイコンのファイル名にします。</dd></dl></dd>
+<dd> <b>スクリプトを実行</b>
+<dl><dd> アプリアイコンをクリックして、LabTalkスクリプトで実行します。Xファンクションダイアログを開いて、「xfname -d;」のようにスクリプトを書くことができます。スクリプトポイントをogsファイルのセクションにすることも可能です。</dd></dl></dd>
+<dd> <b>ウィンドウで可能</b>
+<dl><dd> アプリが有効なアクティブなウィンドウタイプを指定します。例えば、LaTex アプリ、グラフウィンドウをアクティブにします。</dd></dl></dd></dl></li></ul>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Create_and_Update_Apps_for_Origin/Tip_icon.png" width="57"  border="0" /></td><td><p>これを行うことはめったにありませんが、<b>LabTalk式で可能</b>ノードを展開し、<b>LabTalk算術式</b>の横に次のように入力して、Notesウィンドウでアプリを有効にするように指定できます。<br />
+<p><i><b>note.active=1</b></i>
+</p>
+</p></td></tr></table>
+<p><br />
+</p>
+<ul><li><b>LabTalkスプリクトブランチ</b>
+<dl><dd><dl><dd>インストール前後と初期化前に、LabTalkスクリプトを指定します。</dd></dl></dd></dl></li></ul>
+<dl><dd><dl><dd><a  class="image"><img alt="AppSetDlg.png" src="../images/Create_and_Update_Apps_for_Origin/AppSetDlg.png" width="646"  /></a></dd></dl></dd></dl>
+<p>7.<b>パッケージマネジャ</b>で設定をした後、メニューから<b>ファイル：新規保存</b>をクリックします。.opxファイルが保存されます。opxは、フォルダー名と異なっていても構いません。Appのopxファイルの準備ができました。ファイルをドラッグ＆ドロップして、Originにインストールします。なお、ファイルをドラッグアンドドロップする時には、Originを<b>管理者として実行</b>で起動しないでください。
+</p><p><br />
+</p>
+<h3><a name="Uploading_App_to_File_Exchange_Website"></a><span class="mw-headline">「ファイル交換の場」サイトにアプリをアップロード</span></h3>
+<p>アプリパッケージファイルが準備できたら、「ファイル交換の場」ウェブサイトにアップロードして、公開します。次のように操作します。
+</p>
+<ol><li> 「<a class="external text" href="http://www.originlab.com/fileexchange/" target="_blank"><b>ファイル交換の場</b></a>」を開き、左の下にある<b>Submit a file</b>をクリックして、<b>Submit File</b>ページを開きます。<b>アプリ</b>として<b>ファイルタイプ</b>を選択して、<b>ファイル・カテゴリー：</b>、<b>Originによって作成：</b>などのその他の必要な情報を入力します。<b>必要なOrigin最低バージョン</b>、<b>タイトル</b>、<b>サマリー</b>などの、アプリパッケージの情報は、自動で抽出されます。</li>
+<li> アプリのopxパッケージファイルをアップロードして、画像のスクリーンショットを取ります。<b>送信</b>ボタンをクリックして、アプリを送信し、「ファイル交換の場」ツールページを作成します。</li>
+<li> 作成してたウェブページからopxファイルをダウンロードできるようになり、Originにドラッグ＆ドロップで入れて、テストできます。ダウンロードプロセス中に、パッケージIDをopxに指定します。</li>
+<li> アプリのウェブページを継続して編集できます。完了したら、<b>アップデート</b>ボタンをクリックすると、ウェブページを更新できます。</li>
+<li> アプリを公開する準備ができたら、<b>更新</b>フォームの下にある<b>承認のリクエスト</b>ボタンを押します。アプリが承認されると、OriginLabからメールでお知らせがあります。承認のステータスは、<b>OriginLab Tested</b>、<b>OriginLab Approved</b>と示された<b>ファイルのアップデート</b>ページにも表示されます。</li>
+<li> アプリが承認されると、メニューの<b>ツール：ファイル交換の場アプリ</b>に、自動で表示されます。</li></ol>
+<h3><a name="Modifying_an_App"></a><span class="mw-headline">アプリの編集</span></h3>
+<h5><a name="Modify_App_Settings"></a><span class="mw-headline">アプリ設定の変更</span></h5>
+<ol><li> Originメニューから<b>ツール：グループフォルダマネジャ</b>を選択します。<b>パッケージマネジャー</b>ダイアログボックスの<b>ツール: インストールされたパッケージをブラウズ</b>を選択します。アプリを選択して、<b>開く</b>ボタンをクリックします。</li>
+<li> ダイアログで、設定を変更できます。フォルダのファイルを変更すると、<b>ファイルの再パック</b>ボタンをクリックできるようになります。</li>
+<li> <b>ファイル: 保存</b>をクリックして、アプリopxパッケージに保存できます。</li></ol>
+<h5><a name="Add.2C_Remove_or_Change_Files_in_App_Folder"></a><span class="mw-headline">アプリファイルフォルダのファイルの追加・削除・変更</span></h5>
+<p>ファイルを追加、ファイルを削除、ファイル名を変更する場合は、<a class="external text" href="CodeBuilderUsersGuide.chm::/Category/Code_Builder_Interface(CodeBuilder).html"><b>コードビルダ</b></a>パネルの<b>ワークスペース</b>のアプリフォルダを右クリックして、ショートカットメニューから対応するオプションを選択します。ショートカットメニューから<b>生成</b>をクリックして、アプリパッケージを再生成します。 
+<br />
+ファイルを削除したり、ファイル名を変更する際には、もし使用されていなくても、元のファイルをアプリフォルダのパスの下に保存します。<i>C:\Users\XXX\AppData\Local\OriginLab\Apps\</i> そうでないと、<b>生成</b>ボタンをクリックしたときに、opxの既存の設定を<b>パッケージマネジャー</b>ダイアログに保存できません。
+</p>
+<h5><a name="Upload_Modified_OPX_to_File_Exchange_Page"></a><span class="mw-headline">編集したOPXを「ファイル交換の場」ページにアップロード</span></h5>
+<p>Originのウェブサイトにログインして、アプリを作成した「ファイル交換の場」ページを開き、更新したopxファイルを「ファイル交換の場」にアップロードします。現在のアプリのバージョンでアップデートしたものであるという「ノート」を、必要に応じて、ウェブページに掲載します。ユーザはメニューの<b>ツール: ファイル交換の場アプリ:  <i>* YourApp</i> (インストール済)</b> から、このアップデートを知ることができます。このアプリが既にインストール済の場合は、アスタリスクのシンボル「* 」がついています。
+</p>
+<dl><dd><dl><dd><a  class="image"><img alt="AppUpdates.png" src="../images/Create_and_Update_Apps_for_Origin/AppUpdates.png" width="295"  /></a></dd></dl></dd></dl>
+<h5><a name="Request_Approval_from_OriginLab"></a><span class="mw-headline">OriginLabからのリクエストの承認</span></h5>
+<p>アプリの「ファイル交換の場」サイトの<b>承認のリクエスト</b>ボタンをクリックして、OriginLabからの連絡をお待ちください。
+</p>
+
+    

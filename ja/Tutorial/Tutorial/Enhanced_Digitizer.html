@@ -1,0 +1,314 @@
+﻿<h1 class="firstheading">高度なデジタイザ</h1>
+<p class="urlname" style="display: none;">enhanced-digitizer</p>
+<table id="toc" class="toc">
+	<tr>
+		<td><div id="toctitle">
+			<h2>内容</h2>
+		</div>
+		<ol>
+			<li class="toclevel-1 tocsection-1"><a href="#Summary"><span 
+			 class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+			<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span 
+			 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+			<li class="toclevel-1 tocsection-3"><a href="#Steps"><span 
+			 class="tocnumber">3</span> <span class="toctext">ステップ</span></a> 
+			 
+			<ol>
+				<li class="toclevel-2 tocsection-4"><a href="#Import_Image_and_Clear_Gridlines"><span 
+				 class="tocnumber">3.1</span> <span class="toctext">画像のインポートとグリッド線のクリア</span></a></li>
+				<li class="toclevel-2 tocsection-5"><a href="#Edit_Axes"><span 
+				 class="tocnumber">3.2</span> <span class="toctext">軸の編集</span></a></li>
+				<li class="toclevel-2 tocsection-6"><a href="#Capture_Data_Points"><span 
+				 class="tocnumber">3.3</span> <span class="toctext">データポイントのキャプチャ</span></a> 
+				 
+				<ol>
+					<li class="toclevel-3 tocsection-7"><a href="#Manually_Pick_Points"><span 
+					 class="tocnumber">3.3.1</span> <span class="toctext">手動でポイントを取得する</span></a></li>
+					<li class="toclevel-3 tocsection-8"><a href="#Auto_Trace_Line_by_Points"><span 
+					 class="tocnumber">3.3.2</span> <span class="toctext">ポイントによる自動トレース線</span></a></li>
+					<li class="toclevel-3 tocsection-9"><a href="#Auto_Pick_Points_by_Grids"><span 
+					 class="tocnumber">3.3.3</span> <span class="toctext">グリッドによるポイントの自動取得</span></a></li>
+					<li class="toclevel-3 tocsection-10"><a href="#Area_Auto_Trace.2FBoundary-Limited_Area_Auto_Trace"><span 
+					 class="tocnumber">3.3.4</span> <span class="toctext">領域の自動トレース/領界で制限された領域の自動トレース</span></a></li>
+				</ol></li>
+				<li class="toclevel-2 tocsection-11"><a href="#Set_Axes_for_Polar_and_Ternary_Plots"><span 
+				 class="tocnumber">3.4</span> <span class="toctext">極座標と三点グラフの軸設定</span></a> 
+				 
+				<ol>
+					<li class="toclevel-3 tocsection-12"><a href="#Polar_Coordinates"><span 
+					 class="tocnumber">3.4.1</span> <span class="toctext">極座標</span></a></li>
+					<li class="toclevel-3 tocsection-13"><a href="#Ternary_Coordinate"><span 
+					 class="tocnumber">3.4.2</span> <span class="toctext">三角座標</span></a></li>
+				</ol></li>
+			</ol></li>
+		</ol></td>
+	</tr>
+</table>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>高度なデジタイザでは、自動トレース機能と極座標・三角座標系でのデジタイズ機能がサポートされます。</p>
+<p class="version">必要なOriginのバージョン:Origin 2015 SR0</p>
+<h2><a name="What_You_Will_Learn" id="What_You_Will_Learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。</p>
+<ul>
+	<li>画像内の軸をセットする</li>
+	<li>手動または自動でデータポイントをキャプチャする</li>
+	<li>極座標や三角座標のための軸設定</li>
+</ul>
+<h2><a name="Steps" id="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Import_Image_and_Clear_Gridlines" id="Import_Image_and_Clear_Gridlines"></a><span 
+	 class="mw-headline">画像のインポートとグリッド線のクリア</span></h3>
+<ol>
+	<li><b style="font-weight: bold;">標準</b>ツールバーの<b>イメージのデジタイズ</b>ボタン 
+	 <a class="image"><img alt="Button Digitize Image.png" src="../images/Enhanced_Digitizer/Button_Digitize_Image.png" 
+							 width="23" height="23" border="0" /></a> をクリックします。</li>
+	<li><i style="font-style: italic;">&lt;Origin EXE フォルダ&gt;\Samples\Import 
+	 and Export</i> にブラウズし、<b>TwoPeaks.bmp</b>を開きます。この画像には、3つの折れ線グラフを含み、黒線はベースライン、赤と青の線はスペクトルデータです。<br />
+	<a class="image"><img alt="Enhanced Digitizer Towpeaks bmp.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer_Towpeaks_bmp.png" 
+							 width="481" height="394" border="0" /></a></li>
+	<li>デジタイザダイアログの下部には、各ステップごとのヒントが表示されます。<br />
+	<a class="image"><img alt="Enhanced Digitizer db.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer_db.png" 
+							 width="531" height="398" border="0" /></a></li>
+	<li><b style="font-weight: bold;">画像：直行グリッド線を削除</b>を選択してグリッド線を削除します。<br />
+	画像を回転し、背景のノイズや色を削除するためには、<b>画像：回転</b>を選択し、<b>画像：背景</b>を削除を選択することもできます。</li>
+</ol>
+<h3><a name="Edit_Axes" id="Edit_Axes"></a><span class="mw-headline">軸の編集</span></h3>
+<p>データポイントをキャプチャする前に、キャプチャしたデータポイントのXY座標を計算する際に参照するための標画像上の軸をセットする必要があります。</p>
+<ol>
+	<li><b style="font-weight: bold;">軸の編集</b>ボタン<a class="image"><img 
+	 alt="Edit Axes Digitizer Button.png" src="../images/Enhanced_Digitizer/Edit_Axes_Digitizer_Button.png" 
+	 width="24" height="24" border="0" /></a>をクリックするか、このボタンが押された状態であることを確認します。</li>
+	<li>画像のフレームに4つの線が表示されます。軸の値がわかっている場所に線をドラッグして移動し、対応する軸値をデジタイザダイアログ内の対応する行に入力します。<br />
+	<b>プロット操作・オブジェクト作成</b>ツールバーのズームパンツールボタン <a class="image"><img alt="Button Panning.png" 
+	 src="../images/Enhanced_Digitizer/Button_Panning.png" width="22" height="22" 
+	 border="0" /></a>を使用するか、キーボードの<b>A</b>ボタンを押しながらマウスのホイールを回転させて画像を拡大したりパンニングできます。これにより線の場所を正確に定義できます。<b>Ctrl+W</b> 
+	 で画像を元のサイズに戻すことができます。<br />
+	<a class="image"><img alt="Enhanced Digitizer1.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer1.png" 
+							 width="487" height="396" border="0" /></a><br />
+	<a class="image"><img alt="Enhanced Digitizer2.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer2.png" 
+							 width="531" height="398" border="0" /></a></li>
+	<li>軸編集後、表上で右クリックすると軸設定を保存することができ、同様のグラフ画像を使用する際に設定をロードできます。<br />
+	<a class="image"><img alt="Enhanced Digitizer save axis.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer_save_axis.png" 
+							 width="349" height="152" border="0" /></a></li>
+</ol>
+<h3><a name="Capture_Data_Points" id="Capture_Data_Points"></a><span class="mw-headline">データポイントのキャプチャ</span></h3>
+<p><b style="font-weight: bold;">手動でポイントを選択する</b>方法に加え、高度なデジタイザでは、自動的にデータポイントをキャプチャするデジタイズ方法を利用可能です。これらの方法は<b>デジタイズ</b>メニューに項目があり、また、対応するボタンもあります。</p>
+<table class="simple">
+	<tr>
+		<th>名前</th>
+		<th>アイコン</th>
+		<th>関数</th>
+	</tr>
+	<tr>
+		<td>手動でポイントを選択</td>
+		<td><a class="image" style="color: #0000ff; text-decoration: underline; "><img 
+		 alt="Pick New Points Digitizer Button.png" src="../images/Enhanced_Digitizer/Pick_New_Points_Digitizer_Button.png" 
+		 width="24" height="24" border="0" /></a></td>
+		<td>キャプチャしたいポイント毎にダブルクリックして取得します。</td>
+	</tr>
+	<tr>
+		<td>ポイントによる自動トレース線</td>
+		<td><a class="image" style="color: #0000ff; text-decoration: underline; "><img 
+		 alt="Auto Trace Line By Points Digitizer Button.png" src="../images/Enhanced_Digitizer/Auto_Trace_Line_By_Points_Digitizer_Button.png" 
+		 width="24" height="24" border="0" /></a></td>
+		<td>画像の曲線上の任意の場所をダブルクリックし、データポイントを自動的にキャプチャします。</td>
+	</tr>
+	<tr>
+		<td>グリッドによる自動選択ポイント</td>
+		<td><a class="image" style="color: #0000ff; text-decoration: underline; "><img 
+		 alt="Pick Points By Grids Digitizer Button.png" src="../images/Enhanced_Digitizer/Pick_Points_By_Grids_Digitizer_Button.png" 
+		 width="24" height="24" border="0" /></a></td>
+		<td>適当な場所をドラッグして矩形作り、矩形内のグリッド線と画像の曲線の交差したポイントが取得されます。</td>
+	</tr>
+	<tr>
+		<td>面積の自動トレース</td>
+		<td><a class="image" style="color: #0000ff; text-decoration: underline; "><img 
+		 alt="Area Auto Trace Digitizer Button.png" src="../images/Enhanced_Digitizer/Area_Auto_Trace_Digitizer_Button.png" 
+		 width="24" height="24" border="0" /></a></td>
+		<td>前の2つの方法を組み合わせた方法。画像内の適当な場所をドラッグして矩形を作成します。Data points will 
+		 automatically be captured along the curve.</td>
+	</tr>
+	<tr>
+		<td>領界で制限された領域の自動トレース</td>
+		<td><a class="image" style="color: #0000ff; text-decoration: underline; "><img 
+		 alt="Boundary Limited Area Auto Trace Digitizer Button.png" src="../images/Enhanced_Digitizer/Boundary_Limited_Area_Auto_Trace_Digitizer_Button.png" 
+		 width="24" height="24" border="0" /></a></td>
+		<td>選択した領域内でのみポイントが作成されるという点以外は、領域の自動トレースと同様です。</td>
+	</tr>
+</table>
+<h4><a name="Manually_Pick_Points" id="Manually_Pick_Points"></a><span 
+	 class="mw-headline">手動でポイントを選択</span></h4>
+<p>赤い曲線のデータを手動でキャプチャしましょう。</p>
+<ol>
+	<li><b style="font-weight: bold;">手動でポイントを選択</b>ボタンをクリックします。<br />
+	<a class="image"><img alt="Enhanced Digitizer16.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer16.png" 
+							 width="658" height="396" border="0" /></a></li>
+	<li>赤い曲線上でダブルクリックします。<br />
+	デジタイザダイアログの<b>データ</b>タブの<b>拡大</b>ウィンドウで、カーソルのある場所を拡大表示します。軸編集の項目で紹介した、ズームとパンツールを使用して画像を拡大したりパンニングすることもできます。</li>
+	<li>いくつかのポイントを取得後、<b>完了</b>ボタンをクリックします。<b>データ</b>タブの線1の<b>ポイント数</b>に、線1に対してキャプチャしたデータポイントの数が表示されます。<br />
+	<a class="image"><img alt="Enhanced Digitizer manual traced.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer_manual_traced.png" 
+							 width="425" height="333" border="0" /></a><br />
+	<br />
+	キャプチャしたポイントを移動したり削除するには、画像内のキャプチャしたポイントをダブルクリックして選択します。移動する時はキーボードの矢印キーを使用し、削除する時は<b>Delete</b>キーを使用して削除します。<br />
+	<a class="image"><img alt="Enhanced Digitizer modify.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer_modify.png" 
+							 width="144" height="229" border="0" /></a><br />
+	線1のポイント取得を再開する時は、<b>手動でポイントを選択</b>ボタンをクリックします。</li>
+</ol>
+<p><br />
+</p>
+<h4><a name="Auto_Trace_Line_by_Points" id="Auto_Trace_Line_by_Points"></a><span 
+	 class="mw-headline">ポイントによる自動トレース線</span></h4>
+<p>複数デジタイズ手法はデジタイザダイアログのデータタブ上でハイライトされた線であれば、同じ線上で使用可能です。<b>ポイントによる自動トレース線</b>の手法を使用して線1のために、より多くの赤い曲線のデータを取得しましょう。</p>
+<ol>
+	<li><b style="font-weight: bold;">ポイントによる自動トレース線</b>ボタンをクリックします。</li>
+	<li>ピークの左側と右側で赤いポイント上でダブルクリックします。ダブルクリックするごとに、Originは曲線上のポイントを探すためにトレースします。<b>完了</b> 
+	 ボタンをクリックします。<br />
+	<a class="image"><img alt="Enhanced Digitizer8.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer8.png" 
+							 width="423" height="352" border="0" /></a></li>
+	<li>赤い線上に122ポイント取得できました。<br />
+	<a class="image"><img alt="Enhanced Digitizer8b.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer8b.png" 
+							 width="345" height="78" border="0" /></a></li>
+	<li><b style="font-weight: bold;">データに行く</b>ボタン<a class="image"><img 
+	 alt="Go To Data Digitizer Button.png" src="../images/Enhanced_Digitizer/Go_To_Data_Digitizer_Button.png" 
+	 width="24" height="24" border="0" /></a>をクリックしてワークシート内の結果を参照します。<br />
+	<a class="image"><img alt="Enhanced Digitizer sheet.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer_sheet.png" 
+							 width="290" height="294" border="0" /></a></li>
+</ol>
+<p><br />
+</p>
+<h4><a name="Auto_Pick_Points_by_Grids" id="Auto_Pick_Points_by_Grids"></a><span 
+	 class="mw-headline">グリッドによる自動選択ポイント</span></h4>
+<p>次に、<b>グリッドによる自動選択</b>ポイントを使用して岐路い曲線データを取得します。</p>
+<ol>
+	<li>画像ウィンドウをアクティブにします。</li>
+	<li><b style="font-weight: bold;">新しい線</b>ボタン <a class="image"><img 
+	 alt="New Line Digitizer Button.png" src="../images/Enhanced_Digitizer/New_Line_Digitizer_Button.png" 
+	 width="24" height="24" border="0" /></a> をクリックします。<b>データ</b>タブに新しい線2が追加されます。<br />
+	Note:このイメージ内の全てのプロットは同じXY軸を使用しているので、軸の設定をし直す必要はありません。しかし、複数軸のある画像の場合、それぞれのデータのために軸の設定をそれぞれにすることもできます。</li>
+	<li><b style="font-weight: bold;">グリッドによる自動選択ポイント</b>ボタンをクリックします。</li>
+	<li>黒の、基線となる曲線部分で矩形を作成し、以下のように基線を作成します。<br />
+	<a class="image"><img alt="Enhanced Digitizer3.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer3.png" 
+							 width="521" height="444" border="0" /></a><br />
+	　赤い線と青い線のポイントもいくつかキャプチャされました。<br />
+	<a class="image"><img alt="Enhanced Digitizer auto grid.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer_auto_grid.png" 
+							 width="425" height="352" border="0" /></a></li>
+	<li>不必要なポイントを削除するには、<b>ポイントを削除</b>ボタン<a class="image"><img alt="Delete Points Digitizer Button.png" 
+	 src="../images/Enhanced_Digitizer/Delete_Points_Digitizer_Button.png" 
+	 width="24" height="24" border="0" /></a>をクリックます。</li>
+	<li>不必要なポイントを覆うように矩形をドラッグし、マウスのボタンを離して削除します。<br />
+	<a class="image"><img alt="Enhanced Digitizer5.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer5.png" 
+							 width="442" height="251" border="0" /></a><br />
+	この方法では、57ポイントが取得されました。<br />
+	<a class="image"><img alt="Enhanced Digitizer auto grid numbers.png" 
+							 src="../images/Enhanced_Digitizer/Enhanced_Digitizer_auto_grid_numbers.png" 
+							 width="354" height="100" border="0" /></a></li>
+	<li>この結果に満足できない場合、<b>線を削除</b>ボタン<a class="image"><img alt="Delete Line Digitizer Button.png" 
+															 src="../images/Enhanced_Digitizer/Delete_Line_Digitizer_Button.png" 
+															 width="24" 
+															 height="24" 
+															 border="0" /></a>をクリックしてデジタイザダイアログのデータタブにある線2を削除でき、<b>新しい線</b>ボタン<a 
+	 class="image"><img alt="New Line Digitizer Button.png" src="../images/Enhanced_Digitizer/New_Line_Digitizer_Button.png" 
+						 width="24" height="24" border="0" /></a> をクリックして最初からキャプチャすることもできます。<br />
+	<br />
+	メニューの<b>設定：デジタイズの設定</b>を選択して、グリッドの設定を変更することもできます。</li>
+</ol>
+<p><br />
+</p>
+<h4><a name="Area_Auto_Trace.2FBoundary-Limited_Area_Auto_Trace" id="Area_Auto_Trace.2FBoundary-Limited_Area_Auto_Trace"></a><span 
+	 class="mw-headline">領域の自動トレース/領界で制限された領域の自動トレース</span></h4>
+<p>青い曲線のデジタイズには、これら2つの手法を使用します。</p>
+<ol>
+	<li><b style="font-weight: bold;">新しい線</b>ボタン <a class="image"><img 
+	 alt="New Line Digitizer Button.png" src="../images/Enhanced_Digitizer/New_Line_Digitizer_Button.png" 
+	 width="24" height="24" border="0" /></a> をクリックします。</li>
+	<li><b style="font-weight: bold;">領域の自動トレース</b>ボタン<a class="image"><img 
+	 alt="Area Auto Trace Digitizer Button.png" src="../images/Enhanced_Digitizer/Area_Auto_Trace_Digitizer_Button.png" 
+	 width="24" height="24" border="0" /></a>をクリックします。</li>
+	<li>クリック/ドラッグして青い線の一部を矩形で覆います。矩形を越えて青い曲線上にポイントが作成されます。<br />
+	<a class="image"><img alt="Enhanced Digitizer area auto.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer_area_auto.png" 
+							 width="427" height="354" border="0" /></a><br />
+	<a class="image"><img alt="Enhanced Digitizer line3.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer_line3.png" 
+							 width="215" height="118" border="0" /></a></li>
+	<li><b style="font-weight: bold;">領界で制限された領域の自動トレース</b>ボタン<a class="image"><img 
+	 alt="Boundary Limited Area Auto Trace Digitizer Button.png" src="../images/Enhanced_Digitizer/Boundary_Limited_Area_Auto_Trace_Digitizer_Button.png" 
+	 width="24" height="24" border="0" /></a>をクリックします。</li>
+	<li>クリック/ドラッグして青い線の一部を矩形で覆います。ポイントは描いた矩形内だけで自動作成されます。<b>領界で制限された領域の自動トレース</b>の方法は、曲線とグリッド線が交差した場所だけポイントを取得する、<b>グリッドによる自動選択ポイント</b>より多くのポイントを作成します。<br />
+	<a class="image"><img alt="Enhanced Digitizer area boundary.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer_area_boundary.png" 
+							 width="426" height="339" border="0" /></a></li>
+	<li><b style="font-weight: bold;">ポイントを再整理<a class="image"><img alt="Reorder Digitizer Button.png" 
+	 src="../images/Enhanced_Digitizer/Reorder_Digitizer_Button.png" width="24" 
+	 height="24" border="0" /></a></b> ボタンをクリックしてキャプチャしたポイントを順番に並べます。</li>
+	<li><b style="font-weight: bold;">ラベルの設定</b>ボタン<a class="image"><img 
+	 alt="Set Label Digitizer Button.png" src="../images/Enhanced_Digitizer/Set_Label_Digitizer_Button.png" 
+	 width="24" height="24" border="0" /></a>をクリックします。</li>
+	<li>青い曲線の選択されたピークポイントクリックし、<b>Enter</b>キーを押します。</li>
+	<li>開いたダイアログで<b>Blue Peak</b>と入力し、青い曲線のピークにラベルを付けます。<br />
+	<a class="image"><img alt="Enhanced Digitizer blue peak.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer_blue_peak.png" 
+							 width="222" height="164" border="0" /></a></li>
+	<li>赤い曲線のピークにもラベルを追加するために、<b>ラベルの設定</b>ボタンを再度クリックし、この機能から抜けます。</li>
+	<li>データタブのリストで、線1をクリックして赤い曲線のデータポイントを画像上に表示します。先ほどと同じ操作で、<b>Rad Peak</b>というラベルを付けます。</li>
+	<li><b style="font-weight: bold;">データに行く</b>ボタン <a class="image"><img 
+	 alt="Go To Data Digitizer Button.png" src="../images/Enhanced_Digitizer/Go_To_Data_Digitizer_Button.png" 
+	 width="24" height="24" border="0" /></a>をクリックします。ワークシートの対応する値の行にラベルが追加されたのが確認できます。<br />
+	<a class="image"><img alt="Enhanced Digitizer18.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer18.png" 
+							 width="630" height="269" border="0" /></a></li>
+	<li>画像ウィンドウをアクティブにし、<b>グラフに行く</b>ボタン<a class="image"><img alt="Go To Graph Digitizer Button.png" 
+	 src="../images/Enhanced_Digitizer/Go_To_Graph_Digitizer_Button.png" 
+	 width="24" height="24" border="0" /></a>をクリックします。<br />
+	ひとつのグラフウィンドウに、取得したポイントから作図された曲線がプロットされています。<br />
+	<a class="image"><img alt="Enhanced Digitizer20.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer20.png" 
+							 width="415" height="325" border="0" /></a></li>
+	<li>デジタイザとともにこのプロジェクトを保存できます。保存後にこのプロジェクトファイルを開いた時、画像上にDigitizer...ボタンが表示され、クリックするとデジタイズを再開できます。<br />
+	<a class="image"><img alt="Enhanced Digitizer button.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer_button.png" 
+							 width="477" height="387" border="0" /></a></li>
+</ol>
+<h3><a name="Set_Axes_for_Polar_and_Ternary_Plots" id="Set_Axes_for_Polar_and_Ternary_Plots"></a><span 
+	 class="mw-headline">極座標と三点グラフの軸設定</span></h3>
+<p>以下のセクションでは、極座標または三角座標のグラフイメージに対して高度なデジタイザで軸の設定を行う方法を示します。軸を定義したら、上記で説明した方法と同じ操作でデジタイズする画像に使用できます。</p>
+<h4><a name="Polar_Coordinates" id="Polar_Coordinates"></a><span class="mw-headline">極座標</span></h4>
+<ol>
+	<li><b style="font-weight: bold;">インポート</b>ボタン<a class="image"><img 
+	 alt="New Import Digitizer Button.png" src="../images/Enhanced_Digitizer/New_Import_Digitizer_Button.png" 
+	 width="24" height="24" border="0" /></a>クリックします。</li>
+	<li><i style="font-style: italic;">&lt;Origin EXE フォルダ&gt;\Samples\Import 
+	 and Export</i> にブラウズし、<b>PolarCoordinate.bmp</b>を開きます。<br />
+	この画像のデータポイントは極座標系に存在します。<br />
+	<a class="image"><img alt="Enhanced Digitizer polar.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer_polar.png" 
+							 width="410" height="387" border="0" /></a></li>
+	<li>デフォルトでは、デジタイザは直交座標系を使用します。<b>軸：極座標</b>を選択して<b>極座標の設定</b>ダイアログを開きます。<br />
+	<a class="image"><img alt="Enhanced Digitizer10.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer10.png" 
+							 width="429" height="308" border="0" /></a></li>
+	<li>軸の向きやThetaの単位はデフォルトの設定のまま<b>OK</b>ボタンをクリックします。アンカーポイントとともに2つの線オブジェクトが画像上に表示されます。<br />
+	<br />
+	極座標を設定するために、各線オブジェクトは、同じ半径線に従う必要があります。つまり、アンカーポイントのペア<b>P1</b> と <b>P2</b>または<b>P3</b> 
+	 と <b>P4</b> は同じ角度にあることです。<br />
+	<a class="image"><img alt="Enhanced Digitizer11.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer11.png" 
+							 width="446" height="400" border="0" /></a></li>
+	<li>それぞれのアンカーポイントを、画像内の既知の場所にドラッグします。Note:<b>スペース</b>キーを使用してカーソルを大きくできるので、最適な場所に配置できます。<br />
+	<a class="image"><img alt="Enhanced Digitizer space.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer_space.png" 
+							 width="396" height="357" border="0" /></a></li>
+	<li>デジタイザのAxesタブで、対応する<b>シータ</b>と<b>半径</b>の値を入力します。<br />
+	<a class="image"><img alt="Enhanced Digitizer13.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer13.png" 
+							 width="310" height="154" border="0" /></a></li>
+</ol>
+<p><br />
+</p>
+<h4><a name="Ternary_Coordinate" id="Ternary_Coordinate"></a><span class="mw-headline">三角座標</span></h4>
+<ol>
+	<li><b style="font-weight: bold;">インポート</b>ボタン<a class="image"><img 
+	 alt="New Import Digitizer Button.png" src="../images/Enhanced_Digitizer/New_Import_Digitizer_Button.png" 
+	 width="24" height="24" border="0" /></a>クリックします。</li>
+	<li><i style="font-style: italic;">&lt;Origin EXE フォルダ&gt;\Samples\Import 
+	 and Export</i> にブラウズし、<b>TernaryCoordinate.bmp</b>を開きます。この画像のデータポイントは三角座標系に存在します。</li>
+	<li><b style="font-weight: bold;">軸：三角座標</b>を選択して<b>三点（ターナリ）座標の設定</b>ダイアログを開きます。<br />
+	<a class="image"><img alt="Enhanced Digitizer14.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer14.png" 
+							 width="447" height="314" border="0" /></a></li>
+	<li>このダイアログで、<b>軸の向き</b>と<b>変数の範囲</b>（三点グラフが0～1で正規化されているか、または、0～100で正規化されているか）を選択します。このサンプルでは、デフォルトのまま、<b>OK</b> 
+	 をクリックします。3つのアンカーポイントが表示されます。</li>
+	<li>これら3つのアンカーポイントをドラッグして、三点グラフのそれぞれの頂点に配置します。</li>
+	<li>極座標系のアンカーポイントと同様、グラフ内の選択されたアンカーポイントの行は<b>Axes</b>タブでハイライトされます。<br />
+	<a class="image"><img alt="Enhanced Digitizer15.png" src="../images/Enhanced_Digitizer/Enhanced_Digitizer15.png" 
+							 width="412" height="427" border="0" /></a></li>
+	<li>それぞれのデータポイントの軸の値は、それぞれ<b>X Y Z</b>です。P1はZ軸の最後にあるので、三点グラフ画像内のP1のX、Y、Z値は、0 
+	 0 1です。同様に、P2とP3はX軸とY軸の終端にあるので、X、Y、Z値は、それぞれ1 0 0と0 1 0です。従って、理論的にP1、P2、P3は同じ値にはなりません。</li>
+</ol>
+<p>&#160;</p>

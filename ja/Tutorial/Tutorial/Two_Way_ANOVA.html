@@ -1,0 +1,89 @@
+﻿<h1 class="firstheading">二元配置分散分析</h1><p class='urlname' style='display: none'>TwoWayANOVA</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Indexed_data_mode"><span class="tocnumber">3.1</span> <span class="toctext">インデックスデータモード</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="#Perform_Two_Way_ANOVA"><span class="tocnumber">3.1.1</span> <span class="toctext">二元配置分散分析の実行</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="#Interpreting_Results"><span class="tocnumber">3.1.2</span> <span class="toctext">結果の解釈</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#The_Interaction_Plot"><span class="tocnumber">3.1.3</span> <span class="toctext">相互作用プロット</span></a></li>
+<li class="toclevel-3 tocsection-8"><a href="#Recalculate"><span class="tocnumber">3.1.4</span> <span class="toctext">再計算</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-9"><a href="#Raw_Data_Mode"><span class="tocnumber">3.2</span> <span class="toctext">素データモード</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Two_Way_ANOVA/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Two_Way_ANOVA/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=5" target="_blank">分散分析</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Two_Way_ANOVA/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Two_Way_ANOVA/Blog_Image_33x33px.png" width="135"  /></a>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>いくつかのケースでは、2つの因子（カテゴリ変数）と連続的な結果変数間の関係を調べたいことがあります。1要因での変化の結果への影響は、他の因子のレベルに依存する可能性があるので、2つ​​の要因間の相互作用を考慮する必要があります。二元配置ANOVAは、2つの要因の主要な影響とのそれらの交互作用を分析するための適切な方法です。
+</p>
+<p class="version" >必要なOriginのバージョン:Origin 2016 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。
+</p>
+<ul><li>二元配置ANOVAの実行</li>
+<li>二元配置ANOVAの結果の解釈</li>
+<li>相互作用プロットの作成</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>研究者は、性別と食物グループの最高血圧（SBP）における効果に興味を持っています。因子&quot;dietary group&quot;（食物グループ）には、3つのグループがあり、どんな動物性の食物も摂取しない厳格なベジタリアン（SV）、動物性食品の中でも乳製品は食べるラクトベジタリアン（LV）、普通のアメリカの食事を摂るノーマル（NOR）に分けられます。性別と食物グループは独立、またはお互いに相互作用があるかもしれません。この問題を解く方法の一つとして、平均SBPレベルを予測する二元配置ANOVAモデルを構築する方法があります。
+</p>
+<h3><a name="Indexed_data_mode"></a><span class="mw-headline">インデックスデータモード</span></h3>
+<h4><a name="Perform_Two_Way_ANOVA"></a><span class="mw-headline">二元配置分散分析の実行</span></h4>
+<ol><li>新しいワークブックを開き、\<i>Samples</i>\<i>Statistics</i>\<i>SBP_Index.dat</i> ファイルを開きます。 </li>
+<li>メニューから<b>統計：ANOVA：二元配置</b>と選択して<b>ANOVATwoWay</b>ダイアログを開き、<b>入力</b>タブにて<b>入力データ</b>を<b>インデックス</b>に設定します。</li>
+<li>また<b>入力</b>タブにて、A、B、C列をそれぞれ<b>因子A</b>、<b>因子B</b>、<b>データ</b>に設定します。<b>相互作用</b>にチェックを入れます。
+<dl><dd><a  class="image"><img alt="DOC-2411 TwoANOVA06a Magenta.png" src="../images/Two_Way_ANOVA/DOC-2411_TwoANOVA06a_Magenta.png" width="736"  /></a></dd></dl></li>
+<li><b>記述統計</b>タブを選択し、全てのボックスにチェックを入れます。</li>
+<li><b>平均比較</b>タブの<b>有意水準</b>を0.05にし、<b>Tukey</b>のボックスにチェックを付け、これを比較手法とします。 
+<dl><dd><a  class="image"><img alt="DOC-2411 TwoANOVA06b Magenta.png" src="../images/Two_Way_ANOVA/DOC-2411_TwoANOVA06b_Magenta.png" width="719"  /></a></dd></dl></li>
+<li><b>OK</b>ボタンをクリックして二元配置ANOVAを実行します。</li></ol>
+<h4><a name="Interpreting_Results"></a><span class="mw-headline">結果の解釈</span></h4>
+<dl><dd><a  class="image"><img alt="TwoANOVA13.png" src="../images/Two_Way_ANOVA/TwoANOVA13.png" width="413"  /></a><br /></dd></dl>
+<p>二元配置ANOVAの結果シートにある「全般ANOVA」表から、<b>Dietary</b> と <b>Sex</b> は両方とも有意な因子であるが、それらの間の相互作用は有意ではないことが読み取れます。<b>Sex</b> と<b>Dietary</b>の両方の主効果が有意であることを意味し、<b>Dietary</b> の変化による結果の影響は、<b>Sex</b>のレベルには依存しないということを意味します。
+</p>
+<h4><a name="The_Interaction_Plot"></a><span class="mw-headline">相互作用プロット</span></h4>
+<p>さらに相互作用を検出するために、「相互作用プロット」を以下の手順で作成します。
+</p>
+<ol><li> <b>ANOVA2Way1</b>結果シートにある緑色の錠前マークをクリックし、<b><b>パラメータを変更</b></b>を選択してダイアログを再度開きます。
+<dl><dd><a  class="image"><img alt="TwoANOVA12.png" src="../images/Two_Way_ANOVA/TwoANOVA12.png" width="257"  /></a><br /></dd></dl></li>
+<li> <b>平均値プロット</b>のタブを開いて、全てのチェックボックスにチェックを入れます。
+<dl><dd><a  class="image"><img alt="TwoANOVA MeanPlotTab.png" src="../images/Two_Way_ANOVA/TwoANOVA_MeanPlotTab.png" width="392"  /></a><br /></dd></dl></li>
+<li> We will get the Interaction plot 
+<dl><dd><a  class="image"><img alt="TwoANOVA InteractionPlot.png" src="../images/Two_Way_ANOVA/TwoANOVA_InteractionPlot.png" width="759"  /></a><br /></dd></dl></li></ol>
+<p><br />
+</p>
+<h4><a name="Recalculate"></a><span class="mw-headline">再計算</span></h4>
+<ol><li> <b>ANOVA2Way1</b>結果シートにある緑色の錠前マークをクリックし、<b><b>パラメータを変更</b></b>を選択してダイアログを再度開きます。
+<dl><dd><a  class="image"><img alt="TwoANOVA12.png" src="../images/Two_Way_ANOVA/TwoANOVA12.png" width="257"  /></a><br /></dd></dl></li>
+<li> ダイアログの<b>入力</b>タブで、<b>相互作用</b>のチェックを外し、<b>OK</b>ボタンをクリックします。</li></ol>
+<dl><dd><a  class="image"><img alt="DOC-2411 TwoANOVA17a Magenta.png" src="../images/Two_Way_ANOVA/DOC-2411_TwoANOVA17a_Magenta.png" width="422"  /></a><br /></dd></dl>
+<p>「全般ANOVA」表により、<b>Dietary</b> と <b>Sex</b>は有意な因子であることがわかります。平均比較の表から因子<b>Dietary</b> では、<i>Nor</i> の平均は<i>LV</i> と <i>SV</i> の平均により有意に大きく、男性の平均は女性のものより有意に大きいことがわかります。
+</p>
+<dl><dd><a  class="image"><img alt="TwoANOVA14.png" src="../images/Two_Way_ANOVA/TwoANOVA14.png" width="402"  /></a><br /></dd>
+<dd><a  class="image"><img alt="TwoANOVA15.png" src="../images/Two_Way_ANOVA/TwoANOVA15.png" width="611"  /></a><br /></dd></dl>
+<h3><a name="Raw_Data_Mode"></a><span class="mw-headline">素データモード</span></h3>
+<ol><li> 新しいワークブックを開き、\<i>Samples</i>\<i>Statistics</i>\<i>SBP_Raw.dat</i> ファイルを開きます。</li>
+<li> ワークシートのすべての列を選択し、<b>統計：ANOVA：二元配置</b>を選択すると、<b>ANOVATwoWay</b> ダイアログボックスが開きます。<b>入力</b>タブにて、<b>入力データ</b>のモードを<b>素データ値</b>を選びます。 </li>
+<li> また<b>入力タブ</b>にて、<b>因子A</b>の<b>レベルの数</b>を2とし、<b>因子A</b>ブランチにある<b>名前</b>の<b>レベル1名前</b>・<b>レベル2名前</b>入力ボックスに<b>Sex</b> 、<b>Male</b>、<b>Female</b>と入力します。</li>
+<li> また<b>入力タブ</b>にて、<b>因子B</b>の<b>レベルの数</b>を3とし、<b>因子B</b>ブランチにある<b>名前</b>の<b>レベル1名前</b>・<b>レベル2名前</b>・<b>レベル3名前</b>入力ボックスに<b>SV</b> 、<b>LV</b>、<b>Nor</b>と入力します。
+<dl><dd><a  class="image"><img alt="DOC-2411 TwoANOVA05a Magenta.png" src="../images/Two_Way_ANOVA/DOC-2411_TwoANOVA05a_Magenta.png" width="838"  /></a><br /></dd></dl></li>
+<li> <b>平均比較</b>タブの「+」をクリックして項目を開き、<b>有意水準</b>を0.05にし、<b>Tukey</b>のボックスにチェックを付け、これを比較手法とします。 </li>
+<li><b>OK</b>ボタンをクリックして二元配置ANOVAを実行します。</li></ol>
+
+
+
+
+    

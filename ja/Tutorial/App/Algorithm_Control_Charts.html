@@ -1,0 +1,371 @@
+﻿<h1 class="firstHeading">管理図のアルゴリズム</h1><p class='urlname' style='display: none'>Algorithm-Control-Charts</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Tests_for_Special_Causes"><span class="tocnumber">1</span> <span class="toctext">特殊要因の検定</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Variables_Charts_for_Subgroups"><span class="tocnumber">2</span> <span class="toctext">変数管理図 - サブグループ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Xbar-R"><span class="tocnumber">2.1</span> <span class="toctext">Xbar-R管理図</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Xbar-S"><span class="tocnumber">2.2</span> <span class="toctext">Xbar-S管理図</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#I-MR-R.2FS_.28Between.2FWithin.29"><span class="tocnumber">2.3</span> <span class="toctext">I-MR-R/S (間/内)</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Xbar"><span class="tocnumber">2.4</span> <span class="toctext">Xbar管理図</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#R"><span class="tocnumber">2.5</span> <span class="toctext">R管理図</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#S"><span class="tocnumber">2.6</span> <span class="toctext">S管理図</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Zone"><span class="tocnumber">2.7</span> <span class="toctext">ゾーン管理図</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="#Variables_Charts_for_Individuals"><span class="tocnumber">3</span> <span class="toctext">変数管理図 - 個別</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="#I-MR"><span class="tocnumber">3.1</span> <span class="toctext">I-MR管理図</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Z-MR"><span class="tocnumber">3.2</span> <span class="toctext">Z-MR管理図</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Individuals"><span class="tocnumber">3.3</span><span class="toctext">個別管理図</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#Moving_Range"><span class="tocnumber">3.4</span> <span class="toctext">移動範囲管理図</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-15"><a href="#Attributes_Charts"><span class="tocnumber">4</span> <span class="toctext">計数管理図</span></a>
+<ul>
+<li class="toclevel-2 tocsection-16"><a href="#P_Chart_Diagnostic"><span class="tocnumber">4.1</span> <span class="toctext">P管理図診断</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#P"><span class="tocnumber">4.2</span> <span class="toctext">P管理図</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="#Laney_P.27"><span class="tocnumber">4.3</span> <span class="toctext">Laney P&apos;管理図</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="#NP"><span class="tocnumber">4.4</span> <span class="toctext">NP管理図</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="#U_Chart_Diagnostic"><span class="tocnumber">4.5</span> <span class="toctext">U管理図診断</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="#U"><span class="tocnumber">4.6</span> <span class="toctext">U管理図</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="#Laney_U.27"><span class="tocnumber">4.7</span> <span class="toctext">Laney U&apos;管理図</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="#C"><span class="tocnumber">4.8</span> <span class="toctext">C管理図</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-24"><a href="#Time-Weighted_Charts"><span class="tocnumber">5つの</span> <span class="toctext">時間重み付き管理図</span></a>
+<ul>
+<li class="toclevel-2 tocsection-25"><a href="#Moving_Average"><span class="tocnumber">5.1</span> <span class="toctext">移動平均管理図</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="#EWMA"><span class="tocnumber">5.2</span> <span class="toctext">EWMA管理図</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="#CUSUM"><span class="tocnumber">5.3</span> <span class="toctext">CUSUM管理図</span></a>
+<ul>
+<li class="toclevel-3 tocsection-28"><a href="#Tabular_CUSUM"><span class="tocnumber">5.3.1</span> <span class="toctext">表形式CUSUM</span></a></li>
+<li class="toclevel-3 tocsection-29"><a href="#V-mask_CUSUM"><span class="tocnumber">5.3.2</span> <span class="toctext">VマスクCUSUM</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Tests_for_Special_Causes"></a><span class="mw-headline">特殊要因の検定</span></h2>
+<ul><li> テスト1: 1点が中心線から3<img src="../images/Algorithm_Control_Charts/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/>を超える
+<dl><dd> 点（サブグループ）が中心線から3<img src="../images/Algorithm_Control_Charts/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/>以上外れているかどうかを検定します。</dd></dl></li>
+<li> テスト2: 連続する9点が中心線の片側にある 
+<dl><dd> 中心線の同じ側（すべて上またはすべて下）に連続する9つの点（サブグループ）があるかテストします。</dd></dl></li>
+<li> テスト3: 連続する6点がすべて増加あるいはすべて減少 
+<dl><dd> 6つの連続した点（サブグループ）が厳密に単調であるかテストします。</dd></dl></li>
+<li> テスト4: 連続する14点が交互に上下に変動 
+<dl><dd> 交互に上下に現れる連続した14個の点（サブグループ）があるか、つまり1つの点が前の点より大きく、次の点がこれより小さくなるかどうかを調べます。</dd></dl></li>
+<li> テスト5: 3点のうち2点が中心線から2<img src="../images/Algorithm_Control_Charts/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/>を超える（片側）
+<dl><dd> 3つの連続するデータ点（またはサブグループ） のうち、2点以上が中心線から2<img src="../images/Algorithm_Control_Charts/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/>以上離れているか、すべての点が中心線の同じ側（すべて上またはすべて下） にあるかをテストします。</dd></dl></li>
+<li> テスト6: 5点のうち4点が中心線から1<img src="../images/Algorithm_Control_Charts/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/>を超える（片側） 
+<dl><dd> 5つの連続するデータ点（またはサブグループ） のうち、4点以上が中心線から1<img src="../images/Algorithm_Control_Charts/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/>以上離れているか、すべての点が中心線の同じ側（すべて上またはすべて下）にあるかテストします。</dd></dl></li>
+<li> テスト7: 連続する15点が中心線から1<img src="../images/Algorithm_Control_Charts/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/>内にある (両側) 
+<dl><dd> 15個の連続するデータ点（サブグループ） がすべて中心線から±1<img src="../images/Algorithm_Control_Charts/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/>以内にあるか、中心線から全ての点の範囲が1<img src="../images/Algorithm_Control_Charts/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/>未満かテストします。</dd></dl></li>
+<li> テスト8: 連続する8点が中心線から1<img src="../images/Algorithm_Control_Charts/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/>を超えてる (両側) 
+<dl><dd>8点連続で中心線から1<img src="../images/Algorithm_Control_Charts/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/>を超えているか、すべての点の中心線からの距離が1<img src="../images/Algorithm_Control_Charts/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/>より大きいことをテストします。</dd></dl></li></ul>
+<h2><a name="Variables_Charts_for_Subgroups"></a><span class="mw-headline">変数管理図 - サブグループ</span></h2>
+<p>Xbar-R、Xbar-S、I-MR-R/S（間/内）、Xbar、R、S、およびゾーン管理図があります。
+</p>
+<h3><a name="Xbar-R"></a><span class="mw-headline">Xbar-R管理図</span></h3>
+<dl><dd><ul><li> シグマ推定値：履歴値が指定されている場合は、この履歴値が使用され、それ以外の場合は、データから推定されます。
+<ul><li> Rbar: 式の詳細については、<a href="../../Tutorial/App/Algorithm_CA.html#Standard_Deviation_Estimation" title="App:Algorithm CA">標準偏差の推定</a>セクションのサブグループ範囲の平均(Rbar)を参照してください。</li>
+<li> プールされた標準偏差: 式の詳細については、<a href="../../Tutorial/App/Algorithm_CA.html#Standard_Deviation_Estimation" title="App:Algorithm CA">標準偏差の推定</a>セクションのプールされた標準偏差を参照してください。</li></ul></li>
+<li> Xbar管理図
+<ul><li> プロットされる点: 各サブグループの観測値の平均値。
+<dl><dd> <img src="../images/Algorithm_Control_Charts/math-12259b1f478445f236ffc157d473635a.png" title="\bar{X_i}=\frac{\sum_{j=1}^{n_i}X_{ij}}{n_i}" alt="\bar{X_i}=\frac{\sum_{j=1}^{n_i}X_{ij}}{n_i}" class="tex"/></dd>
+<dd> ここで、<img src="../images/Algorithm_Control_Charts/math-293d0536b3311ee8663909034780258d.png" title="X_{ij}" alt="X_{ij}" class="tex"/>は<img src="../images/Algorithm_Control_Charts/math-97361f12a3555fc4fc4e2ffce1799ac3.png" title="i^{th}" alt="i^{th}" class="tex"/>サブグループ内の<img src="../images/Algorithm_Control_Charts/math-d6c87401ed2f8589600d6db807438139.png" title="j^{th}" alt="j^{th}" class="tex"/>の観測値、<img src="../images/Algorithm_Control_Charts/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>は<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>サブグループ内の観測値の数です。</dd></dl></li>
+<li> 中心線: プロセス平均を表し、指定されている場合は履歴値を使用します。指定されていない場合は、次のように計算されたデータの平均値を使用します。
+<dl><dd> <img src="../images/Algorithm_Control_Charts/math-03b0cad4409bb28fb09d26c0f24e4564.png" title="\bar{X}=\frac{\sum_{i=1}^NX_i}{N}" alt="\bar{X}=\frac{\sum_{i=1}^NX_i}{N}" class="tex"/>, ここで <img src="../images/Algorithm_Control_Charts/math-8d9c307cb7f3c4a32822a51922d1ceaa.png" title="N" alt="N" class="tex"/> は全観測数です。</dd></dl></li>
+<li> 管理限界
+<dl><dd> 各サブグループ<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>で、下側管理限界(LCL)は<img src="../images/Algorithm_Control_Charts/math-453aa5865bdca92629f20697bc8abd36.png" title="LCL_i=\mu-\frac{k\sigma}{\sqrt{n_i}}" alt="LCL_i=\mu-\frac{k\sigma}{\sqrt{n_i}}" class="tex"/>で計算されます。</dd>
+<dd> 各サブグループ<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>で、上側管理限界(UCL)は<img src="../images/Algorithm_Control_Charts/math-61a02eb2c6c5e122875143461280c94c.png" title="UCL_i=\mu+\frac{k\sigma}{\sqrt{n_i}}" alt="UCL_i=\mu+\frac{k\sigma}{\sqrt{n_i}}" class="tex"/>で計算されます。</dd>
+<dd> ここで、<img src="../images/Algorithm_Control_Charts/math-c9faf6ead2cd2c2187bd943488de1d0a.png" title="\mu" alt="\mu" class="tex"/>はプロセス平均、<img src="../images/Algorithm_Control_Charts/math-8ce4b16b22b58894aa86c421e8759df3.png" title="k" alt="k" class="tex"/>は<a href="../../Tutorial/App/Algorithm_Control_Charts.html#Tests_for_Special_Causes" title="App:Algorithm Control Charts">テスト1</a>のパラメータ、<img src="../images/Algorithm_Control_Charts/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/>はプロセス標準偏差、<img src="../images/Algorithm_Control_Charts/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>はサブグループ<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>内の観察数です。</dd></dl></li></ul></li>
+<li> R管理図
+<ul><li> プロットされる点: 各サブグループの範囲。
+<dl><dd> <img src="../images/Algorithm_Control_Charts/math-a9767c970c862b0bf568efe72d92890d.png" title="r_i=\max(Subgroup_i)-\min(Subgroup_i)" alt="r_i=\max(Subgroup_i)-\min(Subgroup_i)" class="tex"/></dd></dl></li>
+<li> 中心線
+<dl><dd> <img src="../images/Algorithm_Control_Charts/math-1f355964b8c7b588995a40f33c4b5e57.png" title="\bar{R_i}=d_2(n_i)*\sigma" alt="\bar{R_i}=d_2(n_i)*\sigma" class="tex"/>、ここで、<img src="../images/Algorithm_Control_Charts/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>はサブグループ<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>における観測値の数、<img src="../images/Algorithm_Control_Charts/math-6cd1f555291f5f8457013d8081e18883.png" title="d_2(\cdot)" alt="d_2(\cdot)" class="tex"/>は無偏定数<img src="../images/Algorithm_Control_Charts/math-d570b333eb7a23200bf6fea560962ecb.png" title="d_2()" alt="d_2()" class="tex"/>の値、<img src="../images/Algorithm_Control_Charts/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/>はプロセス標準偏差です。</dd></dl></li>
+<li> 管理限界
+<dl><dd> 各サブグループ<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>で、下側管理限界(LCL)は<img src="../images/Algorithm_Control_Charts/math-db80e44899d699b0b88f7822d19a9c70.png" title="LCL_i=\max(0, d_2(n_i)*\sigma-k*\sigma*d_3(n_i))" alt="LCL_i=\max(0, d_2(n_i)*\sigma-k*\sigma*d_3(n_i))" class="tex"/>で計算されます。</dd>
+<dd> 各サブグループ<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>で、上側管理限界(UCL)は<img src="../images/Algorithm_Control_Charts/math-dd4f71baddff446ce3a52bea14acd593.png" title="UCL_i=d_2(n_i)*\sigma+k*\sigma*d_3(n_i)" alt="UCL_i=d_2(n_i)*\sigma+k*\sigma*d_3(n_i)" class="tex"/>で計算されます。</dd>
+<dd> ここで、<img src="../images/Algorithm_Control_Charts/math-8ce4b16b22b58894aa86c421e8759df3.png" title="k" alt="k" class="tex"/>は<a href="../../Tutorial/App/Algorithm_Control_Charts.html#Tests_for_Special_Causes" title="App:Algorithm Control Charts">テスト1</a>のパラメータ、<img src="../images/Algorithm_Control_Charts/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/>はプロセス標準偏差、<img src="../images/Algorithm_Control_Charts/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>はサブグループ<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>内の観測値の数、<img src="../images/Algorithm_Control_Charts/math-6cd1f555291f5f8457013d8081e18883.png" title="d_2(\cdot)" alt="d_2(\cdot)" class="tex"/>は無偏定数<img src="../images/Algorithm_Control_Charts/math-d570b333eb7a23200bf6fea560962ecb.png" title="d_2()" alt="d_2()" class="tex"/>の値、<img src="../images/Algorithm_Control_Charts/math-c53a08fb2d42a3da53becbd1a1aa404e.png" title="d_3(\cdot)" alt="d_3(\cdot)" class="tex"/>は無偏定数<img src="../images/Algorithm_Control_Charts/math-59b371e977cee821d02d0a6caf7782ec.png" title="d_3()" alt="d_3()" class="tex"/>の値です。</dd></dl></li></ul></li></ul></dd></dl>
+<h3><a name="Xbar-S"></a><span class="mw-headline">Xbar-S管理図</span></h3>
+<dl><dd><ul><li> シグマ推定値：履歴値が指定されている場合は、この履歴値が使用され、それ以外の場合は、データから推定されます。
+<ul><li> Sbar: 式の詳細については、<a href="../../Tutorial/App/Algorithm_CA.html#Standard_Deviation_Estimation" title="App:Algorithm CA">標準偏差の推定</a>セクションのサブグループ標準偏差の平均(Sbar)を参照してください。</li>
+<li> プールされた標準偏差: 式の詳細については、<a href="../../Tutorial/App/Algorithm_CA.html#Standard_Deviation_Estimation" title="App:Algorithm CA">標準偏差の推定</a>セクションのプールされた標準偏差を参照してください。</li></ul></li>
+<li> Xbar管理図: 上記の<a href="../../Tutorial/App/Algorithm_Control_Charts.html#Xbar-R" title="App:Algorithm Control Charts">Xbar-R管理図</a>セクションを参照してください。</li>
+<li> S管理図
+<ul><li> プロットされる点: 各サブグループ<img src="../images/Algorithm_Control_Charts/math-e406ac4d7c470823a8619c13dd7101be.png" title="s_i" alt="s_i" class="tex"/>の標準偏差。</li>
+<li> 中心線
+<dl><dd> 無偏定数を使用しない: <img src="../images/Algorithm_Control_Charts/math-d0a8d2fb6fc51d01a66e85c08947c590.png" title="\bar{S_i}=\sigma" alt="\bar{S_i}=\sigma" class="tex"/></dd>
+<dd> 無偏定数を使用：<img src="../images/Algorithm_Control_Charts/math-eb5c8eb683845667605831c6a5cdb1b0.png" title="\bar{S_i}=c_4(n_i)*\sigma" alt="\bar{S_i}=c_4(n_i)*\sigma" class="tex"/></dd>
+<dd> ここで、<img src="../images/Algorithm_Control_Charts/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>はサブグループ<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>における観測値の数、<img src="../images/Algorithm_Control_Charts/math-f5519246c36df9b29a5fc45dc502ec04.png" title="c_4(\cdot)" alt="c_4(\cdot)" class="tex"/>は無偏定数<img src="../images/Algorithm_Control_Charts/math-ee580a30fcc14c2c8cde783475f09271.png" title="c_4()" alt="c_4()" class="tex"/>の値、<img src="../images/Algorithm_Control_Charts/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/>はプロセス標準偏差です。</dd></dl></li>
+<li> 管理限界
+<dl><dd> 各サブグループ<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>で、下側管理限界(LCL)は以下のように計算されます。
+<dl><dd> 無偏定数を使用しない: <img src="../images/Algorithm_Control_Charts/math-5236741264df7b1b3fd5662e6824b7da.png" title="LCL_i=\sigma-\frac{c_5(n_i)}{c_4(n_i)}k\sigma" alt="LCL_i=\sigma-\frac{c_5(n_i)}{c_4(n_i)}k\sigma" class="tex"/></dd>
+<dd> 無偏定数を使用：<img src="../images/Algorithm_Control_Charts/math-382a4c85fd482c200efa017ccb22718a.png" title="LCL_i=c_4(n_i)\sigma-c_5(n_i)k\sigma" alt="LCL_i=c_4(n_i)\sigma-c_5(n_i)k\sigma" class="tex"/></dd></dl></dd>
+<dd> 各サブグループ<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>で、上側管理限界(UCL)は以下のように計算されます。
+<dl><dd> 無偏定数を使用しない: <img src="../images/Algorithm_Control_Charts/math-d9f56a51736d4c0e47011c5a0fc48153.png" title="LCL_i=\sigma+\frac{c_5(n_i)}{c_4(n_i)}k\sigma" alt="LCL_i=\sigma+\frac{c_5(n_i)}{c_4(n_i)}k\sigma" class="tex"/></dd>
+<dd> 無偏定数を使用：<img src="../images/Algorithm_Control_Charts/math-1d4792697c4951c717b8df4ecb410e38.png" title="LCL_i=c_4(n_i)\sigma+c_5(n_i)k\sigma" alt="LCL_i=c_4(n_i)\sigma+c_5(n_i)k\sigma" class="tex"/></dd>
+<dd> ここで、<img src="../images/Algorithm_Control_Charts/math-8ce4b16b22b58894aa86c421e8759df3.png" title="k" alt="k" class="tex"/>は<a href="../../Tutorial/App/Algorithm_Control_Charts.html#Tests_for_Special_Causes" title="App:Algorithm Control Charts">テスト1</a>のパラメータ、<img src="../images/Algorithm_Control_Charts/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/>はプロセス標準偏差、<img src="../images/Algorithm_Control_Charts/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>はサブグループ<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>内の観測値の数、<img src="../images/Algorithm_Control_Charts/math-f5519246c36df9b29a5fc45dc502ec04.png" title="c_4(\cdot)" alt="c_4(\cdot)" class="tex"/>は無偏定数<img src="../images/Algorithm_Control_Charts/math-f4eb01c12e537fbf795a29e1b69856e3.png" title="c_4(n_i)=\frac{\Gamma(\frac{n_i}{2})}{\Gamma(\frac{n_i-1}{2})}\sqrt{\frac{2}{n_i-1}}" alt="c_4(n_i)=\frac{\Gamma(\frac{n_i}{2})}{\Gamma(\frac{n_i-1}{2})}\sqrt{\frac{2}{n_i-1}}" class="tex"/>の値、<img src="../images/Algorithm_Control_Charts/math-ab9198ed1588e1959a988e4799cd1a24.png" title="c_5(\cdot)" alt="c_5(\cdot)" class="tex"/>は無偏定数<img src="../images/Algorithm_Control_Charts/math-5f50c6100e4c3d0037f0f0a20793b31f.png" title="c_5(n_i)=\sqrt{1-c_4(n_i)^2}" alt="c_5(n_i)=\sqrt{1-c_4(n_i)^2}" class="tex"/>の値です。</dd></dl></dd></dl></li></ul></li></ul></dd></dl>
+<h3><a name="I-MR-R.2FS_.28Between.2FWithin.29"></a><span class="mw-headline">I-MR-R/S (間/内)</span></h3>
+<dl><dd><ul><li> シグマの推定: 詳細は<a href="../../Tutorial/App/Algorithm_CA.html#Standard_Deviation_Estimation_2" title="App:Algorithm CA">標準偏差の推定</a>を参照してください。また、標準偏差の履歴値が指定されている場合は、<img src="../images/Algorithm_Control_Charts/math-8e64c47538342262aba2c14c331d078c.png" title="\sigma_{xbar}" alt="\sigma_{xbar}" class="tex"/>は次の式で計算されます。
+<dl><dd> <img src="../images/Algorithm_Control_Charts/math-3781fc125f1af6555072d62b7d7fd52f.png" title="\sigma_{xbar}=\sqrt{\sigma_{between}^2+\frac{\sigma_{within}^2}{SubgroupSize}}" alt="\sigma_{xbar}=\sqrt{\sigma_{between}^2+\frac{\sigma_{within}^2}{SubgroupSize}}" class="tex"/></dd></dl></li>
+<li> I管理図
+<ul><li> プロットされる点: 各データポイントについて、各サブグループの平均値。</li>
+<li> 中心線: プロセスの平均 <img src="../images/Algorithm_Control_Charts/math-c9faf6ead2cd2c2187bd943488de1d0a.png" title="\mu" alt="\mu" class="tex"/>履歴値が指定されている場合は、この履歴値を使用します。指定されていない場合は、データの平均を推定します。</li>
+<li> 管理限界
+<dl><dd> 下側制御限界(LCL)は<img src="../images/Algorithm_Control_Charts/math-bc69e86a2e808863c8ecac314b0b838b.png" title="LCL=\mu-k\sigma" alt="LCL=\mu-k\sigma" class="tex"/>で計算されます。</dd>
+<dd> 上側制御限界(UCL)は<img src="../images/Algorithm_Control_Charts/math-9cb4921a3c52f985a9619129999db937.png" title="UCL=\mu+k\sigma" alt="UCL=\mu+k\sigma" class="tex"/>で計算されます。</dd>
+<dd> ここで、<img src="../images/Algorithm_Control_Charts/math-8ce4b16b22b58894aa86c421e8759df3.png" title="k" alt="k" class="tex"/>は<a href="../../Tutorial/App/Algorithm_Control_Charts.html#Tests_for_Special_Causes" title="App:Algorithm Control Charts">テスト1</a>のパラメータ、<img src="../images/Algorithm_Control_Charts/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/>はプロセス標準偏差、<img src="../images/Algorithm_Control_Charts/math-c9faf6ead2cd2c2187bd943488de1d0a.png" title="\mu" alt="\mu" class="tex"/>はプロセス平均です。</dd></dl></li></ul></li>
+<li> MRチャート
+<ul><li> プロットされる点: 各データ点について、サブグループの平均値の移動範囲(<img src="../images/Algorithm_Control_Charts/math-d5c44258d51659f96279c470ce8185dc.png" title="MR" alt="MR" class="tex"/>)をプロット。</li>
+<li> 中心線: 移動範囲の無偏平均を推定します。
+<dl><dd> <img src="../images/Algorithm_Control_Charts/math-e8072503fd1eef000d777296f26eb186.png" title="CenterLine=MR*d_2(w)" alt="CenterLine=MR*d_2(w)" class="tex"/></dd>
+<dd> ここで、<img src="../images/Algorithm_Control_Charts/math-d5c44258d51659f96279c470ce8185dc.png" title="MR" alt="MR" class="tex"/>はサブグループ平均の移動範囲、<img src="../images/Algorithm_Control_Charts/math-a8879f097cfbb807dd2b5b2db799e94f.png" title="d_2(w)" alt="d_2(w)" class="tex"/>は無偏定数、<img src="../images/Algorithm_Control_Charts/math-f1290186a5d0b1ceab27f4e77c0c5d68.png" title="w" alt="w" class="tex"/>は移動範囲内のサンプル数です。</dd></dl></li>
+<li> 管理限界
+<dl><dd> 下側制御限界(LCL)は<img src="../images/Algorithm_Control_Charts/math-5cbfc7c8e9b06a78fa3a3be5691f3683.png" title="LCL=\max(0, d_2(w)*\sigma-k*\sigma*d_3(w))" alt="LCL=\max(0, d_2(w)*\sigma-k*\sigma*d_3(w))" class="tex"/>で計算されます。</dd>
+<dd> 上側制御限界(UCL)は<img src="../images/Algorithm_Control_Charts/math-ad717b696e0b4c0252ca50aefe63ac08.png" title="UCL=d_2(w)*\sigma+k*\sigma*d_3(w)" alt="UCL=d_2(w)*\sigma+k*\sigma*d_3(w)" class="tex"/>で計算されます。</dd>
+<dd> ここで、<img src="../images/Algorithm_Control_Charts/math-8ce4b16b22b58894aa86c421e8759df3.png" title="k" alt="k" class="tex"/>は<a href="../../Tutorial/App/Algorithm_Control_Charts.html#Tests_for_Special_Causes" title="App:Algorithm Control Charts">テスト1</a>のパラメータ、<img src="../images/Algorithm_Control_Charts/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/>はプロセス標準偏差、<img src="../images/Algorithm_Control_Charts/math-f1290186a5d0b1ceab27f4e77c0c5d68.png" title="w" alt="w" class="tex"/>は移動範囲内のポイント数、<img src="../images/Algorithm_Control_Charts/math-6cd1f555291f5f8457013d8081e18883.png" title="d_2(\cdot)" alt="d_2(\cdot)" class="tex"/>は無偏定数<img src="../images/Algorithm_Control_Charts/math-d570b333eb7a23200bf6fea560962ecb.png" title="d_2()" alt="d_2()" class="tex"/>の値、<img src="../images/Algorithm_Control_Charts/math-c53a08fb2d42a3da53becbd1a1aa404e.png" title="d_3(\cdot)" alt="d_3(\cdot)" class="tex"/>は無偏定数<img src="../images/Algorithm_Control_Charts/math-59b371e977cee821d02d0a6caf7782ec.png" title="d_3()" alt="d_3()" class="tex"/>の値です。</dd></dl></li></ul></li>
+<li> R管理図: 上記の<a href="../../Tutorial/App/Algorithm_Control_Charts.html#Xbar-R" title="App:Algorithm Control Charts">Xbar-R</a>セクションのRチャートを参照してください。</li>
+<li> S管理図: 上記の<a href="../../Tutorial/App/Algorithm_Control_Charts.html#Xbar-S" title="App:Algorithm Control Charts">Xbar-S</a>セクションのSチャートを参照してください。</li></ul></dd></dl>
+<h3><a name="Xbar"></a><span class="mw-headline">Xbar管理図</span></h3>
+<p>上記の<a href="../../Tutorial/App/Algorithm_Control_Charts.html#Xbar-R" title="App:Algorithm Control Charts">Xbar-R</a>セクションのXbar管理図を参照してください。
+</p>
+<h3><a name="R"></a><span class="mw-headline">R</span></h3>
+<p><a href="../../Tutorial/App/Algorithm_Control_Charts.html#Xbar-R" title="App:Algorithm Control Charts">Xbar-R</a>セクションのR管理図を参照してください。
+</p>
+<h3><a name="S"></a><span class="mw-headline">S管理図</span></h3>
+<p>上記の<a href="../../Tutorial/App/Algorithm_Control_Charts.html#Xbar-S" title="App:Algorithm Control Charts">Xbar-S</a>セクションのS管理図を参照してください。
+</p>
+<h3><a name="Zone"></a><span class="mw-headline">­ゾーン管理図</span></h3>
+<dl><dd><ul><li> シグマの推定: 詳細については、<a href="../../Tutorial/App/Algorithm_CA.html#Standard_Deviation_Estimation" title="App:Algorithm CA">標準偏差の推定</a>セクションを参照してください。</li>
+<li> プロットする点: 中心線から1、2、および3標準偏差のゾーンに基づくスコアを累積的にプロット。最初の点については、<img src="../images/Algorithm_Control_Charts/math-c297a89e7224f08ec4e3cfbbc9628334.png" title="\bar{X_i}" alt="\bar{X_i}" class="tex"/>のゾーンスコアまたはウェイトをプロットし、その後のプロットポイントは連続するデータ点のゾーンスコアを累積し、次のポイントを決定する。点が中心線と交わる場合、累積スコアはリセットされ、0から再スタートします。</li>
+<li> 中心線: 個々の観測値またはサブグループ平均の全体平均。</li>
+<li> ゾーンスコア: 4つのゾーンがあり、ゾーンごとに重みが異なります。
+<dl><dd> ゾーン1：中心線と<img src="../images/Algorithm_Control_Charts/math-2299fb74aa6baef3bdc82ece462c7e59.png" title="1\sigma" alt="1\sigma" class="tex"/>の間、重み0</dd>
+<dd> ゾーン2：<img src="../images/Algorithm_Control_Charts/math-2299fb74aa6baef3bdc82ece462c7e59.png" title="1\sigma" alt="1\sigma" class="tex"/>と<img src="../images/Algorithm_Control_Charts/math-0fe961916d0a252b5bbf160a33ded074.png" title="2\sigma" alt="2\sigma" class="tex"/>の間、重み2</dd>
+<dd> ゾーン3：<img src="../images/Algorithm_Control_Charts/math-0fe961916d0a252b5bbf160a33ded074.png" title="2\sigma" alt="2\sigma" class="tex"/>と<img src="../images/Algorithm_Control_Charts/math-988daade55fceb42dcf298d8d409f561.png" title="3\sigma" alt="3\sigma" class="tex"/>の間、重み4</dd>
+<dd> ゾーン4：<img src="../images/Algorithm_Control_Charts/math-988daade55fceb42dcf298d8d409f561.png" title="3\sigma" alt="3\sigma" class="tex"/>を超え、重み8</dd></dl></li></ul></dd></dl>
+<h2><a name="Variables_Charts_for_Individuals"></a><span class="mw-headline">変数管理図 - 個別</span></h2>
+<p>I-MR、Z-MR、個別、移動範囲管理図を含みます。
+</p>
+<h3><a name="I-MR"></a><span class="mw-headline">I-MR管理図</span></h3>
+<dl><dd> 上記の<a href="../../Tutorial/App/Algorithm_Control_Charts.html#I-MR-R.2FS_.28Between.2FWithin.29" title="App:Algorithm Control Charts">I-MR-R/S（間/内）</a>」セクションのI管理図およびMR管理図を参照してください。</dd></dl>
+<h3><a name="Z-MR"></a><span class="mw-headline">Z-MR管理図</span></h3>
+<dl><dd><ul><li> シグマの推定: 詳細については、<a href="../../Tutorial/App/Algorithm_CA.html#Standard_Deviation_Estimation" title="App:Algorithm CA">標準偏差の推定</a>セクションを参照してください。<img src="../images/Algorithm_Control_Charts/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/>の推定には、次の4つの方法があります。
+<ul><li> 実行別：各実行ごとに独立して<img src="../images/Algorithm_Control_Charts/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/>を推定します。</li>
+<li> パーツ別（同じパーツのすべての観測値を合算）：同じパーツのすべての実行データを使用して<img src="../images/Algorithm_Control_Charts/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/>を推定します。</li>
+<li> 定数（すべてのデータを合算）：実行とパーツのすべてのデータを<img src="../images/Algorithm_Control_Charts/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/>推定に使用します。</li>
+<li> サイズに比例（対数を使用してすべてのデータを合算）：最初に自然対数変換し、その後、変換されたデータをすべての実行とすべてのパーツで<img src="../images/Algorithm_Control_Charts/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/>の推定に使用する。</li></ul></li>
+<li> 工程平均：異なるパーツについては、工程平均が個別に計算されます。履歴値はプロセス平均としても指定することもできます。</li>
+<li> Z管理図
+<ul><li> プロットされる点：次のように計算されたデータポイントでZ管理図をプロットします。
+<dl><dd> <img src="../images/Algorithm_Control_Charts/math-e5b4363d2335136983aa7af8f901776a.png" title="z_{i}=\frac{X_i-\mu_i}{\sigma}" alt="z_{i}=\frac{X_i-\mu_i}{\sigma}" class="tex"/></dd>
+<dd> ここで、<img src="../images/Algorithm_Control_Charts/math-a97118fb9e8d7e006a466bfc0771f888.png" title="X_i" alt="X_i" class="tex"/>は観測値、<img src="../images/Algorithm_Control_Charts/math-c9faf6ead2cd2c2187bd943488de1d0a.png" title="\mu" alt="\mu" class="tex"/>はグループの平均、<img src="../images/Algorithm_Control_Charts/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/>はグループの標準偏差、<img src="../images/Algorithm_Control_Charts/math-f1290186a5d0b1ceab27f4e77c0c5d68.png" title="w" alt="w" class="tex"/>は移動範囲の幅です。</dd></dl></li>
+<li> 中心線: データはすでに標準化されているため、常に0です。</li>
+<li> 管理限界: データが標準化されているため、上側および下側管理限界は常に-3と3です。</li></ul></li>
+<li> MR管理図
+<ul><li> プロットされる点: 各グループの<img src="../images/Algorithm_Control_Charts/math-fbade9e36a3f36d3d676c1b808451dd7.png" title="z" alt="z" class="tex"/>値の移動範囲をプロットする。</li>
+<li> 中心線: データはすでに標準化されているため、常に1.128です。</li>
+<li> 管理限界: データが標準化されているため、下側管理限界は常に0です。上側管理限界は推定法によって異なります。平均移動範囲では、上側管理限界は常に3.686で、中央値移動範囲では3.12です。</li></ul></li></ul></dd></dl>
+<h3><a name="Individuals"></a><span class="mw-headline">個別管理図</span></h3>
+<dl><dd> 上記の<a href="../../Tutorial/App/Algorithm_Control_Charts.html#I-MR-R.2FS_.28Between.2FWithin.29" title="App:Algorithm Control Charts">I-MR-R/S（間/内）</a>セクションのI管理図を参照してください。</dd></dl>
+<h3><a name="Moving_Range"></a><span class="mw-headline">移動範囲管理図</span></h3>
+<dl><dd> 上記の<a href="../../Tutorial/App/Algorithm_Control_Charts.html#I-MR-R.2FS_.28Between.2FWithin.29" title="App:Algorithm Control Charts">I-MR-R/S（間/内）</a>セクションのMR管理図を参照してください。</dd></dl>
+<h2><a name="Attributes_Charts"></a><span class="mw-headline">計数管理図</span></h2>
+<p>P管理図診断、P管理図、Laney P&apos;管理図、NP管理図、U管理図診断、U管理図、Laney U&apos;管理図、C管理図が含まれます。
+</p>
+<h3><a name="P_Chart_Diagnostic"></a><span class="mw-headline">P管理図診断</span></h3>
+<dl><dd><ul><li> プロットされる点
+<ul><li> Xデータ
+<dl><dd> 補正不良品数: まず、補正不良品数 <img src="../images/Algorithm_Control_Charts/math-2aecb1dc57e87620a373d19b0a889efb.png" title="a_i" alt="a_i" class="tex"/> を次の式で計算します。</dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-104b36da546fdb33a9037255fcf737c7.png" title="a_i=\frac{d_i}{n_i}\bar{n}" alt="a_i=\frac{d_i}{n_i}\bar{n}" class="tex"/>, ここで<img src="../images/Algorithm_Control_Charts/math-d247f594c78d0d2be10fc6d82512cc4e.png" title="d_i" alt="d_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/> 群の不良品数です。<img src="../images/Algorithm_Control_Charts/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>は、第<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>群のサブグループサイズです。<img src="../images/Algorithm_Control_Charts/math-5f6fd22567b26e9c1a1ae9c6eeb3f785.png" title="\bar{n}" alt="\bar{n}" class="tex"/>は、サブグループサイズの平均です。</dd>
+<dd> 次に、補正不良品数を以下の式で変換し、Xデータを取得します。</dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-789bad725046ae77f3e9f5949582fde1.png" title="X_i=\arcsin\left(\sqrt{\frac{a_i+0.375}{\bar{n}+0.75}}\right)" alt="X_i=\arcsin\left(\sqrt{\frac{a_i+0.375}{\bar{n}+0.75}}\right)" class="tex"/></dd></dl></li>
+<li> Yデータ
+<dl><dd> Y データの計算には、次の 4 つの方法が提供されています：Median Rank (Benard)、Mean Rank (HERD-Johnson)、Modified Kaplan-Meier、Kaplan-Meier。これらのメソッドの式は次のとおりです。</dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-f3d1485df5e1c10bd90f06893534e497.png" title="Y_i=\left\{\begin{array}{ll}\frac{i-0.3}{N+0.4}&amp;Median\;Rank\;(Benard)\cr\frac{i}{N+1}&amp;Mean\;Rank\;(Herd-Johnson)\cr\frac{i-0.5}{N}&amp;Modified\;Kaplan-Meier\cr\frac{i}{N}&amp;Kaplan-Meier\end{array}\right." alt="Y_i=\left\{\begin{array}{ll}\frac{i-0.3}{N+0.4}&amp;Median\;Rank\;(Benard)\cr\frac{i}{N+1}&amp;Mean\;Rank\;(Herd-Johnson)\cr\frac{i-0.5}{N}&amp;Modified\;Kaplan-Meier\cr\frac{i}{N}&amp;Kaplan-Meier\end{array}\right." class="tex"/></dd>
+<dd> ここで<img src="../images/Algorithm_Control_Charts/math-912e4a5a5214a76b58a8b9071ec9d667.png" title="i=1, 2, 3,...,N" alt="i=1, 2, 3,...,N" class="tex"/>、および<img src="../images/Algorithm_Control_Charts/math-8d9c307cb7f3c4a32822a51922d1ceaa.png" title="N" alt="N" class="tex"/>はデータポイントの数です。</dd>
+<dd> Yデータの種類: Yデータには、パーセント、確率、正規スコアを含む3つがあります。上記の計算式で得られるのは確率です。パーセントと正規スコアは次のように計算されます。</dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-8f979057f713f95d1223a9c21d55b4fd.png" title="Y_i(Percent)=Y_i*100" alt="Y_i(Percent)=Y_i*100" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-9f5e4ceed827c7d43395ccf11cf66aa3.png" title="Y_i(NormalScore)=\Phi^{-1}(Y_i)" alt="Y_i(NormalScore)=\Phi^{-1}(Y_i)" class="tex"/> ここで、<img src="../images/Algorithm_Control_Charts/math-6961e78be39c8a325c23ee3b4b5bf3ca.png" title="\Phi^{-1}" alt="\Phi^{-1}" class="tex"/> は逆累積分布関数です。</dd></dl></li></ul></li>
+<li> 観測変動と期待変動の比率
+<ul><li> 期待変動
+<dl><dd> <img src="../images/Algorithm_Control_Charts/math-2a4dd395a0f5453a321239216d892221.png" title="ExpectedVariation=\frac{1}{\sqrt{4\bar{n}}}" alt="ExpectedVariation=\frac{1}{\sqrt{4\bar{n}}}" class="tex"/> ここで<img src="../images/Algorithm_Control_Charts/math-5f6fd22567b26e9c1a1ae9c6eeb3f785.png" title="\bar{n}" alt="\bar{n}" class="tex"/> はサブグループサイズの平均です。</dd></dl></li>
+<li> 観測変動
+<dl><dd> まず、先ほどの変換済みカウント（<img src="../images/Algorithm_Control_Charts/math-a97118fb9e8d7e006a466bfc0771f888.png" title="X_i" alt="X_i" class="tex"/>）について正規スコアを計算します。なお、ここで使われる「正規スコア」は、先ほどYデータで使われたものとは異なるものです。手順は次のとおりです。</dd>
+<dd> 変換されたカウントの最初の点から最後の点まで調べ、値がすべて等しい連続したデータ点の部分列を見つけます。各サブシーケンスについて、次の式を使って正規スコアを計算します。</dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-f435cba5be7c3f20138de755832096b1.png" title="NormalScores_i=\Phi^{-1}(\frac{Mean-0.375}{N+0.25})" alt="NormalScores_i=\Phi^{-1}(\frac{Mean-0.375}{N+0.25})" class="tex"/> ここで<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/> は <img src="../images/Algorithm_Control_Charts/math-97361f12a3555fc4fc4e2ffce1799ac3.png" title="i^{th}" alt="i^{th}" class="tex"/>番目のデータポイント、<img src="../images/Algorithm_Control_Charts/math-3d6c9ac08ada31c184094bbc67afe00d.png" title="平均" alt="平均" class="tex"/>は そのサブシーケンス内の平均順位（サブシーケンスの平均位置）です。<img src="../images/Algorithm_Control_Charts/math-8d9c307cb7f3c4a32822a51922d1ceaa.png" title="N" alt="N" class="tex"/> is the total number of data points.</dd>
+<dd> 次に、<img src="../images/Algorithm_Control_Charts/math-a97118fb9e8d7e006a466bfc0771f888.png" title="X_i" alt="X_i" class="tex"/>データの中央値50%（第25パーセンタイル未満および第75パーセンタイル超過を除く）を取り出し、対応する<img src="../images/Algorithm_Control_Charts/math-76abb2ad7a6a56b1e3ae89be57c75c9f.png" title="NormalScores" alt="NormalScores" class="tex"/>とともに使用して、次の線形フィットを行います：</dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-ac014d27181329d27e8cbd277b9cb4be.png" title="NormalScores=\beta_0+\beta_1X" alt="NormalScores=\beta_0+\beta_1X" class="tex"/> そこから観測変動を得ます。</dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-6d5726b8a166197f331df6f87bf0e224.png" title="ObservedVariation=\frac{1}{\beta_1}" alt="ObservedVariation=\frac{1}{\beta_1}" class="tex"/></dd></dl></li>
+<li> 比率
+<dl><dd> <img src="../images/Algorithm_Control_Charts/math-e3861755f35bd5638a8dd160c6c3cee1.png" title="Ratio=\frac{ObservedVariation}{ExpectedVariation}*100" alt="Ratio=\frac{ObservedVariation}{ExpectedVariation}*100" class="tex"/></dd></dl></li></ul></li>
+<li> 比率の95%信頼区間
+<dl><dd> <img src="../images/Algorithm_Control_Charts/math-3e5c2466d8c0f096ebb58c35bcb9ea34.png" title="UpperLimit=\exp(0.185+\frac{5.62}{m}+\frac{0.274}{\bar{n}*\bar{p}})*100" alt="UpperLimit =\exp(0.185+\frac {5.62}{m}+\frac {0.274}{\bar {n}*\bar {p}})*100" class="tex"/></dd>
+<dd> ここで、<img src="../images/Algorithm_Control_Charts/math-6f8f57715090da2632453988d9a1501b.png" title="m" alt="m" class="tex"/>はサブグループの数、<img src="../images/Algorithm_Control_Charts/math-5f6fd22567b26e9c1a1ae9c6eeb3f785.png" title="\bar{n}" alt="\bar{n}" class="tex"/>はサブグループサイズの平均、<img src="../images/Algorithm_Control_Charts/math-10dbba24219a8c6d970ab2912b21b073.png" title="\bar{p}=\frac{\sum d_i}{\sum n_i}" alt="\bar{p}=\frac{\sum d_i}{\sum n_i}" class="tex"/>、<img src="../images/Algorithm_Control_Charts/math-d247f594c78d0d2be10fc6d82512cc4e.png" title="d_i" alt="d_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>サブグループの欠陥の数、<img src="../images/Algorithm_Control_Charts/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>サブグループのサイズです。</dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-2ed30a7baaa31325c17e79f1c559d1ae.png" title="LowerLimit=60" alt="LowerLimit=60" class="tex"/>これは、比率の下側信頼区間は固定で60%とします。</dd></dl></li>
+<li> 判定
+<dl><dd> 比率を95%信頼区間の上限/下限と比較します。
+<ul><li> Ratio &gt; 上側信頼限界：従来のP管理図では誤警報率が高くなる可能性があり、Laney P&apos;管理図の使用が推奨されます。</li>
+<li> Ratio &lt; 下側信頼限界：従来のP管理図では管理限界が広すぎる可能性があり、Laney P&apos;管理図の使用が推奨されます。</li></ul></dd></dl></li></ul></dd></dl>
+<h3><a name="P"></a><span class="mw-headline">P</span></h3>
+<dl><dd><ul><li> プロットされる点
+<dl><dd> <img src="../images/Algorithm_Control_Charts/math-d02889e3e18f22384fe89aa93ed83c75.png" title="p_i=\frac{x_i}{n_i}" alt="p_i=\frac{x_i}{n_i}" class="tex"/>、ここで<img src="../images/Algorithm_Control_Charts/math-1ba8aaab47179b3d3e24b0ccea9f4e30.png" title="x_i" alt="x_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>サブグループの不良数、<img src="../images/Algorithm_Control_Charts/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>サブグループのサイズです。</dd></dl></li>
+<li> 中心線
+<dl><dd> 履歴値が指定されている場合は、その履歴値を使用します。
+指定がない場合は、データから計算した不良率の平均を使用します。</dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-72ca7ebe79f2e27ee6d518498a8c76f0.png" title="\bar{p}=\frac{\sum x_i}{\sum n_i}" alt="\bar{p}=\frac{\sum x_i}{\sum n_i}" class="tex"/>、ここで<img src="../images/Algorithm_Control_Charts/math-1ba8aaab47179b3d3e24b0ccea9f4e30.png" title="x_i" alt="x_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>サブグループの不良数、<img src="../images/Algorithm_Control_Charts/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>サブグループのサイズです。</dd></dl></li>
+<li> 管理限界
+<dl><dd> <img src="../images/Algorithm_Control_Charts/math-cf70d7d8079b64f03c4859d5bec5f83f.png" title="LCL=\max(0, p-k\sqrt{\frac{p(1-p)}{n_i}})" alt="LCL=\max(0, p-k\sqrt{\frac{p(1-p)}{n_i}})" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-dd379fae5faf47c719ddf3448d32bc38.png" title="UCL=\min(1, p+k\sqrt{\frac{p(1-p)}{n_i}})" alt="UCL=\min(1, p+k\sqrt{\frac{p(1-p)}{n_i}})" class="tex"/></dd>
+<dd> ここで、<img src="../images/Algorithm_Control_Charts/math-83878c91171338902e0fe0fb97a8c47a.png" title="p" alt="p" class="tex"/>はプロセス不良率、<img src="../images/Algorithm_Control_Charts/math-8ce4b16b22b58894aa86c421e8759df3.png" title="k" alt="k" class="tex"/>はテスト1のパラメータ、<img src="../images/Algorithm_Control_Charts/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>はサブグループ<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>のサイズです。</dd></dl></li></ul></dd></dl>
+<h3><a name="Laney_P.27"></a><span class="mw-headline">Laney P&apos;</span></h3>
+<dl><dd><ul><li> プロットされる点：各サブグループの不良率
+<dl><dd> <img src="../images/Algorithm_Control_Charts/math-d02889e3e18f22384fe89aa93ed83c75.png" title="p_i=\frac{x_i}{n_i}" alt="p_i=\frac{x_i}{n_i}" class="tex"/>、ここで<img src="../images/Algorithm_Control_Charts/math-1ba8aaab47179b3d3e24b0ccea9f4e30.png" title="x_i" alt="x_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>サブグループの不良数、<img src="../images/Algorithm_Control_Charts/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>サブグループのサイズです。</dd></dl></li>
+<li> 中心線
+<dl><dd> 履歴値が指定されている場合は、その履歴値を使用します。
+指定がない場合は、データから計算した不良率の平均を使用します。</dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-72ca7ebe79f2e27ee6d518498a8c76f0.png" title="\bar{p}=\frac{\sum x_i}{\sum n_i}" alt="\bar{p}=\frac{\sum x_i}{\sum n_i}" class="tex"/>、ここで<img src="../images/Algorithm_Control_Charts/math-1ba8aaab47179b3d3e24b0ccea9f4e30.png" title="x_i" alt="x_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>サブグループの不良数、<img src="../images/Algorithm_Control_Charts/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>サブグループのサイズです。</dd></dl></li>
+<li> シグマZ
+<dl><dd> まず、各サブグループの不良率<img src="../images/Algorithm_Control_Charts/math-eca91c83a74a2373ca5f796700e99fd3.png" title="p_i" alt="p_i" class="tex"/>をZスコアに変換します。</dd>
+<dd> 次に、Zスコアに対して長さ2の移動範囲を適用し、シグマZを次のように求めます。</dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-5435356ab9992c354470915e602070ed.png" title="\sigma_z=\overline{MR}/1.128" alt="\sigma_z=\overline{MR}/1.128" class="tex"/></dd>
+<dd> ここで、<img src="../images/Algorithm_Control_Charts/math-eca91c83a74a2373ca5f796700e99fd3.png" title="p_i" alt="p_i" class="tex"/> 第<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>サブグループの不良率、<img src="../images/Algorithm_Control_Charts/math-83878c91171338902e0fe0fb97a8c47a.png" title="p" alt="p" class="tex"/>はプロセス不良率、<img src="../images/Algorithm_Control_Charts/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>サブグループのサイズ、<img src="../images/Algorithm_Control_Charts/math-8dbb6da1bd20c91187bddc2a1254ad33.png" title="\overline{MR}" alt="\overline{MR}" class="tex"/>は長さ2の移動範囲の平均値です。</dd></dl></li>
+<li> 管理限界
+<dl><dd> <img src="../images/Algorithm_Control_Charts/math-495025150ea20eef0a85ed2cd7c1c085.png" title="LCL=\max(0, p-k\sqrt{\frac{p(1-p)}{n_i}}*\sigma_z)" alt="LCL=\max(0, p-k\sqrt{\frac{p(1-p)}{n_i}}*\sigma_z)" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-6587a9d331c8588ceec7123fedc18b91.png" title="UCL=\min(1, p+k\sqrt{\frac{p(1-p)}{n_i}}*\sigma_z)" alt="UCL=\min(1, p+k\sqrt{\frac{p(1-p)}{n_i}}*\sigma_z)" class="tex"/></dd>
+<dd> ここで<img src="../images/Algorithm_Control_Charts/math-83878c91171338902e0fe0fb97a8c47a.png" title="p" alt="p" class="tex"/>はプロセス不良率、<img src="../images/Algorithm_Control_Charts/math-8ce4b16b22b58894aa86c421e8759df3.png" title="k" alt="k" class="tex"/>はTest 1用のパラメータ、<img src="../images/Algorithm_Control_Charts/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>サブグループのサイズ、<img src="../images/Algorithm_Control_Charts/math-9e1d47d40de850041cce40eba2417381.png" title="\sigma_z" alt="\sigma_z" class="tex"/>は上記で計算したシグマZです。</dd></dl></li></ul></dd></dl>
+<h3><a name="NP"></a><span class="mw-headline">NP</span></h3>
+<dl><dd><ul><li> Plotted Points:各サブグループ()の欠陥の数をプロットする。<img src="../images/Algorithm_Control_Charts/math-1ba8aaab47179b3d3e24b0ccea9f4e30.png" title="x_i" alt="x_i" class="tex"/></li>
+<li> 中心線
+<dl><dd> 履歴値が指定されている場合は、その履歴値を使用します。
+指定がない場合は、データから計算した不良率の平均を使用します。</dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-c11428aaf9126a617f2093d6e559fffb.png" title="p=\bar{p}=\frac{\sum x_i}{\sum n_i}" alt="p=\bar{p}=\frac{\sum x_i}{\sum n_i}" class="tex"/>、ここで<img src="../images/Algorithm_Control_Charts/math-1ba8aaab47179b3d3e24b0ccea9f4e30.png" title="x_i" alt="x_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>サブグループの不良数、<img src="../images/Algorithm_Control_Charts/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>サブグループのサイズです。</dd>
+<dd> 各サブグループの中心線は次のように計算します。</dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-f56f8e18e513ced7203b5d300dd906a9.png" title="CenterLine_i=n_ip" alt="CenterLine_i=n_ip" class="tex"/></dd></dl></li>
+<li> 管理限界
+<dl><dd> <img src="../images/Algorithm_Control_Charts/math-54ad0e86a8f6d74d39ae9981129260fb.png" title="LCL=\max(0, n_ip-k\sqrt{n_ip(1-p)})" alt="LCL=\max(0, n_ip-k\sqrt{n_ip(1-p)})" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-711a1baaabcb9530d6daaade13c86d20.png" title="UCL=\min(n_i, n_ip+k\sqrt{n_ip(1-p)})" alt="UCL=\min(n_i, n_ip+k\sqrt{n_ip(1-p)})" class="tex"/></dd>
+<dd> ここで、<img src="../images/Algorithm_Control_Charts/math-83878c91171338902e0fe0fb97a8c47a.png" title="p" alt="p" class="tex"/>はプロセス不良率、<img src="../images/Algorithm_Control_Charts/math-8ce4b16b22b58894aa86c421e8759df3.png" title="k" alt="k" class="tex"/>はテスト1のパラメータ、<img src="../images/Algorithm_Control_Charts/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>はサブグループ<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>のサイズです。</dd></dl></li></ul></dd></dl>
+<h3><a name="U_Chart_Diagnostic"></a><span class="mw-headline">U管理図診断</span></h3>
+<dl><dd> <a href="../../Tutorial/App/Algorithm_Control_Charts.html#P_Chart_Diagnostic" title="App:Algorithm Control Charts">P管理図診断</a>と同様の手順ですが、以下の点で計算内容が異なります。
+<ul><li> プロットされる点
+<ul><li> Xデータ
+<dl><dd> 変換カウント</dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-01742c19821950484e6340aeae805dba.png" title="X_i=\sqrt{a_i}+\sqrt{a_i+1}" alt="X_i=\sqrt{a_i}+\sqrt{a_i+1}" class="tex"/></dd></dl></li></ul></li>
+<li> 観測変動と期待変動の比率
+<ul><li> 期待変動
+<dl><dd> <img src="../images/Algorithm_Control_Charts/math-733186948da3e353815c1885b38cb623.png" title="ExpectedVariation=1" alt="ExpectedVariation=1" class="tex"/></dd></dl></li></ul></li>
+<li> 比率の95%信頼区間
+<dl><dd> <img src="../images/Algorithm_Control_Charts/math-37cd6fdc8ea965fc297ee7ea3a4631c4.png" title="UpperLimit=\exp(0.182+\frac{5.75}{m}+\frac{0.195}{\bar{n}*\bar{u}})*100" alt="UpperLimit=\exp(0.182+\frac{5.75}{m}+\frac{0.195}{\bar{n}*\bar{u}})*100" class="tex"/></dd>
+<dd> ここで、<img src="../images/Algorithm_Control_Charts/math-6f8f57715090da2632453988d9a1501b.png" title="m" alt="m" class="tex"/>はサブグループの数、<img src="../images/Algorithm_Control_Charts/math-5f6fd22567b26e9c1a1ae9c6eeb3f785.png" title="\bar{n}" alt="\bar{n}" class="tex"/>はサブグループサイズの平均、<img src="../images/Algorithm_Control_Charts/math-965d78ce4ab9c1b80e6eadbe7418416c.png" title="\bar{u}=\frac{\sum d_i}{\sum n_i}" alt="\bar{u}=\frac{\sum d_i}{\sum n_i}" class="tex"/>、<img src="../images/Algorithm_Control_Charts/math-d247f594c78d0d2be10fc6d82512cc4e.png" title="d_i" alt="d_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>サブグループの欠陥数、<img src="../images/Algorithm_Control_Charts/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>サブグループのサイズです。</dd></dl></li>
+<li> 判定
+<dl><dd> 比率を95%信頼区間の上限/下限と比較します。
+<ul><li> Ratio &gt; 上側信頼限界：従来のU管理図では誤警報率が高くなる可能性があり、Laney U&apos;管理図の使用が推奨されます。</li>
+<li> Ratio &lt; 下側信頼限界：従来のU管理図では管理限界が広すぎる可能性があり、Laney U&apos;管理図の使用が推奨されます。</li></ul></dd></dl></li></ul></dd></dl>
+<h3><a name="U"></a><span class="mw-headline">U</span></h3>
+<dl><dd><ul><li> プロットされる点: 各サブグループにおける欠陥率。
+<dl><dd> <img src="../images/Algorithm_Control_Charts/math-acf73bb996c302048154d99249352de7.png" title="u_i=\frac{x_i}{n_i}" alt="u_i=\frac{x_i}{n_i}" class="tex"/>、ここで<img src="../images/Algorithm_Control_Charts/math-1ba8aaab47179b3d3e24b0ccea9f4e30.png" title="x_i" alt="x_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>サブグループの不良数、<img src="../images/Algorithm_Control_Charts/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>サブグループのサイズです。</dd></dl></li>
+<li> 中心線
+<dl><dd> 履歴値が指定されている場合は、その履歴値を使用します。
+指定がない場合は、データから計算した平均を使用します。</dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-88a6d9788317bd015c7809bd21702475.png" title="\bar{u}=\frac{\sum x_i}{\sum n_i}" alt="\bar{u}=\frac{\sum x_i}{\sum n_i}" class="tex"/>、ここで<img src="../images/Algorithm_Control_Charts/math-1ba8aaab47179b3d3e24b0ccea9f4e30.png" title="x_i" alt="x_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>サブグループの不良数、<img src="../images/Algorithm_Control_Charts/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>サブグループのサイズです。</dd></dl></li>
+<li> 管理限界
+<dl><dd> <img src="../images/Algorithm_Control_Charts/math-1f4163e3f7c227c90d83fe978ca4174a.png" title="LCL=\max(0, u-k\sqrt{\frac{u}{n_i}})" alt="LCL=\max(0, u-k\sqrt{\frac{u}{n_i}})" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-e260815b6f7818a8c8d8e165462466bf.png" title="UCL=u+k\sqrt{\frac{u}{n_i}}" alt="UCL=u+k\sqrt{\frac{u}{n_i}}" class="tex"/></dd>
+<dd> ここで、<img src="../images/Algorithm_Control_Charts/math-7b774effe4a349c6dd82ad4f4f21d34c.png" title="u" alt="u" class="tex"/>はプロセス平均欠陥率、<img src="../images/Algorithm_Control_Charts/math-8ce4b16b22b58894aa86c421e8759df3.png" title="k" alt="k" class="tex"/>はテスト1のパラメータ、<img src="../images/Algorithm_Control_Charts/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>はサブグループ<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>のサイズです。</dd></dl></li></ul></dd></dl>
+<h3><a name="Laney_U.27"></a><span class="mw-headline">Laney U&apos;</span></h3>
+<dl><dd><ul><li> プロットされる点: 各サブグループにおける欠陥率。
+<dl><dd> <img src="../images/Algorithm_Control_Charts/math-acf73bb996c302048154d99249352de7.png" title="u_i=\frac{x_i}{n_i}" alt="u_i=\frac{x_i}{n_i}" class="tex"/>、ここで<img src="../images/Algorithm_Control_Charts/math-1ba8aaab47179b3d3e24b0ccea9f4e30.png" title="x_i" alt="x_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>サブグループの不良数、<img src="../images/Algorithm_Control_Charts/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>サブグループのサイズです。</dd></dl></li>
+<li> 中心線
+<dl><dd> 履歴値が指定されている場合は、その履歴値を使用します。
+指定がない場合は、データから計算した平均を使用します。</dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-88a6d9788317bd015c7809bd21702475.png" title="\bar{u}=\frac{\sum x_i}{\sum n_i}" alt="\bar{u}=\frac{\sum x_i}{\sum n_i}" class="tex"/>、ここで<img src="../images/Algorithm_Control_Charts/math-1ba8aaab47179b3d3e24b0ccea9f4e30.png" title="x_i" alt="x_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>サブグループの不良数、<img src="../images/Algorithm_Control_Charts/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>サブグループのサイズです。</dd></dl></li>
+<li> シグマZ
+<dl><dd> まず、各サブグループレート<img src="../images/Algorithm_Control_Charts/math-eb00a04135562ae6f74786f084f54327.png" title="u_i" alt="u_i" class="tex"/>をzスコアに変換します：<img src="../images/Algorithm_Control_Charts/math-afa19adada19b60ba849ba09ede55e0e.png" title="z_i=\frac{u_i-u}{\sqrt{\frac{u}{n_i}}}" alt="z_i=\frac{u_i-u}{\sqrt{\frac{u}{n_i}}}" class="tex"/></dd>
+<dd> 次に、Zスコアに対して長さ2の移動範囲を適用し、シグマZを次のように求めます。</dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-5435356ab9992c354470915e602070ed.png" title="\sigma_z=\overline{MR}/1.128" alt="\sigma_z=\overline{MR}/1.128" class="tex"/></dd>
+<dd> ここで、<img src="../images/Algorithm_Control_Charts/math-eb00a04135562ae6f74786f084f54327.png" title="u_i" alt="u_i" class="tex"/> は第<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>サブグループの不良率、<img src="../images/Algorithm_Control_Charts/math-7b774effe4a349c6dd82ad4f4f21d34c.png" title="u" alt="u" class="tex"/>はプロセスの平均不良率、<img src="../images/Algorithm_Control_Charts/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>サブグループのサイズ、<img src="../images/Algorithm_Control_Charts/math-8dbb6da1bd20c91187bddc2a1254ad33.png" title="\overline{MR}" alt="\overline{MR}" class="tex"/>は長さ2の移動範囲の平均値です。</dd></dl></li>
+<li> 管理限界
+<dl><dd> <img src="../images/Algorithm_Control_Charts/math-175192c9dfe464878e531a8853d71750.png" title="LCL=\max(0, u-k\sqrt{\frac{u}{n_i}}*\sigma_z)" alt="LCL=\max(0, u-k\sqrt{\frac{u}{n_i}}*\sigma_z)" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-6dd201eab7c16f3fbcf57f1621437f98.png" title="UCL=u+k\sqrt{\frac{u}{n_i}}*\sigma_z" alt="UCL=u+k\sqrt{\frac{u}{n_i}}*\sigma_z" class="tex"/></dd>
+<dd> ここで<img src="../images/Algorithm_Control_Charts/math-7b774effe4a349c6dd82ad4f4f21d34c.png" title="u" alt="u" class="tex"/>はプロセス平均不良率、<img src="../images/Algorithm_Control_Charts/math-8ce4b16b22b58894aa86c421e8759df3.png" title="k" alt="k" class="tex"/>はTest 1用のパラメータ、<img src="../images/Algorithm_Control_Charts/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>サブグループのサイズ、<img src="../images/Algorithm_Control_Charts/math-9e1d47d40de850041cce40eba2417381.png" title="\sigma_z" alt="\sigma_z" class="tex"/>は上記で計算したものです。</dd></dl></li></ul></dd></dl>
+<h3><a name="C"></a><span class="mw-headline">C</span></h3>
+<dl><dd><ul><li> プロットされる点：各サブグループにおける欠陥数<img src="../images/Algorithm_Control_Charts/math-1ba8aaab47179b3d3e24b0ccea9f4e30.png" title="x_i" alt="x_i" class="tex"/>をプロットします。</li>
+<li> 中心線
+<dl><dd> 履歴値が指定されている場合は、この履歴値を使用します。指定がない場合は、データから推定したプロセス平均を使用します。</dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-616512eac74f90d03086940e326f46e8.png" title="\bar{c}=\frac{\sum x_i}{m}" alt="\bar{c}=\frac{\sum x_i}{m}" class="tex"/>、ここで <img src="../images/Algorithm_Control_Charts/math-1ba8aaab47179b3d3e24b0ccea9f4e30.png" title="x_i" alt="x_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-865c0c0b4ab0e063e5caa3387c1a8741.png" title="i" alt="i" class="tex"/>サブグループの欠陥数、<img src="../images/Algorithm_Control_Charts/math-6f8f57715090da2632453988d9a1501b.png" title="m" alt="m" class="tex"/> はサブグループの数です。</dd></dl></li>
+<li> 管理限界
+<dl><dd> <img src="../images/Algorithm_Control_Charts/math-24f77c116b41c31cf326b7c2943c0ce3.png" title="LCL=\max(0, c-k\sqrt{c})" alt="LCL=\max(0, c-k\sqrt{c})" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-5b3b4030ba835fd9f28b0b169918a451.png" title="UCL=c+k\sqrt{c}" alt="UCL=c+k\sqrt{c}" class="tex"/></dd>
+<dd> ここで、<img src="../images/Algorithm_Control_Charts/math-4a8a08f09d37b73795649038408b5f33.png" title="c" alt="c" class="tex"/>はプロセス平均、<img src="../images/Algorithm_Control_Charts/math-8ce4b16b22b58894aa86c421e8759df3.png" title="k" alt="k" class="tex"/>はテスト1のパラメータです。</dd></dl></li></ul></dd></dl>
+<h2><a name="Time-Weighted_Charts"></a><span class="mw-headline">時間重み付き管理図</span></h2>
+<p>移動平均、EWMA、およびCUSUM管理図が含まれます。
+</p>
+<h3><a name="Moving_Average"></a><span class="mw-headline">移動平均</span></h3>
+<dl><dd><ul><li> プロットされる点
+<dl><dd> <img src="../images/Algorithm_Control_Charts/math-cf022d932de798f3d4f91f81bd1be814.png" title="MA_i=\left\{\begin{array}{ll}\frac{\overline{X}_1+\overline{X}_2+\cdots+\overline{X}_i}{i}&amp;i\le v\cr \frac{\overline{X}_{i-v+1}+\overline{X}_{i-v+2}+\cdots+\overline{X}_i}{v}&amp;i&gt;v\end{array}\right." alt="MA_i=\left\{\begin{array}{ll}\frac{\overline{X}_1+\overline{X}_2+\cdots+\overline{X}_i}{i}&amp;i\le v\cr \frac{\overline{X}_{i-v+1}+\overline{X}_{i-v+2}+\cdots+\overline{X}_i}{v}&amp;i&gt;v\end{array}\right." class="tex"/></dd>
+<dd> ここで、<img src="../images/Algorithm_Control_Charts/math-fb89570983890511eaa3a375f3d921a7.png" title="\overline{X}_i" alt="\overline{X}_i" class="tex"/>はサブグループ<img src="../images/Algorithm_Control_Charts/math-9e3669d19b675bd57058fd4664205d2a.png" title="v" alt="v" class="tex"/>の平均、<img src="../images/Algorithm_Control_Charts/math-97361f12a3555fc4fc4e2ffce1799ac3.png" title="i^{th}" alt="i^{th}" class="tex"/>は移動平均を取る観測数です。</dd></dl></li>
+<li> 中心線
+<dl><dd> 履歴値が指定されている場合は、この履歴値を使用します。指定がない場合は、データから推定したプロセス平均を使用します。</dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-b84a573793999cd456232cabbba6a33b.png" title="\mu=\frac{\sum x_i}{m}" alt="\mu=\frac{\sum x_i}{m}" class="tex"/>、ここで <img src="../images/Algorithm_Control_Charts/math-1ba8aaab47179b3d3e24b0ccea9f4e30.png" title="x_i" alt="x_i" class="tex"/>は観測値、<img src="../images/Algorithm_Control_Charts/math-6f8f57715090da2632453988d9a1501b.png" title="m" alt="m" class="tex"/> は観測値の総数です。</dd></dl></li>
+<li> 管理限界
+<dl><dd> <img src="../images/Algorithm_Control_Charts/math-06ebefe4ad7adebe56f45c5bdc18d0ad.png" title="LCL_i=\left\{\begin{array}{ll}\mu-k\sigma\frac{\sqrt{\frac{1}{n_1}+\frac{1}{n_2}+\cdots+\frac{1}{n_i}}}{i}&amp;i\le v\cr \mu-k\sigma\frac{\sqrt{\frac{1}{n_{i-v+1}}+\frac{1}{n_{i-v+2}}+\cdots+\frac{1}{n_i}}}{v}&amp;i&gt;v\end{array}\right." alt="LCL_i=\left\{\begin{array}{ll}\mu-k\sigma\frac{\sqrt{\frac{1}{n_1}+\frac{1}{n_2}+\cdots+\frac{1}{n_i}}}{i}&amp;i\le v\cr \mu-k\sigma\frac{\sqrt{\frac{1}{n_{i-v+1}}+\frac{1}{n_{i-v+2}}+\cdots+\frac{1}{n_i}}}{v}&amp;i&gt;v\end{array}\right." class="tex"/></dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-7fadc9bdabc56a7f83667b24d9a944a8.png" title="UCL_i=\left\{\begin{array}{ll}\mu+k\sigma\frac{\sqrt{\frac{1}{n_1}+\frac{1}{n_2}+\cdots+\frac{1}{n_i}}}{i}&amp;i\le v\cr \mu+k\sigma\frac{\sqrt{\frac{1}{n_{i-v+1}}+\frac{1}{n_{i-v+2}}+\cdots+\frac{1}{n_i}}}{v}&amp;i&gt;v\end{array}\right." alt="UCL_i=\left\{\begin{array}{ll}\mu+k\sigma\frac{\sqrt{\frac{1}{n_1}+\frac{1}{n_2}+\cdots+\frac{1}{n_i}}}{i}&amp;i\le v\cr \mu+k\sigma\frac{\sqrt{\frac{1}{n_{i-v+1}}+\frac{1}{n_{i-v+2}}+\cdots+\frac{1}{n_i}}}{v}&amp;i&gt;v\end{array}\right." class="tex"/></dd>
+<dd> ここで、<img src="../images/Algorithm_Control_Charts/math-c9faf6ead2cd2c2187bd943488de1d0a.png" title="\mu" alt="\mu" class="tex"/>はプロセス平均、<img src="../images/Algorithm_Control_Charts/math-8ce4b16b22b58894aa86c421e8759df3.png" title="k" alt="k" class="tex"/>はテスト1のパラメータ、<img src="../images/Algorithm_Control_Charts/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/>はプロセス標準偏差、<img src="../images/Algorithm_Control_Charts/math-9e3669d19b675bd57058fd4664205d2a.png" title="v" alt="v" class="tex"/>は移動平均を取る観測数、<img src="../images/Algorithm_Control_Charts/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>はサブグループ<img src="../images/Algorithm_Control_Charts/math-97361f12a3555fc4fc4e2ffce1799ac3.png" title="i^{th}" alt="i^{th}" class="tex"/>のサイズです。</dd></dl></li></ul></dd></dl>
+<h3><a name="EWMA"></a><span class="mw-headline">EWMA</span></h3>
+<dl><dd><ul><li> プロットされる点
+<dl><dd> <img src="../images/Algorithm_Control_Charts/math-7171e4458940edfa27c4fb3e6523fd8a.png" title="z_i=\left\{\begin{array}{ll}w\overline{X}_i+(1-w)\mu&amp;i=1\cr w\overline{X}_i+(1-w)z_{i-1}&amp;i&gt;1\end{array}\right." alt="z_i=\left\{\begin{array}{ll}w\overline{X}_i+(1-w)\mu&amp;i=1\cr w\overline{X}_i+(1-w)z_{i-1}&amp;i&gt;1\end{array}\right." class="tex"/></dd>
+<dd> ここで、<img src="../images/Algorithm_Control_Charts/math-c9faf6ead2cd2c2187bd943488de1d0a.png" title="\mu" alt="\mu" class="tex"/>はプロセス平均、<img src="../images/Algorithm_Control_Charts/math-fb89570983890511eaa3a375f3d921a7.png" title="\overline{X}_i" alt="\overline{X}_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-f1290186a5d0b1ceab27f4e77c0c5d68.png" title="w" alt="w" class="tex"/>サブグループの平均、<img src="../images/Algorithm_Control_Charts/math-97361f12a3555fc4fc4e2ffce1799ac3.png" title="i^{th}" alt="i^{th}" class="tex"/>は重みです。</dd></dl></li>
+<li> 中心線
+<dl><dd> 履歴平均が指定されている場合は、この履歴平均を使用します。指定がない場合は、データから推定したプロセス平均を使用します。</dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-b84a573793999cd456232cabbba6a33b.png" title="\mu=\frac{\sum x_i}{m}" alt="\mu=\frac{\sum x_i}{m}" class="tex"/>、ここで <img src="../images/Algorithm_Control_Charts/math-1ba8aaab47179b3d3e24b0ccea9f4e30.png" title="x_i" alt="x_i" class="tex"/>は観測値、<img src="../images/Algorithm_Control_Charts/math-6f8f57715090da2632453988d9a1501b.png" title="m" alt="m" class="tex"/> は観測値の総数です。</dd></dl></li>
+<li> 管理限界
+<dl><dd> プロットされた点の標準偏差は、次のように計算されます。</dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-3b1d95a599967f278c93e58117e8583e.png" title="\sigma_z(i)=\left\{\begin{array}{ll}\frac{w\sigma}{\sqrt{n_i}}&amp;i=1\cr w\sigma\sqrt{\sum_{j=1}^{i}{\frac{(1-w)^{2*(i-j)}}{n_j}}}&amp;i&gt;1\end{array}\right." alt="\sigma_z(i)=\left\{\begin{array}{ll}\frac{w\sigma}{\sqrt{n_i}}&amp;i=1\cr w\sigma\sqrt{\sum_{j=1}^{i}{\frac{(1-w)^{2*(i-j)}}{n_j}}}&amp;i&gt;1\end{array}\right." class="tex"/></dd>
+<dd> 次に、管理限界は次のように計算されます。</dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-5626cb78dd8b9b75a8120ce06f7c7c72.png" title="LCL_i=\mu-k\sigma_z(i)" alt="LCL_i=\mu-k\sigma_z(i)" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-9f34b248afdfe14fced9e75723992a09.png" title="UCL_i=\mu+k\sigma_z(i)" alt="UCL_i=\mu+k\sigma_z(i)" class="tex"/></dd>
+<dd> ここで、<img src="../images/Algorithm_Control_Charts/math-c9faf6ead2cd2c2187bd943488de1d0a.png" title="\mu" alt="\mu" class="tex"/>はプロセス平均、<img src="../images/Algorithm_Control_Charts/math-8ce4b16b22b58894aa86c421e8759df3.png" title="k" alt="k" class="tex"/>はテスト1のパラメータ、<img src="../images/Algorithm_Control_Charts/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/>は標準偏差（指定された履歴値、またはデータから計算）、<img src="../images/Algorithm_Control_Charts/math-f1290186a5d0b1ceab27f4e77c0c5d68.png" title="w" alt="w" class="tex"/>は重み、<img src="../images/Algorithm_Control_Charts/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>はサブグループ<img src="../images/Algorithm_Control_Charts/math-97361f12a3555fc4fc4e2ffce1799ac3.png" title="i^{th}" alt="i^{th}" class="tex"/>のサイズです。</dd></dl></li></ul></dd></dl>
+<h3><a name="CUSUM"></a><span class="mw-headline">CUSUM</span></h3>
+<h4><a name="Tabular_CUSUM"></a><span class="mw-headline">表形式CUSUM</span></h4>
+<dl><dd><ul><li> プロットされる点
+<dl><dd> 表形式CUSUM管理図チャートにプロットされるデータは、<img src="../images/Algorithm_Control_Charts/math-53ef46a498ca0dbcf3b86797ded8844f.png" title="CL_i" alt="CL_i" class="tex"/>および<img src="../images/Algorithm_Control_Charts/math-492c9e570629dd74d0dd7cd6e936e71d.png" title="CU_i" alt="CU_i" class="tex"/>です。通常は0で初期化されますが、開始時点でプロセスが管理外の場合は、FIR（ファスト・イニシャル・レスポンス）法で初期化できます。 </dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-7a5a9c34ecdfd2a3eb1164aa0d933388.png" title="CL_0=\left\{\begin{array}{ll}0&amp;No\;FIR\cr -f\frac{\sigma}{\sqrt{n_1}}&amp;Use\;FIR\end{array}\right." alt="CL_0=\left\{\begin{array}{ll}0&amp;No\;FIR\cr -f\frac{\sigma}{\sqrt{n_1}}&amp;Use\;FIR\end{array}\right." class="tex"/></dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-e1a8015063a73f2fd2d6e4a7a9a103b6.png" title="CU_0=\left\{\begin{array}{ll}0&amp;No\;FIR\cr f\frac{\sigma}{\sqrt{n_1}}&amp;Use\;FIR\end{array}\right." alt="CU_0=\left\{\begin{array}{ll}0&amp;No\;FIR\cr f\frac{\sigma}{\sqrt{n_1}}&amp;Use\;FIR\end{array}\right." class="tex"/></dd>
+<dd> その後、表形式CUSUMの下側および上側のプロットポイントは以下で計算されます。</dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-5fdfaf08746dd670f1f4d1afa26f6059.png" title="CL_i=\min(0, CL_{i-1}+\overline{X}_i-(T-k\frac{\sigma}{\sqrt{n_i}}))" alt="CL_i=\min(0, CL_{i-1}+\overline{X}_i-(T-k\frac{\sigma}{\sqrt{n_i}}))" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-f906b44d5febf4fffda54aae0bd801e1.png" title="CU_i=\max(0, CU_{i-1}+\overline{X}_i-(T+k\frac{\sigma}{\sqrt{n_i}}))" alt="CU_i=\max(0, CU_{i-1}+\overline{X}_i-(T+k\frac{\sigma}{\sqrt{n_i}}))" class="tex"/></dd>
+<dd> ここで、<img src="../images/Algorithm_Control_Charts/math-8fa14cdd754f91cc6554c9e71929cce7.png" title="f" alt="f" class="tex"/>はFIRの標準偏差の数、<img src="../images/Algorithm_Control_Charts/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/>はプロセス標準偏差、<img src="../images/Algorithm_Control_Charts/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-97361f12a3555fc4fc4e2ffce1799ac3.png" title="i^{th}" alt="i^{th}" class="tex"/>サブグループサイズ、<img src="../images/Algorithm_Control_Charts/math-fb89570983890511eaa3a375f3d921a7.png" title="\overline{X}_i" alt="\overline{X}_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-97361f12a3555fc4fc4e2ffce1799ac3.png" title="i^{th}" alt="i^{th}" class="tex"/>サブグループの平均、<img src="../images/Algorithm_Control_Charts/math-b9ece18c950afbfa6b0fdbfa4ff731d3.png" title="T" alt="T" class="tex"/>はターゲット、<img src="../images/Algorithm_Control_Charts/math-8ce4b16b22b58894aa86c421e8759df3.png" title="k" alt="k" class="tex"/>は検出したいシフトの大きさです。</dd>
+<dd> 前回の下側ポイントが下側管理限界を下回った、または前回の上側ポイントが上側管理限界を超えた場合、シグナルをリセットしたい場合には、<img src="../images/Algorithm_Control_Charts/math-662dd38d5696ac84e4519be88e36a510.png" title="CL_{i-1}" alt="CL_{i-1}" class="tex"/>、<img src="../images/Algorithm_Control_Charts/math-403669e1d99f12845ce9adf3349a8298.png" title="CU_{i-1}" alt="CU_{i-1}" class="tex"/>をそれぞれ<img src="../images/Algorithm_Control_Charts/math-3113703053273e1fcd02be5fa1949cb9.png" title="CL_0" alt="CL_0" class="tex"/>、<img src="../images/Algorithm_Control_Charts/math-d40830120fcf020871d59c31e494a995.png" title="CU_0" alt="CU_0" class="tex"/>に置き換えます。</dd></dl></li>
+<li> 中心線
+<dl><dd> 中心線は0です。</dd></dl></li>
+<li> 管理限界
+<dl><dd> <img src="../images/Algorithm_Control_Charts/math-fa85a83b0ad382130991253d98ae6890.png" title="LCL_i=-h\frac{\sigma}{\sqrt{n_i}}" alt="LCL_i=-h\frac{\sigma}{\sqrt{n_i}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-2ceca5438f958bac663f55cc63cbe66d.png" title="UCL_i=h\frac{\sigma}{\sqrt{n_i}}" alt="UCL_i=h\frac{\sigma}{\sqrt{n_i}}" class="tex"/></dd>
+<dd> ここで、<img src="../images/Algorithm_Control_Charts/math-2510c39011c5be704182423e3a695e91.png" title="h" alt="h" class="tex"/>は決定間隔、<img src="../images/Algorithm_Control_Charts/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/>はプロセス標準偏差、<img src="../images/Algorithm_Control_Charts/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>は<img src="../images/Algorithm_Control_Charts/math-97361f12a3555fc4fc4e2ffce1799ac3.png" title="i^{th}" alt="i^{th}" class="tex"/>サブグループサイズです。</dd></dl></li></ul></dd></dl>
+<h4><a name="V-mask_CUSUM"></a><span class="mw-headline">VマスクCUSUM</span></h4>
+<dl><dd><ul><li> プロットされる点
+<dl><dd> VマスクCUSUM管理図にプロットされるデータは、<img src="../images/Algorithm_Control_Charts/math-4bd1241d43b60e0e4190660b97d2f686.png" title="C_i" alt="C_i" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_Control_Charts/math-3ba75559e91fb6a5b71ed295bb6d9213.png" title="C_i=C_{i-1}+\overline{X}_i-T" alt="C_i=C_{i-1}+\overline{X}_i-T" class="tex"/></dd>
+<dd> ここで、<img src="../images/Algorithm_Control_Charts/math-fb89570983890511eaa3a375f3d921a7.png" title="\overline{X}_i" alt="\overline{X}_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-97361f12a3555fc4fc4e2ffce1799ac3.png" title="i^{th}" alt="i^{th}" class="tex"/>サブグループの平均、<img src="../images/Algorithm_Control_Charts/math-b9ece18c950afbfa6b0fdbfa4ff731d3.png" title="T" alt="T" class="tex"/>はターゲット値、<img src="../images/Algorithm_Control_Charts/math-5d3c1bc26d89fe00a9ab053c6cb9498e.png" title="C_0=0" alt="C_0=0" class="tex"/></dd></dl></li>
+<li> Vマスクの傾き
+<dl><dd> <img src="../images/Algorithm_Control_Charts/math-867a969c8665a155c0f7aeb300c5c62d.png" title="Slope_i = k\frac{\sigma}{\sqrt{n_i}}" alt="Slope_i = k\frac{\sigma}{\sqrt{n_i}}" class="tex"/></dd>
+<dd> ここで、<img src="../images/Algorithm_Control_Charts/math-8ce4b16b22b58894aa86c421e8759df3.png" title="k" alt="k" class="tex"/>はVマスクアームの傾き、<img src="../images/Algorithm_Control_Charts/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/>はプロセス標準偏差、<img src="../images/Algorithm_Control_Charts/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>は第<img src="../images/Algorithm_Control_Charts/math-97361f12a3555fc4fc4e2ffce1799ac3.png" title="i^{th}" alt="i^{th}" class="tex"/>サブグループのサイズです。</dd></dl></li>
+<li> Vマスクの原点幅
+<dl><dd> <img src="../images/Algorithm_Control_Charts/math-56edce57e1594b44cba96ade35da91c8.png" title="Width_i=2h\frac{\sigma}{\sqrt{n_i}}" alt="Width_i=2h\frac{\sigma}{\sqrt{n_i}}" class="tex"/></dd>
+<dd> ここで、<img src="../images/Algorithm_Control_Charts/math-2510c39011c5be704182423e3a695e91.png" title="h" alt="h" class="tex"/>は決定間隔、<img src="../images/Algorithm_Control_Charts/math-a2ab7d71a0f07f388ff823293c147d21.png" title="\sigma" alt="\sigma" class="tex"/>はプロセス標準偏差、<img src="../images/Algorithm_Control_Charts/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>は<img src="../images/Algorithm_Control_Charts/math-97361f12a3555fc4fc4e2ffce1799ac3.png" title="i^{th}" alt="i^{th}" class="tex"/>サブグループサイズです。</dd></dl></li>
+<li> Vマスク原点
+<dl><dd> デフォルトでは、原点はサブグループ数から推定されます。</dd></dl></li></ul></dd></dl>
+
+
+
+
+
+
+
+    

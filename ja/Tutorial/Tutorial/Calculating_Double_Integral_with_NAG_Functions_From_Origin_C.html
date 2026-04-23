@@ -1,0 +1,148 @@
+﻿<h1 class="firstheading">OriginからNAG関数を使った二重積分</h1>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>目次</h2>
+</div>
+<ol>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">サンプルとステップ</span></a>
+<ol>
+<li class="toclevel-2 tocsection-4"><a href="#Using_nag_multid_quad_monte_carlo_1"><span class="tocnumber">3.1</span> <span class="toctext"><i>nag_multid_quad_monte_carlo_1</i>を使って</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Using_nag_multid_quad_adapt_1"><span class="tocnumber">3.2</span> <span class="toctext"><i>nag_multid_quad_adapt_1</i>を使って</span></a></li>
+</ol>
+</li>
+</ol>
+</div>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>Origin/OriginProには、「NAG Mark 9」数値ライブラリ完全版が搭載されています。このライブラリを使って、複数の手法で数値積分することができます。全ての関数は、Origin Cからアクセスできます。このチュートリアルでは、NAG関数を呼び出して、二重積分を実行します。ここでは、有限NAG統合を使用します。</p>
+<h2><a name="What_you_will_learn" id="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。</p>
+<ul>
+<li>OriginCのNAG関数を呼び出します。</li>
+<li>NAG積分ルーチンを使って、二重積分を解きます。</li>
+</ul>
+<h2><a name="Example_and_Steps" id="Example_and_Steps"></a><span class="mw-headline">サンプルとステップ</span></h2>
+<p>二重積分を計算するには、NAGライブラリカテゴリー<a class="external text" href="http://www.originlab.com/pdfs/nagcl25/manual/pdf/d01/d01intro.pdf" target="_blank">D01 Quadrature</a>の関数を呼び出す必要があります。このカテゴリーには、一次元以上の定積分の数値計算評価を行う関数があります。<a class="external text" href="http://www.originlab.com/pdfs/nagcl09/manual/pdf/d01/d01wcc.pdf" target="_blank">nag_multid_quad_adapt_1</a>と<a class="external text" href="http://www.originlab.com/pdfs/nagcl09/manual/pdf/d01/d01xbc.pdf" target="_blank">nag_multid_quad_monte_carlo_1</a>は、異なるアルゴリズムによる二重積分関数で、これら2種類の利用が可能です。このチュートリアルでは、これらを使って、以下の積分を解く方法を学びます。</p>
+<p><img src="../images/Calculating_Double_Integral_with_NAG_Functions_From_Origin_C/math-4f781fe2d5acc176ac6b3968cad552bd.png" title="\int_{0}^{1}\int_{0}^{1}xy(x+y)dxdy" alt="\int_{0}^{1}\int_{0}^{1}xy(x+y)dxdy" class="tex" border="0" /></p>
+<p>以下のコードの実行とテストの方法については、関連しているチュートリアル<a href="../../Tutorial/Tutorial/Calling_NAG_Functions_From_Origin_C.html" title="チュートリアル：NAG関数をOriginCから呼び出す">Origin CからNAG関数を呼び出す</a>をご覧ください。コードをコピーして、<b>コードビルダ</b>にある新しく作成した「.cファイル」に貼り付けてから、コンパイルとビルドを行います。コメント付Origin Cのコードを以下に示します。</p>
+<h3><a name="Using_nag_multid_quad_monte_carlo_1" id="Using_nag_multid_quad_monte_carlo_1"></a><span class="mw-headline"><i>nag_multid_quad_monte_carlo_1</i>を使って</span></h3>
+<pre class="oc" style="font-family: monospace;">
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>Origin.<span>h</span><span style="color: #000080;">&gt;</span><span style="color: #0000ff;">
+#include</span> <span style="color: #000080;">&lt;</span>OC_nag.<span>h</span><span style="color: #000080;">&gt;</span> <span style="color: #0000ff;">
+#define</span> MAXCLS <span style="color: #0000dd;">20000</span>   <span style="color: #008000;">//</span><span style="font-size: 9.0pt; mso-bidi-font-size: 10.0pt; font-family: 'ＭＳ Ｐゴシック'; mso-ascii-font-family: 'Courier New'; mso-hansi-font-family: 'Courier New'; mso-bidi-font-family: 'Courier New'; color: #008000; mso-font-kerning: 0pt; mso-ansi-language: EN-US; mso-fareast-language: JA; mso-bidi-language: AR-SA;">積分評価可能な最大数</span><span style="color: #0000ff;">
+double</span> NAG_CALL f<span>(</span>Integer ndim, <span style="color: #0000ff;">double</span> x<span>[]</span>, Nag_User <span style="color: #000040;">*</span>comm<span>)</span>  <span>
+{</span>
+  <span style="color: #0000ff;">return</span> x<span>[</span><span style="color: #0000dd;">0</span><span>]</span><span style="color: #000040;">*</span>x<span>[</span><span style="color: #0000dd;">1</span><span>]</span><span style="color: #000040;">*</span><span>(</span>x<span>[</span><span style="color: #0000dd;">0</span><span>]</span><span style="color: #000040;">+</span>x<span>[</span><span style="color: #0000dd;">1</span><span>])</span>;  <span style="color: #008000;">//</span><span style="font-size: 9.0pt; mso-bidi-font-size: 10.0pt; font-family: 'ＭＳ Ｐゴシック'; mso-ascii-font-family: 'Courier New'; mso-hansi-font-family: 'Courier New'; mso-bidi-font-family: 'Courier New'; color: #008000; mso-font-kerning: 0pt; mso-ansi-language: EN-US; mso-fareast-language: JA; mso-bidi-language: AR-SA;">関数式の定義</span><span style="color: #008000;"> </span><span>
+}</span><span style="color: #0000ff;">
+int</span> multid_quad_monte_carlo<span>()
+{</span>
+        Integer exit_status <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>, k, maxcls <span style="color: #000080;">=</span> MAXCLS, mincls;
+        Integer ndim <span style="color: #000080;">=</span><span style="color: #0000dd;">2</span>;  <span style="color: #008000;">// </span><span style="font-size: 9.0pt; mso-bidi-font-size: 10.0pt; font-family: 'ＭＳ Ｐゴシック'; mso-ascii-font-family: 'Courier New'; mso-hansi-font-family: 'Courier New'; mso-bidi-font-family: 'Courier New'; color: #008000; mso-font-kerning: 0pt; mso-ansi-language: EN-US; mso-fareast-language: JA; mso-bidi-language: AR-SA;">積分の次元数</span>
+        
+        NagError fail;
+        Nag_MCMethod method;
+        Nag_Start cont;
+        Nag_User comm;
+        <span style="color: #0000ff;">double</span> a<span>[</span><span style="color: #0000dd;">2</span><span>]</span>, b<span>[</span><span style="color: #0000dd;">2</span><span>]</span>, acc, <span style="color: #000040;">*</span>comm_arr, eps, finest;         
+        comm_arr<span style="color: #000080;">=</span><span style="color: #0000ff;">NULL</span>;
+        
+        <span style="color: #0000ff;">if</span> <span>(</span>ndim <span style="color: #000080;">&lt;</span> <span style="color: #0000dd;">1</span><span>){</span>
+                <span>printf(</span><span style="color: #ff00ff;">"Invalid ndim.</span><span style="color: #666666; font-weight: bold;">\n</span><span style="color: #ff00ff;">"</span><span>)</span>;
+                exit_status <span style="color: #000080;">=</span> <span style="color: #000040;">-</span><span style="color: #0000dd;">1</span>;
+                <span style="color: #0000ff;">return</span> exit_status;   
+    <span>}</span> 
+        <span style="color: #0000ff;">for</span> <span>(</span>k <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>; k <span style="color: #000080;">&lt;</span> ndim; k<span style="color: #000040;">++</span><span>){</span>
+                a<span>[</span>k<span>]</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.0</span>;   <span style="color: #008000;">// </span><span style="font-size: 9.0pt; mso-bidi-font-size: 10.0pt; font-family: 'ＭＳ Ｐゴシック'; mso-ascii-font-family: 'Courier New'; mso-hansi-font-family: 'Courier New'; mso-bidi-font-family: 'Courier New'; color: #008000; mso-font-kerning: 0pt; mso-ansi-language: EN-US; mso-fareast-language: JA; mso-bidi-language: AR-SA;">積分の下限</span>
+                b<span>[</span>k<span>]</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1.0</span>;   <span style="color: #008000;">// </span><span style="font-size: 9.0pt; mso-bidi-font-size: 10.0pt; font-family: 'ＭＳ Ｐゴシック'; mso-ascii-font-family: 'Courier New'; mso-hansi-font-family: 'Courier New'; mso-bidi-font-family: 'Courier New'; color: #008000; mso-font-kerning: 0pt; mso-ansi-language: EN-US; mso-fareast-language: JA; mso-bidi-language: AR-SA;">積分の上限</span>
+        <span>}</span>
+        
+        eps <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.01</span>;  <span style="color: #008000;">//</span><span style="font-size: 9.0pt; mso-bidi-font-size: 10.0pt; font-family: 'ＭＳ Ｐゴシック'; mso-ascii-font-family: 'Courier New'; mso-hansi-font-family: 'Courier New'; mso-bidi-font-family: 'Courier New'; color: #008000; mso-font-kerning: 0pt; mso-ansi-language: EN-US; mso-fareast-language: JA; mso-bidi-language: AR-SA;">相対精度</span>
+        mincls <span style="color: #000080;">=</span> <span style="color: #0000dd;">1000</span>; <span style="color: #008000;">//</span><span style="font-size: 9.0pt; mso-bidi-font-size: 10.0pt; font-family: 'ＭＳ Ｐゴシック'; mso-ascii-font-family: 'Courier New'; mso-hansi-font-family: 'Courier New'; mso-bidi-font-family: 'Courier New'; color: #008000; mso-font-kerning: 0pt; mso-ansi-language: EN-US; mso-fareast-language: JA; mso-bidi-language: AR-SA;">積分評価の最小数</span>
+        method <span style="color: #000080;">=</span> Nag_ManyIterations;
+        cont <span style="color: #000080;">=</span> Nag_Cold;
+        
+       <span style="color: #008000;">/* nag_multid_quad_monte_carlo_1 (d01xbc).
+        * Multi-dimensional quadrature, using Monte Carlo method,
+        * thread-safe
+        */</span>       
+nag_multid_quad_monte_carlo_1<span>(</span>ndim, f, method, cont, a, b, <span style="color: #000040;">&amp;</span>mincls, maxcls,eps, <span style="color: #000040;">&amp;</span>finest, <span style="color: #000040;">&amp;</span>acc, <span style="color: #000040;">&amp;</span>comm_arr, <span style="color: #000040;">&amp;</span>comm, <span style="color: #000040;">&amp;</span>fail<span>)</span>;<span style="color: #0000ff;">
+if</span> <span>(</span>fail.<span>code</span> <span style="color: #000080;">==</span> NE_NOERROR <span style="color: #000040;">||</span> fail.<span>code</span> <span style="color: #000080;">==</span> NE_QUAD_MAX_INTEGRAND_EVAL<span>){</span>
+        <span style="color: #0000ff;">if</span> <span>(</span>fail.<span>code</span> <span style="color: #000080;">==</span> NE_QUAD_MAX_INTEGRAND_EVAL<span>){</span>
+                <span>printf(</span><span style="color: #ff00ff;">"Error from nag_multid_quad_monte_carlo_1 (d01xbc).</span><span style="color: #666666; font-weight: bold;">\n</span><span style="color: #ff00ff;">%s</span><span style="color: #666666; font-weight: bold;">\n</span><span style="color: #ff00ff;">"</span>,fail.<span>message)</span>;
+                exit_status <span style="color: #000080;">=</span> <span style="color: #0000dd;">2</span>;
+        <span>}</span>
+        <span style="color: #008000;">//</span><span style="font-size: 9.0pt; mso-bidi-font-size: 10.0pt; font-family: 'ＭＳ Ｐゴシック'; mso-ascii-font-family: 'Courier New'; mso-hansi-font-family: 'Courier New'; mso-bidi-font-family: 'Courier New'; color: #008000; mso-font-kerning: 0pt; mso-ansi-language: EN-US; mso-fareast-language: JA; mso-bidi-language: AR-SA;">計算結果の出力</span>
+        <span>printf(</span><span style="color: #ff00ff;">"Requested accuracy = %7.2e</span><span style="color: #666666; font-weight: bold;">\n</span><span style="color: #ff00ff;">"</span>, eps<span>)</span>;
+        <span>printf(</span><span style="color: #ff00ff;">"Estimated value = %7.5f</span><span style="color: #666666; font-weight: bold;">\n</span><span style="color: #ff00ff;">"</span>, finest<span>)</span>;
+        <span>printf(</span><span style="color: #ff00ff;">"Estimated accuracy = %7.2e</span><span style="color: #666666; font-weight: bold;">\n</span><span style="color: #ff00ff;">"</span>, acc<span>)</span>;
+        <span>printf(</span><span style="color: #ff00ff;">"Number of evaluations = %6d</span><span style="color: #666666; font-weight: bold;">\n</span><span style="color: #ff00ff;">"</span>, mincls<span>)</span>;     <span>
+}</span><span style="color: #0000ff;">
+else</span><span>{</span>
+        <span>printf(</span><span style="color: #ff00ff;">"Error from nag_multid_quad_monte_carlo_1 (d01xbc).</span><span style="color: #666666; font-weight: bold;">\n</span><span style="color: #ff00ff;">%s</span><span style="color: #666666; font-weight: bold;">\n</span><span style="color: #ff00ff;">"</span>,fail.<span>message)</span>;
+        exit_status <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>;<span>
+}</span><span style="color: #008000;">
+/* 内部に割り当てられたメモリの解放 */</span><span style="color: #0000ff;">
+if</span> <span>(</span>comm_arr<span>)</span> 
+        NAG_FREE<span>(</span>comm_arr<span>)</span>;<span style="color: #0000ff;">
+return</span> exit_status;<span>
+}</span>
+</pre>
+<p>次に、LabTalkコンソールの関数を呼び出すと、以下のようになります。</p>
+<pre class="oc" style="font-family: monospace;">
+Requested accuracy <span style="color: #000080;">=</span> 1.00e<span style="color: #000040;">-</span>002
+Estimated value <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.33326</span>
+Estimated accuracy <span style="color: #000080;">=</span> 2.23e<span style="color: #000040;">-</span>004
+Number of evaluations <span style="color: #000080;">=</span>   <span style="color: #0000dd;">1552</span>
+</pre>
+<h3><a name="Using_nag_multid_quad_adapt_1" id="Using_nag_multid_quad_adapt_1"></a><span class="mw-headline"><i>nag_multid_quad_adapt_1</i>を使って</span></h3>
+<pre class="oc" style="font-family: monospace;">
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>OC_nag.<span>h</span><span style="color: #000080;">&gt;</span> <span style="color: #0000ff;">
+#include</span> <span style="color: #000080;">&lt;</span>Origin.<span>h</span><span style="color: #000080;">&gt;</span><span style="color: #0000ff;">
+#define</span> NDIM <span style="color: #0000dd;">2</span>   <span style="color: #008000;">//</span><span style="font-size: 9.0pt; mso-bidi-font-size: 10.0pt; font-family: 'ＭＳ Ｐゴシック'; mso-ascii-font-family: 'Courier New'; mso-hansi-font-family: 'Courier New'; mso-bidi-font-family: 'Courier New'; color: #008000; mso-font-kerning: 0pt; mso-ansi-language: EN-US; mso-fareast-language: JA; mso-bidi-language: AR-SA;">積分次元数</span><span style="color: #0000ff;">
+#define</span> MAXPTS <span style="color: #0000dd;">1000</span><span style="color: #000040;">*</span>NDIM   <span style="color: #008000;">//</span><span style="font-size: 9.0pt; mso-bidi-font-size: 10.0pt; font-family: 'ＭＳ Ｐゴシック'; mso-ascii-font-family: 'Courier New'; mso-hansi-font-family: 'Courier New'; mso-bidi-font-family: 'Courier New'; color: #008000; mso-font-kerning: 0pt; mso-ansi-language: EN-US; mso-fareast-language: JA; mso-bidi-language: AR-SA;">積分評価の最大数</span><span style="color: #0000ff;">
+double</span> NAG_CALL f<span>(</span>Integer n, <span style="color: #0000ff;">double</span> x<span>[]</span>, Nag_User <span style="color: #000040;">*</span>comm<span>)
+{</span>
+        <span style="color: #0000ff;">return</span> x<span>[</span><span style="color: #0000dd;">0</span><span>]</span><span style="color: #000040;">*</span>x<span>[</span><span style="color: #0000dd;">1</span><span>]</span><span style="color: #000040;">*</span><span>(</span>x<span>[</span><span style="color: #0000dd;">0</span><span>]</span><span style="color: #000040;">+</span>x<span>[</span><span style="color: #0000dd;">1</span><span>])</span>;  <span style="color: #008000;">//</span><span style="font-size: 9.0pt; mso-bidi-font-size: 10.0pt; font-family: 'ＭＳ Ｐゴシック'; mso-ascii-font-family: 'Courier New'; mso-hansi-font-family: 'Courier New'; mso-bidi-font-family: 'Courier New'; color: #008000; mso-font-kerning: 0pt; mso-ansi-language: EN-US; mso-fareast-language: JA; mso-bidi-language: AR-SA;">関数式の定義</span><span style="color: #008000;"> </span><span>
+}</span><span style="color: #0000ff;">
+int</span>  multid_quad_adapt<span>()
+{</span>
+        Integer exit_status <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>;
+        Integer ndim <span style="color: #000080;">=</span> NDIM;
+        Integer maxpts <span style="color: #000080;">=</span> MAXPTS;
+        
+        <span style="color: #0000ff;">double</span> a<span>[</span><span style="color: #0000dd;">2</span><span>]</span>, b<span>[</span><span style="color: #0000dd;">2</span><span>]</span>;
+        Integer k;
+        <span style="color: #0000ff;">double</span> finval;
+        Integer minpts;
+        <span style="color: #0000ff;">double</span> acc, eps;
+        Nag_User comm;
+        NagError fail;  
+        
+        <span style="color: #0000ff;">for</span> <span>(</span>k <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>; k <span style="color: #000080;">&lt;</span> <span style="color: #0000dd;">2</span>; k<span style="color: #000040;">++</span><span>)</span>
+        <span>{</span>
+                a<span>[</span>k<span>]</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.0</span>; <span style="color: #008000;">//</span><span style="font-size: 9.0pt; mso-bidi-font-size: 10.0pt; font-family: 'ＭＳ Ｐゴシック'; mso-ascii-font-family: 'Courier New'; mso-hansi-font-family: 'Courier New'; mso-bidi-font-family: 'Courier New'; color: #008000; mso-font-kerning: 0pt; mso-ansi-language: EN-US; mso-fareast-language: JA; mso-bidi-language: AR-SA;">積分の下限</span>
+                b<span>[</span>k<span>]</span> <span style="color: #000080;">=</span> <span style="color: #0000dd;">1.0</span>; <span style="color: #008000;">//</span><span style="font-size: 9.0pt; mso-bidi-font-size: 10.0pt; font-family: 'ＭＳ Ｐゴシック'; mso-ascii-font-family: 'Courier New'; mso-hansi-font-family: 'Courier New'; mso-bidi-font-family: 'Courier New'; color: #008000; mso-font-kerning: 0pt; mso-ansi-language: EN-US; mso-fareast-language: JA; mso-bidi-language: AR-SA;">積分の上限</span>
+        <span>}</span>     
+        eps <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.001</span>;
+        minpts <span style="color: #000080;">=</span> <span style="color: #0000dd;">0</span>;   
+        nag_multid_quad_adapt_1<span>(</span>ndim, f, a, b, <span style="color: #000040;">&amp;</span>minpts, maxpts, eps, <span style="color: #000040;">&amp;</span>finval,<span style="color: #000040;">&amp;</span>acc, <span style="color: #000040;">&amp;</span>comm, <span style="color: #000040;">&amp;</span>fail<span>)</span>;
+        <span style="color: #0000ff;">if</span> <span>(</span>fail.<span>code</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span> NE_NOERROR <span style="color: #000040;">&amp;&amp;</span> fail.<span>code</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span> NE_QUAD_MAX_INTEGRAND_EVAL<span>)</span>
+        <span>{</span>     
+                <span>printf(</span><span style="color: #ff00ff;">"Error from nag_multid_quad_monte_carlo_1 (d01xbc).</span><span style="color: #666666; font-weight: bold;">\n</span><span style="color: #ff00ff;">%s</span><span style="color: #666666; font-weight: bold;">\n</span><span style="color: #ff00ff;">"</span>,fail.<span>message)</span>;
+                exit_status <span style="color: #000080;">=</span> <span style="color: #0000dd;">1</span>;
+                <span style="color: #0000ff;">return</span> exit_status;
+        <span>}</span>     
+        <span style="color: #008000;">//</span><span style="font-size: 9.0pt; mso-bidi-font-size: 10.0pt; font-family: 'ＭＳ Ｐゴシック'; mso-ascii-font-family: 'Courier New'; mso-hansi-font-family: 'Courier New'; mso-bidi-font-family: 'Courier New'; color: #008000; mso-font-kerning: 0pt; mso-ansi-language: EN-US; mso-fareast-language: JA; mso-bidi-language: AR-SA;">計算結果の出力</span>
+        <span>printf(</span><span style="color: #ff00ff;">"Requested accuracy = %7.2e</span><span style="color: #666666; font-weight: bold;">\n</span><span style="color: #ff00ff;">"</span>, eps<span>)</span>;
+        <span>printf(</span><span style="color: #ff00ff;">"Estimated value = %7.5f</span><span style="color: #666666; font-weight: bold;">\n</span><span style="color: #ff00ff;">"</span>, finval<span>)</span>;
+        <span>printf(</span><span style="color: #ff00ff;">"Estimated accuracy = %7.2e</span><span style="color: #666666; font-weight: bold;">\n</span><span style="color: #ff00ff;">"</span>, acc<span>)</span>; 
+        <span style="color: #0000ff;">return</span> <span style="color: #0000dd;">0</span>;<span>
+}</span>
+</pre>
+<p>次に、LabTalkコンソールの関数を呼び出すと、次のようになります。</p>
+<pre class="oc" style="font-family: monospace;">
+Requested accuracy <span style="color: #000080;">=</span> 1.00e<span style="color: #000040;">-</span>003
+Estimated value <span style="color: #000080;">=</span> <span style="color: #0000dd;">0.33333</span>
+Estimated accuracy <span style="color: #000080;">=</span> 3.33e<span style="color: #000040;">-</span>016
+</pre>

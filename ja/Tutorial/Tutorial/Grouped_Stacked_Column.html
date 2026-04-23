@@ -1,0 +1,237 @@
+﻿<h1 class="firstheading">グループ化積み上げ棒グラフ</h1>
+<p class="urlname" style="display: none;">GroupedStackedColumn</p>
+<div id="toc" class="toc">
+	<div id="toctitle">
+		<h2>目次</h2>
+	</div>
+	<ol>
+		<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> 
+		 <span class="toctext">概要</span></a></li>
+		<li class="toclevel-1 tocsection-2"><a href="#What_will_you_learn"><span 
+		 class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+		<li class="toclevel-1 tocsection-3"><a href="#Create_a_Grouped_Stacked_Column_Plot"><span 
+		 class="tocnumber">3</span> <span class="toctext">グループ化積み上げ棒グラフを作成する</span></a> 
+		 
+		<ol>
+			<li class="toclevel-2 tocsection-4"><a href="#Method_1:_Using_the_Online_Template"><span 
+			 class="tocnumber">3.1</span> <span class="toctext">方法1：オンラインテンプレートを使用する</span></a></li>
+			<li class="toclevel-2 tocsection-5"><a href="#Method_2:_Subgroup_the_Stacked_Columns"><span 
+			 class="tocnumber">3.2</span> <span class="toctext">方法2：積み上げ棒グラフをサブグループ化する</span></a></li>
+		</ol></li>
+		<li class="toclevel-1 tocsection-6"><a href="#Add_Lables_for_Columns"><span 
+		 class="tocnumber">4</span> <span class="toctext">棒グラフにラベルを追加する</span></a></li>
+		<li class="toclevel-1 tocsection-7"><a href="#Create_a_Tick_Label_Table_for_X_Axis"><span 
+		 class="tocnumber">5</span> <span class="toctext">X軸の目盛ラベル表を作成する</span></a></li>
+		<li class="toclevel-1 tocsection-8"><a href="#Customize_Column_Colors"><span 
+		 class="tocnumber">6</span> <span class="toctext">色をカスタマイズする</span></a></li>
+	</ol>
+</div>
+<p><br />
+</p>
+<table class="simple" width="80%">
+	<tr style="vertical-align: top;">
+		<td style="width: 40%;"><a class="image"><img alt="Video Image.png" 
+														 src="../images/Grouped_Stacked_Column/Video_Image.png" 
+														 width="33" border="0" /></a> 
+		 <a class="image"><img alt="Video Text Image.png" src="../images/Grouped_Stacked_Column/Video_Text_Image.png" 
+								 width="135" border="0" /></a> 
+		<ul>
+			<li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=99" 
+					 target="_blank">2Dグラフにエラーバーをプロット</a></li>
+			<li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=10" 
+					 target="_blank">グラフにエラーバーを追加する</a></li>
+			<li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=253" 
+					 target="_blank">XとYのエラーバーをプロットする</a></li>
+			<li><a class="external text" href="https://www.originlab.com/videos/details.aspx?id=252" 
+					 target="_blank">Yの正・負で異なるエラーバーを持つデータをプロットする</a></li>
+		</ul></td>
+		<td style="width: 40%;"><a class="image"><img alt="Website blog icon circle.png" 
+														 src="../images/Grouped_Stacked_Column/Website_blog_icon_circle.png" 
+														 width="31" border="0" /></a> 
+		 <a class="image"><img alt="Blog Image 33x33px.png" src="../images/Grouped_Stacked_Column/Blog_Image_33x33px.png" 
+								 width="135" border="0" /></a> 
+		<ul>
+			<li><a class="external text" href="http://blog.originlab.com/plotting-barcolumn-graphs-with-indexed-patterns" 
+					 target="_blank">パターンがインデックスに基づく縦/横棒グラフを作成する</a></li>
+			<li><a class="external text" href="http://blog.originlab.com/grouped-columns-with-gap-between-subgroups" 
+					 target="_blank">サブグループ間に間隔を有するグループ化縦棒グラフ</a></li>
+		</ul></td>
+	</tr>
+</table>
+<p><br />
+</p>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>Originでは、複数データセットを積み上げ棒グラフとして作図可能です。通常、データセットはデフォルトでグループ化されます。さらに、サブグループ化により、以下に示すような2つのサブグループを持つ積み上げ棒グラフの作成が可能になりました。 
+ <br />
+<a class="image"><img alt="Grouped Stacked Column 08.png" src="../images/Grouped_Stacked_Column/Grouped_Stacked_Column_08.png" 
+						 width="561" height="409" border="0" /></a><br />
+</p>
+<p class="version">必要なOriginのバージョン: 2021 SR0以降</p>
+<h2><a name="What_will_you_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。 </p>
+<ul>
+	<li>オンラインテンプレートを使用してグループ化積み上げ棒グラフを作図する</li>
+	<li>一般的な積み上げ棒グラフをサブグループ化して、グループ化積み上げ棒にする</li>
+	<li>縦棒にラベルを追加する</li>
+	<li>グラフのX軸表を表示し作成・編集する</li>
+</ul>
+<h2><a name="Create_a_Grouped_Stacked_Column_Plot"></a><span class="mw-headline">グループ化積み上げ棒グラフを作成する</span></h2>
+<p>このチュートリアルは、<i>&lt;Origin EXE Folder&gt;\Samples\Tutorial Data.opj</i>というプロジェクトの<i>Grouped 
+ Stacked Column</i>フォルダを使います。 </p>
+<p><b>Note</b>: <b>ラーニングセンター</b>ダイアログのグラフサンプルにある<i>Column and Bar</i>のサムネイルをダブルクリックしてサンプルグラフを開くことができます。 
+ (メニューから<b>ヘルプ:ラーニングセンター</b>を開くか、<b>F11</b>を押すと開きます。） </p>
+<p><b>グループ化積み上げ棒グラフを作成するには、次の2つの方法があります。</b> </p>
+<ul>
+	<li>Origin 2021以降、Originは多数のオンラインテンプレートを提供しています。<b>テンプレートセンター</b>からテンプレート「並列積み上げ縦棒グラフ」をダウンロードして、グループ化積み上げ棒グラフを直接プロットするために使用できます。 
+	 </li>
+	<li>もちろん、一般的な積み上げ縦棒グラフからグループ化積み上げ棒グラフを作成することもできます。 </li>
+</ul>
+<h3><a name="Method_1:_Using_the_Online_Template"></a><span class="mw-headline">方法1：オンラインテンプレートを使用する</span></h3>
+<ol>
+	<li>列B～Gを選択した状態で、メニューから<b>作図：ユーザテンプレートに作図</b>を選択して<b>テンプレートライブラリ</b>を開きます。右上の<b>テンプレートセンターを開く</b>ボタンをクリックします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Grouped Stacked Column M1 01.png" 
+									 src="../images/Grouped_Stacked_Column/750px-Grouped_Stacked_Column_M1_01.png" 
+									 width="812" height="286" border="0" /></a></dd>
+	</dl></li>
+	<li><b>テンプレートセンター</b>が開きます。オンラインテンプレートの「並列積み上げ縦棒グラフ」を探してダウンロードします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Grouped Stacked Column M1 02.png" 
+									 src="../images/Grouped_Stacked_Column/750px-Grouped_Stacked_Column_M1_02.png" 
+									 width="862" height="692" border="0" /></a></dd>
+	</dl></li>
+	<li>テンプレートのダウンロード後、<b>テンプレートセンター</b>を閉じます。このテンプレートは、<b>テンプレートライブラリ</b>の一覧に表示されます。そのテンプレートを選択して<b>作図</b>ボタンをクリックすると、グラフが作成されます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Grouped Stacked Column M1 03.png" 
+									 src="../images/Grouped_Stacked_Column/750px-Grouped_Stacked_Column_M1_03.png" 
+									 width="812" height="593" border="0" /></a></dd>
+	</dl></li>
+	<li>最終的に、次のグラフのようになります。 
+	<dl>
+		<dd><a class="image"><img alt="Grouped Stacked Column M1 04.png" 
+									 src="../images/Grouped_Stacked_Column/Grouped_Stacked_Column_M1_04.png" 
+									 width="533" height="357" border="0" /></a></dd>
+	</dl></li>
+</ol>
+<h3><a name="Method_2:_Subgroup_the_Stacked_Columns"></a><span class="mw-headline">方法2：積み上げ棒グラフをサブグループ化する</span></h3>
+<ol>
+	<li>ワークシート<b>Sheet1</b>をアクティブにし、B列からG列までを選択して、 <b>作図&gt;棒、円、面積: 積み上げ縦棒</b>を選択してグラフを作図します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Grouped Stacked Column 01.png" src="../images/Grouped_Stacked_Column/Grouped_Stacked_Column_01.png" 
+									 width="371" height="308" border="0" /></a></dd>
+	</dl></li>
+	<li>縦棒グラフをダブルクリックして、<b>作図の詳細（プロット属性）</b>ダイアログを開きます。<b><b>グループ</b></b>タブで、<b><b><b>サブグループ</b></b></b>を<b><b><b>サイズによる</b></b></b>に設定し、<b><b><b>サブグループ</b>のサイズ</b></b>を<b>3</b>にします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Grouped Stacked Column 02 2.png" 
+									 src="../images/Grouped_Stacked_Column/Grouped_Stacked_Column_02_2.png" 
+									 width="565" height="452" border="0" /></a></dd>
+	</dl></li>
+	<li><b><b>作図の詳細</b></b>ダイアログの左パネルで、<b><b>Layer1</b></b>を選択し、<b><b>積み上げ形式</b></b>タブを開きます。<b>累積/推移のサブグループ内のオフセット（「グループ」タブ内）</b>のチェックを付けます。<b>適用</b>ボタンをクリックします。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Grouped Stacked Column 05.png" src="../images/Grouped_Stacked_Column/Grouped_Stacked_Column_05.png" 
+									 width="536" height="366" border="0" /></a></dd>
+	</dl></li>
+	<li><b>OK</b>をクリックして、ダイアログを閉じます。メニューから<b><b>グラフ操作：再スケールして全てを表示</b></b>を選択して再スケールします。最終的に、次のグラフのようになります。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Grouped Stacked Column M2 01.png" 
+									 src="../images/Grouped_Stacked_Column/Grouped_Stacked_Column_M2_01.png" 
+									 width="426" height="354" border="0" /></a></dd>
+	</dl></li>
+</ol>
+<h2><a name="Add_Lables_for_Columns"></a><span class="mw-headline">棒グラフにラベルを追加する</span></h2>
+<ol>
+	<li>縦棒をクリックして表示されるミニツールバーで、<b>グループ</b>タブの「<b>データラベルを表示</b>」ボタンを選択して縦棒のラベルを表示します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Grouped Stacked Column 03 2.png" 
+									 src="../images/Grouped_Stacked_Column/Grouped_Stacked_Column_03_2.png" 
+									 width="490" height="305" border="0" /></a></dd>
+	</dl></li>
+	<li>ラベルをクリックして表示されるミニツールバーで、<b>ラベルソース</b>ボタンをクリックし、ドロップダウンリストから<b>パーセント</b>を選択します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Grouped Stacked Column 03 3.png" 
+									 src="../images/Grouped_Stacked_Column/Grouped_Stacked_Column_03_3.png" 
+									 width="492" height="303" border="0" /></a></dd>
+		<dd>ミニツールバーを使用してすべての列のラベルを変更するには、現在のレイヤグループの最初のプロットを選択する必要があることに注意してください。積み上げ棒グラフでは、最初のサブグループ内の一番下のものを最初のプロットにする必要があります。</dd>
+	</dl></li>
+	<li>グラフレイヤをダブルクリックして、<b>作図の詳細</b>ダイアログを開きます。<b><b>作図の詳細</b></b>ダイアログの左パネルで、<b><b>Layer1</b></b>を選択し、<b><b>積み上げ形式</b></b>タブを開きます。<b>積み上げ棒グラフで合計ラベルを表示</b>にチェックを入れます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Grouped Stacked Column 09.png" src="../images/Grouped_Stacked_Column/650px-Grouped_Stacked_Column_09.png" 
+									 width="811" height="392" border="0" /></a></dd>
+	</dl></li>
+	<li>最終的に、次のようなグラフとラベルになります。 
+	<dl>
+		<dd><a class="image"><img alt="Grouped Stacked Column 03 4.png" 
+									 src="../images/Grouped_Stacked_Column/Grouped_Stacked_Column_03_4.png" 
+									 width="676" height="412" border="0" /></a></dd>
+	</dl></li>
+</ol>
+<h2><a name="Create_a_Tick_Label_Table_for_X_Axis"></a><span class="mw-headline">X軸の目盛ラベル表を作成する</span></h2>
+<ol>
+	<li>X 軸の目盛ラベルの行を2行にするには、X 軸の目盛ラベル上でダブルクリックして、<b>軸</b>ダイアログを開きます。 
+	<ul>
+		<li><b><b>目盛ラベル</b></b>タブを選択してから<b><b>下</b></b>軸アイコンを選択します。 </li>
+		<li>その中の<b>フォーマット</b>タブで<b>フォントサイズ</b>を<b>16</b>に設定します。</li>
+		<li><b>表</b>タブに移動し、一番上にある<b>有効にする</b>チェックをつけてから<b>行数</b>を<b>2</b>に変更します。 
+		 すると、左パネルの<b><b>下</b></b>アイコンが<b><b>下1</b></b>に変わり、<b><b>下2</b></b>が追加されます。 
+		 </li>
+		<li>表のレイアウトは以下のように設定します。 
+		<dl>
+			<dd><a class="image"><img alt="Grouped Stacked Column 06.png" 
+										 src="../images/Grouped_Stacked_Column/Grouped_Stacked_Column_06.png" 
+										 width="560" height="527" border="0" /></a></dd>
+		</dl></li>
+		<li><b><b>下2</b></b>アイコンを選択し、表示タブの<b><b>データセット名</b></b>を<i>[Book4]Sheet1!H</i> 
+		 に設定し、<b><b>フォーマット</b></b>タブで<b>フォントサイズ</b>を12にします。これにより、ワークシートの<b>Label(Y)</b>列を参照した自動車の名称が目盛ラベル行に表示されます。</li>
+		<li>表のレイアウトは下図のダイアログのように設定します。 
+		<dl>
+			<dd><a class="image"><img alt="Grouped Stacked Column 07.png" 
+										 src="../images/Grouped_Stacked_Column/Grouped_Stacked_Column_07.png" 
+										 width="657" height="583" border="0" /></a></dd>
+		</dl></li>
+	</ul></li>
+	<li>OKボタンをクリックしてダイアログを閉じます。凡例をレイヤ内に移動します。凡例をクリックしてミニツールバーを開き、<b>データプロット凡例変換モード</b>ボタンをクリックしてドロップダウンから<i>ロングネーム</i>を選びます。 
+	 
+	<ul>
+		<li><dl>
+			<dd><a class="image"><img alt="Grouped Stacked Column 07b.png" 
+										 src="../images/Grouped_Stacked_Column/Grouped_Stacked_Column_07b.png" 
+										 width="616" height="426" border="0" /></a></dd>
+		</dl></li>
+	</ul></li>
+	<li>最終的に、次のグラフのようになります。 
+	<dl>
+		<dd><a class="image"><img alt="Grouped Stacked Column 07a.png" 
+									 src="../images/Grouped_Stacked_Column/Grouped_Stacked_Column_07a.png" 
+									 width="571" height="417" border="0" /></a></dd>
+	</dl></li>
+</ol>
+<h2><a name="Customize_Column_Colors"></a><span class="mw-headline">色をカスタマイズする</span></h2>
+<ol>
+	<li>縦棒グラフをダブルクリックして、<b>作図の詳細（プロット属性）</b>ダイアログを開きます。<b>グループ</b> タブを開き、<b>塗り色</b>の<b>詳細</b>の中にある<a 
+	 class="image"><img alt="Button browser.png" src="../images/Grouped_Stacked_Column/Button_browser.png" 
+						 width="15" border="0" /></a> ボタンをクリックします。<b>色の作成</b>ダイアログが開きます。 
+	 </li>
+	<li>1つめの色を選択し、<b>赤</b>,<b>緑</b>,<b>青</b> の値を <b>165</b>,<b>196</b>,<b>0</b>に設定し、<b>置換</b>ボタンをクリックしてこの色をカラーリストに追加します。 
+	 </li>
+	<li>RGBの値で、5つのカスタムカラーを追加してみます。: (<b>243, 62, 12</b>), (<b>243, 200, 
+	 30</b>), (<b>0, 64, 127</b>) (<b>119, 0, 31</b>), (<b>124, 191, 243</b>).</li>
+	<li>6つめより下の色をすべて選択し、キーボードの <b>Delete</b> キーを押すと、選択されていた色が削除され、作成した6つの色のみが残ります。<b>OK 
+	 </b>をクリックして、<b>色の作成</b>を閉じます。 
+	<dl>
+		<dd><a class="image"><img alt="Grouped Stacked Column 02.png" src="../images/Grouped_Stacked_Column/Grouped_Stacked_Column_02.png" 
+									 width="748" height="611" border="0" /></a></dd>
+	</dl></li>
+	<li>グラフウィンドウの灰色の背景の部分で右クリックし、開いたメニューから、 <b>レイヤタイトルを追加/変更</b> を選択します。レイヤタイトルとして、<b>Sales</b>と入力します。 
+	 </li>
+	<li>サイズの変更が必要な場合は、緑色のレイヤ操作ハンドルを使って変更します。最終的に、サマリーにあるようなグラフになります。</li>
+</ol>

@@ -1,0 +1,87 @@
+﻿<h1 class="firstheading">不釣合いなデータのグループ化ボックスチャート</h1><p class='urlname' style='display: none'>UnbalanecedGroupedBoxChart</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Creating_the_Box_Plot_from_Raw_Data"><span class="tocnumber">3.1</span> <span class="toctext">素データによるボックスチャートの作図</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Customizing_the_axis_table_to_display_unbalanced_groupings"><span class="tocnumber">3.2</span> <span class="toctext">軸の表を編集して不釣合いなグループ化グラフを表示する</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Add_a_top_axis_table_row"><span class="tocnumber">3.3</span> <span class="toctext">グラフの上に軸の行を追加する</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Further_customization"><span class="tocnumber">3.4</span> <span class="toctext">詳細な編集</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>Originは、素データからカスタム化した表形式の軸付きの不釣合いなグループ化ボックスチャートの作図が可能です。
+</p>
+<dl><dd><a class="image"><img alt="Unbalanced Box Chart 01.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_01.png" width="543"  /></a></dd></dl>
+<p class="version" >必要なOriginのバージョン: Origin 2015 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。
+</p>
+<ul><li> 素データから不釣合いなグループ化ボックスチャートを作成</li>
+<li> グラフの上軸に行を追加し、更なるグループ情報を追加する</li>
+<li> 軸表を編集</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Creating_the_Box_Plot_from_Raw_Data"></a><span class="mw-headline">素データによるボックスチャートの作図</span></h3>
+<p>このチュートリアルは、チュートリアルデータプロジェクト（<i>&lt;Origin EXE フォルダ&gt;\Samples\TutorialData.opj</i>）と関連しています。
+<br />
+</p>
+<ol><li> <b>チュートリアルデータ</b>プロジェクトを開き、<i>Unbalanced Grouped Box Chart</i> フォルダにブラウズします。</li>
+<li> <b>Book3</b>ワークブックをアクティブにします。</li>
+<li> A列以外の全ての列を選択し、メニューから<b>作図&gt;カテゴリカル：グループ化したボックスチャート - 素データ</b>を選択して、<b>Plotting: plotgboxraw</b>ダイアログを開きます。ダイアログで、<b><b>グループ番号</b></b>を<b><b>2</b></b>に、<b><b>第1グループの行</b></b>を<b>Continents</b>に、<b><b>第2グループの行</b></b>を<b>Country</b>に設定します。これにより、ワークシート上のラベル列であるグループを元に、2つ分類項目を持つ3つのグループに配置された列データでボックスチャートを作成します。
+<dl><dd><a class="image"><img alt="Unbalanced Box Chart 03.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_03.png" width="831"  /></a></dd></dl></li>
+<li> <b><b>OK</b></b>ボタンをクリックします。凡例を選択してから削除します。素データからのグループ化ボックスチャートは、以下のように2つのグループレベルで作成されます。
+<dl><dd><a class="image"><img alt="Unbalanced Box Chart 06.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_06.png" width="488"  /></a></dd></dl></li></ol>
+<h3><a name="Customizing_the_axis_table_to_display_unbalanced_groupings"></a><span class="mw-headline">軸の表を編集して不釣合いなグループ化グラフを表示する</span></h3>
+<ol><li> 色とサブグループ間の間隔を調整して見やすくしましょう。まず、全てのボックスを灰色に変更するところから始めます。メインメニューの<b>フォーマット：</b><b> </b><b>作図の詳細（プロット属性）</b> を選びます。<b>作図の詳細</b>ダイアログで、<b>グラフグループ</b>タブを開きます。<b><b>境界色</b></b>の<b>推移</b><b>を<b>なし</b></b>に、<b>サブグループ</b>も<b>なし</b>に設定します。これで、ボックスの境界線は色推移に従わずに設定できます。
+<dl><dd><a class="image"><img alt="Unbalanced Box Chart 07.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_07.png" width="633"  /></a></dd></dl></li>
+<li> <b>パターン</b>タブを開き、下図のように設定します。
+<dl><dd><a class="image"><img alt="Unbalanced Box Chart 08.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_08.png" width="507"  /></a></dd></dl></li>
+<li> <b>間隔</b>タブを開きます。<b>サブグループ間の間隔(%)</b>を<b>0</b>にして、サブグループ間の間隔を取り除きます。
+<dl><dd><a class="image"><img alt="Unbalanced Box Chart 09.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_09.png" width="386"  /></a></dd></dl></li>
+<li> <b>OK</b>をクリックして、設定を適用します。これで、不釣合いなグループ化ボックスチャートは、最初の画像に近づきました(ラベルは後ほど編集します)。
+<dl><dd><a class="image"><img alt="Unbalanced Box Chart 10.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_10.png" width="570"  /></a></dd></dl></li></ol>
+<h3><a name="Add_a_top_axis_table_row"></a><span class="mw-headline">グラフの上に軸の行を追加する</span></h3>
+<p>グラフの上軸に表を1行分追加し、追加のグループ化情報を入力します。 
+<br />
+</p>
+<ol><li> <b>軸</b>ダイアログを開きます(<b>フォーマット：軸目盛のラベル：X軸目盛</b>)と操作します。<b>目盛ラベル</b>が開かれていることを確認し、左側パネルで<b>下1</b>のみを選択します。</li>
+<li> <b>目盛ラベル</b>タブの中で<b>表</b>タブを開き、<b>行数</b>を<b>3</b>にします。
+<dl><dd><a class="image"><img alt="Unbalanced Box Chart 11.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_11.png" width="584"  /></a></dd></dl></li>
+<li> 左側パネルで追加された<b>下3</b>アイコンを選択します。<b>表示</b>タブを開き、<b>表示</b>のドロップダウンで<b>Rank</b>を選択します(これは、ワークシートの他の列です)。
+<dl><dd><a class="image"><img alt="Unbalanced Box Chart 12.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_12.png" width="584"  /></a></dd></dl></li>
+<li> <b>適用</b>ボタンをクリックして、グラフを更新します。新しい表の行が下軸に追加されたことが分かります。では、次に、グラフの上軸を編集します。
+<dl><dd><a class="image"><img alt="Unbalanced Box Chart 13.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_13.png" width="407"  /></a></dd></dl></li>
+<li> <b>下3</b>上で右クリックし、<b>反対へ移動</b>を選択します。
+<dl><dd><a class="image"><img alt="Unbalanced Box Chart 14.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_14.png" width="584"  /></a></dd></dl></li>
+<li> <b>OK</b> をクリックして、変更を適用します。
+<dl><dd><a class="image"><img alt="Unbalanced Box Chart 15.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_15.png" width="568"  /></a></dd></dl></li></ol>
+<h3><a name="Further_customization"></a><span class="mw-headline">詳細な編集</span></h3>
+<p>では、更に編集を重ねて、このチュートリアルの最初に紹介したようなグラフにしましょう。
+<br />
+</p>
+<ol><li> グラフの下にある表をダブルクリックして<b>軸</b>ダイアログを開きます。<b>目盛ラベル</b>タブを開き、左側パネルで<b>下1</b>アイコンだけを選択します。 </li>
+<li> <b>表</b>タブを開き、<b>下1</b>軸に対して<b>グラフと反対側の罫線</b>のチェックを外します。
+<dl><dd><a class="image"><img alt="Unbalanced Box Chart 17.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_17.png" width="584"  /></a></dd></dl></li>
+<li> 左側パネルで<b>下2</b>アイコンを選択し、そのまま開いている<b>表</b>タブ内の<b>自動</b>チェックを外します。そして、<b>境界線(内側)</b>と<b>境界線(外側)</b>のチェックを外します。</li>
+<li> 左側パネルで<b>上1</b>アイコンを選択して<b>グラフと反対側の罫線</b>、<b>境界線(内側)</b>、<b>境界線(外側)</b>のチェックを外します。<b>セル始めの刻み</b>と<b>セル終わりの刻み</b>にはチェックを付けましょう。
+<dl><dd><a class="image"><img alt="Unbalanced Box Chart 18.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_18.png" width="584"  /></a></dd></dl></li>
+<li> <b>適用</b>ボタンをクリックします。次に<b>軸と軸目盛</b>タブを開きます。主目盛の下にある<b>スタイル</b>を<b>内側と外側</b>に設定します。
+<dl><dd><a class="image"><img alt="Unbalanced Box Chart 19.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_19.png" width="584"  /></a></dd></dl></li>
+<li> <b>グリッド線</b>タブを開きます。左側パネルで<b>垂直</b>が選択されていることを確認して主目盛線と副目盛線の設定を<b>色＝黒</b>、<b>スタイル＝点線</b>、<b>太さ＝0.5</b>に設定します。
+<dl><dd><a class="image"><img alt="Unbalanced Box Chart 20.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_20.png" width="584"  /></a></dd></dl></li>
+<li> <b>適用</b>をクリックしてから、<b>スケール</b>タブを開きます。左側パネルで<b>垂直</b>アイコンをクリックし、タイプを<b>Log10</b>に設定します。他の設定も下図のようにしましょう。
+<dl><dd><a class="image"><img alt="Unbalanced Box Chart 21.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_21.png" width="584"  /></a></dd></dl></li>
+<li> <b>目盛</b>ラベルタブの<b>表示</b>タブを開きます。左側パネルで<b>左</b>が選択されていることを確認し、<b>ラベル接尾語</b>に<b>％</b>を入力してY軸の目盛ラベルに表示します。
+<dl><dd><a class="image"><img alt="Unbalanced Box Chart 22.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_22.png" width="584"  /></a></dd></dl></li>
+<li> <b>OK</b> をクリックして、今までの変更を適用します。
+<dl><dd><a class="image"><img alt="Unbalanced Box Chart 23.png" src="../images/Unbalanced_Grouped_Box_Chart/Unbalanced_Box_Chart_23.png" width="556"  /></a></dd></dl></li>
+<li> メニューで<b>フォーマット：作図の詳細(ページ属性)</b>を選択します。<b>幅</b>＝<b>14.0</b>に設定します(<b>高さ</b>の設定はそのままで問題ありません。)</li>
+<li> グラフの中の<b>Country</b> ラベルをダブルクリックし、<b>目盛ラベル</b>の<b>フォーマット</b>タブで<b>サイズ＝14</b>に設定します。</li>
+<li> <b>テキストツール</b>を選択してグラフ中のどこかをクリックし、グラフのタイトルとして「<i>Female Tertiary Education (ISCED 5 and 6) Enrollment</i>」を入力します。そしてY軸のタイトルを「<i>Enrollment Rate</i>」に設定しましょう。</li></ol>
+
+
+    

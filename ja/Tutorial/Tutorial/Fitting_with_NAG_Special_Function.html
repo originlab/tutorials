@@ -1,0 +1,184 @@
+﻿<h1 class="firstheading">NAG特殊関数でフィットする</h1>
+<a name="Summary" id="Summary"></a>
+<h2><span class="mw-headline">サマリー</span></h2>
+<p>Originで、NAG特殊関数を使ったOrigin Cフィット関数を定義することができます。特殊関数を評価するのにNAGルーチンを呼ぶことができます。</p>
+<p class="version">必要なOriginのバージョン:8.0 SR6</p>
+<a name="What_you_will_learn" id="What_you_will_learn"></a>
+<h2><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。</p>
+<ul>
+<li>フィット関数オーガナイザでフィット関数を作成する</li>
+<li>NAG特殊関数を使ったフィット関数を作成する</li>
+</ul>
+<a name="Example_and_Steps" id="Example_and_Steps"></a>
+<h2><span class="mw-headline">サンプルとステップ</span></h2>
+<p>次のモデルをフィットします。</p>
+<dl>
+<dd><img class="tex" alt=" inorm= A* exp(-td/2.0/(t-t0)) * ( I0(td/2.0/(t-t0))+I1(td/2.0/(t-t0)) ) \," src="../images/Fitting_with_NAG_Special_Function/math-ce5b4588b18ccc8d106cebea09971c3a.png" width="543" height="18" border="0" /></dd>
+</dl>
+<p>この場合、<img class="tex" alt=" inorm= A* exp(-td/2.0/(t-t0)) * ( I0(td/2.0/(t-t0))+I1(td/2.0/(t-t0)) ) \," src="../images/Fitting_with_NAG_Special_Function/math-7fc56270e7a70fa81a5935b72eacbe29.png" width="12" height="11" border="0" />、<img class="tex" alt=" inorm= A* exp(-td/2.0/(t-t0)) * ( I0(td/2.0/(t-t0))+I1(td/2.0/(t-t0)) ) \," src="../images/Fitting_with_NAG_Special_Function/math-626726e60bd1215f36719a308a25b798.png" width="15" height="11" border="0" />、<img class="tex" alt=" inorm= A* exp(-td/2.0/(t-t0)) * ( I0(td/2.0/(t-t0))+I1(td/2.0/(t-t0)) ) \," src="../images/Fitting_with_NAG_Special_Function/math-809d4580aaed41565abc38d58f77f840.png" width="14" height="12" border="0" /> はデータをフィットすることで求めるモデル用のパラメータです。そして、 <img class="tex" alt=" inorm= A* exp(-td/2.0/(t-t0)) * ( I0(td/2.0/(t-t0))+I1(td/2.0/(t-t0)) ) \," src="../images/Fitting_with_NAG_Special_Function/math-f83ba497477f1b653cb3af0bcd5bd7f9.png" width="17" height="12" border="0" /> と<img class="tex" alt=" inorm= A* exp(-td/2.0/(t-t0)) * ( I0(td/2.0/(t-t0))+I1(td/2.0/(t-t0)) ) \," src="../images/Fitting_with_NAG_Special_Function/math-a18c217c4f2a811afcaaf5052945e31b.png" width="16" height="13" border="0" /> は、それぞれ次数0と次数1の第一種修正ベッセル関数です。このサンプルでは、このチュートリアルの最後にあるサンプルデータを使用します。フィットの手順は、次のステップに沿って行います。</p>
+<p><b style="font-weight: bold;">F9</b> を押し、<span class="db">フィット関数オーガナイザ</span>を開き、 <i><b>FittingWithNAGSpecialFunc</b></i>という名前の新しいカテゴリーを作成します。この新しいカテゴリーに、新しいフィット関数 <i><b>FittingWithBessel</b></i> を以下のように定義します。</p>
+<dl>
+<dd>
+<table class="blank">
+<tr>
+<th width="150">&#160;</th>
+<th>&#160;</th>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">関数名：</b></td>
+<td>FittingWithBessel</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">実現方式：</b></td>
+<td>ユーザ定義</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">独立変数：</b></td>
+<td>t</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">従属変数：</b></td>
+<td>inorm</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">パラメータの名前：</b></td>
+<td>A,t0,td</td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">定義形式：</b></td>
+<td><font color="#0000FF">Origin C</font></td>
+</tr>
+<tr>
+<td><b style="font-weight: bold;">関数：</b></td>
+<td>&#160;</td>
+</tr>
+</table>
+</dd>
+</dl>
+<p>「<b>関数</b>」ボックスの近くにあるボタン(アイコン)をクリックしてコードビルダを開き、次のようにフィット関数を定義して、コンパイルします。</p>
+<pre class="oc">
+<span style="color: #0000ff;">#include</span> <span style="color: #000080;">&lt;</span>origin.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span><span style="color: #008000;">
+// ここにincludeファイルを追加します。</span><span style="color: #008000;">
+// 例えば、NAGライブラリからの関数でフィットする場合、</span><span style="color: #008000;">
+// ここにNAG関数のヘッダファイルを追加します。</span><span style="color: #0000ff;">
+#include</span> <span style="color: #000080;">&lt;</span>oc_nag8.<span style="color: #000000;">h</span><span style="color: #000080;">&gt;</span>
+ 
+ <span style="color: #008000;">
+// このファイルに定義したい他のOrigin C関数に対するコードをここに追加し、</span><span style="color: #008000;">
+// フィット関数でアクセスできるようにします。</span>
+ <span style="color: #008000;">
+// 他のファイルがワークスペースにロードされ、コンパイルされていれば、そのファイルで定義されている</span><span style="color: #008000;">
+// C関数にアクセスでき、関数は上記でインクルードしたヘッダファイルに</span><span style="color: #008000;">
+// プロトタイプがあります。</span>
+ <span style="color: #008000;">
+// 関数コード内でNLSFオブジェクトのプロパティとメソッドにアクセスできます。</span>
+ <span style="color: #008000;">
+// 関数の定義には、C言語のシンタックスを使います。</span><span style="color: #008000;">
+// 例えば、パラメータ名がP1の場合、関数定義に p1 と使うことはできません。</span><span style="color: #008000;">
+// 分数を使用する場合には、1/2のような整数の除算は0になり、0.5ではありません。</span><span style="color: #008000;">
+// 正しい値にするには、0.5または1/2.0を使います。</span>
+ <span style="color: #008000;">
+// より詳細な情報およびサンプルは、Originヘルプファイルの「ユーザ定義フィット関数」</span><span style="color: #008000;">
+// を参照してください。</span>
+ 
+ <span style="color: #008000;">
+//----------------------------------------------------------</span><span style="color: #008000;">
+// </span><span style="color: #0000ff;">
+void</span> _nlsfFittingWithBessel<span style="color: #000000;">(</span><span style="color: #008000;">
+// フィットパラメータ:</span><span style="color: #0000ff;">
+double</span> A, <span style="color: #0000ff;">double</span> t0, <span style="color: #0000ff;">double</span> td,<span style="color: #008000;">
+// 独立変数:</span><span style="color: #0000ff;">
+double</span> t,<span style="color: #008000;">
+// 従属変数:</span><span style="color: #0000ff;">
+double</span><span style="color: #000040;">&amp;</span> inorm<span style="color: #000000;">)</span><span style="color: #000000;">
+{</span>
+        <span style="color: #008000;">// 編集可能部分の開始</span>
+        <span style="color: #008000;">//inorm=  A* exp(-td/2.0/(t-t0)) *   ( s18aec(td/2.0/(t-t0),NAGERR_DEFAULT)+s18afc(td/2.0/(t-t0),NAGERR_DEFAULT)             );</span>
+ 
+        <span style="color: #0000ff;">static</span> NagError fail1; 
+        <span style="color: #0000ff;">static</span> NagError fail2;
+        <span style="color: #0000ff;">double</span> dtemp <span style="color: #000080;">=</span> td<span style="color: #000040;">/</span><span style="color: #0000dd;">2.0</span><span style="color: #000040;">/</span><span style="color: #000000;">(</span>t<span style="color: #000040;">-</span>t0<span style="color: #000000;">)</span>;
+        inorm<span style="color: #000080;">=</span>  A<span style="color: #000040;">*</span> <span style="color: #000000;">exp</span><span style="color: #000000;">(</span><span style="color: #000040;">-</span>dtemp<span style="color: #000000;">)</span> <span style="color: #000040;">*</span> <span style="color: #000000;">(</span> s18aec<span style="color: #000000;">(</span>dtemp,<span style="color: #000040;">&amp;</span>fail1<span style="color: #000000;">)</span><span style="color: #000040;">+</span>s18afc<span style="color: #000000;">(</span>dtemp,<span style="color: #000040;">&amp;</span>fail2<span style="color: #000000;">)</span> <span style="color: #000000;">)</span>;
+        <span style="color: #0000ff;">if</span><span style="color: #000000;">(</span>fail1.<span style="color: #000000;">code</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span>NE_NOERROR<span style="color: #000000;">)</span>
+                <span style="color: #000000;">printf</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">"%s<span style="color: #666666; font-weight: bold;">\n</span>"</span>,fail1.<span style="color: #000000;">message</span><span style="color: #000000;">)</span>;
+        <span style="color: #0000ff;">if</span><span style="color: #000000;">(</span>fail2.<span style="color: #000000;">code</span> <span style="color: #000040;">!</span><span style="color: #000080;">=</span>NE_NOERROR<span style="color: #000000;">)</span>
+                <span style="color: #000000;">printf</span><span style="color: #000000;">(</span><span style="color: #ff00ff;">"%s<span style="color: #666666; font-weight: bold;">\n</span>"</span>,fail2.<span style="color: #000000;">message</span><span style="color: #000000;">)</span>;
+ 
+ 
+        <span style="color: #008000;">// 編集可能部分の終了</span><span style="color: #000000;">
+}</span>
+</pre>
+<a name="Simulate_the_Function" id="Simulate_the_Function"></a>
+<h3><span class="mw-headline">関数をシミュレーションする</span></h3>
+<p>関数本体のコードを入力したら、<b>コードビルダ</b>の「<b>コンパイル</b>」ボタンをクリックして、シンタックスにエラーがないかチェックすることができます。そして、「<b>ダイアログに戻る</b>」ボタンをクリックして、<span class="db">フィット関数オーガナイザ</span>ダイアログボックスに戻ります。「<b>保存</b>」ボタンをクリックして、FDFファイル(関数定義ファイル)を生成します。</p>
+<p>FDFファイルがあれば、「<b>シミュレート</b>」ボタンをクリックして、曲線のシミュレーションを行うことができ、これは初期値を求めるのに役立ちます。「<b>simcurve</b>」ダイアログで、適切なパラメータ値やX範囲を入力すると、「<b>プレビュー</b>」パネルに曲線がどのように表示されるのかが表示されます。</p>
+<a name="Set_the_Initial_Values_for_the_Parameters" id="Set_the_Initial_Values_for_the_Parameters"></a>
+<h3><span class="mw-headline">パラメータの初期値をセットする</span></h3>
+<p>これはユーザ定義のフィット関数なので、データのフィットを実行する前に、パラメータの推定初期値を与える必要があります。「<b>非線形曲線</b>」フィットダイアログの「<b>パラメータ</b>」タブで手動でセットすることができます。以下のサンプルデータで示す内容では、パラメータの初期値を A = 1, td = 1, t0 = 1のようにセットします。パラメータが初期化されると、サンプルデータの右側で示すようにフィットを実行して、フィット結果を取得することができます。</p>
+<a name="Sample_Data" id="Sample_Data"></a>
+<h2><span class="mw-headline">サンプルデータ</span></h2>
+<p>以下のサンプルデータをコピーし、<b>インポートウィザード</b>を使用して<b>クリップボード</b>からデータをインポートします。そして、指定の初期値を使ってパラメータの設定を行ってください。A = 1, td = 1, t0 = 1.</p>
+<dl>
+<dd>
+<table width="480">
+<tr>
+<th>サンプルデータ</th>
+<th>Results</th>
+</tr>
+<tr>
+<td>
+<table width="240">
+<tr>
+<th>X</th>
+<th>Y</th>
+</tr>
+<tr>
+<td>2</td>
+<td>0.7868954118</td>
+</tr>
+<tr>
+<td>2.080808081</td>
+<td>0.8133022141</td>
+</tr>
+<tr>
+<td>2.161616162</td>
+<td>0.8178216765</td>
+</tr>
+<tr>
+<td>2.242424242</td>
+<td>0.8427866729</td>
+</tr>
+<tr>
+<td>2.323232323</td>
+<td>0.8315815363</td>
+</tr>
+<tr>
+<td>2.404040404</td>
+<td>0.8484657180</td>
+</tr>
+<tr>
+<td>2.565656566</td>
+<td>0.8618233553</td>
+</tr>
+<tr>
+<td>2.646464646</td>
+<td>0.8745962570</td>
+</tr>
+<tr>
+<td>2.727272727</td>
+<td>0.8921620316</td>
+</tr>
+<tr>
+<td>2.808080808</td>
+<td>0.8687399759</td>
+</tr>
+</table>
+</td>
+<td>
+<p><a><img alt="Image:FittingWithBessel.PNG" src="../images/Fitting_with_NAG_Special_Function/FittingWithBessel.PNG" width="246" height="130" border="0" /></a></p>
+</td>
+</tr>
+</table>
+</dd>
+</dl>

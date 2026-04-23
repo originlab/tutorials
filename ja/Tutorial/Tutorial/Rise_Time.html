@@ -1,0 +1,43 @@
+﻿<h1 class="firstheading">立上がり時間</h1><p class='urlname' style='display: none'>RiseTime</p>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>立ち上がり時間は、指定した低状態レベルから指定した高状態レベル(または指定した高状態レベルから指定した低状態レベル)に信号が変化するのに必要な時間を参照します。Originの立ち上がり時間パネルツールは、四角形オブジェクトで直感的にグラフの領域を選択し、その領域の上昇または下降の時間を計算できます。
+</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルで以下のことを行います：
+</p>
+<ol><li> 立上がり時間パネルツールを使用して下降時間を計算する</li>
+<li> 下降時間計算の設定を変更する</li>
+<li> グラフに表示する要素を変更する</li>
+<li> 出力設定を変更し、結果を出力する</li></ol>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<ol><li> 新しいワークブックを用意します。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Signal Processing</i>サブフォルダにある<i>Step Signal with Random Noise.dat</i> ファイルを探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Rise Time 1.png" src="../images/Rise_Time/SP_Tutorial_Rise_Time_1.png" width="396"  /></a></dd></dl></li>
+<li> B列を選択し、メニューから<b><b>作図：基本の2Dグラフ：折れ線</b></b>を選択してグラフを作図します。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Rise Time 2.png" src="../images/Rise_Time/SP_Tutorial_Rise_Time_2.png" width="457"  /></a></dd></dl></li>
+<li> <b>プロット操作・オブジェクト作成</b>ツールバーの軸スケールの<b>拡大</b>ボタン<a  class="image"><img alt="SP Tutorial Rise Time 3.png" src="../images/Rise_Time/SP_Tutorial_Rise_Time_3.png" width="22"  /></a>をクリックして、グラフ内のX範囲が500から700の範囲を選択して拡大します。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Rise Time 4.png" src="../images/Rise_Time/SP_Tutorial_Rise_Time_4.png" width="457"  /></a></dd></dl></li>
+<li> Originメニューから<b><b>ガジェット：立ち上がり時間ROIツール</b></b>を選択し、このツールを開始します。</li>
+<li> ダイアログボックスで、<b><b>ROIボックス</b></b>タブを開き、<b><b>Xスケール</b></b>の<b><b>開始</b></b>を<b><b>510</b></b>にし、<b><b>終了</b></b>を<b><b>650</b></b>にします。また、<b><b>ツール</b></b>を<b><b>下降時間</b></b>にし、<b><b>方法</b></b>を<b><b>ヒストグラム</b></b>に変更します。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Rise Time 5.png" src="../images/Rise_Time/SP_Tutorial_Rise_Time_5.png" width="409"  /></a></dd></dl></li>
+<li> <b><b>下降範囲</b></b>タブを開き、<b><b>開始</b></b>と<b><b>終了</b></b>を<b>20</b>と<b>80</b>に変更します。 
+<dl><dd> <a  class="image"><img alt="SP Tutorial Rise Time 6.png" src="../images/Rise_Time/SP_Tutorial_Rise_Time_6.png" width="409"  /></a></dd></dl></li>
+<li> <b><b>値</b></b>タブでは、<b><b>データセット名（名前）</b></b>、<b><b>下降範囲（dVref）</b></b>、<b><b>下降時間（dT）</b></b>以外のチェックをはずします。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Rise Time 7.png" src="../images/Rise_Time/SP_Tutorial_Rise_Time_7.png" width="409"  /></a></dd></dl></li>
+<li> 次の<b><b>出力先</b></b>タブで、<b><b>スクリプトウィンドウ</b></b>のチェックを外し、<b><b>ワークシートに追加</b></b>のチェックを付けます。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Rise Time 8.png" src="../images/Rise_Time/SP_Tutorial_Rise_Time_8.png" width="409"  /></a></dd></dl></li>
+<li> <b><b>グラフ上の表示</b></b>タブを開き、<b><b>インディケータ</b></b>の項目を開いて、<b><b>縁の色</b></b>を<b><b>青</b></b>にし、下降範囲のチェックを付けます。<b><b>下降範囲</b></b>にチェックを付けます。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Rise Time 9.png" src="../images/Rise_Time/SP_Tutorial_Rise_Time_9.png" width="409"  /></a></dd></dl></li>
+<li> <b><b>OK</b></b>ボタンをクリックし、ROIボックスをグラフに配置します。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Rise Time 10.png" src="../images/Rise_Time/SP_Tutorial_Rise_Time_10.png" width="457"  /></a></dd></dl></li>
+<li> 上図のように、2つの赤い水平線が高いレベルと低いレベルに表示され、折れ線グラフ上のインディケータの2つの青い線の間が下降範囲です。ROIボックスの上部に下降時間と下降範囲が表示されます。</li>
+<li> 三角形のボタンをクリックして、コンテキストメニューを開き、<b><b>ROI位置の固定</b></b>を選択すると、移動できなくなります。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Rise Time 11.png" src="../images/Rise_Time/SP_Tutorial_Rise_Time_11.png" width="548"  /></a></dd></dl></li>
+<li> 再度コンテキストメニューを開き、<b><b>新しい出力</b></b>を選択して結果を出力します。再度矢印ボタンをクリックし、メニューから<b><b>レポートシートに行く</b></b>を選びます。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Rise Time 12.png" src="../images/Rise_Time/SP_Tutorial_Rise_Time_12.png" width="548"  /></a></dd></dl></li>
+<li> すると、レポートシートがアクティブになり、<b><b>値</b></b>タブで選択した結果を見ることができます。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Rise Time 13.png" src="../images/Rise_Time/SP_Tutorial_Rise_Time_13.png" width="430"  /></a></dd></dl></li></ol>
+
+
+
+
+    

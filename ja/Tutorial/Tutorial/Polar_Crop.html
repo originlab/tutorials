@@ -1,0 +1,174 @@
+﻿<h1 class="firstheading">極座標プロットのトリミングと方向のカスタム</h1>
+<p class='urlname' style='display: none'>極座標-トリミング</p>
+<p><br /></p>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>目次</h2>
+</div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Create_a_Polar_Graph_and_Customize_the_Axes"><span class="tocnumber">3.1</span> <span class="toctext">極座標グラフの作成と軸のカスタマイズ</span></a>
+<ul>
+<li class="toclevel-3 tocsection-5"><a href="#Customize_Axes_in_Axis_Dialog"><span class="tocnumber">3.1.1</span> <span class="toctext">軸ダイアログで軸をカスタマイズ</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="#Customize_Scatter_Plot_with_Mini_Toolbar"><span class="tocnumber">3.1.2</span> <span class="toctext">ミニツールバーを使用して散布図のカスタマイズ</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-7"><a href="#Crop_the_Polar_Graph"><span class="tocnumber">3.2</span> <span class="toctext">極座標グラフのトリミング</span></a>
+<ul>
+<li class="toclevel-3 tocsection-8"><a href="#Select_the_Region_You_Want_to_Crop"><span class="tocnumber">3.2.1</span> <span class="toctext">トリミングする範囲の選択</span></a></li>
+<li class="toclevel-3 tocsection-9"><a href="#Crop_the_Graph"><span class="tocnumber">3.2.2</span> <span class="toctext">グラフのトリミング</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>このチュートリアルでは、切り取られた極座標グラフの作成方法を説明します。</p>
+<dl>
+<dd><a class="image"><img alt="Polar Crop Steps11.png" src="../images/Polar_Crop/Polar_Crop_Steps11.png" width="576" /></a></dd>
+</dl>
+<p>このグラフは、ラジアンスケールでの極座標散布図を示しています。グラフの軸方向がカスタマイズされ、グラフの特定の部分が表示されるようにトリミングされます。</p>
+<p class="version">必要なOriginのバージョン: Origin 2015 SR0以降</p>
+<h2><a name="What_You_Will_Learn" id="What_You_Will_Learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。</p>
+<ul>
+<li>放射軸を使用した極座標グラフの作成方法</li>
+<li>極座標グラフを回転、目盛りラベルを四分位数として表示するなど、極座標グラフをカスタマイズする方法</li>
+<li>極座標グラフのトリミング方法</li>
+</ul>
+<h2><a name="Steps" id="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>このチュートリアルは、サンプルグラフプロジェクト「Cropped Polar Plot with Custom Orientation」に関連しています。<b>ラーニングセンター</b>より開くことが可能です。</p>
+<ul>
+<li><b>ヘルプ: ラーニングセンター</b> メニューを選択、または キーボードの<b>F11</b> キーを押して、ラーニングセンターを開きます。</li>
+<li><b>グラフサンプル</b>より<b>Polar Charts - Cropped Polar Plot with Custom Orientation</b>を検索して開きます 。</li>
+</ul>
+<h3><a name="Create_a_Polar_Graph_and_Customize_the_Axes" id="Create_a_Polar_Graph_and_Customize_the_Axes"></a><span class="mw-headline">極座標グラフの作成と軸のカスタマイズ</span></h3>
+<p>ワークブック<b>Cropped Polar Plot with Custom Orientation</b>をアクティブな状態にします。Sheet1の全ての列を選択し、<b>作図：特殊グラフ：シンボルθ,r</b>を選択して極座標グラフを作成します。</p>
+<dl>
+<dd><a class="image"><img alt="Polar Crop Steps1.png" src="../images/Polar_Crop/Polar_Crop_Steps1.png" width="566" /></a></dd>
+</dl>
+<h4><a name="Customize_Axes_in_Axis_Dialog" id="Customize_Axes_in_Axis_Dialog"></a><span class="mw-headline">軸ダイアログで軸をカスタマイズ</span></h4>
+<ol>
+<li>角度軸では、デフォルトの単位定義として度が使用されています。<b>角度軸</b>をカスタマイズします。
+<ul>
+<li>軸をダブルクリックして、<b>軸ダイアログ</b>を開きます。左側のパネルで<b>角度</b>を選択し、<b>スケール</b>タブを開きます。 <b>単位定義</b>ノードを展開し、ドロップダウンリストから<b>単位</b>を<b>ラジアン</b>に設定します 。<b>主目盛</b>にある<b>値</b>を<b>0.25</b>へ、<b>副目盛</b>にある<b>カウント</b>を<b>9</b>とします。
+<dl>
+<dd><a class="image"><img alt="Polar Crop Steps3.png" src="../images/Polar_Crop/Polar_Crop_Steps3.png" width="699" /></a></dd>
+</dl>
+</li>
+<li>プロットの方向を変更するには、<b>表示</b>タブに移動し、左側のパネルで<b>角度-外部</b>を選択します。 次に示すように、<b>方向</b>を<b>時計回り</b>に設定し、<b>軸の開始角度(度)</b>を<b>270</b>を設定します。
+<dl>
+<dd><a class="image"><img alt="Polar Crop Steps2.png" src="../images/Polar_Crop/Polar_Crop_Steps2.png" width="699" /></a></dd>
+</dl>
+</li>
+<li><b>目盛ラベル</b>タブで、<b>表示</b>を<b>カスタム</b>に、<b>カスタムフォーマット</b>を<b>#/#</b>に設定します
+<dl>
+<dd><a class="image"><img alt="Polar Crop Steps2a.png" src="../images/Polar_Crop/Polar_Crop_Steps2a.png" width="699" /></a></dd>
+</dl>
+</li>
+<li><b>適用</b>ボタンをクリックして、これらを適用させます。</li>
+</ul>
+</li>
+<li>次に、<b>放射軸</b>のスケールをカスタマイズします。<b>スケール</b>タブに移動し、左側のパネルで<b>放射</b>を選択します。<b>終了</b>を5.01とし、（0.01は最後の目盛となります）<b>副目盛</b>の<b>カウント</b>を<b>0</b>とします。
+<dl>
+<dd><a class="image"><img alt="Polar Crop Steps4.png" src="../images/Polar_Crop/Polar_Crop_Steps4.png" width="699" /></a></dd>
+</dl>
+</li>
+<li>続いて、<b>内部の放射軸</b>を追加します。
+<ul>
+<li><b>表示</b> タブに移動し、左パネルの上部にある<b>放射軸を追加</b>をクリックします。すると、<b>放射-内側の軸1</b>が左パネルに追加されます。</li>
+<li>新しい内部軸の方向を垂直から水平に変更するために、<b>軸位置</b>にある、<b>リファレンス</b>を<b>時計目盛板</b>に設定し、<b>時計</b>を<b>3時</b>に変更します。流れの方向で<b>負</b>を選択し、目盛ラベルを軸の反対側に移動させます。
+<dl>
+<dd><a class="image"><img alt="Polar Crop Steps5.png" src="../images/Polar_Crop/Polar_Crop_Steps5.png" width="699" /></a></dd>
+</dl>
+</li>
+<li><b>内側の軸1</b>に目盛ラベルを追加するために、<b>目盛ラベル</b>タブの<b>表示</b>サブタブに移動し、<b>タイプ</b>のドロップダウンから<b>刻みインデックスの文字列</b>を選択します。<b>表示</b>の文字列編集ボックスに<i>0A Lv1 Lv2 Lv3 Lv4</i>と入力します。
+<dl>
+<dd><a class="image"><img alt="Polar Crop Steps6.png" src="../images/Polar_Crop/Polar_Crop_Steps6.png" width="699" /></a></dd>
+</dl>
+</li>
+<li><b>フォーマット</b>サブタブに移動し、下記のように目盛ラベルのフォーマットを変更します。
+<dl>
+<dd><a class="image"><img alt="Polar Crop Steps6b.png" src="../images/Polar_Crop/Polar_Crop_Steps6b.png" width="699" /></a></dd>
+</dl>
+</li>
+<li>特別な軸刻みに移動し、 <b>軸の開始</b> と <b>軸の終わり</b>を<b>隠す</b>にします。
+<dl>
+<dd><a class="image"><img alt="Polar Crop Steps6c.png" src="../images/Polar_Crop/Polar_Crop_Steps6c.png" width="699" /></a></dd>
+</dl>
+</li>
+<li><b>適用</b>ボタンをクリックして、これらを適用させます。</li>
+</ul>
+</li>
+<li><b>グリッド線</b>タブに移動し、角度軸と放射軸のグリッド線を下記のように設定します。
+<dl>
+<dd><a class="image"><img alt="Polar Crop Steps7a.png" src="../images/Polar_Crop/800px-Polar_Crop_Steps7a.png" width="1073" /></a></dd>
+<dd><b>OK</b>ボタンをクリックして。これらを適用させます。</dd>
+</dl>
+</li>
+<li>2つの外側の放射軸を、<b>%の半径</b>= <b>-40</b> の位置にドラッグアンドドロップします。
+<dl>
+<dd><a class="image"><img alt="Polar Crop Steps8.png" src="../images/Polar_Crop/Polar_Crop_Steps8.png" width="527" /></a></dd>
+</dl>
+</li>
+</ol>
+<h4><a name="Customize_Scatter_Plot_with_Mini_Toolbar" id="Customize_Scatter_Plot_with_Mini_Toolbar"></a><span class="mw-headline">ミニツールバーを使用した散布図のカスタマイズ</span></h4>
+<p>ミニツールバーを使用して散布図をカスタマイズします。</p>
+<ol>
+<li>データをクリックして、ミニツールバーのポップアップからシンボルの形状を設定します。
+<dl>
+<dd><a class="image"><img alt="CropPolar 01.gif" src="../images/Polar_Crop/CropPolar_01.gif" width="788" /></a></dd>
+</dl>
+</li>
+<li>エラーバーをクリックして、ミニツールバーのポップアップから、プラスYエラーを選択して、その色を設定します。
+<dl>
+<dd><a class="image"><img alt="CropPolar 02.gif" src="../images/Polar_Crop/CropPolar_02.gif" width="662" /></a></dd>
+</dl>
+</li>
+</ol>
+<h3><a name="Crop_the_Polar_Graph" id="Crop_the_Polar_Graph"></a><span class="mw-headline">極座標グラフのトリミング</span></h3>
+<p><b>軸</b>ダイアログには、<b>クロップ…</b>ボタンがあります。これをクリックすると、極座標プロットの特定の部分を拡大および強調できるダイアログが開きます。</p>
+<dl>
+<dd><a class="image"><img alt="CroppedPolar 01.png" src="../images/Polar_Crop/CroppedPolar_01.png" width="699" /></a></dd>
+</dl>
+<h4><a name="Select_the_Region_You_Want_to_Crop" id="Select_the_Region_You_Want_to_Crop"></a><span class="mw-headline">トリミングする範囲の選択</span></h4>
+<p>極座標グラフをトリミングする前に、<b>四角形</b>ツール<a class="image"><img alt="Button Rectangle Tool.png" src="../images/Polar_Crop/Button_Rectangle_Tool.png" width="22" /></a>を使用して、対象領域のサイズと位置データを取得できます。</p>
+<ol>
+<li>ツールバーボタンにある<b>四角形ツール</b><a class="image"><img alt="Button Rectangle Tool.png" src="../images/Polar_Crop/Button_Rectangle_Tool.png" width="22" /></a>をクリックし、グラフ上に長方形を描画します。
+<dl>
+<dd><a class="image"><img alt="CroppedPolar 02.png" src="../images/Polar_Crop/700px-CroppedPolar_02.png" width="700" /></a></dd>
+</dl>
+</li>
+<li>四角形のサイズを変更しているときにグラフをクリアに見るために、四角形をクリックして、ミニツールバーから<b>透過率</b>ボタンを選択して、<b>透過率</b>を<i>60%</i>に設定します。
+<dl>
+<dd><a class="image"><img alt="CroppedPolar 03.png" src="../images/Polar_Crop/CroppedPolar_03.png" width="577" /></a></dd>
+</dl>
+</li>
+<li>四角形のサイズと位置を調整します。四角形の領域が決まったら、四角形をダブルクリックして<b>オブジェクトプロパティ</b>ダイアログを開き、サイズタブより四角形のサイズと位置のデータを取得します。
+<dl>
+<dd><a class="image"><img alt="CroppedPolar 04.png" src="../images/Polar_Crop/850px-CroppedPolar_04.png" width="889" /></a></dd>
+</dl>
+</li>
+</ol>
+<h4><a name="Crop_the_Graph" id="Crop_the_Graph"></a><span class="mw-headline">グラフのトリミング</span></h4>
+<ol>
+<li>軸をダブルクリックして、再度<b>軸</b>ダイアログを開きます。<b>クロップ…</b>ボタンをクリックして<b>その他</b>ダイアログを開きます。<b>有効にする</b>にチェックを付けて四角形ツールのオブジェクトプロパティから取得したサイズと位置の値を入力します。
+<dl>
+<dd><a class="image"><img alt="Polar Crop Steps9.png" src="../images/Polar_Crop/Polar_Crop_Steps9.png" width="699" /></a></dd>
+</dl>
+</li>
+<li><b>OK</b>ボタンをクリックしてその他ダイアログを閉じます。再度<b>OK</b>ボタンをクリックして<b>軸</b>ダイアログを閉じます。下記のようなグラフになります。
+<dl>
+<dd><a class="image"><img alt="Polar Crop Steps10.png" src="../images/Polar_Crop/Polar_Crop_Steps10.png" width="456" /></a></dd>
+</dl>
+</li>
+<li>ご覧のとおり、四角形に領域が切り取られています。四角形オブジェクトをクリックして削除します。最終的に下記のようなグラフが完成します。
+<dl>
+<dd><a class="image"><img alt="Polar Crop Steps11.png" src="../images/Polar_Crop/Polar_Crop_Steps11.png" width="576" /></a></dd>
+</dl>
+</li>
+</ol>

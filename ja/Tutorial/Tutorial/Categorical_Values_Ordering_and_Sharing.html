@@ -1,0 +1,62 @@
+﻿<h1 class="firstheading">カテゴリー値と共有</h1><p class='urlname' style='display: none'>Categorical-Values-Ordering</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Manipulate_Categorical_Values"><span class="tocnumber">3</span> <span class="toctext">カテゴリー値の編集</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Share_Categorical_Values"><span class="tocnumber">4</span> <span class="toctext">カテゴリー値の共有</span></a></li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>カテゴリー値はカテゴリー情報を列に格納します。Originでは、手動で追加、削除、順序を変更するなど行うことが出来ます。そして、その列に保存されているカテゴリー情報は分析の結果シートに適用されます。また、カテゴリーはテキストファイルに保存でき、列やワークシートをまたいで共有できます。
+</p>
+<p class="version" >必要なOriginのバージョン: Origin 2015 SR0以降 </p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul><li>カテゴリー値を変更する</li>
+<li>カテゴリーマップの順序を変更する</li>
+<li>カテゴリー値を共有する</li></ul>
+<h2><a name="Manipulate_Categorical_Values"></a><span class="mw-headline">カテゴリー値の編集</span></h2>
+<ol>
+<li>サンプルデータを開くには、Originメニューで<b>データ：ファイルからインポート：Excel(XLS, XLSX, XLSM)...</b> と選択します。<b>&lt;Origin プログラムフォルダ&gt;\Samples\Statistics</b> から<i>HouseholdCareSamples.xls</i>を選択します。<b>ファイルの追加</b>ボタンをクリックします。<b>オプションダイアログの表示</b>チェックボックスにチェックが付いていることを確認します。<b>OK</b> ボタンをクリックして、<b>impMSExcel</b> ダイアログを開きます。 
+<li><b>impMSExcel</b>ダイアログ内で次の設定を行います。
+<ul><li><b>ファイル情報</b>の下にある<b>HouseholdCareSamples.xls</b>を開きます。<b>ファイルシート</b>についているチェックを外し、<b>HQ Family Mart</b>と<b>TX Trust-Mart</b>のチェックをつけます。 </li>
+<li><b>ヘッダー行</b> のブランチにある<b>サブヘッダの行数</b>ドロップダウンリストで<b>1</b>、<b>ロングネーム</b>ドロップダウンリストで<b>1</b>を選択します。<b>ヘッダを全てのシートに適用</b>ボックスにチェックを入れます。</li>
+<li><b>OK</b>をクリックして、Originにデータをインポートします。</li></ul>
+<li><b>HQ Family Mart</b> ワークシートではロングネームが<i>Category</i> となっている列を選択して右クリックで表示するメニューから<b>カテゴリーとして設定</b>を選択します。<b>カテゴリー行</b>にある<b>ソートなし</b>をダブルクリックして、<b>カテゴリー</b>ダイアログを開きます。
+<li>このリストの中から、残しておきたいのは<b>Household Clean</b>, <b>Kitchen Clean</b>, <b>Dishwashing Liquid</b>, <b>Laundry Powder</b>, <b>Fabric Conditioner</b>の5つだけで、このリストの順番に従って並び替えたいと思います。まず、<b>カテゴリーの編集（追加、削除、任意の順）</b>ボックスにチェックして、Ctrlキーを押しながら必要のない項目を一度に選択し、<b><b>削除</b></b>ボタン<a class="image"><img alt="Category Tab Button ToBottom 92.png" src="../images/Categorical_Values_Ordering_and_Sharing/Category_Tab_Button_Delete_92.png" width="24"  /></a> をクリックすることで削除します。
+<br />
+<a class="image"><img alt="Categorical Values Ordering Tutorial 02.png" src="../images/Categorical_Values_Ordering_and_Sharing/Categorical_Values_Ordering_Tutorial_02.png" width="454"  /></a>
+<br />
+<li>行の先頭をドラッグまたは、<a class="image"><img alt="Category Tab Button ToTop 92.png" src="../images/Categorical_Values_Ordering_and_Sharing/Category_Tab_Button_ToTop_92.png" width="24"  /></a>, <a class="image"><img alt="Category Tab Button Move Up 92.png" src="../images/Categorical_Values_Ordering_and_Sharing/Category_Tab_Button_Move_Up_92.png" width="24"  /></a>,  <a class="image"><img alt="Category Tab Button Move Down 92.png" src="../images/Categorical_Values_Ordering_and_Sharing/Category_Tab_Button_Move_Down_92.png" width="24"  /></a>および<a class="image"><img alt="Category Tab Button ToBottom 92.png" src="../images/Categorical_Values_Ordering_and_Sharing/Category_Tab_Button_ToBottom_92.png" width="24"  /></a>ボタンを使って、下のように並び替えます。
+<br />
+<a class="image"><img alt="Categorical Values Ordering Tutorial 03.png" src="../images/Categorical_Values_Ordering_and_Sharing/Categorical_Values_Ordering_Tutorial_03.png" width="454"  /></a>
+<br />
+<li>並び替えをしてから<b><b>保存</b></b>ボタンをクリックして<b><b>名前を付けて保存</b></b>を選択し、<b><b><b>カテゴリーを名前を付けて保存</b></b></b>ダイアログを表示します。<b>名前</b>に「<i>HouseholdCare Category</i> 」と入力し、<b>OK</b>をクリックしてカテゴリー値を<b>保存先パス</b>のフォルダにテキストファイルとして保存します。
+<br />
+<a class="image"><img alt="Categorical Values Ordering Tutorial 04.png" src="../images/Categorical_Values_Ordering_and_Sharing/Categorical_Values_Ordering_Tutorial_04.png" width="321"  /></a>
+<br />
+<li><b>OK </b>をクリックして、<b><b>カテゴリー</b></b>ダイアログを閉じます。
+<li>これからこれらの5つのカテゴリーにある合計の項目数を調べ、結果の列のプロットを作図します。ロングネーム「<i>Number</i> 」の列を選択し、<b>統計：記述統計：列の統計</b>を選択して<b>列の統計</b>ダイアログを開きます。<b>グループ</b>の小さな右向きの三角形アイコンをクリックして<b>E(Y):Category</b>をグループ化する列として選択し、<b>OK</b>をクリックしてダイアログを閉じます。ポップアップするダイアログでも<b>OK</b>をクリックします。
+<li><i>DescStatsQuantities1</i>シートに移動し、<b>  </b>ロングネームが「<i>N合計</i>」となっている列を選択してから<b>作図：基本の2Dグラフ：縦棒グラフ</b>を選択して縦棒グラフを作図します。
+<li>X軸の目盛ラベルをダブルクリックすると<b>軸</b>ダイアログの<b>目盛ラベル</b>タブが開いているダイアログが表示されます。その中の<b>フォーマット</b>タブを選択し、<b>回転(度)</b>のドロップダウンに<i>45</i>を設定して<b>OK</b>をクリックします。
+<li>グラフをダブルクリックして<b><b>作図の詳細</b></b>ダイアログを開き、左パネルで<b>Layer1</b>を開いて、最初の項目を選択します。パターンタブの<b>塗りつぶし</b>グループで、<b>色</b>のドロップダウンリストから<b>色推移</b>タブを選択して、<b>開始色</b>リストから色を<b>黒</b>に指定します。  <b>OK </b>をクリックして、ダイアログを閉じます。
+<br />
+<a class="image"><img alt="カテゴリー値と共有" src="../images/Categorical_Values_Ordering_and_Sharing/Categorical_Values_Ordering_Tutorial_04a.png" width="1228"  /></a>
+<br /></li>
+<li>グラフページを右クリックし、<b><b>ページをレイヤに合わせる</b></b>を選択して、表示されるダイアログでそのまま<b>OK</b>をクリックします。これで、X 軸がページ内に表示されます。凡例を削除し、<b>テキスト</b>ツールを使って「 <i>HQ Family Mart</i> 」をグラフタイトルとして設定します。X 軸タイトルを移動し、グラフタイトルも見やすい位置に移動します。棒グラフは次のようになります。
+<br />
+<a class="image"><img alt="カテゴリー値と共有" src="../images/Categorical_Values_Ordering_and_Sharing/Categorical_Values_Ordering_Tutorial_05.png" width="606"  /></a>
+<br />
+ 
+</ol>
+<h2><a name="Share_Categorical_Values"></a><span class="mw-headline">カテゴリー値の共有</span></h2>
+<ol>
+<li>上記セクションから操作を続けます。先ほど保存したカテゴリを2枚目のワークシートである「<i>TX Trust-Mart</i>」に適用しましょう。<i>TX Trust-Mart</i>ワークシートをアクティブにし、ロングネームが<i>Category</i> となっている列を選択して右クリックで表示するメニューから<b>カテゴリーとして設定</b>を選択します。
+<li><b><b>カテゴリ</b></b>行にある<i><i>ソートなし</i></i>をダブルクリックして、<b><b>カテゴリー</b></b>ダイアログを表示します。<b>カテゴリーの編集（追加、削除、任意の順）</b>ボックスにチェックを入れて、右側にある<b><b>ロード&gt;</b></b>ボタンをクリックして、表示される「<i>HouseholdCare Category</i>」ファイルを選択します。
+<br /><a class="image"><img alt="カテゴリー値と共有" src="../images/Categorical_Values_Ordering_and_Sharing/Categorical_Values_Ordering_Tutorial_06.png" width="638"  /></a><br />
+<li>上記の7から12のステップと同じ操作を行います。ただし、ステップ12では「<i>HQ Family Mart</i> 」ではなく「<i>TX Trust-Mart</i> 」というテキストを入力しましょう。これで<i>TX Trust Mart</i>の元データから次のグラフが出来ます。
+<br /><a class="image"><img alt="Categorical Values Ordering Tutorial 07.png" src="../images/Categorical_Values_Ordering_and_Sharing/Categorical_Values_Ordering_Tutorial_07.png" width="603"  /></a><br />
+</ol>
+
+
+    

@@ -1,0 +1,77 @@
+﻿<h1 class="firstheading">ラベルによるワークシート列のアンスタックとソート</h1><p class='urlname' style='display: none'>Unstack-Sort-Columns-by-Label</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Adding_Data_Filters_to_Categorical_Columns"><span class="tocnumber">3.1</span> <span class="toctext">カテゴリ列にデータフィルタを追加する</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Labeling_the_Plot.2C_Cleaning_up_Cosmetic_Issues"><span class="tocnumber">3.2</span> <span class="toctext">プロットのラベル付け、外観上の問題の調整</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>データセット（特に特定の分析や作図操作を想定して作成されていないデータセット）を使用するとき、必要な処理を行う前に、データの調整（並び替え、削減など）が必要なことはよくあります。データセットが大きく、データの「切り取り＆ペースト」で並べ替えることが現実的でない場合、特に難しい可能性があります。行と列の配置が単純なCSVファイルでさえ、分析や作図の前に調整が必要になることがよくあります。
+</p>
+<dl><dd><a  class="image"><img alt="Unstack Sort Columns by Label 0.png" src="../images/Unstack_Sort_Columns_by_Label/Unstack_Sort_Columns_by_Label_0.png" width="789"  /></a></dd></dl>
+<p>このチュートリアルでは、大きなデータセットである<a class="external text" href="http://www.fao.org/faostat/en/#data/ET" target="_blank">国連食糧農業機関（FAO）の1961年から2019年までの世界気温のデータ</a>に接続し、いくつかの操作を実行してデータを並び替え、2つのカテゴリデータ列にデータフィルタを適用してから、結果をインタラクティブな<a class="external text" href="http://blog.originlab.com/plotting-horizontally-arranged-data-using-row-wise-plotting-in-origin-2019" target="_blank">エラーバーを含む行データ線系グラフ</a>としてプロットします。
+</p>
+<p class="version" >必要なOriginのバージョン: Origin 2021 以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul><li> Web上のデータソースに接続する方法</li>
+<li> 1つの列にあるカテゴリに基づいてワークシートを「アンスタック」する方法</li>
+<li> スタックされていない列を列ラベルで並べ替える方法</li>
+<li> 複数の列にフィルタを設定して、大規模なデータセットを管理し、データの傾向を表示する方法</li>
+<li> フィルタデータで行データプロットを作図する方法</li>
+<li> 列メタデータの置換を使用してグラフにラベルを付けるダイナミックグラフタイトルを作成する方法</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<ol><li> ワークブックがアクティブな状態で、<b>データ: Webに接続</b>を選択します。Webに接続ダイアログで、以下をURLボックスにコピーし、<b>OK</b>をクリックします。
+<dl><dd> http://shared.originlab.com/techdownload/FAO_Temperature_Change.csv</dd></dl></li>
+<li> CSVインポートオプションの設定をそのままで<b>OK</b>をクリックし、WebデータをOriginのワークシートに接続します。</li>
+<li> データ列がよく見えるように、また、いくつかの点を確認できるように、ワークブックのサイズを変更します。
+<ul><li> <i>Area</i>というラベルの付いた2番目の列は、地理的地域と経済グループの繰り返しリストです。 </li>
+<li> <i>Months</i>というラベルの付いた4番目の列は、期間（月、四半期、年）の繰り返しリストです。</li>
+<li> <i>Element</i>というラベルの付いた6番目の列には、<i>気温変化</i>と<i>標準偏差</i>のカテゴリが含まれています。</li>
+<li> <i>Y1961</i>から<i>Y2019</i>のラベルが付いた列には、<i>1961</i>年から<i>2019</i>年までの<i>気温変化</i>と<i>標準偏差</i>の測定値が含まれています。</li>
+<li> このデータを操作および作図する方法は複数ありますが、データの水平方向の配置に加えて、エラー測定値（標準偏差）を含めると、<a class="external text" href="http://blog.originlab.com/plotting-horizontally-arranged-data-using-row-wise-plotting-in-origin-2019" target="_blank">エラーバーを含む行データプロット</a>が考えられます。しかし、作図できるデータ形式にするには、調整が必要です。</li></ul></li>
+<li> まず、<i>気温変化</i>と<i>標準偏差</i>のデータを年ごとに別々の列に分割する必要があります（つまり、標準偏差と標準偏差の測定を年ごとにグループ化する必要があります）。このため、<a class="external text" href="../../UserGuide/UserGuide/Unstacking_Worksheet_Columns.html"><b>列アンスタッキング</b>ツール</a>を使用します。<b>データ整形：列アンスタッキング</b>をクリックして、ダイアログボックスを開きます。</li>
+<li> 気温データは<i>Y1961</i> - <i>Y2019</i>列にあるため、<b>アンスタックされるデータ</b>の右側にあるフライアウト（矢印）ボタンをクリックして、<b>列を選択</b>を選択します。列ブラウザダイアログで、<i>ロングネーム</i>に<i>Y1961</i>が表示されるまでスクロールし、キーボードで<i>Ctrl</i> + <i>Shift</i>キーを押しながら<i>End</i>キーを押します。これにより、すべての気温のデータ列が選択されます。<b>ブロックとして追加</b>ボタンをクリックし、<b>OK</b>をクリックしてブラウザを閉じます。</li>
+<li> <b>グループ列</b>フライアウトボタンをクリックして、<b>F(Y): Element</b>を選択します。
+<dl><dd><a  class="image"><img alt="Unstack Sort Columns by Label.png" src="../images/Unstack_Sort_Columns_by_Label/Unstack_Sort_Columns_by_Label.png" width="643"  /></a></dd></dl></li>
+<li> <b>オプション</b>で、(a)<b>他の列を含める</b>のチェックを入れて、(b)テキストボックスの右側にある「ワークシートから選択」ボタン<a  class="image"><img alt="Button Select Data Interactive.png" src="../images/Unstack_Sort_Columns_by_Label/Button_Select_Data_Interactive.png" width="18"  /></a>をクリックします。ダイアログが縮小したら、<i>Ctrl</i>キーを押しながら、列ヘッダをクリックしてワークシートの列<i>B(Y)</i>と<i>D(Y)</i>を選択します。<a  class="image"><img alt="Button Select Data Interactive Back.png" src="../images/Unstack_Sort_Columns_by_Label/Button_Select_Data_Interactive_Back.png" width="22"  /></a>ボタンをクリックしてダイアログを元に戻し、残りのダイアログ項目をデフォルトのままで、<b>OK</b>をクリックして閉じて出力を生成します。</li>
+<li> 追加された<i>UnstackCols1</i>タブをクリックすると、<i>気温変化</i>と<i>標準偏差</i>の測定値が明確に分割されていることが確認できます。しかし、作図のためには、毎年の気温変化の後に標準偏差が続くように、年ごとに列を並べ替える必要があります。再計算機能の「操作ロック」のため、このシートの列を再整列することはできません。そのため、シートのコピーを作成し、コピーしたシートから操作ロックを削除します（元の出力はそのままにします）。</li>
+<li> <i>UnstackCols1</i>シートタブを右クリックし、<b>複製</b>を選択します。追加されたUnstackCols2シートで、左上隅にある緑色の錠前アイコンをクリックし、<b>再計算モード：しない</b>を選択します。確認のメッセージで<b>OK</b>をクリックします。
+<dl><dd> <a  class="image"><img alt="Unstack Sort Columns by Label 2.png" src="../images/Unstack_Sort_Columns_by_Label/Unstack_Sort_Columns_by_Label_2.png" width="590"  /></a></dd></dl></li>
+<li> 出力シートから操作の保護が削除されたので、ラベル行を使って列を自由に並べ替えることができます。<i>UnstackCols2</i>タブをクリックし、シートをブックの外にドラッグして別のブックを作成します。列<i>C(Y)</i>のヘッダ(<i>Y1961</i>)をクリックして選択し、Ctrl + Shift + Endを押して残りのすべての列を選択します。<b>ワークシート：ラベルで列をソート</b>をクリックして、下図のように設定します。
+<dl><dd> <a  class="image"><img alt="Unstack Sort Columns by Label 3.png" src="../images/Unstack_Sort_Columns_by_Label/Unstack_Sort_Columns_by_Label_3.png" width="791"  /></a></dd></dl></li>
+<li> <b>OK</b>をクリックして列を再配列し、年毎の気温変化の測定値の後に、標準偏差の測定値が続くようにします。次に、まだ選択されているデータを右クリックし、<b>列XY属性の設定：カスタム...</b> を選択し、<b>指定</b>ボックスに<i>YE</i>と入力して、<b>OK</b>をクリックします。これにより、選択した列が<i>Y</i>、<i>yEr</i>±の順で設定され、作図に適したワー​​クシートになります。
+<dl><dd> <a  class="image"><img alt="Unstack Sort Columns by Label 4.png" src="../images/Unstack_Sort_Columns_by_Label/Unstack_Sort_Columns_by_Label_4.png" width="350"  /></a></dd></dl></li>
+<li> <b>細かい内容</b>：ワークシートをスクロールして列<b>C</b>(<i>ロングネーム</i>= <i>Y1961</i> )が表示されるようにし、<b>単位</b>セルをダブルクリックし、左括弧を入力してから右クリックして<b>シンボルマップ</b>を選択します。シンボルマップを参照して「度」シンボル（F0B0）を見つけ、<b>挿入</b>をクリックした後<b>閉じる</b>をクリックします。大文字の「C」と右括弧を入力します。次に、セルの右下隅に「+」カーソルが表示されるようポインタを置き、ダブルクリックして（°C）をシートの最後まで延長します。
+<dl><dd><a  class="image"><img alt="Unstack Sort Columns by Label 4a.png" src="../images/Unstack_Sort_Columns_by_Label/Unstack_Sort_Columns_by_Label_4a.png" width="793"  /></a></dd></dl></li></ol>
+<h3><a name="Adding_Data_Filters_to_Categorical_Columns"></a><span class="mw-headline">カテゴリ列にデータフィルタを追加する</span></h3>
+<p>この時点では、非常に大きなデータセットのため、ワークシートのすべてのデータをプロットしようとすると、作成したい行データプロットが埋もれてしまいます。データの傾向をよりよく確認して比較するために、<i>Area</i>列と<i>Months</i>列にデータフィルタを追加します。
+</p>
+<ol><li> <i>Area</i>列の列ヘッダをクリックして列を選択し、そして<b><b>列：フィルタ：フィルタを追加または削除</b></b>を選択します。フィルタのアイコンが列ヘッダに追加されます。列フィルタアイコンをクリックし、<b>すべて選択</b>ボックスをオフにして、すべてのチェックを外します。次に、<i>Africa</i>、<i>Antarctica</i>、<i>Asia</i>、<i>Australia &amp; New Zealand</i>、<i>Europe</i>、<i>Northern America</i>、<i>South America</i>の横にあるチェックボックスにチェックをに入れて、<b>OK</b>をクリックします。</li>
+<li> <i>Months</i>列の列ヘッダをクリックして列を選択し、そして<b><b>列：フィルタ：フィルタを追加または削除</b></b>を選択します。列フィルタアイコンをクリックし、<b>すべて選択</b>ボックスをオフにして、すべてのチェックを外してから、<i>Meteorological year</i>の横にあるチェックボックスにチェックを入れ、<b>OK</b>をクリックします。 </li>
+<li> <i>Area</i>列を選択してから右クリックして<b>Xとして設定</b>を選択します。Ctrlキーを押しながら列Cを選択し、Shift + Endを押してワークシートの残りの列を選択します。</li>
+<li> <b>作図&gt; 基本2D：行データプロット...</b>をクリックします。<b>Yラベル</b>ボックスの横にあるフライアウトボタンをクリックし、<i>A(X): Area</i>と<b>Xデータ</b>に<i>列ラベル</i>を選択して、<b>OK</b>をクリックします。</li>
+<li> グラフが作成されたら（少し時間がかかるかもしれません）、<b>フォーマット：作図の詳細（ページ属性）</b>を選択し、右側の<b>凡例/タイトル</b>タブをクリックして、<b>%(1),&nbsp;%(2)の解釈モード</b>を<i>@LA: ロングネーム</i>に設定します。
+<dl><dd><a  class="image"><img alt="Unstack Sort Columns by Label 5.png" src="../images/Unstack_Sort_Columns_by_Label/Unstack_Sort_Columns_by_Label_5.png" width="587"  /></a></dd></dl></li></ol>
+<h3><a name="Labeling_the_Plot.2C_Cleaning_up_Cosmetic_Issues"></a><span class="mw-headline">プロットのラベル付け、外観上の問題の調整</span></h3>
+<ol><li> 間隔が狭すぎて見えなくなっている横軸の軸目盛ラベルをダブルクリックします。<b>目盛ラベル</b>&gt;<b>フォーマット</b>サブタブで、<b>回転（度）</b>を<i>自動</i>と設定し、<b>重複したラベルの自動非表示</b>にチェックを入れます。</li>
+<li> <b>スケール</b>タブをクリックして、<b>開始</b>を<i>0</i>、<b>終了</b>を<i>60</i>、<b>再スケール</b>を<i>固定</i>に設定し、<b>副目盛</b>は<b>カウント</b>を<i>0</i>に設定します。OKをクリックしてダイアログを閉じます。</li>
+<li> グラフウィンドウの上部中央部分で右クリックし、<b>テキストの追加</b>を選択して、テキストオブジェクトに次のテキストを入力します。
+<dl><dd> Months:&nbsp;%([Book2]Unstackcols2,@WL,B[F],W)</dd></dl></li>
+<li> ラベルオブジェクト上で右クリックして、<b>プロパティ</b>を選択します。<b>プログラミング</b>タブをクリックし、<b> (%,$)にリンク,置換レベル</b>を<i>1</i>と設定し、<b>OK</b>をクリックします。ワークシート情報のテキストで置換されラベルには、「Months：Meteorological year」と表示されます。これは、<i>Months</i>列に設定されるフィルタ条件です。(詳細は、<a class="external text" href="../../LabTalk/LabTalk/Text_Label_Options.html">テキストラベルの置換</a>を参照してください）。</li>
+<li> グラフのアスペクト比を変更し、必要に応じてグラフの比率を変更できるようにするには、<b>フォーマット：作図の詳細（ページ属性）</b>を選択し、<b>その他のオプション</b>タブで<b>ビューモード</b>を<i>ウィンドウビュー</i>に設定します。<b><b>OK</b></b>をクリックして作図の詳細ダイアログを閉じます。</li>
+<li> Ctrlキーを押しながら<a class="external text" href="../../UserGuide/Category/Graph_Legends_and_Color_Scales.html#General_Legend_Customizations">グラフの凡例を水平にドラッグ</a>して、凡例を一直線にします。</li>
+<li> 最後に、<b>表示：表示様式：レイヤ枠</b>をクリックしてチェックマークを付けます。これにより、グラフレイヤに枠が表示されます。必要に応じてページタイトルと凡例を再配置します。</li></ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Unstack_Sort_Columns_by_Label/Tip_icon.png" width="57"  border="0" /></td><td><p><a class="external text" href="../../GettingStarted/OriginLab/The_Origin_Interface.html#Object_Manager"><b>オブジェクトマネージャ</b></a>でプロットの1つをクリックすると、他のすべてのプロットの色が薄くなり、1つのプロットで傾向をよりよく確認できます。
+</p>
+<dl><dd><a  class="image"><img alt="Unstack Sort Columns by Label 6.png" src="../images/Unstack_Sort_Columns_by_Label/Unstack_Sort_Columns_by_Label_6.png" width="668"  /></a></dd></dl>
+</td></tr></table>
+
+
+    

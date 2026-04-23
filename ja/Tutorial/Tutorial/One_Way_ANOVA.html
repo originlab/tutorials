@@ -1,0 +1,88 @@
+﻿<h1 class="firstheading">一元配置ANOVA</h1><p class='urlname' style='display: none'>1WayANOVA</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Indexed_Data_Mode"><span class="tocnumber">3.1</span> <span class="toctext">インデックスデータモード</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Raw_Data_Mode"><span class="tocnumber">3.2</span> <span class="toctext">素データモード</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/One_Way_ANOVA/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/One_Way_ANOVA/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=5" target="_blank">分散分析</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/One_Way_ANOVA/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/One_Way_ANOVA/Blog_Image_33x33px.png" width="135"  /></a>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>統計では主にインデックスと素データの2つの入力データモードがあります。  通常、統計分析を実行するときにデータセットすべてを使用する必要はありません。そのためにOriginはデータを選択する方法をいくつか提供しています。   例えば、インタラクティブな<b>データセレクタ</b>ボタンを使用して、グラフ上でデータを選択したり、「<b>列ブラウザ</b>」ダイアログを使ってデータを選択できます。
+</p><p>このチュートリアルでは、分散分析(ANOVA)統計検定を使って、これら2つの入力データモードを使って分析を実行する方法を学習します。 
+</p><p>ANOVAは、いくつかのグループの平均を比較するパラメトリック検定のひとつで、独立した2標本のt検定を拡張したものです。  比較する集団が2つ以上ある場合には、t検定は適さないのでANOVA を使用します。例えば、5つのグループ間の平均をt検定で比較すると、対ごとにt検定を行います。それぞれに対して有意水準0.05で分析を行うため、誤って帰無仮説を棄却する確率確率（タイプ I エラーの確率）は1-(1-0.05)^10=0.401となってしまいます。  同じ条件でも、ANOVAを用いるとタイプ I エラーを犯す確率を0.05におさえることができます。
+</p><p>ANOVAは正規性と等分散を必要とします。  それ以外の場合、ノンンパラメトリック検定を使用します。
+</p>
+<p class="version" >必要なOriginのバージョン:Origin 2016 SR0以降</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。
+</p>
+<ul><li>統計分析ダイアログで異なる入力データモードを使用する方法</li>
+<li>正規性の検定を実行する</li>
+<li>一元配置の分散分析を実行</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>Originは、インデックスと素データの2つのモードでANOVAを実行することができます。  
+</p><p>インデックスモードを使うときには、因子とデータの2列でデータが構成されている必要があります。  
+</p>
+<dl><dd><dl><dd><a  class="image"><img alt="Tutorial ANOVA 008.png" src="../images/One_Way_ANOVA/Tutorial_ANOVA_008.png" width="271"  /></a><br /></dd></dl></dd></dl>
+<p>素データモードで行う場合、異なるレベルは異なる列に入力します。
+</p>
+<dl><dd><a  class="image"><img alt="Tutorial ANOVA 009.png" src="../images/One_Way_ANOVA/Tutorial_ANOVA_009.png" width="407"  /></a><br /></dd></dl>
+<p><br />
+</p>
+<h3><a name="Indexed_Data_Mode"></a><span class="mw-headline">インデックスデータモード</span></h3>
+<p>4種類の植物の窒素の含有量がミリグラム単位で記録されています。  植物の種類によって窒素の含有量が有意に異なるかどうかを調査します。  このサンプルに対しては、インデックスモードで一元配置ANOVAを実行します。
+</p>
+<ol>
+<li>新しいワークブックを開き、<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Statistics</i>サブフォルダにある<i>nitrogen.txt</i> ファイルを探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。
+<li>次に、データの各グループに対して正規性の検定を実行し、正規分布に従うかを調べます。ワークブックの1列目を選択し、メインメニューの<b>ワークシート：ソート(ワークシート)：昇順</b>を選択します。</li>
+<li>メインメニューの<b>統計：記述統計：正規性検定</b>を選択し、ダイアログを開きます。  <b><b>正規性検定</b></b>ダイアログで、<b>入力</b>ノードの<b>範囲1</b>ノードを開きます。<b>データ範囲</b>の右にある三角ボタンをクリックしてコンテキストメニューを表示し、<b>B(Y): nitrogen</b>を選択します。同様に、<b>グループ</b>範囲でもコンテキストメニューから<b>A(X): plant</b>を選択します。<b><b>OK</b></b>をクリックします。</li>
+<p><a  class="image"><img alt="DOC-2411 ANOVAn1a Magenta.png" src="../images/One_Way_ANOVA/DOC-2411_ANOVAn1a_Magenta.png" width="684"  /></a>
+</p>
+<li>ワークシート<b>nitrogen</b> をアクティブにして、メインメニューの<b>統計：ANOVA：一元配置</b>と選択します。<b><b>ANOVAOneWay</b></b>ダイアログで、<b><b>入力</b></b>データモードを<b><b>インデックス</b></b>にします。  <b>因子</b>の右にある矢印ボタンをクリックし、コンテキストメニューで<b>A(X): plant</b> 列を選択し、同様に<b><b>データ</b></b>のコンテキストメニューから <b>B(Y): nitrogen</b>列を選択します。 </li>
+<dl><dd><a  class="image"><img alt="DOC-2411 ANOVA03a Magenta.png" src="../images/One_Way_ANOVA/DOC-2411_ANOVA03a_Magenta.png" width="646"  /></a><br /></dd></dl>
+<li><b>平均の比較</b>タブを開き、<b>Tukey</b>にチェックをつけます。<b>等分散性の検定</b>ブランチでは、<b>Levene</b>にチェックを付けます。<b><b>検出力解析</b></b>では<b><b>実際の検出力</b></b>にチェックをつけ、<b>プロット</b>ノードを開き、<b>平均値プロット（SEをエラーバー表示）</b>と<b>平均比較プロット</b>にチェックを付けます。  <b><b>OK</b></b>をクリックします。</li>
+</ol>
+<dl><dd><a  class="image"><img alt="DOC-2411 ANOVA03b Magenta.png" src="../images/One_Way_ANOVA/DOC-2411_ANOVA03b_Magenta.png" width="779"  /></a><br /></dd></dl>
+<p><b>結果の解釈</b>
+</p>
+<ul><li>レポートシートANOVA1Wayにある「<b>等分散性の検定</b>」ノードで結果表を確認します。ノードを開くと表が表示されますp値が0.05より大きいので、4つの集団が等分散していると判断できます。<br />             </li></ul>
+<dl><dd><a  class="image"><img alt="ANOVA04.png" src="../images/One_Way_ANOVA/ANOVA04.png" width="343"  /></a><br /></dd></dl>
+<ul><li>ANOVAテーブル (全般ANOVA) で、p値が0.05よりも小さいので、4つのグループの内少なくとも2つが異なる平均値を持つことを有意に示しています。<p></li></ul>
+<dl><dd><a  class="image"><img alt="ANOVA05.png" src="../images/One_Way_ANOVA/ANOVA05.png" width="365"  /></a><br /><br /></dd></dl>
+<ul><li>「平均比較」の結果を展開すると、グループ間の関係についての詳細情報が明らかになります。</li></ul>
+<dl><dd><a  class="image"><img alt="ANOVA06.png" src="../images/One_Way_ANOVA/ANOVA06.png" width="612"  /></a><br /><br /></dd></dl>
+<ul><li>PLANT4の平均が他の3グループとは有意に異なることが分かります。<b><b>平均値プロット</b></b>と<b><b>平均比較プロット</b></b>から、PLANT4は他の3つのグループと異なり、最も小さい平均をもつことがわかります。</li></ul>
+<dl><dd><a  class="image"><img alt="ANOVA07.png" src="../images/One_Way_ANOVA/ANOVA07.png" width="395"  /></a><br /></dd>
+<dd><a  class="image"><img alt="ANOVA09.png" src="../images/One_Way_ANOVA/ANOVA09.png" width="551"  /></a><br /></dd></dl>
+<ul><li>パワー表で、<b>実際のパワー</b>＝0.99976であることからタイプ II エラーの確率はほぼ0であることがわかります。 </li></ul>
+<dl><dd><a  class="image"><img alt="ANOVA10.png" src="../images/One_Way_ANOVA/ANOVA10.png" width="299"  /></a><br /></dd></dl>
+<h3><a name="Raw_Data_Mode"></a><span class="mw-headline">素データモード</span></h3>
+<ol><li> 新しいワークブックを開き、<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Statistics</i>サブフォルダにある<i>nitrogen_raw.dat</i> ファイルを探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。</li>
+<li> <b>統計：ANOVA：一元配置</b>を選択します。 </li>
+<li> <b>入力</b>タブで、<b>入力データ</b>を<b>素データ値</b>とし、<b>レベルの数</b>を<b>4</b>にします。</li>
+<li> <b>データ</b>の右側にある参照ボタン<a  class="image"><img alt="ANOVA inpurt data browse.png" src="../images/One_Way_ANOVA/ANOVA_inpurt_data_browse.png" width="35"  /></a>をクリックして、<b>ワークシートから選択する</b>を選びます。ダイアログが縮小します。</li>
+<li> 4列全て（Plant1, Plant2, Plant3, Plant4）を選択して、ダイアログで<b>完了</b>ボタンをクリックします。<b>OK</b> をクリックしてANOVAを実行します。</li>
+<li> 得られた分析結果を分析すると、<b>インデックスデータモード</b>を使用した時と同様の結論が得られたことがわかります。<br /></li></ol>
+<p><br />
+</p>
+<dl><dd><a  class="image"><img alt="DOC-2411 ANOVA311a.png" src="../images/One_Way_ANOVA/DOC-2411_ANOVA311a.png" width="874"  /></a><br /></dd></dl>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/One_Way_ANOVA/Tip_icon.png" width="57"  border="0" /></td><td><p><b>レベル名</b>を<b>自動</b>に設定しておくと、選択された列のロングネームが自動的に表示されます。
+</p></td></tr></table></p>
+
+
+    

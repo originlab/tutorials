@@ -1,0 +1,55 @@
+﻿<h1 class="firstheading">リセッションバーを持つ折れ線グラフ</h1><p class='urlname' style='display: none'>LineGraph-RecessionBars</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Add_Reference_Lines_and_do_Alternate_Fill_to_add_Recession_Bars"><span class="tocnumber">3.1</span> <span class="toctext">参照線の追加、および、交互塗りつぶしでリセッションバーを追加</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>このチュートルアルは、リセッションバー付き極座標図を作成する方法を示します。このようなグラフは、景気後退期(リセッション)を垂直棒で表すように経済データをプロットするときには一般的です。
+</p>
+<dl><dd><a class="image"><img alt="リセッションバーを持つ折れ線グラフ" src="../images/Line_Graph_with_Recession_Bars/Line_Graph_with_Recession_Bars.png" width="554"  /></a></dd></dl>
+<p class="version" >必要なOriginのバージョン:Origin 2017 SR0</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul><li> 折れ線グラフをプロットする</li>
+<li> 参照線を追加し、2本の参照線間を塗りつぶしてリセッションバーを表示します。</li>
+<li> <b>軸</b>ダイアログの日付表示フォーマットを設定する</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>このチュートリアルは、チュートリアルデータプロジェクト（<i><i>&lt;Origin EXE フォルダ&gt;\Samples\TutorialData.opj</i></i>）と関連しています。<b><b>プロジェクトエクスプローラ</b></b>で<b>Recession Bars</b>フォルダをクリックし、ワークブック<i>Book1G</i>をアクティブにします。
+</p>
+<h3><a name="Add_Reference_Lines_and_do_Alternate_Fill_to_add_Recession_Bars"></a><span class="mw-headline">参照線の追加、および、交互塗りつぶしでリセッションバーを追加</span></h3>
+<ol><li>ワークシートのすべての列を選択し、<b>作図：</b><b>基本の<b>2Dグラフ： 折れ線</b> </b>と操作して折れ線グラフを作図します。折れ線グラフをクリックして選択し、<b>スタイル</b>ツールバーにある<b>線図/境界色</b>ボタン<a class="image"><img alt="Button Line Border Color.png" src="../images/Line_Graph_with_Recession_Bars/Button_Line_Border_Color.png" width="35"  /></a>を使って、線の色を<i>赤</i>にします。</li>
+<li>X軸をダブルクリックして、軸ダイアログを開きます。<b>参照線</b>タブで、<b>値の参照線</b>テキストボックスの隣にある、間隔ボタン<a class="image"><img alt="Button Select Data Interactive.png" src="../images/Line_Graph_with_Recession_Bars/Button_Select_Data_Interactive.png" width="18"  /></a>をクリックして、ワークシートからcol(C)を選択します。すべてのリセッション間隔のX軸は、参照線として表にリスト化されます。 
+<dl><dd><a class="image"><img alt="Add Reference Lines.png" src="../images/Line_Graph_with_Recession_Bars/Add_Reference_Lines.png" width="608"  /></a></dd></dl></li>
+<li><b>交互塗りつぶし</b>ボックスにチェックを入れて、各間隔を塗りつぶします。<b>線</b>のチェックボックスのチェックを外して、すべての参照線を非表示にします。（列ヘッダにある<b>線</b>のチェックボックスにチェックを入れ、チェックを外すとすべての選択を解除できます。）
+<dl><dd><a class="image"><img alt="Fill paired Reference Lines.png" src="../images/Line_Graph_with_Recession_Bars/Fill_paired_Reference_Lines.png" width="608"  /></a></dd></dl></li></ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Line_Graph_with_Recession_Bars/Tip_icon.png" width="57"  border="0" /></td><td><p>ラベルテキストを選択すると、＜自動＞、＜入力された値＞、またはカスタム文字列から1つ選択できます。詳細は、<a class="external text" href="../../UserGuide/UserGuide/Reference_Lines.html#Label_Text">「参照線」タブ、ラベルテキスト</a>をご覧ください。
+</p>
+<h3><a name="Customize_the_Display_of_Graph"></a><span class="mw-headline">グラフ表示の編集</span></h3>
+<ol><li>次に、左側パネルでグラフレベル(Graph1)を開き、<b>表示指定</b>タブ内の<b><b>色</b></b>を<b><b>暗い空色</b></b>にします。レイヤレベル(Layer1)を開き、<b><b>背景</b></b>タブを開いて<b>色</b>を<b>白</b>にします。また、<b><b>レイヤ表示方法</b></b>タブの<b><b>プロットを軸に優先</b></b>のチェックを外して、<b>枠</b>にチェックを入れます。<b>OK</b>ボタンをクリックして、ダイアログボックスを閉じます。
+<dl><dd><a class="image"><img alt="Display Color of Graph for Recession Bar.png" src="../images/Line_Graph_with_Recession_Bars/Display_Color_of_Graph_for_Recession_Bar.png" width="802"  /></a></dd>
+<dd><a class="image"><img alt="Display Color of Backgroud for Recession Bar.png" src="../images/Line_Graph_with_Recession_Bars/Display_Color_of_Backgroud_for_Recession_Bar.png" width="750"  /></a></dd>
+<dd><a class="image"><img alt="Line Graph with Recession Bars 01.png" src="../images/Line_Graph_with_Recession_Bars/Line_Graph_with_Recession_Bars_01.png" width="717"  /></a></dd></dl></li>
+<li> X軸をダブルクリックして、<b>軸</b>ダイアログボックスを開きます。<b>目盛ラベル</b>タブを開き、<b>表示</b>タブにある<b>表示</b>ドロップダウンリストから<b>2016</b>を選びます。
+<dl><dd><a class="image"><img alt="Tick Label Display.png" src="../images/Line_Graph_with_Recession_Bars/Tick_Label_Display.png" width="560"  /></a></dd></dl></li>
+<li><b>フォーマット</b>タブを開き、<b>回転(度)</b>を<b>90</b>に設定します。これで目盛ラベルは全て90度回転して表示されます。<b>適用</b>をクリックして、これらの設定を表示します。
+<dl><dd><a class="image"><img alt="目盛ラベル表" src="../images/Line_Graph_with_Recession_Bars/Tick_Label_Rotate.png" width="560"  /></a></dd></dl></li>
+<li><b>スケール</b>タブを開き、以下のように設定します。
+<dl><dd><a class="image"><img alt="Scale setting.png" src="../images/Line_Graph_with_Recession_Bars/Scale_setting.png" width="560"  /></a></dd></dl></li>
+<li><b><b>タイトル</b></b>タブを開き、<b><b>テキスト</b></b>を<b>Year</b>にしてX軸のタイトルを変更します。</li>
+<li>左側パネルで<b>左</b>アイコンをクリックし、テキストを<b>(Index 2002 = 100)</b> に設定してY軸のタイトルも変更します。<b>適用</b>をクリックしてグラフに反映させます。</li>
+<li><b>スケール</b>タブに戻り、<b>垂直</b>アイコンを選択してＹ軸を編集します。<b>開始</b>の値を0に設定します。<b>適用</b>ボタンをクリックします。</li>
+<li><b>グリッド線</b>タブを開き、主グリッド線の<b>表示</b>にチェックをつけるとその下の色を選べるようになるので、ドロップダウンから<b>明るい灰色</b>を選びます。
+<dl><dd><a class="image"><img alt="Set Grid Lines.png" src="../images/Line_Graph_with_Recession_Bars/Set_Grid_Lines.png" width="560"  /></a></dd></dl></li>
+<li><b>OK</b>をクリックしてこの設定を適用して、ダイアログを閉じます。 </li>
+<li>グラフ上の凡例は削除します。レイヤを右クリックし、<b>レイヤタイトルを追加/変更</b>を選択し、レイヤタイトルを追加します。テキストボックスに、<i>Industrial Production: Durable Consumer Goods (IPDCONGD)</i> と入力します。テキストを選択し、<b>書式</b>ツールバーの <a class="image"><img alt="Button Bold.png" src="../images/Line_Graph_with_Recession_Bars/Button_Bold.png" width="23"  /></a> ボタンをクリックします。テキストのフォントの大きさを設定します。適切な大きさになるよう、<b>書式</b>ツールバーの<b>フォントサイズ</b>リスト<a class="image"><img alt="Button Size.png" src="../images/Line_Graph_with_Recession_Bars/Button_Size.png" width="58"  /></a>に入力又は選択してください。次のようなグラフが出来上がります。
+<dl><dd><a class="image"><img alt="リセッションバーを持つ折れ線グラフ" src="../images/Line_Graph_with_Recession_Bars/Line_Graph_with_Recession_Bars.png" width="554"  /></a></dd></dl></li></ol>
+</td></tr></table>
+
+    

@@ -1,0 +1,600 @@
+﻿<h1 class="firstHeading">工程能力分析のアルゴリズム</h1><p class='urlname' style='display: none'>Algorithm-CA</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Normal_Capability_Analysis"><span class="tocnumber">1</span> <span class="toctext">正規工程能力分析</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Standard_Deviation_Estimation"><span class="tocnumber">1.1</span> <span class="toctext">標準偏差の推定</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="#Potential_Capability"><span class="tocnumber">1.2</span> <span class="toctext">潜在工程能力</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Overall_Capability"><span class="tocnumber">1.3</span> <span class="toctext">工程能力（全体）</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Benchmark_Zs_for_Potential_Capability"><span class="tocnumber">1.4</span> <span class="toctext">潜在工程能力に対するベンチマークZ</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Benchmark_Zs_for_Overall_Capability"><span class="tocnumber">1.5</span> <span class="toctext">工程能力（全体）に対するベンチマークZ</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Expected_Within_Performance"><span class="tocnumber">1.6</span> <span class="toctext">期待される工程内パフォーマンス</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Expected_Overall_Performance"><span class="tocnumber">1.7</span> <span class="toctext">期待される全体パフォーマンス</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Observed_Performance"><span class="tocnumber">1.8</span> <span class="toctext">観測パフォーマンス</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="#Between.2FWithin_Capability_Analysis"><span class="tocnumber">2</span> <span class="toctext">サブグループ間/内の工程能力分析</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="#Standard_Deviation_Estimation_2"><span class="tocnumber">2.1</span> <span class="toctext">標準偏差の推定</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Between.2FWithin_Capability"><span class="tocnumber">2.2</span> <span class="toctext">サブグループ間/内の工程能力</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Overall_Capability_2"><span class="tocnumber">2.3</span> <span class="toctext">工程能力（全体）</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#Benchmark_Zs_for_Between.2FWithin_Capability"><span class="tocnumber">2.4</span> <span class="toctext">間/内工程能力に対するベンチマークZ</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#Benchmark_Zs_for_Overall_Capability_2"><span class="tocnumber">2.5</span> <span class="toctext">工程能力（全体）に対するベンチマークZ</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#Expected_Between.2FWithin_Performance"><span class="tocnumber">2.6</span> <span class="toctext">期待される工程間/内パフォーマンス</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#Expected_Overall_Performance_2"><span class="tocnumber">2.7</span> <span class="toctext">期待される全体パフォーマンス</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="#Observed_Performance_2"><span class="tocnumber">2.8</span> <span class="toctext">観測パフォーマンス</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-19"><a href="#Non-normal_Capability_Analysis"><span class="tocnumber">3</span> <span class="toctext">非正規工程能力分析</span></a>
+<ul>
+<li class="toclevel-2 tocsection-20"><a href="#Overall_Capability_3"><span class="tocnumber">3.1</span> <span class="toctext">工程能力（全体）</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="#Overall_Benchmark_Zs_for_Non-normal_Capability"><span class="tocnumber">3.2</span> <span class="toctext">非正規工程能力の全体ベンチマークZ</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="#Expected_Overall_Performance_3"><span class="tocnumber">3.3</span> <span class="toctext">期待される全体パフォーマンス</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="#Observed_Performance_3"><span class="tocnumber">3.4</span> <span class="toctext">観測パフォーマンス</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="#Distribution"><span class="tocnumber">3.5</span> <span class="toctext">分布</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-25"><a href="#Binomial_Capability_Analysis"><span class="tocnumber">4</span> <span class="toctext">二項分布の工程能力分析</span></a>
+<ul>
+<li class="toclevel-2 tocsection-26"><a href="#Average_P"><span class="tocnumber">4.1</span> <span class="toctext">平均P</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="#Average_P_95.25_Confidence_Interval"><span class="tocnumber">4.2</span> <span class="toctext">平均Pの95%信頼区間</span></a></li>
+<li class="toclevel-2 tocsection-28"><a href="#.25Defective"><span class="tocnumber">4.3</span> <span class="toctext">不良率</span></a></li>
+<li class="toclevel-2 tocsection-29"><a href="#.25Defective_95.25_Confidence_Interval"><span class="tocnumber">4.4</span> <span class="toctext">不良率の95%信頼区間</span></a></li>
+<li class="toclevel-2 tocsection-30"><a href="#PPM_Defective"><span class="tocnumber">4.5</span> <span class="toctext">PPM不良数</span></a></li>
+<li class="toclevel-2 tocsection-31"><a href="#PPM_Defective_95.25_Confidence_Interval"><span class="tocnumber">4.6</span> <span class="toctext">PPM不良数の95%信頼区間</span></a></li>
+<li class="toclevel-2 tocsection-32"><a href="#Process_Z"><span class="tocnumber">4.7</span> <span class="toctext">工程Z</span></a></li>
+<li class="toclevel-2 tocsection-33"><a href="#Process_Z_95.25_Confidence_Interval"><span class="tocnumber">4.8</span> <span class="toctext">工程Zの95%信頼区間</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-34"><a href="#Poisson_Capability_Analysis"><span class="tocnumber">5</span> <span class="toctext">ポアソン分布の工程能力分析</span></a>
+<ul>
+<li class="toclevel-2 tocsection-35"><a href="#Mean_Defective"><span class="tocnumber">5.1</span> <span class="toctext">平均不良数</span></a></li>
+<li class="toclevel-2 tocsection-36"><a href="#Mean_Defective_95.25_Confidence_Interval"><span class="tocnumber">5.2</span> <span class="toctext">平均不良数の95%信頼区間</span></a></li>
+<li class="toclevel-2 tocsection-37"><a href="#Mean_DPU"><span class="tocnumber">5.3</span> <span class="toctext">平均DPU</span></a></li>
+<li class="toclevel-2 tocsection-38"><a href="#Mean_DPU_95.25_Confidence_Interval"><span class="tocnumber">5.4</span> <span class="toctext">平均DPUの95%信頼区間</span></a></li>
+<li class="toclevel-2 tocsection-39"><a href="#Minimum_DPU"><span class="tocnumber">5.5</span> <span class="toctext">最小DPU</span></a></li>
+<li class="toclevel-2 tocsection-40"><a href="#Maximum_DPU"><span class="tocnumber">5.6</span> <span class="toctext">最大DPU</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Normal_Capability_Analysis"></a><span class="mw-headline">正規工程能力分析</span></h2>
+<h3><a name="Standard_Deviation_Estimation"></a><span class="mw-headline">標準偏差の推定</span></h3>
+<p>正規分布前提の能力分析では、サブグループ内と全体の標準偏差を推定します。 
+</p>
+<dl><dd><ul><li> サブグループ内標準偏差 (<img src="../images/Algorithm_CA/math-c5744ecbeb89b1ac3650c0b5d769e0b8.png" title="\sigma_{within}" alt="\sigma_{within}" class="tex"/>)
+<dl><dd> サブグループサイズ（1より大きい場合、または1に等しい場合）によって推定方法が異なります。
+<ul><li> サブグループサイズ &gt; 1 の場合
+<ul><li> サブグループ範囲の平均 (Rbar)
+<dl><dd> <img src="../images/Algorithm_CA/math-0709eadac14ea6ca874a57985536b556.png" title="\sigma_{within}=S_r=\frac{\sum_{i=1}^N\frac{f_ir_i}{d_2(n_i)}}{\sum_{i=1}^Nf_i}" alt="\sigma_{within}=S_r=\frac{\sum_{i=1}^N\frac{f_ir_i}{d_2(n_i)}}{\sum_{i=1}^Nf_i}" class="tex"/>、ここで<img src="../images/Algorithm_CA/math-372cd21e90a593b21ee8a9b0834e16fa.png" title="f_i = \frac{(d_2(n_i))^2}{(d_3(n_i))^2}" alt="f_i = \frac{(d_2(n_i))^2}{(d_3(n_i))^2}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-8d9c307cb7f3c4a32822a51922d1ceaa.png" title="N" alt="N" class="tex"/>: サブグループの数</dd>
+<dd> <img src="../images/Algorithm_CA/math-af2593b49488f8bc44396795792c2d79.png" title="r_i" alt="r_i" class="tex"/>: 第<img src="../images/Algorithm_CA/math-811ed2017ce127575a960555aa6179d7.png" title="ith" alt="ith" class="tex"/>サブグループの範囲 <img src="../images/Algorithm_CA/math-a7820ae72248a3becba5db7c5e49d5b7.png" title="r_i=\max(ith\_subgroup\_observations)-\min(ith\_subgroup\_observations)" alt="r_i=\max(ith\_subgroup\_observations)-\min(ith\_subgroup\_observations)" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>: 第<img src="../images/Algorithm_CA/math-811ed2017ce127575a960555aa6179d7.png" title="ith" alt="ith" class="tex"/>サブグループの観測数</dd>
+<dd> <img src="../images/Algorithm_CA/math-c6503d6225896bdb369877a3818adb11.png" title="d_2(n_i), d_3(n_i)" alt="d_2(n_i), d_3(n_i)" class="tex"/>: 無偏定数 <img src="../images/Algorithm_CA/math-9f245b4ec68e8946707f1f491780ab1b.png" title="d2(), d3()" alt="d2(), d3()" class="tex"/></dd></dl></li>
+<li> サブグループ標準偏差の平均 (Sbar)
+<dl><dd> 無偏推定<img src="../images/Algorithm_CA/math-6aac83b9ae1a130e8cf8c89bf351be21.png" title="\sigma_{within}=\bar{S}=\frac{\sum_{i=1}^N\frac{h_iS_i}{c_4(n_i)}}{\sum_{i=1}^Nh_i}" alt="\sigma_{within}=\bar{S}=\frac{\sum_{i=1}^N\frac{h_iS_i}{c_4(n_i)}}{\sum_{i=1}^Nh_i}" class="tex"/>、ここで<img src="../images/Algorithm_CA/math-ed6f501da72a9d442b948544dd408eda.png" title="h_i=\frac{(c_4(n_i))^2}{1-(c_4(n_i))^2}" alt="h_i=\frac{(c_4(n_i))^2}{1-(c_4(n_i))^2}" class="tex"/></dd>
+<dd> 無偏定数を使用しない場合：<img src="../images/Algorithm_CA/math-eb89125241ec1393b0f8af0169c048cb.png" title="\sigma_{within}=\frac{\sum_{i=1}^NS_i}{N}" alt="\sigma_{within}=\frac{\sum_{i=1}^NS_i}{N}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-8d9c307cb7f3c4a32822a51922d1ceaa.png" title="N" alt="N" class="tex"/>: サブグループの数</dd>
+<dd> <img src="../images/Algorithm_CA/math-804f14414dab2297b600211a82c39fa8.png" title="S_i" alt="S_i" class="tex"/>: 第<img src="../images/Algorithm_CA/math-811ed2017ce127575a960555aa6179d7.png" title="ith" alt="ith" class="tex"/>サブグループの標準偏差</dd>
+<dd> <img src="../images/Algorithm_CA/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>: 第<img src="../images/Algorithm_CA/math-811ed2017ce127575a960555aa6179d7.png" title="ith" alt="ith" class="tex"/>サブグループの観測数</dd>
+<dd> <img src="../images/Algorithm_CA/math-dfc1d3bafec7db7ff04e062246cf70d0.png" title="c_4(n_i)" alt="c_4(n_i)" class="tex"/>: 無偏定数 <img src="../images/Algorithm_CA/math-841949daa5872ddbe2d628ac142998e9.png" title="c4()" alt="c4()" class="tex"/></dd></dl></li>
+<li> プールされた標準偏差
+<dl><dd> 無偏推定 <img src="../images/Algorithm_CA/math-56ca357280b13562c0ac54f2e129b3c9.png" title="\sigma_{within}=\frac{S_p}{c_4(d+1)}" alt="\sigma_{within}=\frac{S_p}{c_4(d+1)}" class="tex"/>, ここで <img src="../images/Algorithm_CA/math-586f8c95d0958ab81dfebdfda12249d5.png" title="S_p=\sqrt{\frac{\sum_{i=1}^N\sum_{j=1}^{n_i}(X_{ij}-\bar{X}_i)^2}{\sum_{i=1}^N(n_i-1)}}" alt="S_p=\sqrt{\frac{\sum_{i=1}^N\sum_{j=1}^{n_i}(X_{ij}-\bar{X}_i)^2}{\sum_{i=1}^N(n_i-1)}}" class="tex"/>, <img src="../images/Algorithm_CA/math-43cdd946c70aa883c615b659fbc07770.png" title="c_4(d+1)=\frac{\Gamma{(\frac{d+1}{2})}}{\Gamma{(\frac{d}{2})}}\sqrt{\frac{2}{d}}" alt="c_4(d+1)=\frac{\Gamma{(\frac{d+1}{2})}}{\Gamma{(\frac{d}{2})}}\sqrt{\frac{2}{d}}" class="tex"/></dd>
+<dd> 無偏定数を使用しない場合、<img src="../images/Algorithm_CA/math-d7918e9d0382645b762b547c30a5ecc5.png" title="\sigma_{within}=S_p" alt="\sigma_{within}=S_p" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-8d9c307cb7f3c4a32822a51922d1ceaa.png" title="N" alt="N" class="tex"/>: サブグループの数</dd>
+<dd> <img src="../images/Algorithm_CA/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>: 第<img src="../images/Algorithm_CA/math-811ed2017ce127575a960555aa6179d7.png" title="ith" alt="ith" class="tex"/>サブグループの観測数</dd>
+<dd> <img src="../images/Algorithm_CA/math-293d0536b3311ee8663909034780258d.png" title="X_{ij}" alt="X_{ij}" class="tex"/>: 第<img src="../images/Algorithm_CA/math-811ed2017ce127575a960555aa6179d7.png" title="ith" alt="ith" class="tex"/>サブグループの第<img src="../images/Algorithm_CA/math-c3476ea2ed6144bb64b9d14534f34230.png" title="jth" alt="jth" class="tex"/>観測値</dd>
+<dd> <img src="../images/Algorithm_CA/math-c297a89e7224f08ec4e3cfbbc9628334.png" title="\bar{X_i}" alt="\bar{X_i}" class="tex"/>: 第<img src="../images/Algorithm_CA/math-811ed2017ce127575a960555aa6179d7.png" title="ith" alt="ith" class="tex"/>サブグループの平均値</dd>
+<dd> <img src="../images/Algorithm_CA/math-8277e0910d750195b448797616e091ad.png" title="d" alt="d" class="tex"/>: <img src="../images/Algorithm_CA/math-7c2257a493db6f9fa175d3e3fdc6fa67.png" title="S_p, d=\sum_{i=1}^N(n_i-1)" alt="S_p, d=\sum_{i=1}^N(n_i-1)" class="tex"/>の自由度</dd>
+<dd> <img src="../images/Algorithm_CA/math-78a28faa7e0bbf0aba7ecdc4ddc4ac6c.png" title="c_4(d+1)" alt="c_4(d+1)" class="tex"/>: 無偏定数 <img src="../images/Algorithm_CA/math-841949daa5872ddbe2d628ac142998e9.png" title="c4()" alt="c4()" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-96d6fda352d51f797e45279b706462ec.png" title="\Gamma()" alt="\Gamma()" class="tex"/>: ガンマ関数</dd></dl></li></ul></li>
+<li> サブグループサイズ = 1の場合
+<ul><li> 移動範囲の平均
+<dl><dd> <img src="../images/Algorithm_CA/math-6179d7d9e881383c5ea013a718635a10.png" title="\sigma_{within}=\frac{R_w+\cdots+R_N}{(N-w+1)d_2(w)}" alt="\sigma_{within}=\frac{R_w+\cdots+R_N}{(N-w+1)d_2(w)}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-8d9c307cb7f3c4a32822a51922d1ceaa.png" title="N" alt="N" class="tex"/>: すべての観測値の数</dd>
+<dd> <img src="../images/Algorithm_CA/math-f1290186a5d0b1ceab27f4e77c0c5d68.png" title="w" alt="w" class="tex"/>: 移動範囲に使用する観測数</dd>
+<dd> <img src="../images/Algorithm_CA/math-c42952440ffcf8129a1bedeac4773415.png" title="R_i" alt="R_i" class="tex"/>: 第<img src="../images/Algorithm_CA/math-811ed2017ce127575a960555aa6179d7.png" title="ith" alt="ith" class="tex"/>移動範囲<img src="../images/Algorithm_CA/math-f1056f7f53a19f86065c24033bfc9d11.png" title="R_i=\max{(X_i,\cdots,X_{i-w+1})}-\min{(X_i,\cdots,X_{i-w+1})}, i=w,\cdots,N" alt="R_i=\max{(X_i,\cdots,X_{i-w+1})}-\min{(X_i,\cdots,X_{i-w+1})}, i=w,\cdots,N" class="tex"/>、および<img src="../images/Algorithm_CA/math-a97118fb9e8d7e006a466bfc0771f888.png" title="X_i" alt="X_i" class="tex"/>は第<img src="../images/Algorithm_CA/math-811ed2017ce127575a960555aa6179d7.png" title="ith" alt="ith" class="tex"/>観測値</dd>
+<dd> <img src="../images/Algorithm_CA/math-a8879f097cfbb807dd2b5b2db799e94f.png" title="d_2(w)" alt="d_2(w)" class="tex"/>: 無偏定数 <img src="../images/Algorithm_CA/math-b2303320116c66b0ad3f691eda683613.png" title="d2()" alt="d2()" class="tex"/></dd></dl></li>
+<li> 移動範囲の中央値
+<dl><dd> <img src="../images/Algorithm_CA/math-694afe7287084882bdca8e882aba3657.png" title="\sigma_{within}=\frac{\overline{MR}}{d_4(w)}" alt="\sigma_{within}=\frac{\overline{MR}}{d_4(w)}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-8d9c307cb7f3c4a32822a51922d1ceaa.png" title="N" alt="N" class="tex"/>: すべての観測値の数</dd>
+<dd> <img src="../images/Algorithm_CA/math-f1290186a5d0b1ceab27f4e77c0c5d68.png" title="w" alt="w" class="tex"/>: 移動範囲に使用する観測数</dd>
+<dd> <img src="../images/Algorithm_CA/math-4c05d066247134b3d116ba380c25213e.png" title="MR_i" alt="MR_i" class="tex"/>: 第<img src="../images/Algorithm_CA/math-811ed2017ce127575a960555aa6179d7.png" title="ith" alt="ith" class="tex"/>移動範囲<img src="../images/Algorithm_CA/math-a311cd8717216638e63f31892ef0911d.png" title="MR_i=\max{(X_i,\cdots,X_{i-w+1})}-\min{(X_i,\cdots,X_{i-w+1})}, i=w,\cdots,N" alt="MR_i=\max{(X_i,\cdots,X_{i-w+1})}-\min{(X_i,\cdots,X_{i-w+1})}, i=w,\cdots,N" class="tex"/>、および<img src="../images/Algorithm_CA/math-a97118fb9e8d7e006a466bfc0771f888.png" title="X_i" alt="X_i" class="tex"/>は第<img src="../images/Algorithm_CA/math-811ed2017ce127575a960555aa6179d7.png" title="ith" alt="ith" class="tex"/>観測値</dd>
+<dd> <img src="../images/Algorithm_CA/math-8dbb6da1bd20c91187bddc2a1254ad33.png" title="\overline{MR}" alt="\overline{MR}" class="tex"/>: <img src="../images/Algorithm_CA/math-a9dc1ea6d52002499acf728467bf4d96.png" title="MR_i, i=w,\cdots,N" alt="MR_i, i=w,\cdots,N" class="tex"/>の中央値</dd>
+<dd> <img src="../images/Algorithm_CA/math-cf0ebb7f9e47287a5fa406dddec8851a.png" title="d_4(w)" alt="d_4(w)" class="tex"/>: 無偏定数 <img src="../images/Algorithm_CA/math-4b7dd1954c92d0ec8dfffb8583afa40f.png" title="d4()" alt="d4()" class="tex"/></dd></dl></li>
+<li> 二乗連続差分（MSSD）の平方根
+<dl><dd> 無偏推定 <img src="../images/Algorithm_CA/math-c157acbac246bd16534ae148f3ad994e.png" title="\sigma_{within}=MSSD=\frac{\sqrt{\frac{\sum_{i=1}^{N-1}d_i^2}{2(N-1)}}}{c_4&apos;(N)}" alt="\sigma_{within}=MSSD=\frac{\sqrt{\frac{\sum_{i=1}^{N-1}d_i^2}{2(N-1)}}}{c_4&apos;(N)}" class="tex"/></dd>
+<dd> 無偏定数を使用しない場合、<img src="../images/Algorithm_CA/math-64df630bc9c54b002de8ccb56731d672.png" title="\sigma_{within}=\sqrt{\frac{\sum_{i=1}^{N-1}d_i^2}{2(N-1)}}" alt="\sigma_{within}=\sqrt{\frac{\sum_{i=1}^{N-1}d_i^2}{2(N-1)}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-8d9c307cb7f3c4a32822a51922d1ceaa.png" title="N" alt="N" class="tex"/>: 観測値の数</dd>
+<dd> <img src="../images/Algorithm_CA/math-d247f594c78d0d2be10fc6d82512cc4e.png" title="d_i" alt="d_i" class="tex"/>: 観測値間の連続差分</dd>
+<dd> <img src="../images/Algorithm_CA/math-f20a1a586e4839133d95930f29fe5c11.png" title="c_4&apos;(N)" alt="c_4&apos;(N)" class="tex"/>: 無偏定数 <img src="../images/Algorithm_CA/math-d41c8ea1d46e6d7903c818ebd160a80b.png" title="c4&apos;()" alt="c4&apos;()" class="tex"/></dd></dl></li></ul></li></ul></dd></dl></li></ul></dd></dl>
+<dl><dd><ul><li> 全体標準偏差 (<img src="../images/Algorithm_CA/math-27c100893b15eda3e1b5ac152b7ae9d3.png" title="\sigma_{overall}" alt="\sigma_{overall}" class="tex"/>)
+<dl><dd> 無偏推定<img src="../images/Algorithm_CA/math-464e157e196bbc25a596c9d630b0ccdc.png" title="\sigma_{overall}=\frac{S}{c_4(N)}" alt="\sigma_{overall}=\frac{S}{c_4(N)}" class="tex"/>、ここで<img src="../images/Algorithm_CA/math-b8bdb66ed3e73b7d0c963b230e55f1dd.png" title="S=\sqrt{\frac{\sum_{i=1}^N(X_{i}-\bar{X})^2}{N-1}}" alt="S=\sqrt{\frac{\sum_{i=1}^N(X_{i}-\bar{X})^2}{N-1}}" class="tex"/></dd>
+<dd> 無偏定数を使用しない場合、<img src="../images/Algorithm_CA/math-3fc15b55d3c58a1c9ff2de49131226e3.png" title="\sigma_{within}=S" alt="\sigma_{within}=S" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-8d9c307cb7f3c4a32822a51922d1ceaa.png" title="N" alt="N" class="tex"/>: すべての観察値の数</dd>
+<dd> <img src="../images/Algorithm_CA/math-4fc3e3c98d13ed389817f11dc66c10a6.png" title="X_{i}" alt="X_{i}" class="tex"/>: 第<img src="../images/Algorithm_CA/math-811ed2017ce127575a960555aa6179d7.png" title="ith" alt="ith" class="tex"/>観測値</dd>
+<dd> <img src="../images/Algorithm_CA/math-58c3d0d0ebe063b8eb10b3dcf9c10b0c.png" title="\bar{X}" alt="\bar{X}" class="tex"/>: すべての観測値の平均</dd>
+<dd> <img src="../images/Algorithm_CA/math-1ab2a819b47d02eefaabe56dc3cd50c1.png" title="c_4(N)" alt="c_4(N)" class="tex"/>: 無偏定数 <img src="../images/Algorithm_CA/math-841949daa5872ddbe2d628ac142998e9.png" title="c4()" alt="c4()" class="tex"/></dd></dl></li></ul></dd></dl>
+<h3><a name="Potential_Capability"></a><span class="mw-headline">潜在工程能力</span></h3>
+<dl><dd><ul><li> Cp
+<dl><dd> <img src="../images/Algorithm_CA/math-125646ce197c8241295b9ce8b753d5c7.png" title="Cp=\frac{USL-LSL}{Toler*\sigma_{within}}" alt="Cp=\frac{USL-LSL}{Toler*\sigma_{within}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-bda1ebb97cf55bde5cb9ab9366e2fcd0.png" title="USL, LSL" alt="USL, LSL" class="tex"/>: それぞれ上側および下側の規格限界</dd>
+<dd> <img src="../images/Algorithm_CA/math-f13ba1c14a9268b24ada9b424833ce85.png" title="Toler" alt="Toler" class="tex"/>: シグマ許容範囲の倍率</dd>
+<dd> <img src="../images/Algorithm_CA/math-c5744ecbeb89b1ac3650c0b5d769e0b8.png" title="\sigma_{within}" alt="\sigma_{within}" class="tex"/>: サブグループ内標準偏差</dd></dl></li></ul></dd></dl>
+<dl><dd><ul><li> CPの<img src="../images/Algorithm_CA/math-ca6ae68c6890fd77491b089fbd58debc.png" title="(1-\alpha)100\%" alt="(1-\alpha)100\%" class="tex"/>信頼区間の境界 
+<dl><dd> <img src="../images/Algorithm_CA/math-02da6d3ee654e2a0edb200f264e7cc69.png" title="LowerBound = Cp\sqrt{\frac{\chi_{\alpha/2,\nu}^2}{\nu}}" alt="LowerBound = Cp\sqrt{\frac{\chi_{\alpha/2,\nu}^2}{\nu}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-65847b54f1396d12205c95f4dc2ebbca.png" title="LowerBound = Cp\sqrt{\frac{\chi_{1-\alpha/2,\nu}^2}{\nu}}" alt="LowerBound = Cp\sqrt{\frac{\chi_{1-\alpha/2,\nu}^2}{\nu}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-7b7f9dbfea05c83784f8b85149852f08.png" title="\alpha" alt="\alpha" class="tex"/>: 信頼水準に対応する有意水準</dd>
+<dd> <img src="../images/Algorithm_CA/math-4fdefba26320686bb2bd0579a0df421c.png" title="\nu" alt="\nu" class="tex"/>: 自由度</dd>
+<dd> <img src="../images/Algorithm_CA/math-8fa5fcf032d948deab0af13c67e17c14.png" title="\chi_{\alpha,\nu}" alt="\chi_{\alpha,\nu}" class="tex"/>: 自由度の<img src="../images/Algorithm_CA/math-4fdefba26320686bb2bd0579a0df421c.png" title="\nu" alt="\nu" class="tex"/>カイ二乗分布における<img src="../images/Algorithm_CA/math-7b7f9dbfea05c83784f8b85149852f08.png" title="\alpha" alt="\alpha" class="tex"/>パーセンタイル値</dd>
+<dd> 標準偏差の推定方法に応じた<img src="../images/Algorithm_CA/math-4fdefba26320686bb2bd0579a0df421c.png" title="\nu" alt="\nu" class="tex"/>の計算方法
+<ul><li> サブグループ範囲の平均 (Rbar): <img src="../images/Algorithm_CA/math-e71076f4eac5367d56652da6524ab0a3.png" title="\nu=0.9k(n-1)" alt="\nu=0.9k(n-1)" class="tex"/></li>
+<li> サブグループ標準偏差の平均 (Sbar): <img src="../images/Algorithm_CA/math-1d20dde665097696651f1734ed992c84.png" title="\nu=f_nk(n-1)" alt="\nu=f_nk(n-1)" class="tex"/></li>
+<li> プールされた標準偏差: <img src="../images/Algorithm_CA/math-40173b1207448280f9203c2838ed88d2.png" title="\nu=\sum(n_i-1)" alt="\nu=\sum(n_i-1)" class="tex"/></li>
+<li> 移動範囲の平均または中央値: <img src="../images/Algorithm_CA/math-a0eaddba8f88d8c1bb773d825061c193.png" title="\nu\approx k-R_{span}+1" alt="\nu\approx k-R_{span}+1" class="tex"/></li>
+<li> MSSDの平方根：<img src="../images/Algorithm_CA/math-186f5cfbc45cca7f6713a47b191571cc.png" title="\nu=k-1" alt="\nu=k-1" class="tex"/>
+<dl><dd> ここで、<img src="../images/Algorithm_CA/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>は第<img src="../images/Algorithm_CA/math-811ed2017ce127575a960555aa6179d7.png" title="ith" alt="ith" class="tex"/>サブグループのサイズ、<img src="../images/Algorithm_CA/math-8ce4b16b22b58894aa86c421e8759df3.png" title="k" alt="k" class="tex"/>はサブグループの数、<img src="../images/Algorithm_CA/math-8993ef894280d9a12b044b37925f38e4.png" title="R_{span}" alt="R_{span}" class="tex"/>は移動範囲のスパンの長さ、<img src="../images/Algorithm_CA/math-7b8b965ad4bca0e41ab51de7b31363a1.png" title="n" alt="n" class="tex"/>はサブグループサイズの平均（<img src="../images/Algorithm_CA/math-0aa5ae77200e66701d301feb2237df18.png" title="n=\frac{\sum n_i}{k}" alt="n=\frac{\sum n_i}{k}" class="tex"/>）、<img src="../images/Algorithm_CA/math-4671fa3b23482a4537b185a2f76327b1.png" title="f_n" alt="f_n" class="tex"/>は<img src="../images/Algorithm_CA/math-7b8b965ad4bca0e41ab51de7b31363a1.png" title="n" alt="n" class="tex"/>に応じて以下のように設定</dd></dl></li></ul></dd></dl></li></ul></dd></dl>
+<table class="wikitable" style="margin-left: 150px;">
+
+<tr>
+<td> <b>n</b> </td>
+<td> 2 </td>
+<td> 3 </td>
+<td> 4 </td>
+<td> 5 </td>
+<td> 6.7 </td>
+<td> 8.9 </td>
+<td> 10-17 </td>
+<td> 18-64 </td>
+<td> &gt; 64
+</td></tr>
+<tr>
+<td> <b><img src="../images/Algorithm_CA/math-4671fa3b23482a4537b185a2f76327b1.png" title="f_n" alt="f_n" class="tex"/></b> </td>
+<td> 0.88 </td>
+<td> 0.92 </td>
+<td> 0.94 </td>
+<td> 0.95 </td>
+<td> 0.96 </td>
+<td> 0.97 </td>
+<td> 0.98 </td>
+<td> 0.99 </td>
+<td> 1
+</td></tr></table>
+<dl><dd><ul><li> CPL
+<dl><dd> <img src="../images/Algorithm_CA/math-361ee767181907ea9145f0dc2b0d28c2.png" title="CPL=\frac{\bar{X}-LSL}{\frac{Toler}{2}*\sigma_{within}}" alt="CPL=\frac{\bar{X}-LSL}{\frac{Toler}{2}*\sigma_{within}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-58c3d0d0ebe063b8eb10b3dcf9c10b0c.png" title="\bar{X}" alt="\bar{X}" class="tex"/>: 観測データまたは過去の値から推定されたプロセス平均</dd>
+<dd> <img src="../images/Algorithm_CA/math-3005b8eab96f81df142d787d501d0537.png" title="LSL" alt="LSL" class="tex"/>: 下側規格限界</dd>
+<dd> <img src="../images/Algorithm_CA/math-f13ba1c14a9268b24ada9b424833ce85.png" title="Toler" alt="Toler" class="tex"/>: シグマ許容範囲の倍率</dd>
+<dd> <img src="../images/Algorithm_CA/math-c5744ecbeb89b1ac3650c0b5d769e0b8.png" title="\sigma_{within}" alt="\sigma_{within}" class="tex"/>: サブグループ内標準偏差</dd></dl></li></ul></dd></dl>
+<dl><dd><ul><li> CPU
+<dl><dd> <img src="../images/Algorithm_CA/math-373ea1c4af27a92bb7380d3d6a7d46a5.png" title="CPU=\frac{USL-\bar{X}}{\frac{Toler}{2}*\sigma_{within}}" alt="CPU=\frac{USL-\bar{X}}{\frac{Toler}{2}*\sigma_{within}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-58c3d0d0ebe063b8eb10b3dcf9c10b0c.png" title="\bar{X}" alt="\bar{X}" class="tex"/>: 観測データまたは過去の値から推定されたプロセス平均</dd>
+<dd> <img src="../images/Algorithm_CA/math-20122ef50b5435613b9e7197689b96b3.png" title="USL" alt="USL" class="tex"/>: 上側規格限界</dd>
+<dd> <img src="../images/Algorithm_CA/math-f13ba1c14a9268b24ada9b424833ce85.png" title="Toler" alt="Toler" class="tex"/>: シグマ許容範囲の倍率</dd>
+<dd> <img src="../images/Algorithm_CA/math-c5744ecbeb89b1ac3650c0b5d769e0b8.png" title="\sigma_{within}" alt="\sigma_{within}" class="tex"/>: サブグループ内標準偏差</dd></dl></li></ul></dd></dl>
+<dl><dd><ul><li> Cpk
+<dl><dd> <img src="../images/Algorithm_CA/math-41ccfcb0687f0967f98db8076ca53a19.png" title="Cpk=\min(CPU, CPL)" alt="Cpk=\min(CPU, CPL)" class="tex"/></dd></dl></li></ul></dd></dl>
+<dl><dd><ul><li> CPkの<img src="../images/Algorithm_CA/math-ca6ae68c6890fd77491b089fbd58debc.png" title="(1-\alpha)100\%" alt="(1-\alpha)100\%" class="tex"/>信頼区間の境界
+<dl><dd> <img src="../images/Algorithm_CA/math-9cd5c080b96179b5588507ace77f25d8.png" title="LowerBound = Cpk - Z_{1-\alpha/2}\sqrt{\frac{1}{N(\frac{Toler}{2})^2}+\frac{Cpk^2}{2\nu}}" alt="LowerBound = Cpk - Z_{1-\alpha/2}\sqrt{\frac{1}{N(\frac{Toler}{2})^2}+\frac{Cpk^2}{2\nu}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-8d949835040fbf4aec34501a1c35146c.png" title="UpperBound = Cpk + Z_{1-\alpha/2}\sqrt{\frac{1}{N(\frac{Toler}{2})^2}+\frac{Cpk^2}{2\nu}}" alt="UpperBound = Cpk + Z_{1-\alpha/2}\sqrt{\frac{1}{N(\frac{Toler}{2})^2}+\frac{Cpk^2}{2\nu}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-8d9c307cb7f3c4a32822a51922d1ceaa.png" title="N" alt="N" class="tex"/>: 観測値の総数</dd>
+<dd> <img src="../images/Algorithm_CA/math-7b7f9dbfea05c83784f8b85149852f08.png" title="\alpha" alt="\alpha" class="tex"/>: 信頼水準に対応する有意水準</dd>
+<dd> <img src="../images/Algorithm_CA/math-4fdefba26320686bb2bd0579a0df421c.png" title="\nu" alt="\nu" class="tex"/>: 自由度（詳細は上記<img src="../images/Algorithm_CA/math-ca6ae68c6890fd77491b089fbd58debc.png" title="(1-\alpha)100\%" alt="(1-\alpha)100\%" class="tex"/>信頼区間におけるCpを参照）</dd>
+<dd> <img src="../images/Algorithm_CA/math-f13ba1c14a9268b24ada9b424833ce85.png" title="Toler" alt="Toler" class="tex"/>: シグマ許容範囲の倍率</dd>
+<dd> <img src="../images/Algorithm_CA/math-ec9fc46b80f4d9c61ba9bb5d963ab432.png" title="Z_{1-\alpha/2}" alt="Z_{1-\alpha/2}" class="tex"/>: 標準正規分布における<img src="../images/Algorithm_CA/math-21574e63086e26b8dd212986eb44ac85.png" title="1-\alpha/2" alt="1-\alpha/2" class="tex"/> パーセンタイル値</dd></dl></li></ul></dd></dl>
+<p><br />
+</p>
+<dl><dd><ul><li> CCpk
+<dl><dd> <img src="../images/Algorithm_CA/math-0c62acc4e1255f067e512ac41dd2a6be.png" title="CCpk=\left\{\begin{array}{ll}\frac{USL-\hat{\mu}}{\frac{Toler}{2}*\sigma_{within}} &amp;Only\;USL\;Valid\cr\frac{\hat{\mu}-LSL}{\frac{Toler}{2}*\sigma_{within}} &amp;Only\;LSL\;Valid\cr\frac{\min{(USL-\hat{\mu}, \hat{\mu}-LSL)}}{\frac{Toler}{2}*\sigma_{within}} &amp;Both\;USL\;and\;LSL\;Valid\end{array}\right." alt="CCpk=\left\{\begin{array}{ll}\frac{USL-\hat{\mu}}{\frac{Toler}{2}*\sigma_{within}} &amp;Only\;USL\;Valid\cr\frac{\hat{\mu}-LSL}{\frac{Toler}{2}*\sigma_{within}} &amp;Only\;LSL\;Valid\cr\frac{\min{(USL-\hat{\mu}, \hat{\mu}-LSL)}}{\frac{Toler}{2}*\sigma_{within}} &amp;Both\;USL\;and\;LSL\;Valid\end{array}\right." class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-73fd5834457fce872faf1a487ea05f3d.png" title="\hat{\mu}" alt="\hat{\mu}" class="tex"/>:推定平均値、<img src="../images/Algorithm_CA/math-50b4df7e25a2bb161647e8eb9859257a.png" title="\hat{\mu} = \left\{\begin{array}{ll}Target &amp; Target\;is\;specified\cr\frac{USL+LSL}{2}&amp;USL\;and\;LSL\;Valid,Target\;is\;not\;specified\cr \bar{X}&amp;Otherwise\end{array}\right." alt="\hat{\mu} = \left\{\begin{array}{ll}Target &amp; Target\;is\;specified\cr\frac{USL+LSL}{2}&amp;USL\;and\;LSL\;Valid,Target\;is\;not\;specified\cr \bar{X}&amp;Otherwise\end{array}\right." class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-bda1ebb97cf55bde5cb9ab9366e2fcd0.png" title="USL, LSL" alt="USL, LSL" class="tex"/>: それぞれ上側および下側の規格限界</dd>
+<dd> <img src="../images/Algorithm_CA/math-f13ba1c14a9268b24ada9b424833ce85.png" title="Toler" alt="Toler" class="tex"/>: シグマ許容範囲の倍率</dd>
+<dd> <img src="../images/Algorithm_CA/math-c5744ecbeb89b1ac3650c0b5d769e0b8.png" title="\sigma_{within}" alt="\sigma_{within}" class="tex"/>: サブグループ内標準偏差</dd>
+<dd> <img src="../images/Algorithm_CA/math-58c3d0d0ebe063b8eb10b3dcf9c10b0c.png" title="\bar{X}" alt="\bar{X}" class="tex"/>: 観測値の平均</dd></dl></li></ul></dd></dl>
+<h3><a name="Overall_Capability"></a><span class="mw-headline">工程能力（全体）</span></h3>
+<dl><dd><ul><li> Pp
+<dl><dd> <img src="../images/Algorithm_CA/math-9f5a317f2d57c4fac56d55b7e13efe98.png" title="Pp = \frac{USL-LSL}{Toler*\sigma_{overall}}" alt="Pp = \frac{USL-LSL}{Toler*\sigma_{overall}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-bda1ebb97cf55bde5cb9ab9366e2fcd0.png" title="USL, LSL" alt="USL, LSL" class="tex"/>: それぞれ上側および下側の規格限界</dd>
+<dd> <img src="../images/Algorithm_CA/math-f13ba1c14a9268b24ada9b424833ce85.png" title="Toler" alt="Toler" class="tex"/>: シグマ許容範囲の倍率</dd>
+<dd> <img src="../images/Algorithm_CA/math-27c100893b15eda3e1b5ac152b7ae9d3.png" title="\sigma_{overall}" alt="\sigma_{overall}" class="tex"/>: 全体標準偏差</dd></dl></li></ul></dd></dl>
+<dl><dd><ul><li> PPの<img src="../images/Algorithm_CA/math-ca6ae68c6890fd77491b089fbd58debc.png" title="(1-\alpha)100\%" alt="(1-\alpha)100\%" class="tex"/>信頼区間の境界
+<dl><dd> <img src="../images/Algorithm_CA/math-7ec8eb1ddfd842252da69a9c7f6d97e2.png" title="LowerBound = Pp\sqrt{\frac{\chi_{\alpha/2,\nu}^2}{\nu}}" alt="LowerBound = Pp\sqrt{\frac{\chi_{\alpha/2,\nu}^2}{\nu}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-466fa79d6ae8792d809bde8a9850f3ce.png" title="UpperBound = Pp\sqrt{\frac{\chi_{1-\alpha/2,\nu}^2}{\nu}}" alt="UpperBound = Pp\sqrt{\frac{\chi_{1-\alpha/2,\nu}^2}{\nu}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-7b7f9dbfea05c83784f8b85149852f08.png" title="\alpha" alt="\alpha" class="tex"/>: 信頼水準に対応する有意水準</dd>
+<dd> <img src="../images/Algorithm_CA/math-4fdefba26320686bb2bd0579a0df421c.png" title="\nu" alt="\nu" class="tex"/>: 自由度 <img src="../images/Algorithm_CA/math-293b1e40f213811f89b9b2da60f552df.png" title="\nu=N-1" alt="\nu=N-1" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-8d9c307cb7f3c4a32822a51922d1ceaa.png" title="N" alt="N" class="tex"/>: 観測値の数</dd>
+<dd> <img src="../images/Algorithm_CA/math-42dfd2e1d80148d6cae071e659b6f231.png" title="\chi_{\alpha, \nu}^2" alt="\chi_{\alpha, \nu}^2" class="tex"/>: 自由度の<img src="../images/Algorithm_CA/math-4fdefba26320686bb2bd0579a0df421c.png" title="\nu" alt="\nu" class="tex"/>カイ二乗分布における<img src="../images/Algorithm_CA/math-7b7f9dbfea05c83784f8b85149852f08.png" title="\alpha" alt="\alpha" class="tex"/>パーセンタイル値</dd></dl></li></ul></dd></dl>
+<dl><dd><ul><li> PPL
+<dl><dd> <img src="../images/Algorithm_CA/math-1e05c42347e0df0d961629cf572358b2.png" title="PPL = \frac{\bar{X}-LSL}{(Toler/2)*\sigma_{overall}}" alt="PPL = \frac{\bar{X}-LSL}{(Toler/2)*\sigma_{overall}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-58c3d0d0ebe063b8eb10b3dcf9c10b0c.png" title="\bar{X}" alt="\bar{X}" class="tex"/>: プロセス平均（過去の値または観測データから算出）</dd>
+<dd> <img src="../images/Algorithm_CA/math-3005b8eab96f81df142d787d501d0537.png" title="LSL" alt="LSL" class="tex"/>: 下側規格限界</dd>
+<dd> <img src="../images/Algorithm_CA/math-f13ba1c14a9268b24ada9b424833ce85.png" title="Toler" alt="Toler" class="tex"/>: シグマ許容範囲の倍率</dd>
+<dd> <img src="../images/Algorithm_CA/math-27c100893b15eda3e1b5ac152b7ae9d3.png" title="\sigma_{overall}" alt="\sigma_{overall}" class="tex"/>: 全体標準偏差</dd></dl></li></ul></dd></dl>
+<dl><dd><ul><li> PPU
+<dl><dd> <img src="../images/Algorithm_CA/math-d7e9636e7294f4ac1c1e39016af2e9c8.png" title="PPU = \frac{USL-\bar{X}}{(Toler/2)*\sigma_{overall}}" alt="PPU = \frac{USL-\bar{X}}{(Toler/2)*\sigma_{overall}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-58c3d0d0ebe063b8eb10b3dcf9c10b0c.png" title="\bar{X}" alt="\bar{X}" class="tex"/>: プロセス平均（過去の値または観測データから算出）</dd>
+<dd> <img src="../images/Algorithm_CA/math-20122ef50b5435613b9e7197689b96b3.png" title="USL" alt="USL" class="tex"/>: 上側規格限界</dd>
+<dd> <img src="../images/Algorithm_CA/math-f13ba1c14a9268b24ada9b424833ce85.png" title="Toler" alt="Toler" class="tex"/>: シグマ許容範囲の倍率</dd>
+<dd> <img src="../images/Algorithm_CA/math-27c100893b15eda3e1b5ac152b7ae9d3.png" title="\sigma_{overall}" alt="\sigma_{overall}" class="tex"/>: 全体標準偏差</dd></dl></li></ul></dd></dl>
+<dl><dd><ul><li> Ppk
+<dl><dd> <img src="../images/Algorithm_CA/math-168e762d9c6b4498ed4f8bd5a2193e6d.png" title="Ppk = \min(PPU, PPL)" alt="Ppk = \min(PPU, PPL)" class="tex"/></dd></dl></li></ul></dd></dl>
+<dl><dd><ul><li> Ppkの<img src="../images/Algorithm_CA/math-ca6ae68c6890fd77491b089fbd58debc.png" title="(1-\alpha)100\%" alt="(1-\alpha)100\%" class="tex"/>信頼区間の境界
+<dl><dd> <img src="../images/Algorithm_CA/math-741667ba41c41321ee6d0ead973644fc.png" title="LowerBound = Ppk - Z_{1-\alpha/2}\sqrt{\frac{1}{N(\frac{Toler}{2})^2} + \frac{Ppk^2}{2\nu}}" alt="LowerBound = Ppk - Z_{1-\alpha/2}\sqrt{\frac{1}{N(\frac{Toler}{2})^2} + \frac{Ppk^2}{2\nu}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-4598d475ec7b48fe045e232d741dd654.png" title="UpperBound = Ppk + Z_{1-\alpha/2}\sqrt{\frac{1}{N(\frac{Toler}{2})^2} + \frac{Ppk^2}{2\nu}}" alt="UpperBound = Ppk + Z_{1-\alpha/2}\sqrt{\frac{1}{N(\frac{Toler}{2})^2} + \frac{Ppk^2}{2\nu}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-8d9c307cb7f3c4a32822a51922d1ceaa.png" title="N" alt="N" class="tex"/>: 観測値の数</dd>
+<dd> <img src="../images/Algorithm_CA/math-7b7f9dbfea05c83784f8b85149852f08.png" title="\alpha" alt="\alpha" class="tex"/>: 信頼水準に対応する有意水準</dd>
+<dd> <img src="../images/Algorithm_CA/math-4fdefba26320686bb2bd0579a0df421c.png" title="\nu" alt="\nu" class="tex"/>: 自由度 <img src="../images/Algorithm_CA/math-293b1e40f213811f89b9b2da60f552df.png" title="\nu=N-1" alt="\nu=N-1" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-f13ba1c14a9268b24ada9b424833ce85.png" title="Toler" alt="Toler" class="tex"/>: シグマ許容範囲の倍率</dd>
+<dd> <img src="../images/Algorithm_CA/math-ec9fc46b80f4d9c61ba9bb5d963ab432.png" title="Z_{1-\alpha/2}" alt="Z_{1-\alpha/2}" class="tex"/>: 標準正規分布における<img src="../images/Algorithm_CA/math-21574e63086e26b8dd212986eb44ac85.png" title="1-\alpha/2" alt="1-\alpha/2" class="tex"/> パーセンタイル値</dd></dl></li></ul></dd></dl>
+<dl><dd><ul><li> Cpm
+<dl><dd> <img src="../images/Algorithm_CA/math-c41a31890959544c6523af684561abe5.png" title="Target" alt="Target" class="tex"/>が指定されている場合、<img src="../images/Algorithm_CA/math-bda1ebb97cf55bde5cb9ab9366e2fcd0.png" title="USL, LSL" alt="USL, LSL" class="tex"/> および <img src="../images/Algorithm_CA/math-c41a31890959544c6523af684561abe5.png" title="Target" alt="Target" class="tex"/>を使ってCpmを計算できます。</dd>
+<dd> <img src="../images/Algorithm_CA/math-192537281b6161ec02856cd3914aa87f.png" title="Cpm = \left\{\begin{array}{ll}\frac{USL-LSL}{Toler*\sqrt{\frac{\sum_{i=1}^K\sum_{j=1}^{n_i}(X_{ij}-Target)^2}{\sum_{i=1}^Kn_i}}}&amp;USL,LSL\;Valid\;and\;Target=m\cr\frac{\min(Target-LSL, USL-Target)}{\frac{Toler}{2}*\sqrt{\frac{\sum_{i=1}^K\sum_{j=1}^{n_i}(X_{ij}-Target)^2}{\sum_{i=1}^Kn_i}}}&amp;USL,LSL\;Valid\;and\;Target\neq m\cr\frac{USL-Target}{\frac{Toler}{2}*\sqrt{\frac{\sum_{i=1}^K\sum_{j=1}^{n_i}(X_{ij}-Target)^2}{\sum_{i=1}^Kn_i}}}&amp;Only\;USL\;and\;Target\;Valid\cr\frac{Target-LSL}{\frac{Toler}{2}*\sqrt{\frac{\sum_{i=1}^K\sum_{j=1}^{n_i}(X_{ij}-Target)^2}{\sum_{i=1}^Kn_i}}}&amp;Only\;LSL\;and\;Target\;Valid\cr NANUM &amp;Otherwise\end{array}\right." alt="Cpm = \left\{\begin{array}{ll}\frac{USL-LSL}{Toler*\sqrt{\frac{\sum_{i=1}^K\sum_{j=1}^{n_i}(X_{ij}-Target)^2}{\sum_{i=1}^Kn_i}}}&amp;USL,LSL\;Valid\;and\;Target=m\cr\frac{\min(Target-LSL, USL-Target)}{\frac{Toler}{2}*\sqrt{\frac{\sum_{i=1}^K\sum_{j=1}^{n_i}(X_{ij}-Target)^2}{\sum_{i=1}^Kn_i}}}&amp;USL,LSL\;Valid\;and\;Target\neq m\cr\frac{USL-Target}{\frac{Toler}{2}*\sqrt{\frac{\sum_{i=1}^K\sum_{j=1}^{n_i}(X_{ij}-Target)^2}{\sum_{i=1}^Kn_i}}}&amp;Only\;USL\;and\;Target\;Valid\cr\frac{Target-LSL}{\frac{Toler}{2}*\sqrt{\frac{\sum_{i=1}^K\sum_{j=1}^{n_i}(X_{ij}-Target)^2}{\sum_{i=1}^Kn_i}}}&amp;Only\;LSL\;and\;Target\;Valid\cr NANUM &amp;Otherwise\end{array}\right." class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-bda1ebb97cf55bde5cb9ab9366e2fcd0.png" title="USL, LSL" alt="USL, LSL" class="tex"/>: それぞれ上側および下側の規格限界</dd>
+<dd> <img src="../images/Algorithm_CA/math-c41a31890959544c6523af684561abe5.png" title="Target" alt="Target" class="tex"/>: 目標値</dd>
+<dd> <img src="../images/Algorithm_CA/math-f13ba1c14a9268b24ada9b424833ce85.png" title="Toler" alt="Toler" class="tex"/>: シグマ許容範囲の倍率</dd>
+<dd> <img src="../images/Algorithm_CA/math-6f8f57715090da2632453988d9a1501b.png" title="m" alt="m" class="tex"/>:<img src="../images/Algorithm_CA/math-20122ef50b5435613b9e7197689b96b3.png" title="USL" alt="USL" class="tex"/>と<img src="../images/Algorithm_CA/math-3005b8eab96f81df142d787d501d0537.png" title="LSL" alt="LSL" class="tex"/>の中点</dd>
+<dd> <img src="../images/Algorithm_CA/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>: 第<img src="../images/Algorithm_CA/math-811ed2017ce127575a960555aa6179d7.png" title="ith" alt="ith" class="tex"/>サブグループの観測数</dd>
+<dd> <img src="../images/Algorithm_CA/math-293d0536b3311ee8663909034780258d.png" title="X_{ij}" alt="X_{ij}" class="tex"/>: 第<img src="../images/Algorithm_CA/math-811ed2017ce127575a960555aa6179d7.png" title="ith" alt="ith" class="tex"/>サブグループの第<img src="../images/Algorithm_CA/math-c3476ea2ed6144bb64b9d14534f34230.png" title="jth" alt="jth" class="tex"/>観測値</dd>
+<dd> <img src="../images/Algorithm_CA/math-a5f3c6a11b03839d46af9fb43c97c188.png" title="K" alt="K" class="tex"/>: サブグループの数</dd>
+<dd> <img src="../images/Algorithm_CA/math-3baec5f75d5077bd4453f58d111623f1.png" title="NANUM" alt="NANUM" class="tex"/>: 欠損値</dd></dl></li></ul></dd></dl>
+<dl><dd><ul><li> Cpmの<img src="../images/Algorithm_CA/math-ca6ae68c6890fd77491b089fbd58debc.png" title="(1-\alpha)100\%" alt="(1-\alpha)100\%" class="tex"/>信頼区間の境界
+<ul><li> 両側
+<dl><dd> <img src="../images/Algorithm_CA/math-83ec3ba1f3c10b474e26e3c4e06a451e.png" title="LowerBound = Cpm\sqrt{\frac{\chi_{\alpha/2, \nu}^2}{\nu}}" alt="LowerBound = Cpm\sqrt{\frac{\chi_{\alpha/2, \nu}^2}{\nu}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-be0b3343bfa680fe26d08b77bb51a49b.png" title="UpperBound = Cpm\sqrt{\frac{\chi_{1-\alpha/2, \nu}^2}{\nu}}" alt="UpperBound = Cpm\sqrt{\frac{\chi_{1-\alpha/2, \nu}^2}{\nu}}" class="tex"/></dd></dl></li>
+<li> 片側
+<dl><dd> <img src="../images/Algorithm_CA/math-985764717b53031580d5ba97c6c480ed.png" title="LowerBound = Cpm\sqrt{\frac{\chi_{\alpha, \nu}^2}{\nu}}" alt="LowerBound = Cpm\sqrt{\frac{\chi_{\alpha, \nu}^2}{\nu}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-4fdefba26320686bb2bd0579a0df421c.png" title="\nu" alt="\nu" class="tex"/>:自由度、<img src="../images/Algorithm_CA/math-e54d9db811d0bd7864b7e41cb48555ac.png" title="\nu = \frac{N((1+a^2)^2}{1+2a^2}" alt="\nu = \frac{N((1+a^2)^2}{1+2a^2}" class="tex"/> ここで、<img src="../images/Algorithm_CA/math-0fdab92c943152a507a2b35863f1db30.png" title="a = (Mean-Target)/\sigma_{overall}" alt="a = (Mean-Target)/\sigma_{overall}" class="tex"/>および<img src="../images/Algorithm_CA/math-8d9c307cb7f3c4a32822a51922d1ceaa.png" title="N" alt="N" class="tex"/>は観測値の数</dd>
+<dd> <img src="../images/Algorithm_CA/math-7b7f9dbfea05c83784f8b85149852f08.png" title="\alpha" alt="\alpha" class="tex"/>: 信頼水準に対応する有意水準</dd>
+<dd> <img src="../images/Algorithm_CA/math-523947888a65753c9c5c795797855cd5.png" title="\chi_{\alpha,\nu}^2" alt="\chi_{\alpha,\nu}^2" class="tex"/>: 自由度<img src="../images/Algorithm_CA/math-4fdefba26320686bb2bd0579a0df421c.png" title="\nu" alt="\nu" class="tex"/>のカイ二乗分布における<img src="../images/Algorithm_CA/math-7b7f9dbfea05c83784f8b85149852f08.png" title="\alpha" alt="\alpha" class="tex"/>パーセンタイル値<img src="../images/Algorithm_CA/math-7b7f9dbfea05c83784f8b85149852f08.png" title="\alpha" alt="\alpha" class="tex"/></dd></dl></li></ul></li></ul></dd></dl>
+<h3><a name="Benchmark_Zs_for_Potential_Capability"></a><span class="mw-headline">潜在工程能力に対するベンチマークZ</span></h3>
+<dl><dd><ul><li> Z.LSL、Z.USL、Z.Bench
+<dl><dd> <img src="../images/Algorithm_CA/math-3ebbcd2b2f46ccde451a11f5036ecd12.png" title="Z.LSL = \frac{\bar{X}-LSL}{\sigma_{within}}" alt="Z.LSL = \frac{\bar{X}-LSL}{\sigma_{within}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-e2db89d6afb437c798513db08c0d62ce.png" title="Z.USL = \frac{USL-\bar{X}}{\sigma_{within}}" alt="Z.USL = \frac{USL-\bar{X}}{\sigma_{within}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-86cd8882341b2e107ae11232f6c06d8b.png" title="Z.Bench = \Phi^{-1}(1-P_1-P_2)" alt="Z.Bench = \Phi^{-1}(1-P_1-P_2)" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-58c3d0d0ebe063b8eb10b3dcf9c10b0c.png" title="\bar{X}" alt="\bar{X}" class="tex"/>:プロセス平均（データから推定または履歴平均）</dd>
+<dd> <img src="../images/Algorithm_CA/math-8c5d6397cc9036f908de5c8786e6f22b.png" title="LSL, USL" alt="LSL, USL" class="tex"/>: 下側および上側規格限界</dd>
+<dd> <img src="../images/Algorithm_CA/math-ba3003709297f0bbd45cc965f6f70fd8.png" title="P_1=Prob(X&lt;LSL)=1-\Phi(Z.LSL)" alt="P_1=Prob(X&lt;LSL)=1-\Phi(Z.LSL)" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-0943fee36f996e7a9c898677a6114387.png" title="P_2=Prob(X&gt;USL)=1-\Phi(Z.USL)" alt="P_2=Prob(X&gt;USL)=1-\Phi(Z.USL)" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-fd5babd13c12bd952d61effb4ad3fc49.png" title="\Phi(X)" alt="\Phi(X)" class="tex"/>: 標準正規分布の累積分布関数</dd>
+<dd> <img src="../images/Algorithm_CA/math-a969fc2906dadfa4ec04b2fdee534994.png" title="\Phi^{-1}(X)" alt="\Phi^{-1}(X)" class="tex"/>: 標準正規分布の逆累積分布関数</dd>
+<dd> <img src="../images/Algorithm_CA/math-c5744ecbeb89b1ac3650c0b5d769e0b8.png" title="\sigma_{within}" alt="\sigma_{within}" class="tex"/>: サブグループ内標準偏差</dd></dl></li></ul></dd></dl>
+<dl><dd><ul><li> 規格限界が二つある場合のZ.Benchの信頼区間
+<ul><li> 両側
+<dl><dd> <img src="../images/Algorithm_CA/math-79d788501b56f55c45b2db4154522f41.png" title="LowerBound = -\Phi^{-1}(U)" alt="LowerBound = -\Phi^{-1}(U)" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-16d50322174e559fbe12592ce8a76107.png" title="UpperBound = -\Phi^{-1}(L)" alt="UpperBound = -\Phi^{-1}(L)" class="tex"/></dd>
+<dd> ここで</dd>
+<dd> <img src="../images/Algorithm_CA/math-654462d310347efefea95258de985910.png" title="L=\frac{\exp(L(p)-Z_{1-\alpha/2}\sqrt{V})}{1+\exp(L(p)-Z_{1-\alpha/2}\sqrt{V})}" alt="L=\frac{\exp(L(p)-Z_{1-\alpha/2}\sqrt{V})}{1+\exp(L(p)-Z_{1-\alpha/2}\sqrt{V})}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-1a720f0ebca2be89039988e4b71eec87.png" title="U=\frac{\exp(L(p)+Z_{1-\alpha/2}\sqrt{V})}{1+\exp(L(p)+Z_{1-\alpha/2}\sqrt{V})}" alt="U=\frac{\exp(L(p)+Z_{1-\alpha/2}\sqrt{V})}{1+\exp(L(p)+Z_{1-\alpha/2}\sqrt{V})}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-e529edc9639082eaf899563946918ade.png" title="L(p)=\ln(p/(1-p))" alt="L(p)=\ln(p/(1-p))" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-bcea0cecbc74adb85dca085fb5d674b6.png" title="p=\left(1-\Phi(\frac{\bar{X}-LSL}{s})\right)+\left(1-\Phi(\frac{USL-\bar{X}}{s})\right)" alt="p=\left(1-\Phi(\frac{\bar{X}-LSL}{s})\right)+\left(1-\Phi(\frac{USL-\bar{X}}{s})\right)" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-a1aaca542846c8d41497970b30b594e4.png" title="V=V(p)=\left(\frac{\partial{L(p)}}{\partial{\mu}}\right)^2\frac{\sigma^2}{N}+\left(\frac{\partial{L(p)}}{\partial{\sigma^2}}\right)^2\frac{2\sigma^4}{\nu}" alt="V=V(p)=\left(\frac{\partial{L(p)}}{\partial{\mu}}\right)^2\frac{\sigma^2}{N}+\left(\frac{\partial{L(p)}}{\partial{\sigma^2}}\right)^2\frac{2\sigma^4}{\nu}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-2f264789bcf31f792b9cb81d687e46eb.png" title="\frac{\partial{L(p)}}{\partial{\mu}}=\frac{1}{p(1-p)}\frac{\partial{p}}{\partial{\mu}}=\frac{1}{p(1-p)}\frac{1}{\sigma}\left(\varphi(\frac{USL-\mu}{\sigma})-\varphi(\frac{LSL-\mu}{\sigma})\right)" alt="\frac{\partial{L(p)}}{\partial{\mu}}=\frac{1}{p(1-p)}\frac{\partial{p}}{\partial{\mu}}=\frac{1}{p(1-p)}\frac{1}{\sigma}\left(\varphi(\frac{USL-\mu}{\sigma})-\varphi(\frac{LSL-\mu}{\sigma})\right)" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-0bbe1d16249698def85459a0b961e03a.png" title="\frac{\partial{L(p)}}{\partial{\sigma^2}}=\frac{1}{p(1-p)}\frac{\partial{p}}{\partial{\sigma^2}}=\frac{1}{2p(1-p)}\left(\frac{USL-\mu}{\sigma^3}\varphi(\frac{USL-\mu}{\sigma})-\frac{LSL-\mu}{\sigma^3}\varphi(\frac{LSL-\mu}{\sigma})\right)" alt="\frac{\partial{L(p)}}{\partial{\sigma^2}}=\frac{1}{p(1-p)}\frac{\partial{p}}{\partial{\sigma^2}}=\frac{1}{2p(1-p)}\left(\frac{USL-\mu}{\sigma^3}\varphi(\frac{USL-\mu}{\sigma})-\frac{LSL-\mu}{\sigma^3}\varphi(\frac{LSL-\mu}{\sigma})\right)" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-4beab07333b977258355edd5d2c4201b.png" title="\sigma=s, \mu=\bar{X}" alt="\sigma=s, \mu=\bar{X}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-8d9c307cb7f3c4a32822a51922d1ceaa.png" title="N" alt="N" class="tex"/>: 観測値の総数</dd>
+<dd> <img src="../images/Algorithm_CA/math-83878c91171338902e0fe0fb97a8c47a.png" title="p" alt="p" class="tex"/>: 規格限界外の累積確率</dd>
+<dd> <img src="../images/Algorithm_CA/math-ec9fc46b80f4d9c61ba9bb5d963ab432.png" title="Z_{1-\alpha/2}" alt="Z_{1-\alpha/2}" class="tex"/>: 標準正規分布における<img src="../images/Algorithm_CA/math-5756da97900f341291eb4441d211d7a3.png" title="(1-\alpha/2)^{th}" alt="(1-\alpha/2)^{th}" class="tex"/>パーセンタイル</dd>
+<dd> <img src="../images/Algorithm_CA/math-7b7f9dbfea05c83784f8b85149852f08.png" title="\alpha" alt="\alpha" class="tex"/>: 信頼水準に対応する有意水準</dd>
+<dd> <img src="../images/Algorithm_CA/math-58c3d0d0ebe063b8eb10b3dcf9c10b0c.png" title="\bar{X}" alt="\bar{X}" class="tex"/>: プロセス平均（データから推定または履歴平均）</dd>
+<dd> <img src="../images/Algorithm_CA/math-8c5d6397cc9036f908de5c8786e6f22b.png" title="LSL, USL" alt="LSL, USL" class="tex"/>: 下側および上側規格限界</dd>
+<dd> <img src="../images/Algorithm_CA/math-03c7c0ace395d80182db07ae2c30f034.png" title="s" alt="s" class="tex"/>: サブグループ内標準偏差</dd>
+<dd> <img src="../images/Algorithm_CA/math-4fdefba26320686bb2bd0579a0df421c.png" title="\nu" alt="\nu" class="tex"/>: <img src="../images/Algorithm_CA/math-03c7c0ace395d80182db07ae2c30f034.png" title="s" alt="s" class="tex"/>の自由度</dd>
+<dd> <img src="../images/Algorithm_CA/math-fd5babd13c12bd952d61effb4ad3fc49.png" title="\Phi(X)" alt="\Phi(X)" class="tex"/>: 標準正規分布の累積分布関数</dd>
+<dd> <img src="../images/Algorithm_CA/math-a969fc2906dadfa4ec04b2fdee534994.png" title="\Phi^{-1}(X)" alt="\Phi^{-1}(X)" class="tex"/>: 標準正規分布の逆累積分布関数</dd>
+<dd> <img src="../images/Algorithm_CA/math-ab8710ba69a416c504f8a0eaeb0a1766.png" title="\varphi(X)" alt="\varphi(X)" class="tex"/>:標準正規分布の確率密度関数</dd></dl></li>
+<li> 片側
+<dl><dd> 上記の「両側信頼区間」の定義において、<img src="../images/Algorithm_CA/math-21574e63086e26b8dd212986eb44ac85.png" title="1-\alpha/2" alt="1-\alpha/2" class="tex"/>を<img src="../images/Algorithm_CA/math-378df00d12056b404d7d02aef9d8650b.png" title="1-\alpha" alt="1-\alpha" class="tex"/>に変更して、<img src="../images/Algorithm_CA/math-a4e5074903e0dfd2f527af80e2c64294.png" title="UpperBound" alt="UpperBound" class="tex"/>の<img src="../images/Algorithm_CA/math-d20caec3b48a1eef164cb4ca81ba2587.png" title="L" alt="L" class="tex"/>を計算します。</dd></dl></li></ul></li></ul></dd></dl>
+<dl><dd><ul><li> 規格限界が一方のみの場合の Z.Bench の信頼区間
+<ul><li> 下側規格限界と両側信頼区間
+<dl><dd> <img src="../images/Algorithm_CA/math-6813b0735cf83d0ef24ad5385a4cfc36.png" title="LowerBound=Z.LSL-Z_{1-\alpha/2}\sqrt{\frac{1}{N}+\frac{Z.LSL^2}{2\nu}}" alt="LowerBound=Z.LSL-Z_{1-\alpha/2}\sqrt{\frac{1}{N}+\frac{Z.LSL^2}{2\nu}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-6becc0dad3677faee7803440d7f80861.png" title="UpperBound=Z.LSL+Z_{1-\alpha/2}\sqrt{\frac{1}{N}+\frac{Z.LSL^2}{2\nu}}" alt="UpperBound=Z.LSL+Z_{1-\alpha/2}\sqrt{\frac{1}{N}+\frac{Z.LSL^2}{2\nu}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-8d9c307cb7f3c4a32822a51922d1ceaa.png" title="N" alt="N" class="tex"/>: 観測値の総数</dd>
+<dd> <img src="../images/Algorithm_CA/math-ec9fc46b80f4d9c61ba9bb5d963ab432.png" title="Z_{1-\alpha/2}" alt="Z_{1-\alpha/2}" class="tex"/>: 標準正規分布における<img src="../images/Algorithm_CA/math-5756da97900f341291eb4441d211d7a3.png" title="(1-\alpha/2)^{th}" alt="(1-\alpha/2)^{th}" class="tex"/>パーセンタイル</dd>
+<dd> <img src="../images/Algorithm_CA/math-7b7f9dbfea05c83784f8b85149852f08.png" title="\alpha" alt="\alpha" class="tex"/>: 信頼水準に対応する有意水準</dd>
+<dd> <img src="../images/Algorithm_CA/math-4fdefba26320686bb2bd0579a0df421c.png" title="\nu" alt="\nu" class="tex"/>:標準偏差の自由度</dd></dl></li>
+<li> 下側規格限界と片側信頼区間
+<dl><dd> <img src="../images/Algorithm_CA/math-00ba47d076d96bce7a59757d513e0960.png" title="LowerBound = -\Phi^{-1}(p_1)" alt="LowerBound = -\Phi^{-1}(p_1)" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-03b632315ee5bee654b60a6bd902a249.png" title="p_1" alt="p_1" class="tex"/>: 方程式の根: <img src="../images/Algorithm_CA/math-e70f8f721db0edbe8e21808011229953.png" title="Pr\left(T_{\nu}(-\sqrt{N}\Phi^{-1}(p_1))\le\sqrt{N}Z.LSL\right)=1-\alpha" alt="Pr\left(T_{\nu}(-\sqrt{N}\Phi^{-1}(p_1))\le\sqrt{N}Z.LSL\right)=1-\alpha" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-8d9c307cb7f3c4a32822a51922d1ceaa.png" title="N" alt="N" class="tex"/>: 観測値の総数</dd>
+<dd> <img src="../images/Algorithm_CA/math-7b7f9dbfea05c83784f8b85149852f08.png" title="\alpha" alt="\alpha" class="tex"/>: 信頼水準に対応する有意水準</dd>
+<dd> <img src="../images/Algorithm_CA/math-4fdefba26320686bb2bd0579a0df421c.png" title="\nu" alt="\nu" class="tex"/>:標準偏差の自由度</dd>
+<dd> <img src="../images/Algorithm_CA/math-a969fc2906dadfa4ec04b2fdee534994.png" title="\Phi^{-1}(X)" alt="\Phi^{-1}(X)" class="tex"/>: 標準正規分布の逆累積分布関数</dd>
+<dd> <img src="../images/Algorithm_CA/math-b23d0eae081addf1443c93cf36559ffb.png" title="T_{\nu}(\delta)" alt="T_{\nu}(\delta)" class="tex"/>: 自由度<img src="../images/Algorithm_CA/math-4fdefba26320686bb2bd0579a0df421c.png" title="\nu" alt="\nu" class="tex"/>、非心度<img src="../images/Algorithm_CA/math-77a3b715842b45e440a5bee15357ad29.png" title="\delta" alt="\delta" class="tex"/>をもつ非心t分布の乱数変数</dd>
+<dd> <img src="../images/Algorithm_CA/math-a7a15f6a8041800e1528e097927f596b.png" title="Pr(\cdot)" alt="Pr(\cdot)" class="tex"/>: 非心t分布の累積分布関数</dd></dl></li>
+<li> 上側規格限界と両側信頼区間
+<dl><dd> <img src="../images/Algorithm_CA/math-0edbeeaf8ce93dbcbca415342af65b19.png" title="LowerBound=Z.USL-Z_{1-\alpha/2}\sqrt{\frac{1}{N}+\frac{Z.USL^2}{2\nu}}" alt="LowerBound=Z.USL-Z_{1-\alpha/2}\sqrt{\frac{1}{N}+\frac{Z.USL^2}{2\nu}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-ad2ce6487058f5d623c6fc6759e7c556.png" title="UpperBound=Z.USL+Z_{1-\alpha/2}\sqrt{\frac{1}{N}+\frac{Z.USL^2}{2\nu}}" alt="UpperBound=Z.USL+Z_{1-\alpha/2}\sqrt{\frac{1}{N}+\frac{Z.USL^2}{2\nu}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-8d9c307cb7f3c4a32822a51922d1ceaa.png" title="N" alt="N" class="tex"/>: 観測値の総数</dd>
+<dd> <img src="../images/Algorithm_CA/math-ec9fc46b80f4d9c61ba9bb5d963ab432.png" title="Z_{1-\alpha/2}" alt="Z_{1-\alpha/2}" class="tex"/>: 標準正規分布における<img src="../images/Algorithm_CA/math-5756da97900f341291eb4441d211d7a3.png" title="(1-\alpha/2)^{th}" alt="(1-\alpha/2)^{th}" class="tex"/>パーセンタイル</dd>
+<dd> <img src="../images/Algorithm_CA/math-7b7f9dbfea05c83784f8b85149852f08.png" title="\alpha" alt="\alpha" class="tex"/>: 信頼水準に対応する有意水準</dd>
+<dd> <img src="../images/Algorithm_CA/math-4fdefba26320686bb2bd0579a0df421c.png" title="\nu" alt="\nu" class="tex"/>:標準偏差の自由度</dd></dl></li>
+<li> 仕様上限と片側
+<dl><dd> <img src="../images/Algorithm_CA/math-94f73c372ae840dac5c88fe64a253fdc.png" title="LowerBound = -\Phi^{-1}(p_2)" alt="LowerBound = -\Phi^{-1}(p_2)" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-6fe97b358b528edc477ba63d50b652af.png" title="p_2" alt="p_2" class="tex"/>: 方程式の根: <img src="../images/Algorithm_CA/math-5cf8becf8066c987bb8b1e0bb4334e6b.png" title="Pr\left(T_{\nu}(-\sqrt{N}\Phi^{-1}(p_2))\le\sqrt{N}Z.USL\right)=1-\alpha" alt="Pr\left(T_{\nu}(-\sqrt{N}\Phi^{-1}(p_2))\le\sqrt{N}Z.USL\right)=1-\alpha" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-8d9c307cb7f3c4a32822a51922d1ceaa.png" title="N" alt="N" class="tex"/>: 観測値の総数</dd>
+<dd> <img src="../images/Algorithm_CA/math-7b7f9dbfea05c83784f8b85149852f08.png" title="\alpha" alt="\alpha" class="tex"/>: 信頼水準に対応する有意水準</dd>
+<dd> <img src="../images/Algorithm_CA/math-4fdefba26320686bb2bd0579a0df421c.png" title="\nu" alt="\nu" class="tex"/>:標準偏差の自由度</dd>
+<dd> <img src="../images/Algorithm_CA/math-a969fc2906dadfa4ec04b2fdee534994.png" title="\Phi^{-1}(X)" alt="\Phi^{-1}(X)" class="tex"/>: 標準正規分布の逆累積分布関数</dd>
+<dd> <img src="../images/Algorithm_CA/math-b23d0eae081addf1443c93cf36559ffb.png" title="T_{\nu}(\delta)" alt="T_{\nu}(\delta)" class="tex"/>: 自由度<img src="../images/Algorithm_CA/math-4fdefba26320686bb2bd0579a0df421c.png" title="\nu" alt="\nu" class="tex"/>、非心度<img src="../images/Algorithm_CA/math-77a3b715842b45e440a5bee15357ad29.png" title="\delta" alt="\delta" class="tex"/>をもつ非心t分布の乱数変数</dd>
+<dd> <img src="../images/Algorithm_CA/math-a7a15f6a8041800e1528e097927f596b.png" title="Pr(\cdot)" alt="Pr(\cdot)" class="tex"/>: 非心t分布の累積分布関数</dd></dl></li></ul></li></ul></dd></dl>
+<h3><a name="Benchmark_Zs_for_Overall_Capability"></a><span class="mw-headline">工程能力（全体）に対するベンチマークZ</span></h3>
+<p>全体能力に対するベンチマークZの計算は、潜在能力の場合とほぼ同様ですが、<img src="../images/Algorithm_CA/math-c5744ecbeb89b1ac3650c0b5d769e0b8.png" title="\sigma_{within}" alt="\sigma_{within}" class="tex"/>を<img src="../images/Algorithm_CA/math-27c100893b15eda3e1b5ac152b7ae9d3.png" title="\sigma_{overall}" alt="\sigma_{overall}" class="tex"/>に置き換えて計算します。詳細については、<a href="../../Tutorial/App/Algorithm_CA.html#Benchmark_Zs_for_Potential_Capability" title="App:Algorithm CA">潜在工程能力に対するベンチマークZ</a>を参照してください。
+</p>
+<h3><a name="Expected_Within_Performance"></a><span class="mw-headline">期待される工程内パフォーマンス</span></h3>
+<dl><dd><ul><li> PPM &lt; LSL および&nbsp;% &lt; LSL
+<dl><dd> 下側規格限界（LSL）未満のパーツ・パー・ミリオン（PPM &lt; LSL）および割合（% &lt; LSL）は、次の確率に基づいて計算されます。</dd>
+<dd> <img src="../images/Algorithm_CA/math-cdaa546d32f9de5f62525b06abc1c15f.png" title="P(X &lt; LSL)=1-\Phi(\frac{\bar{X}-LSL}{s})" alt="P(X &lt; LSL)=1-\Phi(\frac{\bar{X}-LSL}{s})" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-3005b8eab96f81df142d787d501d0537.png" title="LSL" alt="LSL" class="tex"/>: 下側規格限界</dd>
+<dd> <img src="../images/Algorithm_CA/math-58c3d0d0ebe063b8eb10b3dcf9c10b0c.png" title="\bar{X}" alt="\bar{X}" class="tex"/>: プロセス平均（データから推定または履歴平均）</dd>
+<dd> <img src="../images/Algorithm_CA/math-03c7c0ace395d80182db07ae2c30f034.png" title="s" alt="s" class="tex"/>: サブグループ内標準偏差</dd>
+<dd> <img src="../images/Algorithm_CA/math-fd5babd13c12bd952d61effb4ad3fc49.png" title="\Phi(X)" alt="\Phi(X)" class="tex"/>: 標準正規分布の累積分布関数</dd>
+<dd> <img src="../images/Algorithm_CA/math-1b238b1f4749b7ce34d7ac184cba6217.png" title="PPM\;&lt;\;LSL" alt="PPM\;&lt;\;LSL" class="tex"/>と<img src="../images/Algorithm_CA/math-43568fb4d9860a655712926a32773ce4.png" title="\%\;&lt;\;LSL" alt="\%\;&lt;\;LSL" class="tex"/>は以下のように求められます。</dd>
+<dd> <img src="../images/Algorithm_CA/math-84564f37de1a39f24c6cb9dd5708ed26.png" title="[PPM\;&lt;\;LSL] = 1000000\cdot P(X&lt;LSL)" alt="[PPM\;&lt;\;LSL] = 1000000\cdot P(X&lt;LSL)" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-623573c0246d1799b35dee3cc2949122.png" title="[\%\;&lt;\;LSL] = 100\cdot P(X&lt;LSL)" alt="[\%\;&lt;\;LSL] = 100\cdot P(X&lt;LSL)" class="tex"/></dd></dl></li>
+<li> PPM &lt; LSLおよび&nbsp;% &lt; LSLの信頼区間
+<ul><li> 両側
+<dl><dd> <img src="../images/Algorithm_CA/math-6a241f441bdd6e241a0c3cde0b916022.png" title="P(X &lt; LSL)" alt="P(X &lt; LSL)" class="tex"/>の信頼区間は次の式で求められます。</dd>
+<dd> <img src="../images/Algorithm_CA/math-c4a70a4da5e90f6876f98c778dd433ff.png" title="LowerBound=1-\Phi(U)" alt="LowerBound=1-\Phi(U)" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-9efea4aeb8e5749e0925dcd88fe65331.png" title="UpperBound = 1-\Phi(L)" alt="UpperBound = 1-\Phi(L)" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-b12c04cce925072de7d0d420f6458298.png" title="U=Z.LSL+Z_{1-\alpha/2}\sqrt{\frac{1}{N}+\frac{Z.LSL^2}{2\nu}}" alt="U=Z.LSL+Z_{1-\alpha/2}\sqrt{\frac{1}{N}+\frac{Z.LSL^2}{2\nu}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-fad1a3e90ea28b5829fd1c52e662b84b.png" title="L=Z.LSL-Z_{1-\alpha/2}\sqrt{\frac{1}{N}+\frac{Z.LSL^2}{2\nu}}" alt="L=Z.LSL-Z_{1-\alpha/2}\sqrt{\frac{1}{N}+\frac{Z.LSL^2}{2\nu}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-fd5babd13c12bd952d61effb4ad3fc49.png" title="\Phi(X)" alt="\Phi(X)" class="tex"/>: 標準正規分布の累積分布関数</dd>
+<dd> <img src="../images/Algorithm_CA/math-8d9c307cb7f3c4a32822a51922d1ceaa.png" title="N" alt="N" class="tex"/>: 観測値の数</dd>
+<dd> <img src="../images/Algorithm_CA/math-7b7f9dbfea05c83784f8b85149852f08.png" title="\alpha" alt="\alpha" class="tex"/>: 信頼水準に対応するアルファ</dd>
+<dd> <img src="../images/Algorithm_CA/math-4fdefba26320686bb2bd0579a0df421c.png" title="\nu" alt="\nu" class="tex"/>:標準偏差の自由度</dd>
+<dd> <img src="../images/Algorithm_CA/math-ec9fc46b80f4d9c61ba9bb5d963ab432.png" title="Z_{1-\alpha/2}" alt="Z_{1-\alpha/2}" class="tex"/>:標準正規分布の<img src="../images/Algorithm_CA/math-f3f18c1f39489868e9187fa9ad5c1037.png" title="(1 - \alpha/2)_{th}" alt="(1 - \alpha/2)_{th}" class="tex"/>パーセンタイル</dd>
+<dd> これにより以下を計算します。 </dd>
+<dd> <img src="../images/Algorithm_CA/math-b0aeef0d60f77bccc64b9fffa7d41785.png" title="LowerBound(PPM\;&lt;\;LSL)=1000000\cdot LowerBound" alt="LowerBound(PPM\;&lt;\;LSL)=1000000\cdot LowerBound" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-e848d8b6a7b67cbc7042b1495dcceb98.png" title="UpperBound(PPM\;&lt;\;LSL)=1000000\cdot UpperBound" alt="UpperBound(PPM\;&lt;\;LSL)=1000000\cdot UpperBound" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-b541480dee154c8dc1c00cb02591dfec.png" title="LowerBound(\%\;&lt;\;LSL)=100\cdot LowerBound" alt="LowerBound(\%\;&lt;\;LSL)=100\cdot LowerBound" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-230b6f7f07a82e9e4a53a4e0d93fa96c.png" title="UpperBound(\%\;&lt;\;LSL)=100\cdot UpperBound" alt="UpperBound(\%\;&lt;\;LSL)=100\cdot UpperBound" class="tex"/></dd></dl></li>
+<li> 片側
+<dl><dd> <img src="../images/Algorithm_CA/math-737c9d3cc14573c168ccfc3ce5dc0019.png" title="UpperBound(PPM\;&lt;\;LSL)=1000000\cdot p_1" alt="UpperBound(PPM\;&lt;\;LSL)=1000000\cdot p_1" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-8a641659510cdc11014332a942bcd34a.png" title="UpperBound(\%\;&lt;\;LSL)=100\cdot p_1" alt="UpperBound(\%\;&lt;\;LSL)=100\cdot p_1" class="tex"/></dd>
+<dd> ここで、<img src="../images/Algorithm_CA/math-03b632315ee5bee654b60a6bd902a249.png" title="p_1" alt="p_1" class="tex"/>は<img src="../images/Algorithm_CA/math-e70f8f721db0edbe8e21808011229953.png" title="Pr\left(T_{\nu}(-\sqrt{N}\Phi^{-1}(p_1))\le\sqrt{N}Z.LSL\right)=1-\alpha" alt="Pr\left(T_{\nu}(-\sqrt{N}\Phi^{-1}(p_1))\le\sqrt{N}Z.LSL\right)=1-\alpha" class="tex"/>の方程式の根です。</dd>
+<dd> <img src="../images/Algorithm_CA/math-8d9c307cb7f3c4a32822a51922d1ceaa.png" title="N" alt="N" class="tex"/>: 観測値の総数</dd>
+<dd> <img src="../images/Algorithm_CA/math-7b7f9dbfea05c83784f8b85149852f08.png" title="\alpha" alt="\alpha" class="tex"/>: 信頼水準に対応する有意水準</dd>
+<dd> <img src="../images/Algorithm_CA/math-4fdefba26320686bb2bd0579a0df421c.png" title="\nu" alt="\nu" class="tex"/>:標準偏差の自由度</dd>
+<dd> <img src="../images/Algorithm_CA/math-a969fc2906dadfa4ec04b2fdee534994.png" title="\Phi^{-1}(X)" alt="\Phi^{-1}(X)" class="tex"/>: 標準正規分布の逆累積分布関数</dd>
+<dd> <img src="../images/Algorithm_CA/math-b23d0eae081addf1443c93cf36559ffb.png" title="T_{\nu}(\delta)" alt="T_{\nu}(\delta)" class="tex"/>: 自由度<img src="../images/Algorithm_CA/math-4fdefba26320686bb2bd0579a0df421c.png" title="\nu" alt="\nu" class="tex"/>、非心度<img src="../images/Algorithm_CA/math-77a3b715842b45e440a5bee15357ad29.png" title="\delta" alt="\delta" class="tex"/>をもつ非心t分布の乱数変数</dd>
+<dd> <img src="../images/Algorithm_CA/math-a7a15f6a8041800e1528e097927f596b.png" title="Pr(\cdot)" alt="Pr(\cdot)" class="tex"/>: 非心t分布の累積分布関数</dd></dl></li></ul></li>
+<li> PPM &gt; USLおよび&nbsp;% &gt; USL
+<dl><dd> 上側規格限界（USL）より大きいパーツ・パー・ミリオン（PPM &gt; USL）および割合（% &gt; USL）は、次の確率に基づいて計算されます。</dd>
+<dd> <img src="../images/Algorithm_CA/math-1d8fb8847b381850f9f20650d382c392.png" title="P(X &gt; USL)=1-\Phi(\frac{USL-\bar{X}}{s})" alt="P(X &gt; USL)=1-\Phi(\frac{USL-\bar{X}}{s})" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-20122ef50b5435613b9e7197689b96b3.png" title="USL" alt="USL" class="tex"/>: 上側規格限界</dd>
+<dd> <img src="../images/Algorithm_CA/math-58c3d0d0ebe063b8eb10b3dcf9c10b0c.png" title="\bar{X}" alt="\bar{X}" class="tex"/>: プロセス平均（データから推定または履歴平均）</dd>
+<dd> <img src="../images/Algorithm_CA/math-03c7c0ace395d80182db07ae2c30f034.png" title="s" alt="s" class="tex"/>: サブグループ内標準偏差</dd>
+<dd> <img src="../images/Algorithm_CA/math-fd5babd13c12bd952d61effb4ad3fc49.png" title="\Phi(X)" alt="\Phi(X)" class="tex"/>: 標準正規分布の累積分布関数</dd>
+<dd> <img src="../images/Algorithm_CA/math-212ffb1dd7ed5564dd934680b2d4c9ec.png" title="PPM\;&gt;\;USL" alt="PPM\;&gt;\;USL" class="tex"/>と<img src="../images/Algorithm_CA/math-8c7ea17b2dbf6443f312fd6037ba6434.png" title="\%\;&gt;\;USL" alt="\%\;&gt;\;USL" class="tex"/>は以下のように求められます。</dd>
+<dd> <img src="../images/Algorithm_CA/math-b3f2b1ebff8af92438809bf160de3aa9.png" title="[PPM\;&gt;\;USL] = 1000000\cdot P(X&gt;USL)" alt="[PPM\;&gt;\;USL] = 1000000\cdot P(X&gt;USL)" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-71aa79fbde4f0dbc5a5ee7c84dd97c12.png" title="[\%\;&gt;\;USL] = 100\cdot P(X&gt;USL)" alt="[\%\;&gt;\;USL] = 100\cdot P(X&gt;USL)" class="tex"/></dd></dl></li>
+<li> Confidence Intervals for PPM &gt; USL and&nbsp;% &gt; USL
+<ul><li> 両側
+<dl><dd> <img src="../images/Algorithm_CA/math-49a8884575c5d4879a7557ea8354c68e.png" title="P(X &gt; USL)" alt="P(X &gt; USL)" class="tex"/>の信頼区間は次の式で求められます。</dd>
+<dd> <img src="../images/Algorithm_CA/math-c4a70a4da5e90f6876f98c778dd433ff.png" title="LowerBound=1-\Phi(U)" alt="LowerBound=1-\Phi(U)" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-9efea4aeb8e5749e0925dcd88fe65331.png" title="UpperBound = 1-\Phi(L)" alt="UpperBound = 1-\Phi(L)" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-bd2f606f6f292a72ac6fb86b7cfe77ae.png" title="U=Z.USL+Z_{1-\alpha/2}\sqrt{\frac{1}{N}+\frac{Z.USL^2}{2\nu}}" alt="U=Z.USL+Z_{1-\alpha/2}\sqrt{\frac{1}{N}+\frac{Z.USL^2}{2\nu}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-342f234f863b418c2ac826e8ceee48d7.png" title="L=Z.USL-Z_{1-\alpha/2}\sqrt{\frac{1}{N}+\frac{Z.USL^2}{2\nu}}" alt="L=Z.USL-Z_{1-\alpha/2}\sqrt{\frac{1}{N}+\frac{Z.USL^2}{2\nu}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-fd5babd13c12bd952d61effb4ad3fc49.png" title="\Phi(X)" alt="\Phi(X)" class="tex"/>: 標準正規分布の累積分布関数</dd>
+<dd> <img src="../images/Algorithm_CA/math-8d9c307cb7f3c4a32822a51922d1ceaa.png" title="N" alt="N" class="tex"/>: 観測値の数</dd>
+<dd> <img src="../images/Algorithm_CA/math-7b7f9dbfea05c83784f8b85149852f08.png" title="\alpha" alt="\alpha" class="tex"/>: 信頼水準に対応するアルファ</dd>
+<dd> <img src="../images/Algorithm_CA/math-4fdefba26320686bb2bd0579a0df421c.png" title="\nu" alt="\nu" class="tex"/>:標準偏差の自由度</dd>
+<dd> <img src="../images/Algorithm_CA/math-ec9fc46b80f4d9c61ba9bb5d963ab432.png" title="Z_{1-\alpha/2}" alt="Z_{1-\alpha/2}" class="tex"/>:標準正規分布の<img src="../images/Algorithm_CA/math-dd4229a8dcbf80b92cd494c4afd8f03f.png" title="(1 - \alpha/2)^{th}" alt="(1 - \alpha/2)^{th}" class="tex"/>パーセンタイル</dd>
+<dd> これにより以下を計算します。 </dd>
+<dd> <img src="../images/Algorithm_CA/math-196bd98f1b658a4490f4c7641100584d.png" title="LowerBound(PPM\;&gt;\;USL)=1000000\cdot LowerBound" alt="LowerBound(PPM\;&gt;\;USL)=1000000\cdot LowerBound" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-868d59462acb725ddb0f47a8d90b6199.png" title="UpperBound(PPM\;&gt;\;USL)=1000000\cdot UpperBound" alt="UpperBound(PPM\;&gt;\;USL)=1000000\cdot UpperBound" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-019d0c29dd525e947096dc9b851700a3.png" title="LowerBound(\%\;&gt;\;USL)=100\cdot LowerBound" alt="LowerBound(\%\;&gt;\;USL)=100\cdot LowerBound" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-096cdd3a494d1f40b2bf685334bab1b3.png" title="UpperBound(\%\;&gt;\;USL)=100\cdot UpperBound" alt="UpperBound(\%\;&gt;\;USL)=100\cdot UpperBound" class="tex"/></dd></dl></li>
+<li> 片側
+<dl><dd> <img src="../images/Algorithm_CA/math-51325d7ab592aa36238df5c845440ca7.png" title="UpperBound(PPM\;&gt;\;USL)=1000000\cdot p_2" alt="UpperBound(PPM\;&gt;\;USL)=1000000\cdot p_2" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-a1b608e88621446aae758d2f7c676afb.png" title="UpperBound(\%\;&gt;\;USL)=100\cdot p_2" alt="UpperBound(\%\;&gt;\;USL)=100\cdot p_2" class="tex"/></dd>
+<dd> ここで、<img src="../images/Algorithm_CA/math-6fe97b358b528edc477ba63d50b652af.png" title="p_2" alt="p_2" class="tex"/>は<img src="../images/Algorithm_CA/math-5cf8becf8066c987bb8b1e0bb4334e6b.png" title="Pr\left(T_{\nu}(-\sqrt{N}\Phi^{-1}(p_2))\le\sqrt{N}Z.USL\right)=1-\alpha" alt="Pr\left(T_{\nu}(-\sqrt{N}\Phi^{-1}(p_2))\le\sqrt{N}Z.USL\right)=1-\alpha" class="tex"/>の方程式の根です。</dd>
+<dd> <img src="../images/Algorithm_CA/math-8d9c307cb7f3c4a32822a51922d1ceaa.png" title="N" alt="N" class="tex"/>: 観測値の総数</dd>
+<dd> <img src="../images/Algorithm_CA/math-7b7f9dbfea05c83784f8b85149852f08.png" title="\alpha" alt="\alpha" class="tex"/>: 信頼水準に対応する有意水準</dd>
+<dd> <img src="../images/Algorithm_CA/math-4fdefba26320686bb2bd0579a0df421c.png" title="\nu" alt="\nu" class="tex"/>:標準偏差の自由度</dd>
+<dd> <img src="../images/Algorithm_CA/math-a969fc2906dadfa4ec04b2fdee534994.png" title="\Phi^{-1}(X)" alt="\Phi^{-1}(X)" class="tex"/>: 標準正規分布の逆累積分布関数</dd>
+<dd> <img src="../images/Algorithm_CA/math-b23d0eae081addf1443c93cf36559ffb.png" title="T_{\nu}(\delta)" alt="T_{\nu}(\delta)" class="tex"/>: 自由度<img src="../images/Algorithm_CA/math-4fdefba26320686bb2bd0579a0df421c.png" title="\nu" alt="\nu" class="tex"/>、非心度<img src="../images/Algorithm_CA/math-77a3b715842b45e440a5bee15357ad29.png" title="\delta" alt="\delta" class="tex"/>をもつ非心t分布の乱数変数</dd>
+<dd> <img src="../images/Algorithm_CA/math-a7a15f6a8041800e1528e097927f596b.png" title="Pr(\cdot)" alt="Pr(\cdot)" class="tex"/>: 非心t分布の累積分布関数</dd></dl></li></ul></li>
+<li> PPM総数および%総数
+<dl><dd> 規格限界を外れたパーツ・パー・ミリオン（PPM総数）は次の式で計算されます。</dd>
+<dd> <img src="../images/Algorithm_CA/math-3ba7d313350351cbd5b69fb61c66a532.png" title="[PPM\;&lt;\;LSL]+[PPM\;&gt;\;USL]" alt="[PPM\;&lt;\;LSL]+[PPM\;&gt;\;USL]" class="tex"/> または <img src="../images/Algorithm_CA/math-f0689c4d82d244e95315a317bfb79ba0.png" title="[\%\;&lt;\;LSL]+[\%\;&gt;\;USL]" alt="[\%\;&lt;\;LSL]+[\%\;&gt;\;USL]" class="tex"/></dd></dl></li>
+<li> 上下両方の規格限界がある場合のPPM総数および%総数の信頼区間
+<ul><li> 両側
+<dl><dd> <img src="../images/Algorithm_CA/math-7471ac1dafeb666cc1109c7fa73e2299.png" title="UpperBound(PPM\;Total)=1000000\cdot U" alt="UpperBound(PPM\;Total)=1000000\cdot U" class="tex"/> または <img src="../images/Algorithm_CA/math-90dc1565dfdbedce5c493bcffc92a496.png" title="UpperBound(\%\;Total)=100\cdot U" alt="UpperBound(\%\;Total)=100\cdot U" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-970d54cf338d3bd636f5258657a9d879.png" title="LowerBound(PPM\;Total)=1000000\cdot L" alt="LowerBound(PPM\;Total)=1000000\cdot L" class="tex"/> または <img src="../images/Algorithm_CA/math-6e58e0854e0678fbee2959432c306914.png" title="LowerBound(\%\;Total)=100\cdot L" alt="LowerBound(\%\;Total)=100\cdot L" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-4c614360da93c0a041b22e537de151eb.png" title="U" alt="U" class="tex"/>とL<img src="../images/Algorithm_CA/math-d20caec3b48a1eef164cb4ca81ba2587.png" title="L" alt="L" class="tex"/>の計算については、<a href="../../Tutorial/App/Algorithm_CA.html#Benchmark_Zs_for_Potential_Capability" title="App:Algorithm CA">潜在工程能力に対するベンチマークZ</a>の説明を参照してください。</dd></dl></li>
+<li> 片側
+<dl><dd> <img src="../images/Algorithm_CA/math-7471ac1dafeb666cc1109c7fa73e2299.png" title="UpperBound(PPM\;Total)=1000000\cdot U" alt="UpperBound(PPM\;Total)=1000000\cdot U" class="tex"/> または <img src="../images/Algorithm_CA/math-90dc1565dfdbedce5c493bcffc92a496.png" title="UpperBound (\%\;合計)=100\cdot U" alt="UpperBound(\%\;Total)=100\cdot U" class="tex"/></dd>
+<dd> ここでは、<img src="../images/Algorithm_CA/math-4c614360da93c0a041b22e537de151eb.png" title="U" alt="U" class="tex"/>は両面と同じ方法を使用して計算されますが、<img src="../images/Algorithm_CA/math-7fd42cc193f8f63db5451c8c6db7d048.png" title="\alpha/2" alt="\alpha/2" class="tex"/>を<img src="../images/Algorithm_CA/math-7b7f9dbfea05c83784f8b85149852f08.png" title="\alpha" alt="\alpha" class="tex"/>に置き換えます。</dd></dl></li></ul></li>
+<li> 規格限界が一方のみ（下限のみまたは上限のみ）の場合のPPM総数および%総数の信頼区間
+<ul><li> 下側規格限界のみ
+<dl><dd> PPM &lt; LSLまたは% &lt; LSLの信頼区間の計算方法と同様に求めます。</dd></dl></li>
+<li> 上側規格限界のみ
+<dl><dd> PPM &gt; USLまたは% &gt; USLの信頼区間の計算方法と同様に求めます。</dd></dl></li></ul></li></ul></dd></dl>
+<h3><a name="Expected_Overall_Performance"></a><span class="mw-headline">期待される全体パフォーマンス</span></h3>
+<dl><dd> 期待される全体パフォーマンスの計算手順は、工程内パフォーマンスの計算手順とほぼ同様ですが、サブグループ内標準偏差の代わりに全体標準偏差を使用して計算します。詳細は、<a href="../../Tutorial/App/Algorithm_CA.html#Expected_Within_Performance" title="App:Algorithm CA">期待される工程内パフォーマンス</a>を参照してください。</dd></dl>
+<h3><a name="Observed_Performance"></a><span class="mw-headline">観測パフォーマンス</span></h3>
+<dl><dd><ul><li> 観測パフォーマンスのPPM &lt; LSL
+<dl><dd> <img src="../images/Algorithm_CA/math-0f147a368da30dba344b0e8da8192105.png" title="[PPM\;&lt;\;LSL(Observed)]=\frac{1000000\cdot(NumberOfObservations\;&lt;\;LSL)}{N}" alt="[PPM\;&lt;\;LSL(Observed)]=\frac{1000000\cdot(NumberOfObservations\;&lt;\;LSL)}{N}" class="tex"/>、ここで <img src="../images/Algorithm_CA/math-3005b8eab96f81df142d787d501d0537.png" title="LSL" alt="LSL" class="tex"/>は下側規格限界、<img src="../images/Algorithm_CA/math-8d9c307cb7f3c4a32822a51922d1ceaa.png" title="N" alt="N" class="tex"/> は観測値の総数です。</dd></dl></li>
+<li> PPM &gt; USL（観測パフォーマンス）
+<dl><dd> <img src="../images/Algorithm_CA/math-caecf3d1d03eac27b49c9339dea5e8a5.png" title="[PPM\;&gt;\;USL(Observed)]=\frac{1000000\cdot(NumberOfObservations\;&gt;\;USL)}{N}" alt="[PPM\;&gt;\;USL(Observed)]=\frac{1000000\cdot(NumberOfObservations\;&gt;\;USL)}{N}" class="tex"/>、ここで <img src="../images/Algorithm_CA/math-20122ef50b5435613b9e7197689b96b3.png" title="USL" alt="USL" class="tex"/>は上側規格限界、<img src="../images/Algorithm_CA/math-8d9c307cb7f3c4a32822a51922d1ceaa.png" title="N" alt="N" class="tex"/> は観測値の総数です。</dd></dl></li>
+<li> 観測パフォーマンスのPPM総数
+<dl><dd> <img src="../images/Algorithm_CA/math-4675815af9a334d3bee8286962f68903.png" title="[PPM\;Total]=[PPM\;&lt;\;LSL(Observed)]+[PPM\;&gt;\;USL(Observed)] = \frac{1000000\cdot(NumberOfObservations\;&lt;\;LSL)}{N}+\frac{1000000\cdot(NumberOfObservations\;&gt;\;USL)}{N}" alt="[PPM\;Total]=[PPM\;&lt;\;LSL(Observed)]+[PPM\;&gt;\;USL(Observed)] = \frac{1000000\cdot(NumberOfObservations\;&lt;\;LSL)}{N}+\frac{1000000\cdot(NumberOfObservations\;&gt;\;USL)}{N}" class="tex"/>、ここで <img src="../images/Algorithm_CA/math-3005b8eab96f81df142d787d501d0537.png" title="LSL" alt="LSL" class="tex"/> は下側規格限界、<img src="../images/Algorithm_CA/math-20122ef50b5435613b9e7197689b96b3.png" title="USL" alt="USL" class="tex"/> は上側規格限界、<img src="../images/Algorithm_CA/math-8d9c307cb7f3c4a32822a51922d1ceaa.png" title="N" alt="N" class="tex"/> は観測値の総数です。</dd></dl></li></ul></dd></dl>
+<h2><a name="Between.2FWithin_Capability_Analysis"></a><span class="mw-headline">サブグループ間/内の工程能力分析</span></h2>
+<h3><a name="Standard_Deviation_Estimation_2"></a><span class="mw-headline">標準偏差の推定</span></h3>
+<dl><dd><ul><li> サブグループ内標準偏差 (<img src="../images/Algorithm_CA/math-c5744ecbeb89b1ac3650c0b5d769e0b8.png" title="\sigma_{within}" alt="\sigma_{within}" class="tex"/>)
+<dl><dd> プールされた標準偏差、サブグループ範囲の平均、サブグループ標準偏差の平均についての詳細は、<a href="../../Tutorial/App/Algorithm_CA.html#Standard_Deviation_Estimation" title="App:Algorithm CA">標準偏差の推定</a>を参照してください。</dd></dl></li>
+<li> サブグループ間標準偏差 (<img src="../images/Algorithm_CA/math-3c426eaa3bc5809cdd7216983bd8cc13.png" title="\sigma_{between}" alt="\sigma_{between}" class="tex"/>)
+<dl><dd> <img src="../images/Algorithm_CA/math-92bf9010e9da2fc3b2ace9d60634d779.png" title="\sigma_{between} = \max\left(0, \sqrt{\sigma_{xbar}^2-\frac{\sigma_{within}^2}{SubgroupSize}}\right)" alt="\sigma_{between} = \max\left(0, \sqrt{\sigma_{xbar}^2-\frac{\sigma_{within}^2}{SubgroupSize}}\right)" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-8e64c47538342262aba2c14c331d078c.png" title="\sigma_{xbar}" alt="\sigma_{xbar}" class="tex"/>は移動範囲の平均、移動範囲の中央値、または二乗連続差分（MSSD）の平方根により計算されます。詳細は、<a href="../../Tutorial/App/Algorithm_CA.html#Standard_Deviation_Estimation" title="App:Algorithm CA">標準偏差の推定</a>を参照してください。</dd></dl></li>
+<li> 工程間/内標準偏差 (<img src="../images/Algorithm_CA/math-d2c7a9cce4e07807d8ac063758cba334.png" title="\sigma_{b/w}" alt="\sigma_{b/w}" class="tex"/>)
+<dl><dd> <img src="../images/Algorithm_CA/math-8ecf75a926997396dc265f158a481c33.png" title="\sigma_{b/w}=\sqrt{\sigma_{within}^2+\sigma_{between}^2}" alt="\sigma_{b/w}=\sqrt{\sigma_{within}^2+\sigma_{between}^2}" class="tex"/></dd></dl></li>
+<li> 全体標準偏差 (<img src="../images/Algorithm_CA/math-27c100893b15eda3e1b5ac152b7ae9d3.png" title="\sigma_{overall}" alt="\sigma_{overall}" class="tex"/>)
+<dl><dd> <a href="../../Tutorial/App/Algorithm_CA.html#Standard_Deviation_Estimation" title="App:Algorithm CA">標準偏差の推定</a>の全体標準偏差の項を参照してください。</dd></dl></li></ul></dd></dl>
+<h3><a name="Between.2FWithin_Capability"></a><span class="mw-headline">サブグループ間/内の工程能力</span></h3>
+<dl><dd>Cp、CPL、CPU、Cpk、CCpkの計算については<a href="../../Tutorial/App/Algorithm_CA.html#Potential_Capability" title="App:Algorithm CA">潜在工程能力</a>を参照してください。違いは<img src="../images/Algorithm_CA/math-c5744ecbeb89b1ac3650c0b5d769e0b8.png" title="\sigma_{within}" alt="\sigma_{within}" class="tex"/>を<img src="../images/Algorithm_CA/math-d2c7a9cce4e07807d8ac063758cba334.png" title="\sigma_{b/w}" alt="\sigma_{b/w}" class="tex"/>に置き換わることです。また、CPの信頼区間の式の<img src="../images/Algorithm_CA/math-4fdefba26320686bb2bd0579a0df421c.png" title="\nu" alt="\nu" class="tex"/>の計算も異なります。ここでは、<img src="../images/Algorithm_CA/math-4fdefba26320686bb2bd0579a0df421c.png" title="\nu" alt="\nu" class="tex"/>は次の式で計算されます。
+<dl><dd> <img src="../images/Algorithm_CA/math-78cdf117557dbfe31c4057186a6508b1.png" title="\nu=\frac{\left(\frac{MS_B+(m-1)MS_E}{m}\right)^2}{\frac{(m-1)^2}{m^2}\frac{MS_E^2}{df_E}+\frac{1}{m^2}\frac{MS_B^2}{df_B}}" alt="\nu=\frac{\left(\frac{MS_B+(m-1)MS_E}{m}\right)^2}{\frac{(m-1)^2}{m^2}\frac{MS_E^2}{df_E}+\frac{1}{m^2}\frac{MS_B^2}{df_B}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-ed887cf9ccbeecabb1914e05aeaaa290.png" title="MS_B=\frac{\sum_{i=1}^Ln_i(\bar{X_i}-\bar{X})^2}{df_B}" alt="MS_B=\frac{\sum_{i=1}^Ln_i(\bar{X_i}-\bar{X})^2}{df_B}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-c13dc09e6215149112c918d219bee53c.png" title="MS_E=\frac{\sum_{i=1}^L\sum_{j=1}^{n_i}(X_{ij}-\bar{X_i})^2}{df_E}" alt="MS_E=\frac{\sum_{i=1}^L\sum_{j=1}^{n_i}(X_{ij}-\bar{X_i})^2}{df_E}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-05805cb5de8a35dc88fbceefe7ecbe4c.png" title="m = \frac{N^2-\sum_{i=1}^Ln_i^2}{N(L-1)}" alt="m = \frac{N^2-\sum_{i=1}^Ln_i^2}{N(L-1)}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-449678a35c3d6aa6815d70bc41bb3989.png" title="df_E=\sum_{i=1}^L(n_i-1)" alt="df_E=\sum_{i=1}^L(n_i-1)" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-6708c5704e455c3bf8b50033b3349b14.png" title="df_B=L-1" alt="df_B=L-1" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-8d9c307cb7f3c4a32822a51922d1ceaa.png" title="N" alt="N" class="tex"/>: 観測値の総数</dd>
+<dd> <img src="../images/Algorithm_CA/math-d20caec3b48a1eef164cb4ca81ba2587.png" title="L" alt="L" class="tex"/>: サブグループの数</dd>
+<dd> <img src="../images/Algorithm_CA/math-584a81dbf5bf6aa737ba43567ad6307b.png" title="n_i" alt="n_i" class="tex"/>: 第<img src="../images/Algorithm_CA/math-97361f12a3555fc4fc4e2ffce1799ac3.png" title="i^{th}" alt="i^{th}" class="tex"/>サブグループのサイズ</dd>
+<dd> <img src="../images/Algorithm_CA/math-58c3d0d0ebe063b8eb10b3dcf9c10b0c.png" title="\bar{X}" alt="\bar{X}" class="tex"/>: すべてのサブグループの平均</dd>
+<dd> <img src="../images/Algorithm_CA/math-c297a89e7224f08ec4e3cfbbc9628334.png" title="\bar{X_i}" alt="\bar{X_i}" class="tex"/>: 第<img src="../images/Algorithm_CA/math-97361f12a3555fc4fc4e2ffce1799ac3.png" title="i^{th}" alt="i^{th}" class="tex"/>サブグループの平均</dd>
+<dd> <img src="../images/Algorithm_CA/math-293d0536b3311ee8663909034780258d.png" title="X_{ij}" alt="X_{ij}" class="tex"/>: 第<img src="../images/Algorithm_CA/math-97361f12a3555fc4fc4e2ffce1799ac3.png" title="i^{th}" alt="i^{th}" class="tex"/>サブグループの第<img src="../images/Algorithm_CA/math-d6c87401ed2f8589600d6db807438139.png" title="j^{th}" alt="j^{th}" class="tex"/>観測値</dd></dl></dd></dl>
+<h3><a name="Overall_Capability_2"></a><span class="mw-headline">工程能力（全体）</span></h3>
+<dl><dd> 全体能力についての詳細は、<a href="../../Tutorial/App/Algorithm_CA.html#Overall_Capability" title="App:Algorithm CA">工程能力（全体）</a>のセクションを参照してください。</dd></dl>
+<h3><a name="Benchmark_Zs_for_Between.2FWithin_Capability"></a><span class="mw-headline">間/内工程能力に対するベンチマークZ</span></h3>
+<dl><dd> 工程間/内能力に対するベンチマークZの計算は、潜在能力の場合とほぼ同様ですが、<img src="../images/Algorithm_CA/math-c5744ecbeb89b1ac3650c0b5d769e0b8.png" title="\sigma_{within}" alt="\sigma_{within}" class="tex"/>を<img src="../images/Algorithm_CA/math-d2c7a9cce4e07807d8ac063758cba334.png" title="\sigma_{b/w}" alt="\sigma_{b/w}" class="tex"/>に置き換えて計算します。詳細については、<a href="../../Tutorial/App/Algorithm_CA.html#Benchmark_Zs_for_Potential_Capability" title="App:Algorithm CA">潜在工程能力に対するベンチマークZ</a>を参照してください。</dd></dl>
+<h3><a name="Benchmark_Zs_for_Overall_Capability_2"></a><span class="mw-headline">工程能力（全体）に対するベンチマークZ</span></h3>
+<dl><dd> 全体能力に対するベンチマークZの計算は、潜在能力の場合とほぼ同様ですが、<img src="../images/Algorithm_CA/math-c5744ecbeb89b1ac3650c0b5d769e0b8.png" title="\sigma_{within}" alt="\sigma_{within}" class="tex"/>を<img src="../images/Algorithm_CA/math-27c100893b15eda3e1b5ac152b7ae9d3.png" title="\sigma_{overall}" alt="\sigma_{overall}" class="tex"/>に置き換えて計算します。詳細については、<a href="../../Tutorial/App/Algorithm_CA.html#Benchmark_Zs_for_Potential_Capability" title="App:Algorithm CA">潜在工程能力に対するベンチマークZ</a>を参照してください。</dd></dl>
+<h3><a name="Expected_Between.2FWithin_Performance"></a><span class="mw-headline">期待される工程間/内パフォーマンス</span></h3>
+<dl><dd> 工程間/内能力に対する期待パフォーマンスの計算は、工程内パフォーマンスとほぼ同様ですが、<img src="../images/Algorithm_CA/math-c5744ecbeb89b1ac3650c0b5d769e0b8.png" title="\sigma_{within}" alt="\sigma_{within}" class="tex"/>を<img src="../images/Algorithm_CA/math-d2c7a9cce4e07807d8ac063758cba334.png" title="\sigma_{b/w}" alt="\sigma_{b/w}" class="tex"/>に置き換えて計算します。詳細は<a href="../../Tutorial/App/Algorithm_CA.html#Expected_Within_Performance" title="App:Algorithm CA">工程内における期待パフォーマンス</a>を参照してください。ただし、以下の信頼区間の計算は異なります。
+<ul><li> PPM &lt; LSLおよび&nbsp;% &lt; LSLの信頼区間
+<ul><li> 片側
+<dl><dd> <img src="../images/Algorithm_CA/math-ebcb673f2b9005a3a0dc5d9351fc9be9.png" title="LowerBound(PPM\;&lt;\;LSL)=1000000\cdot p_1" alt="LowerBound(PPM\;&lt;\;LSL)=1000000\cdot p_1" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-b0a0709ca75cc624c151c0799a372491.png" title="LowerBound(\%\;&lt;\;LSL)=100\cdot p_1" alt="LowerBound(\%\;&lt;\;LSL)=100\cdot p_1" class="tex"/></dd></dl></li></ul></li>
+<li> Confidence Intervals for PPM &gt; USL and&nbsp;% &gt; USL
+<ul><li> 片側
+<dl><dd> <img src="../images/Algorithm_CA/math-12fc1b961a1aedb7c600e73b746c19ed.png" title="LowerBound(PPM\;&gt;\;USL)=1000000\cdot p_2" alt="LowerBound(PPM\;&gt;\;USL)=1000000\cdot p_2" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-3f49e0cdc5b9fd8f1ce11193c0d0a669.png" title="LowerBound(\%\;&gt;\;USL)=100\cdot p_2" alt="LowerBound(\%\;&gt;\;USL)=100\cdot p_2" class="tex"/></dd></dl></li></ul></li></ul></dd></dl>
+<h3><a name="Expected_Overall_Performance_2"></a><span class="mw-headline">期待される全体パフォーマンス</span></h3>
+<dl><dd> 期待される全体パフォーマンスの計算手順は、工程内パフォーマンスの計算手順とほぼ同様ですが、サブグループ内標準偏差の代わりに全体標準偏差を使用して計算します。詳細は、<a href="../../Tutorial/App/Algorithm_CA.html#Expected_Within_Performance" title="App:Algorithm CA">期待される工程内パフォーマンス</a>を参照してください。</dd></dl>
+<h3><a name="Observed_Performance_2"></a><span class="mw-headline">観測パフォーマンス</span></h3>
+<dl><dd> 詳細は、<a href="../../Tutorial/App/Algorithm_CA.html#Observed_Performance" title="App:Algorithm CA">観測パフォーマンス</a>を参照してください。</dd></dl>
+<h2><a name="Non-normal_Capability_Analysis"></a><span class="mw-headline">非正規工程能力分析</span></h2>
+<h3><a name="Overall_Capability_3"></a><span class="mw-headline">工程能力（全体）</span></h3>
+<dl><dd><ul><li> Pp: Ppは、使用している分布のパラメータに基づいて計算されます。PPの計算にはZスコア法とISO法の2つの方法を用いられます。
+<ul><li> Zスコア法
+<dl><dd> <img src="../images/Algorithm_CA/math-76abf5e5ae0b2c09ea5a5a66eaf59910.png" title="Pp = \frac{Z_{usl}-Z_{lsl}}{6}" alt="Pp = \frac{Z_{usl}-Z_{lsl}}{6}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-5a2ba39dd653dfd03912e4d7835c90cc.png" title="Z_{usl}=\Phi^{-1}(p_2), Z_{lsl}=\Phi^{-1}(p_1)" alt="Z_{usl}=\Phi^{-1}(p_2), Z_{lsl}=\Phi^{-1}(p_1)" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-d7c1415601e7787706053f726d1823e2.png" title="\Phi^{-1}(p)" alt="\Phi^{-1}(p)" class="tex"/>: 標準正規分布の逆累積分布関数（<img src="../images/Algorithm_CA/math-a26d521c6f520261d3ec88b1d3bcca31.png" title="p*100^{th}" alt="p*100^{th}" class="tex"/>パーセンタイルに対応）</dd>
+<dd> <img src="../images/Algorithm_CA/math-80d22729250af9d88a11f0a02a7d3752.png" title="p_1=Prob(X\le LSL), p_2=Prob(X\le USL)" alt="p_1=Prob(X\le LSL), p_2=Prob(X\le USL)" class="tex"/>: 使用している分布の累積分布関数の値</dd>
+<dd> <img src="../images/Algorithm_CA/math-bda1ebb97cf55bde5cb9ab9366e2fcd0.png" title="USL, LSL" alt="USL, LSL" class="tex"/>: それぞれ上側および下側の規格限界</dd></dl></li>
+<li> ISO法
+<dl><dd> <img src="../images/Algorithm_CA/math-3926bf0ff0518f098396eea0ab3e7933.png" title="Pp = \frac{USL-LSL}{X_{0.99865}-X_{0.00135}}" alt="Pp = \frac{USL-LSL}{X_{0.99865}-X_{0.00135}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-bda1ebb97cf55bde5cb9ab9366e2fcd0.png" title="USL, LSL" alt="USL, LSL" class="tex"/>: それぞれ上側および下側の規格限界</dd>
+<dd> <img src="../images/Algorithm_CA/math-f052be3d73d0a06d1f8f459eed28259d.png" title="X_{0.99865}, X_{0.00135}" alt="X_{0.99865}, X_{0.00135}" class="tex"/>: 使用している分布の<img src="../images/Algorithm_CA/math-acbc31ce54af509fb1ebf2f27653b509.png" title="99.865^{th},0.135^{th}" alt="99.865^{th},0.135^{th}" class="tex"/>パーセンタイルの値</dd></dl></li></ul></li>
+<li> PPL
+<ul><li> Zスコア法
+<dl><dd> <img src="../images/Algorithm_CA/math-d80cefa616e41f9947ff658341020275.png" title="PPL= \frac{-\Phi^{-1}(p_1)}{3}" alt="PPL= \frac{-\Phi^{-1}(p_1)}{3}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-d7c1415601e7787706053f726d1823e2.png" title="\Phi^{-1}(p)" alt="\Phi^{-1}(p)" class="tex"/>: 標準正規分布の逆累積分布関数（<img src="../images/Algorithm_CA/math-a26d521c6f520261d3ec88b1d3bcca31.png" title="p*100^{th}" alt="p*100^{th}" class="tex"/>パーセンタイルに対応）</dd>
+<dd> <img src="../images/Algorithm_CA/math-f0685928029763aa28d22a0513938e80.png" title="p_1=Prob(X\le LSL)" alt="p_1=Prob(X\le LSL)" class="tex"/>: 使用している分布の累積分布関数の値</dd>
+<dd> <img src="../images/Algorithm_CA/math-3005b8eab96f81df142d787d501d0537.png" title="LSL" alt="LSL" class="tex"/>: 下側規格限界</dd></dl></li>
+<li> ISO法
+<dl><dd> <img src="../images/Algorithm_CA/math-1a24993ec18677397cc09150f43e8481.png" title="PPL = \frac{X_{0.5}-LSL}{X_{0.5}-X_{0.00135}}" alt="PPL = \frac{X_{0.5}-LSL}{X_{0.5}-X_{0.00135}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-3005b8eab96f81df142d787d501d0537.png" title="LSL" alt="LSL" class="tex"/>: 下側規格限界</dd>
+<dd> <img src="../images/Algorithm_CA/math-6841965067e3ba333fc388b71cd0a324.png" title="X_{0.5}, X_{0.00135}" alt="X_{0.5}, X_{0.00135}" class="tex"/>: 使用している分布の<img src="../images/Algorithm_CA/math-c72537ca2ee89fc9cc730b351f958e86.png" title="50^{th},0.135^{th}" alt="50^{th},0.135^{th}" class="tex"/>パーセンタイルの値</dd></dl></li></ul></li>
+<li> PPU
+<ul><li> Zスコア法
+<dl><dd> <img src="../images/Algorithm_CA/math-489380ff5b6f711df840e0dcf584163d.png" title="PPU= \frac{\Phi^{-1}(p_2)}{3}" alt="PPU= \frac{\Phi^{-1}(p_2)}{3}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-d7c1415601e7787706053f726d1823e2.png" title="\Phi^{-1}(p)" alt="\Phi^{-1}(p)" class="tex"/>: 標準正規分布の逆累積分布関数（<img src="../images/Algorithm_CA/math-a26d521c6f520261d3ec88b1d3bcca31.png" title="p*100^{th}" alt="p*100^{th}" class="tex"/>パーセンタイルに対応）</dd>
+<dd> <img src="../images/Algorithm_CA/math-0320ca7e27c69b10f59263722c714fd0.png" title="p_2=Prob(X\le USL)" alt="p_2=Prob(X\le USL)" class="tex"/>: 使用している分布の累積分布関数の値</dd>
+<dd> <img src="../images/Algorithm_CA/math-20122ef50b5435613b9e7197689b96b3.png" title="USL" alt="USL" class="tex"/>: 上側規格限界</dd></dl></li>
+<li> ISO法
+<dl><dd> <img src="../images/Algorithm_CA/math-16a08d7da48fcf8597eda6ef23d4d550.png" title="PPU = \frac{USL-X_{0.5}}{X_{0.99865}-X_{0.5}}" alt="PPU = \frac{USL-X_{0.5}}{X_{0.99865}-X_{0.5}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-3005b8eab96f81df142d787d501d0537.png" title="LSL" alt="LSL" class="tex"/>: 下側規格限界</dd>
+<dd> <img src="../images/Algorithm_CA/math-a3ac01381fc6a82b13f807063ff66b2c.png" title="X_{0.99865}, X_{0.5}" alt="X_{0.99865}, X_{0.5}" class="tex"/>: 使用している分布の<img src="../images/Algorithm_CA/math-a0537239a8070018502d2c1db0b59697.png" title="99.865^{th},50^{th}" alt="99.865^{th},50^{th}" class="tex"/>パーセンタイルの値</dd></dl></li></ul></li>
+<li> Ppk
+<dl><dd> <img src="../images/Algorithm_CA/math-168e762d9c6b4498ed4f8bd5a2193e6d.png" title="Ppk = \min(PPU, PPL)" alt="Ppk = \min(PPU, PPL)" class="tex"/></dd></dl></li></ul></dd></dl>
+<h3><a name="Overall_Benchmark_Zs_for_Non-normal_Capability"></a><span class="mw-headline">非正規工程能力の全体ベンチマークZ</span></h3>
+<dl><dd><ul><li> Z.LSL、Z.USL、Z.Bench
+<dl><dd> <img src="../images/Algorithm_CA/math-ecad44f2fcaf30ff8c191ed2fd2d3b67.png" title="Z.LSL = 3*PPL" alt="Z.LSL = 3*PPL" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-899c0fb0f3c32984f1cd0228ab70abc3.png" title="Z.USL = 3*PPU" alt="Z.USL = 3*PPU" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-86cd8882341b2e107ae11232f6c06d8b.png" title="Z.Bench = \Phi^{-1}(1-P_1-P_2)" alt="Z.Bench = \Phi^{-1}(1-P_1-P_2)" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-18bb410a164c4c2115a755bd0ef5fd13.png" title="P_1=Prob(X&lt;LSL)" alt="P_1=Prob(X&lt;LSL)" class="tex"/>: 使用している分布に基づく累積分布関数の値、X &lt; LSLとなる確率（非正規分布に基づく）</dd>
+<dd> <img src="../images/Algorithm_CA/math-6a9e77dc1177ae03f71ddad810caa807.png" title="P_2=Prob(X&gt;USL)" alt="P_2=Prob(X&gt;USL)" class="tex"/>: 使用している分布に基づく累積分布関数の値、X &gt; USLとなる確率（非正規分布に基づく）</dd>
+<dd> <img src="../images/Algorithm_CA/math-fd5babd13c12bd952d61effb4ad3fc49.png" title="\Phi(X)" alt="\Phi(X)" class="tex"/>: 標準正規分布の累積分布関数</dd>
+<dd> <img src="../images/Algorithm_CA/math-a969fc2906dadfa4ec04b2fdee534994.png" title="\Phi^{-1}(X)" alt="\Phi^{-1}(X)" class="tex"/>: 標準正規分布の逆累積分布関数</dd></dl></li></ul></dd></dl>
+<h3><a name="Expected_Overall_Performance_3"></a><span class="mw-headline">期待される全体パフォーマンス</span></h3>
+<dl><dd><ul><li> PPM &lt; LSL
+<dl><dd> 下側規格限界（LSL）未満のパーツ・パー・ミリオン（PPM &lt; LSL）は、次の確率から計算されます。</dd>
+<dd> <img src="../images/Algorithm_CA/math-b7861569094c29fff193435a57705be7.png" title="[PPM\;&lt;\;LSL]=1000000*F(LSL)" alt="[PPM\;&lt;\;LSL]=1000000*F(LSL)" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-4bb1ebdeeb70354069bc644b9c94ee5f.png" title="PPM" alt="PPM" class="tex"/>: パーツ・パー・ミリオン</dd>
+<dd> <img src="../images/Algorithm_CA/math-3005b8eab96f81df142d787d501d0537.png" title="LSL" alt="LSL" class="tex"/>: 下側規格限界</dd>
+<dd> <img src="../images/Algorithm_CA/math-7dd20f1f28c485a9ace73383e073722d.png" title="F(X)" alt="F(X)" class="tex"/>: 使用している非正規分布の累積分布関数</dd></dl></li>
+<li> PPM&gt;USL
+<dl><dd> 上側規格限界（USL）より大きいパーツ・パー・ミリオン（PPM &gt; USL）は、次の確率から計算されます。</dd>
+<dd> <img src="../images/Algorithm_CA/math-6fadde38604b3c02630726109c255cff.png" title="[PPM\;&gt;\;USL]=1000000*(1-F(USL))" alt="[PPM\;&gt;\;USL]=1000000*(1-F(USL))" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-4bb1ebdeeb70354069bc644b9c94ee5f.png" title="PPM" alt="PPM" class="tex"/>: パーツ・パー・ミリオン</dd>
+<dd> <img src="../images/Algorithm_CA/math-20122ef50b5435613b9e7197689b96b3.png" title="USL" alt="USL" class="tex"/>: 上側規格限界</dd>
+<dd> <img src="../images/Algorithm_CA/math-7dd20f1f28c485a9ace73383e073722d.png" title="F(X)" alt="F(X)" class="tex"/>: 使用している非正規分布の累積分布関数</dd></dl></li>
+<li> PPM合計
+<dl><dd> <img src="../images/Algorithm_CA/math-68b360dfa1b595e43a76d66886d0d62e.png" title="[PPM\;Total] = [PPM\;&lt;\;LSL] + [PPM\;&gt;\;USL]" alt="[PPM\;Total] = [PPM\;&lt;\;LSL] + [PPM\;&gt;\;USL]" class="tex"/></dd></dl></li></ul></dd></dl>
+<h3><a name="Observed_Performance_3"></a><span class="mw-headline">観測パフォーマンス</span></h3>
+<dl><dd> 詳細は、<a href="../../Tutorial/App/Algorithm_CA.html#Observed_Performance" title="App:Algorithm CA">観測パフォーマンス</a>を参照してください。</dd></dl>
+<h3><a name="Distribution"></a><span class="mw-headline">分布</span></h3>
+<dl><dd> 詳細は<a href="../../Tutorial/App/Algorithm_IDD.html#Distributions" title="App:Algorithm IDD">分布</a>を参照してください。</dd></dl>
+<h2><a name="Binomial_Capability_Analysis"></a><span class="mw-headline">二項分布の工程能力分析</span></h2>
+<h3><a name="Average_P"></a><span class="mw-headline">平均P</span></h3>
+<dl><dd> <img src="../images/Algorithm_CA/math-76fa9489bf80a28fd44204924676d73b.png" title="AverageP=\frac{D_{total}}{N_{total}}" alt="AverageP=\frac{D_{total}}{N_{total}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-4740dd3df094a73786f80b2dfde40f2c.png" title="D_{total}" alt="D_{total}" class="tex"/>: 全不良品数の合計</dd>
+<dd> <img src="../images/Algorithm_CA/math-2afab924f203f315c41c8cc2f7198fc4.png" title="N_{total}" alt="N_{total}" class="tex"/>: すべてのサンプルサイズの合計</dd></dl>
+<h3><a name="Average_P_95.25_Confidence_Interval"></a><span class="mw-headline">平均Pの95%信頼区間</span></h3>
+<dl><dd> <img src="../images/Algorithm_CA/math-667f8ec4e14c214103870c57f5210847.png" title="LowerBound = \frac{\nu_1*F_{0.025, \nu_1, \nu_2}}{\nu_2+\nu_1*F_{0.025, \nu_1, \nu_2}}" alt="LowerBound = \frac{\nu_1*F_{0.025, \nu_1, \nu_2}}{\nu_2+\nu_1*F_{0.025, \nu_1, \nu_2}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-5f53fcaea93dc920c2206f403b4993c2.png" title="UpperBound = \frac{\nu_3*F_{0.975, \nu_3, \nu_4}}{\nu_4+\nu_3*F_{0.975, \nu_3, \nu_4}}" alt="UpperBound = \frac{\nu_3*F_{0.975, \nu_3, \nu_4}}{\nu_4+\nu_3*F_{0.975, \nu_3, \nu_4}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-509c0d1650382b07de76c3ba34a82afd.png" title="\nu_1 = 2*D_{total}" alt="\nu_1 = 2*D_{total}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-28d1a37b58d0883233926ee2f0c8585f.png" title="\nu_2=2*(N_{total}-D_{total}+1)" alt="\nu_2=2*(N_{total}-D_{total}+1)" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-eca15923e3635d0f05896d21da27b0e9.png" title="\nu_3=2*(D_{total}+1)" alt="\nu_3=2*(D_{total}+1)" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-812ca0b54108a008cad6b7c2d09ca1e1.png" title="\nu_4=2*(N_{total}-D_{total})" alt="\nu_4=2*(N_{total}-D_{total})" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-4740dd3df094a73786f80b2dfde40f2c.png" title="D_{total}" alt="D_{total}" class="tex"/>: 全不良品数の合計</dd>
+<dd> <img src="../images/Algorithm_CA/math-2afab924f203f315c41c8cc2f7198fc4.png" title="N_{total}" alt="N_{total}" class="tex"/>: すべてのサンプルサイズの合計</dd>
+<dd> <img src="../images/Algorithm_CA/math-800618943025315f869e4e1f09471012.png" title="F" alt="F" class="tex"/>:逆F累積分布関数</dd></dl>
+<h3><a name=".25Defective"></a><span class="mw-headline">不良率</span></h3>
+<dl><dd> <img src="../images/Algorithm_CA/math-1be4ffc34354b432c2bc57bf1cb6af4c.png" title="\%$D$efective=100*AverageP" alt="\%$D$efective=100*AverageP" class="tex"/></dd></dl>
+<h3><a name=".25Defective_95.25_Confidence_Interval"></a><span class="mw-headline">不良率の95%信頼区間</span></h3>
+<dl><dd> <img src="../images/Algorithm_CA/math-9a8ed32902fd68e53bb7b92b2ed0c58e.png" title="LowerBound=100*LowerBoundForAverageP" alt="LowerBound=100*LowerBoundForAverageP" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-2aa9da7be66d397548e101200a78e8ca.png" title="UpperBound=100*UpperBoundForAverageP" alt="UpperBound=100*UpperBoundForAverageP" class="tex"/></dd></dl>
+<h3><a name="PPM_Defective"></a><span class="mw-headline">PPM不良数</span></h3>
+<dl><dd> <img src="../images/Algorithm_CA/math-fcbab2c20bf1cafceb2b8207efaeb4d8.png" title="PPM\;$D$efective = 1000000*AverageP" alt="PPM\;$D$efective = 1000000*AverageP" class="tex"/></dd></dl>
+<h3><a name="PPM_Defective_95.25_Confidence_Interval"></a><span class="mw-headline">PPM不良数の95%信頼区間</span></h3>
+<dl><dd> <img src="../images/Algorithm_CA/math-9d3019f960ef496a7a5d9193a39055c0.png" title="LowerBound=1000000*LowerBoundForAverageP" alt="LowerBound=1000000*LowerBoundForAverageP" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-0a7565601d784cb6dc140831c04afef8.png" title="UpperBound=1000000*UpperBoundForAverageP" alt="UpperBound=1000000*UpperBoundForAverageP" class="tex"/></dd></dl>
+<h3><a name="Process_Z"></a><span class="mw-headline">プロセスZ</span></h3>
+<dl><dd> <img src="../images/Algorithm_CA/math-66d239bcb93bb328a24423f33ee19e3f.png" title="Process \; Z = \Phi^{-1}(AverageP)" alt="Process \; Z = \Phi^{-1}(AverageP)" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-a969fc2906dadfa4ec04b2fdee534994.png" title="\Phi^{-1}(X)" alt="\Phi^{-1}(X)" class="tex"/>: 標準正規分布の逆累積分布関数</dd></dl>
+<h3><a name="Process_Z_95.25_Confidence_Interval"></a><span class="mw-headline">Process Z 95% Confidence Interval</span></h3>
+<dl><dd> <img src="../images/Algorithm_CA/math-1ca7087e0357b5b55b37bdd888838ea4.png" title="LowerBound=-\Phi^{-1}(UpperBoundForAverageP)" alt="LowerBound=-\Phi^{-1}(UpperBoundForAverageP)" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-74d648165dd362e327a2ac5d728a17e7.png" title="UpperBound=-\Phi^{-1}(LowerBoundForAverageP)" alt="UpperBound=-\Phi^{-1}(LowerBoundForAverageP)" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-a969fc2906dadfa4ec04b2fdee534994.png" title="\Phi^{-1}(X)" alt="\Phi^{-1}(X)" class="tex"/>: 標準正規分布の逆累積分布関数</dd></dl>
+<h2><a name="Poisson_Capability_Analysis"></a><span class="mw-headline">ポアソン分布の工程能力分析</span></h2>
+<h3><a name="Mean_Defective"></a><span class="mw-headline">平均不良数</span></h3>
+<dl><dd> <img src="../images/Algorithm_CA/math-35c933692ba515e86b7d13ba3a4d1cdb.png" title="Mean\;$D$efective=\frac{D_{total}}{N}" alt="Mean\;$D$efective=\frac{D_{total}}{N}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-4740dd3df094a73786f80b2dfde40f2c.png" title="D_{total}" alt="D_{total}" class="tex"/>: 全不良品数の合計</dd>
+<dd> <img src="../images/Algorithm_CA/math-8d9c307cb7f3c4a32822a51922d1ceaa.png" title="N" alt="N" class="tex"/>:サンプル数</dd></dl>
+<h3><a name="Mean_Defective_95.25_Confidence_Interval"></a><span class="mw-headline">平均不良数の95%信頼区間</span></h3>
+<dl><dd> <img src="../images/Algorithm_CA/math-a1d5b3ca075abb15bce74afc0dca3211.png" title="LowerBound = \frac{\chi_{0.025,\nu_1}^2}{2N}" alt="LowerBound = \frac{\chi_{0.025,\nu_1}^2}{2N}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-4f463809411b54b34600857e2c962d75.png" title="UpperBound = \frac{\chi_{0.975,\nu_2}^2}{2N}" alt="UpperBound = \frac{\chi_{0.975,\nu_2}^2}{2N}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-509c0d1650382b07de76c3ba34a82afd.png" title="\nu_1 = 2*D_{total}" alt="\nu_1 = 2*D_{total}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-72de7945ca604e3b8b449b992d2cba67.png" title="\nu_2=2*(D_{total}+1)" alt="\nu_2=2*(D_{total}+1)" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-4740dd3df094a73786f80b2dfde40f2c.png" title="D_{total}" alt="D_{total}" class="tex"/>: 全不良品数の合計</dd>
+<dd> <img src="../images/Algorithm_CA/math-8d9c307cb7f3c4a32822a51922d1ceaa.png" title="N" alt="N" class="tex"/>:サンプル数</dd>
+<dd> <img src="../images/Algorithm_CA/math-9ca61f458c78bb5591d04aaaa14da0e7.png" title="\chi^2" alt="\chi^2" class="tex"/>:逆カイ二乗累積分布関数</dd></dl>
+<h3><a name="Mean_DPU"></a><span class="mw-headline">平均DPU</span></h3>
+<dl><dd> <img src="../images/Algorithm_CA/math-e0216140a8d5adfad46a321bf8ff94c2.png" title="Mean\;$D$efects\;Per\;Unit=\frac{D_{total}}{N_{total}}" alt="Mean\;$D$efects\;Per\;Unit=\frac{D_{total}}{N_{total}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-4740dd3df094a73786f80b2dfde40f2c.png" title="D_{total}" alt="D_{total}" class="tex"/>: 全不良品数の合計</dd>
+<dd> <img src="../images/Algorithm_CA/math-2afab924f203f315c41c8cc2f7198fc4.png" title="N_{total}" alt="N_{total}" class="tex"/>: すべてのサンプルサイズの合計</dd></dl>
+<h3><a name="Mean_DPU_95.25_Confidence_Interval"></a><span class="mw-headline">平均DPUの 95%信頼区間</span></h3>
+<dl><dd> <img src="../images/Algorithm_CA/math-b159a9c010531c925a12be9d9979484c.png" title="LowerBound = \frac{\chi_{0.025,\nu_1}^2}{2N_{total}}" alt="LowerBound = \frac{\chi_{0.025,\nu_1}^2}{2N_{total}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-3037ffbf45d6cbec29dd60c5910998fc.png" title="UpperBound = \frac{\chi_{0.975,\nu_2}^2}{2N_{total}}" alt="UpperBound = \frac{\chi_{0.975,\nu_2}^2}{2N_{total}}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-509c0d1650382b07de76c3ba34a82afd.png" title="\nu_1 = 2*D_{total}" alt="\nu_1 = 2*D_{total}" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-72de7945ca604e3b8b449b992d2cba67.png" title="\nu_2=2*(D_{total}+1)" alt="\nu_2=2*(D_{total}+1)" class="tex"/></dd>
+<dd> <img src="../images/Algorithm_CA/math-4740dd3df094a73786f80b2dfde40f2c.png" title="D_{total}" alt="D_{total}" class="tex"/>: 全不良品数の合計</dd>
+<dd> <img src="../images/Algorithm_CA/math-2afab924f203f315c41c8cc2f7198fc4.png" title="N_{total}" alt="N_{total}" class="tex"/>: すべてのサンプルサイズの合計</dd>
+<dd> <img src="../images/Algorithm_CA/math-9ca61f458c78bb5591d04aaaa14da0e7.png" title="\chi^2" alt="\chi^2" class="tex"/>:逆カイ二乗累積分布関数</dd></dl>
+<h3><a name="Minimum_DPU"></a><span class="mw-headline">最小DPU</span></h3>
+<dl><dd> すべてのサンプルの中で、最小の単位当たり不良数。</dd></dl>
+<h3><a name="Maximum_DPU"></a><span class="mw-headline">最大DPU</span></h3>
+<dl><dd> すべてのサンプルの中で、最大の単位当たり不良数。</dd></dl>
+
+
+
+
+
+
+
+    

@@ -1,0 +1,66 @@
+﻿<h1 class="firstheading">繰り返し測定のある一元配置分散分析</h1><p class='urlname' style='display: none'>1WayRepeatedMeasuresANOVA</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span><span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Indexed_data_mode"><span class="tocnumber">3.1</span> <span class="toctext">インデックスデータモード</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Results_Interpretation"><span class="tocnumber">3.2</span> <span class="toctext">結果の読み解き</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>繰り返しのある一元配置の分散分析は、一元配置の分散分析に似ていますが、繰り返し測定データを前提とした従属変数を扱います。この状況では、繰り返しファクターのレベル間の相関があるので、通常の一元配置の分散分析の独立性の前提は無くなります。
+</p><p>一元配置の分散分析と同様、繰り返しのある一元配置の分散分析は、平均が等しいかどうかを調べるのに使用します。これらの平均は、測定差の平均と異なる対象の平均も含まれます。結果は、それぞれ「対象の影響範囲内での検定(<i>Test of Within-Subjects Effect</i> )」および「対象影響間の検定(<i>Test of Between-Subjects Effect</i> )」という表に表示されます。
+繰り返し測定のある分散分析にはバランスのとれたサンプルデータ、つまり各レベルで同数の標本数がある必要があります。
+</p><p><br />
+</p>
+<p class="version" >必要なOriginのバージョン:Origin 8.6 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。
+</p>
+<ul><li>統計解析ダイアログににインデックスされたデータを入力する。</li>
+<li>繰り返しのある一元配置分散分析を実行する。</li>
+<li>繰り返しのある二元配置ANOVA解析の結果を読みとく。</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>Originはインデックスデータと素データの両方から<b>繰り返しのある一元配置ANOVA</b>を実行できます。<b>繰り返しのある一元配置ANOVA</b>でインデックスデータモードが使用される場合、データは<b>因子</b>、<b>データ</b>、<b>被験者</b>の3つの列で整理されている必要があります。素データモードを使用する場合、異なるレベルは別の列に入力します。
+<br /> 
+</p>
+<h3><a name="Indexed_data_mode"></a><span class="mw-headline">インデックスデータモード</span></h3>
+<p>データは3つの異なる用量を用いて20の被験者から得た計測結果を含んでいます。これから確認したいのは異なる用量を与えた被験者に対して異なる効果を得られたかどうかです。これを検証するには繰り返しのあるインデックスデータモードの一元配置ANOVAを使用して実行します。
+</p>
+<ol><li>新しいワークブックを用意します。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Statistics</i>サブフォルダにある<i>One Way_RM_ANOVA_indexed.dat</i> ファイルを探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。</li>
+<li>メニューから、<b>統計: ANOVA: 一元配置(繰り返し測定)</b>を選択し、ダイアログを開きます。<b>入力データ</b>ドロップダウンリストから<b>インデックス</b>を選択します。<b>因子</b>、<b>データ</b>、<b>被験者</b>にそれぞれ<b>B(dose)</b>, <b>C(Data)</b>, <b>A(Subject)</b>を選択します。
+<dl><dd><a  class="image"><img alt="OnermANOVA 1.png" src="../images/One_Way_Repeated_Measures_ANOVA/OnermANOVA_1.png" width="412"  /></a></dd></dl></li>
+<li><b><b>平均比較</b></b>タブを開き、<b>Bonferroni</b> のチェックを付けてBonferroni検定を有効にします。
+<dl><dd><a  class="image"><img alt="OnermANOVA 2.png" src="../images/One_Way_Repeated_Measures_ANOVA/OnermANOVA_2.png" width="330"  /></a></dd></dl></li>
+<li><b>プロット</b>ブランチを開き、<b>平均値をプロット(SEをエラーバー表示)</b>と<b>平均比較プロット</b>にチェックを付けます。
+<dl><dd><a  class="image"><img alt="OnermANOVA 3.png" src="../images/One_Way_Repeated_Measures_ANOVA/OnermANOVA_3.png" width="330"  /></a></dd></dl></li>
+<li><b>OK</b> ボタンをクリックして、分析を実行します。</li></ol>
+<h3><a name="Results_Interpretation"></a><span class="mw-headline">結果の読み取り：</span></h3>
+<p><b>ANOVAOneWayRM1</b>ワークシートを開き、分析結果の表を開きます。
+</p><p>繰り返しのある二元配置ANOVAの結果の読み取りについての詳細は、<a class="external text" href="../../UserGuide/UserGuide/Interpreting_Results_of_Repeated_Measures_ANOVA.html">ヘルプファイル</a>を参照してください。
+</p>
+<dl><dd><a  class="image"><img alt="Onrreanova2.png" src="../images/One_Way_Repeated_Measures_ANOVA/Onrreanova2.png" width="403"  /></a></dd></dl>
+<p>Originは繰り返しのある観測結果と共にMANOVA (多変量分散分析)の出力を行い、繰り返し効果を検出しようとします。4つの異なる手法(Pillaiのトレース, Wilksのラムダ, Hotellingのトレース, Royの最大根)では、まったく同じF検定値と確率、<b>P=0.06455</b>を算出するので、3つのレベル変化による平均は統計的に優位に異ならない、という事ができます。
+以下の繰り返しのある分散分析のレポートによると、結論は保守的であるといえます。
+</p>
+<dl><dd><a  class="image"><img alt="Onermanova3.png" src="../images/One_Way_Repeated_Measures_ANOVA/Onermanova3.png" width="769"  /></a></dd></dl>
+<p>この表はMauchlyの球面性検定の結果を記載しています。検定結果から、球面性は維持されている事がわかります。ここで探している値は、 Mauchly&apos;検定が有意水準にある事をしめす、確率がカイ二乗より大きい(<b>Prob &gt; ChiSq</b>)値なので、この例の中では有意水準l (0.44609)は0.05よりも大きい事を示します。つまり、球面性の仮定は棄却できないことを示します。  
+</p>
+<dl><dd><a  class="image"><img alt="RMANOVA4.png" src="../images/One_Way_Repeated_Measures_ANOVA/RMANOVA4.png" width="499"  /></a></dd></dl>
+<p>この表からは因子についてのF値と共に、その値の有意水準と効果サイズを得る事ができます。データが球面性を持つという仮定に則っているので、<b>球面性を仮定</b>して行われた繰り返しのある一元配置ANOVAから得た結果は、これら3つの条件のもとで得られた平均は統計的に有位に異なる(P = 0.03908 &lt; 0.05より)、という事です。言い換えると、dose(用量)は有意要因である、といえます。 
+</p>
+<dl><dd><a  class="image"><img alt="Onerm3.png" src="../images/One_Way_Repeated_Measures_ANOVA/Onerm3.png" width="664"  /></a></dd></dl>
+<p>先の表で提示された結果では、平均間では全体的に有意差はありましたが、これらの差がどこから来たのか分かりません。この表はBonferroni検定の結果を表示します。これにより、どの平均が異なっていたのかを見る事ができます。この場合、dose1とdose2の平均は有意に異なっていたといえます(<b>P = 0.03402 &lt; 0.05、有意度pフラグ=1</b>より)。
+</p><p>以下の2つのプロットからも同じような結論を導き出すことができます。
+</p>
+<dl><dd><a  class="image"><img alt="Onerm4.png" src="../images/One_Way_Repeated_Measures_ANOVA/Onerm4.png" width="405"  /></a></dd>
+<dd><a  class="image"><img alt="Onerm05.png" src="../images/One_Way_Repeated_Measures_ANOVA/Onerm05.png" width="488"  /></a></dd></dl>
+
+
+
+
+    

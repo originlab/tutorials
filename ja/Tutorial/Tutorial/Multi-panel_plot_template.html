@@ -1,0 +1,80 @@
+﻿<h1 class="firstheading">8つのレイヤの複数区分プロットのテンプレートを作成する</h1><p class='urlname' style='display: none'>MultiPanel-Template</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Choosing_the_Data_Source"><span class="tocnumber">3.1</span> <span class="toctext">データソースを選択</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Plotting_the_Data"><span class="tocnumber">3.2</span> <span class="toctext">グラフを作成</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Editing_the_Graph"><span class="tocnumber">3.3</span> <span class="toctext">グラフを編集</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Saving_as_a_new_graph_template"><span class="tocnumber">3.4</span> <span class="toctext">新しいグラフテンプレートとして保存</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Plotting_into_your_new_template"><span class="tocnumber">3.5</span> <span class="toctext">保存したテンプレーを使用して作図</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>ノートウィンドウを除く、全てのOrigin子ウィンドウは、テンプレートファイルから作成されます。  このテンプレートにはウィンドウの構築方法が含まれます。  グラフウィンドウに対しては、テンプレートファイルは、ページサイズ、レイヤの数、テキストラベル、データプロットのスタイル情報などをはじめとした、すべてのページおよびレイヤの特性を決定します。
+</p><p><br />
+</p>
+<p class="version" >必要なOriginのバージョン: Origin 2016 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します:
+</p>
+<ul><li>8つのレイヤを持つ複数パネルグラフを作成する</li>
+<li>1つの軸設定をすべての軸に適用する</li>
+<li>グラフテンプレートを保存する</li>
+<li>同じようなデータでテンプレートを再利用する</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Choosing_the_Data_Source"></a><span class="mw-headline">データソースを選択する</span></h3>
+<ol><li>標準ツールバーの<b>新規プロジェクト</b>ボタンをクリックして、新しいプロジェクトを開始します。</li>
+<li>標準ツールバーの<b><b>インポートウィザード</b></b>ボタン をクリックして開きます。(初めてインポートウィザードを開く場合、Originは必要なファイルをコンパイルするので少し時間がかかります。)</li>
+<li>「<b>データタイプ</b>」グループで、<b>ASCII</b> ラジオボタンが選択されていることを確認します。</li>
+<li>『ファイル』テキストボックスの右側にある参照 ボタンをクリックします。  Originフォルダに移動し、Samples フォルダ内にあるCurve Fittingフォルダに移動します。  ファイルのリストから<u>Step01.dat</u>を選択します。</li>
+<li><b><b>ファイルの追加</b></b>ボタンをクリックしてから<b><b>OK</b></b>ボタンをクリックします。</li>
+<li>「<b>現在のタイプのインポートフィルタ</b>」を「<b>データフォルダ：step</b>」のままにします。  （選択したファイルをインポートするときにこのフィルタ設定が使用されます）。</li>
+<li><b><b>完了</b></b>ボタンをクリックします。データファイルがワークシートにインポートされます。</li></ol>
+<h3><a name="Plotting_the_Data"></a><span class="mw-headline">グラフを作成</span></h3>
+<ol><li>ワークシートデータすべてを選択します（ワークシート左上にある空白のセルをクリックすると、すべてのデータを選択できます。  矢印のマークに変わったらクリックするとワークシートデータすべてを選択できます）。</li>
+<li><b>作図&gt;複数区分/軸：9区分</b>を選択します。9つのレイヤとグラフを持つ、新しいグラフが作成されます。</li>
+<li>何も作図がされていないグラフを選択し、ウィンドウ左上のレイヤ9のアイコンが選択されていることを確認します。Deleteキーを押すとこのグラフとレイヤは削除され、8つのレイヤにそれぞれある8つのグラフが残されます。  </li>
+<li><b>グラフ操作：レイヤ管理</b>を選択します。選択すると開く<b><b>レイヤ管理</b></b>ダイアログで<b><b>配置</b></b>タブを開きます。</li>
+<li><b><b>行数</b></b>を<i><i>4</i></i>にし、<b><b>列数</b></b>を<i><i>2</i> に設定します。</i></li>
+<li><b><b>適用</b></b>ボタンをクリックすると、ダイアログの右側に表示されるプレビューグラフが2×4の配置に変更されます。</li>
+<li><b>OK</b> をクリックして変更を保存します。</li></ol>
+<h3><a name="Editing_the_Graph"></a><span class="mw-headline">グラフを編集</span></h3>
+<p>新しいグラフタイプである8パネルのグラフをテンプレートとして保存し、同様のデータでこのグラフを作図できるようするのが目的です。  テンプレートには、プロットスタイルも保存できますので、グラフを少し編集してみます。
+</p>
+<ol><li>レイヤ1のX軸をダブルクリックします。<b><b>軸</b></b>ダイアログを開きます。</li>
+<li><b><b>グリッド線</b></b>タブを開き、<b><b><b>主グリッド線</b></b></b>、<b><b><b>副グリッド線</b></b></b>の<b><b><b>表示</b></b></b>のチェックボックスにチェックを付け、X 軸軸の主/副グリッド線を表示します。</li>
+<li>主グリッド線、副グリッド線ともに<b><b><b>色</b></b></b>を<b><b><b>明るい灰色</b></b></b>に設定します。</li>
+<li><b><b><b>適用先</b></b></b>ボタンをクリックして<b><b><b>適用先</b></b></b>ダイアログを開きます。<b><b><b><b>適用元</b></b></b></b>では<b><b><b><b>下軸</b></b></b></b>が選択されていることを確認します。</li>
+<li><b><b><b><b>以下の全てを適用</b></b></b></b>チェックボックスにチェックを付け、ドロップダウンリストから、<b><b><b><b>このウィンドウ</b></b></b></b>を選択します。 </li>
+<li><b><b><b><b>適用</b></b></b></b>ボタンをクリックすると、同じ軸の設定がページ内のすべての軸に対して適用されます。</li></ol>
+<h3><a name="Saving_as_a_new_graph_template"></a><span class="mw-headline">新しいグラフテンプレートとして保存</span></h3>
+<ol><li><b>ファイル：テンプレートの新規保存</b>を選びます。ダイアログが開き、テンプレートを保存するカテゴリーを選択し、テンプレート名を指定できます。</li>
+<li><b><b>テンプレート名</b></b>を<b><b>PAN8</b></b>にします。(ダイアログが開いたときに現れる<b>テンプレート名</b>は、グラフを作成した時に使われた元のテンプレート名です。)</li>
+<li><b><b>クローンテンプレートにマークする</b></b>を選択します。</li>
+<li>OKをクリックします。</li></ol>
+<h3><a name="Plotting_into_your_new_template"></a><span class="mw-headline">保存したテンプレーを使用して作図</span></h3>
+<ol><li>標準ツールバー中の<b><b>新規フォルダ</b></b>ボタンをクリックします。 </li>
+<li>標準ツールバーの<b>インポートウィザード</b>ボタン をクリックします。インポートウィザードが開きます。 </li>
+<li>ファイルテキストボックスの右側にある参照ボタン（...）をクリックします。  Originフォルダに移動し、Samples フォルダ内にあるCurve Fittingフォルダに移動します。  ファイルのリストから<u>Step02.dat</u>を選択します。</li>
+<li>「<b>ファイルの追加</b>」ボタンをクリックします。</li>
+<li><b><b>OK</b></b>をクリックします。</li>
+<li>「<b>現在のタイプのインポートフィルタ</b>」を「<b>データフォルダ：step</b>」のままにします。  （選択したファイルをインポートするときにこのフィルタ設定が使用されます）。</li>
+<li><b><b>完了</b></b>ボタンをクリックします。データファイルがワークシートにインポートされます。 </li>
+<li>ワークシート全体を選択します。（ワークシート左上にある空白のセルをクリックすると、すべてのデータを選択できます。  矢印のマークに変わったらクリックするとワークシートデータすべてを選択できます）。</li>
+<li><b>作図：テンプレート：テンプレートライブラリ</b>を選択して、<b>テンプレートライブラリ</b>から<b>PAN8</b>を選択して、作図します。</li></ol>
+
+
+
+
+
+
+
+    

@@ -1,0 +1,81 @@
+﻿<h1 class="firstheading">スムージング</h1><p class='urlname' style='display: none'>スムージング</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span><span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Smoothing_by_Several_Methods"><span class="tocnumber">3</span> <span class="toctext">様々な手法によるスムージング</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Adjacent-Averaging"><span class="tocnumber">3.1</span> <span class="toctext"><b>隣接平均</b></span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Savitzky-Golay"><span class="tocnumber">3.2</span> <span class="toctext">Savitzky-Golay</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Percentile_Filter"><span class="tocnumber">3.3</span> <b>パーセンタイルフィルタ</b></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#FFT_Filter"><span class="tocnumber">3.4</span> <b>FFTフィルタ</b></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#Smoothing_by_Wavelet"><span class="tocnumber">4</span> <span class="toctext">ウェーブレットを用いたスムージング</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="#Smoothing_Matrix"><span class="tocnumber">5</span> <span class="toctext">行列をスムージング</span></a></li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>スムージングは、信号からノイズを除去するために使用される、一般的なテクニックです。Originは、隣接平均、Savitzky-Golay、パーセンタイルフィルタ、FFTフィルタなどのいくつかのスムージング手法をサポートしています。さらに、ウェーブレットをベースにしたツールも利用可能です。
+</p><p>行列データに対しては、Originは2つの方法によるスムージングを提供しています。もし、列または行の数が32より少ない場合、行列を拡張し、その後実際のサイズに縮小します。31よりも大きい場合は、最初に縮小する場合、行列は、その後拡大します。
+</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。
+</p>
+<ul><li> 様々な手法によるスムージング</li>
+<li> ウェーブレットで信号をスムージングする</li>
+<li> 3D曲面をスムージングする</li></ul>
+<h2><a name="Smoothing_by_Several_Methods"></a><span class="mw-headline">様々な手法によるスムージング</span></h2>
+<ol><li> 新しいワークブックを用意します。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Signal Processing</i>サブフォルダにある<i>SSignal with High Frequency Noise.dat</i> ファイルを探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Smoothing 1.png" src="../images/Smoothing/SP_Tutorial_Smoothing_1.png" width="302"  /></a></dd></dl></li>
+<li> ワークシートのB列を選択します。メニューから<b><b>解析：信号処理：スムージング</b></b>と選択し、（もしこの機能を以前使用したことがある場合は、さらに<b><b>ダイアログを開く</b></b>を選択します）<b>スムージング: smooth</b> ダイアログを開きます。</li></ol>
+<h3><a name="Adjacent-Averaging"></a><span class="mw-headline"><b>隣接平均法</b></span></h3>
+<p>隣接平均法は、データの広範な平滑化を実行します。
+</p>
+<ol><li> <b>方式</b>に<b>隣接平均法</b>を選択します。<b>ウィンドウ内のポイント数</b>を<b>100</b>に、<b>境界条件</b>を<b>周期的</b>にします。<b><b>自動プレビュー</b></b>にチェックを付け、右パネルでプレビューを表示します。
+<dl><dd><a  class="image"><img alt="SP Tutorial Smoothing 2.png" src="../images/Smoothing/SP_Tutorial_Smoothing_2.png" width="975"  /></a></dd></dl></li>
+<li> <b>OK </b>をクリックして、結果を作成します。</li></ol>
+<h3><a name="Savitzky-Golay"></a><span class="mw-headline">Savitzky-Golay</span></h3>
+<p>Savitzky-Golay法は、信号ピークの形状を保存するのに適しています。 
+</p>
+<ol><li> 再度B列を選択します。<b>解析</b>メニューにて、<b>信号処理：スムージング：ダイアログを開く...</b>を選択します。 </li>
+<li> <b>スムージング</b>ダイアログボックスにて、<b>方式</b>を<b>Savizky-Golay</b>とします。  <b>ウィンドウ内のポイント数</b>を<b>100</b>に、<b>境界条件</b>を<b>周期的</b>に、<b>多項式次数</b>を<b>3</b>とします。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Smoothing 3.png" src="../images/Smoothing/SP_Tutorial_Smoothing_3.png" width="975"  /></a></dd></dl></li>
+<li> <b>OK</b>をクリックします。</li></ol>
+<h3><a name="Percentile_Filter"></a><span class="mw-headline"><b>パーセンタイルフィルタ</b></span></h3>
+<ol><li> 再度B列を選択します。<b>解析</b>メニューにて、<b>信号処理：スムージング：ダイアログを開く...</b>を選択します。</li>
+<li> <b>方式</b>を<b>パーセンタイルフィルタ</b>にします。<b>ウィンドウ内のポイント数</b>を<b>100</b>に、<b>境界条件</b>を<b>周期的</b>に、<b>パーセンタイル</b>はデフォルト設定の<b>50</b>とします。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Smoothing 4.png" src="../images/Smoothing/SP_Tutorial_Smoothing_4.png" width="975"  /></a></dd></dl></li>
+<li> <b>OK</b> ボタンをクリックします。</li></ol>
+<h3><a name="FFT_Filter"></a><span class="mw-headline"><b>FFTフィルタ</b></span></h3>
+<ol><li> 再度B列を選択します。<b>解析</b>メニューにて、<b>信号処理：スムージング：ダイアログを開く...</b>を選択します。 </li>
+<li> <b>方式</b>を<b>FFTフィルタ</b>にします。<b>ウィンドウ内のポイント数</b>を<b>100</b>にします。
+<dl><dd><a  class="image"><img alt="SP Tutorial Smoothing 5.png" src="../images/Smoothing/SP_Tutorial_Smoothing_5.png" width="975"  /></a></dd></dl></li>
+<li> <b>OK </b>をクリックして、ダイアログを閉じます。</li>
+<li> これで、ワークシートに4つの結果データ列が追加されます。列C、D、E、Fを選択して、メニューの<b>作図&gt;基本の2Dグラフ：折れ線</b>と選択してこれら4つのデータののグラフを作図します。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Smoothing 6.png" src="../images/Smoothing/SP_Tutorial_Smoothing_6.png" width="458"  /></a></dd></dl></li>
+<li> 4つの方法の結果を比較すると、Savitzky-Golay法がデータ内のピークを保存するのに最適で、一方FFT フィルタ法はピークの保存には適さないことがわかります。</li></ol>
+<h2><a name="Smoothing_by_Wavelet"></a><span class="mw-headline">ウェーブレットを用いたスムージング</span></h2>
+<ol><li> 新しいワークブックを用意します。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Signal Processing</i>サブフォルダにある<i>SSignal with High Frequency Noise.dat</i> ファイルを探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Smoothing 1.png" src="../images/Smoothing/SP_Tutorial_Smoothing_1.png" width="302"  /></a></dd></dl></li>
+<li> B列を選択して、<b><b>解析：信号処理：ウェーブレット：スムージング</b></b><b> </b>を選択し、<b>スムージング：wtsmooth</b>ダイアログを開きます。</li>
+<li> ダイアログで、<b><b>ウェーブレットの種類</b></b>を<b><b>DB6</b></b>にし、<b><b>カットオフ値（％）</b></b>を<b>98</b>にします。ダイアログの<b><b>自動プレビュー</b></b>チェックボックスにチェックを付け、右パネルでプレビューできるようにします。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Smoothing 7.png" src="../images/Smoothing/SP_Tutorial_Smoothing_7.png" width="918"  /></a></dd></dl></li>
+<li> <b>OK</b> をクリックしてダイアログを閉じ、レポートを作成します。</li>
+<li> 元のデータと比べるために、全ての列を選択して<b>作図&gt;基本の2Dグラフ：折れ</b>線と選択してグラフを作図します。 
+<dl><dd> <a  class="image"><img alt="SP Tutorial Smoothing 8.png" src="../images/Smoothing/SP_Tutorial_Smoothing_8.png" width="458"  /></a></dd></dl></li></ol>
+<h2><a name="Smoothing_Matrix"></a><span class="mw-headline">行列をスムージング</span></h2>
+<ol><li> 新しい行列ブックを開きます。</li>
+<li> <b>データ：ファイルからインポート：イメージファイルを行列にインポート</b>を選択してサブフォルダ<i>&lt;Origin Installation Directory&gt;\Samples\Image Processing and Analysis\</i>の下の画像<b>scale.jpg</b>をインポートします（impImageダイアログボックスが開いていれば、デフォルト設定のまま<b>OK</b>を押します）。</li>
+<li> Originのスムージングは画像には適用できないので、まず画像を行列データに変換する必要があります。メニューから、<b><b>イメージ：変換：データに変換</b></b>を選択します。デフォルト設定のまま、<b>OK</b>ボタンをクリックします。</li>
+<li> 変換された行列データをアクティブにし、メニューから<b>表示：イメージモード</b>を選択して行列データをイメージとして表示します。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Smoothing 9.png" src="../images/Smoothing/SP_Tutorial_Smoothing_9.png" width="398"  /></a></dd></dl></li>
+<li> <b>解析：信号処理：スムージング</b>を選択してスムージングを行います。<b>スムージング：msmooth</b>ダイアログが開きます。
+<dl><dd> <a  class="image"><img alt="SP Tutorial Smoothing 10.png" src="../images/Smoothing/SP_Tutorial_Smoothing_10.png" width="389"  /></a></dd></dl></li>
+<li> 初期設定のまま、<b>OK</b>ボタンをクリックします。メニューから<b>表示：イメージモード</b>を選択して結果を表示します。 
+<dl><dd> <a  class="image"><img alt="SP Tutorial Smoothing 11.png" src="../images/Smoothing/SP_Tutorial_Smoothing_11.png" width="399"  /></a></dd></dl></li></ol>
+
+
+
+
+    

@@ -1,0 +1,97 @@
+﻿<h1 class="firstheading">各工程の前にスクリプトを使用したテーマによるバッチピーク解析</h1><p class='urlname' style='display: none'>BatchPA-Script-Before</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_Will_You_Learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Save_Analysis_Settings_as_a_Theme"><span class="tocnumber">3.1</span> <span class="toctext">テーマとして解析の設定を保存</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Prepare_Script_for_Pre-processing_Peak_Data"><span class="tocnumber">3.2</span> <span class="toctext">ピークデータの前処理するためのスクリプトを準備</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Batch_Analyze_Datasets_Using_Analysis_Theme"><span class="tocnumber">3.3</span> <span class="toctext">解析テーマを使ったデータセットのバッチ分析</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Batch_Peak_Analysis_Using_Theme_with_Script_Before_Each_Process/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Batch_Peak_Analysis_Using_Theme_with_Script_Before_Each_Process/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=130" target="_blank">Introduction Batch Processing without Programming</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=146" target="_blank">Pre-processing of Data for Batch Analysis</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=43" target="_blank">Dialog Themes: Time-saving Feature for Recalling Analysis Dialog Settings</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=69" target="_blank">Batch Processing of Peak Data Using Theme</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Batch_Peak_Analysis_Using_Theme_with_Script_Before_Each_Process/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Batch_Peak_Analysis_Using_Theme_with_Script_Before_Each_Process/Blog_Image_33x33px.png" width="135"  /></a>
+<ul><li> <a class="external text" href="http://blog.originlab.com/sequentially-initialize-fitting-parameters-in-batch-peak-analysis" target="_blank">Sequentially initialize fitting parameters in batch peak analysis</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>Originは <a class="external text" href="../../UserGuide/UserGuide/The_peak_analyzer_themes.html"><b>解析テーマ</b></a> を使用した、複数のデータセットのバッチピーク解析を行うことが出来ます。それぞれの処理の前にスクリプトを実行することで実際にデータを入力する前に、ピークデータの前処理をすることができます。（例：不要なデータセットの除外）<b>テーマを使用したバッチピーク解析</b>はOriginProのみの機能ではありませんが、このチュートリアルではピークアナライザの<b>ピークフィット</b>を使ってテーマを作成することを目標にしています。<b>ピークフィット</b>はOriginPro専用機能であることに注意してください。
+</p>
+<p class="version" >必要なOriginのバージョン: 2016 SR0以降</p>
+<h2><a name="What_Will_You_Learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。
+</p>
+<ul><li> バッチピーク解析のためのテーマとして、解析の設定を保存する。</li>
+<li> データの前処理をそれぞれ行う前に、スクリプトを記述する。</li>
+<li> 解析テーマを使ったバッチピーク解析</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Save_Analysis_Settings_as_a_Theme"></a><span class="mw-headline">テーマとして解析の設定を保存</span></h3>
+<p>このチュートリアルは、チュートリアルデータプロジェクト（<i>&lt;Origin EXE フォルダ&gt;\Samples\TutorialData.opj</i>）と関連しています。
+</p>
+<ol><li> <b>Tutorial Data.opj</b> を開き、<b>プロジェクトエクスプローラー</b> (PE)に表示されている<b>Script Before Process in Batch PA</b> フォルダを開きます。</li>
+<li> ワークブックにある<b>Data1</b> ワークシートをクリックします。<i>B</i>列を選択し、<b>解析：ピークと基線：ピークアナライザー</b> をクリックします。最後に<b>ピークフィット(Pro)</b>を選択します。</li>
+<li> 進むのボタンをクリックし、基線モードを無し<b>(Y=0)</b>に設定します。<b>進む</b>ボタンを2回クリックし、<b>ピークフィット(Pro)</b> のページに移動します。<b><b>結果</b></b> の下にある<b><b>グラフ構成の設定</b></b> を開き、<b>サマリーグラフの作成</b>で<b>&lt;なし&gt;</b>をt選択し、解析処理をスピードアップするために、レポートグラフの作成を行わない設定にします。</li>
+<li> <b>ダイアログテーマ</b>の隣にある <a  class="image"><img alt="Button Save Theme.png" src="../images/Batch_Peak_Analysis_Using_Theme_with_Script_Before_Each_Process/Button_Save_Theme.png" width="21"  /></a> ボタンをクリックして、<b>名前を付けて保存...</b>を選択し、<b>名前を付けてテーマを保存</b>のダイアログを開きます。<b>テーマ名</b>の編集ボックスで、<i>MyPeakAnalysis</i> を入力し、<b>OK</b> ボタンをクリックして保存します。</li>
+<li> <b>完了</b>ボタンをクリックし、解析を実行して結果を出力します。</li></ol>
+<h3><a name="Prepare_Script_for_Pre-processing_Peak_Data"></a><span class="mw-headline">ピークデータの前処理するためのスクリプトを準備</span></h3>
+<p><b>テーマ<b>を使ったバッチピーク解析</b> </b>ダイアログには、各プロセス前及び各プロセス後、終了時にスクリプトを実行できるように、3つの編集ボックスが作られています。このセクションでは、ピークデータを前処理するために、各プロセスの前にスクリプトを記述する方法を主に説明します。
+</p>
+<ol>
+<li>ワークシート<b>Data1</b>を再度アクティブにします。各データセットのスパークラインから、いくつかのピークデータ、例えばC列、E列、F列に多くのノイズがあることが分かります。ノイズが特定のレベルに達している場合、このようなノイズを除去します。
+<li>このチュートリアルでどのデータにノイズがあるかを識別する方法は以下の手順に従って行っています。（スパークラインラベル行が見えない場合にはワークシート内の右側にある灰色の領域を右クリックして<b>表示：スパークライン</b>で表示してください）
+<ul><li>データから高い周波数のノイズを取得するための、ハイパスFFTフィルタで生データにフィルタをかけます。</li>
+<li>ノイズと対応する生データの標準偏差(SD)を確認します。</li>
+<li>生データのSDの二乗以上のノイズのSDの二乗の割合が30％を超える基準を設定します。それはノイズデータと考えられ、バッチ解析から除外されます。</li></ul>
+</li>
+<li>上記のルーチンに従った、ノイズデータを事前に除外するスクリプトは次の通りです。
+<pre class="lt" style="font-family:monospace;">dataset dr;
+fft_filters iy<span style="color: #000000;">:</span><span style="color: #000080;">=</span>_ry filter<span style="color: #000000;">:</span><span style="color: #000080;">=</span>high oy<span style="color: #000000;">:</span><span style="color: #000080;">=</span>dr; <span style="color: #008000;">// Perform high-pass fft filter to obtain noise</span>
+stats dr;
+double nSD <span style="color: #000080;">=</span> stats.<span style="color: #000080;">sd</span>; <span style="color: #008000;">// Calculate SD of noise</span>
+stats _ry;
+double sSD <span style="color: #000080;">=</span> stats.<span style="color: #000080;">sd</span>; <span style="color: #008000;">// Calculate SD of raw data</span>
+
+if<span style="color: #000000;">(</span>nSD<span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000080;">/</span>sSD<span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000080;">&gt;</span><span style="color: #0000dd;">0.3</span><span style="color: #000000;">)</span> <span style="color: #008000;">// Set noise identification criteria</span>
+         _skip<span style="color: #000080;">=</span><span style="color: #0000dd;">1</span>;
+else
+         _skip<span style="color: #000080;">=</span><span style="color: #0000dd;">0</span>;</pre>
+<p><i>_ry</i> は、現状のy データを参照し、 <i>_skip</i> は現状のデータセットをスキップするかどうかを決定します。
+</p>
+</li>
+</ol>
+<h3><a name="Batch_Analyze_Datasets_Using_Analysis_Theme"></a><span class="mw-headline">解析テーマを使ったデータセットのバッチ解析</span></h3>
+<ol>
+<li>ワークシート <b>Data1</b>をアクティブにし、シート中の全ての列を選択して、<b>解析：ピークと基線：：分析テーマを使ったバッチピーク解析</b> を選択して、ダイアログを開きます。
+</li>
+<li><b>分析テーマ</b>のドロップダウンリストから <i>MyPeakAnalysis</i> を選択し、結果シートのドロップダウンリストから、<b>ピーク属性(Pro)</b> を選択します。
+</li>
+<li>特定のシートに結果を出力するには、<b>出力シート</b>の編集ボックスに、範囲をシンタックスで入力します。<i>MySummary</i> ブックの<i>MyResults</i> ワークシートに出力するには、<i>[MySummary]MyResults!</i> と編集ボックスに入力します。
+</li>
+<li>上記セクションで記述したスクリプトを<b>スクリプト</b>ノード内にある<b>各プロセス前のスクリプト</b>に入力します。（<b>ヒント：</b>テキストボックス右側にあるボタンをクリックするとスクリプトを貼り付けて編集できる編集ボックスが開きます）<br />
+<a  class="image"><img alt="BatchPA Using Theme Script Before Each Process 01.png" src="../images/Batch_Peak_Analysis_Using_Theme_with_Script_Before_Each_Process/450px-BatchPA_Using_Theme_Script_Before_Each_Process_01.png" width="450"   /></a>
+</li>
+<li><b>OK</b>をクリックしてバッチピーク解析を実行すると、ノイズの多いデータセットは、除外されて<b>MyResult</b>シートに表示されます。<br />
+<a  class="image"><img alt="BatchPA Using Theme Script Before Each Process 02.png" src="../images/Batch_Peak_Analysis_Using_Theme_with_Script_Before_Each_Process/700px-BatchPA_Using_Theme_Script_Before_Each_Process_02.png" width="700"   /></a>
+</li>
+</ol>
+
+
+
+
+
+
+
+    

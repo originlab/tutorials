@@ -1,0 +1,83 @@
+﻿<h1 class="firstheading">アフリカの人口の横棒グラフ</h1><p class='urlname' style='display: none'>アフリカの人口の横棒グラフ</p>
+<p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Prepare_Source_Bar_Plots_with_Batch_Plotting"><span class="tocnumber">3.1</span> <span class="toctext">横棒グラフをバッチ作図で作成する</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Customize_Bar_Plots"><span class="tocnumber">3.2</span> <span class="toctext">横棒グラフを編集する</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Merge_Multiple_Graphs"><span class="tocnumber">3.3</span> <span class="toctext">複数グラフを統合する</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>このチュートリアルでは、アフリカの2010年の人口と2050年時の推定人口の分布を対比するグラフを作成します。
+</p>
+<dl><dd><a class="image"><img alt="Bar Graph of African Population 14.png" src="../images/Bar_Graph_of_African_Population/Bar_Graph_of_African_Population_14.png" width="571"  /></a></dd></dl>
+<p class="version" >必要なOriginのバージョン: Origin 2015 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します:
+</p>
+<ul><li>他の列のデータを使用してグラフを複製する</li>
+<li>軸スケールを逆横棒チャートに設定する</li>
+<li>グラフを統合する</li></ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>このグラフを作図するには、4つの異なる横棒グラフを作図し、それを編集してから統合してひとつのグラフにまとめます。
+</p>
+<h3><a name="Prepare_Source_Bar_Plots_with_Batch_Plotting"></a><span class="mw-headline">横棒グラフをバッチ作図で作成する</span></h3>
+<ol><li>Originのワークブックに何もない状態で操作を始めます。Originの<i>&lt;Origin EXEフォルダ&gt;\Samples\Graphing</i>の中にあるデータファイル<b>African_Population.dat</b> をインポートします。（もしOriginと共にインストールしたサンプルの中に見つからなかった場合、<a class="external text" href="http://www.originlab.com/ftp/graph_gallery/African_population.zip" target="_blank">ftp</a>からZIP形式のデータをダウンロードしてください。）
+<dl><dd><a class="image"><img alt="Bar Graph of African Population 02.png" src="../images/Bar_Graph_of_African_Population/Bar_Graph_of_African_Population_02.png" width="495"  /></a></dd></dl></li>
+<li>列Bを選択し、<b>作図：基本の2Dグラフ：棒グラフ</b>と選択して棒グラフを作成します。データプロットをクリックし、<b>スタイル</b>ツールバーの <b>オブジェクトの塗り色</b> <a class="image"><img alt="Button Fill Color.png" src="../images/Bar_Graph_of_African_Population/Button_Fill_Color.png" width="22"  /></a> <b></b>を使用して塗りつぶしの色を赤に変更します。</li>
+<li>それでは、同じようなグラフを他の3つの列から複製しましょう。グラフのタイトルバーを右クリックし、コンテキストメニューから<b>複製(バッチ作図)</b>を選択します。
+<dl><dd><a class="image"><img alt="Bar Graph of African Population 03.png" src="../images/Bar_Graph_of_African_Population/Bar_Graph_of_African_Population_03.png" width="657"  /></a></dd></dl></li>
+<li>開いたダイアログにて<b>次をバッチ作図</b> のドロップダウンリストから<b>列</b> を選択し、<b>Ctrl</b> キーを押しながら C, D, E 列を選択して<b>OK</b>をクリックします。
+<dl><dd><a class="image"><img alt="Bar Graph of African Population 04.png" src="../images/Bar_Graph_of_African_Population/Bar_Graph_of_African_Population_04.png" width="576"  /></a></dd></dl></li>
+<li>同じようなグラフが3つ作成されます（もし、<i>全てのデータを見えるように再スケールしますか？</i>という内容の<b>確認メッセージ</b>が表示されたら、<b>はい</b>を選んで<b>OK</b>をクリックします）。</li>
+<li>これで、4つのグループに対する4つの横棒グラフ、male-2010, female-2010, male-2050, female-2050ができます。
+<dl><dd><a class="image"><img alt="Bar Graph of African Population 05.png" src="../images/Bar_Graph_of_African_Population/Bar_Graph_of_African_Population_05.png" width="799"  /></a></dd></dl></li></ol>
+<h3><a name="Customize_Bar_Plots"></a><span class="mw-headline">横棒グラフを編集する</span></h3>
+<p>4つの横棒グラフをそれぞれ編集します。
+</p>
+<ol><li>最初に<b>Graph1</b>(凡例に<i>male-2010</i>と記載されているグラフ)を編集します。</li>
+<li>データプロットをダブルクリックして、<b>作図の詳細</b>ダイアログボックスを開きます。左側のパネルにある<b>Layer1</b> の三角形を選択してその中のサブノードを選択し、右側パネルにある<b>パターン</b>タブの<b>塗りつぶし</b>を<b>青</b>に変えます。<b>OK</b> をクリックして塗り色を適用し、ダイアログを閉じます。</li>
+<li>Y 軸(横棒グラフの横軸)ダブルクリックして、<b>軸</b>ダイアログボックスを開きます。<b>Y 軸</b>の<b>スケール</b>タブで、<b>開始＝17</b>、<b>終了＝0</b>、主目盛の<b>値</b>を＝<b>-5</b>に設定します。
+<dl><dd><a class="image"><img alt="Bar Graph of African Population 06.png" src="../images/Bar_Graph_of_African_Population/Bar_Graph_of_African_Population_06.png" width="631"  /></a></dd></dl></li>
+<li>左側パネルの<b>垂直</b>アイコンをクリックし、X 軸の<b>グリッド線</b>タブを開き、<b>副グリッド線</b>ブランチの中にある<b>表示</b>チェックボックスを外します。「<b>適用</b>」ボタンをクリックします。
+<dl><dd><a class="image"><img alt="Bar Graph of African Population 07.png" src="../images/Bar_Graph_of_African_Population/Bar_Graph_of_African_Population_07.png" width="631"  /></a></dd></dl></li>
+<li><b>軸と軸目盛</b>タブへ移動し、<b>副目盛</b>ブランチにある<b>スタイル</b>を<b>なし</b>にします。
+<dl><dd><a class="image"><img alt="Bar Graph of African Population 07b.png" src="../images/Bar_Graph_of_African_Population/Bar_Graph_of_African_Population_07b.png" width="632"  /></a></dd></dl></li>
+<li>それでは、全てのグラフについて副グリッド線と副目盛をなしにします。<b>適用先</b>ボタンをクリックすると<b>適用先</b>ダイアログが表示されます。そのダイアログで<b>目盛</b>と<b>グリッド線</b>の隣にあるチェックボックスを選択します。どちらのドロップダウンメニューでも、<b>フォルダ内の全てのウィンドウ</b>を選択して<b>OK</b>をクリックします。<b>プロジェクトエクスプローラ</b>の同じフォルダ内にある全てのグラフウィンドウの副グリッド線と軸目盛は非表示になりました。
+<dl><dd><a class="image"><img alt="Bar Graph of African Population 08.png" src="../images/Bar_Graph_of_African_Population/Bar_Graph_of_African_Population_08.png" width="388"  /></a></dd></dl></li>
+<li>次に、<b>Graph2</b>(female-2010)と<b>Graph3</b>(male-2050)のY軸を編集します。<b>軸</b>ダイアログを開き、それぞれのグラフの軸スケールを次の画像の通りに設定します。
+<dl><dd><a class="image"><img alt="Bar Graph of African Population 09.png" src="../images/Bar_Graph_of_African_Population/Bar_Graph_of_African_Population_09.png" width="632"  /></a></dd>
+<dd><a class="image"><img alt="Bar Graph of African Population 10.png" src="../images/Bar_Graph_of_African_Population/Bar_Graph_of_African_Population_10.png" width="632"  /></a></dd></dl></li>
+<li> <b>Graph4</b> のX軸をダブルクリックして<b>軸</b>ダイアログを開き、X軸のスケールを以下のように設定します。
+<dl><dd><a class="image"><img alt="Bar Graph of African Population 11.png" src="../images/Bar_Graph_of_African_Population/Bar_Graph_of_African_Population_11.png" width="622"  /></a></dd></dl></li>
+<li><b>Graph4</b>（Female-2050）もY軸のスケールを開始０、終了10に設定します。<b>Graph3</b>(male-2050) の棒グラフ上でダブルクリックし、<b>作図の詳細</b>ダイアログを開きます。<b>Layer1</b> の三角形を選択してその中のサブノードを選択し、右側パネルにある<b>パターン</b>タブの<b>塗りつぶし</b>を<b>青</b>に設定します。</li>
+<li><b>Graph2</b>(female-2010) と <b>Graph4</b> (female-2050)では、X軸(垂直軸)の軸ラベルをクリックしてから<b>Delete</b>キーを押してそれらを削除します。同じように、XとY軸の両方で軸タイトルも削除します。これで、次の画像のような4つのグラフの準備ができました。
+<dl><dd><a class="image"><img alt="Bar Graph of African Population 12.png" src="../images/Bar_Graph_of_African_Population/Bar_Graph_of_African_Population_12.png" width="885"  /></a></dd></dl></li></ol>
+<h3><a name="Merge_Multiple_Graphs"></a><span class="mw-headline">複数グラフを統合する</span></h3>
+<p>これで4つの異なる横棒グラフを作成できました。これら4つのグラフを統合して、最後の編集、例えばテキストでデータラベルを追加します。 
+</p>
+<ol><li>1つのグラフウィンドウをアクティブにし、メインメニューから<b>グラフ操作：グラフウィンドウの統合</b>を選択します。これにより<b>merge_graph</b>ダイアログボックスを開きます。下図のように設定を変更し、これら4つの横棒グラフを1つのグラフウィンドウに表示します。
+<dl><dd><a class="image"><img alt="Bar Graph of African Population 13.png" src="../images/Bar_Graph_of_African_Population/Bar_Graph_of_African_Population_13.png" width="845"  /></a></dd></dl></li>
+<li>統合したグラフで、2つのY(水平)軸タイトルである &quot;Population (million)&quot;をドラッグして中央に揃えます。順番にグラフの凡例を削除します。</li>
+<li>グラフレイヤの空いている場所をクリックして「テキストの追加」を選択します。  次の4つのテキストラベルを作成します。使用するテキストラベルは次の通りです。</li></ol>
+<ul><li><i>Figure 1.African population by five &ndash; year age groups and sex, 2010 versus 2050</i></li>
+<li><i>2010</i></li>
+<li><i>Males<br />N=515,267</i></li>
+<li><i>Females<br />N=517,776</i></li>
+<li><i>2050</i></li>
+<li><i>Males<br />N=998,354</i></li>
+<li><i>Females<br />N=1,000,112</i></li>
+<li><i>Source: Population Division of the Department of Economic and Social Affairs of the United Nations Secretariat, <br />World Population Prospects: The 2008 Revision, <a class="external free" href="http://www.un.org/en/index.html" target="_blank">http://www.un.org/en/index.html</a>, Monday, April 12, 2010; 3:19:17 PM.</i></li></ul>
+<p>さらに、追加したテキストの位置、フォント、サイズ、色、文字揃えを編集しましょう。最終的に次のような画像のグラフが作成されます。 
+</p>
+<dl><dd><a class="image"><img alt="Bar Graph of African Population 14.png" src="../images/Bar_Graph_of_African_Population/Bar_Graph_of_African_Population_14.png" width="571"  /></a></dd></dl>
+
+
+    

@@ -1,0 +1,132 @@
+﻿<h1 class="firstheading">透過率を設定した散布図</h1>
+<p><br />
+</p>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>このチュートリアルでは、シンボルの色に透過率を設定した散布図の作図方法、カテゴリ凡例とバブルスケールを学習します。 このグラフはXYデータから作図され、座標データ以外の２つのデータ列を参照してシンボルサイズとシンボルカラーをマッピングしたものです。カテゴリ凡例はタイプを色により分かりやすく把握することに使用でき、バブルスケールはシンボルの大きさによりサイズを把握できます。データポイントの重なり部分を見やすくするために透過率の設定をしています。 
+ </p>
+<dl>
+	<dd><dl>
+		<dd><a class="image"><img alt="Symbol Plot with Color Transparency 15.png" 
+									 src="../images/Symbol_Plot_with_Color_Transparency/Symbol_Plot_with_Color_Transparency_15.png" 
+									 width="658" border="0" /></a></dd>
+	</dl></dd>
+</dl>
+<p class="version">必要なOriginのバージョン: Origin 2015 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します: </p>
+<ul>
+	<li>ワークブック列の値を使用してシンボルのサイズと色をコントロールする</li>
+	<li>カテゴリー値から凡例を追加する</li>
+	<li>バブルスケールを追加して編集する</li>
+	<li>散布図の透過率を設定する</li>
+	<li>グラフに枠を追加する</li>
+</ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p>このチュートリアルは、チュートリアルデータプロジェクト（<i><i>&lt;Origin EXE フォルダ&gt;\Samples\TutorialData.opj</i></i>）と関連しています。 
+ <br />
+また、「ラーニングセンター」からこのグラフを呼び出すことができます。(<b>ヘルプ：ラーニングセンター</b> メニューを選択、または キーボードの<b>F11</b> 
+ キーを押して、<b>グラフサンプル：線+シンボルグラフ</b>を選択します) </p>
+<ol>
+	<li><b>Tutorial Data.opj</b>を開き、<b><b>プロジェクト・エクスプローラ</b></b> (PE)で<b>ubble 
+	 with Transparency</b> フォルダを開きます。 </li>
+	<li>ワークブック<b>Book2G</b>をアクティブにし、ワークシートのA～C列を選択し、メインメニューの<b>作図：基本の2Dグラフ：バブルプロット</b>を選択します。 
+	 </li>
+	<li>メニューから<b>フォーマット：作図の詳細(プロット属性)</b>を選択し、<b>作図の詳細</b>ダイアログボックスを開きます。<b>シンボル</b>タブを開き、以下のように設定します： 
+	 
+	<ul>
+		<li><b>縮尺倍率</b>を<b><i>3</i></b>に設定</li>
+	</ul>
+	<ul>
+		<li><b>プレビューボックス</b>の右にある矢印ボタンをクリックして塗りつぶしのされた円のシンボルを選択</li>
+	</ul>
+	<ul>
+		<li><b>シンボルの色</b>ドロップダウンリストから<b>インデックス：Col(&quot;Type&quot;)</b>を選択</li>
+	</ul>
+	<ul>
+		<li><b>透過率</b>を<i>50%</i>に設定 </li>
+	</ul>
+	<br />
+	<a class="image"><img alt="Symbol Plot with Color Transparency 02.png" 
+							 src="../images/Symbol_Plot_with_Color_Transparency/Symbol_Plot_with_Color_Transparency_02.png" 
+							 width="1014" border="0" /></a><br />
+	</li>
+	<li><b>OK</b>ボタンをクリックして設定を適用し、ダイアログを閉じます。グラフは次のようになります。 <br />
+	<br />
+	<a class="image"><img alt="Symbol Plot with Color Transparency 03.png" 
+							 src="../images/Symbol_Plot_with_Color_Transparency/Symbol_Plot_with_Color_Transparency_03.png" 
+							 width="529" border="0" /></a> </li>
+	<li>軸のスケールとタイトルを更新するには、<b>フォーマット：軸スケール：X軸</b>と操作してダイアログを開きます。以下のように設定します。 
+	 
+	<ul>
+		<li><b>スケール</b>タブでX軸(<b>水平</b>)が選択されていることを確認し、下図のように設定します。</li>
+	</ul>
+	<a class="image"><img alt="Symbol Plot with Color Transparency 04.png" 
+							 src="../images/Symbol_Plot_with_Color_Transparency/Symbol_Plot_with_Color_Transparency_04.png" 
+							 width="560" border="0" /></a> 
+	<ul>
+		<li><b>スケール</b>タブを開いたまま、<b>垂直</b>アイコンを選択して<b>Y軸</b>に以下のように軸のスケールを設定します。 
+		 </li>
+	</ul>
+	<a class="image"><img alt="Symbol Plot with Color Transparency 06.png" 
+							 src="../images/Symbol_Plot_with_Color_Transparency/Symbol_Plot_with_Color_Transparency_06.png" 
+							 width="560" border="0" /></a> 
+	<ul>
+		<li><b>タイトル</b>タブを開きます。アイコンは左を選択している状態で、テキスト部分に「<i>Sample Y-Dimension 
+		 (cm)</i>」と入力し、フォントとサイズを以下の図のように設定します。 </li>
+	</ul>
+	<a class="image"><img alt="Symbol Plot with Color Transparency 07.png" 
+							 src="../images/Symbol_Plot_with_Color_Transparency/Symbol_Plot_with_Color_Transparency_07.png" 
+							 width="560" border="0" /></a> 
+	<ul>
+		<li>左側パネルで<b>下</b>アイコンをクリックし、X軸のタイトルを「<i>Sample X-Dimension (cm)</i> 
+		 」に変更してフォントとサイズを以下のように設定します。</li>
+	</ul>
+	<a class="image"><img alt="Symbol Plot with Color Transparency 05.png" 
+							 src="../images/Symbol_Plot_with_Color_Transparency/Symbol_Plot_with_Color_Transparency_05.png" 
+							 width="560" border="0" /></a> 
+	<ul>
+		<li><b>OK</b>をクリックして、設定を適用します。</li>
+	</ul>
+	<br />
+	</li>
+	<li>バブルスケールをダブルクリックし、<b>バブルスケール制御</b>ダイアログを開きます。<b>レイアウト</b>のドロップダウンから、<b>入れ子</b>を選択します。<b>半円</b>にチェックをつけ、<b>引出線を表示</b>のチェックボックスを付けて下図のように設定がなっていることを確認して<b>適用</b>します。<br />
+	 <a class="image"><img alt="Symbol Plot with Color Transparency 09.png" 
+							 src="../images/Symbol_Plot_with_Color_Transparency/Symbol_Plot_with_Color_Transparency_09.png" 
+							 width="642" border="0" /></a> </li>
+	<li><b>レベル</b>ページを開きます。<b>開始</b>を<b>20</b>、<b>終了</b>を<b>50</b>に設定し、増分の<b>値</b>を<b>10</b>に設定します。下図のように設定が出来ているはずです。 
+	 <br />
+	<a class="image"><img alt="Symbol Plot with Color Transparency 10.png" 
+							 src="../images/Symbol_Plot_with_Color_Transparency/Symbol_Plot_with_Color_Transparency_10.png" 
+							 width="642" border="0" /></a> </li>
+	<li><b>タイトル</b>ページを開きます。<b>表示</b>にチェックをつけ、<b>タイトル</b>のテキストを「<i>Mass」</i>に設定します。フォントの<b>サイズ</b>を<b>28</b>にして、<b>太字</b>のチェックを付けます。<b>OK</b>をクリックしてダイアログを閉じる前は、以下のようになります。<br />
+	 <a class="image"><img alt="Symbol Plot with Color Transparency 11.png" 
+							 src="../images/Symbol_Plot_with_Color_Transparency/Symbol_Plot_with_Color_Transparency_11.png" 
+							 width="642" border="0" /></a> </li>
+	<li>グラフは以下のようになります。 <br />
+	<a class="image"><img alt="Symbol Plot with Color Transparency 13.png" 
+							 src="../images/Symbol_Plot_with_Color_Transparency/Symbol_Plot_with_Color_Transparency_13.png" 
+							 width="662" border="0" /></a> </li>
+	<li>メニューから<b>グラフ操作：凡例：カテゴリー値</b>と操作して<b>Graph Manipulation:legendcat</b>ダイアログを表示します。<b>サイズ</b>以外のチェックボックスにチェックがついていることを確認して<b>OK</b>をクリックします。表示された判定をグラフの左上に移動しましょう。 
+	 <br />
+	<a class="image"><img alt="Symbol Plot with Color Transparency 12.png" 
+							 src="../images/Symbol_Plot_with_Color_Transparency/Symbol_Plot_with_Color_Transparency_12.png" 
+							 width="360" border="0" /></a> <br />
+	</li>
+	<li>凡例を右クリックし、コンテキストメニューから<b>オブジェクトの表示属性</b>を選択します。凡例の内容を以下の図のように編集しましょう。 
+	 <br />
+	<a class="image"><img alt="Symbol Plot with Color Transparency 14.png" 
+							 src="../images/Symbol_Plot_with_Color_Transparency/Symbol_Plot_with_Color_Transparency_14.png" 
+							 width="587" border="0" /></a> <br />
+	</li>
+	<li><b>OK </b>をクリックして、ダイアログを閉じます。 </li>
+	<li>プロット操作・オブジェクト作成ツールバーにある<b>テキストツール</b><a class="image"><img alt="Button Text Tool.png" 
+	 src="../images/Symbol_Plot_with_Color_Transparency/Button_Text_Tool.png" 
+	 width="23" border="0" /></a>ボタンをクリックし、グラフ枠の左上でクリックします。以下のテキストを入力します：<i>Agate 
+	 Cross-Section by Type and Location</i>フォントを編集します。必要に応じてテキストボックスを移動します。 
+	 <br />
+	<br />
+	最終的なグラフはこのようになります。 <br />
+	<a class="image"><img alt="Symbol Plot with Color Transparency 15.png" 
+							 src="../images/Symbol_Plot_with_Color_Transparency/Symbol_Plot_with_Color_Transparency_15.png" 
+							 width="658" border="0" /></a> </li>
+</ol>

@@ -1,0 +1,70 @@
+﻿<h1 class="firstheading">2Dグラフの基本</h1><p class='urlname' style='display: none'>2DPlotting</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span><span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Simple_row_statistics"><span class="tocnumber">3.1</span> <span class="toctext">行の統計を実行</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Create_a_graph_and_save_as_a_template"><span class="tocnumber">3.2</span> <span class="toctext">グラフを作成してグラフテンプレートとして保存</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Plot_into_graph_template_with_the_Plot_Setup_dialog"><span class="tocnumber">3.3</span> <span class="toctext">作図のセットアップダイアログでグラフテンプレートにプロット </span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/2D_Plotting/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/2D_Plotting/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=1" target="_blank">グラフ作成</a></li>
+<li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=49" target="_blank">グラフテンプレート</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/2D_Plotting/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/2D_Plotting/Blog_Image_33x33px.png" width="135"  /></a>
+<ul><li> <a class="external text" href="http://blog.originlab.com/statistics-on-rows" target="_blank"><b>行の統計</b></a></li>
+<li> <a class="external text" href="http://blog.originlab.com/quick-graphs-with-graph-maker-app" target="_blank">Graph Maker アプリを用いて素早くグラフを作成する</a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>Originの2Dグラフは柔軟に編集が可能です。プロット属性、レイヤの配置を簡単に変更することができ、各レイヤに異なるデータセットを指定することができます。このチュートリアルでは、グラフ作成の基本操作を学習します。
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。 
+</p>
+<ul><li>行の統計を実行する方法</li>
+<li>グラフを作成してグラフテンプレートとして保存</li>
+<li>作成したテンプレートにプロットする</li>
+<li>作図のセットアップダイアログの使用方法</li></ul>
+<p><br />
+</p>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Simple_row_statistics"></a><span class="mw-headline">行の統計を実行</span></h3>
+<ol><li>新しいワークブックを用意します。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Curve Fitting</i>サブフォルダにある<i>Dose Response - No Inhibitor.dat</i> ファイルを探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。<br /></li>
+<li>列２から4を選択して、メニューから<b><b>統計：記述統計：行の統計</b></b>を選択します。値のタブのモーメントブランチの<b>平均</b>と<b>標準偏差</b>のチェックボックスにチェックが付いていることを確認し、結果を出力します。<br /><br /><a  class="image"><img alt="Tutorial 2D Plot 001New.png" src="../images/2D_Plotting/Tutorial_2D_Plot_001New.png" width="276"  /></a><br /><br /></li>
+<li><b><b>OK</b></b>ボタンをクリックすると、2つの新しい列<b><b>Mean(Y)</b></b>と <b><b>SD(yErr)</b></b>が元のワークシートに追加されます。ここで、<b><b>yErr</b></b>は、エラー列であり、この列はエラーバーをプロットするのに使用することができます。<br /><br /><b>Note:</b> プロットを簡単にするため、Originワークシートの各列にはXY属性があります。  列のプロット属性を変更するには、列を選択し、<b><b>列</b></b>メニューを選びます。  または、列を右クリックし、ショートカットメニューから「<b>列XY属性の設定</b>」を選びます。<br /><br /></li></ol>
+<h3><a name="Create_a_graph_and_save_as_a_template"></a><span class="mw-headline">グラフを作成して、テンプレートとして保存する方法</span></h3>
+<ol>
+<li>Mean(Y)とSD(ｙEr-)の列を選択し、メニューから<b><b>作図：Basic 2D：線+シンボル図</b></b>と選んで作図します。
+<br /><a  class="image"><img alt="Tutorial 2D Plot 002.png" src="../images/2D_Plotting/Tutorial_2D_Plot_002.png" width="408"  /></a><br /><br />
+<li>X軸上でクリックし、ミニツールバーの<b>軸スケール</b>ボタンを選択します。そのとき<b>軸スケール</b>ダイアログの<b>常用対数</b>にチェックを付け、<b>OK</b>ボタンをクリックします。
+<br /><a  class="image"><img alt="Tutorial 2D Plot 003.png" src="../images/2D_Plotting/Tutorial_2D_Plot_003.png" width="755"  /></a> <br /><br />
+<li>メニューから「<b>グラフ操作：再スケールして全てを表示</b>」を選択し、グラフのXおよびY軸を再スケールします。:
+<br /><a  class="image"><img alt="Tutorial 2D Plot 004.png" src="../images/2D_Plotting/Tutorial_2D_Plot_004.png" width="408"  /></a><br /><br />
+<li>曲線を編集するには、プロットシンボルをダブルクリックして、<b>作図の詳細</b>ダイアログボックスを開きます。  または、グラフ内で右クリックして、コンテキストメニューから<b>作図の詳細(プロット)</b>を選びます。  右側のパネルの<b>グラフの線</b>タブで、『接続線』を<b>Bスプライン</b>にして、滑らかな曲線にします。
+<br /><a  class="image"><img alt="Tutorial 2D Plot 005.png" src="../images/2D_Plotting/Tutorial_2D_Plot_005.png" width="402"  /></a>
+<br /><br /> <b><b>OK</b></b>ボタンをクリックして、ダイアログを閉じます。 <br /><br />
+<li>すべての編集を行い、グラフが完成したら、このグラフを使ってテンプレートを作成し、今後似たようなグラフを作成する時に利用します。「<b>ファイル：テンプレートの新規保存</b> 」を選択して、「<i>テンプレートの保存</i>」ダイアログを開きます。<b>カテゴリー</b>ドロップダウンリストで、<i><i>User Defined</i></i>を選択し、<b>テンプレート名</b>を入力します。この例では、<i>MyTemplate</i>とします。<b>OK</b> をクリックしてテンプレートを保存します。
+<br /><a  class="image"><img alt="Tutorial 2D Plot 006.png" src="../images/2D_Plotting/Tutorial_2D_Plot_006.png" width="613"  /></a>
+</ol>
+<h3><a name="Plot_into_graph_template_with_the_Plot_Setup_dialog"></a><span class="mw-headline">「作図のセットアップ」でグラフテンプレートにプロットする</span></h3>
+<ol>
+<li><b><b>新規ワークブック</b></b><a  class="image"><img alt="Tutorial 2D Plot 007.png" src="../images/2D_Plotting/Tutorial_2D_Plot_007.png" width="23"  /></a>ボタンをクリックして新しいワークブックを開き、<i><i>Samples\Curve Fitting\Dose Response</i></i><i> - <i><i>Inhibitor.dat</i></i></i> をインポートします。上記で行ったのと同じ操作で、 <b>行の統計</b>を実行し、このワークシートの平均とSDを計算します。<br /><br />
+<li><b>Mean(Y)とSD(ｙErｒ)</b>の列を選択します。「<b>作図：マイテンプレート：MyTemplate</b>」を選択し、ユーザテンプレートを使って新しいグラフを作図します。
+<br /><br /><a  class="image"><img alt="Tutorial 2D Plot 009.png" src="../images/2D_Plotting/Tutorial_2D_Plot_009.png" width="422"  /></a>
+<br /><br />すると、以下のようになります。
+<br /><br /><a  class="image"><img alt="Tutorial 2D Plot 020.png" src="../images/2D_Plotting/Tutorial_2D_Plot_020.png" width="517"  /></a><br /><br />
+</ol>
+
+
+
+
+    

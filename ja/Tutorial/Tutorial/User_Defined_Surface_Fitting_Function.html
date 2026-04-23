@@ -1,0 +1,96 @@
+﻿<h1 class="firstheading">ユーザ定義関数で曲面フィット</h1>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>目次</h2>
+</div>
+<ol>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ol>
+<li class="toclevel-2 tocsection-4"><a href="#Create_a_Surface_Fitting_Function"><span class="tocnumber">3.1</span> <span class="toctext">曲面フィット関数を作成する</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Carry_Out_Surface_Fitting"><span class="tocnumber">3.2</span> <span class="toctext">曲面フィットを実行する</span></a></li>
+</ol>
+</li>
+</ol>
+</div>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>曲面のフィットを行うために、Originでは<a class="external text" href="../../UserGuide/Category/The_NLFit_Dialog_Box.html"><b>非線形曲面フィット</b>の機能</a>を利用できます。 <a class="external text" href="../../UserGuide/Category/Appendix_3_-_Built-in_Functions.html">組み込みの曲面フィット関数</a>に加え、<a class="external text" href="../../UserGuide/Category/The_Fitting_Function_Builder.html"><b>フィット関数ビルダー</b></a>でユーザ自身でフィット関数を作成できます。</p>
+<p>このチュートリアルでは、<b>フィット関数ビルダー</b>でのユーザ定義関数の作成方法と、<b>NLFit</b>ツールを使用した非線形曲面フィットの実行方法について紹介します。</p>
+<p class="version">必要なOriginのバージョン: Origin 2016 SR0以降</p>
+<h2><a name="What_You_Will_Learn" id="What_You_Will_Learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。</p>
+<ul>
+<li><b style="font-weight: bold;">フィット関数ビルダー</b>で曲面フィット関数を作成する</li>
+<li>ユーザ定義フィット関数で非線形曲面フィットを実行する</li>
+</ul>
+<h2><a name="Steps" id="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<p><i style="font-style: italic;">&lt;Origin EXE Folder&gt;\Samples\Curve Fitting\</i> のパスにあるデータ<b>PolynomialSurface.dat</b>使ってフィットを実行します。</p>
+<p>次のフィット関数を作成し使用します。</p>
+<p><img src="../images/User_Defined_Surface_Fitting_Function/math-f7407b94e7a7ebe176fd91fb21e3e2cf.png" title="z=z_0+A_1x+A_3x^3+B_1y+B_3y^3+Cxy+C_2x^2y+C_3xy^2" alt="z=z_0+A_1x+A_3x^3+B_1y+B_3y^3+Cxy+C_2x^2y+C_3xy^2" class="tex" border="0" /></p>
+<p>ここで、</p>
+<p><img src="../images/User_Defined_Surface_Fitting_Function/math-fbade9e36a3f36d3d676c1b808451dd7.png" title="Z" alt="Z" class="tex" border="0" /> ：従属変数</p>
+<p><img src="../images/User_Defined_Surface_Fitting_Function/math-9dd4e461268c8034f5c8564e155c67a6.png" title="x" alt="x" class="tex" border="0" /> および <img src="../images/User_Defined_Surface_Fitting_Function/math-415290769594460e2e485922904f345d.png" title="y" alt="y" class="tex" border="0" /> は独立変数</p>
+<p><img src="../images/User_Defined_Surface_Fitting_Function/math-32172cb9d371da0a4d01bc9305bf2f70.png" title="z_0, A_1, A_{3}, B_1, B_3, C, C_{2}, C_3" alt="z_0, A_1, A_{3}, B_1, B_3, C, C_{2}, C_3" class="tex" border="0" /> はすべてフィットパラメータです。</p>
+<h3><a name="Create_a_Surface_Fitting_Function" id="Create_a_Surface_Fitting_Function"></a><span class="mw-headline">曲面フィット関数を作成する</span></h3>
+<p>このセクションでは、<b>フィット関数ビルダー</b>を使用してユーザ定義の曲面フィット関数を作成する方法を説明します。もう一つのツール、<b>フィット関数オーガナイザー</b>でも、ユーザ定義の曲面フィット関数を作成することが出来ます。<b>ツール：フィット関数オーガナイザー</b> と選択、または<b>F9</b>をキーボードで押してダイアログを開きます。</p>
+<ol>
+<li>Originを起動し、<b>ツール：フィット関数ビルダー</b>を選択（または<b>F8</b>キーを押す）して、フィット関数ビルダを開きます。</li>
+<li><b style="font-weight: bold;">処理のゴール</b>ページで、<b>新しい関数の作成</b>を選択し、<b>進む</b>ボタンをクリックします。</li>
+<li><b style="font-weight: bold;">関数名と関数形式</b>のページで、<b>関数カテゴリーの選択</b>をSurface Fittingにします。これは、<b>非線形曲面フィット</b>ツールでは、<b>Surface Fitting</b>カテゴリーにある関数しか使用できないためです。</li>
+<li><b style="font-weight: bold;">関数名</b>として、"MyPolynomialSurface"を入力し、<b>関数形式</b>を<b>算術式</b>にします。<b>進む</b>をクリックします。<br />
+<a class="image"><img alt="Tutorial UserDefSurfaceFitFunc 001.png" src="../images/User_Defined_Surface_Fitting_Function/Tutorial_UserDefSurfaceFitFunc_001.png" width="613" height="434" border="0" /></a></li>
+<li><b style="font-weight: bold;">変数とパラメータ</b>ページで、変数とパラメータ名を下図のように入力し、<b>パラメータ</b><b>ボックスの進む</b><br />
+<a class="image"><img alt="Tutorial UserDefSurfaceFitFunc 002.png" src="../images/User_Defined_Surface_Fitting_Function/Tutorial_UserDefSurfaceFitFunc_002.png" width="613" height="434" border="0" /></a><br />
+をクリックします。区切りにはカンマ”,”を使います。</li>
+<li><b style="font-weight: bold;">式形式の関数</b>ページで、以下の式を<b>関数内容</b>に入力します。
+<pre class="lt" style="font-family: monospace;">
+z0<span style="color: #000080;">+</span>A1<span style="color: #000080;">*</span>x<span style="color: #000080;">+</span>A3<span style="color: #000080;">*</span>x<span style="color: #000080;">^</span><span style="color: #0000dd;">3</span><span style="color: #000080;">+</span>B1<span style="color: #000080;">*</span>y<span style="color: #000080;">+</span>B3<span style="color: #000080;">*</span>y<span style="color: #000080;">^</span><span style="color: #0000dd;">3</span><span style="color: #000080;">+</span>C<span style="color: #000080;">*</span>x<span style="color: #000080;">*</span>y<span style="color: #000080;">+</span>C2<span style="color: #000080;">*</span>x<span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000080;">*</span>y<span style="color: #000080;">+</span>C3<span style="color: #000080;">*</span>x<span style="color: #000080;">*</span>y<span style="color: #000080;">^</span><span style="color: #0000dd;">2</span>
+        
+</pre></li>
+<li>予測された初期値を、このデータと関数に基づいたパラメータに与えます。<br />
+<a class="image"><img alt="Tutorial UserDefSurfaceFitFunc 003.png" src="../images/User_Defined_Surface_Fitting_Function/Tutorial_UserDefSurfaceFitFunc_003.png" width="713" height="434" border="0" /></a><br />
+<table class="noborder">
+<tr>
+<td style="vertical-align: top;" width="60"><img src="../images/User_Defined_Surface_Fitting_Function/Tip_icon.png" alt="" width="57" border="0" /></td>
+<td>
+<ol>
+<li>実際にフィットを実行する前に、異なる初期値を与えることもできます。</li>
+<li><b style="font-weight: bold;">評価</b>ボタン<a class="image"><img alt="Button Evaluate.png" src="../images/User_Defined_Surface_Fitting_Function/Button_Evaluate.png" width="23" border="0" /></a>をクリックして、関数が動作するか確認します（動作する場合、実際のyの値が返されます）。</li>
+</ol>
+</td>
+</tr>
+</table>
+</li>
+<li><b style="font-weight: bold;">完了</b>ボタンをクリックして関数の定義を終了します。関数ファイル(.fdf) は、ユーザファイルフォルダに保存されます。
+<table class="noborder">
+<tr>
+<td style="vertical-align: top;" width="60"><img src="../images/User_Defined_Surface_Fitting_Function/Tip_icon.png" alt="" width="57" border="0" /></td>
+<td>
+<p><b style="font-weight: bold;">フィット関数ビルダー</b>を使用して一度定義した関数を、あとから編集することもできます（その場合、最初に表示される処理のゴールページでフィット関数の編集を選択）。また、<b>フィット関数オーガナイザ</b>を使用することもできます。</p>
+</td>
+</tr>
+</table>
+</li>
+</ol>
+<h3><a name="Carry_Out_Surface_Fitting" id="Carry_Out_Surface_Fitting"></a><span class="mw-headline">曲面フィットを実行する</span></h3>
+<ol>
+<li>新しいワークブックを作成します。<a class="image"><img alt="Button Import Single ASCII.png" src="../images/User_Defined_Surface_Fitting_Function/Button_Import_Single_ASCII.png" width="25" border="0" /></a>ボタンをクリックして、<i>&lt;Origin EXEフォルダ&gt;\Samples\Curve Fitting\</i>のファイル <b>PolynomialSurface.dat</b>をインポートします。</li>
+<li>列Cで右クリックして、<b>列XY属性の設定：Z</b>を選択します。</li>
+<li>ワークシートをアクティブにしたまま、<b>解析：フィット：非線形曲面(3D)フィット...</b>メニューを選択し、<b>NLFit</b> ダイアログを開きます。</li>
+<li><b style="font-weight: bold;">関数選択</b>のページで、<b>カテゴリ</b>が<b>Surface</b>に設定され、読み取り専用になっていることがわかります。<b>関数</b>を<b>MyPolynomialSurface(User)</b>に設定します。</li>
+<li><b style="font-weight: bold;">フィット</b>ボタンをクリックしてフィットを実行します。</li>
+<li>結果レポートシートか作成され、すべてのパラメータ値がパラメータ表に出力されます。元のワークブックには、ワークシートFitSurfaceCurveも追加されます。このシートには、フィット曲面のデータが入力されています。<br />
+<a class="image"><img alt="Tutorial UserDefSurfaceFitFunc 004.png" src="../images/User_Defined_Surface_Fitting_Function/Tutorial_UserDefSurfaceFitFunc_004.png" width="502" height="322" border="0" /></a></li>
+<li>元データのワークシートを開き、列Cを選択します。<a class="image"><img alt="Button 3D Scatter.png" src="../images/User_Defined_Surface_Fitting_Function/Button_3D_Scatter.png" width="24" border="0" /></a>ボタンをクリックして3D散布図を作成します。ソースデータにフィット曲面を追加するために、レイヤ1アイコンをダブルクリックします。<b>レイヤ内容</b>ダイアログが開いたら、左のドロップダウンリストから<b>フォルダ内のワークシート</b>を選択します。FitSurfaceCurve1の<b>FitZ</b>を選択し、グラフタイプを<b>3D - 曲面</b>に変更して右パネルに追加します。 下の右矢印をクリックして、データセットを右のパネルに追加します。<br />
+<a class="image"><img alt="Tutorial UserSurfaceDefFitFunc 005.png" src="../images/User_Defined_Surface_Fitting_Function/Tutorial_UserSurfaceDefFitFunc_005.png" width="779" height="293" border="0" /></a><br />
+<b>OK</b>をクリックして曲面を追加します。<br />
+<a class="image"><img alt="Tutorial UserSurfaceDefFitFunc 006.png" src="../images/User_Defined_Surface_Fitting_Function/Tutorial_UserSurfaceDefFitFunc_006.png" width="434" height="362" border="0" /></a></li>
+</ol>
+<table class="note">
+<tr>
+<td><b style="font-weight: bold;">Note:</b>
+<p>Origin 2016以降のバージョンでは、<a class="external text" href="http://originlab.com/fileExchange/details.aspx?fid=282" target="_blank">Polynomial Surface Fit App</a> を利用可能です。多項式曲面をフィットしたい場合、このアプリを試すことをお勧めします。</p>
+</td>
+</tr>
+</table>

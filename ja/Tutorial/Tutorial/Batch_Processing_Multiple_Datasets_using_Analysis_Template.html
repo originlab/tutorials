@@ -1,0 +1,47 @@
+﻿<h1 class="firstheading">複数データセットのバッチ処理</h1>
+<p><br /></p>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>目次</h2>
+</div>
+<ol>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ol>
+<li class="toclevel-2 tocsection-4"><a href="#Perform_fitting_on_one_data_firstly"><span class="tocnumber">3.1</span><span class="toctext">はじめにデータのフィットを行う</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Performing_the_fitting_on_multiple_datasets_with_Batch_Processing_tool"><span class="tocnumber">3.2</span><span class="toctext">バッチ処理ツールを用いて複数データセットにフィットを行う</span></a></li>
+</ol>
+</li>
+</ol>
+</div>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>Originは、分析テンプレートを使用し、複数ファイルやデータセットに対してバッチ処理を実行できます。このチュートリアルでは現在アクティブなワークブック/分析テンプレートを用いた複数データセットのバッチ処理をご紹介します。</p>
+<h2><a name="What_You_Will_Learn" id="What_You_Will_Learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。</p>
+<ul>
+<li>あるサンプルデータについて解析を行い、使用したい結果の結果シートを新たに作成します。</li>
+<li>現在アクティブなワークブック（解析方法と再計算の設定を含む）を用いて複数データセットのバッチ処理を行います。</li>
+</ul>
+<h2><a name="Steps" id="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Perform_fitting_on_one_data_firstly" id="Perform_fitting_on_one_data_firstly"></a><span class="mw-headline">データにフィットを実行する</span></h3>
+<ol>
+<li>新しいワークブックを作成し、<a class="image"><img alt="Button Import ASCII.png" src="../images/Batch_Processing_Multiple_Datasets_using_Analysis_Template/Button_Import_ASCII.png" width="20" border="0" /></a> のボタンをクリックします。<i>&lt;Origin EXE folder&gt;\Samples\Curve Fitting\</i> フォルダを検索し、<b>Sensor01.dat</b> を選択して、分析用のデータをインポートします。</li>
+<li>列Bを選択し、<b>解析：フィット：線形フィット</b>メニューを選択し、<b>線形フィット</b> ダイアログを開きます。<b>再計算</b>を<b>自動</b>に設定します。<b>フィット制御</b>タブの <b>切片固定</b> にチェックを入れ、下の段の<b>切片固定</b> 欄に <i>0</i>を入力します。</li>
+<li>「<b>OK</b>」ボタンをクリックし、フィットを実行します。</li>
+<li><b style="font-weight: bold;">FitLinear1</b>のシートに移り、<b>概要</b>欄の下向き矢印をクリックして、<b>新しいシートとしてコピーを作成</b>を選択します。フィット結果について「概要」という新しいシートが作成されます。シート名を"Result"に変更し、col(A)を削除します。</li>
+</ol>
+<h3><a name="Performing_the_fitting_on_multiple_datasets_with_Batch_Processing_tool" id="Performing_the_fitting_on_multiple_datasets_with_Batch_Processing_tool"></a><span class="mw-headline">バッチ処理ツールを用いて複数データセットにフィットを行う</span></h3>
+<ol>
+<li>ワークブックをアクティブにします。メニューから<b>ファイル：バッチ処理</b> を選択し、<b>バッチ処理</b>ダイアログを開きます。</li>
+<li><b style="font-weight: bold;">バッチ処理モード</b>の<b>アクティブ分析テンプレートウィンドウ中に繰り返しインポート</b>にチェックを入れます。<br />
+<b>Note:</b><a href="../../Tutorial/Tutorial/Analysis_Template_and_Batch_Processing.html" title="Tutorial: 分析テンプレートを使用した複数データセットのバッチ処理">分析テンプレートを保存し、<b>分析テンプレートをロード</b>オプション</a>から利用することもできます。</li>
+<li><b style="font-weight: bold;">データソース</b>ドロップダウンから、<b>ファイルからインポート</b>を選択します。</li>
+<li><b style="font-weight: bold;">ファイルリスト</b>セクションの<b>ブラウズ</b>ボタンをクリックして、<i>&lt;Origin EXE フォルダ&gt;\Samples\Curve Fitting</i> フォルダから <i>Sensor01.dat</i>, Sensor02.dat and Sensor03.dat を選択します。</li>
+<li><b style="font-weight: bold;">データセット識別</b>子として、<b>ファイル名</b>を選択します。</li>
+<li><b style="font-weight: bold;">データシート</b>ドロップダウンリストで、<b>Sensor01</b>が選択されていることを確認します。</li>
+<li><b style="font-weight: bold;">結果シート</b>ドロップダウンリストで、<b>Result</b>を選択します。<br />
+<a class="image"><img alt="UserGuide Batch Processing 002.png" src="../images/Batch_Processing_Multiple_Datasets_using_Analysis_Template/420px-Tutorial_Batch_Processing_Datasets_002.png" width="565" height="564" border="0" /></a></li>
+<li><b>OK</b>をクリックします。全てのセンサのデータが分析され、 "Summary" というワークブックが作成されます。これは元の<b>Result</b> ワークシートの解析結果の概要に基づいています。<br />
+<a class="image"><img alt="Tutorial BatchProcessing 006.png" src="../images/Batch_Processing_Multiple_Datasets_using_Analysis_Template/450px-Tutorial_BatchProcessing_006.png" width="608" height="192" border="0" /></a></li>
+</ol>

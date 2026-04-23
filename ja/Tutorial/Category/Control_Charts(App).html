@@ -1,0 +1,369 @@
+﻿<h1 class="firstHeading">管理図</h1><p class='urlname' style='display: none'>Control-Charts</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Processing"><span class="tocnumber">1</span> <span class="toctext">処理</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="#Variables_Charts_for_Subgroups"><span class="tocnumber">1.1</span> <span class="toctext">変数管理図 - サブグループ</span></a>
+<ul>
+<li class="toclevel-3 tocsection-3"><a href="#Combination_Charts"><span class="tocnumber">1.1.1</span> <span class="toctext">組み合わせ管理図</span></a></li>
+<li class="toclevel-3 tocsection-4"><a href="#Basic_Charts"><span class="tocnumber">1.1.2</span> <span class="toctext">基本管理図</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-5"><a href="#Variables_Chart_for_Individuals"><span class="tocnumber">1.2</span> <span class="toctext">変数管理図 - 個別</span></a>
+<ul>
+<li class="toclevel-3 tocsection-6"><a href="#Combination_Charts_2"><span class="tocnumber">1.2.1</span> <span class="toctext">組み合わせ管理図</span></a></li>
+<li class="toclevel-3 tocsection-7"><a href="#Basic_Charts_2"><span class="tocnumber">1.2.2</span> <span class="toctext">基本管理図</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-8"><a href="#Attributes_Charts"><span class="tocnumber">1.3</span> <span class="toctext">計数管理図</span></a>
+<ul>
+<li class="toclevel-3 tocsection-9"><a href="#know_only_whether_each_item_is_defective_or_not"><span class="tocnumber">1.3.1</span> <span class="toctext">各項目が不良品かどうかのみ把握している場合</span></a></li>
+<li class="toclevel-3 tocsection-10"><a href="#know_the_number_of_defects_on_each_item"><span class="tocnumber">1.3.2</span> <span class="toctext">各項目の不良数を把握している場合</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2 tocsection-11"><a href="#Time-Weighted_Charts"><span class="tocnumber">1.4</span> <span class="toctext">時間重み付き管理図</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><i><b>詳細な情報</b></i>
+</p>
+<ul><li> <a href="../../Tutorial/App/Tutorial_Control_Charts.html" title="App:Tutorial Control Charts">チュートリアル：管理図</a></li>
+<li> <a href="../../Tutorial/App/Algorithm_Control_Charts.html" title="App:Algorithm Control Charts">アルゴリズム：管理図</a></li></ul>
+<p><br />
+管理図とは、プロセスが安定した条件下で管理されているかを判断するために使用されるグラフです。Originでは、収集されるデータの種類に応じて、さまざまな種類の管理図を提供しています。
+</p>
+<h2><a name="Processing"></a><span class="mw-headline">処理</span></h2>
+<p>ドロップダウンリストから選択し、アイコンをクリックしてダイアログを開きます。
+</p><p><a  class="image"><img alt="CC GUI.png" src="../images/Control_Charts(App)/700px-CC_GUI.png" width="700"   /></a>
+</p>
+<h3><a name="Variables_Charts_for_Subgroups"></a><span class="mw-headline">変数管理図 - サブグループ</span></h3>
+<p>このリストにある管理図は、サブグループから収集された連続データを用いて、プロセスのパフォーマンスを監視するためのものです。提供されている管理図の種類は以下の6種類です。 
+</p>
+<table class="tbl">
+
+<tr>
+<td>
+<ul><li> Xbar-R管理図</li></ul>
+</td>
+<td>
+<ul><li> Xbar-S管理図</li></ul>
+</td>
+<td>
+<ul><li> I-MR-R/S管理図</li></ul>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>
+<ul><li> Xbar管理図</li></ul>
+</td>
+<td>
+<ul><li> R管理図</li></ul>
+</td>
+<td>
+<ul><li> S管理図</li></ul>
+</td>
+<td>
+</td></tr></table>
+<p>どの場面でどの管理図を使うべきかは、以下の表を参考にしてください。
+</p>
+<h5><a name="Combination_Charts"></a><span class="mw-headline">組み合わせグラフ</span></h5>
+<table class="simple">
+<tr>
+<th>管理図
+</th>
+<th>構成
+</th>
+<th>目的
+</th>
+<th>使用条件
+</th>
+<th>コメント
+</th></tr>
+<tr>
+<td><b>Xbar-R</b>
+</td>
+<td>Xbar管理図とR管理図
+</td>
+<td>プロセスが安定しているかを判断する
+</td>
+<td>サブグループの観測数が2～8の場合
+</td>
+<td> まずR管理図を確認し、プロセスのばらつきが管理下にあることを確認すること。そうでないとXbar管理図の結果が正確でない可能性がある。
+</td></tr>
+<tr>
+<td><b>Xbar-S</b>
+</td>
+<td>Xbar管理図とS管理図
+</td>
+<td>プロセスが安定しているかを判断する
+</td>
+<td>サブグループの観測数が9以上の場合
+</td>
+<td> まずS管理図を確認し、プロセスのばらつきが管理下にあることを確認すること。そうでないとXbar管理図の結果が正確でない可能性がある。
+</td></tr>
+<tr>
+<td><b>I-MR-R/S</b>
+</td>
+<td>個別管理図、移動平均管理図、RまたはS管理図
+</td>
+<td> サブグループ内およびサブグループ間のばらつきを評価する
+</td>
+<td>サブグループ内のばらつきの発生源が一貫している場合
+</td>
+<td>移動範囲チャートはサブグループ間のばらつきが管理下にあるかを示し、RまたはSチャートはサブグループ内のばらつきが管理下にあるかを示す。
+</td></tr></table>
+<h5><a name="Basic_Charts"></a><span class="mw-headline">基本管理図</span></h5>
+<table class="simple">
+<tr>
+<th>管理図
+</th>
+<th>説明
+</th></tr>
+<tr>
+<td><b>Xbar</b>
+</td>
+<td>サブグループ内の変量データに対するプロセス平均を時間経過でプロットします。
+</td></tr>
+<tr>
+<td><b>R</b>
+</td>
+<td>サブグループ内の変量データに対するプロセス範囲を時間経過でプロットします。
+</td></tr>
+<tr>
+<td><b>S</b>
+</td>
+<td>サブグループ内の変量データに対するプロセス標準偏差を時間経過でプロットします。
+</td></tr></table>
+<h3><a name="Variables_Chart_for_Individuals"></a><span class="mw-headline">変数管理図 - 個別</span></h3>
+<p>このリストにある管理図は、サブグループにまとめられていない連続データのプロセスパフォーマンスを監視するためのものです。提供されている管理図の種類は以下の4種類です。
+</p>
+<table class="tbl">
+
+<tr>
+<td>
+<ul><li> I-MR管理図</li></ul>
+</td>
+<td>
+<ul><li> Z-MR管理図</li></ul>
+</td>
+<td>
+</td>
+<td>
+</td></tr>
+<tr>
+<td>
+<ul><li> 個別管理図</li></ul>
+</td>
+<td>
+<ul><li> 移動範囲管理図</li></ul>
+</td>
+<td>
+</td>
+<td>
+</td></tr></table>
+<p>どの場面でどの管理図を使うべきかは、以下の表を参考にしてください。
+</p>
+<h5><a name="Combination_Charts_2"></a><span class="mw-headline">組み合わせグラフ</span></h5>
+<table class="simple">
+<tr>
+<th>管理図
+</th>
+<th>構成
+</th>
+<th>使用方法
+</th></tr>
+<tr>
+<td><b>I-MR</b>
+</td>
+<td>個別管理図と移動範囲管理図
+</td>
+<td>サブグループに分けられていない個別観測データに使用します。
+</td></tr>
+<tr>
+<td><b>Z-MR</b>
+</td>
+<td>標準化プロセス平均管理図と移動範囲管理図
+</td>
+<td>少量のデータしか得られない短期間プロセスに使用します。
+</td></tr></table>
+<h5><a name="Basic_Charts_2"></a><span class="mw-headline">基本管理図</span></h5>
+<table class="simple">
+<tr>
+<th>管理図
+</th>
+<th>構成
+</th>
+<th>使用方法
+</th></tr>
+<tr>
+<td><b>個別</b>
+</td>
+<td>Iチャートとも呼ばれます。変量データの個別観測値を時間経過でプロットします。
+</td>
+<td>個別観測値に対してプロセスの中心を監視します。
+</td></tr>
+<tr>
+<td><b>移動範囲</b>
+</td>
+<td>MRチャートとも呼ばれます。個別観測値の移動範囲を時間経過でプロットします。
+</td>
+<td>プロセスのばらつきを監視します。
+</td></tr></table>
+<h3><a name="Attributes_Charts"></a><span class="mw-headline">計数管理図</span></h3>
+<p>このリストにある管理図は、不良品数や欠陥数といった属性データを用いて、プロセスパフォーマンスを監視するためのものです。提供されている管理図の種類は以下の8種類です。
+</p>
+<table class="tbl">
+
+<tr>
+<td>
+<ul><li> P管理図診断</li></ul>
+</td>
+<td>
+<ul><li> P管理図</li></ul>
+</td>
+<td>
+<ul><li> Laney P&apos;管理図</li></ul>
+</td>
+<td>
+<ul><li> NP管理図</li></ul>
+</td></tr>
+<tr>
+<td>
+<ul><li> U管理図診断</li></ul>
+</td>
+<td>
+<ul><li> U管理図</li></ul>
+</td>
+<td>
+<ul><li> Laney U&apos;管理図</li></ul>
+</td>
+<td>
+<ul><li> C管理図</li></ul>
+</td></tr></table>
+<p>どの場面でどの管理図を使うべきかは、以下の表を参考にしてください。
+</p>
+<h5><a name="know_only_whether_each_item_is_defective_or_not"></a><span class="mw-headline">各項目が不良品かどうかだけを把握している場合</span></h5>
+<table class="simple">
+<tr>
+<th>使用条件
+</th>
+<th>管理図
+</th>
+<th>説明
+</th></tr>
+<tr>
+<td rowspan="3">サブグループのサイズが不均一
+</td>
+<td><b>P管理図診断</b>
+</td>
+<td>欠陥データにおける過分散または不足分散を検定します。
+</td></tr>
+<tr>
+<td><b>P管理図</b>
+</td>
+<td>不適合品の割合、パーセント、または比率をプロットします。
+</td></tr>
+<tr>
+<td><b>Laney P&apos;管理図</b>
+</td>
+<td>Pチャートの改良版で、データ内の過分散や不足分散を補正します。
+</td></tr>
+<tr>
+<td>サブグループサイズが均一
+</td>
+<td><b>NP管理図</b>
+</td>
+<td>サブグループサイズが一定の場合に、不適合品数をプロットします。
+</td></tr></table>
+<h5><a name="know_the_number_of_defects_on_each_item"></a><span class="mw-headline">各項目ごとの不良数を把握している場合</span></h5>
+<table class="simple">
+<tr>
+<th>使用条件
+</th>
+<th>管理図
+</th>
+<th>説明
+</th></tr>
+<tr>
+<td rowspan="3">サブグループのサイズが不均一
+</td>
+<td><b>U管理図診断</b>
+</td>
+<td>欠陥データにおける過分散または不足分散を検定します。
+</td></tr>
+<tr>
+<td><b>U管理図</b>
+</td>
+<td>単位あたりの不適合数または欠陥数をプロットします。
+</td></tr>
+<tr>
+<td><b>Laney U&apos;管理図</b>
+</td>
+<td>Uチャートの改良版で、データ内の過分散や不足分散を補正します。
+</td></tr>
+<tr>
+<td>サブグループサイズが均一
+</td>
+<td><b>C管理図</b>
+</td>
+<td>サブグループサイズが一定の場合に、不適合数または欠陥数をプロットします。
+</td></tr></table>
+<h3><a name="Time-Weighted_Charts"></a><span class="mw-headline">時間重み付き管理図</span></h3>
+<p>時間重み付き管理図は小さなプロセスの変化を検出するのに有効です。提供されている管理図の種類は以下の3種類です。 
+</p>
+<table class="tbl">
+
+<tr>
+<td>
+<ul><li> 移動平均管理図</li></ul>
+</td>
+<td>
+<ul><li> EWMA管理図</li></ul>
+</td>
+<td>
+<ul><li> CUSUM管理図</li></ul>
+</td>
+<td>
+</td></tr></table>
+<p>どの場面でどの管理図を使うべきかは、以下の表を参考にしてください。
+</p>
+<table class="simple">
+<tr>
+<th>管理図
+</th>
+<th>説明
+</th>
+<th>コメント
+</th></tr>
+<tr>
+<td><b>移動平均</b>
+</td>
+<td>MAチャートとも呼ばれます。個別観測値に対して、単純な移動平均を時間経過でプロットします。
+</td>
+<td>小さなプロセスの変化を検出するのに有効です。
+</td></tr>
+<tr>
+<td><b>EWMA</b>
+</td>
+<td>指数的に重み付けされた移動平均をプロットします。各EWMA点は、ユーザー定義の重み付け係数に基づき、すべての過去のサブグループまたは観測値の情報を反映します。
+</td>
+<td>過去すべてのデータを考慮するため、一般的にMAチャートより推奨されます。
+</td></tr>
+<tr>
+<td><b>CUSUM</b>
+</td>
+<td>各サンプル値と目標値との偏差の累積和（CUSUM）を表示します。
+</td>
+<td> 機械の摩耗やキャリブレーションずれなどによる、目標値からの徐々な逸脱を検出するのに有効です。
+</td></tr></table>
+
+
+
+
+
+
+
+    

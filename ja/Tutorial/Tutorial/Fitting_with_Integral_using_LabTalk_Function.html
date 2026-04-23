@@ -1,0 +1,193 @@
+﻿<h1 class="firstheading">LabTalk関数を使った積分フィット</h1>
+<p class="urlname" style="display: none;">Fitting-Integral-LabTalk</p>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>目次</h2>
+</div>
+<ol>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Example_and_Steps"><span class="tocnumber">3</span> <span class="toctext">サンプルとステップ</span></a>
+<ol>
+<li class="toclevel-2 tocsection-4"><a href="#The_Fitting_Model"><span class="tocnumber">3.1</span> <span class="toctext">フィッティングモデル</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Define_the_Function"><span class="tocnumber">3.2</span> <span class="toctext">関数を定義する</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Fit_the_Curve"><span class="tocnumber">3.3</span> <span class="toctext">曲線をフィットする</span></a></li>
+</ol>
+</li>
+</ol>
+</div>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>バージョン<font color="#FF0000"><b>Origin 8.6</b></font>からOriginは一元積分を行える新しいLabTalkの関数、<b><i>integral()</i></b>を取り入れました。この関数は次のような積分の値を算出します。</p>
+<dl>
+<dd><img src="../images/Fitting_with_Integral_using_LabTalk_Function/math-6bb27c3d9ef3c72c9673506a3f93ba77.png" title="\int_{LowerLimit}^{UpperLimit} f(t, arg1, arg2, ...), dt" alt="\int_{LowerLimit}^{UpperLimit} f(t, arg1, arg2, ...), dt" class="tex" border="0" /></dd>
+</dl>
+<p><i style="font-style: italic;">integral()</i>関数のインターフェイスは次のように定義されています。</p>
+<dl>
+<dd>
+<pre class="lt" style="font-family: monospace;">
+integral<span style="color: #000000;">(</span>integrandName, LowerLimit, UpperLimit <span style="color: #000000;">[</span>, arg1, arg2, ...<span style="color: #000000;">]</span><span style="color: #000000;">)</span>
+        
+</pre></dd>
+</dl>
+<p>ここでは<i>integrandName</i>はこの被積分関数の関数名になります。</p>
+<dl>
+<dd><img src="../images/Fitting_with_Integral_using_LabTalk_Function/math-44e9632335932e89ea0c00546a31810a.png" title="f(t, arg1, arg2, ...)\," alt="f(t, arg1, arg2, ...)\," class="tex" border="0" /></dd>
+</dl>
+<p>言い方を変えると、<i>integral()</i>関数は以下について行います。</p>
+<ul>
+<li>他の関数を（第一アーギュメントとして）被積分関数に受け入れます。</li>
+<li>定義された下限および上限に積分を行い、正数値を算出します。</li>
+<li>必要に応じ、積分関数に後続の引数(<i>Arg1</i>, <i>Arg2</i>, ...)を追加することができます。</li>
+</ul>
+<p>この機能を利用すると、<i>integral()</i>関数を使ってフィット関数を定義でき、正しいフィットパラメータを被積分関数に受け渡して積分曲線のフィットにあたります。</p>
+<p>このチュートリアルでは以下のチュートリアル、<a href="../../Tutorial/Tutorial/Fitting_with_Integral_using_NAG_Library.html" title="Tutorial:Fitting with Integral using NAG Library">NAG関数を呼び出しフィット中に積分を行う</a>をLabTalk用に変更し、いかにシンプルに積分関数を使用してフィットできるかをお見せします。</p>
+<p class="version">必要なOriginのバージョン: Origin 8.6 以降</p>
+<table class="noborder">
+<tr>
+<td style="vertical-align: top;" width="60"><img src="../images/Fitting_with_Integral_using_LabTalk_Function/Tip_icon.png" alt="" width="57" border="0" /></td>
+<td>
+<p>Origin 2018bから、積分を使って陰函数を定義することができます</p>
+</td>
+</tr>
+</table>
+<h2><a name="What_you_will_learn" id="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します</p>
+<ul>
+<li>フィット関数ビルダーでフィット関数を作成する</li>
+<li>Labtalk関数を使って積分定義を組み込んだフィット関数を定義する</li>
+<li>フィット関数の初期化コードをセットアップする</li>
+</ul>
+<h2><a name="Example_and_Steps" id="Example_and_Steps"></a><span class="mw-headline">サンプルとステップ</span></h2>
+<h3><a name="The_Fitting_Model" id="The_Fitting_Model"></a><span class="mw-headline">フィッティングモデル</span></h3>
+<p>フィッティングモデルは次の式で表されます。</p>
+<dl>
+<dd><img src="../images/Fitting_with_Integral_using_LabTalk_Function/math-957656d43fc6d5ccaa64ce6fec8b95aa.png" title="y=y_0+\int_{-\infty}^{x} \frac{A}{w\sqrt{\frac{\pi}{2}}} e^{-2\frac{(t-x_c)^2}{w^2}}, dt" alt="y=y_0+\int_{-\infty}^{x} \frac{A}{w\sqrt{\frac{\pi}{2}}} e^{-2\frac{(t-x_c)^2}{w^2}}, dt" class="tex" border="0" /></dd>
+</dl>
+<p>フィット関数には4つのパラメータがあり、そのうち3つを被積分関数に受け渡し、独立変数を上限として積分を行います。よって、まず被積分関数を定義しし、それをもとに<i>integral()</i> 関数を使用してフィット関数内で積分をします。</p>
+<h3><a name="Define_the_Function" id="Define_the_Function"></a><span class="mw-headline">関数を定義する</span></h3>
+<ol>
+<li><b style="font-weight: bold;">F8</b>を押して<b>フィット関数ビルダ</b>ダイアログを開きます。<i><b>新しい関数の作成</b></i>が選ばれていることを確認してから<i><b>進む</b></i>ボタンを押して次のページに進みます。</li>
+<li><i style="font-style: italic;"><b style="font-weight: bold;">関数名と関数形式</b></i>ページで関数名を<i><b>MyIntegGauss</b></i>と設定します。関数タイプはデフォルトの<i><b>算術式</b></i>のままで、<i><b>フィット中に積分を実行</b></i>にチェックをします。進むをクリックして、次のページに行きます。<br />
+<br />
+<a class="image"><img alt="Fit Integral by LT 001.png" src="../images/Fitting_with_Integral_using_LabTalk_Function/Fit_Integral_by_LT_001.png" width="678" height="440" border="0" /></a><br />
+<br /></li>
+<li><b style="font-weight: bold;"><i style="font-style: italic;">被積分関数</i></b>ページでは、被積分関数の表現を定義できます。現在、Originは一元積分のみをサポートしているので、積分変数は1つのみです。この例では被積分関数の式は以下のようになります。<br />
+<br />
+<dl>
+<dd><img src="../images/Fitting_with_Integral_using_LabTalk_Function/math-8a4d1221a758d820e24674171057f538.png" title="\frac{A}{w\sqrt{\frac{\pi}{2}}} e^{-2\frac{(t-x_c)^2}{w^2}}" alt="\frac{A}{w\sqrt{\frac{\pi}{2}}} e^{-2\frac{(t-x_c)^2}{w^2}}" class="tex" border="0" /></dd>
+</dl>
+<br />
+他の変数、<i>xc</i>、<i>w</i>、<i>A</i>は被積分関数のパラメータになります。Tパラメータと区別するためにここでは<i>引数</i>として名前を付けます。よって、これらの引数は<i>ixc</i>、<i>iw</i>、<i>iA</i>となります。後程、フィットパラメータをこれらの引数に受け渡します。そのため、被積分関数は次のようになります。<br />
+<br />
+<a class="image"><img alt="Fit Integral by LT 002.png" src="../images/Fitting_with_Integral_using_LabTalk_Function/Fit_Integral_by_LT_002.png" width="678" height="440" border="0" /></a><br />
+<br />
+これはLabTalkの関数であることに注意してください。積分値を入手するには関数内の定義に<b><font color="#FF0000">リターン(RETURN)</font></b>記述が必要です。この例の中の被積分関数表現は次のようになります。
+<pre class="lt" style="font-family: monospace;">
+return iA <span style="color: #000080;">*</span> exp<span style="color: #000000;">(</span><span style="color: #000080;">-</span><span style="color: #0000dd;">2</span><span style="color: #000080;">*</span><span style="color: #000000;">(</span>t<span style="color: #000080;">-</span>ixc<span style="color: #000000;">)</span><span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000080;">/</span>iw<span style="color: #000080;">^</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span> <span style="color: #000080;">/</span> <span style="color: #000000;">(</span>iw<span style="color: #000080;">*</span>sqrt<span style="color: #000000;">(</span>PI<span style="color: #000080;">/</span><span style="color: #0000dd;">2</span><span style="color: #000000;">)</span><span style="color: #000000;">)</span>;
+        
+</pre></li>
+<li>設定ができたら<b><i>進む</i></b>をクリックして<b><i>変数とパラメータ</i></b>ページへ進みます。そこで、下図のようにフィット関数の変数とパラメータを定義します。<br />
+<br />
+<a class="image"><img alt="Fit Integral by LT 003.png" src="../images/Fitting_with_Integral_using_LabTalk_Function/Fit_Integral_by_LT_003.png" width="678" height="440" border="0" /></a><br />
+<br /></li>
+<li>次の<b><i>関数</i></b>ページがフィット関数式の内容を定義するページです。フィット関数に積分を組み込むものをフィット関数ビルダ―ウィザードで設定すると、追加タブである<b><i>被積分関数</i></b>がこのページに表示されます。このタブでは、下限、上限、および積分の引数を含む、被積分変数とパラメータを被積分関数の要素で指定できます。この例では次のように変数の対応付けをします。
+<table class="simple">
+<tr>
+<th>被積分関数の要素</th>
+<th>被積分関数に受け渡す値</th>
+</tr>
+<tr>
+<td>下限</td>
+<td>-inf</td>
+</tr>
+<tr>
+<td>上側限界</td>
+<td>x</td>
+</tr>
+<tr>
+<td>ixc</td>
+<td>xc</td>
+</tr>
+<tr>
+<td>iw</td>
+<td>w</td>
+</tr>
+<tr>
+<td>iA</td>
+<td>A</td>
+</tr>
+</table>
+<p>上記表のように対応ができたら<b><i>挿入</i></b> ボタンを押します。すると、準備した<i>integral()</i> 関数が<b><i>関数式</i></b>ボックス内に以下のように挿入されます。</p>
+<pre class="lt" style="font-family: monospace;">
+integral<span style="color: #000000;">(</span>MyIntegrand, <span style="color: #000080;">-</span>inf ,x ,xc ,w ,A<span style="color: #000000;">)</span>
+        
+</pre>
+<p>この数式は「<i>MyIntegrand</i>という関数にマイナス無限数から<i>x</i>までを積分し、<i>xc</i>、<i>w</i>、<i>A</i>という3つのパラメータを被積分関数に送る」という意味です。<br /></p>
+<p>ここで定数パラメータ<i>y0</i>を数式に入れると、全体のフィット関数内容は次のようになります。</p>
+<pre class="lt" style="font-family: monospace;">
+y0 <span style="color: #000080;">+</span> integral<span style="color: #000000;">(</span>MyIntegrand, <span style="color: #000080;">-</span>inf, x, xc ,w ,A<span style="color: #000000;">)</span>;
+        
+</pre>
+<p>そしてページは次のようになります。</p>
+<p><br />
+<a class="image"><img alt="Fit Integral by LT 004.png" src="../images/Fitting_with_Integral_using_LabTalk_Function/Fit_Integral_by_LT_004.png" width="678" height="440" border="0" /></a><br />
+<br /></p>
+</li>
+<li><b style="font-weight: bold;"><i style="font-style: italic;">パラメータ</i></b>タブをアクティブにし、適切な初期値を次のように設定します。<br />
+<br />
+<a class="image"><img alt="Fit Integral by LT 005.png" src="../images/Fitting_with_Integral_using_LabTalk_Function/Fit_Integral_by_LT_005.png" width="318" height="118" border="0" /></a><br />
+<br />
+<b><i>完了</i></b>ボタンを押してこのフィット関数を保存します。</li>
+</ol>
+<h3><a name="Fit_the_Curve" id="Fit_the_Curve"></a><span class="mw-headline">曲線をフィットする</span></h3>
+<p>次のデータ をOriginの新しいワークシートにコピー&amp;ペーストします。</p>
+<dl>
+<dd>
+<table class="simple" width="120">
+<tr>
+<th>X</th>
+<th>Y</th>
+</tr>
+<tr>
+<td>-1.69897</td>
+<td>0.13136</td>
+</tr>
+<tr>
+<td>-1.22185</td>
+<td>0.34384</td>
+</tr>
+<tr>
+<td>-0.92082</td>
+<td>0.6554</td>
+</tr>
+<tr>
+<td>-0.82391</td>
+<td>0.73699</td>
+</tr>
+<tr>
+<td>-0.69897</td>
+<td>1.00157</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1.70785</td>
+</tr>
+<tr>
+<td>0.30103</td>
+<td>2.31437</td>
+</tr>
+<tr>
+<td>0.69897</td>
+<td>2.77326</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2.79321</td>
+</tr>
+</table>
+</dd>
+</dl>
+<p><i style="font-style: italic;">Y</i>列を選択し、<b><i>Ctrl + Y</i></b>キーで<i><b>NLFit</b></i>ダイアログを開きます。先程定義した関数を選び、<b><i>フィット</i></b> ボタンをクリックしてフィットを行います。このフィットの結果はNAG関数を直接利用したものと同じになります。</p>
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Fit Integral by LT 006.png" src="../images/Fitting_with_Integral_using_LabTalk_Function/Fit_Integral_by_LT_006.png" width="282" height="152" border="0" /></a></dd>
+</dl>

@@ -1,0 +1,113 @@
+﻿<h1 class="firstheading">記述統計</h1><p class='urlname' style='display: none'>DescStats</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_You_Will_Learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Finding_Frequency_Information_for_Groups"><span class="tocnumber">3</span> <span class="toctext">グループに対する度数情報を検索する</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Calculating_Descriptive_Statistics_on_Grouped_Data"><span class="tocnumber">4</span> <span class="toctext">グループ化したデータの記述統計を計算する</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="#Using_Statistical_Results_for_Further_Operations"><span class="tocnumber">5</span> <span class="toctext">統計計算結果を使って、さらに操作を続ける</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="#Analyzing_the_Relationship_Between_Different_Indicators"><span class="tocnumber">6</span> <span class="toctext">異なるインジケータ間の関係を分析する</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="#Controlling_the_Categorical_Values"><span class="tocnumber">7</span> <span class="toctext">カテゴリー値をコントロールする</span></a></li>
+</ul>
+</div>
+<p><br />
+</p>
+<table class="simple" style="width: 80%">
+<tr style="vertical-align: top;">
+<td style="width: 40%"><a  class="image"><img alt="Video Image.png" src="../images/Descriptive_Statistics/Video_Image.png" width="33"  /></a> <a  class="image"><img alt="Video Text Image.png" src="../images/Descriptive_Statistics/Video_Text_Image.png" width="135"  /></a>
+<ul><li> <a class="external text" href="https://www.originlab.com/videos/details.aspx?id=29" target="_blank">記述統計</a></li></ul>
+</td>
+<td style="width: 40%"><a  class="image"><img alt="Website blog icon circle.png" src="../images/Descriptive_Statistics/Website_blog_icon_circle.png" width="31"  /></a> <a  class="image"><img alt="Blog Image 33x33px.png" src="../images/Descriptive_Statistics/Blog_Image_33x33px.png" width="135"  /></a>
+<ul><li> <a class="external text" href="http://blog.originlab.com/statistics-on-rows" target="_blank"><b>行の統計</b></a></li></ul>
+</td></tr></table>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>Originは基本統計（平均、中央値、分散など）、度数カウント、選択したデータの相関係数を含む様々な記述統計をサポートしています。強力なグラフ作成機能に加えて、Originの統計ツールはデータをまとめたり、分析するのに役立ちます。
+</p>
+<h2><a name="What_You_Will_Learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します。 
+</p>
+<ul><li> <b>列の統計</b>ダイアログを使って、グループ化したデータの記述統計を計算する</li>
+<li> さらなる処理のために、新しいワークシートに統計結果をコピーする</li>
+<li> 指定した列の属性を使ってワークシートデータをソートする</li>
+<li> <b><b>相関係数</b></b>ツールを使ってデータセットを分析する</li></ul>
+<p class="version" >必要なOriginのバージョン: Origin 2015 SR0以降</p>
+<h2><a name="Finding_Frequency_Information_for_Groups"></a><span class="mw-headline">グループに対する度数情報を検索する</span></h2>
+<p><b>離散度数</b>ツールを使って、データの度数情報を素早く取得することができます。
+</p>
+<ol>
+<li> ワークブックを新しく作成します。メニューの<b>データ：ファイルからインポート：ASCIIファイル</b>を選択し、<b>\Samples\Statistics\automobile.dat</b>をインポートします。  
+<li>  <b>automobile</b>ワークシートで最初の2列を選択します。メインメニューの<b>統計：記述統計：離散度数表</b>を選択し、ダイアログを開きます。 
+<li><b><b>再計算</b></b>モードはドロップダウンから<b><b>自動</b></b>を選択します。元データシートの<a href="#Controlling_the_Categorical_Values">カテゴリー値をコントロールする</a>が動くように、<b>データの<b>ソート</b></b>を<b>カテゴリー順</b>に変更します。<b>OK</b>をクリックします。 
+<dl><dd><a  class="image"><img alt="Descriptive Statistics00.png" src="../images/Descriptive_Statistics/Descriptive_Statistics00.png" width="469"  /></a> </dd></dl>
+<li>結果シート<b>DiscretFreq1</b>に、YearとMake列のデータ項目と度数カウントがそれぞれ出力されます。
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Descriptive_Statistics/Tip_icon.png" width="57"  border="0" /></td><td><p>各列には鍵マークが表示されていますが、目的の列を選択、メニューバーに移動し、<b>ワークシート：ソート(ワークシート)</b>から、<b>昇順</b>、<b>降順</b>、または<b>カスタム</b>を選択することで、ワークシートを再配置できます。
+</p></td></tr></table>
+<h2><a name="Calculating_Descriptive_Statistics_on_Grouped_Data"></a><span class="mw-headline">グループ化したデータの記述統計を計算する</span></h2>
+<p><b>列の統計</b>ツールを使用すると、各列のデータそれぞれの基本統計を計算できます。
+</p>
+<ol>
+<li>ワークシート<b>automobile</b>に戻ります。  メインメニューの<b>統計：記述統計：列の統計</b>を選択し、ダイアログを開きます。 </li>
+<li><b>列の統計</b>ダイアログで、<b>入力</b>タブの<b>範囲1</b>ブランチを開き、<b>データ範囲</b>の右側にある<a  class="image"><img alt="Button Select Data Interactive.png" src="../images/Descriptive_Statistics/Button_Select_Data_Interactive.png" width="18"  /></a>ボタン をクリックします。  ダイアログが小さくなりますので、ワークシートに戻って列<b>C</b>から列<b>G</b>までのデータ範囲をドラッグで選択してセットします。小さくなったダイアログにあるボタンをクリックし、ダイアログを元に戻します。  ダイアログボックスで、<b>範囲１</b>の下にある <b>入力データ</b>を調整した後、グループ制御ボックスの右上にある矢印をクリックし、<b>B(Y): Make</b> をグループデータとして選択します。<b>再計算</b>モードはドロップダウンから<b>自動</b>を選択します。<br />
+<a  class="image"><img alt="DOC-2411 Descriptive Statistics on Grouped Data 001aa.png" src="../images/Descriptive_Statistics/DOC-2411_Descriptive_Statistics_on_Grouped_Data_001aa.png" width="475"  /></a>
+</li>
+<li><b>出力</b>設定ノードを開き、さらに<b>グラフ配置</b>ノードを開きます。<b>グラフ中の同じ形式のプロットを配列</b>にチェックを付け、<b><b>プロット</b></b>ノードを開いて<b><b><b>ボックスチャート</b></b></b>をチェックします。<br />
+<a  class="image"><img alt="DOC-2411 Descriptive Statistics on Grouped Data 001b.png" src="../images/Descriptive_Statistics/DOC-2411_Descriptive_Statistics_on_Grouped_Data_001b.png" width="431"  /></a>
+<a  class="image"><img alt="DOC-2411 Descriptive Statistics on Grouped Data 001c.png" src="../images/Descriptive_Statistics/DOC-2411_Descriptive_Statistics_on_Grouped_Data_001c.png" width="360"  /></a>
+</li>
+<li><b>OK </b>をクリックし、レポートシートに結果を表示します。<br />
+<a  class="image"><img alt="Tutorial Descriptive Statistics on Grouped Data 04.png" src="../images/Descriptive_Statistics/Tutorial_Descriptive_Statistics_on_Grouped_Data_04.png" width="629"  /></a>
+</li> 
+</ol>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Descriptive_Statistics/Tip_icon.png" width="57"  border="0" /></td><td><p>レポートシート内の埋め込みボックスプロットを編集するためには、そのボックスプロットをダブルクリックして開きます。グラフを編集したら、開いたグラフウィンドウの右上にある<b>戻る</b>ボタンをクリックし、レポートシートに編集したグラフを戻します。
+</p></td></tr></table>
+<h2><a name="Using_Statistical_Results_for_Further_Operations"></a><span class="mw-headline">統計計算結果を使って、さらに操作を続ける</span></h2>
+<p>統計結果をさらに分析したり、統計結果をプロットすることができます。 
+</p><p>例えば、Makeが1992から2004までの自動車の属性値(馬力、0-60mph時間、重量、燃費)の平均を取得し、以下を実行します。
+</p>
+<ol>
+<li>ワークブック<b>automobile - automobile.dat</b>に戻り、<b>DescStatsQuantities1</b>シートを開きます。  列<b>D(Y2)</b> と<b>E(yEr±)</b> を選択し、メインメニューの<b>ワークシート：列アンスタッキング</b>を選択してダイアログを開きます。
+</li>
+<li><b>wunstackcol</b>ダイアログで、<b>再計算</b>モードを<b>自動</b>に設定し、<b>グループ列</b>ではコンテキストメニューボタン<a  class="image"><img alt="Context menu button.jpg" src="../images/Descriptive_Statistics/Context_menu_button.jpg" width="22"  /></a> をクリックして<b>A(X1) データ</b>を選択します。 
+<li><b>オプション</b>ノードを開き、<b>その他の列を含める</b>チェックボックスにチェックを入れます。  <b>その他の列</b>で<a  class="image"><img alt="Context menu button.jpg" src="../images/Descriptive_Statistics/Context_menu_button.jpg" width="22"  /></a>ボタンをクリックして表示されるコンテキストメニューから列<b>B:(X2) Make</b>を選択します。その他の列値のためにルールを抽出では<b><b>最長グループ一致</b></b>を選択し、<b><b>出力設定</b></b>ノードでは<b><b>グループ情報の入れ先</b></b>で<b><b>ロングネーム</b></b>を選択します。<b><b>OK</b></b>をクリックします。<br />
+<a  class="image"><img alt="DOC-2411 Descriptive Statistics on Grouped Data 006a.png" src="../images/Descriptive_Statistics/DOC-2411_Descriptive_Statistics_on_Grouped_Data_006a.png" width="660"  /></a>
+</li>
+<li>結果を視覚化するために、グラフを作図します。結果シート<b>UnstackCols1</b>を開き、ワークシート全体を選択してメインメニューの<b>作図: 複数区分/軸: 積み上げグラフ</b>を選択して作図します。</li> 
+<li><b>積上げ:plotstack</b>ダイアログボックスで<b>プロットタイプ</b>を<b>散布図</b>に設定します。  <b><b>OK</b></b>をクリックします。 </li> 
+<li>ここで、明確にするために、上部X軸で目盛りラベルを回転させます。  X 軸ラベル上でダブルクリックして開く<b>軸</b>ダイアログで<b>上</b>アイコンを選択した状態で下図のよう設定します。<b><b>OK</b></b>をクリックします。
+<br /><a  class="image"><img alt="Tutorial Descriptive Statistics Axis Dialog.png" src="../images/Descriptive_Statistics/Tutorial_Descriptive_Statistics_Axis_Dialog.png" width="584"  /></a><br />
+同じ要領で、下のラベルも同じように回転させます。
+</li>
+<li>レポートシートとグラフは下図のようになります。<br />
+<a  class="image"><img alt="Tutorial Descriptive Statistics on Grouped Data 0055.png" src="../images/Descriptive_Statistics/Tutorial_Descriptive_Statistics_on_Grouped_Data_0055.png" width="539"  /></a>
+</li>
+</ol>
+<h2><a name="Analyzing_the_Relationship_Between_Different_Indicators"></a><span class="mw-headline">異なるインジケータ間の関係を分析する</span></h2>
+<p>相関係数を使って自動車のデータの列間の関係を調べることができます。次に、信頼楕円を使用して散布図を作成し、相関関係をグラフィカルに表現します。
+</p>
+<ol>
+<li>ワークブック<b>automobile - automobile.dat</b>の<b>automobile</b> シートを開き、最後の5列を選択します。</li>
+<li>メインメニューの<b>統計：記述統計：相関係数</b>を選択し、ダイアログを開きます。  開いた相関係数：rcoef ダイアログで<b>相関タイプ</b>を<b>ピアソン</b>にします。</li>
+<li><b>プロット</b>ノードを開き、<b>信頼楕円の追加</b>チェックボックスにチェックを入れます。<b>散布図</b>チェックボックスは自動的にチェックされます。  <b><b>OK</b></b>をクリックします。</li>
+<li><b>ScatterMatrix1</b> と <b>CorrCeof1</b> は次のようになります。 <b>Engine Displacement</b> と <b>Power</b>には正の強い相関があり、<b>Gas Mileage</b> と <b>Engine Displacement</b>.には負の強い相関があることがわかります。<br />
+<a  class="image"><img alt="Tutorial Descriptive Statistics on Grouped Data 007.png" src="../images/Descriptive_Statistics/Tutorial_Descriptive_Statistics_on_Grouped_Data_007.png" width="882"  /></a>
+</li>
+</ol>
+<h2><a name="Controlling_the_Categorical_Values"></a><span class="mw-headline">カテゴリー値のコントロールする</span></h2>
+<ol><li>以下のステップで、元データを変えずに、グラフに表示されている値の順番を変更します。ワークブックの列<b><b>B</b></b>で右クリックしてコンテキストメニューで<b><b>カテゴリーとして設定</b></b>を選択します。列の<b>カテゴリー</b>セルにある「ソートなし」をダブルクリックして<b>カテゴリー</b>ダイアログを開きます。
+<dl><dd><a  class="image"><img alt="Desc stats control cat values.png" src="../images/Descriptive_Statistics/Desc_stats_control_cat_values.png" width="403"  /></a></dd></dl></li>
+<li><b>カテゴリーの編集</b>にチェックを入れ、矢印ボタン<a  class="image"><img alt="Cate-sort-2.png" src="../images/Descriptive_Statistics/Cate-sort-2.png" width="114"  /></a>を使ってそれぞれの項目の位置を以下の図のように設定します。これにより、製造元がある国順(アメリカ→日本/韓国→ヨーロッパ)に並び替えます。<b>OK</b>をクリックしてダイアログを閉じます。 
+<dl><dd><a  class="image"><img alt="Categ Sort-3.png" src="../images/Descriptive_Statistics/Categ_Sort-3.png" width="432"  /></a></dd></dl></li>
+<li>上記セクションで作成したレポートシートを確認すると、並び順に反映されていることが分かります。再計算モードで<b><b>自動</b></b>が選択されているため、<b>度数離散表</b>と<b><b>列の統計</b></b>のレポートシート(ボックスチャートを含む)は自動的に更新され、カテゴリーデータで指定した並び順になります。
+<dl><dd><a  class="image"><img alt="Tutorial Descriptive Statistics on Grouped Data 004.png" src="../images/Descriptive_Statistics/Tutorial_Descriptive_Statistics_on_Grouped_Data_004.png" width="616"  /></a></dd></dl></li>
+<li><b>列アンスタッキング</b>を行った結果とグラフも自動的に更新されます。 
+<dl><dd><a  class="image"><img alt="Tutorial Descriptive Statistics on Grouped Data 008.png" src="../images/Descriptive_Statistics/Tutorial_Descriptive_Statistics_on_Grouped_Data_008.png" width="481"  /></a></dd></dl></li></ol>
+<table class="note">
+<tr>
+<td>結果が自動的に更新されていない場合、手動で更新させる方法もあります。<b>標準</b>ツールバーの<b>再計算</b>ボタン<a  class="image"><img alt="Button Recalculate Manual.png" src="../images/Descriptive_Statistics/Button_Recalculate_Manual.png" width="22"  /></a>をクリックすると、更新します。再計算が行われるとボタンが緑色<a  class="image"><img alt="Button Recalculate Auto.png" src="../images/Descriptive_Statistics/Button_Recalculate_Auto.png" width="22"  /></a>になります。
+</td></tr></table>
+
+
+    

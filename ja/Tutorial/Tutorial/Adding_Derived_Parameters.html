@@ -1,0 +1,64 @@
+﻿<h1 class="firstheading">組み込み関数の派生パラメータを修正する</h1><p class='urlname' style='display: none'>Fitting-AddDerivPara</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span><span class="toctext">概要</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Adding_Derived_Parameters"><span class="tocnumber">3</span> <span class="toctext">派生パラメータを追加</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Removing_Derived_Parameters"><span class="tocnumber">4</span> <span class="toctext">派生パラメータを削除</span></a></li>
+</ul>
+</div>
+<h2><a name="Summary"></a><span class="mw-headline">概要</span></h2>
+<p>派生パラメータは、フィットパラメータを使って計算される追加のパラメータです。組み込み関数またはユーザ定義関数に対して自分自身の派生パラメータを定義することができます。
+<br />
+定義した派生パラメータはフィッティングの過程では使用されず、フィッティングセッションの最後で算出されます。 
+</p><p><br />
+</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<ul><li> フィット関数オーガナイザを使って派生パラメータを組み込みフィッティング関数に追加する</li>
+<li> フィット関数オーガナイザを使って、組み込み関数の派生パラメータを削除する</li></ul>
+<h2><a name="Adding_Derived_Parameters"></a><span class="mw-headline">派生パラメータを追加する</span></h2>
+<ol>
+組込のガウス関数は、次の式でピーク部分をフィットします。
+<img src="../images/Adding_Derived_Parameters/math-5634aa2f2bcef1a03e1d02c8bf5f9bb8.png" title="y=y_0+\frac A{w\sqrt{\pi/2}}e^{-2\frac{(x-x_c)^2}{w^2}}" alt="y=y_0+\frac A{w\sqrt{\pi/2}}e^{-2\frac{(x-x_c)^2}{w^2}}" class="tex"/>
+<br />
+このとき、次式で計算できるピークの高さを調べるものとします。
+<img src="../images/Adding_Derived_Parameters/math-a619775795de9d8539a132d0e28e5c8e.png" title="h=\frac A{w\sqrt{\pi/2}}" alt="h=\frac A{w\sqrt{\pi/2}}" class="tex"/>
+<br /><br />
+<li>メニューから<b>ツール：フィット関数オーガナイザ</b>を選択します。ダイアログの左側パネルで<b>Origin Basic Funcions: Gauss</b>を選択します。
+<li><b>派生パラメータ</b>のセクションで次の式を入力します。<i>h=A/(w*sqrt(PI/2))</i>
+<br /><br /><a  class="image"><img alt="Add Derived Para 01a.png" src="../images/Adding_Derived_Parameters/Add_Derived_Para_01a.png" width="628"  /></a><br /><br />
+<b>Note:</b> 
+<ul><li>各派生パラメータは別々の行で定義する必要があります。</li>
+<li>派生パラメータは、他の派生パラメータから計算できません。</li></ul>
+<li><b>保存</b>をクリックしてから<b>OK</b>ボタンをクリックします。
+<li>新しいワークブックを用意します。<b>ヘルプ: フォルダを開く: サンプルフォルダ</b>を選択して、サンプルフォルダを開きます。このフォルダ内の<i>Curve Fitting</i>サブフォルダにある<i>Gaussian.dat</i> ファイルを探します。空のワークシートにファイルをドラッグアンドドロップしてインポートします。
+<li>A、B列を選択しメニューから<b>解析：フィット：非線形曲線フィット</b>を選択して、<b>NL Fit</b>ダイアログを開き、関数ドロップダウンリストから<b>Gauss</b>を選択します。
+<br /><br /><a  class="image"><img alt="Add Derived Para 04a.png" src="../images/Adding_Derived_Parameters/Add_Derived_Para_04a.png" width="790"  /></a>
+<li><b>コード</b>タブを開いて左側のパネルにある<b>派生パラメータ</b>をクリックします。派生パラメータが右側のパネルにリストされます。
+<br /><br /><a  class="image"><img alt="Add Derived Para 02a.png" src="../images/Adding_Derived_Parameters/Add_Derived_Para_02a.png" width="840"  /></a>
+<li><b>フィット</b>ボタンをクリックし、レポートシートを生成します。フィッティングののち、Originは高さを計算し、フィット結果ワークシートのパラメータ表に結果を出力します。 
+<br /><br /><a  class="image"><img alt="Add Derived Para 03a.png" src="../images/Adding_Derived_Parameters/Add_Derived_Para_03a.png" width="583"  /></a>
+<li>派生パラメーターの信頼区間を取得したい場合は、緑色のカギマークをクリックして<b><b>パラメータを変更</b></b>を選択し、<b>NLFit</b>ダイアログに戻ります。<b><b>設定</b></b>タブの<b><b>詳細</b></b>で、右パネルの<b><b>値</b></b>ブランチを広げ、<b><b>フィットパラメータ</b></b>欄の<b><b>LCL</b></b>と<b><b>UCL</b></b>のチェックボックスにチェックを入れます。<b><b>フィット</b></b>ボタンをクリックして再計算します。
+<br /><br /><a  class="image"><img alt="Derive LCL.png" src="../images/Adding_Derived_Parameters/Derive_LCL.png" width="814"  /></a>
+<li>次のように、信頼区間の<i>95% LCL</i>と<i>95% UCL</i>がパラメーター、派生パラメーターの両方に対して計算されます。
+<br /><br /><a  class="image"><img alt="Derive LCL1.png" src="../images/Adding_Derived_Parameters/Derive_LCL1.png" width="629"  /></a>
+</ol>
+<h2><a name="Removing_Derived_Parameters"></a><span class="mw-headline">派生パラメータを削除</span></h2>
+<p>結果シートから派生パラメータを削除することも可能です。上述のチュートリアルの操作に続けて、以下の操作を行います。
+</p>
+<ol>
+<li>メニューから<b>ツール：フィット関数オーガナイザ</b>を選択して再度ダイアログを開きます。ダイアログの左側パネルで<b>Origin Basic Functions: Gauss</b>を選択します。
+<li><b>派生パラメータ</b>のセクションで次の式、<i><i>h=A/(w*sqrt(PI/2))</i></i><i> </i>を削除します。
+<br /><br />
+<a  class="image"><img alt="Add Derived Para 05a.png" src="../images/Adding_Derived_Parameters/Add_Derived_Para_05a.png" width="568"  /></a>
+<li><b><b>保存</b></b>ボタンが有効になるまで、1、2秒時間がかかります。<b><b>保存</b></b>ボタンをクリックしてから、<b><b>OK</b></b>ボタンを押してダイアログを閉じます。
+<li>結果シート<i>FitNL1</i> の左上にある緑の鍵のアイコンをクリックし、パラメータを変更を選択し、開いた<b>NLFit (Gauss)</b> ダイアログで、<b><b>フィット</b></b>ボタンを再度クリックします。結果表から派生パラメータ<i>h</i>が削除されます。
+<br /><br />
+<a  class="image"><img alt="Add Derived Para 06a.png" src="../images/Adding_Derived_Parameters/Add_Derived_Para_06a.png" width="726"  /></a>
+</ol>
+<p><br />
+</p>
+
+
+
+    

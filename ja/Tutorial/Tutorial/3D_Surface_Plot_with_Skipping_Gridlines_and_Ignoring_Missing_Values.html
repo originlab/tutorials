@@ -1,0 +1,78 @@
+﻿<h1 class="firstheading">欠損値を含む曲面図</h1>
+<p class="urlname" style="display: none;">3D-Surface-With-MissingVal</p>
+<h2><a name="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>このチュートリアルでは、以下のように欠損値を持つ行列から3Dカラーマップ曲面図を作成します。また、編集により、グリッド線を削除する方法も示します。 
+ </p>
+<dl>
+	<dd><a class="image"><img alt="Skewing 3D Graph 1.png" src="../images/3D_Surface_Plot_with_Skipping_Gridlines_and_Ignoring_Missing_Values/Tutoria_3D_MissingValue_1.png" 
+								 width="444" border="0" /></a></dd>
+</dl>
+<p class="version">必要なOriginのバージョン: Origin 2015 SR0以降</p>
+<h2><a name="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について解説します: </p>
+<ul>
+	<li>欠損値を無視して行列から3D曲面図を作成する</li>
+	<li>3D曲面図のグリッド線をスキップする</li>
+	<li>等高線を設定する</li>
+	<li>等高線ラベルと塗りつぶしの色をセットする</li>
+</ul>
+<h2><a name="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<ol>
+	<li>新しいワークシートを開き、/<i>Samples\Graphing\Surface With Missing Values.dat</i>ファイルをインポートします。ワークシートの左上角にカーソルを移動し、斜めを向いた黒い矢印を表示させます。クリックしてワークシート全体を選択します。メインメニューから<b>作図：3D：3Dカラーマップ曲面</b>を選択し、グラフを作成します。このグラフには仮想行列を使用するため、<b>plotvm</b> 
+	 (plot virtual matrix)ダイアログが表示されます。以下の通り、デフォルトの設定のままOKをクリックします。 
+	<dl>
+		<dd><a class="image"><img alt="Skewing 3D Graph 2a.png" src="../images/3D_Surface_Plot_with_Skipping_Gridlines_and_Ignoring_Missing_Values/Tutorial_3D_MissingValue_2a.png" 
+									 width="473" height="426" border="0" /></a></dd>
+	</dl></li>
+	<li>下図のようなグラフになります。 
+	<dl>
+		<dd><a class="image"><img alt="Skewing 3D Graph 2.png" src="../images/3D_Surface_Plot_with_Skipping_Gridlines_and_Ignoring_Missing_Values/Tutoria_3D_MissingValue_2.png" 
+									 width="497" height="408" border="0" /></a></dd>
+	</dl></li>
+	<li>グラフのプロット上でダブルクリックして、<b>作図の詳細（プロット属性）</b>ダイアログを開きます。もし、左パネルが表示されていない場合、<a 
+	 class="image"><img alt="Plot Details Expansion.png" src="../images/3D_Surface_Plot_with_Skipping_Gridlines_and_Ignoring_Missing_Values/Plot_Details_Expansion.png" 
+						 width="61" border="0" /></a> ボタンをクリックしてダイアログを開きます。 
+	 左側パネルのノードを開き、<b>Layer1</b>の下にあるボックスがチェックされていることを確認します。これから、<b>作図の詳細</b>ダイアログの設定を使用してグラフを作図します。 
+	 右側パネルで、<b>カラーマップ/等高線</b>タブをアクティブにします。<b>レベル</b>ヘッダをクリックし、<b>レベルの設定</b>ダイアログを開き、次の画像のようにダイアログを設定します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Skewing 3D Graph 3.png" src="../images/3D_Surface_Plot_with_Skipping_Gridlines_and_Ignoring_Missing_Values/Tutoria_3D_MissingValue_3.png" 
+									 width="580" height="387" border="0" /></a></dd>
+	</dl></li>
+	<li><b>色塗り</b>ヘッダをクリックして、<b>塗り方</b>ダイアログを開きます。このダイアログで、<b>パレットをロード</b>ラジオボタンを選択し、<b>パレット選択</b>ボタンをクリックして、<b>Reef</b>を選びます。<b>パレットにリンク</b>のチェックがついていることを確認します。<b>OK</b>ボタンをクリックして、<b>作図の詳細</b>ダイアログに戻ります。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Skewing 3D Graph 6.png" src="../images/3D_Surface_Plot_with_Skipping_Gridlines_and_Ignoring_Missing_Values/Tutoria_3D_MissingValue_6.png" 
+									 width="475" height="340" border="0" /></a></dd>
+	</dl></li>
+	<li><b>線</b>ヘッダをクリックし、<b>等高線</b>ダイアログを開きます。<b>全てに適用</b>項目の下にある<b>色</b>にチェックをつけ、<b>色</b>を<b>明るい灰色</b>に設定します。<b>OK</b> 
+	 ボタンをクリックして、<b>作図の詳細</b>ダイアログに戻ります。 
+	<dl>
+		<dd><a class="image"><img alt="Skewing 3D Graph 10.png" src="../images/3D_Surface_Plot_with_Skipping_Gridlines_and_Ignoring_Missing_Values/Tutoria_3D_MissingValue_10.png" 
+									 width="294" height="358" border="0" /></a></dd>
+	</dl></li>
+	<li>右側パネルの<b>メッシュ</b>タブをアクティブにします。次の画像のように、<b>有効にする</b>チェックを外します。<b>適用</b>をクリックします。これで、グラフ上のメッシュ線を取り除きます。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Skewing 3D Graph 4.png" src="../images/3D_Surface_Plot_with_Skipping_Gridlines_and_Ignoring_Missing_Values/Tutoria_3D_MissingValue_4.png" 
+									 width="268" height="57" border="0" /></a></dd>
+	</dl></li>
+	<li>左側パネルで<b>Layer1</b>をクリックし、右側パネルで<b>ライティング</b>タブを開きます。<b>モード</b>の下にある<b>平行光源</b>を選択します。<b>OK</b> 
+	 をクリックして設定を適用し、ダイアログボックスを閉じます。 
+	<dl>
+		<dd><a class="image"><img alt="Skewing 3D Graph 11.png" src="../images/3D_Surface_Plot_with_Skipping_Gridlines_and_Ignoring_Missing_Values/Tutoria_3D_MissingValue_11.png" 
+									 width="967" height="545" border="0" /></a></dd>
+	</dl></li>
+	<li>軸タイトルオブジェクトをダブルクリックし、<i>X</i>と<i>Y</i>をそれぞれ「X」と「Y」に変更します。</li>
+	<li>レイヤの空間をクリックし、３D変換コントロールツールを表示し、<b>回転</b>ボタンを選択して３Dグラフを目的の方向を向くように回転します。 
+	 
+	<dl>
+		<dd><a class="image"><img alt="Skewing 3D Graph 12.png" src="../images/3D_Surface_Plot_with_Skipping_Gridlines_and_Ignoring_Missing_Values/Tutorial_3D_MissingValue_12.png" 
+									 width="493" height="404" border="0" /></a></dd>
+	</dl></li>
+	<li>最終的に、下図のようなグラフになります。 </li>
+</ol>
+<dl>
+	<dd><a class="image"><img alt="Skewing 3D Graph 1.png" src="../images/3D_Surface_Plot_with_Skipping_Gridlines_and_Ignoring_Missing_Values/Tutoria_3D_MissingValue_1.png" 
+								 width="444" height="347" border="0" /></a></dd>
+</dl>

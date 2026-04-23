@@ -1,0 +1,224 @@
+﻿<h1 class="firstheading">高分解能電子エネルギー損失スペクトルのインセットグラフとパネルグラフ</h1>
+<div id="toc" class="toc">
+<div id="toctitle">
+<h2>目次</h2>
+</div>
+<ol>
+<li class="toclevel-1 tocsection-1"><a href="#Summary"><span class="tocnumber">1</span> <span class="toctext">サマリー</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#What_you_will_learn"><span class="tocnumber">2</span> <span class="toctext">学習する項目</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Steps"><span class="tocnumber">3</span> <span class="toctext">ステップ</span></a>
+<ol>
+<li class="toclevel-2 tocsection-4"><a href="#Using_the_Plot_Setup_dialog"><span class="tocnumber">3.1</span> <span class="toctext">作図のセットアップを使用</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Adding_Inset_Graphs"><span class="tocnumber">3.2</span> <span class="toctext">インセットグラフを追加</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Merging_Graphs"><span class="tocnumber">3.3</span> <span class="toctext">グラフの統合</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#Customizing_Plots_and_the_Copy_Format_Feature"><span class="tocnumber">3.4</span> <span class="toctext">グラフの編集とフォーマットのコピー機能</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Using_the_Layer_Management_Dialog_Box_to_Link_and_Customize_Axes"><span class="tocnumber">3.5</span> <span class="toctext">レイヤ管理ダイアログを使用した軸のリンクと編集</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Adding_Titles.2C_Legend_and_Text_Objects"><span class="tocnumber">3.6</span> <span class="toctext">タイトル、凡例、テキストオブジェクトの追加</span></a></li>
+</ol>
+</li>
+</ol>
+</div>
+<h2><a name="Summary" id="Summary"></a><span class="mw-headline">サマリー</span></h2>
+<p>Originは、以下の画像のようなインセットグラフ付きパネルグラフの作図が可能です。<br />
+<a class="image"><img alt="Energy-loss Spectra22.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra22.png" width="615" border="0" /></a><br /></p>
+<p class="version">必要なOriginのバージョン: Origin 2015 SR0以降</p>
+<h2><a name="What_you_will_learn" id="What_you_will_learn"></a><span class="mw-headline">学習する項目</span></h2>
+<p>このチュートリアルでは、以下の項目について説明します。</p>
+<ul>
+<li>複数のワークブックデータから<b>作図のセットアップ</b>ダイアログを使用してグラフを作成する</li>
+<li>インセットグラフを追加する</li>
+<li>スタイルフォーマットのコピーと貼り付け</li>
+<li>軸リンクのために<b>レイヤ管理</b>ダイアログを使用する</li>
+</ul>
+<h2><a name="Steps" id="Steps"></a><span class="mw-headline">ステップ</span></h2>
+<h3><a name="Using_the_Plot_Setup_dialog" id="Using_the_Plot_Setup_dialog"></a><span class="mw-headline">作図のセットアップダイアログを使用</span></h3>
+<p>このチュートリアルは、チュートリアルデータプロジェクト（<i>&lt;Origin EXE フォルダ&gt;\Samples\TutorialData.opj</i>）と関連しています。<br /></p>
+<ol>
+<li>Tutorial Data.opjを開き、プロジェクトエクスプローラで、<i>Three Panel Graph with Inset Graphs</i> フォルダを開きます。</li>
+<li>ワークブック<b>Measured</b> と <b>Original name: BOS"</b>をアクティブにします。</li>
+<li>ワークブック内のどの列も選択されていないことを確認し、<b>2Dグラフギャラリー</b>ツールバーの<a class="image"><img alt="Button Line.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Line.png" width="22" border="0" /></a>ボタンをクリックします。</li>
+<li><b style="font-weight: bold;">作図のセットアップ</b>ダイアログボックスが開きます。<br />
+<a class="image"><img alt="Energy-loss Spectra02.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra02.png" width="718" height="489" border="0" /></a>
+<table class="noborder">
+<tr>
+<td style="vertical-align: top;" width="60"><img src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Tip_icon.png" alt="" width="57" border="0" /></td>
+<td>
+<p><b style="font-weight: bold;">作図のセットアップ</b>ダイアログで3つのパネルを全ての表示するために<a class="image"><img alt="Button Expand Preview Up.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Expand_Preview_Up.png" width="24" border="0" /></a>ボタンをクリックして<b>グラフタイプパネル</b>を開き、再度<a class="image"><img alt="Button Expand Preview Up.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Expand_Preview_Up.png" width="24" border="0" /></a>をクリックして<b>利用可能なデータ</b>パネルを開きます。<br /></p>
+<p>詳細な情報は<a class="external text" href="../../Tutorial/Tutorial/Plotting_using_Plot_Setup.html">作図のセットアップで作図</a>を参照してください。</p>
+</td>
+</tr>
+</table>
+</li>
+<li><b style="font-weight: bold;">利用可能なデータ</b>のドロップダウンリストから<b>フォルダ内のワークシート</b>オプションを選択します。右側のパネルに現在のフォルダ内のワークブックがリストされていることを確認します。<br />
+<a class="image"><img alt="Energy-loss Spectra03.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra03.png" width="370" height="149" border="0" /></a></li>
+<li>ワークシート<b>Original name: BOS</b>が選択してあることを確認してください。中央のパネルで、<b>X</b>に<b>A4</b>、<b>Y</b>に<b>B4</b>を割り当てます。</li>
+<li>これによりワークブックの列A4がXデータ、B4がYデータの属性に設定されます。<b>追加</b>を選択して、3つ目のパネルにある既存レイヤに新しい曲線を作成します。<br />
+<a class="image"><img alt="Energy-loss Spectra04.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra04.png" width="698" height="223" border="0" /></a></li>
+<li>最初のパネルでワークブック<b>Measured</b>を選択します。</li>
+<li>左側で<b>グラフタイプ</b>は<b>散布図</b>にします。</li>
+<li>2番目のパネルで、下図のようにデータを選択します。<br />
+<a class="image"><img alt="Energy-loss Spectra05.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra05.png" width="501" height="436" border="0" /></a></li>
+<li><b style="font-weight: bold;">追加</b>ボタンをクリックして3番目のパネルのレイヤに追加します。<b>OK</b>をクリックしてダイアログボックスを閉じます。グラフは下図のようになります。<br />
+<a class="image"><img alt="Energy-loss Spectra06.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra06.png" width="417" height="328" border="0" /></a></li>
+<li>ワークブックの一つをアクティブにし、これまでの操作と同じように、<b>作図のセットアップ</b>ダイアログを使用して以下の表の組み合わせのグラフを作図します。（<i>Measure</i><i>d</i>から取得したデータのプロットタイプを散布図にすることを忘れないようにして下さい）。</li>
+</ol>
+<table style="border-collapse: separate; border-collapse: separate;" align="left" border="1">
+<caption><em>Graph 2</em></caption>
+<tr>
+<th>ワークシート名</th>
+<th>Xとして設定</th>
+<th>Yとして設定</th>
+</tr>
+<tr>
+<td>Original name: BOS</td>
+<td>A1</td>
+<td>B1</td>
+</tr>
+<tr>
+<td>Measured</td>
+<td>C</td>
+<td>D</td>
+</tr>
+</table>
+<table style="border-collapse: separate; border-collapse: separate;" align="center" border="1">
+<caption><em>Graph 3</em></caption>
+<tr>
+<th>ワークシート名</th>
+<th>Xとして設定</th>
+<th>Yとして設定</th>
+</tr>
+<tr>
+<td>Original name: BOS</td>
+<td>A2</td>
+<td>B2</td>
+</tr>
+<tr>
+<td>Measured</td>
+<td>A</td>
+<td>B</td>
+</tr>
+</table>
+<p><br /></p>
+<h3><a name="Adding_Inset_Graphs" id="Adding_Inset_Graphs"></a><span class="mw-headline">インセットグラフを追加する</span></h3>
+<ol>
+<li><b style="font-weight: bold;">グラフ操作</b>ツールバーの<b>データ込みのインセットグラフの追加</b> <a class="image"><img alt="Button Add Inset Graph With Data.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Add_Inset_Graph_With_Data.png" width="23" border="0" /></a>ボタンを選択し、それぞれのグラフにインセットグラフを追加します。各レイヤにインセットグラフが表示されます。これは、編集可能で、ズームしたりパンニングすることができます。</li>
+<li>選択してドラッグし、各グラフの中央に配置します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Energy-loss Spectra10.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra10.png" width="480" height="379" border="0" /></a></dd>
+</dl>
+</li>
+</ol>
+<h3><a name="Merging_Graphs" id="Merging_Graphs"></a><span class="mw-headline">グラフを統合する</span></h3>
+<ol>
+<li>Orginメニューから<b>グラフ操作：グラフウィンドウの統合</b>と操作します。または、<b>グラフ操作</b>ツールバーのボタン <a class="image"><img alt="Button Merge.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Merge.png" width="23" border="0" /></a> をクリックします。</li>
+<li>開いた<b>Graph Manipulation: merge_graph</b>ダイアログで、<b>配置の設定</b>の項目の下にある<b>行の数</b>を<b>3</b>にし、<b>列の数</b>を<b>1</b>に設定します。右のパネルでプレビューが表示されます。</li>
+<li><b style="font-weight: bold;">元のグラフを1つの単位として扱う</b>のチェックボックスにチェックを付け、対応するインセットグラフのリンクを保持したまま統合を行います。</li>
+<li><b style="font-weight: bold;">軸フレームを表示</b>を有効にしてそれぞれのグラフを囲む枠を追加します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Energy-loss Spectra11.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra11.png" width="825" height="457" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">OK</b> をクリックして、ダイアログを閉じます。</li>
+</ol>
+<h3><a name="Customizing_Plots_and_the_Copy_Format_Feature" id="Customizing_Plots_and_the_Copy_Format_Feature"></a><span class="mw-headline">グラフの編集とフォーマットのコピー機能</span></h3>
+<ol>
+<li>最初のグラフをダブルクリックして、<b>作図の詳細</b>ダイアログを開きます。</li>
+<li><a class="image"><img alt="Button Expand Left.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Expand_Left.png" width="29" border="0" /></a> ボタンをクリックし、左側パネルを開きます。<b>レイヤ1</b>アイコンの隣にある矢印をクイックし、ノードを開いてレイヤ1の内容を表示します。</li>
+<li><i style="font-style: italic;">[Measured]Sheet1!E[X]...</i>を選択し、下図のように<b>シンボル</b>タブでシンボルの形状は円にし、<b>サイズ</b>を<b>5</b>、<b>色</b>を<b>赤</b>にセットします。<b>適用</b>ボタンをクリックします。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Energy-loss Spectra12.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra12.png" width="809" height="199" border="0" /></a></dd>
+</dl>
+</li>
+<li><i style="font-style: italic;">[ Fitted ]Sheet1!A4[ X ],B4...</i>を選択して、<b>グラフの線</b>タブを開き、色を<b>青</b>にします。</li>
+<li><b style="font-weight: bold;">OK</b>をクリックしてダイアログボックスを閉じます。</li>
+<li>次に、この色の設定を全てのグラフとインセットグラフに適用し、手動で全てのグラフの編集をしなくても良いようにします。編集したグラフをクリックして選択し、右クリックしてコンテキストメニューから<b>フォーマットのコピー：全てのスタイルフォーマット</b>を選択します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Energy-loss Spectra13.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra13.png" width="802" height="413" border="0" /></a></dd>
+</dl>
+</li>
+<li>残りのグラフをそれぞれ右クリックし、コンテキストメニューから<b>フォーマットの貼り付け</b>を選びます。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Energy-loss Spectra14.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra14.png" width="707" height="413" border="0" /></a></dd>
+</dl>
+</li>
+</ol>
+<h3><a name="Using_the_Layer_Management_Dialog_Box_to_Link_and_Customize_Axes" id="Using_the_Layer_Management_Dialog_Box_to_Link_and_Customize_Axes"></a><span class="mw-headline">レイヤ管理ダイアログを使用した軸のリンクと編集</span></h3>
+<p>次のステップでは、軸スケールの設定と、グラフ重要な部分を表示するための軸破断の追加を行います。</p>
+<ol>
+<li><b style="font-weight: bold;">グラフ操作：レイヤ管理</b>を選択します。左側に<b>レイヤ選択</b>というパネルのあるダイアログボックスが開きます。このパネルには、グラフ内の全6レイヤ（内3つはインセットグラフの親グラフ）がリストされます。</li>
+<li>ひとつの親グラフ軸の編集し、その編集を他の2つの親グラフのも実施するために、<b>リンク</b>タブで軸をリンクします。最初のレイヤはリンク不可なので、これを編集し、他のグラフをこのレイヤにリンクします。<b>Layer3</b>を選択し、<b>リンク</b>タブを開いて、下図のように<b>リンク先</b>を<b>1</b>とし、<b>X 軸リンク</b>と<b>Y軸リンク</b>を<b>直接（1対1）</b>にセットします。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Energy-loss Spectra15.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra15.png" width="1110" height="336" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">適用</b>をクリックします。</li>
+<li><b style="font-weight: bold;">Layer5</b>に対しても同じように設定し、<b>適用</b>ボタンをクリックします。</li>
+<li><b style="font-weight: bold;">OK</b>をクリックしてダイアログボックスを閉じます。</li>
+<li>一つ目のグラフの軸をダブルクリックして、<b>軸</b>ダイアログを開きます。</li>
+<li><b style="font-weight: bold;">スケール</b>タブの<b>水平</b>アイコンを開き、<b>開始</b>と<b>終了</b>を<i>-250</i> と<i>1500</i> に変更します。<b>主目盛</b>の増分の<b>値</b>を<b>250</b>にセットします。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Energy-loss Spectra07.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra07.png" width="622" height="415" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">軸破断</b>タブで<b>水平</b>アイコンを開き、<b>軸破断の数</b>を<b>1</b>にします。</li>
+<li><b style="font-weight: bold;">軸破断1</b>ページを選択し、<b>軸破断</b>の<b>開始</b>と<b>終了</b>の値を<b>850</b>と<b>1250</b>にします。</li>
+<li>また、このページで、<b>位置（軸の長さの％）</b>の<b>自動</b>のチェックをはずし、<b>75</b>に設定します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Energy-loss Spectra08.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra08.png" width="622" height="415" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">スケール</b>タブの<b>垂直</b>アイコンをクリックします。スケールの開始を<i>0</i>、終了を<i>0.22</i>、増分を<i>0.1</i>に設定します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Energy-loss Spectra09.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra09.png" width="622" height="415" border="0" /></a></dd>
+</dl>
+</li>
+<li><b style="font-weight: bold;">OK</b>をクリックし、変更を反映します。</li>
+<li>インセットグラフを編集するために、<b>ズームパン</b>ツール<a class="image"><img alt="Button Panning.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Panning.png" width="22" border="0" /></a>ボタンを使用してズームし、レイヤ2を表示します。マウスのホイールを使用してズームします。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Energy-loss Spectra16.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra16.png" width="660" height="412" border="0" /></a></dd>
+</dl>
+</li>
+<li>ズームしてから<b>プロット操作・オブジェクト作成</b>ツールバーの<b>ポインタツール</b><a class="image"><img alt="Button Pointer.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Pointer.png" width="23" border="0" /></a>をクリックし、ズームモードから抜けます。インセットグラフをダブルクリックして、<b>作図の詳細</b>ダイアログを開きます。<i>[Measured]Sheet1!E[X]...</i> を選択し、<b>ドロップライン</b>タブを開いて、<b>垂直</b>をチェックします。<b>OK</b>をクリックします。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Energy-loss Spectra17.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra17.png" width="592" height="223" border="0" /></a></dd>
+</dl>
+</li>
+<li>軸をダブルクリックします。</li>
+<li>開いた<b>軸</b>ダイアログの<b>X 軸</b>の<b>スケール</b>タブで<b>開始</b>と<b>終了</b>を<b>1350</b>と<b>1450</b>にし、増分を<b>50</b>に設定します。</li>
+<li><b style="font-weight: bold;">スケール</b>タブの<b>垂直</b>アイコンでは、<b>開始</b>と<b>終了</b>を<b>0</b>と<b>0.03</b>にします。<b>軸と軸目盛</b>タブの<b>左</b>アイコンを選択します。そして、<b>主目盛</b>と<b>副目盛</b>を<b>なし</b>に設定します。</li>
+<li><b style="font-weight: bold;">OK</b>をクリックしてダイアログボックスを閉じます。左軸上の目盛ラベルをクリックして、<b>Delete</b>キーを押してこれを削除します。他の軸ラベルにも同じ設定を行います。</li>
+<li><b style="font-weight: bold;">Ctrl+W</b>キーを押して、ズームアウトし、通常のグラフサイズにします。</li>
+<li>編集したインセットグラフを選択し、右クリックして<b>フォーマットのコピー：すべてのスタイルフォーマット</b>を選択します。</li>
+<li>他の2つのインセットグラフを選択して、右クリックし、<b>フォーマットの貼り付け</b>を選択してドロップラインの設定を貼り付けます。</li>
+<li>上の2ステップを繰り返します。ここでは<b>フォーマットのコピー：スケール</b>を選択して軸の設定を適用します。</li>
+</ol>
+<h3><a name="Adding_Titles.2C_Legend_and_Text_Objects" id="Adding_Titles.2C_Legend_and_Text_Objects"></a><span class="mw-headline">タイトル、凡例、テキストオブジェクトの追加</span></h3>
+<ol>
+<li>グラフウィンドウの左上にあるレイヤアイコンの最初のアイコンをクリックして最初のレイヤをアクティブにします。グラフ上で右クリックし、<b>レイヤタイトルの追加/編集</b>を選択します。テキストボックスに<b>Wurtzite GaN</b>と入力し、フォントサイズと種類等を必要に応じて変更しドラッグして位置を変します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Energy-loss Spectra18.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra18.png" width="264" height="163" border="0" /></a></dd>
+</dl>
+</li>
+<li>2つ目と3つ目の凡例オブジェクトを選択して、<b>Delete</b>キーを押します。</li>
+<li>残りの凡例を選択し、右クリックして、<b>オブジェクトの表示属性</b>を選びます。<b>オブジェクトプロパティ</b>ダイアログの<b>テキスト</b>タブで、<b>%(1)</b> の部分を<b>Fitted</b>にし、<b>%(2)</b> の部分を<b>Measured</b>に変更します。両方を同じ行にします。フォントサイズを<b>適宜</b>に設定します。<b>枠</b> タブに移動し、<b>枠</b> を <b>なし</b>に変更します。<b>OK</b>をクリックしてから、凡例オブジェクトをラッグして位置を変更します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Energy-loss Spectra19.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra19.png" width="587" height="307" border="0" /></a></dd>
+</dl>
+</li>
+<li>最初と3つ目のY軸を削除します。2つ目のY軸タイトル上でダブルクリックし、<b>Intensity [arb. units]</b>と入力します。同じようにひとつのX軸タイトルに対して行い、<b>Energy Loss [cm-1]</b>というラベルにします。</li>
+<li>グラフ上で右クリックして<b>テキストの追加</b>を選択するか、<a class="image"><img alt="Button Text Tool.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Text_Tool.png" width="23" border="0" /></a>ボタンをクリックします。以下のようにテキストを追加します。<a class="image"><img alt="Button Subscript.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Subscript.png" width="23" border="0" /></a>ボタンを使用して下付き文字を入力します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Energy-loss Spectra20.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra20.png" width="509" height="219" border="0" /></a></dd>
+</dl>
+</li>
+<li>それぞれのインセットグラフを選択し、必要に応じてサイズと位置を変更します。<a class="image"><img alt="Button Arrow Tool.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Button_Arrow_Tool.png" width="22" border="0" /></a>ボタンを使用して、矢印を作成し、印セットグラフ上に配置します。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Energy-loss Spectra21.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra21.png" width="531" height="292" border="0" /></a></dd>
+</dl>
+</li>
+<li>最終的に、下図のようなグラフになります。
+<dl>
+<dd><a class="image" style="color: #0000ff; text-decoration: underline;"><img alt="Energy-loss Spectra22.png" src="../images/Panel_Graph_with_Inset_Plots_of_High-resolution_Electron_Energy-loss_Spectra/Energy-loss_Spectra22.png" width="615" border="0" /></a></dd>
+</dl>
+</li>
+</ol>

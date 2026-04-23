@@ -1,0 +1,109 @@
+﻿<h1 class="firstHeading">工程の概要のチュートリアル</h1><p class='urlname' style='display: none'>Tutorial-PO</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>目次</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Notes_for_Starting"><span class="tocnumber">1</span> <span class="toctext">始める前の注意</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Normal_Process_Overview"><span class="tocnumber">2</span> <span class="toctext">正規工程の概要</span></a>
+<ul>
+<li class="toclevel-2 tocsection-3"><a href="#Background"><span class="tocnumber">2.1</span><span class="toctext">背景</span></a></li>
+<li class="toclevel-2 tocsection-4"><a href="#Steps_in_Origin"><span class="tocnumber">2.2</span> <span class="toctext">Originでの操作</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Interpreting_the_Results"><span class="tocnumber">2.3</span> <span class="toctext">結果の解釈</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Between_Within_Process_Overview"><span class="tocnumber">3 </span> <span class="toctext">サブグループ間/内の概要</span></a>
+<ul>
+<li class="toclevel-2 tocsection-7"><a href="#Background_2"><span class="tocnumber">3.1</span><span class="toctext">背景</span></a></li>
+<li class="toclevel-2 tocsection-8"><a href="#Steps_in_Origin_2"><span class="tocnumber">3.2</span> <span class="toctext">Originでの操作</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="#Interpreting_the_Results_2"><span class="tocnumber">3.3</span> <span class="toctext">結果の解釈</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-10"><a href="#Non-normal_Process_Overview"><span class="tocnumber">4</span> <span class="toctext">非正規工程の概要</span></a>
+<ul>
+<li class="toclevel-2 tocsection-11"><a href="#Background_3"><span class="tocnumber">4.1</span><span class="toctext">背景</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#Steps_in_Origin_3"><span class="tocnumber">4.2</span> <span class="toctext">Originでの操作</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#Interpreting_the_Results_3"><span class="tocnumber">4.3</span> <span class="toctext">結果の解釈</span></a></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h2><a name="Notes_for_Starting"></a><span class="mw-headline">始める前の注意</span></h2>
+<ul><li> <a class="external text" href="https://blog.originlab.com/wp-content/uploads/2023/10/SPCData.zip" target="_blank">ここ</a>からサンプルプロジェクトファイルをダウンロードし、Originで開きます。</li></ul>
+<ul><li> アプリ<a class="external text" href="https://www.originlab.com/fileExchange/details.aspx?fid=934" target="_blank"><b>Statistical Process Control（統計的工程管理）</b></a>がインストールされている状態でこのチュートリアルを開始してください。アプリをインストールしていない場合は、<a class="external text" href="https://www.originlab.com/doc/User-Guide/Apps" target="_blank">Originのアプリ</a>を参照して検索とインストールを行ってください。</li></ul>
+<table class="noborder"><tr>
+	<td style="vertical-align:top" width="60"><img src="../images/Tutorial_PO/Tip_icon.png" width="57"  border="0" /></td><td><p><i><b>詳細情報</b></i>:
+</p>
+<ul><li> <a href="../../Tutorial/Category/Process_Overview(App).html" title="カテゴリ:工程の概要(アプリ)">はじめに:工程の概要</a></li>
+<li> <a href="../../Tutorial/App/Algorithm_PO.html" title="App:Algorithm PO">アルゴリズム:工程の概要</a></li></ul>
+</td></tr></table>
+<p><br />
+</p>
+<h2><a name="Normal_Process_Overview"></a><span class="mw-headline">正規工程の概要</span></h2>
+<h5><a name="Background"></a><span class="mw-headline">背景</span></h5>
+<p>ある品質管理技術者が、機械のカプセル充填プロセスを評価したいと考えています。カプセル重量の規格限界は215±17mgです。
+</p><p>8時半から12時まで10分ごとに8個のカプセル重量を収集しています。カプセルの重量が要件をどの程度満たしているかを評価する場合を考えてみます。
+</p>
+<h5><a name="Steps_in_Origin"></a><span class="mw-headline">Originでの操作</span></h5>
+<ol><li> フォルダ<b>1.Normal</b>を開き、ワークブック<b>Capsule Weight</b>をアクティブにします。</li>
+<li> B～I列を選択します。Originのウィンドウ左側にある<b>アプリギャラリー</b>ウィンドウを開き、<b>Statistical Process Control</b>アイコン<a  class="image"><img alt="SPC Icon.png" src="../images/Tutorial_PO/SPC_Icon.png" width="32"  /></a>をクリックします。</li>
+<li> <b>工程の概要</b>タブを選択し、<b>正規工程の概要</b>を選択します。
+<dl><dd><a  class="image"><img alt="PO Normal GUI.png" src="../images/Tutorial_PO/700px-PO_Normal_GUI.png" width="700"   /></a></dd></dl></li>
+<li> 開いたダイアログの<b>入力</b>タブで、列B~Iが<b>測定データ</b>として自動的に選択されます。<b>複数列をまたいでサブグループが行に配置</b>にチェックを付けます。
+<dl><dd><a  class="image"><img alt="PO Normal Input.png" src="../images/Tutorial_PO/500px-PO_Normal_Input.png" width="500"   /></a></dd></dl></li>
+<li> <b>限界</b>タブで、<b>下限規格</b>を<b>198</b>にし、<b>上限規格</b>を<b>232</b>にして、 <b>目標</b>を<b>215</b>に設定します。
+<dl><dd><a  class="image"><img alt="PO Normal Limit.png" src="../images/Tutorial_PO/380px-PO_Normal_Limit.png" width="380"   /></a></dd></dl></li>
+<li> <b>OK</b>ボタンをクリックします。レポート表付きのグラフが作成されます。</li></ol>
+<h5><a name="Interpreting_the_Results"></a><span class="mw-headline">結果の解釈</span></h5>
+<p>Xbar管理図と特殊原因の検定であるTest1の結論から、ポイント5がUCL外にあることがわかります。 
+</p><p>工程能力ヒストグラムからは、観測値がLSLおよびUSL内に収まっていないことがわかります。 
+</p><p>また、Cpkは0.837で1未満です。 
+</p><p>これにより、この工程は要件を満たさないと結論付けられます。 
+</p>
+<dl><dd><a  class="image"><img alt="PO Normal Results.png" src="../images/Tutorial_PO/800px-PO_Normal_Results.png" width="800"   /></a></dd></dl>
+<h2><a name="Between_Within_Process_Overview"></a><span class="mw-headline">サブグループ間/内の概要</span></h2>
+<h5><a name="Background_2"></a><span class="mw-headline">背景</span></h5>
+<p>あるエンジニアがステンレス鋼板の製造プロセスを評価したいと考えています。 
+</p><p>彼は、連続した20枚の鋼板から４つの厚さの測定値を収集します。  厚さはほぼ3±0.1mmです。 
+</p>
+<h5><a name="Steps_in_Origin_2"></a><span class="mw-headline">Originでの操作</span></h5>
+<ol><li> フォルダ<b>2.Between-Within</b>を開き、ワークブックの<b>スチールシートを</b>アクティブにします。</li>
+<li> Originのウィンドウ左側にある<b>アプリギャラリー</b>ウィンドウを開き、<b>Statistical Process Control</b>アイコン<a  class="image"><img alt="SPC Icon.png" src="../images/Tutorial_PO/SPC_Icon.png" width="32"  /></a>をクリックします。</li>
+<li> <b>工程の概要</b>タブを選択し、<b>サブグループ間/内の概要</b>を選択します。</li>
+<li> 開いたダイアログの<b>入力</b>タブで、列Aを<b>測定データ</b>として選択します。<b>サブグループのサイズ</b>を<b>列</b>にし、<b>サブグループのサイズ列</b>を列Bに設定します。
+<dl><dd><a  class="image"><img alt="BCA Input.png" src="../images/Tutorial_PO/380px-BCA_Input.png" width="380"   /></a></dd></dl></li>
+<li> <b>限界</b>タブで、<b>下限規格</b>を<b>29</b>にし、<b>上限規格</b>を<b>31</b>にして、 <b>目標</b>を<b>30</b>に設定します。
+<dl><dd><a  class="image"><img alt="BCA limit.png" src="../images/Tutorial_PO/380px-BCA_limit.png" width="380"   /></a></dd></dl></li>
+<li> <b>OK</b>ボタンをクリックします。レポート表付きのグラフが作成されます。</li></ol>
+<h5><a name="Interpreting_the_Results_2"></a><span class="mw-headline">結果の解釈</span></h5>
+<p>個別管理図、移動範囲管理図、および範囲管理図では、管理限界を超える点がなく、プロセスが安定していることを示しています。 
+</p><p>データポイントは確率プロットの基準線に近く、データは正規分布であることがわかります。 
+</p><p>工程能力ヒストグラムでは、すべての観測値が規格限界内であることがわかります。
+</p><p>CPは1.188であり、これは仕様の範囲がプロセスの6σ範囲の1.19倍であることを示しています。CP(1.188)とCpk(1.093)は互いにあまり近くなく、プロセスの中心が少しずれていることを示しています。全体的な能力については、PP(1.046), Ppk(0.962)およびCPM (1.02)は、はすべて1.33未満であり、これは一般的に許容される工程能力の最小値とされています。 
+</p><p>このプロセスは良好であると結論付けることができますが、依然として能力の向上が可能です。
+</p>
+<dl><dd><a  class="image"><img alt="PO BW Results.png" src="../images/Tutorial_PO/900px-PO_BW_Results.png" width="900"   /></a></dd></dl>
+<h2><a name="Non-normal_Process_Overview"></a><span class="mw-headline">非正規工程の概要</span></h2>
+<h5><a name="Background_3"></a><span class="mw-headline">背景</span></h5>
+<p>重さの値のデータセットがあり、それはワイブル分布に従っています。そのデータが1を超えないことを望んでいます。 
+</p>
+<h5><a name="Steps_in_Origin_3"></a><span class="mw-headline">Originでの操作</span></h5>
+<ol><li> フォルダ<b>3.Nonnormal</b>を開きます。ワークブック<b>Weibull</b>をアクティブにします。</li>
+<li> Originのウィンドウ左側にある<b>アプリギャラリー</b>ウィンドウを開き、<b>Statistical Process Control</b>アイコン<a  class="image"><img alt="SPC Icon.png" src="../images/Tutorial_PO/SPC_Icon.png" width="32"  /></a>をクリックします。</li>
+<li> <b>工程の概要</b>タブを選択し、<b>非正規工程の概要</b>を選択します。</li>
+<li> 開いたダイアログの<b>入力</b>タブで、列Aが<b>測定データ</b>として自動的に選択されます。<b>サブグループのサイズ</b>を<b>定数</b>にし、<b>サブグループのサイズの定数</b>を1に設定します。
+<dl><dd> <a  class="image"><img alt="PO nonnormal input.png" src="../images/Tutorial_PO/500px-PO_nonnormal_input.png" width="500"   /></a></dd></dl></li>
+<li> <b>限界</b>タブで、<b>上限規格</b>を<b>1</b>設定し、その他のすべてのテキストボックスを空のままにします。
+<dl><dd><a  class="image"><img alt="NCA Limit.png" src="../images/Tutorial_PO/250px-NCA_Limit.png" width="250"   /></a></dd></dl></li>
+<li> <b>分布</b>タブで、<b>分布</b>を<b>自動</b>に設定します。これでAD値に応じて最適な分布を自動的に検出してレポートします。
+<dl><dd><a  class="image"><img alt="PO nonnormal distribution.png" src="../images/Tutorial_PO/500px-PO_nonnormal_distribution.png" width="500"   /></a></dd></dl></li>
+<li> <b>OK</b>ボタンをクリックします。レポート表付きのグラフが作成されます。</li></ol>
+<h5><a name="Interpreting_the_Results_3"></a><span class="mw-headline">結果の解釈</span></h5>
+<p>確率プロットは、データセットが3パラメータのワイブル分布に従っていることを示しています。
+</p><p>個別管理図および移動範囲管理図では、管理限界を超える点はなく、プロセスが安定していることが示されています。
+</p><p>工程能力ヒストグラムでは、すべての観測値が上方規格限界を下回っています。 
+</p><p>したがって、このプロセスは要求を満たしています。
+</p>
+<dl><dd><a  class="image"><img alt="PO Nonnormal Results.png" src="../images/Tutorial_PO/800px-PO_Nonnormal_Results.png" width="800"   /></a></dd></dl>
+
+
+
+    
