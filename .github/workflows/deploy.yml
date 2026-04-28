@@ -35,21 +35,18 @@ jobs:
         uses: actions/checkout@v6
         with:
           path: ${{ env.book_folder }}
-      - name: Checkout Index
-        uses: actions/checkout@v6
-        with:
-          repository: originlab/originlab.github.io
-          path: index
       - name: Checkout Converter
         uses: actions/checkout@v6
         with:
           repository: originlab/DocGHPagesConverter
+          submodules: recursive
           path: converter
       - uses: actions/setup-dotnet@v5
         with:
           dotnet-version: '10.x'
-      - run: ls -l
-      - run: dotnet run --project converter/generator/generator.csproj -- ${{ env.book_folder }}
+      #- run: ls -l -R
+      - name: Run Converter
+        run: dotnet run --project converter/generator/generator.csproj -- ${{ env.book_folder }}
       - name: Setup Pages
         uses: actions/configure-pages@v6
       - name: Upload artifact
