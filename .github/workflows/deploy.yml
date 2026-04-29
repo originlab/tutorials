@@ -22,37 +22,24 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-
+  build_book:
+    uses: originlab/originlab.github.io/.github/workflows/build_book.yml@main
   deploy:
+    needs: build_book
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    env:
-      book_folder: ${{ github.event.repository.name }}
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Source
-        uses: actions/checkout@v6
+      - name: Download book artifact
+        uses: actions/download-artifact@v8
         with:
-          path: ${{ env.book_folder }}
-      - name: Checkout Converter
-        uses: actions/checkout@v6
-        with:
-          repository: originlab/DocGHPagesConverter
-          submodules: recursive
-          path: converter
-      - uses: actions/setup-dotnet@v5
-        with:
-          dotnet-version: '10.x'
-      #- run: ls -l -R
-      - name: Run Converter
-        run: dotnet run --project converter/generator/generator.csproj -- ${{ env.book_folder }}
+          name: book
+          path: _site
       - name: Setup Pages
         uses: actions/configure-pages@v6
-      - name: Upload artifact
+      - name: Upload pages artifact
         uses: actions/upload-pages-artifact@v5
-        with:
-          path: ${{ env.book_folder }}/out
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
